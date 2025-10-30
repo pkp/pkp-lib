@@ -3,7 +3,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-26 07:57+0000\n"
+"PO-Revision-Date: 2025-10-29 16:00+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "eu/>\n"
@@ -92,10 +92,10 @@ msgid "default.groups.abbrev.designer"
 msgstr "Diseinua"
 
 msgid "default.groups.name.internalReviewer"
-msgstr "Barne-ikuskatzailea"
+msgstr "Barne-ebaluatzailea"
 
 msgid "default.groups.plural.internalReviewer"
-msgstr "Barne-ikuskatzaileak"
+msgstr "Barne-ebaluatzaileak"
 
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "BI"
@@ -188,8 +188,8 @@ msgstr ""
 
 msgid "default.submission.step.contributors"
 msgstr ""
-"<p>Gehitu bidalketa honetan parte hartu duten guztien xehetasunak. Hemen "
-"gehitutako parte-hartzaileei bidalketaren baieztapen-mezu elektroniko bat "
+"<p>Gehitu bidalketa honetako kolaboratzaile guztien xehetasunak. Hemen "
+"gehitutako kolaboratzaileei bidalketaren baieztapen-mezu elektroniko bat "
 "bidaliko zaie, baita bidalketa honen aurka erregistratutako erabaki "
 "editorial guztien kopia bat ere.</p><p>Kolaboratzaile batekin ezin bada "
 "posta elektronikoz harremanetan jarri, anonimoa izan behar duelako edo "

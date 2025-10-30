@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:11+00:00\n"
-"PO-Revision-Date: 2025-07-23 08:46+0000\n"
+"PO-Revision-Date: 2025-10-30 12:33+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/pl/>"
 "\n"
@@ -731,3 +731,21 @@ msgstr "Usuń użytkownika"
 
 msgid "grid.user.logInAs"
 msgstr "Zaloguj się jako"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Dodaj sugestię recenzenta"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Usuń sugestię recenzenta"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Czy na pewno chcesz usunąć tę sugestię? Tego działania nie można cofnąć."
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Po włączeniu użytkownika odzyska on dostęp do witryny, a Ty będziesz mógł "
+"zaprosić go do pełnienia określonych ról w razie potrzeby."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Pojawia się w stopce redakcyjnej"

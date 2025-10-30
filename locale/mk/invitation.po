@@ -1,0 +1,421 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-23 06:51+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/mk/>\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Корисничката група е доделена на поканетиот корисник"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Поканата не може да се испрати бидејќи не сте дефинирале никакви промени во "
+"корисничката група"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Обезбедените кориснички групи содржат дупликати записи."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Кога на поканата ѝ е доделен кориснички идентификатор ({$userId}), "
+"соодветниот корисник мора да постои."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Мора да се наведе корисничко име"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Мора да се наведе лозинка"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Мора да се наведе припадност"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Мора да се наведе дадено име"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Мора да се наведе презиме"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "За додадени групи на корисници, мора да се наведе датум на почеток"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "За додадени кориснички групи, мора да се обезбеди наслов на маст"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Оваа операција на покана не успеа"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Дадениот ID на корисничката група {$userGroupId} не постои"
+
+msgid "invitation.validation.required"
+msgstr "Полето {$attribute} е задолжително."
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Оваа покана не може да се откаже"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Не можете да наведете и е-пошта и кориснички идентификатор заедно."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Атрибутот не е дозволен за пристап за постоечки корисници"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Атрибутот не е дозволен за пристап за непостоечки корисници"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Полето :attribute е забрането"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Потребна е вредност за локалот „{$primaryLocale}“"
+
+msgid "invitation.step"
+msgstr "СТЕП"
+
+msgid "invitation.header"
+msgstr "Покани"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Покани за улога"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Покани го корисникот да преземе улога"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Внесете детали"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Пребарување на корисник"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Пребарување на корисник"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Пребарување на корисник"
+
+msgid "userInvitation.searchField.description"
+msgstr "на пр. aeinstein@example.com или aeinstein или 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Внесете детали"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Внесете детали и поканете за улоги"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Зачувај и продолжи"
+
+msgid "invitation.role.selectRole"
+msgstr "Изберете нова улога"
+
+msgid "invitation.role.dateStart"
+msgstr "Датум на почеток"
+
+msgid "invitation.role.dateEnd"
+msgstr "Датум на завршување"
+
+msgid "invitation.role.addRole.button"
+msgstr "Додај друга улога"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Датум на завршување"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Прегледајте и поканете за улоги"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Измени е-пошта споделена со корисникот"
+
+msgid "userInvitation.modal.title"
+msgstr "Поканата е испратена"
+
+msgid "userInvitation.modal.button"
+msgstr "Прикажи ги сите корисници"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Ако го знаете презимето на корисникот, можете да ги внесете информациите. "
+"Сепак, овие информации може да ги промени корисникот."
+
+msgid "invitation.decline.confirm"
+msgstr "Потврди одбивање на поканата"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Одбиј покана"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Потврди ORCID иД"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Зачувај и продолжи"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Внесете детали"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Внесете детали"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Зачувај и продолжи"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Формулар за прифаќање на покана за корисник - детали за корисникот"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Ве молиме наведете ги следниве детали за да ни помогнете да управуваме со "
+"вашата сметка"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Прегледајте и креирајте сметка"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Преглед и креирај сметка"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Изјава за приватност"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Ова е институтот со кој сте поврзани"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Земја на припадност"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Детали за сметката"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Податоци за корисникот"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Прикажи ги сите поднесоци"
+
+msgid "invitation.tableHeader.name"
+msgstr "Име"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Наведете барем еден критериум за пребарување."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Ги гледате корисничките детали на {$name}"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Откажи покана"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Откажи поканување"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Откажувањето на поканата испратена до {$givenName} {$familyName} ќе го "
+"деактивира линкот за прифаќање испратен преку е-пошта. Еве ги деталите за "
+"поканата: "
+
+msgid "invitation.masthead.show"
+msgstr "Се појавува на главниот наслов"
+
+msgid "invitation.masthead.hidden"
+msgstr "Не се појавува на главниот наслов"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Измени улога"
+
+msgid "invitation.management.options"
+msgstr "Опции за управување со покани"
+
+msgid "userInvitation.cancel.message"
+msgstr "Дали сте сигурни дека сакате да ја откажете оваа покана?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Врати се назад"
+
+msgid "userInvitation.status.invited"
+msgstr "Поканет {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Уреди покана"
+
+msgid "validation.after_or_equal"
+msgstr "Датумот на почеток треба да биде поголем или еднаков на денешниот"
+
+msgid "invitation.removeRoles"
+msgstr "Корисникот е отстранет од улогата"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Да се откаже процесот на покана за улога?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Откажи процес на покана"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Поканата не е прифатена. Најавени сте како друг корисник."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Пребарајте корисник по е-пошта, корисничко име или ORCID идентификација. "
+"Внесете само едно за да започнете!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Корисникот моментално е оневозможен."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Корисникот беше оневозможен. Не можете да му доделите улога додека е "
+"оневозможен. Прво овозможете му на корисникот за да го поканите во улога."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Согласност за приватност"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Мора да се дефинира барем една корисничка група за додавање"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Мора да се обезбеди земја"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Мора да се дефинира барем една корисничка група за отстранување"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"За додадени кориснички групи, мора да се наведе идентификатор на корисничка "
+"група"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Овој тип на покана нема дефинирано име за испраќање"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Отстранувањето на улогите на корисниците не може да се дефинира за "
+"непостоечки корисници."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Неочекувани својства се пронајдени во ставката на индексот {$attribute}: "
+"{$properties}."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "Веќе постои корисник со корисничко име {$username}. Обидете се со друг."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"Идентификаторот {reviewAssignmentId} не одговара на важечка задача за преглед"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Кога на поканата ѝ е доделена е-пошта ({$email}), оваа е-пошта не смее да ја "
+"користи друг корисник."
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Овој атрибут мора да има вредност еднаква или постара од денес"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Прегледајте и поканете за улоги"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Доколку корисникот не постои, можете да го поканите да преземе улоги. "
+"Доколку корисникот веќе постои во системот, можете да ги видите неговите "
+"информации и да го поканите да преземе дополнителни улоги."
+
+msgid "userInvitation.roleTable.role"
+msgstr "Улога"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Датум на почеток"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Покани го корисникот во улогата"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Отстрани улога"
+
+msgid "invitation.email.description"
+msgstr "на пр. aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"По прифаќањето на поканата, корисникот ќе биде пренасочен кон ORCID за да ја "
+"потврди својата сметка, доколку сака."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Ако го знаете даденото име на корисникот, можете да ги внесете информациите. "
+"Сепак, овие информации може да бидат променети од страна на корисникот."
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Дали сте сигурни дека сакате да ја одбиете оваа покана? Потврдете го "
+"одбивањето со кликнување на копчето подолу."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Потврди ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Зачувај и продолжи"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Внесете ги вашите податоци како што се е-пошта, припадност итн. Согласно "
+"усогласеноста со GDPR, овие информации може да ги менувате само вие. Можете "
+"исто така да изберете дали сакате овие информации да бидат видливи на вашиот "
+"профил за уредникот."
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Прескокни ја ORCID верификацијата"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Потврди ORCID iD"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Може да биде комбинација од големи букви, мали букви или броеви"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Треба да биде долг најмалку 6 знаци и може да биде комбинација од големи "
+"букви, мали букви, броеви и симболи"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Да, се согласувам моите податоци да бидат собрани и складирани според {$url}"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Исто така познато како име или име, тоа е дел од личното име што "
+"идентификува личност."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Презимето, семејното име или презиме е претежно наследниот дел од личното "
+"име што го означува семејството."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Ова е земја во која се наоѓа институтот со кој сте поврзани"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Ако ја уредите постоечката покана или додадете нова улога, тековната покана "
+"ќе биде откажана, а ќе ви биде испратена нова. Дали сте сигурни дека сакате "
+"да продолжите?"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Ве молиме потврдете дека сте ја прочитале и се согласувате со изјавата за "
+"приватност"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Дали сте сигурни дека сакате да откажете? Откажувањето сега ќе го запре "
+"процесот на прифаќање на улогата и ќе треба да рестартирате од е-поштата со "
+"покана за повторно да ја прифатите улогата. Ако веќе сте корисник, ќе бидете "
+"вратени на контролната табла. Ако не, ќе треба да пристапите до е-поштата со "
+"покана за да го започнете процесот повторно."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Одјавете се и најавете се со точната сметка за да ја прифатите оваа покана."

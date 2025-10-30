@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-09-23 14:10+0000\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -399,7 +399,7 @@ msgid "manager.publication.submissionStage"
 msgstr "Inzending"
 
 msgid "manager.publication.reviewStage"
-msgstr "Review"
+msgstr "Recensie"
 
 msgid "manager.publication.editorialStage"
 msgstr "Redactie"
@@ -1027,7 +1027,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Er is een fout opgetreden bij het verwijderen van dit onderdeel."
 
 msgid "manager.setup.favicon"
-msgstr "Favicon"
+msgstr "favicon"
 
 msgid "manager.setup.homepageImage"
 msgstr "Afbeelding voor homepage"
@@ -1049,7 +1049,7 @@ msgid "manager.setup.information.descriptionTitle"
 msgstr "Beschrijvingen"
 
 msgid "manager.setup.layout.sidebar"
-msgstr "Sidebar"
+msgstr "sidebar"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
@@ -1109,9 +1109,8 @@ msgstr "Informeer ieder"
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
 "Een kopie van de ontvangstbevestigingsmail van de inzending zal worden "
-"worden verstuurd aan elk e-mailadres dat hier is vermeld. Splits de "
-"verschillende adressen met een komma. Bijvoorbeeld: een@voorbeeld."
-"com,twee@voorbeeld.com"
+"verstuurd aan elk e-mailadres dat hier is vermeld. Splits de verschillende "
+"adressen met een komma. Bijvoorbeeld: een@voorbeeld.com, twee@voorbeeld.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
 msgstr "Eén of meer van deze e-mailadressen is niet geldig."
@@ -1361,7 +1360,6 @@ msgstr ""
 "aan alle vereisten die hier zijn gespecificeerd voordat ze met hun inzending "
 "beginnen."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Deactiveer dit gedeelte en laat geen nieuwe of nieuw te maken inzendingen "
@@ -1566,7 +1564,7 @@ msgstr ""
 "team."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr "Partner"
+msgstr "partner"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
 msgstr "Deze plugin wordt ontwikkeld door een van onze partners."
@@ -1815,7 +1813,7 @@ msgid "settings.libraryFiles.category.contracts"
 msgstr "Contracten"
 
 msgid "settings.libraryFiles.category.marketing"
-msgstr "Marketing"
+msgstr "Marktonderzoek/reclame"
 
 msgid "settings.libraryFiles.category.permissions"
 msgstr "Toelatingen"
@@ -2316,7 +2314,7 @@ msgid "plugins.importexport.common.errorsOccured"
 msgstr "Fouten:"
 
 msgid "plugins.importexport.common.id"
-msgstr "Id: {$id}"
+msgstr "id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Onbekend element {$param}"
@@ -2615,7 +2613,6 @@ msgstr "Alle gebruikers"
 msgid "stats.city"
 msgstr "Stad"
 
-#, fuzzy
 msgid "stats.views"
 msgstr "Bekeken"
 
@@ -2652,9 +2649,8 @@ msgstr "Aangepaste volgorde"
 msgid "stats.dateRange.dateDoesNotExist"
 msgstr "Een van de ingevoerde datums bestaat niet."
 
-#, fuzzy
 msgid "stats.dateRange.from"
-msgstr "Van"
+msgstr "Van(af)"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
@@ -2711,16 +2707,15 @@ msgstr ""
 "acceptatieratio is dan 50% (vier van de acht inzendingen) omdat de twee "
 "inzendingen zonder eindbeslissing niet worden meegerekend."
 
-#, fuzzy
 msgid "stats.description.daysToDecision"
 msgstr ""
-"Het aantal dagen dat het duurt, voordat de meeste inzendingen de eerste "
-"redactionele beslissing ontvangen, zoals (redactionele) afwijzing voordat "
-"recensie plaatsvindt of voor het versturen voor de recensie.<br><br>. Deze "
-"figuren geven aan dat 80% van de inzendingen uitmondt in de beslissing "
-"binnen het gegeven aantal dagen.<br><br>. Deze statistiek tracht de situatie "
-"te beschrijven wanneer de meerderheid van de auteurs die hun inzending "
-"verstuurden aan uw tijdschrift een beslissing kunnen verwachten."
+"Het aantal dagen voordat de meeste inzendingen de eerste redactionele "
+"beslissing ontvangen, zoals (redactionele) afwijzing voordat recensie "
+"plaatsvindt of voor het versturen voor de recensie.<br><br>. Deze getallen "
+"geven aan dat voor 80% van de inzendingen uitmondt in de beslissing binnen "
+"het gegeven aantal dagen.<br><br>. Deze getallen geven aan wanneer de meeste "
+"auteurs die hun inzending inzonden aan uw tijdschrift een beslissing kunnen "
+"verwachten."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
@@ -2944,7 +2939,6 @@ msgstr ""
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "Het onderwerp van de discussie"
 
-#, fuzzy
 msgid "emailTemplate.variable.discussion.content"
 msgstr "De inhoud van de nieuwe discussie, dan wel de reactie hierop"
 
@@ -3060,7 +3054,6 @@ msgstr "De URL naar de inzending in de niet-zichtbare serverkant"
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
 msgstr "De URL naar de gepubliceerde inzending"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
 msgstr "De URL naar de inzending in de inzendingswizard"
 
@@ -3077,9 +3070,8 @@ msgstr ""
 msgid "emailTemplate.variable.password"
 msgstr "Nieuw willekeurig wachtwoord"
 
-#, fuzzy
 msgid "mailable.reviewerReinstate.name"
-msgstr "Herinstelling /heraanstelling? van de recensent"
+msgstr "Herinstelling van de recensent"
 
 msgid "mailable.reviewerResendRequest.name"
 msgstr "Mail het recensieverzoek terug aan de recensent"
@@ -3510,9 +3502,8 @@ msgid "mailable.announcementNotify.description"
 msgstr ""
 "Deze e-mail wordt verzonden wanneer er een nieuwe aankondiging is gemaakt."
 
-#, fuzzy
 msgid "mailable.statisticsReportNotify.name"
-msgstr "Statistisch verslagmelding"
+msgstr "Informatieverslagmelding"
 
 msgid "mailable.editReviewNotify.name"
 msgstr "Wijzig Review Bericht"
@@ -3522,7 +3513,6 @@ msgstr ""
 "Deze e-mail brengt de reviewer automatisch op de hoogte wanneer de details "
 "van hun reviewopdracht zijn gewijzigd."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Door recensent becommentarieerde melding aan de redactie"
 
@@ -3542,9 +3532,8 @@ msgstr ""
 "Deze e-mail bericht de auteur dat de inzending is teruggestuurd naar de "
 "recensiefase."
 
-#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "De inzending is teruggezonden naar de beginfase"
+msgstr "De inzending is teruggezonden naar de inzendingsprocedure"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
@@ -3604,7 +3593,8 @@ msgstr ""
 
 msgid "manager.submissionAck.description"
 msgstr ""
-"Wie behoort een e-mail te ontvangen wanneer een nieuwe inzending is afgerond?"
+"Degene die een e-mail behoort te ontvangen wanneer een nieuwe inzending is "
+"afgerond."
 
 msgid "manager.submissionAck.off"
 msgstr "Verstuur geen e-mailbericht."
@@ -3632,7 +3622,6 @@ msgstr "Configureer de e-mailberichten ter verzending aan redactieleden."
 msgid "manager.editorialStatistics"
 msgstr "Redactionele gegevens"
 
-#, fuzzy
 msgid "manager.editorialStatistics.description"
 msgstr ""
 "Wel of geen maandelijks e-mailbericht aan redactieleden met de redactionele "
@@ -3706,7 +3695,6 @@ msgstr ""
 "Verplicht auteurs een verklaring omtrent strijdige belangen in te dienen met "
 "hun inzending."
 
-#, fuzzy
 msgid "manager.setup.masthead"
 msgstr "Colofon"
 
@@ -3758,7 +3746,7 @@ msgid "manager.image"
 msgstr "Afbeelding"
 
 msgid "manager.statistics.counterR5"
-msgstr "Counter R5"
+msgstr "counter R5"
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "De link om een e-mailadres te valideren"
@@ -3789,7 +3777,7 @@ msgstr "Websitetalen"
 
 msgid "manager.statistics.counterR5Reports.description"
 msgstr ""
-"Zie  <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"Zie <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
 "html\" target=\"_new\">COUNTER 5.0.3 documentation</a> voor meer informatie "
 "over elk rapport."
 
@@ -3867,12 +3855,11 @@ msgstr "Minimum aantal recensies vereist"
 msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
 msgstr "Suggestie van de recensent ten aanzien van de inzending"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.description"
 msgstr ""
-"Verstuur een herinneringsemail voor of na beantwoording van het verzoek om "
-"recensie (indien de recensent nog niet heeft geantwoord op het verzoek), of "
-"om beoordeling van de inzending (indien de recensent nog geen beoordeling "
+"Verstuur een herinneringsmail voor of na beantwoording van het verzoek te "
+"recenseren (indien de recensent nog niet heeft geantwoord op het verzoek), "
+"of om de beoordeling in te zenden (indien de recensent nog geen beoordeling "
 "heeft gegeven)"
 
 msgid "manager.setup.reviewOptions.reminders.response.before"
@@ -3916,9 +3903,8 @@ msgstr ""
 msgid "notification.submissionLocales"
 msgstr "Geupdatete taal- en/of landinstellingen."
 
-#, fuzzy
 msgid "settings.roles.masthead"
-msgstr "Overweeg een rol op te nemen in het colofon"
+msgstr "Overweeg een rolvermelding in het colofon"
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Geïinstalleerde versie: {$version}"
@@ -3933,11 +3919,10 @@ msgstr ""
 msgid "settings.roles.permitSettings"
 msgstr "Laat wijzigingen in Instellingen toe"
 
-#, fuzzy
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr ""
 "Stel de volgorde van de redactionele rollen vast m.b.t. de titels voor een "
-"open publicatie."
+"openbare publicatie."
 
 msgid "plugins.importexport.common.error.missingAffiliationName"
 msgstr ""
@@ -3955,10 +3940,8 @@ msgstr ""
 "De herziening {$revision} van het inzendingsbestand {$id} werd overgeslagen "
 "omdat het bestand niet werd gevonden in de bestandsroute/locatie\"{$path}\"."
 
-#, fuzzy
 msgid "manager.navigationMenus.editorialMasthead.description"
-msgstr ""
-"Link naar een pagina die alle diensten weergeeft van alle actuele colofons."
+msgstr "Link naar een pagina die alle actuele colofons vermeldt."
 
 # fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
@@ -3972,12 +3955,11 @@ msgstr ""
 "Beschrijf de volgorde van de belangrijkste redactionele rollen voor open "
 "publicatie."
 
-#, fuzzy
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr ""
-"De recensenten zullen worden weergegeven in een gestandaardiseerd formulier, "
-"ter behoud van de eenheid en ter verzekering van een gemakkelijke "
-"vindbaarheid in dit gedeelte."
+"De recensenten zullen worden vermeld in een standaardformulier, ter behoud "
+"van de eenheid en ter verzekering van een gemakkelijke vindbaarheid in dit "
+"gedeelte."
 
 msgid "manager.setup.editorialMasthead.editorialHistory.description"
 msgstr ""

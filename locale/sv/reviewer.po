@@ -1,18 +1,19 @@
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2021-03-24 12:55+0000\n"
-"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"reviewer/sv_SE/>\n"
-"Language: sv_SE\n"
+"reviewer/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Förfrågan"
@@ -135,3 +136,66 @@ msgstr "Skicka till granskare"
 msgid "user.authorization.submissionReviewer"
 msgstr ""
 "Nuvarande användare är inte tilldelad rollen granskare för begärt dokument."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Tidigare granskare"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Orsak till avslag skickad via e-post"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikelmetadata"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "De här filerna har bifogats till din granskning"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Granskning i omgång {$round} inskickad {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Granskarens kommentarer"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "För redaktörer och författare"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Endast för redaktörer"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Kommentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Ingen motivering har lämnats för avslaget av granskningsinbjudan."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Datum för avslag"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Läs granskning i omgång {$round}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Granskning i omgång {$round} inskickad av dig till"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Typ"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Abstract"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Nyckelord"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Allmän information"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Bilagor"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Filer för granskning"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "De här filerna skickades till dig för granskning"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Granskningen har inte slutförts."

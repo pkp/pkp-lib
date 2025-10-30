@@ -5,13 +5,14 @@
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-09-17 12:55+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2025-10-17 09:58+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
 "Language: fr\n"
@@ -64,13 +65,13 @@ msgid "about.siteMap"
 msgstr "Plan du site"
 
 msgid "announcement.announcements"
-msgstr "Annonces"
+msgstr "Actualités"
 
 msgid "announcement.announcementsHome"
-msgstr "Annonces"
+msgstr "Actualités"
 
 msgid "announcement.moreAnnouncements"
-msgstr "Plus d'annonces..."
+msgstr "Plus d'actualités..."
 
 msgid "announcement.noneExist"
 msgstr "Aucune annonce n'a été publiée."
@@ -1550,7 +1551,7 @@ msgid "navigation.skip.description"
 msgstr "Allez aux liens du contenu"
 
 msgid "navigation.skip.announcements"
-msgstr "Aller aux annonces"
+msgstr "Aller aux actualités"
 
 msgid "navigation.skip.main"
 msgstr "Aller directement au contenu principal"

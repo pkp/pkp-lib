@@ -59,7 +59,16 @@
 
 	<!-- Display queries grid -->
 	{capture assign="queriesGridUrl"}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW escape=false}{/capture}
-	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}	
+	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
+
+	{if $featureFlags['enableNewDiscussions']}
+	<div id="discussionManager-{$uuid}" class="my-4">
+		<discussion-manager-reviewer
+			submission-id="{$submission->getId()|json_encode}"
+			:submission-stage-id={$reviewAssignment->getStageId()|json_encode}
+		></discussion-manager-reviewer>
+	</div>
+	{/if}
 
 	{$additionalFormFields}
 
@@ -69,3 +78,9 @@
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>
+
+{if $featureFlags['enableNewDiscussions']}
+<script>
+    pkp.registry.init('discussionManager-{$uuid}', 'Container');
+</script>
+{/if}

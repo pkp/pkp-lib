@@ -21,6 +21,7 @@ Cypress.Commands.add('enableReviewerSuggestion', () => {
     cy.reload();
 
     cy.get('input[name="reviewerSuggestionEnabled"]').should('be.visible').should('be.checked');
+    cy.logout();
 });
 
 Cypress.Commands.add('disableReviewerSuggestion', () => {
@@ -37,6 +38,7 @@ Cypress.Commands.add('disableReviewerSuggestion', () => {
     cy.reload();
 
     cy.get('input[name="reviewerSuggestionEnabled"]').should('be.visible').should('not.be.checked');
+    cy.logout();
 });
 
 Cypress.Commands.add('assertReviewerSuggestionsCount', (count) => {

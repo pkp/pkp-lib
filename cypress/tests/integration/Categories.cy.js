@@ -51,6 +51,7 @@ describe('Tests categories in the submission wizard', function() {
 		// Categories not visible in review
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 		cy.get('.submissionWizard__reviewPanel__item__header:contains("Categories")').should('not.exist');
+		cy.logout();
 	});
 
 	it('Enables categories in the submission wizard', function() {
@@ -60,6 +61,7 @@ describe('Tests categories in the submission wizard', function() {
 		cy.get('label:contains("Yes, add a categories field to the submission wizard")').click();
 		cy.get('#metadata button').contains('Save').click();
 		cy.get('#metadata [role="status"]').contains('Saved');
+		cy.logout();
 	});
 
 	it('Checks that categories field is shown in submission wizard', function() {
@@ -94,6 +96,7 @@ describe('Tests categories in the submission wizard', function() {
 		categories.forEach((category) => {
 			cy.get('.submissionWizard__reviewPanel__item__value:contains("' + category + '")');
 		});
+		cy.logout();
 	});
 });
 
@@ -103,6 +106,7 @@ describe('Test category management', function() {
 		cy.login('dbarnes');
 		cy.visit('index.php/publicknowledge/management/settings/context#categories');
 		cy.addCategory('Modern Psychology', 'modern-psychology');
+		cy.logout();
 	});
 
 	it('Adds nested sub categories', function() {
@@ -121,6 +125,7 @@ describe('Test category management', function() {
 		cy.addCategory('Perception', 'perception', 'Cognitive Psychology');
 		cy.wait(1000);
 		cy.addCategory('Visual Perception', 'visual-perception', 'Perception');
+		cy.logout();
 	});
 
 	it('Edits a category', function() {
@@ -136,6 +141,7 @@ describe('Test category management', function() {
 
 		// Check that refreshed table has updated category
 		cy.contains('tr', 'Modern Psychology Updated');
+		cy.logout();
 	});
 
 	it('Cancel deletion of a category', function() {
@@ -162,6 +168,7 @@ describe('Test category management', function() {
 
 		// Check that the category is still present
 		cy.contains('tr', categoryName);
+		cy.logout();
 	});
 
 	it('Deletes a category along with its sub-categories', function() {
@@ -192,6 +199,7 @@ describe('Test category management', function() {
 
 		cy.contains('button', 'Back to Categories').click();
 		cy.get(`tr:contains(${categoryLabel})`).should('not.exist');
+		cy.logout();
 	});
 
 	it('Expand and collapse categories', function() {
@@ -210,6 +218,7 @@ describe('Test category management', function() {
 		// Sub categories should not be visible
 		cy.get('tr:contains("Anthropology")').should('not.exist');
 		cy.get('tr:contains("Sociology")').should('not.exist');
+		cy.logout();
 	});
 });
 
@@ -271,6 +280,7 @@ describe('Test category in submission dashboard', function() {
 
 		cy.get('[data-cy="active-modal"] button').contains('Save').click();
 
+		cy.logout();
 	});
 
 	it('Unassign category from submission', function() {
@@ -301,6 +311,7 @@ describe('Test category in submission dashboard', function() {
 			.should('not.be.checked');
 		cy.get('[data-cy="active-modal"] button').contains('Save').click();
 
+		cy.logout();
 	});
 
 	it('Deletes a category along with its sub-categories, and unassign submission', function() {
@@ -372,5 +383,6 @@ describe('Test category in submission dashboard', function() {
 
 		cy.get('label:contains("' + categoryLabel + '")').should('not.exist');
 		cy.get('label:contains("' + subCategoryLabel + '")').should('not.exist');
+		cy.logout();
 	});
 });

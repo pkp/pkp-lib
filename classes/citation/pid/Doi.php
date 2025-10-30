@@ -22,14 +22,23 @@ namespace PKP\citation\pid;
 class Doi extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const regex = '(10[.][0-9]{4,}[^\s"/<>]*/[^\s"<>]+)';
+    public const regexes = [
+        // doi:10.1002/tox.20155 https://doi.org/10.1002/tox.20155
+        '/(?:doi:\s*|https?:\/\/doi\.org\/)10[.][0-9]{4,}\/[^\s"<>]+/i'
+    ];
 
     /** @copydoc AbstractPid::prefix */
-    public const prefix = 'https://doi.org';
+    public const prefix = 'doi:';
 
-    /** @copydoc AbstractPid::prefixInCorrect */
-    public const prefixInCorrect = [
-        'doi:',
-        'dx.doi.org'
+    /** @copydoc AbstractPid::urlPrefix */
+    public const urlPrefix = 'https://doi.org/';
+
+    /** @copydoc AbstractPid::alternatePrefixes */
+    public const alternatePrefixes = [
+        'doi',
+        'doi.org',
+        'doi.org:',
+        'dx.doi.org',
+        'dx.doi.org:'
     ];
 }

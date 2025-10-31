@@ -1441,7 +1441,7 @@ msgstr "Select the editorial users who should be assigned automatically to all n
 
 msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
 msgstr ""
-"The cover image you requested to delete matches a different "
+"The category does not exist or belongs to a different "
 "context. Please ensure you are working with the correct context and try again."
 
 msgid "manager.categories.form.removeCoverImageFileNotFound"

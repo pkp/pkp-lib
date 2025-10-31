@@ -260,7 +260,7 @@ class Schema extends \PKP\core\maps\Schema
             fn (SubmissionFile $submissionFile, int $key) => $submissionFile->getData('submissionId')
         );
 
-        $reviewRounds = DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionIds([$submissionIds]);
+        $reviewRounds = DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionIds($submissionIds);
         $reviewers ??= $this->getReviewersForAssignments($reviewAssignments);
 
         return $collection->map(
@@ -321,7 +321,7 @@ class Schema extends \PKP\core\maps\Schema
             fn (SubmissionFile $submissionFile, int $key) => $submissionFile->getData('submissionId')
         );
 
-        $reviewRounds = DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionIds([$submissionIds]);
+        $reviewRounds = DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionIds($submissionIds);
         $reviewers ??= $this->getReviewersForAssignments($reviewAssignments);
 
         return $collection->map(

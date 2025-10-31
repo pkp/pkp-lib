@@ -1439,6 +1439,14 @@ msgstr "Assign {$name} as {$role}"
 msgid "manager.categories.form.assignEditors.description"
 msgstr "Select the editorial users who should be assigned automatically to all new submissions to this category."
 
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"The category does not exist or belongs to a different "
+"context. Please ensure you are working with the correct context and try again."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr "The cover image and thumbnail files could not be found. They may have already been deleted. Try reloading the page."
+
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
 

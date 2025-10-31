@@ -33,6 +33,7 @@ use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserGroupStage;
@@ -153,7 +154,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
         $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
-        $reviewRounds ??= DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionId($item->getId())->toAssociativeArray();
+        $reviewRounds ??= DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionId($item->getId());
         $this->addAppSpecificData(collect([$item]));
 
         $reviewers ??= $this->getReviewersForAssignments($this->reviewAssignments);
@@ -198,7 +199,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
         $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
-        $reviewRounds ??= DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionId($item->getId())->toAssociativeArray();
+        $reviewRounds ??= DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionId($item->getId());
         $this->addAppSpecificData(collect([$item]));
 
         $reviewers ??= $this->getReviewersForAssignments($this->reviewAssignments);
@@ -1241,10 +1242,10 @@ class Schema extends \PKP\core\maps\Schema
             ->remember();
     }
 
-    protected function getReviewersForAssignments(Enumerable $reviewAssignments): LazyCollection
+    protected function getReviewersForAssignments(Enumerable $reviewAssignments) : LazyCollection
     {
         return Repo::user()->getCollector()
-            ->filterByUserIds($reviewAssignments->map(fn ($reviewAssignment) => $reviewAssignment->getReviewerId())->unique()->toArray())
+            ->filterByUserIds($reviewAssignments->map(fn($reviewAssignment) => $reviewAssignment->getReviewerId())->unique()->toArray())
             ->getMany()->remember();
     }
 

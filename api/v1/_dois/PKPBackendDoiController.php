@@ -131,14 +131,13 @@ class PKPBackendDoiController extends PKPBaseController
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
         $contextId = $submission->getData('contextId');
-        $userGroups = UserGroup::withContextIds($contextId)->get();
 
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             Response::HTTP_OK
         );
     }

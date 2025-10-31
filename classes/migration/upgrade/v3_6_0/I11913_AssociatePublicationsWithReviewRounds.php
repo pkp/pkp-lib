@@ -27,12 +27,13 @@ class I11913_AssociatePublicationsWithReviewRounds extends Migration
     public function up(): void
     {
         Schema::table('review_rounds', function (Blueprint $table) {
-            $table->bigInteger('publication_id');
+            $table->bigInteger('publication_id')->default(0);
         });
 
         $this->addPublicationIds();
 
         Schema::table('review_rounds', function (Blueprint $table) {
+            $table->bigInteger('publication_id')->change();
             $table->foreign('publication_id')
                 ->references('publication_id')
                 ->on('publications');

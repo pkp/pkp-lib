@@ -21,7 +21,6 @@ namespace PKP\submission\reviewRound;
 use APP\core\Application;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\db\DAOResultFactory;
 
 class ReviewRoundDAO extends \PKP\db\DAO
@@ -230,26 +229,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
             ->orderBy('rr.round');
 
         return new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
-    }
-
-    /**
-     * Get a set of review round objects associated with a set of submissions, grouped by submission ID
-     */
-    public function getBySubmissionIds(array $submissionIds, ?int $stageId = null, ?int $round = null) : LazyCollection
-    {
-       $results = DB::table('review_rounds', 'rr')
-            ->whereIn('rr.submission_id', $submissionIds)
-            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
-            ->when($round, fn (Builder $q) => $q->where('rr.round', '=', $round))
-            ->orderBy('rr.stage_id')
-            ->orderBy('rr.round')
-            ->cursor();
-
-        $reviewRounds = [];
-        foreach ($results as $row) {
-            $reviewRounds[$row->submission_id][$row->round] = $this->_fromRow((array) $row);
-        }
-        return LazyCollection::make($reviewRounds);
     }
 
     /**

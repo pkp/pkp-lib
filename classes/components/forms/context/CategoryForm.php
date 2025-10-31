@@ -85,6 +85,9 @@ class CategoryForm extends FormComponent
             ]);
         }
 
+        $applicationName = Application::get()->getName();
+        $catalogPage = ($applicationName === 'ops') ? "preprints" : "catalog";
+
         $this->addField(new FieldText('title', [
             'label' => __('grid.category.name'),
             'isMultilingual' => true,
@@ -99,7 +102,7 @@ class CategoryForm extends FormComponent
                         Application::get()->getRequest(),
                         PKPApplication::ROUTE_PAGE,
                         null,
-                        'catalog',
+                        $catalogPage,
                         'category',
                         ['path']
                     )]),

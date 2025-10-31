@@ -291,7 +291,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     }
 
     /**
-     * Handle file uploads for cover images for Series and Categories.
+     * Handle file uploads for cover images for Categories.
      *
      * @param PKPRequest $request
      * @param array $args
@@ -316,7 +316,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     }
 
     /**
-     * Handle file deletion for cover images for Series and Categories.
+     * Handle file deletion for cover images for Categories.
      *
      * @param array $args
      *    `name` string Filename of the cover image to be deleted.
@@ -334,7 +334,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
         // Check that the category exists and is in the current context.
         $category = Repo::category()->get((int) $args['categoryId']);
         $context = $request->getContext();
-        if ($category->getContextId() != $context->getId()) {
+        if (!$category || ($category->getContextId() != $context->getId())) {
             return new JSONMessage(false, __('manager.categories.form.removeCoverImageOnDifferentContextNowAllowed'));
         }
 

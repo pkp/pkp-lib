@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022, 2023.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2023-03-09 20:05+0000\n"
+"PO-Revision-Date: 2025-10-14 08:51+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/sv/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Inga objekt"
@@ -727,3 +727,28 @@ msgstr "I bläddringslista"
 
 msgid "grid.action.editContributor"
 msgstr "Redigera medarbetare"
+
+msgid "grid.user.remove"
+msgstr "Ta bort användare"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"När en användare är inaktiverad kommer du inte kunna tilldela den några "
+"roller förrän den återaktiverats."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Lägg till förslag på granskare"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Ta bort förslag på granskare"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Är du säker på att du vill ta bort detta förslag? Denna åtgärd kan inte "
+"ångras."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Visa i redaktionsruta"
+
+msgid "grid.user.logInAs"
+msgstr "Logga in som"

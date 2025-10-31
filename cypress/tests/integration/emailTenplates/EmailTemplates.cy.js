@@ -28,6 +28,7 @@ describe('Email Template Access Tests', function() {
 		cy.reload();
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'false');
+		cy.logout();
 	});
 
 	it('Marks template as unrestricted', () => {
@@ -43,6 +44,7 @@ describe('Email Template Access Tests', function() {
 
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'true');
+		cy.logout();
 	});
 
 	it('Assigns user groups to template', () => {
@@ -62,6 +64,7 @@ describe('Email Template Access Tests', function() {
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
 		cy.get('input[name="assignedUserGroupIds"]').first().should('be.checked');
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).should('be.checked');
+		cy.logout();
 	});
 
 	it('Removes user groups from template', () => {
@@ -79,6 +82,7 @@ describe('Email Template Access Tests', function() {
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
 		cy.get('input[name="assignedUserGroupIds"]').first().uncheck();
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).uncheck();
+		cy.logout();
 	});
 
 	it('Creates template with user groups assigned (restricted template)', () => {
@@ -110,6 +114,7 @@ describe('Email Template Access Tests', function() {
 		cy.openEmailTemplate('Discussion (Production)', templateName);
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).should('be.checked');
 		cy.get('input[name="assignedUserGroupIds"]').eq(2).should('be.checked');
+		cy.logout();
 	});
 
 	it('Creates unrestricted template', () => {
@@ -137,6 +142,7 @@ describe('Email Template Access Tests', function() {
 		cy.reload();
 		cy.openEmailTemplate('Discussion (Production)', templateName);
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'true');
+		cy.logout();
 	});
 
 	it('Creates restricted template with no assigned user groups', () => {
@@ -168,6 +174,7 @@ describe('Email Template Access Tests', function() {
 		cy.get('input[name="assignedUserGroupIds"]').each(($checkbox) => {
 			cy.wrap($checkbox).should('not.be.checked');
 		});
+		cy.logout();
 	});
 
 	it('Hides user group options when `Mark as unrestricted` radio button is checked', () => {
@@ -186,6 +193,7 @@ describe('Email Template Access Tests', function() {
 
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
 		cy.get('input[name="assignedUserGroupIds"]').should('not.exist');
+		cy.logout();
 	});
 
 	it('Displays user group options when `Limit Access to Specific User Groups` radio button is checked', () => {
@@ -204,5 +212,6 @@ describe('Email Template Access Tests', function() {
 
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
 		cy.get('input[name="assignedUserGroupIds"]').should('exist');
+		cy.logout();
 	});
 });

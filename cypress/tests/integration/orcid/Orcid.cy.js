@@ -19,6 +19,7 @@ describe('ORCID tests', function() {
 	  cy.window().then((win) => cy.stub(win, 'open').returns({}));
 
 	  cy.get('#connect-orcid-button').should('be.visible').click();
+	  cy.logout();
 	});
 
 	it('Uses ORCID in user registration', function() {
@@ -78,6 +79,7 @@ describe('ORCID tests', function() {
 	  cy.visit('/index.php/publicknowledge/en/user/profile');
 	  cy.get('input[name="givenName[en]"]').should('have.value', 'John');
 	  cy.get('input[name="familyName[en]"]').should('have.value', 'Doe');
+	  cy.logout();
 	});
 
 	it('Disables ORCID', function() {
@@ -107,5 +109,6 @@ describe('ORCID tests', function() {
 	      cy.get('input[name^="orcidEnabled"]').should('not.be.checked');
 	    }
 	  });
+	  cy.logout();
 	});
 });

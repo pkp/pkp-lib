@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023, 2024.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2024-03-05 11:56+0000\n"
+"PO-Revision-Date: 2025-10-07 13:39+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "sv/>\n"
@@ -1929,7 +1929,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Veckovis e-postmeddelande om ofärdiga uppgifter"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Objekt i navigationsmeny uppdaterat"
@@ -2269,3 +2269,93 @@ msgstr "Visa alla"
 
 msgid "common.sandbox"
 msgstr "Programmet kör i sandlådeläge."
+
+msgid "common.yesContinue"
+msgstr "Ja, fortsätt"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} fel hittades! Korrigera felen nedan innan du fortsätter."
+
+msgid "common.numero"
+msgstr "Nej"
+
+msgid "common.refreshingData"
+msgstr "Data uppdateras"
+
+msgid "common.viewMoreDetails"
+msgstr "Se fler detaljer"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.filtersClear"
+msgstr "Rensa filter"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mina granskningsuppdrag"
+
+msgid "common.showingXofX"
+msgstr "Visar<strong>{$start} till {$finish}</strong> av {$total}"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Granskning skickades in den"
+
+msgid "form.errorSummaryOne"
+msgstr "Ett fel hittades! Korrigera felet nedan innan du fortsätter."
+
+msgid "validator.date.comparison"
+msgstr "Felaktiga datum har angetts."
+
+msgid "common.moreActions"
+msgstr "Fler åtgärder"
+
+msgid "common.editorialHistory"
+msgstr "Redaktionell historik"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Denna del innehåller en förteckning över tidigare medverkande."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Visa <a href=\"{$url}\">redaktionell historik</a>"
+
+msgid "common.editorialMasthead"
+msgstr "Redaktionsruta"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Granskare under föregående år"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Historik över granskare"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Redaktionen tackar följande granskare för deras insatser under {$year}."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Visa {$name}s ORCID-profil"
+
+msgid "common.editorialHistory.page"
+msgstr "Redaktionell historik"
+
+msgid "common.assignments"
+msgstr "Uppdrag"
+
+msgid "navigation.dashboards"
+msgstr "Redaktörsöversikt"
+
+msgid "navigation.mySubmissions"
+msgstr "Mina bidrag som författare"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Granskning accepterades den"
+
+msgid "common.changeLanguage"
+msgstr "Byt språk"
+
+msgid "common.loaded"
+msgstr "Laddad"
+
+msgid "validator.multilingual"
+msgstr "Kravet på flerspråkighet är inte uppfyllt i detta fält."

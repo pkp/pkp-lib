@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-30 09:54+0000\n"
+"PO-Revision-Date: 2025-10-24 04:30+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -931,3 +931,6 @@ msgstr "Դուք չեք կարող հեռացնել դերը: Օգտվողին �
 
 msgid "orcid.field.authorEmailModal.message.noAuthor"
 msgstr "Էլ․ նամակ կուղարկվի հենց հեղինակը ստեղծվի։"
+
+msgid "user.login.activate.description"
+msgstr "Հաստատեք և ակտիվացրեք ձեր հաշիվը"

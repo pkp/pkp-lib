@@ -218,6 +218,9 @@
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCEInitialized =
 			function(tinyMCEObject) {
 
+		tinyMCEObject.settings.contextmenu = 'link openlink | copy cut paste | selectall';
+		tinyMCEObject.settings.plugins += ' contextmenu';
+
 		var $inputElement = $('#' +
 				$.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id));
 		$inputElement.trigger('tinyMCEInitialized', [tinyMCEObject]);

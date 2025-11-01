@@ -22,6 +22,7 @@ use PKP\publication\PKPPublication;
 
 class Repository
 {
+
     const AS_ENTRY_DATA = true;
 
     /**
@@ -51,9 +52,8 @@ class Repository
         int $assocType,
         ?int $assocId,
         ?array $locales = [],
-        bool $asEntryData = !Repository::AS_ENTRY_DATA
-    ): array
-    {
+        bool $asEntryData = Repository::AS_ENTRY_DATA
+    ): array {
         $result = [];
 
         ControlledVocabEntry::query()
@@ -65,10 +65,12 @@ class Repository
             ->get()
             ->each(function ($entry) use (&$result, $asEntryData) {
                 foreach ($entry->name as $locale => $value) {
-                    $result[$locale][] = $asEntryData ? $entry->getEntryData($locale) : $value;
+                    $result[$locale][] = $asEntryData
+                        ? $entry->getEntryData($locale)
+                        : $value;
                 }
             });
-        
+
         return $result;
     }
 
@@ -141,35 +143,4 @@ class Repository
             });
     }
 
-    /**
-     * Hydrate controlled vocab entries as entry data for a publication which will
-     * include other meta information(e.g. source & identifier) in vocabs
-     */
-    public function hydrateVocabsAsEntryData(PKPPublication $publication): PKPPublication
-    {
-        $mappings = [
-            'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-            'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-            'disciplines' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
-            'supportingAgencies' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-        ];
-
-        foreach ($mappings as $dataKey => $symbolic) {
-            if (empty($publication->getData($dataKey))) {
-                continue;
-            }
-            $publication->setData(
-                $dataKey,
-                $this->getBySymbolic(
-                    $symbolic,
-                    Application::ASSOC_TYPE_PUBLICATION,
-                    $publication->getId(),
-                    [],
-                    static::AS_ENTRY_DATA
-                )
-            );
-        }
-
-        return $publication;
-    }
 }

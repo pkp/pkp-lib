@@ -29,6 +29,7 @@ use PKP\facades\Locale;
 use PKP\form\validation\FormValidator;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
+use PKP\linkAction\request\RedirectAction;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
@@ -252,26 +253,24 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 'selectReviewer' => $selectReviewerListPanel->getConfig(),
             ]
         ]);
-
         // Only add actions to forms where user can operate.
         if (array_intersect($this->getUserRoles(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
             $actionArgs['selectionType'] = PKPReviewerGridHandler::REVIEWER_SELECT_CREATE;
+            $dispatcher = $request->getDispatcher();
             // but change the selectionType for each action
             $advancedSearchAction = new LinkAction(
                 'selectCreate',
-                new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
+                new RedirectAction($dispatcher->url(
+                    $request,
+                    PKPApplication::ROUTE_PAGE,
+                    null,
+                    'invitation',
+                    'create',
+                    ['reviewerAccess'],
+                    ['submissionId'=>$this->getSubmission()->getId(),'reviewRoundId' => $reviewRound->getId()]
+                )),
                 __('editor.review.createReviewer'),
                 'add_user'
-            );
-
-            $this->setReviewerFormAction($advancedSearchAction);
-            $actionArgs['selectionType'] = PKPReviewerGridHandler::REVIEWER_SELECT_ENROLL_EXISTING;
-            // but change the selectionType for each action
-            $advancedSearchAction = new LinkAction(
-                'enrolExisting',
-                new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, $actionArgs)),
-                __('editor.review.enrollReviewer.short'),
-                'enroll_user'
             );
 
             $this->setReviewerFormAction($advancedSearchAction);

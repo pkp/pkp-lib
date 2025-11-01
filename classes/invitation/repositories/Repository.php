@@ -62,4 +62,17 @@ class Repository
 
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
     }
+
+    public function getInvitationReviewerAssignmentId(int $reviewerAssignmentId) : ?Invitation
+    {
+        $invitationModel = InvitationModel::notHandled()
+            ->notExpired()
+            ->where('payload->reviewAssignmentId', $reviewerAssignmentId)->first();
+
+        if (is_null($invitationModel)) {
+            return null;
+        }
+
+        return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
+    }
 }

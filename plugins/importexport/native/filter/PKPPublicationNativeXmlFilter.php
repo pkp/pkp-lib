@@ -239,12 +239,22 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     {
         $deployment = $this->getDeployment();
         $locales = array_keys($controlledVocabulary);
+
         foreach ($locales as $locale) {
             if (!empty($controlledVocabulary[$locale])) {
                 $controlledVocabulariesNode = $doc->createElementNS($deployment->getNamespace(), $controlledVocabulariesNodeName);
                 $controlledVocabulariesNode->setAttribute('locale', $locale);
-                foreach ($controlledVocabulary[$locale] as $controlledVocabularyItem) {
-                    $controlledVocabulariesNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName, htmlspecialchars($controlledVocabularyItem, ENT_COMPAT, 'UTF-8')));
+
+                foreach ($controlledVocabulary[$locale] as $item) {
+                    $node = $doc->createElementNS($deployment->getNamespace(), $controlledVocabularyNodeName);
+                    $node->appendChild($doc->createElementNS($deployment->getNamespace(), 'name', htmlspecialchars($item['name'], ENT_COMPAT, 'UTF-8')));
+                    if (!empty($item['identifier'])) {
+                        $node->appendChild($doc->createElementNS($deployment->getNamespace(), 'identifier', htmlspecialchars($item['identifier'], ENT_COMPAT, 'UTF-8')));
+                    }
+                    if (!empty($item['source'])) {
+                        $node->appendChild($doc->createElementNS($deployment->getNamespace(), 'source', htmlspecialchars($item['source'], ENT_COMPAT, 'UTF-8')));
+                    }
+                    $controlledVocabulariesNode->appendChild($node);
                 }
 
                 $entityNode->appendChild($controlledVocabulariesNode);

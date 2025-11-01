@@ -104,7 +104,6 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function mapByProperties(array $props, Publication $publication, bool $anonymize): array
     {
-        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
         $this->anonymize = $anonymize;
 
         $output = [];

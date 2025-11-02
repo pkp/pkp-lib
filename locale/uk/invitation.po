@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-27 07:51+0000\n"
+"PO-Revision-Date: 2025-11-03 16:40+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/uk/>\n"
@@ -293,3 +293,132 @@ msgstr ""
 
 msgid "acceptInvitation.userDetails.form.name"
 msgstr "Детальна форма користувача щодо прийняття запрошення"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Країна афілійованості"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Це країна, у якій розташований інститут, з яким ви афілійовані"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Користувача наразі вимкнено."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Користувача було вимкнено. Ви не можете призначити йому роль, поки він "
+"вимкнений. Будь ласка, спочатку увімкніть користувача, щоб запросити його на "
+"роль."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Згода на конфіденційність"
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Будь ласка, вийдіть із системи та ввійдіть у правильний обліковий запис, щоб "
+"прийняти це запрошення."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Пошук користувача за адресою електронної пошти, іменем користувача або ORCID "
+"iD. Введіть лише одне, щоб розпочати!"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Це інститут, з яким Ви пов'язані"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Деталі облікового запису"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Деталі користувача"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Переглянути всі подані роботи"
+
+msgid "invitation.tableHeader.name"
+msgstr "Ім'я"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Укажіть хоча б один критерій пошуку."
+
+msgid "invitation.cancelInvite.title"
+msgstr "Скасувати запрошення"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Скасувати дію запрошення"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Модифікувати роль"
+
+msgid "invitation.management.options"
+msgstr "Варіанти керування запрошенням"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Крок назад"
+
+msgid "userInvitation.status.invited"
+msgstr "Запрошено {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Редагувати запрошення"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Скасувати процес запрошення на роль?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Скасувати процес запрошення"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Якщо ви відредагуєте існуюче запрошення або додасте нову роль, поточне "
+"запрошення буде скасовано, і буде надіслано нове. Ви впевнені, що хочете "
+"продовжити?"
+
+msgid "validation.after_or_equal"
+msgstr "Дата початку має бути більшою або рівною сьогоднішній"
+
+msgid "invitation.removeRoles"
+msgstr "Користувача вилучено з ролі"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Запрошення не прийнято. Ви ввійшли як інший користувач."
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Будь ласка, підтвердіть, що Ви прочитали та погоджуєтеся з політикою "
+"конфіденційності"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Також відоме як ім'я або перше ім'я, це та частина особистого імені, яка "
+"ідентифікує особу."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Прізвище, родинне ім'я або по батькові — це переважно спадкова частина "
+"власного імені, яка вказує на родину."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Ви переглядаєте деталі користувача {$name}"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Скасування запрошення, надісланого користувачу {$givenName} {$familyName}, "
+"деактивує посилання для прийняття, надіслане електронною поштою. Ось деталі "
+"запрошення: "
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Ви впевнені, що хочете скасувати? Якщо Ви скасуєте зараз, процес прийняття "
+"ролі зупиниться, і Вам потрібно буде перезапустити процес із запрошенням "
+"електронною поштою, щоб знову прийняти роль. Якщо Ви вже є користувачем, Вас "
+"буде перенаправлено назад на інформаційну панель. Якщо ні, Вам потрібно буде "
+"отримати доступ до запрошення електронною поштою, щоб розпочати процес знову."
+
+msgid "invitation.masthead.show"
+msgstr "З'являтися в заголовку"
+
+msgid "invitation.masthead.hidden"
+msgstr "Не відображається в заголовку"
+
+msgid "userInvitation.cancel.message"
+msgstr "Ви впевнені, що хочете скасувати це запрошення?"

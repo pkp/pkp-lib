@@ -61,7 +61,12 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         $templateMgr->display('invitation/acceptInvitation.tpl');
     }
 
-    public function declineHandle(Request $request): void
+    /**
+     * Redirect to login page after confirming the invitation decline
+     *
+     * @throws \Exception
+     */
+    public function confirmDecline(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
@@ -86,36 +91,6 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
             [
                 'submissionId' => $reviewAssignment->getSubmissionId(),
                 'reviewId' => $reviewAssignment->getId(),
-            ]
-        );
-
-        $this->getInvitation()->decline();
-
-        $request->redirectUrl($url);
-    }
-
-    /**
-     * Redirect to login page after confirming the invitation decline
-     *
-     * @throws \Exception
-     */
-    public function confirmDecline(Request $request): void
-    {
-        if ($this->invitation->getStatus() !== InvitationStatus::DECLINED) {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
-        }
-
-        $context = $request->getContext();
-
-        $url = PKPApplication::get()->getDispatcher()->url(
-            PKPApplication::get()->getRequest(),
-            PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
-            'user',
-            'login',
-            null,
-            null,
-            [
             ]
         );
 

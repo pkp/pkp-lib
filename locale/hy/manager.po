@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-22 09:22+0000\n"
+"PO-Revision-Date: 2025-11-04 08:15+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -3944,3 +3944,13 @@ msgstr "Պահանջվում է նվազագույն քանակի հաստատվ
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
 msgstr ""
 "Ներկայացման համար անհրաժեշտ հաստատված գրախոսությունների նվազագույն քանակը"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Դասը գոյություն չունի կամ պատկանում է այլ համատեքստի: Համոզվեք, որ աշխատում "
+"եք ճիշտ համատեքստի հետ և կրկին փորձեք:"
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Շապիկի պատկերի և մանրապատկերի նիշքերը չգտնվեցին։ Հնարավոր է՝ դրանք արդեն "
+"ջնջված լինեն։ Փորձեք վերաբեռնել էջը։"

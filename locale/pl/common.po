@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2025-11-04 08:17+0000\n"
+"PO-Revision-Date: 2025-11-04 08:25+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl/>\n"
@@ -2361,4 +2361,16 @@ msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
 
 msgid "about.editorialMasthead.linkToEditorialHistory"
-msgstr "View <a href=\"{$url}\">Editorial History</a>"
+msgstr "Zobacz <a href=\"{$url}\">Editorial History</a>"
+
+msgid "common.editorialHistory.page.description"
+msgstr "W tej sekcji wymieniono dotychczasowych współpracowników."
+
+msgid "common.editorialHistory"
+msgstr "Historia redakcyjna"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Zobacz {$name} ORCID profile"
+
+msgid "common.editorialHistory.page"
+msgstr "Historyczne dane edytorów"

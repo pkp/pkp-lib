@@ -609,7 +609,10 @@ msgid "submission.citations.structured.label.rawCitation"
 msgstr "Edit Raw Citation"
 
 msgid "submission.citations.structured.label.doi"
-msgstr "DOI, e.g. 10.1000/182, doi:10.1000/182, https://doi.org/10.1000/182"
+msgstr "DOI"
+
+msgid "submission.citations.structured.description.doi"
+msgstr "10.1000/182, doi:10.1000/182, https://doi.org/10.1000/182"
 
 msgid "submission.citations.structured.label.title"
 msgstr "Title"
@@ -657,10 +660,16 @@ msgid "submission.citations.structured.label.urn"
 msgstr "URN"
 
 msgid "submission.citations.structured.label.arxiv"
-msgstr "Arxiv, e.g. 1234.123456v2, arxiv:1234.123456v2, https://arxiv.org/abs/1234.123456v2"
+msgstr "Arxiv"
+
+msgid "submission.citations.structured.description.arxiv"
+msgstr "1234.123456v2, arxiv:1234.123456v2, https://arxiv.org/abs/1234.123456v2"
 
 msgid "submission.citations.structured.label.handle"
-msgstr "Handle, e.g. 20.1000/100, handle:20.1000/100, https://hdl.handle.net/20.1000/100"
+msgstr "Handle"
+
+msgid "submission.citations.structured.description.handle"
+msgstr "20.1000/100, handle:20.1000/100, https://hdl.handle.net/20.1000/100"
 
 msgid "submission.citations.structured.label.openAlex"
 msgstr "OpenAlex"

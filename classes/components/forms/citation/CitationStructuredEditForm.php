@@ -49,14 +49,31 @@ class CitationStructuredEditForm extends FormComponent
         ]));
 
         // Article Information
-        foreach (['doi', 'url', 'urn', 'arxiv', 'handle'] as $key) {
-            $this->addField(new FieldText($key, [
-                'label' => __('submission.citations.structured.label.' . $key),
-                'description' => '',
-                'value' => null,
-            ]));
-        }
-
+        $this->addField(new FieldText('doi', [
+            'label' => __('submission.citations.structured.label.doi'),
+            'description' => __('submission.citations.structured.description.doi'),
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('url', [
+            'label' => __('submission.citations.structured.label.url'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('urn', [
+            'label' => __('submission.citations.structured.label.urn'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('arxiv', [
+            'label' => __('submission.citations.structured.label.arxiv'),
+            'description' => __('submission.citations.structured.description.arxiv'),
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('handle', [
+            'label' => __('submission.citations.structured.label.handle'),
+            'description' => __('submission.citations.structured.description.handle'),
+            'value' => null,
+        ]));
         $this->addField(new FieldText('title', [
             'label' => __('submission.citations.structured.label.title'),
             'description' => '',

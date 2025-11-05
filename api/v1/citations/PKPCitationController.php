@@ -22,6 +22,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\pid\Arxiv;
 use PKP\citation\pid\Doi;
 use PKP\citation\pid\Handle;
@@ -177,15 +178,15 @@ class PKPCitationController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CITATION, $illuminateRequest->input());
 
         $arxiv = Arxiv::extractFromString($params['arxiv']);
-        if(!empty($arxiv)){
+        if (!empty($arxiv)) {
             $params['arxiv'] = $arxiv;
         }
         $doi = Doi::extractFromString($params['doi']);
-        if(!empty($doi)){
+        if (!empty($doi)) {
             $params['doi'] = $doi;
         }
         $handle = Handle::extractFromString($params['handle']);
-        if(!empty($handle)){
+        if (!empty($handle)) {
             $params['handle'] = $handle;
         }
 
@@ -206,7 +207,8 @@ class PKPCitationController extends PKPBaseController
         $citation = Repo::citation()->get($citation->getId());
 
         return response()->json(
-            Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK
+            Repo::citation()->getSchemaMap()->map($citation),
+            Response::HTTP_OK
         );
     }
 
@@ -226,7 +228,8 @@ class PKPCitationController extends PKPBaseController
         Repo::citation()->delete($citation);
 
         return response()->json(
-            Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK
+            Repo::citation()->getSchemaMap()->map($citation),
+            Response::HTTP_OK
         );
     }
 
@@ -243,13 +246,14 @@ class PKPCitationController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $citation->setIsProcessed(false);
+        $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
         Repo::citation()->edit($citation, []);
 
         Repo::citation()->reprocessCitation($citation);
 
         return response()->json(
-            Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK
+            Repo::citation()->getSchemaMap()->map($citation),
+            Response::HTTP_OK
         );
     }
 

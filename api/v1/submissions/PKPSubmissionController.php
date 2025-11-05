@@ -37,6 +37,7 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
 use PKP\citation\Citation;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
@@ -2451,7 +2452,7 @@ class PKPSubmissionController extends PKPBaseController
         $citations = $publication->getData('citations');
         $citationsMapped = [];
         foreach ($citations as &$citation) {
-            $citation->setIsProcessed(false);
+            $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
             Repo::citation()->edit($citation, []);
             Repo::citation()->reprocessCitation($citation);
             $citationsMapped[] = Repo::citation()->getSchemaMap()->map($citation);

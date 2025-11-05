@@ -97,12 +97,6 @@
             "readOnly": true,
             "apiSummary": true
         },
-        "isProcessed": {
-            "type": "boolean",
-            "description": "Whether this citation has metadata lookup finished or not.",
-            "default": false,
-            "apiSummary": true
-        },
         "isStructured": {
             "type": "boolean",
             "description": "Whether this citation is assumed structured, is calculated at every update and insert.",
@@ -135,6 +129,15 @@
             "validation": [
                 "nullable",
                 "url"
+            ]
+        },
+        "processingStatus": {
+            "type": "integer",
+            "description": "The metadata lookup status.",
+            "default": 0,
+            "apiSummary": true,
+            "validation": [
+                "in:0,1,2,3,4,5"
             ]
         },
         "publicationId": {

@@ -271,7 +271,14 @@ class PKPSubmissionHandler extends APIHandler
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        // Skip role checking for 'add' endpoint - it handles role assignment internally
+        if ($routeName !== 'add') {
+            $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        } else {
+            // For 'add' endpoint, mark role assignments as checked since the add() method
+            // will automatically assign the AUTHOR role to users without roles
+            $this->markRoleAssignmentsChecked();
+        }
 
         if (in_array($routeName, $this->requiresSubmissionAccess)) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));

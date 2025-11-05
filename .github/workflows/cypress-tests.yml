@@ -1,0 +1,53 @@
+name: Run Cypress Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to test (e.g. staging, production)"
+        required: false
+        default: "staging"
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start application
+        run: npm start &
+        env:
+          NODE_ENV: test
+
+      - name: Wait for app to be ready
+        uses: jakejarvis/wait-action@v0.1.1
+        with:
+          time: '10s'
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
+          browser: chrome
+          headless: true
+
+      - name: Upload test videos and screenshots (if tests fail)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/videos
+            cypress/screenshots

@@ -17,6 +17,7 @@
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\externalServices\orcid\Inbound;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
@@ -46,7 +47,7 @@ class OrcidJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if ($citation->getIsProcessed()) {
+        if ($citation->getProcessingStatus() >= CitationProcessingStatus::ORCID->value) {
             return;
         }
 
@@ -85,6 +86,7 @@ class OrcidJob extends BaseJob
         }
 
         $citation->setData('authors', $authorsChanged);
+        $citation->setProcessingStatus(CitationProcessingStatus::ORCID->value);
         Repo::citation()->edit($citation, []);
     }
 }

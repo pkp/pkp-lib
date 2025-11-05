@@ -17,6 +17,7 @@
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\externalServices\openAlex\Inbound;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
@@ -46,7 +47,7 @@ class OpenAlexJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if ($citation->getIsProcessed() || !$citation->getData('doi')) {
+        if ($citation->getProcessingStatus() >= CitationProcessingStatus::OPEN_ALEX->value || !$citation->getData('doi')) {
             return;
         }
 
@@ -65,7 +66,7 @@ class OpenAlexJob extends BaseJob
                     return;
             }
         }
-
+        $citationChanged->setProcessingStatus(CitationProcessingStatus::OPEN_ALEX->value);
         Repo::citation()->edit($citationChanged, []);
     }
 }

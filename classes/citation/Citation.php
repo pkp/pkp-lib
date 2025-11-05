@@ -63,19 +63,19 @@ class Citation extends DataObject
     }
 
     /**
-     * Get isProcessed
+     * Get processing status
      */
-    public function getIsProcessed(): bool
+    public function getProcessingStatus(): int
     {
-        return $this->getData('isProcessed');
+        return $this->getData('processingStatus');
     }
 
     /**
-     * Set isProcessed
+     * Set processing status
      */
-    public function setIsProcessed(bool $isProcessed): void
+    public function setProcessingStatus(int $processingStatus): void
     {
-        $this->setData('isProcessed', $isProcessed);
+        $this->setData('processingStatus', $processingStatus);
     }
 
     /**

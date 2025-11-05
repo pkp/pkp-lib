@@ -16,7 +16,10 @@
 
 namespace PKP\components\forms\citation;
 
+use PKP\citation\enum\CitationSourceType;
+use PKP\citation\enum\CitationType;
 use PKP\components\forms\FieldAuthors;
+use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldTextarea;
 use PKP\components\forms\FormComponent;
@@ -46,14 +49,31 @@ class CitationStructuredEditForm extends FormComponent
         ]));
 
         // Article Information
-        foreach (['doi', 'url', 'urn', 'arxiv', 'handle'] as $key) {
-            $this->addField(new FieldText($key, [
-                'label' => __('submission.citations.structured.label.' . $key),
-                'description' => '',
-                'value' => null,
-            ]));
-        }
-
+        $this->addField(new FieldText('doi', [
+            'label' => __('submission.citations.structured.label.doi'),
+            'description' => __('submission.citations.structured.description.doi'),
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('url', [
+            'label' => __('submission.citations.structured.label.url'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('urn', [
+            'label' => __('submission.citations.structured.label.urn'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('arxiv', [
+            'label' => __('submission.citations.structured.label.arxiv'),
+            'description' => __('submission.citations.structured.description.arxiv'),
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('handle', [
+            'label' => __('submission.citations.structured.label.handle'),
+            'description' => __('submission.citations.structured.description.handle'),
+            'value' => null,
+        ]));
         $this->addField(new FieldText('title', [
             'label' => __('submission.citations.structured.label.title'),
             'description' => '',
@@ -83,7 +103,14 @@ class CitationStructuredEditForm extends FormComponent
             'description' => '',
             'value' => null,
         ]));
-        $this->addField(new FieldText('sourceType', [
+        $this->addField(new FieldSelect('sourceType', [
+            'options' => array_map(
+                fn($case) => [
+                    'label' => ucwords($case->value),
+                    'value' => $case->value
+                ],
+                CitationSourceType::cases()
+            ),
             'label' => __('submission.citations.structured.label.sourceType'),
             'description' => '',
             'value' => null,
@@ -94,7 +121,14 @@ class CitationStructuredEditForm extends FormComponent
             'value' => null,
             'inputType' => 'date'
         ]));
-        $this->addField(new FieldText('type', [
+        $this->addField(new FieldSelect('type', [
+            'options' => array_map(
+                fn($case) => [
+                    'label' => ucwords(str_replace('-', ' ', $case->value)),
+                    'value' => $case->value
+                ],
+                CitationType::cases()
+            ),
             'label' => __('submission.citations.structured.label.type'),
             'description' => '',
             'value' => null,

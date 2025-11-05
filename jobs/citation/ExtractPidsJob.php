@@ -17,6 +17,7 @@
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\pid\ExtractPidsHelper;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
@@ -45,12 +46,13 @@ class ExtractPidsJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if ($citation->getIsProcessed()) {
+        if ($citation->getProcessingStatus() >= CitationProcessingStatus::PID_EXTRACTED->value) {
             return;
         }
 
         $extractPids = new ExtractPidsHelper();
-
-        Repo::citation()->edit($extractPids->execute($citation), []);
+        $citationChanged = $extractPids->execute($citation);
+        $citationChanged->setProcessingStatus(CitationProcessingStatus::PID_EXTRACTED->value);
+        Repo::citation()->edit($citationChanged, []);
     }
 }

@@ -17,6 +17,7 @@
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\externalServices\crossref\Inbound;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
@@ -46,7 +47,7 @@ class CrossrefJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if ($citation->getIsProcessed()) {
+        if ($citation->getProcessingStatus() >= CitationProcessingStatus::CROSSREF->value) {
             return;
         }
 
@@ -64,7 +65,7 @@ class CrossrefJob extends BaseJob
                     return;
             }
         }
-
+        $citationChanged->setProcessingStatus(CitationProcessingStatus::CROSSREF->value);
         Repo::citation()->edit($citationChanged, []);
     }
 }

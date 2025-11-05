@@ -22,6 +22,7 @@ use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Bus;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\filter\CitationListTokenizerFilter;
 use PKP\jobs\citation\CrossrefJob;
 use PKP\jobs\citation\ExtractPidsJob;
@@ -221,18 +222,16 @@ class Repository
             $importedCitations = [];
             $this->deleteByPublicationId($publicationId);
             if (is_array($citationStrings) && !empty($citationStrings)) {
-                $publication = Repo::publication()->get($publicationId);
                 foreach ($citationStrings as $seq => $rawCitationString) {
                     if (!empty($rawCitationString)) {
                         $citation = new Citation();
                         $citation->setRawCitation($rawCitationString);
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($seq + 1);
-                        $citation->setIsProcessed(false);
+                        $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($publication->getData('citationsMetadataLookup') ||
-                            (is_null($publication->getData('citationsMetadataLookup')) && $this->request->getContext()->getData('citationsMetadataLookup'))) {
+                        if ($this->request->getContext()->getData('citationsMetadataLookup')) {
                             $this->reprocessCitation($citation);
                         }
                         $importedCitations[] = $citation;
@@ -256,7 +255,6 @@ class Repository
 
         $rejectedCitations = [];
         if (is_array($citationStrings) && !empty($citationStrings)) {
-            $publication = Repo::publication()->get($publicationId);
             foreach ($citationStrings as $rawCitationString) {
                 if (!empty($rawCitationString)) {
                     if (!$this->existsRawCitation($publicationId, $rawCitationString)) {
@@ -265,11 +263,10 @@ class Repository
                         $citation->setRawCitation($rawCitationString);
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($lastSeq);
-                        $citation->setIsProcessed(false);
+                        $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($publication->getData('citationsMetadataLookup') ||
-                            (is_null($publication->getData('citationsMetadataLookup')) && $this->request->getContext()->getData('citationsMetadataLookup'))) {
+                        if ($this->request->getContext()->getData('citationsMetadataLookup')) {
                             $this->reprocessCitation($citation);
                         }
                     } else {
@@ -317,6 +314,7 @@ class Repository
 
         Bus::chain($jobs)
             ->catch(function (Throwable $e) {
+                error_log($e->getMessage());
             })
             ->dispatch();
     }

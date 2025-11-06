@@ -221,10 +221,10 @@ msgid "acceptInvitation.accountDetails.nextButtonLabel"
 msgstr "Save and continue"
 
 msgid "acceptInvitation.userDetails.stepName"
-msgstr "Enter details"
+msgstr "User details"
 
 msgid "acceptInvitation.userDetails.stepLabel"
-msgstr "{$step} - Enter details"
+msgstr "{$step} - User details"
 
 msgid "acceptInvitation.userDetails.stepDescription"
 msgstr "Enter your details like email ID, affiliation etc. As per the GDPR compliance, this information can only modified by you. You can also choose if you want this information to be visible on your profile to the editor."
@@ -239,10 +239,10 @@ msgid "acceptInvitation.userDetails.form.description"
 msgstr "Please provide the following details to help us to manage your account"
 
 msgid "acceptInvitation.detailsReview.stepName"
-msgstr "Review & create account"
+msgstr "Review & accept invitation"
 
 msgid "acceptInvitation.detailsReview.stepLabel"
-msgstr "{$step} - Review & create account"
+msgstr "{$step} - Review & accept invitation"
 
 msgid "acceptInvitation.skipVerifyOrcid"
 msgstr "Skip ORCID verification"
@@ -263,7 +263,7 @@ msgid "acceptInvitation.privacyStatement.btn"
 msgstr "Privacy Statement"
 
 msgid "acceptInvitation.userDetailsForm.givenName.description"
-msgstr "Also known as a forename or the first name, it is tha part of a personal name that identifies a person."
+msgstr "Also known as a forename or first name, it is the part of a personal name that identifies a person."
 
 msgid "acceptInvitation.userDetailsForm.familyName.description"
 msgstr "A surname, family name, or last name is the mostly hereditary portion of one's personal name that indicates one's family."
@@ -488,6 +488,6 @@ msgid "acceptReviewerInvitation.decline"
 msgstr "Decline review request"
 
 msgid "reviewerInvitation.addUserRolesMessage"
-msgstr "Please not that you can invite the user to a reviewer role from here. To invite the user to other roles, you can got to Users & Roles section, once the accepts the invite."
+msgstr "Please note that you can invite the user to a reviewer role from here. To invite the user to other roles, you can go to Users & Roles section, once the user accepts the invite."
 
 

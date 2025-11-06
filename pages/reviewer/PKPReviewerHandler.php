@@ -29,6 +29,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\facades\Locale;
 use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -94,9 +95,9 @@ class PKPReviewerHandler extends Handler
             // Editorial Tasks
             'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
             'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
-            'EDITORIAL_TASK_STATUS_PENDING' => 1,
-            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => 2,
-            'EDITORIAL_TASK_STATUS_CLOSED' => 3,
+            'EDITORIAL_TASK_STATUS_PENDING' => EditorialTaskStatus::PENDING->value,
+            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => EditorialTaskStatus::IN_PROGRESS->value,
+            'EDITORIAL_TASK_STATUS_CLOSED' => EditorialTaskStatus::CLOSED->value,
         ]);
 
         $templateMgr->assign([

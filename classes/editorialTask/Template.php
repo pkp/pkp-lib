@@ -22,12 +22,13 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
 use PKP\editorialTask\EditorialTask as Task;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
-use Illuminate\Support\Facades\DB;
+use PKP\editorialTask\enums\EditorialTaskType;
 
 class Template extends Model
 {
@@ -189,9 +190,10 @@ class Template extends Model
     }
 
     /**
-     * free-text/ words search across:
-     * title column
-     * name, description
+     * Free-text / words search across:
+     * - title column
+     * - name, description (settings)
+     * Also supports "task" / "discussion" keyword to constrain by type.
      */
     public function scopeFilterBySearch(Builder $query, string $phrase): Builder
     {
@@ -206,28 +208,56 @@ class Template extends Model
             return $query;
         }
 
-        $settingsTable = $this->getSettingsTable();
-        $pk = $this->getKeyName();
-        $selfTable = $this->getTable();
+        // map special keywords to type values
+        $typeMap = [
+            'task' => EditorialTaskType::TASK->value,
+            'tasks' => EditorialTaskType::TASK->value,
+            'discussion' => EditorialTaskType::DISCUSSION->value,
+            'discussions' => EditorialTaskType::DISCUSSION->value,
+        ];
 
-        return $query->where(function (Builder $outer) use ($tokens, $settingsTable, $pk, $selfTable) {
-            foreach ($tokens as $tok) {
-                // escape % and _
-                $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($tok, 'UTF-8')) . '%';
+        $typeFilter = null;
+        $keywords = [];
 
-                $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
-                    $q->whereRaw('LOWER(title) LIKE ?', [$like])
-                    ->orWhereRaw('LOWER(description) LIKE ?', [$like])
-                    ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
-                        $sub->select(DB::raw(1))
-                            ->from($settingsTable . ' as ets')
-                            ->whereColumn("ets.$pk", "$selfTable.$pk")
-                            ->whereIn('ets.setting_name', ['name', 'description'])
-                            ->whereRaw('LOWER(ets.setting_value) LIKE ?', [$like]);
-                    });
-                });
+        foreach ($tokens as $tok) {
+            $lower = mb_strtolower($tok, 'UTF-8');
+
+            if (isset($typeMap[$lower])) {
+                $typeFilter = $typeMap[$lower];
+                continue;
             }
-        });
+
+            $keywords[] = $tok;
+        }
+
+        if ($typeFilter !== null) {
+            $query->filterByType($typeFilter);
+        }
+
+        if ($keywords) {
+            $settingsTable = $this->getSettingsTable();
+            $pk = $this->getKeyName();
+            $selfTable = $this->getTable();
+
+            $query->where(function (Builder $outer) use ($keywords, $settingsTable, $pk, $selfTable) {
+                foreach ($keywords as $tok) {
+                    $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($tok, 'UTF-8')) . '%';
+
+                    $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
+                        $q->whereRaw('LOWER(title) LIKE ?', [$like])
+                            ->orWhereRaw('LOWER(description) LIKE ?', [$like])
+                            ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
+                                $sub->select(DB::raw(1))
+                                    ->from($settingsTable . ' as ets')
+                                    ->whereColumn("ets.$pk", "$selfTable.$pk")
+                                    ->whereIn('ets.setting_name', ['name', 'description'])
+                                    ->whereRaw('LOWER(ets.setting_value) LIKE ?', [$like]);
+                            });
+                    });
+                }
+            });
+        }
+        return $query;
     }
 
 }

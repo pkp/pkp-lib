@@ -10,37 +10,23 @@ use PKP\editorialTask\enums\EditorialTaskType;
 
 class UpdateTaskTemplate extends FormRequest
 {
-    public function authorize(): bool
-    {
-        return true;
-    }
+    use TaskTemplateRequestTrait;
 
     public function rules(): array
     {
-        $contextId = Application::get()->getRequest()->getContext()->getId();
-
-        // Build allowed stage IDs (values)
-        $stages = Application::getApplicationStages();
-        $stageIds = array_values(array_unique(array_map('intval', array_values((array) $stages))));
+        $contextId = $this->getContextId();
+        $stageIds = $this->getStageIds();
 
         return [
-            // all fields are optional but if present must validate
             'stageId' => ['sometimes', 'integer', Rule::in($stageIds)],
             'title' => ['sometimes', 'string', 'max:255'],
             'include' => ['sometimes', 'boolean'],
             'description' => ['sometimes', 'nullable', 'string'],
-            'dueInterval' => ['sometimes', 'nullable', 'string',
-                Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))
-            ],
+            'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
             'type' => ['sometimes', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
 
             'userGroupIds' => ['sometimes', 'array', 'min:1'],
-            'userGroupIds.*' => [
-                'integer',
-                'distinct',
-                Rule::exists('user_groups', 'user_group_id')
-                    ->where(fn ($q) => $q->where('context_id', $contextId)),
-            ],
+            'userGroupIds.*' => $this->userGroupIdsItemRules($contextId),
         ];
     }
 

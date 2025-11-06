@@ -200,21 +200,9 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $data = $request->validated();
 
         DB::transaction(function () use ($template, $data) {
-            $userGroupIds = Arr::pull($data, 'userGroupIds');
-            $updates = collect($data)
-                ->only(['stageId', 'title', 'include', 'type', 'description', 'dueInterval'])
-                ->mapWithKeys(function ($v, $k) {
-                    return match ($k) {
-                        'stageId' => ['stageId' => (int) $v],
-                        'include' => ['include' => (bool) $v],
-                        'type' => ['type' => (int) $v],
-                        'dueInterval' => ['dueInterval' => $v],
-                        default => [$k => $v], // 'title', 'description'
-                    };
-                })
-                ->all();
+            $userGroupIds = \Illuminate\Support\Arr::pull($data, 'userGroupIds');
 
-            $template->update($updates);
+            $template->update($data);
 
             if ($userGroupIds !== null) {
                 $template->userGroups()->sync($userGroupIds);

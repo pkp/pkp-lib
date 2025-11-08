@@ -168,9 +168,9 @@ class DAO extends EntityDAO
         if ($pubIdType == 'doi') {
             return $this->getByDoi($pubId, $contextId);
         } else {
-            $qb = DB::table('publication_settings ps')
-                ->join('publications p', 'p.publication_id', '=', 'ps.publication_id')
-                ->join('submissions s', 'p.publication_id', '=', 's.current_publication_id')
+            $qb = DB::table('publication_settings AS ps')
+                ->join('publications AS p', 'p.publication_id', '=', 'ps.publication_id')
+                ->join('submissions AS s', 'p.publication_id', '=', 's.current_publication_id')
                 ->where('ps.setting_name', '=', 'pub-id::' . $pubIdType)
                 ->where('ps.setting_value', '=', $pubId);
 
@@ -191,12 +191,13 @@ class DAO extends EntityDAO
      */
     public function getByDoi(string $doi, int $contextId): ?Submission
     {
-        $q = DB::table($this->table, 's')
+        $row = DB::table($this->table, 's')
             ->leftJoin('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
             ->leftJoin('dois AS d', 'd.doi_id', '=', 'p.doi_id')
             ->where('d.doi', '=', $doi)
-            ->where('s.context_id', '=', $contextId);
-        $row = $q->select(['s.submission_id AS submission_id'])->get()->first();
+            ->where('s.context_id', '=', $contextId)
+            ->get('s.submission_id')
+            ->first();
         return $row ? $this->get($row->submission_id) : null;
     }
 

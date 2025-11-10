@@ -32,26 +32,32 @@ class UpdateTaskTemplate extends FormRequest
 
     protected function prepareForValidation(): void
     {
-        $stageId = $this->input('stageId', null);
-        $type = $this->input('type', null);
+        $stageId = $this->input('stageId');
+        $type = $this->input('type');
 
-        $this->merge([
-            'include' => $this->has('include')
-                ? filter_var($this->input('include'), FILTER_VALIDATE_BOOLEAN)
-                : $this->input('include', null),
+        $data = [];
 
-            'userGroupIds' => $this->has('userGroupIds')
-                ? array_values(array_map('intval', (array) $this->input('userGroupIds', [])))
-                : $this->input('userGroupIds', null),
+        if ($this->has('include')) {
+            $data['include'] = filter_var($this->input('include'), FILTER_VALIDATE_BOOLEAN);
+        }
 
-            'stageId' => $this->has('stageId')
-                ? (is_null($stageId) ? null : (int) $stageId)
-                : $this->input('stageId', null),
+        if ($this->has('userGroupIds')) {
+            $data['userGroupIds'] = array_values(
+                array_map('intval', (array) $this->input('userGroupIds', []))
+            );
+        }
 
-            'type' => $this->has('type')
-                ? (is_null($type) ? null : (int) $type)
-                : $this->input('type', null),
-        ]);
+        if ($this->has('stageId')) {
+            $data['stageId'] = is_null($stageId) ? null : (int) $stageId;
+        }
+
+        if ($this->has('type')) {
+            $data['type'] = is_null($type) ? null : (int) $type;
+        }
+
+        if ($data) {
+            $this->merge($data);
+        }
     }
 
 }

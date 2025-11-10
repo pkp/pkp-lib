@@ -20,6 +20,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\core\traits\ResourceWithData;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
 
 class EditorialTaskParticipantResource extends JsonResource
@@ -79,8 +80,8 @@ class EditorialTaskParticipantResource extends JsonResource
         }
 
         if ($reviewAssignments->isNotEmpty()) {
-            $reviewAssignmentsForUser = $reviewAssignments->where('userId', $this->userId);
-            if ($reviewAssignmentsForUser->isNotEmpty()) {
+            $reviewAssignmentsForUser = $reviewAssignments->first(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewerId() == $this->userId);
+            if ($reviewAssignmentsForUser) {
                 $roles[Role::ROLE_ID_REVIEWER] = $reviewerRoleName;
             }
         }
@@ -94,7 +95,7 @@ class EditorialTaskParticipantResource extends JsonResource
         }
 
         return [
-            'id' => $this->id,
+            'id' => $this?->id,
             'userId' => $this->userId,
             'isResponsible' => (bool) $this->isResponsible,
             'fullName' => $user->getFullName(),

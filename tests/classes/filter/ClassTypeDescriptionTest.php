@@ -19,6 +19,7 @@
 namespace PKP\tests\classes\filter;
 
 use PKP\filter\ClassTypeDescription;
+use PKP\tests\classes\filter\TestClass1;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -27,7 +28,7 @@ class ClassTypeDescriptionTest extends PKPTestCase
 {
     public function testInstantiateAndCheck()
     {
-        $typeDescription = new ClassTypeDescription('lib.pkp.tests.classes.filter.TestClass1');
+        $typeDescription = new ClassTypeDescription(TestClass1::class);
         $compatibleObject = new TestClass1();
         $wrongObject = new TestClass2();
         self::assertTrue($typeDescription->isCompatible($compatibleObject));

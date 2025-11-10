@@ -490,4 +490,7 @@ msgstr "Decline review request"
 msgid "reviewerInvitation.addUserRolesMessage"
 msgstr "Please note that you can invite the user to a reviewer role from here. To invite the user to other roles, you can go to Users & Roles section, once the user accepts the invite."
 
+msgid "reviewerInvitation.validator.reviewDueDate.afterOrEqual"
+msgstr "The review due date must be greater than or equal to the response due date."
+
 

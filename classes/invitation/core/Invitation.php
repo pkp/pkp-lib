@@ -338,11 +338,10 @@ abstract class Invitation
         foreach ($invitations->get() as $invitation) {
             if($invitation->payload['reviewAssignmentId']) {
                 $reviewAssignment = Repo::reviewAssignment()->get($invitation->payload['reviewAssignmentId']);
-                Repo::reviewAssignment()->delete($reviewAssignment);
+                $reviewAssignment && Repo::reviewAssignment()->delete($reviewAssignment);
             }
         }
         $invitations->delete();
-
         return true;
     }
 

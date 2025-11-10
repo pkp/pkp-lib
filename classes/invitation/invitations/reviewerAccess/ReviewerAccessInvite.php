@@ -187,7 +187,14 @@ class ReviewerAccessInvite extends Invitation implements IApiHandleable
      */
     public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
-        return [];
+        $invitationValidationMessages = [];
+
+        $invitationValidationMessages = array_merge(
+            $invitationValidationMessages,
+            $this->getPayload()->getValidationMessages($validationContext)
+        );
+
+        return $invitationValidationMessages;
     }
 
     public function getCreateInvitationController(Invitation $invitation): CreateInvitationController

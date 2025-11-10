@@ -225,7 +225,8 @@ class ReviewerAccessInvitePayload extends InvitePayload
             'reviewDueDate' => [
                 'sometimes',
                 'required',
-                'date'
+                'date',
+                'after_or_equal:responseDueDate'
             ],
             'reviewRoundId' => [
                 'sometimes',
@@ -239,6 +240,8 @@ class ReviewerAccessInvitePayload extends InvitePayload
 
     public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
-        return [];
+        return [
+            'reviewDueDate.after_or_equal' => __('reviewerInvitation.validator.reviewDueDate.afterOrEqual'),
+        ];
     }
 }

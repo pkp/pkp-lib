@@ -44,7 +44,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             'inviteeEmail' => '',
             'orcid' => '',
             'givenName' => '',
-            'familyName' => '',
+            'familyName' => null,
             'orcidValidation' => false,
             'disabled' => false,
             'submissionId'=>$request->getUserVars()['submissionId'],
@@ -76,8 +76,8 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
             //send invitation using select a user already has reviewer permission user group
-            if (!$this->invitation->isInvitationUserReviewer($userId,$context->getId())) {
-                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            if ($this->invitation->isInvitationUserReviewer($userId,$context->getId())) {
+                $invitationPayload['userGroupsToAdd'] = [];
             }
             $payloadWithUserData = [
                 ...$invitationPayload,

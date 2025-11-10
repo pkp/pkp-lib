@@ -98,7 +98,6 @@ class PKPEditTaskTemplateController extends PKPBaseController
                 'include' => $validated['include'] ?? false,
                 'description' => $validated['description'] ?? null,
                 'dueInterval' => $validated['dueInterval'] ?? null,
-                'type' => (int) $validated['type'],
             ]);
 
             $tpl->userGroups()->sync($validated['userGroupIds']);
@@ -144,11 +143,9 @@ class PKPEditTaskTemplateController extends PKPBaseController
                     $collector->filterByTitleLike((string) $val);
                     break;
                 case 'type':
-                    if (is_numeric($val)) {
-                        $type = (int) $val;
-                        if (in_array($type, [EditorialTaskType::DISCUSSION->value, EditorialTaskType::TASK->value], true)) {
-                            $collector->filterByType($type);
-                        }
+                    $type = (int) $val;
+                    if (in_array($type, array_column(EditorialTaskType::cases(), 'value'), true)) {
+                        $collector->filterByType($type);
                     }
                     break;
                 case 'stageId':
@@ -233,12 +230,17 @@ class PKPEditTaskTemplateController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $resource = new TaskTemplateResource($template->load('userGroups'));
+
         DB::transaction(function () use ($template) {
             // Pivot/settings rows cascade via FKs defined in migration
             $template->delete();
         });
 
-        return response()->json([], Response::HTTP_OK);
+        return response()->json(
+            $resource->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
     }
 
 }

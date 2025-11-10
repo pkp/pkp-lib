@@ -185,8 +185,12 @@ class Template extends Model
         if ($title === '') {
             return $query;
         }
-        $needle = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($title)) . '%';
-        return $query->whereRaw('LOWER(title) LIKE ?', [$needle]);
+
+        // escape LIKE wildcards in the user input, then wrap with %
+        $needle = '%' . addcslashes($title, '%_') . '%';
+
+        // use LOWER() on both sides so DB applies the same case-folding
+        return $query->whereRaw('LOWER(title) LIKE LOWER(?)', [$needle]);
     }
 
     /**

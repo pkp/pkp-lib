@@ -139,6 +139,7 @@ import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
 import FieldSlider from '@/components/Form/fields/FieldSlider.vue';
 import CategoryManager from '@/managers/CategoryManager/CategoryManager.vue';
+import ContributorRoleManager from '@/managers/ContributorRoleManager/ContributorRoleManager.vue';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
@@ -227,6 +228,7 @@ VueRegistry.registerComponent('PkpTableHeader', TableHeader);
 VueRegistry.registerComponent('PkpTableRow', TableRow);
 VueRegistry.registerComponent('PkpTooltip', Tooltip);
 VueRegistry.registerComponent('CategoryManager', CategoryManager);
+VueRegistry.registerComponent('ContributorRoleManager', ContributorRoleManager);
 
 // Register Form components
 VueRegistry.registerComponent('PkpForm', Form);

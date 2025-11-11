@@ -85,7 +85,7 @@ abstract class SendSubmissionAcknowledgement
         $otherAuthors = $event->submission
             ->getCurrentPublication()
             ->getData('authors')
-            ->filter(fn (Author $author) => !$submitterEmails->contains($author->getEmail()));
+            ->filter(fn (Author $author) => $author->getEmail() && !$submitterEmails->contains($author->getEmail()));
 
         if ($otherAuthors->count()) {
             $emailTemplate = Repo::emailTemplate()->getByKey(

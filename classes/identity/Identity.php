@@ -221,20 +221,16 @@ class Identity extends \PKP\core\DataObject
 
     /**
      * Get email address.
-     *
-     * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->getData('email');
     }
 
     /**
      * Set email address.
-     *
-     * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail(?string $email): void
     {
         $this->setData('email', $email);
     }

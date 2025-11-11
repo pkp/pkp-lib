@@ -14,6 +14,8 @@
 
 namespace PKP\author\creditRole;
 
+use Illuminate\Support\Arr;
+
 enum CreditRoleDegree
 {
     case LEAD;
@@ -23,31 +25,24 @@ enum CreditRoleDegree
 
     public function getLabel(): string
     {
-        return match($this) {
-            self::LEAD => self::LEAD->name,
-            self::EQUAL => self::EQUAL->name,
-            self::SUPPORTING => self::SUPPORTING->name,
-            self::NULL => self::NULL->name,
-        };
+        return $this->name;
+    }
+
+    public static function getDegrees(): array
+    {
+        static $cases;
+        // Leave NULL out
+        $cases ??= Arr::map(Arr::take(self::cases(), count(self::cases()) - 1), fn (self $case): string => $case->name);
+        return $cases;
     }
 
     public static function toLabel(?string $value): string
     {
-        return match($value) {
-            self::LEAD->name => self::LEAD->name,
-            self::EQUAL->name => self::EQUAL->name,
-            self::SUPPORTING->name => self::SUPPORTING->name,
-            default => self::NULL->name
-        };
+        return isset($value) && defined("self::$value") ? $value : self::NULL->name;
     }
 
     public static function toValue(?string $name): ?string
     {
-        return match($name) {
-            self::LEAD->name => self::LEAD->name,
-            self::EQUAL->name => self::EQUAL->name,
-            self::SUPPORTING->name => self::SUPPORTING->name,
-            default => null
-        };
+        return $name !== self::NULL->name && defined("self::$name") ? $name : null;
     }
 }

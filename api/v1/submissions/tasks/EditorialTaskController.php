@@ -674,15 +674,19 @@ class EditorialTaskController extends PKPBaseController
             'isResponsible' => false,
         ]));
 
-        return response()->json([
-            'participants' => EditorialTaskParticipantResource::collection(resource: $resource, data: [
-                'submission' => $submission,
-                'stageAssignments' => $stageAssignments,
-                'reviewAssignments' => $reviewAssignments,
-                'users' => $users,
-                'userGroups' => $userGroups,
-            ]),
-        ], Response::HTTP_OK);
+        return response()->json(
+            EditorialTaskParticipantResource::collection(
+                resource: $resource,
+                data: [
+                    'submission' => $submission,
+                    'stageAssignments' => $stageAssignments,
+                    'reviewAssignments' => $reviewAssignments,
+                    'users' => $users,
+                    'userGroups' => $userGroups,
+                ]
+            ),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -699,16 +703,17 @@ class EditorialTaskController extends PKPBaseController
 
         // Filter review assignments by latest review round by reviewer
         $filteredReviewAssignments = [];
-        foreach ($reviewAssignments as $reviewAssignment) {
+        foreach ($reviewAssignments as $reviewAssignment) { /** @var ReviewAssignment $reviewAssignment */
+            $reviewerId = $reviewAssignment->getReviewerId();
 
-            if (!array_key_exists($reviewAssignment->reviewerId, $filteredReviewAssignments)) {
-                $filteredReviewAssignments[$reviewAssignment->reviewerId] = $reviewAssignment;
+            if (!array_key_exists($reviewerId, $filteredReviewAssignments)) {
+                $filteredReviewAssignments[$reviewerId] = $reviewAssignment;
                 continue;
             }
 
             // Compare review rounds, keep the latest one
-            if ($reviewAssignment->reviewRound > $filteredReviewAssignments[$reviewAssignment->reviewerId]->reviewRound) {
-                $filteredReviewAssignments[$reviewAssignment->reviewerId] = $reviewAssignment;
+            if ($reviewAssignment->getReviewRoundId() > $filteredReviewAssignments[$reviewerId]->getReviewRoundId()) {
+                $filteredReviewAssignments[$reviewerId] = $reviewAssignment;
             }
         }
 

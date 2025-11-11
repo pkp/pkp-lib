@@ -580,11 +580,12 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $roleReviewer = Arr::pull($currentRoles, Role::ROLE_ID_REVIEWER);
+        $roleReviewer = Arr::first($currentRoles, fn (int $role) => $role == Role::ROLE_ID_REVIEWER);
+        $reviewerIsOnlyRole = $roleReviewer != false && count($currentRoles) == 1;
         $isReviewStage = in_array($stageId, Application::get()->getReviewStages());
 
         // If the user is a reviewer and has no other roles, restrict access to non-review stages
-        if (!$isReviewStage && $roleReviewer && empty($currentRoles)) {
+        if (!$isReviewStage && $roleReviewer && $reviewerIsOnlyRole) {
             return response()->json([
                 'error' => __('api.403.forbidden'),
             ], Response::HTTP_FORBIDDEN);
@@ -602,7 +603,7 @@ class EditorialTaskController extends PKPBaseController
             $currentUserReviewAssignments = Repo::reviewAssignment()->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
                 ->filterByStageId($stageId)
-                ->filterByReviewerIds($currentUser->getId())
+                ->filterByReviewerIds([$currentUser->getId()])
                 ->filterByActive(true)
                 ->getMany();
 
@@ -646,7 +647,7 @@ class EditorialTaskController extends PKPBaseController
          * get only the latest review round of the active review from every reviewer.
          * Also, don't show reviewer participants if the current user has only reviewer role
          */
-        if (in_array($stageId, Application::get()->getReviewStages()) && !($roleReviewer && empty($currentRoles))) {
+        if (in_array($stageId, Application::get()->getReviewStages()) && !($roleReviewer && $reviewerIsOnlyRole)) {
             ['users' => $reviewers, 'reviewAssignments' => $associatedReviewAssignments] = $this->getReviewers($submission, $stageId, $currentRoles);
             if ($reviewers->isNotEmpty()) {
                 $users = $users->merge($reviewers);
@@ -730,7 +731,7 @@ class EditorialTaskController extends PKPBaseController
             }
 
             if (in_array(Role::ROLE_ID_AUTHOR, $currentRoles)) {
-                if ($reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS) {
+                if (in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                     $excludeParticipant = true;
                 }
             }
@@ -739,7 +740,7 @@ class EditorialTaskController extends PKPBaseController
                 continue;
             }
 
-            $reviewerId = $reviewAssignment->getData('reviewerId');
+            $reviewerId = $reviewAssignment->getReviewerId();
             if (!$users->has($reviewerId)) {
                 $users->put($reviewerId, Repo::user()->get($reviewerId));
                 $includedReviewAssignments->push($reviewAssignment);

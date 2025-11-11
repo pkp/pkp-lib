@@ -52,8 +52,7 @@ class EditorialTaskParticipantResource extends JsonResource
             if (
                 $reviewAssignments->isNotEmpty() &&
                 $userGroup->roleId === Role::ROLE_ID_REVIEWER &&
-                array_key_exists(Role::ROLE_ID_REVIEWER, $roles) &&
-                !is_null($reviewerRoleName)
+                is_null($reviewerRoleName)
             ) {
                 $reviewerRoleName = $userGroup->getLocalizedData('name');
             }

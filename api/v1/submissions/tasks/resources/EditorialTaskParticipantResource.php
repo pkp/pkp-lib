@@ -78,19 +78,29 @@ class EditorialTaskParticipantResource extends JsonResource
             }
         }
 
+        $reviewMethod = null;
         if ($reviewAssignments->isNotEmpty()) {
             $reviewAssignmentsForUser = $reviewAssignments->first(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewerId() == $this->userId);
             if ($reviewAssignmentsForUser) {
                 $roles[Role::ROLE_ID_REVIEWER] = $reviewerRoleName;
+                $reviewMethods = $reviewAssignments->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewMethod())->unique();
+                $reviewMethod = $reviewMethods->first(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) ??
+                    $reviewMethods->first(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS) ??
+                    $reviewMethods->firstWhere(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN);
             }
         }
 
         $groupedRoles = [];
         foreach ($roles as $roleId => $roleName) {
-            $groupedRoles[] = [
+            $role = [
                 'id' => $roleId,
                 'name' => $roleName,
             ];
+
+            if ($roleId == Role::ROLE_ID_REVIEWER) {
+                $role['reviewMethod'] = $reviewMethod;
+            }
+            $groupedRoles[] = $role;
         }
 
         return [

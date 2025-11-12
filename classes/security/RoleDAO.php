@@ -19,6 +19,7 @@
 namespace PKP\security;
 
 use APP\core\Application;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
@@ -88,17 +89,8 @@ class RoleDAO extends DAO
     public function getByUserIdGroupedByContext(int $userId): array
     {
         $userGroups = UserGroup::query()
-            ->with('userUserGroups')
-            ->whereHas('userUserGroups', function ($query) use ($userId) {
-                $query->where('user_id', $userId)
-                    ->where(function ($q) {
-                        $q->whereNull('date_end')
-                            ->orWhere('date_end', '>', now());
-                    })
-                    ->where(function ($q) {
-                        $q->whereNull('date_start')
-                            ->orWhere('date_start', '<=', now());
-                    });
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($userId) {
+                $query->withUserId($userId)->withActive();
             })
             ->get();
 

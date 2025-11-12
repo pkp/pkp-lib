@@ -479,12 +479,14 @@ class Locale implements LocaleInterface
             return $value;
         }
 
-        // In order to reduce the noise, we're only logging missing entries for the en locale
-        // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
-        if ($locale === LocaleInterface::DEFAULT_LOCALE) {
+        // will only log the missing locale keys when the application is running in strict mode
+        if (app()->getApplicationStrictModeStatus()) {
             error_log("Missing locale key \"{$key}\" for the locale \"{$locale}\"");
         }
-        return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
+
+        return is_callable($this->missingKeyHandler)
+            ? ($this->missingKeyHandler)($key)
+            : '##' . htmlentities($key) . '##';
     }
 
     /**

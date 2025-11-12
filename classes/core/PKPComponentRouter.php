@@ -223,9 +223,6 @@ class PKPComponentRouter extends PKPRouter
                 $op, 'authorize', 'validate', 'initialize'
             ];
 
-            if (!$componentInstance) {
-                $componentInstance = instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
-            }
             if (!is_object($componentInstance)) {
                 return null;
             }

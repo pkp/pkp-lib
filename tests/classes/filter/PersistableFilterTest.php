@@ -63,8 +63,8 @@ class PersistableFilterTest extends PKPTestCase
 
         // Test type validation.
         $typeDescriptionFactory = TypeDescriptionFactory::getInstance();
-        $inputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass1';
-        $outputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass2';
+        $inputTypeDescription = 'class::' . TestClass1::class;
+        $outputTypeDescription = 'class::' . TestClass2::class;
         self::assertEquals($inputTypeDescription, $testFilter->getInputType()->getTypeDescription());
         self::assertEquals($outputTypeDescription, $testFilter->getOutputType()->getTypeDescription());
     }

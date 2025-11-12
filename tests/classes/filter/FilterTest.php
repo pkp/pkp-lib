@@ -91,7 +91,7 @@ class FilterTest extends PKPTestCase
         self::assertNull($mockFilter->getLastOutput());
 
         // Test unsupported output
-        $mockFilter = $this->getFilterMock('class::lib.pkp.tests.classes.filter.TestClass1');
+        $mockFilter = $this->getFilterMock('class::' . TestClass1::class);
         self::assertNull($mockFilter->execute($testInput));
         self::assertEquals($testInput, $mockFilter->getLastInput());
         self::assertNull($mockFilter->getLastOutput());
@@ -137,7 +137,7 @@ class FilterTest extends PKPTestCase
      *
      * @return Filter
      */
-    private function getFilterMock($outputType = 'class::lib.pkp.tests.classes.filter.TestClass2')
+    private function getFilterMock($outputType = 'class::' . TestClass2::class)
     {
         // Mock the abstract filter class
         $mockFilter = $this->getMockBuilder(Filter::class)

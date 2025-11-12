@@ -716,7 +716,7 @@ class PKPContainer extends Container
             }
 
             if (!defined($constant)) {
-                define($constant, $classNamespacePath . '::' . $constant);
+                define($constant, constant($classNamespacePath . '::' . $constant));
             }
         }
     }

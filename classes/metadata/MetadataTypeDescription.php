@@ -22,6 +22,7 @@
 
 namespace PKP\metadata;
 
+use APP\core\Application;
 use PKP\filter\ClassTypeDescription;
 
 class MetadataTypeDescription extends ClassTypeDescription
@@ -82,7 +83,8 @@ class MetadataTypeDescription extends ClassTypeDescription
     {
         // Configure the parent class type description
         // with the expected meta-data class.
-        parent::parseTypeName('lib.pkp.classes.metadata.MetadataDescription');
+        // parent::parseTypeName('lib.pkp.classes.metadata.MetadataDescription');
+        parent::parseTypeName(MetadataDescription::class);
 
         // Split the type name into class name and assoc type.
         $typeNameParts = explode('(', $typeName);
@@ -104,7 +106,7 @@ class MetadataTypeDescription extends ClassTypeDescription
             $this->_assocType = self::ASSOC_TYPE_ANY;
         } else {
             // Make sure that the given assoc type exists.
-            $assocTypeString = 'ASSOC_TYPE_' . $assocTypeString;
+            $assocTypeString = Application::class . '::' . 'ASSOC_TYPE_' . $assocTypeString;
             if (!defined($assocTypeString)) {
                 return false;
             }

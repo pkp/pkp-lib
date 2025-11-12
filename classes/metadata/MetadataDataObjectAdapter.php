@@ -148,15 +148,15 @@ class MetadataDataObjectAdapter extends PersistableFilter
         if (is_null($this->_metadataSchema)) {
             $metadataSchemaName = $this->getMetadataSchemaName();
             assert(!is_null($metadataSchemaName));
-            if (preg_match('/^[a-zA-Z0-9_.]+$/', $metadataSchemaName)) {
-                // DEPRECATED as of 3.4.0: Schema class names should be fully qualified pkp/pkp-lib#8186
-                $this->_metadataSchema = & instantiate($metadataSchemaName, (string) \PKP\metadata\MetadataSchema::class);
-            } elseif (class_exists($metadataSchemaName)) {
+
+            if (class_exists($metadataSchemaName)) {
                 $this->_metadataSchema = new $metadataSchemaName();
             }
+
             if (!$this->_metadataSchema instanceof \PKP\metadata\MetadataSchema) {
                 throw new \Exception('Metadata schema is unexpected class!');
             }
+
             assert(is_object($this->_metadataSchema));
         }
         return $this->_metadataSchema;
@@ -195,7 +195,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
         if (is_null($this->_dataObjectClass)) {
             $dataObjectName = $this->getDataObjectName();
             assert(!is_null($dataObjectName));
-            $dataObjectNameParts = explode('.', $dataObjectName);
+            $dataObjectNameParts = explode('\\', $dataObjectName);
             $this->_dataObjectClass = array_pop($dataObjectNameParts);
         }
         return $this->_dataObjectClass;
@@ -341,7 +341,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     {
         $dataObjectName = $this->getDataObjectName();
         assert(!is_null($dataObjectName));
-        $dataObject = & instantiate($dataObjectName, $this->getDataObjectClass());
+        $dataObject = new $dataObjectName;
         return $dataObject;
     }
 

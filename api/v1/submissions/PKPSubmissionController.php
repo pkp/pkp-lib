@@ -54,6 +54,7 @@ use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\observers\events\MetadataChanged;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -68,14 +69,12 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
-use PKP\observers\events\MetadataChanged;
-use PKP\stageAssignment\StageAssignment;
-
 
 class PKPSubmissionController extends PKPBaseController
 {
@@ -614,14 +613,13 @@ class PKPSubmissionController extends PKPBaseController
             });
 
         // For OJS and OMP, also filter by submission stage assignment
-        // to differentiate between Journal managers, who are not assigned to Submission Stage 
+        // to differentiate between Journal managers, who are not assigned to Submission Stage
         // (production editor, journal manager)
         if (Application::get()->getName() !== 'ops') {
             // $submitterUserGroupsQuery->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION]);
         }
 
         $submitterUserGroups = $submitterUserGroupsQuery->get();
-
 
         $userGroupIdPropName = 'userGroupId';
 
@@ -1353,7 +1351,7 @@ class PKPSubmissionController extends PKPBaseController
 
         foreach ($stageAssignments as $stageAssignment) {
             $userGroup = $stageAssignment->userGroup;
-            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR){
+            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR) {
                 $stageAssignment->canChangeMetadata = 0;
                 $stageAssignment->save();
             }
@@ -1626,7 +1624,7 @@ class PKPSubmissionController extends PKPBaseController
                 Repo::author()->edit($author, ['orcidVerificationRequested']);
                 dispatch(new SendAuthorMail($author, $submissionContext, true));
             } catch (\Exception $exception) {
-                OrcidManager::logError("Could not send email to new author with authorId: {$author->getId()}. Reason: $exception");
+                OrcidManager::logError("Could not send email to new author with authorId: {$author->getId()}. Reason: {$exception}");
             }
         }
 

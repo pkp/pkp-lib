@@ -19,6 +19,11 @@
 namespace PKP\filter;
 
 use PKP\core\Registry;
+use PKP\validation\ValidatorTypeDescription;
+use PKP\xslt\XMLTypeDescription;
+use PKP\metadata\MetadataTypeDescription;
+use PKP\filter\ClassTypeDescription;
+use PKP\filter\PrimitiveTypeDescription;
 
 class TypeDescriptionFactory
 {
@@ -95,14 +100,7 @@ class TypeDescriptionFactory
             return null;
         }
 
-        // Instantiate and return the type description object
-        if (strpos($typeDescriptionClass, '.')) {
-            // DEPRECATED: Use old instantiate function
-            return instantiate($typeDescriptionClass, 'TypeDescription', null, null, $typeDescriptionParts[1]);
-        } else {
-            // New behaviour: Use fully qualified class name
-            return new $typeDescriptionClass();
-        }
+        return new $typeDescriptionClass($typeDescriptionParts[1]);
     }
 
 
@@ -118,11 +116,11 @@ class TypeDescriptionFactory
     public function _namespaceMap(string $namespace): ?string
     {
         return match($namespace) {
-            self::TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.pkp.classes.filter.PrimitiveTypeDescription',
-            self::TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.pkp.classes.filter.ClassTypeDescription',
-            self::TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.pkp.classes.metadata.MetadataTypeDescription',
-            self::TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.pkp.classes.xslt.XMLTypeDescription',
-            self::TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription',
+            self::TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => PrimitiveTypeDescription::class,
+            self::TYPE_DESCRIPTION_NAMESPACE_CLASS => ClassTypeDescription::class,
+            self::TYPE_DESCRIPTION_NAMESPACE_METADATA => MetadataTypeDescription::class,
+            self::TYPE_DESCRIPTION_NAMESPACE_XML => XMLTypeDescription::class,
+            self::TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => ValidatorTypeDescription::class,
             default => null
         };
     }

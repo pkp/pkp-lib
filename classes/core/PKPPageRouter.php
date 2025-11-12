@@ -17,7 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -410,12 +410,9 @@ class PKPPageRouter extends PKPRouter
         // fetch user groups for the user in the current context
         $userGroups = UserGroup::query()
             ->where('context_id', $context->getId())
-            ->whereHas(
-                'userUserGroups',
-                fn (Builder $query) => $query->where('user_id', $userId)
-                    ->where(fn (Builder $q) => $q->whereNull('date_end')->orWhere('date_end', '>', now()))
-                    ->where(fn (Builder $q) => $q->whereNull('date_start')->orWhere('date_start', '<=', now()))
-            )
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($userId) {
+                $query->withUserId($userId)->withActive();
+            })
             ->get();
         if ($userGroups->isEmpty() || ($userGroups->count() == 1 && $userGroups->first()->role_id == Role::ROLE_ID_READER)) {
             return $request->url(null, 'index');

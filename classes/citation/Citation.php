@@ -122,7 +122,3 @@ class Citation extends DataObject
     }
 
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\citation\Citation', '\Citation');
-}

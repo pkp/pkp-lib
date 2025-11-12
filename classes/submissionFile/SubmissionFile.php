@@ -380,7 +380,3 @@ class SubmissionFile extends \PKP\core\DataObject
             ->toArray();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submissionFile\SubmissionFile', '\SubmissionFile');
-}

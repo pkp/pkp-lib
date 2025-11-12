@@ -49,6 +49,11 @@ class PKPContainer extends Container
     protected string $basePath;
 
     /**
+     * Application strict mode control
+     */
+    protected bool $strictMode;
+
+    /**
      * Create own container instance, initialize bindings
      */
     public function __construct()
@@ -58,6 +63,7 @@ class PKPContainer extends Container
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
         $this->registerClassAliases();
+        $this->setApplicationStrictModeStatus(Config::getVar('general', 'strict', true));
     }
 
     /**
@@ -671,11 +677,47 @@ class PKPContainer extends Container
         $this->isRunningUnitTest = false;
     }
 
+    /*
+     * Set application strict mode
+     */
+    public function setApplicationStrictModeStatus(bool $mode): void
+    {
+        $this->strictMode = $mode;
+    }
+
+    /*
+     * Get application strict mode
+     */
+    public function getApplicationStrictModeStatus(): bool
+    {
+        return $this->strictMode;
+    }
+
     /**
      * Get the application namespace.
      */
     public function getNamespace(): string
     {
         return 'PKP\\';
+    }
+
+    /**
+     * Register class consts as global consts
+     */
+    public function registerGlobalConstants(string $classNamespacePath, array $constants): void
+    {
+        if (!class_exists($classNamespacePath)) {
+            throw new Exception(sprintf('Given class %s does not exists', $classNamespacePath));
+        }
+
+        foreach ($constants as $constant) {
+            if (!defined($classNamespacePath . '::' . $constant)) {
+                throw new Exception(sprintf('Constant %s is not defined for class %s', $constant, $classNamespacePath));
+            }
+
+            if (!defined($constant)) {
+                define($constant, $classNamespacePath . '::' . $constant);
+            }
+        }
     }
 }

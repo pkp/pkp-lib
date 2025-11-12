@@ -100,11 +100,6 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
      */
     public function __construct()
     {
-        if (!defined('PKP_STRICT_MODE')) {
-            define('PKP_STRICT_MODE', (bool) Config::getVar('general', 'strict'));
-            class_alias('\PKP\payment\QueuedPayment', '\QueuedPayment'); // QueuedPayment instances may be serialized
-        }
-
         // If Sentry is configured (https://sentry.io), initialize it.
         if ($dsn = Config::getVar('general', 'sentry_dsn')) {
             \Sentry\init(['dsn' => $dsn]);
@@ -119,9 +114,25 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
         Hook::addUnsupportedHooks('Announcement::delete::before', 'Announcement::delete', 'Announcement::Collector'); // pkp/pkp-lib#10328 Unavailable since stable-3_5_0, use Eloquent Model events instead
         Hook::addUnsupportedHooks('UserGroup::delete::before', 'UserGroup::delete'); // unavailable since stable-3_6_0, use Eloquent Model events instead
         Hook::addUnsupportedHooks('CitationDAO::afterImportCitations'); // pkp/pkp-lib#11238 Renamed since stable-3_5_0
-        // If not in strict mode, globally expose constants on this class.
-        if (!PKP_STRICT_MODE) {
-            foreach ([
+
+        // QueuedPayment instances may be serialized
+        class_alias(\PKP\payment\QueuedPayment::class, '\QueuedPayment');
+
+        ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
+
+        if (!static::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
+            PKPSessionGuard::disableSession();
+        }
+
+        Registry::set('application', $this);
+
+        $microTime = microtime(true); // Necessary for reference
+        Registry::set('system.debug.startTime', $microTime);
+
+        $this->initializeLaravelContainer();
+
+        if (!app()->getApplicationStrictModeStatus()) {
+            app()->registerGlobalConstants(static::class, [
                 'ASSOC_TYPE_SITE',
                 'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
                 'ASSOC_TYPE_SUBMISSION_FILE',
@@ -149,26 +160,10 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
                 'ASSOC_TYPE_QUEUED_PAYMENT',
                 'ASSOC_TYPE_PUBLICATION',
                 'ASSOC_TYPE_ACCESSIBLE_FILE_STAGES',
-                'ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER',
-            ] as $constantName) {
-                if (!defined($constantName)) {
-                    define($constantName, constant('self::' . $constantName));
-                }
-            }
+                'ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER'
+            ]);
         }
 
-        ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
-
-        if (!static::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
-            PKPSessionGuard::disableSession();
-        }
-
-        Registry::set('application', $this);
-
-        $microTime = microtime(true); // Necessary for reference
-        Registry::set('system.debug.startTime', $microTime);
-
-        $this->initializeLaravelContainer();
         PKPString::initialize();
 
         // Load default locale files

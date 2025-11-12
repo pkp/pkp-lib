@@ -236,7 +236,3 @@ abstract class TypeDescription
         return $this->parseTypeName($typeName);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\TypeDescription', '\TypeDescription');
-}

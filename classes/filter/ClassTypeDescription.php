@@ -105,7 +105,3 @@ class ClassTypeDescription extends TypeDescription
         return [$packageName, $className];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\ClassTypeDescription', '\ClassTypeDescription');
-}

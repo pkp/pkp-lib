@@ -25,6 +25,7 @@ use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
@@ -45,7 +46,6 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
-use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\UserGroup;
 
 abstract class PKPSubmissionHandler extends Handler
@@ -574,8 +574,7 @@ abstract class PKPSubmissionHandler extends Handler
         Submission $submission,
         Publication $publication,
         array $locales
-    ): ContributorsListPanel
-    {
+    ): ContributorsListPanel {
         return new ContributorsListPanel(
             'contributors',
             __('publication.contributors'),
@@ -595,8 +594,7 @@ abstract class PKPSubmissionHandler extends Handler
         Submission $submission,
         Publication $publication,
         array $locales
-    ): ReviewerSuggestionsListPanel
-    {
+    ): ReviewerSuggestionsListPanel {
         return new ReviewerSuggestionsListPanel(
             'reviewerSuggestions',
             __('submission.reviewerSuggestions'),
@@ -615,15 +613,13 @@ abstract class PKPSubmissionHandler extends Handler
     {
         $request = Application::get()->getRequest();
         $isAdmin = $request->getUser()->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
-        $query = UserGroup::query()->withContextIds([$context->getId()])->withUserIds([$user->getId()]);
-
+        $query = UserGroup::query()->withContextIds([$context->getId()])
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
+            });
         $userGroups = $isAdmin
             ? $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
-            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-                ->whereHas('userUserGroups', function ($query) use ($user) {
-                    $query->withUserId($user->getId())->withActive();
-                })
-                ->get(); // For non-admin users, query for the groups tht give them access to the submission stage
+            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])->get(); // For non-admin users, query for the groups tht give them access to the submission stage
 
         // Users without a submitting role or access to submission stage can submit as an
         // author role that allows self registration.
@@ -670,8 +666,7 @@ abstract class PKPSubmissionHandler extends Handler
         Publication $publication,
         array $locales,
         string $publicationApiUrl
-    ): array
-    {
+    ): array {
         return [
             'id' => 'contributors',
             'name' => __('publication.contributors'),
@@ -720,8 +715,7 @@ abstract class PKPSubmissionHandler extends Handler
         string $publicationApiUrl,
         array $sections,
         string $controlledVocabUrl
-    ): array
-    {
+    ): array {
         $titleAbstractForm = $this->getDetailsForm(
             $publicationApiUrl,
             $locales,
@@ -780,8 +774,7 @@ abstract class PKPSubmissionHandler extends Handler
         array $locales,
         string $publicationApiUrl,
         LazyCollection $categories
-    ): array
-    {
+    ): array {
         $metadataForm = $this->getForTheEditorsForm(
             $publicationApiUrl,
             $locales,
@@ -850,8 +843,7 @@ abstract class PKPSubmissionHandler extends Handler
         Publication $publication,
         array $locales,
         string $publicationApiUrl
-    ): array
-    {
+    ): array {
         $sections = [
             [
                 'id' => 'review',

@@ -158,7 +158,3 @@ class XMLTypeDescription extends TypeDescription
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\xslt\XMLTypeDescription', '\XMLTypeDescription');
-}

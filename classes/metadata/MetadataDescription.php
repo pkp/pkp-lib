@@ -169,12 +169,11 @@ class MetadataDescription extends \PKP\core\DataObject
         // not been done before.
         if (is_null($this->_metadataSchema)) {
             $metadataSchemaName = $this->getMetadataSchemaName();
-            if (preg_match('/^[a-zA-Z0-9_.]+$/', $metadataSchemaName)) {
-                // DEPRECATED as of 3.4.0: non-PSR classloading pkp/pkp-lib#8186
-                $this->_metadataSchema = & instantiate($metadataSchemaName, \PKP\metadata\MetadataSchema::class);
-            } elseif (class_exists($metadataSchemaName)) {
+
+            if (class_exists($metadataSchemaName)) {
                 $this->_metadataSchema = new $metadataSchemaName();
             }
+            
             if (! $this->_metadataSchema instanceof \PKP\metadata\MetadataSchema) {
                 throw new \Exception('Unexpected metadata schema class!');
             }
@@ -647,8 +646,4 @@ class MetadataDescription extends \PKP\core\DataObject
         ];
         return $allowedReplaceLevels;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\metadata\MetadataDescription', '\MetadataDescription');
 }

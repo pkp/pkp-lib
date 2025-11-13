@@ -247,33 +247,6 @@ class UserGroup extends Model
     }
 
     /**
-     * Scope a query to filter by UserUserGroupStatus.
-     */
-    protected function scopeWithUserUserGroupStatus(EloquentBuilder $builder, string $status): EloquentBuilder
-    {
-        $currentDateTime = now();
-
-        if ($status === 'active') {
-            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
-                $q->where(function (EloquentBuilder $q) use ($currentDateTime) {
-                    $q->where('date_start', '<=', $currentDateTime)
-                        ->orWhereNull('date_start');
-                })->where(function (EloquentBuilder $q) use ($currentDateTime) {
-                    $q->where('date_end', '>', $currentDateTime)
-                        ->orWhereNull('date_end');
-                });
-            });
-        } elseif ($status === 'ended') {
-            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
-                $q->whereNotNull('date_end')
-                    ->where('date_end', '<=', $currentDateTime);
-            });
-        }
-        // Implement other statuses if needed
-        return $builder;
-    }
-
-    /**
      * Scope a query to order by role ID.
      */
     protected function scopeOrderByRoleId(EloquentBuilder $builder): EloquentBuilder

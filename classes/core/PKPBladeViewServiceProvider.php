@@ -126,26 +126,45 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
-        // use as @loadSmarty(['file' => 'SMARTY_TEMPLATE_PATH', 'param1' => $param1, 'param2' => $param2, ...])
-        Blade::directive('loadSmarty', function ($parameters) {
+        // use as @includeSmarty('path/to/smarty/template.tpl', ['param1' => $param1, 'param2' => $param2, ...])
+        Blade::directive('includeSmarty', function ($expression) {
+            // Split expression on first comma outside of brackets/arrays
+            // This handles: 'path', [...] or 'path' (without second parameter)
+            $parts = preg_split('/,(?![^[\]]*\])/', $expression, 2);
+            $file = trim($parts[0]);
+            $data = isset($parts[1]) ? (trim($parts[1]) ?: '[]') : '[]';
+
+            // Check if file is an array (invalid usage - only data array passed)
+            if (substr($file, 0, 1) === '[') {
+                throw new Exception('Invalid @includeSmarty usage: file path must be the first parameter (string), not an array. Usage: @includeSmarty(\'path/to/smarty/template.tpl\', [\'param\' => $value])');
+            }
+
+            // Remove quotes from file path string literal
+            if (substr($file, 0, 1) === '"' || substr($file, 0, 1) === "'") {
+                $file = substr($file, 1, -1);
+            }
+
+            if (empty($file)) {
+                throw new Exception('file parameter is missing in @includeSmarty');
+            }
+
+            // Validate that $data parameter is an array expression
+            if ($data !== '[]' && substr(trim($data), 0, 1) !== '[') {
+                throw new Exception('Invalid @includeSmarty usage: second parameter must be an array. Usage: @includeSmarty(\'path/to/smarty/template.tpl\', [\'param\' => $value])');
+            }
+
+            if (!PKPTemplateManager::getManager()->templateExists($file)) {
+                throw new Exception("Smarty template {$file} does not exist");
+            }
+
+            // wrap the file path with double quote to pass though as expression below
+            $file = '"' . $file . '"';
+
             return "<?php
-                \$parameters = $parameters ? (array) ($parameters) : [];
-                \$file = \$parameters['file'] ?? null;
-
-                if (\$file === null) {
-                    throw new \Exception('file parameter is missing in @loadSmarty');
-                }
-
+                \$smartyData = {$data};
                 \$templateManager = \PKP\\template\\PKPTemplateManager::getManager();
-                
-                if (!\$templateManager->templateExists(\$file)) {
-                    throw new \Exception(\"smarty template {\$file} does not exist\");
-                }
-
-                unset(\$parameters['file']);
-                \$templateManager->assign(\$parameters);
-
-                echo \$templateManager->fetch(\$file);
+                \$templateManager->assign(\$smartyData);
+                echo \$templateManager->fetch({$file});
             ?>";
         });
     }

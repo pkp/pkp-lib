@@ -2556,6 +2556,11 @@ class PKPTemplateManager extends Smarty
         }
 
         $file = $params['file'];
+
+        if (str_contains($file, '..') || str_contains($file, '\\') || str_starts_with($file, '/')) {
+            throw new Exception("Invalid file path: path traversal or absolute paths not allowed in given blade file {$file}");
+        }
+
         $file = str_replace(['/', '.blade.php', '.blade'], ['.', '', ''], $file);
 
         // If the file does not contain a namespace, try to find it in the registered view namespaces

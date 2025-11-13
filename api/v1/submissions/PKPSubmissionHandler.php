@@ -176,7 +176,8 @@ class PKPSubmissionHandler extends APIHandler
                 [
                     'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'add'],
-                    'roles' => Role::getAllRoles(),
+                    // user can submit without any role, author role is automatically added afterwards
+                    'roles' => [],
                 ],
                 [
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
@@ -271,7 +272,13 @@ class PKPSubmissionHandler extends APIHandler
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        if ($routeName === 'add') {
+            // For 'add' endpoint, mark role assignments as checked since the add() method
+            // will automatically assign the AUTHOR role to users without roles
+            $this->markRoleAssignmentsChecked();
+        } else {
+            $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        }
 
         if (in_array($routeName, $this->requiresSubmissionAccess)) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));

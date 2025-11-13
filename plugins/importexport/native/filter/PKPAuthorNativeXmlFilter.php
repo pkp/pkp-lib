@@ -19,6 +19,7 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
+use PKP\author\contributorRole\ContributorType;
 use PKP\filter\FilterGroup;
 
 class PKPAuthorNativeXmlFilter extends NativeExportFilter
@@ -91,22 +92,22 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
             $authorNode->setAttribute('include_in_browse', 'true');
         }
 
-        $userGroup = Repo::userGroup()->get($author->getUserGroupId());
-        assert(isset($userGroup));
-
-        if (!$userGroup) {
-            $deployment->addError(Application::ASSOC_TYPE_AUTHOR, $author->getId(), __('plugins.importexport.common.error.userGroupMissing', ['param' => $author->getFullName()]));
-            throw new Exception(__('plugins.importexport.author.exportFailed'));
-        }
-
-        $authorNode->setAttribute('user_group_ref', $userGroup->getLocalizedData('name', $context->getPrimaryLocale()));
         $authorNode->setAttribute('seq', $author->getSequence());
 
         $authorNode->setAttribute('id', $author->getId());
 
         // Add metadata
-        $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
-        $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
+        $contributorType = $author->getData('contributorType');
+        $authorNode->setAttribute('contributor_type', $contributorType);
+
+        if ($contributorType === ContributorType::PERSON->getName()) {
+            $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
+            $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
+        } else if ($contributorType === ContributorType::ORGANIZATION->getName()) {
+            $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getOrganizationName(null));
+        } else if ($contributorType === ContributorType::ANONYMOUS->getName()) {
+            $this->createLocalizedNodes($doc, $authorNode, 'givenname', [$context->getPrimaryLocale() => ContributorType::ANONYMOUS->getName()]);
+        }
 
         foreach ($author->getAffiliations() as $affiliation) {
             if ($affiliation->getRorObject()) {
@@ -128,11 +129,18 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
         }
 
         $this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
-        $authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));
+        $this->createOptionalNode($doc, $authorNode, 'email', htmlspecialchars($author->getEmail() ?? '') ?: null);
         $this->createOptionalNode($doc, $authorNode, 'url', $author->getUrl());
         $this->createOptionalNode($doc, $authorNode, 'orcid', $author->getOrcid());
 
         $this->createLocalizedNodes($doc, $authorNode, 'biography', $author->getBiography(null));
+
+        // Contributor roles
+        $contributorRoleNode = $doc->createElementNS($deployment->getNamespace(), 'contributor_roles');
+        foreach ($author->getContributorRoleIds() as $contributorRoleIds) {
+            $contributorRoleNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'contributor_role_id', $contributorRoleIds));
+        }
+        $authorNode->appendChild($contributorRoleNode);
 
         return $authorNode;
     }

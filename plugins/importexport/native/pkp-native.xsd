@@ -205,7 +205,7 @@
 				</element>
 			</choice>
 			<element name="country" type="string" minOccurs="0" maxOccurs="1" />
-			<element name="email" type="string" />
+			<element name="email" type="string" minOccurs="0" maxOccurs="1" />
 			<element name="url" type="anyURI" minOccurs="0" maxOccurs="1" />
 			<element name="orcid" type="anyURI" minOccurs="0" maxOccurs="1" />
 			<element name="biography" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
@@ -215,11 +215,20 @@
 	<complexType name="author">
 		<complexContent>
 			<extension base="pkp:identity">
+				<sequence>
+					<element name="contributor_roles">
+						<complexType>
+							<sequence>
+								<element name="contributor_role_id" type="int" minOccurs="1" maxOccurs="unbounded" />
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
 				<attribute name="primary_contact" type="boolean" default="false" />
-				<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
 				<attribute name="include_in_browse" type="boolean" default="true" />
 				<attribute name="seq" type="int" use="required" />
 				<attribute name="id" type="int" use="required" />
+				<attribute name="contributor_type" type="string" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>

@@ -1,0 +1,52 @@
+{
+	"title": "ContributorRole",
+	"description": "Contributor role for contributors",
+	"required": [
+		"contextId",
+		"contributorRoleIdentifier",
+		"name"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"origin": "composed",
+			"description": "The URL to this contributor role in the REST API.",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"contextId": {
+			"type": "integer",
+			"description": "The journal, press or preprint server ID.",
+			"apiSummary": true,
+			"writeDisabledInApi": true,
+			"origin": "primary"
+		},
+		"contributorRoleIdentifier": {
+			"type": "string",
+			"description": "The identifier of the role.",
+			"apiSummary": true,
+			"origin": "primary",
+			"validation": [
+				"in:AUTHOR,EDITOR,CHAIR,REVIEWER,REVIEW_ASSISTANT,STATS_REVIEWER,REVIEWER_EXTERNAL,READER,TRANSLATOR,OTHER"
+			]
+		},
+		"id": {
+			"type": "integer",
+			"description": "The unique id of the role in the database.",
+			"readOnly": true,
+			"apiSummary": true,
+			"origin": "primary"
+		},
+		"name": {
+			"type": "string",
+			"description": "The translations of the role.",
+			"apiSummary": true,
+			"multilingual": true,
+			"origin": "setting",
+			"validation": [
+               "nullable"
+           ]
+		}
+	}
+}

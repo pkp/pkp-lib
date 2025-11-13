@@ -19,9 +19,7 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\core\PKPRequest;
-use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\userGroup\UserGroup;
 use stdClass;
 
 class Schema extends \PKP\core\maps\Schema
@@ -31,15 +29,11 @@ class Schema extends \PKP\core\maps\Schema
     public Submission $submission;
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
-    protected Enumerable $authorUserGroups;
-
     public function __construct(Submission $submission, PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
         $this->submission = $submission;
 
         parent::__construct($request, $context, $schemaService);
-
-        $this->authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds([$this->context->getId()])->get();
     }
 
     /**
@@ -96,16 +90,14 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
-                case 'userGroupName':
-                    /** @var UserGroup $userGroup */
-                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->id === $item->getData('userGroupId'));
-                    $output[$prop] = $userGroup ? $userGroup->name : new stdClass();
-                    break;
                 case 'fullName':
                     $output[$prop] = $item->getFullName();
                     break;
                 case 'hasVerifiedOrcid':
                     $output[$prop] = $item->hasVerifiedOrcid();
+                    break;
+                case 'contributorRoles':
+                    $output[$prop] = Repo::contributorRole()->getSchemaMap()->summarizeMany(collect($item->getData('contributorRoles')))->values();
                     break;
                 case 'creditRoles':
                     $output[$prop] = $item->getCreditRoles();

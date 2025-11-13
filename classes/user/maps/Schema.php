@@ -17,19 +17,10 @@ namespace PKP\user\maps;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
-use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
-use PKP\userGroup\relationships\UserUserGroup;
-use PKP\userGroup\UserGroup;
-use PKP\workflow\WorkflowStageDAO;
-use Illuminate\Support\Facades\DB;
-use PKP\facades\Locale;
-
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -142,65 +133,34 @@ class Schema extends \PKP\core\maps\Schema
         } elseif ($isSiteAdmin) {
             $options['permissionMap'] = array_fill_keys($userIds, true);
         } elseif ($currentUserId !== null) {
-            $options['permissionMap'] = $this->buildUserContextManagementMap((int)$currentUserId, $userIds);
+            $options['permissionMap'] = Repo::user()->permissionMapForManager((int)$currentUserId, $userIds);
         } else {
             $options['permissionMap'] = array_fill_keys($userIds, false);
         }
         $contextId = $this->context ? (int) $this->context->getId() : 0;
-        $options['canSeeGossip'] = $this->canSeeGossipForContext($currentUserId, $contextId);
+        $options['canSeeGossip'] = $currentUserId ? Repo::user()->canSeeGossip((int)$currentUserId, $contextId) : false;
 
         // batch preload
-        $interestsByUser = [];
+        $options['groupsByUser'] = (!empty($userIds) && $contextId) ? Repo::user()->preloadGroups($userIds, $contextId) : [];
+        $options['interestsByUser'] = !empty($userIds) ? Repo::user()->preloadInterests($userIds) : [];
 
-        if (!empty($userIds)) {
-            if ($contextId) {
-                $groupsByUser = $this->preloadGroups($userIds, $contextId);
-            }
-            $interestsByUser = $this->preloadInterests($userIds);
+        // batch preload stage assignments, if submission+stage are provided
+        if (!empty($userIds)
+            && isset($options['submission'], $options['stageId'])
+            && $options['submission'] instanceof Submission
+            && is_numeric($options['stageId'])
+        ) {
+            $options['stageAssignmentsByUser'] = Repo::user()->stageAssignmentsForUsers(
+                $userIds,
+                (int)$options['submission']->getId(),
+                (int)$options['stageId'],
+                $contextId
+            );
+        } else {
+            $options['stageAssignmentsByUser'] = [];
         }
-
-        $options['groupsByUser'] = $groupsByUser;
-        $options['interestsByUser'] = $interestsByUser;
 
         return $users->map(fn (User $u) => $this->mapByProperties($props, $u, $options));
-    }
-
-
-    /**
-     * build a permission map for a manager over a set of users
-     */
-    private function buildUserContextManagementMap(int $managerUserId, array $managedUserIds): array
-    {
-        // normalize once
-        $managedUserIds = array_values(array_unique(array_map('intval', $managedUserIds)));
-        if (empty($managedUserIds)) {
-            return [];
-        }
-
-        // Users for whom there exists at least one context they're active in that the manager doesn't manage
-        $unmanagedUserIds = DB::table('users as u')
-            ->whereIn('u.user_id', $managedUserIds)
-            ->whereExists(function ($q) use ($managerUserId) {
-                $q->from('user_user_groups as uug_t')
-                ->join('user_groups as ug_t', 'ug_t.user_group_id', '=', 'uug_t.user_group_id')
-                ->whereColumn('uug_t.user_id', 'u.user_id')
-                ->whereNotExists(function ($qq) use ($managerUserId) {
-                    $qq->from('user_groups as ug_m')
-                        ->join('user_user_groups as uug_m', 'ug_m.user_group_id', '=', 'uug_m.user_group_id')
-                        ->where('ug_m.role_id', Role::ROLE_ID_MANAGER)
-                        ->where('uug_m.user_id', $managerUserId)
-                        // explicit context match
-                        ->whereColumn('ug_m.context_id', 'ug_t.context_id');
-                });
-            })
-            ->pluck('u.user_id')
-            ->all();
-
-        $permissionMap = array_fill_keys($managedUserIds, true);
-        foreach ($unmanagedUserIds as $badId) {
-            $permissionMap[(int) $badId] = false;
-        }
-        return $permissionMap;
     }
 
     /**
@@ -272,58 +232,15 @@ class Schema extends \PKP\core\maps\Schema
                 case 'stageAssignments':
                     $submission = $auxiliaryData['submission'] ?? null;
                     $stageId = $auxiliaryData['stageId'] ?? null;
+                    $byUser = $auxiliaryData['stageAssignmentsByUser'] ?? [];
 
-                    if (
-                        !($submission instanceof Submission) ||
-                        !is_numeric($stageId)
-                    ) {
+                    if (!($submission instanceof Submission) || !is_numeric($stageId)) {
                         $output['stageAssignments'] = [];
                         break;
                     }
 
-                    // Get User's stage assignments for submission.
-                    $stageAssignments = StageAssignment::with(['userGroup'])
-                        ->withSubmissionIds([$submission->getId()])
-                        ->withStageIds([$stageId])
-                        ->withUserId($user->getId())
-                        ->withContextId($this->context->getId())
-                        ->get();
-
-                    $results = [];
-
-                    foreach ($stageAssignments as $stageAssignment) {
-                        $userGroup = $stageAssignment->userGroup;
-
-                        // Only prepare data for non-reviewer participants
-                        if ($userGroup && $userGroup->roleId !== Role::ROLE_ID_REVIEWER) {
-                            $entry = [
-                                'stageAssignmentId' => $stageAssignment->id,
-                                'stageAssignmentUserGroup' => [
-                                    'id' => (int) $userGroup->id,
-                                    'name' => $userGroup->getLocalizedData('name'),
-                                    'abbrev' => $userGroup->getLocalizedData('abbrev'),
-                                    'roleId' => (int) $userGroup->roleId,
-                                    'showTitle' => (bool) $userGroup->showTitle,
-                                    'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
-                                    'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
-                                    'recommendOnly' => (bool) $userGroup->recommendOnly,
-                                ],
-                                'stageAssignmentStageId' => $stageId,
-                                'recommendOnly' => (bool) $stageAssignment->recommendOnly,
-                                'canChangeMetadata' => (bool) $stageAssignment->canChangeMetadata,
-                            ];
-
-                            $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
-                            $entry['stageAssignmentStage'] = [
-                                'id' => $stageId,
-                                'label' => __($workflowStageDao->getTranslationKeyFromId($stageId)),
-                            ];
-
-                            $results[] = $entry;
-                        }
-                    }
-
-                    $output['stageAssignments'] = $results;
+                    // use preloaded map no per-user queries
+                    $output['stageAssignments'] = $byUser[(int)$user->getId()] ?? [];
                     break;
                 case 'displayInitials':
                     $output['displayInitials'] = $user->getDisplayInitials();
@@ -343,110 +260,6 @@ class Schema extends \PKP\core\maps\Schema
         ksort($output);
 
         return $output;
-    }
-
-    /**
-     * Check if a user can view gossip notes for a context.
-     * Site admins or users in Manager/Sub-editor groups for the given context
-     * (or site-wide groups) are allowed.
-     */
-    private function canSeeGossipForContext(?int $currentUserId, int $contextId): bool
-    {
-        if ($currentUserId === null) {
-            return false;
-        }
-        if (Validation::isSiteAdmin()) {
-            return true;
-        }
-        // Managers/sub-editors in this context can see gossip
-        return DB::table('user_groups as ug')
-            ->join('user_user_groups as uug', 'ug.user_group_id', '=', 'uug.user_group_id')
-            ->where('uug.user_id', $currentUserId)
-            ->whereIn('ug.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-            ->where(function ($q) use ($contextId) {
-                // context-specific or site-wide groups
-                $q->where('ug.context_id', $contextId)
-                ->orWhereNull('ug.context_id');
-            })
-            ->exists();
-    }
-
-   /**
-     * Preload user groups for a set of users, scoped to a context.
-     * Returns: [userId => [ ...group payload... ], ...]
-     */
-    private function preloadGroups(array $userIds, int $contextId): array
-    {
-        $locale = Locale::getLocale();
-
-        $rows = UserUserGroup::query()
-            ->withContextId($contextId)
-            ->whereIn('user_user_groups.user_id', $userIds)
-            ->join('user_groups as ug', 'ug.user_group_id', '=', 'user_user_groups.user_group_id')
-            // bind the setting name and a single locale to guarantee 0/1 row
-            ->leftJoin('user_group_settings as ugs_name', function ($j) use ($locale) {
-                $j->on('ugs_name.user_group_id', '=', 'ug.user_group_id')
-                ->where('ugs_name.setting_name', '=', 'name')
-                ->where('ugs_name.locale', '=', $locale);
-            })
-            ->leftJoin('user_group_settings as ugs_abbrev', function ($j) use ($locale) {
-                $j->on('ugs_abbrev.user_group_id', '=', 'ug.user_group_id')
-                ->where('ugs_abbrev.setting_name', '=', 'abbrev')
-                ->where('ugs_abbrev.locale', '=', $locale);
-            })
-            ->get([
-                'user_user_groups.user_id',
-                'ug.user_group_id as id',
-                'ug.role_id as roleId',
-                'ug.show_title as showTitle',
-                'ug.permit_self_registration as permitSelfRegistration',
-                'ug.permit_metadata_edit as permitMetadataEdit',
-                'user_user_groups.date_start as dateStart',
-                'user_user_groups.date_end as dateEnd',
-                'user_user_groups.masthead as userMasthead',
-                'ugs_name.setting_value as name',
-                'ugs_abbrev.setting_value as abbrev',
-            ]);
-
-        $map = [];
-        foreach ($rows as $r) {
-            $map[(int)$r->user_id][] = [
-                'id' => (int)$r->id,
-                'name' => $r->name,
-                'abbrev' => $r->abbrev,
-                'roleId' => (int)$r->roleId,
-                'showTitle' => (bool)((int)$r->showTitle),
-                'permitSelfRegistration' => (bool)((int)$r->permitSelfRegistration),
-                'permitMetadataEdit' => (bool)((int)$r->permitMetadataEdit),
-                'dateStart' => $r->dateStart,
-                'dateEnd' => $r->dateEnd,
-                'masthead' => (bool)((int)$r->userMasthead),
-            ];
-        }
-
-        return $map;
-    }
-
-    /**
-     * Preload interests for a set of users (ids only).
-     */
-    private function preloadInterests(array $userIds): array
-    {
-        $rows = DB::table('user_interests as ui')
-            ->whereIn('ui.user_id', $userIds)
-            ->get([
-                'ui.user_id',
-                'ui.controlled_vocab_entry_id as id',
-            ]);
-
-        $map = [];
-        foreach ($rows as $r) {
-            $map[(int) $r->user_id][] = [
-                'id' => (int) $r->id,
-            ];
-        }
-
-        return $map;
     }
     
     /**

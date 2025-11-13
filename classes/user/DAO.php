@@ -276,7 +276,7 @@ class DAO extends EntityDAO
             $user->setData('completeCount', (int) $row->complete_count);
             $user->setData('declinedCount', (int) $row->declined_count);
             $user->setData('cancelledCount', (int) $row->cancelled_count);
-                $user->setData('averageTime', (int) $row->average_time);
+            $user->setData('averageTime', (int) $row->average_time);
 
             // 0 values should return null. They represent a reviewer with no ratings
             if ($reviewerRating = $row->reviewer_rating) {

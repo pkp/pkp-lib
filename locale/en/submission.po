@@ -3101,14 +3101,8 @@ msgstr "The publication version is \"{$versionString}\""
 msgid "publication.versionStage.authorOriginal"
 msgstr "Author Original"
 
-msgid "publication.versionStage.acceptedManuscript"
-msgstr "Accepted Manuscript"
-
-msgid "publication.versionStage.submittedManuscript"
-msgstr "Submitted Manuscript"
-
-msgid "publication.versionStage.proof"
-msgstr "Proof"
+msgid "publication.versionStage.publishedManuscriptUnderReview"
+msgstr "Published Manuscript Under Review"
 
 msgid "publication.versionStage.versionOfRecord"
 msgstr "Version of Record"

@@ -31,6 +31,7 @@ class ContextEmailVariable extends Variable
     public const CONTEXT_NAME = 'contextName';
     public const CONTEXT_SIGNATURE = 'contextSignature';
     public const CONTEXT_URL = 'contextUrl';
+    public const CONTEXT_ACRONYM = 'contextAcronym';
     public const MAILING_ADDRESS = 'mailingAddress';
     public const PASSWORD_LOST_URL = 'passwordLostUrl';
     public const SUBMISSIONS_URL = 'submissionsUrl';
@@ -60,6 +61,7 @@ class ContextEmailVariable extends Variable
             static::CONTEXT_NAME => __('emailTemplate.variable.context.contextName'),
             static::CONTEXT_SIGNATURE => __('emailTemplate.variable.context.contextSignature'),
             static::CONTEXT_URL => __('emailTemplate.variable.context.contextUrl'),
+            static::CONTEXT_ACRONYM => __('emailTemplate.variable.context.contextAcronym'),
             static::CONTACT_NAME => __('emailTemplate.variable.context.contactName'),
             static::CONTACT_EMAIL => __('emailTemplate.variable.context.contactEmail'),
             static::MAILING_ADDRESS => __('emailTemplate.variable.context.mailingAddress'),
@@ -78,6 +80,7 @@ class ContextEmailVariable extends Variable
         [
             static::CONTEXT_NAME => htmlspecialchars($this->context->getLocalizedData('name', $locale)),
             static::CONTEXT_URL => $this->getContextUrl(),
+            static::CONTEXT_ACRONYM => htmlspecialchars((string) $this->context->getLocalizedData('acronym', $locale)),
             static::CONTACT_NAME => htmlspecialchars((string) $this->context->getData('contactName')),
             static::CONTACT_EMAIL => htmlspecialchars((string) $this->context->getData('contactEmail')),
             static::MAILING_ADDRESS => PKPString::stripUnsafeHtml((string) $this->context->getData('mailingAddress')),

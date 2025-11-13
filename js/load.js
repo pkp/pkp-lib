@@ -42,6 +42,7 @@ import * as useLegacyGridUrl from '@/composables/useLegacyGridUrl.js';
 import * as useLocalize from '@/composables/useLocalize.js';
 import * as useModal from '@/composables/useModal.js';
 import * as useNotify from '@/composables/useNotify.js';
+import * as useOrdering from '@/composables/useOrdering.js';
 import * as useQueryParams from '@/composables/useQueryParams.js';
 import * as useSideMenu from '@/composables/useSideMenu.js';
 import * as useSorting from '@/composables/useSorting.js';
@@ -101,10 +102,12 @@ import SideModalBody from '@/components/Modal/SideModalBody.vue';
 import SideModalLayoutBasic from '@/components/Modal/SideModalLayoutBasic.vue';
 import SkipLink from '@/components/SkipLink/SkipLink.vue';
 import Table from '@/components/Table/Table.vue';
+import TableBody from '@/components/Table/TableBody.vue';
 import TableCell from '@/components/Table/TableCell.vue';
+import TableCellOrder from '@/components/Table/TableCellOrder.vue';
+import TableCellSelect from '@/components/Table/TableCellSelect.vue';
 import TableColumn from '@/components/Table/TableColumn.vue';
 import TableHeader from '@/components/Table/TableHeader.vue';
-import TableBody from '@/components/Table/TableBody.vue';
 import TableRow from '@/components/Table/TableRow.vue';
 import Tooltip from '@/components/Tooltip/Tooltip.vue';
 
@@ -217,6 +220,8 @@ VueRegistry.registerComponent('PkpSkipLink', SkipLink);
 VueRegistry.registerComponent('PkpTable', Table);
 VueRegistry.registerComponent('PkpTableBody', TableBody);
 VueRegistry.registerComponent('PkpTableCell', TableCell);
+VueRegistry.registerComponent('PkpTableCellOrder', TableCellOrder);
+VueRegistry.registerComponent('PkpTableCellSelect', TableCellSelect);
 VueRegistry.registerComponent('PkpTableColumn', TableColumn);
 VueRegistry.registerComponent('PkpTableHeader', TableHeader);
 VueRegistry.registerComponent('PkpTableRow', TableRow);
@@ -345,6 +350,7 @@ export default {
 		useLocalize,
 		useModal,
 		useNotify,
+		useOrdering,
 		useQueryParams,
 		useSideMenu,
 		useSorting,

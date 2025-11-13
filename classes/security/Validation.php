@@ -245,7 +245,8 @@ class Validation
                     return md5($valueToEncrypt);
             }
         } else {
-            return password_hash($password, PASSWORD_BCRYPT);
+            // Use cost 12 to match Laravel's BcryptHasher default, see pkp/pkp-lib#11933
+            return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
         }
     }
 

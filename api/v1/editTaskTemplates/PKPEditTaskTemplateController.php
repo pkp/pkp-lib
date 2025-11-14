@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Arr;
 use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
 use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
 use PKP\core\PKPBaseController;
@@ -29,6 +30,8 @@ use PKP\editorialTask\Template;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\API\v1\editTaskTemplates\formRequests\UpdateTaskTemplate;
 
 class PKPEditTaskTemplateController extends PKPBaseController
 {
@@ -59,6 +62,8 @@ class PKPEditTaskTemplateController extends PKPBaseController
         ])->group(function () {
             Route::post('', $this->add(...));
             Route::get('', $this->getMany(...));
+            Route::put('{templateId}', $this->update(...))->whereNumber('templateId');
+            Route::delete('{templateId}', $this->delete(...))->whereNumber('templateId');
         });
     }
 
@@ -120,6 +125,9 @@ class PKPEditTaskTemplateController extends PKPBaseController
             ->with('userGroups');
 
         $queryParams = $this->_processAllowedParams($request->query(), [
+            'search',
+            'title',
+            'type',
             'stageId',
             'include',
             'count',
@@ -128,6 +136,18 @@ class PKPEditTaskTemplateController extends PKPBaseController
 
         foreach ($queryParams as $param => $val) {
             switch ($param) {
+                case 'search':
+                    $collector->filterBySearch((string) $val);
+                    break;
+                case 'title':
+                    $collector->filterByTitleLike((string) $val);
+                    break;
+                case 'type':
+                    $type = (int) $val;
+                    if (in_array($type, array_column(EditorialTaskType::cases(), 'value'), true)) {
+                        $collector->filterByType($type);
+                    }
+                    break;
                 case 'stageId':
                     $collector->filterByStageId((int) $val);
                     break;
@@ -154,6 +174,73 @@ class PKPEditTaskTemplateController extends PKPBaseController
         return TaskTemplateResource::collection($collection)
             ->response()
             ->setStatusCode(Response::HTTP_OK);
+    }
+
+    /**
+     * UPDATE /api/v1/editTaskTemplates/{templateId}
+     */
+    public function update(UpdateTaskTemplate $request): JsonResponse
+    {
+        $contextId = (int) $this->getRequest()->getContext()->getId();
+        $id = (int) $request->route('templateId');
+
+        $template = Template::query()
+            ->byContextId($contextId)
+            ->find($id);
+    
+        if (!$template) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->validated();
+
+        DB::transaction(function () use ($template, $data) {
+            $userGroupIds = \Illuminate\Support\Arr::pull($data, 'userGroupIds');
+
+            $template->update($data);
+
+            if ($userGroupIds !== null) {
+                $template->userGroups()->sync($userGroupIds);
+            }
+        });
+
+        return response()->json(
+            (new TaskTemplateResource($template->refresh()->load('userGroups')))->toArray($request),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * DELETE /api/v1/editTaskTemplates/{templateId}
+     */
+    public function delete(Request $illuminateRequest): JsonResponse
+    {
+        $contextId = (int) $this->getRequest()->getContext()->getId();
+        $id = (int) $illuminateRequest->route('templateId');
+
+        $template = Template::query()
+            ->byContextId($contextId)
+            ->find($id);
+
+        if (!$template) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $resource = new TaskTemplateResource($template->load('userGroups'));
+
+        DB::transaction(function () use ($template) {
+            // Pivot/settings rows cascade via FKs defined in migration
+            $template->delete();
+        });
+
+        return response()->json(
+            $resource->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
     }
 
 }

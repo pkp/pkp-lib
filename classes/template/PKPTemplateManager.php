@@ -413,7 +413,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('function', 'load_menu', $this->smartyLoadNavigationMenuArea(...));
 
         // load a blade view in smarty templates
-        $this->registerPlugin('function', 'load_blade_view', $this->smartyLoadBladeView(...));
+        $this->registerPlugin('function', 'include_blade', $this->smartyIncludeBlade(...));
 
         // Load form builder vocabulary
         $fbv = $this->getFBV();
@@ -2538,9 +2538,9 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Smarty usage: {load_blade_view file=$file params1=$params1 params2=$params2 ...}
+     * Smarty usage: {include_blade file=$file params1=$params1 params2=$params2 ...}
      *
-     * Custom Smarty function for printing a blade view.
+     * Custom Smarty function for injecting a blade view in a smarty template
      *
      * @param array $params associative array
      * @param Smarty|null $smarty
@@ -2549,10 +2549,10 @@ class PKPTemplateManager extends Smarty
      * 
      * @throws Exception If the file parameter is missing or the blade view does not exist  
      */
-    public function smartyLoadBladeView($params, $smarty = null): string
+    public function smartyIncludeBlade($params, $smarty = null): string
     {
         if (!isset($params['file'])) {
-            throw new Exception('file parameter is missing in {load_blade_view}');
+            throw new Exception('file parameter is missing in {include_blade}');
         }
 
         $file = $params['file'];

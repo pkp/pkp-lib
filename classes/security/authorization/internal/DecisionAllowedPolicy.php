@@ -16,6 +16,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\decision\Decision;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
@@ -73,6 +74,10 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
                     $isAllowed = true;
                 } elseif (!$stageAssignment->getRecommendOnly()) {
                     $isAllowed = true;
+                } elseif ($stageAssignment->getRecommendOnly()) {
+                    if ($decisionType->getDecision() === Decision::NEW_EXTERNAL_ROUND) {
+                        $isAllowed = true;
+                    }
                 }
 
                 // Check whether there is a decision that a recommending role can make on the stage the submission is in.

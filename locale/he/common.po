@@ -1,9 +1,10 @@
 # Emma U <emmaupkp@gmail.com>, 2025.
 # 全名 <ytissona@bgu.ac.il>, 2025.
+# Michal Pinkas <pinkasm@bgu.ac.il>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-05 18:49+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-11-17 11:38+0000\n"
+"Last-Translator: Michal Pinkas <pinkasm@bgu.ac.il>\n"
 "Language-Team: Hebrew <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "he/>\n"
 "Language: he\n"
@@ -99,7 +100,7 @@ msgid "navigation.admin"
 msgstr "ניהול"
 
 msgid "navigation.archives"
-msgstr "ארכיונים"
+msgstr "גיליונות קודמים"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "הנך נמצא כאן:"
@@ -403,7 +404,7 @@ msgid "common.highlights"
 msgstr "מדגיש"
 
 msgid "common.homepageNavigationLabel"
-msgstr "הביתה"
+msgstr "בית"
 
 msgid "common.homePageHeaderLogo.altText"
 msgstr "לוגו כותרת עמוד הבית"
@@ -1580,7 +1581,7 @@ msgid "common.attachSelected"
 msgstr "צרף נבחר"
 
 msgid "common.editorialMasthead"
-msgstr "כותרת ראשית של המערכת"
+msgstr "מערכת"
 
 msgid "common.editorialMasthead.peerReviewers"
 msgstr "סוקרים בשנה הקודמת"

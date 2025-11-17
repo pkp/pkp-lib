@@ -19,60 +19,44 @@
 namespace PKP\announcement;
 
 use APP\facades\Repo;
+use Generator;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 
 class AnnouncementTypeDAO extends \PKP\db\DAO
 {
     /**
      * Generate a new data object.
-     *
-     * @return AnnouncementType
      */
-    public function newDataObject()
+    public function newDataObject(): AnnouncementType
     {
         return new AnnouncementType();
     }
 
     /**
      * Retrieve an announcement type by announcement type ID.
-     *
-     * @param ?int $typeId Announcement type ID
-     * @param ?int $contextId Optional context ID
-     *
-     * @return AnnouncementType
      */
-    public function getById($typeId, $contextId = null)
+    public function getById(int $typeId, ?int $contextId = null): ?AnnouncementType
     {
-        $params = [(int) $typeId];
-        if ($contextId !== null) {
-            $params[] = (int) $contextId;
-        }
-        $result = $this->retrieve(
-            'SELECT * FROM announcement_types WHERE type_id = ?' .
-            ($contextId !== null ? ' AND context_id = ?' : ''),
-            $params
-        );
-        $row = $result->current();
-        return $row ? $this->_fromRow((array) $row) : null;
+        $announcement = DB::table('announcement_types')
+            ->where('type_id', '=', $typeId)
+            ->when($contextId !== null, fn (Builder $q) => $q->where(DB::raw('COALESCE(context_id, 0)'), '=', $contextId))
+            ->first();
+        return $announcement ? $this->_fromRow((array) $announcement) : null;
     }
 
     /**
      * Get the locale field names.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name'];
     }
 
     /**
      * Internal function to return an AnnouncementType object from a row.
-     *
-     * @param array $row
-     *
-     * @return AnnouncementType
      */
-    public function _fromRow($row)
+    public function _fromRow(array $row): AnnouncementType
     {
         $announcementType = $this->newDataObject();
         $announcementType->setId($row['type_id']);
@@ -84,10 +68,8 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
 
     /**
      * Update the localized settings for this object
-     *
-     * @param AnnouncementType $announcementType
      */
-    public function updateLocaleFields($announcementType)
+    public function updateLocaleFields(AnnouncementType $announcementType): void
     {
         $this->updateDataObjectSettings(
             'announcement_type_settings',
@@ -98,108 +80,75 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
 
     /**
      * Insert a new AnnouncementType.
-     *
-     * @param AnnouncementType $announcementType
-     *
-     * @return int
      */
-    public function insertObject($announcementType)
+    public function insertObject(AnnouncementType $announcementType): int
     {
-        $this->update(
-            sprintf('INSERT INTO announcement_types
-				(context_id)
-				VALUES
-				(?)'),
-            [
-                $announcementType->getContextId()
-                    ? (int) $announcementType->getContextId()
-                    : null
-            ]
-        );
-        $announcementType->setId($this->getInsertId());
+        $id = DB::table('announcement_types')->insertGetId(['context_id' => $announcementType->getContextId()], 'type_id');
+        $announcementType->setId($id);
         $this->updateLocaleFields($announcementType);
-        return $announcementType->getId();
+        return $id;
     }
 
     /**
      * Update an existing announcement type.
-     *
-     * @param AnnouncementType $announcementType
-     *
-     * @return bool
      */
-    public function updateObject($announcementType)
+    public function updateObject(AnnouncementType $announcementType): bool
     {
-        $returner = $this->update(
-            'UPDATE	announcement_types
-                        SET	context_id = ?
-			WHERE	type_id = ?',
-            [
-                $announcementType->getContextId(),
-                (int) $announcementType->getId()
-            ]
-        );
+        $affected = DB::table('announcement_types')
+            ->where('type_id', '=', $announcementType->getId())
+            ->update(['context_id' => $announcementType->getContextId()]);
 
         $this->updateLocaleFields($announcementType);
-        return $returner;
+        return $affected > 0;
     }
 
     /**
-     * Delete an announcement type. Note that all announcements with this type are also
-     * deleted.
-     *
-     * @param AnnouncementType $announcementType
+     * Delete an announcement type.
+     * @param bool $deleteAnnouncements Defaults to false, when true, all announcements with this type are also deleted.
      */
-    public function deleteObject($announcementType)
+    public function deleteObject(AnnouncementType $announcementType, bool $deleteAnnouncements = false): void
     {
-        return $this->deleteById($announcementType->getId());
+        $this->deleteById($announcementType->getId(), $deleteAnnouncements);
     }
 
     /**
-     * Delete an announcement type by announcement type ID. Note that all announcements with
-     * this type ID are also deleted.
-     *
-     * @param int $typeId
+     * Delete an announcement type by announcement type ID.
+     * @param bool $deleteAnnouncements Defaults to false, when true, all announcements with this type are also deleted.
      */
-    public function deleteById($typeId)
+    public function deleteById(int $typeId, bool $deleteAnnouncements = false): void
     {
-        $this->update('DELETE FROM announcement_type_settings WHERE type_id = ?', [(int) $typeId]);
-        $this->update('DELETE FROM announcement_types WHERE type_id = ?', [(int) $typeId]);
+        if ($deleteAnnouncements) {
+            $collector = Repo::announcement()->getCollector()->filterByTypeIds([$typeId]);
+            Repo::announcement()->deleteMany($collector);
+        }
 
-        $collector = Repo::announcement()->getCollector()->filterByTypeIds([(int) $typeId]);
-        Repo::announcement()->deleteMany($collector);
+        DB::table('announcement_types')
+            ->where('type_id', '=', $typeId)
+            ->delete();
     }
 
     /**
      * Delete announcement types by context ID.
-     *
-     * @param int $contextId
      */
-    public function deleteByContextId($contextId)
+    public function deleteByContextId(?int $contextId): void
     {
         foreach ($this->getByContextId($contextId) as $type) {
-            $this->deleteObject($type);
+            $this->deleteObject($type, true);
         }
     }
 
     /**
      * Retrieve an array of announcement types matching a particular context ID.
      *
-     * @return \Generator<int,AnnouncementType> Matching AnnouncementTypes
+     * @return Generator<int,AnnouncementType> Matching AnnouncementTypes
      */
-    public function getByContextId(?int $contextId)
+    public function getByContextId(?int $contextId): Generator
     {
-        if ($contextId) {
-            $result = $this->retrieve(
-                'SELECT * FROM announcement_types WHERE context_id = ? ORDER BY type_id',
-                [$contextId]
-            );
-        } else {
-            $result = $this->retrieve(
-                'SELECT * FROM announcement_types WHERE context_id IS NULL ORDER BY type_id'
-            );
-        }
-        foreach ($result as $row) {
+        $rows = DB::table('announcement_types')
+            ->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId)
+            ->orderBy('type_id')
+            ->get();
+        foreach ($rows as $row) {
             yield $row->type_id => $this->_fromRow((array) $row);
         }
     }

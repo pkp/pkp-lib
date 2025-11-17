@@ -620,17 +620,15 @@ abstract class PKPSubmissionHandler extends Handler
         $userGroups = $isAdmin
             ? $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
             : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-                ->withUserUserGroupStatus(UserUserGroupStatus::STATUS_ACTIVE->value)
+                ->whereHas('userUserGroups', function ($query) use ($user) {
+                    $query->withUserId($user->getId())->withActive();
+                })
                 ->get(); // For non-admin users, query for the groups tht give them access to the submission stage
 
         // Users without a submitting role or access to submission stage can submit as an
         // author role that allows self registration.
         // They are also assigned the author role
         if ($userGroups->isEmpty()) {
-            Repo::userGroup()->assignUserToGroup(
-                $user->getId(),
-                Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId())->first()->id
-            );
             $defaultUserGroup = UserGroup::withContextIds([$context->getId()])
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->permitSelfRegistration(true)

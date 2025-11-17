@@ -245,17 +245,17 @@ class Template extends Model
 
             $query->where(function (Builder $outer) use ($keywords, $settingsTable, $pk, $selfTable) {
                 foreach ($keywords as $tok) {
-                    $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($tok, 'UTF-8')) . '%';
+                    $like = '%' . addcslashes($tok, '%_') . '%';
 
                     $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
-                        $q->whereRaw('LOWER(title) LIKE ?', [$like])
-                            ->orWhereRaw('LOWER(description) LIKE ?', [$like])
+                        $q->whereRaw('LOWER(title) LIKE LOWER(?)', [$like])
+                            ->orWhereRaw('LOWER(description) LIKE LOWER(?)', [$like])
                             ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
                                 $sub->select(DB::raw(1))
                                     ->from($settingsTable . ' as ets')
                                     ->whereColumn("ets.$pk", "$selfTable.$pk")
                                     ->whereIn('ets.setting_name', ['name', 'description'])
-                                    ->whereRaw('LOWER(ets.setting_value) LIKE ?', [$like]);
+                                    ->whereRaw('LOWER(ets.setting_value) LIKE LOWER(?)', [$like]);
                             });
                     });
                 }

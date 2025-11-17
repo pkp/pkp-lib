@@ -27,13 +27,7 @@ trait TaskTemplateRequestTrait
 
     protected function getStageIds(): array
     {
-        $stages = Application::getApplicationStages();
-
-        return array_values(
-            array_unique(
-                array_map('intval', array_values((array) $stages))
-            )
-        );
+        return Application::getApplicationStages();
     }
 
     protected function userGroupIdsItemRules(int $contextId): array

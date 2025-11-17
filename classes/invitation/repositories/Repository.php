@@ -14,6 +14,9 @@
 
 namespace PKP\invitation\repositories;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\models\InvitationModel;
 
@@ -61,5 +64,29 @@ class Repository
         }
 
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
+    }
+
+    public function getInvitationByReviewerAssignmentId(int $reviewerAssignmentId) : ?Invitation
+    {
+        $invitationModel = InvitationModel::notHandled()
+            ->notExpired()
+            ->where('payload->reviewAssignmentId', $reviewerAssignmentId)->first();
+
+        if (is_null($invitationModel)) {
+            return null;
+        }
+
+        return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
+    }
+
+    public function findExistingInvitation(Invitation $invitation):Collection
+    {
+        return InvitationModel::byStatus(InvitationStatus::PENDING)
+            ->byType($invitation->getType())
+            ->byNotId($invitation->getId())
+            ->when($invitation->getUserId() !== null, fn (Builder $q) => $q->byUserId($invitation->getUserId()))
+            ->when($invitation->getUserId() === null && $invitation->getEmail(), fn (Builder $q) => $q->byEmail($invitation->getEmail()))
+            ->when($invitation->getContextId() !== null, fn (Builder $q) => $q->byContextId($invitation->getContextId()))
+            ->get();
     }
 }

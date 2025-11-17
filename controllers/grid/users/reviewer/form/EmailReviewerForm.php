@@ -79,8 +79,12 @@ class EmailReviewerForm extends Form
     public function fetch($request, $template = null, $display = false, $requestArgs = [])
     {
         $templateMgr = TemplateManager::getManager($request);
+        $invitation = null;
+        if(!$this->_reviewAssignment->getReviewerId()){
+            $invitation = Repo::invitation()->getInvitationByReviewerAssignmentId($this->_reviewAssignment->getId());
+        }
         $templateMgr->assign([
-            'userFullName' => $this->_reviewAssignment->getReviewerFullName(),
+            'userFullName' => $this->_reviewAssignment->getReviewerFullName() ? $this->_reviewAssignment->getReviewerFullName() : $invitation->getEmail(),
             'requestArgs' => $requestArgs,
             'reviewAssignmentId' => $this->_reviewAssignment->getId(),
         ]);
@@ -93,12 +97,15 @@ class EmailReviewerForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $toUser = Repo::user()->get($this->_reviewAssignment->getReviewerId());
+        $toUser = null;
+        if($this->_reviewAssignment->getReviewerId()){
+            $toUser = Repo::user()->get($this->_reviewAssignment->getReviewerId());
+        }
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
         $mailable = new Mailable([$request->getContext(), $this->submission]);
-        $mailable->to($toUser->getEmail(), $toUser->getFullName());
+        $mailable->to($toUser?$toUser->getEmail():$this->_reviewAssignment->getData('email'), $toUser?->getFullName());
         $mailable->from($fromUser->getEmail(), $fromUser->getFullName());
         $mailable->replyTo($fromUser->getEmail(), $fromUser->getFullName());
         $mailable->subject($this->getData('subject'));

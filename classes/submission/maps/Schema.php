@@ -694,11 +694,12 @@ class Schema extends \PKP\core\maps\Schema
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
                 'reviewerUserName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerUserName'),
+                'invitedReviewerEmail' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('email'),
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
                 'canLoginAs' => $canLoginAs,
                 'canGossip' => $canGossip,
-                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId(), true)->getDisplayInitials(),
-                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId(), true)->getData('orcidIsVerified')
+                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : ($reviewAssignment->getReviewerId() ? Repo::user()->get($reviewAssignment->getReviewerId())->getDisplayInitials() : null),
+                'reviewerHasOrcid' => $reviewAssignment->getReviewerId() ?!($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId())->getData('orcidIsVerified') : null,
             ];
         }
 

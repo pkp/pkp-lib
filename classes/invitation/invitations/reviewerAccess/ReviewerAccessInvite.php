@@ -18,28 +18,47 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Mail\Mailable;
-use PKP\invitation\core\contracts\IBackofficeHandleable;
-use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\identity\Identity;
+use PKP\invitation\core\contracts\IApiHandleable;
+use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\enums\InvitationAction;
-use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\InvitationUIActionRedirectController;
+use PKP\invitation\core\ReceiveInvitationController;
+use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
+use PKP\invitation\invitations\reviewerAccess\handlers\api\ReviewerAccessInviteCreateController;
+use PKP\invitation\invitations\reviewerAccess\handlers\api\ReviewerAccessInviteReceiveController;
 use PKP\invitation\invitations\reviewerAccess\handlers\ReviewerAccessInviteRedirectController;
+use PKP\invitation\invitations\reviewerAccess\handlers\ReviewerAccessInviteUIController;
 use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
+use PKP\invitation\invitations\userRoleAssignment\rules\EmailMustNotExistRule;
+use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
+use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
+use PKP\mail\mailables\ReviewerAccessInvitationNotify;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
+use PKP\security\Role;
 use PKP\security\Validation;
+use PKP\userGroup\UserGroup;
 
-class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable
+class ReviewerAccessInvite extends Invitation implements IApiHandleable
 {
+    use HasMailable;
     use ShouldValidate;
 
     public const INVITATION_TYPE = 'reviewerAccess';
 
     protected array $notAccessibleAfterInvite = [
-        'reviewAssignmentId',
+        'submissionId',
+        'reviewRoundId',
+    ];
+
+    protected array $notAccessibleBeforeInvite = [
+        'orcid',
+        'username',
+        'password'
     ];
 
     /**
@@ -88,6 +107,11 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         return array_merge(parent::getNotAccessibleAfterInvite(), $this->notAccessibleAfterInvite);
     }
 
+    public function getNotAccessibleBeforeInvite(): array
+    {
+        return array_merge(parent::getNotAccessibleBeforeInvite(), $this->notAccessibleBeforeInvite);
+    }
+
     public function updateMailableWithUrl(Mailable $mailable): void
     {
         $url = $this->getActionURL(InvitationAction::ACCEPT);
@@ -99,51 +123,6 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         });
     }
 
-    public function finalize(): void
-    {
-        $contextDao = Application::getContextDAO();
-        $context = $contextDao->getById($this->invitationModel->contextId);
-
-        if ($context->getData('reviewerAccessKeysEnabled')) {
-            if (!$this->_validateAccessKey()) {
-                throw new Exception();
-            }
-
-            $this->invitationModel->markAs(InvitationStatus::ACCEPTED);
-        }
-    }
-
-    private function _validateAccessKey(): bool
-    {
-        $reviewAssignment = Repo::reviewAssignment()->get($this->getPayload()->reviewAssignmentId);
-
-        if (!$reviewAssignment) {
-            return false;
-        }
-
-        // Check if the user is already logged in
-        if (Application::get()->getRequest()->getSessionGuard()->getUserId() && Application::get()->getRequest()->getSessionGuard()->getUserId() != $this->invitationModel->userId) {
-            return false;
-        }
-
-        $reviewSubmission = Repo::submission()->getByBestId($reviewAssignment->getSubmissionId());
-        if (!isset($reviewSubmission)) {
-            return false;
-        }
-
-        // Get the reviewer user object
-        $user = Repo::user()->get($this->invitationModel->userId);
-        if (!$user) {
-            return false;
-        }
-
-        // Register the user object in the session
-        $reason = null;
-        Validation::registerUserSession($user, $reason);
-
-        return true;
-    }
-
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new ReviewerAccessInviteRedirectController($this);
@@ -151,31 +130,56 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
 
     public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
     {
-        return null;
+        return new ReviewerAccessInviteUIController($this);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
+    public function getMailable(): Mailable
     {
-        return [
-            'reviewAssignmentId' => [
-                'required',
-                'integer',
-                function ($attribute, $value, $fail) {
-                    $reviewAssignment = Repo::reviewAssignment()->get($value);
+        $contextDao = Application::getContextDAO();
+        $context = $contextDao->getById($this->invitationModel->contextId);
+        $locale = $context->getPrimaryLocale();
 
-                    if (!$reviewAssignment) {
-                        $fail(__('invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting',
-                            [
-                                'reviewAssignmentId' => $value
-                            ])
-                        );
-                    }
-                }
-            ]
-        ];
+        // Define the Mailable
+        $mailable = new ReviewerAccessInvitationNotify($context, $this);
+        $mailable->setData($locale);
+
+        // Set the email send data
+        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+
+        if (!isset($emailTemplate)) {
+            throw new \Exception('No email template found for key ' . $mailable::getEmailTemplateKey());
+        }
+
+        $inviter = $this->getInviter();
+
+        $reciever = $this->getMailableReceiver($locale);
+
+        $mailable
+            ->sender($inviter)
+            ->recipients([$reciever])
+            ->subject($emailTemplate->getLocalizedData('subject', $locale))
+            ->body($emailTemplate->getLocalizedData('body', $locale));
+
+        $this->setMailable($mailable);
+
+        return $this->mailable;
+    }
+
+    public function getMailableReceiver(?string $locale = null): Identity
+    {
+        $locale = $this->getUsedLocale($locale);
+
+        $receiver = parent::getMailableReceiver($locale);
+
+        if (isset($this->familyName)) {
+            $receiver->setFamilyName($this->getPayload()->familyName, $locale);
+        }
+
+        if (isset($this->givenName)) {
+            $receiver->setGivenName($this->getPayload()->givenName, $locale);
+        }
+
+        return $receiver;
     }
 
     /**
@@ -183,6 +187,67 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
      */
     public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
-        return [];
+        $invitationValidationMessages = [];
+
+        $invitationValidationMessages = array_merge(
+            $invitationValidationMessages,
+            $this->getPayload()->getValidationMessages($validationContext)
+        );
+
+        return $invitationValidationMessages;
+    }
+
+    public function getCreateInvitationController(Invitation $invitation): CreateInvitationController
+    {
+        return new ReviewerAccessInviteCreateController($this);
+    }
+
+    public function getReceiveInvitationController(Invitation $invitation): ReceiveInvitationController
+    {
+        return new ReviewerAccessInviteReceiveController($this);
+    }
+
+    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
+    {
+        $invitationValidationRules = [];
+
+        if (
+            $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE ||
+            $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
+        ) {
+            if (!$this->isInvitationUserReviewer($this->getUserId(),$this->invitationModel->contextId)) { //if user already has reviewer permission no need to fill the userGroupsToAdd
+                $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new NoUserGroupChangesRule(
+                    $this->getPayload()->userGroupsToAdd
+                );
+            }
+            $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new UserMustExistRule($this->getUserId());
+        }
+
+        if (
+            $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
+        ) {
+            $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new EmailMustNotExistRule($this->getEmail());
+        }
+
+        return array_merge(
+            $invitationValidationRules,
+            $this->getPayload()->getValidationRules($this, $validationContext)
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function updatePayload(?ValidationContext $validationContext = null): ?bool
+    {
+        // Encrypt the password if it exists
+        // There is already a validation rule that makes username and password fields interconnected
+        if (isset($this->getPayload()->username) && isset($this->getPayload()->password) && !$this->getPayload()->passwordHashed) {
+            $this->getPayload()->password = Validation::encryptCredentials($this->getPayload()->username, $this->getPayload()->password);
+            $this->getPayload()->passwordHashed = true;
+        }
+
+        // Call the parent updatePayload method to continue the normal update process
+        return parent::updatePayload($validationContext);
     }
 }

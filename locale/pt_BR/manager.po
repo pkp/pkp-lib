@@ -5,13 +5,14 @@
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 # Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
+# Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-28 16:22+0000\n"
-"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
+"PO-Revision-Date: 2025-11-08 01:06+0000\n"
+"Last-Translator: Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1741,8 +1742,8 @@ msgstr "Permitir autoregistro de usuários"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
-"Este papel é permite apenas recomendar uma decisão de avaliação e exigirá "
-"um(a) editor(a) autorizado(a) para registrar uma decisão final."
+"Permitir a este papel apenas recomendar uma decisão (isso exigirá que um(a) "
+"editor(a) autorizado(a) registre uma decisão final)."
 
 msgid "settings.roles.roleName"
 msgstr "Nome do Papel"
@@ -3911,7 +3912,7 @@ msgstr ""
 "{$localeName}. A submissão não pode ser importado sem essas informações."
 
 msgid "settings.roles.masthead"
-msgstr "Considere o papel na lista da equipe editorial"
+msgstr "Mostrar as pessoas com este papel na equipe editorial da revista"
 
 msgid "settings.roles.permitSettings"
 msgstr "Permitir alterações nas configurações"

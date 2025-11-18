@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2025-03-22 20:08+0000\n"
+"PO-Revision-Date: 2025-11-04 10:59+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -3963,3 +3963,13 @@ msgstr "Запрошення на зміну електронної адреси
 # fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "Потрібна назва пункту меню."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Категорія не існує або належить до іншого контексту. Переконайтеся, що ви "
+"працюєте з правильним контекстом, і спробуйте ще раз."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Не вдалося знайти файли зображення обкладинки та мініатюр. Можливо, їх уже "
+"видалено. Спробуйте перезавантажити сторінку."

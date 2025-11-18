@@ -20,6 +20,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\core\traits\ResourceWithData;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
 
 class EditorialTaskParticipantResource extends JsonResource
@@ -51,8 +52,7 @@ class EditorialTaskParticipantResource extends JsonResource
             if (
                 $reviewAssignments->isNotEmpty() &&
                 $userGroup->roleId === Role::ROLE_ID_REVIEWER &&
-                array_key_exists(Role::ROLE_ID_REVIEWER, $roles) &&
-                !is_null($reviewerRoleName)
+                is_null($reviewerRoleName)
             ) {
                 $reviewerRoleName = $userGroup->getLocalizedData('name');
             }
@@ -78,23 +78,33 @@ class EditorialTaskParticipantResource extends JsonResource
             }
         }
 
+        $reviewMethod = null;
         if ($reviewAssignments->isNotEmpty()) {
-            $reviewAssignmentsForUser = $reviewAssignments->where('userId', $this->userId);
-            if ($reviewAssignmentsForUser->isNotEmpty()) {
+            $reviewAssignmentsForUser = $reviewAssignments->first(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewerId() == $this->userId);
+            if ($reviewAssignmentsForUser) {
                 $roles[Role::ROLE_ID_REVIEWER] = $reviewerRoleName;
+                $reviewMethods = $reviewAssignments->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewMethod())->unique();
+                $reviewMethod = $reviewMethods->first(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) ??
+                    $reviewMethods->first(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS) ??
+                    $reviewMethods->firstWhere(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN);
             }
         }
 
         $groupedRoles = [];
         foreach ($roles as $roleId => $roleName) {
-            $groupedRoles[] = [
+            $role = [
                 'id' => $roleId,
                 'name' => $roleName,
             ];
+
+            if ($roleId == Role::ROLE_ID_REVIEWER) {
+                $role['reviewMethod'] = $reviewMethod;
+            }
+            $groupedRoles[] = $role;
         }
 
         return [
-            'id' => $this->id,
+            'id' => $this?->id,
             'userId' => $this->userId,
             'isResponsible' => (bool) $this->isResponsible,
             'fullName' => $user->getFullName(),

@@ -256,6 +256,10 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             if ($childNode instanceof \DOMElement) {
                 switch ($childNode->tagName) {
                     case 'href':
+                        if (php_sapi_name() !== 'cli') {
+                            $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), 'Web-based imports may not specify "href"; use "embed" instead, or import using the command line.');
+                            break;
+                        }
                         $temporaryFileManager = new TemporaryFileManager();
                         $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'src');
                         $filesrc = $childNode->getAttribute('src');

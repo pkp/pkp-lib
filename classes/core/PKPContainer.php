@@ -713,8 +713,6 @@ class PKPContainer extends Container
      */
     public function registerGlobalConstants(string $classNamespacePath, array $constants): void
     {
-        // Silently skip registration when strict mode is enabled
-        // This allows PHPUnit tests to enforce strict mode without breaking application code
         if ($this->getApplicationStrictModeStatus()) {
             throw new Exception('Registering class const as global const in strict mode in now allowed');
         }

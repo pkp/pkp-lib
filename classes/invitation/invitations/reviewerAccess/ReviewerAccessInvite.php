@@ -215,7 +215,7 @@ class ReviewerAccessInvite extends Invitation implements IApiHandleable
             $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE ||
             $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
         ) {
-            if (!$this->isInvitationUserReviewer($this->getUserId(),$this->invitationModel->contextId)) { //if user already has reviewer permission no need to fill the userGroupsToAdd
+            if (!Repo::userGroup()->userIsReviewer($this->getUserId(),$this->invitationModel->contextId)) { //if user already has reviewer permission no need to fill the userGroupsToAdd
                 $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new NoUserGroupChangesRule(
                     $this->getPayload()->userGroupsToAdd
                 );

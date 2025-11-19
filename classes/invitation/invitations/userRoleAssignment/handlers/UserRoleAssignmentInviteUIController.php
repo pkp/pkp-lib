@@ -71,7 +71,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             ]
         ];
         $user = null;
-        $invitationMode = 'create';
+        $invitationMode = self::MODE_CREATE;
         if ($userId) {
             //send invitation using edit user action in user access table
             $user = Repo::user()->get($userId, true);
@@ -82,7 +82,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             new UserRoleAssignmentInviteResource($this->invitation))
                 ->transformInvitationPayload($userId, $user->getAllData(), $request->getContext()
                 );
-            $invitationMode = 'editUser';
+            $invitationMode = self::MODE_EDIT_BY_USER;
         }
         $templateMgr = TemplateManager::getManager($request);
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
@@ -148,7 +148,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
     {
         $payload = $this->invitation->getPayload()->toArray();
         $invitationModel = $this->invitation->invitationModel->toArray();
-        $invitationMode = 'edit';
+        $invitationMode = self::MODE_EDIT;
         $payload['email'] = $invitationModel['email'];
         $payloadDataToBeTransform = [];
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;

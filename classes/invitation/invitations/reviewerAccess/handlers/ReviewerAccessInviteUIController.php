@@ -14,7 +14,9 @@ use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\invitations\reviewerAccess\resources\ReviewerAccessInviteResource;
 use PKP\invitation\invitations\reviewerAccess\steps\ReviewerAccessInvitationSteps;
+use PKP\security\Role;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class ReviewerAccessInviteUIController extends InvitationUIActionRedirectController
 {
@@ -30,6 +32,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
 
     public function createHandle(Request $request, $userId = null): void
     {
+
         if (!$request->getUserVars()['submissionId'] || !$request->getUserVars()['reviewRoundId']) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
@@ -37,7 +40,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         if (!$submission){
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
-
+        $context = $request->getContext();
         $invitationPayload = [
             'userId' => $userId,
             'inviteeEmail' => '',
@@ -53,7 +56,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
 		    'reviewMethod'=> '',
             'userGroupsToAdd' => [
                 [
-                    'userGroupId' => 16,
+                    'userGroupId' => Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->first()->user_group_id,
                     'dateStart' => null,
                     'dateEnd' => null,
                     'masthead' => null,
@@ -67,15 +70,14 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             ]
         ];
         $user = null;
-        $invitationMode = 'create';
-        $context = $request->getContext();
+        $invitationMode = self::MODE_CREATE;
         if ($userId) {
             $user = Repo::user()->get($userId, true);
             if (!$user) {
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
             //send invitation using select a user already has reviewer permission user group
-            if ($this->invitation->isInvitationUserReviewer($userId,$context->getId())) {
+            if (Repo::userGroup()->userIsReviewer($userId,$context->getId())) {
                 $invitationPayload['userGroupsToAdd'] = [];
             }
             $payloadWithUserData = [
@@ -124,7 +126,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         ];
         $breadcrumbs[] = [
             'id' => 'invitationReviewerType',
-            'name' => $this->invitation->isInvitationUserReviewer($userId,$context->getId()) ?
+            'name' => Repo::userGroup()->userIsReviewer($userId,$context->getId()) ?
                 __('reviewerInvitation.wizard.pageTitle.existingReviewer') : __('reviewerInvitation.wizard.pageTitle.newUser'),
         ];
         $steps = $this->getSendSteps($this->invitation, $context, $user);
@@ -168,7 +170,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
     {
         $payload = $this->invitation->getPayload()->toArray();
         $invitationModel = $this->invitation->invitationModel->toArray();
-        $invitationMode = 'edit';
+        $invitationMode = self::MODE_EDIT;
         $payload['email'] = $invitationModel['email'];
         $payloadDataToBeTransform = [];
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;

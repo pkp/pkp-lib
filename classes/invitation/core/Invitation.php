@@ -519,16 +519,4 @@ abstract class Invitation
         $invitationController = $this->getInvitationActionRedirectController();
         return $invitationController ? $invitationController->getAcceptSteps($this, $context, $user) : [];
     }
-
-    public function isInvitationUserReviewer($userId,$contextId): bool
-    {
-        if(!$userId){
-            return false;
-        }
-        $currentUserGroups = Repo::userGroup()->userUserGroups($userId,$contextId);
-        return $currentUserGroups->contains(
-            fn (UserGroup $userGroup) =>
-                $userGroup->roleId == Role::ROLE_ID_REVIEWER
-        );
-    }
 }

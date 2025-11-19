@@ -78,6 +78,9 @@ class InitializeInvitationUIHandler extends Handler
 
         $this->setupTemplate($request);
         $userId = $request->getUserVars()['userId'];
+        if (!Repo::user()->get($userId)) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
 
         $arg = $args[0]; // invitation type
 

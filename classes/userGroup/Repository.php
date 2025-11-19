@@ -620,4 +620,22 @@ class Repository
         $cacheKey = "PKP\userGroup\Repository::getMastheadUserIdsByRoleIdsEditorialHistory{$contextId}" . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME;
         Cache::forget($cacheKey);
     }
+
+    /**
+     * Check user has an active reviewer role
+     * @param int $userId
+     * @param int $contextId
+     * @return bool
+     */
+    public function userIsReviewer(int $userId, int $contextId): bool
+    {
+        if(!$userId){
+            return false;
+        }
+        $currentUserGroups = Repo::userGroup()->userUserGroups($userId,$contextId);
+        return $currentUserGroups->contains(
+            fn (UserGroup $userGroup) =>
+                $userGroup->roleId == Role::ROLE_ID_REVIEWER
+        );
+    }
 }

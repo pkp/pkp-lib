@@ -14,6 +14,7 @@ class I9658_UpdateReviewerAssignmentsReviewerId extends Migration
         Schema::table('review_assignments', function (Blueprint $table) {
             $table->dropForeign(['reviewer_id']);
             $table->bigInteger('reviewer_id')->nullable()->change();
+            $table->foreign('reviewer_id')->references('user_id')->on('users')->nullOnDelete();
         });
     }
 

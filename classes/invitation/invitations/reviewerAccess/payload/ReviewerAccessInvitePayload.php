@@ -14,6 +14,7 @@
 
 namespace PKP\invitation\invitations\reviewerAccess\payload;
 
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use Illuminate\Validation\Rule;
 use PKP\invitation\core\enums\ValidationContext;
@@ -153,7 +154,7 @@ class ReviewerAccessInvitePayload extends InvitePayload
                 'min:' . $site->getMinPasswordLength(),
             ],
             'userGroupsToAdd' => [
-                Rule::requiredIf(!$invitation->isInvitationUserReviewer($invitation->getUserId(),$context->getId()) && $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE),
+                Rule::requiredIf(!Repo::userGroup()->userIsReviewer($invitation->getUserId(),$context->getId()) && $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE),
                 'nullable',
                 'array',
                 'bail',

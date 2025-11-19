@@ -314,7 +314,7 @@ class PKPInstall extends Installer
 
             DB::statement($statement);
         } catch (Exception $e) {
-            $this->setError(INSTALLER_ERROR_DB, 'Failed to set database timezone: ' . $e->getMessage());
+            $this->setError(static::INSTALLER_ERROR_DB, 'Failed to set database timezone: ' . $e->getMessage());
         }
     }
 }

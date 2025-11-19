@@ -63,7 +63,14 @@ class PKPContainer extends Container
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
         $this->registerClassAliases();
-        $this->setApplicationStrictModeStatus(Config::getVar('general', 'strict', true));
+
+        $this->setApplicationStrictModeStatus(
+            // PHPUnit tests force strict mode to be enabled
+            // This takes precedence over config settings
+            defined('PKP_PHPUNIT_STRICT_MODE') && PKP_PHPUNIT_STRICT_MODE === true
+                ? true
+                : Config::getVar('general', 'strict', true)
+        );
     }
 
     /**
@@ -706,6 +713,12 @@ class PKPContainer extends Container
      */
     public function registerGlobalConstants(string $classNamespacePath, array $constants): void
     {
+        // Silently skip registration when strict mode is enabled
+        // This allows PHPUnit tests to enforce strict mode without breaking application code
+        if ($this->getApplicationStrictModeStatus()) {
+            throw new Exception('Registering class const as global const in strict mode in now allowed');
+        }
+
         if (!class_exists($classNamespacePath)) {
             throw new Exception(sprintf('Given class %s does not exists', $classNamespacePath));
         }

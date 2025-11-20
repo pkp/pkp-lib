@@ -234,6 +234,9 @@ class Repository
             ->withUserId($userId)
             ->get();
 
+        $workflowStages = Application::getApplicationStages();
+
+
         foreach ($stageAssignments as $stageAssignment) {
             $userGroup = $stageAssignment->userGroup;
             $roleId = $userGroup->roleId;
@@ -243,15 +246,22 @@ class Repository
                 continue;
             }
 
-            $stageAssignment->userGroupStages->each(function ($userGroupStage) use (&$accessibleWorkflowStages, $roleId) {
-                $accessibleWorkflowStages[$userGroupStage->stageId][] = $roleId;
-            });
+
+            // for ROLE_ID_MANAGER always give access to all stages and ignore assignments from database
+            if ($roleId === Role::ROLE_ID_MANAGER) {
+                foreach ($workflowStages as $stageId) {
+                    $accessibleWorkflowStages[$stageId][] = $roleId;
+                }
+            } else {
+                $stageAssignment->userGroupStages->each(function ($userGroupStage) use (&$accessibleWorkflowStages, $roleId) {
+                    $accessibleWorkflowStages[$userGroupStage->stageId][] = $roleId;
+                });
+            }          
         }
 
         // Managers and admin have access if not assigned to the submission or are assigned in a revoked role
         $managerRoles = array_intersect($userRoleIds, [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]);
         if (empty($accessibleWorkflowStages) && !empty($managerRoles)) {
-            $workflowStages = Application::getApplicationStages();
             foreach ($workflowStages as $stageId) {
                 $accessibleWorkflowStages[$stageId] = $managerRoles;
             }

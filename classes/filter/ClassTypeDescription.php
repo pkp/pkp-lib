@@ -13,7 +13,7 @@
  *
  * @brief A type description that validates objects by class type.
  *
- * Example type identifier: 'class::lib.pkp.classes.submission.PKPSubmission'
+ * Example type identifier: 'class::PKP\submission\PKPSubmission'
  */
 
 namespace PKP\filter;

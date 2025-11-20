@@ -336,6 +336,8 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'count', count(...));
         $this->registerPlugin('modifier', 'intval', intval(...));
         $this->registerPlugin('modifier', 'json_encode', json_encode(...));
+        // Register the safe JSON modifier
+        $this->registerPlugin('modifier', 'json_encode_html_attribute', $this->smartyJsonEncodeHtmlAttribute(...));
         $this->registerPlugin('modifier', 'uniqid', uniqid(...));
         $this->registerPlugin('modifier', 'substr', substr(...));
         $this->registerPlugin('modifier', 'strstr', strstr(...));
@@ -1674,6 +1676,26 @@ class PKPTemplateManager extends Smarty
         $variables = $params + $variables;
         // Decides between the simple/pluralized version
         return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
+    }
+
+    /**
+     * Smarty modifier: json_encode_html_attribute
+     * 
+     * Encodes a value to JSON with full HTML-attribute safety.
+     * Escapes ", ', <, >, & as \u0022, \u0027, \u003C, \u003E, \u0026
+     * so the output can be safely placed inside any HTML attribute
+     */
+    function smartyJsonEncodeHtmlAttribute($value)
+    {
+        return json_encode(
+            $value,
+            JSON_HEX_TAG          // < →
+            | JSON_HEX_AMP        // & →
+            | JSON_HEX_APOS       // ' →
+            | JSON_HEX_QUOT       // " →
+            | JSON_UNESCAPED_UNICODE
+            | JSON_UNESCAPED_SLASHES   // optional but highly recommended
+        );
     }
 
     /**

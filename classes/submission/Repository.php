@@ -27,6 +27,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -394,18 +395,26 @@ abstract class Repository
         }
 
         // Author names required in submission locale
+        $language = ['language' => Locale::getSubmissionLocaleDisplayNames([$locale])[$locale]];
+        $contribPers = ContributorType::PERSON->getName();
+        $contribOrga = ContributorType::ORGANIZATION->getName();
         foreach ($publication->getData('authors') as $author) {
             /** @var Author $author */
-            if (!$author->getGivenName($submission->getData('locale'))) {
+            $contributorType = $author->getData('contributorType');
+            if (($contributorType === $contribPers && !$author->getGivenName($locale)) ||
+                    ($contributorType === $contribOrga && !$author->getOrganizationName($locale))) {
                 if (!isset($errors['contributors'])) {
                     $errors['contributors'] = [];
                 }
-                $errors['contributors'][] = __('submission.wizard.missingContributorLanguage', ['language' => Locale::getSubmissionLocaleDisplayNames([$locale])[$locale]]);
+                $errors['contributors'][] = match ($contributorType) {
+                    $contribPers => __('submission.wizard.missingContributorLanguage', $language),
+                    $contribOrga => __('submission.wizard.missingContributorLanguageOrganization', $language),
+                };
                 break;
             }
             foreach ($author->getAffiliations() as $affiliation) {
                 if (!$affiliation->getRor()) {
-                    if (!$affiliation->getName($submission->getData('locale'))) {
+                    if (!$affiliation->getName($locale)) {
                         if (!isset($errors['contributors'])) {
                             $errors['contributors'] = [];
                         }

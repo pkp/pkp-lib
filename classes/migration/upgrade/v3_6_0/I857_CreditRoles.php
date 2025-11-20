@@ -18,6 +18,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\author\creditRole\CreditRoleDegree;
 use PKP\core\Core;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
@@ -52,11 +53,7 @@ class I857_CreditRoles extends Migration
             $table->bigInteger('credit_contributor_role_id')->autoIncrement();
             $table->bigInteger('contributor_id');
             $table->bigInteger('credit_role_id')->nullable();
-            $table->enum('credit_degree', [
-                'LEAD',
-                'EQUAL',
-                'SUPPORTING',
-            ])->nullable();
+            $table->enum('credit_degree', CreditRoleDegree::getDegrees())->nullable();
             $table->bigInteger('contributor_role_id')->nullable();
             $table->foreign('contributor_id', 'contributor_id_author_id_foreign')->references('author_id')->on('authors')->onDelete('cascade');
             $table->foreign('credit_role_id', 'credit_role_id_foreign')->references('credit_role_id')->on('credit_roles')->onDelete('cascade');

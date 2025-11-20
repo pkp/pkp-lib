@@ -63,7 +63,12 @@
                     >
                         {translate key="author.users.contributor.principalContact"}
                     </badge>
-                    <badge>{{ localize(author.userGroupName) }}</badge>
+                    <badge 
+                        v-for="(role) in author.contributorRoles"
+                        :key="role.id"
+                    >
+                        {{ localize(role.name) }}
+                    </badge>
                 </span>
             </li>
             {call_hook name="Template::SubmissionWizard::Section::Review::Contributors" submission=$submission step=$step.id}

@@ -2420,12 +2420,6 @@ msgstr "Unknown encoding {$param}"
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "The content is not encoded as {$param}"
 
-msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr ""
-"The import file includes an author '{$authorName}', with the user group "
-"'{$userGroupName}'. There is no user group defined in the destination "
-"installation with a user group with this name."
-
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "UserGroup Missing for author name {$param}"
 
@@ -3853,3 +3847,71 @@ msgstr "View Report"
 
 msgid "manager.userComment.enableComments"
 msgstr "Enable Public Comments"
+
+msgid "manager.contributorRoles.add"
+msgstr "Add Role"
+
+msgid "manager.contributorRoles.edit"
+msgstr "Edit Role"
+
+msgid "manager.contributorRoles.title"
+msgstr "Contributor Roles"
+
+msgid "manager.contributorRoles.identifier"
+msgstr "Role Identifier"
+
+msgid "manager.contributorRoles.name"
+msgstr "Role Name"
+
+msgid "manager.contributorRoles.name.description"
+msgstr "Fill name in all of the languages."
+
+msgid "manager.contributorRoles.saved"
+msgstr "Contributor role saved"
+
+msgid "manager.contributorRoles.error.nameRequired"
+msgstr "Role names required in all of the languages."
+
+msgid "manager.contributorRoles.error.delete.inUse"
+msgstr "One or more contributors are using this role. Change the role to another before delete."
+
+msgid "manager.contributorRoles.delete.role"
+msgstr "Delete Role"
+
+msgid "manager.contributorRoles.alert.delete.confirm"
+msgstr "I understand the consequences, delete this role"
+
+msgid "manager.contributorRoles.alert.delete.confirmationTitle"
+msgstr "Are you absolutely sure you want to delete \"{$contributorRoleIdentifier}\" role?"
+
+msgid "manager.contributorRoles.alert.delete.message.body"
+msgstr ""
+"<div class=\"text-secondary\">"
+"<p class=\"mt-6\">This action cannot be undone. Before deleting this role, check these:</p>"
+"<ul role=\"list\" class=\"list-disc ml-8\">"
+"<li>At least one AUTHOR role must exist</li>"
+"<li>Unassign this role from any contributor currently using it</li>"
+"</ul>"
+"</div>"
+"<p class=\"mt-4 text-primary text-lg-bold\">To confirm, please type \"{$contributorRoleIdentifier}\" below to proceed</p>"
+
+msgid "manager.contributorRoles.alert.deleted"
+msgstr "Role Deleted"
+
+msgid "manager.contributorRoles.alert.deleted.description"
+msgstr "<p>\"{$contributorRoleIdentifier}\" has been successfully deleted.</p>"
+
+msgid "manager.contributorRoles.backToRoles"
+msgstr "Back to Contributor Roles"
+
+msgid "plugins.importexport.common.error.missingContributorType"
+msgstr "Missing contributor type; defaults to person."
+
+msgid "plugins.importexport.common.error.missingEmail"
+msgstr "The author {$authorName} does not have an email."
+
+msgid "plugins.importexport.common.error.missingCountry"
+msgstr "The author {$authorName} does not have a country."
+
+msgid "plugins.importexport.common.error.noContributorRole"
+msgstr "The author '{$authorName}' does not have any contributor role. Defaults to AUTHOR."

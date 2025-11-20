@@ -3322,3 +3322,34 @@ msgstr "Are you sure you want to stop automatically adding this task/discussion 
 
 msgid "taskTemplates.confirmEmailTemplate"
 msgstr "Applying this email template will replace the discussion text in the form. The changes will not be saved unless you choose to save. Do you want to continue?"
+
+msgid "submission.submit.contributor.organizationName"
+msgstr "Organization Name"
+
+msgid "submission.submit.contributor.rorId"
+msgstr "ROR ID"
+
+msgid "submission.submit.contributor.rorId.description"
+msgstr "Enter organization's ROR ID."
+
+msgid "submission.wizard.missingContributorLanguageOrganization"
+msgstr "The organization name is missing in {$language} for one or more of the contributors."
+
+msgid "submission.submit.contributorRoles.label"
+msgstr "Contributor Roles"
+
+msgid "submission.submit.contributorType.title"
+msgstr "Contributor Type"
+
+msgid "submission.submit.contributorType.description"
+msgstr "Selecting a contributor type will determine which fields you need to complete in this form."
+"Please note that if you change the contributor type after you've started filling out the form, any information you've already entered will not be saved."
+
+msgid "submission.submit.contributorType.person"
+msgstr "Person"
+
+msgid "submission.submit.contributorType.organization"
+msgstr "Organization or group"
+
+msgid "submission.submit.contributorType.anonymous"
+msgstr "Anonymous"

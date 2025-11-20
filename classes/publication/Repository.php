@@ -43,7 +43,6 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\traits\HasWordCountValidation;
-use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -101,16 +100,14 @@ abstract class Repository
      * Get an instance of the map class for mapping
      * publications to their schema
      *
-     * @param Enumerable<int,UserGroup> $userGroups
      * @param Genre[] $genres
      */
-    public function getSchemaMap(Submission $submission, Enumerable $userGroups, array $genres): maps\Schema
+    public function getSchemaMap(Submission $submission, array $genres): maps\Schema
     {
         return app('maps')->withExtensions(
             $this->schemaMap,
             [
                 'submission' => $submission,
-                'userGroups' => $userGroups,
                 'genres' => $genres,
             ]
         );

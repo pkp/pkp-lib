@@ -18,13 +18,30 @@
 
 namespace PKP\author;
 
+use APP\facades\Repo;
+use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorType;
 use PKP\affiliation\Affiliation;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
-use PKP\userGroup\UserGroup;
 
 class Author extends Identity
 {
+    // Contributor type specific form fields
+    public const CONTRIBUTOR_TYPE_FORM_FIELDS = [
+        ContributorType::PERSON->name => [
+            'givenName', 'familyName', 'preferredPublicName', 'email', 'country',
+            'rorId', 'url', 'biography', 'affiliations',
+        ],
+        ContributorType::ORGANIZATION->name => [
+            'organizationName', 'email', 'country', 'rorId',
+            'url', 'biography', 'affiliations',
+        ],
+        ContributorType::ANONYMOUS->name => [
+            'email', 'country'
+        ],
+    ];
+
     /**
      * Get the default/fall back locale the values should exist for
      * (see LocalizedData trait)
@@ -58,6 +75,39 @@ class Author extends Identity
         return $this->getFamilyName($this->getData('submissionLocale'));
     }
 
+    /**
+     * Get the contributor's localized name based on contributor type.
+     *
+     * @param bool $preferred If the preferred public name should be used, if exist
+     * @param bool $familyFirst False / default: Givenname Familyname
+     * 	If true: Familyname, Givenname
+     * @param string $preferredLocale The locale the full name is requested for. If null, the user locale will be used.
+     */
+    public function getFullName(bool $preferred = true, bool $familyFirst = false, ?string $preferredLocale = null): string
+    {
+        return match ($this->getData('contributorType')) {
+            ContributorType::PERSON->getName() => parent::getFullName($preferred, $familyFirst, $preferredLocale),
+            ContributorType::ORGANIZATION->getName() => $this->getLocalizedOrganizationName($preferredLocale),
+            ContributorType::ANONYMOUS->getName() => __('submission.submit.contributorType.anonymous', locale: $preferredLocale),
+        };
+    }
+
+    /**
+     * Get the contributor's names based on contributor type.
+     *
+     * @param bool $preferred If the preferred public name should be used, if exist
+     * @param bool $familyFirst False / default: Givenname Familyname
+     * 	If true: Familyname, Givenname
+     */
+    public function getFullNames(bool $preferred = true, bool $familyFirst = false): array
+    {
+        return match ($this->getData('contributorType')) {
+            ContributorType::PERSON->getName() => parent::getFullNames($preferred, $familyFirst),
+            ContributorType::ORGANIZATION->getName() => $this->getOrganizationName(),
+            ContributorType::ANONYMOUS->getName() => [Locale::getLocale() => __('submission.submit.contributorType.anonymous')],
+        };
+    }
+
     //
     // Get/set methods
     //
@@ -83,26 +133,6 @@ class Author extends Identity
     }
 
     /**
-     * Set the user group id
-     *
-     * @param int $userGroupId
-     */
-    public function setUserGroupId($userGroupId)
-    {
-        $this->setData('userGroupId', $userGroupId);
-    }
-
-    /**
-     * Get the user group id
-     *
-     * @return int
-     */
-    public function getUserGroupId()
-    {
-        return $this->getData('userGroupId');
-    }
-
-    /**
      * Set whether or not to include in browse lists.
      *
      * @param bool $include
@@ -120,29 +150,6 @@ class Author extends Identity
     public function getIncludeInBrowse()
     {
         return $this->getData('includeInBrowse');
-    }
-
-    /**
-     * Get the "show title" flag (whether or not the title of the role
-     * should be included in the list of submission contributor names).
-     * This is fetched from the user group for performance reasons.
-     *
-     * @return bool
-     */
-    public function getShowTitle()
-    {
-        return $this->getData('showTitle');
-    }
-
-    /**
-     * Set the "show title" flag. This attribute belongs to the user group,
-     * NOT the author; fetched for performance reasons only.
-     *
-     * @param bool $showTitle
-     */
-    public function _setShowTitle($showTitle)
-    {
-        $this->setData('showTitle', $showTitle);
     }
 
     /**
@@ -183,33 +190,6 @@ class Author extends Identity
     public function setSequence($sequence)
     {
         $this->setData('seq', $sequence);
-    }
-
-    /**
-     * Get the user group for this contributor.
-     *
-     * @return \PKP\userGroup\UserGroup
-     */
-    public function getUserGroup()
-    {
-        //FIXME: should this be queried when fetching Author from DB? - see #5231.
-        static $userGroup; // Frequently we'll fetch the same one repeatedly
-        if (!$userGroup || $this->getData('userGroupId') != $userGroup->id) {
-            $userGroup = UserGroup::find($this->getData('userGroupId'));
-        }
-        return $userGroup;
-    }
-
-    /**
-     * Get a localized version of the User Group
-     *
-     * @return string
-     */
-    public function getLocalizedUserGroupName()
-    {
-        $userGroup = $this->getUserGroup();
-        return $userGroup ? $userGroup->getLocalizedData('name') : null;
-
     }
 
     /**
@@ -288,7 +268,31 @@ class Author extends Identity
     }
 
     /**
-     * Get contrubutor credit roles and degrees
+     * Get organization name.
+     */
+    public function getOrganizationName(?string $locale = null): string|array|null
+    {
+        return $this->getData('organizationName', $locale);
+    }
+
+    /**
+     * Get the localized organization name
+     */
+    public function getLocalizedOrganizationName(?string $preferredLocale = null): ?string
+    {
+        return $this->getLocalizedData('organizationName', $preferredLocale);
+    }
+
+    /**
+     * Set organization name.
+     */
+    public function setOrganizationName(string $organizationName, string $locale): void
+    {
+        $this->setData('organizationName', $organizationName, $locale);
+    }
+
+    /**
+     * Get contributor credit roles and degrees.
      */
     public function getCreditRoles(): array
     {
@@ -296,10 +300,60 @@ class Author extends Identity
     }
 
     /**
-     * Set contrubutor credit roles and degrees.
+     * Set contributor credit roles and degrees.
      */
     public function setCreditRoles(?array $creditRoles): void
     {
         $this->setData('creditRoles', $creditRoles);
+    }
+
+    /**
+     * Get contributor roles as ContributorRole[].
+     */
+    public function getContributorRoles(): array
+    {
+        return $this->getData('contributorRoles') ?? [];
+    }
+
+    /**
+     * Get contributor roles as ids only.
+     */
+    public function getContributorRoleIds(): array
+    {
+        return collect($this->getData('contributorRoles'))
+            ->pluck('id')
+            ->values()
+            ->toArray();
+    }
+
+    /**
+     * Get contributor roles as identifiers only.
+     */
+    public function getContributorRoleIdentifiers(): array
+    {
+        return collect($this->getData('contributorRoles'))
+            ->pluck('contributor_role_identifier')
+            ->unique()
+            ->values()
+            ->toArray();
+    }
+
+    /**
+     * Get contributor role names as an array.
+     */
+    public function getLocalizedContributorRoleNames(?string $preferredLocale = null): array
+    {
+        return collect($this->getData('contributorRoles'))
+            ->map(fn (ContributorRole $role): string => $role->getLocalizedData('name', $preferredLocale))
+            ->toArray();
+    }
+
+    /**
+     * Set contributor roles using ContributorRole-objects.
+     * @param array<ContributorRole>
+     */
+    public function setContributorRoles(array $roles): void
+    {
+        $this->setData('contributorRoles', $roles);
     }
 }

@@ -403,3 +403,18 @@ msgstr "The citation you requested was not found."
 
 msgid "api.publication.400.invalidPublicationId"
 msgstr "An invalid publication ID was provided: `{$publicationId}`."
+
+msgid "api.contributorRole.404.roleNotFound"
+msgstr "The role requested was not found."
+
+msgid "api.contributorRole.400.contextsNotMatched"
+msgstr "The contributor role you requested is not part of this journal."
+
+msgid "api.contributorRole.400.errorSavingRole"
+msgstr "There was an error saving this role."
+
+msgid "api.contributorRole.400.errorDeletingAuthorRole"
+msgstr "Last AUTHOR role cannot be deleted."
+
+msgid "api.submission.400.emptyContributorRoles"
+msgstr "There have to be at least one assigned contributor role."

@@ -22,6 +22,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\publicationPeerReviews\resources\PublicationPeerReviewSummaryResource;
 use PKP\core\PKPBaseController;
 
 class PublicationPeerReviewController extends PKPBaseController
@@ -55,6 +56,10 @@ class PublicationPeerReviewController extends PKPBaseController
 
             Route::get('{publicationId}', $this->getOpenReview(...))
                 ->name('publicationPeerReviews.get')
+                ->whereNumber('publicationId');
+
+            Route::get('{publicationId}/summary', $this->getPublicationReviewSummary(...))
+                ->name('publicationPeerReviews.publication.summary')
                 ->whereNumber('publicationId');
         });
     }
@@ -113,6 +118,24 @@ class PublicationPeerReviewController extends PKPBaseController
 
         return response()->json(
             Repo::publication()->getPeerReviews([$publication])->first(),
+            Response::HTTP_OK
+        );
+    }
+
+    public function getPublicationReviewSummary(Request $illuminateRequest): JsonResponse
+    {
+        $publicationId = (int)$illuminateRequest->route('publicationId');
+        $publication = Repo::publication()->get($publicationId);
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        return response()->json(
+            new PublicationPeerReviewSummaryResource($publication),
             Response::HTTP_OK
         );
     }

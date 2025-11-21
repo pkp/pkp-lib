@@ -625,11 +625,11 @@ class Repository
 
     /**
      * Check user has an active reviewer role
-     * @param int $userId
+     * @param int|null $userId
      * @param int $contextId
      * @return bool
      */
-    public function userIsReviewer(int $userId, int $contextId): bool
+    public function userIsReviewer(?int $userId, int $contextId): bool
     {
         if(!$userId){
             return false;

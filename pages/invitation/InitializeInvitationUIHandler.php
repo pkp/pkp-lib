@@ -78,7 +78,7 @@ class InitializeInvitationUIHandler extends Handler
 
         $this->setupTemplate($request);
         $userId = $request->getUserVars()['userId'];
-        if (!Repo::user()->get($userId)) {
+        if ($userId && !Repo::user()->get($userId)) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
@@ -96,7 +96,7 @@ class InitializeInvitationUIHandler extends Handler
     }
 
     /**
-     * Edit an invitation
+     * Edit an invitation$userId
      * @param array $args
      * @param Request $request
      * @return void

@@ -79,12 +79,9 @@ class EmailReviewerForm extends Form
     public function fetch($request, $template = null, $display = false, $requestArgs = [])
     {
         $templateMgr = TemplateManager::getManager($request);
-        $invitation = null;
-        if(!$this->_reviewAssignment->getReviewerId()){
-            $invitation = Repo::invitation()->getInvitationByReviewerAssignmentId($this->_reviewAssignment->getId());
-        }
         $templateMgr->assign([
-            'userFullName' => $this->_reviewAssignment->getReviewerFullName() ? $this->_reviewAssignment->getReviewerFullName() : $invitation->getEmail(),
+            'userFullName' => $this->_reviewAssignment->getReviewerFullName() ?
+                $this->_reviewAssignment->getReviewerFullName() : $this->_reviewAssignment->getData('email'),
             'requestArgs' => $requestArgs,
             'reviewAssignmentId' => $this->_reviewAssignment->getId(),
         ]);

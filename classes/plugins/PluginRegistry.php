@@ -202,13 +202,31 @@ class PluginRegistry
         if (!preg_match('/^[a-z0-9]+$/i', $pluginName)) {
             throw new Exception("Invalid product name \"{$pluginName}\"");
         }
+        
+        $plugin = null;
 
         // First, try a namespaced class name matching the installation directory.
         $pluginClassName = "\\APP\\plugins\\{$category}\\{$pluginName}\\" . ucfirst($pluginName) . 'Plugin';
         try {
-            $plugin = class_exists($pluginClassName)
-                ? new $pluginClassName()
-                : static::deprecatedInstantiatePlugin($category, $pluginName);
+            if (class_exists($pluginClassName)) {
+                $plugin = new $pluginClassName(); /** @var Plugin $plugin */
+            } else {
+                $pluginIndexPath = app()->basePath()
+                    . DIRECTORY_SEPARATOR
+                    . 'plugins'
+                    . DIRECTORY_SEPARATOR
+                    . "{$category}"
+                    . DIRECTORY_SEPARATOR
+                    . "{$pluginName}"
+                    . DIRECTORY_SEPARATOR
+                    . 'index.php';
+
+                if (!file_exists($pluginIndexPath)) {
+                    throw new Exception("fallback to plugin wrapper failed as not found at path {$pluginIndexPath} for plugin {$category}/{$pluginName}");
+                }
+
+                $plugin = require($pluginIndexPath); /** @var Plugin $plugin */
+            }
         } catch (Throwable $e) {
             error_log("Instantiation of the plugin {$category}/{$pluginName} has failed\n{$e}");
             return null;
@@ -216,15 +234,18 @@ class PluginRegistry
 
         $classToCheck = $classToCheck ?: Plugin::class;
         $isObject = is_object($plugin);
+        
         // Complements $classToCheck with a namespace when needed
         if (!str_contains($classToCheck, '\\') && $isObject && ($reflection = new ReflectionObject($plugin))->inNamespace()) {
             $classToCheck = "{$reflection->getNamespaceName()}\\{$classToCheck}";
         }
+
         if ($plugin !== null && !($plugin instanceof $classToCheck)) {
             $type = $isObject ? $plugin::class : gettype($plugin);
             error_log(new Exception("Plugin {$category}/{$pluginName} expected to inherit from {$classToCheck}, actual type {$type}"));
             return null;
         }
+
         return $plugin;
     }
 
@@ -265,30 +286,6 @@ class PluginRegistry
             }
         }
         return $plugins;
-    }
-
-    /**
-     * Instantiate a plugin.
-     *
-     * @deprecated 3.4.0 Old way to instantiate a plugin
-     */
-    private static function deprecatedInstantiatePlugin(string $category, string $pluginName): ?Plugin
-    {
-        $pluginPath = static::PLUGINS_PREFIX . "{$category}/{$pluginName}";
-        // Try the plug-in wrapper for backwards compatibility.
-        $pluginWrapper = "{$pluginPath}/index.php";
-        if (file_exists($pluginWrapper)) {
-            return include $pluginWrapper;
-        }
-
-        // Try the well-known plug-in class name next (with and without ".inc.php")
-        $pluginClassName = ucfirst($pluginName) . ucfirst($category) . 'Plugin';
-        if (Arr::first(['.inc.php', '.php'], fn (string $suffix) => file_exists("{$pluginPath}/{$pluginClassName}{$suffix}"))) {
-            $pluginPackage = "plugins.{$category}.{$pluginName}";
-            return instantiate("{$pluginPackage}.{$pluginClassName}", $pluginClassName, $pluginPackage, 'register');
-        }
-
-        return null;
     }
 
     /**

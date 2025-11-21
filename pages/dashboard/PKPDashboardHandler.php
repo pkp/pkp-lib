@@ -22,6 +22,7 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\enums\VersionStage;
 use APP\template\TemplateManager;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\components\forms\citation\CitationRawEditForm;
 use PKP\components\forms\citation\CitationStructuredEditForm;
 use PKP\components\forms\decision\LogReviewerResponseForm;
@@ -31,8 +32,8 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\decision\Decision;
-use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
@@ -302,6 +303,15 @@ abstract class PKPDashboardHandler extends Handler
             'EDITORIAL_TASK_STATUS_PENDING' => EditorialTaskStatus::PENDING->value,
             'EDITORIAL_TASK_STATUS_IN_PROGRESS' => EditorialTaskStatus::IN_PROGRESS->value,
             'EDITORIAL_TASK_STATUS_CLOSED' => EditorialTaskStatus::CLOSED->value,
+
+            'citationProcessingStatus' => [
+                'NOT_PROCESSED' => CitationProcessingStatus::NOT_PROCESSED->value,
+                'PID_EXTRACTED' => CitationProcessingStatus::PID_EXTRACTED->value,
+                'CROSSREF' => CitationProcessingStatus::CROSSREF->value,
+                'OPEN_ALEX' => CitationProcessingStatus::OPEN_ALEX->value,
+                'ORCID' => CitationProcessingStatus::ORCID->value,
+                'PROCESSED' => CitationProcessingStatus::PROCESSED->value,
+            ],
         ]);
 
         $this->setupIndex($request);

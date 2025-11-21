@@ -412,6 +412,9 @@ class PKPTemplateManager extends Smarty
         // load NavigationMenu Areas from context
         $this->registerPlugin('function', 'load_menu', $this->smartyLoadNavigationMenuArea(...));
 
+        // load a blade view in smarty templates
+        $this->registerPlugin('function', 'include_blade', $this->smartyIncludeBlade(...));
+
         // Load form builder vocabulary
         $fbv = $this->getFBV();
         $this->registerPlugin('block', 'fbvFormSection', $fbv->smartyFBVFormSection(...));
@@ -2524,6 +2527,57 @@ class PKPTemplateManager extends Smarty
         ]);
 
         return $this->fetch($menuTemplatePath);
+    }
+
+    /**
+     * Smarty usage: {include_blade file=$file params1=$params1 params2=$params2 ...}
+     *
+     * Custom Smarty function for injecting a blade view in a smarty template
+     *
+     * @param array $params associative array
+     * @param Smarty|null $smarty
+     *
+     * @return string The compiled content of the blade view
+     * 
+     * @throws Exception If the file parameter is missing or the blade view does not exist  
+     */
+    public function smartyIncludeBlade($params, $smarty = null): string
+    {
+        if (!isset($params['file'])) {
+            throw new Exception('file parameter is missing in {include_blade}');
+        }
+
+        $file = $params['file'];
+
+        if (str_contains($file, '..') || str_contains($file, '\\') || str_starts_with($file, '/')) {
+            throw new Exception("Invalid file path: path traversal or absolute paths not allowed in given blade file {$file}");
+        }
+
+        $file = str_replace(['/', '.blade.php', '.blade'], ['.', '', ''], $file);
+
+        // If the file does not contain a namespace, try to find it in the registered view namespaces
+        // by attaching the namespace to the view path as `app::view.path`
+        if (!Str::contains($file, '::')) {
+            $pathNamespaces = collect(config('view.paths'))->keys()->toArray();
+            foreach ($pathNamespaces as $pathNamespace) {
+                if (view()->exists($pathNamespace . '::' . $file)) {
+                    $file = $pathNamespace . '::' . $file;
+                    break;
+                }
+            }
+        }
+
+        if (!view()->exists($file)) {
+            throw new Exception("blade view {$params['file']} does not exist");
+        }
+
+        unset($params['file']);
+        
+        // Merge the template variables into the params,
+        // with the provided params taking precedence over the template variables
+        $params = array_merge($this->getTemplateVars(), $params);
+        
+        return view($file, $params)->render();
     }
 
     /**

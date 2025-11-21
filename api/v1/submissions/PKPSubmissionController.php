@@ -61,6 +61,7 @@ use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\observers\events\MetadataChanged;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -77,13 +78,11 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
-use PKP\observers\events\MetadataChanged;
-use PKP\stageAssignment\StageAssignment;
-
 
 class PKPSubmissionController extends PKPBaseController
 {
@@ -647,7 +646,7 @@ class PKPSubmissionController extends PKPBaseController
         $submitterUserGroups = UserGroup::withContextIds($context->getId())
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
             ->whereHas('userUserGroups', function ($query) use ($user) {
-                $query->withUserId($user->getId());
+                $query->withUserId($user->getId())->withActive();
             })
             ->get();
 
@@ -1461,7 +1460,7 @@ class PKPSubmissionController extends PKPBaseController
 
         foreach ($stageAssignments as $stageAssignment) {
             $userGroup = $stageAssignment->userGroup;
-            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR){
+            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR) {
                 $stageAssignment->canChangeMetadata = 0;
                 $stageAssignment->save();
             }

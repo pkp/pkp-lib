@@ -1,23 +1,11 @@
 <?php
 
-/**
- * @file classes/invitation/invitations/userRoleAssignment/resources/UserRoleAssignmentInviteManagerDataResource.php
- *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @class UserRoleAssignmentInviteManagerDataResource
- *
- * @brief A JsonResource to transform the UserRoleAssignmentInvite to JSON for API responses
- */
-
-namespace PKP\invitation\invitations\userRoleAssignment\resources;
+namespace PKP\invitation\invitations\reviewerAccess\resources;
 
 use Illuminate\Http\Request;
-use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
+use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
 
-class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignmentInviteResource
+class ReviewerAccessInviteManagerDataResource extends BaseReviewerAccessInviteResource
 {
     /**
      * Transform the resource into an array.
@@ -32,7 +20,7 @@ class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignment
         $newUser = null;
 
         if ($payload->shouldUseInviteData) {
-            $payload = UserRoleAssignmentInvitePayload::fromArray($payload->inviteStagePayload);
+            $payload = ReviewerAccessInvitePayload::fromArray($payload->inviteStagePayload);
 
             $newUser = $this->createNewUserFromPayload($payload);
         } else {
@@ -62,9 +50,14 @@ class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignment
             'username' => $payload->username,
             'submissionId' => $payload->submissionId,
             'reviewRoundId' => $payload->reviewRoundId,
+            'reviewAssignmentId' => $payload->reviewAssignmentId,
+            'reviewMethod' => $payload->reviewMethod,
+            'responseDueDate' => $payload->responseDueDate,
+            'reviewDueDate' => $payload->reviewDueDate,
             'sendEmailAddress' => $payload->sendEmailAddress,
             'existingUser' => $this->transformUser($existingUser),
             'newUser' => $this->transformUser($newUser),
+            'submission' => $this->transformSubmission($payload->submissionId),
         ]);
     }
 }

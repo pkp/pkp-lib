@@ -507,9 +507,14 @@ class EditorialTaskController extends PKPBaseController
         $note = new Note($validated);
         $note->save();
         $note->refresh();
+        $task = $note->assoc; /** @var EditorialTask $task */
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
 
         return response()->json(
-            new NoteResource(resource: $note, data: ['users' => collect([$this->getRequest()->getUser()])]),
+            new NoteResource(resource: $note, data: [
+                'users' => collect([$this->getRequest()->getUser()]),
+                'parentResource' => new TaskResource($task, $this->getTaskData($submission, $task)),
+            ]),
             Response::HTTP_OK
         );
     }

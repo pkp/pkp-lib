@@ -13,60 +13,6 @@ body[dir="rtl"] {
 	direction: rtl;
 	unicode-bidi: embed;
 
-	// Help panel
-	.pkp_help_tab,
-	.pkp_help_modal {
-		right: auto;
-		left: 3rem;
-	}
-
-	.pkp_help_panel {
-
-		.panel {
-			left: 0;
-			right: auto;
-			.transform(translate3d(-100%,0,0));
-		}
-
-		&.is_visible .panel {
-			.transform(translate3d(0,0,0));
-		}
-
-		.header {
-
-			.home {
-				float: right;
-			}
-
-			.close {
-				float: left;
-			}
-		}
-
-		.footer {
-
-			.previous {
-				float: right;
-
-				&:before {
-					content: @fa-var-long-arrow-right;
-					margin: 0;
-					margin-left: 0.25em;
-				}
-			}
-
-			.next {
-				float: left;
-
-				&:after {
-					content: @fa-var-long-arrow-left;
-					margin: 0;
-					margin-right: 0.25em;
-				}
-			}
-		}
-	}
-
 	// Helpers
 	.pkp_helpers_text_left {
 		text-align: right;

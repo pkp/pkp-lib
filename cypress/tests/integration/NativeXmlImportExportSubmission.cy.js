@@ -50,6 +50,9 @@ describe('Data suite tests', function() {
 
 		cy.waitJQuery({timeout:20000});
 		cy.readFile(downloadedSubmissionPath).then(fileContent => {
+			// race condition: Wait for the uploader button to render, ensuring JS handlers are ready, otherwise
+			// content-type defaults to octet-stream instead of multipart/form-data.
+			cy.get('div.moxie-shim').should('exist');
 			cy.get('input[type=file]').attachFile({fileContent, filePath: downloadedSubmissionPath, mimeType: 'text/xml', encoding: 'utf8'});
 		});
 

@@ -125,32 +125,17 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
+        DB::listen(function ($query) {
+            error_log("SQL: " . $query->sql . " [" . implode(', ', $query->bindings) . "]");
+        });
         return LazyCollection::make(function () use ($query) {
             $rows = $query->getQueryBuilder()->get();
             if ($rows->isEmpty()) {
                 return;
             }
 
-            // bulk preload settings for all users
-            $ids = $rows->pluck('user_id')->map(intval(...))->values()->all();
-            $settings = DB::table($this->settingsTable)
-                ->whereIn('user_id', $ids)
-                ->get(['user_id','locale','setting_name','setting_value']);
-
-            $settingsByUser = [];
-            foreach ($settings as $s) {
-                $settingsByUser[(int)$s->user_id][] = $s;
-            }
-
             foreach ($rows as $row) {
-                /** @var User $user */
-                $user = $this->makeUserWithoutSettings($row, $query->includeReviewerData);
-
-                foreach ($settingsByUser[(int)$row->user_id] ?? [] as $s) {
-                    $user->setData($s->setting_name, $s->setting_value, $s->locale ?: null);
-                }
-
-                yield $row->user_id => $user;
+                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
             }
         });
     }
@@ -277,8 +262,6 @@ class DAO extends EntityDAO
             $user->setData('declinedCount', (int) $row->declined_count);
             $user->setData('cancelledCount', (int) $row->cancelled_count);
             $user->setData('averageTime', (int) $row->average_time);
-
-            // 0 values should return null. They represent a reviewer with no ratings
             if ($reviewerRating = $row->reviewer_rating) {
                 $user->setData('reviewerRating', max(1, round($reviewerRating)));
             }

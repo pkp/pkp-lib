@@ -30,6 +30,7 @@ use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\user\interest\UserInterest;
 use Illuminate\Support\Facades\DB;
 use PKP\facades\Locale;
 use PKP\workflow\WorkflowStageDAO;
@@ -506,47 +507,35 @@ class Repository
     {
         $locale = $locale ?: Locale::getLocale();
 
-        $rows = UserUserGroup::query()
+        $assignments = UserUserGroup::query()
             ->withContextId($contextId)
-            ->whereIn('user_user_groups.user_id', $userIds)
-            ->join('user_groups as ug', 'ug.user_group_id', '=', 'user_user_groups.user_group_id')
-            ->leftJoin('user_group_settings as ugs_name', function ($j) use ($locale) {
-                $j->on('ugs_name.user_group_id', '=', 'ug.user_group_id')
-                  ->where('ugs_name.setting_name', '=', 'name')
-                  ->where('ugs_name.locale', '=', $locale);
-            })
-            ->leftJoin('user_group_settings as ugs_abbrev', function ($j) use ($locale) {
-                $j->on('ugs_abbrev.user_group_id', '=', 'ug.user_group_id')
-                  ->where('ugs_abbrev.setting_name', '=', 'abbrev')
-                  ->where('ugs_abbrev.locale', '=', $locale);
-            })
+            ->withUserIds($userIds)
+            ->with(['userGroup']) // eagerload UserGroup entity
             ->get([
                 'user_user_groups.user_id',
-                'ug.user_group_id as id',
-                'ug.role_id as roleId',
-                'ug.show_title as showTitle',
-                'ug.permit_self_registration as permitSelfRegistration',
-                'ug.permit_metadata_edit as permitMetadataEdit',
-                'user_user_groups.date_start as dateStart',
-                'user_user_groups.date_end as dateEnd',
-                'user_user_groups.masthead as userMasthead',
-                'ugs_name.setting_value as name',
-                'ugs_abbrev.setting_value as abbrev',
+                'user_user_groups.user_group_id',
+                'user_user_groups.date_start',
+                'user_user_groups.date_end',
+                'user_user_groups.masthead',
             ]);
 
         $map = [];
-        foreach ($rows as $r) {
-            $map[(int)$r->user_id][] = [
-                'id' => (int)$r->id,
-                'name' => $r->name,
-                'abbrev' => $r->abbrev,
-                'roleId' => (int)$r->roleId,
-                'showTitle' => (bool)((int)$r->showTitle),
-                'permitSelfRegistration' => (bool)((int)$r->permitSelfRegistration),
-                'permitMetadataEdit' => (bool)((int)$r->permitMetadataEdit),
-                'dateStart' => $r->dateStart,
-                'dateEnd' => $r->dateEnd,
-                'masthead' => (bool)((int)$r->userMasthead),
+        foreach ($assignments as $a) {
+            $ug = $a->userGroup;
+            if (!$ug) {
+                continue;
+            }
+            $map[(int) $a->userId][] = [
+                'id' => (int) $ug->id,
+                'name' => $ug->getLocalizedData('name'),
+                'abbrev' => $ug->getLocalizedData('abbrev'),
+                'roleId' => (int) $ug->roleId,
+                'showTitle' => (bool) $ug->showTitle,
+                'permitSelfRegistration' => (bool) $ug->permitSelfRegistration,
+                'permitMetadataEdit' => (bool) $ug->permitMetadataEdit,
+                'dateStart' => $a->dateStart,
+                'dateEnd' => $a->dateEnd,
+                'masthead' => (bool) $a->masthead,
             ];
         }
         return $map;
@@ -557,13 +546,17 @@ class Repository
      */
     public function preloadInterests(array $userIds): array
     {
-        $rows = DB::table('user_interests as ui')
-            ->whereIn('ui.user_id', $userIds)
-            ->get(['ui.user_id','ui.controlled_vocab_entry_id as id']);
+        if (empty($userIds)) {
+            return [];
+        }
+
+        $rows = UserInterest::query()
+            ->whereIn('user_id', $userIds)
+            ->get(['user_id', 'controlled_vocab_entry_id']);
 
         $map = [];
         foreach ($rows as $r) {
-            $map[(int)$r->user_id][] = ['id' => (int)$r->id];
+            $map[(int)$r->user_id][] = ['id' => (int)$r->controlled_vocab_entry_id];
         }
         return $map;
     }

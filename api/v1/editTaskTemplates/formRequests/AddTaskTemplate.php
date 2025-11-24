@@ -15,7 +15,6 @@
 
 namespace PKP\API\v1\editTaskTemplates\formRequests;
 
-use APP\core\Application;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use PKP\editorialTask\enums\EditorialTaskDueInterval;
@@ -23,15 +22,13 @@ use PKP\editorialTask\enums\EditorialTaskType;
 
 class AddTaskTemplate extends FormRequest
 {
-    public function authorize(): bool
-    {
-        return true;
-    }
+    use TaskTemplateRequestTrait;
 
     public function rules(): array
     {
-        $contextId = Application::get()->getRequest()->getContext()->getId();
-        $stageIds = array_keys(Application::getApplicationStages());
+        $contextId = $this->getContextId();
+        $stageIds = $this->getStageIds();
+
         return [
             'type' => ['required', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
             'stageId' => ['required', 'integer', Rule::in($stageIds)],
@@ -40,22 +37,19 @@ class AddTaskTemplate extends FormRequest
             'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
             'description' => ['sometimes', 'nullable', 'string'],
             'userGroupIds' => ['required', 'array', 'min:1'],
-            'userGroupIds.*' => [
-                'integer',
-                'distinct',
-                Rule::exists('user_groups', 'user_group_id')
-                    ->where(fn ($q) => $q->where('context_id', $contextId)),
-            ],
+            'userGroupIds.*' => $this->userGroupIdsItemRules($contextId),
         ];
     }
 
     protected function prepareForValidation(): void
     {
         $stageId = $this->input('stageId', null);
+        $type = $this->input('type', null);
         $this->merge([
             'include' => filter_var($this->input('include', false), FILTER_VALIDATE_BOOLEAN),
             'userGroupIds' => array_values(array_map('intval', (array) $this->input('userGroupIds', []))),
-            'stageId' => is_null($stageId) ? $stageId : (int) $stageId,
+            'stageId' => is_null($stageId) ? null : (int) $stageId,
+            'type' => is_null($type) ? null : (int) $type,
         ]);
     }
 }

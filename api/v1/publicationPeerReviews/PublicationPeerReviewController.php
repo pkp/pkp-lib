@@ -66,6 +66,9 @@ class PublicationPeerReviewController extends PKPBaseController
                 ->name('publicationPeerReviews.get')
                 ->whereNumber('publicationId');
 
+            Route::get('/summary', $this->getPublicationReviewSummary(...))
+                ->name('publicationPeerReviews.publication.summary');
+
             Route::get('{publicationId}/summary', $this->getPublicationReviewSummary(...))
                 ->name('publicationPeerReviews.publication.summary')
                 ->whereNumber('publicationId');
@@ -144,6 +147,41 @@ class PublicationPeerReviewController extends PKPBaseController
 
         return response()->json(
             new PublicationPeerReviewSummaryResource($publication),
+            Response::HTTP_OK
+        );
+    }
+
+    public function getManyPublicationReviewSummaries(Request $illuminateRequest): JsonResponse
+    {
+        $publicationIdsRaw = paramToArray($illuminateRequest->query('publicationIds', []));
+        $publicationIds = [];
+
+        foreach ($publicationIdsRaw as $id) {
+            if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                return response()->json([
+                    'error' => __('api.publication.400.invalidPublicationId', ['publicationId' => $id])
+                ], Response::HTTP_BAD_REQUEST);
+            }
+
+            $publicationIds[] = (int)$id;
+        }
+
+        $publications = Repo::publication()->getCollector()
+            ->filterByPublicationIds($publicationIds)
+            ->getMany();
+
+        if ($publications->count() != count($publicationIds)) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $summaries = $publications->map(function ($publication) {
+            return new PublicationPeerReviewSummaryResource($publication);
+        });
+
+        return response()->json(
+            $summaries->all(),
             Response::HTTP_OK
         );
     }

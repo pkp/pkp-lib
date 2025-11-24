@@ -47,7 +47,9 @@ class PublicationPeerReviewSummaryResource extends JsonResource
         $publishedPublications = $submission->getPublishedPublications();
 
         return [
-            'reviewResponseCount' => $summaryCount,
+            'publicationId' => $this->getId(),
+            'versionString' => $this->getData('versionString'),
+            'summaryCount' => $summaryCount,
             // Number of published versions of the publication's submission
             'publishedVersions' => count($publishedPublications),
             // Latest published publication for the submission associated with this publication
@@ -57,5 +59,4 @@ class PublicationPeerReviewSummaryResource extends JsonResource
             ] : null
         ];
     }
-
 }

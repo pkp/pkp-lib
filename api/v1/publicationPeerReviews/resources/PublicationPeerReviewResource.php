@@ -28,6 +28,7 @@ use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
@@ -38,14 +39,14 @@ class PublicationPeerReviewResource extends JsonResource
     {
         /** @var Publication $publication */
         $publication = $this->resource;
+        $publicationReviewsData = $this->getPublicationPeerReview($publication);
         return [
             'publicationId' => $publication->getId(),
             'datePublished' => $publication->getData('datePublished'),
-            'reviewRounds' => $this->getPublicationPeerReview($publication)
+            'reviewRounds' => $publicationReviewsData->get('roundsData'),
+            'summaryCount' => $publicationReviewsData->get('summaryCount')
         ];
     }
-
-
     /**
      * Get public peer review data for a publication.
      *
@@ -54,6 +55,7 @@ class PublicationPeerReviewResource extends JsonResource
      */
     private function getPublicationPeerReview(Publication $publication): Enumerable
     {
+        $results = collect();
         // Check up the tree on source IDs
         $allAssociatedPublicationIds = Repo::publication()->getWithSourcePublicationsIds([$publication->getId()]);
 
@@ -66,29 +68,67 @@ class PublicationPeerReviewResource extends JsonResource
         $hasMultipleRounds = $reviewRounds->getCount() > 1;
         $roundsData = collect();
 
-        while ($reviewRound = $reviewRounds->next()) {
-            $assignments = Repo::reviewAssignment()
-                ->getCollector()
-                ->filterByReviewRoundIds([$reviewRound->getData('id')])
-                ->getMany();
+        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
+        $roundIds = $reviewRoundsKeyedById->keys()->all();
 
+        $reviewsGroupedByRoundId = Repo::reviewAssignment()
+            ->getCollector()
+            ->filterByReviewRoundIds($roundIds)
+            ->getMany()
+            ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
+            ->sortKeys();
+
+        foreach ($reviewsGroupedByRoundId as $roundId => $assignments) {
             $roundDisplayText = $hasMultipleRounds ? __('publication.versionStringWithRound', [
                 'versionString' => $publication->getData('versionString'),
-                'round' => $reviewRound->getData('round')
+                'round' => $reviewRoundsKeyedById->get($roundId)->getData('round')
             ]) :
                 $publication->getData('versionString');
 
             $roundsData->add([
                 'displayText' => $roundDisplayText,
-                'roundId' => $reviewRound->getData('id'),
-                'originalPublicationId' => $reviewRound->getPublicationId(),
+                'roundId' => $reviewRoundsKeyedById->get($roundId)->getData('id'),
+                'originalPublicationId' => $reviewRoundsKeyedById->get($roundId)->getPublicationId(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context),
             ]);
         }
 
-        return $roundsData;
+
+        $results->put('roundsData', $roundsData);
+        $results->put('summaryCount', $this->buildSummaryCount($this->getLatestReviewerResponses($reviewsGroupedByRoundId)));
+        return $results;
     }
 
+    private function getLatestReviewerResponses($reviewsGrouped)
+    {
+        $responses = collect();
+
+        foreach ($reviewsGrouped as $reviews) {
+            foreach ($reviews as $review) {
+                $responses->put(
+                    $review->getReviewerId(),
+                    $review->getReviewerRecommendationId()
+                );
+            }
+        }
+
+        return $responses->countBy();
+    }
+
+    private function buildSummaryCount(Enumerable $reviewerResponseCount)
+    {
+        $summary = [];
+
+        foreach (ReviewerRecommendation::all() as $type) {
+            $summary[] = [
+                'recommendationTypeId' => $type->id,
+                'recommendationTypeText' => $type->getLocalizedData('title'),
+                'count' => $reviewerResponseCount->get($type->id, 0),
+            ];
+        }
+
+        return $summary;
+    }
     /**
      * Get public peer review specific data for a list of review assignments.
      *

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/publicationPeerReviews/resources/PublicationPeerReviewResource.php
+ * @file api/v1/peerReviews/resources/PublicationPeerReviewResource.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,7 +14,7 @@
  * @brief Resource that maps a publication to its open peer reviews data
  */
 
-namespace PKP\API\v1\publicationPeerReviews\resources;
+namespace PKP\API\v1\peerReviews\resources;
 
 use APP\core\Application;
 use APP\facades\Repo;

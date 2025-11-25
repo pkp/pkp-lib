@@ -1,33 +1,35 @@
 <?php
 
 /**
- * @file api/v1/publicPeerReviews/PublicationPeerReviewController.php
+ * @file api/v1/peerReviews/peerReviewController.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PublicationPeerReviewController
+ * @class peerReviewController
  *
- * @ingroup api_v1_publicationPeerReviews
+ * @ingroup api_v1_peerReviews
  *
  * @brief Handle API requests for public peer reviews.
  *
  */
 
-namespace PKP\API\v1\publicationPeerReviews;
+namespace PKP\API\v1\peerReviews;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\API\v1\publicationPeerReviews\resources\PublicationPeerReviewSummaryResource;
+use PKP\API\v1\peerReviews\resources\PublicationPeerReviewSummaryResource;
+use PKP\API\v1\submissions\peerReviews\SubmissionPeerReviewSummaryResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\PublicReviewsEnabledPolicy;
 
-class PublicationPeerReviewController extends PKPBaseController
+class peerReviewController extends PKPBaseController
 {
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
@@ -40,7 +42,7 @@ class PublicationPeerReviewController extends PKPBaseController
      */
     public function getHandlerPath(): string
     {
-        return 'publicationPeerReviews';
+        return 'peerReviews';
     }
 
     /**
@@ -58,23 +60,30 @@ class PublicationPeerReviewController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::prefix('open')->group(function () {
+        Route::prefix('open/publications')->group(function () {
             Route::get('/', $this->getManyOpenReviews(...))
-                ->name('publicationPeerReviews.getManyOpenReviews');
+                ->name('peerReviews.getManyOpenReviews');
 
             Route::get('{publicationId}', $this->getOpenReview(...))
-                ->name('publicationPeerReviews.get')
+                ->name('peerReviews.get')
                 ->whereNumber('publicationId');
 
             Route::get('/summary', $this->getPublicationReviewSummary(...))
-                ->name('publicationPeerReviews.publication.summary');
+                ->name('peerReviews.publication.summary');
 
             Route::get('{publicationId}/summary', $this->getPublicationReviewSummary(...))
-                ->name('publicationPeerReviews.publication.summary')
+                ->name('peerReviews.publication.summary')
                 ->whereNumber('publicationId');
         });
-    }
 
+        Route::prefix('open/submissions')->group(function () {
+            Route::get('{submissionId}/summary', $this->getSubmissionPeerReviewSummary(...))
+                ->name('peerReviews.open.submissions.summary')
+                ->whereNumber('submissionId');
+
+            Route::get('summary', $this->getManySubmissionPeerReviewSummary(...));
+        });
+    }
     /**
      * Get peer review for a list of publications
      *  Filters available via query params:
@@ -182,6 +191,65 @@ class PublicationPeerReviewController extends PKPBaseController
 
         return response()->json(
             $summaries->all(),
+            Response::HTTP_OK
+        );
+    }
+
+    public function getSubmissionPeerReviewSummary(Request $illuminateRequest): JsonResponse
+    {
+        $publicationId = (int)$illuminateRequest->route('publicationId');
+        $publication = Repo::publication()->get($publicationId);
+
+        $submissionId = (int)$illuminateRequest->route('submissionId');
+        $submission = Repo::submission()->get($submissionId);
+
+        if (!$submission) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(
+            new SubmissionPeerReviewSummaryResource($submission),
+            Response::HTTP_OK
+        );
+    }
+
+    public function getManySubmissionPeerReviewSummary(Request $illuminateRequest)
+    {
+        $submissionIdsRaw = paramToArray($illuminateRequest->query('submissionIds', []));
+        $submissionIds = [];
+
+        foreach ($submissionIdsRaw as $id) {
+            if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                // TODO add submission locale
+                return response()->json([
+                    'error' => __('api.publication.400.invalidPublicationId', ['publicationId' => $id])
+                ], Response::HTTP_BAD_REQUEST);
+            }
+
+            $submissionIds[] = (int)$id;
+        }
+
+        $submissions = Repo::submission()->getCollector()
+            ->filterByContextIds([Application::SITE_CONTEXT_ID_ALL])
+            ->filterBySubmissionIds($submissionIds)->getMany();
+
+        if ($submissions->count() != count($submissionIds)) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+
+
+        $summaries = $submissions->map(function ($submission) {
+            return new SubmissionPeerReviewSummaryResource($submission);
+        });
+
+        return response()->json(
+            $summaries->values(),
             Response::HTTP_OK
         );
     }

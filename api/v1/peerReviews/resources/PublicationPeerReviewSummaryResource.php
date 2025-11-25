@@ -1,6 +1,6 @@
 <?php
 
-namespace PKP\API\v1\publicationPeerReviews\resources;
+namespace PKP\API\v1\peerReviews\resources;
 
 use APP\facades\Repo;
 use Illuminate\Http\Resources\Json\JsonResource;

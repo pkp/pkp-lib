@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\API\v1\peerReviews\resources\PublicationPeerReviewSummaryResource;
-use PKP\API\v1\submissions\peerReviews\SubmissionPeerReviewSummaryResource;
+use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewSummaryResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\PublicReviewsEnabledPolicy;

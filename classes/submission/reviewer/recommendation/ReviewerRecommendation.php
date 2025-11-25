@@ -109,6 +109,13 @@ class ReviewerRecommendation extends Model
         )->shouldCache();
     }
 
+    protected function recommendationType(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->type,
+        )->shouldCache();
+    }
+
     /**
      * Get associated context details as attribute
      */

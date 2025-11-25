@@ -19,7 +19,6 @@ namespace PKP\API\v1\peerReviews\resources;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -28,12 +27,11 @@ use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
 
-class PublicationPeerReviewResource extends JsonResource
+class PublicationPeerReviewResource extends BasePeerReviewResource
 {
     public function toArray(?\Illuminate\Http\Request $request = null)
     {
@@ -44,7 +42,7 @@ class PublicationPeerReviewResource extends JsonResource
             'publicationId' => $publication->getId(),
             'datePublished' => $publication->getData('datePublished'),
             'reviewRounds' => $publicationReviewsData->get('roundsData'),
-            'summaryCount' => $publicationReviewsData->get('summaryCount')
+            'reviewerRecommendationsSummary' => $publicationReviewsData->get('reviewerRecommendationsSummary'),
         ];
     }
     /**
@@ -56,6 +54,7 @@ class PublicationPeerReviewResource extends JsonResource
     private function getPublicationPeerReview(Publication $publication): Enumerable
     {
         $results = collect();
+
         // Check up the tree on source IDs
         $allAssociatedPublicationIds = Repo::publication()->getWithSourcePublicationsIds([$publication->getId()]);
 
@@ -65,16 +64,20 @@ class PublicationPeerReviewResource extends JsonResource
         $context = app()->get('context')->get(
             Repo::submission()->get($publication->getData('submissionId'))->getData('contextId')
         );
+
         $hasMultipleRounds = $reviewRounds->getCount() > 1;
         $roundsData = collect();
 
         $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
         $roundIds = $reviewRoundsKeyedById->keys()->all();
+        unset($reviewRounds);
 
-        $reviewsGroupedByRoundId = Repo::reviewAssignment()
+        $reviewAssignments = Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
-            ->getMany()
+            ->getMany();
+
+        $reviewsGroupedByRoundId = $reviewAssignments
             ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
             ->sortKeys();
 
@@ -95,40 +98,10 @@ class PublicationPeerReviewResource extends JsonResource
 
 
         $results->put('roundsData', $roundsData);
-        $results->put('summaryCount', $this->buildSummaryCount($this->getLatestReviewerResponses($reviewsGroupedByRoundId)));
+        $results->put('reviewerRecommendationsSummary', $this->getReviewerRecommendationsSummary($reviewAssignments));
         return $results;
     }
 
-    private function getLatestReviewerResponses($reviewsGrouped)
-    {
-        $responses = collect();
-
-        foreach ($reviewsGrouped as $reviews) {
-            foreach ($reviews as $review) {
-                $responses->put(
-                    $review->getReviewerId(),
-                    $review->getReviewerRecommendationId()
-                );
-            }
-        }
-
-        return $responses->countBy();
-    }
-
-    private function buildSummaryCount(Enumerable $reviewerResponseCount)
-    {
-        $summary = [];
-
-        foreach (ReviewerRecommendation::all() as $type) {
-            $summary[] = [
-                'recommendationTypeId' => $type->id,
-                'recommendationTypeText' => $type->getLocalizedData('title'),
-                'count' => $reviewerResponseCount->get($type->id, 0),
-            ];
-        }
-
-        return $summary;
-    }
     /**
      * Get public peer review specific data for a list of review assignments.
      *

@@ -298,32 +298,37 @@ describe('Public Comments Tests', function() {
 	it('should show only reported comments when moderator views comments under Reported tab', () => {
 		cy.login('rvaca');
 
-		cy.intercept('GET', '**/comments?isReported=true*').as('getReported');
 		cy.visit('index.php/publicknowledge/en/management/settings/userComments#reported');
 
-		cy.wait('@getReported');
-		cy.get('table tbody tr').should('have.length.greaterThan', 0).each(($row) => {
-			cy.wrap($row).should('contain.text', 'Reported');
+		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
+		cy.get('table tbody tr')
+			.not(':contains("No Items")')
+			.should('have.length.greaterThan', 0).each(($row) => {
+				cy.wrap($row).should('contain.text', 'Reported');
 		});
 	});
 
 	it('should show only approved comments when moderator views comments under Approved tab', () => {
 		cy.login('rvaca');
-		cy.intercept('GET', '**/comments?isApproved=true*').as('getApproved');
 		cy.visit('index.php/publicknowledge/en/management/settings/userComments#approved');
-		cy.wait('@getApproved');
-		cy.get('table tbody tr').should('have.length.greaterThan', 0).each(($row) => {
-			cy.wrap($row).should('contain.text', 'Approved');
+		
+		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
+		cy.get('table tbody tr')
+			.not(':contains("No Items")')
+			.should('have.length.greaterThan', 0).each(($row) => {
+				cy.wrap($row).should('contain.text', 'Approved');
 		});
 	});
 
 	it('should show only unapproved comments when moderator views comments under Needs Approval tab', () => {
 		cy.login('rvaca');
-		cy.intercept('GET', '**/comments?isApproved=false*').as('getUnapproved');
 		cy.visit('index.php/publicknowledge/en/management/settings/userComments#needsApproval');
-		cy.wait('@getUnapproved');
-		cy.get('table tbody tr').should('have.length.greaterThan', 0).each(($row) => {
-			cy.wrap($row).should('contain.text', 'Hidden/Needs Approval');
+
+		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
+		cy.get('table tbody tr')
+			.not(':contains("No Items")')
+			.should('have.length.greaterThan', 0).each(($row) => {
+				cy.wrap($row).should('contain.text', 'Hidden/Needs Approval');
 		});
 	});
 

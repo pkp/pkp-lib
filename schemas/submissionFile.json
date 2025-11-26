@@ -1,12 +1,7 @@
 {
 	"title": "Submission File",
 	"description": "A submission file including associated metadata.",
-	"required": [
-		"fileId",
-		"fileStage",
-		"name",
-		"submissionId"
-	],
+	"required": ["fileId", "fileStage", "name", "submissionId"],
 	"properties": {
 		"_href": {
 			"type": "string",
@@ -18,66 +13,50 @@
 			"type": "integer",
 			"apiSummary": true,
 			"description": "Used with `assocType` to associate this file with an object such as a galley.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"assocType": {
 			"type": "integer",
 			"apiSummary": true,
 			"description": "Used with `assocId` to associate this file with an object such as a galley. One of the following constants: `ASSOC_TYPE_SUBMISSION_FILE` (dependent files), `ASSOC_TYPE_REVIEW_ASSIGNMENT` (files uploaded by a reviewer), `ASSOC_TYPE_NOTE` (files uploaded with a discussion), `ASSOC_TYPE_REPRESENTATION` (files uploaded to a galley or publication format), `ASSOC_TYPE_REVIEW_ROUND` (review files and revisions for a particular review round).",
-			"validation": [
-				"in:515,517,520,521,523,1048588"
-			]
+			"validation": ["in:515,517,520,521,523,1048588"]
 		},
 		"caption": {
 			"type": "string",
 			"apiSummary": true,
 			"description": "A caption for this file. Used with artwork such as images.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"copyrightOwner": {
 			"type": "string",
 			"apiSummary": true,
 			"description": "The copyright owner of this file. Used with artwork such as images.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"createdAt": {
 			"type": "string",
 			"apiSummary": true,
 			"description": "The date this submission file object was created in the system. Set automatically by the software.",
-			"validation": [
-				"date:Y-m-d H:i:s"
-			]
+			"validation": ["date:Y-m-d H:i:s"]
 		},
 		"creator": {
 			"type": "string",
 			"multilingual": true,
 			"apiSummary": true,
 			"description": "An attribution for this file, such as the creator of a data set. Used with supplementary files.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"credit": {
 			"type": "string",
 			"description": "An attribution for this file, such as a photographer's name. Used with artwork such as images.",
 			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"dateCreated": {
 			"type": "string",
 			"description": "Public metadata about when this content was created. Used with supplementary files.",
 			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"dependentFiles": {
 			"type": "array",
@@ -91,9 +70,7 @@
 			"type": "string",
 			"multilingual": true,
 			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"documentType": {
 			"type": "string",
@@ -117,9 +94,7 @@
 		"fileStage": {
 			"type": "integer",
 			"apiSummary": true,
-			"validation": [
-				"in:2,3,4,5,6,7,8,9,10,11,13,15,17,18,19,20,21"
-			]
+			"validation": ["in:2,3,4,5,6,7,8,9,10,11,13,15,17,18,19,20,21,22"]
 		},
 		"genreId": {
 			"type": "integer",
@@ -149,9 +124,7 @@
 			"type": "string",
 			"apiSummary": true,
 			"description": "The language of this file if it contains text. Used with supplementary files.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"locale": {
 			"type": "string",
@@ -179,9 +152,7 @@
 			"multilingual": true,
 			"apiSummary": true,
 			"description": "The publisher of this file. Used with supplementary files.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"revisions": {
 			"type": "array",
@@ -218,27 +189,21 @@
 			"multilingual": true,
 			"apiSummary": true,
 			"description": "An attribution for this file that identifies its source, such as a dataset from which this file was generated. Used with supplementary files.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"sponsor": {
 			"type": "string",
 			"multilingual": true,
 			"apiSummary": true,
 			"description": "Sponsorship or funding disclosure for this file. Used with supplementary files.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"subject": {
 			"type": "string",
 			"multilingual": true,
 			"apiSummary": true,
 			"description": "Subject metadata for this file. Used with supplementary files.",
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"submissionId": {
 			"type": "integer",
@@ -253,16 +218,12 @@
 			"type": "string",
 			"apiSummary": true,
 			"description": "When this object was last updated.",
-			"validation": [
-				"date:Y-m-d H:i:s"
-			]
+			"validation": ["date:Y-m-d H:i:s"]
 		},
 		"uploaderUserId": {
 			"type": "integer",
 			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"validation": ["nullable"]
 		},
 		"uploaderUserName": {
 			"type": "string",

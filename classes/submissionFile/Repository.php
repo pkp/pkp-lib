@@ -623,7 +623,7 @@ abstract class Repository
                 $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_FINAL;
             }
         }
-
+        error_log('getAssignedFileStages');
         if (array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $stageAssignments) &&
             !empty(array_intersect($allowedRoles, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION]))
         ) {
@@ -689,6 +689,7 @@ abstract class Repository
         if (
             $fileStage === SubmissionFile::SUBMISSION_FILE_PROOF ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY ||
+            $fileStage === SubmissionFile::SUBMISSION_FILE_BODY_TEXT ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_JATS
         ) {
             return WORKFLOW_STAGE_ID_PRODUCTION;

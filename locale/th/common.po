@@ -185,6 +185,7 @@ msgstr "สถานะรอบที่ {$round}"
 msgid "notification.type.editorialReport"
 msgstr "สรุปรายงานสถิติ"
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "เป็นการแจ้งเตือนเพื่อให้คุณตรวจสอบสถานะวารสารของคุณผ่านรายงานบรรณาธิการ"
 

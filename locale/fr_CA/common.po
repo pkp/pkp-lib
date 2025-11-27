@@ -1983,6 +1983,7 @@ msgstr "Statut du cycle {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Résumé du rapport de statistiques."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ceci est un rappel amical pour vous inciter à vérifier la bonne marche de "

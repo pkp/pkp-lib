@@ -1936,6 +1936,7 @@ msgstr "Փուլ {$round} Ստատուս"
 msgid "notification.type.editorialReport"
 msgstr "Վիճակագրության հաշվետվություն:"
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Սա Ձեզ համար հիշեցում է, որպեսզի ստուգեք Ձեր ամսագրի վիճակը խմբագրական "

@@ -1969,6 +1969,7 @@ msgstr ""
 "İştirakçı siyahısındakı \"Təyinat\" linkini istifadə edərək bir redaktor "
 "təyin edir."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Bu, redaksiya hesabatı vasitəsilə Jurnalınızın səhihliyinə nəzarət etməyiniz "

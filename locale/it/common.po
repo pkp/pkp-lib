@@ -1950,6 +1950,7 @@ msgstr "Stato del {$round} ciclo"
 msgid "notification.type.editorialReport"
 msgstr "Riepilogo delle statistiche."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Le ricordiamo di verificare l'efficienza della testata grazie al report "

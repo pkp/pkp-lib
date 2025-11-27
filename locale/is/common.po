@@ -1922,6 +1922,7 @@ msgstr "Umferð {$round} Status"
 msgid "notification.type.editorialReport"
 msgstr "Tölfræðiskýrsla - samantekt."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Þetta er vinsamleg áminning til þín um að skoða ástand tímaritsins í "

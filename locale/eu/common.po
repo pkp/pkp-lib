@@ -1969,6 +1969,7 @@ msgstr "{$round} errondaren egoera"
 msgid "notification.type.editorialReport"
 msgstr "Estatistiken txostenaren laburpena."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Mezu honekin txosten editorialaren bidez zure aldizkariaren osasuna "

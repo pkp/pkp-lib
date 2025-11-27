@@ -1965,6 +1965,7 @@ msgstr "Durchgang {$round} Status"
 msgid "notification.type.editorialReport"
 msgstr "Zusammenfassung des Statistikberichts."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Dies ist eine freundliche Erinnerung daran, die Gesundheit der Zeitschrift "

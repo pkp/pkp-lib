@@ -2078,6 +2078,7 @@ msgstr ""
 msgid "notification.type.roundStatusTitle"
 msgstr "{$round} फेरीची स्थिती (Status)"
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "संपादकीय अहवालाद्वारे तुमच्या नियतकालिकाचे स्वास्थ्य तपासण्यासाठी हे स्मरणपत्"

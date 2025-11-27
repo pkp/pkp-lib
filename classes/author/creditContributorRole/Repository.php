@@ -14,24 +14,22 @@
 
 namespace PKP\author\creditContributorRole;
 
-use APP\core\Application;
 use Illuminate\Support\Arr;
 use PKP\author\contributorRole\ContributorRole;
 use PKP\author\creditRole\CreditRole;
 
 class Repository
 {
-    public function addContributorRoles(array $newRoleIds, int $contributorId, ?int $contextId = null): void
+    /** Add contributor roles for a contributor */
+    public function addContributorRoles(array $contributorRoles, int $contributorId): void
     {
-        $contextId ??= Application::get()->getRequest()->getContext()->getId();
-        $roleIds = ContributorRole::withContextId($contextId)
-            ->withRoleIds($newRoleIds)
-            ->select(['contributor_role_id'])
-            ->get()
-            ->pluck('contributor_role_id');
+        $roleIds = collect($contributorRoles)
+            ->map(fn (ContributorRole $role) => $role->contributorRoleId);
 
         // Disallow removal of all roles (see the code below; delete and create/update)
-        if ($roleIds->isEmpty()) return;
+        if ($roleIds->isEmpty()) {
+            return;
+        }
 
         // Delete old roles
         CreditContributorRole::query()
@@ -47,6 +45,7 @@ class Repository
             ));
     }
 
+    /** Add CRediT roles for a contributor */
     public function addCreditRoles(array $newRoles, int $contributorId): void
     {
         $identifiersWithIds = CreditRole::withCreditRoleIdentifiers(Arr::pluck($newRoles, 'role'))
@@ -69,7 +68,6 @@ class Repository
             }
         }
     }
-
 
     /**
      * Get all contributor's contributor roles as objects.

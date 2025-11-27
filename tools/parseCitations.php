@@ -107,7 +107,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
         foreach ($submission->getData('publications') as $publication) {
             if (!empty($publication->getData('citationsRaw'))) {
                 Repo::citation()->importCitations(
-                    $publication->getId(),
+                    $publication,
                     $publication->getData('citationsRaw')
                 );
             }

@@ -327,6 +327,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                 $deployment = $this->getDeployment(); /** @var PKPNativeImportExportDeployment $deployment */
                 $deployment->setUser($user);
                 $deployment->setImportPath(dirname($xmlFile));
+                $deployment->setOpts($cliDeployment->opts);
 
                 $deployment->import($filter, $xmlString);
 

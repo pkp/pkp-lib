@@ -19,8 +19,8 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use Exception;
 use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
 use PKP\facades\Locale;
 use PKP\filter\FilterGroup;
@@ -104,7 +104,9 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
             if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
                     case 'givenname':
-                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) break;
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
 
                         $locale = $n->getAttribute('locale');
                         if (empty($locale)) {
@@ -112,7 +114,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         }
                         if ($author->getData('contributorType') === ContributorType::PERSON->getName()) {
                             $author->setGivenName($n->textContent, $locale);
-                        } else if ($author->getData('contributorType') === ContributorType::ORGANIZATION->getName()) {
+                        } elseif ($author->getData('contributorType') === ContributorType::ORGANIZATION->getName()) {
                             $author->setOrganizationName($n->textContent, $locale);
                         }
                         break;
@@ -126,7 +128,9 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         }
                         break;
                     case 'affiliation':
-                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) break;
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
 
                         $affiliation = Repo::affiliation()->newDataObject();
                         for ($affiliationChildNode = $n->firstChild; $affiliationChildNode !== null; $affiliationChildNode = $affiliationChildNode->nextSibling) {
@@ -152,7 +156,9 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         $author->addAffiliation($affiliation);
                         break;
                     case 'rorAffiliation':
-                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) break;
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
 
                         for ($rorAffiliationChildNode = $n->firstChild; $rorAffiliationChildNode !== null; $rorAffiliationChildNode = $rorAffiliationChildNode->nextSibling) {
                             if ($rorAffiliationChildNode instanceof \DOMElement) {
@@ -171,15 +177,21 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                     case 'email': $author->setEmail($n->textContent);
                         break;
                     case 'url':
-                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) break;
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
                         $author->setUrl($n->textContent);
                         break;
                     case 'orcid':
-                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) break;
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
                         $author->setOrcid($n->textContent);
                         break;
                     case 'biography':
-                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) break;
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
 
                         $locale = $n->getAttribute('locale');
                         if (empty($locale)) {
@@ -194,10 +206,11 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                                 $contributorRoleIds[] = (int) $contributorRoleChildNode->textContent;
                             }
                         }
-                        $author->setContributorRoles(ContributorRole::withContextId($context->getId())
-                            ->withRoleIds($contributorRoleIds)
-                            ->get()
-                            ->all()
+                        $author->setContributorRoles(
+                            ContributorRole::withContextId($context->getId())
+                                ->withRoleIds($contributorRoleIds)
+                                ->get()
+                                ->all()
                         );
                         break;
                 }
@@ -262,12 +275,13 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                 ])
             );
             // Set first author role
-            $author->setContributorRoles(ContributorRole::query()
-                ->withContextId($context->getId())
-                ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
-                ->limit(1)
-                ->get()
-                ->all()
+            $author->setContributorRoles(
+                ContributorRole::query()
+                    ->withContextId($context->getId())
+                    ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
+                    ->limit(1)
+                    ->get()
+                    ->all()
             );
         }
 

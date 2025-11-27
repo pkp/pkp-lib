@@ -1950,6 +1950,7 @@ msgstr "Ronde {$round} status"
 msgid "notification.type.editorialReport"
 msgstr "Samenvatting statistisch rapport."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Dit is een vriendelijke herinnering om de gezondheid van uw tijdschrift te "

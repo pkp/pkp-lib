@@ -1964,6 +1964,7 @@ msgstr "Situação da rodada {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumo do relatório de estatísticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Este é um lembrete para você verificar a situação do seu periódico por meio "

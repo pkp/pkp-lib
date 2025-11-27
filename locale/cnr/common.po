@@ -2003,6 +2003,7 @@ msgstr "Krug {$round} Status"
 msgid "notification.type.editorialReport"
 msgstr "Statistika izvještaja sažetak."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ovo je vrsta podsjetnika da provjerite stanje svog časopisa kroz urednički "

@@ -1965,6 +1965,7 @@ msgstr "Круг {$round} статус"
 msgid "notification.type.editorialReport"
 msgstr "Збирен статистички извештај."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ова е еден вид потсетник за да го проверите здравјето на вашето списание "

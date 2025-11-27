@@ -1954,6 +1954,7 @@ msgstr "Trạng thái vòng {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Tóm tắt báo cáo thống kê."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Đây là lời nhắc nhở bạn nên kiểm tra tình trạng tạp chí của mình thông qua "

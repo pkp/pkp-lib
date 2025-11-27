@@ -1924,6 +1924,7 @@ msgstr "Status rundy {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Raport statystyk redakcyjnych."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "W ramach dbania o dobrą kondycję czasopisma przypominamy o przeglądzie "

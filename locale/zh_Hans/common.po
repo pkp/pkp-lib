@@ -1893,6 +1893,7 @@ msgstr ""
 msgid "notification.type.editorialReport"
 msgstr ""
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "这里提醒您通过编辑报告检查期刊的健康状况。"
 

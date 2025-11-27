@@ -1970,6 +1970,7 @@ msgstr "Estat de la ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resum de l'informe d'estadístiques."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Us recordem amablement que comproveu la salut de la vostra revista "

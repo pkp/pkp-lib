@@ -2159,6 +2159,7 @@ msgstr ""
 "labojiet savu profilu, lai pārliecinātos, ka jums ir piešķirtas atbilstošas "
 "lomas sadaļā \"Reģistrēties kā\"."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Šis ir atgādinājums pārbaudīt žurnāla stāvokli, izmantojot redakcijas "

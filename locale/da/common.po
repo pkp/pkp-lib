@@ -1961,6 +1961,7 @@ msgstr "Status for runde {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Sammendrag af statistikrapport."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Dette er en venlig påmindelse til dig om at kontrollere dit tidsskrifts "

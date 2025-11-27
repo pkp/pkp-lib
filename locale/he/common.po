@@ -1316,6 +1316,7 @@ msgstr "נוסף דיון"
 msgid "notification.type.assignCopyeditors"
 msgstr "הקצה עורך לשון באמצעות שימוש בקישור \"הקצה\" ברשימת המשתתפים."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "זוהי תזכורת עבורך לבדוק את תקינות כתב העת שלך באמצעות דוח המערכת."
 

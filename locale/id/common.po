@@ -1954,6 +1954,7 @@ msgstr "Status Ronde{$round}"
 msgid "notification.type.editorialReport"
 msgstr "Rangkuman laporan statistik."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ini adalah semacam pengingat bagi Anda untuk memeriksa kondisi jurnal Anda "

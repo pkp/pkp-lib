@@ -1957,6 +1957,7 @@ msgstr "Status Runda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Rezumatul raportului statistic."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Acesta este o reamintire pentru a verifica starea de sănătate a jurnalului "

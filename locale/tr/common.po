@@ -1944,6 +1944,7 @@ msgstr "{$round} Tur Durumu"
 msgid "notification.type.editorialReport"
 msgstr "İstatistik rapor özeti."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Bu, editoryal rapor aracılığıyla derginizin sağlığını kontrol etmeniz için "

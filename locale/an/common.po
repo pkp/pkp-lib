@@ -2049,6 +2049,7 @@ msgstr "Estau d'a ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumen de l'informe d'estatisticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Le recordamos amablement que comprebe la salut d'a suya revista a traviés "

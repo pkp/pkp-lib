@@ -1980,6 +1980,7 @@ msgstr "Estado de la ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumen del informe de estadísticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Le recordamos amablemente que compruebe la salud de su revista a través del "

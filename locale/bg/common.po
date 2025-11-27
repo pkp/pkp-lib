@@ -1961,6 +1961,7 @@ msgstr "Статус на кръг {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Резюме на статистическия доклад."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Това е напомняне за вас да проверите състоянието на вашето списание чрез "

@@ -1955,6 +1955,7 @@ msgstr "Статус раунду {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Підсумковий звіт статистики."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Це нагадування про необхідность перевірки стану вашого Журналу, "

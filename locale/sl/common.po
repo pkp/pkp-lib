@@ -1929,6 +1929,7 @@ msgstr "Krog {$round} Status"
 msgid "notification.type.editorialReport"
 msgstr "Povzetek statističnih poročil."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "To je neke vrste opomnik za vas, da preverite zdravje vaše revije s pomočjo "

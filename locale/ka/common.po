@@ -1948,6 +1948,7 @@ msgstr "{$round} რაუნდის სტატუსი"
 msgid "notification.type.editorialReport"
 msgstr "სტატისტიკის ანგარიშის შეჯამება."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "ეს არის ერთგვარი შეხსენება, რომ შეამოწმოთ თქვენი ჟურნალის ჯანმრთელობა "

@@ -1950,6 +1950,7 @@ msgstr "Kierroksen {$round} tila"
 msgid "notification.type.editorialReport"
 msgstr "Kävijäraportin yhteenveto."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "Muista tarkistaa julkaisusi toimitustyötä koskeva raportti."
 

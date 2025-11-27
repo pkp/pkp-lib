@@ -1957,6 +1957,7 @@ msgstr "Status kola {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Shrnutí statistické zprávy."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Toto je laskavé připomenutí, abyste si prostřednictvím redakční zprávy mohli "

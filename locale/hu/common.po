@@ -1942,6 +1942,7 @@ msgstr "{$round} fordulói státusz"
 msgid "notification.type.editorialReport"
 msgstr "Statisztikai riport összesítője. "
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "Kérjük, tekintse át folyóirata állapotát a szerkesztői riportban."
 

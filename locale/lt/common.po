@@ -2039,6 +2039,7 @@ msgstr "{$round} recenzavimo būsena"
 msgid "notification.type.editorialReport"
 msgstr "Statistikos ataskaitos santrauka."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Tai malonus priminimas jums pasitikrinti savo žurnalo būklę peržvelgiant "

@@ -19,6 +19,7 @@ namespace PKP\citation;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Bus;
@@ -241,6 +242,19 @@ class Repository
 
             Hook::call('Citation::importCitations::after', [$publicationId, $existingCitations, $importedCitations]);
         }
+    }
+
+    /**
+     * Insert/cpopy citations as they are for a publication. Used at publication versioning.
+     */
+    public function copyCitations(array $citations, int $publicationId): void
+    {
+        foreach ($citations as $citation) {
+            /** @var Citation $citation */
+            $citation->setData('publicationId', $publicationId);
+            $this->dao->insert($citation);
+        }
+
     }
 
     /**

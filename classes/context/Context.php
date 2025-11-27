@@ -45,6 +45,7 @@ abstract class Context extends \PKP\core\DataObject
     public const SETTING_DOI_CREATION_TIME = 'doiCreationTime';
     public const SETTING_DOI_AUTOMATIC_DEPOSIT = 'automaticDoiDeposit';
     public const SETTING_DOI_VERSIONING = 'doiVersioning';
+    public const SETTING_ENABLE_PUBLIC_PEER_REVIEWS = 'enablePublicPeerReviews';
 
     public const SUBMISSION_ACKNOWLEDGEMENT_OFF = null;
     public const SUBMISSION_ACKNOWLEDGEMENT_SUBMITTING_AUTHOR = 'submittingAuthor';
@@ -76,7 +77,7 @@ abstract class Context extends \PKP\core\DataObject
      */
     public function arePeersReviewPublic(): bool
     {
-        return (bool) $this->getData('enablePublicPeerReviews');
+        return (bool) $this->getData(self::SETTING_ENABLE_PUBLIC_PEER_REVIEWS);
     }
 
     /**

@@ -111,15 +111,18 @@ class PublicationPeerReviewResource extends JsonResource
             } else {
                 $reviewerComments = $this->getReviewAssignmentComments($assignment);
             }
+
+            $isReviewOpen = $assignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
             return [
                 'id' => $assignment->getData('id'),
-                'reviewerId' => $assignment->getReviewerId(),
-                'reviewerFullName' => $assignment->getReviewerFullName(),
-                'reviewerAffiliation' => Repo::user()->get($assignment->getReviewerId())->getLocalizedAffiliation(),
+                'reviewerId' => $isReviewOpen ? $assignment->getReviewerId() : null,
+                'reviewerFullName' => $isReviewOpen ? $assignment->getReviewerFullName() : null,
+                'reviewerAffiliation' => $isReviewOpen ? Repo::user()->get($assignment->getReviewerId())->getLocalizedAffiliation() : null,
                 'dateAssigned' => $assignment->getDateAssigned(),
                 'dateConfirmed' => $assignment->getDateConfirmed(),
                 'dateCompleted' => $assignment->getDateCompleted(),
                 'declined' => $assignment->getDeclined(),
+                'isReviewOpen' => $isReviewOpen,
                 // Localized text description of the reviewer recommendation(Accept Submission, Decline Submission, etc)
                 'reviewerRecommendationDisplayText' => $assignment->getLocalizedRecommendation(),
                 'reviewerRecommendationId' => $assignment->getReviewerRecommendationId(),

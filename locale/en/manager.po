@@ -1034,6 +1034,9 @@ msgstr "DOI Versioning"
 msgid "doi.authorization.enabledRequired"
 msgstr "You cannot call this operation without DOIs enabled."
 
+msgid "publicPeerReviews.authorization.enabledRequired"
+msgstr "You cannot call this operation without Public Peer Reviews enabled."
+
 msgid "doi.manager.versions.countStatement"
 msgstr "There are {$count} versions."
 

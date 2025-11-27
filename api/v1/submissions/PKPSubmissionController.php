@@ -617,7 +617,7 @@ class PKPSubmissionController extends PKPBaseController
         // to differentiate between Journal managers, who are not assigned to Submission Stage 
         // (production editor, journal manager)
         if (Application::get()->getName() !== 'ops') {
-            $submitterUserGroupsQuery->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION]);
+            // $submitterUserGroupsQuery->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION]);
         }
 
         $submitterUserGroups = $submitterUserGroupsQuery->get();

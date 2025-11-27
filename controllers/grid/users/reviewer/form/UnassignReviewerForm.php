@@ -22,6 +22,7 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerUnassign;
@@ -69,7 +70,21 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
 
         // Delete or cancel the review assignment.
         if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::clearReview', [&$submission, $reviewAssignment])) {
-            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
+            $reviewerId = $reviewAssignment->getReviewerId();
+
+            // add temporary user because there will no user account until user accept the invitation
+            $reviewer = $reviewerId
+                ? Repo::user()->get($reviewerId, true)
+                : (function() use ($reviewAssignment) {
+
+                    $email = $reviewAssignment->getData('email');
+
+                    $tempUser = Repo::user()->newDataObject();
+                    $tempUser->setEmail($email);
+                    $tempUser->setGivenName($email, null); //set email as given name for temporary user
+                    return $tempUser;
+                })();
+
             if (!isset($reviewer)) {
                 return false;
             }
@@ -83,7 +98,9 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
                 // The review had not been confirmed yet. Delete the assignment.
                 Repo::reviewAssignment()->delete($reviewAssignment);
             }
-
+            // update related invitation
+            $invitation = Repo::invitation()->getInvitationByReviewerAssignmentId($reviewAssignment->getId());
+            $invitation?->updateStatus(InvitationStatus::CANCELLED);
             // Stamp the modification date
             $submission->stampModified();
             Repo::submission()->dao->update($submission);

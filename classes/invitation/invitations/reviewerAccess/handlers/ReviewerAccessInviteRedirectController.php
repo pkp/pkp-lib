@@ -71,11 +71,6 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         $context = $request->getContext();
         $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
 
-        if ($reviewAssignment) {
-            $reviewAssignment->setDeclined(true);
-            $reviewAssignment->setLastModified(Core::getCurrentDate());
-        }
-
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
@@ -90,6 +85,9 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         );
 
         $this->getInvitation()->decline();
+        $reviewAssignment->setDeclined(true);
+        $reviewAssignment->setLastModified(Core::getCurrentDate());
+        Repo::reviewAssignment()->edit($reviewAssignment, []);
 
         $request->redirectUrl($url);
     }

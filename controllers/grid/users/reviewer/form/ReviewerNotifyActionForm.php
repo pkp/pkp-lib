@@ -24,6 +24,7 @@ use PKP\form\Form;
 use PKP\mail\Mailable;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\user\User;
 
 abstract class ReviewerNotifyActionForm extends Form
 {
@@ -80,11 +81,17 @@ abstract class ReviewerNotifyActionForm extends Form
             'dateConfirmed' => $reviewAssignment->getDateConfirmed(),
             'reviewerId' => $reviewerId,
         ]);
+        if(!$reviewerId){
+            $tempUser = Repo::user()->newDataObject();
+            $tempUser->setEmail($reviewAssignment->getData('email'));
+            $tempUser->setFamilyName($reviewAssignment->getData('email'),null);
+            $tempUser->setGivenName($reviewAssignment->getData('email'),null);
+        }
 
         $context = $request->getContext();
         $mailable = $this->getMailable($context, $submission, $reviewAssignment);
         $mailable->sender($request->getUser());
-        $mailable->recipients([Repo::user()->get($reviewerId)]);
+        $mailable->recipients([$reviewerId?Repo::user()->get($reviewerId):$tempUser]);
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
         $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->getData()));

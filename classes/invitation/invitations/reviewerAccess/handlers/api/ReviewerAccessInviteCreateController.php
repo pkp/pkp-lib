@@ -157,6 +157,9 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
     public function cancel(): JsonResponse
     {
         $result = $this->invitation->updateStatus(InvitationStatus::CANCELLED);
+        if($this->invitation->getPayload()->reviewAssignmentId){
+            Repo::reviewAssignment()->delete($this->invitation->getPayload()->reviewAssignmentId);
+        }
 
         if (!$result) {
             return response()->json([

@@ -1642,12 +1642,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
-            ], Response::HTTP_FORBIDDEN);
-        }
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $submissionContext = $request->getContext();
         // Remove extra data that is irrelevant to the selected contributor type
@@ -2461,8 +2455,23 @@ class PKPSubmissionController extends PKPBaseController
     /**
      * Get contributor role objects from ids and context id
      */
-    protected function contributorRolesToParams(array $roleIds, int $contextId): array
+    protected function contributorRolesToParams(array $roles, int $contextId): array
     {
+        $roleIds = array_values(array_filter(array_map(function ($r) {
+            if (is_int($r) || ctype_digit((string)$r)) {
+                return (int) $r;
+            }
+            if (is_array($r)) {
+                if (isset($r['id'])) return (int) $r['id'];
+                if (isset($r['roleId'])) return (int) $r['roleId'];
+            }
+            return null;
+        }, $roles), fn ($v) => $v !== null));
+
+        if (empty($roleIds)) {
+            return [];
+        }
+
         try {
             return ContributorRole::withContextId($contextId)
                 ->withRoleIds($roleIds)

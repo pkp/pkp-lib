@@ -372,7 +372,16 @@ abstract class Repository
         if ($context->getData(Context::SETTING_DOI_VERSIONING) && !$isMinorVersion) {
             $newPublication->setData('doiId', null);
         }
+
+        $citations = $newPublication->getData('citations');
+        // remove citations from the new publication
+        // so that they are not re-processed when inserting the new publication
+        $newPublication->setData('citations', null);
+        $newPublication->setData('citationsRaw', null);
         $newId = $this->add($newPublication);
+        // insert citations as they are for the new publication
+        Repo::citation()->copyCitations($citations, $newId);
+
         $newPublication = Repo::publication()->get($newId);
 
         $authors = $publication->getData('authors');
@@ -388,11 +397,6 @@ abstract class Repository
                 }
             }
         }
-
-        Repo::citation()->importCitations(
-            $newPublication->getId(),
-            $newPublication->getData('citationsRaw')
-        );
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());

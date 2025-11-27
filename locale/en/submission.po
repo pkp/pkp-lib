@@ -3296,6 +3296,9 @@ msgstr "Task and discussion template name"
 msgid "taskTemplates.templateAutoAdd"
 msgstr "Automatically add this task and discussion when a submission reaches a specific stage"
 
+msgid "taskTemplates.templateAutoAddAtStage"
+msgstr "Auto-add at stage"
+
 msgid "taskTemplates.templateAutoAddInStage"
 msgstr "Automatically add this task and/or discussion when a submission reaches the stage"
 

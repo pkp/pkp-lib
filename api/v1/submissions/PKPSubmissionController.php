@@ -61,6 +61,7 @@ use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\observers\events\MetadataChanged;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -77,13 +78,11 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
-use PKP\observers\events\MetadataChanged;
-use PKP\stageAssignment\StageAssignment;
-
 
 class PKPSubmissionController extends PKPBaseController
 {
@@ -714,12 +713,13 @@ class PKPSubmissionController extends PKPBaseController
             $author = Repo::author()->newAuthorFromUser($request->getUser(), $submission, $context);
             $author->setData('publicationId', $publication->getId());
             $author->setData('contributorType', ContributorType::PERSON->getName());
-            $author->setContributorRoles(ContributorRole::query()
-                ->withContextId($context->getId())
-                ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
-                ->limit(1)
-                ->get()
-                ->all()
+            $author->setContributorRoles(
+                ContributorRole::query()
+                    ->withContextId($context->getId())
+                    ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
+                    ->limit(1)
+                    ->get()
+                    ->all()
             );
             $authorId = Repo::author()->add($author);
             Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
@@ -1461,7 +1461,7 @@ class PKPSubmissionController extends PKPBaseController
 
         foreach ($stageAssignments as $stageAssignment) {
             $userGroup = $stageAssignment->userGroup;
-            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR){
+            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR) {
                 $stageAssignment->canChangeMetadata = 0;
                 $stageAssignment->save();
             }
@@ -2300,9 +2300,9 @@ class PKPSubmissionController extends PKPBaseController
                     }
                 }
                 if (!(
-                        $contributor->getData('contributorType') === ContributorType::PERSON->getName() && ($contributor->getData('givenName')[$newLocale] ?? null) ||
+                    $contributor->getData('contributorType') === ContributorType::PERSON->getName() && ($contributor->getData('givenName')[$newLocale] ?? null) ||
                         $contributor->getData('contributorType') === ContributorType::ORGANIZATION->getName() && ($contributor->getData('organizationName')[$newLocale] ?? null)
-                    )) {
+                )) {
                     Repo::author()->edit($contributor, $editProps($contributor, $contributorProps));
                 }
             });
@@ -2346,13 +2346,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
@@ -2382,13 +2375,6 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
-        }
-
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
-            ], Response::HTTP_FORBIDDEN);
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
@@ -2427,13 +2413,6 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
-        }
-
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
-            ], Response::HTTP_FORBIDDEN);
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.

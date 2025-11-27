@@ -23,9 +23,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
+use PKP\security\authorization\PublicReviewsEnabledPolicy;
 
 class PublicationPeerReviewController extends PKPBaseController
 {
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $this->addPolicy(new PublicReviewsEnabledPolicy($request->getContext()));
+        return parent::authorize($request, $args, $roleAssignments);
+    }
+
     /**
      * @inheritdoc
      */

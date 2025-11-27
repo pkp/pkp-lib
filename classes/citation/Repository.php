@@ -208,7 +208,7 @@ class Repository
      * @hook Citation::importCitations::before [[$publicationId, $existingCitations, $rawCitations]]
      * @hook Citation::importCitations::after [[$publicationId, $existingCitations, $importedCitations]]
      */
-    public function importCitations(int $publicationId, ?string $rawCitationList): void
+    public function importCitations(int $publicationId, ?string $rawCitationList, bool $reprocess = true): void
     {
         $existingCitations = $this->getByPublicationId($publicationId);
         Hook::call('Citation::importCitations::before', [$publicationId, $existingCitations, $rawCitationList]);
@@ -231,7 +231,7 @@ class Repository
                         $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($this->request->getContext()->getData('citationsMetadataLookup')) {
+                        if ($this->request->getContext()->getData('citationsMetadataLookup') && $reprocess) {
                             $this->reprocessCitation($citation);
                         }
                         $importedCitations[] = $citation;

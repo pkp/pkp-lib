@@ -46,7 +46,9 @@
 		{/if}
 	{/if}
 
-	{fbvFormSection for="interests"}
-		{fbvElement type="interests" id="interests" interests=$interests label="user.interests"}
-	{/fbvFormSection}
+	{if !$disableInterestsSection}
+		{fbvFormSection for="interests"}
+			{fbvElement type="interests" id="interests" interests=$interests label="user.interests"}
+		{/fbvFormSection}
+	{/if}
 {/fbvFormArea}

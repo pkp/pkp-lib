@@ -54,6 +54,9 @@ class RolesForm extends BaseProfileForm
 
         $templateMgr->assign('userGroupIds', $userGroupIds);
 
+        // OPS does not have a reviewing system, so disable the interests section
+        $templateMgr->assign('disableInterestsSection', Application::get()->getName() === 'ops');
+
         $userFormHelper = new UserFormHelper();
         $userFormHelper->assignRoleContent($templateMgr, $request);
 

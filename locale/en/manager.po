@@ -1333,6 +1333,15 @@ msgstr "No reminder set"
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"
 
+msgid "manager.setup.reviewOptions.publicReviewerComments.show"
+msgstr "Publicly Show Reviewer Comments"
+
+msgid "manager.setup.reviewOptions.publicReviewerComments.label"
+msgstr "Make reviewer comments publicly visible with published content"
+
+msgid "manager.setup.reviewOptions.publicReviewerComments.description"
+msgstr "Enable this setting if you'd like the review process to be made publicly visible alongside published submissions. This supports transparent peer review practices and can help foster greater trust and accountability."
+
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Present a link to <button type=\"button\">how to ensure all files are "

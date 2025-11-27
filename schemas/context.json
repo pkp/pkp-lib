@@ -225,6 +225,12 @@
 				"in:1,2,3"
 			]
 		},
+		"enablePublicPeerReviews": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"defaultMetricType": {
 			"type": "string",
 			"validation": [

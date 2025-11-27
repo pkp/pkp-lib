@@ -71,6 +71,15 @@ abstract class Context extends \PKP\core\DataObject
     }
 
     /**
+     * Whether peer reviews are publicly visible for this context
+     *
+     */
+    public function arePeersReviewPublic(): bool
+    {
+        return (bool) $this->getData('enablePublicPeerReviews');
+    }
+
+    /**
      * Checks if DOIs of a given type are enabled for the current context
      *
      * @param string $doiType One of Repo::doi()::TYPE_*

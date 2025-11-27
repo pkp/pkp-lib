@@ -297,7 +297,7 @@ class ReviewerAccessInvitationSteps implements InvitationSteps
     {
         $request =  PKPApplication::get()->getRequest();
         $submissionId = $invitation->getPayload()->submissionId;
-        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submissionId]);
+        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getData('urlPath'), 'vocabs/interests', null, null, ['vocab' => '__vocab__']);
         $sections = new Sections(
             'userCreateForm',
             __('acceptInvitation.accountDetails.stepName'),
@@ -318,6 +318,7 @@ class ReviewerAccessInvitationSteps implements InvitationSteps
                     'givenName',
                     'familyName',
                     'userCountry',
+                    'userInterests'
                 ]
             ]
         );

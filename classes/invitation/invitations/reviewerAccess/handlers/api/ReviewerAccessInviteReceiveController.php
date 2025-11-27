@@ -11,6 +11,7 @@ use PKP\core\Core;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\ReceiveInvitationController;
@@ -114,6 +115,13 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
             $user->setPassword($this->invitation->getPayload()->password);
 
             Repo::user()->add($user);
+            // Insert the user interests
+            Repo::userInterest()->setInterestsForUser(
+                $user,
+                array_column(
+                    $this->invitation->getPayload()->userInterests[Locale::getPrimaryLocale()], 'name'
+                )
+            );
         } else {
             if (empty($user->getOrcid()) && isset($this->invitation->getPayload()->orcid)) {
                 $user->setVerifiedOrcidOAuthData($this->invitation->getPayload()->toArray());

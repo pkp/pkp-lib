@@ -57,6 +57,7 @@ class ReviewerAccessInvitePayload extends InvitePayload
         public ?int $reviewRoundId = null,
         public ?int $reviewAssignmentId = null,
         public ?array $selectedFileIds = null,
+        public ?array $userInterests = null,
     )
     {
         parent::__construct(get_object_vars($this));
@@ -236,6 +237,11 @@ class ReviewerAccessInvitePayload extends InvitePayload
                 'integer'
             ],
             'selectedFileIds' => [
+                'sometimes',
+                'required',
+                'array'
+            ],
+            '$userInterests' => [
                 'sometimes',
                 'required',
                 'array'

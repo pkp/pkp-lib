@@ -58,6 +58,7 @@ class ReviewerAccessInviteResource extends BaseReviewerAccessInviteResource
             'sendEmailAddress' => $payload->sendEmailAddress,
             'existingUser' => $this->transformUser($this->getExistingUser()),
             'newUser' => $this->transformUser($newUser),
+            'userInterests' => $payload->userInterests,
             'submission' => $this->transformSubmission($payload->submissionId),
         ]);
     }

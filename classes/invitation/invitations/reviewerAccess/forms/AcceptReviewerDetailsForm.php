@@ -10,6 +10,7 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\facades\Locale;
+use PKP\user\interest\UserInterest;
 
 class AcceptReviewerDetailsForm extends FormComponent
 {
@@ -83,25 +84,10 @@ class AcceptReviewerDetailsForm extends FormComponent
             'label' => __('user.interests'),
             'tooltip' => __('manager.setup.metadata.subjects.description'),
             'isMultilingual' => true,
-            'apiUrl' => str_replace('__vocab__', ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
+            'apiUrl' => str_replace('__vocab__', UserInterest::CONTROLLED_VOCAB_INTEREST, $suggestionUrlBase),
             'locales' => $this->locales,
-            'value' => $this->getVocabEntryData(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT),
+            'value' => [],
         ]));
 
-    }
-
-    /**
-     * Get vocab entry data
-     */
-    protected function getVocabEntryData(string $symbolic): array
-    {
-        $submission = Repo::submission()->get($this->submissionId);
-        return Repo::controlledVocab()->getBySymbolic(
-            $symbolic,
-            Application::ASSOC_TYPE_PUBLICATION,
-            $submission->getCurrentPublication()->getId(),
-            [],
-            Repo::controlledVocab()::AS_ENTRY_DATA
-        );
     }
 }

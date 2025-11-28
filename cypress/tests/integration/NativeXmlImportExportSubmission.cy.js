@@ -50,11 +50,16 @@ describe('Data suite tests', function() {
 
 		cy.waitJQuery({timeout:20000});
 		cy.readFile(downloadedSubmissionPath).then(fileContent => {
+			// FIX: Hard wait required for CI stability.
+			// The uploader initializes asynchronously.
+			// DOM presence checks (e.g. moxie-shim) pass before event listeners are fully bound.
+			// This wait ensures the file is uploaded as 'multipart/form-data' instead of failing as 'application/octet-stream'.
+			cy.wait(1000);
 			cy.get('input[type=file]').attachFile({fileContent, filePath: downloadedSubmissionPath, mimeType: 'text/xml', encoding: 'utf8'});
 		});
 
-		cy.get('input[name="temporaryFileId"][value]', {timeout:20000});
-		cy.wait(1000);
+
+		cy.get('input[name="temporaryFileId"]', { timeout: 20000 }).invoke('val').should('not.be.empty');
 
 		cy.get('form#importXmlForm button[type="submit"]').click();
 		cy.contains('The import completed successfully.', {timeout:20000});

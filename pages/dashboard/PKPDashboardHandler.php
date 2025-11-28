@@ -268,6 +268,8 @@ abstract class PKPDashboardHandler extends Handler
             'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
             'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
             'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
+            'SUBMISSION_FILE_DEPENDENT' => SubmissionFile::SUBMISSION_FILE_DEPENDENT,
+            'SUBMISSION_FILE_BODY_TEXT' => SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
             // Reviewer selection types
@@ -281,6 +283,8 @@ abstract class PKPDashboardHandler extends Handler
             'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
             'ASSOC_TYPE_REPRESENTATION' => PKPApplication::ASSOC_TYPE_REPRESENTATION,
             'ASSOC_TYPE_SUBMISSION' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'ASSOC_TYPE_SUBMISSION_FILE' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
+            'ASSOC_TYPE_PUBLICATION' => PKPApplication::ASSOC_TYPE_PUBLICATION,
             // NOTIFICATIONS
             'NOTIFICATION_LEVEL_NORMAL' => Notification::NOTIFICATION_LEVEL_NORMAL,
             'NOTIFICATION_LEVEL_TRIVIAL' => Notification::NOTIFICATION_LEVEL_TRIVIAL,

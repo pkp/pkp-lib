@@ -229,7 +229,7 @@ class PKPMetadataSettingsForm extends FormComponent
                 'value' => $context->getData('fundingStatement') ? $context->getData('fundingStatement') : Context::METADATA_DISABLE,
             ]))
             ->addField(new FieldMetadataSetting('dataCitations', [
-                'label' => __('submission.dataCitations'),
+                'label' => __('manager.setup.metadata.dataCitations'),
                 'description' => __('manager.setup.metadata.dataCitations.description'),
                 'options' => [
                     ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataCitations.enable')]

@@ -20,6 +20,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
+use PKP\dataCitation\DataCitation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 
@@ -141,8 +142,12 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
                     break;
                 case 'dataCitations':
-                        // DATACITATIONS TODO
-                        break;
+                    $data = [];
+                    foreach ($publication->getData('dataCitations') as $dataCitation) {
+                        $data[] = Repo::dataCitation()->getSchemaMap()->map($dataCitation);
+                    }
+                    $output[$prop] = $data;
+                    break;
                 case 'doiObject':
                     if ($publication->getData('doiObject')) {
                         $retVal = Repo::doi()->getSchemaMap()->summarize($publication->getData('doiObject'));

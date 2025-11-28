@@ -56,22 +56,26 @@ class SessionDAO extends DAO {
 	 * @param $session Session
 	 */
 	function insertObject($session) {
-		$this->update(
-			'INSERT INTO sessions
-				(session_id, ip_address, user_agent, created, last_used, remember, data, domain)
-				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?)',
-			[
-				$session->getId(),
-				$session->getIpAddress(),
-				substr($session->getUserAgent(), 0, 255),
-				(int) $session->getSecondsCreated(),
-				(int) $session->getSecondsLastUsed(),
-				$session->getRemember() ? 1 : 0,
-				$session->getSessionData(),
-				$session->getDomain()
-			]
-		);
+		try {
+			$this->update(
+				'INSERT INTO sessions
+					(session_id, ip_address, user_agent, created, last_used, remember, data, domain)
+					VALUES
+					(?, ?, ?, ?, ?, ?, ?, ?)',
+				[
+					$session->getId(),
+					$session->getIpAddress(),
+					substr($session->getUserAgent(), 0, 255),
+					(int) $session->getSecondsCreated(),
+					(int) $session->getSecondsLastUsed(),
+					$session->getRemember() ? 1 : 0,
+					$session->getSessionData(),
+					$session->getDomain()
+				]
+			);
+		} catch (Exception $e) {
+			$this->updateObject($session);
+		}
 	}
 
 	/**

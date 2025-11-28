@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -116,7 +117,11 @@ class UserGroupForm extends Form
             // Get a list of all settings-accessible user groups for the current user in
             // order to prevent them from locking themselves out by disabling the only one.
             $mySettingsAccessUserGroupIds = UserGroup::withContextIds([$this->getContextId()])
-                ->withUserIds([Application::get()->getRequest()->getUser()->getId()])
+                ->whereHas(
+                    'userUserGroups',
+                    fn (EloquentBuilder $q) =>
+                    $q->withActive()->withUserId(Application::get()->getRequest()->getUser()->getId())
+                )
                 ->get()
                 ->filter(fn ($userGroup) => $userGroup->permitSettings)
                 ->map(fn ($userGroup) => $userGroup->id)

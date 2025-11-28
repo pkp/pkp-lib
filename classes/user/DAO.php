@@ -126,9 +126,10 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $rows = $query->getQueryBuilder()->get();
+            if ($rows->isEmpty()) {
+                return;
+            }
 
             foreach ($rows as $row) {
                 yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
@@ -258,8 +259,6 @@ class DAO extends EntityDAO
             $user->setData('declinedCount', (int) $row->declined_count);
             $user->setData('cancelledCount', (int) $row->cancelled_count);
             $user->setData('averageTime', (int) $row->average_time);
-
-            // 0 values should return null. They represent a reviewer with no ratings
             if ($reviewerRating = $row->reviewer_rating) {
                 $user->setData('reviewerRating', max(1, round($reviewerRating)));
             }

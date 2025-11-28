@@ -30,6 +30,10 @@ use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\user\interest\UserInterest;
+use Illuminate\Support\Facades\DB;
+use PKP\facades\Locale;
+use PKP\workflow\WorkflowStageDAO;
 
 class Repository
 {
@@ -445,5 +449,163 @@ class Repository
     public function getAdminUsers(): LazyCollection
     {
         return $this->dao->getAdminUsers();
+    }
+
+    /**
+     * build a permission map for a manager over a set of users
+     */
+    public function permissionMapForManager(int $managerUserId, array $userIds): array
+    {
+        $userIds = array_values(array_unique(array_map('intval', $userIds)));
+        if (empty($userIds)) return [];
+
+        $unmanaged = DB::table('users as u')
+            ->whereIn('u.user_id', $userIds)
+            ->whereExists(function ($q) use ($managerUserId) {
+                $q->from('user_user_groups as uug_t')
+                  ->join('user_groups as ug_t', 'ug_t.user_group_id', '=', 'uug_t.user_group_id')
+                  ->whereColumn('uug_t.user_id', 'u.user_id')
+                  ->whereNotExists(function ($qq) use ($managerUserId) {
+                      $qq->from('user_groups as ug_m')
+                         ->join('user_user_groups as uug_m', 'ug_m.user_group_id', '=', 'uug_m.user_group_id')
+                         ->where('ug_m.role_id', Role::ROLE_ID_MANAGER)
+                         ->where('uug_m.user_id', $managerUserId)
+                         ->whereColumn('ug_m.context_id', 'ug_t.context_id');
+                  });
+            })
+            ->pluck('u.user_id')
+            ->all();
+
+        $map = array_fill_keys($userIds, true);
+        foreach ($unmanaged as $id) $map[(int)$id] = false;
+        return $map;
+    }
+
+    /**
+     * Check if a user can view gossip notes for a context.
+     * Site admins or users in Manager/Sub-editor groups for the given context
+     * (or site-wide groups) are allowed.
+     */
+    public function canSeeGossip(int $currentUserId, int $contextId): bool
+    {
+        return DB::table('user_groups as ug')
+            ->join('user_user_groups as uug', 'ug.user_group_id', '=', 'uug.user_group_id')
+            ->where('uug.user_id', $currentUserId)
+            ->whereIn('ug.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->where(function ($q) use ($contextId) {
+                $q->where('ug.context_id', $contextId)
+                  ->orWhereNull('ug.context_id');
+            })
+            ->exists();
+    }
+
+    /**
+     * Preload user groups for a set of users, scoped to a context.
+     * Returns: [userId => [ ...group payload... ], ...]
+     */
+    public function preloadGroups(array $userIds, int $contextId, ?string $locale = null): array
+    {
+        $locale = $locale ?: Locale::getLocale();
+
+        $assignments = UserUserGroup::query()
+            ->withContextId($contextId)
+            ->withUserIds($userIds)
+            ->with(['userGroup']) // eagerload UserGroup entity
+            ->get([
+                'user_user_groups.user_id',
+                'user_user_groups.user_group_id',
+                'user_user_groups.date_start',
+                'user_user_groups.date_end',
+                'user_user_groups.masthead',
+            ]);
+
+        $map = [];
+        foreach ($assignments as $a) {
+            $ug = $a->userGroup;
+            if (!$ug) {
+                continue;
+            }
+            $map[(int) $a->userId][] = [
+                'id' => (int) $ug->id,
+                'name' => $ug->getLocalizedData('name'),
+                'abbrev' => $ug->getLocalizedData('abbrev'),
+                'roleId' => (int) $ug->roleId,
+                'showTitle' => (bool) $ug->showTitle,
+                'permitSelfRegistration' => (bool) $ug->permitSelfRegistration,
+                'permitMetadataEdit' => (bool) $ug->permitMetadataEdit,
+                'dateStart' => $a->dateStart,
+                'dateEnd' => $a->dateEnd,
+                'masthead' => (bool) $a->masthead,
+            ];
+        }
+        return $map;
+    }
+
+    /**
+     * Preload interests for a set of users (ids only).
+     */
+    public function preloadInterests(array $userIds): array
+    {
+        if (empty($userIds)) {
+            return [];
+        }
+
+        $rows = UserInterest::query()
+            ->whereIn('user_id', $userIds)
+            ->get(['user_id', 'controlled_vocab_entry_id']);
+
+        $map = [];
+        foreach ($rows as $r) {
+            $map[(int)$r->user_id][] = ['id' => (int)$r->controlled_vocab_entry_id];
+        }
+        return $map;
+    }
+
+    /**
+     * Batch load stage assignments for many users for one submission + stage.
+     * @return array<int,array> [userId => [stageAssignmentPayload...]]
+     */
+    public function stageAssignmentsForUsers(array $userIds, int $submissionId, int $stageId, int $contextId): array
+    {
+        $rows = StageAssignment::query()
+            ->with(['userGroup'])
+            ->whereIn('user_id', $userIds)
+            ->withSubmissionIds([$submissionId])
+            ->withStageIds([$stageId])
+            ->withContextId($contextId)
+            ->get();
+
+        /** @var WorkflowStageDAO $workflowStageDao */
+        $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
+
+        $label = __($workflowStageDao->getTranslationKeyFromId($stageId));
+
+        $byUser = [];
+        foreach ($rows as $sa) {
+            $ug = $sa->userGroup;
+            if ($ug && (int)$ug->roleId !== Role::ROLE_ID_REVIEWER) {
+                $byUser[(int)$sa->userId][] = [
+                    'stageAssignmentId' => $sa->id,
+                    'stageAssignmentUserGroup' => [
+                        'id' => (int)$ug->id,
+                        'name' => $ug->getLocalizedData('name'),
+                        'abbrev' => $ug->getLocalizedData('abbrev'),
+                        'roleId' => (int)$ug->roleId,
+                        'showTitle' => (bool)$ug->showTitle,
+                        'permitSelfRegistration' => (bool)$ug->permitSelfRegistration,
+                        'permitMetadataEdit' => (bool)$ug->permitMetadataEdit,
+                        'recommendOnly' => (bool)$ug->recommendOnly,
+                    ],
+                    'stageAssignmentStageId' => $stageId,
+                    'recommendOnly' => (bool)$sa->recommendOnly,
+                    'canChangeMetadata' => (bool)$sa->canChangeMetadata,
+                    'stageAssignmentStage' => [
+                        'id' => $stageId,
+                        'label' => $label,
+                    ],
+                ];
+            }
+        }
+        return $byUser;
     }
 }

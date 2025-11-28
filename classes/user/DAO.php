@@ -125,9 +125,6 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        DB::listen(function ($query) {
-            error_log("SQL: " . $query->sql . " [" . implode(', ', $query->bindings) . "]");
-        });
         return LazyCollection::make(function () use ($query) {
             $rows = $query->getQueryBuilder()->get();
             if ($rows->isEmpty()) {
@@ -291,37 +288,6 @@ class DAO extends EntityDAO
     public function delete(User $user)
     {
         parent::_delete($user);
-    }
-
-    /**
-     * Build a lightweight user from a db row without loading settings.
-     */
-    protected function makeUserWithoutSettings(object $row, bool $includeReviewerData = false): User
-    {
-        $user = new User();
-
-        $user->setId((int) $row->{$this->primaryKeyColumn});
-
-        // map direct columns
-        foreach ($this->primaryTableColumns as $dataKey => $column) {
-            $user->setData($dataKey, $row->{$column} ?? null);
-        }
-
-        if ($includeReviewerData) {
-            $user->setData('lastAssigned', $row->last_assigned ?? null);
-            $user->setData('incompleteCount', isset($row->incomplete_count) ? (int)$row->incomplete_count : null);
-            $user->setData('completeCount', isset($row->complete_count) ? (int)$row->complete_count : null);
-            $user->setData('declinedCount', isset($row->declined_count) ? (int)$row->declined_count : null);
-            $user->setData('cancelledCount', isset($row->cancelled_count) ? (int)$row->cancelled_count : null);
-            if (isset($row->average_time)) {
-                $user->setData('averageTime', (int)$row->average_time);
-            }
-            if (!empty($row->reviewer_rating)) {
-                $user->setData('reviewerRating', max(1, round($row->reviewer_rating)));
-            }
-        }
-
-        return $user;
     }
 
     /**

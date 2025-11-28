@@ -16,7 +16,9 @@
 namespace PKP\API\v1\reviewers\suggestions\resources;
 
 use APP\facades\Repo;
+use APP\core\Application;
 use Illuminate\Http\Request;
+use PKP\security\Validation;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ReviewerSuggestionResource extends JsonResource
@@ -45,9 +47,14 @@ class ReviewerSuggestionResource extends JsonResource
         ];
 
         if ($request->get('include_reviewer_data') && $this->reviewerId) {
-            $suggestion['reviewer'] = Repo::user()->getSchemaMap()->summarizeReviewer($this->reviewer);
+            $map = Repo::user()->getSchemaMap();
+            $currentUser = Application::get()->getRequest()->getUser();
+            $options = [
+                'currentUserId' => $currentUser ? (int)$currentUser->getId() : null,
+                'isSiteAdmin' => Validation::isSiteAdmin(),
+            ];
+            $suggestion['reviewer'] = $map->summarizeReviewer($this->reviewer, $options);
         }
-
         return $suggestion;
     }
 }

@@ -1109,7 +1109,7 @@ class PKPSubmissionController extends PKPBaseController
         $context = $request->getContext();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $args = $illuminateRequest->input();
-        $stageId = $args['stageId'] ?? $illuminateRequest->route('stageId') !== null ? (int) $illuminateRequest->route('stageId') : null;
+        $stageId = $args['stageId'] ?? ($illuminateRequest->route('stageId') !== null ? (int) $illuminateRequest->route('stageId') : null);
 
         if (!$submission || $submission->getData('contextId') !== $context->getId()) {
             return response()->json([
@@ -1117,18 +1117,21 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $data = [];
-
         $usersIterator = Repo::user()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->assignedTo($submission->getId(), $stageId)
             ->getMany();
 
         $map = Repo::user()->getSchemaMap();
-        foreach ($usersIterator as $user) {
-            $data[] = $map->summarizeReviewer($user, ['submission' => $submission, 'stageId' => $stageId]);
-        }
+        $currentUser = $request->getUser();
 
+        $options = [
+            'currentUserId' => $currentUser ? (int) $currentUser->getId() : null,
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+            'submission' => $submission,
+            'stageId' => $stageId,
+        ];
+        $data = $map->summarizeManyReviewers($usersIterator, $options)->values()->all();
         return response()->json($data, Response::HTTP_OK);
     }
 

@@ -591,6 +591,23 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        // In a review stage, if the user is a reviewer and has no other roles, check if there is at least 1 accessible review assignment
+        if ($isReviewStage && $roleReviewer && $reviewerIsOnlyRole) {
+            $accessibleReviewAssignments = Repo::reviewAssignment()->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByStageId($stageId)
+                ->filterByReviewerIds([$currentUser->getId()])
+                ->filterByIsAccessibleByReviewer(true)
+                ->getMany();
+
+            // The reviewer has only review assignments that were declined or cancelled
+            if ($accessibleReviewAssignments->isEmpty()) {
+                return response()->json([
+                    'error' => __('api.403.forbidden'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+        }
+
         $currentUserHasDoubleBlindReview = false;
         $reviewUserGroup = UserGroup::with('userUserGroups')->where('role_id', Role::ROLE_ID_REVIEWER)
             ->where('context_id', $submission->getData('contextId'))
@@ -604,7 +621,6 @@ class EditorialTaskController extends PKPBaseController
                 ->filterBySubmissionIds([$submission->getId()])
                 ->filterByStageId($stageId)
                 ->filterByReviewerIds([$currentUser->getId()])
-                ->filterByActive(true)
                 ->getMany();
 
             if ($currentUserReviewAssignments->isNotEmpty()) {
@@ -699,7 +715,7 @@ class EditorialTaskController extends PKPBaseController
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->filterByStageId($stageId)
-            ->filterByActive(true)
+            ->filterByIsAccessibleByReviewer(true)
             ->getMany();
 
         // Filter review assignments by latest review round by reviewer

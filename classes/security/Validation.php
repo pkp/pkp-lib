@@ -27,6 +27,7 @@ use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
+use PKP\userGroup\relationships\UserGroupStage;
 use PKP\security\Role;
 use PKP\core\PKPApplication;
 
@@ -114,10 +115,57 @@ class Validation
         $request = Application::get()->getRequest();
         $request->getSessionGuard()->setUserDataToSession($user)->updateSession($user->getId());
 
+        // Ensure manager userGroups have all workflow stages assigned
+        static::ensureManagerUserGroupStages($user);
+
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
 
         return $user;
+    }
+
+    /**
+     * Ensure that all manager role userGroups for a user have all workflow stages assigned.
+     * This corrects any inconsistent database state where manager userGroups are missing stage assignments.
+     */
+    protected static function ensureManagerUserGroupStages(User $user): void
+    {
+        // Get application-specific workflow stages (differs between OJS, OMP, OPS)
+        $allWorkflowStages = Application::getApplicationStages();
+
+        // Get manager userGroups for this user with their current stage assignments
+        $managerUserGroups = UserGroup::query()
+            ->withRoleIds([Role::ROLE_ID_MANAGER])
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
+            })
+            ->with('userGroupStages')
+            ->get();
+
+        if ($managerUserGroups->isEmpty()) {
+            return;
+        }
+
+        // Collect all missing stage assignments for batch insert
+        $missingStages = [];
+        foreach ($managerUserGroups as $userGroup) {
+            $assignedStageIds = $userGroup->userGroupStages->pluck('stage_id')->toArray();
+
+            foreach ($allWorkflowStages as $stageId) {
+                if (!in_array($stageId, $assignedStageIds)) {
+                    $missingStages[] = [
+                        'context_id' => $userGroup->context_id,
+                        'user_group_id' => $userGroup->user_group_id,
+                        'stage_id' => $stageId,
+                    ];
+                }
+            }
+        }
+
+        // Batch insert missing stages
+        if (!empty($missingStages)) {
+            UserGroupStage::insert($missingStages);
+        }
     }
 
     /**

@@ -89,6 +89,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
     public const ASSOC_TYPE_ACCESSIBLE_FILE_STAGES = 0x010000d;
     public const ASSOC_TYPE_NONE = 0x010000e;
     public const ASSOC_TYPE_DECISION_TYPE = 0x010000f;
+    public const ASSOC_TYPE_DATA_CITATION = 0x0100010;
 
     // Constant used in UsageStats for submission files that are not full texts
     public const ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER = 0x0000213;

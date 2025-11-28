@@ -29,6 +29,7 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
+use PKP\dataCitation\DataCitation;
 use PKP\db\DAORegistry;
 use PKP\doi\Doi;
 use PKP\facades\Locale;
@@ -402,6 +403,15 @@ abstract class Repository
             $newPublication->getId(),
             $newPublication->getData('citationsRaw')
         );
+
+        // Clone data citations if any
+        $dataCitations = DataCitation::where('publication_id', $publication->getId())->get();
+        foreach ($dataCitations as $dataCitation) {
+            $data = $dataCitation->toArray();
+            unset($data['dataCitationId']);
+            $data['publicationId'] = $newPublication->getId();
+            $newDataCitation = DataCitation::create($data);
+        }
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());

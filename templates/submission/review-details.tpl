@@ -40,7 +40,40 @@
                 {include file="/submission/review-publication-field.tpl" prop="plainLanguageSummary" inLocale=$localeKey name="{translate key="submission.plainLanguageSummary"}" type="html"}
             {/if}
 
-{** DATACITATIONS TODO *}
+            {if in_array($currentContext->getData('dataCitations'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
+                {if $localeKey === $submission->getData('locale')}
+
+                    <div class="submissionWizard__reviewPanel__item">
+
+                        {assign var=isRequired value=($currentContext->getData('dataCitations') === $currentContext::METADATA_REQUIRE)|json_encode}
+
+                        <notification v-if="publication.dataCitations && !publication.dataCitations.length && {$isRequired}" type="warning" class="submissionWizard__dataCitationsEmptyWarning">
+                            <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
+                            {translate key="submission.dataCitations.required"}
+                        </notification>
+
+                        <h4 class="submissionWizard__reviewPanel__item__header">
+                            {translate key="submission.dataCitations"}
+                        </h4>
+
+                        <div class="submissionWizard__reviewPanel__item__value">
+                            <template v-if="!publication.dataCitations?.length">
+                                {translate key="common.noneProvided"}
+                            </template>
+
+                            <div
+                                v-else
+                                v-for="(dataCitation, i) in publication.dataCitations"
+                                :key="i"
+                                class="submissionWizard__reviewPanel__citation"
+                            >
+                                {{ dataCitation.title }}
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+            {/if}
+
 
             {if in_array($currentContext->getData('citations'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {if $localeKey === $submission->getData('locale')}

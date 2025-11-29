@@ -33,6 +33,7 @@ use PKP\author\creditRole\Repository as CreditRoleRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\citation\Repository as CitationRepository;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
+use PKP\dataCitation\Repository as DataCitationRepository;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\editorialTask\Repository as EditorialTaskRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
@@ -89,6 +90,11 @@ class Repo
     public static function creditRole(): CreditRoleRepository
     {
         return app(CreditRoleRepository::class);
+    }
+
+    public static function dataCitation(): DataCitationRepository
+    {
+        return app(DataCitationRepository::class);
     }
 
     public static function decision(): DecisionRepository

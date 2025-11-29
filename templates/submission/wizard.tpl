@@ -96,6 +96,12 @@
                             :publication="publication"
                             @updated:reviewer-suggestions="setReviewerSuggestion"
                         ></reviewer-suggestions-list-panel>
+                        <data-citation-manager
+                            v-else-if="section.type === 'dataCitations'"
+                            v-bind="components.dataCitation"
+                            :submission="submission"
+                            :publication="publication"
+                        ></data-citation-manager>
                         <template v-else-if="section.type === 'review'">
                             <notification
                                 v-if="Object.keys(errors).length" type="warning"

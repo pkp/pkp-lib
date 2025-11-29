@@ -36,6 +36,7 @@ class PKPSchemaService
     public const SCHEMA_CITATION = 'citation';
     public const SCHEMA_CONTEXT = 'context';
     public const SCHEMA_CONTRIBUTOR_ROLE = 'contributorRole';
+    public const SCHEMA_DATA_CITATION = 'dataCitation';
     public const SCHEMA_DOI = 'doi';
     public const SCHEMA_DECISION = 'decision';
     public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';
@@ -377,6 +378,9 @@ class PKPSchemaService
                     foreach ($value as $i => $v) {
                         $newArray[$i] = $this->coerce($v, $schema->items->type, $schema->items);
                     }
+                } elseif (is_string($value) && json_decode($value) !== null && json_last_error() === JSON_ERROR_NONE) {
+                    // If the value is already a JSON string, do not attempt to serialize it again
+                    return $value;
                 } else {
                     $newArray[] = serialize($value);
                 }
@@ -394,6 +398,7 @@ class PKPSchemaService
                     }
                     $newObject[$propName] = $this->coerce($value[$propName], $propSchema->type, $propSchema);
                 }
+
                 return $newObject;
         }
         throw new Exception('Requested variable coercion for a type that was not recognized: ' . $type);

@@ -76,7 +76,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $submissionId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $submissionId): void
     {
         if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
             throw new \Exception('Unexpected assoc type for notification!');

@@ -54,7 +54,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $assocId): void
     {
         $submissionId = $assocId;
         $submission = Repo::submission()->get($submissionId);

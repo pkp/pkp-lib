@@ -370,7 +370,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      * @param int $assocType Application::ASSOC_TYPE_... The notification associated object type.
      * @param int $assocId The notification associated object id.
      */
-    final public function updateNotification(PKPRequest $request, array $notificationTypes, ?array $userIds, int $assocType, int $assocId): void
+    final public function updateNotification(PKPRequest $request, array $notificationTypes, ?array $userIds, ?int $assocType, ?int $assocId): void
     {
         foreach ($notificationTypes as $type) {
             $managerDelegate = $this->getMgrDelegate($type, $assocType, $assocId);
@@ -456,7 +456,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     /**
      * Get the notification manager delegate based on the passed notification type.
      */
-    protected function getMgrDelegate(int $notificationType, int $assocType, int $assocId): ?NotificationManagerDelegate
+    protected function getMgrDelegate(int $notificationType, ?int $assocType, ?int $assocId): ?NotificationManagerDelegate
     {
         switch ($notificationType) {
             case Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
@@ -513,7 +513,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      * Try to use a delegate to retrieve a notification data that's defined
      * by the implementation of the
      */
-    protected function getByDelegate(int $notificationType, int $assocType, int $assocId, string $operationName, array $parameters): mixed
+    protected function getByDelegate(int $notificationType, ?int $assocType, ?int $assocId, string $operationName, array $parameters): mixed
     {
         if ($delegate = $this->getMgrDelegate($notificationType, $assocType, $assocId)) {
             return $delegate->$operationName(...$parameters);

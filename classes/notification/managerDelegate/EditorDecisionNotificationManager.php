@@ -62,7 +62,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $assocId): void
     {
         if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
             throw new \Exception('Unexpected assoc type!');

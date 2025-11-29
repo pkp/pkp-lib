@@ -1,12 +1,13 @@
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2024-08-23 14:45+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"PO-Revision-Date: 2025-11-27 18:57+0000\n"
+"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/it/>"
 "\n"
 "Language: it\n"
@@ -20,7 +21,7 @@ msgid "api.400.paramNotSupported"
 msgstr "Il parametro {$param} non è supportato."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "La proprietà {$prop} non può essere modificata."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -71,7 +72,7 @@ msgstr ""
 "contesto."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Il tipo di pubblicazione non è stato riconosciuto."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
@@ -82,10 +83,10 @@ msgid "api.dois.404.doiNotFound"
 msgstr "Il DOI richiesto non è stato trovato."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "L'oggetto della pubblicazione richiesto non è stato trovato."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "La proposta che è stata richiesta non è stata trovata."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -121,6 +122,8 @@ msgstr ""
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"Il plugin attualmente configurato deve essere un plugin di agenzia di "
+"registrazione."
 
 msgid "api.emails.400.missingBody"
 msgstr "È necessario includere un'e-mail per l'invio."
@@ -138,10 +141,10 @@ msgstr ""
 "selezionati."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr ""
+msgstr "Questo non è un template di email predefinito per un'email nota."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Questo non è un contesto valido."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Non è possibile trovare il template email richiesto."
@@ -296,7 +299,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Il richiesto volume, numero o anno non è valido."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "Non sei autorizzato a inviare proposte con questo ruolo utente."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -334,31 +337,127 @@ msgid "api.mailables.404.mailableNotFound"
 msgstr "L'e-mail richiesta non è stata trovata."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Il job non riuscito non è stato trovato nell'elenco dei non riusciti."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr ""
+msgstr "Il job non riuscito cui manca il payload da rispedire."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Nessun job non riuscito trovato nell'elenco."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Impossibile rieseguire il job non riuscito."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Job non riuscito rieseguito con successo."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Tutti i job non riusciti reinviabili con payload valido sono stati "
+"reinseriti nella coda con successo."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
+"Impossibile eliminare il job non riuscito dall'elenco dei processi non "
+"riusciti."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Job non riuscito eliminato correttamente dall'elenco dei non riusciti."
 
 #~ msgid "api.submissions.404.resourceNotFound"
 #~ msgstr "La risorsa richiesta non è stata trovata."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Il vocabolario {$vocab}  non è supportato."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Si è verificato un errore durante il caricamento dell'immagine."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Impossibile elaborare la richiesta API."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Non è possibile modificare la lingua di questa proposta perché esiste già "
+"più di una versione pubblicata o una pubblicazione già pubblicata."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr ""
+"Non è stato possibile trovare la proposta per questo compito di revisione."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr ""
+"Non è stato possibile trovare chi effettua la revisione per questo incarico"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Solo “accetta” e “rifiuta” sono valori validi"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "La sezione indicata non esiste."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Nella richiesta manca il parametro di query richiesto `ids`. Fornisci gli "
+"`ids` delle proposte che desideri eliminare."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID non valido: “{$id}” fornito."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Il modulo degli identificativi di pubblicazione non è disponibile poiché non "
+"ci sono identificativi abilitati."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Il ror richiesto non è stato trovato."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Impossibile completare l'azione prevista sulla risorsa."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Impossibile ricevere una qualche risposta prevista."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Parametro non valido per l'autore."
+
+msgid "api.400.routeNotDefined"
+msgstr "Non è stato fornito alcun percorso API."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "A questo elemento non è possibile assegnare un DOI."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Hai fornito un “eventType”,{$eventType}, non valido per le e-mail "
+"dell'autore."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Non è stato possibile salvare l'ordine di evidenziazione perché non sono "
+"state trovate informazioni d'ordine."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Non è stato possibile salvare l'ordine di evidenziazione perché uno o più di "
+"essi non sono stati trovati."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "L'evidenziazione richiesta non è stata trovata."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Non è possibile eseguire questa operazione con la funzionalità ORCID "
+"disabilitata."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "L'autore richiesto non è stato trovato"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Non è possibile apportare modifiche agli autori delle proposte che non ti "
+"sono state assegnate."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Questo endpoint non è disponibile dal namespace dell'intero sito e deve "
+"essere richiesto per un determinato contesto."

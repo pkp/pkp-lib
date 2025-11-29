@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-31 15:21+0000\n"
+"PO-Revision-Date: 2025-11-28 16:34+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -1936,7 +1936,6 @@ msgstr "Փուլ {$round} Ստատուս"
 msgid "notification.type.editorialReport"
 msgstr "Վիճակագրության հաշվետվություն:"
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Սա Ձեզ համար հիշեցում է, որպեսզի ստուգեք Ձեր ամսագրի վիճակը խմբագրական "

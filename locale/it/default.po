@@ -1,12 +1,12 @@
-# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
+# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2025.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-09-10 10:54+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"PO-Revision-Date: 2025-11-27 10:57+0000\n"
+"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "it/>\n"
 "Language: it\n"
@@ -142,14 +142,11 @@ msgstr "Immagine"
 msgid "default.genres.styleSheet"
 msgstr "Foglio di stile"
 
-#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></"
-"p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\"mailto: "
-"{$contactEmail}\">{$contactEmail}</a></p>"
+"<br><br>—<br><p>Questo è un messaggio automatico da <a href=\"{$contextUrl}\""
+">{$contextName}</a>.</p>"
 
-#, fuzzy
 msgid "default.submission.step.beforeYouBegin"
 msgstr ""
 "<p>Grazie dell'interesse dimostrato per {$contextName}. Ti verrà ora "
@@ -188,6 +185,35 @@ msgstr ""
 
 msgid "default.submission.step.forTheEditors"
 msgstr ""
+"<p>Fornisci i seguenti dettagli per aiutare il nostro team editoriale a "
+"gestire la tua richiesta</p><p>. Quando inserisci i metadati, fornisci le "
+"informazioni che ritieni più utili per la persona che gestisce la tua "
+"richiesta. Queste informazioni possono essere modificate prima della "
+"pubblicazione.</p>"
 
 msgid "default.submission.step.review"
 msgstr ""
+"<p>Controlla le informazioni inserite prima di completare l'invio. Puoi "
+"modificare qualsiasi dettaglio visualizzato qui cliccando sul pulsante "
+"Modifica nella parte superiore di ogni sezione.</p><p>Una volta completato "
+"l'invio, un membro del nostro team editoriale sarà incaricato di esaminarlo. "
+"Assicurati che i dettagli inseriti qui siano il più accurati possibile.</p>"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBM"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Al momento dell'invio, è possibile suggerire diversi potenziali revisori. "
+"Ciò può contribuire a semplificare il processo di revisione e fornire un "
+"contributo prezioso al team editoriale. Si prega di scegliere revisori "
+"esperti nel proprio campo e che non abbiano conflitti di interesse con il "
+"proprio lavoro. Questa funzione mira a migliorare il processo di revisione e "
+"a garantire un'esperienza più efficiente sia per gli autori che per il team "
+"editoriale.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Componente del board editorale"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Componenti del board editoriale"

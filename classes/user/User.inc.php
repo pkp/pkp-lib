@@ -337,7 +337,7 @@ class User extends Identity {
 	}
 
 	function getContactSignature() {
-		$signature = htmlspecialchars($this->getFullName());
+		$signature = PKPString::stripUnsafeHtml($this->getLocalizedSignature()) ?: htmlspecialchars($this->getFullName());
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		if ($a = $this->getLocalizedAffiliation()) $signature .= '<br/>' . htmlspecialchars($a);
 		if ($p = $this->getPhone()) $signature .= '<br/>' . __('user.phone') . ' ' . htmlspecialchars($p);

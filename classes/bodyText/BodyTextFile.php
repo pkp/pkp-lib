@@ -23,13 +23,11 @@ class BodyTextFile
     public ?string $loadingContentError = null;
     public ?string $bodyTextContent = null;
     public bool $isDefaultContent = true;
-    public array $props = [];
 
     public function __construct(
         public int $publicationId,
         public ?int $submissionId = null,
         public ?SubmissionFile $submissionFile = null,
-        public array $genres = []
     ) {
         try {
             if ($submissionFile) {

@@ -1494,7 +1494,8 @@ class PKPTemplateManager extends Smarty
             'helpUrl' => Application::get()->getHelpUrl(),
             'timeZone' => Config::getVar('general', 'time_zone'),
             'featureFlags' => [
-                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions')
+                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions'),
+                'enableBodyTextEditor' => Config::getVar('features', 'enable_body_text_editor'),
             ]
         ];
 

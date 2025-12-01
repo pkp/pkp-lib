@@ -273,6 +273,20 @@ class UserGroup extends Model
         return $builder;
     }
 
+   /**
+   * Scope a query to filter by user IDs that have active assignments.
+   * This combines user ID filtering with active status checking in a single
+   * whereHas clause to ensure both conditions apply to the same user_user_group row.
+   *
+   * @param array $userIds Array of user IDs to filter by
+   */
+  protected function scopeWithActiveUserIds(EloquentBuilder $builder, array $userIds): EloquentBuilder
+  {
+      return $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($userIds) {
+          $q->whereIn('user_id', $userIds)->withActive();
+      });
+  }
+
     /**
      * Scope a query to order by role ID.
      */

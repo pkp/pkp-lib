@@ -23,7 +23,6 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
@@ -113,7 +112,7 @@ class PKPBodyTextController extends PKPBaseController
     }
 
     /**
-     * Get body text files
+     * Get body text content for a publication
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
@@ -126,12 +125,7 @@ class PKPBodyTextController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
-
-        $bodyTextFile = Repo::bodyText()
-            ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
 
         return response()->json(
             Repo::bodyText()->map($bodyTextFile),
@@ -149,21 +143,15 @@ class PKPBodyTextController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $illuminateRequest->input());
 
-        Repo::bodyText()
-            ->setBodyText(
-                $_POST['bodyText'],
-                $publication->getId(),
-                $submission->getId(),
-                SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
-                $params
-            );
+        Repo::bodyText()->setBodyText(
+            $_POST['bodyText'],
+            $publication->getId(),
+            $submission->getId(),
+            SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
+            $params
+        );
 
-        $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
-
-        $bodyTextFile = Repo::bodyText()
-            ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
 
         return response()->json(
             Repo::bodyText()->map($bodyTextFile),
@@ -179,12 +167,7 @@ class PKPBodyTextController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
-        $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
-
-        $bodyTextFile = Repo::bodyText()
-            ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
 
         if (!$bodyTextFile->submissionFile) {
             return response()->json([
@@ -192,11 +175,9 @@ class PKPBodyTextController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        Repo::submissionFile()
-            ->delete($bodyTextFile->submissionFile);
+        Repo::submissionFile()->delete($bodyTextFile->submissionFile);
 
-        $bodyTextFile = Repo::bodyText()
-            ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
 
         return response()->json(
             Repo::bodyText()->map($bodyTextFile),

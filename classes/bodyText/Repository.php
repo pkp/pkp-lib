@@ -9,7 +9,7 @@
  *
  * @class Repository
  *
- * @brief A repository to find and manage body tesxt files.
+ * @brief A repository to find and manage body text files.
  */
 
 namespace PKP\bodyText;
@@ -17,7 +17,6 @@ namespace PKP\bodyText;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
-use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\submissionFile\SubmissionFile;
 
@@ -32,9 +31,8 @@ class Repository
 
         if ($bodyTextFile->submissionFile) {
             $submission = Repo::submission()->get($bodyTextFile->submissionId);
-            $schemaMap = Repo::submissionFile()->getSchemaMap($submission, $bodyTextFile->genres);
+            $schemaMap = Repo::submissionFile()->getSchemaMap($submission, []);
 
-            // Use map() to get full properties including dependentFiles
             $fileProps = $schemaMap->map($bodyTextFile->submissionFile);
         }
 
@@ -52,7 +50,7 @@ class Repository
     /**
      * Returns the SubmissionFile, if any, that corresponds to the body text contents of the given submission/publication
      */
-    public function getBodyTextFile(int $publicationId, ?int $submissionId = null, array $genres): ?BodyTextFile
+    public function getBodyTextFile(int $publicationId, ?int $submissionId = null): BodyTextFile
     {
         $submissionFileQuery = Repo::submissionFile()
             ->getCollector()
@@ -71,7 +69,6 @@ class Repository
             $publicationId,
             $submissionId,
             $submissionFile,
-            $genres
         );
     }
 
@@ -91,21 +88,13 @@ class Repository
         $context = Application::get()->getRequest()->getContext();
         $user = Application::get()->getRequest()->getUser();
 
-        /** @var GenreDAO */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genresIterator = $genreDao->getEnabledByContextId($context->getId());
-        $genres = $genresIterator->toArray();
-
-        // Check if body text file already exists
-        $existingBodyTextFile = $this->getBodyTextFile($publicationId, $submission->getId(), $genres);
+        $existingBodyTextFile = $this->getBodyTextFile($publicationId, $submission->getId());
 
         if ($existingBodyTextFile->submissionFile) {
-            // Update existing file
-            return $this->updateBodyTextFile($existingBodyTextFile->submissionFile, $bodyText, $submission, $genres);
+            return $this->updateBodyTextFile($existingBodyTextFile->submissionFile, $bodyText, $submission);
         }
 
-        // Create new file
-        return $this->createBodyTextFile($bodyText, $publication, $submission, $context, $user, $genres, $type, $params);
+        return $this->createBodyTextFile($bodyText, $publication, $submission, $context, $user, $type, $params);
     }
 
     /**
@@ -140,7 +129,6 @@ class Repository
         SubmissionFile $submissionFile,
         string $bodyText,
         $submission,
-        array $genres
     ): BodyTextFile {
         $newFileId = $this->storeContent($bodyText, $submission);
 
@@ -151,7 +139,6 @@ class Repository
         return $this->getBodyTextFile(
             $submissionFile->getData('assocId'),
             $submission->getId(),
-            $genres
         );
     }
 
@@ -164,7 +151,6 @@ class Repository
         $submission,
         $context,
         $user,
-        array $genres,
         int $type,
         array $params
     ): BodyTextFile {
@@ -178,10 +164,6 @@ class Repository
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getData('supportedSubmissionLocales');
         $params['name'] = [$primaryLocale => 'bodyText.json'];
-
-        if (empty($params['genreId']) && count($genres) === 1) {
-            $params['genreId'] = reset($genres)->getId();
-        }
 
         $params['assocType'] = Application::ASSOC_TYPE_PUBLICATION;
         $params['assocId'] = $publication->getId();
@@ -201,7 +183,7 @@ class Repository
         $submissionFile = Repo::submissionFile()->newDataObject($params);
         Repo::submissionFile()->add($submissionFile);
 
-        return $this->getBodyTextFile($publication->getId(), $submission->getId(), $genres);
+        return $this->getBodyTextFile($publication->getId(), $submission->getId());
     }
 
     /**

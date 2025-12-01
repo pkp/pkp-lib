@@ -30,7 +30,6 @@ use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
 
 class PKPBodyTextController extends PKPBaseController
@@ -141,14 +140,10 @@ class PKPBodyTextController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $illuminateRequest->input());
-
         Repo::bodyText()->setBodyText(
             $_POST['bodyText'],
             $publication->getId(),
             $submission->getId(),
-            SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
-            $params
         );
 
         $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());

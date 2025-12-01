@@ -79,14 +79,9 @@ class Repository
         string $bodyText,
         int $publicationId,
         ?int $submissionId = null,
-        int $type = SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
-        array $params = []
     ): BodyTextFile {
         $publication = Repo::publication()->get($publicationId, $submissionId);
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-
-        $context = Application::get()->getRequest()->getContext();
-        $user = Application::get()->getRequest()->getUser();
 
         $existingBodyTextFile = $this->getBodyTextFile($publicationId, $submission->getId());
 
@@ -94,7 +89,10 @@ class Repository
             return $this->updateBodyTextFile($existingBodyTextFile->submissionFile, $bodyText, $submission);
         }
 
-        return $this->createBodyTextFile($bodyText, $publication, $submission, $context, $user, $type, $params);
+        $context = Application::get()->getRequest()->getContext();
+        $user = Application::get()->getRequest()->getUser();
+
+        return $this->createBodyTextFile($bodyText, $publication, $submission, $context, $user);
     }
 
     /**
@@ -151,22 +149,21 @@ class Repository
         $submission,
         $context,
         $user,
-        int $type,
-        array $params
     ): BodyTextFile {
         $fileId = $this->storeContent($bodyText, $submission);
 
-        $params['fileId'] = $fileId;
-        $params['submissionId'] = $submission->getId();
-        $params['uploaderUserId'] = $user->getId();
-        $params['fileStage'] = $type;
-
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getData('supportedSubmissionLocales');
-        $params['name'] = [$primaryLocale => 'bodyText.json'];
 
-        $params['assocType'] = Application::ASSOC_TYPE_PUBLICATION;
-        $params['assocId'] = $publication->getId();
+        $params = [
+            'fileId' => $fileId,
+            'submissionId' => $submission->getId(),
+            'uploaderUserId' => $user->getId(),
+            'fileStage' => SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
+            'name' => [$primaryLocale => 'bodyText.json'],
+            'assocType' => Application::ASSOC_TYPE_PUBLICATION,
+            'assocId' => $publication->getId(),
+        ];
 
         $errors = Repo::submissionFile()->validate(
             null,

@@ -117,7 +117,7 @@ class PKPSubmissionFileController extends PKPBaseController
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-        error_log('authorize 1');
+
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
         if ($actionName === 'add') {
@@ -131,7 +131,6 @@ class PKPSubmissionFileController extends PKPBaseController
                 )
             );
         } elseif ($actionName === 'getMany') {
-            error_log('authorise getMany');
             // Anyone passing SubmissionAccessPolicy is allowed to access getMany,
             // but the endpoint will return different files depending on the user's
             // stage assignments.
@@ -158,7 +157,6 @@ class PKPSubmissionFileController extends PKPBaseController
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
-        error_log('getMany 1');
         $request = $this->getRequest();
 
         $params = [];

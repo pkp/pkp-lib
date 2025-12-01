@@ -16,9 +16,13 @@ namespace PKP\bodyText;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use Exception;
+use PKP\context\Context;
 use PKP\file\TemporaryFileManager;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 
 class Repository
 {
@@ -97,10 +101,8 @@ class Repository
 
     /**
      * Store body text content to file storage
-     *
-     * @return int The new file ID
      */
-    protected function storeContent(string $bodyText, $submission): int
+    protected function storeContent(string $bodyText, Submission $submission): int
     {
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'bodyText');
@@ -126,7 +128,7 @@ class Repository
     protected function updateBodyTextFile(
         SubmissionFile $submissionFile,
         string $bodyText,
-        $submission,
+        Submission $submission,
     ): BodyTextFile {
         $newFileId = $this->storeContent($bodyText, $submission);
 
@@ -145,10 +147,10 @@ class Repository
      */
     protected function createBodyTextFile(
         string $bodyText,
-        $publication,
-        $submission,
-        $context,
-        $user,
+        Publication $publication,
+        Submission $submission,
+        Context $context,
+        User $user,
     ): BodyTextFile {
         $fileId = $this->storeContent($bodyText, $submission);
 

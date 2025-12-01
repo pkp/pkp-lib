@@ -365,10 +365,7 @@ class PKPSubmissionController extends PKPBaseController
         });
 
         Route::post('', $this->add(...))
-            ->name('submission.add')
-            ->middleware([
-                self::roleAuthorizer(Role::getAllRoles()),
-            ]);
+            ->name('submission.add');
 
         Route::middleware([
             self::roleAuthorizer([
@@ -402,7 +399,13 @@ class PKPSubmissionController extends PKPBaseController
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        if($actionName === 'add') {
+            // For 'add' endpoint, mark role assignments as checked since the add() method
+            // will automatically assign the AUTHOR role to users without roles
+            $this->markRoleAssignmentsChecked();
+        } else {
+            $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        }
 
         if (in_array($actionName, $this->requiresSubmissionAccess)) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
@@ -643,12 +646,20 @@ class PKPSubmissionController extends PKPBaseController
                 }
             }
         }
-        $submitterUserGroups = UserGroup::withContextIds($context->getId())
+        $submitterUserGroupsQuery = UserGroup::withContextIds($context->getId())
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
             ->whereHas('userUserGroups', function ($query) use ($user) {
-                $query->withUserId($user->getId());
-            })
-            ->get();
+                $query->withUserId($user->getId())->withActive();
+            });
+
+        // For OJS and OMP, also filter by submission stage assignment
+        // to differentiate between Journal managers, who are not assigned to Submission Stage 
+        // (production editor, journal manager)
+        if (Application::get()->getName() !== 'ops') {
+            $submitterUserGroupsQuery->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION]);
+        }
+
+        $submitterUserGroups = $submitterUserGroupsQuery->get();
 
 
         $userGroupIdPropName = 'userGroupId';

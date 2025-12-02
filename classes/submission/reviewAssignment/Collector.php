@@ -58,6 +58,7 @@ class Collector implements CollectorInterface, ViewsCount
     public ?string $orderByContextIdDirection = null;
     public bool $orderBySubmissionId = false;
     public ?string $orderBySubmissionIdDirection = null;
+    public ?int $publicationId = null;
 
     public function __construct(DAO $dao)
     {
@@ -239,6 +240,12 @@ class Collector implements CollectorInterface, ViewsCount
         return $this;
     }
 
+    public function filterByPublicationId(?int $publicationId): static
+    {
+        // Used to filter review assignments by publication id via review rounds
+        $this->publicationId = $publicationId;
+        return $this;
+    }
     /**
      * Filter by recommendations
      */
@@ -322,6 +329,17 @@ class Collector implements CollectorInterface, ViewsCount
             $this->submissionIds !== null,
             fn (Builder $q) =>
             $q->whereIn('ra.submission_id', $this->submissionIds)
+        );
+
+        $q->when(
+            $this->publicationId !== null,
+            fn (Builder $q) => $q
+                ->whereExists(
+                    fn (Builder $sq) => $sq
+                        ->from('review_rounds AS rr')
+                        ->whereColumn('rr.review_round_id', 'ra.review_round_id')
+                        ->where('rr.publication_id', $this->publicationId)
+                )
         );
 
         $q->when($this->isLastReviewRound || $this->isIncomplete, function (Builder $q) {

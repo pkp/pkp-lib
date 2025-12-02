@@ -646,7 +646,7 @@ class PKPSubmissionController extends PKPBaseController
         $submitterUserGroups = UserGroup::withContextIds($context->getId())
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
             ->whereHas('userUserGroups', function ($query) use ($user) {
-                $query->withUserId($user->getId());
+                $query->withUserId($user->getId())->withActive();
             })
             ->get();
 

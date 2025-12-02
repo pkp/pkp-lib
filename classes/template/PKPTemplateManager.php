@@ -31,9 +31,10 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
-use Illuminate\View\View;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use Less_Parser;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -1355,8 +1356,8 @@ class PKPTemplateManager extends Smarty
 
         // If a blade view instance given or the template is a blade view
         // just return the rendered content
-        if ($template instanceof View 
-            || (!str_contains($template, ".tpl") && view()->exists($template))
+        if ($template instanceof View
+            || (!str_contains($template, '.tpl') && view()->exists($template))
         ) {
             $this->shareTemplateVariables($this->getTemplateVars());
 
@@ -1526,16 +1527,8 @@ class PKPTemplateManager extends Smarty
             if ($user) {
                 // Fetch user groups where the user is assigned
                 $userGroups = UserGroup::query()
-                    ->whereHas('userUserGroups', function ($query) use ($user) {
-                        $query->where('user_id', $user->getId())
-                            ->where(function ($q) {
-                                $q->whereNull('date_end')
-                                    ->orWhere('date_end', '>', now());
-                            })
-                            ->where(function ($q) {
-                                $q->whereNull('date_start')
-                                    ->orWhere('date_start', '<=', now());
-                            });
+                    ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($user) {
+                        $query->withUserId($user->getId())->withActive();
                     })
                     ->get();
 
@@ -1616,8 +1609,8 @@ class PKPTemplateManager extends Smarty
 
         // If a blade view instance given or the template is a blade view
         // just return the rendered content
-        if ($template instanceof View 
-            || (!str_contains($template, ".tpl") && view()->exists($template))
+        if ($template instanceof View
+            || (!str_contains($template, '.tpl') && view()->exists($template))
         ) {
             $this->shareTemplateVariables($this->getTemplateVars());
 
@@ -1626,7 +1619,7 @@ class PKPTemplateManager extends Smarty
                 : view($template)->render();
             return;
         }
-        
+
         // Actually display the template.
         parent::display($template, $cache_id, $compile_id, $parent);
     }
@@ -1952,6 +1945,8 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Call hooks from a template. (DEPRECATED: For new hooks, {run_hook} is preferred.
+     *
+     * @param null|mixed $smarty
      */
     public function smartyCallHook($params, $smarty = null)
     {

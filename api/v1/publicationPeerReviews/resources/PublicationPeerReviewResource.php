@@ -40,6 +40,7 @@ class PublicationPeerReviewResource extends JsonResource
         $publication = $this->resource;
         return [
             'publicationId' => $publication->getId(),
+            'datePublished' => $publication->getData('datePublished'),
             'reviewRounds' => $this->getPublicationPeerReview($publication)
         ];
     }

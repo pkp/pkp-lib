@@ -1422,6 +1422,11 @@ class PKPSubmissionController extends PKPBaseController
      */
     public function publishPublication(Request $illuminateRequest): JsonResponse
     {
+        $shouldCreatePMURReviewRound = filter_var($illuminateRequest->input('createPMURReviewRound'), FILTER_VALIDATE_BOOL);
+        if ($shouldCreatePMURReviewRound) {
+            $this->createPMURReviewRound();
+        }
+
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
@@ -1471,6 +1476,8 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $publication = Repo::publication()->get($publication->getId());
+
+        // TODO: Create VoR publication and review round here
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -2482,5 +2489,12 @@ class PKPSubmissionController extends PKPBaseController
         } catch (\Exception $e) {
             return [];
         }
+    }
+
+    private function createPMURReviewRound(): void
+    {
+        // Create new publication as VOR based on just-published PMUR
+        // Create review round associated with VoR with backwards link to PMUR
+
     }
 }

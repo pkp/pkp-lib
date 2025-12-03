@@ -50,7 +50,6 @@ namespace PKP\plugins;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use Exception;
-use Illuminate\Database\Migrations\Migration;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -233,7 +232,7 @@ abstract class Plugin
     /**
      * Get the installation migration for this plugin.
      *
-     * @return ?Migration
+     * @return \Illuminate\Database\Migrations\Migration|\PKP\migration\Migration|null
      */
     public function getInstallMigration()
     {
@@ -543,7 +542,7 @@ abstract class Plugin
      *
      * @return string|null
      */
-    private function _findOverriddenTemplate($path)
+    public function _findOverriddenTemplate($path)
     {
         $fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
 
@@ -552,12 +551,10 @@ abstract class Plugin
             return $fullPath;
         }
 
-        // Fallback to blade view if exists for theme plugins and if the parent template is a blade view
-        if ($this instanceof \PKP\plugins\ThemePlugin && $this->isRenderingViaBladeView) {
-            $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
-            if (view()->exists($bladePath)) {
-                return $bladePath;
-            }
+        // Fallback to blade view if exists for theme plugins
+        $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
+        if (view()->exists($bladePath)) {
+            return $bladePath;
         }
 
         // Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.

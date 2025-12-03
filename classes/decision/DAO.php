@@ -52,6 +52,7 @@ class DAO extends EntityDAO
         'round' => 'round',
         'stageId' => 'stage_id',
         'submissionId' => 'submission_id',
+        'publicationId' => 'publication_id',
     ];
 
     /**

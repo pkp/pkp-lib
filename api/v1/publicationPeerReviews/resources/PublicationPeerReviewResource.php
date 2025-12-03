@@ -54,9 +54,12 @@ class PublicationPeerReviewResource extends JsonResource
      */
     private function getPublicationPeerReview(Publication $publication): Enumerable
     {
+        // Check up the tree on source IDs
+        $allAssociatedPublicationIds = Repo::publication()->getWithSourcePublicationsIds([$publication->getId()]);
+
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRounds = $reviewRoundDao->getByPublicationIds([$publication->getId()]);
+        $reviewRounds = $reviewRoundDao->getByPublicationIds($allAssociatedPublicationIds);
         $context = app()->get('context')->get(
             Repo::submission()->get($publication->getData('submissionId'))->getData('contextId')
         );
@@ -78,6 +81,7 @@ class PublicationPeerReviewResource extends JsonResource
             $roundsData->add([
                 'displayText' => $roundDisplayText,
                 'roundId' => $reviewRound->getData('id'),
+                'originalPublicationId' => $reviewRound->getPublicationId(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context),
             ]);
         }

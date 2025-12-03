@@ -1003,4 +1003,17 @@ abstract class Repository
                 return (new PublicationPeerReviewResource($publication))->resolve();
             })->values();
     }
+
+    /**
+     * Returns the provided publication ID as well as any other publications
+     * that reference this publication via the `source_publication_id`.
+     */
+    public function getWithSourcePublicationsIds(array $publicationIds): Collection
+    {
+        return $this->getCollector()
+            ->filterByPublicationIds($publicationIds)
+            ->filterWithSourcePublicationIds()
+            ->getIds();
+
+    }
 }

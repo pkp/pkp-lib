@@ -243,9 +243,20 @@ class PKPTemplateManager extends Smarty
             $activeTheme = null;
             $contextOrSite = $currentContext ? $currentContext : $request->getSite();
             $allThemes = PluginRegistry::getPlugins('themes');
-            foreach ($allThemes as $theme) {
+            foreach ($allThemes as $theme) { /** @var \PKP\plugins\Plugin|\PKP\plugins\ThemePlugin $theme */
                 if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
                     $activeTheme = $theme;
+                    
+                    $bladeFileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $bladeFileViewFinder */
+                    // Along with current active theme,
+                    // we should also register the path of any parent theme
+                    while($theme) {
+                        $bladeFileViewFinder->prependLocation(
+                            app()->basePath($theme->getTemplatePath())
+                        );
+                        $theme = $theme->parent;
+                    }
+                    
                     break;
                 }
             }

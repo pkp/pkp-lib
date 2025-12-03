@@ -3092,6 +3092,23 @@ msgstr ""
 "The publication must have a version stage assigned before it can "
 "be published."
 
+msgid "publication.publishReviewCurate.notice"
+msgstr "TBD"
+
+msgid "publication.publishReviewCurate.options.heading"
+msgstr "Publish-Review-Curate Options"
+
+msgid "publication.publishReviewCurate.options.description"
+msgstr ""
+"You are publishing this as a Published Manuscript Under Review. Would you like to to start the review process?<br>"
+"This will create a new review round and new unpublished Version of Record to be published upon review completion."
+
+msgid "publication.publishReviewCurate.options.label"
+msgstr "Create new review round and new unpublished Version of Record"
+
+msgid "publication.publishReviewCurate.errors.reviewCreationError"
+msgstr "Unable to create a new review round. Please do so manually."
+
 msgid "publication.required.versionStage.assignment"
 msgstr "The stage version that will be assigned to the publication is \"{$versionString}\""
 

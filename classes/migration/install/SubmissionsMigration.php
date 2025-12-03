@@ -201,6 +201,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->foreign('submission_id', 'edit_decisions_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'edit_decisions_submission_id');
 
+            $table->bigInteger('publication_id');
+
             // Foreign key constraint is declared with review_rounds
             $table->bigInteger('review_round_id')->nullable();
 

@@ -15,13 +15,12 @@
 namespace PKP\submission\reviewer\recommendation;
 
 use APP\core\Application;
-use Illuminate\Support\Arr;
 use Exception;
+use Illuminate\Support\Arr;
 use PKP\context\Context;
 use PKP\facades\Locale;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
-use PKP\submission\reviewer\recommendation\RecommendationOption;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\enums\ReviewerRecommendationType;
 
 class Repository
 {
@@ -41,6 +40,19 @@ class Repository
     }
 
     /**
+     * Get the recommendation types mapped as value => typeLocaleKey
+     */
+    public function getRecommendationTypeLabels(): array
+    {
+        return [
+            ReviewerRecommendationType::APPROVED->value => __('manager.reviewerRecommendations.type.approved'),
+            ReviewerRecommendationType::NOT_APPROVED->value => __('manager.reviewerRecommendations.type.notApproved'),
+            ReviewerRecommendationType::REVISIONS_REQUESTED->value => __('manager.reviewerRecommendations.type.revisionsRequested'),
+            ReviewerRecommendationType::WITH_COMMENTS->value => __('manager.reviewerRecommendations.type.withComments'),
+        ];
+    }
+
+    /**
      * Add the default recommendations to context
      */
     public function addDefaultRecommendations(Context $context): void
@@ -49,7 +61,7 @@ class Repository
             ->withContextId($context->getId())
             ->withDefaultRecommendationsOnly()
             ->exists();
-        
+
         if ($defaultRecommendationsExists) {
             throw new Exception('Some or all default recommendations already added for context');
         }
@@ -62,7 +74,7 @@ class Repository
         );
 
         collect($defaultRecommendations)
-            ->each (
+            ->each(
                 fn (string $translatableKey) => ReviewerRecommendation::create([
                     'contextId' => $context->getId(),
                     'status' => 1,
@@ -95,7 +107,7 @@ class Repository
             ->get();
 
         foreach ($suggestions as $suggestion) {
-            
+
             // If the locale to add translation of `title` already exists, nothing to add and continue
             if (isset($suggestion->title[$localeToAdd])) {
                 continue;
@@ -109,9 +121,9 @@ class Repository
             $localeToCompareTranslation = $suggestion->title[$localeToCompare];
             $localeKey = $suggestion->{ReviewerRecommendation::DEFAULT_RECOMMENDATION_TRANSLATION_KEY};
 
-            // if the locale to compare stored as title locale is not same as retrived translation from system's default local
-            // it has been changed from the default translation 
-            // so we will not allow to add new locale translation and contine
+            // if the locale to compare stored as title locale is not same as retrieved translation from system's default local
+            // it has been changed from the default translation
+            // so we will not allow to add new locale translation and continue
             if ($localeToCompareTranslation !== Locale::get($localeKey, [], $localeToCompare)) {
                 continue;
             }
@@ -134,14 +146,13 @@ class Repository
         RecommendationOption $active = RecommendationOption::ACTIVE,
         ?ReviewAssignment $reviewAssignment = null,
         ?string $locale = null
-    ): array
-    {
+    ): array {
         static $reviewerRecommendationOptions = [];
-        
+
         if (!Application::get()->hasCustomizableReviewerRecommendation()) {
             return [];
         }
-        
+
         if (!empty($reviewerRecommendationOptions)) {
             return $reviewerRecommendationOptions;
         }

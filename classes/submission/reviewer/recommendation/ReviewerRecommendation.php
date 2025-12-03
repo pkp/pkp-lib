@@ -14,13 +14,12 @@
 
 namespace PKP\submission\reviewer\recommendation;
 
-use APP\facades\Repo;
 use APP\core\Application;
-use PKP\core\traits\ModelWithSettings;
-use PKP\submission\reviewer\recommendation\RecommendationOption;
-use Illuminate\Database\Eloquent\Model;
+use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+use PKP\core\traits\ModelWithSettings;
 
 class ReviewerRecommendation extends Model
 {
@@ -54,6 +53,7 @@ class ReviewerRecommendation extends Model
         return [
             'context_id' => 'integer',
             'status' => 'integer', // cast the boolean to corresponding int e.g. true/false to 1/0
+            'type' => 'integer',
         ];
     }
 
@@ -93,7 +93,7 @@ class ReviewerRecommendation extends Model
             'title',
         ];
     }
-    
+
     /**
      * Get attribute value removable for this recommendation
      */

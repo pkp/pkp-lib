@@ -95,11 +95,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public bool $isVueRuntimeRequired = false;
 
     /**
-     * Track whether rendering via blade view
-     */
-    public bool $isRenderingViaBladeView = false;
-
-    /**
      * @copydoc Plugin::register
      *
      * @param null|mixed $mainContextId
@@ -122,27 +117,37 @@ abstract class ThemePlugin extends LazyLoadPlugin
         Hook::add('PluginRegistry::categoryLoaded::themes', $this->initAfter(...));
 
         // Allow themes to override plugin template files
-        Hook::add('TemplateManager::display', $this->loadBladeView(...));
+        Hook::add('TemplateManager::display', $this->loadTemplateView(...));
         Hook::add('TemplateResource::getFilename', $this->_overridePluginTemplates(...));
 
         return true;
     }
 
     /**
-     * Register the blade view path by replacing the smarty template path in the TemplateManager
-     * only if the blade view exists
+     * Register top level blade/smarty template with corresponding available template
+     * from the plugin
      */
-    public function loadBladeView(string $hookName, array $params): bool
+    public function loadTemplateView(string $hookName, array $params): bool
     {
         $templateManager =& $params[0]; /** @var TemplateManager $templateManager */
 		$templatePath =& $params[1]; /** @var string $templatePath */
 
+        // check for plugin Blade override
         $bladeViewPath = $this->resolveBladeViewPath($templatePath);
         if (view()->exists($bladeViewPath)) {
-            $this->isRenderingViaBladeView = true;
             $templatePath = $bladeViewPath;
+            return Hook::CONTINUE;
         }
-        
+
+        // check for plugin Smarty override
+        // This allows plugin Smarty templates to override core Blade templates
+        $smartyTemplatePath = $this->convertToSmartyTemplatePath($templatePath);
+        $overridePath = $this->_findOverriddenTemplate($smartyTemplatePath);
+
+        if ($overridePath && file_exists($overridePath)) {
+            $templatePath = $smartyTemplatePath;
+        }
+
         return Hook::CONTINUE;
     }
 
@@ -1065,13 +1070,11 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     protected function getSubmissionViewContext(): string
     {
-        if (Application::get()->getName() == 'ojs2') {
-            return 'frontend-article-view';
-        } elseif (Application::get()->getName() == 'omp') {
-            return 'frontend-catalog-book';
-        } elseif (Application::get()->getName() == 'ops') {
-            return 'frontend-preprint-view';
-        }
+        return match (Application::get()->getName()) {
+            'ojs2' => 'frontend-article-view',
+            'omp' => 'frontend-catalog-book',
+            'ops' => 'frontend-preprint-view',
+        };
     }
 
     /**
@@ -1080,5 +1083,33 @@ abstract class ThemePlugin extends LazyLoadPlugin
     protected function requiresVueRuntime()
     {
         $this->isVueRuntimeRequired = true;
+    }
+
+    /**
+     * Convert template path to Smarty template path format
+     * Handles various input formats (Blade notation, file paths, etc.)
+     * and returns path in format expected by _findOverriddenTemplate()
+     *
+     * Examples:
+     * - 'frontend.pages.article' → 'templates/frontend/pages/article.tpl'
+     * - 'frontend/pages/article' → 'templates/frontend/pages/article.tpl'
+     * - 'frontend/pages/article.blade' → 'templates/frontend/pages/article.tpl'
+     * - 'frontend/pages/article.tpl' → 'templates/frontend/pages/article.tpl'
+     *
+     * @param string $templatePath Template path in various formats
+     * @return string Smarty template path
+     */
+    public function convertToSmartyTemplatePath(string $templatePath): string
+    {
+        $path = str_replace(['.blade.php', '.blade', '.tpl'], '', $templatePath);
+
+        $path = str_replace('.', '/', $path);
+
+        // Ensure templates/ prefix
+        if (!str_starts_with($path, 'templates/')) {
+            $path = 'templates/' . $path;
+        }
+
+        return $path . '.tpl';
     }
 }

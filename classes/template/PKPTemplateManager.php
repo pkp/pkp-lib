@@ -251,9 +251,11 @@ class PKPTemplateManager extends Smarty
                     // Along with current active theme,
                     // we should also register the path of any parent theme
                     while($theme) {
-                        $bladeFileViewFinder->prependLocation(
-                            app()->basePath($theme->getTemplatePath())
-                        );
+                        if ($theme->getTemplatePath()) {
+                            $bladeFileViewFinder->prependLocation(
+                                app()->basePath($theme->getTemplatePath())
+                            );
+                        }
                         $theme = $theme->parent;
                     }
                     

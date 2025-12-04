@@ -215,15 +215,11 @@ class PluginRegistry
                     . DIRECTORY_SEPARATOR
                     . 'plugins'
                     . DIRECTORY_SEPARATOR
-                    . "{$category}"
+                    . $category
                     . DIRECTORY_SEPARATOR
-                    . "{$pluginName}"
+                    . $pluginName
                     . DIRECTORY_SEPARATOR
                     . 'index.php';
-
-                if (!file_exists($pluginIndexPath)) {
-                    throw new Exception("fallback to plugin wrapper failed as not found at path {$pluginIndexPath} for plugin {$category}/{$pluginName}");
-                }
 
                 $plugin = require($pluginIndexPath); /** @var Plugin $plugin */
             }

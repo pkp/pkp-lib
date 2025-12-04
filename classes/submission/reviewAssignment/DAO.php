@@ -153,7 +153,7 @@ class DAO extends EntityDAO
         $reviewAssignment = parent::fromRow($row);
         $reviewAssignment->setData(
             'reviewerFullName',
-            Repo::user()->get($reviewAssignment->getReviewerId())->getFullName()
+            Repo::user()->get($reviewAssignment->getReviewerId(), true)->getFullName()
         );
 
         return $reviewAssignment;

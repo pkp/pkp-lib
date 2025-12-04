@@ -23,12 +23,6 @@ use APP\template\TemplateManager;
 class BladeCompiler extends IlluminateBladeCompiler
 {
     /**
-     * Cache for non-core (plugin) view paths
-     * @var array|null
-     */
-    protected static $pluginViewPaths = null;
-
-    /**
      * Cache for active theme plugin to avoid repeated lookups
      * @var ThemePlugin|null|false Null = not checked yet, false = no theme, ThemePlugin = cached instance
      */
@@ -178,15 +172,5 @@ class BladeCompiler extends IlluminateBladeCompiler
 
         self::$cachedThemePlugin = false;
         return null;
-    }
-
-    /**
-     * Clear the static cache (useful for testing or context switches)
-     *
-     * @return void
-     */
-    public static function clearThemeCache(): void
-    {
-        self::$cachedThemePlugin = null;
     }
 }

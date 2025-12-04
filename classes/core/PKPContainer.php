@@ -714,11 +714,11 @@ class PKPContainer extends Container
     public function registerGlobalConstants(string $classNamespacePath, array $constants): void
     {
         if ($this->getApplicationStrictModeStatus()) {
-            throw new Exception('Registering class const as global const in strict mode in now allowed');
+            throw new Exception('Registering class const as global const in strict mode is not allowed');
         }
 
         if (!class_exists($classNamespacePath)) {
-            throw new Exception(sprintf('Given class %s does not exists', $classNamespacePath));
+            throw new Exception(sprintf('Given class %s does not exist', $classNamespacePath));
         }
 
         foreach ($constants as $constant) {

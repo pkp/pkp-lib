@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-10 23:50+0000\n"
+"PO-Revision-Date: 2025-12-04 11:27+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg/>\n"
@@ -1961,10 +1961,9 @@ msgstr "Статус на кръг {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Резюме на статистическия доклад."
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Това е напомняне за вас да проверите състоянието на вашето списание чрез "
+"Това е напомняне за вас да проверите състоянието на вашите публикации чрез "
 "редакционния доклад."
 
 msgid "notification.type.editorialReminder"

@@ -105,7 +105,7 @@ class QueryForm extends Form
 
         // Validation checks for this form
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function ($users) {
-            return count($users) > 1;
+            return !empty($users) && count($users) > 1;
         }));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));

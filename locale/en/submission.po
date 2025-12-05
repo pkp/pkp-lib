@@ -1382,6 +1382,15 @@ msgstr "Name the file (e.g., Manuscript; Table 1)"
 msgid "submission.form.replaceExisting"
 msgstr "Replacing an Existing File?"
 
+msgid "workflow.attachUploadedFiles"
+msgstr "Attach files uploaded during the submission workflow, such as revisions or files to be reviewed."
+
+msgid "workflow.attachWorkflowFiles"
+msgstr "Attach Workflow Files"
+
+msgid "workflow.files"
+msgstr "Workflow Files"
+
 msgid "workflow.review.internalReview"
 msgstr "Internal Review"
 

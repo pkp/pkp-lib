@@ -54,9 +54,12 @@ class DepositSubmission extends BaseJob
      */
     public function handle()
     {
+        $exportable = in_array($this->submissionId, Repo::publication()
+            ->getExportableDOIsSubmissionIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING)));
+
         $submission = Repo::submission()->get($this->submissionId);
 
-        if (!$submission || !$this->agency) {
+        if (!$submission || !$this->agency || !$exportable) {
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 

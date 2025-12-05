@@ -981,6 +981,14 @@ abstract class Repository
     }
 
     /**
+     * @copydoc DAO::getExportableDOIsSubmissionIds()
+     */
+    public function getExportableDOIsSubmissionIds(int $contextId, bool $doiVersioning): array
+    {
+        return $this->dao->getExportableDOIsSubmissionIds($contextId, $doiVersioning);
+    }
+
+    /**
      * Get public peer review data for publications.
      *
      * @param array $publications - The publications to get peer review data for.

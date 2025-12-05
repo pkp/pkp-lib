@@ -221,6 +221,8 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param array $errors
      * @param string $xml
+     *
+     * @throws Exception
      */
     public function displayXMLValidationErrors($errors, $xml)
     {

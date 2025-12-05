@@ -17,6 +17,8 @@ namespace PKP\publication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
@@ -150,6 +152,7 @@ class DAO extends EntityDAO
      */
     public function fromRow(object $row): Publication
     {
+        /** @var Publication $publication */
         $publication = parent::fromRow($row);
 
         $this->setDoiObject($publication);
@@ -162,9 +165,12 @@ class DAO extends EntityDAO
 
         $citations = Repo::citation()->getByPublicationId($publication->getId());
         $publication->setData('citations', $citations);
-        $publication->setData('citationsRaw', new class($publication->getId()) implements \Stringable {
-            public function __construct(public int $publicationId) {}
-            function __toString() {
+        $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
+            public function __construct(public int $publicationId)
+            {
+            }
+            public function __toString()
+            {
                 return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
             }
         });
@@ -489,5 +495,31 @@ class DAO extends EntityDAO
             ->where('ps.setting_name', '=', $settingName)
             ->select('ps.setting_value')
             ->pluck('setting_value');
+    }
+
+    /**
+     * Get all submission IDs for which DOIs can be exported.
+     * If the same DOI is used for all versions: the current publication needs to have a DOI and is published.
+     * If different DOIs are used for different versions: a publication that have a DOI and is published needs to exist.
+     */
+    public function getExportableDOIsSubmissionIds(int $contextId, bool $doiVersioning): array
+    {
+        return DB::table('publications as p')
+            ->select(['p.submission_id'])
+            ->join(
+                'submissions as s',
+                function (JoinClause $join) use ($doiVersioning) {
+                    $join
+                        ->on('p.submission_id', '=', 's.submission_id')
+                        ->when((!$doiVersioning), function (Builder $qb) {
+                            $qb->on('s.current_publication_id', '=', 'p.publication_id');
+                        });
+                }
+            )
+            ->where('s.context_id', '=', $contextId)
+            ->where('p.status', '=', Publication::STATUS_PUBLISHED)
+            ->whereNotNull('p.doi_id')
+            ->pluck('p.submission_id')
+            ->all();
     }
 }

@@ -45,7 +45,7 @@ class I857_ContributorRolesTypes extends Migration
             $table->bigInteger('contributor_role_setting_id')->autoIncrement();
             $table->bigInteger('contributor_role_id');
             $table->string('setting_name', 255);
-            $table->string('setting_value', 255);
+            $table->string('setting_value', 255)->nullable();
             $table->string('locale', 28);
             $table->unique(['contributor_role_id', 'setting_name', 'locale'], 'contributor_role_id_setting_name_locale_unique');
             $table->foreign('contributor_role_id', 'contributor_role_id_settings_foreign')->references('contributor_role_id')->on('contributor_roles')->onDelete('cascade');
@@ -81,7 +81,7 @@ class I857_ContributorRolesTypes extends Migration
 
         // Create Author and Translator contributor roles. Get added role ids per context: [ contextId => [ identifier => roleId, ... ], ... ]
         $roleIds = $contextIds
-            ->mapWithKeys(fn (int $contextId): array => [$contextId => 
+            ->mapWithKeys(fn (int $contextId): array => [$contextId =>
                 $translations
                     ->filter(fn (array $t) => $t['contextId'] === $contextId)
                     ->mapWithKeys(function (array $t, int $ugId) use ($roles, $contextId): array {
@@ -95,17 +95,19 @@ class I857_ContributorRolesTypes extends Migration
 
         // Insert role settings
         DB::table('contributor_role_settings')
-            ->insert($roleIds
-                ->map(fn ($ugIdRoleIds) => $ugIdRoleIds
-                    ->map(function (int $roleId, int $ugId) use ($translations) {
-                        return collect($translations->get($ugId)['name'])
-                            ->map(fn (string $value, string $locale): array => ['contributor_role_id' => $roleId, 'setting_name' => 'name', 'setting_value' => $value, 'locale' => $locale])
-                            ->values();
-                    })
-                )
-                ->flatten(2)
-                ->values()
-                ->toArray()
+            ->insert(
+                $roleIds
+                    ->map(
+                        fn ($ugIdRoleIds) => $ugIdRoleIds
+                            ->map(function (int $roleId, int $ugId) use ($translations) {
+                                return collect($translations->get($ugId)['name'])
+                                    ->map(fn (string $value, string $locale): array => ['contributor_role_id' => $roleId, 'setting_name' => 'name', 'setting_value' => $value, 'locale' => $locale])
+                                    ->values();
+                            })
+                    )
+                    ->flatten(2)
+                    ->values()
+                    ->toArray()
             );
 
         // Add contributor roles to existing contributors
@@ -115,13 +117,16 @@ class I857_ContributorRolesTypes extends Migration
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
             ->get()
             ->chunk(1000)
-            ->each(fn ($chunk) => DB::table('credit_contributor_roles')
-                ->insert($chunk
-                    ->map(fn (\StdClass $row): array =>
-                        ['contributor_id' => $row->author_id, 'contributor_role_id' => $roleIds->get($row->context_id)->get($row->user_group_id)]
+            ->each(
+                fn ($chunk) => DB::table('credit_contributor_roles')
+                    ->insert(
+                        $chunk
+                            ->map(
+                                fn (\StdClass $row): array =>
+                                ['contributor_id' => $row->author_id, 'contributor_role_id' => $roleIds->get($row->context_id)->get($row->user_group_id)]
+                            )
+                            ->toArray()
                     )
-                    ->toArray()
-                )
             );
 
         /**

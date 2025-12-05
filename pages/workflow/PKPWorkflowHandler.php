@@ -282,7 +282,7 @@ abstract class PKPWorkflowHandler extends Handler
     }
 
     /**
-     * Get the contributor list panel
+     * Get the JATS panel
      */
     protected function getJatsPanel(Submission $submission, Context $context, bool $canEditPublication, Publication $publication): PublicationSectionJats
     {

@@ -689,6 +689,7 @@ abstract class Repository
         if (
             $fileStage === SubmissionFile::SUBMISSION_FILE_PROOF ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY ||
+            $fileStage === SubmissionFile::SUBMISSION_FILE_BODY_TEXT ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_JATS
         ) {
             return WORKFLOW_STAGE_ID_PRODUCTION;

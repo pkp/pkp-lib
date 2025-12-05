@@ -40,6 +40,7 @@ use PKP\highlight\Repository as HighlightRepository;
 use PKP\institution\Repository as InstitutionRepository;
 use PKP\invitation\repositories\Repository as InvitationRepository;
 use PKP\jats\Repository as JatsRepository;
+use PKP\bodyText\Repository as BodyTextRepository;
 use PKP\job\repositories\FailedJob as FailedJobRepository;
 use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
@@ -149,6 +150,11 @@ class Repo
     public static function jats(): JatsRepository
     {
         return app(JatsRepository::class);
+    }
+
+    public static function bodyText(): BodyTextRepository
+    {
+        return app(BodyTextRepository::class);
     }
 
     public static function ror(): RorRepository

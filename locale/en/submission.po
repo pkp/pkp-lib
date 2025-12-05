@@ -2774,6 +2774,9 @@ msgstr "Published"
 msgid "publication.jats"
 msgstr "JATS XML"
 
+msgid "publication.bodyText"
+msgstr "Body Text"
+
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
 

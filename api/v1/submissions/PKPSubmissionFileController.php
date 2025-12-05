@@ -191,6 +191,7 @@ class PKPSubmissionFileController extends PKPBaseController
             SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
             SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
             SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_BODY_TEXT
         ];
 
         // Managers can access files for submissions they are not assigned to

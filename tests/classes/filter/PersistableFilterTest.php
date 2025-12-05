@@ -19,6 +19,9 @@
 namespace PKP\tests\classes\filter;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\tests\classes\filter\TestClass2;
+use PKP\tests\classes\filter\TestClass1;
+use PKP\filter\FilterGroup;
 use PKP\filter\EmailFilterSetting;
 use PKP\filter\PersistableFilter;
 use PKP\filter\TypeDescriptionFactory;
@@ -30,13 +33,13 @@ class PersistableFilterTest extends PKPTestCase
     public function testInstantiationAndExecute()
     {
         $constructorArg = PersistableFilter::tempGroup(
-            'class::lib.pkp.tests.classes.filter.TestClass1',
-            'class::lib.pkp.tests.classes.filter.TestClass2'
+            'class::' . TestClass1::class,
+            'class::' . TestClass2::class
         );
         $testFilter = new PersistableTestFilter($constructorArg);
 
         // Test getters/setters that are not implicitly tested by other tests
-        self::assertInstanceOf('FilterGroup', $testFilter->getFilterGroup());
+        self::assertInstanceOf(FilterGroup::class, $testFilter->getFilterGroup());
         $testFilter->setDisplayName('Some other display name');
         $testFilter->setIsTemplate(1);
         self::assertTrue($testFilter->getIsTemplate());
@@ -60,8 +63,8 @@ class PersistableFilterTest extends PKPTestCase
 
         // Test type validation.
         $typeDescriptionFactory = TypeDescriptionFactory::getInstance();
-        $inputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass1';
-        $outputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass2';
+        $inputTypeDescription = 'class::' . TestClass1::class;
+        $outputTypeDescription = 'class::' . TestClass2::class;
         self::assertEquals($inputTypeDescription, $testFilter->getInputType()->getTypeDescription());
         self::assertEquals($outputTypeDescription, $testFilter->getOutputType()->getTypeDescription());
     }

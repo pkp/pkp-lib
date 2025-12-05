@@ -164,7 +164,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('contributor_role_setting_id')->autoIncrement();
             $table->bigInteger('contributor_role_id');
             $table->string('setting_name', 255);
-            $table->string('setting_value', 255);
+            $table->string('setting_value', 255)->nullable();
             $table->string('locale', 28);
             $table->unique(['contributor_role_id', 'setting_name', 'locale'], 'contributor_role_id_setting_name_locale_unique');
             $table->foreign('contributor_role_id', 'contributor_role_id_settings_foreign')->references('contributor_role_id')->on('contributor_roles')->onDelete('cascade');

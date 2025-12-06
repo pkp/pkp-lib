@@ -38,6 +38,7 @@ class AddTaskTemplate extends FormRequest
             'description' => ['sometimes', 'nullable', 'string'],
             'userGroupIds' => ['required', 'array', 'min:1'],
             'userGroupIds.*' => $this->userGroupIdsItemRules($contextId),
+            'restrictToUserGroups' => ['sometimes', 'boolean'],
         ];
     }
 

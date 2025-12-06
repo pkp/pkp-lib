@@ -21,17 +21,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Arr;
 use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
+use PKP\API\v1\editTaskTemplates\formRequests\UpdateTaskTemplate;
 use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Template;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use PKP\editorialTask\enums\EditorialTaskType;
-use PKP\API\v1\editTaskTemplates\formRequests\UpdateTaskTemplate;
+use PKP\userGroup\UserGroup;
 
 class PKPEditTaskTemplateController extends PKPBaseController
 {
@@ -61,9 +61,21 @@ class PKPEditTaskTemplateController extends PKPBaseController
             ]),
         ])->group(function () {
             Route::post('', $this->add(...));
-            Route::get('', $this->getMany(...));
             Route::put('{templateId}', $this->update(...))->whereNumber('templateId');
             Route::delete('{templateId}', $this->delete(...))->whereNumber('templateId');
+        });
+
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_AUTHOR
+            ]),
+        ])->group(function () {
+            Route::get('', $this->getMany(...));
         });
     }
 
@@ -98,6 +110,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
                 'include' => $validated['include'] ?? false,
                 'description' => $validated['description'] ?? null,
                 'dueInterval' => $validated['dueInterval'] ?? null,
+                'restrictToUserGroups' => $validated['restrictToUserGroups'] ?? false,
             ]);
 
             $tpl->userGroups()->sync($validated['userGroupIds']);
@@ -116,15 +129,17 @@ class PKPEditTaskTemplateController extends PKPBaseController
     /**
      * GET /api/v1/editTaskTemplates
      */
-    public function getMany(Request $request): JsonResponse
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
-        $context = $this->getRequest()->getContext();
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $user = $request->getUser();
 
         $collector = Template::query()
             ->byContextId((int) $context->getId())
             ->with('userGroups');
 
-        $queryParams = $this->_processAllowedParams($request->query(), [
+        $queryParams = $this->_processAllowedParams($illuminateRequest->query(), [
             'search',
             'title',
             'type',
@@ -169,6 +184,21 @@ class PKPEditTaskTemplateController extends PKPBaseController
             }
         }
 
+        // Get the current user's user groups in the current context
+        $userGroups = UserGroup::withContextIds([$context->getId()])
+            ->withUserIds([$user->getId()])
+            ->get();
+
+        $isManager = $userGroups->contains(
+            fn (UserGroup $userGroup) =>
+            in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
+        );
+
+        // Get templates accounting for user group restrictions
+        if (!$isManager) {
+            $collector->withUserGroupIds($userGroups->pluck('id')->toArray());
+        }
+
         $collection = $collector->orderByPkDesc()->get();
 
         return TaskTemplateResource::collection($collection)
@@ -187,7 +217,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $template = Template::query()
             ->byContextId($contextId)
             ->find($id);
-    
+
         if (!$template) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),

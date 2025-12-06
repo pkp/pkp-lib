@@ -89,6 +89,12 @@
 			"description": "The decision applies to this submission.",
 			"writeDisabledInApi": true,
 			"apiSummary": true
+		},
+		"publicationId": {
+			"type": "integer",
+			"description": "Used if the decision has data relevant for a specific publication",
+			"writeDisabledInApi": true,
+			"apiSummary": true
 		}
 	}
 }

@@ -2,7 +2,6 @@
 
 namespace PKP\API\v1\editTaskTemplates\formRequests;
 
-use APP\core\Application;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use PKP\editorialTask\enums\EditorialTaskDueInterval;
@@ -24,9 +23,9 @@ class UpdateTaskTemplate extends FormRequest
             'description' => ['sometimes', 'nullable', 'string'],
             'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
             'type' => ['sometimes', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
-
             'userGroupIds' => ['sometimes', 'array', 'min:1'],
             'userGroupIds.*' => $this->userGroupIdsItemRules($contextId),
+            'restrictToUserGroups' => ['sometimes', 'boolean'],
         ];
     }
 

@@ -31,6 +31,7 @@ class TaskTemplateResource extends JsonResource
             'include' => (bool) $this->include,
             'dueInterval' => $this->dueInterval,
             'description' => $this->description,
+            'restrictToUserGroups' => (bool) $this->restrictToUserGroups,
             'userGroups' => $this->whenLoaded(
                 'userGroups',
                 fn () => $this->userGroups

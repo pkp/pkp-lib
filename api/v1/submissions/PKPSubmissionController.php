@@ -19,6 +19,7 @@ namespace PKP\API\v1\submissions;
 
 use APP\author\Author;
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
@@ -55,6 +56,8 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\decision\types\NewExternalReviewRound;
+use PKP\decision\types\SendExternalReview;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
@@ -1268,50 +1271,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
 
-        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
-        $publication = Repo::publication()->get($newId);
-
-        $notificationManager = new NotificationManager();
-        $usersIterator = Repo::user()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->assignedTo($submission->getId())
-            ->getMany();
-
-        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        foreach ($usersIterator as $user) {
-            $notification = $notificationManager->createNotification(
-                $user->getId(),
-                Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
-                $submission->getData('contextId'),
-                Application::ASSOC_TYPE_SUBMISSION,
-                $submission->getId(),
-                Notification::NOTIFICATION_LEVEL_TASK,
-            );
-
-            // Check if user is subscribed to this type of notification emails
-            if (!$notification || in_array(
-                Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
-                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                    $user->getId(),
-                    (int) $context->getId()
-                )
-            )) {
-                continue;
-            }
-
-            $mailable = new PublicationVersionNotify($context, $submission);
-            $template = Repo::emailTemplate()->getByKey($context->getId(), PublicationVersionNotify::getEmailTemplateKey());
-            $mailable
-                ->from($context->getData('contactEmail'), $context->getData('contactName'))
-                ->recipients([$user])
-                ->body($template->getLocalizedData('body'))
-                ->subject($template->getLocalizedData('subject'))
-                ->allowUnsubscribe($notification);
-
-            Mail::send($mailable);
-        }
+        $publication = $this->createNewPublicationVersionAndNotify($context, $submission, $publication, $versionStage, $versionIsMinor);
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1471,6 +1431,12 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $publication = Repo::publication()->get($publication->getId());
+
+        // TODO: Create VoR publication and review round here
+        $shouldCreatePMURReviewRound = filter_var($illuminateRequest->input('createPMURReviewRound'), FILTER_VALIDATE_BOOL);
+        if ($shouldCreatePMURReviewRound) {
+            $this->createPMURReviewRound($submissionContext, $submission, $publication);
+        }
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -2482,5 +2448,98 @@ class PKPSubmissionController extends PKPBaseController
         } catch (\Exception $e) {
             return [];
         }
+    }
+
+    private function createNewPublicationVersionAndNotify(
+        Context $context,
+        Submission $submission,
+        Publication $publication,
+        VersionStage $versionStage,
+        bool $versionIsMinor,
+    ): Publication
+    {
+        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
+        $publication = Repo::publication()->get($newId);
+
+        $notificationManager = new NotificationManager();
+        $usersIterator = Repo::user()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->assignedTo($submission->getId())
+            ->getMany();
+
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+        foreach ($usersIterator as $user) {
+            $notification = $notificationManager->createNotification(
+                $user->getId(),
+                Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+                $submission->getData('contextId'),
+                Application::ASSOC_TYPE_SUBMISSION,
+                $submission->getId(),
+                Notification::NOTIFICATION_LEVEL_TASK,
+            );
+
+            // Check if user is subscribed to this type of notification emails
+            if (!$notification || in_array(
+                    Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                        $user->getId(),
+                        (int) $context->getId()
+                    )
+                )) {
+                continue;
+            }
+
+            $mailable = new PublicationVersionNotify($context, $submission);
+            $template = Repo::emailTemplate()->getByKey($context->getId(), PublicationVersionNotify::getEmailTemplateKey());
+            $mailable
+                ->from($context->getData('contactEmail'), $context->getData('contactName'))
+                ->recipients([$user])
+                ->body($template->getLocalizedData('body'))
+                ->subject($template->getLocalizedData('subject'))
+                ->allowUnsubscribe($notification);
+
+            Mail::send($mailable);
+        }
+
+        return $publication;
+    }
+
+    private function createPMURReviewRound(Context $context, Submission $submission, Publication $publication): void
+    {
+        $request = $this->getRequest();
+
+        // Create new publication as VOR based on just-published PMUR
+        $newPublication = $this->createNewPublicationVersionAndNotify(
+            $context,
+            $submission,
+            $publication,
+            VersionStage::VERSION_OF_RECORD,
+            false
+        );
+        $submission = Repo::submission()->get($submission->getId());
+
+        // Create review round associated with VoR with backwards link to PMUR
+        $decisionType = new SendExternalReview();
+
+        $params = [];
+        $params['decision'] = Decision::EXTERNAL_REVIEW;
+        $params['submissionId'] = $submission->getId();
+        $params['publicationId'] = $newPublication->getId();
+        $params['dateDecided'] = Core::getCurrentDate();
+        $params['editorId'] = $request->getUser()->getId();
+        $params['stageId'] = $decisionType->getStageId();
+
+        $errors = Repo::decision()->validate($params, $decisionType, $submission, $request->getContext());
+
+        if (!empty($errors)) {
+            // TODO: Handle errors somehow
+        }
+
+        $decision = Repo::decision()->newDataObject($params);
+        Repo::decision()->add($decision);
+
+        // TODO: Done?
     }
 }

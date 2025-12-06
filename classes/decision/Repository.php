@@ -220,13 +220,17 @@ abstract class Repository
             $decision->setData('round', $this->getRoundByReviewRoundId($decision->getData('reviewRoundId')));
         }
         $decision->setData('dateDecided', Core::getCurrentDate());
+        $submission = Repo::submission()->get($decision->getData('submissionId'));
+        if (!$decision->getData('publicationId')) {
+            $decision->setData('publicationId', $submission->getCurrentPublication()->getId());
+        }
+
         $id = $this->dao->insert($decision);
         Hook::call('Decision::add', [$decision]);
 
         $decision = $this->get($id);
 
         $decisionType = $decision->getDecisionType();
-        $submission = Repo::submission()->get($decision->getData('submissionId'));
         $editor = Repo::user()->get($decision->getData('editorId'));
         $decision = $this->get($decision->getId());
         $context = Application::get()->getRequest()->getContext();
@@ -304,8 +308,8 @@ abstract class Repository
     public function getActivePendingRevisionsDecision(int $submissionId, int $stageId, int $decision = Decision::PENDING_REVISIONS): ?Decision
     {
         $postReviewDecisions = [Decision::SEND_TO_PRODUCTION];
-        $revisionDecisions = $stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW 
-            ? [Decision::PENDING_REVISIONS, Decision::RESUBMIT] 
+        $revisionDecisions = $stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW
+            ? [Decision::PENDING_REVISIONS, Decision::RESUBMIT]
             : [Decision::PENDING_REVISIONS_INTERNAL, Decision::RESUBMIT_INTERNAL];
 
         if (!in_array($decision, $revisionDecisions)) {

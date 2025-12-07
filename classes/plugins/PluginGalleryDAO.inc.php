@@ -57,7 +57,7 @@ class PluginGalleryDAO extends DAO {
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$currentVersion = $versionDao->getCurrentVersion();
 		$pluginGalleryUrl = PLUGIN_GALLERY_XML_URL;
-		\HookRegistry::call('PluginGallery::getPluginGalleryUrl', array(&$pluginGalleryUrl));
+		HookRegistry::call('PluginGallery::getPluginGalleryUrl', array(&$pluginGalleryUrl));
 		$response = $client->request('GET', $pluginGalleryUrl, ['query' => ['application' => $application->getName(), 'version' => $currentVersion->getVersionString()]]);
 		$doc->loadXML($response->getBody());
 		return $doc;

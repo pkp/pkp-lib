@@ -411,12 +411,8 @@ class PKPDoiController extends PKPBaseController
 
         $context = $this->getRequest()->getContext();
 
-        $validIds = Repo::submission()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByStatus([Submission::STATUS_PUBLISHED])
-            ->getIds()
-            ->toArray();
+        $validIds = Repo::publication()
+            ->getExportableDOIsSubmissionIds($context->getId(), $context->getData(Context::SETTING_DOI_VERSIONING));
 
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {

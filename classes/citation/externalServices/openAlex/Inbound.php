@@ -17,6 +17,7 @@
 namespace PKP\citation\externalServices\openAlex;
 
 use PKP\citation\Citation;
+use PKP\citation\enum\CitationType;
 use PKP\citation\externalServices\ExternalServicesHelper;
 
 class Inbound
@@ -64,7 +65,8 @@ class Inbound
                     }
                     break;
                 case 'type':
-                    $newValue = !empty($response[$mappedKey]) ? $response[$mappedKey] : $response['type'];
+                    $foundType = !empty($response[$mappedKey]) ? $response[$mappedKey] : $response['type'];
+                    $newValue = $this->getTypeMapping($foundType);
                     break;
                 default:
                     if (is_array($mappedKey)) {
@@ -107,5 +109,16 @@ class Inbound
         }
 
         return $author;
+    }
+
+    /**
+     * Get internal type from OpenAlex type
+     */
+    private function getTypeMapping(string $openAlexType): string
+    {
+        return match($openAlexType) {
+            'article' => CitationType::JOURNAL_ARTICLE->value,
+            default => $openAlexType,
+        };
     }
 }

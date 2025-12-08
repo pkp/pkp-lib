@@ -10,13 +10,21 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 use PKP\core\PKPContainer;
+use PKP\core\PKPRequest;
 use PKP\core\blade\BladeCompiler;
 use PKP\core\blade\DynamicComponent;
+use PKP\plugins\PluginRegistry;
+use PKP\plugins\ThemePlugin;
 use Illuminate\Foundation\AliasLoader;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
     public const VIEW_NAMESPACE_PATH = 'view\\components\\';
+
+    /**
+     * Tracks whether theme view paths have been registered
+     */
+    protected static bool $themePathsRegistered = false;
 
     /**
      * Boot the service provider
@@ -260,5 +268,81 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         );
 
         return $factory;
+    }
+
+    /**
+     * Register active theme view paths to FileViewFinder
+     * This allows plugin Blade templates to override core Blade templates
+     *
+     * Also check if router is initialized (set during Dispatcher::dispatch) as 
+     * router is needed to determine context from route, otherwise it will exit but
+     * allow retry later.
+     * 
+     * Priority order (highest to lowest):
+     * 1. Child theme
+     * 2. Parent theme
+     * 3. Grandparent theme
+     * 4. Core app templates (app/templates)
+     * 5. Core pkp templates (lib/pkp/templates)
+     */
+    public static function registerThemeViewPaths(PKPRequest $request, ?ThemePlugin $themePlugin = null): void
+    {
+        // Guard against multiple registrations
+        if (self::$themePathsRegistered) {
+            return;
+        }
+
+        if (!$request->getRouter()) {
+            return;
+        }
+
+        if (!$themePlugin) {
+            $context = $request->getContext();
+            $contextOrSite = $context ?: $request->getSite();
+
+            if (!$contextOrSite) {
+                return;
+            }
+
+            $activeThemePath = $contextOrSite->getData('themePluginPath');
+            if (!$activeThemePath) {
+                return;
+            }
+
+            // Get active theme plugin
+            $themePlugin = PluginRegistry::getPlugin('themes', $activeThemePath);
+            if (!$themePlugin || !($themePlugin instanceof ThemePlugin)) {
+                return;
+            }
+        }
+
+        // Collect theme paths in child → parent → grandparent order
+        $themePaths = [];
+        $currentTheme = $themePlugin;
+        while ($currentTheme) {
+            if ($currentTheme->getTemplatePath()) {
+                $themePaths[] = app()->basePath($currentTheme->getTemplatePath());
+            }
+            $currentTheme = $currentTheme->parent;
+        }
+
+        // Reverse array to grandparent → parent → child
+        // Then prepend in that order so child ends up with highest priority
+        // Final FileViewFinder order: [child, parent, grandparent, app, pkp...]
+        $viewFinder = app()->get('view.finder');
+        foreach (array_reverse($themePaths) as $path) {
+            $viewFinder->prependLocation($path);
+        }
+
+        // Mark as registered ONLY after successful registration
+        self::$themePathsRegistered = true;
+    }
+
+    /**
+     * Reset theme path registration state (useful for testing)
+     */
+    public static function resetThemePathRegistration(): void
+    {
+        self::$themePathsRegistered = false;
     }
 }

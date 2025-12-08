@@ -34,7 +34,7 @@ class Repository
         $fileProps = [];
 
         if ($bodyTextFile->submissionFile) {
-            $submission = Repo::submission()->get($bodyTextFile->submissionId);
+            $submission = Repo::submission()->get($bodyTextFile->submissionFile->getData('submissionId'));
             $schemaMap = Repo::submissionFile()->getSchemaMap($submission, []);
 
             $fileProps = $schemaMap->map($bodyTextFile->submissionFile);
@@ -54,24 +54,17 @@ class Repository
     /**
      * Returns the SubmissionFile, if any, that corresponds to the body text contents of the given submission/publication
      */
-    public function getBodyTextFile(int $publicationId, ?int $submissionId = null): BodyTextFile
+    public function getBodyTextFile(int $publicationId): BodyTextFile
     {
-        $submissionFileQuery = Repo::submissionFile()
+        $submissionFile = Repo::submissionFile()
             ->getCollector()
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_BODY_TEXT])
-            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publicationId]);
-
-        if ($submissionId) {
-            $submissionFileQuery = $submissionFileQuery->filterBySubmissionIds([$submissionId]);
-        }
-
-        $submissionFile = $submissionFileQuery
+            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publicationId])
             ->getMany()
             ->first();
 
         return new BodyTextFile(
             $publicationId,
-            $submissionId,
             $submissionFile,
         );
     }
@@ -82,12 +75,11 @@ class Repository
     public function setBodyText(
         string $bodyText,
         int $publicationId,
-        ?int $submissionId = null,
     ): BodyTextFile {
-        $publication = Repo::publication()->get($publicationId, $submissionId);
+        $publication = Repo::publication()->get($publicationId);
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
-        $existingBodyTextFile = $this->getBodyTextFile($publicationId, $submission->getId());
+        $existingBodyTextFile = $this->getBodyTextFile($publicationId);
 
         if ($existingBodyTextFile->submissionFile) {
             return $this->updateBodyTextFile($existingBodyTextFile->submissionFile, $bodyText, $submission);
@@ -136,10 +128,7 @@ class Repository
         Repo::submissionFile()->edit($submissionFile, ['fileId' => $newFileId]);
         app()->get('file')->delete($oldFileId);
 
-        return $this->getBodyTextFile(
-            $submissionFile->getData('assocId'),
-            $submission->getId(),
-        );
+        return $this->getBodyTextFile($submissionFile->getData('assocId'));
     }
 
     /**
@@ -182,7 +171,7 @@ class Repository
         $submissionFile = Repo::submissionFile()->newDataObject($params);
         Repo::submissionFile()->add($submissionFile);
 
-        return $this->getBodyTextFile($publication->getId(), $submission->getId());
+        return $this->getBodyTextFile($publication->getId());
     }
 
     /**

@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionFileController.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2023-2025 Simon Fraser University
+ * Copyright (c) 2023-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileController

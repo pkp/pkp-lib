@@ -124,7 +124,7 @@ class PKPBodyTextController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId());
 
         return response()->json(
             Repo::bodyText()->map($bodyTextFile),
@@ -143,10 +143,9 @@ class PKPBodyTextController extends PKPBaseController
         Repo::bodyText()->setBodyText(
             $_POST['bodyText'],
             $publication->getId(),
-            $submission->getId(),
         );
 
-        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId());
 
         return response()->json(
             Repo::bodyText()->map($bodyTextFile),
@@ -162,7 +161,7 @@ class PKPBodyTextController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
-        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId());
 
         if (!$bodyTextFile->submissionFile) {
             return response()->json([
@@ -172,7 +171,7 @@ class PKPBodyTextController extends PKPBaseController
 
         Repo::submissionFile()->delete($bodyTextFile->submissionFile);
 
-        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId(), $submission->getId());
+        $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId());
 
         return response()->json(
             Repo::bodyText()->map($bodyTextFile),

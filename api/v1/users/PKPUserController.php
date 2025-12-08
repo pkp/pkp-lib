@@ -249,8 +249,7 @@ class PKPUserController extends PKPBaseController
             'isSiteAdmin' => Validation::isSiteAdmin(),
         ];
 
-        $items = $map->summarizeManyReviewers($usersCollection, $options)->all();
-
+        $items = $map->summarizeManyReviewers($usersCollection, $options)->values()->all();
         return response()->json([
             'itemsMax' => $collector->getCount(),
             'items' => $items,

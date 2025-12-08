@@ -1024,13 +1024,11 @@ msgstr "No matching scheduled task found."
 msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Which command would you like to run?"
 
-#, fuzzy
 msgid "admin.workflow.email.userGroup.limitAccess"
 msgstr "Limit access to specific roles"
 
 msgid "admin.workflow.email.userGroup.assign.unrestricted"
 msgstr "Mark as unrestricted"
 
-#, fuzzy
 msgid "admin.workflow.email.userGroup.unrestricted.template.note"
 msgstr "Unrestricted templates will be accessible to all roles."

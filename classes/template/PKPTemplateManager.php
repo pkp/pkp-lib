@@ -246,22 +246,14 @@ class PKPTemplateManager extends Smarty
             foreach ($allThemes as $theme) { /** @var \PKP\plugins\Plugin|\PKP\plugins\ThemePlugin $theme */
                 if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
                     $activeTheme = $theme;
-                    
-                    $bladeFileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $bladeFileViewFinder */
-                    // Along with current active theme,
-                    // we should also register the path of any parent theme
-                    while($theme) {
-                        if ($theme->getTemplatePath()) {
-                            $bladeFileViewFinder->prependLocation(
-                                app()->basePath($theme->getTemplatePath())
-                            );
-                        }
-                        $theme = $theme->parent;
-                    }
-                    
                     break;
                 }
             }
+
+            // Register theme Blade view paths for template overrides
+            // which may have already been registered in callAfterResolving of PKPBladeViewServiceProvider
+            \PKP\core\PKPBladeViewServiceProvider::registerThemeViewPaths($request, $activeTheme);
+
             $this->assign(['activeTheme' => $activeTheme]);
         }
 

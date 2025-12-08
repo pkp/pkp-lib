@@ -2,20 +2,21 @@
 
 namespace PKP\core;
 
+use PKP\core\PKPRequest;
+use APP\core\Application;
+use PKP\core\PKPContainer;
+use PKP\plugins\ThemePlugin;
+use PKP\plugins\PluginRegistry;
+use PKP\core\blade\BladeCompiler;
 use Illuminate\View\FileViewFinder;
+use Illuminate\Support\Facades\View;
+use PKP\core\blade\DynamicComponent;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\ViewServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Factory as ViewFactory;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\View;
 use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
-use PKP\core\PKPContainer;
-use PKP\core\PKPRequest;
-use PKP\core\blade\BladeCompiler;
-use PKP\core\blade\DynamicComponent;
-use PKP\plugins\PluginRegistry;
-use PKP\plugins\ThemePlugin;
-use Illuminate\Foundation\AliasLoader;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
@@ -287,6 +288,11 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
      */
     public static function registerThemeViewPaths(PKPRequest $request, ?ThemePlugin $themePlugin = null): void
     {
+        // Do not register theme view paths if application is not installed
+        if (!Application::isInstalled()) {
+            return;
+        }
+
         // Guard against multiple registrations
         if (self::$themePathsRegistered) {
             return;

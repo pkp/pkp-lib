@@ -430,15 +430,13 @@ abstract class Plugin
      */
     public function resolveBladeViewPath(string $templatePath): string
     {
-        // This is to accommodate the case if template files path beign set as similar
-        // to the smarty templates e.g. `some-path/some-template.blade.php`
-        // as blade view needed to in just `some-path.some-template`
+        // Convert template path to Blade view notation
+        // e.g. `some-path/some-template.blade` → `some-path.some-template`
         $bladeTemplatePath = str_replace(
-            ['/', '.blade.php', '.blade', '.tpl'],
-            ['.', '', '', ''],
+            ['/', '.blade', '.tpl'],
+            ['.', '', ''],
             $templatePath
         );
-        
         return "{$this->getTemplateViewNamespace()}::{$bladeTemplatePath}";
     }
 
@@ -513,66 +511,47 @@ abstract class Plugin
     public function _overridePluginTemplates($hookName, $args)
     {
         $filePath = &$args[0];
-        $template = $args[1];
+
+        // Get template paths to search (themes override this to include parent themes)
+        $templatePaths = $this->getTemplatePaths();
+        if (empty($templatePaths)) {
+            return false;
+        }
+
         $checkFilePath = $filePath;
 
-        // If there's a templates/ prefix on the template, clean up the test path.
-        if (strpos($filePath, 'plugins/') === 0) {
-            $checkFilePath = 'templates/' . $checkFilePath;
+        // If there's a lib/pkp/ prefix, strip it
+        if (str_starts_with($checkFilePath, 'lib/pkp/')) {
+            $checkFilePath = substr($checkFilePath, strlen('lib/pkp/'));
         }
 
-        // If there's a lib/pkp/ prefix on the template, test without it.
-        $libPkpPrefix = 'lib/pkp/';
-        if (strpos($checkFilePath, $libPkpPrefix) === 0) {
-            $checkFilePath = substr($filePath, strlen($libPkpPrefix));
+        // If path starts with templates/, strip it since getTemplatePaths()
+        // already returns paths ending with /templates
+        if (str_starts_with($checkFilePath, 'templates/')) {
+            $checkFilePath = substr($checkFilePath, strlen('templates/'));
         }
 
-        // Check if an overriding plugin exists in the plugin path.
-        if ($overriddenFilePath = $this->_findOverriddenTemplate($checkFilePath)) {
-            $filePath = $overriddenFilePath;
+        // Normalize and search for override
+        $baseName = preg_replace('/\.(tpl|blade)$/', '', $checkFilePath);
+        $override = \PKP\template\PKPTemplateResource::findInPaths($baseName, $templatePaths);
+
+        if ($override) {
+            $filePath = $override;
         }
 
         return false;
     }
 
     /**
-     * Recursive check for existing templates
+     * Get template paths for this plugin to search for overrides.
+     * Themes override this to include parent theme paths.
      *
-     * @param string $path
-     *
-     * @return string|null
+     * @return array Array of template directory paths
      */
-    public function _findOverriddenTemplate($path)
+    protected function getTemplatePaths(): array
     {
-        $fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
-
-        // If smarty template exists, return the full path
-        if (file_exists($fullPath)) {
-            return $fullPath;
-        }
-
-        // Fallback to blade view if exists for theme plugins
-        $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
-        if (view()->exists($bladePath)) {
-            return $bladePath;
-        }
-
-        // Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.
-        if (($fullPath = preg_replace("/templates\/(?!.*templates\/)/", '', $fullPath)) && file_exists($fullPath)) {
-            if (Config::getVar('debug', 'deprecation_warnings')) {
-                trigger_error('Deprecated: The template at ' . $fullPath . ' has moved and will not be found in the future.');
-            }
-            return $fullPath;
-        }
-
-        // Recursive check for templates in ancestors of a current theme plugin
-        if ($this instanceof ThemePlugin
-            && $this->parent
-            && $fullPath = $this->parent->_findOverriddenTemplate($path)) {
-            return $fullPath;
-        }
-
-        return null;
+        $path = $this->getPluginPath() . '/templates';
+        return is_dir($path) ? [$path] : [];
     }
 
     /**

@@ -117,38 +117,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
         Hook::add('PluginRegistry::categoryLoaded::themes', $this->initAfter(...));
 
         // Allow themes to override plugin template files
-        Hook::add('TemplateManager::display', $this->loadTemplateView(...));
         Hook::add('TemplateResource::getFilename', $this->_overridePluginTemplates(...));
 
         return true;
-    }
-
-    /**
-     * Register top level blade/smarty template with corresponding available template
-     * from the plugin
-     */
-    public function loadTemplateView(string $hookName, array $params): bool
-    {
-        $templateManager =& $params[0]; /** @var TemplateManager $templateManager */
-		$templatePath =& $params[1]; /** @var string $templatePath */
-
-        // check for plugin Blade override
-        $bladeViewPath = $this->resolveBladeViewPath($templatePath);
-        if (view()->exists($bladeViewPath)) {
-            $templatePath = $bladeViewPath;
-            return Hook::CONTINUE;
-        }
-
-        // check for plugin Smarty override
-        // This allows plugin Smarty templates to override core Blade templates
-        $smartyTemplatePath = $this->convertToSmartyTemplatePath($templatePath);
-        $overridePath = $this->_findOverriddenTemplate($smartyTemplatePath);
-
-        if ($overridePath && file_exists($overridePath)) {
-            $templatePath = $smartyTemplatePath;
-        }
-
-        return Hook::CONTINUE;
     }
 
     /**
@@ -789,19 +760,32 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
     /**
      * Register directories to search for template files
-     *
      */
     private function _registerTemplates()
     {
-        // Register parent theme template directory
-        if (isset($this->parent) && $this->parent instanceof self) {
-            $this->parent->_registerTemplates();
+        // Template paths are now computed on demand in getTemplatePaths()
+    }
+
+    /**
+     * Get template paths for this theme including parent themes.
+     * Overrides Plugin::getTemplatePaths() to include theme hierarchy.
+     *
+     * @return array Array of template directory paths (child to parent order)
+     */
+    protected function getTemplatePaths(): array
+    {
+        $paths = [];
+        $theme = $this;
+
+        while ($theme) {
+            $themePath = $theme->getPluginPath() . '/templates';
+            if (is_dir($themePath)) {
+                $paths[] = $themePath;
+            }
+            $theme = $theme->parent ?? null;
         }
 
-        // Register this theme's template directory
-        $request = Application::get()->getRequest();
-        $templateManager = TemplateManager::getManager($request);
-        $templateManager->addTemplateDir($this->_getBaseDir('templates'));
+        return $paths;
     }
 
     /**
@@ -1083,33 +1067,5 @@ abstract class ThemePlugin extends LazyLoadPlugin
     protected function requiresVueRuntime()
     {
         $this->isVueRuntimeRequired = true;
-    }
-
-    /**
-     * Convert template path to Smarty template path format
-     * Handles various input formats (Blade notation, file paths, etc.)
-     * and returns path in format expected by _findOverriddenTemplate()
-     *
-     * Examples:
-     * - 'frontend.pages.article' → 'templates/frontend/pages/article.tpl'
-     * - 'frontend/pages/article' → 'templates/frontend/pages/article.tpl'
-     * - 'frontend/pages/article.blade' → 'templates/frontend/pages/article.tpl'
-     * - 'frontend/pages/article.tpl' → 'templates/frontend/pages/article.tpl'
-     *
-     * @param string $templatePath Template path in various formats
-     * @return string Smarty template path
-     */
-    public function convertToSmartyTemplatePath(string $templatePath): string
-    {
-        $path = str_replace(['.blade.php', '.blade', '.tpl'], '', $templatePath);
-
-        $path = str_replace('.', '/', $path);
-
-        // Ensure templates/ prefix
-        if (!str_starts_with($path, 'templates/')) {
-            $path = 'templates/' . $path;
-        }
-
-        return $path . '.tpl';
     }
 }

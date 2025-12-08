@@ -18,13 +18,17 @@ namespace PKP\template;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\View;
 use PKP\plugins\Hook;
 use Throwable;
 
 class PKPTemplateResource extends \Smarty_Resource_Custom
 {
-    /** @var array|string Template path or list of paths */
+    /** @var array Template path or list of paths */
     protected $_templateDir;
+
+    /** @var array<string, string|false> Resolution cache */
+    protected static array $cache = [];
 
     /**
      * Constructor
@@ -51,27 +55,31 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
      */
     public function fetch($name, &$source, &$mtime)
     {
-        $filename = $this->_getFilename($name);
+        $filePath = $this->_getFilename($name);
 
-        if ($this->isBladeViewPath($filename)) {
-            try {
-                $mtime = time();
-                $templateManager = TemplateManager::getManager(Application::get()->getRequest());
-                // $templateManager->shareTemplateVariables($templateManager->getTemplateVars());
-                $source = view($filename, $templateManager->getTemplateVars())->render();
-                return true;
-            } catch (Throwable $exceptin) {
-                error_log("Error rendering Blade view '{$filename}': " . $exceptin->getMessage());
-                throw $exceptin;
-            }
+        if (!$filePath || !file_exists($filePath)) {
+            return false;
         }
 
-        $mtime = filemtime($filename);
+        $mtime = filemtime($filePath);
         if ($mtime === false) {
             return false;
         }
 
-        $source = file_get_contents($filename);
+        // Blade template - render via View::file()
+        if (str_ends_with($filePath, '.blade')) {
+            try {
+                $templateManager = TemplateManager::getManager(Application::get()->getRequest());
+                $source = View::file($filePath, $templateManager->getTemplateVars())->render();
+                return true;
+            } catch (Throwable $e) {
+                error_log("Error rendering Blade template '{$filePath}': " . $e->getMessage());
+                throw $e;
+            }
+        }
+
+        // Smarty template - return file contents
+        $source = file_get_contents($filePath);
         return ($source !== false);
     }
 
@@ -84,14 +92,13 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
      */
     protected function fetchTimestamp($name)
     {
-        $filename = $this->_getFilename($name);
+        $filePath = $this->_getFilename($name);
 
-        // Check if this is a Blade view path (namespace notation)
-        if ($this->isBladeViewPath($filename)) {
-            return time(); // Return current time for Blade views (always fresh)
+        if (!$filePath) {
+            return false;
         }
 
-        return filemtime($filename);
+        return filemtime($filePath);
     }
 
     /**
@@ -103,31 +110,105 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
      */
     protected function _getFilename($template)
     {
-        $filePath = null;
-        foreach ($this->_templateDir as $path) {
-            $filePath = "{$path}/{$template}";
-            if (file_exists($filePath)) {
-                break;
-            }
+        if (array_key_exists($template, self::$cache)) {
+            return self::$cache[$template] ?: null;
         }
+
+        $baseName = self::normalizeTemplateName($template);
+        $filePath = self::findInPaths($baseName, $this->_templateDir);
+
         Hook::call('TemplateResource::getFilename', [&$filePath, $template]);
+
+        self::$cache[$template] = $filePath ?: false;
         return $filePath;
     }
 
-    /*
-     * Detect Blade view namespace
+    /**
+     * Find a template in the given paths, checking .blade first then .tpl.
+     *
+     * @param string $baseName Normalized template name without extension
+     * @param array $paths Array of directory paths to search
+     *
+     * @return string|null The file path if found, null otherwise
      */
-    private function isBladeViewPath($path)
+    public static function findInPaths(string $baseName, array $paths): ?string
     {
-        static $cache = [];
-    
-        if (isset($cache[$path])) {
-            return $cache[$path];
+        foreach ($paths as $path) {
+            $bladePath = "{$path}/{$baseName}.blade";
+            if (file_exists($bladePath)) {
+                return $bladePath;
+            }
+
+            $smartyPath = "{$path}/{$baseName}.tpl";
+            if (file_exists($smartyPath)) {
+                return $smartyPath;
+            }
         }
-        
-        $result = strpos($path, '::') !== false || view()->exists($path);
-        $cache[$path] = $result;
-        
-        return $result;
+
+        return null;
+    }
+
+    /**
+     * Normalize template name to base path without extension.
+     *
+     * @param string $name Template name in various formats
+     *
+     * @return string Normalized base name (e.g., 'frontend/pages/article')
+     */
+    public static function normalizeTemplateName(string $name): string
+    {
+        $name = preg_replace('/\.(tpl|blade)$/', '', $name);
+
+        if (!str_contains($name, '/') && str_contains($name, '.')) {
+            $name = str_replace('.', '/', $name);
+        }
+
+        $name = preg_replace('#^templates/#', '', $name);
+
+        return $name;
+    }
+
+    /**
+     * Static method to get a template file path (for use by other classes).
+     *
+     * @param string $template Template name
+     *
+     * @return string|null The file path, or null if not found
+     */
+    public static function getFilePath(string $template): ?string
+    {
+        if (array_key_exists($template, self::$cache)) {
+            return self::$cache[$template] ?: null;
+        }
+
+        $templateManager = TemplateManager::getManager(Application::get()->getRequest());
+        $resource = $templateManager->registered_resources['app'] ?? null;
+
+        if ($resource instanceof self) {
+            return $resource->_getFilename($template);
+        }
+
+        $instance = new self(['templates', 'lib/pkp/templates']);
+        return $instance->_getFilename($template);
+    }
+
+    /**
+     * Check if a file path is a Blade template.
+     *
+     * @param string $filePath The file path to check
+     *
+     * @return bool
+     */
+    public static function isBladeTemplate(string $filePath): bool
+    {
+        return str_ends_with($filePath, '.blade');
+    }
+
+    /**
+     * Clear the resolution cache.
+     */
+    public static function clearCache(): void
+    {
+        self::$cache = [];
     }
 }

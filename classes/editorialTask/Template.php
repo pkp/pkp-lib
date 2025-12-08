@@ -26,9 +26,9 @@ use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
 use PKP\editorialTask\EditorialTask as Task;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
-use PKP\editorialTask\enums\EditorialTaskType;
 
 class Template extends Model
 {
@@ -49,6 +49,7 @@ class Template extends Model
         'type',
         'dueInterval',
         'description',
+        'restrictToUserGroups'
     ];
 
     protected $casts = [
@@ -57,6 +58,7 @@ class Template extends Model
         'include' => 'bool',
         'title' => 'string',
         'type' => 'int',
+        'restrictToUserGroups' => 'bool',
     ];
 
     /**
@@ -253,7 +255,7 @@ class Template extends Model
                             ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
                                 $sub->select(DB::raw(1))
                                     ->from($settingsTable . ' as ets')
-                                    ->whereColumn("ets.$pk", "$selfTable.$pk")
+                                    ->whereColumn("ets.{$pk}", "{$selfTable}.{$pk}")
                                     ->whereIn('ets.setting_name', ['name', 'description'])
                                     ->whereRaw('LOWER(ets.setting_value) LIKE LOWER(?)', [$like]);
                             });
@@ -264,4 +266,13 @@ class Template extends Model
         return $query;
     }
 
+    /**
+     * Scope a query to filter by user group IDs.
+     */
+    protected function scopeWithUserGroupIds(Builder $builder, array $userGroupIds): Builder
+    {
+        $ug = (new UserGroup())->getTable();
+        return $builder->where('restrict_to_user_groups', false)
+            ->orWhereHas('userGroups', fn (Builder $query) => $query->whereIn($ug . '.user_group_id', $userGroupIds));
+    }
 }

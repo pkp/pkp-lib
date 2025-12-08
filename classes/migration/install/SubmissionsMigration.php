@@ -341,6 +341,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
                 ->comment('Interval after which the task is due, from the time it is created.');
             $table->enum('type', array_column(EditorialTaskType::cases(), 'value'))->default(EditorialTaskType::DISCUSSION);
             $table->text('description')->nullable();
+            $table->boolean('restrict_to_user_groups')->default(false)
+                ->comment('Whether the template is restricted to user groups defined in the many to many relationship.');
 
             $table->timestamps();
         });

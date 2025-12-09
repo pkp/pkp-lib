@@ -1,6 +1,6 @@
 # Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
 # Martin Brändle <martin.braendle@uzh.ch>, 2022, 2024.
-# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
+# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2025.
 # Piero Grandesso <piero.grandesso2@unibo.it>, 2024.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
 # Martina Marafioti <martina.marafioti3@unibo.it>, 2024.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2024-09-19 13:47+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2025-12-01 12:13+0000\n"
+"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it/>\n"
 "Language: it\n"
@@ -2308,3 +2308,47 @@ msgstr "Mostra tutto"
 
 msgid "common.sandbox"
 msgstr "Applicazione in esecuzione in modalità sandbox."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Visualizza la <a href=\"{$url}\">Cronologia editoriale</a>"
+
+msgid "common.editorialMasthead"
+msgstr "Comitato di redazione"
+
+msgid "common.changeLanguage"
+msgstr "Cambia lingua"
+
+msgid "common.yesContinue"
+msgstr "Si, continua"
+
+msgid "common.moreActions"
+msgstr "Più azioni"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Revisori dello scorso anno"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "revisori degli anni passati"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Gli/le editor esprimono il loro apprezzamento ai/alle reviewer dell'anno "
+"{$year} elencati/e di seguito."
+
+msgid "common.editorialHistory"
+msgstr "Storico editoriale"
+
+msgid "common.editorialHistory.page"
+msgstr "Pagina dello storico editoriale"
+
+msgid "common.editorialHistory.page.description"
+msgstr "La sezione elenca i/le autori/autrici passati/e."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Visualizza il profilo ORCID di {$name}"
+
+msgid "common.assignments"
+msgstr "Assegnazioni"
+
+msgid "common.filtersClear"
+msgstr "Pulisci i filtri"

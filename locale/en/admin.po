@@ -32,11 +32,9 @@ msgstr ""
 "Delete cache files from the system. This should only be done in development "
 "environments."
 
-#, fuzzy
 msgid "admin.clearDataCache"
 msgstr "Delete Data Caches"
 
-#, fuzzy
 msgid "admin.clearTemplateCache"
 msgstr "Delete Template Cache"
 
@@ -170,7 +168,6 @@ msgstr ""
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Are you sure you want to delete all scheduled task execution logs?"
 
-#, fuzzy
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Clear Scheduled Task Logs"
 
@@ -277,7 +274,6 @@ msgstr ""
 "Error occured when processing the log file {$file} at the line "
 "{$lineNumber}: {$msg}"
 
-#,fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
 "The background jobs that will process the log files and store the "

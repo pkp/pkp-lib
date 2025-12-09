@@ -616,7 +616,6 @@ msgstr "hidden"
 msgid "orcid.manager.settings.description"
 msgstr "Please configure the ORCID API access for use in pulling ORCID profile information into user and author profiles and updating connected ORCID records with new publications (only for ORCID Members)."
 
-#, fuzzy
 msgid "orcid.manager.settings.description.globallyconfigured"
 msgstr "The ORCID API was configured globally by the host. The ORCID API, Client ID, and Client Secret have been set at the site-level and cannot be changed here. Contact your site administrator to disable ORCID functionality or change these credentials."
 
@@ -656,7 +655,6 @@ msgstr "Send e-mail to request ORCID authorization from authors when an article 
 msgid "orcid.manager.settings.logSectionTitle"
 msgstr "ORCID request log"
 
-#, fuzzy
 msgid "orcid.manager.settings.logLevel.help"
 msgstr "Select the amount of logging output written by the ORCID feature"
 
@@ -738,14 +736,12 @@ msgstr "Authorize and Connect your ORCID iD"
 msgid "orcid.about.title"
 msgstr "What is ORCID?"
 
-#, fuzzy
 msgid "orcid.about.orcidExplanation"
 msgstr "ORCID is an independent non-profit organization that provides a persistent identifier – an ORCID iD – that distinguishes you from other researchers and a mechanism for linking your research outputs and activities to your iD. ORCID is integrated into many systems used by publishers, funders, institutions, and other research-related services. Learn more at https://orcid.org."
 
 msgid "orcid.about.howAndWhy.title"
 msgstr "How and why we collect ORCID iDs?"
 
-#, fuzzy
 msgid "orcid.about.howAndWhyPublicAPI"
 msgstr ""
 "This site is collecting your ORCID iD so we and the wider community can "
@@ -763,7 +759,6 @@ msgstr ""
 "This site will collect and display authenticated authors’ and coauthors’ "
 "iDs on the user profile and where authorship is listed."
 
-#, fuzzy
 msgid "orcid.about.howAndWhyMemberAPI"
 msgstr ""
 "This site is collecting your ORCID iD so we and the wider community can "
@@ -788,7 +783,6 @@ msgstr ""
 msgid "orcid.about.display.title"
 msgstr "Where are ORCID iDs displayed?"
 
-#, fuzzy
 msgid "orcid.about.display"
 msgstr ""
 "To acknowledge that you have used your iD and that it has been "

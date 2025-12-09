@@ -652,14 +652,15 @@ class PKPSubmissionController extends PKPBaseController
         $submitterUserGroupsQuery = UserGroup::withContextIds($context->getId())
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
             ->whereHas('userUserGroups', function ($query) use ($user) {
-                $query->withUserId($user->getId())->withActive()->withActive();
+                $query->withUserId($user->getId())->withActive();
             });
 
         // For OJS and OMP, also filter by submission stage assignment
         // to differentiate between Journal managers, who are not assigned to Submission Stage 
         // (production editor, journal manager)
         if (Application::get()->getName() !== 'ops') {
-            $submitterUserGroupsQuery->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION]);
+            // To be resolved in https://github.com/pkp/pkp-lib/issues/10929
+            //$submitterUserGroupsQuery->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION]);
         }
 
         $submitterUserGroups = $submitterUserGroupsQuery->get();

@@ -23,7 +23,12 @@ class UpdateTaskTemplate extends FormRequest
             'description' => ['sometimes', 'nullable', 'string'],
             'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
             'type' => ['sometimes', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
-            'userGroupIds' => ['sometimes', 'array', 'min:1'],
+            'userGroupIds' => [
+                'array',
+                'min:1',
+                Rule::requiredIf(fn () => (bool) $this->input('restrictToUserGroups') == true),
+                Rule::prohibitedIf(fn () => (bool) $this->input('restrictToUserGroups') == false),
+            ],
             'userGroupIds.*' => $this->userGroupIdsItemRules($contextId),
             'restrictToUserGroups' => ['sometimes', 'boolean'],
         ];

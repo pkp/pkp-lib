@@ -1027,6 +1027,9 @@ msgstr "Which command would you like to run?"
 msgid "admin.workflow.email.userGroup.limitAccess"
 msgstr "Limit access to specific roles"
 
+msgid "admin.workflow.email.userGroup.limitAccess.template.note"
+msgstr "Select the roles that can access this template."
+
 msgid "admin.workflow.email.userGroup.assign.unrestricted"
 msgstr "Mark as unrestricted"
 

@@ -76,6 +76,7 @@ class EmailTemplateForm extends FormComponent
             ]))
             ->addField(new FieldOptions('assignedUserGroupIds', [
                 'label' => __('admin.workflow.email.userGroup.limitAccess'),
+                'description' => __('admin.workflow.email.userGroup.limitAccess.template.note'),
                 'type' => 'checkbox',
                 'value' => [],
                 'options' => $userGroups,

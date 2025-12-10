@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-22 09:22+0000\n"
+"PO-Revision-Date: 2025-12-10 07:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "hy/>\n"
@@ -654,4 +654,81 @@ msgstr ""
 "է, և նախկինում ունեցած բոլոր դերերը դեռ ակտիվ են:</p>        <p>Ազատ զգացեք "
 "կապվելու ինձ հետ գործընթացի վերաբերյալ ցանկացած հարցով:</p>        "
 "<p>Հարգանքով,</p>        <p>{$contextName}</p>    "
+"</div></div><style>{$emailTemplateStyle}</style>"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Այս էլ. նամակը ուղարկվում է այն օգտատերերին, որոնց հրավիրել են որոշակի դերեր "
+"ստանալու"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Դուք հրավիրված եք նոր դերերի"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSection"
+msgstr ""
+"<div class='section'>    <div class='section-number'>{$sectionNumber}.</"
+"div>    <div class='section-content'>        <h2>{$sectionName}</h2>        "
+"<p>Սկսած {$dateStart}</p>        <p>{$sectionEndingDate}</p>        "
+"<p>{$sectionMastheadAppear}</p>    </div></div>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr "Ձեր անունը չի հայտնվի {$contextName}-ի վերնագրում որպես {$sectionName}։"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr "Ձեր անունը կհայտնվի {$contextName}-ի վերնագրում որպես {$sectionName}։"
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Նոր նշանակված դերեր</h2></p>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Արդեն նշանակված դերեր</h2></p>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Սա հրավեր ստացողի անունն է"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Սա հրավերն ուղարկողի անունն է"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Սա հրավերն ուղարկողի դերն է"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Այս բաժինը նկարագրում է այն դերերը, որոնք կավելացվեն օգտատիրոջը հրավերն "
+"ընդունելուց հետո"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Այս բաժինը նկարագրում է օգտատիրոջ արդեն իսկ ունեցած դերերը։"
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Սա հրավերի ընդունման URL-ն է"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Սա հրավերի մերժման URL-ն է"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Ավարտվում է {$dateEnd}"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Օգտատերը հրավիրվել է դերի ծանուցման"
+
+msgid "emails.userRoleAssignmentInvitationNotify.body"
+msgstr ""
+"<div class='email-container'>    <div class='email-header'>        <h2>Նոր "
+"դերի հրավեր</h2>    </div>    <div class='email-content'>        <p>Հարգելի "
+"{$recipientName},</p>        <p>Հաշվի առնելով Ձեր մասնագիտական գիտելիքները՝ "
+"Ձեզ {$inviterName} -ը հրավիրել է ստանձնելու նոր պաշտոններ {$contextName} "
+"-ում։</p>        <p>{$contextName} -ում մենք կարևորում ենք ձեր "
+"գաղտնիությունը։ Հետևաբար, մենք քայլեր ենք ձեռնարկել՝ ապահովելու համար, որ "
+"մենք լիովին համապատասխանենք GDPR-ին։ Այս քայլերը ներառում են ձեր "
+"պատասխանատվությունը ձեր սեփական տվյալները մուտքագրելու և ընտրելու համար, թե "
+"ով կարող է տեսնել տեղեկատվությունը։ Ձեր տվյալների մշակման վերաբերյալ "
+"լրացուցիչ տեղեկությունների համար խնդրում ենք դիմել մեր Գաղտնիության "
+"քաղաքականությանը։</p>        <div>{$existingRoles}</div>        "
+"<div>{$rolesAdded}</div>        <p>Հրավերն ընդունելուց հետո դուք կուղղորդվեք "
+"{$contextName} հասցեով։</p>        <p>Ազատորեն կապվեք ինձ հետ գործընթացի "
+"վերաբերյալ ցանկացած հարցով։</p>        <p><a href='{$acceptUrl}' class='btn "
+"btn-accept'>Ընդունել հրավերը</a></p>        <p><a href='{$declineUrl}' "
+"class='btn btn-decline'>Մերժել հրավերը</a></p>        <p>Հարգանքներով,</"
+"p>        <p>{$contextName}</p>    "
 "</div></div><style>{$emailTemplateStyle}</style>"

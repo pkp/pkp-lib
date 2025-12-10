@@ -289,12 +289,4 @@ class Repository
     {
         return $this->dao->getExternalReviewerIdsByCompletedYear($contextId, $year);
     }
-
-    /**
-     * Get summarised reviewer recommendations from a list of given review assignments
-     */
-    public function getReviewerRecommendationsSummary(array $reviewAssignments)
-    {
-
-    }
 }

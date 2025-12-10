@@ -240,9 +240,11 @@ class Collector implements CollectorInterface, ViewsCount
         return $this;
     }
 
+    /**
+     * Filter review assignments by associated publication IDs.
+     */
     public function filterByPublicationIds(?array $publicationIds): static
     {
-        // Used to filter review assignments by publication id via review rounds
         $this->publicationIds = $publicationIds;
         return $this;
     }

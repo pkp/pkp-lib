@@ -236,8 +236,6 @@ class ReviewAssignment extends \PKP\core\DataObject
         return $this->getData('reviewerRecommendationId');
     }
 
-
-
     /**
      * Set reviewer recommendation id
      */

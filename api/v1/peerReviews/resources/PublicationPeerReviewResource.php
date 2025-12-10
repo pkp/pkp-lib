@@ -9,7 +9,7 @@
  *
  * @class PublicationPeerReviewResource
  *
- * @ingroup api_v1_publicationPeerReviews
+ * @ingroup api_v1_peerReviews
  *
  * @brief Resource that maps a publication to its open peer reviews data
  */
@@ -82,23 +82,25 @@ class PublicationPeerReviewResource extends BasePeerReviewResource
             ->sortKeys();
 
         foreach ($reviewsGroupedByRoundId as $roundId => $assignments) {
+            $reviewRound = $reviewRoundsKeyedById->get($roundId);
+
             $roundDisplayText = $hasMultipleRounds ? __('publication.versionStringWithRound', [
                 'versionString' => $publication->getData('versionString'),
-                'round' => $reviewRoundsKeyedById->get($roundId)->getData('round')
+                'round' => $reviewRound->getData('round')
             ]) :
                 $publication->getData('versionString');
 
             $roundsData->add([
                 'displayText' => $roundDisplayText,
-                'roundId' => $reviewRoundsKeyedById->get($roundId)->getData('id'),
-                'originalPublicationId' => $reviewRoundsKeyedById->get($roundId)->getPublicationId(),
+                'roundId' => $reviewRound->getData('id'),
+                'originalPublicationId' => $reviewRound->getPublicationId(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context),
             ]);
         }
 
 
         $results->put('roundsData', $roundsData);
-        $results->put('reviewerRecommendationsSummary', $this->getReviewerRecommendationsSummary($reviewAssignments));
+        $results->put('reviewerRecommendationsSummary', $this->getReviewerRecommendationsSummary($reviewAssignments, $context));
         return $results;
     }
 

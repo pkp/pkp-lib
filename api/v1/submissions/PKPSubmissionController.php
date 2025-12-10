@@ -56,7 +56,6 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
-use PKP\decision\types\NewExternalReviewRound;
 use PKP\decision\types\SendExternalReview;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -402,7 +401,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
-        if($actionName === 'add') {
+        if ($actionName === 'add') {
             // For 'add' endpoint, mark role assignments as checked since the add() method
             // will automatically assign the AUTHOR role to users without roles
             $this->markRoleAssignmentsChecked();
@@ -566,6 +565,9 @@ class PKPSubmissionController extends PKPBaseController
                 case 'hasDois':
                     $collector->filterByHasDois((bool) $val, $context->getEnabledDoiTypes());
                     break;
+                case 'onDoiPage':
+                    $collector->filterByOnDoiPage((bool) $val, $context->getEnabledDoiTypes());
+                    break;
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
                     break;
@@ -656,7 +658,7 @@ class PKPSubmissionController extends PKPBaseController
             });
 
         // For OJS and OMP, also filter by submission stage assignment
-        // to differentiate between Journal managers, who are not assigned to Submission Stage 
+        // to differentiate between Journal managers, who are not assigned to Submission Stage
         // (production editor, journal manager)
         if (Application::get()->getName() !== 'ops') {
             // To be resolved in https://github.com/pkp/pkp-lib/issues/10929
@@ -2474,8 +2476,9 @@ class PKPSubmissionController extends PKPBaseController
     /**
      * Handle publication version creation and relevant user notifications
      *
-     * @return Publication Newly created and versioned publication
      * @throws \Exception
+     *
+     * @return Publication Newly created and versioned publication
      */
     private function createNewPublicationVersionAndNotify(
         Context $context,
@@ -2483,8 +2486,7 @@ class PKPSubmissionController extends PKPBaseController
         Publication $publication,
         ?VersionStage $versionStage,
         bool $versionIsMinor,
-    ): Publication
-    {
+    ): Publication {
         $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
         $publication = Repo::publication()->get($newId);
 
@@ -2508,13 +2510,13 @@ class PKPSubmissionController extends PKPBaseController
 
             // Check if user is subscribed to this type of notification emails
             if (!$notification || in_array(
-                    Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
-                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                        $user->getId(),
-                        (int) $context->getId()
-                    )
-                )) {
+                Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                    $user->getId(),
+                    (int) $context->getId()
+                )
+            )) {
                 continue;
             }
 

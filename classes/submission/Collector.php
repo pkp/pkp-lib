@@ -66,6 +66,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
     public ?bool $hasDois = null;
+    public ?bool $onDoiPage = null;
     public ?array $excludeIds = null;
     public bool $isUnassigned = false;
 
@@ -153,6 +154,18 @@ abstract class Collector implements CollectorInterface, ViewsCount
     {
         $this->hasDois = $hasDois;
         $this->enabledDoiTypes = $enabledDoiTypes === null ? [Repo::doi()::TYPE_PUBLICATION] : $enabledDoiTypes;
+        return $this;
+    }
+
+    /**
+     * Limit results to submissions that should be listed on the DOI management page
+     *
+     * @param array|null $enabledDoiTypes TYPE_* constants to consider when checking submission is on the DOI management page
+     */
+    public function filterByOnDoiPage(?bool $onDoiPage, ?array $enabledDoiTypes): AppCollector
+    {
+        $this->onDoiPage = $onDoiPage;
+        $this->enabledDoiTypes = $enabledDoiTypes;
         return $this;
     }
 
@@ -388,6 +401,20 @@ abstract class Collector implements CollectorInterface, ViewsCount
     abstract protected function addHasDoisFilterToQuery(Builder $q);
 
     /**
+     * Add APP-specific filtering methods for checking if submission should be listed on the DOI management page
+     *
+     * @hook Submission::Collector [[&$q, $this]]
+     */
+    abstract protected function addOnDoiPageFilterToQuery(Builder $q);
+
+    /**
+     * Get APP-specific allowed DOI types for submission sub objects
+     *
+     * @hook Submission::Collector [[&$q, $this]]
+     */
+    abstract protected function getAllowedDoiTypes(): array;
+
+    /**
      * Add APP-specific filtering for checking if a submission has sub objects with DOI ID matching that given via the searchPhrase property.
      *
      * @hook Submission::Collector [[&$q, $this]]
@@ -404,6 +431,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
         $q = DB::table('submissions AS s')
             ->leftJoin('publications AS po', 's.current_publication_id', '=', 'po.publication_id')
             ->select(['s.*']);
+
+        if ($this->onDoiPage !== null && (!isset($this->enabledDoiTypes) || empty(array_intersect($this->enabledDoiTypes, $this->getAllowedDoiTypes())))) {
+            $q->whereNull('s.submission_id'); // No submissions when filtering by wrong enabled DOI types
+            return $q;
+        }
 
         // Never permit a query without a context_id unless the Application::SITE_CONTEXT_ID_ALL wildcard has been set explicitly.
         if (!isset($this->contextIds)) {
@@ -685,6 +717,9 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
         // Filter by whether any child pub objects have DOIs assigned
         $q->when($this->hasDois !== null, fn (Builder $q) => $this->addHasDoisFilterToQuery($q));
+
+        // Filter by whether submission should be listed on DOI management page
+        $q->when($this->onDoiPage !== null, fn (Builder $q) => $this->addOnDoiPageFilterToQuery($q));
 
         // Filter out excluded submission IDs
         $q->when($this->excludeIds !== null, fn (Builder $q) => $q->whereNotIn('s.submission_id', $this->excludeIds));

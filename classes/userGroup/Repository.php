@@ -472,7 +472,6 @@ class Repository
                 'permitSelfRegistration' => $permitSelfRegistration,
                 'permitMetadataEdit' => $permitMetadataEdit,
                 'isDefault' => true,
-                'showTitle' => true,
                 'masthead' => $masthead,
                 'permitSettings' => $permitSettings,
             ]);

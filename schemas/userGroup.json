@@ -23,10 +23,6 @@
             "type": "boolean",
             "origin": "primary"
         },
-        "showTitle": {
-            "type": "boolean",
-            "origin": "primary"
-        },
         "permitSelfRegistration": {
             "type": "boolean",
             "origin": "primary"

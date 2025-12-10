@@ -96,9 +96,6 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                         case 'is_default':
                             $userGroup->isDefault = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN);
                             break;
-                        case 'show_title':
-                            $userGroup->showTitle = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN, ['options' => ['default' => true]]);
-                            break;
                         case 'name':
                             $locale = $n->getAttribute('locale');
                             $name = $userGroup->name ?? [];

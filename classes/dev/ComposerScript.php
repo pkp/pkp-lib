@@ -48,11 +48,16 @@ class ComposerScript
                 mkdir($dirPath);
             }
 
-            $streamContext = stream_context_create(['http' => ['method' => 'HEAD']]);
-            $languagesCsv = !preg_match('/200 OK/', get_headers($urlCsv, false, $streamContext)[0] ?? "") ?: file($urlCsv, FILE_SKIP_EMPTY_LINES);
-            if (!is_array($languagesCsv) || !$languagesCsv) {
-                throw new Exception(__METHOD__ . " : The Weblate file 'languages.csv' cannot be downloaded !");
+            // Download languages.csv using curl (proxy picked up from environment)
+            $ch = curl_init($urlCsv);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_FAILONERROR, true);
+            $languagesCsvRaw = curl_exec($ch);
+            if ($languagesCsvRaw === false) {
+                throw new Exception(__METHOD__ . " : The Weblate file 'languages.csv' cannot be downloaded! Curl error: " . curl_error($ch));
             }
+            curl_close($ch);
+            $languagesCsv = explode("\n", $languagesCsvRaw);
 
             array_shift($languagesCsv);
             $languages = [];

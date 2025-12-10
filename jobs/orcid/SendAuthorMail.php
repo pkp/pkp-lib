@@ -33,7 +33,9 @@ class SendAuthorMail extends BaseJob implements ShouldBeUnique
         private Context $context,
         /** @var bool $updateAuthor If true, update the author fields in the database. Use only if not called from a function, which will already update the author. */
         private bool $updateAuthor = false
-    ) {
+    )
+    {
+        parent::__construct();
     }
 
     /**

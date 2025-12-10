@@ -15,6 +15,7 @@
 
 namespace PKP\scheduledTask;
 
+use Exception;
 use PKP\config\Config;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\core\Core;
@@ -79,6 +80,14 @@ abstract class ScheduledTask
     }
 
     /**
+     * Get the execution log file path.
+     */
+    public function getExecutionLogFile(): string
+    {
+        return $this->executionLogFile;
+    }
+
+    /**
      * Get scheduled task helper object.
      */
     public function getHelper(): ScheduledTaskHelper
@@ -111,22 +120,8 @@ abstract class ScheduledTask
         if (!$message) {
             return;
         }
-        $date = '[' . Core::getCurrentDate() . '] ';
 
-        if ($type) {
-            $log = $date . '[' . __($type) . '] ' . $message;
-        } else {
-            $log = $date . $message;
-        }
-
-        $fp = fopen($logFile, 'ab');
-        if (flock($fp, LOCK_EX)) {
-            fwrite($fp, $log . PHP_EOL);
-            flock($fp, LOCK_UN);
-        } else {
-            throw new \Exception("Couldn't lock the file.");
-        }
-        fclose($fp);
+        static::writeToExecutionLogFile($message, $logFile, $type);
     }
 
     /**
@@ -156,6 +151,33 @@ abstract class ScheduledTask
         $helper->notifyExecutionResult($this->processId, $this->getName(), $result, $this->executionLogFile);
 
         return $result;
+    }
+
+    /**
+     * Write an entry into the execution log.
+     *
+     * @param string $message A translated message.
+     * @param string $logFile Path to the log file.
+     * @param ?string $type One of the ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE... constants
+     */
+    public static function writeToExecutionLogFile(string $message, string $logFile, ?string $type = null): void
+    {
+        $date = '[' . Core::getCurrentDate() . '] ';
+
+        if ($type) {
+            $log = $date . '[' . __($type) . '] ' . $message;
+        } else {
+            $log = $date . $message;
+        }
+
+        $fp = fopen($logFile, 'ab');
+        if (flock($fp, LOCK_EX)) {
+            fwrite($fp, $log . PHP_EOL);
+            flock($fp, LOCK_UN);
+        } else {
+            throw new Exception("Couldn't lock the file.");
+        }
+        fclose($fp);
     }
 }
 

@@ -1720,9 +1720,6 @@ msgstr "Valuutta"
 msgid "settings.roles.roleOptions"
 msgstr "Rooleihin liittyvät valinnat"
 
-msgid "settings.roles.showTitles"
-msgstr "Näytä roolin nimi tekijäluettelossa"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Salli käyttäjän rekisteröityä itse"
 

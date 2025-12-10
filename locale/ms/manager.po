@@ -1625,9 +1625,6 @@ msgstr "Mata wang"
 msgid "settings.roles.roleOptions"
 msgstr "Pilihan Peranan"
 
-msgid "settings.roles.showTitles"
-msgstr "Tunjukkan tajuk peranan dalam senarai penyumbang"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Benarkan pendaftaran diri pengguna"
 

@@ -1658,9 +1658,6 @@ msgstr "Валюта"
 msgid "settings.roles.roleOptions"
 msgstr "Рөл параметрлері"
 
-msgid "settings.roles.showTitles"
-msgstr "Мүшелер тізімінде рөл атауын көрсету"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Пайдаланушының өзін-өзі тіркеуіне рұқсат беріңіз"
 

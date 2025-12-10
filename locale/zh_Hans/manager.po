@@ -1515,9 +1515,6 @@ msgstr "货币"
 msgid "settings.roles.roleOptions"
 msgstr "角色选项"
 
-msgid "settings.roles.showTitles"
-msgstr "在贡献者列表中显示角色标题"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "允许用户自行注册"
 

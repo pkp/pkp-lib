@@ -2345,9 +2345,6 @@ msgstr "สกุลเงิน"
 msgid "settings.roles.roleOptions"
 msgstr "ตัวเลือกบทบาท"
 
-msgid "settings.roles.showTitles"
-msgstr "แสดงชื่อตำแหน่งในรายการผู้ร่วมแต่ง"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "อนุญาตการลงทะเบียนด้วยตนเองของผู้ใช้"
 

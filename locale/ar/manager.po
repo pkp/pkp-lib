@@ -1660,9 +1660,6 @@ msgstr "العملة"
 msgid "settings.roles.roleOptions"
 msgstr "خيارات الدور"
 
-msgid "settings.roles.showTitles"
-msgstr "إظهار عنوان الدور في قائمة المشاركين"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "إسمح للمستخدمين بتسجيل أنفسهم"
 

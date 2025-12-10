@@ -3,8 +3,8 @@
 /**
  * @file classes/submissionFile/SubmissionFile.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFile
@@ -41,6 +41,7 @@ class SubmissionFile extends \PKP\core\DataObject
     public const SUBMISSION_FILE_INTERNAL_REVIEW_FILE = 19;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_REVISION = 20;
     public const SUBMISSION_FILE_JATS = 21;
+    public const SUBMISSION_FILE_BODY_TEXT = 22;
 
     public const INTERNAL_REVIEW_STAGES = [
         SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,

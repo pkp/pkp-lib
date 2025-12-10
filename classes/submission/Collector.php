@@ -66,6 +66,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
     public ?bool $hasDois = null;
+    public ?bool $onDoiPage = null;
     public ?array $excludeIds = null;
     public bool $isUnassigned = false;
 
@@ -153,6 +154,19 @@ abstract class Collector implements CollectorInterface, ViewsCount
     {
         $this->hasDois = $hasDois;
         $this->enabledDoiTypes = $enabledDoiTypes === null ? [Repo::doi()::TYPE_PUBLICATION] : $enabledDoiTypes;
+        return $this;
+    }
+
+    /**
+     * Limit results to submissions that should be listed on the DOI management page
+     *
+     * @param array|null $enabledDoiTypes TYPE_* constants to consider when checking submission has DOIs
+     */
+    public function filterByOnDoiPage(?bool $onDoiPage, ?array $enabledDoiTypes = null): AppCollector
+    {
+        $this->onDoiPage = $onDoiPage;
+        $this->enabledDoiTypes = $enabledDoiTypes === null ? [Repo::doi()::TYPE_PUBLICATION] : $enabledDoiTypes;
+
         return $this;
     }
 
@@ -386,6 +400,13 @@ abstract class Collector implements CollectorInterface, ViewsCount
      * @hook Submission::Collector [[&$q, $this]]
      */
     abstract protected function addHasDoisFilterToQuery(Builder $q);
+
+    /**
+     * Add APP-specific filtering methods for checking if submission should be listed on the DOI management page
+     *
+     * @hook Submission::Collector [[&$q, $this]]
+     */
+    abstract protected function addOnDoiPageFilterToQuery(Builder $q);
 
     /**
      * Add APP-specific filtering for checking if a submission has sub objects with DOI ID matching that given via the searchPhrase property.
@@ -685,6 +706,9 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
         // Filter by whether any child pub objects have DOIs assigned
         $q->when($this->hasDois !== null, fn (Builder $q) => $this->addHasDoisFilterToQuery($q));
+
+        // Filter by whether submission should be listed on DOI management page
+        $q->when($this->onDoiPage !== null, fn (Builder $q) => $this->addOnDoiPageFilterToQuery($q));
 
         // Filter out excluded submission IDs
         $q->when($this->excludeIds !== null, fn (Builder $q) => $q->whereNotIn('s.submission_id', $this->excludeIds));

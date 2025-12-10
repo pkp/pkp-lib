@@ -36,7 +36,12 @@ class AddTaskTemplate extends FormRequest
             'include' => ['boolean'],
             'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
             'description' => ['sometimes', 'nullable', 'string'],
-            'userGroupIds' => ['required', 'array', 'min:1'],
+            'userGroupIds' => [
+                'array',
+                'min:1',
+                Rule::requiredIf(fn () => (bool) $this->input('restrictToUserGroups') == true),
+                Rule::prohibitedIf(fn () => (bool) $this->input('restrictToUserGroups') == false),
+            ],
             'userGroupIds.*' => $this->userGroupIdsItemRules($contextId),
             'restrictToUserGroups' => ['sometimes', 'boolean'],
         ];

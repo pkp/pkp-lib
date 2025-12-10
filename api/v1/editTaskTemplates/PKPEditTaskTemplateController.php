@@ -30,18 +30,12 @@ use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Template;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\UserGroup;
 
 class PKPEditTaskTemplateController extends PKPBaseController
 {
-    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
-    {
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-        $this->addPolicy(new CanAccessSettingsPolicy());
-        return parent::authorize($request, $args, $roleAssignments);
-    }
-
     public function getHandlerPath(): string
     {
         return 'editTaskTemplates';
@@ -77,6 +71,23 @@ class PKPEditTaskTemplateController extends PKPBaseController
         ])->group(function () {
             Route::get('', $this->getMany(...));
         });
+    }
+
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+        $actionName = static::getRouteActionName($illuminateRequest);
+        ;
+
+        if (in_array($actionName, ['add', 'update', 'delete'])) {
+            // These actions require access to settings
+            $this->addPolicy(new CanAccessSettingsPolicy());
+        }
+
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     protected function _processAllowedParams(array $query, array $allowed): array

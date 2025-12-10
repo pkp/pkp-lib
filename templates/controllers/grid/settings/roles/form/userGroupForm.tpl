@@ -54,7 +54,6 @@
 	<div id="userGroupOptionsContainer" class="full left">
 		{fbvFormArea id="userGroupOptions"}
 			{fbvFormSection title="settings.roles.roleOptions" list="true"}
-				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
 				{fbvElement type="checkbox" name="permitSelfRegistration" id="permitSelfRegistration" checked=$permitSelfRegistration label="settings.roles.permitSelfRegistration"}
 				{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" checked=$recommendOnly label="settings.roles.recommendOnly"}
 				{fbvElement type="checkbox" name="permitMetadataEdit" id="permitMetadataEdit" checked=$permitMetadataEdit label="settings.roles.permitMetadataEdit"}

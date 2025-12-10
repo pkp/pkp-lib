@@ -25,7 +25,6 @@ class UserGroupResource extends JsonResource
             'id' => $this->id,
             'roleId' => $this->roleId,
             'isDefault' => (bool) $this->is_default,
-            'showTitle' => (bool) $this->show_title,
             'name' => $this->getLocalizedData('name'),
         ];
     }

@@ -84,7 +84,6 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'role_id', $userGroup->roleId));
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'context_id', $userGroup->contextId));
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'is_default', $userGroup->isDefault ? 'true' : 'false'));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'show_title', $userGroup->showTitle ? 'true' : 'false'));
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_self_registration', $userGroup->permitSelfRegistration ? 'true' : 'false'));
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadata_edit', $userGroup->permitMetadataEdit ? 'true' : 'false'));
 

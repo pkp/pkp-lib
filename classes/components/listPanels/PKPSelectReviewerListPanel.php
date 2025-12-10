@@ -201,7 +201,8 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        return $this->_getCollector()->getCount();
+        $collector = $this->_getCollector();
+        return $collector->limit(null)->offset(null)->getCount();
     }
 
     /**
@@ -211,7 +212,6 @@ class PKPSelectReviewerListPanel extends ListPanel
     {
         return Repo::user()->getCollector()
             ->filterByContextIds([$this->getParams['contextId']])
-            ->filterByWorkflowStageIds([$this->getParams['reviewStage']])
             ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
             ->includeReviewerData()
             ->offset(null)

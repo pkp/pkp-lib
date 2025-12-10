@@ -531,6 +531,7 @@ class Repository
                 'abbrev' => $ug->getLocalizedData('abbrev'),
                 'roleId' => (int) $ug->roleId,
                 'showTitle' => (bool) $ug->showTitle,
+                'recommendOnly' => (bool) $ug->recommendOnly,
                 'permitSelfRegistration' => (bool) $ug->permitSelfRegistration,
                 'permitMetadataEdit' => (bool) $ug->permitMetadataEdit,
                 'dateStart' => $a->dateStart,
@@ -544,22 +545,38 @@ class Repository
     /**
      * Preload interests for a set of users (ids only).
      */
-    public function preloadInterests(array $userIds): array
+    public function preloadInterests(array $userIds, ?string $locale = null): array
     {
         if (empty($userIds)) {
             return [];
         }
 
+        $locale = $locale ?: Locale::getLocale();
+
         $rows = UserInterest::query()
-            ->whereIn('user_id', $userIds)
-            ->get(['user_id', 'controlled_vocab_entry_id']);
+            ->whereIn('user_interests.user_id', $userIds)
+            ->leftJoin('controlled_vocab_entry_settings as cves', function ($join) use ($locale) {
+                $join->on('cves.controlled_vocab_entry_id', '=', 'user_interests.controlled_vocab_entry_id')
+                    ->where('cves.setting_name', '=', 'interest')
+                    ->where('cves.locale', '=', $locale);
+            })
+            ->get([
+                'user_interests.user_id',
+                'cves.setting_value as interest',
+            ]);
 
         $map = [];
         foreach ($rows as $r) {
-            $map[(int)$r->user_id][] = ['id' => (int)$r->controlled_vocab_entry_id];
+            if ($r->interest !== null && $r->interest !== '') {
+                $map[(int) $r->user_id][] = (string) $r->interest;
+            }
+        }
+        foreach ($userIds as $userId) {
+            $map[(int) $userId] = array_values($map[(int) $userId] ?? []);
         }
         return $map;
     }
+
 
     /**
      * Batch load stage assignments for many users for one submission + stage.

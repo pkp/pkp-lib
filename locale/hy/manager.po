@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-11-04 08:15+0000\n"
+"PO-Revision-Date: 2025-12-10 07:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -2939,10 +2939,9 @@ msgstr "Գրախոսի կողմից վերբեռնված նիշքերը"
 msgid "emailTemplate.variable.review.name"
 msgstr "Գրախոսի անունը"
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
-"Կանխադրված գրախոսման մեթոդի նկարագրությունը, օրինակ՝ կրկնակի անանուն կամ բաց:"
+"Կանխադրված գրախոսման մեթոդի նկարագրությունը, օրինակ՝ կրկնակի անանուն կամ բաց"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""

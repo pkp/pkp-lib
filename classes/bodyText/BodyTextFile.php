@@ -42,23 +42,13 @@ class BodyTextFile
     }
 
     /**
-     * Returns the default body text document structure
+     * Returns the default empty body text document structure
      */
     protected function getDefaultContent(): string
     {
         return json_encode([
             'type' => 'doc',
-            'content' => [
-                [
-                    'type' => 'heading',
-                    'attrs' => ['level' => 1],
-                    'content' => [['type' => 'text', 'text' => 'Introduction']],
-                ],
-                [
-                    'type' => 'paragraph',
-                    'content' => [['type' => 'text', 'text' => 'Start writing your article content here...']],
-                ],
-            ],
+            'content' => [],
         ]);
     }
 }

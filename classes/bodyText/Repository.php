@@ -20,7 +20,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Exception;
 use PKP\context\Context;
-use PKP\file\TemporaryFileManager;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
@@ -96,21 +95,15 @@ class Repository
      */
     protected function storeContent(string $bodyText, Submission $submission): int
     {
-        $temporaryFileManager = new TemporaryFileManager();
-        $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'bodyText');
-
-        if (!file_put_contents($temporaryFilename, $bodyText)) {
-            throw new Exception('Unable to save body text!');
-        }
-
         $submissionDir = Repo::submissionFile()->getSubmissionDir(
             $submission->getData('contextId'),
             $submission->getId()
         );
 
-        return app()->get('file')->add(
-            $temporaryFilename,
-            $submissionDir . '/' . uniqid() . '.json'
+        return app()->get('file')->addFromString(
+            $bodyText,
+            $submissionDir . '/' . uniqid() . '.json',
+            'application/json'
         );
     }
 

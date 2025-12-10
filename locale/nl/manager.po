@@ -1742,9 +1742,6 @@ msgstr "Munt"
 msgid "settings.roles.roleOptions"
 msgstr "Rol-instellingen"
 
-msgid "settings.roles.showTitles"
-msgstr "Toon titel van de rol in het overzicht van bijdragers"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Laat toe dat gebruikers zichzelf registreren"
 

@@ -1681,9 +1681,6 @@ msgstr "Valuta"
 msgid "settings.roles.roleOptions"
 msgstr "Opzioni per i ruoli"
 
-msgid "settings.roles.showTitles"
-msgstr "Mostra questo ruolo nella lista dei collaboratori"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Consenti agli utenti di registrarsi in questo ruolo"
 

@@ -1755,9 +1755,6 @@ msgstr "Moneda"
 msgid "settings.roles.roleOptions"
 msgstr "Opciones de rol"
 
-msgid "settings.roles.showTitles"
-msgstr "Mostrar un título de rol en la lista de contribuyentes"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Permitir el autorregistro de usuarios/as"
 

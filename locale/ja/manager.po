@@ -1594,9 +1594,6 @@ msgstr "通過"
 msgid "settings.roles.roleOptions"
 msgstr "役割オプション"
 
-msgid "settings.roles.showTitles"
-msgstr "投稿者リストに役割名を表示"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "ユーザーの自己登録が可能"
 

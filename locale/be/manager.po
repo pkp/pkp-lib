@@ -1461,9 +1461,6 @@ msgstr ""
 msgid "settings.roles.roleOptions"
 msgstr ""
 
-msgid "settings.roles.showTitles"
-msgstr ""
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr ""
 

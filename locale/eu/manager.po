@@ -1712,9 +1712,6 @@ msgstr "Moneta"
 msgid "settings.roles.roleOptions"
 msgstr "Rol-aukerak"
 
-msgid "settings.roles.showTitles"
-msgstr "Erakutsi rolaren izenburua kolaboratzaileen zerrendan"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Baimendu erabiltzaileen autoerregistroa"
 

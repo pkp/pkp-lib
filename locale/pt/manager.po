@@ -1709,9 +1709,6 @@ msgstr "Moeda"
 msgid "settings.roles.roleOptions"
 msgstr "Opções Papel"
 
-msgid "settings.roles.showTitles"
-msgstr "Mostrar título do papel na lista de colaboradores"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Permitir auto registo"
 

@@ -593,7 +593,7 @@ abstract class Plugin
      *
      * @return string|null
      */
-    public function _findOverriddenTemplate($path)
+    protected function _findOverriddenTemplate($path)
     {
         $fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
 

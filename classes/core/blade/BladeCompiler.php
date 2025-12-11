@@ -35,7 +35,7 @@ class BladeCompiler extends IlluminateBladeCompiler
      */
     protected function compileComponentTags($value)
     {
-        if (! $this->compilesComponentTags) {
+        if (!$this->compilesComponentTags) {
             return $value;
         }
 
@@ -49,6 +49,7 @@ class BladeCompiler extends IlluminateBladeCompiler
     }
 
     /**
+     * FIXME : Perhaps we can remove it as `BladeTemplate::getFilename` works ??
      * Override compileInclude to check for plugin Smarty template overrides
      * @see \Illuminate\View\Compilers\Concerns\CompilesIncludes::compileInclude()
      * 
@@ -60,6 +61,7 @@ class BladeCompiler extends IlluminateBladeCompiler
      * @param string $expression The @include expression
      * @return string Compiled PHP code
      */
+    /*
     protected function compileInclude($expression)
     {
         $expression = $this->stripParentheses($expression);
@@ -80,6 +82,7 @@ class BladeCompiler extends IlluminateBladeCompiler
         // Default behavior: fallbak to Laravel's view system
         return parent::compileInclude($expression);
     }
+    */
 
     /**
      * Extract the view name from the @include expression

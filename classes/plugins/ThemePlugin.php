@@ -59,7 +59,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Theme-specific options
      *
-     * @var array; $options
+     * @var array $options
      */
     public $options = [];
 
@@ -117,30 +117,31 @@ abstract class ThemePlugin extends LazyLoadPlugin
         Hook::add('PluginRegistry::categoryLoaded::themes', $this->initAfter(...));
 
         // Allow themes to override plugin template files
-        Hook::add('TemplateManager::display', $this->loadTemplateView(...));
+
+        // FIXME : REMOVE IT as `BladeTemplate::getFilename` works ??
+        // Hook::add('TemplateManager::display', $this->loadSmartyOverrideOfCoreBladeTemplate(...));
+        
+        // Hook::add('BladeTemplate::getFilename', $this->overrideBladeTemplates(...));
+
         Hook::add('TemplateResource::getFilename', $this->_overridePluginTemplates(...));
 
         return true;
     }
 
     /**
-     * Register top level blade/smarty template with corresponding available template
-     * from the plugin
+     * FIXME : Perhaps we can remove it as `BladeTemplate::getFilename` works ??
+     * NON BREAKING BACKWARD COMPATIBILITY
+     * Override top level BLADE template with corresponding available SMARTY tpl template
+     * 
+     * This Check for plugin Smarty tpl override of core blade template which allow plugin Smarty
+     * templates to override core Blade templates where there is a corresponding tpl for the
+     * blade file exists in plugin and no corresponding blade override available in the plugin . 
      */
-    public function loadTemplateView(string $hookName, array $params): bool
+    public function loadSmartyOverrideOfCoreBladeTemplate(string $hookName, array $params): bool
     {
         $templateManager =& $params[0]; /** @var TemplateManager $templateManager */
 		$templatePath =& $params[1]; /** @var string $templatePath */
 
-        // check for plugin Blade override
-        $bladeViewPath = $this->resolveBladeViewPath($templatePath);
-        if (view()->exists($bladeViewPath)) {
-            $templatePath = $bladeViewPath;
-            return Hook::CONTINUE;
-        }
-
-        // check for plugin Smarty override
-        // This allows plugin Smarty templates to override core Blade templates
         $smartyTemplatePath = $this->convertToSmartyTemplatePath($templatePath);
         $overridePath = $this->_findOverriddenTemplate($smartyTemplatePath);
 
@@ -1086,6 +1087,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     }
 
     /**
+     * FIXME : probably dont need it anymore 
      * Convert template path to Smarty template path format
      * Handles various input formats (Blade notation, file paths, etc.)
      * and returns path in format expected by _findOverriddenTemplate()
@@ -1101,7 +1103,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function convertToSmartyTemplatePath(string $templatePath): string
     {
-        $path = str_replace(['.blade.php', '.blade', '.tpl'], '', $templatePath);
+        $path = str_replace(['.blade', '.tpl'], '', $templatePath);
 
         $path = str_replace('.', '/', $path);
 

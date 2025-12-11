@@ -2,14 +2,9 @@
 
 namespace PKP\core;
 
-use PKP\core\PKPRequest;
-use APP\core\Application;
 use PKP\core\PKPContainer;
-use PKP\plugins\ThemePlugin;
-use PKP\plugins\PluginRegistry;
 use PKP\core\blade\BladeCompiler;
-// use Illuminate\View\FileViewFinder;
-use PKP\core\blade\FileViewFinder; // Overridden FileViewFinder
+use PKP\core\blade\FileViewFinder;
 use PKP\core\blade\SmartyTemplatingEngine;
 use Illuminate\Support\Facades\View;
 use PKP\core\blade\DynamicComponent;
@@ -25,11 +20,6 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
     public const VIEW_NAMESPACE_PATH = 'view\\components\\';
 
     /**
-     * Tracks whether theme view paths have been registered
-     */
-    protected static bool $themePathsRegistered = false;
-
-    /**
      * Boot the service provider
      *
      * @return void
@@ -39,12 +29,6 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // Allow to render blade files as .blade e.g. with the .php extension
         // but still allow to render views as .blade.php to accommodate default behavior.
         View::addExtension('blade', 'blade');
-
-        // NON-BREAKING BACKWARD COMPATIBILITY
-        // Register .tpl extension to use Smarty engine for rendering
-        // This allows plugins to override Blade templates with Smarty templates
-        // Priority order: Plugin Blade > Plugin Smarty > Core Blade
-        // View::addExtension('tpl', 'smarty');
 
         AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
 
@@ -298,85 +282,4 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         return $factory;
     }
 
-    /**
-     * FIXME : probably dont need it anymore 
-     * Register active theme view paths to FileViewFinder
-     * This allows plugin Blade templates to override core Blade templates
-     *
-     * Also check if router is initialized (set during Dispatcher::dispatch) as 
-     * router is needed to determine context from route, otherwise it will exit but
-     * allow retry later.
-     * 
-     * Priority order (highest to lowest):
-     * 1. Child theme
-     * 2. Parent theme
-     * 3. Grandparent theme
-     * 4. Core app templates (app/templates)
-     * 5. Core pkp templates (lib/pkp/templates)
-     */
-    public static function registerThemeViewPaths(PKPRequest $request, ?ThemePlugin $themePlugin = null): void
-    {
-        // Do not register theme view paths if application is not installed
-        if (!Application::isInstalled()) {
-            return;
-        }
-
-        // Guard against multiple registrations
-        if (self::$themePathsRegistered) {
-            return;
-        }
-
-        if (!$request->getRouter()) {
-            return;
-        }
-
-        if (!$themePlugin) {
-            $context = $request->getContext();
-            $contextOrSite = $context ?: $request->getSite();
-
-            if (!$contextOrSite) {
-                return;
-            }
-
-            $activeThemePath = $contextOrSite->getData('themePluginPath');
-            if (!$activeThemePath) {
-                return;
-            }
-
-            // Get active theme plugin
-            $themePlugin = PluginRegistry::getPlugin('themes', $activeThemePath);
-            if (!$themePlugin || !($themePlugin instanceof ThemePlugin)) {
-                return;
-            }
-        }
-
-        // Collect theme paths in child → parent → grandparent order
-        $themePaths = [];
-        $currentTheme = $themePlugin;
-        while ($currentTheme) {
-            if ($currentTheme->getTemplatePath()) {
-                $themePaths[] = app()->basePath($currentTheme->getTemplatePath());
-            }
-            $currentTheme = $currentTheme->parent ?? null;
-        }
-
-        // Reverse array to grandparent → parent → child
-        // Then prepend in that order so child ends up with highest priority
-        // Final FileViewFinder order: [child, parent, grandparent, app, pkp...]
-        $viewFinder = app()->get('view.finder');
-        foreach (array_reverse($themePaths) as $path) {
-            $viewFinder->prependLocation($path);
-        }
-
-        // Mark as registered ONLY after successful registration
-        self::$themePathsRegistered = true;
-    }
-
-    /**
-     * Reset theme path registration state (useful for testing)
-     */
-    public static function resetThemePathRegistration(): void
-    {
-        self::$themePathsRegistered = false;
-    }
 }

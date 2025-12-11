@@ -557,22 +557,26 @@ class Repository
             ->whereIn('user_interests.user_id', $userIds)
             ->leftJoin('controlled_vocab_entry_settings as cves', function ($join) use ($locale) {
                 $join->on('cves.controlled_vocab_entry_id', '=', 'user_interests.controlled_vocab_entry_id')
-                    ->where('cves.setting_name', '=', 'interest')
-                    ->where('cves.locale', '=', $locale);
+                    ->where('cves.setting_name', 'interest')
+                    ->where('cves.locale', $locale);
             })
             ->get([
                 'user_interests.user_id',
+                'user_interests.controlled_vocab_entry_id',
                 'cves.setting_value as interest',
             ]);
 
         $map = [];
         foreach ($rows as $r) {
             if ($r->interest !== null && $r->interest !== '') {
-                $map[(int) $r->user_id][] = (string) $r->interest;
+                $map[(int)$r->user_id][] = [
+                    'id' => (int)$r->controlled_vocab_entry_id,
+                    'interest' => (string)$r->interest,
+                ];
             }
         }
         foreach ($userIds as $userId) {
-            $map[(int) $userId] = array_values($map[(int) $userId] ?? []);
+            $map[(int)$userId] = array_values($map[(int)$userId] ?? []);
         }
         return $map;
     }

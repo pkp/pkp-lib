@@ -16,7 +16,10 @@
 
 namespace PKP\template;
 
+use APP\core\Application;
+use APP\template\TemplateManager;
 use PKP\plugins\Hook;
+use Throwable;
 
 class PKPTemplateResource extends \Smarty_Resource_Custom
 {
@@ -49,6 +52,24 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
     public function fetch($name, &$source, &$mtime)
     {
         $filename = $this->_getFilename($name);
+
+        /*
+         * This following `if` block handle the case where : Plugin can override a core child smarty
+         * template with a plugin level child balde template only without the need to override the
+         * core parent smarty template from the plugin . 
+         * 
+         * For example : core article.tpl include article_details.tpl and plugin only have the 
+         * override as article_details.blade but no override of core parent article.tpl. Plugin 
+         * still should be able to override the core article_details.tpl with the plugin level
+         * article_details.blade without overriding the core article.tpl.
+         */
+        if ($this->isBladeViewPath($filename)) {
+            $mtime = time();
+            $templateManager = TemplateManager::getManager(Application::get()->getRequest());
+            $source = view($filename, $templateManager->getTemplateVars())->render();
+            return true;
+        }
+
         $mtime = filemtime($filename);
         if ($mtime === false) {
             return false;
@@ -67,7 +88,14 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
      */
     protected function fetchTimestamp($name)
     {
-        return filemtime($this->_getFilename($name));
+        $filename = $this->_getFilename($name);
+
+        // Check if this is a Blade view path (namespace notation)
+        if ($this->isBladeViewPath($filename)) {
+            return time(); // Return current time for Blade views (always fresh)
+        }
+
+        return filemtime($filename);
     }
 
     /**
@@ -88,5 +116,22 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
         }
         Hook::call('TemplateResource::getFilename', [&$filePath, $template]);
         return $filePath;
+    }
+
+    /*
+     * Detect Blade view namespace
+     */
+    private function isBladeViewPath(string $path): bool
+    {
+        static $cache = [];
+    
+        if (isset($cache[$path])) {
+            return $cache[$path];
+        }
+        
+        $result = strpos($path, '::') !== false || view()->exists($path);
+        $cache[$path] = $result;
+        
+        return $result;
     }
 }

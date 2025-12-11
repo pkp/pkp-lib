@@ -518,14 +518,14 @@ abstract class Plugin
         $templatePath = $args[1];
         
         $isBladeContext = (
-            !str_contains($templatePath, '/')           // No slashes
-            && !str_ends_with($templatePath, '.tpl')    // Not .tpl
-            && !str_starts_with($templatePath, 'templates/') // Not templates/
-        ) || str_contains($templatePath, '::');         // Or has namespace (definitely Blade)
+            !str_contains($templatePath, '/')                   // No slashes
+            && !str_ends_with($templatePath, '.tpl')            // Not .tpl
+            && !str_starts_with($templatePath, 'templates/')    // Not templates/
+        ) || str_contains($templatePath, '::');                 // Or has namespace (specify that used as blade view namespace)
 
         if ($isBladeContext) {
             // === BLADE CONTEXT ===
-            // Input: "frontend.pages.article"
+            // Input example : "frontend.pages.article"
             // Priority: Plugin .blade > Plugin .tpl > Core .blade
   
             // Strip namespace if present
@@ -533,7 +533,6 @@ abstract class Plugin
                 $templatePath = explode('::', $templatePath)[1];
             }
   
-            // Convert dots to slashes
             $templateName = str_replace('.', '/', $templatePath);
             $basePath = app()->basePath()
                 . DIRECTORY_SEPARATOR
@@ -558,8 +557,7 @@ abstract class Plugin
   
         } else {
             // === SMARTY CONTEXT ===
-            // Input: "templates/frontend/pages/article.tpl"
-            // Current _overridePluginTemplates logic
+            // Input example: "templates/frontend/pages/article.tpl"
             
             // Guard: Only process if we have a path (Smarty context)
             // Blade context passes null, Smarty context always passes a constructed path
@@ -585,103 +583,6 @@ abstract class Plugin
             }
         }
   
-        return Hook::CONTINUE;
-        
-        // $filePath = &$args[0];
-        // $template = $args[1];
-        // $checkFilePath = $filePath;
-
-        // // If there's a templates/ prefix on the template, clean up the test path.
-        // if (strpos($filePath, 'plugins/') === 0) {
-        //     $checkFilePath = 'templates/' . $checkFilePath;
-        // }
-
-        // // If there's a lib/pkp/ prefix on the template, test without it.
-        // $libPkpPrefix = 'lib/pkp/';
-        // if (strpos($checkFilePath, $libPkpPrefix) === 0) {
-        //     $checkFilePath = substr($filePath, strlen($libPkpPrefix));
-        // }
-
-        // // Check if an overriding plugin exists in the plugin path.
-        // if ($overriddenFilePath = $this->_findOverriddenTemplate($checkFilePath)) {
-        //     $filePath = $overriddenFilePath;
-        // }
-
-        // return false;
-    }
-
-    /**
-     * FIXME : probably dont need it anymore 
-     * Override plugin's Blade templates with Blade or Smarty templates
-     *
-     * Parallel to _overridePluginTemplates() for Smarty templates.
-     * Called via BladeTemplate::getFilename hook.
-     *
-     * Priority order: Plugin Blade > Plugin Smarty > Core Blade
-     *
-     * Any plugin which calls this method can override core Blade templates
-     * by adding their own templates to:
-     * - <plugin>/templates/<path>.blade (Priority 1 - returns absolute path)
-     * - <plugin>/templates/<path>.tpl (Priority 2 - returns Smarty resource notation)
-     *
-     * NON-BREAKING BACKWARD COMPATIBILITY:
-     * This works for both top-level templates and nested includes (e.g., @include()).
-     * When a Smarty resource path is returned (e.g., "plugins-...:frontend/pages/article.tpl"),
-     * Laravel's SmartyTemplatingEngine renders it via PKPTemplateManager.
-     *
-     * Path Format Examples:
-     * - Blade: "/absolute/path/to/plugin/templates/frontend/pages/article.blade"
-     * - Smarty: "plugins-1-plugins-generic-apiExample-generic-apiExample:frontend/pages/article.tpl"
-     *
-     * @param string $hookName BladeTemplate::getFilename
-     * @param array $args [
-     *     @option string &$overridePath Reference to override path (set by plugin)
-     *     @option string $templateName Template name in dot notation (e.g., 'frontend.pages.article')
-     * ]
-     *
-     * @return bool Hook::CONTINUE
-     */
-    public function overrideBladeTemplates($hookName, $args)
-    {
-        $overridePath = &$args[0];
-        $templateName = $args[1];
-
-        // if the name came as namespaced view (e.g. somenamespace::path.to.template),
-        // we only need the view path fragment e.g. path.to.template
-        if (strpos($templateName, "::") !== false) {
-            $templateName = explode('::', $templateName)[1];
-        }
-
-        // Normalize view name (convert dots to slashes for file lookup)
-        $templateName = str_replace('.', '/', $templateName);
-
-        // Build base path for plugin templates
-        $basePath = app()->basePath()
-            . DIRECTORY_SEPARATOR
-            . $this->getTemplatePath()
-            . DIRECTORY_SEPARATOR
-            . $templateName;
-
-        // Priority 1: Check for Blade template override
-        $bladePath = $basePath . '.blade';
-        if (file_exists($bladePath)) {
-            $overridePath = $bladePath; // Absolute path for Blade
-            return Hook::CONTINUE;
-        }
-
-        // Priority 2: Check for Smarty template override (NON-BREAKING BACKWARD COMPATIBILITY)
-        // If plugin has .tpl file, return Smarty plugin resource notation
-        $smartyPath = $basePath . '.tpl';
-        if (file_exists($smartyPath)) {
-            // Convert to relative template path (e.g., "frontend/pages/article.tpl")
-            $relativeTemplatePath = $templateName . '.tpl';
-
-            // Use getTemplateResource() with checkForBladePath=false to avoid recursion
-            // This skips the view()->exists() check that would trigger this hook again
-            // Returns: "plugins-1-plugins-generic-apiExample-generic-apiExample:frontend/pages/article.tpl"
-            $overridePath = $this->getTemplateResource($relativeTemplatePath, false, false);
-        }
-
         return Hook::CONTINUE;
     }
 

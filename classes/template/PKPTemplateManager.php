@@ -250,9 +250,10 @@ class PKPTemplateManager extends Smarty
                 }
             }
 
+            // FIXME : probably dont need it anymore
             // Register theme Blade view paths for template overrides
             // which may have already been registered in callAfterResolving of PKPBladeViewServiceProvider
-            \PKP\core\PKPBladeViewServiceProvider::registerThemeViewPaths($request, $activeTheme);
+            // \PKP\core\PKPBladeViewServiceProvider::registerThemeViewPaths($request, $activeTheme);
 
             $this->assign(['activeTheme' => $activeTheme]);
         }

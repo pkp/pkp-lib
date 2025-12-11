@@ -8,7 +8,9 @@ use PKP\core\PKPContainer;
 use PKP\plugins\ThemePlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\core\blade\BladeCompiler;
-use Illuminate\View\FileViewFinder;
+// use Illuminate\View\FileViewFinder;
+use PKP\core\blade\FileViewFinder; // Overridden FileViewFinder
+use PKP\core\blade\SmartyTemplatingEngine;
 use Illuminate\Support\Facades\View;
 use PKP\core\blade\DynamicComponent;
 use Illuminate\Support\Facades\Blade;
@@ -37,6 +39,12 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // Allow to render blade files as .blade e.g. with the .php extension
         // but still allow to render views as .blade.php to accommodate default behavior.
         View::addExtension('blade', 'blade');
+
+        // NON-BREAKING BACKWARD COMPATIBILITY
+        // Register .tpl extension to use Smarty engine for rendering
+        // This allows plugins to override Blade templates with Smarty templates
+        // Priority order: Plugin Blade > Plugin Smarty > Core Blade
+        // View::addExtension('tpl', 'smarty');
 
         AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
 
@@ -99,7 +107,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // use as @callHook(['name' => 'Templates::Common::Footer::PageFooter'])
         Blade::directive('callHook', function ($parameters) {
             return "<?php
-                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyCallHook($parameters);
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyCallHook($parameters, \PKP\\template\\PKPTemplateManager::getManager());
             ?>";
         });
 
@@ -220,6 +228,25 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
     }
 
     /**
+     * Register the engine resolver instance and custom engines
+     *
+     * Overrides parent to add Smarty engine registration
+     *
+     * @return void
+     */
+    public function registerEngineResolver()
+    {
+        // Call parent to register standard engines (file, php, blade)
+        parent::registerEngineResolver();
+
+        // Register custom Smarty engine for .tpl files
+        $this->app->get('view.engine.resolver')->register(
+            'smarty',
+            fn () => new SmartyTemplatingEngine()
+        );
+    }
+
+    /**
      * Register the Blade engine implementation.
      *
      * @param  \Illuminate\View\Engines\EngineResolver  $resolver
@@ -230,7 +257,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $resolver->register(
             'blade',
             fn () => new CompilerEngine(
-                $this->app['blade.compiler'], 
+                $this->app['blade.compiler'],
                 $this->app['files']
             )
         );
@@ -272,6 +299,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
     }
 
     /**
+     * FIXME : probably dont need it anymore 
      * Register active theme view paths to FileViewFinder
      * This allows plugin Blade templates to override core Blade templates
      *
@@ -329,7 +357,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             if ($currentTheme->getTemplatePath()) {
                 $themePaths[] = app()->basePath($currentTheme->getTemplatePath());
             }
-            $currentTheme = $currentTheme->parent;
+            $currentTheme = $currentTheme->parent ?? null;
         }
 
         // Reverse array to grandparent → parent → child

@@ -53,17 +53,21 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
     {
         $filename = $this->_getFilename($name);
 
+        /*
+         * This following `if` block handle the case where : Plugin can override a core child smarty
+         * template with a plugin level child balde template only without the need to override the
+         * core parent smarty template from the plugin . 
+         * 
+         * For example : core article.tpl include article_details.tpl and plugin only have the 
+         * override as article_details.blade but no override of core parent article.tpl. Plugin 
+         * still should be able to override the core article_details.tpl with the plugin level
+         * article_details.blade without overriding the core article.tpl.
+         */
         if ($this->isBladeViewPath($filename)) {
-            try {
-                $mtime = time();
-                $templateManager = TemplateManager::getManager(Application::get()->getRequest());
-                // $templateManager->shareTemplateVariables($templateManager->getTemplateVars());
-                $source = view($filename, $templateManager->getTemplateVars())->render();
-                return true;
-            } catch (Throwable $exceptin) {
-                error_log("Error rendering Blade view '{$filename}': " . $exceptin->getMessage());
-                throw $exceptin;
-            }
+            $mtime = time();
+            $templateManager = TemplateManager::getManager(Application::get()->getRequest());
+            $source = view($filename, $templateManager->getTemplateVars())->render();
+            return true;
         }
 
         $mtime = filemtime($filename);
@@ -117,7 +121,7 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
     /*
      * Detect Blade view namespace
      */
-    private function isBladeViewPath($path)
+    private function isBladeViewPath(string $path): bool
     {
         static $cache = [];
     

@@ -1640,9 +1640,6 @@ msgstr "Moeda"
 msgid "settings.roles.roleOptions"
 msgstr "Opcións de rol"
 
-msgid "settings.roles.showTitles"
-msgstr "Mostrar o título do rol na lista de colaboradores"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Permitir o autorrexistro do usuario/a"
 

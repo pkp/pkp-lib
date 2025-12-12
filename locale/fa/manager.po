@@ -1556,9 +1556,6 @@ msgstr "واحد پول"
 msgid "settings.roles.roleOptions"
 msgstr "گزینه های نقش"
 
-msgid "settings.roles.showTitles"
-msgstr "نمایش عنوان نقش را در فهرست مشارکت کننده"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "اجازه ثبت‌نام کاربر"
 

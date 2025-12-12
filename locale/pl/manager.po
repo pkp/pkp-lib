@@ -1698,9 +1698,6 @@ msgstr "Waluta"
 msgid "settings.roles.roleOptions"
 msgstr "Ustawienia roli"
 
-msgid "settings.roles.showTitles"
-msgstr "Wyświetl nazwy ról na liście współpracowników"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Pozwól na samorejestrację użytkowników"
 

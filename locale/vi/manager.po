@@ -1682,9 +1682,6 @@ msgstr "Tiền tệ"
 msgid "settings.roles.roleOptions"
 msgstr "Tùy chọn vai trò"
 
-msgid "settings.roles.showTitles"
-msgstr "Hiển thị tên vai trò trong danh sách người đóng góp"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Cho phép người dùng tự đăng ký"
 

@@ -1864,9 +1864,6 @@ msgstr "Consider role in masthead list"
 msgid "settings.roles.roleOptions"
 msgstr "Role Options"
 
-msgid "settings.roles.showTitles"
-msgstr "Show role title in contributor list"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Allow user self-registration"
 

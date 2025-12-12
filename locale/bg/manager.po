@@ -1751,9 +1751,6 @@ msgstr "Валута"
 msgid "settings.roles.roleOptions"
 msgstr "Параметри на роля"
 
-msgid "settings.roles.showTitles"
-msgstr "Показване на заглавието на ролята в списъка на сътрудниците"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Разрешаване на потребителска саморегистрация"
 

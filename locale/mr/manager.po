@@ -477,9 +477,6 @@ msgstr "चलन"
 msgid "settings.roles.roleOptions"
 msgstr "भूमिकांचे पर्याय"
 
-msgid "settings.roles.showTitles"
-msgstr "योगदान यादीमध्ये भूमिकेची नोंद करा"
-
 msgid "settings.roles.roleName"
 msgstr "भूमिकेचे नाव"
 

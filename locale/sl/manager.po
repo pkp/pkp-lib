@@ -1692,9 +1692,6 @@ msgstr "Valuta"
 msgid "settings.roles.roleOptions"
 msgstr "Možnosti vloge"
 
-msgid "settings.roles.showTitles"
-msgstr "Prikaži naslov vloge na seznamu sodelavcev"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Dovoli uporabnikom, da se sami registrirajo"
 

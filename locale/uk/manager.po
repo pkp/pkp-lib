@@ -1722,9 +1722,6 @@ msgstr "Валюта"
 msgid "settings.roles.roleOptions"
 msgstr "Параметри ролі"
 
-msgid "settings.roles.showTitles"
-msgstr "Показати назву ролі в списку учасників"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Дозволити самостійну реєстрацію користувача"
 

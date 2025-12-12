@@ -108,25 +108,23 @@ class APIRouter extends PKPRouter
         // Give the plugin a chance to register its API controllers
         Hook::run('APIHandler::endpoints::plugin', [$this]);
 
+        // If any plugin API controllers were registered and request path match with it
+        // that plugin api controller will be used to handle the request
+        if (!empty($this->registeredPluginApiControllers)) {
+            $requestPath = $request->getRequestPath();
+            foreach ($this->registeredPluginApiControllers as $handlerPath => $apiController) {
+                if ($this->matchesPluginHandlerPath($requestPath, $handlerPath)) {
+                    $handler = new APIHandler($apiController);
+                    $this->setHandler($handler);
+                    $handler->runRoutes();
+                    return;
+                }
+            }
+        }
+
         $sourceFile = $this->getSourceFilePath();
 
         if (!file_exists($sourceFile)) {
-
-            // If no match found for any core route,
-            // check for any plugin API controllers were registered and request path match with it
-            // that plugin api controller will be used to handle the request
-            if (!empty($this->registeredPluginApiControllers)) {
-                $requestPath = $request->getRequestPath();
-                foreach ($this->registeredPluginApiControllers as $handlerPath => $apiController) {
-                    if ($this->matchesPluginHandlerPath($requestPath, $handlerPath)) {
-                        $handler = new APIHandler($apiController);
-                        $this->setHandler($handler);
-                        $handler->runRoutes();
-                        return;
-                    }
-                }
-            }
-
             response()->json([
                 'error' => 'api.404.endpointNotFound',
                 'errorMessage' => __('api.404.endpointNotFound'),

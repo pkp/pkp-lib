@@ -555,11 +555,20 @@ class Repository
 
         $rows = UserInterest::query()
             ->whereIn('user_interests.user_id', $userIds)
-            ->leftJoin('controlled_vocab_entry_settings as cves', function ($join) use ($locale) {
+            ->leftJoin('controlled_vocab_entry_settings as cves', function ($join) {
                 $join->on('cves.controlled_vocab_entry_id', '=', 'user_interests.controlled_vocab_entry_id')
-                    ->where('cves.setting_name', 'interest')
-                    ->where('cves.locale', $locale);
+                ->whereIn('cves.setting_name', ['interest', 'name']);
             })
+            ->orderBy('user_interests.user_id')
+            ->orderBy('user_interests.controlled_vocab_entry_id')
+            ->orderByRaw(
+                "CASE
+                    WHEN cves.locale = ? THEN 0
+                    WHEN cves.locale IS NULL OR cves.locale = '' THEN 1
+                    ELSE 2
+                END",
+                [$locale]
+            )
             ->get([
                 'user_interests.user_id',
                 'user_interests.controlled_vocab_entry_id',
@@ -568,15 +577,20 @@ class Repository
 
         $map = [];
         foreach ($rows as $r) {
-            if ($r->interest !== null && $r->interest !== '') {
-                $map[(int)$r->user_id][] = [
-                    'id' => (int)$r->controlled_vocab_entry_id,
-                    'interest' => (string)$r->interest,
-                ];
+            $userId  = (int) $r->user_id;
+            $entryId = (int) $r->controlled_vocab_entry_id;
+            $map[$userId][$entryId] ??= [
+                'id' => $entryId,
+                'interest' => null,
+            ];
+
+            if ($map[$userId][$entryId]['interest'] === null && $r->interest !== null && $r->interest !== '') {
+                $map[$userId][$entryId]['interest'] = (string) $r->interest;
             }
         }
         foreach ($userIds as $userId) {
-            $map[(int)$userId] = array_values($map[(int)$userId] ?? []);
+            $userId = (int) $userId;
+            $map[$userId] = isset($map[$userId]) ? array_values($map[$userId]) : [];
         }
         return $map;
     }

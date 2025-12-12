@@ -215,6 +215,19 @@ class PKPMetadataSettingsForm extends FormComponent
                 ],
                 'value' => $context->getData('dataAvailability') ? $context->getData('dataAvailability') : Context::METADATA_DISABLE,
             ]))
+            ->addField(new FieldMetadataSetting('fundingStatement', [
+                'label' => __('submission.fundingStatement'),
+                'description' => __('manager.setup.metadata.fundingStatement.description'),
+                'options' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.fundingStatement.enable')]
+                ],
+                'submissionOptions' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.fundingStatement.noRequest')],
+                    ['value' => Context::METADATA_REQUEST, 'label' => __('manager.setup.metadata.fundingStatement.request')],
+                    ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.fundingStatement.require')],
+                ],
+                'value' => $context->getData('fundingStatement') ? $context->getData('fundingStatement') : Context::METADATA_DISABLE,
+            ]))
             ->addField(new FieldOptions('submitWithCategories', [
                 'label' => __('category.category'),
                 'description' => __('manager.submitWithCategories.description'),

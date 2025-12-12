@@ -55,6 +55,9 @@
             {if in_array($currentContext->getData('dataAvailability'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="dataAvailability" inLocale=$localeKey name="{translate key="submission.dataAvailability"}" type="html"}
             {/if}
+			{if in_array($currentContext->getData('fundingStatement'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
+				{include file="/submission/review-publication-field.tpl" prop="fundingStatement" inLocale=$localeKey name="{translate key="submission.fundingStatement"}" type="html"}
+			{/if}
             {if $localeKey === $submission->getData('locale')}
                 {if $isCategoriesEnabled}
                     <div class="submissionWizard__reviewPanel__item">

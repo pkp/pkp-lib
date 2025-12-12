@@ -1855,6 +1855,11 @@ class PKPSubmissionController extends PKPBaseController
         // so that they are not considered once again when editing the author below
         unset($params['affiliations']);
 
+        // Remove ORCID from params because it cannot be set via this endpoint. If there is a desire to update a contributor's
+        // ORCiD, the ORCiD should be deleted and an update requested via the `orcid/requestAuthorVerification/{authorId}` endpoint.
+        // Validation to prevent editing the ORCID is also done in Repo::author()->validate()
+        unset($params['orcid']);
+
         Repo::author()->edit($author, $params);
         $author = Repo::author()->get($author->getId());
 

@@ -164,6 +164,9 @@ msgstr "The highlight you requested was not found."
 msgid "api.orcid.403.orcidNotEnabled"
 msgstr "You cannot perform this operation with ORCID functionality disabled."
 
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr "Assigning an author's ORCiD ID via the Edit/Add Author endpoints is not permitted. To request that an author update their ORCID iD, please use the \"orcid/requestAuthorVerification/{authorId}\" endpoint."
+
 msgid "api.orcid.404.authorNotFound"
 msgstr "The author requested was not found"
 

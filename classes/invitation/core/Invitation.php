@@ -277,6 +277,57 @@ abstract class Invitation
     }
 
     /**
+     * Build the query that selects other pending invitations that should be removed
+     * when this invitation is successfully invited.
+     *
+     * Default behavior:
+     * - Targets invitations with PENDING status
+     * - Same invitation type
+     * - Excludes the current invitation
+     * - Matches by userId when available, otherwise by email
+     * - Matches by contextId when available
+     *
+     * Override this method when an invitation type requires a different
+     * deduplication code.
+     *
+     * Do NOT override this method if the invitation type should completely skip
+     * deduplication. In that case, override deleteOtherPendingInvitationsOnInvite().
+     */
+    protected function pendingInvitationsToDeleteOnInvite(): Builder
+    {
+        return InvitationModel::byStatus(InvitationStatus::PENDING)
+            ->byType($this->getType())
+            ->byNotId($this->getId())
+            ->when(
+                isset($this->invitationModel->userId),
+                fn (Builder $q) => $q->byUserId($this->invitationModel->userId)
+            )
+            ->when(
+                !isset($this->invitationModel->userId) && $this->invitationModel->email,
+                fn (Builder $q) => $q->byEmail($this->invitationModel->email)
+            )
+            ->when(
+                isset($this->invitationModel->contextId),
+                fn (Builder $q) => $q->byContextId($this->invitationModel->contextId)
+            );
+    }
+
+    /**
+     * Executes the cleanup of other pending invitations after this invitation
+     * transitions to PENDING status.
+     *
+     * Default behavior deletes the records returned by
+     * pendingInvitationsToDeleteOnInvite().
+     *
+     * Override this method only when an invitation type should allow multiple
+     * pending invitations to coexist and no cleanup should occur.
+     */
+    protected function deleteOtherPendingInvitationsOnInvite(): void
+    {
+        $this->pendingInvitationsToDeleteOnInvite()->delete();
+    }
+
+    /**
      * The invitation does not have an expiryDate before the "invite" action is called.
      * This function sets the expiry date of the invitation.
      * This cannot change after the invitation is dispatched.
@@ -324,13 +375,18 @@ abstract class Invitation
         $this->invitationModel->status = InvitationStatus::PENDING;
 
         $this->invitationModel->save();
-        InvitationModel::byStatus(InvitationStatus::PENDING)
-            ->byType($this->getType())
-            ->byNotId($this->getId())
-            ->when(isset($this->invitationModel->userId), fn (Builder $q) => $q->byUserId($this->invitationModel->userId))
-            ->when(!isset($this->invitationModel->userId) && $this->invitationModel->email, fn (Builder $q) => $q->byEmail($this->invitationModel->email))
-            ->when(isset($this->invitationModel->contextId), fn (Builder $q) => $q->byContextId($this->invitationModel->contextId))
-            ->delete();
+        
+        /*
+         * After inviting, remove other pending invitations according to the
+         * deduplication rules defined by this invitation type.
+         *
+         * Most invitation types should keep the default behavior.
+         * Special cases may override:
+         * - pendingInvitationsToDeleteOnInvite() to change the matching rules, or
+         * - deleteOtherPendingInvitationsOnInvite() to disable cleanup entirely.
+         */
+        $this->deleteOtherPendingInvitationsOnInvite();
+
         return true;
     }
 

@@ -39,9 +39,10 @@ use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\mail\mailables\ReviewerAccessInvitationNotify;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
-use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\userGroup\UserGroup;
+use Illuminate\Database\Eloquent\Builder;
+use PKP\invitation\models\InvitationModel;
+use PKP\invitation\core\enums\InvitationStatus;
 
 class ReviewerAccessInvite extends Invitation implements IApiHandleable
 {
@@ -249,5 +250,54 @@ class ReviewerAccessInvite extends Invitation implements IApiHandleable
 
         // Call the parent updatePayload method to continue the normal update process
         return parent::updatePayload($validationContext);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function pendingInvitationsToDeleteOnInvite(): Builder
+    {
+        $payload = $this->getPayload();
+
+        $submissionId = $payload->submissionId ?? null;
+        $reviewRoundId = $payload->reviewRoundId ?? null;
+
+        $query = InvitationModel::byStatus(InvitationStatus::PENDING)
+            ->byType($this->getType())
+            ->byNotId($this->getId())
+            ->when(
+                isset($this->invitationModel->userId),
+                fn (Builder $q) => $q->byUserId($this->invitationModel->userId)
+            )
+            ->when(
+                !isset($this->invitationModel->userId) && $this->invitationModel->email,
+                fn (Builder $q) => $q->byEmail($this->invitationModel->email)
+            )
+            ->when(
+                isset($this->invitationModel->contextId),
+                fn (Builder $q) => $q->byContextId($this->invitationModel->contextId)
+            );
+
+        // Fallback for older invitations: submissionId + reviewRoundId
+        if ($submissionId !== null && $reviewRoundId !== null) {
+            return $query
+                ->where('payload->submissionId', $submissionId)
+                ->where('payload->reviewRoundId', $reviewRoundId);
+        }
+
+        /*
+         * Safety guard:
+         * If we cannot safely identify duplicate invitations (i.e. neither
+         * reviewAssignmentId nor submissionId + reviewRoundId are available),
+         * we MUST NOT delete anything.
+         *
+         * Returning a query with an always-false condition ensures that the
+         * caller can still call ->delete() unconditionally, while guaranteeing
+         * a no-op at the database level.
+         *
+         * Do NOT remove this unless the calling code is changed to handle
+         * a null Builder or throws explicitly in this case.
+         */
+        return $query->whereRaw('1 = 0');
     }
 }

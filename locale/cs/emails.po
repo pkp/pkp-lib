@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2025-03-19 12:32+0000\n"
+"PO-Revision-Date: 2025-12-10 07:38+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/cs/"
 ">\n"
@@ -653,3 +653,45 @@ msgstr ""
 "aktivní.</p>        <p>Neváhejte mne kontaktovat v případě jakýchkoliv "
 "otázek o procesu.</p>        <p>S pozdravem,</p>        <p>{$contextName}</"
 "p>    </div></div><style>{$emailTemplateStyle}</style>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Již přidělené role</h2></p>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Toto je jméno příjemce pozvánky"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Oznámení o pozvání uživatele do role"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Jste zváni do nových rolí"
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Nově přidělené role</h2></p>"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Toto je jméno odesílatele pozvánky"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "To je role odesílatele pozvánky"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Tato část popisuje role, které budou uživateli přiděleny po přijetí pozvánky"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Tato část popisuje role, které uživatel již má."
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Toto je URL pro přijetí pozvánky"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Toto je URL adresa pro odmítnutí pozvánky"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Konec dne {$dateEnd}"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Tento e-mail je zasílán uživatelům, kteří jsou pozváni k získání určitých "
+"rolí"

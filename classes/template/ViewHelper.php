@@ -50,10 +50,44 @@ class ViewHelper
      */
     public static function sanitizeHtml(string $input, string $configKey = 'allowed_html'): string
     {
-    
         $result = PKPString::stripUnsafeHtml($input, $configKey);
-        $result = str_replace('{{', '<span v-pre>{{</span>', $result);
-        $result = str_replace('}}', '<span v-pre>}}</span>', $result);
-        return $result;
+        return self::escapeVueDelimiters($result);
+    }
+
+    /**
+     * Escape value for safe output in Blade templates within Vue.js context
+     *
+     * This combines Laravel's e() HTML escaping with Vue delimiter escaping.
+     * Used as the default echo format for Blade's {{ }} syntax.
+     *
+     * @param mixed $value The value to escape
+     * @return string The escaped value safe for HTML and Vue
+     */
+    public static function vueEscape($value): string
+    {
+        return self::escapeVueDelimiters(e($value));
+    }
+
+    /**
+     * Escape Vue.js template delimiters to prevent XSS via Vue template injection
+     *
+     * When user content containing {{ }} is rendered in a Vue-mounted element,
+     * Vue will interpret it as a template expression and execute it.
+     * This wraps delimiters in v-pre spans to prevent Vue compilation.
+     *
+     * @param string|null $value The value to escape
+     * @return string The escaped value
+     */
+    protected static function escapeVueDelimiters($value): string
+    {
+        if ($value === null || $value === '') {
+            return '';
+        }
+
+        return str_replace(
+            ['{{', '}}'],
+            ['<span v-pre>{{</span>', '<span v-pre>}}</span>'],
+            (string) $value
+        );
     }
 }

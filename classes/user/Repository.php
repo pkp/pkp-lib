@@ -531,6 +531,7 @@ class Repository
                 'abbrev' => $ug->getLocalizedData('abbrev'),
                 'roleId' => (int) $ug->roleId,
                 'showTitle' => (bool) $ug->showTitle,
+                'recommendOnly' => (bool) $ug->recommendOnly,
                 'permitSelfRegistration' => (bool) $ug->permitSelfRegistration,
                 'permitMetadataEdit' => (bool) $ug->permitMetadataEdit,
                 'dateStart' => $a->dateStart,
@@ -544,22 +545,56 @@ class Repository
     /**
      * Preload interests for a set of users (ids only).
      */
-    public function preloadInterests(array $userIds): array
+    public function preloadInterests(array $userIds, ?string $locale = null): array
     {
         if (empty($userIds)) {
             return [];
         }
 
+        $locale = $locale ?: Locale::getLocale();
+
         $rows = UserInterest::query()
-            ->whereIn('user_id', $userIds)
-            ->get(['user_id', 'controlled_vocab_entry_id']);
+            ->whereIn('user_interests.user_id', $userIds)
+            ->leftJoin('controlled_vocab_entry_settings as cves', function ($join) {
+                $join->on('cves.controlled_vocab_entry_id', '=', 'user_interests.controlled_vocab_entry_id')
+                ->whereIn('cves.setting_name', ['interest', 'name']);
+            })
+            ->orderBy('user_interests.user_id')
+            ->orderBy('user_interests.controlled_vocab_entry_id')
+            ->orderByRaw(
+                "CASE
+                    WHEN cves.locale = ? THEN 0
+                    WHEN cves.locale IS NULL OR cves.locale = '' THEN 1
+                    ELSE 2
+                END",
+                [$locale]
+            )
+            ->get([
+                'user_interests.user_id',
+                'user_interests.controlled_vocab_entry_id',
+                'cves.setting_value as interest',
+            ]);
 
         $map = [];
         foreach ($rows as $r) {
-            $map[(int)$r->user_id][] = ['id' => (int)$r->controlled_vocab_entry_id];
+            $userId  = (int) $r->user_id;
+            $entryId = (int) $r->controlled_vocab_entry_id;
+            $map[$userId][$entryId] ??= [
+                'id' => $entryId,
+                'interest' => null,
+            ];
+
+            if ($map[$userId][$entryId]['interest'] === null && $r->interest !== null && $r->interest !== '') {
+                $map[$userId][$entryId]['interest'] = (string) $r->interest;
+            }
+        }
+        foreach ($userIds as $userId) {
+            $userId = (int) $userId;
+            $map[$userId] = isset($map[$userId]) ? array_values($map[$userId]) : [];
         }
         return $map;
     }
+
 
     /**
      * Batch load stage assignments for many users for one submission + stage.

@@ -37,6 +37,7 @@ use PKP\userGroup\UserGroup;
 
 abstract class Invitation
 {
+    use ShouldValidate;
     public const VALIDATION_RULE_GENERIC = 'generic_validation_rule';
 
     public const DEFAULT_EXPIRY_DAYS = 3;
@@ -375,7 +376,7 @@ abstract class Invitation
         $this->invitationModel->status = InvitationStatus::PENDING;
 
         $this->invitationModel->save();
-        
+
         /*
          * After inviting, remove other pending invitations according to the
          * deduplication rules defined by this invitation type.

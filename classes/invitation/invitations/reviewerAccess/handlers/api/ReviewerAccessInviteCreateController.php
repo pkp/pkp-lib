@@ -108,11 +108,19 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
                 $this->invitation->getPayload()->reviewAssignmentId = $reviewAssignment->getId();
                 $this->invitation->updatePayload();
                 // add files to review
-                foreach ($this->invitation->getPayload()->selectedFileIds as $reviewFileId) {
-                    $reviewFilesDao->grant($reviewAssignment->getId(), $reviewFileId);
+                if (!$this->invitation->getPayload()->selectedFileIds) {
+                    foreach ($this->invitation->getPayload()->selectedFileIds as $reviewFileId) {
+                        $reviewFilesDao->grant($reviewAssignment->getId(), $reviewFileId);
+                    }
                 }
-                $existingInvitation = Repo::invitation()->findExistingInvitation($this->invitation);
 
+                // remove the review assignments
+//                foreach ($existingInvitation as $invitation) {
+//                    if($invitation->payload['reviewAssignmentId']) {
+//                        $reviewAssignment = Repo::reviewAssignment()->get($invitation->payload['reviewAssignmentId']);
+//                        $reviewAssignment && Repo::reviewAssignment()->delete($reviewAssignment);
+//                    }
+//                }
                 if (!$this->invitation->validate([], ValidationContext::VALIDATION_CONTEXT_INVITE)) {
                     return response()->json([
                         'errors' => $this->invitation->getErrors()
@@ -124,19 +132,11 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
                         'errors' => $this->invitation->getErrors()
                     ], Response::HTTP_UNPROCESSABLE_ENTITY);
                 }
-
-                // remove the review assignments
-                foreach ($existingInvitation as $invitation) {
-                    if($invitation->payload['reviewAssignmentId']) {
-                        $reviewAssignment = Repo::reviewAssignment()->get($invitation->payload['reviewAssignmentId']);
-                        $reviewAssignment && Repo::reviewAssignment()->delete($reviewAssignment);
-                    }
-                }
                 return $inviteResult;
             });
 
             return response()->json(
-                (new ReviewerAccessInviteResource($this->invitation))->toArray($illuminateRequest),
+                new ReviewerAccessInviteResource($this->invitation)->toArray($illuminateRequest),
                 Response::HTTP_OK
             );
         } catch (\Throwable $e) {

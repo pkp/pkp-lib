@@ -238,12 +238,12 @@ class ReviewerAccessInvitePayload extends InvitePayload
             ],
             'selectedFileIds' => [
                 'sometimes',
-                'required',
-                'array'
+                'nullable',
+                'array',
             ],
-            '$userInterests' => [
+            'userInterests' => [
                 'sometimes',
-                'required',
+                'nullable',
                 'array'
             ],
         ];

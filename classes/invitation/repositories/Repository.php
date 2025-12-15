@@ -84,9 +84,17 @@ class Repository
         return InvitationModel::byStatus(InvitationStatus::PENDING)
             ->byType($invitation->getType())
             ->byNotId($invitation->getId())
-            ->when($invitation->getUserId() !== null, fn (Builder $q) => $q->byUserId($invitation->getUserId()))
-            ->when($invitation->getUserId() === null && $invitation->getEmail(), fn (Builder $q) => $q->byEmail($invitation->getEmail()))
-            ->when($invitation->getContextId() !== null, fn (Builder $q) => $q->byContextId($invitation->getContextId()))
-            ->get();
+            ->when(
+                isset($invitation->invitationModel->userId),
+                fn (Builder $q) => $q->byUserId($invitation->invitationModel->userId)
+            )
+            ->when(
+                !isset($invitation->invitationModel->userId) && $invitation->invitationModel->email,
+                fn (Builder $q) => $q->byEmail($invitation->invitationModel->email)
+            )
+            ->when(
+                isset($invitation->invitationModel->contextId),
+                fn (Builder $q) => $q->byContextId($invitation->invitationModel->contextId)
+            )->get();
     }
 }

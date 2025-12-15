@@ -94,7 +94,7 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        $user = $this->invitation->getExistingUser();
+        $user = $this->invitation->getExistingUser() ? $this->invitation->getExistingUser() :$this->invitation->getExistingUserByEmail();
 
         if (!isset($user)) {
             $user = Repo::user()->newDataObject();
@@ -138,13 +138,31 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
             // Use today's date if dateStart is in the past, otherwise keep dateStart
             $effectiveDateStart = $dateStart->lessThan($today) ? $today->toDateString() : $dateStart->toDateString();
 
-            Repo::userGroup()->assignUserToGroup(
-                $user->getId(),
-                $userGroupHelper->userGroupId,
-                $effectiveDateStart,
-                $userGroupHelper->dateEnd,
-                (isset($userGroupHelper->masthead) && $userGroupHelper->masthead)
+            $userHasGroup = Repo::userGroup()->contextHasGroup(
+                $this->invitation->getContextId(),
+                $userGroupHelper->userGroupId
             );
+            if(!$userHasGroup){
+                Repo::userGroup()->assignUserToGroup(
+                    $user->getId(),
+                    $userGroupHelper->userGroupId,
+                    $effectiveDateStart,
+                    $userGroupHelper->dateEnd,
+                    (isset($userGroupHelper->masthead) && $userGroupHelper->masthead)
+                );
+            }
+        }
+        // find existing invitation and update invitation
+        $existingInvitation = Repo::invitation()->findExistingInvitation($this->invitation);
+        // update existing after create user account invitations
+        // then the invitation work as existing  reviewer invitation
+        foreach ($existingInvitation as $invitation) {
+                $updatedData = Repo::invitation()->getById(
+                    $invitation->id,
+                );
+            $updatedData->invitationModel->userId = $user->getId();
+            $updatedData->invitationModel->email = null;
+            $updatedData->invitationModel->save();
         }
         // update review assignment
         $reviewAssignment = Repo::reviewAssignment()->get(
@@ -158,7 +176,7 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
 
         $this->invitation->invitationModel->markAs(InvitationStatus::ACCEPTED);
         return response()->json(
-            (new ReviewerAccessInviteResource($this->invitation))->toArray($illuminateRequest),
+            new ReviewerAccessInviteResource($this->invitation)->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }
@@ -168,7 +186,7 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
         $this->invitation->decline();
 
         return response()->json(
-            (new ReviewerAccessInviteResource($this->invitation))->toArray($illuminateRequest),
+            new ReviewerAccessInviteResource($this->invitation)->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }

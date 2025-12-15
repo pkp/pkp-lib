@@ -3,8 +3,8 @@
 /**
  * @file pages/authorDashboard/PKPAuthorDashboardHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorDashboardHandler
@@ -25,7 +25,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
-use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
@@ -169,7 +168,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
-        $contextUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $contextGenres = $genreDao->getEnabledByContextId($submission->getData('contextId'))->toArray();
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
@@ -242,15 +240,9 @@ abstract class PKPAuthorDashboardHandler extends Handler
         );
 
         $titleAbstractForm = $this->getTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
-        $citationsForm = new PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 
         $templateMgr->setConstants([
-            'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
-            'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
-            'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
-            'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
             'FORM_TITLE_ABSTRACT' => $titleAbstractForm::FORM_TITLE_ABSTRACT,
-            'FORM_CITATIONS' => $citationsForm::FORM_CITATIONS,
         ]);
 
         // Get the submission props without the full publication details. We'll
@@ -270,7 +262,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         })->values();
 
         // Get full details of the working publication and the current publication
-        $mapper = Repo::publication()->getSchemaMap($submission, $contextUserGroups, $contextGenres);
+        $mapper = Repo::publication()->getSchemaMap($submission, $contextGenres);
         $workingPublicationProps = $mapper->map($submission->getLatestPublication());
         $currentPublicationProps = $submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()
             ? $workingPublicationProps
@@ -285,7 +277,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         $authorItems = [];
         foreach ($latestPublication->getData('authors') as $contributor) {
-            $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
+            $authorItems[] = Repo::author()->getSchemaMap($submission)->map($contributor);
         }
 
         $contributorsListPanel = $this->getContributorsListPanel(

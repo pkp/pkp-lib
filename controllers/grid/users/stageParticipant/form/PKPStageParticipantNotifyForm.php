@@ -27,6 +27,9 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\editorialTask\Participant;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorCSRF;
@@ -35,8 +38,6 @@ use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
 use PKP\notification\Notification;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
 use PKP\security\Role;
 use PKP\security\Validation;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -184,28 +185,6 @@ class PKPStageParticipantNotifyForm extends Form
             $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         }
 
-        // Create a query
-        $query = Query::create([
-            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
-            'assocId' => $submission->getId(),
-            'stageId' => $this->_stageId,
-            'seq' => REALLY_BIG_NUMBER
-        ]);
-
-        Repo::query()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
-
-        // Add the current user and message recipient as participants.
-        QueryParticipant::create([
-            'queryId' => $query->id,
-            'userId' => $user->getId()
-        ]);
-        if ($user->getId() != $request->getUser()->getId()) {
-            QueryParticipant::create([
-                'queryId' => $query->id,
-                'userId' => $request->getUser()->getId()
-            ]);
-        }
-
         // Populate mailable with data before compiling headNote
         $mailable
             ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
@@ -213,6 +192,34 @@ class PKPStageParticipantNotifyForm extends Form
             ->recipients([$user])
             ->body($this->getData('message'))
             ->subject($template->getLocalizedData('subject'));
+
+        // Create a query
+        $query = EditorialTask::create([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'stageId' => $this->_stageId,
+            'seq' => REALLY_BIG_NUMBER,
+            'createdBy' => $user->getId(),
+            'type' => EditorialTaskType::DISCUSSION,
+            'title' => Mail::compileParams(
+                $template->getLocalizedData('subject'),
+                $mailable->getData()
+            ),
+        ]);
+
+        Repo::editorialTask()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
+
+        // Add the current user and message recipient as participants.
+        Participant::create([
+            'editTaskId' => $query->id,
+            'userId' => $user->getId()
+        ]);
+        if ($user->getId() != $request->getUser()->getId()) {
+            Participant::create([
+                'editTaskId' => $query->id,
+                'userId' => $request->getUser()->getId()
+            ]);
+        }
 
         //Substitute email template variables not available before form being executed
         $additionalVariables = $this->getEmailVariableNames($template->getData('key'));
@@ -222,10 +229,6 @@ class PKPStageParticipantNotifyForm extends Form
             'userId' => $request->getUser()->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $query->id,
-            'title' => Mail::compileParams(
-                $template->getLocalizedData('subject'),
-                $mailable->getData()
-            ),
             'contents' => Mail::compileParams(
                 $this->getData('message'),
                 array_intersect_key($mailable->getData(), $additionalVariables)

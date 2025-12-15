@@ -2555,7 +2555,7 @@ msgstr "Totes les versions"
 msgid "publication.version.confirm"
 msgstr "Segur que voleu crear una versió nova?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "El resum és massa llarg. Hauria de tenir {$limit} paraules o menys. "
 "Actualment en té {$count}."

@@ -59,19 +59,19 @@ class Schema extends \PKP\core\maps\Schema
     public array $genres;
 
     /** @var Enumerable Review assignments associated with submissions. */
-    public Enumerable $reviewAssignments;
+    public ?Enumerable $reviewAssignments = null;
 
     /** @var Enumerable Stage assignments associated with submissions. */
-    public Enumerable $stageAssignments;
+    public ?Enumerable $stageAssignments = null;
 
     /** @var Enumerable Decisions associated with submissions. */
-    public Enumerable $decisions;
+    public ?Enumerable $decisions = null;
 
     /** @var Enumerable Reviewer Suggestions associated with submissions. */
-    public Enumerable $reviewerSuggestions;
+    public ?Enumerable $reviewerSuggestions = null;
 
     /** Workflow stage files associated with submissions. */
-    public Enumerable $submissionStageFiles;
+    public ?Enumerable $submissionStageFiles = null;
     /**
      * Get extra property names used in the submissions list
      *
@@ -315,6 +315,7 @@ class Schema extends \PKP\core\maps\Schema
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
+     * @param ?Enumerable<int, ReviewerSuggestion> $reviewerSuggestions List of stage files associated with a submission
      * @param ?Enumerable<int, SubmissionFile> $stageFiles List of stage files associated with a submission
      */
     public function mapToSubmissionsList(
@@ -325,15 +326,16 @@ class Schema extends \PKP\core\maps\Schema
         ?Enumerable $stageAssignments = null,
         ?Enumerable $decisions = null,
         bool|Collection $anonymizeReviews = false,
+        ?Enumerable $reviewerSuggestions = null,
         ?Enumerable $stageFiles = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
-        $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
-        $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
-        $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
-        $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
-        $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
+        $this->reviewAssignments = $reviewAssignments;
+        $this->stageAssignments = $stageAssignments;
+        $this->decisions = $decisions;
+        $this->reviewerSuggestions = $reviewerSuggestions;
+        $this->submissionStageFiles = $stageFiles;
         $this->addAppSpecificData(collect([$item]));
 
         return $this->mapByProperties($this->getSubmissionsListProps(), $item, $anonymizeReviews);
@@ -402,6 +404,7 @@ class Schema extends \PKP\core\maps\Schema
                 $associatedStageAssignments->get($item->getId()),
                 $associatedDecisions->get($item->getId()),
                 $anonymizeReviews,
+                $associatedReviewerSuggestions->get($item->getId()),
                 $associatedSubmissionStageFiles->get($item->getId())
             )
         );
@@ -465,7 +468,7 @@ class Schema extends \PKP\core\maps\Schema
         $reviewRounds = $this->getReviewRoundsFromSubmission($submission);
         $currentReviewRound = $reviewRounds->sortKeys()->last(); /** @var ReviewRound|null $currentReviewRound */
         $stages = in_array('stages', $props) ?
-            $this->getPropertyStages($this->stageAssignments, $this->reviewAssignments, $submission, $this->submissionStageFiles, $this->decisions ?? null, $currentReviewRound) :
+            $this->getPropertyStages($this->stageAssignments, $submission, $this->submissionStageFiles, $this->decisions ?? null, $currentReviewRound) :
             [];
 
         foreach ($props as $prop) {
@@ -488,10 +491,10 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'canCurrentUserChangeMetadata':
                     // Identify if current user can change metadata. Consider roles in the active stage.
-                    $output[$prop] = $this->canChangeMetadata($this->stageAssignments, $submission);
+                    $output[$prop] = $this->canChangeMetadata($this->stageAssignments);
                     break;
                 case 'editorAssigned':
-                    $output[$prop] = $this->getPropertyStageAssignments($this->stageAssignments);
+                    $output[$prop] = $this->stageAssignments && $this->getPropertyStageAssignments($this->stageAssignments);
                     break;
                 case 'metadataLocales':
                     $output[$prop] = collect($this->context->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
@@ -499,20 +502,20 @@ class Schema extends \PKP\core\maps\Schema
                         ->toArray();
                     break;
                 case 'publications':
-                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
+                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->genres)
                         ->summarizeMany($submission->getData('publications'), $anonymize)->values();
                     break;
                 case 'recommendationsIn':
-                    $output[$prop] = $currentReviewRound ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;
+                    $output[$prop] = $currentReviewRound && $this->stageAssignments ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;
                     break;
                 case 'reviewAssignments':
-                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments, $anonymizeReviews, $submission, $stages);
+                    $output[$prop] = $this->reviewAssignments ? $this->getPropertyReviewAssignments($this->reviewAssignments, $stages, $anonymizeReviews) : [];
                     break;
                 case 'participants':
                     $output[$prop] = $this->getPropertyParticipants($submission);
                     break;
                 case 'reviewersNotAssigned':
-                    $output[$prop] = $currentReviewRound && $this->reviewAssignments->count() < $this->context->getNumReviewsPerSubmission();
+                    $output[$prop] = $currentReviewRound && $this->reviewAssignments?->count() < $this->context->getNumReviewsPerSubmission();
                     break;
                 case 'reviewRounds':
                     $output[$prop] = $this->getPropertyReviewRounds($reviewRounds);
@@ -545,7 +548,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = Repo::submission()->getWorkflowUrlByUserRoles($submission);
                     break;
                 case 'reviewerSuggestions':
-                    $output[$prop] = $this->getPropertyReviewerSuggestions($this->reviewerSuggestions);
+                    $output[$prop] = $this->reviewerSuggestions ? $this->getPropertyReviewerSuggestions($this->reviewerSuggestions) : [];
                     break;
                 default:
                     $output[$prop] = $submission->getData($prop);
@@ -559,14 +562,14 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Determine whether current user is able to change metadata
      */
-    protected function canChangeMetadata(Enumerable $stageAssignments, Submission $submission): bool
+    protected function canChangeMetadata(?Enumerable $stageAssignments): bool
     {
         $currentUser = Application::get()->getRequest()->getUser();
         $isAssigned = false;
         $canChangeMetadata = false;
 
         // Check if stage assignment is associated with the current user and edit metadata flag
-        foreach ($stageAssignments as $stageAssignment) {
+        foreach ($stageAssignments ?? [] as $stageAssignment) {
             if ($stageAssignment->userId === $currentUser->getId()) {
                 $isAssigned = true;
                 if ($stageAssignment->canChangeMetadata) {
@@ -580,7 +583,7 @@ class Schema extends \PKP\core\maps\Schema
             return true;
         }
 
-        // If user is assigned, check editorial global roles, journal admin and managers should have access for editing metadata
+        // If user is not assigned, check editorial global roles, journal admin and managers should have access for editing metadata
         if (!$isAssigned) {
             if (!empty(array_intersect(
                 $this->userRoles,
@@ -630,12 +633,13 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Get details about the review assignments for a submission
      */
-    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false, Submission $submission, array $stages): array
+    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, array $stages, bool|Collection $anonymizeReviews = false): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
 
         $reviews = [];
+
         foreach ($reviewAssignments as $reviewAssignment) { /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
             // skip declined/cancelled assignments if the user lacks permission for this specific stage.
             if (
@@ -687,11 +691,12 @@ class Schema extends \PKP\core\maps\Schema
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
+                'reviewerUserName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerUserName'),
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
                 'canLoginAs' => $canLoginAs,
                 'canGossip' => $canGossip,
-                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId())->getDisplayInitials(),
-                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId())->getData('orcidIsVerified')
+                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId(), true)->getDisplayInitials(),
+                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId(), true)->getData('orcidIsVerified')
             ];
         }
 
@@ -823,7 +828,7 @@ class Schema extends \PKP\core\maps\Schema
      *  }
      * ]
      */
-    protected function getPropertyStages(Enumerable $stageAssignments, Enumerable $reviewAssignments, Submission $submission, Enumerable $stageFiles, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
+    protected function getPropertyStages(?Enumerable $stageAssignments, Submission $submission, ?Enumerable $stageFiles, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
@@ -843,7 +848,7 @@ class Schema extends \PKP\core\maps\Schema
                 'currentUserAssignedRoles' => [],
             ];
 
-            if ($stageId === WORKFLOW_STAGE_ID_EDITING) {
+            if ($stageId === WORKFLOW_STAGE_ID_EDITING && $stageFiles) {
                 $stages[$stageId]['uploadedFilesCount'] = $stageFiles->filter(fn (SubmissionFile $file) => $file->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_COPYEDIT)->count();
             } else {
                 // A `null` value is used to indicate that no count data is available.
@@ -858,7 +863,7 @@ class Schema extends \PKP\core\maps\Schema
         $isCurrentUserDecidingEditor = false;
 
         // Determine stage assignment related data
-        foreach ($stageAssignments as $stageAssignment) {
+        foreach ($stageAssignments ?? [] as $stageAssignment) {
 
             // Record recommendations for review stages
             if ($stageAssignment->recommendOnly) {
@@ -923,7 +928,7 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         // if the current user is not assigned in any non-revoked role but has a global role as a manager or admin, consider it in the submission
-        if (!$isAssignedInAnyRole) {
+        if (!$isAssignedInAnyRole && $this->reviewAssignments) {
             $hasCurrentUserReviewAssignment = $this->reviewAssignments->contains(
                 fn (ReviewAssignment $reviewAssignment) =>
                     $reviewAssignment->getReviewerId() === $currentUser->getId() &&
@@ -1074,12 +1079,10 @@ class Schema extends \PKP\core\maps\Schema
     protected function getStageAssignmentsBySubmissions(Enumerable $submissions, array $roleIds = []): LazyCollection
     {
         $submissionIds = $submissions->map(fn (Submission $submission) => $submission->getId())->toArray();
-        $stageAssignments = StageAssignment::with(['userGroup.userUserGroups', 'userGroup.userGroupStages'])
-            ->withSubmissionIds($submissionIds)
+        return StageAssignment::withSubmissionIds($submissionIds)
             ->withRoleIds(empty($roleIds) ? null : $roleIds)
-            ->lazy();
-
-        return $stageAssignments;
+            ->lazy()
+            ->remember();
     }
 
     /**
@@ -1195,7 +1198,8 @@ class Schema extends \PKP\core\maps\Schema
             ->getCollector()
             ->filterBySubmissionIds($submissionIds)
             ->filterByFileStages($stageIds)
-            ->getMany();
+            ->getMany()
+            ->remember();
     }
 
     /**

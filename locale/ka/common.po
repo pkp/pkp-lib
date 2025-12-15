@@ -1697,29 +1697,8 @@ msgstr "დისციპლინები"
 msgid "search.fullText"
 msgstr "სრული ტექსტი"
 
-msgid "search.indexTerms"
-msgstr "ინდექსის ტერმინები"
-
-msgid "search.indexTermsLong"
-msgstr "ინდექსის ტერმინების ყველა ველი"
-
-msgid "search.matchAll"
-msgstr "ემთხვევა ყველა კატეგორიას"
-
 msgid "search.noResults"
 msgstr "შედეგი არ არის"
-
-msgid "search.operator.and"
-msgstr "და"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "ან"
-
-msgid "search.SearchFor"
-msgstr "მოძებნე"
 
 msgid "search.searchResults"
 msgstr "ძებნის შედეგები"
@@ -1948,6 +1927,7 @@ msgstr "{$round} რაუნდის სტატუსი"
 msgid "notification.type.editorialReport"
 msgstr "სტატისტიკის ანგარიშის შეჯამება."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "ეს არის ერთგვარი შეხსენება, რომ შეამოწმოთ თქვენი ჟურნალის ჯანმრთელობა "

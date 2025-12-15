@@ -33,9 +33,12 @@
         >
             {include file="/submission/review-publication-field.tpl" prop="title" inLocale=$localeKey name="{translate key="common.title"}" type="html"}
             {if in_array($currentContext->getData('keywords'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
-                {include file="/submission/review-publication-field.tpl" prop="keywords" inLocale=$localeKey name="{translate key="common.keywords"}" type="array"}
+                {include file="/submission/review-publication-field.tpl" prop="keywords" inLocale=$localeKey name="{translate key="common.keywords"}" type="array" dataField="name"}
             {/if}
             {include file="/submission/review-publication-field.tpl" prop="abstract" inLocale=$localeKey name="{translate key="common.abstract"}" type="html"}
+            {if in_array($currentContext->getData('plainLanguageSummary'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
+                {include file="/submission/review-publication-field.tpl" prop="plainLanguageSummary" inLocale=$localeKey name="{translate key="submission.plainLanguageSummary"}" type="html"}
+            {/if}
             {if in_array($currentContext->getData('citations'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {if $localeKey === $submission->getData('locale')}
                     <div class="submissionWizard__reviewPanel__item">

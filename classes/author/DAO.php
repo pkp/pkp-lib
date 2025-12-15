@@ -53,7 +53,7 @@ class DAO extends EntityDAO
         'includeInBrowse' => 'include_in_browse',
         'publicationId' => 'publication_id',
         'seq' => 'seq',
-        'userGroupId' => 'user_group_id',
+        'contributorType' => 'contributor_type',
     ];
 
     /**
@@ -136,11 +136,10 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
-
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
             foreach ($rows as $row) {
                 yield $row->author_id => $this->fromRow($row);
             }
@@ -163,6 +162,8 @@ class DAO extends EntityDAO
 
         $author->setCreditRoles(Repo::creditContributorRole()->getCreditRolesByContributorId($author->getId()));
 
+        $author->setContributorRoles(Repo::creditContributorRole()->getContributorRolesByContributorId($author->getId()));
+
         return $author;
     }
 
@@ -182,6 +183,8 @@ class DAO extends EntityDAO
 
         Repo::creditContributorRole()->addCreditRoles($author->getCreditRoles(), $newAuthorId);
 
+        Repo::creditContributorRole()->addContributorRoles($author->getContributorRoleIds(), $newAuthorId);
+
         return $newAuthorId;
     }
 
@@ -193,6 +196,8 @@ class DAO extends EntityDAO
         Repo::affiliation()->saveAffiliations($author);
 
         Repo::creditContributorRole()->addCreditRoles($author->getCreditRoles(), $author->getId());
+
+        Repo::creditContributorRole()->addContributorRoles($author->getContributorRoleIds(), $author->getId());
 
         parent::_update($author);
     }

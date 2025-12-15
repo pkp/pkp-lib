@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/DecisionType.php
  *
@@ -215,8 +216,10 @@ abstract class DecisionType
                 /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $newStageId);
+                $decisionPublicationId = $decision->getData('publicationId');
+
                 if (!is_a($reviewRound, ReviewRound::class)) {
-                    $this->createReviewRound($submission, $newStageId, 1);
+                    $this->createReviewRound($submission, $newStageId, 1, $decisionPublicationId);
                 } else {
                     $reviewRoundDao->updateStatus($reviewRound, null);
                 }
@@ -503,13 +506,14 @@ abstract class DecisionType
     /**
      * Create a review round in a review stage
      */
-    protected function createReviewRound(Submission $submission, int $stageId, ?int $round = 1)
+    protected function createReviewRound(Submission $submission, int $stageId, ?int $round = 1, ?int $publicationId = null)
     {
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 
         $reviewRound = $reviewRoundDao->build(
             $submission->getId(),
+            $publicationId ?? $submission->getCurrentPublication()->getId(),
             $stageId,
             $round,
             ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS
@@ -539,6 +543,6 @@ abstract class DecisionType
     {
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($contextId)->toArray();
+        return $genreDao->getByContextId($contextId)->toAssociativeArray();
     }
 }

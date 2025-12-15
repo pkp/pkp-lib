@@ -16,26 +16,24 @@ namespace PKP\author\maps;
 
 use APP\author\Author;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\core\PKPRequest;
-use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\userGroup\UserGroup;
 use stdClass;
 
 class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
 
+    public Submission $submission;
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
-    protected Enumerable $authorUserGroups;
-
-    public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
-        parent::__construct($request, $context, $schemaService);
+        $this->submission = $submission;
 
-        $this->authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds([$this->context->getId()])->get();
+        parent::__construct($request, $context, $schemaService);
     }
 
     /**
@@ -67,7 +65,7 @@ class Schema extends \PKP\core\maps\Schema
     {
         $this->collection = $collection;
         return $collection->map(function ($item) {
-            return $this->map($item);
+            return $this->map($item, $this->submission);
         });
     }
 
@@ -92,16 +90,14 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
-                case 'userGroupName':
-                    /** @var UserGroup $userGroup */
-                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->id === $item->getData('userGroupId'));
-                    $output[$prop] = $userGroup ? $userGroup->name : new stdClass();
-                    break;
                 case 'fullName':
                     $output[$prop] = $item->getFullName();
                     break;
                 case 'hasVerifiedOrcid':
                     $output[$prop] = $item->hasVerifiedOrcid();
+                    break;
+                case 'contributorRoles':
+                    $output[$prop] = Repo::contributorRole()->getSchemaMap()->summarizeMany(collect($item->getData('contributorRoles')))->values();
                     break;
                 case 'creditRoles':
                     $output[$prop] = $item->getCreditRoles();
@@ -112,7 +108,7 @@ class Schema extends \PKP\core\maps\Schema
                 case 'affiliations':
                     $data = [];
                     foreach ($item->getAffiliations() as $affiliation) {
-                        $data[] = Repo::affiliation()->getSchemaMap()->map($affiliation);
+                        $data[] = Repo::affiliation()->getSchemaMap($this->submission)->map($affiliation);
                     }
                     $output[$prop] = $data;
                     break;
@@ -122,7 +118,7 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        $locales = Repo::submission()->get(Repo::publication()->get($item->getData('publicationId'))->getData('submissionId'))->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
+        $locales = $this->submission->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
 
         $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $locales);
 

@@ -129,14 +129,14 @@ class PKPJatsController extends PKPBaseController
         }
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
 
         $jatsFilesProp = Repo::jats()
-            ->summarize($jatsFile);
+            ->summarize($jatsFile, $submission);
 
         return response()->json($jatsFilesProp, Response::HTTP_OK);
     }
@@ -168,18 +168,18 @@ class PKPJatsController extends PKPBaseController
                 $publication->getId(),
                 $submission->getId(),
                 SubmissionFile::SUBMISSION_FILE_JATS,
-                $params);
+                $params
+            );
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
 
         $jatsFilesProp = Repo::jats()
-            ->summarize($jatsFile);
-        
+            ->summarize($jatsFile, $submission);
         return response()->json($jatsFilesProp, Response::HTTP_OK);
     }
 
@@ -192,12 +192,12 @@ class PKPJatsController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
-        
+
         if (!$jatsFile->submissionFile) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
@@ -211,8 +211,7 @@ class PKPJatsController extends PKPBaseController
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
 
         $jatsFilesProp = Repo::jats()
-            ->summarize($jatsFile);
-        
+            ->summarize($jatsFile, $submission);
         return response()->json($jatsFilesProp, Response::HTTP_OK);
     }
 }

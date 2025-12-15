@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-05-28 14:51+0000\n"
+"PO-Revision-Date: 2025-08-17 00:26+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr/>\n"
@@ -1694,29 +1694,8 @@ msgstr "Bilim dal(lar)ı"
 msgid "search.fullText"
 msgstr "Tam Metin"
 
-msgid "search.indexTerms"
-msgstr "İndeks terimleri"
-
-msgid "search.indexTermsLong"
-msgstr "Tüm indeks terim alanları"
-
-msgid "search.matchAll"
-msgstr "Tüm kategorileri eşle"
-
 msgid "search.noResults"
 msgstr "Sonuç bulunamadı"
-
-msgid "search.operator.and"
-msgstr "ve"
-
-msgid "search.operator.not"
-msgstr "değil"
-
-msgid "search.operator.or"
-msgstr "veya"
-
-msgid "search.SearchFor"
-msgstr "için Ara"
 
 msgid "search.searchResults"
 msgstr "Arama Sonuçları"
@@ -1944,6 +1923,7 @@ msgstr "{$round} Tur Durumu"
 msgid "notification.type.editorialReport"
 msgstr "İstatistik rapor özeti."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Bu, editoryal rapor aracılığıyla derginizin sağlığını kontrol etmeniz için "
@@ -2401,3 +2381,6 @@ msgstr "{$from} &ndash; {$until}"
 
 msgid "common.assignments"
 msgstr "Atamalar"
+
+msgid "common.changeLanguage"
+msgstr "Dil Değiştir"

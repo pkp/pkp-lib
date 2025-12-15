@@ -1,21 +1,24 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2022, 2023.
 # Maria Češnik <mariaces237@gmail.com>, 2023.
+# Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-03-03 16:17+0000\n"
-"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -222,17 +225,14 @@ msgstr ""
 msgid "common.ccLicense"
 msgstr ""
 "\n"
-"\t\t<br />\n"
-"<br /><br />\n"
-"<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
-"<img alt=\"Licenca Creative Commons\" style=\"border-width:0\" src=\"//i."
-"creativecommons.org/l/by/3.0/80x15.png\"/>\n"
-"</a>\n"
-"<br />\n"
-"Ovo je djelo licencirano pod <a rel=\"license\" target=\"_blank\" href="
-"\"https://creativecommons.org/licenses/by/3.0/\">Licencom Creative Commons "
-"Attribution 3.0</a>.\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\tThis work is licensed under a <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0  License</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -338,7 +338,7 @@ msgid "common.delete"
 msgstr "Briši"
 
 msgid "common.deleting"
-msgstr "Izbrisati"
+msgstr "Brisanje"
 
 msgid "common.deleteSelection"
 msgstr "Brisanje odabira"
@@ -1231,11 +1231,11 @@ msgstr ""
 "pogreške i pokušajte ponovno."
 
 msgid "form.errorsOccurred"
-msgstr "Došlo je do pogrešaka prilikom obrade obrasca."
+msgstr "Došlo je do pogrešaka prilikom obrade obrasca"
 
 msgid "form.formLanguage.description"
 msgstr ""
-"Želite li unijeti ove informacije i na drugom jeziku,  odaberite jezik u "
+"Ako želite unijeti ove informacije na drugom jeziku, prvo odaberite jezik u "
 "izborniku."
 
 msgid "form.formLanguage"
@@ -1438,7 +1438,7 @@ msgid "navigation.about"
 msgstr "O časopisu"
 
 msgid "navigation.admin"
-msgstr "Uprava"
+msgstr "Administracija stranice"
 
 msgid "navigation.archives"
 msgstr "Arhiva"
@@ -1564,10 +1564,10 @@ msgid "institution.institutions"
 msgstr "Institucije"
 
 msgid "notification.addedAuditor"
-msgstr "revizor dodan"
+msgstr "Revizor dodan."
 
 msgid "notification.removedAuditor"
-msgstr "revizor uklonjen"
+msgstr "Revizor uklonjen."
 
 msgid "notification.addedQuery"
 msgstr "Dodana rasprava"
@@ -1618,7 +1618,7 @@ msgid "notification.removedFile"
 msgstr "datoteka uklonjena."
 
 msgid "notification.removedSubmission"
-msgstr "podnesak uklonjen"
+msgstr "Uklonjena prijava."
 
 msgid "notification.notification"
 msgstr "obavijest"
@@ -1647,7 +1647,7 @@ msgid "notification.reminderSent"
 msgstr "Vaša nova lozinka poslana je na adresu e-pošte koju ste unijeli."
 
 msgid "notification.savedSubmissionMetadata"
-msgstr "metapodaci spremljeni"
+msgstr "Metapodaci su spremljeni."
 
 msgid "notification.sendNotificationConfirmation"
 msgstr "Pošaljite obavijest e-poštom svim registriranim korisnicima."
@@ -1692,7 +1692,7 @@ msgid "search.dateFrom"
 msgstr "Od"
 
 msgid "search.dateTo"
-msgstr "Do"
+msgstr "Objavljeno prije"
 
 msgid "search.deleteFilter"
 msgstr "Izbriši"
@@ -1703,29 +1703,8 @@ msgstr "Disciplina/e"
 msgid "search.fullText"
 msgstr "Tekst priloga"
 
-msgid "search.indexTerms"
-msgstr "Pojmovi"
-
-msgid "search.indexTermsLong"
-msgstr "Sva indeksna polja"
-
-msgid "search.matchAll"
-msgstr "Združi sve kategorije"
-
 msgid "search.noResults"
 msgstr "Nema rezultata"
-
-msgid "search.operator.and"
-msgstr "i"
-
-msgid "search.operator.not"
-msgstr "ne"
-
-msgid "search.operator.or"
-msgstr "ili"
-
-msgid "search.SearchFor"
-msgstr "Pretraži prema"
 
 msgid "search.searchResults"
 msgstr "Rezultati pretraživanja"
@@ -1868,7 +1847,7 @@ msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Zahtjev za pregled ažuriran."
 
 msgid "notification.type.auditorRequest"
-msgstr "Zamoljeni ste da pregledate datoteku \"{$file}\"."
+msgstr "Zahtjev za reviziju za \"{$file}"
 
 msgid "notification.type.allReviewsIn"
 msgstr "Svi pregledi su spremni i odluka je potrebna u fazi {$stage}."
@@ -1893,7 +1872,7 @@ msgid "timeZone"
 msgstr "Vremenska zona"
 
 msgid "user.email"
-msgstr "Email adresa"
+msgstr "E-mail adresa"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1937,7 +1916,7 @@ msgid "notification.type.queryActivity"
 msgstr "aktivnost razgovora."
 
 msgid "notification.type.queryAdded"
-msgstr "razgovor dodan"
+msgstr "Rasprava je dodana."
 
 msgid "notification.type.assignCopyeditors"
 msgstr "Dodijelite urednika putem poveznice za dodavanje na popisu sudionika."
@@ -1946,11 +1925,12 @@ msgid "notification.type.awaitingCopyedits"
 msgstr "Čeka se uređivanje."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Status runde {$round}"
+msgstr "Status {$round} kruga"
 
 msgid "notification.type.editorialReport"
 msgstr "Sažetak statističkog izvješća."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ovo je prijateljski podsjetnik da provjerite ispravnost časopisa u odnosu na "
@@ -1960,7 +1940,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Tjedna e-pošta sa zadacima na čekanju"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Unos u navigacijskom izborniku uspješno je ažuriran"
@@ -2230,7 +2210,7 @@ msgid "validator.url"
 msgstr "Ovo nije važeći URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Nije dopušten novi redak."
 
 msgid "validator.allowable_title_html_tags"
 msgstr "Dozvoljeno je samo [{$tags}] html oznaka."
@@ -2317,3 +2297,110 @@ msgstr "Autor uređen."
 
 #~ msgid "search.searchCategories"
 #~ msgstr "Kategorije pretraživanja"
+
+msgid "common.moreActions"
+msgstr "Više radnji"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Pogledajte <a href=\"{$url}\">uredničku povijest</a>"
+
+msgid "common.editorialMasthead"
+msgstr "Popis uredništva"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Recenzenti u prethodnoj godini"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Recenzenti iz prethodnih godina"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Uredništvo izražava zahvalnost recenzentima za {$year}, navedenima u "
+"nastavku."
+
+msgid "form.errorSummaryOne"
+msgstr "Uočena 1 pogreška! Molimo ispravite pogrešku prije nego nastavite."
+
+msgid "validator.multilingual"
+msgstr "Višejezični uvjet za ovo polje nije ispunjen."
+
+msgid "common.yesContinue"
+msgstr "Da, nastavi"
+
+msgid "form.errorSummaryMany"
+msgstr "Uočeno je {$count} pogrešaka! Molimo ispravite ih prije nego nastavite."
+
+msgid "showAll"
+msgstr "Prikaži sve"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Ne"
+
+msgid "common.refreshingData"
+msgstr "Osvježavanje podataka"
+
+msgid "common.viewMoreDetails"
+msgstr "Prikaži više detalja"
+
+msgid "common.editorialHistory"
+msgstr "Povijest uredničkog postupka"
+
+msgid "common.editorialHistory.page"
+msgstr "Povijest uredničkog postupka"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Ovaj odjeljak prikazuje bivše suradnike."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Prikaži {$name} ORCID profil korisnika"
+
+msgid "common.assignments"
+msgstr "Dodijeljeni zadaci"
+
+msgid "common.filtersClear"
+msgstr "Poništi filtere"
+
+msgid "common.loaded"
+msgstr "Učitano"
+
+msgid "navigation.dashboards"
+msgstr "Urednička nadzorna ploča"
+
+msgid "navigation.reviewAssignments"
+msgstr "Moja recenzentska zaduženja"
+
+msgid "navigation.mySubmissions"
+msgstr "Moja autorska zaduženja"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Datum prihvaćanja recenzije"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Datum predaje recenzije"
+
+msgid "showLess"
+msgstr "Prikaži manje"
+
+msgid "common.highlights"
+msgstr "Istaknuto"
+
+msgid "common.highlight"
+msgstr "Istakni"
+
+msgid "common.showingXofX"
+msgstr "Prikazano<strong>{$start} - {$finish}</strong> od {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.sandbox"
+msgstr "Aplikacija se izvodi u probnom okruženju."
+
+msgid "common.changeLanguage"
+msgstr "Promijeni jezik"
+
+msgid "validator.date.comparison"
+msgstr "Uneseni su nevažeći datumi za usporedbu."

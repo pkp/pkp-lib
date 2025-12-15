@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/jobs/submissions/UpdateSubmissionSearchJobTest.php
+ * @file tests/jobs/submissions/RemoveExpiredInvitationsJobTest.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
@@ -12,17 +12,17 @@
 
 namespace PKP\tests\jobs\invitations;
 
-use PKP\tests\PKPTestCase;
-use PKP\jobs\invitations\RemoveExpiredInvitationsJob;
-use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\jobs\invitations\RemoveExpiredInvitationsJob;
+use PKP\tests\PKPTestCase;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(RemoveExpiredInvitationsJob::class)]
 class RemoveExpiredInvitationsJobTest extends PKPTestCase
 {
     /**
-     * serializion from OJS 3.4.0
+     * serialization from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:48:"PKP\jobs\invitations\RemoveExpiredInvitationsJob":2:{s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
@@ -38,7 +38,7 @@ class RemoveExpiredInvitationsJobTest extends PKPTestCase
             unserialize($this->serializedJobData)
         );
     }
-    
+
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
@@ -52,4 +52,3 @@ class RemoveExpiredInvitationsJobTest extends PKPTestCase
         $this->expectNotToPerformAssertions();
     }
 }
-

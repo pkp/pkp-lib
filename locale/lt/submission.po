@@ -1,0 +1,3144 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "metadata.property.displayName.author"
+msgstr "Autoriai"
+
+msgid "metadata.property.displayName.issn"
+msgstr "Spaudos ISSN"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Antraštės tipas"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Man nepaskirti"
+
+msgid "submission.ask"
+msgstr "Klausti"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Recenzija pakartotinai pateikta"
+
+msgid "submission.notes.updateNote"
+msgstr "Atnaujinti pastabą"
+
+msgid "submission.notes.viewNotes"
+msgstr "Peržiūrėti pastabas"
+
+msgid "submission.originalFile"
+msgstr "Originalus failas"
+
+msgid "submission.submit.metadataForm"
+msgstr "Papildoma informacija"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Straipsnio failai"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Įkelti suredaguotą failą"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Įkelti failus"
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+"Pasirinkite failus, kurie turėtų būti siunčiami į kopijavimo-redagavimo "
+"etapą."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Prašyti pataisyti"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Pakartotinai pateikti recenzuoti"
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Prašomos pataisos"
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Išsiųsta atgal iš redagavimo"
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) buvo pridėtas kaip failo \"{$filename}\" "
+"auditorius"
+
+msgid "submission.copyright.agree"
+msgstr "Taip, sutinku su autorių teisių pareiškimu."
+
+msgid "submission.copyrightHolder"
+msgstr "Autorių teisių turėtojas"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC priskyrimo–nekomercinio naudojimo–jokių išvestinių kūrinių 4.0"
+
+msgid "submission.query.replies"
+msgstr "Atsakymai"
+
+msgid "submission.query.from"
+msgstr "Autorius"
+
+msgid "submission.query.leaveQuery"
+msgstr "Palikti diskusiją"
+
+msgid "grid.action.openNoteForm"
+msgstr "Parašyti naują šios diskusijos atsakymą"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Kad galėtumėte diskutuoti, reikia paskirtį bent vieną šio straipsnio dalyvį."
+
+msgid "submission.list.assignEditor"
+msgstr "Paskirti vyriausiąją redaktorę"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Ar tikrai norite atšaukti šį pateikimą? Tai ištrins pateikimą ir visus "
+"susijusius duomenis. Šio veiksmo negalima atšaukti."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Pateiktas darbas, <strong>{$title</strong>, bus pateiktas <strong>{$context</"
+"strong> redakcinei peržiūrai. Ar tikrai norite užbaigti šį pateikimą?"
+
+msgid "submission.wizard.validating"
+msgstr "Jūsų pateikto turinio tikrinimas"
+
+msgid "publication.wordCount"
+msgstr "Žodžių skaičius: {$count}/{$limit}"
+
+msgid "dashboard.applyFilters"
+msgstr "Taikyti filtrus"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Ištrinti nebaigtus pateikimus"
+
+msgid "author.editPublishedDisabled"
+msgstr "Šio leidinio autorių negalima redaguoti, nes jis jau buvo publikuotas."
+
+msgid "author.publicationNotFound"
+msgstr "Šio autoriaus leidinio rasti nepavyko."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Pateikite raiškųjį cituotų darbų nuorodų sąrašą. Atskirkite individualias "
+"nuorodas tuščiomis eilutėmis."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Yra naujų recenzijų, kurias redaktorius peržiūri."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Vienas ar keli recenzentai praleido terminą. Redakcijos komanda žino apie "
+"tai ir užtikrins, kad peržiūros būtų baigtos. Šiuo metu jums nereikia imtis "
+"jokių veiksmų. Jums bus pranešta, kai bus priimtas sprendimas."
+
+msgid "author.authorNotFound"
+msgstr "Šios asociacijos autoriaus rasti nepavyko."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Pateikite ROR narystę arba bent vieną narystės pavadinimą."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Prašome nurodyti filialo pavadinimą pagrindinėje pateikimo vietoje."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Įspėjimas: ši versija jau paskelbta. Jos redagavimas gali paveikti paskelbtą "
+"turinį."
+
+msgid "ror.nameRequired"
+msgstr "Būtinas ROR pavadinimas."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Būtina nurodyti ROR rodymo lokalę."
+
+msgid "submission.authors.label"
+msgstr "Autoriai"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Teikti kaip"
+
+msgid "submission.author.list"
+msgstr "Pateiktų autorių sąrašas"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Nurodykite funkciją, geriausiai apibūdinančią Jūsų įnašą į šį straipsnį."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Pasirinkite redaktoriaus vaidmenį, jei norite patys redaguoti ir publikuoti "
+"šį pateiktį."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Keliami reikalavimai"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Prieš tęsdami turite patvirtinti, kad teikiamas straipsnis atitinka šiuos "
+"reikalavimus."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Taip, mano pateiktas tekstas atitinka visus šiuos reikalavimus."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Straipsnis pateiktas"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Pateikimas atšauktas"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Atšaukti pateikimą"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Pateikimas atšauktas, o visi susiję duomenys ištrinti."
+
+msgid "submission.submit.genre.label"
+msgstr "Kas tai per failas?"
+
+msgid "submission.submit.genre.description"
+msgstr "Pasirinkite parinktį, kuri geriausiai apibūdina šį failą."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Ar tikrai norite pašalinti šį failą?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Kol kas galite:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Peržiūrėti straipsnį"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Pateikti naują straipsnį"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Sugrįžti į savo valdymo skydelį"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Išplėstieji metaduomenys"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "„CrossRef“ registracijos elektroninis laiškas"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Įtraukite galiojantį „CrossRef“ registracijos metu nurodytą elektroninio "
+"laiško adresą. Jūs galite savo elektroninio laiško adresą nemokamai "
+"užregistruoti „CrossRef“ svetainėje."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API raktas"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Įveskite savo ISBNdb API raktą. Jei rakto dar neturite, jo galite nemokamai "
+"paprašyti iš ISBNdb projekto."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "„PubMed“ registracijos elektroninis laiškas"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+"Jei turite, įveskite galiojantį „PubMed“ registracijos elektroninį laišką."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "„WorldCat“ API raktas"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Jei turite, įveskite galiojantį „WorldCat“ API raktą."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Citavimo modulis"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Pažymėkite vieną iš pateiktų citavimo modulių."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Nenaudokite kaip numatytojo (bus vis dar pasiekiama redaktoriui)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Vidinė klaida. Netinkama „pasirinktinio filtro“ nustatymui priskirta "
+"reikšmė. Praneškite tai kaip klaidą."
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Siekiant geriausių rezultatų, rekomenduojama autorius įvesti tokiu formatu: "
+"Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Redaktoriai"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Siekiant geriausių rezultatų, rekomenduojama redaktorius įvesti tokiu "
+"formatu: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Straipsnio antraštė"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Įveskite tinkamą straipsnio antraštę."
+
+msgid "metadata.property.displayName.source"
+msgstr "Publikacijos antraštė"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Įveskite tinkamą publikacijos antraštę."
+
+msgid "metadata.property.displayName.date"
+msgstr "Publikavimo data"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Įveskite tinkamą publikavimo datą (formatas: METAI-MĖNUO-DIENA)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Prieigos data"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Įveskite tinkamą prieigos datą (formatas: METAI-MĖNUO-DIENA)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Numeris"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Įveskite tinkamą numerį."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Tomas"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Įveskite tinkamą tomą."
+
+msgid "metadata.property.displayName.season"
+msgstr "Laikotarpis"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Įveskite tinkamą laikotarpio identifikatorių."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Skyriaus antraštė"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Įveskite tinkamą skyriaus antraštę."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Leidimas"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Įveskite tinkamą leidimą."
+
+msgid "metadata.property.displayName.series"
+msgstr "Serija"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Įveskite tinkamą seriją."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Priedas"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Įveskite tinkamą priedą."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferencijos data"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Įveskite tinkamą konferencijos datą (formatas: METAI-MĖNUO-DIENA)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Konferencijos vieta"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Įveskite tinkamą konferencijos vietą."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferencijos pavadinimas"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Įveskite tinkamą konferencijos pavadinimą."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferencijos rėmėjas"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Įveskite tinkamą konferencijos rėmėją."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Institucija"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Įveskite tinkamą instituciją."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Pirmas puslapis"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Įveskite tinkamą pirmą puslapį (turi būti skaitinė reikšmė)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Paskutinis puslapis"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Įveskite tinkamą paskutinį puslapį (turi būti skaitinė reikšmė)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Puslapių kiekis"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Įveskite tinkamą puslapių kiekį (turi būti skaitinė reikšmė)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Leidėjo vieta"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Įveskite tinkamą leidėjo vietą."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Leidėjo vardas"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Įveskite tinkamą leidėjo vardą."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Įveskite tinkamą ISBN (9 ar 13 skaičių)."
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Įveskite tinkamą spaudos ISSN."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "Elektroninis ISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Įveskite tinkamą elektroninį ISSN."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Įveskite tinkamą DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Nestandartinis Publikacijos ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Įveskite tinkamą nestandartinį publikacijos ID."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Įveskite tinkamą CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Įveskite tinkamą SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Įveskite tinkamą PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Nuoroda į publikaciją"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Įveskite tinkamą alternatyvią nuorodą į publikaciją."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Komentaras"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Įveskite tinkamą komentarą."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Anotacija"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Įveskite tinkamą anotaciją."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Publikacijos tipas"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Įsitikinkite, kad visada nustatote publikacijos tipą: knygos (knygoms ar "
+"skyriams) ir žurnalai (straipsniams). Kitu atveju citatos nebus tinkamai "
+"formatuojamos."
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Įsitikinkite, kad visada nustatote antraštės tipą. Šiuo metu antraštė gali "
+"būti „sutrumpinta“, „išversta“, „alternatyvi“ ar „universali“."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Rikiavimo metu nepaisyti dalies antraštės"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Įveskite tik antraštės pradžią, kurios reiktų nepaisyti jos rikiavimo metu."
+
+msgid "metadata.property.displayName.title"
+msgstr "Antraštė"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Įveskite tinkamą antraštę."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Paantraštė"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Įveskite tinkamą paantraštę."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Dalies numeris"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Įveskite tinkamą dalies numerį."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Dalies pavadinimas"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Įveskite tinkamą dalies pavadinimą."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Pavadinimo tipas"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Įsitikinkite, kad nustatėte tinkamą pavadinimo tipą. Šiuo metu antraštė gali "
+"būti „asmeninė“, „įmonės“ ar „konferencijos“."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Santrauka"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Mano paskirtas"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Suarchyvuoti straipsniai"
+
+msgid "submission.authors"
+msgstr "Autoriai"
+
+msgid "submission.authorBiography"
+msgstr "Autoriaus biografija"
+
+msgid "submission.authorBiographies"
+msgstr "Autoriaus biografijos"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} ir kt."
+
+msgid "submission.representationOfTitle"
+msgstr "{$title} {$representation}"
+
+msgid "submission.mySubmissions"
+msgstr "Mano parašyti"
+
+msgid "submission.addFile"
+msgstr "Įkelti failą"
+
+msgid "submission.additionalFiles"
+msgstr "Papildomi failai"
+
+msgid "submission.agencies"
+msgstr "Agentūros"
+
+msgid "submission.abstractViews"
+msgstr "Anotacijos peržiūros"
+
+msgid "submission.accepted"
+msgstr "Priimta"
+
+msgid "submission.acknowledge"
+msgstr "Pavirtinti"
+
+msgid "submission.attachedFile"
+msgstr "Pridėtas failas"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Grįžti į straipsnio redagavimą"
+
+msgid "submission.changeComments"
+msgstr "Pakeisti į"
+
+msgid "submission.changeFile"
+msgstr "Pakeisti failą"
+
+msgid "submission.citations"
+msgstr "Nuorodos"
+
+msgid "submission.citations.description"
+msgstr ""
+"Kiekvieną nuorodą įveskite naujoje eilutėje, kad jas būtų galima ištraukti."
+
+msgid "submission.parsedCitations"
+msgstr "Ištrauktos nuorodos"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Šios nuorodos buvo ištrauktos ir bus susietos su straipsnio metaduomenimis."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Ištraukti ir išsaugoti nuorodas"
+
+msgid "submission.comments.addComment"
+msgstr "Pridėti komentarą"
+
+msgid "submission.comments.comments"
+msgstr "Komentarai"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Ar tikrai norite ištrinti šį komentarą?"
+
+msgid "submission.comments.corrections"
+msgstr "Taisymai"
+
+msgid "submission.comments.editComment"
+msgstr "Taisyti komentarą"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Įkelti recenzijas"
+
+msgid "submission.comments.addReviews"
+msgstr "Pridėti recenzijas prie elektroninio laiško"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Recenzentas {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Nieko nėra"
+
+msgid "submission.comments.noReviews"
+msgstr "Nieko nėra"
+
+msgid "submission.comments.review"
+msgstr "Recenzija"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Siųsti recenzentams redakcijos sprendimą"
+
+msgid "submission.comments.subject"
+msgstr "Tema"
+
+msgid "submission.complete"
+msgstr "Baigta"
+
+msgid "submission.contributors"
+msgstr "Autorių sąrašas"
+
+msgid "submission.copyedited"
+msgstr "Suredaguota"
+
+msgid "submission.copyediting"
+msgstr "Redaguojami"
+
+msgid "submission.queryNoteFiles"
+msgstr "Diskusijos failai"
+
+msgid "submission.coverage"
+msgstr "Aprėpties informacija"
+
+msgid "submission.details"
+msgstr "Pateikimo informacija"
+
+msgid "submission.done"
+msgstr "Atlikta"
+
+msgid "submission.downloads"
+msgstr "Atsisiuntimai"
+
+msgid "submission.dueDate"
+msgstr "Atlikti iki"
+
+msgid "submission.due"
+msgstr "Laukiama"
+
+msgid "submission.editing"
+msgstr "Redagavimas"
+
+msgid "submission.editMetadata"
+msgstr "Taisyti metaduomenis"
+
+msgid "submission.editorial"
+msgstr "Redaguojamas"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Grįžti į elektroninio pašto žurnalą"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Ar tikrai norite išvalyti šios straipsnio elektroninio pašto žurnalą?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Ar tikrai norite ištrinti šį elektroninio pašto žurnalo įrašą?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Ištrinti žurnalo įrašą"
+
+msgid "submission.emailLog"
+msgstr "Elektroninio pašto žurnalas"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) paskirtas prie šio straipsnio kaip „{$userGroupName}“."
+
+msgid "submission.event.participantRemoved"
+msgstr "{$name} ({$username}) pašalintas iš grupės „{$userGroupName}“."
+
+msgid "submission.event.backToEventLog"
+msgstr "Grįžti į įvykių žurnalą"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Ar tikrai norite išvalyti šio straipsnio įvykių žurnalą?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Ar tikrai norite ištrinti įrašą iš šio įvykio žurnalo?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Ištrinti žurnalo įrašą"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"El. laiškas apie sprendimą buvo išsiųstas {$recipientCount} recenzentui(-ams)"
+" tema {$subject}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Pradinis straipsnis pateiktas."
+
+msgid "submission.event.copyrightAgreed"
+msgstr "{$filename} ({$username}) sutiko su pateikimo autorių teisių sąlygomis."
+
+msgid "submission.event.fileRevised"
+msgstr "Įkeltas pataisytas „{$name}“ (failo ID {$fileId}-{$fileRevision})."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Straipsnio metaduomenys atnaujinti"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Straipsnio failas atnaujintas"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Recenzijos prieskyra priimta pagal įgaliotąjį serverį"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Recenzijos prieskyra priimta"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Recenzijos prieskyra atmesta"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Pakeista data, iki kurios reikia pateikti recenziją"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Recenzentas (-ė) paskirtas (-a) prie straipsnio"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Recenzento (-ės) įvertinimas pateiktas"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Straipsnio recenzentas (-ė) pašalintas (-a)"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Recenzijos failas atnaujintas"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Recenzijos prieskyra pradėta"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Recenzijos rekomendacijos failas"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Recenzijos prieskyra pakartotinai pradėta"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Recenzento peržiūros failas atnaujintas"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+"{$senderName} išsiuntė priminimą {$recipientName} dėl jo peržiūros užduoties"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+"Automatinis priminimo el. laiškas buvo išsiųstas adresu {$recipientName} dėl "
+"jo peržiūros užduoties"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Elektroninis laiškas išsiųstas:"
+
+msgid "submission.event.viewEmail"
+msgstr "Peržiūrėti elektroninį laišką"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autoriai dabar gali redaguoti metaduomenis, kai pateikia darbą {stage} etape."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autoriai dabar negali redaguoti metaduomenų, kai pateikiami {stage} etape."
+
+msgid "submission.files"
+msgstr "Failai"
+
+msgid "submission.files.downloadAll"
+msgstr "Atsisiųsti visus failus"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr "Failo įkėlėjo įrašas išsaugomas sukūrus failą ir jo negalima pakeisti."
+
+msgid "submission.firstPublished"
+msgstr "Pirmą kartą publikuota"
+
+msgid "submission.forTheEditors"
+msgstr "Redaktoriams"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Recenzento pasiūlymui"
+
+msgid "submission.galley"
+msgstr "Skiltis"
+
+msgid "submission.history.clearLog"
+msgstr "Išvalyti žurnalą"
+
+msgid "submission.history"
+msgstr "Istorija"
+
+msgid "submission.history.noLogEntries"
+msgstr "Nėra įrašų žurnale."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Paskiausi įrašai"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Elektroninio pašto žurnalas"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Įvykių žurnalas"
+
+msgid "submission.history.submissionNotes"
+msgstr "Pastabos dėl straipsnio"
+
+msgid "submission.history.viewLog"
+msgstr "Peržiūrėti žurnalą"
+
+msgid "submission.howToCite"
+msgstr "Kaip cituoti"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Daugiau citavimo formatų"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Atsisiųsti citatas"
+
+msgid "submission.initiated"
+msgstr "Pradėta"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Atnaujinta {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Versijos"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublication} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Tai pasenusi versija, paskelbta {$datePublished}. Skaitykite <a href=\""
+"{$urlRecentVersion}\">naujausią versiją</a>."
+
+msgid "submission.identifiers"
+msgstr "Identifikatoriai"
+
+msgid "submission.publisherId"
+msgstr "Viešosios nuorodos (URL) identifikatorius"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Leidėjo ID gali būti naudojamas norint įrašyti ID iš išorinės duomenų bazės. "
+"Pavyzdžiui, elementai, eksportuojami deponavimui į „PubMed“, gali apimti "
+"leidėjo ID. Jis neturėtų būti naudojamas DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Įjungti {$objects}"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Informacija apie straipsnį"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metaduomenys"
+
+msgid "submission.informationCenter.notes"
+msgstr "Pastabos"
+
+msgid "submission.informationCenter.history"
+msgstr "Istorija"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Rodyti ankstesnių versijų pokyčius"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Pranešti"
+
+msgid "submission.lastModified"
+msgstr "Paskutiniai pakeitimai"
+
+msgid "submission.layout.addGalley"
+msgstr "Pridėti maketo skiltį"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Ar tikrai norite negrįžtamai ištrinti šią skiltį?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Ar tikrai norite pašalinti šį paveikslėlį iš šios skilties?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Pašalinti šį stilių failą."
+
+msgid "submission.layout.editGalley"
+msgstr "Taisyti maketo skiltį"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Skilties formatas"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML skilties failai"
+
+msgid "submission.layout.galleyImages"
+msgstr "Paveikslėliai"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Skilties etiketė"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Paprastai naudojamas failo formatas (pvz., PDF, HTML ir kt.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Reikia pateikti skilties etiketę."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Reikia pateikti skilties kalbą."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Reikia pateikti skilties lokalę."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Nuotolinės prieigos nuoroda (URL)"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Pateikite tinkamą nuotolinės prieigos nuorodą (URL) (su http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Nėra paveikslėlių"
+
+msgid "submission.layout.galleys"
+msgstr "Skiltys"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stilių failai"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stilius"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Pradinės skilties sukūrimas"
+
+msgid "submission.layout.layoutFile"
+msgstr "Maketo failas"
+
+msgid "submission.layout"
+msgstr "Maketas"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Maketo versija"
+
+msgid "submission.layout.newGalley"
+msgstr "Sukurti naują skiltį"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Prie šios skilties nepridėtas stilių failas."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Straipsnio skilties peržiūra"
+
+msgid "submission.layout.viewProof"
+msgstr "Peržiūrėti korektūrą"
+
+msgid "submission.metadata"
+msgstr "Straipsnio metaduomenys"
+
+msgid "submission.noReviewAssignments"
+msgstr "Nėra recenzijos prieskyrų"
+
+msgid "submission.notes.addNewNote"
+msgstr "Pridėti naują pastabą"
+
+msgid "submission.notes.attachedFile"
+msgstr "Failo priedas"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Grįžti į pastabas apie straipsnį"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Pastabos"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Išvalyti visas pastabas"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Suskleisti pastabas"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Pašalinti visas pastabas apie straipsnį?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Pašalinti šią pastabą apie straipsnį?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Sukurti naują pastabą"
+
+msgid "submission.notes.deleteNote"
+msgstr "Ištrinti pastabą"
+
+msgid "submission.notes.editNote"
+msgstr "Taisyti pastabą"
+
+msgid "submission.notes.expandNotes"
+msgstr "Išskleisti pastabas"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Nieko nėra"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Pašalinti įkeltą failą"
+
+msgid "submission.notes"
+msgstr "Pastabos apie straipsnį"
+
+msgid "submission.page.editing"
+msgstr "Nr. {$id} redagavimas"
+
+msgid "submission.page.history"
+msgstr "Nr. {$id} istorija"
+
+msgid "submission.page.review"
+msgstr "Nr. {$id} recenzija"
+
+msgid "submission.page.summary"
+msgstr "Nr. {$id} santrauka"
+
+msgid "submission.page.citations"
+msgstr "Nr. {$id} citatos"
+
+msgid "submission.peerReview"
+msgstr "Recenzija"
+
+msgid "submission.production"
+msgstr "Leidžiamas"
+
+msgid "submission.recommendation"
+msgstr "Rekomendacija: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Atmesta"
+
+msgid "submission.request"
+msgstr "Prašymas"
+
+msgid "submission.response"
+msgstr "Atsakymas"
+
+msgid "submission.restrictions"
+msgstr "Apribojimai"
+
+msgid "submission.reviewMetadata"
+msgstr "Recenzijos metaduomenys"
+
+msgid "submission.review"
+msgstr "Recenzavimas"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Peržiūrėti ir pateikti"
+
+msgid "submission.reviewed"
+msgstr "Recenzuota"
+
+msgid "submission.reviewVersion"
+msgstr "Recenzijos versija"
+
+msgid "submission.rights"
+msgstr "Teisės"
+
+msgid "submissions.active"
+msgstr "Aktyvi"
+
+msgid "submissions.archived"
+msgstr "Archyvuota"
+
+msgid "submission.saveMetadata"
+msgstr "Išsaugoti metaduomenis"
+
+msgid "submissions.completed"
+msgstr "Pateikta"
+
+msgid "submissions.declined"
+msgstr "Atmesta"
+
+msgid "submissions.incomplete"
+msgstr "Neužbaigta"
+
+msgid "submissions.noSubmissions"
+msgstr "Nieko nėra"
+
+msgid "submissions.queuedEditing"
+msgstr "Redaguojama"
+
+msgid "submissions.queued"
+msgstr "Laukiama"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Nepaskirtas redaktorius."
+
+msgid "submissions.ruling"
+msgstr "Valdymas"
+
+msgid "submission.source"
+msgstr "Šaltinis"
+
+msgid "submissions.submit"
+msgstr "Pateikti"
+
+msgid "submissions.submitted"
+msgstr "Pateikta"
+
+msgid "submission.submission"
+msgstr "Įteiktas"
+
+msgid "submission.submissionTitle"
+msgstr "Straipsnio antraštė:"
+
+msgid "submission.start"
+msgstr "Pradžia"
+
+msgid "submission.submissionHistory"
+msgstr "Straipsnio istorija"
+
+msgid "submission.submissionManuscript"
+msgstr "Straipsnio rankraštis"
+
+msgid "submission.submissionReview"
+msgstr "Straipsnio recenzija"
+
+msgid "submission.submitter"
+msgstr "Teikėjas"
+
+msgid "submission.submit.selectFile"
+msgstr "Pasirinkti failą"
+
+msgid "submission.submit.fileInformation"
+msgstr "Informacija apie failą"
+
+msgid "submission.submit.fileAdded"
+msgstr "Failas įkeltas"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Įtraukite šį prisidėjusį asmenį į publikacijų autorių sąrašus."
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Publikacijų sąrašai"
+
+msgid "submission.submit.newFile"
+msgstr "Pridėti kitą failą"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Kalba, kuria teikiamas straipsnis"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Straipsniai priimami keliomis kalbomis. Iš pateikto sąrašo pasirinkite, "
+"kuria kalba norite teikti šį straipsnį."
+
+msgid "submission.submit.dependentFiles"
+msgstr "Priklausomieji failai"
+
+msgid "submission.manageDependentFiles"
+msgstr "Tvarkyti priklausomuosius failus"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Įkelkite visus failus, kurių redakcijos komandai reikės jūsų pateiktam "
+"darbui įvertinti."
+
+msgid "submission.upload.percentComplete"
+msgstr "Įkėlimas baigtas ({$percent}%)"
+
+msgid "submission.upload.dependent"
+msgstr "Įkelti priklausomąjį failą"
+
+msgid "submission.upload.query"
+msgstr "Įkelti diskusijų failą"
+
+msgid "submission.summary"
+msgstr "Santrauka"
+
+msgid "submission.supportingAgencies"
+msgstr "Remiančios agentūros"
+
+msgid "submission.currentAgencies"
+msgstr "Dabartinės agentūros"
+
+msgid "submission.indexingInformation"
+msgstr "Informacija apie indeksavimą"
+
+msgid "submission.titleAndAbstract"
+msgstr "Antraštė ir anotacija"
+
+msgid "submission.underway"
+msgstr "Vykdoma"
+
+msgid "submission.uploadFileTo"
+msgstr "Įkelti failą į"
+
+msgid "submission.createRemote"
+msgstr "Sukurti nuotolinę"
+
+msgid "submission.viewMetadata"
+msgstr "Peržiūrėti metaduomenis"
+
+msgid "submission.views"
+msgstr "Peržiūros"
+
+msgid "submission.uploadSuccessful"
+msgstr "Jūsų failas įkeltas."
+
+msgid "submission.loadMessage"
+msgstr "Palaukite, kol Jūsų failas keliamas į serverį."
+
+msgid "submission.artworkFileDetails"
+msgstr "Informacija apie meno kūrinio failą"
+
+msgid "submission.fileDetails"
+msgstr "Informacija apie failą"
+
+msgid "submission.nameRequired"
+msgstr "Reikia pateikti šio elemento pavadinimą."
+
+msgid "submission.date.mmdd"
+msgstr "MĖNUO-DIENA"
+
+msgid "submission.date.yyyymmdd"
+msgstr "METAI-MĖNUO-DIENA"
+
+msgid "submission.submit.contributorRole"
+msgstr "Autoriaus funkcija"
+
+msgid "submission.submit.addAuthor"
+msgstr "Pridėti autorių"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Įveskite kalbą."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Įveskite temą."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Įveskite discipliną."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Įveskite esminį žodį."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Įveskite aprėpties informaciją."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Nurodykite tipą."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Nurodykite šaltinį."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Nurodykite teises."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Pateikite nuorodas."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Prašome įvesti duomenų prieinamumo pareiškimą."
+
+msgid "submission.form.name"
+msgstr "Pateikite failo pavadinimą (pvz. Rankraštis; 1-a lentelė)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Pakeisti esantį failą?"
+
+msgid "workflow.review.internalReview"
+msgstr "Vidinė recenzija"
+
+msgid "workflow.stage.any"
+msgstr "Bet kuris etapas"
+
+msgid "workflow.stage"
+msgstr "Etapas"
+
+msgid "submission.status.editorial"
+msgstr "Redaguojama"
+
+msgid "submission.status.production"
+msgstr "Koreguojama"
+
+msgid "submission.status.review"
+msgstr "Recenzuojama"
+
+msgid "submission.status.submission"
+msgstr "Laukiama redaktoriaus sprendimo"
+
+msgid "submission.status.unassigned"
+msgstr "Nepriskirta"
+
+msgid "submission.status.declined"
+msgstr "Atmesta"
+
+msgid "submission.status.published"
+msgstr "Publikuota"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Įkelti failus"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Įkelti straipsnio failus"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Pervadinti"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Patvirtinti"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Reikia, kad įvestumėte šio failo pavadinimą"
+
+msgid "submission.upload.noGenre"
+msgstr "Trūkstamas ar netinkamas komponentas!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Trūkstama ar netinkama vartotojo grupė!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Aptiktas galimas dublikatas ar pakartotinas taisymas"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Įkelto failo pavadinimas yra panašus į anksčiau įkelto failo "
+"„{$revisedFileName}“. Ar šis failas turėtų pakeisti „{$revisedFileName}“? "
+"Jei taip, pasirinkite kurį. Priešingu atveju pasirinkite „Tai nėra esančio "
+"failo pataisymai“ prieš tęsdami."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Pasirinkite failą, kurį norėtumėte pataisyti."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Jeigu norite pakeisti įkeltą failą, nurodykite kurį."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Tai naujas failas"
+
+msgid "submission.upload.userGroup"
+msgstr "Įkelti šį failą kaip..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Jei norite pateikti suredaguotą tomą, Jūs, kaip tomo redaktorius, turite "
+"įkelti visas tomo dalis atskirai."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Įkelti bibliotekos failą"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Straipsnio dokumento kategorija"
+
+msgid "submission.upload.finalDraft"
+msgstr "Įkelti failą"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Baigus recenzuoti paskirtą failą, visus komentarus įrašykite žemiau "
+"esančiame faile ir (ar) įkelkite anotuotą failo kopiją (ar kitą failą)."
+
+msgid "submission.upload.productionReady"
+msgstr "Įkelkite produkcijai parengtą failą"
+
+msgid "submission.upload.proof"
+msgstr "Įkelkite publikavimui parengtą failą"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Šiuo metu Jums nėra paskirta taisyti jokių failų."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Recenzentų pasiūlymai"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Prašoma pataisyti."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Pataisymai pateikti."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Straipsnį reikia pateikti recenzuoti dar kartą."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Straipsnis pateiktas recenzuoti dar kartą."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Išsiųsta išoriniam recenzavimui."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Straipsnis priimtas."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Straipsnis atmestas."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Laukiama, kol bus priskirti recenzentai."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Laukiama recenzentų atsakymo."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Pateikta naujų recenzijų."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Gautos visos recenzijos, laukiama sprendimo."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Recenzija vėluoja."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Rekomendaciją pateikėte jūs."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Laukiama redaktorių rekomendacijų."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Pateiktos naujos redakcijos rekomendacijos."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Gautos visos rekomendacijos, laukiama sprendimo."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Grąžinta atgal apžiūrai."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Neaktyvus ilgiau nei {$days} dienas {$stage} etape."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Laukiama, kol bus išsiųstas naujas pateikimas peržiūrai arba atmestas."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Dalyviai"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Autoriaus pasiūlyti recenzentai"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Nepaskirta"
+
+msgid "editor.submission.participant"
+msgstr "Dalyvis (-ė)"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Paskirti dalyvį (-ę)"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Redaguoti užduotį"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Vartotojai priskiriami darbo eigos etapams pagal vartotojų grupę. Bet kuris "
+"grupės vartotojas, priskirtas šiam etapui bus automatiškai priskirtas ir "
+"kitiems etapams, kuriems priskirta ta vartotojų grupė. Paprastai tai "
+"naudojama redaktoriams, autoriams ir vertėjams."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Pašalinti dalyvį (-ę)"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Jūs ketinate pašalinti šį dalyvį iš <strong>visų</strong> etapų. Jei "
+"vartotojas turi nebaigtų užduočių, jos bus taip pat pašalintos."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Reikia nurodyti vartotojų grupę."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Reikia nurodyti vartotoją nurodytai grupei."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Jūsų pasirinktam dalyviui (-ei) jau yra paskirta anonimiškai recenzuoti. Jei "
+"jį (-ą) priskirsite kaip dalyvį (-ę), jis (-i) matys autoriaus tapatybę. "
+"Jums siūloma nepriskirti šio (-s) dalyvio (-ės), nebent jūs nešališkai "
+"užtikrinsite recenzavimo proceso skaidrumą."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Neleisti redaguoti metaduomenų"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Leisti redaguoti metaduomenis"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Ar tikrai norite, kad šio pateikimo autoriai negalėtų redaguoti pateikimo "
+"metaduomenų tame etape?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Ar tikrai norite, kad šio pateikimo autoriai galėtų redaguoti pateikimo "
+"metaduomenis tame etape?"
+
+msgid "editor.submission.decision"
+msgstr "Sprendimas"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Pranešti autoriams"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Pranešti recenzentams"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Išsiųskite recenzentams el. laišką, kuriame padėkotumėte jiems už "
+"atsiliepimą ir praneštumėte, kad sprendimas buvo priimtas. Kiekvienam "
+"recenzentui bus išsiųstas atskiras el. laiškas, siekiant apsaugoti jų "
+"anonimiškumą. Laiške galima naudoti frazę {$recipientName}, kad būtų galima "
+"saugiai įtraukti kiekvieno recenzento vardą."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Išsiųskite el. laišką priskirtiems recenzentams, kad praneštumėte jiems, jog "
+"jų peržiūros užduotis atšaukta."
+
+msgid "editor.submission.decision.accept"
+msgstr "Priimti straipsnį"
+
+msgid "editor.submission.decision.accept.description"
+msgstr "Šis darbas bus priimtas publikuoti ir išsiųstas redagavimui."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} priėmė šį pateiktą tekstą ir nusiuntė jį redagavimo etapui."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Pateikimas priimtas"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Pateiktas darbas „{$title}“ buvo priimtas publikuoti ir išsiųstas redagavimo "
+"etapui. Visi pranešimai išsiųsti, išskyrus tuos, kuriuos pasirinkote "
+"praleisti."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad praneštumėte, jog jų pateiktas darbas "
+"priimtas publikuoti. Šis el. laiškas bus išsiųstas tik tada, kai bus "
+"užregistruotas sprendimas."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad praneštumėte, jog peržiūros etapas "
+"baigtas. Šis el. laiškas bus išsiųstas tik užregistruojant sprendimą."
+
+msgid "editor.submission.decision.decline"
+msgstr "Atmesti straipsnį"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Šis pateiktas darbas bus atmestas ir nepublikuotas. Kolegų vertinimo etapas "
+"bus baigtas, o pateiktas darbas bus archyvuotas."
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} atmetė šį pateikimą."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Pateikimas atmestas"
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"Pateikta medžiaga „{$title}“ buvo atmesta ir išsiųsta į archyvą. Visi "
+"pranešimai išsiųsti, išskyrus tuos, kuriuos pasirinkote praleisti."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, pranešdami, kad jų pateiktas darbas buvo "
+"atmestas. Šis el. laiškas bus išsiųstas tik tada, kai bus užregistruotas "
+"sprendimas."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Šis pateiktas darbas bus atmestas ir nepublikuojamas. Tolesnė peržiūra nebus "
+"atliekama, o pateiktas darbas bus archyvuotas."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Naujas peržiūros etapas"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Pradėti dar vieną šio pateikimo peržiūros etapą."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} sukūrė naują peržiūros etapą šiam pateiktam darbui."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Sukurtas peržiūros etapas"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"Pateiktam darbui „{$title}“ sukurtas naujas peržiūros etapas. Autorius buvo "
+"informuotas, nebent pasirinkote praleisti tą el. laišką."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad praneštumėte, jog jų pateiktas darbas "
+"išsiųstas naujam peržiūros etapui. Šis el. laiškas bus išsiųstas tik tada, "
+"kai bus užregistruotas sprendimas."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Pasirinkite failus, kurie turėtų būti siunčiami peržiūrai."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Pasirinkite failus, kurie turėtų būti siunčiami į gamybos etapą."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Prieš priimant šį darbą publikavimui, autorius turi pateikti pataisymus."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} užsakė pataisymus šiam pateiktam darbui."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Prašomos pataisos"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"Pateikto darbo {$title} pataisymai pateikti. Visi pranešimai išsiųsti, "
+"išskyrus tuos, kuriuos pasirinkote praleisti."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kuriame praneštumėte, kad prieš priimant šį "
+"pateiktą darbą publikavimui, reikės jį pataisyti. Pateikite visą "
+"informaciją, kurios autoriui reikės norint peržiūrėti pateiktą darbą. Jei "
+"reikia, nepamirškite nuasmeninti recenzentų komentarų. Šis el. laiškas nebus "
+"išsiųstas, kol nebus užregistruotas sprendimas."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Atšaukti peržiūros raundą"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Atšaukti dabartinį peržiūros etapą ir grąžinti pateiktą darbą į paskutinį "
+"peržiūros etapą. Jei tai pirmasis peržiūros etapas, jis bus grąžintas į "
+"pateikimo etapą."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} atšaukė peržiūros etapą."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Atšauktas paskutinis peržiūros etapas."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"Pateikto darbo „{$title}“ peržiūros etapas atšauktas. Visi pranešimai "
+"išsiųsti, išskyrus tuos, kuriuos pasirinkote praleisti."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Peržiūros etapą galima atšaukti tik tuo atveju, jei nė vienas susijęs "
+"recenzentas neturi užbaigtų ar pateiktų atsiliepimų."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Autorius turi pateikti pataisymus, kurie bus išsiųsti kitam peržiūros "
+"etapui, prieš priimant šį darbą publikavimui."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} užklausė šio pateikto darbo pataisymų, kurie turėtų būti "
+"siunčiami kitam peržiūros etapui."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Pateiktam darbui „{$title}“ pateikti pataisymai. Sprendimas siųsti "
+"pataisymus kitam peržiūros etapui užregistruotas. Visi pranešimai išsiųsti, "
+"išskyrus tuos, kuriuos pasirinkote praleisti."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad praneštumėte, jog reikės atlikti "
+"pataisymus ir išsiųsti juos kitam peržiūros etapui. Pateikite visą "
+"informaciją, kurios autoriui reikės norint peržiūrėti savo pateiktą darbą. "
+"Jei reikia, nepamirškite nuasmeninti visų recenzentų komentarų."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Siųsti peržiūrai"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Šis darbas paruoštas siųsti recenzuoti."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} išsiuntė šį darbą peržiūros etapui."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Išsiųsta peržiūrai"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"Pateiktas darbas, {$title}, buvo išsiųstas peržiūros etapui. Autorius buvo "
+"informuotas, nebent pasirinkote praleisti tą el. laišką."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Naujas peržiūros etapas"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Siųsti produkcijai"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Nusiųskite šį darbą į gamybos etapą, kad jis būtų paruoštas publikavimui."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} išsiuntė šį darbą į gamybos etapą."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Išsiųsta į gamybą"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+"Pateiktas darbas, {$title}, buvo išsiųstas į gamybos etapą. Autorius buvo "
+"informuotas, nebent pasirinkote praleisti tą el. laišką."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad šis pateikimas buvo išsiųstas į gamybos "
+"etapą. Šis el. laiškas nebus išsiųstas, kol nebus užregistruotas sprendimas."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Atšaukti kopijavimą"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Grąžinkite šį darbą iš redagavimo etapo."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} grąžino šį darbą iš redagavimo etapo."
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"Pateiktas darbas, {$title}, buvo grąžintas iš redagavimo etapo. Autorius "
+"buvo informuotas, nebent pasirinkote praleisti tą el. laišką."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad praneštumėte, jog redagavimas atšauktas "
+"ir jų pateiktas darbas bus papildomai peržiūrimas redaktoriaus."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Grįžti į kopijavimą"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Grąžinkite šį darbą redagavimo etapui."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} grąžino šį darbą redagavimo etapui."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Išsiųsta atgal redagavimui"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"Pateiktas darbas, {$title}, buvo grąžintas redagavimo etapui. Autorius buvo "
+"informuotas, nebent pasirinkote praleisti tą el. laišką."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad praneštumėte, jog šis darbas grąžintas "
+"redagavimo etapui. Paaiškinkite, kodėl buvo priimtas toks sprendimas, ir "
+"informuokite autorių, kokių tolesnių redagavimo darbų reikės, kad šis darbas "
+"būtų paruoštas gamybai."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Priimti be recenzavimo"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Priimti šį pateiktą tekstą publikavimui ir praleisti peržiūros etapą. Šis "
+"sprendimas nukreips pateiktą tekstą į redagavimo etapą."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} praleido peržiūros etapą ir nusiuntė šį darbą redagavimo "
+"etapui."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Praleista apžvalga"
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Pateiktas darbas „{$title}“ nebuvo peržiūrėtas ir buvo išsiųstas į "
+"redagavimo etapą. Autorius buvo informuotas, nebent pasirinkote praleisti tą "
+"el. laišką."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad praneštumėte, jog šis darbas buvo "
+"priimtas publikuoti ir išsiųstas redagavimo etapui be peržiūros. Šis el. "
+"laiškas nebus išsiųstas, kol nebus užregistruotas sprendimas."
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Siųsti vidiniam recenzavimui"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Norint padaryti puslapio korektūros failą pasiekiamą, reikia jį patvirtinti. "
+"Ar norite tai padaryti?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Patvirtinti pataisymus"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Šio failo korektūros nebebus viešai pasiekiamos atsisiuntimui ar pirkimui. "
+"Ar norite pašalinti patvirtinimą?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Grąžinti atmetimą"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Atšaukti ankstesnį sprendimą atmesti šį pateikimą ir grąžinti jį į aktyvų "
+"redagavimo procesą. Autorius buvo informuotas, nebent pasirinkote praleisti "
+"tą el. laišką."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} atšaukė sprendimą atmesti šį pateikimą."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Pateikimas iš naujo aktyvuotas"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+"Pateikta medžiaga, {$title}, dabar yra aktyvi pateikimo peržiūros etape."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Išsiųskite autoriams el. laišką, kad ankstesnis sprendimas atmesti šį "
+"pateiktą darbą buvo atšauktas. Paaiškinkite, kodėl sprendimas buvo "
+"atšauktas, ir praneškite, ar numatoma, kad pateiktas darbas bus toliau "
+"peržiūrimas."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"Pateikimas, {$title}, dabar aktyvus pateikimo etape. Autorius buvo "
+"informuotas, nebent pasirinkote praleisti tą el. laišką."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Skirti redaktorių, kuris priimtų sprendimus šiame darbo etape."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Išsiųskite žinutę sprendžiantiems redaktoriams, kad praneštumėte jiems apie "
+"rekomendaciją. Paaiškinkite, kodėl ši rekomendacija buvo pateikta "
+"atsižvelgiant į recenzentų pateiktas rekomendacijas ir komentarus."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Rekomenduoti Priimti"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Rekomenduoti, kad šis darbas būtų priimtas publikuoti ir išsiųstas "
+"redagavimui."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} rekomendavo, kad šis darbas būtų priimtas ir išsiųstas "
+"redagavimui."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Pateikta rekomendacija"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Jūsų rekomendacija užregistruota ir apie ją informuotas sprendžiantysis "
+"(-ieji) redaktorius (-iai)."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Rekomenduojami pakeitimai"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Rekomenduoti, kad prieš priimant šį darbą publikavimui, būtų paprašyta "
+"autoriaus atlikti pataisymus."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} rekomendavo prašyti pataisymų."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Rekomenduoti pateikti iš naujo peržiūrai"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Rekomenduoti paprašyti autoriaus pateikti pataisymus kitam peržiūros etapui."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} rekomendavo prašyti pataisymų ir siųsti šiuos pataisymus kitam "
+"peržiūros etapui."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Rekomenduoti atmesti"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Siūlyti atmesti pateiktą darbą publikavimui."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} rekomendavo atmesti šį pateikimą."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Sukurti pasiūlymą"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Pakeisti pasiūlymą"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Pasiūlymas: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Pasiūlymai: {$recommendation}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Negalite pateikti rekomendacijos, kol redaktoriui nebus suteiktas leidimas "
+"įrašyti sprendimą."
+
+msgid "editor.submission.recommendation"
+msgstr "Pasiūlymas"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Pasiūlykite redakcijos sprendimą dėl šio pateikimo."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Įrašyti pasiūlymai"
+
+msgid "submission.currentStage"
+msgstr "Dabartinis etapas"
+
+msgid "submission.noActionRequired"
+msgstr "Nereikia nieko daryti"
+
+msgid "submission.actionNeeded"
+msgstr "Reikia imtis veiksmų"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Peržiūrėti failus"
+
+msgid "submission.submit.currentFile"
+msgstr "Dabartinis failas"
+
+msgid "submission.finalDraft"
+msgstr "Juodraščiai"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Įvyko klaida priskiriant autorių. Pabaidykite dar kartą."
+
+msgid "submission.event.fileEdited"
+msgstr "Failo \\\"{$filename}\\\" metaduomenis redagavo {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"{$username} įkėlė straipsnio „{$submissionId}“ failą „{$originalFileName}“."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"{$username} ištrynė straipsnio „{$submissionId}“ failą „{$originalFileName}“."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"{$username} įkėlė pataisytą straipsnio „{$submissionId}“ failą "
+"„{$originalFileName}“."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"{$username} ištrynė pataisytą straipsnio „{$submissionId}“ failą "
+"„{$originalFileName}“."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "{$username} ištrynė paskutinius failo „{$title}“ pataisymus."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$userFullName}\" ({$username}) buvo pašalintas kaip failo \"{$filename}\" "
+"auditorius"
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "„{$name}“ ({$username}) patikrino ir įkėlė failą „{$file}“"
+
+msgid "submission.event.signoffSignoff"
+msgstr "„{$name}“ ({$username}) atsijungė nuo failo „{$file}“"
+
+msgid "submission.event.proofsApproved"
+msgstr "„{$name}“ ({$username}) patvirtino formato „{$formatName}“ korektūrą"
+
+msgid "submission.overview"
+msgstr "Straipsnio apžvalga"
+
+msgid "submission.description"
+msgstr "Aprašymas"
+
+msgid "submission.stageNotInitiated"
+msgstr "Dar nepradėta."
+
+msgid "submission.documents"
+msgstr "Straipsnio dokumentai"
+
+msgid "notification.type.editorAssign"
+msgstr "Jūs paskirta kaip straipsnio „{$title}“ vyriausioji redaktorė."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Jūsų prašoma peržiūrėti teksto redagavimą failui „{$title}“."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Jūsų prašoma peržiūrėti maketą failui „{$title}“."
+
+msgid "notification.type.indexRequest"
+msgstr "Jūsų prašoma sukurti indeksą failui „{$title}“."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Paskiausias redaktoriaus sprendimas."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Straipsnis priimtas."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Išorinis recenzavimas pradėtas."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Reikia pataisyti."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Pakartotinai pateikti recenzuoti."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Pradėtas naujas peržiūrų etapas."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Straipsnis atmestas."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Atmestas pateikimas vėl aktyvuotas."
+
+msgid "notification.uploadedResponse"
+msgstr "Atsakymas įkeltas."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Reikia paskirti redaktorių prieš recenzavimą. Pasirinkite redaktorių iš "
+"dalyvių sąrašo."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Sukurta nauja pateikto darbo versija"
+
+msgid "notification.type.revertDecline"
+msgstr "Sprendimas atmesti šį pateikimą buvo atšauktas."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Recenzento priedai"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Pasirinkite recenzijos failus, kuriuos bendrinsite su autoriumi (-iais)"
+
+msgid "submission.productionReady"
+msgstr "Knyga prieinama"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Įkelti pataisytą failą"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} paskirtas (-a) recenzuoti straipsnį „{$submissionId}“ "
+"{$round} kartą."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"{$round} peržiūros etapas, kurį atliko {$reviewerName}, pateiktam darbui "
+"{$submissionId}, buvo sėkmingas."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} pažymėjo straipsnio „{$submissionId}“ {$round} recenziją kaip "
+"nesvarstomą."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"{$round} etapo peržiūra, kurią atliko {$reviewerName} pateiktam darbui "
+"{$submissionId}, buvo atnaujinta."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Pakartotinai išsiųskite {$reviewerName} užklausą peržiūrėti {$round} etape "
+"dėl pateikto darbo {$submissionid}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktorius {$editorName} patvirtino pateikto darbo {$submissionId} peržiūrą "
+"{$round} peržiūros etape."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} baigė {$round} peržiūros etapo pateiktą darbą "
+"{$submissionId}."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Laukiama recenzento atsakymo."
+
+msgid "submission.review.status.declined"
+msgstr "Recenzentas atmetė šį prašymą recenzuoti."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Recenzentas laiku neatsakė."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Recenzentas laiku nepateikė recenzijos."
+
+msgid "submission.review.status.accepted"
+msgstr "Ši recenzija priimta."
+
+msgid "submission.review.status.received"
+msgstr "Recenzentas pateikė recenziją."
+
+msgid "submission.review.status.viewed"
+msgstr "Redaktorius peržiūrėjo apžvalgą."
+
+msgid "submission.review.status.complete"
+msgstr "Ši recenzija baigta."
+
+msgid "submission.review.status.thanked"
+msgstr "Ši recenzija baigta, o recenzentui padėkota už darbą."
+
+msgid "submission.document"
+msgstr "Dokumentas"
+
+msgid "submission.art"
+msgstr "Meno kūrinys"
+
+msgid "submission.supplementary"
+msgstr "Papildomas turinys"
+
+msgid "submission.supplementary.creator"
+msgstr "Failo kūrėjas (savininkas)"
+
+msgid "submission.supplementary.subject"
+msgstr "Tema"
+
+msgid "submission.supplementary.publisher"
+msgstr "Leidėjas"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Dalyvis ar remiančioji agentūra"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Eiti į šio straipsnio darbo eigą"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Produkcijos procesas pradėtas."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Kad būtų galima leisti, reikia paskirti leidimo redaktorių. Pridėkite "
+"leidimo redaktorių iš dalyvių sąrašo."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Kad būtų galima redaguoti, reikia paskirti leidimo redaktorių. Pridėkite "
+"leidimo redaktorių iš dalyvių sąrašo."
+
+msgid "submission.reviewForm"
+msgstr "Recenzijos forma"
+
+msgid "submission.reviewFormResponse"
+msgstr "Recenzijos formos atsakymas"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Sukurti naują recenzijos formos elementą"
+
+msgid "grid.action.editMetadata"
+msgstr "Taisyti metaduomenis"
+
+msgid "submission.permissions"
+msgstr "Leidimai"
+
+msgid "submission.attachPermissions"
+msgstr "Prie straipsnio pridėti šiuos leidimus:"
+
+msgid "submission.license"
+msgstr "Licencija"
+
+msgid "submission.copyright"
+msgstr "Autorių teisės"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Pasirinktinis autorių teisių pareiškimas"
+
+msgid "submission.copyrightOther"
+msgstr "Autorių teisių pareiškimas"
+
+msgid "submission.copyrightYear"
+msgstr "Autorių teisių metai"
+
+msgid "submission.copyrightStatement"
+msgstr "Autorių teisės (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Prašome pateikti tinkamą nuorodą (URL) (kartu su http://)."
+
+msgid "submission.licenseURL"
+msgstr "Licenzijos nuoroda (URL)"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC priskyrimo–nekomercinio naudojimo 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC priskyrimo–nekomercinio naudojimo–analogiško platinimo 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC priskyrimo–jokių išvestinių kūrinių 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC priskyrimo 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC priskyrimo–analogiško platinimo 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Šis darbas apsaugotas <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons "
+"priskyrimo–nekomercinio naudojimo–jokių išvestinių kūrinių 4.0 viešąja "
+"licencija</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>Šis darbas apsaugotas <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"priskyrimo–nekomercinio naudojimo 4.0 viešąja licencija</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Šis darbas apsaugotas <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons "
+"priskyrimo–nekomercinio naudojimo–analogiško platinimo 4.0 viešąja "
+"licencija</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>Šis darbas apsaugotas <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"priskyrimo–jokių išvestinių kūrinių 4.0 viešąja licencija</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Šis darbas apsaugotas <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/4.0/\">Creative Commons priskyrimo 4.0 "
+"viešąja licencija</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>Šis darbas apsaugotas <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"priskyrimo–analogiško platinimo 4.0 viešąja licencija</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons licencija\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Šis kūrinys licencijuotas pagal <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\""
+">Creative Commons priskyrimo–nekomercinė–be išvestinių darbų 3.0 (Unported) "
+"licenciją</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+"><img alt=\"Creative Commons licencija\" src=\"//i.creativecommons.org/l/"
+"by-nc/3.0/88x31.png\" /></a><p>Šis kūrinys licencijuotas pagal <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+">Creative Commons priskyrimo–nekomercinė 3.0 (Unported) licenciją</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons licencija\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Šis kūrinys licencijuotas pagal <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\""
+">Creative Commons priskyrimo–nekomercinė–panašiai dalijimosi 3.0 (Unported) "
+"licenciją</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+"><img alt=\"Creative Commons licencija\" src=\"//i.creativecommons.org/l/"
+"by-nd/3.0/88x31.png\" /></a><p>Šis kūrinys licencijuotas pagal <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+">Creative Commons priskyrimo–be išvestinių darbų 3.0 (Unported) "
+"licenciją</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons licencija\" src=\"//i.creativecommons.org/l/by/3"
+".0/88x31.png\" /></a><p>Šis kūrinys licencijuotas pagal <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"priskyrimo 3.0 (Unported) licenciją</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons licencija\" src=\"//i.creativecommons.org/l/"
+"by-sa/3.0/88x31.png\" /></a><p>Šis kūrinys licencijuotas pagal <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+">Creative Commons priskyrimo–panašiai dalijimosi 3.0 (Unported) "
+"licenciją</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Diskusijos (iki recenzavimo)"
+
+msgid "submission.queries.review"
+msgstr "Diskusijos (recenzuojant)"
+
+msgid "submission.queries.editorial"
+msgstr "Diskusijos (redaguojant)"
+
+msgid "submission.query.subject"
+msgstr "Tema"
+
+msgid "submission.query.messages"
+msgstr "Pranešimai"
+
+msgid "submission.query.lastReply"
+msgstr "Paskutinis atsakymas"
+
+msgid "submission.query.closed"
+msgstr "Baigta"
+
+msgid "submission.query.addNote"
+msgstr "Parašyti pranešimą"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Jei išeisite iš šios diskusijos, nebegausite pranešimų apie naujus "
+"pranešimus. Ar norite išeiti iš diskusijos?"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} atsakė į {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} pradėjo diskusiją: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Nauja veikla diskusijoje „{$queryTitle}“ dėl straipsnio „{$submissionTitle}“."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Jūs pridėtas prie diskusijos „{$queryTitle}“ dėl straipsnio "
+"„{$submissionTitle}“."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.allowedEditTime"
+msgstr "Šią diskusiją galite atnaujinti {$allowedEditTimeNoticeLimit} minutes."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Dabartinė pateikimo kalba:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Pakeisti"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Keisti pateikimo kalbą"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Tai yra pagrindinė pateikimo kalba. Jos pakeitimas turės įtakos pateikimui "
+"ir įvestiems metaduomenims"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Prieš keisdami pateikimo kalbą įsitikinkite, kad užpildėte šiuos "
+"metaduomenų laukus, kad būtų užtikrintas sistemos vientisumas. Taip pat "
+"atkreipkite dėmesį, kad prisidėjusių asmenų informacija ir failų pavadinimai "
+"bus nukopijuoti iš anksčiau įvestos informacijos.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Įveskite pateikto pavadinimo pavadinimą čia {$language}. Galite formatuoti "
+"pavadinimą pagal poreikį"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Rekomenduojama įtraukti santrauką {$language} kalba. Tai padės užtikrinti "
+"turinio prieinamumą"
+
+msgid "submission.list.infoCenter"
+msgstr "Veiksmų žurnalas ir pastabos"
+
+msgid "submission.list.empty"
+msgstr "Nerasta jokių pateiktų darbų."
+
+msgid "submission.list.responseDue"
+msgstr "Atsakymą pateikti iki"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Peržiūrėti užduotį"
+
+msgid "submission.list.reviewDue"
+msgstr "Recenziją pateikti iki"
+
+msgid "submission.list.reviewComplete"
+msgstr "Recenzija pateikta"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Peržiūra atšaukta"
+
+msgid "submission.list.confirmDelete"
+msgstr "Ištrinti straipsnį?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Peržiūrėti visus pateiktus darbus"
+
+msgid "submission.list.viewSubmission"
+msgstr "Peržiūrėti straipsnį"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Peržiūrėti pateiktų duomenų santrauką"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Paskirtos recenzijos pateiktos"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Taisymai pateikti"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Suredaguoti failai pateikti"
+
+msgid "submission.list.galleysCreated"
+msgstr "Pateikti galutiniai straipsnio failai"
+
+msgid "submission.list.filesPrepared"
+msgstr "Failai parengti"
+
+msgid "submission.list.discussions"
+msgstr "Diskutuojama"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Jums priskirtos kelios funkcijos darbui su šiuo straipsniu. Ar norėtumėte šį "
+"straipsnį tvarkyti kaip <a href=\"{$urlAuthorWorkflow}\">autorius (-ė)</a> "
+"ar <a href=\"{$urlEditorialWorkflow}\">redaktorius (-ė)</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Jums paskirta redaktoriaus funkcija darbui su šiuo straipsniu. Ar norėtumėte "
+"šp straipsnį tvarkyti kaip <a href=\"{$urlEditorialWorkflow}\">redaktorius "
+"(-ė)</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Šį straipsnį būtina pabaigti prieš redaktoriaus peržiūrą."
+
+msgid "submission.list.currentStage"
+msgstr "Šiuo metu etape „{$stage}“."
+
+msgid "submission.list.activity"
+msgstr "Veikla"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dienos nuo paskutinės veiklos"
+
+msgid "submission.list.completeSubmission"
+msgstr "Užbaigti pateikimą"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Šis pateikimas jau pateiktas. Peržiūrėkite jį savo <a href=\"{$url}\""
+">pateikimų skydelyje</a>."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Prieš pradėdami"
+
+msgid "submission.wizard.categories.description"
+msgstr "Pasirinkite tik tas kategorijas, kurios tinka jūsų pateikimui."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Keisti pateikimo nustatymus"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Atlikite veiksmus, kad pateiktumėte paraišką"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Prieš pateikiant užklausą, reikia išspręsti vieną ar daugiau problemų. "
+"Peržiūrėkite toliau pateiktą informaciją ir atlikite prašomus pakeitimus."
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Pridėkite bet kokią informaciją, kurią, jūsų manymu, mūsų redakcija turėtų "
+"žinoti vertindama jūsų pateiktą darbą."
+
+msgid "submission.wizard.confirm"
+msgstr "Prieš pateikdami, patvirtinkite toliau nurodytus dalykus."
+
+msgid "submission.wizard.title"
+msgstr "Pateikti paraišką"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Pateikite paraišką: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "Šiam pateikimui nepridėta jokių bendraautorių."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Šiam pateiktį recenzentai nepasiūlyti."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "Vieno ar kelių bendraautorių vardas ({$language}) nenurodytas."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Vieno ar kelių bendraautorių vienos ar kelių filialų filialo pavadinimas "
+"{$language} kalba nenurodytas."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Neleidžiama"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Privatumo sutikimas"
+
+msgid "submission.wizard.saved"
+msgstr "Išsaugota vėlesniam laikui"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Jūsų pateiktos paraiškos duomenys buvo išsaugoti mūsų sistemoje, tačiau ji "
+"dar nebuvo pateikta svarstymui. Galite bet kada grįžti ir užbaigti paraišką, "
+"paspausdami toliau pateiktą nuorodą."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Šios nuorodos kopiją išsiuntėme jums el. paštu adresu {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Skyrius uždarytas"
+
+msgid "submission.wizard.start"
+msgstr "Pradėti pateikimą"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Naujo pateikimo pradžia"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Įvyko klaida ir negalėjome išsaugoti jūsų pateikto failo. Galbūt buvote "
+"atjungtas."
+
+msgid "grid.category.categories"
+msgstr "Kategorijos"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Pagal pavadinimą (A-Ž)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Pagal pavadinimą (Ž-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Pagal išleidimo datą (nuo seniausių)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Pagal išleidimo datą (nuo naujausių)"
+
+msgid "category.category"
+msgstr "Kategorijos"
+
+msgid "category.coverImage"
+msgstr "Viršelio paveikslėlis"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorijos"
+
+msgid "submission.currentCoverImage"
+msgstr "Naujausias paveikslėlis"
+
+msgid "catalog.category.noItems"
+msgstr "Dar nieko nebuvo paskelbta šioje kategorijoje."
+
+msgid "catalog.category.subcategories"
+msgstr "Potategorijos"
+
+msgid "publication.contributors"
+msgstr "Prisidėjusieji"
+
+msgid "publication.createVersion"
+msgstr "Sukurti naują versiją"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Data turi būti pateikta formatu YYYY-MM-DD, pvz., 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "Buvo sukurta nauja versija."
+
+msgid "publication.publicationLicense"
+msgstr "Leidimai ir atskleidimas"
+
+msgid "publication.status.scheduled"
+msgstr "Suplanuota"
+
+msgid "publication.status.unpublished"
+msgstr "Neskelbta"
+
+msgid "publication.titleAbstract"
+msgstr "Pavadinimas ir santrauka"
+
+msgid "publication.unschedule"
+msgstr "Atšaukti suplanuotą"
+
+msgid "publication.urlPath"
+msgstr "URL kelias"
+
+msgid "publication.urlPath.description"
+msgstr "Pasirinktinai kelias, kurį reikia naudoti URL adrese vietoj ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL kelias jau buvo panaudotas ir negali būti naudojamas dar kartą."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL kelias negali būti skaičius."
+
+msgid "publication.version.all"
+msgstr "Visos versijos"
+
+msgid "publication.version.confirm"
+msgstr "Ar tikrai norite sukurti naują versiją?"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Santrauka per ilga. Ji turėtų būti {$limit} žodžių arba mažiau. Šiuo metu ji "
+"yra {$count} žodžių ilgio."
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Nepavyko pažymėti DOI kaip reikia sinchronizuoti {$pubObjectTitle}. DOI "
+"negalima pažymėti kaip reikia sinchronizuoti, nes jie dar nebuvo "
+"užregistruoti arba pateikti."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Nepavyko pažymėti DOI, užregistruoto {$pubObjectTitle}. Pateikimas turi būti "
+"publikuotas, kad būtų galima atnaujinti būseną."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Tai peržiūra ir dar nebuvo paskelbta. <a href=\"{$url}\">Peržiūrėti "
+"pateikimą</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Šiam pateikimui nebuvo įkelta jokių failų."
+
+msgid "author.submit.confirmation"
+msgstr "Patvirtinimas"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Pateikiama <strong>{$language</strong> kalba."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Pateikiama į <strong>{$section</strong> skyrių."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Pateikiama <strong>{$section</strong> skiltyje <strong>{$language</strong> "
+"kalba."
+
+msgid "submission.type.tip"
+msgstr ""
+"Straipsnis dažniausiai būna 'atvaizdas', 'tekstas', arba kitokio "
+"multimedijos tipo, įskaitant ir 'programinę įrangą' arba 'interaktyvųjį'.  "
+"Pasirinkite labiausiai tinkantį savo straipsniui.  Pavyzdžius galite rasti "
+"čia: <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Ar šis straipsnis išvestas iš kito ištekliaus? Jei taip, Jūs galite įtraukti "
+"nuorodą (URL) ar šio ištekliaus aprašą."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Jei norite, galite trumpai aprašyti prieigos teises, kuriomis apsaugotas šis "
+"straipsnis."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Pateikite papildomą informaciją apie savo straipsnį. Paspauskite „enter“ po "
+"kiekvieno termino."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Pagrindinis kontaktas redakcinio susirašinėjimo klausimais."
+
+msgid "submission.dataAvailability"
+msgstr "Duomenų prieinamumo pareiškimas"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Nurodykite, ar pateikėte šį darbą pagrindžiančius įrodymus, o jei taip, kur "
+"ir kaip su jais galima susipažinti"
+
+msgid "submission.files.required.genre"
+msgstr "Turite įkelti bent vieną {$genre} failą."
+
+msgid "submission.files.required.genres"
+msgstr "Turite įkelti bent po vieną kiekvieno iš šių failų tipų: {$genres}."
+
+msgid "publication.version"
+msgstr "Versija {$version}"
+
+msgid "submission.submissionFile"
+msgstr "Pateikimo failas"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Man priskirta"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktyvūs pateikimai"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Reikia redaktoriaus"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Viskas pateikimo etape"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Viskas kolegų vertinime"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Viskas peržiūros etape"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Reikia atsiliepimų"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Laukiama atsiliepimų"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Pateiktos apžvalgos"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Atsiliepimai vėluoja"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Viskas redagavimo etape"
+
+msgid "submission.dashboard.view.production"
+msgstr "Viskas gamybos etape"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Suplanuota publikuoti"
+
+msgid "submission.dashboard.view.published"
+msgstr "Paskelbta"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Atmesta"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Prašomos pataisos"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Pateiktos autoriaus pataisos"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Neišsamūs pateikimai"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Visos užduotys"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Laukiama"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Užbaigta / Atmesta"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Visos užduotys"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Man reikalingas veiksmas"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archyvuota"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Atmesta"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Užbaigta"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Paskelbta"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Apžvalga ({$round} raundas)"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Numatyta publikuoti"
+
+msgid "submission.stage.published"
+msgstr "Paskelbta"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Patvirtinkite JATS XML ištrynimą"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "Ketinate pašalinti esamą JATS XML failą iš šio leidinio. Ar tikrai?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Ištrinti JATS failą"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Šis JATS failas automatiškai generuojamas pagal pateiktus metaduomenis"
+
+msgid "publication.jats.lastModified"
+msgstr "Paskutinį kartą modifikavo {$username} {$modificationDate}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Bandant sukurti numatytąjį JATS turinį, įvyko klaida. Įsitikinkite, kad "
+"įdiegtas „JatsTemplate“ papildinys."
+
+msgid "submission.files.content.error"
+msgstr "Nepavyko gauti pateikto failo „{$fileName}“ turinio."
+
+msgid "author.competingInterests"
+msgstr "Konkurencingi interesai"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Prašome atskleisti visus šio autoriaus ir tyrimo subjekto interesus, kurie "
+"gali būti priešingi."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Recenzento siūlymo priežastys"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Prašome pasidalyti, kodėl rekomenduojate šį recenzentą, ir paminėti, ar nėra "
+"galimo interesų konflikto."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Pateikimo kalba ({$language}) nėra viena iš palaikomų pateikimo kalbų. Vis "
+"tiek galite redaguoti pateikimo informaciją, bet šiuo metu nauji pateikimai "
+"šia kalba nepriimami."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Paskirti recenzentai"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Atsiliepimo atnaujinimas {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Pradėti naują pateikimą"
+
+msgid "dashboard.assignReviewers"
+msgstr "Priskirti recenzentus"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Autoriui pateikti prašymai dėl pataisymų"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Autoriaus prašomi pataisymai perkelti į naują peržiūros etapą"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Bus sukurtas naujas peržiūros etapas"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Bus publikuojama {$issue} numeryje"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Įkelti kopijuoti ir redaguoti failai: {$count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Prašoma peržiūrėti"
+
+msgid "dashboard.submitRevisions"
+msgstr "Pateikti pataisymus"
+
+msgid "workflow.uploadRevisions"
+msgstr "Įkelti pataisymus"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Atsakyti į užklausą"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Baigti peržiūrą"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Prašome priimti arba atmesti šį prašymą iki {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Prašymas atmestas {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Atsiliepimas pateiktas {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Šio prašymo atsakymo terminas baigėsi. Prašome kuo greičiau jį priimti arba "
+"atmesti."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Prašome atlikti šią apžvalgą iki {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Šios peržiūros užbaigimo terminas baigėsi. Prašome ją užbaigti kuo greičiau."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Laukiama recenzento atsakymo"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Peržiūros užklausa buvo bendrinta su recenzentu. Laukiama atsakymo per "
+"<b>{$days} dienas {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Peržiūros užklausa atmesta {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Recenzentas atmetė peržiūros užklausą <b>{$date</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Peržiūros užklausa vėluoja {$days} dienas"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Šis recenzentas neatsakė į peržiūros užklausą. Atsakyti reikėjo iki "
+"<b>{$date</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Vykdoma peržiūra – prašymas priimtas"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Šis recenzentas priėmė peržiūros užklausą. Jo atsiliepimas turi būti "
+"pateiktas po <b>{$days} dienų, {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Atsiliepimas vėluoja {$days} dienas"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Šis recenzentas nebaigė savo peržiūros. Atsakymo terminas buvo "
+"<b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Peržiūra baigta {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Peržiūra buvo baigta {$date} su šia rekomendacija: <b>{$recommendation</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Peržiūra baigta {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Atsiliepimą patvirtino redaktorius"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Recenziją redaktorius patvirtino <b>{$date</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recenzentas atšaukė peržiūros užklausą"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recenzentas atšaukė peržiūros užklausą <b>{$date</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Laukiama recenzento atsakymo"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Peržiūros užklausa buvo iš naujo bendrinta su recenzentu. Atsakymo laukiama "
+"po {$days} dienų, {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Peržiūrėti išsamią informaciją"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Persiųsti peržiūros užklausą iš naujo"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Atšaukti apžvalgininką"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Panaikinti priskyrimą"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Redaguoti terminą"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Peržiūrėti rekomendaciją"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Peržiūrėti neskaitytą rekomendaciją"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Siųsti atsiliepimą ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Siųsti šią apžvalgą į apžvalgininko ORCID?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Atmesta etape „{$stageName}“."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Rekomenduojantiems redaktoriams pavesta patarti dėl tolesnių šio pateikimo "
+"veiksmų"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Gauta redakcinė rekomendacija"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Gautos visos redakcinės rekomendacijos, reikia priimti sprendimą."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Jūs negalite pasiekti šio pateikto darbo kaip žurnalo tvarkytojas, nes esate "
+"autorius. Norėdami jį peržiūrėti, eikite į \\„Mano pateikti darbai\\“"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Jūs negalite pasiekti šio pateikto darbo kaip žurnalo vadovas, nes esate "
+"recenzentas. Norėdami jį peržiūrėti, eikite į \\„Recenzuoti užduotis\\“"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Patvirtintas minimalus reikalingas atsiliepimų skaičius. Reikia sprendimo."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Minimalus patvirtintų atsiliepimų skaičius: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Tęsti be minimalaus patvirtintų atsiliepimų skaičiaus?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Nesurinktas minimalus patvirtintų atsiliepimų skaičius. Ar vis tiek norite "
+"tęsti šį redakcinį sprendimą?"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Leidžiama tik rekomenduoti redakcinį sprendimą"
+
+msgid "workflow.stageNotStarted"
+msgstr "Etapas „{$stage}“ dar nepradėtas."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Pateikimas šiuo metu yra {$stage} etape."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Pateikta paraiška buvo perkelta į kitą peržiūros etapą, buvo priimta ir šiuo "
+"metu yra {$stage} etape."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Pateikimas perkeltas į kitą peržiūros etapą"
+
+msgid "workflow.reviewRoundN"
+msgstr "{$number} peržiūros etapas"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Pateikimo metu įkelti failai"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Įkeltos pataisos"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Šiuos failus pateikė autorius, gavęs prašymus dėl pataisymų"
+
+msgid "fileManager.filesForReview"
+msgstr "Peržiūros failai"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Šie failai bus išsiųsti recenzentams peržiūrėti"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Kopijuoti failai"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Tai redaguoti failai, kurie bus perkelti į gamybos etapą"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Tai peržiūros etapo failai, kurie bus kopijuojami ir redaguojami"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Šie failai bus išsiųsti publikuoti"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Recenzento būsena"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Patvirtinti nepilnų pateiktų dokumentų ištrynimą"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Ar tikrai norite ištrinti pasirinktus elementus? Šio veiksmo negalima "
+"atšaukti. Norėdami tęsti, patvirtinkite."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Pasirinkite nepilnai pateiktus duomenis, kuriuos norite ištrinti."

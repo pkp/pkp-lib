@@ -2,18 +2,20 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-02-05 18:43+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2025-10-17 09:58+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"fr_FR/>\n"
-"Language: fr_FR\n"
+"fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,13 +65,13 @@ msgid "about.siteMap"
 msgstr "Plan du site"
 
 msgid "announcement.announcements"
-msgstr "Annonces"
+msgstr "Actualités"
 
 msgid "announcement.announcementsHome"
-msgstr "Annonces"
+msgstr "Actualités"
 
 msgid "announcement.moreAnnouncements"
-msgstr "Plus d'annonces..."
+msgstr "Plus d'actualités..."
 
 msgid "announcement.noneExist"
 msgstr "Aucune annonce n'a été publiée."
@@ -234,9 +236,9 @@ msgstr ""
 "//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\tCe travail est autorisé sous licence avec la <a rel=\"license\" target="
-"\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licence de "
-"paternité Creative Commons 3.0</a>.\n"
+"\t\tCe travail est disponible sous <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">licence de paternité "
+"Creative Commons 3.0</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -245,12 +247,12 @@ msgstr ""
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
 "\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
-"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tCe travail est autorisé sous licence avec la <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licence "
-"de paternité Creative Commons 3.0</a>.\n"
+"\t\tCe travail est disponible sous <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">licence de "
+"paternité Creative Commons 3.0</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -1549,7 +1551,7 @@ msgid "navigation.skip.description"
 msgstr "Allez aux liens du contenu"
 
 msgid "navigation.skip.announcements"
-msgstr "Aller aux annonces"
+msgstr "Aller aux actualités"
 
 msgid "navigation.skip.main"
 msgstr "Aller directement au contenu principal"
@@ -1728,29 +1730,8 @@ msgstr "Discipline(s)"
 msgid "search.fullText"
 msgstr "Texte intégral"
 
-msgid "search.indexTerms"
-msgstr "Termes d'indexation"
-
-msgid "search.indexTermsLong"
-msgstr "Tous les champs des termes de l'index"
-
-msgid "search.matchAll"
-msgstr "Dans toutes les catégories"
-
 msgid "search.noResults"
 msgstr "Aucun résultat"
-
-msgid "search.operator.and"
-msgstr "et"
-
-msgid "search.operator.not"
-msgstr "sauf"
-
-msgid "search.operator.or"
-msgstr "ou"
-
-msgid "search.SearchFor"
-msgstr "Recherche pour"
 
 msgid "search.searchResults"
 msgstr "Résultats de recherche"
@@ -1984,6 +1965,7 @@ msgstr "Statut du cycle {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Résumé du rapport de statistiques."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ceci est un rappel amical pour vous inciter à vérifier la bonne marche de "
@@ -1993,7 +1975,7 @@ msgid "notification.type.editorialReminder"
 msgstr "E-mail hebdomadaire des tâches en attente"
 
 msgid "semicolon"
-msgstr "{$label} :"
+msgstr "{$label} : "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "L'élément du menu de navigation a bien été mis à jour"
@@ -2422,3 +2404,97 @@ msgstr "Mises en évidence"
 
 msgid "common.sandbox"
 msgstr "Application fonctionnant en mode bac à sable."
+
+msgid "common.yesContinue"
+msgstr "Oui, continuer"
+
+msgid "common.filtersClear"
+msgstr "Effacer les filtres"
+
+msgid "common.showingXofX"
+msgstr "Affichage de <strong>{$start} à {$finish}</strong> sur {$total}"
+
+msgid "common.loaded"
+msgstr "Chargé"
+
+msgid "validator.date.comparison"
+msgstr "Dates invalides fournies pour la comparaison."
+
+msgid "validator.multilingual"
+msgstr "L'exigence multilingue n'est pas remplie pour ce champ."
+
+msgid "common.numero"
+msgstr "Non"
+
+msgid "common.refreshingData"
+msgstr "Actualisation des données"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Afficher <a href=\"{$url}\">l'historique éditorial</a>"
+
+msgid "common.moreActions"
+msgstr "Plus d'actions"
+
+msgid "common.editorialMasthead"
+msgstr "Équipe éditoriale"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Relecteurs de l'année précédente"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Relecteurs au cours des années précédentes"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Les éditeurs remercient les relecteurs de {$year} mentionnés ci-dessous."
+
+msgid "common.editorialHistory"
+msgstr "Historique éditorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Page d'historique éditorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Cette section répertorie les contributeurs passés."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Afficher le profil ORCID de {$name}"
+
+msgid "common.assignments"
+msgstr "Mandats"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"1 erreur détectée ! Veuillez corriger l'erreur ci-dessous avant de continuer."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} erreurs détectées ! Veuillez corriger les erreurs ci-dessous avant "
+"de continuer."
+
+msgid "navigation.mySubmissions"
+msgstr "Mes soumissions en tant qu'auteur"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mes tâches en tant que relecteur"
+
+msgid "navigation.dashboards"
+msgstr "Tableau de bord de l'éditeur"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Évaluation acceptée le"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Évaluation soumise le"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.viewMoreDetails"
+msgstr "Voir plus de détails"
+
+msgid "common.changeLanguage"
+msgstr "Changer de langue"

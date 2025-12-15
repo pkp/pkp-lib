@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/components/form/context/PKPMetadataSettingsForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetadataSettingsForm
@@ -37,8 +38,32 @@ class PKPMetadataSettingsForm extends FormComponent
     {
         $this->action = $action;
 
-
         $this
+            ->addField(new FieldMetadataSetting('plainLanguageSummary', [
+                'label' => __('manager.setup.metadata.plainLanguageSummary'),
+                'description' => __('manager.setup.metadata.plainLanguageSummary.description'),
+                'options' => [
+                    [
+                        'value' => Context::METADATA_ENABLE,
+                        'label' => __('manager.setup.metadata.plainLanguageSummary.enable')
+                    ]
+                ],
+                'submissionOptions' => [
+                    [
+                        'value' => Context::METADATA_ENABLE,
+                        'label' => __('manager.setup.metadata.plainLanguageSummary.noRequest')
+                    ],
+                    [
+                        'value' => Context::METADATA_REQUEST,
+                        'label' => __('manager.setup.metadata.plainLanguageSummary.request')
+                    ],
+                    [
+                        'value' => Context::METADATA_REQUIRE,
+                        'label' => __('manager.setup.metadata.plainLanguageSummary.require')
+                    ],
+                ],
+                'value' => $context->getData('plainLanguageSummary') ? $context->getData('plainLanguageSummary') : Context::METADATA_DISABLE,
+            ]))
             ->addField(new FieldMetadataSetting('keywords', [
                 'label' => __('common.keywords'),
                 'description' => __('manager.setup.metadata.keywords.description'),
@@ -165,6 +190,17 @@ class PKPMetadataSettingsForm extends FormComponent
                     ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.citations.require')],
                 ],
                 'value' => $context->getData('citations') ? $context->getData('citations') : Context::METADATA_DISABLE,
+            ]))
+            ->addField(new FieldOptions('citationsMetadataLookup', [
+                'label' => __('submission.citations.structured.citationsMetadataLookup'),
+                'options' => [
+                    [
+                        'value' => 'true',
+                        'label' => __('manager.setup.metadata.citationsMetadataLookup.enable')
+                    ]
+                ],
+                'value' => (bool)$context->getData('citationsMetadataLookup'),
+                'showWhen' => 'citations'
             ]))
             ->addField(new FieldMetadataSetting('dataAvailability', [
                 'label' => __('submission.dataAvailability'),

@@ -114,11 +114,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "O plugin atualmente configurado deve ser um plugin de agência de registro."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Você não pode registrar ou recomendar uma decisão para esta submissão, "
-"porque ela já foi publicada."
-
 msgid "api.emails.400.missingBody"
 msgstr "Você deve incluir um e-mail para ser enviado."
 

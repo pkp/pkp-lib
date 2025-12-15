@@ -133,10 +133,10 @@ Cypress.Commands.add('install', function() {
 Cypress.Commands.add('login', (username, password, context) => {
 	context = context || 'index';
 	password = password || (username + username);
-	cy.visit('index.php/' + context + '/en/login/signIn', {
-		method: 'POST',
-		body: {username: username, password: password}
-	});
+	cy.visit('index.php/' + context + '/en/login');
+	cy.get('input[id=username]').clear().type(username, {delay: 0});
+	cy.get('input[id=password]').clear().type(password, {delay: 0});
+	cy.get('form[id=login] button').click();
 });
 
 Cypress.Commands.add('logout', function() {
@@ -295,7 +295,8 @@ Cypress.Commands.add('putMetadataWithApi', (data, csrfToken) => {
 			if (hasKeywords) {
 				expect(xhr.body.keywords.en.length).to.eq(data.keywords.length);
 				data.keywords.forEach((keyword, i) => {
-					expect(xhr.body.keywords.en[i]).to.eq(keyword);
+					expect(xhr.body.keywords.en[i]).to.have.property('name');
+					expect(xhr.body.keywords.en[i].name).to.eq(keyword);
 				});
 			}
 		});

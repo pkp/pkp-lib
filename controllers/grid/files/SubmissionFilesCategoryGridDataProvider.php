@@ -20,8 +20,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
 use PKP\note\Note;
-use PKP\query\Query;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
@@ -150,7 +150,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
                     }
                     $note = Note::find($submissionFile->getData('assocId'));
                     if ($note?->assocType == Application::ASSOC_TYPE_QUERY) {
-                        $query = Query::find($note->assocId);
+                        $query = EditorialTask::find($note->assocId);
                     }
                     if ($query && $query->stageId == $stageId) {
                         $stageSubmissionFiles[$key] = $submissionFile;

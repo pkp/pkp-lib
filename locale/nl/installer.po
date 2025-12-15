@@ -1,11 +1,12 @@
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-07-15 14:00+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
 "nl/>\n"
 "Language: nl\n"
@@ -49,21 +50,20 @@ msgstr "Database stuurprogramma"
 
 msgid "installer.databaseDriverInstructions"
 msgstr ""
-"<strong>Database stuurprogramma's die tussen haakjes staan lijken de "
-"verplichte PHP extensie niet geladen te hebben en doen de installatie "
-"waarschijnlijk mislukken als ze geselecteerd worden.</strong><br />De niet-"
-"ondersteunde database stuurprogramma's die hierboven getoond worden zijn "
-"alleen voor academische toepassingen en werken waarschijnlijk niet."
+"<strong> Het systeem ondersteunt momenteel MySQL en PostgreSQL, in het geval "
+"u geen van deze onderstaande opties kunt kiezen. Neemt u contact op met uw "
+"systeembeheerder om te verzekeren dat uw server beschikt over de vereiste "
+"PHP-extenties.</strong>"
 
 msgid "installer.databaseHost"
 msgstr "Machine"
 
 msgid "installer.databaseHostInstructions"
 msgstr ""
-"Laat de machinenaam leeg om met domain sockets  te werken in plaats van met "
-"TCP/IP. Dit is niet nodig bij MySQL, dat automatisch gebruik maakt van "
-"sockets als \"localhost\" opgegeven wordt,  maar het is verplicht bij "
-"sommige andere databasesystemen zoals PostgreSQL."
+"Laat de sitenaam open om te verbinden met behulp van domeinsockets in plaats "
+"van TCP/IP. Dit is niet nodig met MySQL, dat automatisch gebruik maakt van "
+"sockets in de \"localhost\", maar is verplicht bij sommige andere database-"
+"systemen zoals PostgreSQL."
 
 msgid "installer.databaseName"
 msgstr "Databasenaam"
@@ -112,9 +112,9 @@ msgstr "Scheid meerdere waarden met komma's"
 
 msgid "installer.form.usernameAlphaNumeric"
 msgstr ""
-"De gebruikersnaam van de de beheerder mag alleen alfanumerieke tekens, "
-"liggende streepjes en koppelstreepjes bevatten en moet beginnen en eindigen "
-"met een alfanumeriek teken."
+"De gebruikersnaam van de beheerder mag alleen alfanumerieke tekens, liggende "
+"streepjes en koppelstreepjes bevatten. De gebruikersnaam moet beginnen en "
+"eindigen met een alfanumeriek teken."
 
 msgid "installer.form.usernameRequired"
 msgstr "De gebruikersnaam voor de beheerder is verplicht."
@@ -157,30 +157,28 @@ msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>."
 
 msgid "installer.installParseFilterConfigFileError"
-msgstr "Fout in het filter configuratiebestand <tt>{$file}</tt>"
+msgstr "Fout in het filter configuratiebestand <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Upgrade wordt niet ondersteund. Zie docs/UPGRADE-UNSUPPORTED voor details."
+"Upgrade wordt niet ondersteund.Zie voor details de Upgradegids (https://docs."
+"pkp.sfu.ca/dev/upgrade-guide)."
 
-#, fuzzy
 msgid "installer.timezoneInstructions"
-msgstr "De tijdzone om voor dit systeem te gebruiken."
+msgstr "De te gebruiken tijdzone om voor dit systeem."
 
-#, fuzzy
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
 "Kies een of meer extra talen ter ondersteuning van dit systeem. Extra talen "
-"kunnen op ieder moment ook worden geïnstalleerd vanaf de interface van het "
-"sitebeheer. <br>* = Het benoemt talen die niet volledig zijn vertaald (>90% "
+"kunnen op ieder moment ook worden geïnstalleerd via de interface van het "
+"sitebeheer. <br>* = Deze benoemt talen die niet volledig zijn vertaald (>90% "
 "van de vertaalde termen)"
 
 msgid "installer.locale"
 msgstr "Taal"
 
 msgid "installer.locale.maybeIncomplete"
-msgstr "De gemarkeerde talen zijn mogelijk onvolledig"
+msgstr "De gemarkeerde talen zijn mogelijk onvolledig."
 
 msgid "installer.localeSettings"
 msgstr "Taalinstelingen"
@@ -234,7 +232,7 @@ msgstr ""
 "bestand.</p>"
 
 msgid "installer.beacon"
-msgstr "Beacon"
+msgstr "Beacon (signaalzender)"
 
 msgid "installer.beacon.enable"
 msgstr ""
@@ -259,15 +257,14 @@ msgstr ""
 "De configuratievariabele, genaamd `app_key`is niet gedefinieerd in het "
 "`algemene` gedeelte. "
 
-#, fuzzy
 msgid "installer.appKey.keyVariable.alreadyExist.notice"
 msgstr ""
-"De configuratievariabele, genaamd `app_key ` , is al gedefinieerd in het "
-"`algemene` gedeelte. "
+"De configuratievariabele, genaamd 'app_key', is al gedefinieerd in het "
+"'algemene' gedeelte. "
 
-#, fuzzy
 msgid "installer.appKey.keyVariable.configFile.parse.error"
-msgstr "Niet in staat het configuratiebestand te analyseren en interpreteren."
+msgstr ""
+"Niet in staat het configuratiebestand te analyseren en te interpreteren."
 
 msgid "installer.appKey.keyVariable.configFile.write.error"
 msgstr ""
@@ -278,27 +275,24 @@ msgstr ""
 "Niet-ondersteunde versleutelingsalgoritme of onjuiste versleutelingslengte. "
 "Ondersteunde versleutelingsalgoritme zijn: {$ciphers}."
 
-#, fuzzy
 msgid "installer.appKey.write.error"
-msgstr "Niet in staat om de 'app key' in de configuratiefile te schrijven."
+msgstr "Niet in staat om de 'app key' in het configuratiebestand te schrijven."
 
 msgid "installer.miscSettings"
 msgstr "Diverse instellingen"
 
-#, fuzzy
 msgid "installer.appKey.keyVariable.missing.instruction"
 msgstr ""
-"Gelieve om de configuratievariabele, genaamd `app_key` het `algemene`"
-"gedeelte handmatig toe te voegen of het gebod php lib/pkp/tools/appKey.php "
-"configure` in te stellen vanaf CLI."
+"Gelieve de configuratievariabele, genaamd `app_key`onder het `algemene` "
+"gedeelte handmatig toe te voegen, of de instructie 'php lib/pkp/tools/"
+"appKey.php configure` in te stellen vanaf CLI."
 
 msgid "installer.appKey.keyVariable.configFile.read.error"
 msgstr ""
 "Niet in staat het configuratiebestand te lezen of het bestand bestaat niet "
 "in de te verwachten bestandslocatie. "
 
-#, fuzzy
 msgid "installer.appKey.set.value"
 msgstr ""
-"Stel `app_key` waarde in onder het `algemene ` gedeelte in de`config.inc.php`"
-" file to {$key} ."
+"Stel `app_key` -waarde in onder het `algemene ' gedeelte in de`config.inc."
+"php` file to {$key} ."

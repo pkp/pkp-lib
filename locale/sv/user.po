@@ -1,12 +1,12 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022, 2023.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022, 2023, 2025.
 # Ramana Fragola <ramana.fragola@kb.se>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2023-06-02 14:33+0000\n"
-"Last-Translator: Ramana Fragola <ramana.fragola@kb.se>\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/sv/"
 ">\n"
 "Language: sv\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Kontoinformation"
@@ -567,10 +567,10 @@ msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
 msgstr "Sandbox för medlemmar"
 
 msgid "orcid.manager.settings.orcidClientId"
-msgstr "Client ID"
+msgstr "Klient-ID"
 
 msgid "orcid.manager.settings.orcidClientSecret"
-msgstr "Client Secret"
+msgstr "Klienthemlighet"
 
 msgid "orcid.author.submission"
 msgstr "ORCID för bidrag"
@@ -609,3 +609,76 @@ msgstr "gömd"
 
 msgid "orcid.manager.settings.title"
 msgstr "ORCID API-Inställningar"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Ange institutionens fullständiga namn utan förkortningar nedan. Välj namnet "
+"från rullgardinsmenyn och klicka på 'Lägg till' för att inkludera "
+"institutionen i din profil. (t.ex. 'Simon Fraser University')"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} av{$total} språk slutförda"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Användaren ska vara anonym. Du är för närvarande inloggad."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Åtkomst till arbetsflödet är begränsad för ofullständiga bidrag."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Lägg till en affiliering på samma språk som bidraget."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Du har begärt att ändra din e-postadress till '{$pendingEmail}'. Vi har "
+"redan skickat ett e-postmeddelande med instruktioner om hur du bekräftar den "
+"nya adressen."
+
+msgid "orcid.manager.settings.saved"
+msgstr "Inställningarna har sparats"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+
+msgid "user.affiliations.institution"
+msgstr "Institution"
+
+msgid "user.affiliations.translation"
+msgstr "Mer information"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Redigera institutionens namn"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Ta bort institution"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klicka för att redigera eller ta bort"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Alla tillgängliga översättningar"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Skriv in institutionens namn på {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Institutionens namn på {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Är du säker?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Affilieringen <strong>{$affiliation}</strong> kommer tas bort."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Skriv in institutionens namn på {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Sökningen gav inga träffar"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Primärt språk {$primaryLocale} krävs"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Ändringar i förslag på granskare för färdigställda bidrag är inte tillåtet."

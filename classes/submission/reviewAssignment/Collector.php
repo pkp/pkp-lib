@@ -47,6 +47,7 @@ class Collector implements CollectorInterface, ViewsCount
     public ?array $reviewerIds = null;
     public ?bool $isLastReviewRoundByReviewer = false;
     public bool $isLastReviewRound = false;
+    public bool $isAccessibleByReviewer = false;
     public ?int $count = null;
     public ?int $offset = null;
     public ?array $reviewMethods = null;
@@ -244,6 +245,18 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByReviewerRecommendationIds(?array $reviewerRecommendationIds): static
     {
         $this->reviewerRecommendationIds = $reviewerRecommendationIds;
+        return $this;
+    }
+
+    /**
+     * Filter by the logic whether the reviewer has access to the review assignment. It's true when
+     * 1. The review assignment is not declined or cancelled
+     * 2. The submission isn't declined
+     * The reviewer still has access to the review assignment when it's completed or/and submission is published.
+     */
+    public function filterByIsAccessibleByReviewer(?bool $isAccessibleByReviewer): static
+    {
+        $this->isAccessibleByReviewer = $isAccessibleByReviewer;
         return $this;
     }
 
@@ -488,7 +501,7 @@ class Collector implements CollectorInterface, ViewsCount
                                 )
                                 ->whereColumn('ramax.reviewer_id', 'rssmax.reviewer_id') // Take only selected reviewers
                                 ->whereColumn('ramax.stage_id', 'rssmax.latest_stage'),  // Take only the current stage
-                        'raamax',
+                            'raamax',
                             fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'raamax.submission_id')
                         )
                         ->whereColumn('ra.reviewer_id', 'raamax.reviewer_id') // Finally fitler by reviewers
@@ -519,6 +532,25 @@ class Collector implements CollectorInterface, ViewsCount
             $this->reviewerRecommendationIds !== null,
             fn (Builder $q) =>
             $q->whereIn('ra.reviewer_recommendation_id', $this->reviewerRecommendationIds)
+        );
+
+        $q->when(
+            $this->isAccessibleByReviewer,
+            fn (Builder $q) =>
+            $q->where(
+                fn (Builder $q) => $q
+                    ->where('ra.declined', '<>', 1)
+                    ->where('ra.cancelled', '<>', 1)
+                    ->whereNotNull('ra.date_confirmed', )
+                    ->whereIn(
+                        'ra.submission_id',
+                        fn (Builder $q) => $q
+                            ->select('s.submission_id')
+                            ->from('submissions AS s')
+                            ->whereColumn('s.submission_id', 'ra.submission_id')
+                            ->where('s.status', '<>', PKPSubmission::STATUS_DECLINED)
+                    )
+            )
         );
 
         $q->when(

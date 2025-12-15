@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionFileController.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2023-2025 Simon Fraser University
+ * Copyright (c) 2023-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileController
@@ -191,6 +191,7 @@ class PKPSubmissionFileController extends PKPBaseController
             SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
             SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
             SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_BODY_TEXT
         ];
 
         // Managers can access files for submissions they are not assigned to
@@ -258,8 +259,8 @@ class PKPSubmissionFileController extends PKPBaseController
         $files = $collector->getMany();
 
         $items = Repo::submissionFile()
-            ->getSchemaMap()
-            ->summarizeMany($files, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->summarizeMany($files);
 
         $data = [
             'itemsMax' => $files->count(),
@@ -275,10 +276,11 @@ class PKPSubmissionFileController extends PKPBaseController
     public function get(Request $illuminateRequest): JsonResponse
     {
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -403,8 +405,8 @@ class PKPSubmissionFileController extends PKPBaseController
             ->get($submissionFileId);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -479,8 +481,8 @@ class PKPSubmissionFileController extends PKPBaseController
             ->get($submissionFile->getId());
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -550,8 +552,8 @@ class PKPSubmissionFileController extends PKPBaseController
         $newSubmissionFile = Repo::submissionFile()->get($newSubmissionFileId);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($newSubmissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($newSubmissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -562,10 +564,11 @@ class PKPSubmissionFileController extends PKPBaseController
     public function delete(Request $illuminateRequest): JsonResponse
     {
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         Repo::submissionFile()->delete($submissionFile);
 
@@ -581,7 +584,7 @@ class PKPSubmissionFileController extends PKPBaseController
     {
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toArray();
+        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toAssociativeArray();
     }
 
     /**

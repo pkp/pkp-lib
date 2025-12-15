@@ -53,6 +53,9 @@ class Collector implements CollectorInterface
     /** @var null|array get submission files matching an ASSOC_ID with one of the assocTypes */
     protected $assocIds = null;
 
+    /** @var null|array get submission files matching one or more DOI IDs */
+    public ?array $doiIds = null;
+
     /** @var bool include submission files in the SubmissionFile::SUBMISSION_FILE_DEPENDENT stage */
     protected $includeDependentFiles = false;
 
@@ -178,6 +181,16 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Set DOI filter
+     */
+    public function filterByDoiIds(?array $doiIds): self
+    {
+        $this->doiIds = $doiIds;
+
+        return $this;
+    }
+
+    /**
      * Whether or not to include dependent files in the results
      */
     public function includeDependentFiles(bool $includeDependentFiles = true): self
@@ -263,6 +276,10 @@ class Collector implements CollectorInterface
 
         if ($this->uploaderUserIds !== null) {
             $qb->whereIn('sf.uploader_user_id', $this->uploaderUserIds);
+        }
+
+        if ($this->doiIds !== null) {
+            $qb->whereIn('sf.doi_id', $this->doiIds);
         }
 
         if ($this->includeDependentFiles !== true && $this->fileStages !== null && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {

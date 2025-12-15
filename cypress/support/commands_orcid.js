@@ -40,4 +40,6 @@ Cypress.Commands.add('enableOrcid', (language, contextPath) => {
 	cy.get('input[name="orcidClientId"]')
 		.should('be.visible')
 		.should('have.value', 'TEST_CLIENT_ID');
+
+	cy.logout();
 });

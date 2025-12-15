@@ -50,6 +50,9 @@
 					{capture assign=genresUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="genresGridContainer" url=$genresUrl}
 				</tab>
+				<tab id="contributorRoles" label="{translate key="manager.contributorRoles.title"}">
+					<contributor-role-manager></contributor-role-manager>
+				</tab>
 				{call_hook name="Template::Settings::workflow::submission"}
 			</tabs>
 		</tab>
@@ -94,6 +97,9 @@
 				@set="set"
 			/>
 			{call_hook name="Template::Settings::workflow::emails"}
+		</tab>
+		<tab id="taskTemplates" label="{translate key="manager.template.tasksAndDiscussions"}">
+			<task-template-manager />
 		</tab>
 		{call_hook name="Template::Settings::workflow"}
 	</tabs>

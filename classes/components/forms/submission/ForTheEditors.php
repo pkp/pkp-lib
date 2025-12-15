@@ -86,7 +86,13 @@ class ForTheEditors extends PKPMetadataForm
     protected function setRequiredMetadata(): void
     {
         foreach ($this->fields as $field) {
-            $field->isRequired = $this->context->getData($field->name) === Context::METADATA_REQUIRE;
+            $contextName = $field->name;
+            // Context name for "supportingAgencies" is "agencies"
+            if ($contextName === 'supportingAgencies') {
+                $contextName = 'agencies';
+            }
+
+            $field->isRequired = $this->context->getData($contextName) === Context::METADATA_REQUIRE;
         }
     }
 

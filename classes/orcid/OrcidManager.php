@@ -370,6 +370,6 @@ class OrcidManager
             $apiType = $context->getData(self::API_TYPE);
         }
 
-        return $apiType;
+        return $apiType ?? '';
     }
 }

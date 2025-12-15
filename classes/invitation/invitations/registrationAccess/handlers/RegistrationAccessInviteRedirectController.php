@@ -16,6 +16,7 @@ namespace PKP\invitation\invitations\registrationAccess\handlers;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\template\TemplateManager;
 use Exception;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
@@ -42,39 +43,38 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
             throw new Exception();
         }
 
+        $context = $this->invitation->getContextId()
+            ?  Application::getContextDAO()->getById($this->invitation->getContextId())
+            : null;
+
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            null,
+            $context?->getData('urlPath'),
             'user',
             'activateUser',
             [
                 $user->getUsername(),
+            ],
+            [
+                'invitationId' => $request->getUserVar('id'),
+                'invitationKey' => $request->getUserVar('key'),
             ]
         );
 
-        $contextId = $this->invitation->getContextId();
-        if (isset($contextId)) {
-            $context = Application::getContextDAO()->getById($contextId);
-
-            $url = PKPApplication::get()->getDispatcher()->url(
-                PKPApplication::get()->getRequest(),
-                PKPApplication::ROUTE_PAGE,
-                $context->getData('urlPath'),
-                'user',
-                'activateUser',
-                [
-                    $user->getUsername(),
-                ]
-            );
-        }
-
-        $this->getInvitation()->finalize();
-
-        $request->redirectUrl($url);
+        $templateManager = TemplateManager::getManager();
+        $templateManager->assign([
+            'activationUrl' => $url,
+        ]);
+        $templateManager->display('frontend/pages/userConfirmActivation.tpl');
     }
 
-    public function declineHandle(Request $request): void
+    /**
+     * Redirect to login page after confirming the invitation decline
+     *
+     * @throws \Exception
+     */
+    public function confirmDecline(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();

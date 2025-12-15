@@ -1689,29 +1689,8 @@ msgstr "Fagdisiplin(er)"
 msgid "search.fullText"
 msgstr "Fulltekst"
 
-msgid "search.indexTerms"
-msgstr "Emneord"
-
-msgid "search.indexTermsLong"
-msgstr "Alle termer i indeks"
-
-msgid "search.matchAll"
-msgstr "Treff i alle kategorier"
-
 msgid "search.noResults"
 msgstr "Ingen resultat"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.SearchFor"
-msgstr "Søk etter"
 
 msgid "search.searchResults"
 msgstr "Søkeresultat"
@@ -1939,6 +1918,7 @@ msgstr "Status for vurderingsrunde {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Sammendrag av statistikkrapporten."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Dette er en vennlig påminnelse til deg om å sjekke statusen til tidsskriftet "

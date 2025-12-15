@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/publication/Repository.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -18,14 +19,18 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\publication\DAO;
+use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
+use PKP\API\v1\publicationPeerReviews\resources\PublicationPeerReviewResource;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\doi\Doi;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -33,16 +38,17 @@ use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
-use APP\publication\enums\VersionStage;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
-use PKP\userGroup\UserGroup;
+use PKP\submission\traits\HasWordCountValidation;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
 {
+    use HasWordCountValidation;
+
     /** @var DAO */
     public $dao;
 
@@ -94,16 +100,14 @@ abstract class Repository
      * Get an instance of the map class for mapping
      * publications to their schema
      *
-     * @param Enumerable<int,UserGroup> $userGroups
      * @param Genre[] $genres
      */
-    public function getSchemaMap(Submission $submission, Enumerable $userGroups, array $genres): maps\Schema
+    public function getSchemaMap(Submission $submission, array $genres): maps\Schema
     {
         return app('maps')->withExtensions(
             $this->schemaMap,
             [
                 'submission' => $submission,
-                'userGroups' => $userGroups,
                 'genres' => $genres,
             ]
         );
@@ -213,6 +217,15 @@ abstract class Repository
             });
         }
 
+        // validate the requirement of Plain language summary
+        $validator->after(function ($validator) use ($props, $context, $primaryLocale) {
+            if ($context->getData('plainLanguageSummary') === Context::METADATA_REQUIRE) {
+                if (empty($props['plainLanguageSummary']) || !isset($props['plainLanguageSummary'][$primaryLocale])) {
+                    $validator->errors()->add('plainLanguageSummary.' . $primaryLocale, __('validator.required'));
+                }
+            }
+        });
+
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it
         $user = Application::get()->getRequest()->getUser();
@@ -260,11 +273,6 @@ abstract class Repository
         // Don't allow declined submissions to be published
         if ($submission->getData('status') === PKPSubmission::STATUS_DECLINED) {
             $errors['declined'] = __('publication.required.declined');
-        }
-
-        // Don't allow a publication to be published before passing the review stage
-        if ($submission->getData('stageId') <= WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-            $errors['reviewStage'] = __('publication.required.reviewStage');
         }
 
         // Orcid errors
@@ -337,13 +345,12 @@ abstract class Repository
         $newPublication->setData('id', null);
         $newPublication->setData('sourcePublicationId', $publication->getId());
         $newPublication->setData('datePublished', null);
-        $newPublication->setData('status', Submission::STATUS_QUEUED);
+        $newPublication->setData('status', Publication::STATUS_QUEUED);
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
         // VersionStage Update
         $newVersionStage = $versionStage;
-        $newIsMinorVersion = $isMinorVersion;
 
         if (!isset($newVersionStage)) {
             $currentVersionInfo = $newPublication->getVersion();
@@ -353,7 +360,7 @@ abstract class Repository
         }
 
         if (isset($newVersionStage)) {
-            $newVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $newVersionStage, $newIsMinorVersion);
+            $newVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $newVersionStage, $isMinorVersion);
             $newPublication->setVersion($newVersionInfo);
         }
 
@@ -362,10 +369,19 @@ abstract class Repository
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
-        if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+        if ($context->getData(Context::SETTING_DOI_VERSIONING) && !$isMinorVersion) {
             $newPublication->setData('doiId', null);
         }
+
+        $citations = $newPublication->getData('citations');
+        // remove citations from the new publication
+        // so that they are not re-processed when inserting the new publication
+        $newPublication->setData('citations', null);
+        $newPublication->setData('citationsRaw', null);
         $newId = $this->add($newPublication);
+        // insert citations as they are for the new publication
+        Repo::citation()->copyCitations($citations, $newId);
+
         $newPublication = Repo::publication()->get($newId);
 
         $authors = $publication->getData('authors');
@@ -380,11 +396,6 @@ abstract class Repository
                     $this->edit($newPublication, ['primaryContactId' => $newAuthorId]);
                 }
             }
-        }
-
-        if (!empty($newPublication->getData('citationsRaw'))) {
-            $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var \PKP\citation\CitationDAO $citationDao */
-            $citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
         }
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
@@ -487,7 +498,7 @@ abstract class Repository
         // Set the copyright and license information
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
-        $itsPublished = ($newPublication->getData('status') === PKPSubmission::STATUS_PUBLISHED);
+        $itsPublished = ($newPublication->getData('status') === PKPPublication::STATUS_PUBLISHED);
 
         if ($itsPublished && !$newPublication->getData('copyrightHolder')) {
             $newPublication->setData(
@@ -543,12 +554,12 @@ abstract class Repository
             $submission = Repo::submission()->get($submission->getId());
         }
 
-        $msg = ($newPublication->getData('status') === Submission::STATUS_SCHEDULED) ? 'publication.event.scheduled' : 'publication.event.published';
+        $msg = ($newPublication->getData('status') === Publication::STATUS_SCHEDULED) ? 'publication.event.scheduled' : 'publication.event.published';
 
         // Log an event when publication is published. Adjust the message depending
         // on whether this is the first publication or a subsequent version
         if (count($submission->getData('publications')) > 1) {
-            $msg = ($newPublication->getData('status') === Submission::STATUS_SCHEDULED) ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
+            $msg = ($newPublication->getData('status') === Publication::STATUS_SCHEDULED) ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
         }
 
         $eventLog = Repo::eventLog()->newDataObject([
@@ -562,10 +573,45 @@ abstract class Repository
         ]);
         Repo::eventLog()->add($eventLog);
 
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
+        ? Application::get()->getRequest()->getContext()
+        : app()->get('context')->get($submission->getData('contextId'));
+
         // Mark DOIs stale (if applicable).
-        if ($newPublication->getData('status') === Submission::STATUS_PUBLISHED) {
-            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
-            Repo::doi()->markStale($staleDoiIds);
+        if ($newPublication->getData('status') === Publication::STATUS_PUBLISHED) {
+            if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+                $isMajorVersion = $newPublication->getData('versionStage') != $publication->getData('versionStage') ||
+                    $newPublication->getData('versionMajor') != $publication->getData('versionMajor');
+                // if a major version is published, mark all submission's DOIs stale, so that their relationships can be updated
+                if ($isMajorVersion) {
+                    $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
+                    Repo::doi()->markStale($staleDoiIds);
+                } elseif ($newPublication->getData('versionMinor') != 0) {
+                    // if it is the last published minor version of that version stage and major,
+                    // mark the publication's DOIs stale
+                    // so that the metadata, e.g. URL, can be updated
+                    $lastMinorPublication = Repo::publication()->getCollector()
+                        ->filterBySubmissionIds([$newPublication->getData('submissionId')])
+                        ->filterByVersionStage($newPublication->getData('versionStage'))
+                        ->filterByVersionMajor($newPublication->getData('versionMajor'))
+                        ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+                        ->orderByVersion()
+                        ->getMany()
+                        ->last(); // minor versions are sorted ASC, so get only the last
+                    if ($newPublication->getId() == $lastMinorPublication->getId()) {
+                        $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                        Repo::doi()->markStale($staleDoiIds);
+                    }
+                }
+            } else {
+                // Mark publication's DOIs stale only if this is submission's current (most mature) publication, because
+                // only then the DOI metadata needs to be re-deposited.
+                // For example, it could be that AO is published after a VoR is published.
+                if ($submission->getData('currentPublicationId') === $newPublication->getId()) {
+                    $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                    Repo::doi()->markStale($staleDoiIds);
+                }
+            }
         }
 
         Hook::call(
@@ -576,10 +622,6 @@ abstract class Repository
                 $submission
             ]
         );
-
-        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
-            ? Application::get()->getRequest()->getContext()
-            : app()->get('context')->get($submission->getData('contextId'));
 
         event(new PublicationPublished($newPublication, $publication, $submission, $context));
     }
@@ -610,7 +652,7 @@ abstract class Repository
     public function unpublish(Publication $publication)
     {
         $newPublication = clone $publication;
-        $newPublication->setData('status', Submission::STATUS_QUEUED);
+        $newPublication->setData('status', Publication::STATUS_QUEUED);
         $newPublication->stampModified();
 
         Hook::call(
@@ -626,6 +668,8 @@ abstract class Repository
         $newPublication = Repo::publication()->get($newPublication->getId());
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
+        $wasCurrentPublication = $publication->getId() == $submission->getData('currentPublicationId');
+
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {
             Repo::submission()->updateStatus($submission);
@@ -640,9 +684,35 @@ abstract class Repository
             $msg = 'publication.event.versionUnpublished';
         }
 
-        // Mark DOIs stable (if applicable).
-        if ($submission->getData('status') !== Submission::STATUS_PUBLISHED) {
-            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
+            ? Application::get()->getRequest()->getContext()
+            : app()->get('context')->get($submission->getData('contextId'));
+
+        // Mark DOIs stale (if applicable).
+        if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+            // if it was the last published minor version of that version stage and major,
+            // mark the publication's DOIs stale
+            if ($newPublication->getData('versionMinor') != 0) {
+                $lastMinorPublication = Repo::publication()->getCollector()
+                    ->filterBySubmissionIds([$newPublication->getData('submissionId')])
+                    ->filterByVersionStage($newPublication->getData('versionStage'))
+                    ->filterByVersionMajor($newPublication->getData('versionMajor'))
+                    ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+                    ->orderByVersion()
+                    ->getMany()
+                    ->last(); // minor versions are sorted ASC, so get only the last
+                if ($lastMinorPublication && (int) $newPublication->getData('versionMinor') > (int) $lastMinorPublication->getData('versionMinor')) {
+                    $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                    Repo::doi()->markStale($staleDoiIds);
+                }
+            }
+            // if it was a major version or a current minor version
+            if ($newPublication->getData('versionMinor') == 0) {
+                $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                Repo::doi()->markStale($staleDoiIds);
+            }
+        } elseif ($wasCurrentPublication) {
+            $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
             Repo::doi()->markStale($staleDoiIds);
         }
 
@@ -662,13 +732,10 @@ abstract class Repository
             [
                 &$newPublication,
                 $publication,
-                $submission
+                $submission,
+                $wasCurrentPublication
             ]
         );
-
-        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
-            ? Application::get()->getRequest()->getContext()
-            : app()->get('context')->get($submission->getData('contextId'));
 
         event(new PublicationUnpublished($newPublication, $publication, $submission, $context));
     }
@@ -692,10 +759,10 @@ abstract class Repository
     }
 
     /**
-     * Given a Version Stage and a flag of whether the Version isMinor, 
+     * Given a Version Stage and a flag of whether the Version isMinor,
      * the publication's related data is being updated
      *
-     * @hook 'Publication::updateVersion::before' [&$publication, $oldVersion]
+     * @hook Publication::updateVersion::before [&$publication, $oldVersion]
      */
     public function updateVersion(Publication $publication, VersionStage $versionStage, bool $isMinor = true): Publication
     {
@@ -716,10 +783,10 @@ abstract class Repository
     }
 
     /**
-     * Get the string that describes the 
+     * Get the string that describes the
      * given publication's version.
      */
-    public function getVersionString(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string 
+    public function getVersionString(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string
     {
         $currentVersionInfo = $publication->getVersion();
 
@@ -866,7 +933,87 @@ abstract class Repository
     }
 
     /**
-     * Create all DOIs associated with the publication.
+     * Get all minor versions of the same submission, that have
+     * the same version stage, version major and DOI ID
+     * as the given publication
+     *
+     * @return array<int,T>
      */
-    abstract protected function createDois(Publication $newPublication): void;
+    public function getMinorVersionsWithSameDoi(Publication $publication): array
+    {
+        return $this->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByVersionStage($publication->getData('versionStage'))
+            ->filterByVersionMajor($publication->getData('versionMajor'))
+            ->filterByDoiIds([$publication->getData('doiId')])
+            ->getMany()
+            ->all();
+    }
+
+    /**
+     * Get the first DOI object found for minor versions of the same submission,
+     * within the same version stage and version major.
+     */
+    public function getMinorVersionsDoi(Publication $publication): ?Doi
+    {
+        return $this->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByVersionStage($publication->getData('versionStage'))
+            ->filterByVersionMajor($publication->getData('versionMajor'))
+            ->getMany()
+            ->filter(fn ($publication) => $publication->getData('doiId') != null)
+            ->first()?->getData('doiObject');
+    }
+
+    /**
+     * Create all DOIs associated with the publication.
+     *
+     * @return DoiException[]
+     */
+    abstract public function createDois(Publication $publication): array;
+
+    /**
+     * @copydoc DAO::getVoRMinorVersionsSettingValues()
+     */
+    public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
+    {
+        return $this->dao->getMinorVersionsSettingValues($submissionId, $versionStage, $versionMajor, $settingName);
+    }
+
+    /**
+     * @copydoc DAO::getExportableDOIsSubmissionIds()
+     */
+    public function getExportableDOIsSubmissionIds(int $contextId, bool $doiVersioning): array
+    {
+        return $this->dao->getExportableDOIsSubmissionIds($contextId, $doiVersioning);
+    }
+
+    /**
+     * Get public peer review data for publications.
+     *
+     * @param array $publications - The publications to get peer review data for.
+     */
+    public function getPeerReviews(array $publications): Enumerable
+    {
+        return collect($publications)
+            ->lazy()
+            ->map(function ($publication) {
+                // Call resolve to get the array representation of the data prepared by the resource.
+                // Thus allowing code outside of an API context (e.g, page handlers) to use this getPeerReviews method to get peer review data in a consistent shape.
+                return (new PublicationPeerReviewResource($publication))->resolve();
+            })->values();
+    }
+
+    /**
+     * Returns the provided publication ID as well as any other publications
+     * that reference this publication via the `source_publication_id`.
+     */
+    public function getWithSourcePublicationsIds(array $publicationIds): Collection
+    {
+        return $this->getCollector()
+            ->filterByPublicationIds($publicationIds)
+            ->filterWithSourcePublicationIds()
+            ->getIds();
+
+    }
 }

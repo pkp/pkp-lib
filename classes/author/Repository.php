@@ -19,10 +19,15 @@ use APP\author\DAO;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
+use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
@@ -80,9 +85,14 @@ class Repository
      * Get an instance of the map class for mapping
      * authors to their schema
      */
-    public function getSchemaMap(): maps\Schema
+    public function getSchemaMap(Submission $submission): maps\Schema
     {
-        return app('maps')->withExtensions($this->schemaMap);
+        return app('maps')->withExtensions(
+            $this->schemaMap,
+            [
+                'submission' => $submission,
+            ]
+        );
     }
 
     /**
@@ -124,17 +134,39 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
-        // The publicationId must match an existing publication that is not yet published
-        $validator->after(function ($validator) use ($props) {
+        $validator->after(function ($validator) use ($props, $submission, $context, $primaryLocale) {
+            // publicationId must match an existing publication that is not yet published
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
                 $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
-                } elseif ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-                    $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
                 }
             }
+            // At least one contributor role
+            if (isset($props['contributorRoles']) && !$validator->errors()->get('contributorRoles')) {
+                $contributorRoles = $props['contributorRoles'];
+                if (!$contributorRoles) {
+                    $validator->errors()->add(
+                        'contributorRoles',
+                        __('api.submission.400.emptyContributorRoles')
+                    );
+                }
+            }
+
+            // Author CI statement required?
+            if ($context->getSetting('requireAuthorCompetingInterests') && empty($props['competingInterests'][$primaryLocale])) {
+                $validator->errors()->add(
+                    "competingInterests.{$primaryLocale}",
+                    __('author.competingInterests.required')
+                );
+            }
         });
+
+        if (isset($props['orcid'])) {
+            $validator->after(function ($validator) use ($props) {
+                $validator->errors()->add('orcid', __('api.orcid.403.cannotUpdateAuthorOrcid'));
+            });
+        }
 
         $errors = [];
         if ($validator->fails()) {
@@ -241,6 +273,14 @@ class Repository
         $author->setUrl($user->getUrl());
         $author->setIncludeInBrowse(1);
         $author->setOrcid($user->getOrcid());
+        $author->setData('contributorType', ContributorType::PERSON->getName());
+        $author->setContributorRoles(ContributorRole::query()
+            ->withContextId($context->getId())
+            ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
+            ->limit(1)
+            ->get()
+            ->all()
+        );
 
         Hook::call('Author::newAuthorFromUser', [$author, $user]);
 
@@ -261,7 +301,8 @@ class Repository
             ->getMany();
 
         foreach ($authors as $author) {
-            if (empty($author->getGivenName($newLocale))) {
+            $contributorType = $author->getData('contributorType');
+            if ($contributorType === ContributorType::PERSON->getName() && empty($author->getGivenName($newLocale))) {
                 if (empty($author->getFamilyName($newLocale)) && empty($author->getPreferredPublicName($newLocale))) {
                     // if no name exists for the new locale
                     // copy all names with the old locale to the new locale
@@ -273,6 +314,8 @@ class Repository
                     // copy only the given name with the old locale to the new locale, because the given name is required
                     $author->setGivenName($author->getGivenName($oldLocale), $newLocale);
                 }
+            } else if ($contributorType === ContributorType::ORGANIZATION->getName() && !$author->getOrganizationName($newLocale)) {
+                $author->setOrganizationName($author->getOrganizationName($oldLocale), $newLocale);
             }
 
             $newAffiliations = [];

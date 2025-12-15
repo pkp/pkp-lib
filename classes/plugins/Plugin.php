@@ -64,6 +64,8 @@ use PKP\observers\events\PluginSettingChanged;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\template\PKPTemplateResource;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
@@ -349,6 +351,18 @@ abstract class Plugin
      */
     public function getTemplateResource($template = null, $inCore = false)
     {
+        if ($template) {
+            $bladeTemplatePath = $this->resolveBladeViewPath($template);
+
+            if (view()->exists($bladeTemplatePath)) {
+                // share the template variables to the blade view
+                $templateManager = TemplateManager::getManager(Application::get()->getRequest());
+                $templateManager->shareTemplateVariables($templateManager->getTemplateVars());
+                
+                return $bladeTemplatePath;
+            }
+        }
+
         $pluginPath = $this->getPluginPath();
         if ($inCore) {
             $pluginPath = PKP_LIB_PATH . "/{$pluginPath}";
@@ -386,6 +400,50 @@ abstract class Plugin
     }
 
     /**
+     * Get the view namespace of this plugin's templates for blade views and components
+     * 
+     * Default it set to the plugin name but
+     * plugin can override this method to return a different view namespace
+     */
+    public function getTemplateViewNamespace(): string
+    {
+        return $this->getName();
+    }
+
+    /**
+     * Get the blade view component class namespace of this plugin's
+     * 
+     * Default it set to the `PLUGIN_NAMESPACE\classes\components`
+     * plugin can override this method to return a different view namespace
+     */
+    public function getComponentClassNamespace(): string
+    {
+        $className = get_class($this);
+
+        $namespace = substr($className, 0, strrpos($className, '\\'));
+
+        return $namespace . '\\classes\\components';
+    }
+
+    /**
+     * Resolve the possible blade view path for the given template path and return the
+     * resolved view path with view namespace as `PLUGIN_VIEW_NAMESPACE::TEMPLATE_PATH`
+     */
+    public function resolveBladeViewPath(string $templatePath): string
+    {
+        // This is to accommodate the case if template files path beign set as similar
+        // to the smarty templates e.g. `some-path/some-template.blade.php`
+        // as blade view needed to in just `some-path.some-template`
+        $bladeTemplatePath = str_replace(
+            ['/', '.blade.php', '.blade', '.tpl'],
+            ['.', '', '', ''],
+            $templatePath
+        );
+        
+        return "{$this->getTemplateViewNamespace()}::{$bladeTemplatePath}";
+    }
+
+    /**
      * Register this plugin's templates as a template resource
      *
      * @param bool $inCore True iff this is a core resource.
@@ -396,7 +454,45 @@ abstract class Plugin
             $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
             $pluginTemplateResource = new PKPTemplateResource($templatePath);
             $templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
+
+            // Register the plugin's template path to render blade views and components
+            $fileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $fileViewFinder */
+            $fileViewFinder->addLocation(app()->basePath($templatePath));
+
+            // Auto register the plugin's view namespace and component class namespace
+            $this->_registerTemplateViewNamespace($this->getTemplateViewNamespace(), $inCore);
+            $this->_registerViewComponentNamespace($this->getComponentClassNamespace());
         }
+    }
+
+    /**
+     * Register the blade view namespaces for this plugin
+     */
+    protected function _registerTemplateViewNamespace(string $viewNamespace, bool $inCore = false): void
+    {
+        $templatePath = $this->getTemplatePath($inCore);
+        
+        if (!$templatePath) {
+            throw new \Exception('unable to resolve the template path');
+        }
+
+        // Set or replace(if already set) the plugin's view namespace same as plugin name
+        view()->replaceNamespace($viewNamespace, app()->basePath($templatePath));
+            
+        // Make sure to set the view namespace always available for plugins view
+        View::composer(
+            "{$viewNamespace}::*",
+            fn (\Illuminate\View\View $view) => $view->with('viewNamespace', $viewNamespace)
+        );
+    }
+
+    /**
+     * Register the blade component class namespaces for this plugin
+     * Alternatively, we can use the `Blade::componentNamespace` method to register the component class namespaces
+     */
+    protected function _registerViewComponentNamespace(string $componentNamespacePath): void
+    {
+        Blade::componentNamespace($componentNamespacePath, $this->getTemplateViewNamespace());
     }
 
     /**
@@ -451,8 +547,17 @@ abstract class Plugin
     {
         $fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
 
+        // If smarty template exists, return the full path
         if (file_exists($fullPath)) {
             return $fullPath;
+        }
+
+        // Fallback to blade view if exists for theme plugins and if the parent template is a blade view
+        if ($this instanceof \PKP\plugins\ThemePlugin && $this->isRenderingViaBladeView) {
+            $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
+            if (view()->exists($bladePath)) {
+                return $bladePath;
+            }
         }
 
         // Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.

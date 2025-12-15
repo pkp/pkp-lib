@@ -1,14 +1,10 @@
 <?php
 
 /**
- * @defgroup citation Citation
- */
-
-/**
  * @file classes/citation/Citation.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Citation
@@ -20,98 +16,113 @@
 
 namespace PKP\citation;
 
-class Citation extends \PKP\core\DataObject
+use PKP\core\DataObject;
+
+class Citation extends DataObject
 {
     /**
-     * Constructor.
-     *
-     * @param string $rawCitation an unparsed citation string
+     * This determines if a citation is assumed structured. At least one value in every row has to be non-empty.
      */
-    public function __construct($rawCitation = null)
-    {
-        parent::__construct();
-        $this->setRawCitation($rawCitation);
-    }
-
-    //
-    // Getters and Setters
-    //
+    public array $requirementIsStructured = [
+        ['doi', 'arxiv', 'handle', 'url', 'urn'],
+        ['title'],
+        ['authors']
+    ];
 
     /**
-     * Replace URLs through HTML links, if the citation does not already contain HTML links
-     *
-     * @return string
+     * Get the rawCitation.
      */
-    public function getCitationWithLinks()
-    {
-        $citation = $this->getRawCitation();
-        if (stripos($citation, '<a href=') === false) {
-            $citation = preg_replace_callback(
-                '#(http|https|ftp)://[\d\w\.-]+\.[\w\.]{2,6}[^\s\]\[\<\>]*/?#',
-                function ($matches) {
-                    $trailingDot = in_array($char = substr($matches[0], -1), ['.', ',']);
-                    $url = rtrim($matches[0], '.,');
-                    return "<a href=\"{$url}\">{$url}</a>" . ($trailingDot ? $char : '');
-                },
-                $citation
-            );
-        }
-        return $citation;
-    }
-
-    /**
-     * Get the rawCitation
-     *
-     * @return string
-     */
-    public function getRawCitation()
+    public function getRawCitation(): string
     {
         return $this->getData('rawCitation');
     }
 
     /**
-     * Set the rawCitation
+     * Set the rawCitation.
+     * Before set, the raw citation string needs to be processed by CitationListTokenizerFilter.
      */
-    public function setRawCitation(?string $rawCitation)
+    public function setRawCitation(string $rawCitation): void
     {
-        $rawCitation = $this->_cleanCitationString($rawCitation ?? '');
         $this->setData('rawCitation', $rawCitation);
     }
 
     /**
      * Get the sequence number
-     *
-     * @return int
      */
-    public function getSequence()
+    public function getSequence(): int
     {
         return $this->getData('seq');
     }
 
     /**
      * Set the sequence number
-     *
-     * @param int $seq
      */
-    public function setSequence($seq)
+    public function setSequence(int $seq): void
     {
         $this->setData('seq', $seq);
     }
 
-    //
-    // Private methods
-    //
     /**
-     * Take a citation string and clean/normalize it
+     * Get processing status
      */
-    public function _cleanCitationString(string $citationString): string
+    public function getProcessingStatus(): int
     {
-        // 1) Strip slashes and whitespace
-        $citationString = trim(stripslashes($citationString));
-
-        // 2) Normalize whitespace
-        $citationString = preg_replace('/[\s]+/u', ' ', $citationString);
-
-        return $citationString;
+        return $this->getData('processingStatus');
     }
+
+    /**
+     * Set processing status
+     */
+    public function setProcessingStatus(int $processingStatus): void
+    {
+        $this->setData('processingStatus', $processingStatus);
+    }
+
+    /**
+     * Replace URLs through HTML links, if the citation does not already contain HTML links.
+     */
+    public function getRawCitationWithLinks(): string
+    {
+        $rawCitationWithLinks = $this->getRawCitation();
+        if (stripos($rawCitationWithLinks, '<a href=') === false) {
+            $rawCitationWithLinks = preg_replace_callback(
+                '#(http|https|ftp)://[\d\w\.-]+\.[\w\.]{2,6}[^\s\]\[\<\>]*/?#',
+                function ($matches) {
+                    $trailingDot = in_array($char = substr($matches[0], -1), ['.', ',']);
+                    $url = rtrim($matches[0], '.,');
+                    return "<a href='{$url}' target='_blank'>{$url}</a>" . ($trailingDot ? $char : '');
+                },
+                $rawCitationWithLinks
+            );
+        }
+        return $rawCitationWithLinks;
+    }
+
+    /**
+     * Determine if citation is structured.
+     */
+    public function isStructured(): bool
+    {
+        foreach ($this->requirementIsStructured as $set) {
+            $isStructured = false;
+
+            foreach ($set as $item) {
+                if (!empty($this->getData($item))) {
+                    $isStructured = true;
+                    break;
+                }
+            }
+
+            if (!$isStructured) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\citation\Citation', '\Citation');
 }

@@ -134,10 +134,21 @@ class UserCommentController extends PKPBaseController
             $publicationIds[] = (int)$id;
         }
 
-        $query = UserComment::withPublicationIds($publicationIds)
-            ->withContextIds([$this->getRequest()->getContext()->getId()])
+        $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
             ->withIsApproved(true);
 
+
+        $user = $this->getRequest()->getUser();
+
+        // Allow logged-in user to see their own unapproved comments.
+        if ($user) {
+            $query->orWhere(function ($query) use ($user) {
+                $query->where('user_id', $user->getId())
+                    ->where('is_approved', false);
+            });
+        }
+
+        $query->withPublicationIds($publicationIds);
         $paginatedInfo = Repo::userComment()
             ->setPage($illuminateRequest->query('page') ?? 1)
             ->getPaginatedData($query);
@@ -149,7 +160,7 @@ class UserCommentController extends PKPBaseController
      * Gets a list of comments. Accessible only to moderators(admins/managers).
      * Filters available via query params:
      * ```
-     * publicationIds(required, array) - publication IDs to retrieve comments for.
+     * publicationIds(array) - publication IDs to retrieve comments for.
      * userIds(array) - Include this to filter by user IDs
      * isReported(boolean) - Include this to filter comment based on if they were reported or not.
      * isApproved(boolean) - Include this to filter comments by approval status.
@@ -160,25 +171,7 @@ class UserCommentController extends PKPBaseController
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $queryParams = $illuminateRequest->query();
-        $publicationIdsRaw = paramToArray($queryParams['publicationIds'] ?? []);
-
-        if (empty($publicationIdsRaw)) {
-            return response()->json(['error' => __('api.userComments.400.missingPublicationParam')], Response::HTTP_BAD_REQUEST);
-        }
-
-        $publicationIds = [];
-        foreach ($publicationIdsRaw as $id) {
-            if (!filter_var($id, FILTER_VALIDATE_INT)) {
-                return response()->json([
-                    'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
-                ], Response::HTTP_BAD_REQUEST);
-            }
-
-            $publicationIds[] = (int)$id;
-        }
-
-        $query = UserComment::withPublicationIds($publicationIds)
-            ->withContextIds([$this->getRequest()->getContext()->getId()]);
+        $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()]);
 
         foreach ($queryParams as $param => $value) {
             switch ($param) {
@@ -215,6 +208,21 @@ class UserCommentController extends PKPBaseController
                         ], Response::HTTP_BAD_REQUEST);
                     }
                     $query->withIsReported($isReported);
+                    break;
+                case 'publicationIds':
+                    $publicationIdsRaw = paramToArray($queryParams['publicationIds'] ?? []);
+                    $publicationIds = [];
+
+                    foreach ($publicationIdsRaw as $id) {
+                        if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                            return response()->json([
+                                'error' => __('api.publication.400.invalidPublicationId', ['publicationId' => $id])
+                            ], Response::HTTP_BAD_REQUEST);
+                        }
+
+                        $publicationIds[] = (int)$id;
+                    }
+                    $query->withPublicationIds($publicationIds);
                     break;
             }
         }
@@ -298,7 +306,11 @@ class UserCommentController extends PKPBaseController
      */
     public function setApproval(Request $illuminateRequest): JsonResponse
     {
-        $isApproved = PKPString::strictConvertToBoolean($illuminateRequest->input('approved') ?? ''); // Process the boolean value in body, returning null for invalid values.
+        $isApproved = $illuminateRequest->input('approved');
+
+        if (isset($isApproved) && !is_bool($isApproved)) {
+            $isApproved = PKPString::strictConvertToBoolean($isApproved);
+        }
 
         if ($isApproved === null) {
             return response()->json([
@@ -316,6 +328,9 @@ class UserCommentController extends PKPBaseController
         }
 
         $comment->isApproved = $isApproved;
+        $comment->approvedAt = $isApproved ? now() : null;
+        $comment->approvedByUserId = $isApproved ? $this->getRequest()->getUser()->getId() : null;
+
         $comment->save();
 
         return response()->json(new UserCommentResource($comment), Response::HTTP_OK);

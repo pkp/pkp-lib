@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023, 2024.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2024-03-05 11:56+0000\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "sv/>\n"
@@ -614,3 +614,64 @@ msgstr "Det fanns ett problem med steg nummer {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Samma institution som författaren"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Välj en granskare från listan med föreslagna granskare"
+
+msgid "editor.submission.search"
+msgstr "Sök efter bidrag, ID, författare, nyckelord, etc."
+
+msgid "editor.submission.days"
+msgstr "Dagar"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dagar i steg"
+
+msgid "editor.submission.viewSummary"
+msgstr "Sammanfattning"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Deadline för granskning måste vara senare än eller lika med deadline för "
+"svar."
+
+#, fuzzy
+msgid "editor.review.reviewViewed"
+msgstr "Granskning visad"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Om granskaren kontaktar dig via e-post eller på något annat sätt kan du "
+"registrera deras svar åt dem"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Ett svar måste väljas"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Granskaren har avböjt att genomföra granskningen"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Granskaren har accepterat att genomföra granskningen"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registrera svaret å granskarens vägnar"
+
+msgid "editor.review.logResponse"
+msgstr "Registrera svar"
+
+msgid "editor.review.logResponse.for"
+msgstr "Registrera svar för"
+
+msgid "editor.review.download"
+msgstr "Ladda ned granskningsformuläret"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Granskaren kunde inte läggas till eftersom granskningsdeadline måste vara "
+"samma som eller senare än svarsdeadline."
+
+msgid "editor.review.authorOnly"
+msgstr "Sektioner avsedda enbart för författare visas"
+
+msgid "editor.review.allSections"
+msgstr "Alla granskningssektioner visas i redaktörsformuläret"

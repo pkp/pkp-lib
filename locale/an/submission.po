@@ -2,7 +2,7 @@
 # Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-07 11:51+0000\n"
+"PO-Revision-Date: 2025-10-27 07:51+0000\n"
 "Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
 "Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/an/>\n"
@@ -2506,7 +2506,7 @@ msgid "submission.wizard.changeSubmission"
 msgstr "Cambiar los achustes d'o ninvio"
 
 msgid "submission.wizard.completeSteps"
-msgstr "Complete los pasos pa fer un ninvio"
+msgstr "Complete los pasos pa ninviar una contribución"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
@@ -2530,10 +2530,10 @@ msgid "submission.wizard.confirm"
 msgstr "Confirme lo siguient antes de fer lo ninvio."
 
 msgid "submission.wizard.title"
-msgstr "Fer un ninvio"
+msgstr "Ninviar un articlo"
 
 msgid "submission.wizard.titleWithStep"
-msgstr "Fer un ninvio: {$step}"
+msgstr "Ninviar un articlo: {$step}"
 
 msgid "submission.wizard.noContributors"
 msgstr "No s'han anyadiu colaboradors/as pa este ninvio."
@@ -2644,7 +2644,7 @@ msgstr "La rota URL no puede estar un numero."
 msgid "publication.version.confirm"
 msgstr "Seguro que quiere crear una versión nueva?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Lo resumen ye masiau largo. Habría de tener {$limit} parolas u menos. "
 "Actualment tiene {$count} parolas."
@@ -2747,3 +2747,6 @@ msgstr ""
 "internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
 "by-nc-nd/3.0/\">Creative Commons Reconoixencia-NoComercial-SinObraDerivada 3."
 "0</a>.</p>"
+
+msgid "submission.list.completeSubmission"
+msgstr "Rematar lo ninvio"

@@ -2244,7 +2244,7 @@ msgstr ""
 msgid "publication.version.confirm"
 msgstr ""
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 
 msgid "publication.wordCount"

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/Collector.php
  *
@@ -30,7 +31,12 @@ class Collector implements CollectorInterface
     public \APP\publication\DAO $dao;
     public ?array $contextIds;
     public ?array $submissionIds;
+    public ?array $publicationIds;
     public ?array $doiIds = null;
+    public ?string $versionStage = null;
+    public ?int $versionMajor = null;
+    public ?array $statuses = null;
+    public ?bool $shouldCheckForSourcePublicationIds = null;
     public bool $orderByVersion = false;
     public ?int $count;
     public ?int $offset;
@@ -82,9 +88,50 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    /**
+     * Filter by publication Ids
+     *
+     * @param ?int[] $publicationIDs Publication IDs
+     */
+    public function filterByPublicationIds(?array $publicationIds): self
+    {
+        $this->publicationIds = $publicationIds;
+        return $this;
+    }
+
     public function filterByDoiIds(?array $doiIds): self
     {
         $this->doiIds = $doiIds;
+        return $this;
+    }
+
+    public function filterByVersionStage(?string $versionStage): self
+    {
+        $this->versionStage = $versionStage;
+        return $this;
+    }
+
+    public function filterByVersionMajor(?int $versionMajor): self
+    {
+        $this->versionMajor = $versionMajor;
+        return $this;
+    }
+
+    public function filterByStatus(?array $statuses): self
+    {
+        $this->statuses = $statuses;
+        return $this;
+    }
+
+    /**
+     * Includes other publications referenced as the publication's source publication,
+     * e.g. as a parent-child relationship.
+     *
+     * NB: Must be used in conjunction with `filterByPublicationIds()`.
+     */
+    public function filterWithSourcePublicationIds(?bool $shouldCheckForSourcePublicationIds = true): self
+    {
+        $this->shouldCheckForSourcePublicationIds = $shouldCheckForSourcePublicationIds;
         return $this;
     }
 
@@ -131,10 +178,32 @@ class Collector implements CollectorInterface
         if (isset($this->submissionIds)) {
             $qb->whereIn('p.submission_id', $this->submissionIds);
         }
+        if (isset($this->publicationIds)) {
+            $qb->whereIn('p.publication_id', $this->publicationIds);
+            $qb->when($this->shouldCheckForSourcePublicationIds === true, function (Builder $qb) {
+                $qb->orWhereIn('p.publication_id', function (Builder $qb) {
+                    $qb->select('source_publication_id')
+                        ->from('publications')
+                        ->whereIn('publication_id', $this->publicationIds);
+                });
+            });
+        }
 
         $qb->when($this->doiIds !== null, function (Builder $qb) {
             $qb->whereIn('p.doi_id', $this->doiIds);
         });
+
+        $qb->when($this->versionStage !== null, function (Builder $qb) {
+            $qb->where('p.version_stage', $this->versionStage);
+        });
+
+        $qb->when($this->versionMajor !== null, function (Builder $qb) {
+            $qb->where('p.version_major', $this->versionMajor);
+        });
+
+        if (isset($this->statuses)) {
+            $qb->whereIn('p.status', $this->statuses);
+        }
 
         if (isset($this->count)) {
             $qb->limit($this->count);
@@ -144,14 +213,14 @@ class Collector implements CollectorInterface
         }
 
         if ($this->orderByVersion) {
-            $orderCase = "CASE p.version_stage ";
+            $orderCase = 'CASE p.version_stage ';
             foreach (VersionStage::cases() as $case) {
-                $orderCase .= "WHEN " . DB::getPdo()->quote($case->value) . " THEN " . $case->order() . " ";
+                $orderCase .= 'WHEN ' . DB::getPdo()->quote($case->value) . ' THEN ' . $case->order() . ' ';
             }
-            $orderCase .= "ELSE 999 END";
+            $orderCase .= 'ELSE 999 END';
 
-            $qb->orderByRaw("p.version_stage IS NOT NULL ASC");
-            $qb->orderByRaw("CASE WHEN p.version_stage IS NULL THEN p.date_published ELSE NULL END ASC");
+            $qb->orderByRaw('p.version_stage IS NOT NULL ASC');
+            $qb->orderByRaw('CASE WHEN p.version_stage IS NULL THEN p.date_published ELSE NULL END ASC');
             $qb->orderByRaw($orderCase);
             $qb->orderBy('p.version_major', 'asc');
             $qb->orderBy('p.version_minor', 'asc');

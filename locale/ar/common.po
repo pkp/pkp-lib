@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2025-06-24 17:55+0000\n"
+"PO-Revision-Date: 2025-08-05 03:12+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar/>\n"
@@ -1691,29 +1691,8 @@ msgstr "التخصصات العلمية"
 msgid "search.fullText"
 msgstr "النص الكامل"
 
-msgid "search.indexTerms"
-msgstr "عبارات الفهرسة"
-
-msgid "search.indexTermsLong"
-msgstr "كل حقول عبارة الفهرسة"
-
-msgid "search.matchAll"
-msgstr "مطابقة كل الفئات"
-
 msgid "search.noResults"
 msgstr "لا نتائج"
-
-msgid "search.operator.and"
-msgstr "و"
-
-msgid "search.operator.not"
-msgstr "لا"
-
-msgid "search.operator.or"
-msgstr "أو"
-
-msgid "search.SearchFor"
-msgstr "البحث عن"
 
 msgid "search.searchResults"
 msgstr "إبحث ضمن النتائج"
@@ -1936,6 +1915,7 @@ msgstr "حالة الجولة {$round}"
 msgid "notification.type.editorialReport"
 msgstr "ملخص التقرير الإحصائي."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "هذا تذكير لك للتحقق من حالة مجلتك عبر تقرير هيئة التحرير."
 
@@ -2358,3 +2338,6 @@ msgstr "التعيينات"
 
 msgid "common.yesContinue"
 msgstr "نعم، استمر"
+
+msgid "common.changeLanguage"
+msgstr "تغيير اللغة"

@@ -2,18 +2,19 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-02-05 18:43+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 09:46+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"fr_FR/>\n"
-"Language: fr_FR\n"
+"fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2759,7 +2760,7 @@ msgid "stats.description.acceptRejectRate"
 msgstr ""
 "Le pourcentage est calculé pour les soumissions qui ont été faites durant "
 "l'intervalle de dates sélectionnées et qui ont reçu une décision finale. "
-"<br> <br> Par exemple, si dix soumissions ont été reçues pendant ce laps de "
+"<br><br> Par exemple, si dix soumissions ont été reçues pendant ce laps de "
 "temps, que quatre ont été acceptées, quatre rejetées et deux attendent "
 "toujours une décision finale, le taux d'acceptation sera de <strong>50%</"
 "strong> (4 des 8 soumissions). Les deux soumissions qui n'ont pas encore "
@@ -2769,10 +2770,10 @@ msgid "stats.description.daysToDecision"
 msgstr ""
 "Le nombre de jours nécessaires à la plupart des soumissions pour recevoir "
 "une première décision éditoriale, comme le rejet en pré-évaluation ou "
-"l'envoi pour évaluation. <br> <br> Ces chiffres indiquent que 80% des "
-"soumissions parviennent à la décision dans ce délai imparti. < br> <br> "
-"Cette statistique tente de chiffrer le délai dans lequel la majorité des "
-"personnes soumettant à votre revue peuvent recevoir une décision."
+"l'envoi pour évaluation. <br><br> Ces chiffres indiquent que 80% des "
+"soumissions parviennent à la décision dans ce délai imparti. < br><br> Cette "
+"statistique tente de chiffrer le délai dans lequel la majorité des personnes "
+"soumettant à votre revue peuvent recevoir une décision."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
@@ -3881,7 +3882,7 @@ msgstr ""
 "d'intérêts (CI) avec leur soumission."
 
 msgid "manager.setup.masthead"
-msgstr "Bloc générique"
+msgstr "Équipe"
 
 msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
 msgstr ""
@@ -3998,3 +3999,130 @@ msgstr "Valider le XML avec l'export."
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Version installée : {$version}"
+
+msgid "settings.roles.permitSettings"
+msgstr "Autoriser les modifications des paramètres"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Lien vers une page affichant tous les services éditoriaux actifs de l'équipe."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Définissez l'ordre d'affichage public des rôles de l'équipe."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Langues du site web"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Ajouter/Supprimer des langues"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Nombre minimum d'évaluations requises"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Nombre minimum d'avis confirmés requis pour une soumission"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Le titre de l'élément du menu est obligatoire."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Modifier l'adresse e-mail d'invitation"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Langues de soumission"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Métadonnées"
+
+msgid "manager.language.submission.form.description"
+msgstr "Sélectionnez les langues de soumission et de métadonnées."
+
+msgid "manager.language.submission.from.error"
+msgstr "Au moins un paramètre régional doit être sélectionné."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Définir des rappels pour les évaluations"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Réponse à une demande d'évaluation - Avant la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Réponse à une demande d'évaluation - Après la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Soumission d'une évaluation - Après la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Soumission d'une évaluation - Avant la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} jours avant la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} jours après la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Aucun"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Aucun rappel défini"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Suggestion du relecteur lors de la soumission"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Permettre aux auteurs de suggérer des relecteurs potentiels lors du "
+"processus de soumission"
+
+msgid "settings.roles.masthead"
+msgstr "Considérer le rôle dans la liste de l'équipe"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Envoyez un rappel par e-mail avant ou après pour demander une réponse à la "
+"demande d'évaluation (si le relecteur n'a pas encore répondu à la demande "
+"d'évaluation) ou pour demander la soumission de l'évaluation (si le "
+"relecteur n'a pas encore soumis son évaluation)"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"L'auteur peut suggérer plusieurs relecteurs potentiels avant de finaliser sa "
+"soumission, ce qui permet de rationaliser le processus d'évaluation et de "
+"fournir des informations précieuses à l'équipe éditoriale."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Ce qui suit est présenté aux auteurs lors de l'étape des suggestions des "
+"relecteurs. Fournissez une brève explication des informations que l'auteur "
+"doit fournir à son sujet, au sujet des coauteurs et de tout autre "
+"contributeur."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Le paramètre de langue n'a pas pu être enregistré. Toutes les options "
+"doivent être activées."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Les relecteurs seront affichés dans un format standardisé afin de garantir "
+"l'uniformité et de faciliter leur recherche dans cette section."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Veuillez fournir l'historique éditorial, y compris le nom complet, "
+"l'affiliation et les dates de début et de fin de chaque éditeur."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"L'auteur {$authorName} n'a pas de nom d'affiliation dans la langue de la "
+"soumission, {$localeName}. La soumission ne peut pas être importée sans "
+"cette information."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Définissez l'ordre d'affichage public des rôles éditoriaux dans l'équipe."
+
+msgid "notification.submissionLocales"
+msgstr "Paramètres locaux de soumission mis à jour."

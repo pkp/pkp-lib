@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file api/v1/contexts/PKPContextController.php
  *
@@ -82,7 +83,7 @@ class PKPContextController extends PKPBaseController
                 ->whereNumber('contextId');
 
             Route::get('{contextId}/theme', $this->getTheme(...))
-                ->name('context.getContext')
+                ->name('context.getTheme')
                 ->whereNumber('contextId');
 
             Route::put('{contextId}', $this->edit(...))

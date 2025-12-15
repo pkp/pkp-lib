@@ -1715,29 +1715,8 @@ msgstr "Дисциплины"
 msgid "search.fullText"
 msgstr "Полный текст"
 
-msgid "search.indexTerms"
-msgstr "Термины для индексирования"
-
-msgid "search.indexTermsLong"
-msgstr "Все поля терминов для индексирования"
-
-msgid "search.matchAll"
-msgstr "Совпадение по всем категориям"
-
 msgid "search.noResults"
 msgstr "Нет результатов"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.SearchFor"
-msgstr "Искать"
 
 msgid "search.searchResults"
 msgstr "Результаты поиска"
@@ -1969,6 +1948,7 @@ msgstr "Статус раунда {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Сводный отчёт по статистике."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Напоминаем Вам о необходимости проверить состояние Вашего журнала с помощью "

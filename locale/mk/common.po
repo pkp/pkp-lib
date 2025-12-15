@@ -3,7 +3,7 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-19 21:42+0000\n"
+"PO-Revision-Date: 2025-08-19 06:31+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
@@ -1712,29 +1712,8 @@ msgstr "Дисциплини"
 msgid "search.fullText"
 msgstr "Целосен текст"
 
-msgid "search.indexTerms"
-msgstr "Поими"
-
-msgid "search.indexTermsLong"
-msgstr "Сите полиња со термини за индекс"
-
-msgid "search.matchAll"
-msgstr "Одговара на сите категории"
-
 msgid "search.noResults"
 msgstr "Нема резултати"
-
-msgid "search.operator.and"
-msgstr "и"
-
-msgid "search.operator.not"
-msgstr "не"
-
-msgid "search.operator.or"
-msgstr "или"
-
-msgid "search.SearchFor"
-msgstr "Барај"
 
 msgid "search.searchResults"
 msgstr "Резултати од пребарување"
@@ -1965,6 +1944,7 @@ msgstr "Круг {$round} статус"
 msgid "notification.type.editorialReport"
 msgstr "Збирен статистички извештај."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ова е еден вид потсетник за да го проверите здравјето на вашето списание "
@@ -2456,3 +2436,6 @@ msgstr "Мои поднесоци како автор"
 
 msgid "validator.date.comparison"
 msgstr "Неважечки датуми се предвидени за споредба."
+
+msgid "common.changeLanguage"
+msgstr "Смени јазик"

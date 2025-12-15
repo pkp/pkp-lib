@@ -2,13 +2,14 @@
 # Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
 # Maria Lamury <marialamury@gmail.com>, 2025.
 # Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
+# Muhammad Fauzi <fauzi.padlaw@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-05-03 17:35+0000\n"
-"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
+"PO-Revision-Date: 2025-08-26 06:07+0000\n"
+"Last-Translator: Muhammad Fauzi <fauzi.padlaw@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/id/>\n"
 "Language: id\n"
@@ -1700,29 +1701,8 @@ msgstr "Disiplin Ilmu"
 msgid "search.fullText"
 msgstr "Teks Lengkap"
 
-msgid "search.indexTerms"
-msgstr "Indeks peristilahan"
-
-msgid "search.indexTermsLong"
-msgstr "Semua kolom istilah indeks"
-
-msgid "search.matchAll"
-msgstr "Cocok dengan semua kategori"
-
 msgid "search.noResults"
 msgstr "Tidak ada hasil"
-
-msgid "search.operator.and"
-msgstr "dan"
-
-msgid "search.operator.not"
-msgstr "bukan"
-
-msgid "search.operator.or"
-msgstr "atau"
-
-msgid "search.SearchFor"
-msgstr "Cari ini"
 
 msgid "search.searchResults"
 msgstr "Hasil Pencarian"
@@ -1953,6 +1933,7 @@ msgstr "Status Ronde{$round}"
 msgid "notification.type.editorialReport"
 msgstr "Rangkuman laporan statistik."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ini adalah semacam pengingat bagi Anda untuk memeriksa kondisi jurnal Anda "
@@ -2442,3 +2423,6 @@ msgstr "Highlight"
 
 msgid "common.loaded"
 msgstr "Dimuat"
+
+msgid "common.changeLanguage"
+msgstr "Ubah Bahasa"

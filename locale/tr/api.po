@@ -1,7 +1,7 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
+"PO-Revision-Date: 2025-08-17 00:25+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -108,11 +108,6 @@ msgstr "İsteğe bir veya daha fazla geçersiz yayın bileşeni dahil edildi."
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "Halihazırda yapılandırılan eklenti, bir kayıt ajansı eklentisi olmalıdır."
-
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Daha önce yayımlanmış olduğundan, makale için bir karar kaydedemez veya "
-"öneremezsiniz."
 
 msgid "api.emails.400.missingBody"
 msgstr "Gönderilecek bir e-posta eklemelisiniz."
@@ -309,22 +304,24 @@ msgid "api.jobs.404.failedJobNotFound"
 msgstr "Başarısız iş başarısız listesinde bulunamadı."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr ""
+msgstr "Yükü eksik olan başarısız görev yeniden gönderilecek."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Listede başarısız iş bulunamadı."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Başarısız iş yeniden gönderilemiyor."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Başarısız iş yeniden başarıyla gönderildi."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Geçerli yükü olan tüm yeniden gönderilebilir başarısız işler başarıyla "
+"yeniden kuyruğa alındı."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "Başarısız işleri başarısız listesinden silinemiyor."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr "Başarısız iş, başarısız listesinden silindi."
@@ -384,3 +381,39 @@ msgstr "Aranan yazar bulunamadı"
 
 msgid "api.orcid.403.editWithoutPermission"
 msgstr "Atanmadığınız aday makale yazarlarında değişiklik yapamazsınız."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Atamam için hakem bulunamadı"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Sadece ‘kabul et’ ve ‘reddet’ geçerli değerlerdir"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Belirtilen bölüm mevcut değildir."
+
+msgid "api.submission.400.invalidId"
+msgstr "Geçersiz kimlik: “{$id}” verildi."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Etkinleştirilmiş tanımlayıcılar olmadığından makale tanımlayıcıları formu "
+"kullanılamaz."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "İstediğiniz ror bulunamadı."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Kaynak üzerinde istenen eylem gerçekleştirilemedi."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Bu makalenin dilini değiştiremezsiniz çünkü zaten birden fazla yayınlanmış "
+"sürümü vardır."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Bu değerlendirme için gönderilen dosya bulunamadı."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"İstek, gerekli sorgu parametresi `id`'yi içermiyor. Silinmesini istediğiniz "
+"gönderilerin `id`'lerini girin."

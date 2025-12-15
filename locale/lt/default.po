@@ -1,0 +1,212 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "default.groups.plural.translator"
+msgstr "Vertėjai"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Prieš pateikdami užbaikite užklausą, peržiūrėkite įvestą informaciją. "
+"Galite pakeisti bet kurią čia rodomą informaciją spustelėdami redagavimo "
+"mygtuką kiekvienos skilties viršuje.</p><p>Kai pateiksite užklausą, ją "
+"peržiūrės mūsų redakcijos komandos narys. Įsitikinkite, kad čia įvesta "
+"informacija yra kuo tikslesnė.</p>"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Pateikdami darbą, galite pasiūlyti kelis potencialius recenzentus. Tai "
+"gali padėti supaprastinti peržiūros procesą ir suteikti vertingos "
+"informacijos redakcijos komandai. Pasirinkite recenzentus, kurie yra jūsų "
+"srities ekspertai ir neturi interesų konflikto su jūsų darbu. Ši funkcija "
+"skirta pagerinti peržiūros procesą ir užtikrinti efektyvesnę patirtį tiek "
+"autoriams, tiek redakcijos komandai.</p>"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Svetainės administratorius (-ė)"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Svetainės administratoriai"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Leidybos redaktorius (-ė)"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Leidybos redaktoriai"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "LeidR"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Kalbos redaktorius (-ė)"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Kalbos redaktoriai"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "KR"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korektorius (-ė)"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korektoriai"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "K"
+
+msgid "default.groups.name.designer"
+msgstr "Dizaineris (-ė)"
+
+msgid "default.groups.plural.designer"
+msgstr "Dizaineriai"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Dizainas"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Vidinis (-ė) recenzentas(-ė)"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Vidiniai recenzentai"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "VR"
+
+msgid "default.groups.name.marketing"
+msgstr "Rinkodaros ir pardavimų koordinatorius (-ė)"
+
+msgid "default.groups.plural.marketing"
+msgstr "Rinkodaros ir pardavimų koordinatoriai"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "RP"
+
+msgid "default.groups.name.funding"
+msgstr "Finansavimo koordinatorius (-ė)"
+
+msgid "default.groups.plural.funding"
+msgstr "Finansavimo koordinatoriai"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FK"
+
+msgid "default.groups.name.indexer"
+msgstr "Indeksuotojas (-a)"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indeksuotojai"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Maketo redaktorius (-ė)"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Maketo redaktoriai"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "MR"
+
+msgid "default.groups.name.author"
+msgstr "Autorius (-ė)"
+
+msgid "default.groups.plural.author"
+msgstr "Autoriai"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Vertėjas (-a)"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Vert"
+
+msgid "default.groups.name.reader"
+msgstr "Skaitytojas (-a)"
+
+msgid "default.groups.plural.reader"
+msgstr "Skaitytojai"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Skaityti"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Redakcijos kolegijos narys"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Redakcijos kolegijos nariai"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "RKN"
+
+msgid "default.genres.other"
+msgstr "Kiti"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedija"
+
+msgid "default.genres.image"
+msgstr "Paveikslėlis"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML stiliai"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>Tai automatinis pranešimas iš <a href=\"{$contextUrl}\""
+">{$contextName</a>.</p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>Ačiū, kad pateikėte savo darbą į {$contextName}. Jums bus paprašyta "
+"įkelti failus, nurodyti bendraautorius ir pateikti tokią informaciją kaip "
+"pavadinimas ir santrauka.</p><p>Jei dar to nepadarėte, perskaitykite mūsų <a "
+"href=\"{$submissionGuidelinesUrl}\" target=\"_blank\">pateikimo gaires</a>. "
+"Pildydami formas pateikite kuo daugiau detalių, kad mūsų redaktoriai galėtų "
+"geriau įvertinti jūsų darbą.</p><p>Pradėję galite išsaugoti savo pateikimą "
+"ir sugrįžti prie jo vėliau. Turėsite galimybę peržiūrėti ir pataisyti bet "
+"kurią informaciją prieš pateikdami ją.</p>"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>Pateikite visus failus, kurių mūsų redakcijos komandai gali prireikti "
+"jūsų pateiktam darbui įvertinti. Be pagrindinio darbo, galite pateikti "
+"duomenų rinkinius, interesų konfliktų pareiškimus ar kitus papildomus "
+"failus, jei jie bus naudingi mūsų redaktoriams.</p>"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>Pridėkite visų šio pateikimo bendraautorių informaciją. Čia pridėti "
+"bendraautoriai gaus pateikimo patvirtinimą el. paštu, taip pat visų "
+"redakcinių sprendimų, užregistruotų dėl šio pateikimo, kopijas.</p><p>Jei su "
+"bendraautoriu negalima susisiekti el. paštu, nes jis turi likti anonimiškas "
+"arba neturi el. pašto paskyros, neįveskite netikro el. pašto adreso. "
+"Informaciją apie šį bendraautorį galite pridėti pranešime redaktoriui "
+"vėlesniame pateikimo proceso etape.</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Pateikite toliau nurodytą informaciją, kad galėtume tvarkyti jūsų "
+"pateiktą informaciją mūsų sistemoje.</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>Pateikite toliau nurodytą informaciją, kad mūsų redakcijos komanda galėtų "
+"lengviau tvarkyti jūsų pateiktą darbą.</p><p>Įvesdami metaduomenis, "
+"pateikite įrašus, kurie, jūsų manymu, būtų naudingiausi jūsų pateiktą darbą "
+"tvarkančiam asmeniui. Šią informaciją galima pakeisti prieš paskelbimą.</p>"

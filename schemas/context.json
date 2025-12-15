@@ -92,6 +92,13 @@
 				"in:0,enable,request,require"
 			]
 		},
+        "citationsMetadataLookup": {
+            "type": "boolean",
+            "description": "Enable metadata lookup by default for new submissions.",
+            "validation": [
+                "nullable"
+            ]
+        },
 		"competingInterests": {
 			"type": "string",
 			"multilingual": true,
@@ -216,6 +223,12 @@
 			"validation": [
 				"nullable",
 				"in:1,2,3"
+			]
+		},
+		"enablePublicPeerReviews": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
 			]
 		},
 		"defaultMetricType": {
@@ -979,6 +992,22 @@
 			"validation": [
 				"nullable",
 				"in:0,enable,request,require"
+			]
+		},
+		"plainLanguageSummary": {
+			"type": "string",
+			"description": "Enable plain language summary metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"enablePublicComments": {
+			"type": "boolean",
+			"description": "Whether or not the public commenting feature should be enabled.",
+			"default": false,
+			"validation": [
+				"nullable"
 			]
 		}
 	}

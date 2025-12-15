@@ -1,15 +1,16 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022, 2023.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
+# Sérgio Reis <disergioreis@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2024-01-22 17:20+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/submission/pt_PT/>\n"
-"Language: pt_PT\n"
+"PO-Revision-Date: 2025-10-24 20:18+0000\n"
+"Last-Translator: Sérgio Reis <disergioreis@gmail.com>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2588,7 +2589,7 @@ msgstr "Todas as Versões"
 msgid "publication.version.confirm"
 msgstr "Deseja realmente criar uma nova versão?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "O resumo é demasiado longo. Não deve ter mais do que {$limit} palavras. "
 "Atualmente tem {$count} palavras."
@@ -2723,3 +2724,129 @@ msgstr ""
 
 msgid "author.competingInterests"
 msgstr "Conflito de Interesses"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Atribuído a mim"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Sugestões do revisor"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Revisores sugeridos pelo autor"
+
+msgid "author.authorNotFound"
+msgstr "Não foi possível encontrar o autor para esta afiliação."
+
+msgid "ror.nameRequired"
+msgstr "É necessário um nome ROR."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Idioma atual da submissão:"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Cancelar submissão"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "A submissão foi cancelada e todos os dados associados foram eliminados."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Para sugestão do revisor"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Modificar"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Alterar idioma da submissão para"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Foi recebida uma recomendação editorial"
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "A submissão avançou para a próxima fase de revisão"
+
+msgid "workflow.reviewRoundN"
+msgstr "Rodada de revisão {$number}"
+
+msgid "fileManager.filesForReview"
+msgstr "Ficheiros para revisão"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Apagar submissões incompletas"
+
+msgid "workflow.stageNotStarted"
+msgstr "A fase {$stage} ainda não foi iniciada."
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Enviar revisão para ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Enviar esta revisão para o revisor do ORCID?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Recusado durante a fase {$stageName}."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Apenas autorizado a recomendar uma decisão editorial"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Por favor, indique uma afiliação ROR ou, pelo menos, um nome de afiliação."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Submissão cancelada"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "A recomendação foi feita por si."
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisões carregadas"
+
+msgid "submission.review.status.viewed"
+msgstr "O editor já visualizou a revisão."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "A revisão foi concluída em {$date}"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "O revisor cancelou o pedido de revisão"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "O revisor cancelou o pedido de revisão em <b>{$date}</b>."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Continuar sem um número mínimo de avaliações confirmadas?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"O número mínimo de revisões confirmadas não foi atingido. Ainda deseja "
+"prosseguir com esta decisão editorial?"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Selecione as submissões incompletas para serem eliminadas."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "A submissão está atualmente na fase de {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"A submissão avançou para a próxima ronda de revisão, foi aceite e encontra-"
+"se atualmente na fase de {$stage}."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Ficheiros carregados no momento do envio"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "A revisão foi confirmada pelo editor"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "A revisão foi aceite pelo editor em <b>{$date}</b>."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Aviso: Esta versão foi publicada. Editá-la pode afetar o conteúdo publicado."
+
+msgid "ror.displayLocaleRequired"
+msgstr "É necessário definir o idioma de exibição do ROR."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "A aguardar resposta dos revisores"

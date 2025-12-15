@@ -91,18 +91,19 @@ class OrcidHandler extends Handler
         ]);
 
         // Get the author
-        $author = $this->getAuthorToVerify($request);
+        $author = $this->getAuthorToVerify($request, $templateMgr);
 
         if ($author === null) {
             $this->handleNoAuthorWithToken($templateMgr);
         } elseif ($request->getUserVar('error') === 'access_denied') {
             // Handle access denied
             $this->handleUserDeniedAccess($author, $templateMgr, $request->getUserVar('error_description'));
+        } else {
+            // Only try to verify if there is an author
+            (new VerifyIdentityWithOrcid($author, $request, OrcidDepositType::WORK))
+                ->execute()
+                ->updateTemplateMgrVars($templateMgr);
         }
-
-        (new VerifyIdentityWithOrcid($author, $request, OrcidDepositType::WORK))
-            ->execute()
-            ->updateTemplateMgrVars($templateMgr);
 
         $templateMgr->display(self::VERIFY_TEMPLATE_PATH);
     }
@@ -183,7 +184,7 @@ class OrcidHandler extends Handler
     /**
      * Helper to retrieve author for which the ORCID verification was requested.
      */
-    private function getAuthorToVerify(Request $request): ?Author
+    private function getAuthorToVerify(Request $request, $templateMgr = null): ?Author
     {
         $publicationId = $request->getUserVar('state');
         $authors = Repo::author()
@@ -192,13 +193,20 @@ class OrcidHandler extends Handler
             ->getMany();
 
         $authorToVerify = null;
+        $authorSelected = null;
         // Find the author entry specified by the returned token.
         if ($request->getUserVar('token')) {
             foreach ($authors as $author) {
                 if ($author->getData('orcidEmailToken') == $request->getUserVar('token')) {
                     $authorToVerify = $author;
+                } elseif ($author->getId() == $request->getUserVar('author_id') && $author->getData('orcidIsVerified')) {
+                    $authorSelected = $author;
                 }
             }
+        }
+        if($authorToVerify === null && $authorSelected !== null && $templateMgr !== null) {
+            // Author has already verified
+            $templateMgr->assign('duplicateOrcid', true);
         }
 
         return $authorToVerify;

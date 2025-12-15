@@ -3,8 +3,8 @@
 /**
  * @file pages/dashboard/DashboardHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DashboardHandler
@@ -22,6 +22,9 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\enums\VersionStage;
 use APP\template\TemplateManager;
+use PKP\citation\enum\CitationProcessingStatus;
+use PKP\components\forms\citation\CitationRawEditForm;
+use PKP\components\forms\citation\CitationStructuredEditForm;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
 use PKP\components\forms\publication\EmailContributorForm;
@@ -31,6 +34,8 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\decision\Decision;
+use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
@@ -167,7 +172,7 @@ abstract class PKPDashboardHandler extends Handler
 
         $versionStageOptions = [];
         $allVersionStages = VersionStage::cases();
-        usort($allVersionStages, fn($a, $b) => $a->order() <=> $b->order());
+        usort($allVersionStages, fn ($a, $b) => $a->order() <=> $b->order());
 
         foreach ($allVersionStages as $versionStage) {
             $versionStageOptions[] = [
@@ -177,6 +182,8 @@ abstract class PKPDashboardHandler extends Handler
         }
 
         $logResponseForm = new LogReviewerResponseForm($context->getSupportedFormLocales(), $context);
+        $citationStructuredEditForm = new CitationStructuredEditForm('emit');
+        $citationRawEditForm = new CitationRawEditForm('emit');
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -186,6 +193,7 @@ abstract class PKPDashboardHandler extends Handler
                 'filtersForm' => $filtersForm->getConfig(),
                 'views' => $this->getViews(),
                 'contextMinReviewsPerSubmission' => $context->getData('numReviewsPerSubmission') ?: 0,
+                'contextCitationsMetadataLookup' => $context->getData('citationsMetadataLookup') ?: 0,
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,
@@ -196,6 +204,8 @@ abstract class PKPDashboardHandler extends Handler
                     'emailContributorForm' => $emailContributorForm->getConfig(),
                     'logResponseForm' => $logResponseForm->getConfig(),
                     'versionStageOptions' => $versionStageOptions,
+                    'citationStructuredEditForm' => $citationStructuredEditForm->getConfig(),
+                    'citationRawEditForm' => $citationRawEditForm->getConfig()
                 ],
             ]
         ]);
@@ -269,6 +279,8 @@ abstract class PKPDashboardHandler extends Handler
             'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
             'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
             'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
+            'SUBMISSION_FILE_DEPENDENT' => SubmissionFile::SUBMISSION_FILE_DEPENDENT,
+            'SUBMISSION_FILE_BODY_TEXT' => SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
             // Reviewer selection types
@@ -282,6 +294,8 @@ abstract class PKPDashboardHandler extends Handler
             'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
             'ASSOC_TYPE_REPRESENTATION' => PKPApplication::ASSOC_TYPE_REPRESENTATION,
             'ASSOC_TYPE_SUBMISSION' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'ASSOC_TYPE_SUBMISSION_FILE' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
+            'ASSOC_TYPE_PUBLICATION' => PKPApplication::ASSOC_TYPE_PUBLICATION,
             // NOTIFICATIONS
             'NOTIFICATION_LEVEL_NORMAL' => Notification::NOTIFICATION_LEVEL_NORMAL,
             'NOTIFICATION_LEVEL_TRIVIAL' => Notification::NOTIFICATION_LEVEL_TRIVIAL,
@@ -296,7 +310,23 @@ abstract class PKPDashboardHandler extends Handler
 
 
             // Email log event types
-            'EMAIL_LOG_EVENT_TYPE_EDITOR_NOTIFY_AUTHOR' => SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR
+            'EMAIL_LOG_EVENT_TYPE_EDITOR_NOTIFY_AUTHOR' => SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR,
+
+            // Editorial Tasks
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+            'EDITORIAL_TASK_STATUS_PENDING' => EditorialTaskStatus::PENDING->value,
+            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => EditorialTaskStatus::IN_PROGRESS->value,
+            'EDITORIAL_TASK_STATUS_CLOSED' => EditorialTaskStatus::CLOSED->value,
+
+            'citationProcessingStatus' => [
+                'NOT_PROCESSED' => CitationProcessingStatus::NOT_PROCESSED->value,
+                'PID_EXTRACTED' => CitationProcessingStatus::PID_EXTRACTED->value,
+                'CROSSREF' => CitationProcessingStatus::CROSSREF->value,
+                'OPEN_ALEX' => CitationProcessingStatus::OPEN_ALEX->value,
+                'ORCID' => CitationProcessingStatus::ORCID->value,
+                'PROCESSED' => CitationProcessingStatus::PROCESSED->value,
+            ],
         ]);
 
         $this->setupIndex($request);

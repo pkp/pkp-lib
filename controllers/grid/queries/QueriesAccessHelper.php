@@ -28,8 +28,8 @@ namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\security\Role;
 use PKP\user\User;
 
@@ -66,7 +66,7 @@ class QueriesAccessHelper
     /**
      * Determine whether the current user can open/close a query.
      *
-     * @param Query $query
+     * @param EditorialTask $query
      *
      * @return bool True if the user is allowed to open/close the query.
      */
@@ -119,7 +119,7 @@ class QueriesAccessHelper
      */
     public function getCanEdit($queryId)
     {
-        $query = Query::find($queryId);
+        $query = EditorialTask::find($queryId);
         if (!$query) {
             return false;
         }
@@ -151,7 +151,7 @@ class QueriesAccessHelper
     public function getCanDelete($queryId)
     {
         // Users can always delete their own placeholder queries.
-        $query = Query::find($queryId);
+        $query = EditorialTask::find($queryId);
         if ($query) {
             $headNote = Repo::note()->getHeadNote($query->id);
             if ($headNote?->userId == $this->_user->getId() && $headNote?->title == '') {
@@ -191,7 +191,7 @@ class QueriesAccessHelper
      */
     protected function isAssigned($userId, $queryId)
     {
-        $participantIds = QueryParticipant::withQueryId($queryId)
+        $participantIds = Participant::withTaskIds([$queryId])
             ->pluck('user_id')
             ->all();
         return in_array($userId, $participantIds);

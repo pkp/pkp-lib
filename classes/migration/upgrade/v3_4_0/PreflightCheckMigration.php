@@ -123,7 +123,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
         throw new Exception(
             sprintf(
-                'Contact name or email is missing for context(s) with path(s) [%s]. Please set those before upgrading.',
+                'A contact name and email must be set on the context(s) with path(s) [%s]. Please set those before upgrading.',
                 $missingContactContexts->pluck('path')->implode(',')
             )
         );
@@ -435,7 +435,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         if (DB::connection() instanceof PostgresConnection) {
             return;
         }
-        
+
         $defaultEngine = DB::scalar('SELECT ENGINE FROM INFORMATION_SCHEMA.ENGINES WHERE SUPPORT = "DEFAULT"');
         if (strtolower($defaultEngine) !== 'innodb') {
             throw new Exception(

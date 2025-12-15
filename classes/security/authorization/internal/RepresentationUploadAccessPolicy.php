@@ -21,6 +21,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use PKP\publication\PKPPublication;
 use APP\facades\Repo;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -86,12 +87,6 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
         // Publication and submission must match
         if ($publication->getData('submissionId') !== $submission->getId()) {
             $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.invalidPublication');
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
-        }
-
-        // Representations can not be modified on published publications
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.editPublishedDisabled');
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

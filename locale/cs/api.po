@@ -108,11 +108,6 @@ msgstr ""
 msgid "api.dois.400.invalidPluginType"
 msgstr "Aktuálně nakonfigurovaný plugin musí být plugin registrační agentury."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"U tohoto příspěvku nelze zaznamenat rozhodnutí ani doporučit rozhodnutí, "
-"protože již byl zveřejněn."
-
 msgid "api.emails.400.missingBody"
 msgstr "Musíte zahrnout email, který má být odeslán."
 

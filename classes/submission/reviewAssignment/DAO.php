@@ -134,11 +134,11 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
 
-        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->review_id => $this->fromRow($row);
             }
@@ -151,9 +151,14 @@ class DAO extends EntityDAO
     public function fromRow(object $row): ReviewAssignment
     {
         $reviewAssignment = parent::fromRow($row);
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
         $reviewAssignment->setData(
             'reviewerFullName',
-            Repo::user()->get($reviewAssignment->getReviewerId())->getFullName()
+            $reviewer->getFullName()
+        );
+        $reviewAssignment->setData(
+            'reviewerUserName',
+            $reviewer->getUserName()
         );
 
         return $reviewAssignment;

@@ -19,9 +19,9 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\note\Note;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
@@ -63,12 +63,12 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
         if ($note->assocType != Application::ASSOC_TYPE_QUERY) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        $query = Query::find($note->assocId);
+        $query = EditorialTask::find($note->assocId);
         if (!$query) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $participantIds = QueryParticipant::withQueryId($query->id)
+        $participantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
         if (in_array($user->getId(), $participantIds)) {

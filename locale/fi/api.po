@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-19 19:50+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fi/>"
 "\n"
@@ -110,11 +110,6 @@ msgstr "Pyyntöön on liitetty yksi tai useampi virheellinen kohde."
 
 msgid "api.dois.400.invalidPluginType"
 msgstr "Määritettävän lisäosan on oltava rekisteröintitoimiston lisäosa."
-
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Et voi tallentaa päätöstä etkä suositella päätöstä tästä käsikirjoituksesta, "
-"koska se on jo julkaistu."
 
 msgid "api.emails.400.missingBody"
 msgstr "Sinun täytyy lisätä lähetettävä sähköposti."
@@ -375,3 +370,74 @@ msgstr ""
 
 msgid "api.highlights.404.highlightNotFound"
 msgstr "Pyytämääsi nostoa ei löytynyt."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "API-pyyntöä ei voida käsitellä."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Virheellinen author-friendly -parametri."
+
+msgid "api.400.routeNotDefined"
+msgstr "API-reittiä ei annettu."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Annoit virheellisen arvon \"eventType\", {$eventType}, kirjoittajien "
+"sähköposteille."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "Et voi suorittaa tätä toimintoa, koska ORCID-toiminto on pois käytöstä."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Et voi muokata käsikirjoituksen kirjoittajia, jos et ole siihen osoitettuna."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Tämä päätepiste ei ole käytettävissä koko sivustoa koskien, vaan se on "
+"pyydettävä tietylle kontekstille."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Annettua osastoa ei ole olemassa."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Pyynnöstä puuttuu vaadittu kyselyparametri `ids`. Anna niiden "
+"käsikirjoitusten tunnisteet, jotka haluat poistaa."
+
+msgid "api.submission.400.invalidId"
+msgstr "Virheellinen ID: \"{$id}\" annettu."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Julkaisun tunnisteiden lomake ei ole käytettävissä, koska yhtään tunnistetta "
+"ei ole otettu käyttöön."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Pyydettyä ROR-tunnistetta ei löytynyt."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Resurssille aiottua toimintoa ei voitu suorittaa."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Pyydettyä kirjoittajaa ei löytynyt"
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Tälle kohteelle ei voida antaa DOI-tunnusta."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Odotettua vastausta ei saatu."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Et voi vaihtaa tämän käsikirjoituksen kieltä, koska sillä on jo yksi tai "
+"useampi julkaistu versio."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Tälle arviointipyynnölle tarkoitettua käsikirjoitusta ei löytynyt."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Tämän arviointipyynnön arvioijaa ei löytynyt"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Vain 'accept' ja 'decline' ovat kelvollisia arvoja"

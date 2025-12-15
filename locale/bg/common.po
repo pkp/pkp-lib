@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-01 16:51+0000\n"
+"PO-Revision-Date: 2025-12-12 23:50+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg/>\n"
@@ -1302,7 +1302,7 @@ msgid "help.toc"
 msgstr "Съдържание"
 
 msgid "help.previous"
-msgstr "Назад"
+msgstr "Предишна"
 
 msgid "help.next"
 msgstr "Напред"
@@ -1708,29 +1708,8 @@ msgstr "Дисциплини"
 msgid "search.fullText"
 msgstr "Пълен текст"
 
-msgid "search.indexTerms"
-msgstr "Индексирани термини"
-
-msgid "search.indexTermsLong"
-msgstr "Всички полета на индексираните термини"
-
-msgid "search.matchAll"
-msgstr "Съвпадение на всички категории"
-
 msgid "search.noResults"
 msgstr "Няма резултати"
-
-msgid "search.operator.and"
-msgstr "и (логически +)"
-
-msgid "search.operator.not"
-msgstr "без (логически -)"
-
-msgid "search.operator.or"
-msgstr "или"
-
-msgid "search.SearchFor"
-msgstr "Търсене за"
 
 msgid "search.searchResults"
 msgstr "Резултати от търсене"
@@ -1835,7 +1814,7 @@ msgid "submission.task.responseDueDate"
 msgstr "Отговор за рецензиране до дата"
 
 msgid "navigation.goBack"
-msgstr "Назад"
+msgstr "Обратно назад"
 
 msgid "notification.addedReviewer"
 msgstr ""
@@ -1963,7 +1942,7 @@ msgstr "Резюме на статистическия доклад."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Това е напомняне за вас да проверите състоянието на вашето списание чрез "
+"Това е напомняне за вас да проверите състоянието на вашите публикации чрез "
 "редакционния доклад."
 
 msgid "notification.type.editorialReminder"
@@ -2379,3 +2358,6 @@ msgstr "Многоезичното изискване не е изпълнено
 
 msgid "common.yesContinue"
 msgstr "Да, Продължение"
+
+msgid "common.changeLanguage"
+msgstr "Смяна на език"

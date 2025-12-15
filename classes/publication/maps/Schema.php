@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/maps/Schema.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Schema
@@ -19,9 +19,7 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use PKP\citation\CitationDAO;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 
@@ -39,17 +37,13 @@ class Schema extends \PKP\core\maps\Schema
     /** @var bool */
     public $anonymize;
 
-    /** @var Enumerable UserGroup The user groups for this context. */
-    public $userGroups;
-
     /** @var Genre[] The file genres for this context. */
     public array $genres;
 
-    public function __construct(Submission $submission, Enumerable $userGroups, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
         $this->submission = $submission;
-        $this->userGroups = $userGroups;
         $this->genres = $genres;
     }
 
@@ -104,12 +98,11 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function mapByProperties(array $props, Publication $publication, bool $anonymize): array
     {
+        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
         $this->anonymize = $anonymize;
 
         $output = [];
 
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $rawCitationList = $citationDao->getRawCitationsByPublicationId($publication->getId());
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
@@ -122,14 +115,15 @@ class Schema extends \PKP\core\maps\Schema
                     if ($this->anonymize) {
                         $output[$prop] = [];
                     } else {
-                        $output[$prop] = Repo::author()->getSchemaMap()->summarizeMany($publication->getData('authors'))->values();
+                        $output[$prop] = Repo::author()->getSchemaMap($this->submission)
+                            ->summarizeMany($publication->getData('authors'))->values();
                     }
                     break;
                 case 'authorsString':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups);
+                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString();
                     break;
                 case 'authorsStringIncludeInBrowse':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups, true);
+                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString(true);
                     break;
                 case 'authorsStringShort':
                     $output[$prop] = $this->anonymize ? '' : $publication->getShortAuthorString();
@@ -138,10 +132,14 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $publication->getData('categoryIds');
                     break;
                 case 'citations':
-                    $output[$prop] = $rawCitationList->toArray();
+                    $data = [];
+                    foreach ($publication->getData('citations') as $citation) {
+                        $data[] = Repo::citation()->getSchemaMap()->map($citation);
+                    }
+                    $output[$prop] = $data;
                     break;
                 case 'citationsRaw':
-                    $output[$prop] = $rawCitationList->implode(PHP_EOL);
+                    $output[$prop] = Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
                     break;
                 case 'doiObject':
                     if ($publication->getData('doiObject')) {
@@ -149,7 +147,6 @@ class Schema extends \PKP\core\maps\Schema
                     } else {
                         $retVal = null;
                     }
-
                     $output[$prop] = $retVal;
                     break;
                 case 'fullTitle':

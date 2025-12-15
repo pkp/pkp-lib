@@ -8,8 +8,8 @@
 /**
  * @file classes/template/PKPTemplateManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemplateManager
@@ -27,10 +27,14 @@ use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use Less_Parser;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -103,8 +107,17 @@ class PKPTemplateManager extends Smarty
     /** @var array Key/value list of constants to expose in the JS interface */
     private array $_constants = [];
 
+    /** @var array Key/value list of locale keys to expose in the JS interface
+     * Used only for frontend base components
+    */
+    private $_localeKeys = [];
+
     /** @var array Initial state data to be managed by the page's Vue.js component */
     protected array $_state = [];
+
+    /** @var array State that can be expose via pinia store on frontend when vue is enabled */
+    protected array $_piniaData = [];
+
 
     /** @var string Type of cacheability (Cache-Control). */
     private string $_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
@@ -121,7 +134,7 @@ class PKPTemplateManager extends Smarty
     /** @var bool Track whether its backend page */
     private bool $isBackendPage = false;
 
-    /** @var bool Track whether its backend page */
+    /** @var bool Track whether vue runtime is included */
     private bool $isVueRuntimeIncluded = false;
 
     /**
@@ -147,6 +160,16 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Share the template variables globally to Blade
+     */
+    public function shareTemplateVariables(array $variables): void
+    {
+        foreach ($variables as $key => $value) {
+            \Illuminate\Support\Facades\View::share($key, $value);
+        }
+    }
+
+    /**
      * Initialize the template manager.
      */
     public function initialize(PKPRequest $request)
@@ -157,6 +180,7 @@ class PKPTemplateManager extends Smarty
         $application = Application::get();
         $router = $request->getRouter();
         $currentContext = $request->getContext();
+
 
         $this->assign([
             'defaultCharset' => 'utf-8',
@@ -212,7 +236,7 @@ class PKPTemplateManager extends Smarty
             // Inject the CSRF token in header, see https://github.com/pkp/pkp-lib/issues/10311
             $this->addHeader(
                 'meta',
-                '<meta name="csrf-token" content="'.$request->getSession()->token().'" />',
+                '<meta name="csrf-token" content="' . $request->getSession()->token() . '" />',
                 ['contexts' => ['frontend', 'backend']]
             );
 
@@ -336,6 +360,8 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'count', count(...));
         $this->registerPlugin('modifier', 'intval', intval(...));
         $this->registerPlugin('modifier', 'json_encode', json_encode(...));
+        // Register the safe JSON modifier
+        $this->registerPlugin('modifier', 'json_encode_html_attribute', $this->smartyJsonEncodeHtmlAttribute(...));
         $this->registerPlugin('modifier', 'uniqid', uniqid(...));
         $this->registerPlugin('modifier', 'substr', substr(...));
         $this->registerPlugin('modifier', 'strstr', strstr(...));
@@ -647,7 +673,22 @@ class PKPTemplateManager extends Smarty
      */
     public function setConstants(array $constants): void
     {
-        $this->_constants = array_merge($this->_constants, $constants);
+        $this->_constants = deepArrayMerge($this->_constants, $constants);
+    }
+
+    /**
+     * Set locale keys to be exposed in JavaScript at pkp.localeKeys.<key>
+     * Used ONLY on the frontend, backend has automated workflow to populate localeKeys
+     *
+     * @param array $keys Array of locale keys
+     */
+    public function setLocaleKeys($keys)
+    {
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $this->_localeKeys)) {
+                $this->_localeKeys[$key] = __($key);
+            }
+        }
     }
 
     /**
@@ -667,6 +708,15 @@ class PKPTemplateManager extends Smarty
     {
         $this->_state = array_merge($this->_state, $data);
     }
+
+    /**
+     * Set initial state data to be managed by the Vue.js component on this page
+     */
+    public function setPiniaData(array $data)
+    {
+        $this->_piniaData = array_merge($this->_piniaData, $data);
+    }
+
 
     /**
      * Register all files required by the core JavaScript library
@@ -814,7 +864,22 @@ class PKPTemplateManager extends Smarty
     {
         if (!$this->isVueRuntimeIncluded) {
             $this->isVueRuntimeIncluded = true;
-            $baseUrl = $this->_request->getBaseUrl();
+            $baseUrl = Application::get()->getRequest()->getBaseUrl();
+
+            $this->setLocaleKeys(['common.close']);
+            $this->setLocaleKeys(['common.unknownError']);
+            $this->setLocaleKeys(['common.error']);
+            $this->setLocaleKeys(['common.ok']);
+
+            // Stylesheet compiled from Vue.js single-file components
+            $this->addStyleSheet(
+                'build',
+                $baseUrl . '/styles/build_frontend.css',
+                [
+                    'priority' => self::STYLE_SEQUENCE_CORE,
+                    'contexts' => ['frontend'],
+                ]
+            );
 
             $this->addJavaScript(
                 'pkpAppFrontend',
@@ -863,13 +928,19 @@ class PKPTemplateManager extends Smarty
             'ROLE_ID_READER' => Role::ROLE_ID_READER,
             'ROLE_ID_SUB_EDITOR' => Role::ROLE_ID_SUB_EDITOR,
             'ROLE_ID_SUBSCRIPTION_MANAGER' => Role::ROLE_ID_SUBSCRIPTION_MANAGER,
-            'STATUS_QUEUED' => Submission::STATUS_QUEUED,
-            'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
-            'STATUS_DECLINED' => Submission::STATUS_DECLINED,
-            'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
+            'submission' => [
+                'STATUS_QUEUED' => Submission::STATUS_QUEUED,
+                'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
+                'STATUS_DECLINED' => Submission::STATUS_DECLINED,
+                'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
+            ],
+            'publication' => [
+                'STATUS_QUEUED' => Publication::STATUS_QUEUED,
+                'STATUS_PUBLISHED' => Publication::STATUS_PUBLISHED,
+                'STATUS_DECLINED' => Publication::STATUS_DECLINED,
+                'STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
+            ],
         ]);
-
-
 
         $hash = Locale::getUITranslator()->getCacheHash();
         $this->addJavaScript(
@@ -1025,6 +1096,7 @@ class PKPTemplateManager extends Smarty
                 if ($request->getContext()) {
                     $isNewSubmissionLinkPresent = false;
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
+                        $isNewSubmissionLinkPresent = false;
                         if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
                             $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                             $requestedPage = $router->getRequestedPage($request);
@@ -1056,7 +1128,7 @@ class PKPTemplateManager extends Smarty
                                 'submenu' => $viewsData
                             ];
                         }
-                        if (count(array_intersect([ Role::ROLE_ID_REVIEWER], $userRoles))) {
+                        if (count(array_intersect([Role::ROLE_ID_REVIEWER], $userRoles))) {
                             $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_REVIEWER]);
                             $requestedPage = $router->getRequestedPage($request);
                             $requestedOp = $router->getRequestedOp($request);
@@ -1077,7 +1149,7 @@ class PKPTemplateManager extends Smarty
                                 'icon' => 'ReviewAssignments',
                             ];
                         }
-                        if (count(array_intersect([  Role::ROLE_ID_AUTHOR], $userRoles))) {
+                        if (count(array_intersect([Role::ROLE_ID_AUTHOR], $userRoles))) {
                             $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_AUTHOR]);
                             $requestedPage = $router->getRequestedPage($request);
                             $requestedOp = $router->getRequestedOp($request);
@@ -1282,6 +1354,18 @@ class PKPTemplateManager extends Smarty
             return $result;
         }
 
+        // If a blade view instance given or the template is a blade view
+        // just return the rendered content
+        if ($template instanceof View
+            || (!str_contains($template, '.tpl') && view()->exists($template))
+        ) {
+            $this->shareTemplateVariables($this->getTemplateVars());
+
+            return $template instanceof View
+                ? $template->render()
+                : view($template)->render();
+        }
+
         return parent::fetch($template, $cache_id, $compile_id, $parent);
     }
 
@@ -1376,6 +1460,17 @@ class PKPTemplateManager extends Smarty
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
         }
 
+        if (!empty($this->_localeKeys)) {
+            $output .= 'pkp.localeKeys = pkp.localeKeys || {};';
+            $output .= 'Object.assign(pkp.localeKeys, ' . json_encode($this->_localeKeys) . ');';
+        }
+
+        if (!empty($this->_piniaData)) {
+            $output .= 'pkp._piniaData = ' . json_encode($this->_piniaData) . ';';
+        }
+
+
+
         // add apiBaselUrl for useUrl composable
         $dispatcher = Application::get()->getDispatcher();
         $request = Application::get()->getRequest();
@@ -1383,6 +1478,7 @@ class PKPTemplateManager extends Smarty
 
         $pageContext = [
             'app' => Application::get()->getName(),
+            'id' => $context?->getId() ?? null,
             'currentLocale' => Locale::getLocale(),
             'primaryLocale' => Locale::getPrimaryLocale(),
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
@@ -1396,7 +1492,10 @@ class PKPTemplateManager extends Smarty
                 null,
             ),
             'helpUrl' => Application::get()->getHelpUrl(),
-            'timeZone' => Config::getVar('general', 'time_zone')
+            'timeZone' => Config::getVar('general', 'time_zone'),
+            'featureFlags' => [
+                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions'),
+            ]
         ];
 
         if ($context) {
@@ -1428,16 +1527,8 @@ class PKPTemplateManager extends Smarty
             if ($user) {
                 // Fetch user groups where the user is assigned
                 $userGroups = UserGroup::query()
-                    ->whereHas('userUserGroups', function ($query) use ($user) {
-                        $query->where('user_id', $user->getId())
-                            ->where(function ($q) {
-                                $q->whereNull('date_end')
-                                    ->orWhere('date_end', '>', now());
-                            })
-                            ->where(function ($q) {
-                                $q->whereNull('date_start')
-                                    ->orWhere('date_start', '<=', now());
-                            });
+                    ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($user) {
+                        $query->withUserId($user->getId())->withActive();
                     })
                     ->get();
 
@@ -1470,12 +1561,17 @@ class PKPTemplateManager extends Smarty
             }
         }
 
+        $contexts = ['backend'];
+        if ($this->isVueRuntimeIncluded) {
+            $contexts[] = 'frontend';
+        }
+
         $this->addJavaScript(
             'pkpAppData',
             $output,
             [
                 'priority' => self::STYLE_SEQUENCE_NORMAL,
-                'contexts' => ['backend'],
+                'contexts' => $contexts,
                 'inline' => true,
             ]
         );
@@ -1509,6 +1605,19 @@ class PKPTemplateManager extends Smarty
         // If no compile ID was assigned, get one.
         if (!$compile_id) {
             $compile_id = $this->getCompileId($template);
+        }
+
+        // If a blade view instance given or the template is a blade view
+        // just return the rendered content
+        if ($template instanceof View
+            || (!str_contains($template, '.tpl') && view()->exists($template))
+        ) {
+            $this->shareTemplateVariables($this->getTemplateVars());
+
+            echo $template instanceof \Illuminate\View\View
+                ? $template->render()
+                : view($template)->render();
+            return;
         }
 
         // Actually display the template.
@@ -1679,6 +1788,26 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Smarty modifier: json_encode_html_attribute
+     * 
+     * Encodes a value to JSON with full HTML-attribute safety.
+     * Escapes ", ', <, >, & as \u0022, \u0027, \u003C, \u003E, \u0026
+     * so the output can be safely placed inside any HTML attribute
+     */
+    function smartyJsonEncodeHtmlAttribute($value)
+    {
+        return json_encode(
+            $value,
+            JSON_HEX_TAG          // < →
+            | JSON_HEX_AMP        // & →
+            | JSON_HEX_APOS       // ' →
+            | JSON_HEX_QUOT       // " →
+            | JSON_UNESCAPED_UNICODE
+            | JSON_UNESCAPED_SLASHES   // optional but highly recommended
+        );
+    }
+
+    /**
      * Smarty usage: {html_options_translate ...}
      * For parameter usage, see http://smarty.php.net/manual/en/language.function.html.options.php
      *
@@ -1778,9 +1907,9 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        $page = $iterator->getPage();
-        $pageCount = $iterator->getPageCount();
-        $itemTotal = $iterator->getCount();
+        $page = $iterator instanceof LengthAwarePaginator ? $iterator->currentPage() : $iterator->getPage();
+        $pageCount = $iterator instanceof LengthAwarePaginator ? $iterator->lastPage() : $iterator->getPageCount();
+        $itemTotal = $iterator instanceof LengthAwarePaginator ? $iterator->total() : $iterator->getCount();
 
         if ($pageCount < 1) {
             return '';
@@ -1816,8 +1945,10 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Call hooks from a template. (DEPRECATED: For new hooks, {run_hook} is preferred.
+     *
+     * @param null|mixed $smarty
      */
-    public function smartyCallHook($params, $smarty)
+    public function smartyCallHook($params, $smarty = null)
     {
         $output = null;
         Hook::call($params['name'], [&$params, $smarty, &$output]);
@@ -1848,13 +1979,14 @@ class PKPTemplateManager extends Smarty
      * - context
      * - page
      * - component
+     * - endpoint (for API routes)
      * - op
      * - path (array)
      * - anchor
      * - escape (default to true unless otherwise specified)
      * - params: parameters to include in the URL if available as an array
      */
-    public function smartyUrl($parameters, $smarty): string
+    public function smartyUrl($parameters, $smarty = null): string
     {
         if (!isset($parameters['context'])) {
             // Extract the variables named in $paramList, and remove them
@@ -1873,8 +2005,8 @@ class PKPTemplateManager extends Smarty
         // Extract the reserved variables named in $paramList, and remove them
         // from the parameters array. Variables remaining in parameters will be passed
         // along to Request::url as extra parameters.
-        $params = $router = $page = $component = $anchor = $escape = $op = $path = $urlLocaleForPage = null;
-        $paramList = ['params', 'router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape', 'urlLocaleForPage'];
+        $params = $router = $page = $component = $endpoint = $anchor = $escape = $op = $path = $urlLocaleForPage = null;
+        $paramList = ['params', 'router', 'context', 'page', 'component', 'endpoint', 'op', 'path', 'anchor', 'escape', 'urlLocaleForPage'];
         foreach ($paramList as $parameter) {
             if (isset($parameters[$parameter])) {
                 $$parameter = $parameters[$parameter];
@@ -1904,10 +2036,17 @@ class PKPTemplateManager extends Smarty
         $handler = match ($router) {
             PKPApplication::ROUTE_PAGE => $page,
             PKPApplication::ROUTE_COMPONENT => $component,
+            PKPApplication::ROUTE_API => $endpoint,
         };
 
         // Let the dispatcher create the url
         $dispatcher = Application::get()->getDispatcher();
+
+        // API routes require context as string path
+        if ($router === PKPApplication::ROUTE_API && !is_string($context)) {
+            $context = ($this->_request->getContext())?->getPath() ?? Application::SITE_CONTEXT_PATH;
+        }
+
         return $dispatcher->url($this->_request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape, $urlLocaleForPage);
     }
 
@@ -1987,8 +2126,8 @@ class PKPTemplateManager extends Smarty
             $numPageLinks = 10;
         }
 
-        $page = $iterator->getPage();
-        $pageCount = $iterator->getPageCount();
+        $page = $iterator instanceof LengthAwarePaginator ? $iterator->currentPage() : $iterator->getPage();
+        $pageCount = $iterator instanceof LengthAwarePaginator ? $iterator->lastPage() : $iterator->getPageCount();
 
         $pageBase = max($page - floor($numPageLinks / 2), 1);
         $paramName = $name . 'Page';
@@ -2176,7 +2315,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadStylesheet($params, $smarty)
+    public function smartyLoadStylesheet($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2266,7 +2405,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadScript($params, $smarty)
+    public function smartyLoadScript($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2309,7 +2448,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadHeader($params, $smarty)
+    public function smartyLoadHeader($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2339,7 +2478,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadNavigationMenuArea($params, $smarty)
+    public function smartyLoadNavigationMenuArea($params, $smarty = null)
     {
         $areaName = $params['name'];
         $declaredMenuTemplatePath = $params['path'] ?? null;

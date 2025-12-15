@@ -3,8 +3,8 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
@@ -25,6 +25,7 @@ use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
@@ -45,7 +46,6 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
-use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\UserGroup;
 
 abstract class PKPSubmissionHandler extends Handler
@@ -165,8 +165,6 @@ abstract class PKPSubmissionHandler extends Handler
 
         /** @var Publication $publication */
         $publication = $submission->getCurrentPublication();
-        
-        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
 
         /** @var int $sectionId */
         $sectionId = $publication->getData(Application::getSectionIdPropName());
@@ -211,7 +209,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
+        $genres = $genreDao->getEnabledByContextId($context->getId())->toAssociativeArray();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()
@@ -250,7 +248,7 @@ abstract class PKPSubmissionHandler extends Handler
             'i18nUnableToSave' => __('submission.wizard.unableToSave'),
             'i18nUnsavedChanges' => __('common.unsavedChanges'),
             'i18nUnsavedChangesMessage' => __('common.unsavedChangesMessage'),
-            'publication' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            'publication' => Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             'publicationApiUrl' => $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId()),
             'reconfigurePublicationProps' => $this->getReconfigurePublicationProps(),
             'reconfigureSubmissionProps' => $this->getReconfigureSubmissionProps(),
@@ -515,9 +513,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->getMany();
 
         // Don't allow dependent files to be uploaded with the submission
-        $genres = array_values(
-            array_filter($genres, fn ($genre) => !$genre->getDependent())
-        );
+        $genres = array_filter($genres, fn ($genre) => !$genre->getDependent());
 
         $form = new PKPSubmissionFileForm(
             $this->getSubmissionFilesApiUrl($request, $submission->getId()),
@@ -533,18 +529,18 @@ abstract class PKPSubmissionHandler extends Handler
             'emptyAddLabel' => __('common.upload.addFile'),
             'fileStage' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'form' => $form->getConfig(),
-            'genres' => array_map(
+            'genres' => array_values(array_map(
                 fn ($genre) => [
                     'id' => (int) $genre->getId(),
                     'name' => $genre->getLocalizedName(),
                     'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
                 ],
                 $genres
-            ),
+            )),
             'id' => 'submissionFiles',
             'items' => Repo::submissionFile()
-                ->getSchemaMap()
-                ->summarizeMany($submissionFiles, $genres)
+                ->getSchemaMap($submission, $genres)
+                ->summarizeMany($submissionFiles)
                 ->values(),
             'options' => [
                 'maxFilesize' => Application::getIntMaxFileMBs(),
@@ -578,8 +574,7 @@ abstract class PKPSubmissionHandler extends Handler
         Submission $submission,
         Publication $publication,
         array $locales
-    ): ContributorsListPanel
-    {
+    ): ContributorsListPanel {
         return new ContributorsListPanel(
             'contributors',
             __('publication.contributors'),
@@ -599,8 +594,7 @@ abstract class PKPSubmissionHandler extends Handler
         Submission $submission,
         Publication $publication,
         array $locales
-    ): ReviewerSuggestionsListPanel
-    {
+    ): ReviewerSuggestionsListPanel {
         return new ReviewerSuggestionsListPanel(
             'reviewerSuggestions',
             __('submission.reviewerSuggestions'),
@@ -619,22 +613,18 @@ abstract class PKPSubmissionHandler extends Handler
     {
         $request = Application::get()->getRequest();
         $isAdmin = $request->getUser()->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
-        $query = UserGroup::query()->withContextIds([$context->getId()])->withUserIds([$user->getId()]);
-
+        $query = UserGroup::query()->withContextIds([$context->getId()])
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
+            });
         $userGroups = $isAdmin
             ? $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
-            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-                ->withUserUserGroupStatus(UserUserGroupStatus::STATUS_ACTIVE->value)
-                ->get(); // For non-admin users, query for the groups tht give them access to the submission stage
+            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])->get(); // For non-admin users, query for the groups tht give them access to the submission stage
 
         // Users without a submitting role or access to submission stage can submit as an
         // author role that allows self registration.
         // They are also assigned the author role
         if ($userGroups->isEmpty()) {
-            Repo::userGroup()->assignUserToGroup(
-                $user->getId(),
-                Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId())->first()->id
-            );
             $defaultUserGroup = UserGroup::withContextIds([$context->getId()])
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->permitSelfRegistration(true)
@@ -676,8 +666,7 @@ abstract class PKPSubmissionHandler extends Handler
         Publication $publication,
         array $locales,
         string $publicationApiUrl
-    ): array
-    {
+    ): array {
         return [
             'id' => 'contributors',
             'name' => __('publication.contributors'),
@@ -726,8 +715,7 @@ abstract class PKPSubmissionHandler extends Handler
         string $publicationApiUrl,
         array $sections,
         string $controlledVocabUrl
-    ): array
-    {
+    ): array {
         $titleAbstractForm = $this->getDetailsForm(
             $publicationApiUrl,
             $locales,
@@ -786,8 +774,7 @@ abstract class PKPSubmissionHandler extends Handler
         array $locales,
         string $publicationApiUrl,
         LazyCollection $categories
-    ): array
-    {
+    ): array {
         $metadataForm = $this->getForTheEditorsForm(
             $publicationApiUrl,
             $locales,
@@ -856,8 +843,7 @@ abstract class PKPSubmissionHandler extends Handler
         Publication $publication,
         array $locales,
         string $publicationApiUrl
-    ): array
-    {
+    ): array {
         $sections = [
             [
                 'id' => 'review',

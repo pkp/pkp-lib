@@ -115,6 +115,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * @return Collection<int,string>
+     */
+    public function getUsernames(): Collection
+    {
+        return $this->dao->getUsernames($this);
+    }
+
+
+    /**
      * Limit results to users in these user groups
      */
     public function filterByUserGroupIds(?array $userGroupIds): self
@@ -317,8 +326,8 @@ class Collector implements CollectorInterface
      */
     public function filterByStatus(?string $status): self
     {
-        if (!in_array($this->status, [self::STATUS_ACTIVE, self::STATUS_DISABLED, self::STATUS_ALL], true)) {
-            throw new InvalidArgumentException("Invalid status: \"{$this->status}\"");
+        if (!in_array($status, [self::STATUS_ACTIVE, self::STATUS_DISABLED, self::STATUS_ALL], true)) {
+            throw new InvalidArgumentException("Invalid status: \"{$status}\"");
         }
         $this->status = $status;
         return $this;

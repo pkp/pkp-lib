@@ -30,11 +30,11 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
@@ -75,7 +75,7 @@ class QueryNotesGridHandler extends GridHandler
      * Get the query.
      *
      */
-    public function getQuery(): ?Query
+    public function getQuery(): ?EditorialTask
     {
         return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
     }
@@ -278,7 +278,7 @@ class QueryNotesGridHandler extends GridHandler
     protected function insertedNoteNotify(Note $note): void
     {
         $notificationManager = new NotificationManager();
-        $query = Query::find($note->assocId);
+        $query = EditorialTask::find($note->assocId);
         $sender = $note->user;
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -296,7 +296,7 @@ class QueryNotesGridHandler extends GridHandler
                 [$note->id]
             )->filterBySubmissionIds([$submission->getId()])
             ->getMany();
-        $participantIds = QueryParticipant::withQueryId($query->id)
+        $participantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
         foreach ($participantIds as $userId) {

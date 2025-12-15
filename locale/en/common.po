@@ -84,6 +84,30 @@ msgstr "View Announcement"
 msgid "common.allDownloads"
 msgstr "All Downloads"
 
+msgid "common.closed"
+msgstr "Closed"
+
+msgid "common.createdBy"
+msgstr "Created by"
+
+msgid "common.dueDate"
+msgstr "Due Date"
+
+msgid "common.history"
+msgstr "History"
+
+msgid "common.me"
+msgstr "Me"
+
+msgid "common.new"
+msgstr "New"
+
+msgid "common.startDate"
+msgstr "Start Date"
+
+msgid "common.yetToBegin"
+msgstr "Yet to begin"
+
 msgid "common.navigation.sidebar"
 msgstr "Sidebar"
 
@@ -123,6 +147,9 @@ msgstr "Action"
 
 msgid "common.moreActions"
 msgstr "More Actions"
+
+msgid "common.months"
+msgstr "months"
 
 msgid "common.activate"
 msgstr "Activate"
@@ -239,6 +266,9 @@ msgstr "Cancelled"
 
 msgid "common.warning"
 msgstr "Warning"
+
+msgid "common.weeks"
+msgstr "weeks"
 
 msgid "common.error"
 msgstr "Error"
@@ -372,6 +402,9 @@ msgstr "Declined"
 
 msgid "common.delete"
 msgstr "Delete"
+
+msgid "common.deleteAll"
+msgstr "Delete All"
 
 msgid "common.deleting"
 msgstr "Deleting"
@@ -711,6 +744,12 @@ msgstr "or"
 
 msgid "common.other"
 msgstr "Other"
+
+msgid "common.oneWeek"
+msgstr "1 week"
+
+msgid "common.oneMonth"
+msgstr "1 month"
 
 msgid "common.overdue"
 msgstr "Overdue"
@@ -1576,6 +1615,9 @@ msgstr "Search"
 msgid "navigation.settings"
 msgstr "Settings"
 
+msgid "navigation.content"
+msgstr "Content"
+
 msgid "navigation.setup"
 msgstr "Setup"
 
@@ -1773,29 +1815,8 @@ msgstr "Disciplines"
 msgid "search.fullText"
 msgstr "Full Text"
 
-msgid "search.indexTerms"
-msgstr "Index terms"
-
-msgid "search.indexTermsLong"
-msgstr "All index term fields"
-
-msgid "search.matchAll"
-msgstr "Match all categories"
-
 msgid "search.noResults"
 msgstr "No Results"
-
-msgid "search.operator.and"
-msgstr "and"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Search for"
 
 msgid "search.searchResults"
 msgstr "Search Results"
@@ -1991,6 +2012,9 @@ msgstr "Invalid review round."
 msgid "user.authorization.invalidQuery"
 msgstr "Invalid discussion."
 
+msgid "user.authorization.invalidTask"
+msgstr "Invalid task."
+
 msgid "user.authorization.unauthorizedNote"
 msgstr "You do not have access to this discussion message."
 
@@ -2031,7 +2055,7 @@ msgstr "Statistics report summary."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"This is a kind reminder for you to check your journal's health through the "
+"This is a kind reminder for you to check your publication's health through the "
 "editorial report."
 
 msgid "notification.type.editorialReminder"

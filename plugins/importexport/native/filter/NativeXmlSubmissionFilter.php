@@ -254,6 +254,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
             $reviewRound = $reviewRoundDao->build(
                 $submission->getId(),
+                $submission->getCurrentPublication()->getId(),
                 $submission->getData('stageId'),
                 1,
                 ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,

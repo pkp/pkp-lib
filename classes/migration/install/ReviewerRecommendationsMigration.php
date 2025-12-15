@@ -16,6 +16,7 @@ namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PKP\submission\reviewer\recommendation\enums\ReviewerRecommendationType;
 
 abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
 {
@@ -59,15 +60,18 @@ abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
                 ->default(true)
                 ->comment('The status which determine if will be shown in recommendation list');
 
-            $table->timestamps();
+            $table
+                ->enum('type', array_column(ReviewerRecommendationType::cases(), 'value'))
+                ->nullable();
 
+            $table->timestamps();
         });
 
         Schema::create('reviewer_recommendation_settings', function (Blueprint $table) {
             $table->comment('Reviewer recommendation settings table to contain multilingual or extra information');
-            
+
             $table->bigIncrements('reviewer_recommendation_setting_id');
-            
+
             $table
                 ->bigInteger('reviewer_recommendation_id')
                 ->comment('The foreign key mapping of this setting to reviewer_recommendation_id table');

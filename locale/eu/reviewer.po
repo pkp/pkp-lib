@@ -1,9 +1,10 @@
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 # Informatikaria <informatikaria@ueu.eus>, 2025.
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-15 20:41+0000\n"
-"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
+"PO-Revision-Date: 2025-09-25 11:46+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
 "Language: eu\n"
@@ -49,7 +50,7 @@ msgstr ""
 "diezazkiokezu editoreari."
 
 msgid "reviewer.submission.acceptReview"
-msgstr "Ebaluazioa onartu, jarraitu #2 urratsera"
+msgstr "Onartu ebaluazioa, #2 urratsera joan"
 
 msgid "reviewer.submission.continueToStepThree"
 msgstr "Jarraitu #3 urratsera"
@@ -66,7 +67,7 @@ msgstr "Ebaluatzailearentzako jarraibideak"
 msgid "reviewer.submission.enterCompetingInterests"
 msgstr ""
 "Argitaletxe honek bere ebaluatzaileen balizko interes kontrajarriak "
-"ezagutarazteko politika du. Mesedez, har ezazu tartetxo bat politika hau "
+"ezagutarazteko politika du. Mesedez, har ezazu une bat politika hau "
 "berrikusteko."
 
 msgid "reviewer.submission.noCompetingInterests"
@@ -76,7 +77,7 @@ msgid "reviewer.submission.hasCompetingInterests"
 msgstr "Baliteke interes kontrajarriak izatea (Behean zehaztu)"
 
 msgid "reviewer.submission.competingInterests"
-msgstr "Interes kontrajarriak"
+msgstr "Interes-gatazkak"
 
 msgid "reviewer.submission.guidelines"
 msgstr "Ebaluazio Jarraibideak"
@@ -98,7 +99,7 @@ msgstr ""
 "jatorrizko ebaluazio fitxategien bertsio errebisatuak barne."
 
 msgid "reviewer.complete"
-msgstr "Ebaluazioa Bidali Da"
+msgstr "Ebaluazioa bidali da"
 
 msgid "reviewer.confirmSubmit"
 msgstr "Ziur zaude ebaluazioa bidali nahi duzula?"

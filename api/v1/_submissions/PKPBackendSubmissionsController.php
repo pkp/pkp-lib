@@ -190,7 +190,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        $submissions = $collector->getMany();
+        $submissions = $collector->getMany()->remember();
 
         $contextId = $context->getId();
 
@@ -199,7 +199,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -227,14 +227,15 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $submissions = $collector
             ->filterByContextIds([$context->getId()])
             ->assignedTo([$user->getId()], $queryParams['assignedWithRoles'] ?? null)
-            ->getMany();
+            ->getMany()
+            ->remember();
 
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -307,14 +308,14 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             }
         }
 
-        $submissions = $collector->getMany();
+        $submissions = $collector->getMany()->remember();
 
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),

@@ -95,9 +95,6 @@ msgstr ""
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-
 msgid "api.emails.400.missingBody"
 msgstr ""
 

@@ -1,7 +1,7 @@
 # Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-08 18:51+0000\n"
+"PO-Revision-Date: 2025-09-28 21:54+0000\n"
 "Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
 "Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/an/>\n"
@@ -1561,7 +1561,7 @@ msgid "navigation.admin"
 msgstr "Administración"
 
 msgid "navigation.archives"
-msgstr "Fichers"
+msgstr "Archius"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "Vusté ye aquí:"
@@ -1826,29 +1826,8 @@ msgstr "Disciplina(s)"
 msgid "search.fullText"
 msgstr "Texto completo"
 
-msgid "search.indexTerms"
-msgstr "Termins d'indexación"
-
-msgid "search.indexTermsLong"
-msgstr "Toz los campos de termins d'a indexación"
-
-msgid "search.matchAll"
-msgstr "Coincidencia en totas las categorías"
-
 msgid "search.noResults"
 msgstr "No i hai resultaus"
-
-msgid "search.operator.and"
-msgstr "y"
-
-msgid "search.operator.not"
-msgstr "no"
-
-msgid "search.operator.or"
-msgstr "u"
-
-msgid "search.SearchFor"
-msgstr "Buscar"
 
 msgid "search.searchResults"
 msgstr "Resultaus d'a busqueda"
@@ -2049,6 +2028,7 @@ msgstr "Estau d'a ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumen de l'informe d'estatisticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Le recordamos amablement que comprebe la salut d'a suya revista a traviés "

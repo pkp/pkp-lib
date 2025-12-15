@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-17 11:21+0000\n"
+"PO-Revision-Date: 2025-10-29 16:00+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -24,14 +24,18 @@ msgid "author.publicationNotFound"
 msgstr "Ezin izan da egile honen argitalpena aurkitu."
 
 msgid "author.submit.submissionCitations"
-msgstr "Eman aurkezpenean aipatutako lanen erreferentzien formatudun zerrenda."
+msgstr ""
+"Eman bidalketan aipatutako lanen erreferentzien formatudun zerrenda. "
+"Mesedez, bereizi erreferentzia indibidualak lerro huts batekin."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Berrikuspen berriak bidali dira eta editorea aztertzen ari da."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
+"Ebaluatzaile batek edo gehiagok epea gainditu dute. Erredakzio-taldeak "
+"badaki eta berrikuspenak osatuko direla ziurtatuko du. Ez duzu ezer egin "
+"behar oraingoz. Erabakia hartzen denean jakinaraziko dizugu."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Bidali honela"
@@ -119,7 +123,7 @@ msgstr "Mesedez, aukeratu aipuen moduluetako bat."
 msgid "metadata.filters.settings.isOptional.displayName"
 msgstr ""
 "Ez erabili lehenespen gisa hautatutakoa (editorearentzat erabilgarri egongo "
-"da oraindik)."
+"da oraindik)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr ""
@@ -167,7 +171,7 @@ msgid "metadata.property.validationMessage.access-date"
 msgstr "Mesedez, idatzi baliozko atzipen-data (formatua: UUUU-HH-EE)."
 
 msgid "metadata.property.displayName.issue"
-msgstr "Jaulkipena"
+msgstr "Zenbakia"
 
 msgid "metadata.property.validationMessage.issue"
 msgstr "Mesedez, idatzi baliozko gaia."
@@ -197,10 +201,10 @@ msgid "metadata.property.validationMessage.edition"
 msgstr "Mesedez, idatzi baliozko edizioa."
 
 msgid "metadata.property.displayName.series"
-msgstr "Seriea"
+msgstr "Bilduma"
 
 msgid "metadata.property.validationMessage.series"
-msgstr "Mesedez, idatzi baliozko saila."
+msgstr "Mesedez, idatzi baliozko bilduma."
 
 msgid "metadata.property.displayName.supplement"
 msgstr "Gehigarria"
@@ -355,7 +359,7 @@ msgstr ""
 "'laburtua', 'itzulia', 'alternatiboa' eta 'uniformea' dira."
 
 msgid "metadata.property.displayName.nonSort"
-msgstr "Tituluaren zati bat ez da kontuan hartu sailkatzean."
+msgstr "Tituluaren zati bat ez da kontuan hartu sailkatzean"
 
 msgid "metadata.property.validationMessage.nonSort"
 msgstr ""
@@ -455,7 +459,7 @@ msgid "submission.backToSubmissionEditing"
 msgstr "Itzuli Bidalketaren ediziora"
 
 msgid "submission.changeComments"
-msgstr "Aldatu hona:"
+msgstr "Aldatu hona"
 
 msgid "submission.changeFile"
 msgstr "Aldatu fitxategia"
@@ -602,13 +606,16 @@ msgstr "Ezabatu logeko sarrera"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Erabakiari buruzko mezu elektroniko bat bidali zaie {$recipientCount} "
+"ebaluatzaileei {$subject} gaiarekin."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Hasierako bidalketa burutua."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$filename} ({$username})-k onartu ditu bidalketaren copyright-baldintzak."
+"{$filename} ({$username})-k onartu ditu bidalketaren egile-eskubideen "
+"baldintzak."
 
 msgid "submission.event.fileRevised"
 msgstr "\"{$filename}\" berrikuspena igo da {$submissionFileId} fitxategirako."
@@ -617,7 +624,7 @@ msgid "submission.event.general.metadataUpdated"
 msgstr "Bidalketaren metadatuak eguneratu"
 
 msgid "submission.event.general.suppFileUpdated"
-msgstr "Bidalketa-fitxategia eguneratu"
+msgstr "Bidalketa-fitxategia eguneratuta"
 
 msgid "submission.event.reviewer.reviewAcceptedByProxy"
 msgstr "Ebaluazioa egitea ordezkari bidez onartu"
@@ -660,9 +667,13 @@ msgstr "Ebaluatzailearen aldaketen fitxategia eguneratu"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName}-k gogorarazpen bat bidali dio {$recipientName}-ri bere "
+"berrikuspenaren esleipenari buruz"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"{$recipientName} erabiltzaileari bere berrikuspenaren esleipenari buruzko "
+"gogorarazpen-mezu elektroniko automatiko bat bidali zaio"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Mezu elektronikoa bidali da:"
@@ -687,6 +698,8 @@ msgstr "Fitxategi guztiak jaitsi"
 
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
+"Fitxategi igotzailearen erregistroa fitxategia sortzen denean gordetzen da "
+"eta ezin da aldatu."
 
 msgid "submission.firstPublished"
 msgstr "Lehen argitalpena"
@@ -755,6 +768,9 @@ msgstr "Argitaletxearen IDa"
 
 msgid "submission.publisherId.description"
 msgstr ""
+"Argitaratzailearen IDa kanpoko datu-base bateko IDa erregistratzeko erabil "
+"daiteke. Adibidez, PubMed-era gordailurako esportatutako elementuek "
+"argitaratzailearen IDa izan dezakete. Hori ez da DOIetarako erabili behar."
 
 msgid "submission.publisherId.enable"
 msgstr "Gaitu {$objects}-entzat"
@@ -825,7 +841,7 @@ msgid "submission.layout.galleyRemoteURL"
 msgstr "Urruneko URL"
 
 msgid "submission.layout.galleyRemoteURLValid"
-msgstr "Mesedez, eman urruneko URL baliodun bat (sartu http://)"
+msgstr "Mesedez, eman urruneko URL baliodun bat (sartu http://)."
 
 msgid "submission.layout.galleyNoImages"
 msgstr "irudirik ez"
@@ -885,7 +901,7 @@ msgid "submission.notes.clearAllNotes"
 msgstr "Garbitu ohar guztiak"
 
 msgid "submission.notes.collapseNotes"
-msgstr "Tolestu oharrak"
+msgstr "Bildu oharrak"
 
 msgid "submission.notes.confirmDeleteAll"
 msgstr "Bidalketaren ohar guztiak kendu?"
@@ -1005,7 +1021,7 @@ msgid "submissions.queued"
 msgstr "Ilaran"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Esleitzeko zain"
+msgstr "Bidalketa honek ez dauka editorerik esleituta."
 
 msgid "submissions.ruling"
 msgstr "Ebazpena"
@@ -1093,7 +1109,7 @@ msgid "submission.upload.query"
 msgstr "Igo eztabaidarako fitxategi bat"
 
 msgid "submission.summary"
-msgstr "Sumarioa"
+msgstr "Laburpena"
 
 msgid "submission.supportingAgencies"
 msgstr "Agentzia babesleak"
@@ -1111,7 +1127,7 @@ msgid "submission.underway"
 msgstr "Lanean"
 
 msgid "submission.uploadFileTo"
-msgstr "Kargatu fitxategia:"
+msgstr "Kargatu fitxategia hona"
 
 msgid "submission.createRemote"
 msgstr "Sortu urrunekoa"
@@ -1148,7 +1164,7 @@ msgid "submission.submit.contributorRole"
 msgstr "Kolaboratzailearen rola"
 
 msgid "submission.submit.addAuthor"
-msgstr "Gehitu egilea"
+msgstr "Gehitu kolaboratzailea"
 
 msgid "submission.submit.form.languagesRequired"
 msgstr "Sartu hizkuntza bat."
@@ -1223,7 +1239,7 @@ msgid "submission.submit.uploadSubmissionFile"
 msgstr "Igo bidalketaren fitxategia"
 
 msgid "submission.submit.metadataStep"
-msgstr "2. Berrikusketaren xehetasunak"
+msgstr "2. Berrikuspenaren xehetasunak"
 
 msgid "submission.submit.finishingUpStep"
 msgstr "3. Amaitu"
@@ -1242,6 +1258,11 @@ msgstr "Bikoiztasun edo berrikuspen posiblea detektatu da"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
+"Kargatutako fitxategiaren izena aurretik kargatutako fitxategi baten "
+"izenaren antzekoa da, \"{$revisedFileName}\". Fitxategi hau \""
+"{$revisedFileName}\" ordezkatzeko pentsatuta dago? Hala bada, hautatu beheko "
+"fitxategia. Bestela, hautatu \"Hau ez da lehendik dagoen fitxategi baten "
+"berrikuspena\" jarraitu aurretik."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Hautatu berrikusi nahi duzun fitxategia."
@@ -1259,6 +1280,8 @@ msgstr "Igo fitxategi hau nire rolean..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
+"Editatutako bolumen bat bidaltzen ari bazara, bolumenaren kapitulu guztiak "
+"banan-banan igo beharko zenituzke, bolumen-editore gisa duzun rolarekin."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Igo liburutegiko fitxategi bat"
@@ -1277,6 +1300,9 @@ msgstr "Fitxategiak igo"
 
 msgid "submission.upload.response.description"
 msgstr ""
+"Esleitutako fitxategia berrikusi ondoren, idatzi iruzkinak beheko "
+"fitxategian edo igo fitxategiaren (edo beste fitxategi baten) kopia "
+"iruzkinekin."
 
 msgid "submission.upload.productionReady"
 msgstr "Igo ekoizpenerako prest dagoen fitxategi bat"
@@ -1293,13 +1319,14 @@ msgstr "Berrikuspenak eskatu dira."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Zuzenketak aurkeztu dira eta erabaki bat behar da."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
+"Egileari eskatutako berrikuspenak berrikuspen-erronda berri batera eramango "
+"dira."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
+"Berrikuspenak bidali dira. Berrikuspen-erronda berri bat sortu behar da."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Kanpoko berrikuspenerako bidalia."
@@ -1311,17 +1338,16 @@ msgid "editor.submission.roundStatus.declined"
 msgstr "Bidalketa ukatua."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "Berrikusleak esleitzeko zain."
+msgstr "Ebaluatzaileak esleitzeko zain."
 
 msgid "editor.submission.roundStatus.pendingReviews"
-msgstr "Berrikusleen erantzunen zain."
+msgstr "Ebaluatzaileen erantzunen zain."
 
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ebaluazio berriak aurkeztu dira."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr ""
+msgstr "Berrikuspen guztiak baieztatuta daude eta erabaki bat hartu behar da."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Berrikuspen bat amaitu da."
@@ -1358,12 +1384,16 @@ msgstr "Editatu esleipena"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
+"Erabiltzaileak lan-fluxuaren faseetara esleitzen dira erabiltzaile-taldearen "
+"arabera. Fase honetan esleitutako edozein erabiltzaile automatikoki "
+"esleituko da bere erabiltzaile-taldea esleitu den beste fase batzuetara. Hau "
+"normalean editore, egile eta itzultzaileentzat gordeta dago."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Ezabatu parte-hartzailea"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Parte-hartzaile hau etapa <strong>guztietatik</strong> kentzear zaude."
+msgstr "Parte-hartzaile hau fase <strong>guztietatik</strong> kentzear zaude."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Erabiltzaile-talde bat hautatu behar duzu."
@@ -1373,6 +1403,11 @@ msgstr "Erabiltzaile bat hautatu behar duzu zehaztutako erabiltzaile-talderako."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
+"Hautatu duzun parte-hartzaileari berrikuspen anonimo bat esleitu zaio. Parte-"
+"hartzaile gisa esleitzen baduzu, egilearen identitaterako sarbidea izango "
+"du. Parte-hartzaile hau ez esleitzea gomendatzen dizugu, parekideen "
+"berrikuspen prozesuaren osotasuna modu independentean bermatu ezean "
+"behintzat."
 
 msgid "editor.submission.removePermissionToEdit"
 msgstr "Ez baimendu metadatuak editatzea"
@@ -1397,41 +1432,58 @@ msgid "editor.submission.decision.notifyAuthors"
 msgstr "Jakinarazi egileei"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr "Jakinarazi berrikusleak"
+msgstr "Jakinarazi ebaluatzaileak"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Bidali mezu elektroniko bat ebaluatzaileei beren berrikuspenagatik eskerrak "
+"emateko eta erabakia hartu dela jakinarazteko. Ebaluatzaile bakoitzari mezu "
+"elektroniko bana bidaliko zaio haien anonimotasuna babesteko. "
+"{$recipientName} esaldia erabil daiteke mezuan ebaluatzaile bakoitzaren "
+"izena segurtasunez sartzeko."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Bidali mezu elektroniko bat esleitutako ebaluatzaileei, beren berrikuspen-"
+"esleipena bertan behera utzi dela jakinarazteko."
 
 msgid "editor.submission.decision.accept"
 msgstr "Onartu bidalketa"
 
 msgid "editor.submission.decision.accept.description"
-msgstr ""
+msgstr "Bidalketa hau argitaratzeko onartuko da eta edizio fasera bidaliko da."
 
 msgid "editor.submission.decision.accept.log"
-msgstr ""
+msgstr "{$editorName}-ek bidalketa hau onartu eta edizio-fasera bidali du."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Bidalketa onartua"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Bidalketa, {$title}, argitaratzeko onartu da eta edizio-fasera bidali da. "
+"Jakinarazpen guztiak bidali dira, saltatzea aukeratu dituzunak izan ezik."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei, haien lana argitaratzeko onartu dela "
+"jakinarazteko. Mezu elektroniko hau ez da bidaliko erabakia erregistratu "
+"arte."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei berrikuspen-erronda itxi dela "
+"jakinarazteko. Mezu elektroniko hau ez da bidaliko erabakia erregistratu "
+"arte."
 
 msgid "editor.submission.decision.decline"
 msgstr "Baztertu bidalketa"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Bidalketa hau argitaratzeko baztertua izango da. Pareen berrikuspen-fasea "
+"itxiko da eta bidalketa artxibatu egingo da."
 
 msgid "editor.submission.decision.decline.log"
 msgstr "{$editorName}-ek bidalketa atzera bota du."
@@ -1441,12 +1493,19 @@ msgstr "Bidalketa ez da onartu"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Bidalketa, {$title}, baztertu eta artxibora bidali da. Jakinarazpen guztiak "
+"bidali dira, saltatzea aukeratu dituzunak izan ezik."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei beren bidalketa ukatu egin dela "
+"jakinarazteko. Mezu elektroniko hau ez da bidaliko erabakia erregistratu "
+"arte."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Bidalketa hau argitaratzeko baztertua izango da. Ez da berrikuspen gehiago "
+"egingo eta bidalketa artxibatu egingo da."
 
 msgid "editor.submission.decision.newReviewRound"
 msgstr "Ebaluazio-txanda berria"
@@ -1469,6 +1528,9 @@ msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei, jakinarazteko bidalketa berrikuspen-"
+"txanda berri batera bidali dela. Mezu elektroniko hau ez da bidaliko "
+"erabakia erregistratu arte."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Hautatu zuzenketa-fasera bidali behar diren fitxategiak."
@@ -1491,7 +1553,7 @@ msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName}-ek zuzenketak eskatu ditu bidalketa honetarako."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr "Zuzenketak eskatuta"
+msgstr "Berrikuspenak eskatuta"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
@@ -1500,57 +1562,82 @@ msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei, jakinarazteko bidalketa hau "
+"argitaratzeko onartu aurretik berrikuspenak egin beharko direla. Sartu "
+"egileak bere bidalketa berrikusteko behar dituen xehetasun guztiak. "
+"Dagokionean, gogoratu ebaluatzaileen iruzkinak anonimizatu behar dituzula. "
+"Mezu elektroniko hau ez da bidaliko erabakia erregistratu arte."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Ezeztatu berrikuspen-erronda"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Utzi uneko berrikuspen-erronda eta bidali bidalketa azken berrikuspen-"
+"errondara. Lehenengo berrikuspen-txanda bada, bidalketa-fasera bidaliko da "
+"berriro."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr "{$editorName}-ek berrikuspen-erronda bertan behera utzi du."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Azken berrikuspen-erronda bertan behera utzi da."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"{$title} bidalketaren berrikuspen-erronda bertan behera utzi da. "
+"Jakinarazpen guztiak bidali dira, saltatzea aukeratu duzuna izan ezik."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Berrikuspen-erronda bertan behera utz daiteke, baldin eta lotutako "
+"ebaluatzaile bakar batek ere ez badu amaitutako edo bidalitako berrikuspenik."
 
 msgid "editor.submission.decision.resubmit"
-msgstr ""
+msgstr "Birbidali berrikustera"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"Egileak berrikuspenak eman behar ditu, eta hauek beste berrikuspen-erronda "
+"batera bidaliko dira bidalketa hau argitaratzeko onartu aurretik."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName}-ek bidalketa honetarako berrikuspenak eskatu ditu, eta horiek "
+"beste berrikuspen-erronda batera bidali beharko lirateke."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Eskatutako berrikuspenak"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"{$title} bidalketaren berrikuspenak eskatu dira. Berrikuspen-erronda berri "
+"baterako berrikuspenak bidaltzeko erabakia erregistratu da. Jakinarazpen "
+"guztiak bidali dira, saltatzea aukeratu dituzunak izan ezik."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei, berrikuspenak osatu eta beste "
+"berrikuspen-erronda batera bidali beharko direla jakinarazteko. Sartu "
+"egileak bere bidalketa berrikusteko behar dituen xehetasun guztiak. "
+"Dagokionean, gogoratu ebaluatzailearen iruzkinak anonimizatu behar dituzula."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Bidali berrikustera"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Bidalketa hau pareen berrikuspenera bidaltzeko prest dago."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName}-ek bidalketa hau berrikuspen-fasera bidali du."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Berrikustera bidalia"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"{$title} bidalketa berrikuspen-fasera bidali da. Egileari jakinarazi zaio, "
+"mezu elektroniko hori saltatzea aukeratu ez baduzu behintzat."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Ebaluazio-txanda berria"
@@ -1569,9 +1656,14 @@ msgstr "Ekoizpenera bidalia"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"{$title} bidalketa ekoizpen-fasera bidali da. Egileari jakinarazi zaio, mezu "
+"elektroniko hori saltatzea aukeratu ez baduzu behintzat."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei bidalketa hau ekoizpen-fasera bidali "
+"dela jakinarazteko. Mezu elektroniko hau ez da bidaliko erabakia "
+"erregistratu arte."
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Ezeztatu edizioa"
@@ -1587,9 +1679,13 @@ msgstr "Ediziotik atzera bueltan bidalia"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"{$title} bidalketa edizio-fasetik atzera itzuli da. Egileari jakinarazi "
+"zaio, mezu elektroniko hori saltatzea aukeratu ez baduzu behintzat."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei jakinarazteko edizioa bertan behera utzi "
+"dela eta euren bidalketak berrikuspen editorial gehiago jasango duela."
 
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Ediziora itzuli"
@@ -1605,45 +1701,67 @@ msgstr "Ediziora itzulia"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"{$title} bidalketa edizio-fasera itzuli da. Egileari jakinarazi zaio, mezu "
+"elektroniko hori saltatzea erabaki ez baduzu behintzat."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei bidalketa hau edizio-fasera itzuli dela "
+"jakinarazteko. Azaldu zergatik hartu den erabaki hau eta jakinarazi egileari "
+"bidalketa hau ekoizpenerako prest egoteko zer zuzenketa egin beharko diren."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Onartu eta ebaluazioa saihestu"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Onartu bidalketa hau argitaratzeko eta saltatu berrikuspen-fasea. Erabaki "
+"honek bidalketa edizio-fasera bidaliko du."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName}-ek berrikuspen-fasea saltatu du eta bidalketa hau edizio-"
+"fasera bidali du."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Berrikuspena saltatuta"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"{$title} bidalketak berrikuspen-fasea saltatu du eta edizio-fasera bidali "
+"da. Egileari jakinarazi zaio, zuk mezu elektroniko hori saltatzea aukeratu "
+"ez baduzu behintzat."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei, bidalketa hau argitaratzeko onartu dela "
+"eta berrikusi gabe zuzenean edizio-fasera bidali dela jakinarazteko. Mezu "
+"elektroniko hau ez da bidaliko erabakia erregistratu arte."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Barne berrikuspenera bidalia"
 
 msgid "editor.submission.decision.approveProofsDescription"
 msgstr ""
+"Orrialde-proba fitxategia onartuta bezala markatu behar da eskuragarri egon "
+"dadin. Onartu nahi duzu?"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "Onartu probak"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr ""
+"Fitxategi-froga hau ez da gehiago publikoki eskuragarri egongo deskargatzeko "
+"edo erosteko. Onarpena atzera bota nahi duzu?"
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Ukoa atzera bota"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Ezeztatu bidalketa hau baztertzeko aurreko erabakia eta itzuli prozesu "
+"editorial aktibora. Egileari jakinarazi zaio, mezu elektroniko hori "
+"saltatzea aukeratu ez baduzu behintzat."
 
 msgid "editor.submission.decision.revertDecline.log"
 msgstr ""
@@ -1654,18 +1772,28 @@ msgstr "Bidalketa berraktibatua"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
 msgstr ""
+"{$title} bidalketa berrikuspen-fasean dagoen bidalketa aktibo bat da orain."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Bidali mezu elektroniko bat egileei bidalketa hau baztertzeko aurreko "
+"erabakia atzera bota dela jakinarazteko. Azaldu zergatik atzera bota den "
+"erabakia eta jakinarazi bidalketak berrikuspen gehiago jasotzea espero den "
+"ala ez."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"{$title} bidalketa aktibo dago orain bidalketa-fasean. Egileari jakinarazi "
+"zaio, mezu elektroniko hori saltatzea aukeratu ez baduzu behintzat."
 
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Esleitu editore bat etapa honetako erabaki editorialak gaitzeko."
+msgstr "Esleitu editore bat fase honetako erabaki editorialak gaitzeko."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Bidali mezu bat erabakitzen duten editoreei gomendioaren berri emateko. "
+"Azaldu zergatik egin den gomendio hori ebaluatzaileek egindako gomendioei "
+"eta iruzkinei erantzuteko."
 
 msgid "editor.submission.recommend.accept"
 msgstr "Gomendatu onarpena"
@@ -1689,18 +1817,24 @@ msgstr "Gomendatu zuzenketak"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Gomendatu egileari zuzenketak eskatzea bidalketa hau argitaratzeko onartu "
+"aurretik."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName}-ek berrikuspenak eskatzea gomendatu du."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Gomendatu berrikuspenerako berriz bidaltzea"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Gomendatu egileari beste berrikuspen-erronda baterako berrikuspenak "
+"bidaltzeko eskatzea."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName}-ek gomendatu zuen berrikuspenak eskatzea eta horiek "
+"berrikuspen-erronda berri batera bidaltzea."
 
 msgid "editor.submission.recommend.decline"
 msgstr "Gomendatu baztertzea"
@@ -1863,27 +1997,31 @@ msgstr "Erantzuna igo da."
 
 msgid "notification.type.editorAssignment"
 msgstr ""
+"Editore bat esleitu behar da berrikuspena hasi aurretik. Gehitu editorea "
+"parte-hartzaileen zerrenda erabiliz."
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Bidalketa baten bertsio berri bat sortu da"
 
 msgid "notification.type.revertDecline"
-msgstr ""
+msgstr "Bidalketa hau baztertzeko erabakia atzera bota da."
 
 msgid "grid.reviewAttachments.title"
-msgstr "Berrikuslearen fitxategi erantsiak"
+msgstr "Ebaluatzailearen fitxategi erantsiak"
 
 msgid "grid.reviewAttachments.send.title"
 msgstr "Hautatu berrikuspen-fitxategiak egilearekin edo egileekin partekatzeko"
 
 msgid "submission.productionReady"
-msgstr ""
+msgstr "Liburua eskuragarri"
 
 msgid "submission.review.uploadRevisionToRound"
-msgstr ""
+msgstr "Igo berrikusitako fitxategia"
 
 msgid "log.review.reviewerAssigned"
-msgstr "{$reviewerName} izendatu da {$submissionId}"
+msgstr ""
+"{$reviewerName} ebaluatzaileari {$submissionId} bidalketa berrikusteko "
+"ardura esleitu zaio {$round} berrikuspen-errondarako."
 
 msgid "log.review.reviewCleared"
 msgstr ""
@@ -1892,6 +2030,8 @@ msgstr ""
 
 msgid "log.review.reviewUnconsidered"
 msgstr ""
+"{$editorName}-ek {$submissionId} bidalketaren {$round} errondako "
+"berrikuspena aintzat hartu gabekotzat markatu du."
 
 msgid "log.review.reviewReinstated"
 msgstr ""
@@ -1900,69 +2040,81 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Birbidali {$round} errondan {$submissionid} bidalketa berrikusteko eskaera "
+"{$reviewerName}-ri."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
+"{$editorName} editoreak baieztatu du {$submissionId} lanaren berrikuspena "
+"{$round} berrikuspen-errondarako."
 
 msgid "log.review.reviewReady"
 msgstr ""
+"{$reviewerName}-ek amaitu du berrikuspena {$submissionId} bidalketaren "
+"{$round} berrikuspen-errondarako."
 
 msgid "submission.review.status.awaitingResponse"
-msgstr ""
+msgstr "Ebaluatzailearen erantzunaren zain."
 
 msgid "submission.review.status.declined"
-msgstr ""
+msgstr "Ebaluatzaileak berrikuspen-eskaera hau ukatu du."
 
 msgid "submission.review.status.responseOverdue"
-msgstr ""
+msgstr "Ebaluatzaileak erantzuteko epea gainditu du."
 
 msgid "submission.review.status.reviewOverdue"
-msgstr ""
+msgstr "Ebaluatzaileak berrikusteko epea gainditu du."
 
 msgid "submission.review.status.accepted"
-msgstr ""
+msgstr "Berrikuspen hau onartua izan da."
 
 msgid "submission.review.status.received"
-msgstr ""
+msgstr "Ebaluatzaileak bere berrikuspena bidali du."
 
 msgid "submission.review.status.complete"
-msgstr ""
+msgstr "Berrikuspen hau amaitu da."
 
 msgid "submission.review.status.thanked"
 msgstr ""
+"Berrikuspen hau amaitu da eta ebaluatzaileari eskerrak eman zaizkio bere "
+"ekarpenagatik."
 
 msgid "submission.document"
-msgstr ""
+msgstr "Dokumentua"
 
 msgid "submission.art"
-msgstr ""
+msgstr "Artelana"
 
 msgid "submission.supplementary"
-msgstr ""
+msgstr "Eduki osagarria"
 
 msgid "submission.supplementary.creator"
-msgstr ""
+msgstr "Fitxategiaren sortzailea (edo jabea)"
 
 msgid "submission.supplementary.subject"
-msgstr ""
+msgstr "Gaia"
 
 msgid "submission.supplementary.publisher"
-msgstr ""
+msgstr "Argitaratzailea"
 
 msgid "submission.supplementary.sponsor"
-msgstr ""
+msgstr "Erakunde kolaboratzailea edo babeslea"
 
 msgid "grid.action.itemWorkflow"
 msgstr "Joan bidalketa honen lan-fluxura"
 
 msgid "notification.type.editorDecisionSendToProduction"
-msgstr ""
+msgstr "Ekoizpen prozesua hasi zen."
 
 msgid "notification.type.editorAssignmentProduction"
 msgstr ""
+"Ekoizpen-editore bat esleitu behar da ekoizpen-prozesua hasi aurretik. "
+"Gehitu ekoizpen-editore bat parte-hartzaileen zerrenda erabiliz."
 
 msgid "notification.type.editorAssignmentEditing"
 msgstr ""
+"Ekoizpen-editore bat esleitu behar da prozesu editoriala hasi aurretik. "
+"Gehitu ekoizpen-editore bat parte-hartzaileen zerrenda erabiliz."
 
 msgid "submission.reviewForm"
 msgstr "Ebaluazio-inprimakia"
@@ -1980,16 +2132,16 @@ msgid "submission.permissions"
 msgstr "Baimenak"
 
 msgid "submission.attachPermissions"
-msgstr ""
+msgstr "Erantsi baimen hauek bidalketari:"
 
 msgid "submission.license"
 msgstr "Lizentzia"
 
 msgid "submission.copyright"
-msgstr ""
+msgstr "Egile-eskubideak"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Bai, egile-eskubideen adierazpenarekin ados nago."
 
 msgid "submission.copyrightHolder"
 msgstr "Egile-eskubideen jabea"
@@ -1998,16 +2150,16 @@ msgid "submission.copyrightHolder.other"
 msgstr "Egile-eskubideen adierazpen pertsonalizatua"
 
 msgid "submission.copyrightOther"
-msgstr ""
+msgstr "Egile-eskubideen adierazpena"
 
 msgid "submission.copyrightYear"
-msgstr "Copyright-urtea"
+msgstr "Egile-eskubideen urtea"
 
 msgid "submission.copyrightStatement"
-msgstr "Copyrighta (c) {$copyrightYear} {$copyrightHolder}"
+msgstr "Egile-eskubideak {$copyrightYear} {$copyrightHolder}"
 
 msgid "submission.licenseURLValid"
-msgstr ""
+msgstr "Mesedez, eman urruneko URL baliodun bat (http:// barne)."
 
 msgid "submission.licenseURL"
 msgstr "Lizentziaren URLa"
@@ -2139,10 +2291,10 @@ msgid "submission.queries.editorial"
 msgstr "Kopien ediziorako eztabaida"
 
 msgid "submission.query.subject"
-msgstr ""
+msgstr "Gaia"
 
 msgid "submission.query.messages"
-msgstr ""
+msgstr "Mezuak"
 
 msgid "submission.query.replies"
 msgstr "Erantzunak"
@@ -2157,22 +2309,24 @@ msgid "submission.query.closed"
 msgstr "Itxita"
 
 msgid "submission.query.addNote"
-msgstr ""
+msgstr "Gehitu mezua"
 
 msgid "submission.query.leaveQuery"
 msgstr "Eztabaida utzi"
 
 msgid "submission.query.leaveQuery.confirm"
 msgstr ""
+"Eztabaida hau uzten baduzu, ez zaizu mezu berririk jakinaraziko. Eztabaida "
+"utzi nahi duzu?"
 
 msgid "grid.action.openNoteForm"
 msgstr "Gehitu erantzun berria eztabaidari"
 
 msgid "submission.query.activity"
-msgstr ""
+msgstr "{$responderName}-k {$noteTitle}-ri erantzun dio: {$noteContents}"
 
 msgid "submission.query.new"
-msgstr ""
+msgstr "{$creatorName}-ek eztabaida bat hasi du: {$noteTitle}: {$noteContents}"
 
 msgid "submission.query.activity.contents"
 msgstr ""
@@ -2185,133 +2339,153 @@ msgstr ""
 "{$submissionTitle}\" bidalketari buruzkoa."
 
 msgid "submission.query.participantTitle"
-msgstr ""
+msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
 msgstr ""
+"Eztabaida hasi aurretik, gutxienez parte-hartzaile bat esleitu behar diozu "
+"bidalketa honi."
 
 msgid "submission.list.infoCenter"
-msgstr ""
+msgstr "Jarduera-erregistroa eta oharrak"
 
 msgid "submission.list.empty"
 msgstr "Ez da bidalketarik aurkitu."
 
 msgid "submission.list.responseDue"
-msgstr ""
+msgstr "Erantzuteko epea: {$date}"
 
 msgid "submission.list.reviewAssignment"
-msgstr ""
+msgstr "Berrikuspenaren esleipena"
 
 msgid "submission.list.reviewDue"
-msgstr ""
+msgstr "Berrikuspenaren epea: {$date}"
 
 msgid "submission.list.reviewComplete"
-msgstr ""
+msgstr "Berrikuspena bidalia"
 
 msgid "submission.list.reviewCancelled"
-msgstr ""
+msgstr "Berrikuspena bertan behera utzi da"
 
 msgid "submission.list.confirmDelete"
-msgstr ""
+msgstr "Ezabatu bidalketa?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Ikusi bidalketa guztiak"
 
 msgid "submission.list.viewSubmission"
-msgstr ""
+msgstr "Ikusi bidalketa"
 
 msgid "submission.list.reviewsCompleted"
-msgstr ""
+msgstr "Esleitutako berrikuspenak osatuta"
 
 msgid "submission.list.revisionsSubmitted"
-msgstr ""
+msgstr "Berrikuspenak bidalita"
 
 msgid "submission.list.copyeditsSubmitted"
-msgstr ""
+msgstr "Zuzendutako fitxategiak bidalita"
 
 msgid "submission.list.galleysCreated"
-msgstr ""
+msgstr "Ekoizpen-galeradak sortuta"
 
 msgid "submission.list.filesPrepared"
-msgstr ""
+msgstr "Fitxategiak prestatuta"
 
 msgid "submission.list.discussions"
 msgstr "Eztabaida irekiak"
 
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""
+"Bidalketa honetarako hainbat rol esleitu zaizkizu. <a href=\""
+"{$urlAuthorWorkflow}\">Egilearen lan-fluxua</a> ala <a href=\""
+"{$urlEditorialWorkflow}\">Editorearen lan-fluxua</a> atzitu nahi duzu?"
 
 msgid "submission.list.reviewerWorkflowLink"
 msgstr ""
+"Bidalketa honetarako erredakzio-rol bat esleitu zaizu. <a href=\""
+"{$urlEditorialWorkflow}\">Edizio-lan-fluxura</a> sartu nahi al duzu?"
 
 msgid "submission.list.incompleteSubmissionNotice"
-msgstr ""
+msgstr "Bidalketa hau osatu behar da editore batek berrikusi aurretik."
 
 msgid "submission.list.currentStage"
-msgstr ""
+msgstr "Gaur egun {$stage} fasean dago."
 
 msgid "submission.list.activity"
-msgstr ""
+msgstr "Jarduera"
 
 msgid "submission.list.daysSinceLastActivity"
-msgstr ""
+msgstr "Azken jardueratik igarotako egunak"
 
 msgid "submission.list.assignEditor"
 msgstr "Esleitu editorea"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Bidalketa hau dagoeneko bidali da. Mesedez, bisitatu zure <a href=\"{$url}\""
+">bidalketen kontrol-panela</a> ikusteko."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Hasi aurretik"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Hautatu zure bidalketarako egokiak diren kategoriak soilik."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Aldatu bidalketa-ezarpenak"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Osatu bidalketa egiteko urratsak"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"<strong>{$title}</strong> bidalketa <strong>{$context}</strong>-era bidaliko "
+"da berrikuspen editoriala egiteko. Ziur zaude bidalketa hau osatu nahi "
+"duzula?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Bidali aurretik konpondu beharreko arazo bat edo gehiago daude. Mesedez, "
+"berrikusi beheko informazioa eta egin eskatutako aldaketak."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Zure bidalketa egiaztatzen"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Gehitu gure erredakzio-taldeak zure bidalketa ebaluatzerakoan jakin beharko "
+"lukeen edozein informazio."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Mesedez, baieztatu honako hau bidali aurretik."
 
 msgid "submission.wizard.title"
 msgstr "Bidalketa egin"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Bidali bidalketa: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Ez da kolaboratzailerik gehitu bidalketa honetarako."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
+"Kolaboratzaile baten edo gehiagoren izena falta da {$language} hizkuntzan."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Ez da onartzen"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Pribatutasun-baimena"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Gerorako gordeta"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Zure bidalketaren xehetasunak gure sisteman gorde dira, baina oraindik ez da "
+"kontuan hartzeko bidali. Edozein unetan itzul zaitezke zure bidalketa "
+"osatzera beheko esteka jarraituz."
 
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr ""
@@ -2366,7 +2540,7 @@ msgid "catalog.category.subcategories"
 msgstr "Azpikategoriak"
 
 msgid "publication.contributors"
-msgstr "Egileak"
+msgstr "Kolaboratzaileak"
 
 msgid "publication.createVersion"
 msgstr "Bertsio berria sortu"
@@ -2410,7 +2584,7 @@ msgstr "Bertsio guztiak"
 msgid "publication.version.confirm"
 msgstr "Ziur zaude bertsio berri bat sortu nahi duzula?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Laburpena luzeegia da. {$limit} hitz edo gutxiago izan beharko lituzke. Une "
 "honetan {$count} hitz ditu."
@@ -2420,6 +2594,9 @@ msgstr "Hitz-kopurua: {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Ezin izan da markatu {$pubObjectTitle}-rentzat DOIak sinkronizazioa behar "
+"duela. Ezin da DOIak sinkronizatu behar duela markatu, oraindik ez baita "
+"erregistratu edo bidali."
 
 msgid "doi.submission.notPublished"
 msgstr ""
@@ -2431,7 +2608,6 @@ msgstr ""
 "Hau aurrebista bat da eta ez da argitaratu. <a href=\"{$url}\">Ikusi "
 "bidalketa</a>"
 
-#, fuzzy
 msgid "author.submit.noFiles"
 msgstr "Bidalketa honi ez zaio fitxategirik erantsi."
 
@@ -2446,15 +2622,27 @@ msgstr "<strong>{$section}</strong> atalera bidaltzen."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"<strong>{$section}</strong> atalera bidaltzen <strong>{$language}</strong> "
+"hizkuntzan."
 
 msgid "submission.type.tip"
 msgstr ""
+"Bidalketa mota normalean 'irudia', 'testua' edo beste multimedia mota bat "
+"izaten da, besteak beste, 'softwarea' edo 'interaktiboa'. Mesedez, aukeratu "
+"zure bidalketarako esanguratsuena dena. Adibideak hemen aurki daitezke: <a "
+"target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic</a>"
 
 msgid "submission.source.tip"
 msgstr ""
+"Bidalketa hau beste baliabide batetik dator? Hala bada, baliabide horren "
+"URLa edo deskribapena sar dezakezu."
 
 msgid "submission.rights.tip"
 msgstr ""
+"Nahi izanez gero, bidalketa honi buruz dituzun sarbide-eskubideei buruzko "
+"adierazpen labur bat sar dezakezu."
 
 msgid "submission.submit.metadataForm.tip"
 msgstr ""
@@ -2469,6 +2657,8 @@ msgstr "Datuen erabilgarritasunari buruzko adierazpena"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Adierazi lan hau babesten duten frogak eskuragarri jarri dituzun ala ez, eta "
+"hala bada, non eta nola eskura daitezkeen"
 
 msgid "submission.files.required.genre"
 msgstr "Gutxienez {$genre} fitxategi bat igo behar duzu."
@@ -2497,7 +2687,7 @@ msgstr ""
 "dira."
 
 msgid "submission.forReviewerSuggestion"
-msgstr "Berrikuslearen iradokizunerako"
+msgstr "Ebaluatzailearen iradokizunerako"
 
 msgid "submission.wizard.submissionCancelled"
 msgstr "Bidalketa ezeztatua"
@@ -2514,7 +2704,7 @@ msgstr ""
 "argitaratutako edukian."
 
 msgid "submission.reviewerSuggestions"
-msgstr "Berrikuslearen iradokizunak"
+msgstr "Ebaluatzailearen iradokizunak"
 
 msgid "editor.submission.roundStatus.recommendationMadeByYou"
 msgstr "Gomendioa zuk egin duzu."
@@ -2523,7 +2713,7 @@ msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Berrikuspenera itzuli da."
 
 msgid "editor.submission.reviewerSuggestions"
-msgstr "Egileak iradokitako berrikusleak"
+msgstr "Egileak iradokitako ebaluatzaileak"
 
 msgid "author.affiliationRorAndNameEmpty"
 msgstr "Eman ROR afiliazio bat edo, gutxienez, afiliazio izen bat."
@@ -2548,7 +2738,7 @@ msgstr "Gomendio editorial bat jaso da"
 
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr ""
-"Berrikusleak berrikuspen-eskaera bertan behera utzi du <b>{$date}</b> "
+"Ebaluatzaileak berrikuspen-eskaera bertan behera utzi du <b>{$date}</b> "
 "egunean."
 
 msgid "dashboard.reviewAssignment.statusComplete.description"
@@ -2564,7 +2754,7 @@ msgid "dashboard.reviewAssignment.action.resendReviewRequest"
 msgstr "Birbidali berrikuspen-eskaera"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
-msgstr "Berrikuslearen erantzunaren zain"
+msgstr "Ebaluatzailearen erantzunaren zain"
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Berrikuspena {$date} egunean osatu zen"
@@ -2595,8 +2785,8 @@ msgstr "Berrikuspena {$days} egunez atzeratuta dago"
 
 msgid "dashboard.reviewAssignment.statusAccepted.description"
 msgstr ""
-"Berrikusle honek berrikuspen-eskaera onartu du. Bere berrikuspena <b>{$days} "
-"eguneko epean aurkeztu behar da, {$date} egunean.</b>"
+"Ebaluatzaile honek berrikuspen-eskaera onartu du. Bere berrikuspena "
+"<b>{$days} eguneko epean aurkeztu behar da, {$date} egunean.</b>"
 
 msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
 msgstr ""
@@ -2634,7 +2824,7 @@ msgid "dashboard.revisionRequestedFromAuthor"
 msgstr "Egileari eskatutako berrikuspenak"
 
 msgid "dashboard.assignReviewers"
-msgstr "Esleitu berrikusleak"
+msgstr "Esleitu ebaluatzaileak"
 
 msgid "dashboard.startNewSubmission"
 msgstr "Hasi bidalketa berri bat"
@@ -2646,7 +2836,7 @@ msgid "dashboard.reviewUpdateCounts"
 msgstr "Berrikuspenaren egoera {$reviewsCompletedCount}/{$reviewsTotalCount}"
 
 msgid "dashboard.reviewersAssigned"
-msgstr "Esleitutako berrikusleak"
+msgstr "Esleitutako ebaluatzaileak"
 
 msgid "submission.dashboard.view.awaitingReviews"
 msgstr "Berrikuspenen zain"
@@ -2699,19 +2889,19 @@ msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Berrikuspena osatua {$date} egunean"
 
 msgid "dashboard.reviewAssignment.statusDeclined.description"
-msgstr "Berrikusleak berrikuspen eskaera baztertu zuen <b>{$date}</b> egunean"
+msgstr "Ebaluatzaileak berrikuspen-eskaera baztertu zuen <b>{$date}</b> egunean"
 
 msgid "dashboard.reviewAssignment.statusDeclined.title"
 msgstr "Berrikuspen eskaera baztertu da {$date} egunean"
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
-msgstr "Berrikuslearen erantzunaren zain"
+msgstr "Ebaluatzailearen erantzunaren zain"
 
 msgid "dashboard.reviewAssignment.completeReviewByDate"
 msgstr "Mesedez, osatu berrikuspen hau {$date} baino lehen."
 
 msgid "reviewerSuggestion.suggestionReason"
-msgstr "Berrikuslea iradokitzeko arrazoiak"
+msgstr "Ebaluatzailea iradokitzeko arrazoiak"
 
 msgid "publication.jats.lastModified"
 msgstr "Azken aldaketa {$modificationDate} egunean, {$username} egileak egina"
@@ -2786,7 +2976,7 @@ msgid "fileManager.copyeditedFiles"
 msgstr "Zuzendutako fitxategiak"
 
 msgid "fileManager.filesForReviewDescription"
-msgstr "Fitxategi hauek berrikusleei bidaliko zaizkie berrikus ditzaten"
+msgstr "Fitxategi hauek ebaluatzaileei bidaliko zaizkie berrikus ditzaten"
 
 msgid "fileManager.filesForReview"
 msgstr "Berrikuspenerako fitxategiak"
@@ -2819,7 +3009,7 @@ msgid "dashboard.declinedDuringStage"
 msgstr "{$stageName} fasean baztertua."
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
-msgstr "Bidali berrikuspen hau berrikuslearen ORCIDera?"
+msgstr "Bidali berrikuspen hau ebaluatzailearen ORCIDera?"
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
 msgstr "Bidali berrikuspena ORCIDera"
@@ -2837,10 +3027,10 @@ msgid "dashboard.reviewAssignment.action.unassignReviewer"
 msgstr "Kendu esleipena"
 
 msgid "dashboard.reviewAssignment.action.cancelReviewer"
-msgstr "Ezeztatu berrikuslea"
+msgstr "Ezeztatu ebaluatzailea"
 
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Berrikusleak berrikuspen eskaera bertan behera utzi du"
+msgstr "Ebaluatzaileak berrikuspen-eskaera bertan behera utzi du"
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Ezabatu bidalketa osatugabeak"
@@ -2862,3 +3052,137 @@ msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
 msgstr ""
 "Berrikuspen hau burutzeko epea amaitu da. Mesedez, burutu berrikuspena "
 "ahalik eta azkarren."
+
+msgid "submission.query.allowedEditTime"
+msgstr "Eztabaida hau {$allowedEditTimeNoticeLimit} minutuz eguneratu dezakezu."
+
+msgid "submission.review.status.viewed"
+msgstr "Editoreak berrikuspena ikusi du."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Bidalketaren uneko hizkuntza:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Aldatu"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Aldatu bidalketaren hizkuntza honetara"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Idatzi hemen bidalketaren izenburua {$language} hizkuntzan. Izenburua behar "
+"bezala formateatu dezakezu"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Ikusi bidalketaren laburpena"
+
+msgid "submission.list.completeSubmission"
+msgstr "Osatu bidalketa"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Ziur zaude bidalketa hau bertan behera utzi nahi duzula? Honek bidalketa eta "
+"lotutako datu guztiak ezabatuko ditu. Ekintza hau ezin da desegin."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Ez da ebaluatzailerik iradoki bidalketa honetarako."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Kolaboratzaile bat edo gehiagoren afiliazio bat edo gehiagorentzat, "
+"afiliazio-izena falta da {$language} hizkuntzan."
+
+msgid "submission.files.content.error"
+msgstr "Ezin izan da '{$fileName}' bidalketa-fitxategiaren edukia berreskuratu."
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Mesedez, adierazi egile honek ikerketa-gaiarekin izan ditzakeen interes-"
+"gatazkak."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Hau da bidalketaren hizkuntza nagusia. Aldaketak eragina izango du "
+"bidalketan eta sartutako metadatuetan"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Laburpena {$language} hizkuntzan sartzea gomendatzen da. Horrek edukia "
+"eskuragarri egotea ziurtatzen laguntzen du"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Gutxieneko berrikuspen kopurua baieztatu da. Erabaki bat hartu behar da."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Berrikuspen eskaera ebaluatzailearekin berriz partekatu da. Erantzunaren "
+"zain egongo da {$days} egun egunez, {$date} egunera arte"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Ebaluatzaile honek ez dio berrikuspen eskaerari erantzun. Erantzun bat eman "
+"behar zen data honetarako: <b>{$date}</b>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Bidalketaren hizkuntza aldatu aurretik, ziurtatu ondorengo "
+"metadatuen eremuak bete dituzula sistemaren osotasuna mantentzeko. Kontuan "
+"izan, gainera, kolaboratzaileen informazioa eta fitxategien izenak aurretik "
+"sartutako informaziotik kopiatuko direla.</strong>"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Egileari eskatutako berrikuspenak berrikuspen-erronda berri batera eramateko"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Errore bat gertatu da JATS eduki lehenetsia sortzen saiatzean. Ziurtatu "
+"JatsTemplate plugina instalatuta dagoela."
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Mesedez, azaldu zergatik gomendatzen duzun ebaluatzaile hau eta aipatu "
+"interes-gatazkarik egon daitekeen."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Bidalketaren hizkuntza ({$language}) ez da onartzen den bidalketa-"
+"hizkuntzetako bat. Bidalketaren xehetasunak edita ditzakezu oraindik, baina "
+"une honetan ez dira onartzen bidalketa berriak hizkuntza honetan."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Berrikuspen eskaera ebaluatzailearekin partekatu da. Erantzuna <b>{$days} "
+"egun barru, {$date}-n</b> espero da"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Ebaluatzaile honek ez du bere berrikuspena amaitu. Erantzuna <b>{$date}</b> "
+"egunerako eman behar zen"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Gomendio-editoreak arduratzen dira bidalketa honen hurrengo urratsak "
+"aholkatzeaz"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Gomendio editorial guztiak jaso dira, eta erabaki bat hartu behar da."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Ezin duzu bidalketa honetara Aldizkariaren Kudeatzaile gisa sartu, egilea "
+"zarelako. Ikusteko, joan \"Nire bidalketak\" atalera"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Ezin duzu bidalketa honetara Aldizkariaren kudeatzaile gisa sartu, "
+"ebaluatzailea zarelako. Ikusteko, joan \"Berrikusteko esleipenak\" atalera"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Ez da lortu baieztatutako iritzien gutxieneko kopurua. Erabaki editorial "
+"honekin jarraitu nahi duzu oraindik?"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Fitxategi hauek egileak bidali ditu berrikuspenak eskatu ondoren"

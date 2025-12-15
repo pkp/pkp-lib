@@ -1,4 +1,4 @@
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023, 2025.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-06-16 18:06+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-10-31 20:16+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -851,7 +851,7 @@ msgstr ""
 "administratifs y ont auront accès."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr "Rendre publiques les statistique COUNTER SUSHI"
+msgstr "Rendre publique les statistiques COUNTER SUSHI"
 
 msgid "manager.statistics.reports"
 msgstr "Rapports"
@@ -1042,7 +1042,7 @@ msgid "manager.setup.checklist"
 msgstr "Liste de vérification"
 
 msgid "manager.setup.competingInterests"
-msgstr "Intérêts divergents"
+msgstr "Conflit d'intérêts"
 
 msgid "manager.setup.errorDeletingItem"
 msgstr "Il s'est produit une erreur lors de la suppression de cet élément."
@@ -3814,7 +3814,7 @@ msgstr "Image"
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
-"Les auteurs-es soumissionnaires doivent déposer une déclaration de conflits "
+"Les auteurs-es soumissionnaires doivent produire une déclaration de conflits "
 "d'intérêts avec leur soumission."
 
 msgid "manager.statistics.counterR5"

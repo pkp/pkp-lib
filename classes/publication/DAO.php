@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -17,15 +17,15 @@ namespace PKP\publication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
-use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
-use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -48,19 +48,6 @@ class DAO extends EntityDAO
 
     /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'publication_id';
-
-    /** @var CitationDAO */
-    public $citationDao;
-
-    /**
-     * Constructor
-     */
-    public function __construct(CitationDAO $citationDao, PKPSchemaService $schemaService)
-    {
-        parent::__construct($schemaService);
-
-        $this->citationDao = $citationDao;
-    }
 
     /**
      * Get the parent object ID column name
@@ -108,11 +95,10 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
-
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
             foreach ($rows as $row) {
                 yield $row->publication_id => $this->fromRow($row);
             }
@@ -166,6 +152,7 @@ class DAO extends EntityDAO
      */
     public function fromRow(object $row): Publication
     {
+        /** @var Publication $publication */
         $publication = parent::fromRow($row);
 
         $this->setDoiObject($publication);
@@ -176,11 +163,17 @@ class DAO extends EntityDAO
             ->value('locale');
         $publication->setData('locale', $locale);
 
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $citations = $citationDao->getByPublicationId($publication->getId())->toArray();
-        $citationsRaw = $citationDao->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
+        $citations = Repo::citation()->getByPublicationId($publication->getId());
         $publication->setData('citations', $citations);
-        $publication->setData('citationsRaw', $citationsRaw);
+        $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
+            public function __construct(public int $publicationId)
+            {
+            }
+            public function __toString()
+            {
+                return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
+            }
+        });
 
         $publicationVersionString = Repo::publication()->getVersionString($publication);
         $publication->setData('versionString', $publicationVersionString);
@@ -204,10 +197,10 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $id);
         $this->saveCategories($publication);
 
-        // Parse the citations
-        if ($publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
-        }
+        Repo::citation()->importCitations(
+            $publication->getId(),
+            $publication->getData('citationsRaw')
+        );
 
         return $id;
     }
@@ -224,8 +217,11 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
 
-        if ($oldPublication && $oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
+        if ($oldPublication) {
+            Repo::citation()->importCitations(
+                $publication->getId(),
+                $publication->getData('citationsRaw')
+            );
         }
     }
 
@@ -247,7 +243,7 @@ class DAO extends EntityDAO
         $this->deleteAuthors($publicationId);
         $this->deleteCategories($publicationId);
         $this->deleteControlledVocab($publicationId);
-        $this->deleteCitations($publicationId);
+        Repo::citation()->deleteByPublicationId($publicationId);
 
         return $affectedRows;
     }
@@ -476,22 +472,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Save the citations
-     */
-    protected function saveCitations(Publication $publication)
-    {
-        $this->citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
-    }
-
-    /**
-     * Delete the citations
-     */
-    protected function deleteCitations(int $publicationId)
-    {
-        $this->citationDao->deleteByPublicationId($publicationId);
-    }
-
-    /**
      * Set the DOI object
      *
      */
@@ -500,5 +480,46 @@ class DAO extends EntityDAO
         if (!empty($publication->getData('doiId'))) {
             $publication->setData('doiObject', Repo::doi()->get($publication->getData('doiId')));
         }
+    }
+
+    /**
+     * Get setting values for the given setting name of all submission's minor versions in the given stage and a given version major
+     */
+    public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
+    {
+        return DB::table('publication_settings AS ps')
+            ->join('publications AS p', 'p.publication_id', '=', 'ps.publication_id')
+            ->where('p.submission_id', '=', $submissionId)
+            ->where('p.version_stage', '=', $versionStage)
+            ->where('p.version_major', '=', $versionMajor)
+            ->where('ps.setting_name', '=', $settingName)
+            ->select('ps.setting_value')
+            ->pluck('setting_value');
+    }
+
+    /**
+     * Get all submission IDs for which DOIs can be exported.
+     * If the same DOI is used for all versions: the current publication needs to have a DOI and is published.
+     * If different DOIs are used for different versions: a publication that have a DOI and is published needs to exist.
+     */
+    public function getExportableDOIsSubmissionIds(int $contextId, bool $doiVersioning): array
+    {
+        return DB::table('publications as p')
+            ->select(['p.submission_id'])
+            ->join(
+                'submissions as s',
+                function (JoinClause $join) use ($doiVersioning) {
+                    $join
+                        ->on('p.submission_id', '=', 's.submission_id')
+                        ->when((!$doiVersioning), function (Builder $qb) {
+                            $qb->on('s.current_publication_id', '=', 'p.publication_id');
+                        });
+                }
+            )
+            ->where('s.context_id', '=', $contextId)
+            ->where('p.status', '=', Publication::STATUS_PUBLISHED)
+            ->whereNotNull('p.doi_id')
+            ->pluck('p.submission_id')
+            ->all();
     }
 }

@@ -1,0 +1,1055 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"admin/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "admin.currentVersion"
+msgstr "Naujausia versija"
+
+msgid "admin.dateInstalled"
+msgstr "Įdiegta (data)"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Atnaujinti „Ror“ registro duomenų rinkinio talpyklą"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "komanda [argumentai]"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Sukurta"
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Suši protokolas"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Nepavyksta vykdyti suplanuotų užduočių, nes įjungtas programos priežiūros "
+"režimas."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Ar turėjote omenyje vieną iš šių?"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nustatymo pavadinimas"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Nustatymas"
+
+msgid "admin.adminFunctions"
+msgstr "Administravimas"
+
+msgid "admin.deleteCache"
+msgstr "Ištrinti talpyklas"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Ištrinkite talpyklos failus iš sistemos. Tai reikėtų daryti tik kūrimo "
+"aplinkose."
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Jūsų konfigūracijos failas sėkmingai atnaujintas. Atkreipkite dėmesį, kad "
+"jei Jūsų svetainė nebeveiks tinkamai, Jums reikės pataisyti konfigūraciją, "
+"pakeitimus atliekant pačiame <tt>config.inc.php</tt> faile."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Ar tikrai norite išvalyti kompiliuotų šablonų podėlį (cache)?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Ar tikrai norite padaryti visas naudotojų sesijas nebegaliojančiomis? Šiuo "
+"veiksmu visi prie sistemos prisijungę vartotojai bus priversti prisijungti "
+"iš naujo (ir Jūs)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Konfigūracijos failo turinys"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Ar tikrai norite negrįžtamai ištrinti žurnalą „{$contextName}“ ir visą jo "
+"turinį?"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Jūsų atnaujintos konfigūracijos turinys pateiktas žemiau. Norėdami "
+"patvitinti konfigūracijos pakeitimus, atidarykite <tt>config.inc.php</tt> "
+"patogiu teksto redaktoriumi ir pakeiskite jo turinį su žemiau pateiktu."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Pateikti naują konfigūraciją"
+
+msgid "admin.expireSessions"
+msgstr "Padaryti naudotojų sesijas nebegaliojančiomis"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Visi vartotojai, įskaitant jus, bus nedelsiant atjungti nuo programos ir "
+"jiems reikės prisijungti iš naujo."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Ši lokalė nustato pirminę svetainės kalbą. Negalima jos pasyvinti, kol nebus "
+"pasirinkta kita pirminė lokalė."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Ar tikrai norite pakeisti pirminę svetainės lokalę? Trūkstami vartotojų "
+"vardai, kuriuos reikia pateikti pirminėje svetainės lokalėje, bus "
+"perkopijuoti iš dabartinės pirminės lokalės."
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Ar tikrai norite įkelti šią lokalę iš naujo? Šiuo veiksmu bus ištrinti visi "
+"dabartiniai nuo lokalės priklausantys duomenys, tokie kaip individualizuoti "
+"elektroninių laiškų šablonai."
+
+msgid "admin.languages.installedLocales"
+msgstr "Įdiegtos lokalės"
+
+msgid "admin.languages.installLanguages"
+msgstr "Tvarkyti lokales"
+
+msgid "admin.languages.availableLocales"
+msgstr "Naudotinos lokalės"
+
+msgid "admin.languages.installLocale"
+msgstr "Įdiegti lokalę"
+
+msgid "admin.languages.installLocales"
+msgstr "Įdiegti"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Įdiegti naujas lokales"
+
+msgid "admin.languages.languageSettings"
+msgstr "Kalbos nustatymai"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Nėra daugiau naudotinų lokalių, kurias būtų galima įdiegti."
+
+msgid "admin.languages.reload"
+msgstr "Įkelti lokalę iš naujo"
+
+msgid "admin.languages.uninstall"
+msgstr "Pašalinti lokalę"
+
+msgid "admin.phpInfo"
+msgstr "Išsami informacija apie PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Suplanuota užduotis"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Užduotis pradėta."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Užduotis sustabdyta."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Užduoties metu nesukurtas joks žurnalas."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Pateikite DOI sukonfigūruotai registracijos agentūrai"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Programos „{$softwareName}“ įdiegimo metu buvo automatiškai pradėta ir "
+"užbaigta užduotis, žurnalo failą galima atsisiųsti iš čia: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Išsiųskite kiekvienam redaktoriui el. laišką, primenantį jiems apie jų "
+"atliktas užduotis"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Redaktorių, kuriems priminti kontekste, identifikavimas {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Išsiųsta {$count} užduotys, skirtos siųsti redakcinius el. pašto priminimus "
+"vartotojams {$userIds} kontekste {$contextId}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Ar tikrai norite ištrinti visus suplanuotų užduočių vykdymo žurnalus?"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Ištrinkite visus paleistų suplanuotų užduočių procesų žurnalus."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Ištrinti užduočių žurnalus"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publikuoti suplanuotus publikuoti darbus"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Priminimas dėl recenzijos"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Redakcijos ataskaitos pranešimas"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Priminimas dėl besibaigiančios prenumeratos"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Pašalinti nepatvirtintus, pasibaigusio galiojimo naudotojus"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+"Iš nepavykusių darbų sąrašo pašalinkite daug senesnius nepavykusius darbus."
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Apdoroti laukiančius eilės darbus"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Atnaujinti DB-IP „City Lite“ duomenų bazę"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Naudojimo statistikos failų įkėlimo užduotis"
+
+msgid "admin.job.processLogFile.openFileFailed"
+msgstr "Failo {$file} nepavyko atidaryti ir jis buvo atmestas."
+
+msgid "admin.job.processLogFile.invalidLogEntry.time"
+msgstr "Laikas nėra tinkama data."
+
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
+msgstr "Konteksto ID nėra sveikasis skaičius."
+
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
+msgstr "Pateikimo ID nėra sveikasis skaičius."
+
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
+msgstr "Atvaizdavimo ID nėra sveikasis skaičius."
+
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
+msgstr "Asociacijos tipas nepalaikomas."
+
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
+msgstr "Failo tipas nepalaikomas."
+
+msgid "admin.job.processLogFile.invalidLogEntry.country"
+msgstr "Šalis nėra dviejų abėcėlės simbolių eilutė."
+
+msgid "admin.job.processLogFile.invalidLogEntry.region"
+msgstr ""
+"Regiono eilutė nėra ilgesnė nei trys raidiniai ir skaitmeniniai simboliai."
+
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
+msgstr "Įstaigų ID nėra masyvas."
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache versija"
+
+msgid "admin.server.dbDriver"
+msgstr "Duomenų bazės tvarkyklė"
+
+msgid "admin.server.dbVersion"
+msgstr "Duomenų bazės tvarkyklės versija"
+
+msgid "admin.serverInformation"
+msgstr "Informacija apie serverį"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP versija"
+
+msgid "admin.server.platform"
+msgstr "OS platforma"
+
+msgid "admin.settings"
+msgstr "Nustatymai"
+
+msgid "admin.settings.about"
+msgstr "Apie svetainę"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Masiniai el. laiškai"
+
+msgid "admin.settings.contactEmail"
+msgstr "Pirminio adresato elektroninio pašto adresas"
+
+msgid "admin.settings.contactName"
+msgstr "Pirminio adresato vardas"
+
+msgid "admin.settings.introduction"
+msgstr "Įvadas"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Slaptažodį turi sudaryti ne mažiau nei (ženklai)"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Recenzentų statistika"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Daugiakontekstinėje instaliacijoje recenzentų statistika, pvz., pateiktų "
+"recenzijų skaičius, gali būti rodoma atskirai kiekvienam kontekstui arba "
+"bendrai apjungta."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Išjungti apibendrintą recenzentų statistiką"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Apriboti masinius el. laiškus"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Išjungti vaidmenis"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Šį nustatymą gali keisti tik administratorius."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Svetainės kalba"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Stilių failas pateiktas netinkamu formatu. Reikia pateikti .css formatu."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Svetainės stilių failas"
+
+msgid "admin.settings.siteLogo"
+msgstr "Svetainės logotipas"
+
+msgid "admin.settings.siteTitle"
+msgstr "Svetainės pavadinimas"
+
+msgid "admin.settings.siteTheme"
+msgstr "Svetainės tema"
+
+msgid "admin.siteAdmin"
+msgstr "Svetainės administravimas"
+
+msgid "admin.siteManagement"
+msgstr "Tinklapio tvarkymas"
+
+msgid "admin.siteSettings"
+msgstr "Svetainės nustatymai"
+
+msgid "admin.siteSetup"
+msgstr "Svetainės sąranka"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Konfigūracijos failo <tt>config.inc.php</tt> nėra, failo negalima "
+"perskaityti, arba jis neteisingas."
+
+msgid "admin.systemInformation"
+msgstr "Informacija apie sistemą"
+
+msgid "admin.systemInformation.view"
+msgstr "Peržiūrėti sistemos informaciją"
+
+msgid "admin.versionBuild"
+msgstr "Versija"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Tikrinti, ar yra atnaujinimų"
+
+msgid "admin.version.downloadPackage"
+msgstr "Atsiųsti"
+
+msgid "admin.version.downloadPatch"
+msgstr "Atsiųsti pataisą"
+
+msgid "admin.versionHistory"
+msgstr "Versijų istorija"
+
+msgid "admin.version.latest"
+msgstr "Naujausia versija"
+
+msgid "admin.versionMajor"
+msgstr "Pirminė"
+
+msgid "admin.versionMinor"
+msgstr "Antraeilė"
+
+msgid "admin.version.moreInfo"
+msgstr "Daugiau informacijos"
+
+msgid "admin.versionRevision"
+msgstr "Pataisa"
+
+msgid "admin.version.updateAvailable"
+msgstr "Yra nauja versija"
+
+msgid "admin.version.upToDate"
+msgstr "Jūsų sistema yra atnaujinta"
+
+msgid "admin.version"
+msgstr "Versija"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Sistemos kelias {$path} turi būti viešųjų failų kataloge."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Aplanktas {$path} nėra katalogas arba nepavyksta jo perskaityti."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Failo {$filename} nepavyksta perkelti iš {$currentFilePath} į "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Failas {$filename} buvo apdorotas ir archyvuotas."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Failas {$filename} buvo perkeltas į siuntimo aplanką."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Failų įkėlyklė"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nėra naudotinų lokalių, kurias būtų galima atsiųsti."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Naudojimas:"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Galimos komandos vardų erdvei `{$namespace}`:"
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Iš naujo paleiskite eilės darbuotojų demonus po jų dabartinio darbo."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr "Darbuotojai grakščiai pasitrauks iš darbo, kai baigs dabartinį darbą."
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Užbaigta {$jobCount} užduočių eilėje, pavadintoje {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "Eilėje, pavadintoje {$queueName}, nėra galimų vykdyti užduočių."
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Rodyti komandos „Jobs“ naudojimą"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Rodyti darbų naudojimo parametrus"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Parinktis negali būti tuščia! Patikrinkite naudojimo būdą."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "Nepavykę eilėje esantys darbai"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Eilėje laukiantys darbai"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Eilė"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "Ryšys"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Darbo rodomas pavadinimas"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Bandymai"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Rezervuota"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Prieinama adresu"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Sukurta"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "Nepavyko"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "Išimties pranešimas"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Puslapavimas"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Dabartinis"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Ankstesnis"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Toliau"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Neteisingas darbo ID"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Darbas buvo ištrintas!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Nerasta jokių darbo vietų, kurias būtų galima ištrinti."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Nebuvo įmanoma ištrinti visų darbų."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Ištrintos visos užduotys!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+"{$jobsCount} nepavykusių užduočių sėkmingai pašalintos iš nepavykusių "
+"užduočių sąrašo."
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "{$jobsCount} užduotys sėkmingai perkeltos atgal į eilę."
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "Turime {$total} nepavykusių užduočių"
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Eilėje laukia {$total} užduotys"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Parinktis {$option} neegzistuoja."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Ar turėjote omenyje vieną iš šių?"
+
+msgid "admin.jobs.totalCount"
+msgstr "Eilėje iš viso yra <strong>{$total</strong> užduotis(-ų)"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr "Iš viso yra <strong>{$total</strong> nepavykusių užduočių."
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Peržiūrėti eilėje laukiančius darbus"
+
+msgid "navigation.tools.jobs"
+msgstr "Darbai"
+
+msgid "navigation.tools.jobs.failed"
+msgstr "Nepavykę darbai"
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr "Nepavykusio darbo informacija"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Peržiūrėkite visas eilėje esančias užduotis sistemoje ir stebėkite "
+"nepavykusius bandymus."
+
+msgid "navigation.tools.jobs.view"
+msgstr "Peržiūrėti darbo skelbimus"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "Peržiūrėti nepavykusius darbus"
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr "Peržiūrėti nepavykusį darbą: {$id} Išsami informacija"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "Atributas"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "Atributo reikšmė"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Darbas"
+
+msgid "admin.jobs.list.queue"
+msgstr "Eilė"
+
+msgid "admin.jobs.list.connection"
+msgstr "Ryšys"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Bandymai"
+
+msgid "admin.jobs.list.failedAt"
+msgstr "Nepavyko"
+
+msgid "admin.jobs.list.payload"
+msgstr "Naudingoji apkrova"
+
+msgid "admin.jobs.list.exception"
+msgstr "Išimtis"
+
+msgid "admin.jobs.list.actions"
+msgstr "Veiksmai"
+
+msgid "admin.jobs.failedAt"
+msgstr "Sukurta {$failedAt}"
+
+msgid "admin.jobs.createdAt"
+msgstr "Sukurta {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "Bandykite dar kartą"
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "Iš naujo įtraukti visas nepavykusias užduotis"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Duomenų rinkimas"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Konfigūruokite, kokios rūšies naudojimo statistika turėtų būti renkama."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Duomenų saugojimas"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+"Konfigūruokite, kokia naudojimo statistika turėtų būti saugoma serveryje."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Mėnesinė arba dienos statistika"
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Stebėkite dienos ir mėnesio statistiką"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Stebėti tik mėnesinę statistiką"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Suspausti žurnalus"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Palikite žurnalo failus vietoje"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Suspausti žurnalo failus"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platforma"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platformos ID"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "darbo komandų parinktys"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "naudojimas: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Galimos darbo komandos parinktys"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Eilės ryšio su work[default : '{$default}'] pavadinimas"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Eilės, kurioje bus dirbama, pavadinimas[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Darbuotojo vardas [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Sekundžių skaičius, kurį reikia palaukti prieš bandant iš naujo atlikti "
+"užduotį, kuri aptiko neaptiktą išimtį [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Atminties limitas megabaitais[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"Sekundžių skaičius, kurį gali veikti antrinis procesas [default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Sekundžių skaičius, kurį reikia perjungti į miego režimą, kai nėra "
+"pasiekiamų užduočių [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Bandymų atlikti užduotį skaičius prieš registruojant nesėkmę [default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Priversti darbuotoją veikti net ir priežiūros režimu [default : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Sustabdyti, kai eilė tuščia[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "Apdorojamų užduočių skaičius prieš sustojant [default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Maksimalus sekundžių skaičius, kurį darbuotojas turėtų veikti [default : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Sekundžių skaičius poilsiui tarp užduočių[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Paleiskite darbuotojo demoną bandymų eilėje"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Išsiųsti užduotį, kad automatiškai būtų pašalinti pasibaigusio galiojimo "
+"kvietimai"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Naudokite svetainę kaip platformą visiems žurnalams."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Rodyti „AppKey“ naudojimo parametrus"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Patvirtinkite dabartinį programos raktą, jei jis randamas konfigūracijos "
+"faile"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Pridėkite app_key konfigūracijos kintamąjį į config.inc.php failą."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Sugeneruokite naują programėlės raktą ir pakeiskite jį konfigūracijos faile. "
+"Perduokite su flag --show, kad tik matytumėte, ir su flag --force, kad "
+"perrašytumėte esamą galiojantį programėlės raktą."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Ar turėjote omenyje vieną iš šių?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Sugeneruotas programėlės raktas: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Konfigūracijos failo skiltyje „bendroji“ nėra apibrėžtas raktinis kintamasis "
+"pavadinimu „app_key“. Atnaujinkite konfigūracijos failo bendrąją skiltį ir "
+"pridėkite eilutę „app_key = ` arba paleiskite komandą „php lib/pkp/tools/"
+"appKey.php configure`, kad ją nustatytumėte."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Kintamasis `app_key` jau yra konfigūracijos failo skiltyje `general`. "
+"Paleiskite komandą `php lib/pkp/tools/appKey.php generate`, kad "
+"nustatytumėte naują programos raktą."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Konfigūracijos faile nenustatytas programos raktas."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Nustatytas netinkamas programėlės raktas, nepalaikomas šifras arba "
+"neteisingas rakto ilgis. Palaikomi šifrai: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Galiojantis APP raktas jau nustatytas konfigūracijos faile. Norėdami "
+"perrašyti, perduokite žymę --force su komanda."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Programėlės raktas sėkmingai nustatytas konfigūracijos faile."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Programėlės rakto kintamasis sėkmingai nustatytas konfigūracijos faile. "
+"Paleiskite komandą `php lib/pkp/tools/appKey.php generate`, kad "
+"nustatytumėte naują programėlės raktą."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Nepavyko nustatyti kintamojo „app_key“ konfigūracijos faile. Atnaujinkite "
+"konfigūracijos failo bendrąją skiltį ir pridėkite eilutę „app_key = `."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Galiojantis programos raktas, nustatytas konfigūracijos faile"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Paleiskite planuoklę."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Išvardykite visas suplanuotas užduotis."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Paleiskite grafiko darbuotoją."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Paleiskite konkrečią suplanuotą užduotį iš sąrašo arba naudokite --name, kad "
+"paleistumėte konkrečią užduotį. Nustatykite žymę --no-scroll, kad matytumėte "
+"visą sąrašą neslenkant."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Rodyti planuoklės naudojimo parametrus."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Nepavyksta vykdyti suplanuotų užduočių, nes įjungtas programos „smėlio dėžės“"
+" režimas."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Suplanuotų užduočių vykdymas kas minutę."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Nebuvo užregistruota jokių suplanuotų užduočių."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Nerasta atitinkančių suplanuotų užduočių."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Kurią komandą norėtumėte paleisti?"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Nepavyko pervadinti DB-IP „City Lite“ duomenų bazės failo {$sourceFilename} "
+"į {$targetFilename}."
+
+msgid "admin.job.processLogFile.wrongLoglineFormat"
+msgstr ""
+"Eilutė {$lineNumber} žurnalo faile {$file} yra neteisingo formato ir ar tai "
+"bus praleista."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"Katalogas {$directory} nėra tuščias. Tai gali rodyti anksčiau nepavykusį "
+"procesą arba tuo pačiu metu veikiantį procesą. Šis failas bus automatiškai "
+"apdorotas iš naujo."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Failas {$file} yra seno žurnalo failo formato, kurio negalima apdoroti, "
+"todėl jis bus perkeltas atgal į etapo katalogą."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Praleistas žurnalo failas {$file}, nes to mėnesio statistika jau buvo "
+"apskaičiuota. Norėdami perskaičiuoti ankstesnio mėnesio statistiką, turite "
+"atkurti visus to mėnesio žurnalo failus ir naudoti CLI įrankį statistikai iš "
+"naujo apdoroti."
+
+msgid "admin.job.processLogFile.invalidLogEntry"
+msgstr ""
+"Neteisingas žurnalo įrašas {$lineNumber} eilutėje žurnalo faile {$file}: "
+"{$error}"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Peržiūrėkite informaciją apie programos ir serverio versiją ir "
+"konfigūracijos nustatymus."
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Nepavyko išskleisti failo. Nepavyko atidaryti šaltinio gz failo {$filePath} "
+"naudojant gzopen."
+
+msgid "admin.job.processLogFile.insertError"
+msgstr ""
+"Apdorojant žurnalo failą {$file} eilutėje {$lineNumber} įvyko klaida: {$msg}"
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Nepavyko išskleisti failo. Nepavyko atidaryti paskirties failo {$filePath} "
+"naudojant funkciją fopen."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Nepavyko išskleisti failo. Paskirties failo {$filePath} nepavyko įrašyti "
+"naudojant fwrite."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Nepavyko išskleisti failo. Išskleisto šaltinio gz-failo {$filePath} nepavyko "
+"pašalinti naudojant atsiejimo funkciją."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Nepavyko suspausti failo. Paskirties gz failo {$filePath} nepavyko atidaryti "
+"naudojant gzopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Nepavyko suspausti failo. Nepavyko nuskaityti šaltinio failo {$filePath} "
+"naudojant fread."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Nepavyko suspausti failo. Atidaryto šaltinio failo {$filePath} nepavyko "
+"uždaryti naudojant fclose."
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Nepavyksta vykdyti eilės užduočių, nes įjungtas programos priežiūros režimas."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Paleiskite begalinį demono darbo procesą, kuris toliau apdoros užduotis. "
+"Norėdami pamatyti su šia komanda susijusias galimas parinktis, naudokite "
+"žymę --help."
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+"Rodo bendrą eilėje laukiančių užduočių skaičių. Norėdami pamatyti bendrą "
+"nepavykusių užduočių skaičių, perduokite žymę --failed."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Išsiųstas bandymo darbas, kuris eilėje, pavadintoje {$queueName}, yra "
+"nulemtas nesėkmės"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Išsiųstas bandymo darbas, kuris eilėje, pavadintoje {$queueName}, yra "
+"susietas su sėkme"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Neteisinga testo užduoties parinktis. „--only=“ parinkčiai gali būti tik "
+"„failed“ arba „success“."
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Konfigūruokite <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> protokolą – pramonėje pripažintą naudojimo statistikos "
+"platinimo formatą."
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Statistika generuojama iš prieigos žurnalo failų, kurie apdoroti perkeliami "
+"į <code>{$path</code>. Ar apdoroti žurnalo failai turėtų būti suspausti į "
+"<code>.gz</code> failus? Žurnalo failų glaudinimas gali sutaupyti vietos "
+"serveryje."
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Apriboti prieigą prie COUNTER SUSHI statistikos API vadovams ir "
+"administratoriams"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"Jei svetainė bus identifikuojama kaip SUSHI platforma, turi būti "
+"reikalaujamas platformos ID."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Nepavyko išskleisti failo. Nepavyko nuskaityti šaltinio gz failo {$file} "
+"naudojant gzread."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Nepavyko išskleisti failo. Atidaryto paskirties failo {$filePath} nepavyko "
+"uždaryti naudojant „fclose“."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Nepavyko išskleisti failo. Atidaryto kodo gz-failo {$filePath} nepavyko "
+"uždaryti naudojant gzclose."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Nepavyko suspausti failo. Nepavyko atidaryti šaltinio failo {$filePath} "
+"naudojant fopen."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Nepavyko suspausti failo. Paskirties gz-failo {$filePath} nepavyko įrašyti "
+"naudojant gzwrite."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Nepavyko suspausti failo. Atidarytojo paskirties gz failo {$filePath} "
+"nepavyko uždaryti naudojant gzclose."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Nepavyksta paleisti eilės užduočių, nes įjungtas programos „smėlio dėžės“ "
+"režimas."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"Išvardinkite visas nepavykusias užduotis. Nustatykite parametrą --"
+"queue=QUEUE_NAME ir --connection=CONNECTION_NAME, kad filtruotumėte sąrašą. "
+"Taip pat perduokite parametrą/žymę --redispatch ir --clear, kad grąžintumėte "
+"duomenis į eilę arba išvalytumėte visas/konkrečias nepavykusias užduotis."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Nepavyko suspausti failo. Suspausto šaltinio failo {$filePath} nepavyko "
+"pašalinti naudojant atsiejimą."
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Išvardinti visas eilėje laukiančias užduotis. Jei norite puslapiuoti "
+"rezultatus, naudokite parametrus --page= ir --perPage=. Perduoti vėliavėlę --"
+"failed, kad būtų išvardytos nepavykusios užduotys."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Išsiųsti galimas užduotis į eilę. Norėdami išsiųsti užduotį į konkrečią "
+"eilę, perduokite parametrą --queue=QUEUE_NAME. Naudokite --test, kad "
+"paleistumėte bandomąją užduotį, ir --once, kad sustabdytumėte po vienos "
+"užduoties."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Nepavyko įkelti naudojimo statistikos duomenų iš failo {$file} ir failo "
+"nepavyko perkelti iš {$archivedFilePath} į {$stagingPath}."
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Norėdami naudoti šią komandą, turite nurodyti bent vieną užduoties ID, "
+"`--all` arba `--queue=`"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Išvalyti konkrečią eilėje esančią užduotį pagal jo ID. Jei norite išvalyti "
+"viską, perduokite parametrą --all. Jei norite išvalyti viską iš konkrečios "
+"eilės, perduokite parametrą --queue="
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Failo {$file} nepavyko perkelti iš {$dispatchFilePath} į {$archivedFilePath}."
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"Į bandymų eilę įtraukite bandomąją užduotį. Naudokite pasirenkamus "
+"parametrus --only= ir perduokite „failed“ arba „success“, kad išsiųstumėte "
+"nepavykusią arba sėkmingą užduotį."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Failas {$file} neegzistuoja."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Nepavyko įkelti naudojimo statistikos duomenų iš failo {$file}. Failas buvo "
+"perkeltas į etapo katalogą."
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Ar sekti kasdienę, ar mėnesinę naudojimo statistiką. Kasdienės statistikos "
+"stebėjimas gali gerokai padidinti jūsų duomenų bazės dydį."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Pagal COUNTER SUSHI protokolą, kiekvienoje statistikos ataskaitoje turi būti "
+"nurodyta statistiką teikianti „platforma“. Pagal numatytuosius nustatymus "
+"žurnalas bus nurodytas kaip visos statistikos platforma. Tačiau jei visus "
+"šioje svetainėje esančius žurnalus leidžia, valdo arba eksploatuoja tas pats "
+"teikėjas, galite norėti nurodyti svetainę kaip platformą."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Kaip atpažinti šią platformą COUNTER SUSHI ataskaitose. Platformos ID turi "
+"būti ne ilgesnis kaip 17 simbolių ir gali būti sudarytas iš raidžių (a–z, "
+"A–Z), skaitmenų (0–9), pabraukimų (_), taškų (.) ir pasvirųjų brūkšnių (/). "
+"Platformos ID naudojamas keliuose stulpeliuose ir turėtų būti kuo "
+"trumpesnis, tačiau atpažįstamas. Platformos ID paprastai grindžiamas leidėjo "
+"ar platformos pavadinimu, domeno pavadinimu arba gerai žinoma, unikalia "
+"santrumpa."

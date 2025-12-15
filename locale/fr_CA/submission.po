@@ -1,16 +1,17 @@
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023, 2025.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
+# Isabelle Giguère <isabelle.giguere.4@umontreal.ca>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-06-17 20:19+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-11-03 16:40+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -39,13 +40,12 @@ msgstr ""
 "De nouvelles évaluations ont été soumises et sont examinées par le,la "
 "rédacteur-trice."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Un ou plusieurs évaluateurs-trices ont outrepassé leur date limite. L'équipe "
-"éditoriale a été informée et prendra des mesures pour s'assurer que les "
-"évaluations soient complétées. Vous n'avez aucune action à effectuer pour le "
-"moment. Vous serez informé-e lorsqu'une décision aura été prise."
+"Un ou plusieurs évaluateurs(trices) ont outrepassé leur date limite. "
+"L'équipe éditoriale a été informée et prendra des mesures pour s'assurer que "
+"les évaluations soient complétées. Vous n'avez aucune action à effectuer "
+"pour le moment. Vous serez informé-e lorsqu'une décision aura été prise."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Soumis en tant que"
@@ -631,7 +631,6 @@ msgstr ""
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
 
-#, fuzzy
 msgid "submission.event.copyrightAgreed"
 msgstr ""
 "{$filename} ({$username}) a accepté les termes du droit d'auteur pour la "
@@ -1344,15 +1343,15 @@ msgstr "Les révisions ont été demandées."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Les révisions ont été soumises et une décision est requise."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
-"La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
+"Les révisions demandées à l'auteur-trice doivent faire l'objet d'un nouveau "
+"cycle d'évaluation."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
-"La soumission a été soumise à nouveau pour un autre cycle d'évaluation."
+"Des révisions ont été soumises, et un nouveau cycle d'évaluation doit être "
+"créé."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Envoyée à un-e évaluateur-trice externe."
@@ -1372,10 +1371,9 @@ msgstr "En attente des réponses des évaluateurs-trices."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr ""
-"Les évaluateurs-trices ont complété leur tâche. Une décision est requise."
+"Toutes les évaluations ont été complétées, et une décision doit être prise."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Une évaluation est en retard."
@@ -1682,9 +1680,9 @@ msgstr "Envoyé en évaluation"
 #, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
-"La soumission, {$title}, a été envoyée à l'étape d'évaluation. L'auteur-"
-"trice en a été informé, à moins que vous ayez choisi de ne pas envoyer "
-"d'avis par courriel."
+"La soumission, {$title}, a été envoyée à l'étape d'évaluation. "
+"L'auteur(trice) en a été informé, à moins que vous ayez choisi de ne pas "
+"envoyer d'avis par courriel."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Nouveau cycle d'évaluation"
@@ -1825,12 +1823,11 @@ msgstr ""
 msgid "editor.submission.decision.revertDecline"
 msgstr "Annuler le refus"
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
-"Renverser un décision précédente afin de refuser cette soumission et de la "
-"retourner dans le processus éditorial. L'auteur-trice a été informé, à moins "
-"que vous ayez décidé de ne pas envoyer de notification."
+"Renverser la décision initiale de refuser cette soumission, et la renvoyer "
+"dans le processus éditorial. L'auteur-trice a été informé, à moins que vous "
+"ayez décidé de ne pas envoyer de notification."
 
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} a renversé la décision de refuser cette soumission."
@@ -1845,9 +1842,8 @@ msgstr "La soumission, {$title}, est à nouveau active à l'étape d'évaluation
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
 "Envoyer un courriel aux auteurs-trices afin de les informer que la décision "
-"initiale de refuser la soumission a été renversée. Justifier pourquoi la "
-"décision a été renversée et laisser leur savoir si leur soumission doit "
-"subir une nouvelle évaluation."
+"initiale de refuser la soumission a été renversée. Justifiez le renversement "
+"de la décision, et indiquez si la soumission subira une nouvelle évaluation."
 
 #, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
@@ -1856,11 +1852,10 @@ msgstr ""
 "'auteur-trice a été informé, à moins que vous ayez décidé de ne pas envoyer "
 "de notification."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
-"Assigner un-e rédacteur-trice pour activer les décisions éditoriales à cette "
-"étape."
+"Assigner un-e rédacteur-trice pour activer les décisions éditoriales de "
+"cette étape."
 
 #, fuzzy
 msgid "editor.submission.recommend.notifyEditors.description"
@@ -1907,17 +1902,15 @@ msgstr "{$editorName} recommande que des révisions soient demandées."
 msgid "editor.submission.recommend.resubmit"
 msgstr "Recommander de resoumettre à une évaluation"
 
-#, fuzzy
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
-"Recommander que l'auteur-trice soumette une nouvelle version révisée pour un "
-"nouveau cycle d'évaluation."
+"Recommander que l'auteur-trice soumette une version révisée pour un nouveau "
+"cycle d'évaluation."
 
-#, fuzzy
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
 "{$editorName} a recommandé que des révisions soient demandées et que les "
-"révisions soient soumisses à un nouveau cycle d'évaluation."
+"révisions soient soumises à un nouveau cycle d'évaluation."
 
 #, fuzzy
 msgid "editor.submission.recommend.decline"
@@ -2578,10 +2571,9 @@ msgstr ""
 msgid "submission.wizard.validating"
 msgstr "Soumission en vérification"
 
-#, fuzzy
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
-"Ajouter toute information pertinente pour l'évaluation de votre soumission."
+"Ajoutez toute information pertinente pour l'évaluation de votre soumission."
 
 #, fuzzy
 msgid "submission.wizard.confirm"
@@ -2712,7 +2704,7 @@ msgstr "Toutes les versions"
 msgid "publication.version.confirm"
 msgstr "Êtes-vous certain-e de vouloir créer une nouvelle version ?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Le résumé est trop long. Il doit compter {$limit} mots ou moins et en compte "
 "actuellement {$count}."
@@ -2820,3 +2812,502 @@ msgstr ""
 
 msgid "submission.author.list"
 msgstr "Liste des auteurs-es de la soumission"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Veuillez fournir une affiliation ROR ou au moins un nom d'affiliation."
+
+msgid "ror.nameRequired"
+msgstr "L'identifiant ROR est requis."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Veuillez indiquer le nom de l'affiliation dans la langue initiale de la "
+"soumission."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Vous avez émis une recommandation."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Langue de cette soumission:"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Modifier la langue de la soumission"
+
+msgid "ror.displayLocaleRequired"
+msgstr "La langue d'affichage ROR est requise."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Annuler la soumission"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Attention: cette version a été publiée. Tout modification pourrait se "
+"répercuter sur le contenu publié."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Soumission annulée"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"La soumission a été annulée, et toutes les métadonnées associées ont été "
+"supprimées."
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Modifier"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Ceci est la langue initiale de la soumission. Les modifications auront un "
+"effet sur la soumission et ses métadonnées."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Avant de modifier la langue de cette soumission, assurez-vous "
+"d'avoir complété les champs de métadonnées suivants afin de préserver "
+"l'intégrité du système. Les informations des contributeur-trices et les noms "
+"de fichiers seront copiés à partir des informations saisies "
+"précédemment.</strong>"
+
+#, fuzzy
+msgid "submission.list.completeSubmission"
+msgstr "Compléter la soumission"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Souhaitez-vous vraiment annuler cette soumission? Si vous acceptez, la "
+"soumission et toutes les métadonnées associées seront supprimées. Cette "
+"action est irréversible."
+
+#, fuzzy
+msgid "submission.dashboard.view.assigned"
+msgstr "Assignées à moi"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Toutes les assignations"
+
+#, fuzzy
+msgid "submission.dashboard.view.scheduled"
+msgstr "Publication programmée"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "En attente d'évaluations"
+
+#, fuzzy
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Confirmer la suppression du XML JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Ce fichier JATS est généré automatiquement à partir des métadonnées de la "
+"soumission"
+
+#, fuzzy
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Une erreur s'est produite lors de la création du fichier JATS par défaut. "
+"Veuillez-vous assurer que le plugiciel JatsTemplate est installé."
+
+msgid "author.competingInterests"
+msgstr "Conflit d'intérêts"
+
+#, fuzzy
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Saisissez le titre en {$language}. Vous pouvez formatter le titre tel que "
+"nécessaire."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Il est recommandé d'ajouter un résumé en {$language} afin d'assurer "
+"l'accessibilité du contenu."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Personne n'a été suggéré pour évaluer cette soumission."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Le nom d'une ou plusieurs affiliations manque en {$language} pour un.e ou "
+"plusieurs contributeur-trices."
+
+msgid "submission.dashboard.view.active"
+msgstr "Soumissions actives"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Sans éditeur-trice"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Sans évaluations"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Évaluations soumises"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Évaluations en retard"
+
+msgid "submission.dashboard.view.production"
+msgstr "En production"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "En révision"
+
+#, fuzzy
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "En soumission initiale"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "En évaluation par les pairs"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "En cours d'évaluation"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Refusées"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publiées"
+
+#, fuzzy
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Révisions demandées"
+
+#, fuzzy
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Révisions des auteur-trices complétées"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Soumissions incomplètes"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Toutes les assignations"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "En attente"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Action requise de ma part"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archivées"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Refusées"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Complétées"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publiées"
+
+#, fuzzy
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Évaluation (Cycle {$round})"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Complétées / refusées"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Publication programmée"
+
+msgid "submission.stage.published"
+msgstr "Publiées"
+
+#, fuzzy
+msgid "publication.jats"
+msgstr "XML JATS"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Vous êtes sur le point de supprimer le XML JATS de cette publication. "
+"Souhaitez-vous vraiment faire cette suppression?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Supprimer le fichier JATS"
+
+msgid "publication.jats.lastModified"
+msgstr "Dernière modification le {$modificationDate} par {$username}"
+
+msgid "submission.files.content.error"
+msgstr "Le contenu du fichier de soumission '{$fileName}' n'a pu être récupéré."
+
+#, fuzzy
+msgid "author.competingInterests.description"
+msgstr ""
+"Veuillez déclarer tout conflit d'intérêts potentiel de cette personne par "
+"rapport au sujet de recherche."
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Statut de l'évaluateur-trice"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Merci d'expliquer pour quelles raisons vous recommandez cette personne. "
+"Veuillez mentionner tout conflit d'intérêt potentiel."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"La langue de la soumission ({$language}) ne fait pas partie des langues "
+"supportées. Vous pouvez toujours modifier les détails de cette soumission, "
+"mais aucune nouvelle soumission ne sera acceptée dans cette langue."
+
+msgid "dashboard.applyFilters"
+msgstr "Appliquer les filtres"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Merci d'accepter ou refuser cette demande au plus tard le {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"La date d'échéance pour répondre à cette demande est passée. Merci "
+"d'accepter ou refuser cette demande aussitôt que possible."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"La demande d'évaluation a été partagée avec les évaluateur-trices. Une "
+"réponse est attendue dans <b>{$days} jours, le {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "L'évaluateur-trice a annulé la demande d'évaluation le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Voir la recommandation"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"La soumission est passée au cycle d'évaluation suivant, a été acceptée, et "
+"est présentement à l'étape {$stage}."
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr ""
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Le nombre minimum d'évaluations confirmées a été atteint. Une décision doit "
+"être rendue."
+
+msgid "workflow.reviewRoundN"
+msgstr "Cycle d'évaluation {$number}"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Une recommandation éditoriale a été reçue"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Ces fichiers modifiés seront envoyés à l'étape de la production"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Vous ne pouvez accéder à cette soumission en tant que directeur-trice de la "
+"revue car vous en êtes l'auteur-e. Pour la consulter, aller à l'onglet \"Mes "
+"soumissions\"."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Veuillez sélectionner les soumissions incomplètes à supprimer."
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Réenvoyer la demande d'évaluation"
+
+#, fuzzy
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Voulez-vous vraiment supprimer les items sélectionnés? Cette action est "
+"irréversible."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"L'évaluateur-trice n'a pas répondu à la demande d'évaluation. Une réponse "
+"était attendue le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Demande d'évaluation en retard depuis {$days} days"
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Raisons pour proposer l'évaluateur-trice"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Évaluateur-trices assigné-es"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Créer une nouvelle soumission"
+
+msgid "dashboard.assignReviewers"
+msgstr "Assigner des évaluateur-trices"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Révisions requises de l'auteur-e"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Révisions requises de l'auteur-e et qui doivent faire l'objet d'un nouveau "
+"cycle d'évaluation"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Nouveau cycle d'évaluation à créer"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "À publier dans le numéro {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Fichiers révisés téléversés: {$count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Révision requise"
+
+msgid "dashboard.submitRevisions"
+msgstr "Soumettre les révisions"
+
+msgid "workflow.uploadRevisions"
+msgstr "Téléverser les révisions"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Terminer l'évaluation"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Demande refusée le {$date}"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Répondre à la demande"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Évaluation soumise le {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Merci de compléter cette évaluation au plus tard le {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"La date d'échéance pour compléter cette évaluation est passée. Merci de "
+"compléter cette évaluation aussitôt que possible."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "En attente d'une réponse de l'évaluateur-trice"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Demande d'évaluation refusée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "L'évaluateur-trice a refusé la demande d'évaluation le <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "L'évaluation a été complétée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "L'évaluation a été confirmée par l'éditeur-trice"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "L'évaluation a été acceptée par l'éditeur-trice le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "L'évaluateur-trice a annulé la demande d'évaluation"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "En attente d'une réponse de l'évaluateur-trice"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"La demande d'évaluation a été réenvoyée à l'évaluateur-trice. Une réponse "
+"est attendue dans {$days} jours, le {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Voir les détails"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Retirer l'évaluateur-trice"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Retirer l'assignation"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Modifier la date d'échéance"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Toutes les recommandations éditoriales ont été reçues et une décision doit "
+"être rendue."
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Vous ne pouvez accéder à cette soumission en tant que directeur-trice de la "
+"revue car vous en êtes l'évaluateur-trice. Pour la consulter, aller à "
+"l'onglet \"Mes soumissions\"."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Nombre minimum d'évaluations requises: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Continuer sans le nombre minimum d'évaluations confirmées?"
+
+#, fuzzy
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Le nombre minimum d'évaluations confirmées n'a pas été atteint. Voulez-vous "
+"tout de même rendre cette décision éditoriale?"
+
+msgid "workflow.stageNotStarted"
+msgstr "L'étape {$stage} n'a pas encore commencé."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "La soumission est présentement à l'étape {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "La soumission est passée au cycle d'évaluation suivant"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Fichiers téléversés lors de la soumission"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Ces fichiers ont été soumis par l'auteur-e après que des révision aient été "
+"demandées"
+
+msgid "fileManager.filesForReview"
+msgstr "Fichiers pour l'évaluation"
+
+#, fuzzy
+msgid "fileManager.filesForReviewDescription"
+msgstr ""
+"Ces fichiers seront transmis aux évaluateur-trices pour fin d'évaluation"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Fichiers révisés"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Ces fichiers de l'étape d'évaluation doivent être révisés"
+
+#, fuzzy
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Ces fichiers seront envoyés à la publication"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirmez la suppression des soumissions incomplètes"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Supprimer les soumissions incomplètes"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"L'évaluateur-trice a accepté la demande d'évaluation. Son évaluation doit "
+"être rendue dans <b>{$days} jours, le {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Évaluation en retard de {$days} jours"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"L'évaluateur-trice n'a pas complété son évaluation. Une réponse était "
+"attendue le <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Évaluation complétée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"L'évaluation a été complétée le {$date} avec la recommandation suivante: "
+"<b>{$recommendation}</b>"
+
+msgid "submission.authors.label"
+msgstr "Auteur-trices"
+
+msgid "author.authorNotFound"
+msgstr "L'auteur(trice) de cette affiliation n'a pu être trouvé(e)."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Suggestion d'évaluateur(trice)s"

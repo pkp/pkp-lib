@@ -63,11 +63,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "Pašlaik konfigurētajam spraudnim jābūt reģistrācijas aģentūras spraudnim."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Jūs nevarat reģistrēt lēmumu vai ieteikt lēmumu par šo materiālu, jo tas jau "
-"ir publicēts."
-
 msgid "api.emails.400.missingSubject"
 msgstr "Jums ir jānorāda e-pasta temats."
 

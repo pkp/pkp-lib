@@ -1,15 +1,16 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
+# Sérgio Reis <disergioreis@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2024-02-19 11:08+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/common/pt_PT/>\n"
-"Language: pt_PT\n"
+"PO-Revision-Date: 2025-10-24 20:18+0000\n"
+"Last-Translator: Sérgio Reis <disergioreis@gmail.com>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1701,7 +1702,7 @@ msgid "search.dateFrom"
 msgstr "Publicado depois"
 
 msgid "search.dateTo"
-msgstr "Publicado depois"
+msgstr "Publicado antes"
 
 msgid "search.deleteFilter"
 msgstr "Eliminar"
@@ -1712,29 +1713,8 @@ msgstr "Área do Conhecimento"
 msgid "search.fullText"
 msgstr "Texto Completo"
 
-msgid "search.indexTerms"
-msgstr "Termos Indexados"
-
-msgid "search.indexTermsLong"
-msgstr "Todos os campos de termos indexados"
-
-msgid "search.matchAll"
-msgstr "Encontrar em todas as categorias"
-
 msgid "search.noResults"
 msgstr "Nenhum resultado encontrado"
-
-msgid "search.operator.and"
-msgstr "e"
-
-msgid "search.operator.not"
-msgstr "não"
-
-msgid "search.operator.or"
-msgstr "ou"
-
-msgid "search.SearchFor"
-msgstr "Pesquisar por"
 
 msgid "search.searchResults"
 msgstr "Resultados da Pesquisa"
@@ -1966,6 +1946,7 @@ msgstr "Estado da Ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumo do relatório de estatísticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Este é um lembrete para verificar a situação da sua revista através do "
@@ -2324,3 +2305,100 @@ msgstr "Mostrar menos"
 
 msgid "common.sandbox"
 msgstr "Execução da aplicação em modo sandbox."
+
+msgid "navigation.dashboards"
+msgstr "Painel do Editor"
+
+msgid "navigation.mySubmissions"
+msgstr "As minhas submissões como Autor"
+
+msgid "navigation.reviewAssignments"
+msgstr "As minhas tarefas como revisor"
+
+msgid "common.yesContinue"
+msgstr "Sim, continuar"
+
+msgid "common.showingXofX"
+msgstr "A mostrar <strong>{$start} a {$finish}</strong> de {$total}"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Revisão aceita em"
+
+msgid "common.moreActions"
+msgstr "Mais ações"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Esta secção, lista os colaboradores anteriores."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ver perfil ORCID de {$name}"
+
+msgid "common.assignments"
+msgstr "Tarefas"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ver <a href=\"{$url}\">Histórico Editorial</a>"
+
+msgid "common.editorialHistory"
+msgstr "Histórico Editorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Página de Histórico Editorial"
+
+msgid "common.changeLanguage"
+msgstr "Alterar idioma"
+
+#, fuzzy
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryOne"
+msgstr "1 erro detetado! Por favor, corrija o erro abaixo antes de continuar."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} erros detetados! Por favor, corrija os erros abaixo antes de "
+"continuar."
+
+msgid "common.viewMoreDetails"
+msgstr "Ver mais detalhes"
+
+msgid "validator.date.comparison"
+msgstr "Datas inválidas fornecidas para comparação."
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Os editores expressam o seu agradecimento aos revisores de {$year} listados "
+"abaixo."
+
+msgid "common.filtersClear"
+msgstr "Limpar filtros"
+
+msgid "common.loaded"
+msgstr "Carregado"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Revisão enviada em"
+
+msgid "common.refreshingData"
+msgstr "Atualizar dados"
+
+msgid "common.numero"
+msgstr "Nr"
+
+#, fuzzy
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Revisores do ano anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Revisores em anos anteriores"
+
+msgid "validator.multilingual"
+msgstr "O requisito de multilinguismo não é cumprido para este campo."
+
+#, fuzzy
+msgid "common.editorialMasthead"
+msgstr "Masthead Editorial"

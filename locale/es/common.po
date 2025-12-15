@@ -2,13 +2,14 @@
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Marc Bria <marc.bria@gmail.com>, 2023.
 # Jonas Raoni Soares da Silva <weblate@raoni.org>, 2024.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2025-06-11 15:34+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-09-17 04:30+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es/>\n"
 "Language: es\n"
@@ -1722,29 +1723,8 @@ msgstr "Disciplina(s)"
 msgid "search.fullText"
 msgstr "Texto completo"
 
-msgid "search.indexTerms"
-msgstr "Términos de indexación"
-
-msgid "search.indexTermsLong"
-msgstr "Todos los campos de términos de la indexación"
-
-msgid "search.matchAll"
-msgstr "Coincidencia en todas las categorías"
-
 msgid "search.noResults"
 msgstr "No hay resultados"
-
-msgid "search.operator.and"
-msgstr "y"
-
-msgid "search.operator.not"
-msgstr "no"
-
-msgid "search.operator.or"
-msgstr "o"
-
-msgid "search.SearchFor"
-msgstr "Buscar"
 
 msgid "search.searchResults"
 msgstr "Resultados de la búsqueda"
@@ -1979,6 +1959,7 @@ msgstr "Estado de la ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumen del informe de estadísticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Le recordamos amablemente que compruebe la salud de su revista a través del "
@@ -2418,3 +2399,6 @@ msgstr "Revisión aceptada el"
 
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
+
+msgid "common.changeLanguage"
+msgstr "Cambiar idioma"

@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/publication/TitleAbstractForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TitleAbstractForm
@@ -16,6 +16,9 @@
 namespace PKP\components\forms\publication;
 
 use APP\publication\Publication;
+use APP\facades\Repo;
+use APP\core\Application;
+use PKP\context\Context;
 use PKP\components\forms\FieldRichText;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
@@ -49,13 +52,14 @@ class TitleAbstractForm extends FormComponent
         $this->abstractWordLimit = $abstractWordLimit;
         $this->isAbstractRequired = $isAbstractRequired;
 
-        $this->addField(new FieldText('prefix', [
-            'label' => __('common.prefix'),
-            'description' => __('common.prefixAndTitle.tip'),
-            'size' => 'small',
-            'isMultilingual' => true,
-            'value' => $publication->getData('prefix'),
-        ]))
+        $this
+            ->addField(new FieldText('prefix', [
+                'label' => __('common.prefix'),
+                'description' => __('common.prefixAndTitle.tip'),
+                'size' => 'small',
+                'isMultilingual' => true,
+                'value' => $publication->getData('prefix'),
+            ]))
             ->addField(new FieldRichText('title', [
                 'label' => __('common.title'),
                 'isMultilingual' => true,
@@ -75,5 +79,34 @@ class TitleAbstractForm extends FormComponent
                 'wordLimit' => $this->abstractWordLimit,
                 'value' => $publication->getData('abstract'),
             ]));
+        
+        $this->addPlainLanguageSummary(
+            Application::getContextDAO()->getById(
+                Repo::submission()->get(
+                    $this->publication->getData('submissionId')
+                )->getData('contextId')
+            ),
+            $this->publication,
+            [Context::METADATA_ENABLE, Context::METADATA_REQUEST, Context::METADATA_REQUIRE]
+        );
+    }
+
+    /*
+     * Add the plain language summary field to the form.
+     */
+    protected function addPlainLanguageSummary(Context $context, Publication $publication, array $rules): void
+    {
+        if (!in_array($context->getData('plainLanguageSummary'), $rules)) {
+            return;
+        }
+
+        $this->addField(new FieldRichTextarea('plainLanguageSummary', [
+            'label' => __('manager.setup.metadata.plainLanguageSummary'),
+            'isMultilingual' => true,
+            'size' => 'large',
+            'wordLimit' => $this->abstractWordLimit,
+            'value' => $publication->getData('plainLanguageSummary'),
+            'isRequired' => $context->getData('plainLanguageSummary') == Context::METADATA_REQUIRE,
+        ]), [FIELD_POSITION_AFTER, 'abstract']);
     }
 }

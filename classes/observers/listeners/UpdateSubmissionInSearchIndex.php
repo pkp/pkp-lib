@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
-use PKP\jobs\submissions\UpdateSubmissionSearchJob;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 
@@ -43,11 +42,12 @@ class UpdateSubmissionInSearchIndex
 
     public function handleUnpublished(PublicationUnpublished $event)
     {
-        dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
+        // Not using ->delete because other publications may exist for this submission.
+        app(\Laravel\Scout\EngineManager::class)->engine()->update(collect([$event->submission]));
     }
 
     public function handlePublicationPublished(PublicationPublished $event)
     {
-        dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
+        app(\Laravel\Scout\EngineManager::class)->engine()->update(collect([$event->submission]));
     }
 }

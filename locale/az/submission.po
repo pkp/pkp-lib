@@ -1622,7 +1622,7 @@ msgstr "URL-də kimlik yerinə istifadə ediləcək istəyə bağlı bir yol."
 msgid "publication.urlPath.numberInvalid"
 msgstr "URL yolu bir say ola bilməz."
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Xülasə çox uzundur. {$limit} kəlimə veya daha az olmalıdır. Hazırda {$count} "
 "kəlimə qədərdir."

@@ -19,13 +19,13 @@ namespace PKP\controllers\grid\queries\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorCSRF;
 use PKP\form\validation\FormValidatorPost;
 use PKP\note\Note;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
 use PKP\user\User;
 
 class QueryNoteForm extends Form
@@ -33,7 +33,7 @@ class QueryNoteForm extends Form
     /** @var array Action arguments */
     public $_actionArgs;
 
-    /** @var Query */
+    /** @var EditorialTask */
     public $_query;
 
     /** @var int Note ID */
@@ -46,7 +46,7 @@ class QueryNoteForm extends Form
      * Constructor.
      *
      * @param array $actionArgs Action arguments
-     * @param Query $query
+     * @param EditorialTask $query
      * @param User $user The current user ID
      * @param int $noteId The note ID to edit, or null for new.
      */
@@ -58,7 +58,7 @@ class QueryNoteForm extends Form
 
         if ($noteId === null) {
             // Create a new (placeholder) note.
-            $note = new Note;
+            $note = new Note();
             $note->assocType = Application::ASSOC_TYPE_QUERY;
             $note->assocId = $query->id;
             $note->userId = $user->getId();
@@ -82,7 +82,7 @@ class QueryNoteForm extends Form
     /**
      * Get the query
      *
-     * @return Query
+     * @return EditorialTask
      */
     public function getQuery()
     {
@@ -92,7 +92,7 @@ class QueryNoteForm extends Form
     /**
      * Set the query
      *
-     * @param Query $query
+     * @param EditorialTask $query
      */
     public function setQuery($query)
     {
@@ -149,17 +149,18 @@ class QueryNoteForm extends Form
             if ($user->getId() != $headNote->userId) {
                 // Re-open the query.
                 $query->closed = false;
-                $query->save();
             }
         }
 
+        $query->save();
+
         // Always include current user to query participants
-        $participantIds = QueryParticipant::withQueryId($query->id)
+        $participantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
         if (!in_array($user->getId(), $participantIds)) {
-            QueryParticipant::create([
-                'queryId' => $query->id,
+            Participant::create([
+                'editTaskId' => $query->id,
                 'userId' => $user->getId()
             ]);
         }

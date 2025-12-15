@@ -1,12 +1,13 @@
 # Maria Lamury <marialamury@gmail.com>, 2025.
 # Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
+# Muhammad Fauzi <fauzi.padlaw@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-05-03 17:35+0000\n"
-"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
+"PO-Revision-Date: 2025-08-26 06:07+0000\n"
+"Last-Translator: Muhammad Fauzi <fauzi.padlaw@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/id/>\n"
 "Language: id\n"
@@ -2564,7 +2565,7 @@ msgstr "Semua Versi"
 msgid "publication.version.confirm"
 msgstr "Yakin ingin membuat versi baru?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstrak terlalu panjang. Jumlah katanya maksimal {$limit} atau kurang. "
 "Sekarang jumlahnya {$count} kata."
@@ -2800,7 +2801,7 @@ msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
 msgstr "Menunggu Respon dari reviewer"
 
 msgid "dashboard.reviewAssignment.completeReviewByDate"
-msgstr "Mohon selesaikan review ini pada {$date}."
+msgstr "Mohon selesaikan review ini sebelum {$date}."
 
 msgid "dashboard.reviewAssignment.action.cancelReviewer"
 msgstr "Membatalkan Reviewer"
@@ -3168,3 +3169,6 @@ msgid "publication.editorEditWarning"
 msgstr ""
 "Peringatan: Versi ini telah dipublikasikan. Menyuntingnya dapat memengaruhi "
 "konten yang dipublikasikan."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Proses review selesai pada {$date}"

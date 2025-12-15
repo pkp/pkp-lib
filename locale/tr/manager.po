@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
+"PO-Revision-Date: 2025-10-11 01:22+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
@@ -307,6 +307,9 @@ msgstr "Kayıt sürecinde bir hatayla karşılaşan tüm ögeler."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Kayıt kurumuna son kez teslim edildikten sonra yeniden yayınlanan tüm "
+"öğeler. Meta veri kayıtlarını güncellemek için kayıt kurumuna yeniden "
+"gönderilmeleri gerekir."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI Güncellemeleri Başarısız"
@@ -347,6 +350,8 @@ msgstr ""
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"DOI oluşturmaya çalıştım, ancak DOI oluşturmak için bağlamda bir DOI öneki "
+"gerekiyor."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -1284,6 +1289,8 @@ msgstr ""
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Aşağıdaki bilgiler, yazarların ayrıntılar adımında, aday makale ile ilgili "
+"başlık, özet ve diğer önemli bilgileri girmeleri istendiğinde gösterilir."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
@@ -3666,3 +3673,105 @@ msgstr "Makale ID"
 
 msgid "manager.statistics.counterR5Report.settings.wrongItemId"
 msgstr "Makale ID mevcut değil."
+
+msgid "manager.highlights.add"
+msgstr "Slide Ekle"
+
+msgid "manager.highlights.delete"
+msgstr "Slide Sil"
+
+msgid "manager.highlights.edit"
+msgstr "Slide Düzenle"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Gerekli Minimum Onaylanmış Değerlendirme Sayısı"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Bir gönderim için gerekli olan minimum onaylanmış değerlendirme sayısı"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Websitesi Dilleri"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Makale Gönderim Dilleri"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Dil Ekle/Sil"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Üstveri"
+
+msgid "manager.language.submission.form.description"
+msgstr "Makale gönderim ve üstveri dillerini seçin."
+
+msgid "manager.language.submission.from.error"
+msgstr "En az bir dil ayarı seçilmelidir."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Ebeveyn Bilgilerini Dahil Et"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Aylık Ayrıntıları Hariç Tut"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Değerlendirme için Hatırlatıcıları Ayarla"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Değerlendirme Talebi Yanıtı - Son Tarih Öncesi"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Değerlendirme Talebi Yanıtı - Son Tarih Sonrası"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Değerlendirme Gönderimi - Son Tarih Öncesi"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Değerlendirme Gönderimi - Son Tarih Sonrası"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "Son değerlendirme tarihinden {$value} gün önce"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "Son değerlendirme tarihinden {$value} gün sonra"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Hiçbiri"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Hatırlatma ayarlanmadı"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Aday makale gönderimi sırasında Hakem Önerisi"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Yazarların, aday makale gönderim sürecinde potansiyel hakem önermelerine "
+"izin verin."
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"{$title} ögesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP biçimi geçersiz."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Değerlendirme davetine yanıt (değerlendirme talebine henüz yanıt vermemişse) "
+"veya değerlendirmeyi henüz tamamlamadıysa öncesinde veya sonrasında bir e-"
+"posta hatırlatıcısı gönderin."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Yazar, gönderimi tamamlamadan önce birkaç potansiyel hakem önerebilir. Bu, "
+"değerlendirme sürecini kolaylaştırır ve editör ekibine alternatif potansiyel "
+"hakemler sağlar."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Aşağıdaki bilgiler, hakem önerme aşamasında yazarlara gösterilir. Yazarın "
+"kendisi, ortak yazarlar ve diğer katkıda bulunanlar hakkında hangi bilgileri "
+"sağlaması gerektiğine dair kısa bir açıklama yapın."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Davet E-posta Adresini Değiştir"

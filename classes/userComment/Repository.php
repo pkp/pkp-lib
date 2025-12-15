@@ -36,8 +36,7 @@ class Repository
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $context = $request->getContext();
-        $this->perPage = $context->getData('itemsPerPage');
+        $this->perPage = $request->getContext()->getData('itemsPerPage');
     }
 
     /**
@@ -102,5 +101,13 @@ class Repository
     {
         $context = $context ?: $this->request->getContext();
         return $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
+    }
+
+    /**
+     * Get the number of items per page for pagination.
+     */
+    public function getPerPage(): int
+    {
+        return $this->perPage;
     }
 }

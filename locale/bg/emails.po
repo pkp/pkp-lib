@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-18 14:49+0000\n"
+"PO-Revision-Date: 2025-12-12 23:50+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/bg/>\n"
@@ -665,3 +665,82 @@ msgstr ""
 "свържете с мен с всякакви въпроси относно процеса.</p> <p>Сърдечни "
 "поздрави,</p> <p>{$contextName}</p> "
 "</div></div><style>{$emailTemplateStyle}</style>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Завършва на {$dateEnd}"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Това е името на получателя на поканата"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Това е ролята на подателя на поканата"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr ""
+"Името ви няма да се показва в заглавната част на {$contextName} като "
+"{$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr ""
+"Вашето име ще се появи в началната страница на {$contextName} като "
+"{$sectionName}."
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Известие за поканен потребител за тази роля"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Този имейл се изпраща на потребители, които са поканени да получат "
+"определени роли"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Това е името на изпращача на поканата"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Този раздел описва ролите, които ще бъдат добавени към потребителя след "
+"приемане на поканата"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Този раздел описва ролите, които потребителят вече има."
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Това е URL адресът за приемане на поканата"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Това е URL адресът за отказ на поканата"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSection"
+msgstr ""
+"<div class='section'>    <div class='section-number'>{$sectionNumber}.</"
+"div>    <div class='section-content'>        <h2>{$sectionName}</h2>        "
+"<p>Започва от {$dateStart}</p>        <p>{$sectionEndingDate}</p>        "
+"<p>{$sectionMastheadAppear}</p>    </div></div>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Новоназначени роли</h2></p>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Вече назначени роли</h2></p>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Поканени сте за нови роли"
+
+msgid "emails.userRoleAssignmentInvitationNotify.body"
+msgstr ""
+"<div class='email-container'> <div class='email-header'> <h2>Покана за нова "
+"роля</h2> </div> <div class='email-content'> <p>Уважаеми {$recipientName},</"
+"p> <p>с оглед на Вашия опит, Вие бяхте поканен от {$inviterName} да поемете "
+"нови роли в {$contextName.</p> <p>В {$contextName} ценим Вашата "
+"поверителност. Поради това сме предприели стъпки, за да гарантираме, че сме "
+"напълно съвместими с GDPR. Тези стъпки включват Ваша отговорност за "
+"въвеждането на Вашите собствени данни и избор на това кой може да вижда "
+"каква информация. За допълнителна информация относно начина, по който "
+"обработваме вашите данни, моля, вижте нашата Политика за поверителност.</p> "
+"<div>{$existingRoles</div> <div>{$rolesAdded</div> <p>След като приемете "
+"поканата, ще бъдете пренасочени към {$contextName}.</p> <p>Не се колебайте "
+"да се свържете с мен, ако имате въпроси относно процеса.</p> <p><a "
+"href='{$acceptUrl}' class='btn btn-accept'>Приемам поканата</a></p> <p><a "
+"href='{$declineUrl}' class='btn btn-decline'>Отказвам поканата</a></p> <p>С "
+"уважение,</p> <p>{$contextName</p> "
+"</div></div><style>{$emailTemplateStyle}<style>"

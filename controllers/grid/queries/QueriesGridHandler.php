@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Exception;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
@@ -32,15 +33,15 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\log\SubmissionEmailLogEventType;
-use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -93,7 +94,7 @@ class QueriesGridHandler extends GridHandler
     /**
      * Get the authorized query.
      *
-     * @return Query
+     * @return EditorialTask
      */
     public function getQuery()
     {
@@ -161,7 +162,8 @@ class QueriesGridHandler extends GridHandler
         if ($request->getUserVar('queryId')) {
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
         } else {
-            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
+            $this->addPolicy(new SubmissionRequiredPolicy($request, $args));
+            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -171,23 +173,29 @@ class QueriesGridHandler extends GridHandler
      * @copydoc GridHandler::initialize()
      *
      * @param null|mixed $args
+     *
+     * @throws Exception
      */
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
 
         switch ($this->getStageId()) {
-            case WORKFLOW_STAGE_ID_SUBMISSION: $this->setTitle('submission.queries.submission');
+            case WORKFLOW_STAGE_ID_SUBMISSION:
+                $this->setTitle('submission.queries.submission');
                 break;
-            case WORKFLOW_STAGE_ID_EDITING: $this->setTitle('submission.queries.editorial');
+            case WORKFLOW_STAGE_ID_EDITING:
+                $this->setTitle('submission.queries.editorial');
                 break;
-            case WORKFLOW_STAGE_ID_PRODUCTION: $this->setTitle('submission.queries.production');
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                $this->setTitle('submission.queries.production');
                 break;
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 $this->setTitle('submission.queries.review');
                 break;
-            default: assert(false);
+            default:
+                throw new Exception('Unknown workflow stage ID: ' . $this->getStageId());
         }
 
         // Columns
@@ -273,7 +281,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $query = Query::where('id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
+        $query = EditorialTask::where('id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
         $query->seq = $newSequence;
         $query->save();
     }
@@ -325,9 +333,9 @@ class QueriesGridHandler extends GridHandler
     {
         $user = $this->getAccessHelper()->getCanListAll($this->getStageId()) ? null : $request->getUser()->getId();
 
-        return Query::withAssoc($this->getAssocType(), $this->getAssocId())
+        return EditorialTask::withAssoc($this->getAssocType(), $this->getAssocId())
             ->withStageId($this->getStageId())
-            ->when($user, fn ($q) => $q->withUserId($user))
+            ->when($user, fn ($q) => $q->withParticipantIds([$user]))
             ->lazy();
     }
 
@@ -374,11 +382,11 @@ class QueriesGridHandler extends GridHandler
         }
 
         $query->delete();
-        Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
-        Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
 
-        if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-            $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+        if (
+            $this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+            $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION
+        ) {
             // Update submission notifications
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
@@ -526,8 +534,7 @@ class QueriesGridHandler extends GridHandler
         $user = $request->getUser();
 
         $participants = [];
-        $queryParticipants = $query->queryParticipants;
-        foreach ($queryParticipants as $participant) {
+        foreach ($query->participants as $participant) {
             if ($participant->user) {
                 $participants[] = $participant->user;
             }
@@ -589,7 +596,7 @@ class QueriesGridHandler extends GridHandler
         if (!$this->getAccessHelper()->getCanEdit($query->id)) {
             return new JSONMessage(false);
         }
-        $oldParticipantIds = QueryParticipant::withQueryId($query->id)
+        $oldParticipantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
 
@@ -606,8 +613,10 @@ class QueriesGridHandler extends GridHandler
             $queryForm->execute();
             $notificationMgr = new NotificationManager();
 
-            if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-                $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+            if (
+                $this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+                $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION
+            ) {
                 // Update submission notifications
                 $notificationMgr->updateNotification(
                     $request,
@@ -632,7 +641,7 @@ class QueriesGridHandler extends GridHandler
                 unset($added[$key]);
             }
 
-            /** @var NotificationSubscriptionSettingsDAO */
+            /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             $note = Repo::note()->getHeadNote($query->id);
             $submission = $this->getSubmission();
@@ -719,7 +728,7 @@ class QueriesGridHandler extends GridHandler
         $queryId = $args['queryId'];
         $user = $request->getUser();
         if ($user && $this->_getCurrentUserCanLeave($queryId)) {
-            QueryParticipant::withQueryId($queryId)
+            Participant::withTaskIds([$queryId])
                 ->withUserId($user->getId())
                 ->delete();
             $json = new JSONMessage();
@@ -743,7 +752,7 @@ class QueriesGridHandler extends GridHandler
         if (!count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, ], $userRoles))) {
             return false;
         }
-        $participantIds = QueryParticipant::withQueryId($queryId)
+        $participantIds = Participant::withTaskIds([$queryId])
             ->pluck('user_id')
             ->all();
         if (count($participantIds) < 3) {

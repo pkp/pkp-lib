@@ -3,8 +3,8 @@
 /**
  * @file classes/submissionFile/Repository.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -19,6 +19,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
+use APP\submission\Submission;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -27,6 +28,7 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
 use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
@@ -34,7 +36,6 @@ use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
-use PKP\query\Query;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -95,10 +96,18 @@ abstract class Repository
     /**
      * Get an instance of the map class for mapping
      * submission Files to their schema
+     *
+     * @aram $genres array Associative array of genres by ID
      */
-    public function getSchemaMap(): Schema
+    public function getSchemaMap(Submission $submission, array $genres): Schema
     {
-        return app('maps')->withExtensions($this->schemaMap);
+        return app('maps')->withExtensions(
+            $this->schemaMap,
+            [
+                'submission' => $submission,
+                'genres' => $genres,
+            ]
+        );
     }
 
     /**
@@ -680,6 +689,7 @@ abstract class Repository
         if (
             $fileStage === SubmissionFile::SUBMISSION_FILE_PROOF ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY ||
+            $fileStage === SubmissionFile::SUBMISSION_FILE_BODY_TEXT ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_JATS
         ) {
             return WORKFLOW_STAGE_ID_PRODUCTION;
@@ -722,7 +732,7 @@ abstract class Repository
             }
 
             // Get the associated query.
-            $query = Query::find($note->assocId);
+            $query = EditorialTask::find($note->assocId);
 
             // The query will have an associated file stage.
             return $query?->stageId;

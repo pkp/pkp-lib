@@ -49,6 +49,11 @@ class Validation
     {
         $reason = null;
 
+        $request = Application::get()->getRequest();
+        if (!$request->checkCSRF()) {
+            return false; // Failed CSRF check
+        }
+
         return Auth::attempt(['username' => $username, 'password' => $password], $remember)
             ? static::registerUserSession(Auth::user(), $reason)
             : false;
@@ -240,7 +245,8 @@ class Validation
                     return md5($valueToEncrypt);
             }
         } else {
-            return password_hash($password, PASSWORD_BCRYPT);
+            // Use cost 12 to match Laravel's BcryptHasher default, see pkp/pkp-lib#11933
+            return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
         }
     }
 
@@ -498,14 +504,10 @@ class Validation
 
         // single query to fetch user groups assigned to either user
         $allUserGroups = UserGroup::query()
-            ->whereHas(
-                'userUserGroups',
-                fn ($q) =>
-                $q->withActive()->withUserIds([$administratorUserId, $administeredUserId])
-            )
-            ->with(['userUserGroups' => fn ($q) =>
-                $q->withActive()->withUserIds([$administratorUserId, $administeredUserId])
-            ])
+            ->whereHas('userUserGroups', function ($query) use ($administratorUserId, $administeredUserId) {
+                $query->withUserIds([$administratorUserId, $administeredUserId])
+                    ->withActive();
+            })
             ->get();
 
         $administratorMap = [];

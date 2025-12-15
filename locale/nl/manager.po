@@ -1,13 +1,14 @@
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-07-15 15:44+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
 "Language: nl\n"
@@ -398,7 +399,7 @@ msgid "manager.publication.submissionStage"
 msgstr "Inzending"
 
 msgid "manager.publication.reviewStage"
-msgstr "Review"
+msgstr "Recensie"
 
 msgid "manager.publication.editorialStage"
 msgstr "Redactie"
@@ -505,7 +506,7 @@ msgid "manager.emails.resetToDefault"
 msgstr "Standaard terugzetten"
 
 msgid "manager.emails.sentFrom"
-msgstr "Verzonden vanaf"
+msgstr "Verzonden door"
 
 msgid "manager.emails.sentTo"
 msgstr "Verzonden naar"
@@ -812,21 +813,18 @@ msgstr "Vergaar het land, de regio en de gemeente van de bezoeker"
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institutionele statistieken"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Activeer instellingsstatistieken, indien u gebruiksstatistieken per "
-"instelling wilt verkrijgen. Als geactiveerd, zult u de IP-configuraties voor "
-"iedere instelling moeten configureren die u wilt volgen"
+"Activeer instellingsstatistieken, als u gebruiksstatistieken per instelling "
+"wilt verkrijgen. Indien geactiveerd, zult u de IP-configuraties voor iedere "
+"instelling moeten configureren, die u wilt volgen."
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Activeer instellingsstatistieken"
+msgstr "Activeer instellingsgegevens"
 
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Openbare API (Application Programming Interface)"
 
-#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
 "Wel of geen beperkte toegang tot de API- apparaten of URL's voor COUNTER "
@@ -1017,7 +1015,7 @@ msgstr ""
 "inzendingen, naast voorbeelden van citatieformaten."
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Deactiveer inzendingen"
 
 msgid "manager.setup.checklist"
 msgstr "Controlelijst"
@@ -1029,7 +1027,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Er is een fout opgetreden bij het verwijderen van dit onderdeel."
 
 msgid "manager.setup.favicon"
-msgstr "Favicon"
+msgstr "favicon"
 
 msgid "manager.setup.homepageImage"
 msgstr "Afbeelding voor homepage"
@@ -1051,7 +1049,7 @@ msgid "manager.setup.information.descriptionTitle"
 msgstr "Beschrijvingen"
 
 msgid "manager.setup.layout.sidebar"
-msgstr "Sidebar"
+msgstr "sidebar"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
@@ -1066,6 +1064,8 @@ msgstr "Logo"
 
 msgid "manager.setup.noTemporaryFile"
 msgstr ""
+"Het bestand dat u uploadde, kan niet worden gevonden. Probeert u het "
+"nogmaals."
 
 msgid "manager.setup.notifications"
 msgstr "Verwittiging van inzending door een auteur"
@@ -1074,37 +1074,46 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Verstuur een kopie aan dit e-mailadres"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "U wordt verzocht alle auteurs te informeren"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Wie behoort een informatiemail te ontvangen wanneer een redactionele "
+"beslissing is vastgelegd?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
+"U wordt verzocht een e-mailbericht aan alle auteurs van de inzending te "
+"versturen."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"U wordt verzocht alleen een e-mail te versturen aan de auteurs die zijn "
+"toegewezen aan de werkstroom van de inzending."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Kennisgevingen"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "U wordt verzocht de hoofdcontactpersoon te informeren"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Ja, stuur een kopie aan {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Nee"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Informeer ieder"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Een kopie van de ontvangstbevestigingsmail van de inzending zal worden "
+"verstuurd aan elk e-mailadres dat hier is vermeld. Splits de verschillende "
+"adressen met een komma. Bijvoorbeeld: een@voorbeeld.com, twee@voorbeeld.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Eén of meer van deze e-mailadressen is niet geldig."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1112,19 +1121,22 @@ msgstr ""
 "deze e-mail kunnen worden verstuurd aan volgende ontvangers:"
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "U wordt verzocht een kennisgeving te versturen"
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
+"Selecteer de gebruikers die een kennisgeving per e-mail behoren te ontvangen."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr ""
+msgstr "Verstuurt u een kopie van deze e-mail aan mij naar $email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Verstuur e-mail"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"U staat op het punt een e-mailbericht te sturen aan {$total} gebruikers. U "
+"weet zeker dat u deze mail wilt versturen?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1133,7 +1145,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Stuurt u nog een email"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open Access beleid"
@@ -1178,31 +1190,35 @@ msgid "manager.setup.privacyStatement"
 msgstr "Privacy verklaring"
 
 msgid "manager.setup.dateTime"
-msgstr ""
+msgstr "Datum & Tijd"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr ""
+msgstr "Datum- en tijdformulieren"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
+"Kies het voorkeursformulier voor datums en tijden. Een aangepast formulier "
+"kan worden aangemaakt met behulp van de speciale\n"
+"<a href=\"https://www.php.net/manual/en/datetime.format.php#refsect1-datetime"
+".format-parameters\">formulier tekens</a>."
 
 msgid "manager.setup.dateTime.longDate"
-msgstr ""
+msgstr "Datum"
 
 msgid "manager.setup.dateTime.shortDate"
-msgstr ""
+msgstr "Datum (verkort)"
 
 msgid "manager.setup.dateTime.time"
-msgstr ""
+msgstr "Tijd"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr ""
+msgstr "Datum & tijd"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr ""
+msgstr "Datum & tijd (verkort)"
 
 msgid "manager.setup.dateTime.custom"
-msgstr ""
+msgstr "Aangepast"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
@@ -1282,7 +1298,7 @@ msgid "manager.setup.theme"
 msgstr "Stijl"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Instituten"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1295,24 +1311,44 @@ msgstr ""
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Het volgende wordt aan de auteurs gepresenteerd, voordat zij beginnen met "
+"hun inzending. Voorzie hen van een beknopte uitleg over het "
+"inzendingsproces, zodat de auteur weet wat de verwachtingen zijn."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan auteurs tijdens de uploadfase van bestanden. "
+"Voorzie hen van een korte uitleg over de vraag welke bestanden van de "
+"auteurs worden verwacht te delen bij hun inzending."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan auteurs tijdens de bijdragersstap. Voorzie "
+"hen van een korte uitleg over de vraag welke informatie de auteurs over "
+"henzelf, mede-auteurs en andere bijdragende medewerkers behoren te "
+"verstrekken."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan de auteurs tijdens de stap van de "
+"randvoorwaardelijkheden, wanneer zij worden verzocht de titel, samenvatting "
+"of andere kerninformatie over hun inzending te verstrekken."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan de auteurs tijdens de redactionele stap, "
+"wanneer de auteurs worden verzocht metadata (zoals kernwoorden, opmerkingen "
+"aan de redacteur en andere randvoorwaardelijkheden ter ondersteuning van de "
+"redactionele recensie te verstrekken."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan de auteurs tijdens de laatste stap van de "
+"inzendingsinstructies, wanneer zij worden gevraagd alle verstrekte "
+"informatie te verstrekken voorafgaand aan de inzendinkg van hun werk."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Auteursbegeleiding"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Checklist voor het voorbereiden van een inzending"
@@ -1326,24 +1362,30 @@ msgstr ""
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
+"Deactiveer dit gedeelte en laat geen nieuwe of nieuw te maken inzendingen "
+"toe."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Bent u er zeker van dat u dit gedeelte wilt deactiveren?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Bent u er zeker van dat u dit gedeelte wilt activeren?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Redactionele toewijzingen"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Selecteer de redactionele gebruikers die automatisch zouden moeten zijn "
+"toegewezen aan alle nieuwe inzendingen voor dit gedeelte."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Toewijzing aan {$name} als {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Selecteer de redactionele gebruikers, die automatisch zouden moeten zijn "
+"toegewezen aan alle nieuwe inzendingen in deze categorie."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Toegangsopties"
@@ -1355,7 +1397,7 @@ msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} nieuw)"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr ""
+msgstr "Geregistreerde gebruikers"
 
 msgid "manager.users"
 msgstr "Gebruikers"
@@ -1522,7 +1564,7 @@ msgstr ""
 "team."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr "Partner"
+msgstr "partner"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
 msgstr "Deze plugin wordt ontwikkeld door een van onze partners."
@@ -1653,6 +1695,8 @@ msgstr "Taalinstellingen zijn bewaard."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"De taalinstelling kan niet worden bewaard. Ten minste één taal per optie "
+"moet worden ingeschakeld"
 
 msgid "notification.editedUser"
 msgstr "Gebruiker is bewerkt."
@@ -1752,7 +1796,7 @@ msgid "settings.roles.stageIdRequired"
 msgstr "Er moet een stap in het redactieproces worden geselecteerd."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr ""
+msgstr "Laat bewerking van de metadata van de inzending toe."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
@@ -1769,7 +1813,7 @@ msgid "settings.libraryFiles.category.contracts"
 msgstr "Contracten"
 
 msgid "settings.libraryFiles.category.marketing"
-msgstr "Marketing"
+msgstr "Marktonderzoek/reclame"
 
 msgid "settings.libraryFiles.category.permissions"
 msgstr "Toelatingen"
@@ -1802,13 +1846,18 @@ msgid "grid.action.restoreGenres"
 msgstr "Herstel de onderdelen naar de standaardwaarden"
 
 msgid "manager.setup.genres.label"
-msgstr ""
+msgstr "Bestandstype"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
+"Dit zijn afhankelijke bestanden, zoals afbeeldingen weergegeven door een "
+"HTML-bestand. Deze worden niet met de gepubliceerde informatie weergegeven."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
+"Dit zijn extra bestanden, zoals gegevensverzamelingen en "
+"onderzoeksmateriaal. Deze zullen afzonderlijk worden weergegeven vanuit de "
+"belangrijkste publicatiebestanden."
 
 msgid "manager.setup.genres.key"
 msgstr "Sleutel"
@@ -1826,22 +1875,34 @@ msgstr ""
 "teken."
 
 msgid "manager.setup.genres.metatadata"
-msgstr ""
+msgstr "Metadatabestand"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
+"Selecteer het type metadata dat deze bestanden kunnen ontvangen. Het "
+"document moet worden geselecteerd voor de belangrijkste publicatiebestanden, "
+"zoals het mogelijk te downloaden PDF-document, zodat deze bestanden hun "
+"metadata verkrijgen via de publicatie. In het andere geval, kies de "
+"aanvullende content voor de meeste bestandtypes. Artwork is geschikt voor "
+"bestanden, die verschillende metadata (m.b.t. tegoeden, titels/bijschriften "
+"en licentie) vereisen."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Vereist bij inzendingen"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Zou ten minste één van deze bestanden vereist zijn bij iedere nieuwe "
+"inzending? Indien u met 'ja' reageert, kunnen auteurs niet indienen, totdat "
+"zij ten minste één bestand van dit type hebben geüpload."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Ja, verzoek de auteurs die inzenden, één of meer van deze benodigde "
+"bestanden te uploaden."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Nee, laat nieuwe inzendingen zonder deze bestanden toe."
 
 msgid "manager.settings.wizard"
 msgstr "Instellingen assistent"
@@ -2221,18 +2282,27 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Een korte verklaring die beschrijft of de auteurs hun onderzoeksdata "
+"beschikbaar hebben gemaakt en, indien dit het geval is, waar lezers hiertoe "
+"toegang kunnen krijgen."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Activeer een Data Availability Verklaring (metadata)"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Verzoek de auteur tijdens de inzendingsprocedure niet om een Data "
+"Availability Statement)."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Verzoek de auteur tijdens de inzendingsprocedure om een Data Availability "
+"Statement te verstrekken."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Verzoek de auteur een benodigd Data Availability Statement te verstrekken "
+"voorafgaand aan aanvaarding van de inzending."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Valideringsfouten:"
@@ -2244,7 +2314,7 @@ msgid "plugins.importexport.common.errorsOccured"
 msgstr "Fouten:"
 
 msgid "plugins.importexport.common.id"
-msgstr "Id: {$id}"
+msgstr "id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Onbekend element {$param}"
@@ -2262,7 +2332,7 @@ msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Onbekende gebruikersgroep {$param}."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "De gebruikersgroep ontbreekt voor [...] {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
@@ -2291,6 +2361,9 @@ msgstr "Het bestand kon niet worden geïmporteerd"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"Het inzendingsbestand {$id} werd overgeslagen omdat het aan een "
+"gegevensvastlegging is gehecht dat niet wordt geïmporteerd, zoals een "
+"recensietoewijzing of -discussie."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Import/export fouten:"
@@ -2317,7 +2390,7 @@ msgstr ""
 "tot twee verschillende gebruikers."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "(Software of systeem) testen"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Titel"
@@ -2535,436 +2608,485 @@ msgid "grid.category.categoryDetails"
 msgstr "Categorie informatie"
 
 msgid "stats.allUsers"
-msgstr ""
+msgstr "Alle gebruikers"
 
 msgid "stats.city"
 msgstr "Stad"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Bekeken"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Downloads"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Het volledige aantal weergaven gesorteerd op datum"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Het volledige aantal downloads gesorteerd op datum"
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$aantal} ({$gemiddeld}/jaar)"
 
 msgid "stats.daily"
-msgstr ""
+msgstr "Dagelijks"
 
 msgid "stats.dateRange"
-msgstr ""
+msgstr "Datumreeks"
 
 msgid "stats.dateRange.allDates"
-msgstr ""
+msgstr "Alle datums"
 
 msgid "stats.dateRange.apply"
-msgstr ""
+msgstr "Pas toe"
 
 msgid "stats.dateRange.change"
-msgstr ""
+msgstr "Wijzig de datumvolgorde"
 
 msgid "stats.dateRange.customRange"
-msgstr ""
+msgstr "Aangepaste volgorde"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr ""
+msgstr "Een van de ingevoerde datums bestaat niet."
 
 msgid "stats.dateRange.from"
-msgstr ""
+msgstr "Van(af)"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
+"Voer iedere datum als volgt in: JJJJ-MM-DD. Bijvoorbeeld, indien u de datum "
+"'15 januari 2019' wenst, voert u in: 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
 msgstr ""
+"De datumformat is niet geldig. Voer iedere datum als volgt in: JJJJ-MM-DD."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr ""
+msgstr "De begindatum moet voorafgaan aan de einddatum."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr ""
+msgstr "De einddatum kan niet later zijn dan {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr ""
+msgstr "De begindatum kan niet vroeger zijn dan {$date}."
 
 msgid "stats.dateRange.last12Months"
-msgstr ""
+msgstr "Afgelopen 12 maanden"
 
 msgid "stats.dateRange.last30Days"
-msgstr ""
+msgstr "Afgelopen 30 dagen"
 
 msgid "stats.dateRange.last90Days"
-msgstr ""
+msgstr "Afgelopen 90 dagen"
 
 msgid "stats.dateRange.lastTwoYears"
-msgstr ""
+msgstr "Afgelopen twee jaren"
 
 msgid "stats.dateRange.lastYear"
-msgstr ""
+msgstr "Afgelopen jaar"
 
 msgid "stats.dateRange.sinceDate"
-msgstr ""
+msgstr "Sinds {$date}"
 
 msgid "stats.dateRange.thisYear"
-msgstr ""
+msgstr "Vanaf het begin van dit jaar tot op vandaag"
 
 msgid "stats.dateRange.to"
-msgstr ""
+msgstr "Naar / Aan / Tot"
 
 msgid "stats.dateRange.untilDate"
-msgstr ""
+msgstr "Tot {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
+"Het percentage voor de geselecteerde datumperiode (acceptatieratio) wordt "
+"berekend op basis van inzendingen die tijdens deze periode werden ingediend "
+"en een eindbeslissing ontvingen. <br><br> Een voorbeeld: stel dat er in deze "
+"datumperiode tien inzendingen waren: vier werden geaccepteerd, vier werden "
+"verworpen en twee inzendingen wachten nog een eindbeslissing af. <br><br> De "
+"acceptatieratio is dan 50% (vier van de acht inzendingen) omdat de twee "
+"inzendingen zonder eindbeslissing niet worden meegerekend."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
+"Het aantal dagen voordat de meeste inzendingen de eerste redactionele "
+"beslissing ontvangen, zoals (redactionele) afwijzing voordat recensie "
+"plaatsvindt of voor het versturen voor de recensie.<br><br>. Deze getallen "
+"geven aan dat voor 80% van de inzendingen uitmondt in de beslissing binnen "
+"het gegeven aantal dagen.<br><br>. Deze getallen geven aan wanneer de meeste "
+"auteurs die hun inzending inzonden aan uw tijdschrift een beslissing kunnen "
+"verwachten."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Dit is inclusief inzendingen die niet in de totalen zijn meegerekend, zoals "
+"inzendingen die nog in het proces verkeren en inzendingen waarvan blijkt dat "
+"ze zijn ingevoerd."
 
 msgid "stats.descriptionForStat"
-msgstr ""
+msgstr "Beschrijving voor {$stat}"
 
 msgid "stats.editorialActivity"
-msgstr ""
+msgstr "Redactionele activiteit"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Belangrijkste bestand"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Aanvullend bestand"
 
 msgid "stats.fileViews"
-msgstr ""
+msgstr "Bestandweergaven"
 
 msgid "stats.html"
-msgstr ""
+msgstr "HTML"
 
 msgid "stats.monthly"
-msgstr ""
+msgstr "Maandelijks"
 
 msgid "stats.pdf"
-msgstr ""
+msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
 msgstr ""
+"Locatiebepaling beschikbaar gesteld door <a href='https://db-ip.com'>DB-"
+"IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Met betrekking tot locatiebepaling"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} tot {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Geheel {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Download bestanden"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Het aantal downloads voor ieder bestand."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Download locatie(s)"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Het aantal weergaven en downloads voor iedere stad, regio en land."
 
 msgid "stats.region"
 msgstr "Regio"
 
 msgid "stats.searchSubmissionDescription"
-msgstr ""
+msgstr "Zoek op titel, auteur en ID"
 
 msgid "stats.submissionsActive"
-msgstr ""
+msgstr "Actieve inzendingen"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Tijdlijn"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Het aantal {$type} voor ieder {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Download de tijdlijn"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Tijdlijninterval"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Tijdlijntype"
 
 msgid "stats.total"
 msgstr "Totaal"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Uniek"
 
 msgid "stats.totalWithinDateRange"
-msgstr ""
+msgstr "Het aantal binnen de datumperiode"
 
 msgid "stats.trends"
-msgstr ""
+msgstr "Ontwikkelingen"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "onbekend"
 
 msgid "stats.userStatistics"
-msgstr ""
+msgstr "Gebruikersgegevens"
 
 msgid "stats.name.submissionsReceived"
-msgstr ""
+msgstr "Ontvangen inzendingen"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Andere inzendingen"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Inzendingen die in behandeling zijn"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Ingevoerde inzendingen"
 
 msgid "stats.name.submissionsAccepted"
-msgstr ""
+msgstr "Geaccepteerde inzendingen"
 
 msgid "stats.name.submissionsDeclined"
-msgstr ""
+msgstr "Afgewezen inzendingen"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Afgewezen inzendingen (voorafgaand aan recensie)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Afgewezen inzendingen (na recensie)"
 
 msgid "stats.name.submissionsPublished"
-msgstr ""
+msgstr "Gepubliceerde inzendingen"
 
 msgid "stats.name.daysToDecision"
-msgstr ""
+msgstr "Dagen tot aan de eerste redactionele beslissing"
 
 msgid "stats.name.daysToAccept"
-msgstr ""
+msgstr "Dagen tot aan acceptatie"
 
 msgid "stats.name.daysToReject"
-msgstr ""
+msgstr "Dagen tot aan afwijzing"
 
 msgid "stats.name.acceptanceRate"
-msgstr ""
+msgstr "Acceptatiepercentage"
 
 msgid "stats.name.declineRate"
-msgstr ""
+msgstr "Afwijzingspercentage"
 
 msgid "stats.name.declinedDeskRate"
-msgstr ""
+msgstr "Direct afwijzingspercentage"
 
 msgid "stats.name.declinedReviewRate"
-msgstr ""
+msgstr "Afwijzingspercentage na recensie"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Foutmelding. Controleer hieronder eventuele fouten of waarschuwingen."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Exporteer inzendingsresultaten"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Download het geëxporteerde bestand"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "De export is succesvol voltooid."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Download het geëxporteerde bestand via de onderstaande knop."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Algemene onderwerpen"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Verkeerde filterconfiguratie [{$filterName}]: {$filterCount} incidenten. Er "
+"mag slechts één incident tegelijk zijn."
 
 msgid "plugins.importexport.common.cliError"
-msgstr "FOUT:"
+msgstr "FOUTMELDING:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Het opgegeven pad \"{$contextPath}\" bestaat niet."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Foutmelding bij het analyseren van de auteurs"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Foutmelding bij het analyseren van de publicaties"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Alle commentaren van de afgeronde recensies. De recensentnamen zijn "
+"achterwege gelaten omwille van de anonimiteit van de recensies"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "De namen en affiliaties van de auteurs van de inzending."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
+"De URL naar de pagina waar de gebruiker een verloren wachtwoord kan "
+"herstellen"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
+"The URL naar volledige inzage in de inzendingen die aan de gebruiker zijn "
+"toegewezen"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "De URL voor de inzage en bewerking van het gebruikersprofiel"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "De naam van de genomen beslissing"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Een beschrijving van de genomen beslissing"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "De fase van de redactionele werkstroom, waarin het genomen besluit"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"De beoordelingsronde, waarin de genomen beslissing, indien de beslissing "
+"wordt gerelateerd aan de recensiefase"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Het onderwerp van de discussie"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "De inhoud van de nieuwe discussie, dan wel de reactie hierop"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Een lijst van inzendingen met openstaande taken"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Het aantal inzendingen dat aan deze redacteur is toegewezen"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "De volledige naam van de ontvanger(s)"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "De gebruikersnaam van de ontvanger(s)"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Datum waarop de recensie moet zijn afgerond"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
+"Datum waarop de recensent de toewijzing zou moeten aanvaarden of afwijzen"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "De URL naar de recensietoewijzing"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "De aanbevolen beslissing, zoals de aanvaarding van de inzending"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "De datum waarop deze recensie werd toegewezen"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Het type recensie, zoals blind, dubbel blind of open"
 
 msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
+"De aanbeveling van de recensent, zoals de aanvaarding of afwijzing van de "
+"inzending"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "De beoordelingsronde, zoals ronde 1 of ronde 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "De door de recensent geüploade bestanden"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "De naam van de recensent"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Dit tijdschrift voert een dubbelblinde peer review uit. De recensenten "
+"zullen geen informatie zien over u of uw mede-auteurs. Tegelijkertijd zult u "
+"niet weten wie uw inzending beoordeelt, evenmin ontvangt u direct een "
+"reactie van de recensenten."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Dit tijdschrift voort een peer review uit in de zin van 'reviewer "
+"anonymous', dat wil zeggen: uw naam en die van uw mede-auteurs zijn "
+"zichtbaar voor de recensenten, echter de identiteit van hen blijven anoniem."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Dit tijdschrift voert een open peer review. The recensenten zullen uw naam "
+"en affliatie, alsook die van uw mede-auteurs. Tegelijkertijd, ziet u de "
+"namen en affliaties van de recensenten."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "De volledige naam van de verzender"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Het e-mailadres van de verzender"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "De e-mailhandtekening van de verzender"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "De volledige naam van de hoofdcontactpersoon van de website"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Het e-mailadres van de hoofdcontactpersoon van de website"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "De e-mailhandtekening van de website voor de automatische reacties"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "De aan de inzending toegewezen redacteuren, die beslissingsbevoegd zijn"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "De titel van de inzending"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Het unieke ID-nummer van de inzending"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "De beknopte samenvatting van de inzending"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "De namen van de auteurs in een korte frase, zoals \"Barnes e.a.\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "De volledige namen van de auteurs"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "De URL naar de inzending van de auteur"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "De URL naar de inzending in de niet-zichtbare serverkant"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "De URL naar de gepubliceerde inzending"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "De URL naar de inzending in de inzendingswizard"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"De namen van de auteurs, die zijn toegewezen aan de werkstroom van de "
+"inzending. Meestal is dit de auteur die een inzending verricht"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Gehashte (versleutelde) URL die ter beveiliging naar een gebruiker is "
+"verzonden om het opnieuw instellen van het wachtwoord te bevestigen"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nieuw willekeurig wachtwoord"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Herinstelling van de recensent"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Mail het recensieverzoek terug aan de recensent"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "De volledige naam van een gebruiker die een inzendingsbestand uploadde"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "De titelaankondiging"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Korte beschrijving van de aankondiging"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "De URL naar de aankondiging"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Het aantal inzendingen deze maand ontvangen"
@@ -3272,7 +3394,7 @@ msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "De huidige publicatie van de inzending ontbreekt"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Foutmelding bij submission's child"
 
 msgid "mailable.editorialReminder.name"
 msgstr "Redactionele Herinnering"
@@ -3381,7 +3503,7 @@ msgstr ""
 "Deze e-mail wordt verzonden wanneer er een nieuwe aankondiging is gemaakt."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Informatieverslagmelding"
 
 msgid "mailable.editReviewNotify.name"
 msgstr "Wijzig Review Bericht"
@@ -3392,34 +3514,46 @@ msgstr ""
 "van hun reviewopdracht zijn gewijzigd."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Door recensent becommentarieerde melding aan de redactie"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Deze e-mail wort automatisch verstuurd aan de aangewezen redacteuren wanneer "
+"de recensent een aanbeveling doet"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Authenticatiebron"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Voor review teruggezonden inzending"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Deze e-mail bericht de auteur dat de inzending is teruggestuurd naar de "
+"recensiefase."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "De inzending is teruggezonden naar de inzendingsprocedure"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Deze e-mail bericht de auteur dat de inzending is teruggezonden naar de "
+"inzendingsfase."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Behandel e-mailberichten"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Voeg templates toe en bewerk deze</a> voor alle e-"
+"mailberichten die door het systeem zijn verzonden.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"U wordt verzocht de templates bij te voegen en te bewerken die u beschikbaar "
+"wilt maken voor de gebruiker bij het versturen van dit e-mailbericht. De "
+"standaardinstelling wordt automatisch geladen. De gebruiker kan hierdoor "
+"ieder door u bijgevoegde templates op snelle wijze laden."
 
 msgid "manager.mailables.templates"
 msgstr "Sjablonen"
@@ -3428,91 +3562,107 @@ msgid "manager.mailables.editTemplate"
 msgstr "Wijzig Sjabloon"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Verwijder template"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Bent u er zeker van dat u de template wilt vernietigen "
+"<strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Stel template opnieuw in"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Bent u er zeker van dat u onderwerp en inhoud opnieuw wilt starten naar de "
+"standaardinstellingen voor de template <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Zoek op naam of beschrijving"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Voer een korte naam in om deze template te kunnen vinden."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Nieuwe inzending"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Configureer ter verzending de e-mailberichten wanneer een nieuwe inzending "
+"wordt gedaan."
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Degene die een e-mail behoort te ontvangen wanneer een nieuwe inzending is "
+"afgerond."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Verstuur geen e-mailbericht."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Verstuur een e-mailbericht aan alleen de auteur die een inzending doet."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Verstuur een e-mailbericht aan alle auteurs."
 
 msgid "manager.editorialDecisions"
 msgstr "Redactionele beslissingen"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Configureer een e-mailbericht ter verzending aan auteurs wanneer een "
+"redactionele beslissing is vastgelegd."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Voor redactieleden"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Configureer de e-mailberichten ter verzending aan redactieleden."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Redactionele gegevens"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Wel of geen maandelijks e-mailbericht aan redactieleden met de redactionele "
+"gegevens van het tijdschrift, zoals aanvaardings- en afwijzingspercentages. "
+"Redactieleden kunnen hun gebruikersprofiel via dit e-mailbericht "
+"uitschrijven."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Verstuur een maandelijkse e-mail aan redactieleden."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Verstuur geen e-mailbericht aan redactieleden."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Zou de auteur gevraagd moeten worden een categorie te kiezen bij het "
+"indienen van een nieuwe inzending?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Ja, voeg een veld 'categorieën toe aan de inzendingswizard."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Nee, toon de auteurs dit veld niet."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Verzoek tekstredactie"
 
 msgid "mailable.editorAssign.name"
-msgstr "Redacteur toegewezen"
+msgstr "Toegewezen redacteur"
 
 msgid "mailable.layoutRequest.name"
-msgstr "Naar Productie"
+msgstr "Gereed voor productie"
 
 msgid "mailable.system"
 msgstr "Systeem"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Gecreëerde versie"
 
 msgid "mailable.reviewComplete.name"
-msgstr "Review Voltooid"
+msgstr "Review voltooid"
 
 msgid "mailable.reviewEdit.name"
 msgstr "Review aangepast"
@@ -3525,6 +3675,8 @@ msgstr "Redacteur toegewezen (Auto)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Dit e-mailbericht is verzonden aan een redactielid, aan wie automatisch een "
+"inzending is toegewezen."
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Redacteur toekennen"
@@ -3544,7 +3696,7 @@ msgstr ""
 "hun inzending."
 
 msgid "manager.setup.masthead"
-msgstr "Impressum"
+msgstr "Colofon"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Valideer XML alvorens te exporteren en registreren."
@@ -3594,7 +3746,7 @@ msgid "manager.image"
 msgstr "Afbeelding"
 
 msgid "manager.statistics.counterR5"
-msgstr "Counter R5"
+msgstr "counter R5"
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "De link om een e-mailadres te valideren"
@@ -3612,8 +3764,7 @@ msgid "manager.language.submissionMetadata"
 msgstr "Metagegevens"
 
 msgid "manager.language.submission.from.error"
-msgstr ""
-"Ten minste een locale (set taal- en landinstellingen) moet worden gekozen."
+msgstr "Ten minste een set taal- en plaatsinstelling moet worden gekozen."
 
 msgid "manager.statistics.counterR5Reports.usageNotPossible"
 msgstr "Er zijn nog geen COUNTER R5 gebruiksstatistieken beschikbaar."
@@ -3626,7 +3777,7 @@ msgstr "Websitetalen"
 
 msgid "manager.statistics.counterR5Reports.description"
 msgstr ""
-"Zie  <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"Zie <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
 "html\" target=\"_new\">COUNTER 5.0.3 documentation</a> voor meer informatie "
 "over elk rapport."
 
@@ -3657,3 +3808,161 @@ msgstr "Klantnummer"
 
 msgid "manager.statistics.counterR5Report.settings.metricType"
 msgstr "Meeteenheid"
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Graag de bovenliggende informatie bijvoegen"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "De inzendings-ID bestaat niet."
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Draagt bij aan de presentatie"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publicatiejaar"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Een lijst of rangschikking van publicatiejaren ter beantwoording terugsturen "
+"via het formulier yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP-formulier is niet geldig."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Inzendings-ID"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Geen maandelijkse detailinformatie toevoegen"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"E-mailberichten zijn succesvol gegroepeerd om deze bij de eerste gelegenheid "
+"te versturen."
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Geen"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Geen herinneringsinstelling"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Stel de automatische recensieherinneringen in"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minimum aantal recensies vereist"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Suggestie van de recensent ten aanzien van de inzending"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Verstuur een herinneringsmail voor of na beantwoording van het verzoek te "
+"recenseren (indien de recensent nog niet heeft geantwoord op het verzoek), "
+"of om de beoordeling in te zenden (indien de recensent nog geen beoordeling "
+"heeft gegeven)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Beantwoording van het recensieverzoek - voor de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Beantwoording van het recensieverzoek - na de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Recensie van de inzending - voor de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Recensie van de inzending - na de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dagen voor de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dagen na de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"De auteur wordt in de gelegenheid gesteld een aantal mogelijke recensenten "
+"voor te stellen voordat de inzending wordt afgerond, hetgeen het "
+"recensieproces bevordert en voorzien in een waardevolle inbreng voor de "
+"redactieraad."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Vereiste minimum aantal bevestigde recensies voor een inzending"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Stel de auteurs in de gelegenheid mogelijke recensenten voor te stellen voor "
+"het inzendingsproces"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"De taalinstelling kan niet worden bewaard. Het is nodig alle opties worden "
+"aangezet."
+
+msgid "notification.submissionLocales"
+msgstr "Geupdatete taal- en/of landinstellingen."
+
+msgid "settings.roles.masthead"
+msgstr "Overweeg een rolvermelding in het colofon"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Geïinstalleerde versie: {$version}"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Het volgende wordt getoond aan auteurs tijdens de stap van "
+"recensentenvoorstellen. Voorzie hen van een korte uitleg over de vraag welke "
+"informatie de auteurs over henzelf, mede-auteurs en ieder bijdragende "
+"medewerker behoort te verstrekken."
+
+msgid "settings.roles.permitSettings"
+msgstr "Laat wijzigingen in Instellingen toe"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Stel de volgorde van de redactionele rollen vast m.b.t. de titels voor een "
+"openbare publicatie."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"De auteur {$authorName} heeft geen affiliatienaam in de taal van de "
+"inzending, {$localeName}. De inzending kan niet zonder deze informatie "
+"worden ingevoerd."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Het inzendingsbestand {$id} werd overgeslagen omdat het geen geldige "
+"herziening heeft."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"De herziening {$revision} van het inzendingsbestand {$id} werd overgeslagen "
+"omdat het bestand niet werd gevonden in de bestandsroute/locatie\"{$path}\"."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Link naar een pagina die alle actuele colofons vermeldt."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "De titel van het menu-onderwerp is vereist."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Uitnodiging tot wijziging van het e-mailadres"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Beschrijf de volgorde van de belangrijkste redactionele rollen voor open "
+"publicatie."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"De recensenten zullen worden vermeld in een standaardformulier, ter behoud "
+"van de eenheid en ter verzekering van een gemakkelijke vindbaarheid in dit "
+"gedeelte."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"U wordt vriendelijk verzocht het redactionele curriculum vitae te "
+"verstrekken, inclusief de volledige naam, affiliatie, als ook begin- en "
+"einddatums met betrekking tot ieder redactielid."

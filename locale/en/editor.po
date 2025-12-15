@@ -590,7 +590,6 @@ msgstr "Reassign"
 msgid "reviewer.list.reassign.withName"
 msgstr "Reassign {$name}"
 
-#, fuzzy
 msgid "reviewer.list.currentlyAssigned"
 msgstr "This reviewer has already been assigned to this review round."
 

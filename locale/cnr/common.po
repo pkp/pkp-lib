@@ -1085,17 +1085,8 @@ msgstr ""
 msgid "search.dateTo"
 msgstr "Publikovano prije"
 
-msgid "search.indexTerms"
-msgstr "Pojmovi"
-
-msgid "search.indexTermsLong"
-msgstr "Sva polja pojmova indeksa"
-
 msgid "search.noResults"
 msgstr "Nema rezultata"
-
-msgid "search.SearchFor"
-msgstr "Pretraži"
 
 msgid "search.titleIndex"
 msgstr "Pregledaj indeks naslova"
@@ -1849,18 +1840,6 @@ msgstr "Disciplina/e"
 msgid "search.fullText"
 msgstr "Tekst priloga"
 
-msgid "search.matchAll"
-msgstr "Združi sve kategorije"
-
-msgid "search.operator.and"
-msgstr "i"
-
-msgid "search.operator.not"
-msgstr "ne"
-
-msgid "search.operator.or"
-msgstr "ili"
-
 msgid "search.searchResults"
 msgstr "Rezultati pretraživanja"
 
@@ -2003,6 +1982,7 @@ msgstr "Krug {$round} Status"
 msgid "notification.type.editorialReport"
 msgstr "Statistika izvještaja sažetak."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ovo je vrsta podsjetnika da provjerite stanje svog časopisa kroz urednički "

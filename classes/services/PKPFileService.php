@@ -119,6 +119,25 @@ class PKPFileService
     }
 
     /**
+     * Add a file from string content
+     *
+     * @param string $content The content to write
+     * @param string $to Relative path in file dir
+     * @param string $mimetype The mime type of the content
+     *
+     * @return int file id
+     */
+    public function addFromString(string $content, string $to, string $mimetype = 'application/octet-stream'): int
+    {
+        $this->fs->write($to, $content);
+
+        return DB::table('files')->insertGetId([
+            'path' => $to,
+            'mimetype' => $mimetype,
+        ], 'file_id');
+    }
+
+    /**
      * Delete an uploaded file
      *
      * @param int $id

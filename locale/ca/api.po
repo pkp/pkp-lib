@@ -112,11 +112,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "El mòdul configurat actualment ha de ser un mòdul d'agència de registre."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"No podeu recomanar ni registrar una decisió per a aquesta tramesa perquè ja "
-"s'ha publicat."
-
 msgid "api.emails.400.missingBody"
 msgstr "Heu d'incloure un correu electrònic perquè s'enviï."
 

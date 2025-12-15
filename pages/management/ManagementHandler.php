@@ -30,6 +30,7 @@ use APP\template\TemplateManager;
 use PKP\announcement\Announcement;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\CategoryForm;
+use PKP\components\forms\context\ContentCommentsForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPAppearanceMastheadForm;
 use PKP\components\forms\context\PKPContactForm;
@@ -56,6 +57,7 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\invitation\core\Invitation;
 use PKP\mail\Mailable;
 use PKP\security\authorization\CanAccessSettingsPolicy;
@@ -140,6 +142,9 @@ class ManagementHandler extends Handler
                 break;
             case 'user':
                 $this->editUser($args, $request);
+                break;
+            case 'userComments':
+                $this->userComments($args, $request);
                 break;
             default:
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
@@ -251,11 +256,13 @@ class ManagementHandler extends Handler
         $privacyForm = new PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
         $themeForm = new PKPThemeForm($themeApiUrl, $locales, $context);
         $dateTimeForm = new PKPDateTimeForm($contextApiUrl, $locales, $context);
+        $contentCommentSettingsForm = new ContentCommentsForm($contextApiUrl, $locales, $context);
 
         $highlightsListPanel = $this->getHighlightsListPanel();
 
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
+            'FORM_CONTENT_COMMENT' => $contentCommentSettingsForm::FORM_CONTENT_COMMENT,
         ]);
 
         $components = [
@@ -268,6 +275,7 @@ class ManagementHandler extends Handler
             $themeForm::FORM_THEME => $themeForm->getConfig(),
             $dateTimeForm::FORM_DATE_TIME => $dateTimeForm->getConfig(),
             $highlightsListPanel->id => $highlightsListPanel->getConfig(),
+            $contentCommentSettingsForm::FORM_CONTENT_COMMENT => $contentCommentSettingsForm->getConfig(),
         ];
 
         if ($informationForm) {
@@ -284,7 +292,6 @@ class ManagementHandler extends Handler
                 'icon' => 'Announcements',
             ],
         ]);
-
         $templateMgr->assign([
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
@@ -294,6 +301,7 @@ class ManagementHandler extends Handler
         $templateMgr->registerClass($appearanceAdvancedForm::class, $appearanceAdvancedForm::class);
         $templateMgr->registerClass($appearanceSetupForm::class, $appearanceSetupForm::class);
         $templateMgr->registerClass($appearanceMastheadForm::class, $appearanceMastheadForm::class);
+        $templateMgr->registerClass($contentCommentSettingsForm::class, $contentCommentSettingsForm::class);
         $templateMgr->registerClass($listsForm::class, $listsForm::class);
         $templateMgr->registerClass($privacyForm::class, $privacyForm::class);
         $templateMgr->registerClass($themeForm::class, $themeForm::class);
@@ -323,6 +331,11 @@ class ManagementHandler extends Handler
         $emailSetupForm = $this->getEmailSetupForm($contextApiUrl, $locales, $context);
         $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
         $submissionGuidanceSettingsForm = new SubmissionGuidanceSettings($contextApiUrl, $locales, $context);
+
+        $templateMgr->setConstants([
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+        ]);
 
         $templateMgr->setState([
             'components' => [
@@ -602,6 +615,29 @@ class ManagementHandler extends Handler
     }
 
     /**
+     * Display the page to manage/moderate user comments
+     *
+     * @throws \Exception
+     */
+    public function userComments(array $args, Request $request): void
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->assign([
+            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+        ]);
+
+        $templateMgr->setState([
+            'pageInitConfig' => [
+                'itemsPerPage' => Repo::userComment()->getPerPage(),
+            ],
+        ]);
+
+        $templateMgr->display('management/userComments.tpl');
+    }
+
+    /**
      * Edit or view user using user access table action
      *
      * @throws \Exception
@@ -618,7 +654,6 @@ class ManagementHandler extends Handler
         $invitationHandler = $invitation->getInvitationUIActionRedirectController();
         $invitationHandler->createHandle($request, $userId);
     }
-
     protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm
     {
         $locales = $context->getSupportedFormLocaleNames();

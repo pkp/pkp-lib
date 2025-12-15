@@ -1,0 +1,416 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-17 06:47+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/es/>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Se ha asignado el grupo de usuarios al usuario invitado"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Se debe definir al menos un grupo de usuarios para eliminar"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Debe definirse al menos un grupo de usuarios para agregar"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "No se pueden remover roles de un usuario/a que no existe."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"No se puede enviar la invitación porque no hubo cambios en el grupo de "
+"usuarios"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Cuando una invitación tiene un ID de usuario/a ({$userId}) asignado, ese "
+"usuario/a debe existir."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Se debe proporcionar un nombre de usuario"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Se debe proporcionar una contraseña"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Se debe proporcionar una afiliación"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Se debe proporcionar un país"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Se debe proporcionar un apellido"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Para los grupos de usuarios agregados, se debe proporcionar una fecha de "
+"inicio"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "No se ha definido un correo electrónico para este tipo de invitación"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "No se pudo completar la invitación"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "El grupo de usuarios con ID {$userGroupId} no existe"
+
+msgid "invitation.validation.required"
+msgstr "El campo {$attribute} es obligatorio."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Se encontraron propiedades inesperadas en el elemento con índice "
+"{$attribute}: {$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"El ID {reviewAssignmentId} no corresponde a una asignación de revisión válida"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Esta invitación no puede ser cancelada"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr ""
+"No se permite ingresar el correo electrónico y el ID de usuario al mismo "
+"tiempo."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "No se permite acceder a este atributo en usuarios existentes"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "No se permite acceder a este atributo en usuarios que no existen"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr ""
+"Este atributo debe tener un valor con fecha igual o posterior a la fecha "
+"actual"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "No se permite el uso del campo :attribute"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Se requiere un valor para la configuración regional ‘{$primaryLocale}’"
+
+msgid "invitation.step"
+msgstr "PASO"
+
+msgid "invitation.header"
+msgstr "Invitaciones"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Asignar un rol mediante invitación"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Invitar al usuario/a a asumir un rol"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Ingresar datos"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Buscar usuario/a"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Revisar y enviar invitación para asignar los roles"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Buscar usuario/a"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Buscar usuario/a"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Si el usuario/a no existe, puede invitarlo a asumir roles. Si el usuario/a "
+"ya existe en el sistema, puede ver su información e invitarlo a asumir roles "
+"adicionales."
+
+msgid "userInvitation.searchField.description"
+msgstr "p. ej.: aeinstein@example.com o aeinstein o 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Ingresar datos"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "invitation.role.selectRole"
+msgstr "Seleccionar un nuevo rol"
+
+msgid "invitation.role.dateStart"
+msgstr "Fecha de inicio"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Ingresar datos y enviar invitación para asignar los roles"
+
+msgid "invitation.role.dateEnd"
+msgstr "Fecha límite"
+
+msgid "invitation.role.addRole.button"
+msgstr "Añadir otro rol"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rol"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Fecha de inicio"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Fecha límite"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Revisar y enviar invitación para asignar los roles"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Invitar al usuario/a a asumir el rol"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Los grupos de usuarios proporcionados contienen entradas duplicadas."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Ya existe un usuario/a con el nombre de usuario {$username}, intente con uno "
+"diferente."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Cuando una invitación tiene asignado el correo electrónico ({$email}), este "
+"no debe estar en uso por otro usuario/a."
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Se debe proporcionar un nombre"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Para los grupos de usuarios agregados, se debe proporcionar un ID"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr ""
+"Para los grupos de usuarios agregados, se debe proporcionar una cabecera "
+"editorial"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Modificar el correo electrónico compartido con el usuario/a"
+
+msgid "userInvitation.modal.title"
+msgstr "Invitación enviada"
+
+msgid "userInvitation.modal.button"
+msgstr "Ver todos los usuarios/as"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Eliminar rol"
+
+msgid "invitation.email.description"
+msgstr "p. ej.: aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Al aceptar la invitación, el usuario/a será redirigido a ORCID para "
+"verificar su cuenta, si así lo desea."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Si conoce el apellido del usuario/a, puede ingresarlo. Sin embargo, esta "
+"información puede ser modificada por el propio usuario/a."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verificar ORCID iD"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Ingresar datos"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Ingresar datos"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Formulario de aceptación de invitación y datos del usuario/a"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Por favor, proporcione los siguientes datos para gestionar su cuenta"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Revisar y crear cuenta"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Revisar y crear cuenta"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Omitir verificación de ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Puede ser una combinación de letras mayúsculas, minúsculas o números"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Sí, acepto que mis datos sean recopilados y almacenados de acuerdo con la "
+"{$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Declaración de privacidad"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"También conocido como nombre de pila o nombre, es la parte del nombre "
+"personal que identifica a una persona."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "País de afiliación"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Detalles de la cuenta"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Detalles del usuario/a"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Cancelar invitación"
+
+msgid "invitation.masthead.hidden"
+msgstr "No aparecer en la cabecera editorial"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modificar rol"
+
+msgid "userInvitation.cancel.message"
+msgstr "¿Está seguro/a de que desea cancelar esta invitación?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Regresar"
+
+msgid "userInvitation.status.invited"
+msgstr "Invitado/a el {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Editar invitación"
+
+msgid "validation.after_or_equal"
+msgstr "La fecha de inicio debe ser igual o posterior a la fecha actual"
+
+msgid "invitation.removeRoles"
+msgstr "Rol eliminado del usuario/a"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Por favor, confirme que ha leído y acepta la declaración de privacidad"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Si conoce el nombre del usuario/a, puede ingresarlo. Sin embargo, esta "
+"información puede ser modificada por el propio usuario/a."
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Ingrese los datos como correo electrónico, afiliación, etc. De acuerdo con "
+"el cumplimiento del GDPR, esta información solo puede ser modificada por "
+"usted. También puede elegir si desea que esta información sea visible en su "
+"perfil para el editor/a."
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Debe tener al menos 6 caracteres y puede ser una combinación de letras "
+"mayúsculas, minúsculas, números y símbolos"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"El apellido, es la parte del nombre personal, generalmente hereditaria, que "
+"indica la pertenencia a una familia."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Esta es el institución al que está afiliado/a"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr ""
+"Este es el país en el que se encuentra la institución con la que está "
+"afiliado/a"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Ver todos los envíos"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Cancelar la invitación enviada a {$givenName} {$familyName} desactivará el "
+"enlace de aceptación enviado por correo electrónico. A continuación, se "
+"muestran los detalles de la invitación: "
+
+msgid "invitation.tableHeader.name"
+msgstr "Nombre"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Proporcione al menos un criterio de búsqueda."
+
+msgid "invitation.masthead.show"
+msgstr "Aparecer en la cabecera editorial"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Está viendo los detalles del usuario/a {$name}"
+
+msgid "invitation.management.options"
+msgstr "Opciones para gestionar la invitación"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Si edita la invitación existente o añade un nuevo rol, la invitación actual "
+"será cancelada y se enviará una nueva. ¿Está seguro/a de que desea continuar?"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Cancelar invitación"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "¿Cancelar el proceso de invitación para asignar el rol?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Cancelar proceso de invitación"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "No se aceptó la invitación. Ha iniciado sesión con otro usuario/a."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Realice la búsqueda ingresando un correo electrónico, nombre de usuario/a u "
+"ORCID iD. ¡Un solo dato es suficiente para iniciar!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "El usuario/a está actualmente deshabilitado."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"El usuario/a fue deshabilitado. No puede asignarle un rol mientras esté "
+"deshabilitado. Primero habilite al usuario/a para poder invitarlo a un rol."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Consentimiento de privacidad"
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Por favor cierre la sesión e inicie con la cuenta correcta para aceptar esta "
+"invitación."
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"¿Está seguro/a de que desea cancelar? Si cancela ahora, se detendrá el "
+"proceso de aceptación del rol y deberá reiniciarlo desde el correo "
+"electrónico de invitación para aceptar el rol nuevamente. Si ya es un "
+"usuario/a registrado, será redirigido al panel de control. De lo contrario, "
+"deberá acceder nuevamente al correo electrónico de invitación para comenzar "
+"el proceso."

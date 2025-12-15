@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/PKPPublication.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2016-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublication
@@ -21,6 +21,7 @@ namespace PKP\publication;
 use APP\author\Author;
 use APP\facades\Repo;
 use APP\publication\enums\VersionStage;
+use PKP\author\contributorRole\ContributorType;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
@@ -30,6 +31,20 @@ use PKP\userGroup\UserGroup;
 
 class PKPPublication extends \PKP\core\DataObject
 {
+    // publication status constants
+    public const STATUS_QUEUED = 1;
+    public const STATUS_PUBLISHED = 3;
+    public const STATUS_DECLINED = 4;
+    public const STATUS_SCHEDULED = 5;
+
+    /**
+     * Get the valid pre-publish statuses if available
+     */
+    public static function getPrePublishStatuses(): array
+    {
+        return [];
+    }
+
     /**
      * Get the default/fall back locale the values should exist for
      */
@@ -177,12 +192,11 @@ class PKPPublication extends \PKP\core\DataObject
      *
      * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
      *
-     * @param \Traversable<UserGroup> $userGroups List of UserGroup objects
      * @param bool $includeInBrowseOnly true if only the includeInBrowse Authors will be contained
      *
      * @return string
      */
-    public function getAuthorString(\Traversable $userGroups, $includeInBrowseOnly = false)
+    public function getAuthorString($includeInBrowseOnly = false)
     {
         $authors = $this->getData('authors');
 
@@ -194,40 +208,15 @@ class PKPPublication extends \PKP\core\DataObject
             $authors = $authors->filter(fn ($author) => $author->getData('includeInBrowse'));
         }
 
-        // create a mapping of user group ids to user groups for quick lookup
-        $userGroupMap = [];
-        foreach ($userGroups as $userGroup) {
-            $userGroupMap[$userGroup->id] = $userGroup;
-        }
-
-        $str = '';
-        $lastUserGroupId = null;
-        foreach ($authors as $author) {
-            $currentUserGroupId = $author->getUserGroupId();
-            if (!empty($str)) {
-                if ($lastUserGroupId !== $currentUserGroupId) {
-                    $lastUserGroup = $userGroupMap[$lastUserGroupId] ?? null;
-                    if ($lastUserGroup && $lastUserGroup->showTitle) {
-                        $str .= ' (' . $lastUserGroup->getLocalizedData('name') . ')';
-                    }
-                    $str .= __('common.semicolonListSeparator');
-                } else {
-                    $str .= __('common.commaListSeparator');
-                }
-            }
-            $str .= $author->getFullName();
-            $lastUserGroupId = $currentUserGroupId;
-        }
-
-        // If there needs to be a trailing user group title, add it
-        if (isset($author)) {
-            $lastUserGroup = $userGroupMap[$author->getUserGroupId()] ?? null;
-            if ($lastUserGroup && $lastUserGroup->showTitle) {
-                $str .= ' (' . $lastUserGroup->getLocalizedData('name') . ')';
-            }
-        }
-
-        return $str;
+        return collect($authors)
+            ->map(fn (Author $author): string => 
+                $author->getFullName()
+                . " ("
+                . collect($author->getLocalizedContributorRoleNames())
+                    ->implode(__('common.commaListSeparator'))
+                . ")"
+            )
+            ->implode(__('common.semicolonListSeparator'));
     }
 
     /**
@@ -248,11 +237,12 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         $firstAuthor = $authors->first();
-
-        $str = $firstAuthor->getLocalizedData('familyName', $defaultLocale);
-        if (!$str) {
-            $str = $firstAuthor->getLocalizedData('givenName', $defaultLocale);
-        }
+        $str = match ($firstAuthor->getData('contributorType')) {
+            // Person
+            ContributorType::PERSON->getName() => $firstAuthor->getLocalizedData('familyName', $defaultLocale) ?: $firstAuthor->getLocalizedData('givenName', $defaultLocale),
+            // Organization, anonymous
+            default => $firstAuthor->getFullName(preferredLocale: $defaultLocale),
+        };
 
         if ($authors->count() > 1) {
             return __('submission.shortAuthor', ['author' => $str], $defaultLocale);
@@ -506,5 +496,13 @@ class PKPPublication extends \PKP\core\DataObject
         $this->setData('versionStage', $versionInfo->stage->value);
         $this->setData('versionMajor', $versionInfo->majorNumbering);
         $this->setData('versionMinor', $versionInfo->minorNumbering);
+    }
+
+    /**
+     * @copydoc \PKP\core\DataObject::getDAO()
+     */
+    public function getDAO(): DAO
+    {
+        return Repo::publication()->dao;
     }
 }

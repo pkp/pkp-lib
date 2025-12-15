@@ -1,17 +1,19 @@
 # Tadej Grlić <tadejgrlic@gmail.com>, 2023.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-09 10:50+0000\n"
-"Last-Translator: Tadej Grlić <tadejgrlic@gmail.com>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hr/"
 ">\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Parametar {$param} nije podržan."
@@ -63,7 +65,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "Ne možete uređivati DOI stavke koja nije u ovom kontekstu."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "Vrsta publikacije nije prepoznata"
+msgstr "Vrsta publikacije nije prepoznata."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
@@ -77,7 +79,7 @@ msgid "api.dois.404.pubObjectNotFound"
 msgstr "Objekt objave koji ste tražili nije pronađen."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Tražena prijava nije pronađena."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -109,11 +111,8 @@ msgstr "Jedan ili više nevažećih objekata objave uključeni su u zahtjev."
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
-
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Ne možete zabilježiti odluku ili preporučiti odluku za ovaj podnesak jer je "
-"već objavljen."
+"Trenutačno konfigurirani dodatak mora biti dodatak za registracijsku "
+"agenciju."
 
 msgid "api.emails.400.missingBody"
 msgstr "Morate uključiti e-poštu koja će biti poslana."
@@ -285,7 +284,7 @@ msgstr ""
 "Pokušajte ponovo učitati stranicu i pokušajte ponovno."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Ne možete izbrisati podnesak koji nije dodijeljen ovom kontekstu."
+msgstr "Ne možete izbrisati rad koji nije dodijeljen ovom kontekstu."
 
 msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
 msgstr "Možete vidjeti samo neobjavljene podneske kojima ste dodijeljeni."
@@ -312,25 +311,112 @@ msgid "api.mailables.404.mailableNotFound"
 msgstr "Email koji ste tražili nije pronađen."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Neuspjeli zadatak nije pronađen na popisu neuspjelih zadataka."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr ""
+msgstr "Ponovno slanje neuspjelog zadatka nije moguće jer nedostaje sadržaj."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Na popisu nema neuspjelih zadataka."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Ponovno slanje neuspjelog zadatka nije moguće."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Neuspjeli zadatak uspješno je ponovno poslan."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Svi neuspjeli zadaci koji se mogu ponovno poslati, a imaju valjan sadržaj, "
+"uspješno su vraćeni u red čekanja."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "Nije moguće izbrisati neuspjeli zadatak s popisa neuspjelih."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Neuspjeli zadatak je uspješno izbrisan s popisa."
+
+msgid "api.submission.400.missingQueryParam"
 msgstr ""
+"Zahtjevu nedostaje obavezni parametar upita ids. Molimo navedite ids prijava "
+"koje želite izbrisati."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Nije moguće obraditi API zahtjev."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Nije moguće primiti očekivani odgovor."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Nije moguće spremiti redoslijed istaknutih stavki jer nedostaju podaci o "
+"redoslijedu."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Promjena jezika prijave nije moguća jer već sadrži više od jedne verzije ili "
+"je objavljena."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Ovoj stavci nije moguće dodijeliti DOI."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Došlo je do pogreške prilikom prijenosa slike."
+
+msgid "api.400.routeNotDefined"
+msgstr "Nije navedena API ruta."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "Nije Vam dopušteno mijenjati autore prijava na koje niste dodijeljeni."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Ova krajnja točka nije dostupna iz općeg imenskog prostora stranice te se "
+"može pozvati samo u određenom kontekstu."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Neispravan parametar prilagođen autoru."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Unijeli ste neispravan  \"eventType\",{$eventType}, za e-mailove autora."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Spremanje redoslijeda isticanja nije uspjelo jer neka od isticanja nisu "
+"pronađena."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Isticanje koje ste tražili nije pronađeno."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "Ne možete izvršiti ovu radnju jer je ORCID funkcionalnost onemogućena."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Autor nije pronađen"
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Prijava za ovaj recenzentski podatak nije pronađena."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Nije pronađen recenzent za ovaj zadatak"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Jedine dopuštene vrijednosti su \"prihvati\" i \"odbij\""
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Navedena sekcija ne postoji."
+
+msgid "api.submission.400.invalidId"
+msgstr "Naveden je neispravan ID: „{$id}”."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Obrazac za unos identifikatora publikacije nije dostupan jer nijedan "
+"identifikator nije omogućen."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Nije pronađen traženi ROR."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Nije moguće dovršiti željenu radnju nad resursom."

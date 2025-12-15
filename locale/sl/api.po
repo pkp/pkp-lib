@@ -114,11 +114,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "Trenutno nastavljeni vtičnik mora biti vtičnik za registracijsko agencijo."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Ne morete shraniti odločitve ali priporočila odločitve za ta prispevek, ker "
-"je bil že objavljen."
-
 msgid "api.emails.400.missingBody"
 msgstr "Za pošiljanje morate vključiti tudi email sporočilo."
 

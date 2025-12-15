@@ -111,11 +111,6 @@ msgstr ""
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Сіз бұл ұсыныс үшін шешім жаза алмайсыз немесе шешім ұсына алмайсыз, өйткені "
-"ол қазірдің өзінде жарияланған."
-
 msgid "api.emails.400.missingBody"
 msgstr "Жіберу үшін электрондық пошта мекенжайын көрсету керек."
 

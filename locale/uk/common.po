@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-06-13 12:53+0000\n"
+"PO-Revision-Date: 2025-12-01 12:13+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -1703,29 +1703,8 @@ msgstr "Дисципліни"
 msgid "search.fullText"
 msgstr "Повний текст"
 
-msgid "search.indexTerms"
-msgstr "Терміни для індексування"
-
-msgid "search.indexTermsLong"
-msgstr "Всі поля термінів для індексування"
-
-msgid "search.matchAll"
-msgstr "За всіма полями"
-
 msgid "search.noResults"
 msgstr "Немає результатів"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.SearchFor"
-msgstr "Шукати"
 
 msgid "search.searchResults"
 msgstr "Результати пошуку"
@@ -1957,8 +1936,8 @@ msgstr "Підсумковий звіт статистики."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Це нагадування про необхідность перевірки стану вашого Журналу, "
-"використовуючи редакційний звіт."
+"Це люб'язне нагадування про необхідність перевірити стан вашої публікації за "
+"допомогою редакційного звіту."
 
 msgid "notification.type.editorialReminder"
 msgstr "Щотижнева електронна пошта з невиконаними завданнями"
@@ -2413,3 +2392,6 @@ msgstr "Переглянути більше деталей"
 
 msgid "common.yesContinue"
 msgstr "Так, продовжити"
+
+msgid "common.changeLanguage"
+msgstr "Змінити мову"

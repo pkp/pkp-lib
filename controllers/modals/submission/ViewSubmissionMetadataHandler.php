@@ -53,12 +53,16 @@ class ViewSubmissionMetadataHandler extends handler
         $context = $request->getContext();
         $templateMgr = TemplateManager::getManager($request);
         $publication = $submission->getCurrentPublication();
-        
+
         if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) { /* ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS or _OPEN */
             $templateMgr->assign('authors', $publication->getAuthorString());
 
             if ($publication->getLocalizedData('dataAvailability')) {
                 $templateMgr->assign('dataAvailability', $publication->getLocalizedData('dataAvailability'));
+            }
+
+            if ($publication->getLocalizedData('fundingStatement')) {
+                $templateMgr->assign('fundingStatement', $publication->getLocalizedData('fundingStatement'));
             }
         }
 

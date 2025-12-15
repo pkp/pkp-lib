@@ -1666,7 +1666,22 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
-            $params['contributorRoles'] = $this->contributorRolesToParams($params['contributorRoles'], $submissionContext->getId());
+            $roleIds = array_values(array_filter(array_map(function ($r) {
+                if (is_int($r) || ctype_digit((string) $r)) {
+                    return (int) $r;
+                }
+                if (is_array($r)) {
+                    if (isset($r['id']) && ctype_digit((string) $r['id'])) {
+                        return (int) $r['id'];
+                    }
+                    if (isset($r['roleId']) && ctype_digit((string) $r['roleId'])) {
+                        return (int) $r['roleId'];
+                    }
+                }
+                return null;
+            }, $params['contributorRoles']), fn ($v) => $v !== null));
+
+            $params['contributorRoles'] = $this->contributorRolesToParams($roleIds, $submissionContext->getId());
         }
 
         $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
@@ -1818,7 +1833,22 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
-            $params['contributorRoles'] = $this->contributorRolesToParams($params['contributorRoles'], $submissionContext->getId());
+            $roleIds = array_values(array_filter(array_map(function ($r) {
+                if (is_int($r) || ctype_digit((string) $r)) {
+                    return (int) $r;
+                }
+                if (is_array($r)) {
+                    if (isset($r['id']) && ctype_digit((string) $r['id'])) {
+                        return (int) $r['id'];
+                    }
+                    if (isset($r['roleId']) && ctype_digit((string) $r['roleId'])) {
+                        return (int) $r['roleId'];
+                    }
+                }
+                return null;
+            }, $params['contributorRoles']), fn ($v) => $v !== null));
+
+            $params['contributorRoles'] = $this->contributorRolesToParams($roleIds, $submissionContext->getId());
         }
 
         $errors = Repo::author()->validate($author, $params, $submission, $submissionContext);
@@ -2455,31 +2485,18 @@ class PKPSubmissionController extends PKPBaseController
     /**
      * Get contributor role objects from ids and context id
      */
-    protected function contributorRolesToParams(array $roles, int $contextId): array
+    protected function contributorRolesToParams(array $roleIds, int $contextId): array
     {
-        $roleIds = array_values(array_filter(array_map(function ($r) {
-            if (is_int($r) || ctype_digit((string)$r)) {
-                return (int) $r;
-            }
-            if (is_array($r)) {
-                if (isset($r['id'])) return (int) $r['id'];
-                if (isset($r['roleId'])) return (int) $r['roleId'];
-            }
-            return null;
-        }, $roles), fn ($v) => $v !== null));
+        $roleIds = array_values(array_unique(array_filter($roleIds, fn ($id) => is_int($id) && $id > 0)));
 
         if (empty($roleIds)) {
             return [];
         }
 
-        try {
-            return ContributorRole::withContextId($contextId)
-                ->withRoleIds($roleIds)
-                ->get()
-                ->all();
-        } catch (\Exception $e) {
-            return [];
-        }
+        return ContributorRole::withContextId($contextId)
+            ->withRoleIds($roleIds)
+            ->get()
+            ->all();
     }
 
     /**

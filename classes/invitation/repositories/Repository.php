@@ -68,9 +68,9 @@ class Repository
 
     public function getInvitationByReviewerAssignmentId(int $reviewerAssignmentId) : ?Invitation
     {
-        $invitationModel = InvitationModel::notHandled()
-            ->notExpired()
-            ->where('payload->reviewAssignmentId', $reviewerAssignmentId)->first();
+        $invitationModel = InvitationModel::where('payload->reviewAssignmentId', $reviewerAssignmentId)
+            ->orderBy('invitation_id', 'DESC')
+            ->first();
 
         if (is_null($invitationModel)) {
             return null;

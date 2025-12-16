@@ -22,6 +22,7 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\Mailable;
@@ -81,7 +82,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
 
                     $tempUser = Repo::user()->newDataObject();
                     $tempUser->setEmail($email);
-                    $tempUser->setGivenName($email, null); //set email as given name for temporary user
+                    $tempUser->setPreferredPublicName($email, Locale::getLocale()); //set email as preferred name for temporary user
                     return $tempUser;
                 })();
 

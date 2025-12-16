@@ -116,12 +116,14 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
 
             Repo::user()->add($user);
             // Insert the user interests
-            Repo::userInterest()->setInterestsForUser(
-                $user,
-                array_column(
-                    $this->invitation->getPayload()->userInterests[Locale::getPrimaryLocale()], 'name'
-                )
-            );
+            if($this->invitation->getPayload()->userInterests[Locale::getPrimaryLocale()]){
+                Repo::userInterest()->setInterestsForUser(
+                    $user,
+                    array_column(
+                        $this->invitation->getPayload()->userInterests[Locale::getPrimaryLocale()], 'name'
+                    )
+                );
+            }
         } else {
             if (empty($user->getOrcid()) && isset($this->invitation->getPayload()->orcid)) {
                 $user->setVerifiedOrcidOAuthData($this->invitation->getPayload()->toArray());

@@ -30,14 +30,11 @@ use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\models\InvitationModel;
 use PKP\pages\invitation\InvitationHandler;
-use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\user\User;
-use PKP\userGroup\UserGroup;
 
 abstract class Invitation
 {
-    use ShouldValidate;
     public const VALIDATION_RULE_GENERIC = 'generic_validation_rule';
 
     public const DEFAULT_EXPIRY_DAYS = 3;

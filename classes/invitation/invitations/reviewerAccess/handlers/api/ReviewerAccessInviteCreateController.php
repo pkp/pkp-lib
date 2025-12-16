@@ -91,7 +91,19 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
         $reviewRound = $reviewRoundDao->getById($this->invitation->getPayload()->reviewRoundId);
 
-        $reviewAssignment = Repo::reviewAssignment()->newDataObject();
+        if($this->invitation->getPayload()->reviewAssignmentId){
+            //edit review assignment for resend fo delcine and send reminder
+            $reviewAssignment = Repo::reviewAssignment()->get($this->invitation->getPayload()->reviewAssignmentId);
+            if($reviewAssignment->getDeclined()){
+                $reviewAssignment->setData('requestResent',true);
+                $reviewAssignment->setDeclined(false);
+            }
+            $reviewAssignment->setDateReminded(Core::getCurrentDate());
+            $reviewFilesDao->revokeByReviewId($this->invitation->getPayload()->reviewAssignmentId);
+        } else {
+            $reviewAssignment = Repo::reviewAssignment()->newDataObject();
+        }
+
         $reviewAssignment->setReviewerId($this->invitation->getUserId() ?: null);
         $reviewAssignment->setReviewMethod($this->invitation->getPayload()->reviewMethod);
         $reviewAssignment->setSubmissionId($this->invitation->getPayload()->submissionId);
@@ -104,7 +116,11 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
         $reviewAssignment->setData('email', $this->invitation->getEmail(),null);
         try {
             DB::transaction(function () use ($reviewFilesDao, $reviewAssignment) {
-                Repo::reviewAssignment()->add($reviewAssignment);
+                if($this->invitation->getPayload()->reviewAssignmentId){
+                    Repo::reviewAssignment()->edit($reviewAssignment,[]);
+                } else{
+                    Repo::reviewAssignment()->add($reviewAssignment);
+                }
                 $this->invitation->getPayload()->reviewAssignmentId = $reviewAssignment->getId();
                 $this->invitation->updatePayload();
                 // add files to review
@@ -113,14 +129,6 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
                         $reviewFilesDao->grant($reviewAssignment->getId(), $reviewFileId);
                     }
                 }
-
-                // remove the review assignments
-//                foreach ($existingInvitation as $invitation) {
-//                    if($invitation->payload['reviewAssignmentId']) {
-//                        $reviewAssignment = Repo::reviewAssignment()->get($invitation->payload['reviewAssignmentId']);
-//                        $reviewAssignment && Repo::reviewAssignment()->delete($reviewAssignment);
-//                    }
-//                }
                 if (!$this->invitation->validate([], ValidationContext::VALIDATION_CONTEXT_INVITE)) {
                     return response()->json([
                         'errors' => $this->invitation->getErrors()

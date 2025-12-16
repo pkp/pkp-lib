@@ -51,15 +51,15 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             'disabled' => false,
             'submissionId'=>$request->getUserVars()['submissionId'],
 		    'reviewRoundId'=>$request->getUserVars()['reviewRoundId'],
-            'responseDueDate'=> (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
-		    'reviewDueDate'=> (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
+            'responseDueDate'=> new DateTime(Core::getCurrentDate())->format('Y-m-d'),
+		    'reviewDueDate'=> new DateTime(Core::getCurrentDate())->modify('+2 months')->format('Y-m-d'),
 		    'reviewMethod'=> '',
             'userGroupsToAdd' => [
                 [
                     'userGroupId' => Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->first()->user_group_id,
-                    'dateStart' => null,
+                    'dateStart' => new DateTime(Core::getCurrentDate())->format('Y-m-d'),
                     'dateEnd' => null,
-                    'masthead' => null,
+                    'masthead' => true,
                 ]
             ],
             'currentUserGroups' => [],
@@ -183,9 +183,10 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             $payloadDataToBeTransform['reviewMethod'] = $payload['reviewMethod'];
             $payloadDataToBeTransform['responseDueDate'] = $payload['responseDueDate'];
             $payloadDataToBeTransform['reviewDueDate'] = $payload['reviewDueDate'];
+            $payloadDataToBeTransform['reviewAssignmentId'] = $payload['reviewAssignmentId'];
         }
-        $invitationPayload = (
-        new ReviewerAccessInviteResource($this->invitation))
+        $invitationPayload =
+        new ReviewerAccessInviteResource($this->invitation)
             ->transformInvitationPayload(
                 $invitationModel['userId'],
                 $invitationModel['userId'] ? $payloadDataToBeTransform : $payload,

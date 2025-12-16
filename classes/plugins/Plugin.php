@@ -501,6 +501,21 @@ abstract class Plugin
      * template files. Any plugin which calls this method can
      * override template files by adding their own templates to:
      * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
+     * 
+     * IMPORTANT: This hook fires TWICE for Smarty→Blade overrides:
+     *
+     * Call #1 (Smarty context):
+     *   - Input: "templates/path/to/template.tpl"
+     *   - Purpose: Detect override and return Blade namespace
+     *   - Returns: "plugin-name::path.to.template" (namespace)
+     *
+     * Call #2 (Blade context):
+     *   - Input: "plugin-name::path.to.template" (namespace)
+     *   - Purpose: Resolve namespace to actual file path
+     *   - Returns: "/absolute/path/to/template.blade" (file path)
+     *
+     * This is unavoidable due to architectural constraints between Smarty and Laravel
+     * view systems.
      *
      * @param string $hookName TemplateResource::getFilename
      * @param array $args [
@@ -603,9 +618,13 @@ abstract class Plugin
         }
 
         // Fallback to blade view if exists for theme plugins
-        $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
-        if (view()->exists($bladePath)) {
-            return $bladePath;
+        // Generate the possible blade view path and check if that exists and if exists, 
+        // we will return back the blade view path with namespace e.g. pluginViewNamespace::path.to.blade.template
+        $bladeViewFilePath = app()->basePath()
+            . DIRECTORY_SEPARATOR
+            . str_replace('.tpl', '.blade', $fullPath);
+        if (file_exists($bladeViewFilePath)) {
+            return $this->resolveBladeViewPath(str_replace('templates/', '', $path));
         }
 
         // Recursive check for templates in ancestors of a current theme plugin

@@ -54,14 +54,27 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
         $filename = $this->_getFilename($name);
 
         /*
-         * This following `if` block handle the case where : Plugin can override a core child smarty
-         * template with a plugin level child balde template only without the need to override the
-         * core parent smarty template from the plugin . 
-         * 
-         * For example : core article.tpl include article_details.tpl and plugin only have the 
-         * override as article_details.blade but no override of core parent article.tpl. Plugin 
-         * still should be able to override the core article_details.tpl with the plugin level
-         * article_details.blade without overriding the core article.tpl.
+         * SMARTY → BLADE OVERRIDE BRIDGE
+         *
+         * Enables plugins to override Smarty templates with Blade templates
+         *
+         * HOW IT WORKS:
+         * - Hook returns Blade view path (e.g., "plugin-theme::frontend.objects.article_details")
+         * - Blade renders to HTML string
+         * - Smarty receives HTML as $source and treats it as literal content (no further compilation)
+         *
+         * WHY IT'S NEEDED THIS WAY:
+         * - Smarty's fetch() expects a source string - doesn't care if it's Smarty syntax or HTML
+         * - This is the ONLY interception point for all Smarty template loads
+         * - Allows plugins to override without modifying core Smarty templates
+         *
+         * EXAMPLE:
+         * Core Smarty: {include "article_details.tpl"}
+         *   → Hook returns: "plugin-theme::frontend.objects.article_details"
+         *   → This code renders Blade → HTML
+         *   → Smarty includes HTML (no Smarty compilation)
+         *
+         * NOTE: $mtime = time() is intentional - disables Smarty caching (Blade has its own cache)
          */
         if ($this->isBladeViewPath($filename)) {
             $mtime = time();

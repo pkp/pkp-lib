@@ -7,7 +7,7 @@
 		"ext-mbstring": "*",
 		"ext-xml": "*",
 		"ext-zip": "*",
-		"altcha-org/altcha": "^0.1.2",
+		"altcha-org/altcha": "^1.3.1",
 		"composer/semver": "^3.4",
 		"cweagans/composer-patches": "^1.7",
 		"dflydev/base32-crockford": "^1.0",

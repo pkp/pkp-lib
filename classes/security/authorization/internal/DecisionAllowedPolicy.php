@@ -70,14 +70,13 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
                 if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                     continue;
                 }
-                if (Repo::decision()->isRecommendation($decisionType->getDecision()) && $stageAssignment->getRecommendOnly()) {
+
+                $decision = $decisionType->getDecision();
+                if (!$stageAssignment->getRecommendOnly() ||
+                    $decision === Decision::NEW_EXTERNAL_ROUND ||
+                    Repo::decision()->isRecommendation($decision)) {
                     $isAllowed = true;
-                } elseif (!$stageAssignment->getRecommendOnly()) {
-                    $isAllowed = true;
-                } elseif ($stageAssignment->getRecommendOnly()) {
-                    if ($decisionType->getDecision() === Decision::NEW_EXTERNAL_ROUND) {
-                        $isAllowed = true;
-                    }
+                    break;
                 }
 
                 // Check whether there is a decision that a recommending role can make on the stage the submission is in.

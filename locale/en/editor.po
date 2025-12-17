@@ -376,6 +376,12 @@ msgstr "Schedule For Publication"
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Copyediting Files"
 
+msgid "editor.selectSubmissionFilesStage"
+msgstr "Select submission stage"
+
+msgid "editor.submission.productionFiles"
+msgstr "Production Files"
+
 msgid "editor.submission.selectReviewer"
 msgstr "Select Reviewer"
 

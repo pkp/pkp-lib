@@ -45,6 +45,10 @@ ini_set('xdebug.show_exception_trace', '0');
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 
+// Enable strict mode for PHPUnit tests BEFORE application initialization
+// This prevents global constants from being registered
+define('PKP_PHPUNIT_STRICT_MODE', true);
+
 // Set up minimal PKP application environment
 require_once 'lib/pkp/includes/bootstrap.php';
 

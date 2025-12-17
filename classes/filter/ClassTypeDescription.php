@@ -13,7 +13,7 @@
  *
  * @brief A type description that validates objects by class type.
  *
- * Example type identifier: 'class::lib.pkp.classes.submission.PKPSubmission'
+ * Example type identifier: 'class::PKP\submission\PKPSubmission'
  */
 
 namespace PKP\filter;
@@ -104,8 +104,4 @@ class ClassTypeDescription extends TypeDescription
 
         return [$packageName, $className];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\ClassTypeDescription', '\ClassTypeDescription');
 }

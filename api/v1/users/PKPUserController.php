@@ -250,8 +250,7 @@ class PKPUserController extends PKPBaseController
             'isSiteAdmin' => Validation::isSiteAdmin(),
         ];
 
-        $items = $map->summarizeManyReviewers($usersCollection, $options)->all();
-
+        $items = $map->summarizeManyReviewers($usersCollection, $options)->values()->all();
         return response()->json([
             'itemsMax' => $collector->getCount(),
             'items' => $items,
@@ -412,11 +411,12 @@ class PKPUserController extends PKPBaseController
                 case 'assignedToSubmission':
                 case 'reviewerRating':
                 case 'reviewStage':
-                case 'offset':
                 case 'searchPhrase':
                     $returnParams[$param] = trim($val);
                     break;
-
+                case 'offset':
+                    $returnParams[$param] = max(0, (int) $val);
+                    break;
                 case 'reviewsCompleted':
                 case 'reviewsActive':
                 case 'daysSinceLastAssignment':

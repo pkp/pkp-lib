@@ -18,6 +18,7 @@ namespace PKP\template;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\View;
 use PKP\plugins\Hook;
 use Throwable;
 
@@ -56,30 +57,40 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
         /*
          * SMARTY → BLADE OVERRIDE BRIDGE
          *
-         * Enables plugins to override Smarty templates with Blade templates
+         * Enables plugins to override Smarty templates with Blade templates during migration.
          *
          * HOW IT WORKS:
-         * - Hook returns Blade view path (e.g., "plugin-theme::frontend.objects.article_details")
-         * - Blade renders to HTML string
-         * - Smarty receives HTML as $source and treats it as literal content (no further compilation)
+         * 1. Hook returns Blade view path (namespace OR absolute path)
+         * 2. Blade renders to HTML string
+         * 3. Smarty receives HTML as $source and treats it as literal content
          *
          * WHY IT'S NEEDED THIS WAY:
-         * - Smarty's fetch() expects a source string - doesn't care if it's Smarty syntax or HTML
+         * - Smarty's fetch() expects a source string - HTML is valid input
          * - This is the ONLY interception point for all Smarty template loads
          * - Allows plugins to override without modifying core Smarty templates
          *
-         * EXAMPLE:
-         * Core Smarty: {include "article_details.tpl"}
-         *   → Hook returns: "plugin-theme::frontend.objects.article_details"
-         *   → This code renders Blade → HTML
-         *   → Smarty includes HTML (no Smarty compilation)
+         * Double Hook Call Mitigation (Edge case):
+         * - Absolute paths use View::file() - bypasses FileViewFinder (no hook call)
+         * - Namespace notation uses view() - requires FileViewFinder (hook needed)
          *
-         * NOTE: $mtime = time() is intentional - disables Smarty caching (Blade has its own cache)
+         * EXAMPLE FLOW:
+         * Core Smarty: {include "article_details.tpl"}
+         *   → Hook returns: "/absolute/path/to/plugin/article_details.blade"
+         *   → View::file() renders directly (no second hook)
+         *   → Smarty receives HTML (no Smarty compilation)
+         *
+         * NOTES:
+         * - $mtime = time() is intentional - Blade manages its own compilation cache
+         * - View::file() vs view() selection prevents duplicate hook calls
          */
         if ($this->isBladeViewPath($filename)) {
             $mtime = time();
             $templateManager = TemplateManager::getManager(Application::get()->getRequest());
-            $source = view($filename, $templateManager->getTemplateVars())->render();
+
+            $source = strpos($filename, '::') !== false
+                ? view($filename, $templateManager->getTemplateVars())->render()
+                : View::file($filename, $templateManager->getTemplateVars())->render();
+
             return true;
         }
 
@@ -141,7 +152,14 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
         if (isset($cache[$path])) {
             return $cache[$path];
         }
+
+        // Check if it's an absolute path to a .blade file
+        if (pathinfo($path, PATHINFO_EXTENSION) === 'blade' && file_exists($path)) {
+            $cache[$path] = true;
+            return true;
+        }
         
+        // Check for namespace notation or the namespaced view exists
         $result = strpos($path, '::') !== false || view()->exists($path);
         $cache[$path] = $result;
         

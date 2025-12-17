@@ -497,35 +497,53 @@ abstract class Plugin
     }
 
     /**
+     * Override plugin templates via unified hook system
+     *
      * Call this method when an enabled plugin is registered in order to override
-     * template files. Any plugin which calls this method can
-     * override template files by adding their own templates to:
+     * template files. Any plugin which calls this method can override template
+     * files by adding their own templates to:
      * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
-     * 
-     * IMPORTANT: This hook fires TWICE for Smarty→Blade overrides:
      *
-     * Call #1 (Smarty context):
-     *   - Input: "templates/path/to/template.tpl"
-     *   - Purpose: Detect override and return Blade namespace
-     *   - Returns: "plugin-name::path.to.template" (namespace)
+     * HOOK BEHAVIOR (Smarty → Blade Override):
+     * ──────────────────────────────────────────────────────────────────────────
+     * The hook fires ONCE per override (optimized from double call):
      *
-     * Call #2 (Blade context):
-     *   - Input: "plugin-name::path.to.template" (namespace)
-     *   - Purpose: Resolve namespace to actual file path
-     *   - Returns: "/absolute/path/to/template.blade" (file path)
+     * Hook Call (Smarty context):
+     *   Input:   "templates/frontend/pages/article.tpl"
+     *   Context: Smarty is loading template
+     *   Action:  Check for Blade override
+     *   Returns: "/absolute/path/to/plugin/article.blade" (absolute path)
+     *   Result:  PKPTemplateResource uses View::file() - NO second hook call
      *
-     * This is unavoidable due to architectural constraints between Smarty and Laravel
-     * view systems.
+     * HOOK Call Flow:
+     * ──────────────────────────────────────────────────────────────────────────
+     * Returning absolute paths instead of namespace notation enables:
+     * - View::file() instead of view() in PKPTemplateResource::fetch()
+     * - Bypasses FileViewFinder (no second hook call)
+     *
+     * Alternative (not recommended):
+     *   Return: "plugin-theme::frontend.pages.article" (namespace)
+     *   Result: Triggers view()->exists() in isBladeViewPath()
+     *   Impact: Hook fires twice (Smarty context + Blade context)
+     *
+     * CONTEXT DETECTION:
+     * ──────────────────────────────────────────────────────────────────────────
+     * Blade context:  Dot notation, no slashes (e.g., "frontend.pages.article")
+     * Smarty context: Path with slashes (e.g., "templates/frontend/pages/article.tpl")
+     *
+     * @hook TemplateResource::getFilename [[&$overridePath, $templatePath]]
      *
      * @param string $hookName TemplateResource::getFilename
      * @param array $args [
-     *     @option string|null &$overridePath 
+     *     @option string|null &$overridePath
      *         - null: Blade context (FileViewFinder) - path will be set by this method
      *         - string: Smarty context (PKPTemplateResource) - existing path may be overridden
      *     @option string $templatePath Template name/path
+     *         - Blade: "frontend.pages.article" (dot notation)
+     *         - Smarty: "templates/frontend/pages/article.tpl" (file path)
      * ]
      *
-     * @return bool
+     * @return bool Hook::CONTINUE
      */
     public function _overridePluginTemplates($hookName, $args)
     {
@@ -619,12 +637,15 @@ abstract class Plugin
 
         // Fallback to blade view if exists for theme plugins
         // Generate the possible blade view path and check if that exists and if exists, 
-        // we will return back the blade view path with namespace e.g. pluginViewNamespace::path.to.blade.template
+        // we will return back the blade view absolute path
         $bladeViewFilePath = app()->basePath()
             . DIRECTORY_SEPARATOR
             . str_replace('.tpl', '.blade', $fullPath);
+        
         if (file_exists($bladeViewFilePath)) {
-            return $this->resolveBladeViewPath(str_replace('templates/', '', $path));
+            // Alternatively we can return view namespaced path as pluginViewNamespace::path.to.blade.template via
+            // `$this->resolveBladeViewPath(str_replace('templates/', '', $path))` but will cause double hook call
+            return $bladeViewFilePath;
         }
 
         // Recursive check for templates in ancestors of a current theme plugin

@@ -1662,9 +1662,6 @@ msgstr "ვალუტა"
 msgid "settings.roles.roleOptions"
 msgstr "როლის პარამეტრები"
 
-msgid "settings.roles.showTitles"
-msgstr "როლის სათაურის ჩვენება თანამშრომელთა სიაში"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "მომხმარებლის თვითრეგისტრირების დაშვება"
 

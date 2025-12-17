@@ -1783,9 +1783,6 @@ msgstr "Devise"
 msgid "settings.roles.roleOptions"
 msgstr "Options du rôle"
 
-msgid "settings.roles.showTitles"
-msgstr "Afficher le nom du rôle dans la liste des contributeurs-trices"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Permettre à l'utilisateur-trice de s'inscrire lui-même ou elle-même"
 

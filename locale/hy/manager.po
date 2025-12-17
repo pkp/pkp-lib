@@ -1729,9 +1729,6 @@ msgstr "Արտարժույթ"
 msgid "settings.roles.roleOptions"
 msgstr "Դերի ընտրանքներ"
 
-msgid "settings.roles.showTitles"
-msgstr "Ցույց տալ դերի անվանումը աջակիցների ցանկում"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Թույլատրել օգտվողի ինքնագրանցումը"
 

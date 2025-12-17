@@ -1725,9 +1725,6 @@ msgstr "Valuta"
 msgid "settings.roles.roleOptions"
 msgstr "Rolleoptioner"
 
-msgid "settings.roles.showTitles"
-msgstr "Vis rolletitel i listen over bidragydere"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Tillad brugeren selv at foretage registrering"
 

@@ -770,9 +770,6 @@ msgstr "Ödəniş üsulu"
 msgid "settings.roles.roleOptions"
 msgstr "Rol seçimləri"
 
-msgid "settings.roles.showTitles"
-msgstr "Qatqı edənlərin siyahısında rol başlığını göstərin"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "İstifadəçilərin öz-qeydiyyatına icazə verin"
 

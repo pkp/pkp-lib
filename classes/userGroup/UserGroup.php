@@ -197,14 +197,6 @@ class UserGroup extends Model
     }
 
     /**
-     * Scope a query to filter by show_title.
-     */
-    protected function scopeShowTitle(EloquentBuilder $builder, bool $showTitle): EloquentBuilder
-    {
-        return $builder->where('show_title', $showTitle);
-    }
-
-    /**
      * Scope a query to filter by permit_self_registration.
      */
     protected function scopePermitSelfRegistration(EloquentBuilder $builder, bool $permitSelfRegistration): EloquentBuilder

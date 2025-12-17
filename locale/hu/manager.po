@@ -1626,9 +1626,6 @@ msgstr "Pénznem"
 msgid "settings.roles.roleOptions"
 msgstr "Szerepkör beállítások"
 
-msgid "settings.roles.showTitles"
-msgstr "Mutassa a szerepkört a közreműködői listában"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Engedélyezze a felhasználó saját regisztrációját"
 

@@ -1699,9 +1699,6 @@ msgstr "Měna"
 msgid "settings.roles.roleOptions"
 msgstr "Možnosti rolí"
 
-msgid "settings.roles.showTitles"
-msgstr "Ukázat název role v seznamu autorů"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Dovolit samoobslužnou registraci uživatelů"
 

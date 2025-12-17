@@ -1657,9 +1657,6 @@ msgstr "Νόμισμα"
 msgid "settings.roles.roleOptions"
 msgstr "Επιλογές Ρόλων"
 
-msgid "settings.roles.showTitles"
-msgstr "Εμφάνιση τίτλου ρόλου στη λίστα συνεργατών"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Να επιτρέπεται η εγγραφή από τον ίδιο τον χρήστη"
 

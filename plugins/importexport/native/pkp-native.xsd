@@ -159,7 +159,6 @@
 			<element name="role_id" type="int" />
 			<element name="context_id" type="int" />
 			<element name="is_default" type="boolean" />
-			<element name="show_title" type="boolean" />
 			<element name="permit_self_registration" type="boolean" />
 			<element name="permit_metadata_edit" type="boolean" />
 			<element name="name" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />

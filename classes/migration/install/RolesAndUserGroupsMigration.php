@@ -33,7 +33,6 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->index(['context_id'], 'user_groups_context_id');
             $table->bigInteger('role_id');
             $table->smallInteger('is_default')->default(0);
-            $table->smallInteger('show_title')->default(1);
             $table->smallInteger('permit_self_registration')->default(0);
             $table->smallInteger('permit_metadata_edit')->default(0);
             $table->smallInteger('permit_settings')->default(0);

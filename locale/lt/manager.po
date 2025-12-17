@@ -1688,9 +1688,6 @@ msgstr "Valiuta"
 msgid "settings.roles.roleOptions"
 msgstr "Funkcijų nustatymai"
 
-msgid "settings.roles.showTitles"
-msgstr "Rodyti funkcijos antraštę autorių sąraše"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Leisti vartotojams patiems užsiregistruoti"
 

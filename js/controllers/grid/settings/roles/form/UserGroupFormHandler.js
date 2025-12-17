@@ -311,10 +311,8 @@
 		if ($htmlElement.find(
 				'input[id^=\'assignedStages-\']:enabled').length == 0) {
 			$stageContainer.hide('slow');
-			$('#showTitle').attr('disabled', 'disabled');
 		} else {
 			$stageContainer.show('slow');
-			$('#showTitle').removeAttr('disabled');
 		}
 	};
 

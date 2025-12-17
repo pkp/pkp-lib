@@ -30,6 +30,11 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // but still allow to render views as .blade.php to accommodate default behavior.
         View::addExtension('blade', 'blade');
 
+        // Register .tpl extension for Smarty templates
+        // This enables unified template resolution through Laravel's view system
+        // All Smarty templates (both top-level and nested) can be found by FileViewFinder
+        View::addExtension('tpl', 'smarty');
+
         AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
 
         // This allows templates to be referenced explicitly, 

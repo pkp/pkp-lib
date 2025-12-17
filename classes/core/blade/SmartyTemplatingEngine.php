@@ -11,19 +11,36 @@
  *
  * @brief Custom Laravel View Engine for rendering Smarty templates (.tpl files)
  *
- * This engine bridges Laravel's Blade view system with Smarty templates,
- * allowing plugins to override Blade templates with Smarty templates for
- * backward compatibility during the migration from Smarty to Blade.
+ * This engine integrates Smarty templates into Laravel's view system,
+ * enabling a unified template resolution architecture where all templates
+ * (both top-level and nested) are resolved through Laravel's FileViewFinder.
  *
- * NON-BREAKING BACKWARD COMPATIBILITY:
- * This enables plugins to use .tpl files to override core Blade templates
- * when no corresponding .blade file exists in the plugin.
+ * KEY DESIGN PRINCIPLES:
  *
- * Priority order: Plugin Blade > Plugin Smarty > Core Blade
+ * 1. UNIFIED RESOLUTION: Uses createTemplate() with file: prefix to bypass
+ *    Smarty's PKPTemplateResource for the top-level template. The template
+ *    path has already been resolved by Laravel's FileViewFinder (which fired
+ *    the TemplateResource::getFilename hook).
  *
- * Usage:
- * When a .tpl file is returned by FileViewFinder, Laravel's view system
- * automatically uses this engine to render it via PKPTemplateManager.
+ * 2. NESTED INCLUDES: Our custom SmartyTemplate class intercepts {include}
+ *    directives and routes them back through Laravel's FileViewFinder,
+ *    ensuring consistent resolution and hook firing for nested templates.
+ *
+ * 3. SINGLE HOOK ARCHITECTURE: By routing all resolution through FileViewFinder,
+ *    we eliminate duplicate hook calls that occur when crossing between
+ *    Smarty and Blade template systems.
+ *
+ * 4. VIEW COMPOSERS: Laravel view composers are triggered by SmartyTemplate
+ *    for nested includes, allowing data to be attached declaratively.
+ *
+ * RENDERING FLOW:
+ * 1. Laravel's View system calls get($path, $data) with an already-resolved path
+ * 2. We use createTemplate() with file: prefix to create a Smarty template directly
+ * 3. Template variables from TemplateManager and $data are merged
+ * 4. fetch() renders the template; nested {include}s go through SmartyTemplate
+ *
+ * @see PKP\core\blade\SmartyTemplate
+ * @see PKP\core\blade\FileViewFinder
  */
 
 namespace PKP\core\blade;
@@ -34,10 +51,9 @@ use Illuminate\View\Engines\Engine;
 class SmartyTemplatingEngine extends Engine implements \Illuminate\Contracts\View\Engine
 {
     /**
-     * Render a Smarty template file using PKPTemplateManager
+     * Render a Smarty template file directly using Smarty's createTemplate
      *
-     * @param string $path Smarty resource path (e.g., "plugins-...:frontend/pages/article.tpl")
-     *                     or relative template path for core templates
+     * @param string $path Absolute file path to the template (already resolved by FileViewFinder)
      * @param array $data View data to pass to the template
      *
      * @return string Rendered template output
@@ -46,16 +62,31 @@ class SmartyTemplatingEngine extends Engine implements \Illuminate\Contracts\Vie
     {
         $templateManager = TemplateManager::getManager();
 
-        // Transfer Blade view data to Smarty template manager
-        // This ensures variables passed to view() are available in Smarty
-        foreach ($data as $key => $value) {
-            $templateManager->assign($key, $value);
+        // Get compile_id for proper cache invalidation on theme changes
+        // This ensures different themes get different compiled versions
+        $compileId = $templateManager->getCompileId($path);
+
+        // Merge existing Smarty template variables with new Blade view data
+        // Blade data takes precedence to allow view composers to override values
+        $templateVars = array_merge($templateManager->getTemplateVars(), $data);
+
+        // Use createTemplate() with file: prefix to bypass Smarty resource resolution
+        // The path has already been resolved by Laravel's FileViewFinder
+        // This ensures the template is loaded directly from the file system
+        // Parameters: resource, parent, cache_id, compile_id
+        $template = $templateManager->createTemplate(
+            'file:' . $path,
+            $templateManager,
+            null,       // cache_id - not using Smarty's output caching
+            $compileId  // compile_id - for proper recompilation on theme changes
+        );
+
+        // Assign all template variables to the template instance
+        foreach ($templateVars as $key => $value) {
+            $template->assign($key, $value);
         }
 
-        // Use PKPTemplateManager to render the Smarty template
-        // PKPTemplateManager::fetch() handles both:
-        // - Smarty resource notation (e.g., "plugins-...:template.tpl")
-        // - Relative paths (e.g., "templates/frontend/pages/article.tpl")
-        return $templateManager->fetch($path);
+        // Render the template - nested {include}s will be intercepted by SmartyTemplate
+        return $template->fetch();
     }
 }

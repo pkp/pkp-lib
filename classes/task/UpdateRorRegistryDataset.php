@@ -83,9 +83,6 @@ class UpdateRorRegistryDataset extends ScheduledTask
     /** @var string API Url of the data dump versions. */
     private string $urlVersions = 'https://zenodo.org/api/communities/ror-data/records?q=&sort=newest';
 
-    /** @var string The file contains the following text in the name. */
-    private string $csvNameContains = 'ror-data_schema_v2.csv';
-
     /** @var string The prefix used for the temporary zip file and the extracted directory. */
     private string $prefix = 'TemporaryRorRegistryCache';
 
@@ -228,7 +225,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
         $iterator = new DirectoryIterator($pathZipDir);
         foreach ($iterator as $fileInfo) {
             if (!$fileInfo->isDot()) {
-                if (str_contains($fileInfo->getFilename(), $this->csvNameContains)) {
+                if (strtolower($fileInfo->getExtension()) == 'csv') {
                     return $fileInfo->getPathname();
                 }
             }

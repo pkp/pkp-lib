@@ -224,10 +224,9 @@ class Schema extends \PKP\core\maps\Schema
                     $groupsByUser = $auxiliaryData['groupsByUser'] ?? [];
                     $output[$prop] = $groupsByUser[(int)$user->getId()] ?? [];
                     break;
-
                 case 'interests':
                     $interestsByUser = $auxiliaryData['interestsByUser'] ?? [];
-                    $output[$prop] = $interestsByUser[(int)$user->getId()] ?? [];
+                    $output[$prop] = array_values($interestsByUser[(int)$user->getId()] ?? []);
                     break;
                 case 'stageAssignments':
                     $submission = $auxiliaryData['submission'] ?? null;

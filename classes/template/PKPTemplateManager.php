@@ -413,6 +413,9 @@ class PKPTemplateManager extends Smarty
         // load NavigationMenu Areas from context
         $this->registerPlugin('function', 'load_menu', $this->smartyLoadNavigationMenuArea(...));
 
+        // load a blade view in smarty templates
+        $this->registerPlugin('function', 'include_blade', $this->smartyIncludeBlade(...));
+
         // Load form builder vocabulary
         $fbv = $this->getFBV();
         $this->registerPlugin('block', 'fbvFormSection', $fbv->smartyFBVFormSection(...));
@@ -2527,6 +2530,69 @@ class PKPTemplateManager extends Smarty
         ]);
 
         return $this->fetch($menuTemplatePath);
+    }
+
+    /**
+     * Smarty usage: {include_blade file=$file params1=$params1 params2=$params2 ...}
+     *
+     * Custom Smarty function for injecting a blade view in a smarty template
+     *
+     * IMPORTANT: The file path must follow strict Blade view format:
+     * - Use dot notation: 'path.to.template' or 'namespace::path.to.template'
+     * - NO slashes, extensions, or path traversal patterns
+     *
+     * Valid: 'frontend.pages.article', 'app::submissions.view'
+     * Invalid: 'frontend/pages/article', 'article.blade.php', '../config'
+     *
+     * @param array $params associative array with 'file' key
+     * @param Smarty|null $smarty
+     *
+     * @return string The compiled content of the blade view
+     *
+     * @throws Exception If validation fails or view does not exist
+     */
+    public function smartyIncludeBlade($params, $smarty = null): string
+    {
+        $file = $params['file'] ?? null;
+
+        match (true) {
+            !isset($file) =>
+                throw new Exception('file parameter is missing in {include_blade}'),
+            empty($file) =>
+                throw new Exception('Blade view path can not be empty'),
+            str_ends_with($file, '.blade.php') || str_ends_with($file, '.blade') || str_ends_with($file, '.php') =>
+                throw new Exception("Invalid Blade view path '{$file}': file extensions not allowed. Use dot notation (e.g., 'frontend.pages.article')"),
+            str_contains($file, '/') || str_contains($file, '\\') =>
+                throw new Exception("Invalid Blade view path '{$file}': slashes not allowed. Use dot notation (e.g., 'frontend.pages.article')"),
+            str_contains($file, '..') =>
+                throw new Exception("Invalid Blade view path '{$file}': path traversal patterns (..) not allowed"),
+            str_starts_with($file, '.') || str_ends_with($file, '.') =>
+                throw new Exception("Invalid Blade view path '{$file}': path cannot start or end with a dot"),
+            default => null, // Valid path, continue
+        };
+
+        // If the file does not contain a namespace, try to find it in the registered view namespaces
+        if (!Str::contains($file, '::')) {
+            $pathNamespaces = collect(config('view.paths'))->keys()->toArray();
+            foreach ($pathNamespaces as $pathNamespace) {
+                if (view()->exists($pathNamespace . '::' . $file)) {
+                    $file = $pathNamespace . '::' . $file;
+                    break;
+                }
+            }
+        }
+
+        if (!view()->exists($file)) {
+            throw new Exception("Blade view '{$file}' does not exist");
+        }
+
+        unset($params['file']);
+
+        // Merge the template variables into the params,
+        // with the provided params taking precedence over the template variables
+        $params = array_merge($this->getTemplateVars(), $params);
+
+        return view($file, $params)->render();
     }
 
     /**

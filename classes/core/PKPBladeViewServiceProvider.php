@@ -2,17 +2,19 @@
 
 namespace PKP\core;
 
+use Exception;
+use PKP\core\PKPContainer;
+use PKP\core\blade\BladeCompiler;
 use Illuminate\View\FileViewFinder;
+use Illuminate\Support\Facades\View;
+use PKP\core\blade\DynamicComponent;
+use PKP\template\PKPTemplateManager;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\ViewServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Factory as ViewFactory;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\View;
 use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
-use PKP\core\PKPContainer;
-use PKP\core\blade\BladeCompiler;
-use PKP\core\blade\DynamicComponent;
-use Illuminate\Foundation\AliasLoader;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
@@ -30,6 +32,9 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         View::addExtension('blade', 'blade');
 
         AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
+
+        // Create a global alias so ViewHelper can be used without full namespace in templates
+        AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);
 
         // This allows templates to be referenced explicitly, 
         // e.g., @include('VIEW_NAMESPACE::some-template') or @include('VIEW_NAMESPACE::some-template'),
@@ -121,8 +126,48 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
-        // Create a global alias so ViewHelper can be used without full namespace in templates
-        AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);    }
+        // use as @includeSmarty('path/to/smarty/template.tpl', ['param1' => $param1, 'param2' => $param2, ...])
+        Blade::directive('includeSmarty', function ($expression) {
+            // Split expression on first comma outside of brackets/arrays
+            // This handles: 'path', [...] or 'path' (without second parameter)
+            $parts = preg_split('/,(?![^[\]]*\])/', $expression, 2);
+            $file = trim($parts[0]);
+            $data = isset($parts[1]) ? (trim($parts[1]) ?: '[]') : '[]';
+
+            // Check if file is an array (invalid usage - only data array passed)
+            if (substr($file, 0, 1) === '[') {
+                throw new Exception('Invalid @includeSmarty usage: file path must be the first parameter (string), not an array. Usage: @includeSmarty(\'path/to/smarty/template.tpl\', [\'param\' => $value])');
+            }
+
+            // Remove quotes from file path string literal
+            if (substr($file, 0, 1) === '"' || substr($file, 0, 1) === "'") {
+                $file = substr($file, 1, -1);
+            }
+
+            if (empty($file)) {
+                throw new Exception('file parameter is missing in @includeSmarty');
+            }
+
+            // Validate that $data parameter is an array expression
+            if ($data !== '[]' && substr(trim($data), 0, 1) !== '[') {
+                throw new Exception('Invalid @includeSmarty usage: second parameter must be an array. Usage: @includeSmarty(\'path/to/smarty/template.tpl\', [\'param\' => $value])');
+            }
+
+            if (!PKPTemplateManager::getManager()->templateExists($file)) {
+                throw new Exception("Smarty template {$file} does not exist");
+            }
+
+            // wrap the file path with double quote to pass though as expression below
+            $file = '"' . $file . '"';
+
+            return "<?php
+                \$smartyData = {$data};
+                \$templateManager = \PKP\\template\\PKPTemplateManager::getManager();
+                \$templateManager->assign(\$smartyData);
+                echo \$templateManager->fetch({$file});
+            ?>";
+        });
+    }
 
     /**
      * Register the service provider.

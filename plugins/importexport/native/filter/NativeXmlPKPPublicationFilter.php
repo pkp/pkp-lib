@@ -298,7 +298,11 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      */
     public function parseCitations($n, $publication)
     {
-        $publicationId = $publication->getId();
+        $opts = $this->getDeployment()->getOpts();
+
+        // If the import is via CLI, consider citation-metadata-lookup option.
+        // Else, enable metadata lookup by default.
+        $metadataLookup = $opts['citation-metadata-lookup'] ?? true;
         $citationsRaw = '';
         foreach ($n->childNodes as $citNode) {
             $nodeText = trim($citNode->textContent);
@@ -307,8 +311,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             }
             $citationsRaw .= $nodeText . "\n";
         }
-
-        Repo::citation()->importCitations($publicationId, $citationsRaw);
+        Repo::citation()->importCitations($publication, $citationsRaw, $metadataLookup);
     }
 
     //

@@ -86,6 +86,9 @@ class PKPImportExportDeployment
     /** @var array A list of exported root elements to display to the user after the export is complete */
     private $_exportRootEntities;
 
+    /** A list of import and export options, currently used in CLI mode */
+    private ?array $_opts = null;
+
     /**
      * Constructor
      *
@@ -592,6 +595,18 @@ class PKPImportExportDeployment
     public function getExportRootEntities()
     {
         return $this->_exportRootEntities;
+    }
+
+    /** Get import and export options */
+    public function getOpts(): ?array
+    {
+        return $this->_opts;
+    }
+
+    /** Set import and export options */
+    public function setOpts(?array $opts): void
+    {
+        $this->_opts = $opts;
     }
 
     /**

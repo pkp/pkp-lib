@@ -198,7 +198,7 @@ class DAO extends EntityDAO
         $this->saveCategories($publication);
 
         Repo::citation()->importCitations(
-            $publication->getId(),
+            $publication,
             $publication->getData('citationsRaw')
         );
 
@@ -219,7 +219,7 @@ class DAO extends EntityDAO
 
         if ($oldPublication) {
             Repo::citation()->importCitations(
-                $publication->getId(),
+                $publication,
                 $publication->getData('citationsRaw')
             );
         }

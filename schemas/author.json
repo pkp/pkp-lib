@@ -13,6 +13,7 @@
 			"apiSummary": true,
 			"readOnly": true,
 			"items": {
+				"type": "object",
 				"$ref": "#/definitions/Affiliation"
 			}
 		},
@@ -48,6 +49,7 @@
 			"apiSummary": true,
 			"readOnly": true,
 			"items": {
+				"type": "object",
 				"$ref": "#/definitions/ContributorRole"
 			},
 			"validation": [

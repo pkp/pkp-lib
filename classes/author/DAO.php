@@ -183,7 +183,7 @@ class DAO extends EntityDAO
 
         Repo::creditContributorRole()->addCreditRoles($author->getCreditRoles(), $newAuthorId);
 
-        Repo::creditContributorRole()->addContributorRoles($author->getContributorRoleIds(), $newAuthorId);
+        Repo::creditContributorRole()->addContributorRoles($author->getContributorRoles(), $newAuthorId);
 
         return $newAuthorId;
     }
@@ -197,7 +197,7 @@ class DAO extends EntityDAO
 
         Repo::creditContributorRole()->addCreditRoles($author->getCreditRoles(), $author->getId());
 
-        Repo::creditContributorRole()->addContributorRoles($author->getContributorRoleIds(), $author->getId());
+        Repo::creditContributorRole()->addContributorRoles($author->getContributorRoles(), $author->getId());
 
         parent::_update($author);
     }

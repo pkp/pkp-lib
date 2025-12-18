@@ -178,7 +178,7 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
 
         $this->invitation->invitationModel->markAs(InvitationStatus::ACCEPTED);
         return response()->json(
-            new ReviewerAccessInviteResource($this->invitation)->toArray($illuminateRequest),
+            (new ReviewerAccessInviteResource($this->invitation))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }
@@ -188,7 +188,7 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
         $this->invitation->decline();
 
         return response()->json(
-            new ReviewerAccessInviteResource($this->invitation)->toArray($illuminateRequest),
+            (new ReviewerAccessInviteResource($this->invitation))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }

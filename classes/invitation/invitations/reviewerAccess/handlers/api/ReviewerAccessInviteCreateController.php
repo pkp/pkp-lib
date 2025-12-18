@@ -144,7 +144,7 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
             });
 
             return response()->json(
-                new ReviewerAccessInviteResource($this->invitation)->toArray($illuminateRequest),
+                (new ReviewerAccessInviteResource($this->invitation))->toArray($illuminateRequest),
                 Response::HTTP_OK
             );
         } catch (\Throwable $e) {

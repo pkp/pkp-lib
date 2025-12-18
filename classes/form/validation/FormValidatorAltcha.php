@@ -18,6 +18,7 @@ namespace PKP\form\validation;
 
 use AltchaOrg\Altcha\Altcha;
 use AltchaOrg\Altcha\ChallengeOptions;
+use AltchaOrg\Altcha\Hasher\Algorithm;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use Exception;
@@ -62,6 +63,21 @@ class FormValidatorAltcha extends FormValidator
     }
 
     /**
+     * Creates an Altcha instance with the configured HMAC key.
+     *
+     * @throws Exception If the HMAC key is not configured
+     */
+    private static function createAltchaInstance(): Altcha
+    {
+        $hmacKey = Config::getVar('captcha', 'altcha_hmackey');
+        if (empty($hmacKey)) {
+            throw new Exception('The ALTCHA is not configured correctly, the HMAC key is missing.');
+        }
+
+        return new Altcha($hmacKey);
+    }
+
+    /**
      * Validates the ALTCHA response
      *
      * @param $response The ALTCHA response
@@ -79,14 +95,10 @@ class FormValidatorAltcha extends FormValidator
             throw new InvalidArgumentException('The ALTCHA user response is required.');
         }
 
-        $hmacKey = Config::getVar('captcha', 'altcha_hmackey');
-        if (empty($hmacKey)) {
-            throw new Exception('The ALTCHA is not configured correctly, the HMAC key is missing.');
-        }
-
+        $altcha = self::createAltchaInstance();
         $payload = (array) json_decode(base64_decode($response));
 
-        if (!Altcha::verifySolution($payload, $hmacKey)) {
+        if (!$altcha->verifySolution($payload)) {
             throw new Exception('The ALTCHA validation failed.');
         }
     }
@@ -94,7 +106,7 @@ class FormValidatorAltcha extends FormValidator
     public static function addAltchaJavascript(TemplateManager $templateMgr): void
     {
         $request = Application::get()->getRequest();
-        $altchaPath = $request->getBaseUrl() . '/node_modules/altcha/dist/altcha.js';
+        $altchaPath = $request->getBaseUrl() . '/lib/pkp/js/lib/altcha/altcha.min.js';
 
         $altchaHeader = '<script async defer src="' . $altchaPath . '" type="module"></script>';
         $templateMgr->addHeader('altcha', $altchaHeader);
@@ -102,14 +114,25 @@ class FormValidatorAltcha extends FormValidator
 
     public static function insertFormChallenge(TemplateManager $templateMgr): void
     {
-        $options = new ChallengeOptions([
-            'hmacKey' => Config::getVar('captcha', 'altcha_hmackey'),
-            'number' => Config::getVar('captcha', 'altcha_encrypt_number') ?: 10000, // Default value for a 3 to 5 seconds average solving time
-        ]);
+        $altcha = self::createAltchaInstance();
 
-        $challenge = (array) Altcha::createChallenge($options);
+        // Default maxNumber value for a 3 to 5 seconds average solving time
+        $maxNumber = (int) (Config::getVar('captcha', 'altcha_encrypt_number') ?: 10000);
+
+        $options = new ChallengeOptions(
+            algorithm: Algorithm::SHA256,
+            maxNumber: $maxNumber
+        );
+
+        $challenge = $altcha->createChallenge($options);
 
         $templateMgr->assign('altchaEnabled', true);
-        $templateMgr->assign('altchaChallenge', $challenge);
+        $templateMgr->assign('altchaChallenge', [
+            'algorithm' => $challenge->algorithm,
+            'challenge' => $challenge->challenge,
+            'maxnumber' => $challenge->maxNumber,
+            'salt' => $challenge->salt,
+            'signature' => $challenge->signature,
+        ]);
     }
 }

@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * @file classes/invitation/invitations/reviewerAccess/handlers/ReviewerAccessInviteUIController.php
+ *
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewerAccessInviteUIController
+ *
+ */
+
 namespace PKP\invitation\invitations\reviewerAccess\handlers;
 
 use APP\core\Application;
@@ -13,10 +24,11 @@ use PKP\facades\Locale;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\invitations\reviewerAccess\resources\ReviewerAccessInviteResource;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\invitation\invitations\reviewerAccess\steps\ReviewerAccessInvitationSteps;
 use PKP\security\Role;
 use PKP\user\User;
-use PKP\userGroup\UserGroup;
+use Exception;
 
 class ReviewerAccessInviteUIController extends InvitationUIActionRedirectController
 {
@@ -27,6 +39,9 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
      */
     public function __construct(Invitation $invitation)
     {
+        if (!$invitation instanceof ReviewerAccessInvite) {
+            throw new Exception("invalid invitation type");
+        }
         $this->invitation = $invitation;
     }
 
@@ -77,7 +92,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
             //send invitation using select a user already has reviewer permission user group
-            if (Repo::userGroup()->userIsReviewer($userId,$context->getId())) {
+            if ($user->hasRole([Role::ROLE_ID_REVIEWER], $request->getContext()->getId())) {
                 $invitationPayload['userGroupsToAdd'] = [];
             }
             $payloadWithUserData = [
@@ -126,8 +141,9 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         ];
         $breadcrumbs[] = [
             'id' => 'invitationReviewerType',
-            'name' => Repo::userGroup()->userIsReviewer($userId,$context->getId()) ?
-                __('reviewerInvitation.wizard.pageTitle.existingReviewer') : __('reviewerInvitation.wizard.pageTitle.newUser'),
+            'name' => ($user?->hasRole([Role::ROLE_ID_REVIEWER], $request->getContext()->getId()) ?? false)
+                ? __('reviewerInvitation.wizard.pageTitle.existingReviewer')
+                : __('reviewerInvitation.wizard.pageTitle.newUser'),
         ];
         $steps = $this->getSendSteps($this->invitation, $context, $user);
         $templateMgr->setState([

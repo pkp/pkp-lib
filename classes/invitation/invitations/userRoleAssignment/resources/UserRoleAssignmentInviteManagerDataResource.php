@@ -60,8 +60,6 @@ class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignment
             'emailBody' => $payload->emailBody,
             'userGroupsToAdd' => $this->transformUserGroups($payload->userGroupsToAdd),
             'username' => $payload->username,
-            'submissionId' => $payload->submissionId,
-            'reviewRoundId' => $payload->reviewRoundId,
             'sendEmailAddress' => $payload->sendEmailAddress,
             'existingUser' => $this->transformUser($existingUser),
             'newUser' => $this->transformUser($newUser),

@@ -39,6 +39,7 @@ use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\mail\mailables\ReviewerAccessInvitationNotify;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
+use PKP\security\Role;
 use PKP\security\Validation;
 use Illuminate\Database\Eloquent\Builder;
 use PKP\invitation\models\InvitationModel;
@@ -216,7 +217,11 @@ class ReviewerAccessInvite extends Invitation implements IApiHandleable
             $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE ||
             $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
         ) {
-            if (!Repo::userGroup()->userIsReviewer($this->getUserId(),$this->invitationModel->contextId)) { //if user already has reviewer permission no need to fill the userGroupsToAdd
+            $user = $this->getUserId() ? Repo::user()->get($this->getUserId(), true) : null;
+            if (!($user?->hasRole(
+                [Role::ROLE_ID_REVIEWER],
+                $this->invitationModel->contextId
+            ) ?? false)) { //if user already has reviewer permission no need to fill the userGroupsToAdd
                 $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new NoUserGroupChangesRule(
                     $this->getPayload()->userGroupsToAdd
                 );

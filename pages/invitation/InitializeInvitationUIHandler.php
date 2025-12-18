@@ -96,7 +96,7 @@ class InitializeInvitationUIHandler extends Handler
     }
 
     /**
-     * Edit an invitation$userId
+     * Edit an invitation
      * @param array $args
      * @param Request $request
      * @return void

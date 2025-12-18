@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * @file classes/invitation/invitations/reviewerAccess/handlers/api/ReviewerAccessInviteReceiveController.php
+ *
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewerAccessInviteReceiveController
+ *
+ */
+
 namespace PKP\invitation\invitations\reviewerAccess\handlers\api;
 
 use APP\facades\Repo;
@@ -140,10 +151,11 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
             // Use today's date if dateStart is in the past, otherwise keep dateStart
             $effectiveDateStart = $dateStart->lessThan($today) ? $today->toDateString() : $dateStart->toDateString();
 
-            $userHasGroup = Repo::userGroup()->contextHasGroup(
-                $this->invitation->getContextId(),
+            $userHasGroup = Repo::userGroup()->userInGroup(
+                $user->getId(),
                 $userGroupHelper->userGroupId
             );
+
             if(!$userHasGroup){
                 Repo::userGroup()->assignUserToGroup(
                     $user->getId(),

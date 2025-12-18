@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/invitation/invitations/reviewerAccess/resources/BaseReviewerAccessInviteResource.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class BaseReviewerAccessInviteResource
+ *
+ * @brief A JsonResource to transform the ReviewerAccessInvite to JSON for API responses
+ */
+
 namespace PKP\invitation\invitations\reviewerAccess\resources;
 
 use APP\facades\Repo;

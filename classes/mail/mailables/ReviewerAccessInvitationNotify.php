@@ -94,6 +94,9 @@ class ReviewerAccessInvitationNotify extends Mailable
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         $publication = $submission->getCurrentPublication();
+        if (!$publication) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
 
         $context = $this->invitation->getContext();
 

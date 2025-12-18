@@ -26,6 +26,7 @@ use PKP\invitation\invitations\userRoleAssignment\rules\NotNullIfPresent;
 use PKP\invitation\invitations\userRoleAssignment\rules\ProhibitedIncludingNull;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UsernameExistsRule;
+use PKP\security\Role;
 
 class ReviewerAccessInvitePayload extends InvitePayload
 {
@@ -69,6 +70,9 @@ class ReviewerAccessInvitePayload extends InvitePayload
         $allowedLocales = $context->getSupportedFormLocales();
         $primaryLocale = $context->getPrimaryLocale();
 
+        $user = $invitation->getUserId()
+            ? Repo::user()->get($invitation->getUserId(), true)
+            : null;
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->getSite();
 
@@ -155,7 +159,10 @@ class ReviewerAccessInvitePayload extends InvitePayload
                 'min:' . $site->getMinPasswordLength(),
             ],
             'userGroupsToAdd' => [
-                Rule::requiredIf(!Repo::userGroup()->userIsReviewer($invitation->getUserId(),$context->getId()) && $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE),
+                Rule::requiredIf(
+                    !($user?->hasRole([Role::ROLE_ID_REVIEWER], $context->getId()) ?? false)
+                    && $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE
+                ),
                 'nullable',
                 'array',
                 'bail',

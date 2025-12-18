@@ -94,7 +94,7 @@ class FormValidatorAltcha extends FormValidator
     public static function addAltchaJavascript(TemplateManager $templateMgr): void
     {
         $request = Application::get()->getRequest();
-        $altchaPath = $request->getBaseUrl() . '/node_modules/altcha/dist/altcha.js';
+        $altchaPath = $request->getBaseUrl() . '/lib/pkp/js/lib/altcha/altcha.min.js';
 
         $altchaHeader = '<script async defer src="' . $altchaPath . '" type="module"></script>';
         $templateMgr->addHeader('altcha', $altchaHeader);

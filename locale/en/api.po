@@ -407,6 +407,9 @@ msgstr "The citation you requested was not found."
 msgid "api.publication.400.invalidPublicationId"
 msgstr "An invalid publication ID was provided: `{$publicationId}`."
 
+msgid "api.submission.400.invalidSubmissionId"
+msgstr "An invalid submission ID was provided: `{$submissionId}`."
+
 msgid "api.contributorRole.404.roleNotFound"
 msgstr "The role requested was not found."
 

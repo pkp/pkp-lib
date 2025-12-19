@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/publicationPeerReviews/resources/PublicationPeerReviewResource.php
+ * @file api/v1/peerReviews/resources/PublicationPeerReviewResource.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -9,17 +9,16 @@
  *
  * @class PublicationPeerReviewResource
  *
- * @ingroup api_v1_publicationPeerReviews
+ * @ingroup api_v1_peerReviews
  *
  * @brief Resource that maps a publication to its open peer reviews data
  */
 
-namespace PKP\API\v1\publicationPeerReviews\resources;
+namespace PKP\API\v1\peerReviews\resources;
 
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -32,20 +31,20 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
 
-class PublicationPeerReviewResource extends JsonResource
+class PublicationPeerReviewResource extends BasePeerReviewResource
 {
     public function toArray(?\Illuminate\Http\Request $request = null)
     {
         /** @var Publication $publication */
         $publication = $this->resource;
+        $publicationReviewsData = $this->getPublicationPeerReview($publication);
         return [
             'publicationId' => $publication->getId(),
             'datePublished' => $publication->getData('datePublished'),
-            'reviewRounds' => $this->getPublicationPeerReview($publication)
+            'reviewRounds' => $publicationReviewsData->get('roundsData'),
+            'reviewerRecommendationsSummary' => $publicationReviewsData->get('reviewerRecommendationsSummary'),
         ];
     }
-
-
     /**
      * Get public peer review data for a publication.
      *
@@ -54,6 +53,8 @@ class PublicationPeerReviewResource extends JsonResource
      */
     private function getPublicationPeerReview(Publication $publication): Enumerable
     {
+        $results = collect();
+
         // Check up the tree on source IDs
         $allAssociatedPublicationIds = Repo::publication()->getWithSourcePublicationsIds([$publication->getId()]);
 
@@ -63,14 +64,25 @@ class PublicationPeerReviewResource extends JsonResource
         $context = app()->get('context')->get(
             Repo::submission()->get($publication->getData('submissionId'))->getData('contextId')
         );
+
         $hasMultipleRounds = $reviewRounds->getCount() > 1;
         $roundsData = collect();
 
-        while ($reviewRound = $reviewRounds->next()) {
-            $assignments = Repo::reviewAssignment()
-                ->getCollector()
-                ->filterByReviewRoundIds([$reviewRound->getData('id')])
-                ->getMany();
+        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
+        $roundIds = $reviewRoundsKeyedById->keys()->all();
+        unset($reviewRounds);
+
+        $reviewAssignments = Repo::reviewAssignment()
+            ->getCollector()
+            ->filterByReviewRoundIds($roundIds)
+            ->getMany();
+
+        $reviewsGroupedByRoundId = $reviewAssignments
+            ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
+            ->sortKeys();
+
+        foreach ($reviewsGroupedByRoundId as $roundId => $assignments) {
+            $reviewRound = $reviewRoundsKeyedById->get($roundId);
 
             $roundDisplayText = $hasMultipleRounds ? __('publication.versionStringWithRound', [
                 'versionString' => $publication->getData('versionString'),
@@ -86,7 +98,10 @@ class PublicationPeerReviewResource extends JsonResource
             ]);
         }
 
-        return $roundsData;
+
+        $results->put('roundsData', $roundsData);
+        $results->put('reviewerRecommendationsSummary', $this->getReviewerRecommendationsSummary($reviewAssignments, $context));
+        return $results;
     }
 
     /**

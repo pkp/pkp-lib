@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-12-15 00:22+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hy/"
 ">\n"
@@ -436,3 +436,10 @@ msgstr "Ձեր հայցած ror -ը չի գտնվել:"
 
 msgid "api.409.resourceActionConflict"
 msgstr "Հնարավոր չէ ռեսուրսի վրա կատարել նախատեսված գործողությունը:"
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Հեղինակի ORCiD ID-ն «Խմբագրել/Ավելացնել հեղինակ» վերջնակետերի միջոցով "
+"վերագրելը թույլատրելի չէ: Հեղինակից իր ORCID iD-ն թարմացնելու խնդրանքով "
+"դիմելու համար, խնդրում ենք օգտագործել \"orcid/requestAuthorVerification/"
+"{authorId}\" վերջնակետը:"

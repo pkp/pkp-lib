@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\ViewServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
-use Illuminate\View\Factory as ViewFactory;
+use PKP\core\blade\Factory as ViewFactory;
+use Illuminate\View\Factory as IlluminateViewFactory;
 use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
@@ -251,7 +252,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
      * Configure the view factory with required bindings and setting the alias
      *
      * @param  \PKP\core\PKPContainer  $app
-     * @return \Illuminate\View\Factory
+     * @return ViewFactory
      */
     protected function configureViewFactoryWithBindings(PKPContainer $app): ViewFactory
     {
@@ -272,6 +273,10 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $factory->share('app', $app);
 
         $app->instance(\Illuminate\Contracts\View\Factory::class, $factory);
+
+        $app->instance(ViewFactory::class, $factory);
+        $app->instance(IlluminateViewFactory::class, $factory);
+
         $app->alias(
             \Illuminate\Contracts\View\Factory::class, 
             (new class extends View {
@@ -280,6 +285,19 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         );
 
         return $factory;
+    }
+
+    /**
+     * Create a new Factory Instance.
+     *
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\ViewFinderInterface  $finder
+     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @return ViewFactory
+     */
+    protected function createFactory($resolver, $finder, $events)
+    {
+        return new ViewFactory($resolver, $finder, $events);
     }
 
 }

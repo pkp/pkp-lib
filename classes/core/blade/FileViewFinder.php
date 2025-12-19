@@ -27,7 +27,7 @@
  *   - Called from: FileViewFinder::find()
  *   - Input: "frontend.pages.article" (dot notation, no slashes, no .tpl)
  *   - $overridePath starts as: null
- *   - Expected output: Absolute file path OR Smarty resource notation
+ *   - Expected output: Namespaced view path OR Smarty resource notation
  *
  * Smarty Context:
  *   - Called from: PKPTemplateResource::_getFilename()
@@ -41,7 +41,7 @@
  * hook BEFORE falling back to Laravel's standard path search.
  *
  * Plugins can return:
- * 1. Absolute file path to a Blade template (.blade file)
+ * 1. Namespaced view path (e.g., "pluginNamespace::frontend.objects.article_details")
  * 2. Smarty resource notation (e.g., "plugins-1-...:frontend/pages/article.tpl")
  *
  * Priority order: Plugin Blade > Plugin Smarty > Core Blade
@@ -78,7 +78,7 @@
  * 4. Plugin checks for override (using file_exists() to avoid recursion):
  *    a. Check plugin Blade: plugin/templates/frontend/pages/article.blade
  *    b. Check plugin Smarty: plugin/templates/frontend/pages/article.tpl
- * 5. If Blade found: Return absolute path → Laravel uses Blade engine
+ * 5. If Blade found: Return namespaced view → Factory stores mapping → View composers match
  * 6. If Smarty found: Return resource notation → Dynamic .tpl registration → SmartyTemplatingEngine
  * 7. If no override: Fall back to parent::find() → Standard Laravel path search
  *
@@ -165,9 +165,52 @@
 namespace PKP\core\blade;
 
 use PKP\plugins\Hook;
+use Illuminate\Support\Facades\View;
 
 class FileViewFinder extends \Illuminate\View\FileViewFinder
 {
+    /**
+     * Track view overrides for the Factory to use
+     */
+    protected array $viewOverrides = [];
+
+    /**
+     * Get the specific override for a view if it exists
+     */
+    public function getViewOverride(string $view): ?string
+    {
+        return $this->viewOverrides[$view] ?? null;
+    }
+
+    /**
+     * Get all view overrides mapping (original => namespaced)
+     *
+     * Used by Factory::callComposer() for reverse lookup to fire
+     * composers registered on original view names.
+     */
+    public function getViewOverrides(): array
+    {
+        return $this->viewOverrides;
+    }
+
+    /**
+     * Manually add a view override mapping
+     *
+     * Used by PKPTemplateResource when Smarty context overrides to Blade,
+     * since the normal mapping flow doesn't occur (view name is already namespaced
+     * when passed to Factory::make()).
+     *
+     * This enables Factory::callComposer() to fire composers registered on
+     * the original (non-namespaced) view name for Smarty → Blade overrides.
+     *
+     * @param string $original Original view name in dot notation (e.g., 'frontend.pages.article')
+     * @param string $namespaced Namespaced view path (e.g., 'pluginNamespace::frontend.pages.article')
+     */
+    public function addViewOverride(string $original, string $namespaced): void
+    {
+        $this->viewOverrides[$original] = $namespaced;
+    }
+
     /**
      * Find the given view in the list of paths.
      *
@@ -187,6 +230,11 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder
      */
     public function find($name)
     {
+        // Check cache first to avoid firing hook multiple times
+        if (isset($this->views[$name])) {
+            return $this->views[$name];
+        }
+
         // Initialize override path
         $overridePath = null;
 
@@ -204,11 +252,26 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder
                 // Register .tpl extension to use Smarty engine for rendering
                 // This allows plugins to override Blade templates with Smarty templates
                 // Priority order: Plugin Blade > Plugin Smarty > Core Blade
-                \Illuminate\Support\Facades\View::addExtension('tpl', 'smarty');
+                View::addExtension('tpl', 'smarty');
 
                 // Return Smarty resource directly - it will be handled by SmartyTemplatingEngine
                 $this->views[$name] = $overridePath;
                 return $overridePath;
+            }
+
+            // Check if this is a namespaced view override
+            if (strpos($overridePath, '::') !== false) {
+                // Store the override mapping for Factory to use
+                $this->viewOverrides[$name] = $overridePath;
+
+                // Resolve the namespaced view to get the actual path
+                // Note: parent::find() also caches $this->views[$overridePath] internally,
+                // so we only need to cache the original name here
+                $resolved = parent::find($overridePath);
+
+                $this->views[$name] = $resolved;
+
+                return $resolved;
             }
 
             // For regular file paths (Blade), verify the file exists

@@ -51,7 +51,6 @@ use APP\core\Application;
 use PKP\plugins\ThemePlugin;
 use APP\template\TemplateManager;
 use Exception;
-use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -81,6 +80,12 @@ abstract class Plugin
 
     /** @var PKPRequest the current request object */
     public $request;
+
+    /**
+     * Static cache for file_exists() results to avoid redundant filesystem checks
+     * during template override resolution and will be cleared at end of request.
+     */
+    protected static array $fileExistsCache = [];
 
     /**
      * Constructor
@@ -472,7 +477,7 @@ abstract class Plugin
     protected function _registerTemplateViewNamespace(string $viewNamespace, bool $inCore = false): void
     {
         $templatePath = $this->getTemplatePath($inCore);
-        
+
         if (!$templatePath) {
             throw new \Exception('unable to resolve the template path');
         }
@@ -504,27 +509,26 @@ abstract class Plugin
      * files by adding their own templates to:
      * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>.tpl
      *
-     * HOOK BEHAVIOR (Smarty → Blade Override):
+     * HOOK BEHAVIOR:
      * ──────────────────────────────────────────────────────────────────────────
-     * The hook fires ONCE per override (optimized from double call):
+     * The hook fires ONCE per unique template name. When a parent template
+     * includes a child template, both fire the hook separately (expected).
      *
-     * Hook Call (Smarty context):
-     *   Input:   "templates/frontend/pages/article.tpl"
-     *   Context: Smarty is loading template
-     *   Action:  Check for Blade override
-     *   Returns: "/absolute/path/to/plugin/article.blade" (absolute path)
-     *   Result:  PKPTemplateResource uses View::file() - NO second hook call
+     * Example: Parent (frontend.pages.article) includes child (frontend.objects.article_details)
+     *   Hook Call #1: "frontend.pages.article" (parent template)
+     *   Hook Call #2: "frontend.objects.article_details" (child template)
+     *   This is EXPECTED - two different templates, two hook calls.
      *
-     * HOOK Call Flow:
+     * RETURN VALUES BY CONTEXT:
      * ──────────────────────────────────────────────────────────────────────────
-     * Returning absolute paths instead of namespace notation enables:
-     * - View::file() instead of view() in PKPTemplateResource::fetch()
-     * - Bypasses FileViewFinder (no second hook call)
+     * Blade Context (input has dot notation, no slashes):
+     *   - Return: Namespaced view path (e.g., "pluginNamespace::frontend.objects.article_details")
+     *   - Result: FileViewFinder stores mapping, view composers match namespace pattern
+     *   - Why namespace: Enables View::composer('pluginNamespace::*') to inject $viewNamespace
      *
-     * Alternative (not recommended):
-     *   Return: "plugin-theme::frontend.pages.article" (namespace)
-     *   Result: Triggers view()->exists() in isBladeViewPath()
-     *   Impact: Hook fires twice (Smarty context + Blade context)
+     * Smarty Context (input has slashes, ends with .tpl):
+     *   - Return: Blade namespace notation for Blade overrides, or Smarty resource for Smarty
+     *   - Result: PKPTemplateResource renders via view() or Smarty engine
      *
      * CONTEXT DETECTION:
      * ──────────────────────────────────────────────────────────────────────────
@@ -560,12 +564,29 @@ abstract class Plugin
             // === BLADE CONTEXT ===
             // Input example : "frontend.pages.article"
             // Priority: Plugin .blade > Plugin .tpl > Core .blade
-  
-            // Strip namespace if present
+
+            // If input is already our namespaced view being resolved,
+            // return the file path directly without expensive override checks.
+            // This happens when FileViewFinder calls parent::find() with a namespaced view.
+            $pluginNamespace = $this->getTemplateViewNamespace();
+            if (str_starts_with($templatePath, $pluginNamespace . '::')) {
+                $viewName = explode('::', $templatePath)[1];
+                $filePath = app()->basePath($this->getTemplatePath())
+                    . DIRECTORY_SEPARATOR
+                    . str_replace('.', '/', $viewName)
+                    . '.blade';
+
+                if ($this->cachedFileExists($filePath)) {
+                    $overridePath = $filePath;
+                }
+                return Hook::CONTINUE;
+            }
+
+            // Strip namespace if present (for other namespaces)
             if (str_contains($templatePath, "::")) {
                 $templatePath = explode('::', $templatePath)[1];
             }
-  
+
             $templateName = str_replace('.', '/', $templatePath);
             $basePath = app()->basePath()
                 . DIRECTORY_SEPARATOR
@@ -575,14 +596,15 @@ abstract class Plugin
   
             // Priority 1: Check for Blade override
             $bladePath = $basePath . '.blade';
-            if (file_exists($bladePath)) {
-                $overridePath = $bladePath; // Absolute path for Blade
+            if ($this->cachedFileExists($bladePath)) {
+                // $overridePath = $bladePath; // Absolute path for Blade
+                $overridePath = $this->resolveBladeViewPath($templateName);
                 return Hook::CONTINUE;
             }
-  
+
             // Priority 2: Check for Smarty override
             $smartyPath = $basePath . '.tpl';
-            if (file_exists($smartyPath)) {
+            if ($this->cachedFileExists($smartyPath)) {
                 $relativeTemplatePath = $templateName . '.tpl';
                 // Return Smarty resource notation for SmartyTemplatingEngine
                 $overridePath = $this->getTemplateResource($relativeTemplatePath, false, false);
@@ -620,6 +642,25 @@ abstract class Plugin
     }
 
     /**
+     * Cached file_exists() check to avoid redundant filesystem operations
+     *
+     * The TemplateResource::getFilename hook can fire multiple times for
+     * the same template path during a single request (e.g., once in Smarty
+     * context, once in Blade context). This cache prevents redundant
+     * filesystem checks.
+     *
+     * @param string $path Absolute file path to check
+     * @return bool True if file exists
+     */
+    protected function cachedFileExists(string $path): bool
+    {
+        if (!isset(self::$fileExistsCache[$path])) {
+            self::$fileExistsCache[$path] = file_exists($path);
+        }
+        return self::$fileExistsCache[$path];
+    }
+
+    /**
      * Recursive check for existing templates
      *
      * @param string $path
@@ -631,21 +672,22 @@ abstract class Plugin
         $fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
 
         // If smarty template exists, return the full path
-        if (file_exists($fullPath)) {
+        if ($this->cachedFileExists($fullPath)) {
             return $fullPath;
         }
 
         // Fallback to blade view if exists for theme plugins
-        // Generate the possible blade view path and check if that exists and if exists, 
+        // Generate the possible blade view path and check if that exists and if exists,
         // we will return back the blade view absolute path
         $bladeViewFilePath = app()->basePath()
             . DIRECTORY_SEPARATOR
             . str_replace('.tpl', '.blade', $fullPath);
-        
-        if (file_exists($bladeViewFilePath)) {
+
+        if ($this->cachedFileExists($bladeViewFilePath)) {
             // Alternatively we can return view namespaced path as pluginViewNamespace::path.to.blade.template via
             // `$this->resolveBladeViewPath(str_replace('templates/', '', $path))` but will cause double hook call
-            return $bladeViewFilePath;
+            // return $bladeViewFilePath;
+            return $this->resolveBladeViewPath(str_replace('templates/', '', $path));
         }
 
         // Recursive check for templates in ancestors of a current theme plugin

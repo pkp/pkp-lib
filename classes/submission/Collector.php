@@ -454,9 +454,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
         // search phrases starting with number followed by a '.'  will be interpreted as a DOI identifier. E.g: 10.1
         $isSearchPhraseDoi = Doi::beginsWithDoiPrefixPattern($this->searchPhrase ?: '');
         // Prepare keywords (allows short and numeric words)
-        $keywords = collect(!$isSearchPhraseDoi ? explode(' ', $this->searchPhrase ?? '') : [])
-            ->unique()
-            ->take($this->maxSearchKeywords ?? PHP_INT_MAX);
+        $keywords = (!$isSearchPhraseDoi && !empty($this->searchPhrase)) ?
+            collect(explode(' ', $this->searchPhrase))
+                ->unique()
+                ->take($this->maxSearchKeywords ?? PHP_INT_MAX)
+            : collect();
 
         // Setup the order by
         switch ($this->orderBy) {

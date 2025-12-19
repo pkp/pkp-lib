@@ -190,6 +190,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         $payload['email'] = $invitationModel['email'];
         $payloadDataToBeTransform = [];
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;
+        $submission = Repo::submission()->get($payload['submissionId']);
         if($user){
             // if edit an invitation for existing user, used user data as invitation payload
             $payloadDataToBeTransform = $user->getAllData();
@@ -210,25 +211,43 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             );
 
         $templateMgr = TemplateManager::getManager($request);
-        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $context = $request->getContext();
+        $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
         $breadcrumbs[] = [
-            'id' => 'contexts',
-            'name' => __('navigation.access'),
+            'id' => 'submission',
+            'name' => __('navigation.submissions'),
             'url' => $request
                 ->getDispatcher()
                 ->url(
                     $request,
                     Application::ROUTE_PAGE,
                     null,
-                    'management',
-                    'settings',
-                    ['access']
+                    'dashboard',
+                    'editorial',
+                )
+        ];
+        $breadcrumbs[] = [
+            'id' => 'submissionTitle',
+            'name' => $submission->getCurrentPublication()->getLocalizedTitle(),
+            'url' => $request
+                ->getDispatcher()
+                ->url(
+                    $request,
+                    Application::ROUTE_PAGE,
+                    null,
+                    'dashboard',
+                    'editorial',
+                    null,
+                    ['workflowSubmissionId' => $payload['submissionId']]
                 )
         ];
         $breadcrumbs[] = [
             'id' => 'invitationWizard',
-            'name' => __('invitation.wizard.pageTitle'),
+            'name' => __('reviewerInvitation.wizard.pageTitle'),
+        ];
+        $breadcrumbs[] = [
+            'id' => 'invitationReviewerType',
+            'name' =>__('reviewerInvitation.wizard.pageTitle.updateReviewerInvitation'),
         ];
         $steps = $this->getSendSteps($this->invitation, $context, $user);
         $templateMgr->setState([

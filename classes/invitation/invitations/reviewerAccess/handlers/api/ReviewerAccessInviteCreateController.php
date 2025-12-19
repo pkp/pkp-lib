@@ -126,6 +126,7 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
         $reviewAssignment->setDateNotified(Core::getCurrentDate());
         $reviewAssignment->setStageId($reviewRound->getStageId());
         $reviewAssignment->setData('email', $this->invitation->getEmail(),null);
+        $reviewAssignment->setDateConfirmed(null);
         try {
             DB::transaction(function () use ($reviewFilesDao, $reviewAssignment,$reviewAssignmentId) {
                 if($reviewAssignmentId){

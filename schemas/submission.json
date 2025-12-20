@@ -11,6 +11,29 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"availableEditorialDecisions": {
+			"description": "The editorial decisions that are available for this stage.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"stageId": {
+						"type": "integer"
+					},
+					"id": {
+						"type": "integer"
+					},
+					"label": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"canCurrentUserChangeMetadata": {
+			"type": "boolean",
+			"description": "Whether the current user has access to the publication metadata",
+			"readOnly": true
+		},
 		"commentsForTheEditors": {
 			"type": "string",
 			"description": "Optional. Comments from the submitting author to the editors. This is only available for submissions that have not yet been submitted. Once submitted, the message is converted to a discussion and you can not read or write to this property.",
@@ -131,6 +154,12 @@
 							"date|Y-m-d H:i:s"
 						]
 					},
+					"competingInterests": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
 					"status": {
 						"type": "integer",
 						"readOnly": true
@@ -162,19 +191,41 @@
 						"type": "string",
 						"readOnly": true
 					},
+					"reviewerUserName": {
+						"type": "string",
+						"readOnly": true
+					},
 					"reviewRoundId": {
 						"type": "integer"
 					},
 					"reviewMethod": {
 						"type": "string",
 						"readOnly": true
+					},
+					"reviewerHasOrcid": {
+						"type": "boolean",
+						"readOnly": true
+					},
+					"canLoginAs": {
+						"type": "boolean",
+						"description": "Whether the current user can log in as this reviewer.",
+						"readOnly": true,
+						"apiSummary": true,
+						"apiDetail": true
+					},
+					"canGossip": {
+						"type": "boolean",
+						"description": "Whether the current user can access the gossip field for this reviewer.",
+						"readOnly": true,
+						"apiSummary": true,
+						"apiDetail": true
 					}
 				}
 			}
 		},
 		"reviewersNotAssigned": {
 			"type": "boolean",
-			"description": "Whether all needed reviewers are assigned to the submission. Related to the `numReviewersPerSubmission` context setting.",
+			"description": "Whether all needed reviewers are assigned to the submission. Related to the `numReviewsPerSubmission` context setting.",
 			"apiSummary": true,
 			"readOnly": true
 		},
@@ -190,6 +241,7 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+
 		"stageId": {
 			"type": "integer",
 			"description": "The stage of the editorial workflow that this submission is currently in. One of the `WORKFLOW_STAGE_ID_` constants. Default is `WORKFLOW_STAGE_ID_SUBMISSION`.",
@@ -200,6 +252,31 @@
 				"min:1",
 				"max:5"
 			]
+		},
+		"participants": {
+			"type": "array",
+			"description": "A list of users who are assigned to this submission (e.g. authors, editors, or other stage participants).",
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "User ID of the participant."
+					},
+					"fullName": {
+						"type": "string",
+						"description": "Participant's display name."
+					},
+					"canLoginAs": {
+						"type": "boolean",
+						"description": "Whether the current user can log in as this participant.",
+						"readOnly": true,
+						"apiSummary": true,
+						"apiDetail": true
+					}
+				}
+			}
 		},
 		"stages": {
 			"type": "array",
@@ -223,42 +300,43 @@
 							"type": "integer"
 						}
 					},
-					"status": {
-						"type": "string"
+					"editorAssigned": {
+						"type": "boolean"
 					},
-					"statusId": {
-						"type": "integer"
+					"isDecidingEditorAssigned": {
+						"type": "boolean"
 					},
-					"files": {
+					"isCurrentUserDecidingEditor": {
+						"type": "boolean"
+					},
+					"currentUserCanRecommendOnly": {
+						"type": "boolean"
+					},
+					"currentUserRecommendation": {
 						"type": "object",
 						"properties": {
-							"count": {
+							"decision": {
 								"type": "integer"
+							},
+							"label": {
+								"type": "string"
 							}
 						}
 					},
-					"queries": {
+					"recommendations": {
 						"type": "array",
-						"items": {
-							"id": {
+						"properties": {
+							"decision": {
 								"type": "integer"
 							},
-							"assocType": {
-								"type": "integer"
-							},
-							"assocId": {
-								"type": "integer"
-							},
-							"stageId": {
-								"type": "integer"
-							},
-							"seq": {
-								"type": "integer"
-							},
-							"closed": {
-								"type": "boolean"
+							"label": {
+								"type": "string"
 							}
 						}
+					},
+					"uploadedFilesCount": {
+						"type": "integer",
+						"validation": ["nullable"]
 					}
 				}
 			}

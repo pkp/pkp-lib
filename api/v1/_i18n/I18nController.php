@@ -56,7 +56,10 @@ class I18nController extends PKPBaseController
     {
         $translations = Locale::getUiTranslator()->getTranslationStrings();
 
-        $jsContent = 'window.pkp = window.pkp || {}; pkp.localeKeys = ' . json_encode($translations, JSON_FORCE_OBJECT) . ';';
+
+        $jsContent = 'window.pkp = window.pkp || {};';
+        $jsContent .= 'pkp.localeKeys = pkp.localeKeys || {};';
+        $jsContent .= 'Object.assign(pkp.localeKeys, ' . json_encode($translations, JSON_FORCE_OBJECT) . ');';
 
         return response($jsContent, Response::HTTP_OK)
             ->header('Content-Type', 'application/javascript')

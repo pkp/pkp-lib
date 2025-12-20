@@ -72,15 +72,6 @@ echo "Copyright (c) 2010-2021 John Willinsky" >&2
 
 ### Checking Requirements ###
 MISSING_REQUIREMENT=''
-if [ -z `which gjslint` ]; then
-	echo >&2
-	echo "Google Closure Linter not found in PATH. Please go" >&2
-	echo "to <https://developers.google.com/closure/utilities/docs/linter_howto>" >&2
-	echo "and make sure that you correctly install the tool before you run" >&2
-	echo "buildjs.sh." >&2
-	MISSING_REQUIREMENT='gjslint'
-fi
-
 if [ ! -e "$TOOL_PATH/jslint4java.jar" ]; then
 	echo >&2
 	echo "JSLint4Java must be installed in the '$TOOL_PATH'" >&2
@@ -93,7 +84,7 @@ fi
 if [ ! -e "$CLOSURE_COMPILER_JAR" ]; then
 	echo >&2
 	echo "Google Closure Compiler not found in '$CLOSURE_COMPILER_JAR'" >&2
-	echo "Please run 'npm npm install --save google-closure-compiler' and try again." >&2
+	echo "Please run 'npm install --save google-closure-compiler' and try again." >&2
 	MISSING_REQUIREMENT='closure'
 fi
 
@@ -122,7 +113,7 @@ for JS_FILE in $LINT_FILES; do
 	echo -n "...$JS_FILE" >&2
 	echo "...$JS_FILE"
 
-	# Prepare file for gjslint and compiler check:
+	# Prepare file for compiler check:
 	# - transforms whitespace to comply with Google style guide
 	# - wraps @extends type in curly braces to comply with Google style guide.
 	# - works around http://code.google.com/p/closure-compiler/issues/detail?id=61 by removing the jQuery closure.
@@ -139,14 +130,6 @@ for JS_FILE in $LINT_FILES; do
 	# Only lint file if it has been changed since last compilation.
 	if [ ! \( -e "$JS_OUTPUT" \) -o \( "$JS_FILE" -nt "$JS_OUTPUT" \) -o \( "$DO_CACHE" -eq 0 \) ]; then
 
-		#############################
-		### Google Closure Linter ###
-		#############################
-
-		# Run gjslint on the file.
-		gjslint --strict --nosummary --custom_jsdoc_tags=defgroup,ingroup,file,brief "$WORKDIR/$JS_FILE" | grep '^Line' | sed "s/^/${TAB}/"
-
-
 		##################################
 		### Douglas Crockford's JSLint ###
 		##################################
@@ -154,9 +137,7 @@ for JS_FILE in $LINT_FILES; do
 		# Run JSLint on the file:
 		# - Allow for loops without "hasOwnProperty()" check because we operate in an environment
 		#   where additions to the Object prototype are not allowed (same as jQuery).
-		# - Do not alert on whitespace checking which we prefer to be checked by gjslint.
-		#   This is necessary to remove inconsistency between gjslint's and
-		#   jslint's whitespace rules.
+		# - Do not alert on whitespace checking.
 		# - We allow dangling underscores (_) to mark private properties and let the
 		#   Closure compiler enforce it.
 		# - We allow the ++ and == syntax
@@ -165,7 +146,7 @@ for JS_FILE in $LINT_FILES; do
 		# - We allow code without the 'use strict' pragma as we need the callee property
 		#   for our class framework implementation.
 		java -jar "$TOOL_PATH/jslint4java.jar" --white --forin --nomen --plusplus --continue \
-			--eqeq --sloppy --browser --predef pkp,jQuery,alert,tinyMCE,confirm,plupload \
+			--eqeq --sloppy --browser --predef pkp,jQuery,alert,tinyMCE,confirm,plupload,Promise \
 			--regexp "$JS_FILE" | sed "s/^/${TAB}/"
 		echo "...processed!" >&2
 

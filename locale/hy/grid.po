@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-05 12:16+0000\n"
+"PO-Revision-Date: 2025-04-06 06:50+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "hy/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Չկան նյութեր"
@@ -510,10 +510,10 @@ msgid "grid.user.email"
 msgstr "Էլ․ փոստ"
 
 msgid "grid.user.enable"
-msgstr "Միացնել"
+msgstr "Միացնել օգտվողին"
 
 msgid "grid.user.disable"
-msgstr "Անջատել"
+msgstr "Անջատել օգտվողին"
 
 msgid "grid.user.disableReason"
 msgstr "Օգտվողի անջատման պատճառը"
@@ -724,3 +724,33 @@ msgstr "Խմբագրել աջակցողին"
 
 #~ msgid "grid.user.authSource"
 #~ msgstr "Նույնականացման աղբյուր"
+
+msgid "grid.user.logInAs"
+msgstr "Մուտք գործեք որպես"
+
+msgid "grid.user.remove"
+msgstr "Հեռացրեք օգտվողին"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Երբ օգտատերը միացված է, նա կվերականգնի մուտքը դեպի կայք, և դուք կկարողանաք "
+"նրան հրավիրել դերերի, ըստ անհրաժեշտության:"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Խնդրում ենք նկատի ունենալ, որ երբ օգտվողն անջատված է, դուք չեք կարողանա նրան "
+"ավելացնել որևէ դերում, քանի դեռ օգտվողը նորից միացված չէ:"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Ավելացրու գրախոսի առաջարկը"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Ջնջիր գրախոսի առաջարկը"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Իսկապե՞ս ուզում եք հեռացնել այս առաջարկը: Այս գործողությունը հնարավոր չէ "
+"հետարկել:"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Հայտնվել Masthead-ում"

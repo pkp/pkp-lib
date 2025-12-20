@@ -1,0 +1,506 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 02:26+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/user/th/>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.accountInformation"
+msgstr "ข้อมูลบัญชี"
+
+msgid "user.affiliation"
+msgstr "สังกัด"
+
+msgid "user.affiliations"
+msgstr "สังกัด"
+
+msgid "user.email"
+msgstr "อีเมล"
+
+msgid "user.login.activate"
+msgstr "เปิดใช้งานบัญชี"
+
+msgid "user.login.forgotPassword"
+msgstr "ลืมรหัสผ่านของคุณ?"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "เก็บฉันไว้ในระบบ"
+
+msgid "user.login.resetPassword"
+msgstr "รีเซ็ตรหัสผ่าน"
+
+msgid "user.logOut"
+msgstr "ออกจากระบบ"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "แจ้งเตือนอีเมลเมื่อมีการเผยแพร่ฉบับใหม่"
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"ใช่ ฉันยอมรับให้มีการเก็บรวบรวมและจัดเก็บข้อมูลของฉันตาม <a href=\""
+"{$privacyUrl}\" target=\"_blank\">นโยบายความเป็นส่วนตัว</a>"
+
+msgid "user.register.form.emailConsent"
+msgstr "ใช่ ฉันต้องการรับการแจ้งเตือนเกี่ยวกับการตีพิมพ์และประกาศใหม่"
+
+msgid "user.register.registerAs"
+msgstr "ลงทะเบียนใน {$contextName} ในฐานะ..."
+
+msgid "user.title"
+msgstr "คำนำหน้า"
+
+msgid "user.affiliation.description"
+msgstr "(สถาบันของคุณ เช่น \"มหาวิทยาลัยไซม่อน เฟรเซอร์\")"
+
+msgid "user.authorization.accessDenied"
+msgstr "การเข้าถูกปฏิเสธ"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "โทเค็นการยืนยันตัวตนขาดหายหรือไม่ถูกต้อง"
+
+msgid "user.authorization.loginRequired"
+msgstr "จำเป็นต้องเข้าสู่ระบบ"
+
+msgid "user.authorization.privateOperation"
+msgstr "การดำเนินการที่คุณพยายามเข้าถึงเป็นการดำเนินการส่วนตัวหรือไม่มีอยู่"
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"คุณไม่สามารถเรียกใช้การดำเนินการนี้โดยไม่มีบริบท (สำนักพิมพ์ วารสาร การประชุ"
+"ม ฯลฯ)"
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "การเข้าถูกปฏิเสธ ขณะนี้การเข้าถึงเว็บไซต์นี้ถูกจำกัด"
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "บทบาทปัจจุบันไม่มีสิทธิ์เข้าถึงการดำเนินการนี้"
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "คุณไม่ได้รับการกำหนดให้เป็นบทบาทที่อนุญาตให้เข้าถึงการส่งนี้"
+
+msgid "user.authorization.userGroupRequired"
+msgstr "คุณต้องตั้งกลุ่มผู้ใช้ที่ถูกต้องเพื่อเข้าถึงการดำเนินการนี้"
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"ผู้ใช้ที่มีบทบาทเป็นผู้จัดการ (เช่น บรรณาธิการการผลิต) "
+"ต้องได้รับการกำหนดให้เป็นขั้นตอนก่อนที่คุณจะสามารถดำเนินการต่อได้"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "คุณไม่มีสิทธิ์เข้าถึงขั้นตอนการทำงานนี้ในขณะนี้"
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "ไม่ได้ระบุขั้นตอนการทำงาน"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "การเข้าถึงขั้นตอนการทำงานสำหรับการส่งที่ไม่สมบูรณ์ถูกจำกัด"
+
+msgid "user.authorization.pluginRequired"
+msgstr "ไม่ได้ระบุปลั๊กอินและจำเป็นต้องใช้"
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "คุณไม่มีสิทธิ์เข้าถึงการมอบหมายการรีวิวนี้"
+
+msgid "user.authorization.submissionQuery"
+msgstr "คุณไม่มีสิทธิ์เข้าถึงการสนทนานี้"
+
+msgid "user.biography"
+msgstr "ประวัติ (เช่น ภาควิชาและตำแหน่ง)"
+
+msgid "user.changeMyPassword"
+msgstr "เปลี่ยนรหัสผ่านของฉัน"
+
+msgid "user.changePassword"
+msgstr "เปลี่ยนรหัสผ่าน"
+
+msgid "user.dateLastLogin"
+msgstr "เข้าสู่ระบบครั้งล่าสุด"
+
+msgid "user.dateRegistered"
+msgstr "วันที่ลงทะเบียน"
+
+msgid "user.editMyProfile"
+msgstr "แก้ไขโปรไฟล์ของฉัน"
+
+msgid "user.givenName"
+msgstr "ชื่อจริง"
+
+msgid "user.interests"
+msgstr "ความสนใจในการรีวิว"
+
+msgid "user.gossip"
+msgstr "หมายเหตุบรรณาธิการ"
+
+msgid "user.gossip.description"
+msgstr ""
+"บันทึกหมายเหตุเกี่ยวกับผู้รีวิวที่คุณต้องการให้ผู้ดูแล ผู้จัดการ "
+"และบรรณาธิการทุกคนเห็น หมายเหตุเหล่านี้จะปรากฏในการมอบหมายการรีวิวในอนาคต"
+
+msgid "user.group"
+msgstr "กลุ่มผู้ใช้"
+
+msgid "user.familyName"
+msgstr "นามสกุล"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"รูปแบบภาพโปรไฟล์ไม่ถูกต้องหรือภาพใหญ่เกินไป รูปแบบที่ยอมรับคือ .gif, .jpg หรื"
+"อ .png และภาพต้องไม่เกิน 150x150 พิกเซล"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "บัญชีของคุณถูกปิดใช้งานเนื่องจากเหตุผลดังต่อไปนี้: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "บัญชีของคุณถูกปิดใช้งาน กรุณาติดต่อผู้ดูแลเพื่อขอข้อมูลเพิ่มเติม"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"เราได้ส่งอีเมลยืนยันไปที่ {$email} แล้ว "
+"กรุณาทำตามคำแนะนำในอีเมลนั้นเพื่อเปิดใช้งานบัญชีใหม่ของคุณ หากไม่พบอีเมล "
+"กรุณาตรวจสอบในโฟลเดอร์สแปมของคุณ"
+
+msgid "user.login.activated"
+msgstr ""
+"ขอบคุณที่เปิดใช้งานบัญชีของคุณ "
+"ตอนนี้คุณสามารถเข้าสู่ระบบโดยใช้ข้อมูลที่คุณให้ไว้เมื่อสร้างบัญชี"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"คุณต้องเลือกรหัสผ่านใหม่ก่อนที่จะสามารถเข้าสู่เว็บไซต์นี้ได้<br /><br />กรุณา"
+"กรอกชื่อผู้ใช้และรหัสผ่านปัจจุบันและรหัสผ่านใหม่ด้านล่างเพื่อเปลี่ยนรหัสผ่านส"
+"ำหรับบัญชีของคุณ"
+
+msgid "user.login.loginError"
+msgstr "ชื่อผู้ใช้/อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาลองใหม่"
+
+msgid "user.login"
+msgstr "เข้าสู่ระบบ"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"การยืนยันถูกส่งไปยังที่อยู่อีเมลของคุณ หากพบบัญชีที่ตรงกัน "
+"กรุณาทำตามคำแนะนำในอีเมลเพื่อรีเซ็ตรหัสผ่านของคุณ"
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr "ขออภัย ลิงก์ที่คุณคลิกหมดอายุหรือไม่ถูกต้อง กรุณาลองรีเซ็ตรหัสผ่านใหม่"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"รหัสผ่านใหม่ถูกส่งไปยังที่อยู่อีเมลของคุณแล้ว "
+"คุณสามารถเข้าสู่เว็บไซต์ด้วยรหัสผ่านใหม่ของคุณได้แล้ว"
+
+msgid "user.login.registeredEmail"
+msgstr "อีเมลของผู้ใช้ที่ลงทะเบียน"
+
+msgid "user.login.registrationComplete"
+msgstr "การลงทะเบียนเสร็จสมบูรณ์"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "ขอบคุณที่ลงทะเบียน! คุณต้องการทำอะไรต่อไป?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "ดูการส่งบทความ"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "ส่งบทความใหม่"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "ดำเนินการเรียกดูต่อ"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "การลงทะเบียนกำลังรอการยืนยัน"
+
+msgid "user.logOutAs"
+msgstr "ออกจากระบบในฐานะ {$username}"
+
+msgid "user.hello"
+msgstr "สวัสดี, "
+
+msgid "user.mailingAddress"
+msgstr "ที่อยู่ในการส่งจดหมาย"
+
+msgid "user.myAccount"
+msgstr "บัญชีของฉัน"
+
+msgid "user.name"
+msgstr "ชื่อ"
+
+msgid "user.password"
+msgstr "รหัสผ่าน"
+
+msgid "user.repeatPassword"
+msgstr "ยืนยันรหัสผ่าน"
+
+msgid "user.phone"
+msgstr "โทรศัพท์"
+
+msgid "user.preferredPublicName"
+msgstr "ชื่อสาธารณะที่ต้องการ"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"กรุณาระบุชื่อเต็มที่ผู้แต่งควรจะถูกระบุในงานตีพิมพ์ ตัวอย่าง: ดร. อลัน พี. "
+"มวันเดงกา"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"กรอกรหัสผ่านปัจจุบันและรหัสผ่านใหม่ด้านล่างเพื่อเปลี่ยนรหัสผ่านสำหรับบัญชีของ"
+"คุณ"
+
+msgid "user.profile.editProfile"
+msgstr "แก้ไขโปรไฟล์"
+
+msgid "user.profile.form.countryRequired"
+msgstr "จำเป็นต้องระบุประเทศ"
+
+msgid "user.profile.form.emailRequired"
+msgstr "จำเป็นต้องมีที่อยู่อีเมลที่ถูกต้อง"
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "จำเป็นต้องระบุชื่อจริง"
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"คุณได้เพิ่มนามสกุลสำหรับภาษาที่ขาดชื่อจริง กรุณาเพิ่มชื่อจริงสำหรับภาษานี้"
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "จำเป็นต้องระบุที่อยู่ในการส่งจดหมาย"
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "คุณต้องกรอกรหัสผ่านใหม่"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "รหัสผ่านปัจจุบันที่คุณกรอกไม่ถูกต้อง"
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "แจ้งเตือนอีเมลเมื่อมีการเปิดการเข้าถึงฉบับใหม่"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "จำเป็นต้องมีรหัสผ่าน"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "รหัสผ่านใหม่ของคุณเหมือนกับรหัสผ่านเก่า"
+
+msgid "user.profile.form.profileImage"
+msgstr "รูปโปรไฟล์"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"URL ที่ระบุไม่ถูกต้อง กรุณาตรวจสอบอีกครั้งและลองใหม่ (เคล็ดลับ: ลองเพิ่ม "
+"http:// ที่จุดเริ่มต้นของ URL)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "จำเป็นต้องมีกลุ่มผู้ใช้"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "จำเป็นต้องมีชื่อผู้ใช้"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "คุณต้องยอมรับเงื่อนไขของนโยบายความเป็นส่วนตัว"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "ปล่อยให้ฟิลด์รหัสผ่านว่างไว้เพื่อเก็บรหัสผ่านปัจจุบัน"
+
+msgid "user.profile.newPassword"
+msgstr "รหัสผ่านใหม่"
+
+msgid "user.profile.oldPassword"
+msgstr "รหัสผ่านปัจจุบัน"
+
+msgid "user.profile"
+msgstr "โปรไฟล์"
+
+msgid "user.profile.publicProfile"
+msgstr "โปรไฟล์ผู้ใช้"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "ยืนยันรหัสผ่านใหม่"
+
+msgid "user.login.registerNewAccount"
+msgstr "ลงทะเบียน"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"กรอกที่อยู่อีเมลบัญชีของคุณด้านล่างและจะมีการส่งอีเมลพร้อมคำแนะนำในการรีเซ็ตร"
+"หัสผ่านของคุณ"
+
+msgid "user.register.form.emailExists"
+msgstr "ที่อยู่อีเมลที่เลือกถูกใช้โดยผู้ใช้อื่นแล้ว"
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "รหัสผ่านไม่ตรงกัน"
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "ฟิลด์ที่อยู่อีเมลไม่ตรงกัน"
+
+msgid "user.register.form.userGroupRequired"
+msgstr "ต้องเลือกบทบาทอย่างน้อยหนึ่งบทบาท"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"ชื่อผู้ใช้สามารถประกอบด้วยอักษรตัวเล็กและตัวเลขเท่านั้น "
+"รวมทั้งเครื่องหมายขีดล่างและขีดกลาง "
+"และต้องเริ่มต้นและสิ้นสุดด้วยตัวอักษรหรือตัวเลข"
+
+msgid "user.register.form.usernameExists"
+msgstr "ชื่อผู้ใช้ที่เลือกถูกใช้โดยผู้ใช้อื่นแล้ว"
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "รหัสผ่านต้องมีความยาวอย่างน้อย {$length} อักขระ"
+
+msgid "user.register"
+msgstr "ลงทะเบียน"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"ชื่อผู้ใช้ต้องประกอบด้วยตัวอักษรตัวเล็ก ตัวเลข และขีดล่าง/ขีดกลางเท่านั้น"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"คุณได้ลงทะเบียนสำเร็จแล้ว <a href=\"{$profileUrl}\">คลิกที่นี่</a> "
+"เพื่อกรอกโปรไฟล์ผู้ใช้ของคุณให้สมบูรณ์"
+
+msgid "user.role.assistant"
+msgstr "ผู้ช่วย"
+
+msgid "user.role.author"
+msgstr "ผู้แต่ง"
+
+msgid "user.role.author_s"
+msgstr "ผู้แต่ง"
+
+msgid "user.role.authors"
+msgstr "ผู้แต่ง"
+
+msgid "user.role.editor"
+msgstr "บรรณาธิการ"
+
+msgid "user.role.editors"
+msgstr "บรรณาธิการ"
+
+msgid "user.role.reader"
+msgstr "ผู้อ่าน"
+
+msgid "user.role.readers"
+msgstr "ผู้อ่าน"
+
+msgid "user.role.reviewer"
+msgstr "ผู้รีวิว"
+
+msgid "user.role.reviewers"
+msgstr "ผู้รีวิว"
+
+msgid "user.role.siteAdmin"
+msgstr "ผู้ดูแลเว็บไซต์"
+
+msgid "user.role.siteAdmins"
+msgstr "ผู้ดูแลเว็บไซต์"
+
+msgid "user.role.copyeditor"
+msgstr "บรรณาธิการตรวจสำเนา"
+
+msgid "user.role.copyeditors"
+msgstr "บรรณาธิการตรวจสำเนา"
+
+msgid "user.role.proofreader"
+msgstr "ผู้พิสูจน์อักษร"
+
+msgid "user.role.proofreaders"
+msgstr "ผู้พิสูจน์อักษร"
+
+msgid "user.role.layoutEditor"
+msgstr "บรรณาธิการรูปแบบ"
+
+msgid "user.role.layoutEditors"
+msgstr "บรรณาธิการรูปแบบ"
+
+msgid "user.roles"
+msgstr "บทบาท"
+
+msgid "user.sendPassword"
+msgstr "การยืนยัน"
+
+msgid "user.sendPassword.description"
+msgstr "ส่งอีเมลยืนยันให้ฉัน ซึ่งประกอบด้วยชื่อผู้ใช้และรหัสผ่านของฉัน"
+
+msgid "user.signature"
+msgstr "ลายเซ็น"
+
+msgid "user.url"
+msgstr "URL หน้าแรก"
+
+msgid "user.userHome"
+msgstr "หน้าหลักผู้ใช้"
+
+msgid "user.username"
+msgstr "ชื่อผู้ใช้"
+
+msgid "user.usernameOrEmail"
+msgstr "ชื่อผู้ใช้หรืออีเมล"
+
+msgid "user.workingLanguages"
+msgstr "ภาษาที่ใช้งาน"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"ORCID iD ที่คุณระบุไม่ถูกต้อง กรุณารวม URI ที่สมบูรณ์ (เช่น \"https://orcid."
+"org/0000-0002-1825-0097\")"
+
+msgid "user.profile.identity"
+msgstr "ข้อมูลส่วนตัว"
+
+msgid "user.profile.contact"
+msgstr "ข้อมูลติดต่อ"
+
+msgid "user.profile.public"
+msgstr "ข้อมูลสาธารณะ"
+
+msgid "user.apiKey"
+msgstr "คีย์ API"
+
+msgid "user.apiKeyEnabled"
+msgstr "เปิดใช้งานแอปพลิเคชันภายนอกด้วยคีย์ API เพื่อเข้าถึงบัญชีนี้"
+
+msgid "user.apiKey.generate"
+msgstr "สร้างคีย์ API"
+
+msgid "user.apiKey.remove"
+msgstr "ลบ"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"การสร้างคีย์ API ใหม่จะทำให้คีย์ที่มีอยู่ไม่สามารถใช้งานได้สำหรับผู้ใช้นี้"
+
+msgid "user.apiKey.removeWarning"
+msgstr "การลบคีย์จะเพิกถอนการเข้าถึงแอปพลิเคชันที่ใช้คีย์นั้น"
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "คุณแน่ใจหรือว่าต้องการลบคีย์ API นี้?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"ก่อนสร้างคีย์ API ผู้ดูแลระบบเว็บไซต์ของคุณต้องตั้งค่ารหัสลับในไฟล์ config ("
+"\"api_key_secret\")"
+
+msgid "user.privacyLink"
+msgstr ""
+"ข้อมูลของคุณถูกเก็บรักษาตาม <a href=\"{$privacyUrl}\" target=\"_blank\""
+">นโยบายความเป็นส่วนตัว</a>"
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "ไม่สามารถทำคำขอรีเซ็ตรหัสผ่านได้เนื่องจาก {$reason}"
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "กรอกรหัสผ่านใหม่เพื่ออัปเดตรหัสผ่านเข้าสู่ระบบ"
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "รหัสผ่านถูกอัปเดตสำเร็จ กรุณาเข้าสู่ระบบด้วยรหัสผ่านที่อัปเดตแล้ว"

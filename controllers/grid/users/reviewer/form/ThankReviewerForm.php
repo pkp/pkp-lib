@@ -125,10 +125,8 @@ class ThankReviewerForm extends Form
 
         Hook::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
 
-        (new SendReviewToOrcid($submission, $context, $reviewAssignment))->execute();
-
         if (!$this->getData('skipEmail')) {
-            $mailable->setData(Locale::getLocale());
+            $mailable->setLocale(Locale::getLocale());
             try {
                 Mail::send($mailable);
                 Repo::emailLogEntry()->logMailable(
@@ -151,10 +149,17 @@ class ThankReviewerForm extends Form
         // update the ReviewAssignment with the acknowledged date
         $newData = ['dateAcknowledged' => Core::getCurrentDate()];
         if (!in_array($reviewAssignment->getConsidered(), [ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED])) {
-            $newData['considered'] = $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
+            $newData['considered'] = ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW ||
+                                     $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED)
                 ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
                 : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
         }
+
+        if(!$reviewAssignment->getDateConsidered()) {
+            // set the date when the editor confirms the review
+            $newData['dateConsidered'] = Core::getCurrentDate();
+        }
+
         Repo::reviewAssignment()->edit($reviewAssignment, $newData);
 
         parent::execute(...$functionArgs);

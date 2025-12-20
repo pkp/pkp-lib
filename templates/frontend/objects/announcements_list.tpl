@@ -27,12 +27,12 @@
             {else}
                 <article class="obj_announcement_summary">
                     <h4>
-                        <a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
-                            {$announcement->getLocalizedTitle()|escape}
+                        <a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
+                            {$announcement->getLocalizedData('title')|escape}
                         </a>
                     </h4>
                     <div class="date">
-                        {$announcement->getDatePosted()|date_format:$dateFormatShort}
+                        {$announcement->datePosted->format($dateFormatShort)}
                     </div>
                 </article>
             {/if}

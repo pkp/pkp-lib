@@ -1100,8 +1100,8 @@ msgstr "Snið dagsetningar og tíma"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Veldu snið á dagsetningu og tíma. Hægt er að slá inn sérsnið með því að nota "
-"<a href='http://php.net/manual/en/function.strftime.php#refsect1-function."
-"strftime-parameters'>format characters</a>."
+"<a href='http://php.net/manual/en/datetime.format.php#refsect1-datetime."
+"format-parameters'>format characters</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Dags."
@@ -1605,9 +1605,6 @@ msgstr "Gjaldmiðill"
 
 msgid "settings.roles.roleOptions"
 msgstr "Hlutverk - valmöguleikar"
-
-msgid "settings.roles.showTitles"
-msgstr "Sýna fyrirsögn hlutverks á lista yfir framlagsaðila"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Leyfa notendum að skrá sig sjálfir"

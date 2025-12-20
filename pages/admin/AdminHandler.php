@@ -25,7 +25,7 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PDO;
-use PKP\announcement\Collector;
+use PKP\announcement\Announcement;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPContextForm;
@@ -42,6 +42,7 @@ use PKP\components\listPanels\HighlightsListPanel;
 use PKP\components\listPanels\PKPAnnouncementsListPanel;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -52,6 +53,7 @@ use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
+use PKP\userGroup\UserGroup;
 
 class AdminHandler extends Handler
 {
@@ -105,7 +107,7 @@ class AdminHandler extends Handler
     /**
      * @copydoc PKPHandler::initialize()
      */
-    public function initialize($request)
+    public function initialize($request, $args = null)
     {
         $templateMgr = TemplateManager::getManager($request);
 
@@ -139,7 +141,7 @@ class AdminHandler extends Handler
             ]);
         }
 
-        return parent::initialize($request);
+        return parent::initialize($request, $args);
     }
 
     /**
@@ -196,6 +198,7 @@ class AdminHandler extends Handler
         $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'site/theme');
         $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'temporaryFiles');
         $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'announcements');
+        $publicFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, '_uploadPublicFile');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
@@ -214,7 +217,7 @@ class AdminHandler extends Handler
         $siteStatisticsForm = new PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
         $announcementSettingsForm = new PKPAnnouncementSettingsForm($apiUrl, $locales, $site);
-        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl);
+        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl, $publicFileApiUrl);
         $announcementsListPanel = $this->getAnnouncementsListPanel($announcementsApiUrl, $announcementsForm);
 
         $templateMgr = TemplateManager::getManager($request);
@@ -292,14 +295,14 @@ class AdminHandler extends Handler
         $dispatcher = $request->getDispatcher();
 
         if (!isset($args[0]) || !ctype_digit((string) $args[0])) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $contextService = app()->get('context');
         $context = $contextService->get((int) $args[0]);
 
         if (empty($context)) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $apiUrl = $dispatcher->url($request, Application::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
@@ -321,9 +324,7 @@ class AdminHandler extends Handler
 
         $bulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
         if ($bulkEmailsEnabled) {
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->getMany();
+            $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
             $restrictBulkEmailsForm = new \PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
             $components[$restrictBulkEmailsForm->id] = $restrictBulkEmailsForm->getConfig();
@@ -658,14 +659,14 @@ class AdminHandler extends Handler
         $failedJob = Repo::failedJob()->get((int) $args[0]);
 
         if (!$failedJob) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $rows = collect(array_merge(HttpFailedJobResource::toResourceArray($failedJob), [
-            'payload' => $failedJob->first()->getRawOriginal('payload'),
+            'payload' => $failedJob->getRawOriginal('payload'),
         ]))
             ->map(fn ($value, $attribute) => is_array($value) ? null : [
-                'attribute' => '<b>' . __('admin.jobs.list.' . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()) . '</b>',
+                'attribute' => __('admin.jobs.list.' . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()),
                 'value' => isValidJson($value) ? json_encode(json_decode($value, true), JSON_PRETTY_PRINT) : $value
             ])
             ->filter()
@@ -757,13 +758,11 @@ class AdminHandler extends Handler
      */
     protected function getAnnouncementsListPanel(string $apiUrl, PKPAnnouncementForm $form): PKPAnnouncementsListPanel
     {
-        $collector = Repo::announcement()
-            ->getCollector()
-            ->withSiteAnnouncements(Collector::SITE_ONLY);
+        $announcements = Announcement::withContextIds([PKPApplication::SITE_CONTEXT_ID]);
 
-        $itemsMax = $collector->getCount();
+        $itemsMax = $announcements->count();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
-            $collector->limit(30)->getMany()
+            $announcements->limit(30)->orderBy(Announcement::CREATED_AT, 'desc')->get()
         );
 
         return new PKPAnnouncementsListPanel(
@@ -773,7 +772,7 @@ class AdminHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $form,
                 'getParams' => [
-                    'contextIds' => [Application::SITE_CONTEXT_ID],
+                    'contextIds' => [PKPApplication::SITE_CONTEXT_ID],
                     'count' => 30,
                 ],
                 'items' => $items->values(),

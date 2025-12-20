@@ -112,18 +112,21 @@ class PKPSectionForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $assignableUserGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$request->getContext()->getId()])
-            ->filterByRoleIds($this->assignableRoles)
-            ->filterByStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-            ->getMany()
+        $stages = Application::getApplicationStages();
+        $assignableUserGroups = UserGroup::query()
+            ->withContextIds([$request->getContext()->getId()])
+            ->withRoleIds($this->assignableRoles)
+            ->withStageIds([
+                // WORKFLOW_STAGE_ID_SUBMISSION for OJS/OMP and WORKFLOW_STAGE_ID_PRODUCTION for OPS, see pkp/pkp-lib#10874
+                array_shift($stages)
+            ])
+            ->get()
             ->map(function (UserGroup $userGroup) use ($request) {
                 return [
                     'userGroup' => $userGroup,
                     'users' => Repo::user()
                         ->getCollector()
-                        ->filterByUserGroupIds([$userGroup->getId()])
+                        ->filterByUserGroupIds([$userGroup->id])
                         ->filterByContextIds([$request->getContext()->getId()])
                         ->getMany()
                         ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])

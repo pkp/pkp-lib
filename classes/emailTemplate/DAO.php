@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/emailTemplate/DAO.php
  *
@@ -116,11 +117,11 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
 
-        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $this->fromRow($row);
             }
@@ -130,7 +131,7 @@ class DAO extends EntityDAO
     /**
      * Get a single email template that matches the given key
      */
-    public function getByKey(int $contextId, string $key): ?EmailTemplate
+    public function getByKey(?int $contextId = null, string $key): ?EmailTemplate
     {
         $results = Repo::emailTemplate()->getCollector($contextId)
             ->filterByKeys([$key])
@@ -235,13 +236,17 @@ class DAO extends EntityDAO
      * skipping others
      * @param bool $skipExisting If true, do not install email templates
      * that already exist in the database
+     * @param bool $recordTemplateGroupAccess - If true, records the templates as unrestricted. For versions 3.6 or higher, this value should be set to true when calling `installEmailTemplates`.
+     * By default, it is set to false to ensure compatibility with older processes (e.g., migrations)
+     * where the `email_template_user_group_access` table may not exist at the time of execution.
      *
      */
     public function installEmailTemplates(
         string $templatesFile,
         array $locales = [],
         ?string $emailKey = null,
-        bool $skipExisting = false
+        bool $skipExisting = false,
+        $recordTemplateGroupAccess = false
     ): bool {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct($templatesFile, ['email']);
@@ -250,7 +255,7 @@ class DAO extends EntityDAO
         }
 
         // if locales is empty, it will use the site's installed locales
-        $locales = array_filter(array_map('trim', $locales));
+        $locales = array_filter(array_map(trim(...), $locales));
         if (empty($locales)) {
             $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
             $site = $siteDao->getSite(); /** @var Site $site */
@@ -279,6 +284,20 @@ class DAO extends EntityDAO
                 $contextIds = app()->get('context')->getIds();
                 foreach ($contextIds as $contextId) {
                     $this->installAlternateEmailTemplates($contextId, $attrs['key']);
+                }
+            }
+
+            if ($recordTemplateGroupAccess) {
+                // Default to true if `isUnrestricted` is not set.
+                $isUnrestricted = $attrs['isUnrestricted'] ?? '1';
+
+                if ($isUnrestricted !== '1' && $isUnrestricted !== '0') {
+                    throw new Exception('Invalid value given for the `isUnrestricted` attribute on the ' . $attrs['key'] . ' template.');
+                }
+
+                $contextIds = app()->get('context')->getIds();
+                foreach ($contextIds as $contextId) {
+                    Repo::emailTemplate()->markTemplateAsUnrestricted($attrs['key'], (bool)$isUnrestricted, $contextId);
                 }
             }
         }
@@ -381,7 +400,7 @@ class DAO extends EntityDAO
                     'Tried to install email template as an alternate to `' . $alternateTo . '`, but no default template exists with this key. Installing ' . $alternateTo . ' email template first',
                     E_USER_WARNING
                 );
-                $this->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [], $alternateTo);
+                $this->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [], $alternateTo, false, true);
             }
 
             DB::table($this->table)->insert([
@@ -447,5 +466,38 @@ class DAO extends EntityDAO
         }
 
         return $key;
+    }
+
+
+    /**
+     * Sets email template's unrestricted status to their defaults
+     */
+    public function setTemplateDefaultUnrestirctedSetting(int $contextId, ?array $emailKeys = null)
+    {
+        $xmlDao = new XMLDAO();
+        $data = $xmlDao->parseStruct($this->getMainEmailTemplatesFilename(), ['email']);
+
+        if (!isset($data['email'])) {
+            return false;
+        }
+
+        foreach ($data['email'] as $entry) {
+            $attrs = $entry['attributes'];
+
+            if ($emailKeys !== null && !in_array($attrs['key'], $emailKeys)) {
+                continue;
+            }
+
+            // Default to true if `isUnrestricted` is not set.
+            $isUnrestricted = $attrs['isUnrestricted'] ?? '1';
+
+            if ($isUnrestricted !== '1' && $isUnrestricted !== '0') {
+                throw new Exception('Invalid value given for the `isUnrestricted` attribute on the ' . $attrs['key'] . ' template.');
+            }
+
+            Repo::emailTemplate()->markTemplateAsUnrestricted($attrs['key'], (bool)$isUnrestricted, $contextId);
+        }
+
+        return true;
     }
 }

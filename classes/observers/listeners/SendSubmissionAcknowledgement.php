@@ -47,7 +47,7 @@ abstract class SendSubmissionAcknowledgement
         $assignedUserIds = StageAssignment::withSubmissionIds([$event->submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get()
-            ->pluck('userId')
+            ->pluck('user_id')
             ->all();
 
         $submitterUsers = Repo::user()
@@ -85,7 +85,7 @@ abstract class SendSubmissionAcknowledgement
         $otherAuthors = $event->submission
             ->getCurrentPublication()
             ->getData('authors')
-            ->filter(fn (Author $author) => !$submitterEmails->contains($author->getEmail()));
+            ->filter(fn (Author $author) => $author->getEmail() && !$submitterEmails->contains($author->getEmail()));
 
         if ($otherAuthors->count()) {
             $emailTemplate = Repo::emailTemplate()->getByKey(

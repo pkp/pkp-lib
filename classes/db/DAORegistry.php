@@ -84,7 +84,3 @@ class DAORegistry
         return $daos[$name];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\db\DAORegistry', '\DAORegistry');
-}

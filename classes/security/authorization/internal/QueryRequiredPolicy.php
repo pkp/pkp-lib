@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/QueryRequiredPolicy.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryRequiredPolicy
@@ -18,9 +19,7 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\submission\Submission;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\query\Query;
-use PKP\query\QueryDAO;
+use PKP\editorialTask\EditorialTask;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
 
@@ -52,18 +51,17 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Make sure the query belongs to the submission.
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($queryId);
-        if (!$query instanceof Query) {
+        $query = EditorialTask::find($queryId);
+        if (!$query instanceof EditorialTask) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        switch ($query->getAssocType()) {
+        switch ($query->assocType) {
             case Application::ASSOC_TYPE_SUBMISSION:
                 $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
                 if (!$submission instanceof Submission) {
                     return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
-                if ($query->getAssocId() != $submission->getId()) {
+                if ($query->assocId != $submission->getId()) {
                     return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
                 break;
@@ -75,8 +73,4 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_QUERY, $query);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\QueryRequiredPolicy', '\QueryRequiredPolicy');
 }

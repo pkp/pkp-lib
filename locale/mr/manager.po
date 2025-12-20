@@ -1,0 +1,3956 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "manager.roles"
+msgstr "भूमिका"
+
+msgid "manager.setup.statistics"
+msgstr "आकडेवारी"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "भौगोलिक आकडेवारी"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "कुठलीही भौगोलिक आकडेवारी (डेटा) गोळा करू नका"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "अभ्यागतांच्या देशासंबंधी माहिती गोळा करा"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "अभ्यागतांच्या देशाची आणि प्रदेशपातळीवरील माहिती गोळा करा"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "समीक्षकांना नावानुसार शोधा"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "नावानुसार शोधा"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "समीक्षणासाठी आवडीचे विषय"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "या ई-मेल पत्त्यावर एक प्रत पाठवा"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "सर्व लेखकांना सूचित करा"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"संपादकीय निर्णय नोंदवला जातो तेव्हा त्यासंबंधीची ई-मेलने पाठवलेली सूचना "
+"कोणा-कोणाला मिळावी?"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "सादरीकरणाच्या सर्व लेखकांना ई-मेल सूचना पाठवा."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"सादरीकरण स्वीकारण्यापूर्वी लेखकाने त्याचा प्रकार प्रदान करणे आवश्यक आहे."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "सर्वसाधारणपणे (Default) काम पूर्ण करण्यासाठी निर्धारित कालमर्यादा"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr ""
+"समीक्षण विनंती स्वीकारण्यासाठी किंवा नाकारण्यासाठी कालमर्यादा - आठवड्यात."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "समीक्षण प्रक्रिया पूर्ण करण्यासाठी ठरवलेली कालमर्यादा - आठवड्यात"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "कधीही स्मरण करून देऊ नका"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "प्रतिसादासाठी स्मरणपत्र"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "समीक्षणासाठी स्मरणपत्र"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"जर एखाद्या समीक्षकाने समीक्षण प्रक्रिया निर्धारीत काळात पूर्ण केली नसेल तर "
+"अपेक्षित तारखेनंतर ई-मेल स्मरणपत्र पाठवा."
+
+msgid "manager.setup.metadata.submission"
+msgstr "सादरीकरणाचा फॉर्म"
+
+msgid "manager.website.appearance"
+msgstr "स्वरूप"
+
+msgid "manager.dois.status.submitted.description"
+msgstr "नोंदणी एजन्सीकडे सादर केलेले सगळे लेख."
+
+msgid "manager.dois.status.error.description"
+msgstr "नोंदणी प्रक्रियेत त्रुटी आढळलेले सगळे लेख."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI अपडेट अयशस्वी झाले"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "काही DOI(s) अपडेट करता आले नाहीत"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "लेखांचे यशस्वीरित्या स्थानांतर (Export) झाले"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "लेख नोंदणीकृत नसलेले म्हणून यशस्वीरित्या चिन्हांकित केले"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "sync करायची गरज असलेले लेख यशस्वीरित्या चिन्हांकित केले"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "लेखांना नवे DOI यशस्वीरित्या दिले"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "लेख जमा करण्यासाठी यशस्वीरित्या सादर केले"
+
+msgid "manager.dois.help.statuses.title"
+msgstr "DOI ची सद्यस्थिती"
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+"तुम्हाला दिलेला DOI चा सुरुवातीचा भाग (prefix) प्रदान केल्याशिवाय DOI नियुक्"
+"त केले जाऊ शकत नाहीत. <a href=\"{$doiSettingsUrl}\">DOI चा सुरुवातीचा "
+"भाग/उपसर्ग (prefix) जोडा</a>."
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+"DOI तयार करण्याचा प्रयत्न केला, परंतु संदर्भसंगती (context) लावण्यासाठी DOI "
+"चा सुरुवातीचा भाग (prefix) आवश्यक आहे."
+
+msgid "manager.highlights.add"
+msgstr "हायलाइटचा समावेश करा"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"तुम्हाला खात्रीने हे {$title} हटवायचे आहे ना? ही कृती रद्द करता येणार नाही."
+
+msgid "manager.highlights.delete"
+msgstr "हायलाइट हटवा"
+
+msgid "manager.highlights.edit"
+msgstr "हायलाइट संपादित करा"
+
+msgid "manager.highlights.image"
+msgstr "प्रतिमा"
+
+msgid "manager.highlights.urlText"
+msgstr "बटण लेबल"
+
+msgid "manager.highlights.urlText.description"
+msgstr "हायलाइट केलेले लेबलचे बटण जसे 'पुढे वाचा'."
+
+msgid "manager.institutions.edit"
+msgstr "संस्था संपादित करा"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR (संशोधन संस्था नोंदणी)"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "या संस्थेचा संशोधन संस्था नोंदणी (Research Organization Registry) ID."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP श्रेणी"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "संस्था हटवा"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "तुम्ही खात्रीने निर्णयाची अमलबजावणी करीत ही संस्था हटवू इच्छिता ना?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "अग्राह्य IP श्रेणी"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "समीक्षण स्मरणपत्र तपशील अपडेट केले आहेत."
+
+msgid "manager.dois.title"
+msgstr "DOIs"
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"वापरकर्त्याने पुढच्या वेळी लॉग-इन करताना त्यांचा पासवर्ड बदलणे आवश्यक आहे."
+
+msgid "manager.plugins.action"
+msgstr "कृती :"
+
+msgid "manager.plugins.disable"
+msgstr "अकार्यान्वित करा"
+
+msgid "manager.plugins.enable"
+msgstr "कार्यान्वित करा"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "प्लग-इन व्यवस्थापन"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"हे संकेतस्थळव्यापी प्लग-इन आहे. फक्त संकेतस्थळ प्रशासक हे प्लग-इन व्यवस्थापि"
+"त करू शकतो."
+
+msgid "manager.plugins"
+msgstr "प्रणालीसाठीची (सिस्टम) प्लग-इन्स"
+
+msgid "manager.reviewerSearch.change"
+msgstr "बदला"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "व्याप्ती (Coverage)"
+
+msgid "manager.publication.productionStage"
+msgstr "प्रकाशन"
+
+msgid "manager.publication.emails"
+msgstr "ई-मेल्स"
+
+msgid "manager.readingTools"
+msgstr "वाचन साधने"
+
+msgid "manager.website.information"
+msgstr "माहिती"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "सगळे जमा करा"
+
+msgid "manager.dois.status.registered"
+msgstr "नोंदणी झाली"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "DOI जमा करा"
+
+msgid "manager.publication.submissionStage"
+msgstr "सादरीकरण"
+
+msgid "manager.publication.reviewStage"
+msgstr "समीक्षण"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "अहवाल (Reports)"
+
+msgid "manager.website"
+msgstr "संकेतस्थळ"
+
+msgid "manager.workflow"
+msgstr "कार्यप्रवाह (Workflow)"
+
+msgid "manager.reviewFormElements.question"
+msgstr "घटक (Item)"
+
+msgid "manager.website.title"
+msgstr "संकेतस्थळाचे सेटिंग्ज"
+
+msgid "manager.workflow.title"
+msgstr "कार्यप्रवाहातील (Workflow) सेटिंग्ज"
+
+msgid "manager.distribution"
+msgstr "वितरण (Distribution)"
+
+msgid "manager.reviewForms"
+msgstr "समीक्षणाचे फॉर्म्स"
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "दूरस्थ (रिमोट) URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "दुसऱ्या संकेतस्थळावरील कोणत्याही URL ला जोडा, उदा. https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"मथळ्यातील सामग्रीमधूनही (Masthead content) सेटिंग्ज > नियतकालिक पृष्ठाला जोडा"
+" (link करा)."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "सादरीकरणासंबंधी सूचना प्रदर्शित करणाऱ्या पृष्ठाचा दुवा (link)."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "तुमच्या अलिकडील अंकाचा (current issue) दुवा (link)."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "तुमच्या अंकांच्या संग्रहाचा (issue archive) दुवा (link)."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "तुमच्या घोषणा/सूचना प्रदर्शित करणाऱ्या पृष्ठाचा दुवा (link)."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "वापरकर्ता लॉग-इन पृष्ठासाठी दुवा (link)."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "वापरकर्ता नोंदणी पृष्ठासाठी दुवा (link)."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "संपादकीय डॅशबोर्डसाठी दुवा (link)."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "वापरकर्ता प्रोफाइल पृष्ठासाठी दुवा (link)."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "एक दुवा (link) जो वापरकर्त्याला लॉग-आउट करेल."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "हा दुवा (link) फक्त अभ्यागताने लॉग-इन केल्यावरच प्रदर्शित केला जाईल."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "तुमची संपर्क माहिती दाखवणाऱ्या पृष्ठाचा दुवा (link)."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "कृपया मार्गनिर्देशन दुव्यांचा प्रकार (Navigation Menu Type) निवडा."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "शोध पृष्ठासाठी दुवा (link)."
+
+msgid "manager.groups.title"
+msgstr "शीर्षक"
+
+msgid "manager.image"
+msgstr "प्रतिमा"
+
+msgid "manager.language.ui"
+msgstr "UI (वापरकर्ता संवाद-सेतू)"
+
+msgid "manager.language.submissions"
+msgstr "सादरीकरणे"
+
+msgid "manager.language.forms"
+msgstr "फॉर्म्स"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"संकेतस्थळावरील प्रत्येक पृष्ठावर भाषा निवड मेनूद्वारे कुठल्याही भाषेची निवड "
+"करण्यासाठी सगळे लोकॅल निवडा. एकाहून अधिक लोकॅल निवडल्यासच पर्यायांची यादी "
+"(menu) दिसेल."
+
+msgid "manager.payment.timestamp"
+msgstr "टाइमस्टॅम्प"
+
+msgid "manager.people.existingUserRequired"
+msgstr "विद्यमान वापरकर्ता नोंदवला गेला पाहिजे."
+
+msgid "manager.people.createUser"
+msgstr "नव्या वापरकर्त्याचा समावेश करा"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"वापरकर्त्याला त्यांचे वापरकर्तानाव आणि पासवर्ड ई-मेलने पाठवून स्वागत करा."
+
+msgid "manager.people.disable"
+msgstr "अकार्यान्वित (Disable) करा"
+
+msgid "manager.people.editProfile"
+msgstr "संक्षिप्त वर्णन (प्रोफाईल) संपादित करा"
+
+msgid "manager.people.editUser"
+msgstr "वापरकर्ता संपादित करा"
+
+msgid "manager.people.emailUsers"
+msgstr "वापरकर्त्यांना ई-मेल पाठवा"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "लोकॅल निवडा"
+
+msgid "manager.people.enable"
+msgstr "कार्यान्वित (enable) करा"
+
+msgid "manager.people.enroll"
+msgstr "वापरकर्त्याची नोंदणी करा"
+
+msgid "manager.people.enrollment"
+msgstr "नोंदणी"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "भूमिकांची जुळवणी करा"
+
+msgid "manager.people.enrollUserAs"
+msgstr "याकरता वापरकर्त्याची नोंदणी करा"
+
+msgid "manager.people.invalidUser"
+msgstr "माफ करा, हा वापरकर्ता अस्तित्वात नाही."
+
+msgid "manager.people.mergeUser"
+msgstr "वापरकर्ता विलीन करा"
+
+msgid "manager.people.mergeUsers"
+msgstr "वापरकर्ते विलीन करा"
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"\"वापरकर्त्याची नोंदणी करा\" वर क्लिक करण्यापूर्वी कृपया पृष्ठाच्या "
+"शीर्षस्थानी असलेल्यातून एक भूमिका निवडा."
+
+msgid "manager.people.mustProvideName"
+msgstr "कृपया प्रथम वापरकर्त्याचे किमान आडनाव द्या."
+
+msgid "manager.people.noneEnrolled"
+msgstr "नोंदणीकृत वापरकर्ते नाहीत."
+
+msgid "manager.people"
+msgstr "समुदाय"
+
+msgid "manager.people.remove"
+msgstr "काढून टाका"
+
+msgid "manager.people.signedInAs"
+msgstr "तुम्ही सध्या {$username} म्हणून लॉग-इन केले आहे"
+
+msgid "manager.people.signInAs"
+msgstr "म्हणून लॉग-इन करा"
+
+msgid "manager.people.signInAsUser"
+msgstr "वापरकर्ता म्हणून लॉग-इन करा"
+
+msgid "manager.people.unenroll"
+msgstr "नोंदणी रद्द करा"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "वापरकर्त्याची नोंद यशस्वीरित्या झाली."
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "हा लेख हटवताना एक त्रुटी आली."
+
+msgid "manager.setup.homepageImage"
+msgstr "मुख्यपृष्ठ प्रतिमा"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"मुख्यपृष्ठावरील मथळ्यातील शीर्षक प्रतिमा स्वरूप अग्राह्य आहे किंवा संक्रमण "
+"(अपलोड) अयशस्वी झाले. स्वीकृत स्वरूपे .gif, .jpg, किंवा .png आहेत."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "वर्णने (Descriptions)"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "कडेच्या पट्टीवर (साइडबार)"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "लॉगिंग आणि ऑडिटिंग"
+
+msgid "manager.setup.logo"
+msgstr "परिचय चिन्ह (Logo)"
+
+msgid "manager.setup.notifications"
+msgstr "लेखकासाठी सादरीकरणासंबंधी सूचना"
+
+msgid "plugins.categories.gateways.description"
+msgstr "गेटवे प्लग-इन्स बाह्य प्रणालीला (सिस्टम) थेट डेटा प्रदान करतात."
+
+msgid "manager.distribution.license"
+msgstr "परवाना"
+
+msgid "manager.distribution.license.other"
+msgstr "इतर विशिष्ट परवान्यांसाठी URL चा दुवा"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "परवाना अटी"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"प्रकाशनासोबत तुम्हाला प्रदर्शित करायच्या आहेत अशा सार्वजनिक परवाना अटींची नों"
+"द करा."
+
+msgid "manager.distribution.customHeaders"
+msgstr "पारंपारिक टॅग्स (Custom Tags)"
+
+msgid "manager.paymentMethod"
+msgstr "रकमेचा भरणा (Payments)"
+
+msgid "manager.paymentMethod.title"
+msgstr "रकमेचा भरणा (Payments) करायच्या पद्धती"
+
+msgid "manager.paymentMethod.none"
+msgstr "रकमेचा भरणा (Payments) करायची कोणतीही पद्धत निवडलेली नाही"
+
+msgid "manager.paymentMethod.method"
+msgstr "रकमेचा भरणा (Payments) करायची पद्धत"
+
+msgid "manager.paymentMethod.currency"
+msgstr "चलन"
+
+msgid "settings.roles.roleOptions"
+msgstr "भूमिकांचे पर्याय"
+
+msgid "settings.roles.roleName"
+msgstr "भूमिकेचे नाव"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "संक्षेप (Abbreviation)"
+
+msgid "settings.roles.assignedStages"
+msgstr "नियुक्त टप्पे"
+
+msgid "settings.roles.stages"
+msgstr "टप्पे"
+
+msgid "settings.roles.roleDetails"
+msgstr "भूमिकेचा तपशील"
+
+msgid "settings.roles.from"
+msgstr "परवानगीचा स्तर"
+
+msgid "settings.roles.nameRequired"
+msgstr "भूमिकेचे नाव तुम्हाला निश्चित करावे लागेल."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "भूमिकेचे संक्षिप्त रूप (abbreviature) तुम्हाला निश्चित करावे लागेल."
+
+msgid "settings.roles.uniqueName"
+msgstr "या भूमिकेसाठी विशिष्ट नाव तुम्हाला निश्चित करावे लागेल."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "भूमिकेसाठी परवानग्यांचा स्तर तुम्हाला निश्चित करावा लागेल."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "सादरीकरणाच्या मेटाडेटाच्या संपादनाची परवानगी द्या."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "या अंमलबजावणीच्या कामांच्या (library) फाईलसाठी नाव आवश्यक आहे."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "या अंमलबजावणीच्या कामांच्या (library) फाईलसाठी फाईल प्रकार आवश्यक आहे."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "करार (Contracts)"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "परवानग्या (Permissions)"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "इतर"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "जोडण्यासाठी अंमलबजावणीच्या कामांच्या (library) फाईल्स निवडा"
+
+msgid "grid.action.addGenre"
+msgstr "घटकाचा (Component) समावेश करा (Add)"
+
+msgid "grid.action.editGenre"
+msgstr "हा घटक (Component) संपादित करा"
+
+msgid "grid.action.deleteGenre"
+msgstr "हा घटक (Component) हटवा (Delete)"
+
+msgid "manager.setup.genres.label"
+msgstr "फाईलचा प्रकार"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"डेटा सेट आणि संशोधन साहित्य यासारख्या या पूरक फाईल्स आहेत. त्या मुख्य प्रका"
+"शन फाईल्सपासून अलग असतात आणि स्वतंत्रपणे प्रदर्शित केल्या जातात."
+
+msgid "manager.setup.genres.key"
+msgstr "संकेतचिन्ह (Key)"
+
+msgid "manager.setup.genres.key.exists"
+msgstr "संकेतचिन्ह (Key) याआधीच अस्तित्वात आहे."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "फाईलची माहिती (मेटाडेटा)"
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "सादरीकरणासोबत आवश्यक"
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+"हो, सादरीकरण करणाऱ्या लेखकांना यापैकी एक किंवा अधिक फाईल्स संक्रमित (अपलोड) "
+"करण्याची आवश्यकता आहे."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "कोणतेही घोषणा/सूचना प्रकार अस्तित्वात नाहीत."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "घोषणा/सूचना प्रकार"
+
+msgid "manager.announcements"
+msgstr "घोषणा/सूचना"
+
+msgid "manager.announcements.create"
+msgstr "नवी घोषणा/सूचना तयार करा"
+
+msgid "manager.announcements.createTitle"
+msgstr "निर्माण करा"
+
+msgid "manager.announcements.dateExpire"
+msgstr "कालबाह्यता"
+
+msgid "manager.announcements.datePublish"
+msgstr "प्रकाशित झाले"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "घोषणा/सूचना हटवा"
+
+msgid "manager.announcements.edit"
+msgstr "घोषणा/सूचना संपादित करा"
+
+msgid "manager.announcements.editTitle"
+msgstr "संपादित करा"
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "कालबाह्यता दिनांक"
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "कृपया समाप्ती तारखेच्या महिन्याव्यतिरिक्त वर्ष आणि/किंवा दिवसही निवडा."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr ""
+"कृपया समाप्ती तारखेच्या वर्षाव्यतिरिक्त महिना आणि/किंवा दिवसाची तारीखही "
+"निवडा."
+
+msgid "manager.announcements.form.description"
+msgstr "घोषणा/सूचना"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "घोषणेचा/सूचनेचा संपूर्ण मजकूर."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "संक्षिप्त मजकूर"
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "घोषणेच्या/सूचनेच्या शीर्षकासह संक्षिप्त मजकूर दिसावा."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "सेव्ह करून आणखी एक निर्माण करा"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "घोषणेचे/सूचनेचे शीर्षक आवश्यक आहे."
+
+msgid "manager.announcements.form.title"
+msgstr "शीर्षक"
+
+msgid "manager.announcements.form.typeId"
+msgstr "प्रकार"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "कृपया वैध घोषणा/सूचना प्रकार निवडा."
+
+msgid "manager.announcements.noneCreated"
+msgstr "कोणत्याही घोषणा/सूचना केलेल्या नाहीत."
+
+msgid "manager.announcements.title"
+msgstr "शीर्षक"
+
+msgid "manager.announcements.type"
+msgstr "प्रकार"
+
+msgid "manager.announcementTypes"
+msgstr "घोषणेचा/सूचनेचा प्रकार"
+
+msgid "manager.announcementTypes.create"
+msgstr "घोषणा/सूचना प्रकार निर्माण करा"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "निर्माण करा"
+
+msgid "manager.announcementTypes.edit"
+msgstr "घोषणा/सूचना प्रकार संपादित करा"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "संपादित करा"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "सेव्ह करून आणखी एक निर्माण करा"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "नाव"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "घोषणा/सूचना प्रकाराचे नाव आवश्यक आहे."
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "नोंदणी केलेले DOI चिन्हांकित करा"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "नोंदणी न केलेले DOI चिन्हांकित करा"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "DOIs Needs Sync चिन्हांकित करा"
+
+msgid "manager.dois.actions.export.label"
+msgstr "DOIs स्थानांतर (Export) करा"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"तुम्ही {$registrationAgency} कडे {$count} लेखांसाठी DOI मेटाडेटा रेकॉर्ड(स)चे"
+" स्थानांतर (Export) करणार आहात. तुम्ही खात्रीने या रेकॉर्ड(स्)चे स्थानांतर "
+"(Export) करू इच्छिता ना?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "DOI नियुक्त करा"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "सगळे DOIs जमा करा"
+
+msgid "manager.dois.actions.description"
+msgstr "निवड केलेल्या {$count} लेखांवर कार्यवाही करा."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "एकगठ्ठा (Bulk) कार्यवाही"
+
+msgid "manager.dois.depositStatus"
+msgstr "जमा केलेल्या लेखांबद्दलची स्थिती"
+
+msgid "manager.dois.publicationStatus"
+msgstr "प्रकाशनाची स्थिती"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "या लेखाचा मेटाडेटा {$registrationAgency} ला सादर केला गेला आहे."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr ""
+"या लेखाची सामान्य प्रक्रियेशिवाय (manually) नोंदणी एजन्सीकडे नोंद केली गेली "
+"आहे."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "या लेखाचा मेटाडेटा {$registrationAgency} ला सादर केलेला नाही."
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "हा लेख प्रकाशित होईपर्यंत जमा करता येणार नाही."
+
+msgid "manager.dois.registration.viewError"
+msgstr "त्रुटींवर नजर फिरवा"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "नोंदणीसंबंधी आलेला त्रुटी संदेश"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "रेकॉर्ड पहा"
+
+msgid "manager.dois.update.success"
+msgstr "DOI(s) यशस्वीरित्या अपडेट केले"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "DOI(s) जमा करा"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "DOI आवश्यक आहे"
+
+msgid "manager.dois.status.unregistered"
+msgstr "नोंदणी झालेली नाही"
+
+msgid "manager.dois.status.submitted"
+msgstr "सादर केले"
+
+msgid "manager.dois.status.error"
+msgstr "त्रुटी"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr "त्रुटी आढळली"
+
+msgid "manager.dois.status.stale"
+msgstr "Sync करायला हवे"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr "DOI नियुक्त केले"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr "DOI नसलेले सगळे लेख."
+
+msgid "manager.emails.createEmail"
+msgstr "ई-मेल निर्माण करा"
+
+msgid "manager.emails.details"
+msgstr "तयार मजकूराचा (टेम्पलेट) तपशील"
+
+msgid "manager.emails.disable"
+msgstr "अकार्यान्वित (Disable) करा"
+
+msgid "manager.emails.editTestExample"
+msgstr "ई-मेल चाचणी उदाहरण संपादित करा"
+
+msgid "manager.emails.emailTemplate"
+msgstr "तयार मजकूराचा (टेम्पलेट) ई-मेल"
+
+msgid "manager.emails.emailTemplates"
+msgstr "तयार मजकूरांचे (टेम्पलेट्स) ई-मेल"
+
+msgid "manager.emails.otherTemplates"
+msgstr "इतर तयार मजकूर (टेम्पलेट्स)"
+
+msgid "manager.emails.enabled"
+msgstr "ह ई-मेलचा तयार मजकूर (टेम्पलेट) कार्यान्वित (Enable) करा"
+
+msgid "manager.emails.enable"
+msgstr "कार्यान्वित (Enable) करा"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"ई-मेलसाठी स्पेस किंवा विशेष अक्षर नसलेली एक अनन्य अशी (unique) ई-मेल की (key)"
+" आवश्यक आहे."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "ई-मेलसाठी मजकूराचा मुख्य भाग हवा आहे."
+
+msgid "manager.emails"
+msgstr "तयार केलेले ई-मेल्स"
+
+msgid "manager.emails.resetAll"
+msgstr "सगळे पुनर्स्थापित (रीसेट) करा"
+
+msgid "manager.emails.resetToDefault"
+msgstr "सर्वसाधारण मूल्यावर (Default Metric) पुनर्स्थापित (रीसेट) करा"
+
+msgid "manager.emails.sentFrom"
+msgstr "यांचेकडून पाठवलेला"
+
+msgid "manager.emails.sentTo"
+msgstr "यांना पाठवलेला"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Excel/CSV प्रारूपामध्ये पाठवा (Export करा)"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Excel/CSV प्रारूपामध्ये पाठवण्यासाठी (Export) वापरकर्त्यांची निवड करा."
+
+msgid "manager.filesBrowser"
+msgstr "फाईल्सचा ब्राउझर"
+
+msgid "manager.files.createDir"
+msgstr "डिरेक्टरी तयार करा"
+
+msgid "manager.files.emptyDir"
+msgstr "या डिरेक्टरीमध्ये कोणत्याही फाईल्स आढळल्या नाहीत."
+
+msgid "manager.files.indexOfDir"
+msgstr "{$dir} ची सूची"
+
+msgid "manager.files.parentDir"
+msgstr "मूळ (Parent) डिरेक्टरी"
+
+msgid "manager.files.uploadFile"
+msgstr "फाईल अपलोड करा"
+
+msgid "manager.groups.confirmDelete"
+msgstr "तुम्ही खात्रीने हा समूह (group) हटवू इच्छिता ना?"
+
+msgid "manager.groups.createTitle"
+msgstr "शीर्षक लिहा"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "समूहाला (group) शीर्षक हवे."
+
+msgid "manager.groups.membership.addMember"
+msgstr "सदस्याचा समावेश करा"
+
+msgid "manager.groups.membership"
+msgstr "सदस्यत्व"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "या समूहात एकही सदस्य नाही."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "संस्थात्मक सांख्यिकी कार्यान्वित करा"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "सार्वजनिक API"
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "COUNTER SUSHI आकडेवारी सार्वजनिकरित्या उपलब्ध करा"
+
+msgid "manager.statistics.counterR5"
+msgstr "काउंटर R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "काउंटर R5 अहवाल"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "COUNTER R5 वापराची आकडेवारी अद्याप उपलब्ध नाही."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "अहवाल सेटिंग्ज"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "सुरूवात केल्याची तारीख"
+
+msgid "manager.setup.dois"
+msgstr "DOIs"
+
+msgid "manager.setup.dois.setup"
+msgstr "सेटअप"
+
+msgid "manager.setup.dois.registration"
+msgstr "नोंदणी"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI चा सुरुवातीचा भाग (Prefix)"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "स्वयंचलितरित्या जमा करणे (Automatic Deposit)"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "स्वयंचलितरित्या जमा करणे (Automatic Deposit) कार्यान्वित (Enable) करा"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"तारीख YYYY-MM-DD किंवा YYYY-MM स्वरूपात असावी. प्रारंभाची तारीख "
+"{$earliestDate} ही किंवा यानंतरची असू शकते."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "अखेरची तारीख"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "तारखेचे हे स्वरूप ग्राह्य नाही."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ग्राहकाचा ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "मेट्रिकचा प्रकार"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "दाखवण्याचे गुणविशेष"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "प्रकाशन वर्ष"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP फॉरमॅट अग्राह्य आहे."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "सादरीकरणाचा ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "सादरीकरणाचा ID अस्तित्वात नाही."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "उगमस्थानाची माहिती समाविष्ट करा"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "मासिक तपशील वगळा"
+
+msgid "manager.statistics.reports"
+msgstr "अहवाल"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "YYYYMM प्रारूप वापरा."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "YYYYMMDD प्रारूप वापरा."
+
+msgid "manager.affiliationAndSupport"
+msgstr "प्रायोजक"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "स्वयंचलित DOI निश्चिती (Automatic DOI Assignment)"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "सादरीकरणाला DOI कधी दिला जावा?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "प्रकाशनानंतर"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "कधीच नाही"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI चा सुरुवातीचा भाग (Prefix)"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "DOI दिले गेलेले लेख"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "DOI चा सुरुवातीचा भाग (Prefix) आवश्यक आहे"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI प्रारूप"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "DOI शेवटच्या भागाचे (Suffix) प्ररूप ठरवण्याची रीत"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr ""
+"सर्वसाधारणपणे (डीफॉल्ट) - स्वयंचलितपणे आठ-अक्षराचा शेवटचा भाग (Suffix) तयार "
+"केला जातो"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "प्ररूप ठरवण्याची रीत (Custom pattern) - (याची शिफारस नाही)"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "नोंदणी एजन्सी"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "नोंदणी एजन्सी कार्यान्वित (Enable) केलेली नाही"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "कोणीही नाही"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "लेखाच्या वेगवेगळ्या आवृत्तींना (versioning) दिलेले DOI"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "DOIs कार्यान्वित केल्याशिवाय तुम्ही ही क्रिया सुरू करू शकत नाही."
+
+msgid "doi.manager.versions.countStatement"
+msgstr "याच्या {$count} आवृत्त्या (versions) आहेत."
+
+msgid "doi.manager.versions.view"
+msgstr "सगळ्या पहा"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "सर्व आवृत्त्यांसाठी (versions) DOI"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI मध्ये अवैध अक्षरे आहेत."
+
+msgid "manager.setup.publishing"
+msgstr "प्रकाशनाचे तपशील"
+
+msgid "manager.setup.additionalContent"
+msgstr "अतिरिक्त सामग्री (Content)"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "येथे केलेली कुठलीही नोंद तुमच्या मुख्यपृष्ठावर दिसेल."
+
+msgid "manager.setup.advanced"
+msgstr "प्रगत"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "कॉपीराइट सूचना"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "सूचना"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "होय, {$email} वर एक प्रत पाठवा"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "नाही"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "कोणालाही सूचित करा"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "यापैकी एक/अनेक ई-मेल पत्ते ग्राह्य नाहीत."
+
+msgid "manager.setup.notifyUsers"
+msgstr "सूचित करा"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "तुमची ई-मेल सूचना कोणाला मिळावी ते वापरकर्ते निवडा."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "या ई-मेलची एक प्रत मला {$email} वर पाठवा."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "ई-मेल पाठवा"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"तुम्ही {$total} वापरकर्त्यांना ई-मेल पाठवणार आहात. तुम्हाला खात्रीने हा ई-मे"
+"ल पाठवायचा आहे ना?"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "दुसरा ई-मेल पाठवा"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "मुक्त-द्वार (Open Access) धोरण"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"पृष्ठाच्या मथळ्यातील जागेसाठी वापरायची प्रतिमा (page header logo) अग्राह्य "
+"प्रारूपात आहे किंवा संक्रमण (अपलोड) अयशस्वी झाले आहे. स्वीकृत प्रारूपे .gif, "
+".jpg, किंवा .png आहेत."
+
+msgid "manager.setup.pageFooter"
+msgstr "पृष्ठाचा तळ (Footer)"
+
+msgid "manager.setup.principalContact"
+msgstr "प्रमुख संपर्क"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"सार्वजनिकरित्या उपलब्ध असलेल्या संकेतस्थळावर मुख्य संपादक, व्यवस्थापकीय संपा"
+"दक किंवा प्रशासकीय कर्मचारी पदासाठी संपर्क तपशील देण्याचे आवाहन प्रदर्शित "
+"केले जाऊ शकते."
+
+msgid "manager.setup.privacyStatement"
+msgstr "गोपनीयता विधान"
+
+msgid "manager.setup.dateTime"
+msgstr "तारीख आणि वेळ"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "विस्तृत तारीख, वार (Date)"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "केवळ तारीख (Date (Short))"
+
+msgid "manager.setup.dateTime.time"
+msgstr "वेळ"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "विस्तृत तारीख आणि वेळ"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "केवळ तारीख आणि वेळ (Short)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "विशिष्ट प्रारूप (Custom)"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "सर्वसाधारणपणे (Default) प्रतिसादासाठी निर्धारित कालमर्यादा"
+
+msgid "manager.setup.sponsors.note"
+msgstr "प्रायोजकाशी संबंध आणि धोरणासंबंधीचे वर्णन"
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "तांत्रिक सहाय्य संपर्क"
+
+msgid "manager.setup.theme"
+msgstr "विषय/ मांडणी शैली (themes)"
+
+msgid "manager.setup.institutions"
+msgstr "संस्था"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"या पृष्ठाच्या वरच्या बाजूला असलेल्या प्लग-इन्स टॅबमधून सोयीच्या मांडणी शैली "
+"(themes) निवडल्या जाऊ शकतात."
+
+msgid "manager.setup.theme.notFound"
+msgstr ""
+"तुम्ही निवडलेली मांडणी शैली (themes) स्थापित किंवा कार्यान्वित केलेली नाही."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"लेखकांना इतर योगदानकर्त्यांबद्दल माहिती देणाच्या प्रक्रियेदरम्यान लेखकांना "
+"खालील बाबी सांगितल्या जातात. लेखकाने स्वतःबद्दल, सह-लेखकांबद्दल आणि इतर "
+"कोणत्याही योगदानकर्त्यांबद्दल कोणती माहिती द्यावी याचे थोडक्यात स्पष्टीकरण "
+"द्या."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"सादरीकरण प्रक्रियेच्या अंतिम चरणादरम्यान लेखकांना खालील बाबी सांगितल्या जाता"
+"त, जेव्हा त्यांना त्यांचे काम सादर करण्यापूर्वी त्यांनी प्रदान केलेल्या "
+"सगळ्या माहितीचे पुनरावलोकन करण्यास सांगितले जाते."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "लेखकांसाठी मार्गदर्शन"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "सादरीकरण प्रक्रियेदरम्यान कराव्या लागणार्‍या कामांची यादी (Checklist)"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "हा विभाग निष्क्रिय करा आणि त्यात सादरीकरण करण्याची परवानगी देऊ नका."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "तुम्ही खात्रीने हा विभाग निष्क्रिय करू इच्छिता ना?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "तुम्ही खात्रीने हा विभाग सक्रिय करू इच्छिता ना?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "संपादकीय जबाबदार्‍या"
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "{$name} ला {$role} म्हणून नियुक्त करा"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "संकेतस्थळ प्रवेश (access) पर्याय"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numBer} नवे)"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage} टक्के)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "नोंदणीकृत वापरकर्ते"
+
+msgid "manager.users"
+msgstr "वापरकर्ते"
+
+msgid "plugins.categories.metadata"
+msgstr "मेटाडेटासाठी प्लग-इन्स"
+
+msgid "plugins.categories.auth"
+msgstr "अधिकारासंबंधी प्लग-इन्स"
+
+msgid "plugins.categories.importexport"
+msgstr "Import/Export प्लग-इन्स"
+
+msgid "plugins.categories.paymethod"
+msgstr "पेमेंट प्लग-इन्स"
+
+msgid "plugins.categories.reports"
+msgstr "रिपोर्ट प्लग-इन्स"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"प्रणालीचे (सिस्टम) स्वरूप बदलण्यासाठी मांडणी शैली (theme) प्लग-इन्सचा वापर "
+"केला जाऊ शकतो."
+
+msgid "plugins.categories.themes"
+msgstr "मांडणी शैली (theme) प्लग-इन्स"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI मेटाडेटा फॉरमॅट प्लग-इन्स"
+
+msgid "plugins.categories.pubIds"
+msgstr "पब्लिक आयडेंटिफायर प्लग-इन्स"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "हे प्लग-इन्स पब्लिक आयडेंटिफायरला आधार देतात."
+
+msgid "manager.plugins.delete"
+msgstr "प्लग-इन हटवा"
+
+msgid "manager.plugins.installConfirm"
+msgstr "तुम्हाला हे प्लग-इन नक्की स्थापित (install) करायचे आहे ना?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "तुम्हाला हे प्लग-इन नक्की अपग्रेड करायचे आहे ना?"
+
+msgid "grid.action.installPlugin"
+msgstr "हे प्लग-इन स्थापित (install) किंवा अपग्रेड करा"
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"हटवा (delete) वर क्लिक करून, तुम्ही सर्व्हरच्या फाईल प्रणाली (सिस्टम) मधून "
+"प्लग-इन हटवू (डिलीट करू) शकाल."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "\"{$pluginName}\" प्लग-इन यशस्वीरित्या हटवण्यात (delete) आले"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "प्लग-इन \"{$pluginName}\" अस्तित्वात नाही"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "कृपया प्रथम फाईल निवडा"
+
+msgid "manager.plugins.upload"
+msgstr "नवीन प्लग-इन संक्रमित (अपलोड) करा"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "संक्रमित (अपलोड) करण्यासाठी फाईल निवडली आहे याची खात्री करा."
+
+msgid "manager.plugins.installed"
+msgstr "स्थापित केलेले (Installed) प्लग-इन्स"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "प्लग-इन गॅलरी"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "आढावा"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "स्थापना (Installation)"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "नवीनतम सुसंगत आवृत्ती (Latest Compatible Release)"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "अधिकृत"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "परीक्षण केलेले (Reviewed)"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"पब्लिक नॉलेज प्रोजेक्ट टीमने या प्लग-इनचे परीक्षण करुन त्याला अधिकृत मान्यता "
+"दिली आहे."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "भागीदार (Partner)"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "देखभालकर्ता (Maintainer)"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} {$date} रोजी याचे विमोचन (रिलीज) झाले"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "मुख्यपृष्ठ"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "गोषवारा (Summary)"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "स्थिती (Status)"
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr ""
+"सध्या या प्लग-इनची कोणतीही सुसंगत आवृत्ती (compatible version) उपलब्ध नाही."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"प्लग-इन आधीच स्थापित केलेले (installed) आहे, परंतु नव्या आवृत्ती (version) ने"
+" अपडेट केले जाऊ शकते."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "उपलब्ध आवृत्ती (version) पेक्षा नवे"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "अपग्रेड केले जाऊ शकते"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "अद्ययावत"
+
+msgid "manager.plugins.installFailed"
+msgstr "स्थापना (Installation) अयशस्वी झाली. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "अनुपलब्ध"
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+"संक्रमित (अपलोड) केलेले प्लग-इन अपग्रेड केलेल्या प्लग-इनच्या प्रवर्गामध्ये "
+"(category) बसत नाही."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "हे प्लग-इन अस्तित्वात नाही. कृपया स्थापित करा"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"हे प्लग-इन पूर्वीच अस्तित्वात आहे, परंतु स्थापित केलेल्या आवृत्ती (version) "
+"पेक्षा नवे आहे. तुम्ही अपग्रेड करू शकता"
+
+msgid "manager.plugins.settings"
+msgstr "सेटिंग्ज"
+
+msgid "manager.plugins.upgrade"
+msgstr "प्लग-इन अपग्रेड करा"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "अपग्रेड अयशस्वी. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "{$versionString} ही नवी आवृत्ती (version) वापरून अपग्रेड यशस्वी झाले"
+
+msgid "manager.plugins.uploadError"
+msgstr "फाईल संक्रमित (अपलोड) करताना त्रुटी आली"
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "प्लग-इन डिरेक्टरीमध्ये version.xml सापडली नाही"
+
+msgid "notification.localeEnabled"
+msgstr "लोकॅल कार्यान्वित (enabled) केले."
+
+msgid "notification.localeDisabled"
+msgstr "लोकॅल अकार्यान्वित (disabled) केले."
+
+msgid "notification.localeInstalled"
+msgstr "सगळे निवडलेले लोकॅल स्थापित आणि सक्रिय केले."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} लोकॅल विस्थापित (अनइनस्टॉल) केले."
+
+msgid "notification.localeSettingsSaved"
+msgstr "लोकॅल सेटिंग्ज सेव्ह केले."
+
+msgid "notification.editedUser"
+msgstr "वापरकर्ता संपादित केला गेला आहे."
+
+msgid "manager.reviewForms.completed"
+msgstr "प्रक्रिया पूर्ण झाली (Completed)"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "तुम्हाला खात्रीने हा समीक्षणाचा फॉर्म हटवायचा (delete) आहे का?"
+
+msgid "manager.reviewForms.description"
+msgstr "वर्णन आणि सूचना"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "समीक्षणाच्या फॉर्मसाठी शीर्षक हवे."
+
+msgid "manager.reviewForms.edit"
+msgstr "समीक्षणासाठीचा फॉर्म"
+
+msgid "manager.reviewForms.inReview"
+msgstr "समीक्षणक्रिया चालू आहे"
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "कुठलाही नाही / फॉर्मशिवाय समीक्षण (Free Form Review)"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "समीक्षणासाठी वेगळे फॉर्म तयार केलेले नाहीत."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "समीक्षणासाठी वेगळे फॉर्म वापरलेले नाहीत."
+
+msgid "manager.reviewForms.preview"
+msgstr "पूर्वावलोकनाचा फॉर्म"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "समीक्षणाच्या फॉर्ममधील डेटा"
+
+msgid "manager.reviewForms.title"
+msgstr "शीर्षक"
+
+msgid "manager.reviewFormElements"
+msgstr "फॉर्ममधील घटक (Form Items)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "निवडीच्या घटकाचा समावेश करा (Add selection)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "घटकाचा प्रकार निवडा (Choose item type)"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "प्रकाशित फॉर्मचा प्रकार हटविण्यासाठी दुजोरा द्या..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "येथे कॉपी करा (Copy to):"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "ड्रॉप-डाउन बॉक्स"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "फॉर्मचा घटक संपादित करा (Edit Form Item)"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "घटकाचा प्रकार (Item type)"
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "फॉर्मच्या घटकांमध्ये प्रश्न हवा."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "फॉर्मचे कोणतेही घटक निर्माण केलेले नाहीत."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "निवड (Selection)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "वर्णन"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "रेडिओ बटणे (फक्त एकाचीच निवड तुम्ही करू शकता)"
+
+msgid "manager.reviewFormElements.included"
+msgstr "लेखकाला पाठवलेल्या संदेशात समाविष्ट केले आहे"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "एका शब्दापुरता मजकूराचा बॉक्स"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "एका ओळीपुरता मजकूराचा बॉक्स"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "वाचू शकतील असा मजकूर (लेखकांसाठी)"
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "व्याप्तीसंबंधी (Coverage) मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाला व्याप्तीसंबंधी (Coverage) मेटाडेटा सुचवण्यास सांगा."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"कळीचे शब्द (कीवर्ड) सामान्यतः एक ते तीन शब्दांचे वाक्यांश असतात जे "
+"सादरीकरणाचे प्रमुख विषय सूचित करण्यासाठी वापरले जातात."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाकडून कळीच्या शब्दांसाठी (कीवर्ड्स) विनंती करू नका."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"सादरीकरण स्वीकारण्यापूर्वी लेखकाने कळीचे शब्द (कीवर्ड्स) सूचित करणे आवश्यक "
+"आहे."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "भाषेसाठी मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "सादरीकरणादरम्यान लेखकाकडून लेखनाच्या भाषेसंबंधी विचारू नका."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "सादरीकरण स्वीकारण्यापूर्वी लेखकाने लेखनाची भाषा सूचित करणे आवश्यक आहे."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "अधिकारासंबंधीचा मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाकडून अधिकार प्रकटीकरणासंबंधी (rights disclosure) विचारू"
+" नका."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"या सादरीकरणाची व्युत्पत्ती अन्य लेख किंवा इतर संसाधन असू शकते ज्याचा स्रोत "
+"DOI सारख्या ID ने नमूद केला जातो."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "स्रोतासंबंधीचा मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.source.request"
+msgstr "सादरीकरणादरम्यान लेखकाला स्त्रोताचा URL प्रदान करण्यास सांगा."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"सादरीकरणाच्या विषयाचे वर्णन कळीचे शब्द/वाक्यांश (कीवर्ड्स) किंवा वर्गीकरणाचे "
+"चिन्ह (कोड) वापरून केले जाते."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "सादरीकरणादरम्यान लेखकाला विषयासंबंधी विचारू नका."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "सादरीकरण स्वीकारण्यापूर्वी लेखकाने विषय प्रदान करणे आवश्यक आहे."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "प्रकार हा मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "सादरीकरणादरम्यान लेखकाकडून त्याचा प्रकार विचारू नका."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "सादरीकरणादरम्यान लेखकाला प्रकार प्रदान करण्यास सांगा."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "सादरीकरणादरम्यान लेखकाकडून विषयांची माहिती मागू नका."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "सादरीकरण स्वीकारण्यापूर्वी लेखकाने सादरीकरणाचे विषय नोंदवणे आवश्यक आहे."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr ""
+"सहाय्यकारी संस्था (Supporting agencies) हा मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाकडून सहाय्यकारी संस्थांविषयीची (Supporting agencies) "
+"माहिती मागू नका."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"सादरीकरणाशी संबंधीत संदर्भ वेगळ्या फील्डमध्ये गोळा करा. Crossref सारख्या "
+"उद्धरणांचा माग घेणार्‍या (citation-tracking) सेवांसाठी ही माहिती आवश्यक असू "
+"शकते."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "संदर्भासाठीचा मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "सादरीकरणादरम्यान लेखकाला संदर्भ देण्यास सांगा."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr ""
+"माहिती/आकडेवारीच्या (डेटा) उपलब्धता विधानासाठी (data availability statement) "
+"मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाकडून माहिती/आकडेवारीच्या (डेटा) उपलब्धता विधानासंबंधी ("
+"data availability statement) विचारू नका."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"सादरीकरण स्वीकारण्यापूर्वी लेखकाने माहिती/आकडेवारीच्या (डेटा) उपलब्धता विधान "
+"(data availability statement) करणे आवश्यक आहे."
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "सावधानतेचे इशारे (Warnings encountered):"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "आलेल्या त्रुटी (Errors occured):"
+
+msgid "plugins.importexport.common.id"
+msgstr "आयडी (Id): {$id}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "अज्ञात घटक (Unknown element) {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "अज्ञात संकेत (Unknown encoding) {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "आशय (content) {$param} या संकेतरूपात नाही (not encoded)"
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "{$param} या लेखकाच्या नावासाठी वापरकर्ता गट उपलब्ध नाही"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "{$param} - अज्ञात सादरकर्ता (uploader)"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "{$source} वरून तात्पुरती फाईल {$dest} निर्माण करता आली नाही"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"फाईलचा अपेक्षित आकार (size) \"{$expected}\" प्रत्यक्ष फाईलच्या आकाराशी (size)"
+" \"{$actual}\" जुळत नाही"
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"सादरीकरणाची फाईल {$id} वगळण्यात आली आहे कारण ती वैध सुधारित आवृत्ती (valid "
+"revision) नाही."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"सादरीकरणाची फाईल {$id} वगळण्यात आली आहे कारण ती ग्राह्य फाईल टप्प्यावर "
+"(stage) नाही."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"{$id} प्रकाशनाच्या मलपृष्ठ प्रतिमेचे (cover image) स्थानांतर (Export) करण्या"
+"त आले नाही, त्याची फाईल \"{$path}\" या पत्त्यावर आढळली नाही."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "दाखल (import) करुन घेण्यातील/स्थानांतर (Export) करण्यातील त्रुटी :"
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"दाखल (import) करुन घ्यावयाच्या \"{$username}\" वापरकर्त्याचा पासवर्ड अवैध आहे"
+". वापरकर्ता दाखल (import) केला नाही."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"वापरकर्तानाव \"{$username}\" आणि ई-मेल \"{$email}\" एकाच विद्यमान "
+"वापरकर्त्याशी जुळत नाहीत."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr "चाचणी केली जात आहे"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "शीर्षक"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "पत्ता (Path)"
+
+msgid "manager.navigationMenus"
+msgstr "मार्गनिर्देशन दुवे (Navigation)"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "मजकूर (Content)"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"पत्त्याच्या (path) फील्डमध्ये फक्त अक्षरे-अंक वर्ण आणि '.', '/', '-' आणि '_' "
+"हीच चिन्हे वापरता येतात."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr ""
+"हे शीर्षक दुसऱ्या मार्गनिर्देशन दुव्यासाठी (navigation menu) यापूर्वीच "
+"अस्तित्वात आहे."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "शीर्षक हवे"
+
+msgid "manager.navigationMenuItems"
+msgstr "मार्गनिर्देशन यादीतले दुवे (Navigation Menu Items)"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "नियुक्त केलेले यादीतले दुवे (Assigned Menu Items)"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr ""
+"सक्रिय मार्गनिर्देशन क्षेत्रांची मांडणी शैली (Active Theme Navigation Areas)"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "एका URL ची तरतूद करणे आवश्यक आहे"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "यादीतला हा दुवा कधी दाखवला आणि लपवला जाईल याबद्दल अधिक जाणून घ्या."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "मार्गनिर्देशन दुव्यांचे प्रकार (Navigation Menu Type)"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"मार्गनिर्देशन दुव्यांचे प्रकार (Navigation Menu Type) निवडा किंवा तुमचे "
+"स्वतःचे व्यक्तिगत (Custom) तयार करा"
+
+msgid "grid.category.add"
+msgstr "प्रवर्ग (Category) समाविष्ट करा"
+
+msgid "grid.category.edit"
+msgstr "प्रवर्ग (Category) संपादित करा"
+
+msgid "grid.category.name"
+msgstr "नाव"
+
+msgid "grid.category.path"
+msgstr "पत्ता (Path)"
+
+msgid "grid.category.pathExists"
+msgstr ""
+"प्रवर्गाचा (Category) पत्ता (Path) यापूर्वीच अस्तित्वात आहे. कृपया एक एकमेव "
+"पत्ता (Path) नोंदवा."
+
+msgid "grid.category.description"
+msgstr "वर्णन (Description)"
+
+msgid "grid.category.parentCategory"
+msgstr "मूळ प्रवर्ग (Parent Category)"
+
+msgid "grid.category.nameRequired"
+msgstr "कृपया प्रवर्गाच्या (Category) नावाची नोंद करा."
+
+msgid "grid.category.categoryDetails"
+msgstr "प्रवर्गाचा (Category) तपशील"
+
+msgid "stats.allUsers"
+msgstr "सर्व वापरकर्ते"
+
+msgid "stats.city"
+msgstr "शहर"
+
+msgid "stats.views"
+msgstr "अवलोकन करणारे (Views)"
+
+msgid "stats.downloads"
+msgstr "डाउनलोड्स"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "तारखेनुसार एकूण डाउनलोड्स"
+
+msgid "manager.setup.competingInterests"
+msgstr "हितसंबंधांचे संघर्ष"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"प्रतिमा फाईल हवी. तुम्ही योग्य फाईल निवडून संक्रमित (अपलोड) केली आहे याची "
+"कृपया खात्री करा."
+
+msgid "manager.announcements.confirmDelete"
+msgstr "तुम्ही खात्रीने {$title} ही घोषणा/सूचना कायमची हटवू इच्छिता ना?"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "अभ्यागताचा देश, प्रदेश आणि शहरपातळीवरील माहिती गोळा करा"
+
+msgid "manager.setup.favicon"
+msgstr "संकेतस्थळाचा आयकॉन (Favicon)"
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} प्राथमिक लोकॅल म्हणून निश्चित केले."
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "कृपया कालबाह्यता दिनांकाव्यतिरिक्त वर्ष आणि/किंवा महिनाही निवडा."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"ही घोषणा वाचकांना या तारखेपर्यंत दाखवली जाईल. जर घोषणा अनिश्चित काळासाठी "
+"दाखवायची असेल तर समाप्ती तारखेची जागा रिक्त ठेवा."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "कृपया घोषणेच्या/सूचनेच्या मुदत समाप्तीसाठी वैध तारीख निवडा."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "घोषणेचा/सूचनेचा मजकूर आवश्यक आहे."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "घोषणेचा/सूचनेचा संक्षिप्त मजकूर आवश्यक आहे."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"तुम्ही <a href=\"#announcements/announcement-settings\">घोषणा/सूचना "
+"कार्यान्वित करणे</a> आवश्यक आहे."
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"इशारा! या घोषणेच्या/सूचनेच्या प्रकारासह त्यातील सगळ्या घोषणाही हटवल्या जाती"
+"ल. तुम्ही खात्रीने हा घोषणा प्रकार हटवण्याकरता पुढील पाऊल उचलू इच्छिता ना?"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "या नावाचा घोषणा/सूचना प्रकार आधीच अस्तित्वात आहे."
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"तुम्ही {$registrationAgency} ला {$count} लेखांसाठी DOI मेटाडेटा रेकॉर्ड(स) पा"
+"ठवत आहात. तुम्हाला खात्रीने हे रेकॉर्ड जमा करायचे आहेत ना?"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"तुम्ही {$count} लेखांसाठी DOI मेटाडेटा रेकॉर्ड नोंदणी केले म्हणून चिन्हांकित "
+"करणार आहात. तुम्हाला खात्रीने हे रेकॉर्ड नोंदणीकृत म्हणून चिन्हांकित करायचे "
+"आहेत ना?"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"तुम्ही {$count} लेखांची नोंदणी न केलेले DOI मेटाडेटा रेकॉर्ड चिन्हांकित करणा"
+"र आहात. तुम्ही खात्रीने हे रेकॉर्ड(स) नोंदणी न केलेले म्हणून चिन्हांकित करू "
+"इच्छिता ना?"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"तुम्ही {$count} लेखांसाठी DOI मेटाडेटा रेकॉर्ड Sync करण्याची आवश्यकता आहे "
+"म्हणून चिन्हांकित करणार आहात. Sync आवश्यक असण्याची स्थिती फक्त पूर्वी सादर "
+"केलेल्या DOIs ना लागू केली जाऊ शकते. तुम्ही खात्रीने हे रेकॉर्ड जुने (stale) "
+"म्हणून चिन्हांकित करू इच्छिता ना?"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"तुम्ही ज्या योग्य अशा लेखासाठी यापूर्वी DOI दिलेला (assign केलेला) नाही अशा "
+"{$count} लेखांना नवा DOI देणार आहात. तुम्ही खात्रीने या लेखांना DOI देऊ "
+"इच्छिता ना?"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "सादरीकरण प्रक्रिया अक्रियान्वित (Disable) करा"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "मुख्यपृष्ठावर ठळकपणे प्रदर्शित करण्यासाठी प्रतिमा संक्रमित (अपलोड) करा."
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"तुम्ही उरलेले सगळे DOI मेटाडेटा रेकॉर्ड {$registrationAgency} कडे जमा "
+"करण्यासाठी अनुसूचित (शेड्यूल) करणार आहात. फक्त DOI असलेले प्रकाशित लेख जमा "
+"केले जातील. त्याबद्दलचा प्रतिसाद मिळाल्यावर प्रत्येक लेखाची स्थिती अपडेट केली"
+" जाईल. तुम्ही खात्रीने हे सगळे लेख जमा करण्यासाठी अनुसूचित (शेड्यूल) करू "
+"इच्छिता ना?"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "नोंदणी यशस्वी झाल्याचा संदेश"
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr "DOI नियुक्त केलेले सगळे लेख."
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"DOI असलेले असे सगळे लेख जे प्रकाशित झालेले असले तरी नोंदणी एजन्सीकडे अद्याप "
+"जमा केलेले नाहीत."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"नोंदणी एजन्सीकडे सामान्य प्रक्रियेशिवाय (manually) नोंदणी केलेल्या लेखांसकट "
+"इतर नोंदणी केले म्हणून चिन्हांकित केलेले सगळे लेख."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"नोंदणी एजन्सीकडे मागील वेळी जमा केल्यापासून पुनर्प्रकाशित केलेले सगळे लेख. "
+"त्यांचे मेटाडेटा रेकॉर्ड अपडेट करण्यासाठी त्यांना नोंदणी एजन्सीकडे पुन्हा सा"
+"दर करणे आवश्यक आहे."
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "लेख नोंदणीकृत म्हणून यशस्वीरित्या चिन्हांकित केले"
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"DOI चे व्यवस्थापन इतर ठिकाणी नेले आहे. कृपया <a href=\"{$doiManagementUrl}\""
+">DOI व्यवस्थापन</a> आणि <a href=\"{$doiSettingsUrl}\">DOI सेटिंग्ज</a> पृष्ठे"
+" पहा."
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"हा घटक (component) हटवण्यापूर्वी, तुम्ही सर्व संबंधित सादरीकरणाच्या फाईल्स "
+"वेगळ्या घटकाशी जोडल्या पाहिजेत."
+
+msgid "manager.highlights.url.description"
+msgstr "हायलाइटमधील बटणासाठी https:// सह संपूर्ण URL."
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"प्रमाण मानकांमध्ये IP पत्ता (उदा. 142.58.103.1), IP श्रेणी (उदा. "
+"142.58.103.1 - 142.58.103.4), वाइल्डकार्ड '*' असलेली IP श्रेणी (उदा. 142."
+"58.*.*), आणि CIDR असलेली IP श्रेणी (उदा. 142.58.100.0/24) यांचा समावेश होतो."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"वापराची भौगोलिक आकडेवारी संकलित करण्यासाठी सांख्यिकीचा प्रकार निवडा. अधिक "
+"तपशीलवार भौगोलिक आकडेवारी तुमच्या डेटाबेसचा आकार लक्षणीयरीत्या वाढवू शकते आणि"
+" काही दुर्मिळ प्रकरणांमध्ये तुमच्या अभ्यागतांची गुप्तता कमी करू शकते."
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "संस्थात्मक आकडेवारी"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"जर तुम्हाला संस्थापातळीवर वापराची आकडेवारी गोळा करायची असेल तर प्रथम संस्थात्"
+"मक सांख्यिकी कार्यान्वित करा. जर कार्यान्वित केली असेल, तर तुम्हाला मागोवा "
+"घ्यायच्या (track ) प्रत्येक संस्थेच्या IP श्रेणी कॉन्फिगर कराव्या लागतील."
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"COUNTER SUSHI आकडेवारीसाठी API endpoints वर प्रवेश प्रतिबंधित करायचा की नाही"
+". जर अन्-चेक केले तर, API फक्त प्रशासक किंवा व्यवस्थापक भूमिका असलेल्या "
+"वापरकर्त्यांनाच उपलब्ध होईल."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"प्रत्येक अहवालाच्या सखोल माहितीसाठी <a href=\"https://cop5.projectcounter."
+"org/en/5.0.3/04-reports/index.html\" target=\"_new\">COUNTER 5.0.3 "
+"दस्तऐवजीकरण</a> पहा."
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"DOI असलेला लेख प्रकाशित झाल्यावर DOI नोंदणी आणि मेटाडेटा निवडलेल्या नोंदणी "
+"एजन्सीकडे स्वयंचलितपणे जमा केला जाऊ शकतो. स्वयंचलित जमा करण्याची क्रिया "
+"नियोजित अंतराने होईल आणि प्रत्येक DOI च्या नोंदणीबाबतच्या स्थितीवर DOI "
+"व्यवस्थापन पृष्ठावरून लक्ष ठेवले जाऊ शकते."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"DOI चा सुरुवातीचा भाग (Prefix) नोंदणी एजन्सीद्वारे, जसे की <a href=\"https"
+"://www.crossref.org\" target=\"_new\">Crossref</a> किंवा <a href=\"https"
+"://datacite.org/\" target=\"new\">DataCite</a> ठरवला जातो. उदाहरणार्थ: 10."
+"xxxx"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+"DOI चा सुरुवातीचा भाग (Prefix) आवश्यक आहे आणि तो खालील स्वरूपात असावा: 10."
+"xxxx."
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI चा शेवटचा भाग (Suffix)"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+"कॉन्फिगर केलेल्या DOI नोंदणी एजन्सीसाठी एक किंवा अधिक निवडलेल्या DOI "
+"प्रकारांना परवानगी नसते."
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"कोणीही नाही (None) - DOI चे शेवटचे भाग (Suffix)<a href=\"{$doiManagementUrl}"
+"\">DOI व्यवस्थापन पृष्ठा</a> वर जाऊन तुम्हाला स्वतःला (मॅन्युअली) प्रविष्ट "
+"करावे लागतील आणि ते स्वयंचलितपणे तयार केले जाणार नाहीत"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "कृपया DOI जमा करण्यासाठी नोंदणी एजन्सीची निवड करा."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI स्वयंचलितपणे तयार केले जाऊन नोंदणी एजन्सीकडे जमा केले जाऊ शकतात. हे "
+"वैशिष्ट्य वापरण्यासाठी, योग्य नोंदणी एजन्सीकडून प्लग-इन शोधा आणि स्थापित करा."
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"हे तपशील तृतीय-पक्ष संग्रह संस्थांना प्रदान केलेल्या मेटाडेटामध्ये समाविष्ट "
+"केले जाऊ शकतात."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "लेखकांसाठी मार्गदर्शक तत्त्वे"
+
+msgid "manager.setup.checklist"
+msgstr "कामांची यादी (Checklist)"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"मुख्यपृष्ठ प्रतिमा स्वरूप अग्राह्य आहे किंवा संक्रमण (अपलोड) अयशस्वी झाले. "
+"स्वीकृत स्वरूपे .gif, .jpg, किंवा .png आहेत."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name} ब्लॉक सापडत नाही. कृपया प्लग-इन स्थापित करून कार्यान्वित (enabled) "
+"केलेले असल्याची खात्री करा."
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"तुम्ही संक्रमित (अपलोड) केलेली फाईल सापडली नाही. कृपया ती पुन्हा संक्रमित "
+"(अपलोड) करण्याचा प्रयत्न करा."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"फक्त सादरीकरणाच्या कार्यप्रवाहादरम्यान (वर्कफ्लो) नियुक्त केलेल्या लेखकांना "
+"ई-मेल पाठवा. सहसा, हा सादरीकरण प्रक्रिया पूर्ण करणारा लेखक असतो."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "प्राथमिक संपर्ककर्त्याला सूचित करा"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"सादरीकरण प्रक्रिया यशस्वी झाल्याची पोचपावती येथे प्रविष्ट केलेल्या ई-मेल "
+"पत्त्यांवर पाठवली जाईल. अनेक ई-मेल पत्ते स्वल्पविराम देऊन नोंदवा. उदाहरणार्थ:"
+" one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"लेखकांना त्यांच्या सादरीकरण प्रक्रिया पूर्ण झाल्याची पुष्टी देणारा ई-मेल आपो"
+"आप पाठवला जातो. तुमच्याकडे या ई-मेलच्या प्रती खालील पत्त्यांवर पाठवल्या जाऊ "
+"शकतात:"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "ई-मेल्स लवकरात लवकर पाठवण्याच्या प्रतीक्षायादीत आहेत."
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"जर सगळी प्रकाशित सामग्री तात्काळ मुक्तपणे वापरण्याची संधी देत असाल, तर तुम्ही"
+" तुमच्या मुक्त-द्वार (Open Access) धोरणाचे वर्णन येथे करू शकता."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"तुमच्या संकेतस्थळाच्या पृष्ठांच्या तळाशी तुम्हाला दिसाव्यात असे वाटत असलेल्या"
+" प्रतिमा, मजकूर किंवा HTML कोड प्रविष्ट करा."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"वाचक आणि लेखकांसाठी तज्ज्ञ समीक्षण धोरण आणि प्रक्रियांची रूपरेषा सांगा. या "
+"वर्णनात सहसा सादरीकरणांचे समीक्षण करण्यासाठी नोंदलेल्या समीक्षकांची संख्या, "
+"समीक्षकांना सादरीकरणांचे मूल्यांकन करण्यासाठी सांगितले जाणारे निकष, समीक्षण "
+"करण्यासाठी लागणारा अपेक्षित वेळ आणि समीक्षकांची निवड करण्यासाठी वापरलेली "
+"तत्त्वे समाविष्ट असतात."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "तारीख आणि वेळ नोंदण्याचे/प्रदर्शित करण्याचे प्रारूप (Format)"
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"जेव्हा लेखकांना त्यांच्या सादरीकरणाबद्दल शीर्षक, सारांश आणि इतर महत्त्वाच्या "
+"माहितीचा तपशील देण्यास सांगितले जाते तेव्हा या दरम्यान त्यांना खालील बाबी "
+"सांगितल्या जातात."
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"तारीख आणि वेळ प्रदर्शित करण्यासाठी पसंतीचे प्रारूप (फॉरमॅट) निवडा. <a href="
+"\"https://www.php.net/manual/en/datetime.format.php#refsect1-datetime."
+"format-parameters\">फॉरमॅट कॅरेक्टर</a> वापरून विशिष्ट प्रारूपात (कस्टम "
+"फॉरमॅटमध्ये) हे प्रदर्शित करणे शक्य आहे."
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"हे विधान वापरकर्ता नोंदणी, लेखकाने केलेले सादरीकरण आणि सार्वजनिकरित्या उपलब्"
+"ध असलेल्या गोपनीयता पृष्ठावर दिसून येईल. काही देशांमध्ये, या गोपनीयता धोरणात "
+"तुम्ही वापरकर्त्याची माहिती कशी हाताळता हे ही उघड करणे कायदेशीररित्या बंधनका"
+"रक आहे."
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"संपादकीय प्रक्रियेदरम्यान प्रत्येक समीक्षणासाठी सर्वसाधारण (Default) "
+"कालमर्यादा बदलली जाऊ शकते."
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"जर एखाद्या समीक्षकाने समीक्षणासाठी केलेल्या विनंतीला निर्धारीत काळात प्रतिसा"
+"द दिला नसेल तर अपेक्षित तारखेनंतर ई-मेल स्मरणपत्र पाठवा."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "सर्वसाधारण (Default) समीक्षण प्रक्रिया"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"संक्रमित (अपलोड) करताना <button type=\"button\">सगळ्या फाईल्स अनामित आहेत "
+"याची खात्री कशी करावी</button> याची माहिती सादर करा"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"उदाहरणे: विद्वानांच्या संघटना, विद्यापीठातील विभाग, सहकारी संस्था, इ. "
+"प्रायोजकांची नावे/माहिती सार्वजनिकरित्या प्रदर्शित केली जाते."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"अनुभवी वेब डेव्हलपर्स संकेतस्थळाचे स्वरूप वापरकर्त्याच्या दृष्टीने अधिक अनुकू"
+"ल करण्यासाठी CSS फाईल संक्रमित (अपलोड) करू शकतात."
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"संपादक, लेखक आणि समीक्षकांना सामग्री सादर करताना, संपादित करताना, समीक्षण "
+"करताना किंवा प्रकाशित करताना येणाऱ्या कोणत्याही अडचणी सोडवण्यासाठी मदत करू "
+"शकणारी संपर्क व्यक्ती."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"लेखकांना त्यांची सादरीकरण प्रक्रिया सुरू करण्यापूर्वी खालील बाबी सांगितल्या "
+"जातात. सादरीकरण प्रक्रियेचे थोडक्यात स्पष्टीकरण द्या जेणेकरून लेखकाला काय "
+"अपेक्षित आहे हे कळेल."
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"फाईल्स संक्रमित (अपलोड) करण्याच्या प्रक्रियेदरम्यान लेखकांना खालील बाबी "
+"सांगितल्या जातात. लेखकांनी त्यांच्या सादरीकरणासह कोणत्या फाईल्स शेअर कराव्या"
+"त याचे थोडक्यात स्पष्टीकरण द्या."
+
+msgid "notification.localeReloaded"
+msgstr "{$contextName} साठी {$locale} लोकॅल पुनर्स्थापित (रीलोड) केले."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"'संपादकांसाठी'च्या पायरीवर लेखकांना खालील बाबी सांगितल्या जातात, जेव्हा "
+"त्यांना कळीचा शब्द (कीवर्ड), संपादकीय अभिप्राय आणि संपादकीय समीक्षणासाठी "
+"उपयुक्त असे इतर तपशील यासारखी माहिती देण्यास सांगितले जाते."
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"लेखक त्यांची सादरीकरण प्रक्रिया सुरू करतात तेव्हा त्यांना खालील बाबी "
+"सांगितल्या जातात. लेखकांना त्यांची सादरीकरण प्रक्रिया सुरू करण्यापूर्वी ते "
+"येथे निर्दिष्ट केलेल्या सगळ्या गरजांचे पालन करताहेत याची खात्री करण्यास "
+"सांगितले जाते."
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"या विभागातील (उदा., लेख, समीक्षण, संशोधन, इ.) सगळ्या नव्या सादरीकरणांसाठी "
+"स्वयंचलितपणे नियुक्त केलेले संपादकीय वापरकर्ते निवडा."
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"या प्रवर्गातील (category) सगळ्या नव्या सादरीकरणांसाठी स्वयंचलितपणे नियुक्त "
+"केलेले संपादकीय वापरकर्ते निवडा."
+
+msgid "plugins.categories.metadata.description"
+msgstr "मेटाडेटासाठीचे प्लग-इन्स अतिरिक्त मेटाडेटा मानके लागू करतात."
+
+msgid "plugins.categories.blocks"
+msgstr "ब्लॉक प्लग-इन्स"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"विविध साइडबार टूल्ससारखे ब्लॉक प्लग-इन्स हे प्लग करण्यायोग्य UI घटक असतात."
+
+msgid "plugins.categories.gateways"
+msgstr "गेटवे प्लग-इन्स"
+
+msgid "plugins.categories.generic"
+msgstr "जेनेरिक प्लग-इन्स"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"इतर प्रणालींबरोबर (सिस्टम) मजकूर (content) हस्तांतरित करण्यासाठी Import/"
+"Export प्लग-इन्सचा वापर केला जाऊ शकतो."
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"पेमेंट मेथड प्लग-इन्स ऑनलाइन पेमेंट प्रक्रिया करण्याच्या विविध पद्धतींसाठी "
+"आधार देतात."
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"रिपोर्ट प्लग-इन्सचा वापर विविध प्रकारचे रिपोर्ट्स आणि डेटा एक्स्ट्रॅक्ट्स "
+"अंमलात आणण्यासाठी केला जातो."
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr ""
+"हे फॉरमॅट प्लग-इन्स मेटाडेटाच्या OAI आदान-प्रदानासाठी (कम्युनिकेशन्स) वापरले "
+"जातात."
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"प्लग-इन यशस्वीरित्या कॉपी केले गेले नाही. ही समस्या परवानगी नसल्यामुळे असू "
+"शकते. वेब सर्व्हर प्लग-इन्स डायरेक्टरीमध्ये (सबडिरेक्टरीजसह) write ची परवानगी"
+" आहे याची खात्री करा. परंतु नंतर ते काम झाल्यावर पुन्हा write करण्यापासून "
+"सुरक्षित करायला विसरू नका."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr ""
+"तुम्हाला हे प्लग-इन प्रणाली (सिस्टम) मधून नक्की हटवायचे (delete) आहे का?"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"प्लग-इन \"{$pluginName}\" फाईल प्रणाली (सिस्टम) मधून हटवता (delete) आले नाही"
+". ही समस्या परवानगी नसल्यामुळे असू शकते. वेब सर्व्हर प्लग-इन्स "
+"डायरेक्टरीमध्ये (सबडिरेक्टरीजसह) write ची परवानगी आहे याची खात्री करा. परंतु "
+"नंतर ते काम झाल्यावर पुन्हा write करण्यापासून सुरक्षित करायला विसरू नका."
+
+msgid "manager.plugins.description"
+msgstr ""
+"हे पृष्ठ व्यवस्थापकाला सध्या स्थापित केलेल्या प्लग-इनचे पुनरावलोकन करायची आणि"
+" संभाव्यतः कॉन्फिगर करायची संधी देते. प्लग-इन त्यांच्या उपयुक्ततेनुसार विविध "
+"प्रवर्गांमध्ये (categories) विभागले गेले आहेत. प्रवर्गांची (categories) यादी "
+"खाली दिली आहे आणि प्रत्येक प्रवर्गामध्ये, त्यांच्या सध्या अस्तित्वात असलेल्या"
+" प्लग-इन्सचा संच आहे."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"हा फॉर्म तुम्हाला नवीन प्लग-इन संक्रमित (अपलोड) आणि स्थापित करायची संधी देतो"
+". कृपया प्लग-इन आकुंचित (कॉम्प्रेस) केलेल्या प्रारूपात (.tar.gz फाईल) आहे "
+"याची खात्री करा."
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"या प्लग-इनचा विकास आणि देखभालीची जबाबदारी पब्लिक नॉलेज प्रोजेक्ट टीमची आहे."
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+"हे प्लग-इन आमच्या एका विकसन करणाऱ्या भागीदाराने (development partner) प्रदान "
+"केलेले आहे."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "स्थापित (Installed) आवृत्ती (version): {$version}"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "प्लग-इन अद्याप स्थापित (Install) केलेले नाही."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"प्लग-इन आधीच स्थापित केलेले (installed) आहे आणि गॅलरीमध्ये उपलब्ध असलेल्या "
+"आवृत्ती (version) पेक्षा नवीनतम आहे."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "प्लग-इन आधीच स्थापित केलेले (installed) आहे आणि अद्ययावत आहे."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "{$versionNumber} आवृत्ती (version) यशस्वीरित्या स्थापित केली"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"संक्रमित (अपलोड) केलेल्या प्लग-इनसाठी प्लग-इनच्या नावाशी जुळणारा फोल्डर नाही."
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"संक्रमित (अपलोड) केलेल्या प्लग-इनमधील version.xml मध्ये एक प्लग-इन नाव आहे जे"
+" अपग्रेड केलेल्या प्लग-इनच्या नावाशी जुळत नाही."
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"हा फॉर्म वापरून तुम्ही प्लग-इन अपग्रेड करू शकता. कृपया प्लग-इन आकुंचित "
+"(कॉम्प्रेस) केलेल्या प्रारूपात (.tar.gz फाईलने) आहे याची खात्री करा."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "प्लग-इन फाईल निवडा"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "प्लग-इन डिरेक्टरीमधील version.xml मध्ये अग्राह्य डेटा आहे."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"भाषेचे सेटिंग सेव्ह करता आलेले नाही. प्रत्येक पर्यायासाठी किमान एक भाषा "
+"कार्यान्वित (enabled) केलीच पाहिजे"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"प्रत्येक पृष्ठाच्या शीर्षस्थानी तुम्हाला हवे असलेले कस्टम HTML टॅग्ज, ज्यांना"
+" मेटा टॅग्ज असेही म्हणतात, जोडा (Add). येथे टॅग्ज जोडण्यापूर्वी तांत्रिक "
+"सल्लागाराचा सल्ला घ्या."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "वापरकर्त्याला स्वयंनोंदणीची परवानगी द्या"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"या भूमिकेतून फक्त समीक्षणोत्तर शिफारस नोंदवण्याची परवानगी आहे, अधिकृत संपादक "
+"अंतिम निर्णयाची नोंद करतील."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"तुम्ही या संदर्भ संगतीतून ही भूमिका वगळणार आहात. ही प्रक्रिया संबंधित सेटिंग्"
+"ज आणि या भूमिकेतून या वापरकर्त्याला नेमून दिलेल्या सगळ्या कामगिर्‍याही आपोआप "
+"हटवल्या जातील. भूमिका वगळण्यापूर्वी याचा विचार करुन निर्णय घेत आहात ना?"
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr ""
+"या भूमिकेसाठी विशिष्ट संक्षिप्त रूप (abbreviature) तुम्हाला निश्चित करावे "
+"लागेल."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "कोणत्या टप्प्यावर या भूमिकेला कामगिरी द्यायची हे तुम्हाला ठरवावे लागेल."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"अंमलबजावणीच्या कामांची (library) फाईल आवश्यक आहे. तुम्ही फाईल निवडून संक्रमि"
+"त (अपलोड) केली आहे याची कृपया खात्री करा."
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "प्रसार आणि प्रचार करणे (Marketing)"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>ही अंमलबजावणीच्या कामांची (library) फाईल सगळ्यांसाठी उपलब्ध (Public "
+"Access) असल्यास <blockquote>{$downloadUrl}</blockquote> येथून उतरवून "
+"(डाउनलोड) घेता येईल</p>"
+
+msgid "grid.action.restoreGenres"
+msgstr "घटकांना सर्वसाधारण (डीफॉल्ट) सेटिंग्जमध्ये पुनर्संचयित करा"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"HTML फाईलद्वारे प्रदर्शित केलेल्या प्रतिमेसारख्या या अवलंबित फाईल्स आहेत. "
+"त्या प्रकाशित सामग्रीबरोबर प्रदर्शित केल्या जात नाहीत."
+
+msgid "manager.setup.genres.key.description"
+msgstr "या शैलीसाठी एक पर्यायी लघूप्रतीकात्मक (short symbolic identifer) ओळख."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"संकेतचिन्ह (Key) फक्त अक्षरे, अंक, अंडरस्कोअर आणि हायफन यांनीच बनलेले असते "
+"तसेच त्याची सुरूवात आणि शेवट फक्त अक्षराने किंवा अंकानेच होणे आवश्यक आहे."
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "चेकबॉक्सेस (एक किंवा अधिक घटकांची तुम्ही निवड करू शकता)"
+
+msgid "manager.importExport"
+msgstr "दाखल (import) केलेला/स्थानांतर (Export) केलेला डेटा"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"या फाईल्सना मिळू शकणार्‍या मेटाडेटाचा प्रकार निवडा. डाउनलोड करण्यायोग्य मुख्"
+"य प्रकाशन फाईल्ससारख्या PDF फाईल्सचा मेटाडेटा प्रकाशनाच्या मूळ स्रोतातून पुढे"
+" जातो. अन्यथा, इतर सामान्य फाईल्सच्या प्रकारांसाठी पूरक सामग्री निवडा. "
+"कलाकृतींसारख्या फाईल्ससाठी, योग्य प्रकारचा जसे श्रेय (क्रेडिट), शीर्षक "
+"(कॅप्शन) आणि परवाना मेटाडेटा आवश्यक असतो."
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"प्रत्येक नव्या सादरीकरणासह यापैकी किमान एक फाईल आवश्यक आहे का? 'आवश्यक आहे' "
+"अशी निवड केल्यास लेखकांना या प्रकारची किमान एक फाईल संक्रमित (अपलोड) "
+"केल्याशिवाय सादरीकरण संक्रमित (अपलोड) करण्याची परवानगी दिली जाणार नाही."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr ""
+"नाही, या फाईल्सशिवाय नव्या सादरीकरणांना संक्रमित (अपलोड) करण्याची परवानगी "
+"द्या."
+
+msgid "manager.settings.wizard"
+msgstr "सेटिंग्जच्या पायर्‍या (wizard)"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"या वापरकर्त्याशी सलग्न (associate) होण्यासाठी तुम्हाला किमान एक भूमिका "
+"निवडावी लागेल."
+
+msgid "manager.distribution.title"
+msgstr "वितरणासंबंधीचे सेटिंग्ज"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"तुम्हाला खात्रीने हा समीक्षणाचा फॉर्म सक्रिय (activate) करायचा आहे ना? एकदा "
+"तो समीक्षणासाठी नियुक्त केला गेला की तुम्ही तो निष्क्रिय (deactivate) करू "
+"शकणार नाही."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"तुम्हाला खात्रीने हा समीक्षणाचा फॉर्म निष्क्रिय (deactivate) करायचा आहे ना? "
+"यापुढे तो नव्या समीक्षणाच्या कामांसाठी उपलब्ध होणार नाही."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "तुम्हाला खात्रीने या समीक्षणाच्या फॉर्मची प्रत तयार करायची आहे का?"
+
+msgid "manager.reviewForms.create"
+msgstr "समीक्षणासाठी फॉर्म निर्माण करा"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"सर्वसाधारण (डीफॉल्ट) फॉर्ममध्ये मजकूर लिहिण्यासाठी पहिला \"लेखक आणि "
+"संपादकासाठी\" आणि दुसरा \"फक्त संपादकासाठी\" असे दोन बॉक्स असतात त्याऐवजी "
+"येथे तयार केलेले तज्ज्ञ समीक्षणाचे फॉर्म्स समीक्षकांना भरण्यासाठी सादर केले "
+"जातील. विशिष्ट प्रेस विभागासाठी समीक्षणाचे वेगळे फॉर्म्स नियुक्त केले जाऊ "
+"शकतात आणि संपादकांना समीक्षणासाठी कोणता फॉर्म वापरायचा हे निवडण्याचा पर्याय "
+"असेल. सर्व पर्यायांमध्ये, संपादकांना लेखकाशी पत्रव्यवहार करताना त्यांच्यात "
+"संबंधित समीक्षणे समाविष्ट करण्याचा पर्यायही असेल."
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "फॉर्मचा प्रकार बदलत आहे (Changing the form item type)..."
+
+msgid "manager.reviewFormElements.create"
+msgstr "नवा घटक निर्माण करा (Create New Item)"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr ""
+"फॉर्मच्या घटकासाठी त्याचा प्रकार आवश्यक आहे (An item type is required for "
+"the form item)."
+
+msgid "manager.reviewFormElements.required"
+msgstr "घटक पूर्ण करण्यासाठी समीक्षकांची आवश्यकता आहे"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "विस्तारित मजकूरासाठी बॉक्स"
+
+msgid "grid.action.createReviewForm"
+msgstr "समीक्षणासाठी नवा फॉर्म तयार करा"
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"तज्ज्ञ समीक्षणादरम्यान हितसंबंधांच्या संघर्षाबाबतचे विधान नोंदवण्याची विनंती "
+"करा."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "उपलब्ध असल्यास, परवान्याचे वर्णन करणारा संकेतस्थळावरील पृष्ठाचा URL."
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"व्याप्तीमध्ये (Coverage) सामान्यतः कामाचे ठिकाण (ठिकाणाचे नाव किंवा भौगोलिक "
+"निर्देशांक), कालावधी (कालावधीचे लेबल, तारीख किंवा दोन तारखांमधील काळ) किंवा "
+"अधिकार क्षेत्र (उदा. देश) दर्शविले जाईल."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "सादरीकरणादरम्यान लेखकाकडून व्याप्तीसंबंधी (Coverage) मेटाडेटा मागू नका."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"लेखकाने व्याप्तीसंबंधी (Coverage) मेटाडेटा सुचवणे त्याचे सादरीकरण "
+"स्वीकारण्यापूर्वी आवश्यक आहे."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "कळीच्या शब्दांसाठी (कीवर्ड) मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "सादरीकरणादरम्यान लेखकाला कळीचे शब्द (कीवर्ड्स) सुचवण्यास सांगा."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"लेखनाची प्राथमिक भाषा ही त्या भाषेचे चिन्ह (कोड) (उदा. मराठीसाठी \"mr\") "
+"वापरून सूचित केली जाते ज्यात देशाचे चिन्ह (कोड) वापरायचा पर्यायही (उदा. "
+"\"en_US\") असतो."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "सादरीकरणादरम्यान लेखकाकडून लेखनाची भाषा सूचित करण्यास सांगा."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"सादरीकरणावर असलेले कोणतेही अधिकार, ज्यामध्ये बौद्धिक संपदा अधिकार (IPR), "
+"कॉपीराइट आणि इतर संपदा अधिकारांचा समावेश असू शकतो."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाकडून कोणतेही पूर्ववर्ती उपलब्धतेचे अधिकार (prior "
+"access rights) उघड करण्यास सांगा."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"सादरीकरण स्वीकारण्यापूर्वी लेखकाला कोणतेही पूर्ववर्ती उपलब्धतेचे अधिकार ("
+"prior access rights) उघड करण्यास सांगा."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "सादरीकरणादरम्यान लेखकाकडून स्त्रोत URL मागू नका."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"सादरीकरण स्वीकारण्यापूर्वी लेखकाने स्त्रोताचा URL प्रदान करणे आवश्यक आहे."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "विषयाचे वर्णन करण्यासाठीचा मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "सादरीकरणादरम्यान लेखकाला विषय प्रदान करण्यास सांगा."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"सादरीकरणाच्या मुख्य आशयाचे (content) स्वरूप किंवा शैली. प्रकार सहसा \"मजकूर\""
+" असतो, परंतु तो \"आकडेवारी/माहिती संच (डेटासेट)\", \"प्रतिमा\" किंवा <a "
+"target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/dcmi-terms/\">डब्लिन कोर प्रकार</a> पैकीही असू शकतो."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"विद्यापीठातील विद्याशाखा आणि विद्वानांच्या संस्थांनी वर्णन केल्याप्रमाणे विवि"
+"ध विषय अभ्यासाचे प्रकार किंवा ज्ञानशाखा आहेत."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "विषयांचा मेटाडेटा कार्यान्वित (Enable) करा"
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "सादरीकरणादरम्यान लेखकाला सादरीकरणाचे विषय नोंदवण्याची विनंती करा."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"संशोधनासाठी निधीचा पुरवठादार आणि संशोधनाला पाठबळ देणार्‍या इतर संस्थांची नों"
+"द सहाय्यकारी संस्थांच्या (Supporting agencies) मेटाडेटामध्ये केली जाते."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाला सहाय्यकारी संस्थांविषयीची (Supporting agencies) "
+"माहिती उघड करण्यास सांगा."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"सादरीकरण स्वीकारण्यापूर्वी लेखकाने त्याच्या संशोधनासाठी सहाय्यकारी ठरणार्‍या "
+"संस्थांविषयीची (Supporting agencies) माहिती पुरवणे आवश्यक आहे."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "सादरीकरणादरम्यान लेखकाकडून संदर्भ यादी मागू नका."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"सादरीकरण स्वीकारण्यापूर्वी लेखकाने लेखात वापरलेले संदर्भ (मेटाडेटा "
+"फील्डमध्ये) पुरवणे आवश्यक आहे."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"लेखकांनी त्यांच्या संशोधनादरम्यान वापरलेली माहिती/आकडेवारी (डेटा) उपलब्ध केली"
+" आहे का आणि जर केली असेल तर वाचकाला ती कुठे मिळेल याचे वर्णन करणारे एक "
+"संक्षिप्त विधान."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"सादरीकरणादरम्यान लेखकाकडून माहिती/आकडेवारीच्या (डेटा) उपलब्धता विधानाची ("
+"data availability statement) नोंद करण्यास सांगा."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "प्रमाणीकरणादरम्यान आढळलेल्या त्रुटी (Validation errors):"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "अज्ञात प्रकार (Unknown genre) {$param}"
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr ""
+"तुमचे गोपनीयता विधान (privacy statement) प्रदर्शित करणाऱ्या पृष्ठासाठी दुवा "
+"(link)."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "सर्वसाधारण मूल्ये (Default Metric) पुनर्स्थापित (रिलोड) करा"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+"दाखल केलेल्या फाईलमध्ये (import file) '{$authorName}' हा '{$userGroupName}' "
+"या वापरकर्त्यांच्या गटात समाविष्ट आहे. पण आज्ञावली (destination installation)"
+" मध्ये या नावाचा वापरकर्ता गट परिभाषित केलेला नाही."
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"{$authorName} या लेखकाचे {$localeName} सादरीकरणाच्या भाषेत, प्रथम नाव घातलेले"
+" नाही. या माहितीशिवाय सादरीकरण दाखल करुन घेता येणार (import) नाही."
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"सादरीकरणाच्या \"{$fileId}\" या फाईलसाठी केलेल्या सुधारित सादरीकरणासाठी \""
+"{$revisionId}\" प्रतिनोंद (duplicate record) निर्माण करेल"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "सादरीकरणाची फाईल दाखल (import) करुन घेता आली नाही"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"सादरीकरणाची फाईल {$id} वगळण्यात आली आहे कारण ती समीक्षण कार्य (review "
+"assignment) किंवा चर्चा (discussion) यासारख्या दुसर्‍या एका नोंदीशी (record) "
+"संलग्न असल्याने दाखल (import) करुन घेता येणे शक्य नाही."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"सादरीकरणाच्या फाईलची {$id} सुधारित आवृत्ती {$revision} वगळण्यात आली आहे कारण "
+"ती फाईल \"{$path}\" या पत्त्यावर आढळली नाही."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"दाखल (import) करुन घ्यावयाच्या \"{$username}\" वापरकर्त्याला पासवर्ड नाही. "
+"तुमचा दाखल (import) करुन घ्यावयाचा XML फॉरमॅट तपासा. वापरकर्ता दाखल (import) "
+"केला नाही."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"दाखल (import) करुन घ्यावयाच्या \"{$username}\" वापरकर्त्याचा पासवर्ड जसा आहे "
+"तसा दाखल (import) करता आला नाही. वापरकर्त्याला ई-मेलवर एक नवा पासवर्ड "
+"पाठवण्यात आला आहे. वापरकर्ता दाखल (import) केला आहे."
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>हे पृष्ठ <blockquote>{$pagesPath}</blockquote>...या पत्त्यावर (path) पहाता"
+" येईल जेथे %PATH% वर पत्ता घातलेला आहे. <strong>टीप :</strong> कोणत्याही दोन "
+"पृष्ठाचा एकच पत्ता (path) असू शकत नाही. प्रणालीमध्ये बसवलेले पत्ते (path "
+"built into the system) वापरल्याने तुम्हाला महत्त्वाच्या फंक्शन्समध्ये शिरकाव "
+"करणे अशक्य होऊ शकते.</p>"
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr ""
+"हा पत्ता (path) दुसऱ्या मार्गनिर्देशन दुव्यांच्या यादीतल्या एका दुव्यासाठी ("
+"navigation menu item) यापूर्वीच अस्तित्वात आहे."
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "नियुक्ती रद्द केलेले यादीतले दुवे (Unassigned Menu Items)"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "मार्गनिर्देशन क्षेत्राची निवड करा (Select a navigation area)"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr ""
+"या क्षेत्रासाठी मार्गनिर्देशन यादी (navigation menu) याआधीच नियुक्त केलेली "
+"आहे."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "एकही वापरकर्ता आढळला नाही."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"जेव्हा एखादा यादीतला दुवा, दुव्यांची उप-यादी (Submenu) खुली करतो, तेव्हा "
+"त्याची लिंक सर्व उपकरणांवर पालन (follow) केली जाऊ शकत नाही. उदाहरणार्थ, जर "
+"तुमच्याकडे \"च्याबद्दल (About)\" दुवा असेल आणि जो \"संपर्क (Contact)\" आणि "
+"\"संपादकीय टीम (Editorial Team)\" दुव्यांची उप-यादी (Submenu) खुली करत असेल, "
+"तर \"च्याबद्दल (About)\" लिंक सर्व उपकरणांवर पोहोचू शकत नाही. सर्वसाधारण "
+"यादीमध्ये (default menu), हा प्रश्न दुसर्‍या यादीतला दुवा, \"नियतकालिकाविषयी "
+"(About the Journal)\" तयार करून हाताळला जातो, जो दुव्यांच्या उप-यादीमध्ये "
+"दिसतो."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "व्यक्तिगत आवडीचे (Custom) पृष्ठ"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"तुमच्या संकेतस्थळावर एक व्यक्तिगत आवडीचे पृष्ठ (custom page) तयार करा आणि "
+"मार्गनिर्देशन यादी (navigation menu) मधून ते जोडा (link करा)."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"नियतकालिकाबद्दल मजकूर प्रदर्शित करणाऱ्या पृष्ठाचा दुवा (link) सेटिंग्ज > "
+"नियतकालिक मध्ये द्या"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"जर तुम्ही सेटिंग्ज > नियतकालिक अंतर्गत नियतकालिकाबद्दल मजकूराची माहिती दिली "
+"असेल तरच हा दुवा प्रदर्शित केला जाईल."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"जर तुम्ही सेटिंग्ज > नियतकालिक अंतर्गत संपादकीय टीम विभागाची माहिती दिली असे"
+"ल तरच हा दुवा (link) प्रदर्शित केला जाईल."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"जर तुम्ही सेटिंग्ज > संकेतस्थळ अंतर्गत घोषणा/सूचना कार्यान्वित (enable) "
+"केल्या असतील तरच हा दुवा (link) प्रदर्शित केली जाईल."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "संकेतस्थळव्यापी प्रशासन साधनांसाठी दुवा (link)."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "हा दुवा (link) फक्त प्रशासकीय वापरकर्त्यांसाठीच प्रदर्शित केला जाईल."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "अभ्यागताने लॉग-इन केलेले नसल्यासच हा दुवा (link) प्रदर्शित केला जाईल."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"तुम्ही सेटिंग्ज > संपर्क अंतर्गत संपर्क माहिती भरली असेल तरच हा दुवा (link) "
+"प्रदर्शित होईल."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"सेटिंग्ज > वितरण (Distribution) > रकमेचा भरणा (Payments) अंतर्गत रकमेचा भरणा "
+"(Payments) कार्यान्वित केला असेल तरच हा दुवा (link) प्रदर्शित होईल."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"हा दुवा (link) केवळ अभ्यागतानीच (visitor) लॉग-इन केले असताना, किंवा सेटिंग्ज "
+"> वितरण (Distribution) > रकमेचा भरणा (Payments) अंतर्गत रकमेचा भरणा "
+"(Payments) कार्यान्वित केला असेल तरच, किंवा सेटिंग्ज > वितरण (Distribution) "
+"> प्रवेश अंतर्गत वर्गणी आवश्यक असेल तरच प्रदर्शित होईल."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"तुम्ही सेटिंग्ज > कार्यप्रवाह (वर्कफ्लो) > सादरीकरण अंतर्गत गोपनीयता विधान ("
+"privacy statement) प्रविष्ट केले असेल तरच हा दुवा (link) प्रदर्शित होईल."
+
+msgid "grid.category.urlWillBe"
+msgstr "प्रवर्गाचा (Category) URL असा असेल : {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr ""
+"प्रवर्गाचा (Category) पत्ता (Path) लिहिताना फक्त अक्षरे आणि आकड्यांचाच उपयोग "
+"करणे आवश्यक आहे."
+
+msgid "grid.category.removeText"
+msgstr "तुम्ही खात्रीने हा प्रवर्ग (Category) काढून टाकू इच्छिता ना?"
+
+msgid "stats.views.timelineInterval"
+msgstr "तारखेनुसार एकूण अवलोकन करणारे (Views)"
+
+msgid "manager.publication.editorialStage"
+msgstr "संपादकीय कार्ये"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "समीक्षकासाठी मार्गदर्शन"
+
+msgid "manager.emails.addEmail"
+msgstr "तयार मजकूराचा (टेम्पलेट) समावेश करा"
+
+msgid "manager.emails.data"
+msgstr "तयार मजकूरातील (टेम्पलेट) संदेश डेटा"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"तुम्ही हे ई-मेलचे तयार मजकूर (टेम्पलेट) अकार्यान्वित (disable) करणार आहात. "
+"जर या तयार मजकूराचा (टेम्पलेट) वापर करणाऱ्या प्रणाली प्रक्रिया (सिस्टम "
+"प्रोसेसेस) असतील तर आता त्या वापरणार नाहीत. तुम्हाला हे कार्य खात्रीने करायचे"
+" आहे ना?"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"तयार मजकूराचा (टेम्पलेट) ई-मेल जोडताना तुम्हाला एक context ID प्रदान करणे "
+"आवश्यक आहे."
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"तुम्ही हा ई-मेल कार्यान्वित (Enable) करणार आहात. तुम्हाला हे कार्य खात्रीने "
+"करायचे आहे ना?"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "ई-मेलसाठी विषय हवा आहे."
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"जर तुम्ही सगळे तयार मजकूर (टेम्पलेट्स) पुनर्स्थापित (रीसेट) केले तर तयार "
+"मजकूरांच्या (टेम्पलेट्स) ई-मेल मधील केलेले सगळे बदल नाहीसे होतील. तुम्हाला हे"
+" कार्य खात्रीने करायचे आहे ना?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"जर तुम्ही सगळे तयार मजकूर (टेम्पलेट्स) पुनर्स्थापित (रीसेट) केले तर सगळा मजकू"
+"र त्याच्या सर्वसाधारण मूल्यावर (Default Metric) पुनर्स्थापित (रीसेट) केला जा"
+"ईल आणि केलेले सगळे बदल नाहीसे होतील. तुम्हाला हे कार्य खात्रीने करायचे आहे "
+"ना?"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"ही फाईल किंवा डिरेक्टरी हटवायची (Delete) का? डिरेक्टरी हटवण्यापूर्वी (Delete)"
+" तिच्यात फाईल्स असता कामा नयेत याची नोंद घ्या."
+
+msgid "manager.files.uploadedFiles"
+msgstr "अपलोड केलेल्या फाईल्स"
+
+msgid "manager.groups.editTitle"
+msgstr "शीर्षक संपादित करा"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "तुम्ही खात्रीने हे समूह-सदस्यत्व हटवू इच्छिता ना?"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"महत्त्वाची माहिती अनेक अतिरिक्त भाषांमध्ये नमूद करायचा पर्याय ही प्रणाली देते"
+". हे वैशिष्ट्य वापरण्यासाठी खालील यादीतील पर्यायांमधून लोकॅलची निवड करा."
+
+msgid "manager.people.confirmUnenroll"
+msgstr "या वापरकर्त्याची नोंदणी रद्द करायची?"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "एक यादृच्छिक (random) पासवर्ड तयार करा."
+
+msgid "manager.people.doNotEnroll"
+msgstr "कोणत्याही भूमिकेशिवाय"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "निवडलेल्या वापरकर्त्यांना ई-मेल पाठवा"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "म्हणून नोंदणी झालेल्या वापरकर्त्यांना ई-मेल पाठवा"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"तुम्हाला ई-मेल पाठवायचे असलेल्या वापरकर्त्यांच्या नावांशेजारील बॉक्स चेक करू"
+"न त्यांची निवड करा"
+
+msgid "manager.people.enrollSelected"
+msgstr "निवडलेल्या वापरकर्त्यांची नोंदणी करा"
+
+msgid "manager.people.enrollSync"
+msgstr "नोंदणीची जुळवणी (Sync) करा"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr ""
+"वापरकर्त्यांची एखाद्या भूमिकेसाठी केव्हाही नियुक्ती किंवा काढून टाकले जाऊ "
+"शकते."
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"तुम्ही खात्रीने निवडलेले/ली {$oldAccountCount} खाते/खाती \"{$newUsername}\" "
+"वापरकर्तानावाने असलेल्या खात्यात विलीन करू इच्छिता ना? निवडलेले/ली "
+"{$oldAccountCount} खाते/खाती नंतर अस्तित्वात राहणार नाहीत. हा निर्णय फिरवताही"
+" येणार नाही."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "जुळणारे वापरकर्ते नाहीत."
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "सेव्ह करा आणि आणखी एक तयार करा"
+
+msgid "manager.people.syncUsers"
+msgstr "वापरकर्ता नोंदणीची जुळवणी (सिंक्रोनाइझ) करा"
+
+msgid "manager.userSearch.searchByName"
+msgstr "वापरकर्त्याला नावाने शोधा"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"तुम्ही हा प्रतिनिधी हटवू शकत नाही कारण तो या सादरीकरणासाठी एक किंवा अधिक "
+"प्रकाशन स्वरूपांसाठी मार्केट मेटाडेटामध्ये नियुक्त केला आहे."
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"तुम्हाला कमाल किती शब्द शोधायचे आहेत त्याचे मूल्य सेट करण्यासाठी खालील फॉर्म "
+"वापरा. फॉर्ममध्ये त्या फील्डच्या सरासरीची गणना आधीच भरलेली आहे."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"तारीख YYYY-MM-DD किंवा YYYY-MM स्वरूपात असावी. शेवटची तारीख {$lastDate} ही "
+"किंवा यापूर्वीची असू शकते."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"प्रकाशनांची यादी प्रदर्शित करण्यासाठी विशिष्ट वर्षांचे स्वरूप (फॉर्मेट): "
+"yyyy|yyyy|yyyy-yyyy (A list or range of years of publication to return in "
+"response in format of yyyy|yyyy|yyyy-yyyy)."
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"विशिष्ट कालावधीत संकेतस्थळाचा वापर आणि सादरीकरणाशी संबंधित तपशीलांचा अहवाल ही"
+" प्रणाली तयार करते. अहवाल CSV स्वरूपात तयार केले जातात जे स्प्रेडशीटमध्येच "
+"पाहता येतात."
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"{$registrationAgency} द्वारे कळवण्यात आलेल्या खालील त्रुटीच्या कारणांचे तपशी"
+"ल असे आहेत:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"{$registrationAgency} द्वारे कळवण्यात आलेल्या खालील संदेशात नोंदणीबद्दलचे "
+"तपशील असे आहेत :"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "संपादकीय कार्यप्रवाहाच्या या टप्प्यावर हा निर्णय घेण्यात आला"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "शिल्लक कामांसह सादरीकरणांची यादी"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "प्राप्तकर्त्याचे किंवा सर्व प्राप्तकर्त्यांचे पूर्ण नाव"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "समीक्षण या तारखेपर्यंत पूर्ण झाले पाहिजे"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+"या तारखेपर्यंत समीक्षण कार्याचा स्वीकार किंवा नकार समीक्षकाने कळवायला हवा"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "समीक्षणाच्या कामासाठी URL"
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr "या तारखेला याचे समीक्षण करायला दिले"
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr "समीक्षकाची शिफारस, जसे की सादरीकरण स्वीकारावे अथवा नाकारावे"
+
+msgid "emailTemplate.variable.review.round"
+msgstr "समीक्षणाची फेरी, फेरी १ किंवा फेरी २ याप्रमाणे"
+
+msgid "emailTemplate.variable.review.name"
+msgstr "समीक्षकाचे नाव"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "सादरीकरणांच्या माहितीचे स्थानांतर करा (Export)"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "स्थानांतर (Export) केलेली फाईल डाउनलोड करा"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "स्थानांतर (Export) यशस्वीरित्या पूर्ण झाले."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "सर्वसामान्य (Generic) आयटम्स"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "त्रुटी :"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr ""
+"नमूद केलेल्या नियतकालिकाचा पत्ता (path), \"{$contextPath}\", अस्तित्वात नाही."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "लेखकांची विश्लेषण प्रक्रिया (parsing) अयशस्वी"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "प्रकाशनांची विश्लेषण प्रक्रिया (parsing) अयशस्वी"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "सादरीकरणाच्या लेखकांची नावे आणि संलग्नता (affiliations)."
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "अहवालाचे वर्ष"
+
+msgid "stats.dateRange.from"
+msgstr "पासून"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average} प्रतिवर्षी)"
+
+msgid "stats.daily"
+msgstr "दररोज"
+
+msgid "stats.dateRange"
+msgstr "दोन तारखांदरम्यान (Date Range)"
+
+msgid "stats.dateRange.allDates"
+msgstr "सगळ्याच दिवसांसाठी"
+
+msgid "stats.dateRange.apply"
+msgstr "लागू करा (Apply)"
+
+msgid "stats.dateRange.change"
+msgstr "दरम्यानच्या तारखा बदला (Change date range)"
+
+msgid "stats.dateRange.customRange"
+msgstr "दोन तारखांमधील एक निश्चित कालावधी (Custom Range)"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "नोंदलेल्या तारखांपैकी एक अस्तित्वात नाही."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"प्रत्येक तारीख YYYY-MM-DD या प्रारूपातच नोंद करा. उदाहरणार्थ, ५ जानेवारी "
+"२०२५ ची नोंद 2025-01-05 अशा पद्धतीने करा."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"तारीख योग्य प्रारूपात नाही. प्रत्येक तारीख YYYY-MM-DD याच प्रारूपात नोंदवा."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "सुरुवातीची तारीख शेवटच्या तारखेपूर्वीची असायला हवी."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "शेवटची तारीख {$date} यानंतरची असता कामा नये."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "सुरुवातीची तारीख {$date} यापूर्वीची असता कामा नये."
+
+msgid "stats.dateRange.last12Months"
+msgstr "गेल्या १२ महिन्यांतील"
+
+msgid "stats.dateRange.last30Days"
+msgstr "गेल्या ३० दिवसांतील"
+
+msgid "stats.dateRange.last90Days"
+msgstr "गेल्या ९० दिवसांतील"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "गेल्या दोन वर्षातील"
+
+msgid "stats.dateRange.lastYear"
+msgstr "गेल्या वर्षी"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "{$date} पासून"
+
+msgid "stats.dateRange.thisYear"
+msgstr "या वर्षापासून आजपावेतो"
+
+msgid "stats.dateRange.to"
+msgstr "ते"
+
+msgid "stats.dateRange.untilDate"
+msgstr "{$date} पर्यंत"
+
+msgid "stats.name.declineRate"
+msgstr "नकार दर"
+
+msgid "stats.descriptionForStat"
+msgstr "{$stat} चे वर्णन (Description)"
+
+msgid "stats.editorialActivity"
+msgstr "संपादकीय क्रियाकलाप"
+
+msgid "stats.file.type.primaryFile"
+msgstr "प्राथमिक फाईल"
+
+msgid "stats.file.type.suppFile"
+msgstr "पूरक फाईल"
+
+msgid "stats.fileViews"
+msgstr "फाईलचा वापर (File Views)"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "मासिक"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "भौगोलिक स्थान <a href='https://db-ip.com'>DB-IP</a> द्वारे पुरवले जाते"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "भौगोलिक स्थानाबद्दल"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} ते {$endDate} दरम्यान"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "सर्व {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "डाउनलोड केलेल्या फाईल्स"
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "विविध ठिकाणांहून (भौगोलिक) होणार्‍या डाउनलोड्सची संख्या"
+
+msgid "stats.region"
+msgstr "प्रादेशिक"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "शीर्षक, लेखक आणि ID नुसार केला गेलेला शोध"
+
+msgid "stats.submissionsActive"
+msgstr "सक्रिय सादरीकरणांची संख्या"
+
+msgid "stats.timeline"
+msgstr "कालबद्ध (Timeline)"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "प्रत्येक {$interval} साठी {$type} ची संख्या."
+
+msgid "stats.timelineInterval"
+msgstr "कालावधीनुसार (Timeline Interval)"
+
+msgid "stats.timelineType"
+msgstr "कालक्रमाचा प्रकार (Timeline Type)"
+
+msgid "stats.total"
+msgstr "एकूण"
+
+msgid "stats.unique"
+msgstr "अनन्यसाधारण (Unique)"
+
+msgid "stats.trends"
+msgstr "कल (Trends)"
+
+msgid "stats.unknown"
+msgstr "अज्ञात"
+
+msgid "stats.userStatistics"
+msgstr "वापरकर्त्यांची आकडेवारी"
+
+msgid "stats.name.submissionsReceived"
+msgstr "सादरीकरणे पोहोचली"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "इतर सादरीकरणे"
+
+msgid "stats.name.submissionsImported"
+msgstr "दाखल करून घेतलेली (Imported) सादरीकरणे"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "सादरीकरण स्वीकारले"
+
+msgid "stats.name.submissionsPublished"
+msgstr "सादरीकरणे प्रकाशित झाली"
+
+msgid "stats.name.daysToDecision"
+msgstr "पहिल्या संपादकीय निर्णयासाठीचा कालावधी"
+
+msgid "stats.name.daysToAccept"
+msgstr "स्वीकारण्यासाठी लागलेले दिवस"
+
+msgid "stats.name.acceptanceRate"
+msgstr "स्वीकार दर"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "प्रेषकाचे (sender) पूर्ण नाव"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "प्रेषकाचा (sender) ई-मेल पत्ता"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "प्रेषकाची (sender) ई-मेल स्वाक्षरी"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "संकेतस्थळाच्या प्राथमिक संपर्काचे पूर्ण नाव"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "संकेतस्थळाच्या प्राथमिक संपर्काचा ई-मेल"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr ""
+"मानवी नियंत्रणाशिवाय पाठवलेल्या (automated) ई-मेलसाठी संकेतस्थळाची ई-मेल "
+"स्वाक्षरी"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "या सादरीकरणासाठी नियुक्त केलेले आणि निर्णयाचा अधिकार असलेले संपादक"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "सादरीकरणाचे शीर्षक"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "सादरीकरणाचा एकमेव ID क्रमांक"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "लेखकांची नावे \"जोशी, इत्यादी\" सारख्या स्वल्प सूत्र रूपात"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "लेखकांची पूर्ण नावे"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "संपादकीय कार्यासाठी सादरीकरणाचा URL"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "प्रकाशित सादरीकरणाचा URL"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"हॅश केलेला URL जो वापरकर्त्याला त्याची ओळख पटवून पासवर्ड बदलण्यासाठी (रीसेट) "
+"पाठवला जातो"
+
+msgid "emailTemplate.variable.password"
+msgstr "नवा यादृच्छिक (random) वापरकर्ता पासवर्ड"
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "समीक्षकाची पुनर्नियुक्ती"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "समीक्षकाला समीक्षणासाठी पुन्हा आमंत्रित करा"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "घोषणेचे/सूचनेचे शीर्षक"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "घोषणेचे/सूचनेचे संक्षिप्त वर्णन"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "घोषणेचा/सूचनेचा URL"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "नाकारलेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "स्वीकारलेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "प्राप्त झालेल्या एकूण सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "अहवालाचा महिना"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "अहवालाचे वर्ष"
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "समीक्षक निलंबीत करा (unassign)"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+"जेव्हा संपादक समीक्षकाला निलंबीत (unassign) करतो तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "ई-मेल (संकेतस्थळ) विधीग्राह्य करा"
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "इतर लेखकांना सूचित करा"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "सादरीकरण करणाऱ्या लेखकाला पाठवलेल्या ई-मेल संदेशाची प्रत"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "समीक्षकांचा निर्णय सूचित करा"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"समीक्षकांना या निर्णयाबद्दल पाठवलेल्या ई-मेलमध्ये या निर्णयाची त्यांना "
+"संक्षिप्त रूपात माहिती कळावी हा हेतू असतो"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr ""
+"आम्ही हे सादरीकरण कोणत्याही सुधारणांशिवाय स्वीकारण्याचा निर्णय घेत आहोत."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "आम्ही लेखकांना सुधारित आवृत्ती सादर करण्यासाठी आमंत्रित केले आहे."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "सादरीकरणाच्या आमंत्रित समीक्षकाला निलंबित (unassign) केले आहे."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "सादरीकरण स्वीकारण्यात आले आहे"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "सादरीकरण पुनः कॉपीएडिटिंगसाठी पाठवले"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण कॉपीएडिटिंग टप्प्यावर परत "
+"पाठवले गेले आहे."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "समीक्षणाची फेरी रद्द केली"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांच्या सादरीकरणासाठी समीक्षणाची फेरी रद्द "
+"करण्यात आली आहे."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "सादरीकरण नाकारण्यात आले"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "सादरीकरण नाकारले (पूर्व-पुनरावलोकन)"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "नवी समीक्षण फेरी सुरू केली"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "सुधारित आवृत्तीसाठी विनंती"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला तज्ज्ञ समीक्षणादरम्यान सुधारित आवृत्तीसाठी मागणी केली "
+"गेल्याची माहिती देतो."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "समीक्षणासाठी पुन्हा सादर करा"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "नाकारलेले सादरीकरण पुनःस्थापित करण्याबाबत"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "समीक्षणाशिवाय नाकारलेले सादरीकरण पुनःस्थापित करण्याबाबत"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "समीक्षणाकरता पाठवले"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण समीक्षणाच्या टप्प्यात पाठवले "
+"जात आहे."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "प्रकाशनाच्या टप्प्यावर पाठवले"
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "सादरीकरण स्वीकारले (समीक्षणाशिवाय)"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "शिफारस केली"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "समीक्षण करण्यासाठी होकार"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"जेव्हा समीक्षक समीक्षणाची विनंती स्वीकारतो तेव्हा हा ई-मेल मानवी "
+"हस्तक्षेपाशिवाय (automatically) पाठवला जातो"
+
+msgid "mailable.reviewDecline.name"
+msgstr "समीक्षणाच्या सोपवलेल्या कामाला नकार"
+
+msgid "mailable.reviewDecline.description"
+msgstr "समीक्षणाची विनंती नाकारण्यासाठी हा ई-मेल समीक्षकाकडून पाठवला जातो"
+
+msgid "mailable.reviewRemind.name"
+msgstr "समीक्षणाच्या सोपवलेल्या कामासंबंधी स्मरणपत्र"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"समीक्षणाचे सोपवलेले काम अद्याप झालेले नाही याची आठवण करून देण्यासाठी "
+"समीक्षकाला हा ई-मेल संपादकाद्वारे पाठवला जातो."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "समीक्षणाचे काम पूर्ण केल्याबद्दल पोचपत्र"
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr ""
+"समीक्षणाच्या सोपवलेल्या कामासाठी होकार/नकार कळवण्याची मुदत संपली (मानवी "
+"हस्तक्षेपाशिवाय - Automated)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"समीक्षकाने समीक्षणाच्या विनंतीला होकार/नकार कळवण्याची मुदत संपल्यानंतर हा "
+"ई-मेल मानवी हस्तक्षेपाशिवाय (Automated) पाठवला जातो."
+
+msgid "mailable.reviewRequest.name"
+msgstr "समीक्षणासाठी विनंती"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "पुढच्या फेरीतील समीक्षणासाठी विनंती"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "सादरीकरणाचे सध्याचे प्रकाशन गहाळ आहे"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "सादरीकरणाच्या {$child} वर प्रक्रिया अयशस्वी"
+
+msgid "mailable.editorialReminder.name"
+msgstr "संपादकीय स्मरणपत्र"
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+"मानवी हस्तक्षेपाशिवाय (Automated) संपादकांना पाठवलेला शिल्लक कामांच्या यादीचा"
+" ई-मेल"
+
+msgid "mailable.userRegister.name"
+msgstr "वापरकर्ता निर्माण केला"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "समीक्षकांची नोंदणी"
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"हा ई-मेल नव्या नोंदणीकृत समीक्षकाचे स्वागत करून त्याला त्याचे वापरकर्तानाव "
+"आणि पासवर्डची नोंद पुरवण्यासाठी पाठवला जातो."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+"सादरीकरण प्रक्रियेतील नोंदलेली माहिती जतन करून शिल्लक भाग नंतर भरता येईल हे "
+"कळवण्यासाठी"
+
+msgid "mailable.submissionAck.name"
+msgstr "सादरीकरण प्रक्रिया पूर्ण झाल्याबद्दल दुजोरा"
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "सादरीकरण प्रक्रिया पूर्ण केल्याबद्दल दुजोरा (इतर लेखकांना)"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "चर्चासत्र (सादरीकरण)"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"सादरीकरणाच्या टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर "
+"दिले जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.discussionReview.name"
+msgstr "चर्चासत्र (समीक्षणादरम्यान)"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "चर्चासत्र (कॉपीएडिटिंग)"
+
+msgid "mailable.discussionProduction.name"
+msgstr "चर्चासत्र (प्रकाशन)"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"प्रकाशन टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर दिले "
+"जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "सुधारित आवृत्तीची (version) सूचना"
+
+msgid "mailable.announcementNotify.name"
+msgstr "नवी घोषणा"
+
+msgid "mailable.announcementNotify.description"
+msgstr "नवी घोषणा निर्माण केल्यावर हा ई-मेल पाठवला जातो."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "सांख्यिकी अहवालासंबंधी सूचना"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "समीक्षणासंबंधीच्या सूचनेचे संपादन"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "समीक्षकाने मतप्रदर्शन केले आहे, संपादकांना सूचित करा"
+
+msgid "manager.people.authSource"
+msgstr "स्रोताचे प्रमाणीकरण (Authentication source)"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "सादरीकरण पुन्हा समीक्षण टप्प्यावर पाठवले"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "सादरीकरण पुन्हा सादरीकरण टप्प्यावर पाठवले"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्याचे सादरीकरण परत सादरीकरण टप्प्यावर पाठवले "
+"गेले आहे."
+
+msgid "manager.manageEmails"
+msgstr "ई-मेल्सचे व्यवस्थापन"
+
+msgid "manager.mailables.templates"
+msgstr "तयार मजकूर (टेम्पलेट्स)"
+
+msgid "manager.mailables.editTemplate"
+msgstr "तयार मजकूर (टेम्पलेट) संपादित करा"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "तयार मजकूर (टेम्पलेट) हटवा"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "तयार मजकूर (टेम्पलेट) पुनर्स्थापित (रीसेट) करा"
+
+msgid "manager.mailables.search"
+msgstr "नाव किंवा वर्णनानुसार शोधा"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "हा तयार मजकूर (टेम्पलेट) शोधायला त्याचे त्रोटक नाव दाखल करा."
+
+msgid "manager.newSubmission"
+msgstr "नवे सादरीकरण"
+
+msgid "manager.submissionAck.description"
+msgstr "नव्या सादरीकरणाची नोंद झाल्यावर ई-मेल सूचना कोणा-कोणाला पाठवली जावी."
+
+msgid "manager.submissionAck.off"
+msgstr "ई-मेल पाठवू नका."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "सर्व लेखकांना ई-मेल पाठवा."
+
+msgid "manager.editorialDecisions"
+msgstr "संपादकीय निर्णय"
+
+msgid "manager.forEditors"
+msgstr "संपादकांसाठी"
+
+msgid "manager.forEditors.description"
+msgstr "संपादकांना ई-मेल सूचना पाठवण्यासाठी कॉन्फिगर करा."
+
+msgid "manager.editorialStatistics"
+msgstr "संपादकीय सांख्यिकी माहिती"
+
+msgid "manager.editorialStatistics.on"
+msgstr "संपादकांना दरमहा ई-मेल पाठवा."
+
+msgid "manager.editorialStatistics.off"
+msgstr "संपादकांना ई-मेल पाठवू नका."
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"सादरीकरण करणाऱ्या लेखकाला प्रवर्ग (category) निवडण्यास सांगितले पाहिजे का?"
+
+msgid "manager.submitWithCategories.no"
+msgstr "नाही, लेखकांना हे फील्ड दाखवू नका."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "कॉपीएडिटसाठी विनंती करा"
+
+msgid "mailable.editorAssign.name"
+msgstr "संपादक नियुक्त केला"
+
+msgid "mailable.layoutRequest.name"
+msgstr "प्रकाशनासाठी तयार"
+
+msgid "mailable.system"
+msgstr "प्रणाली (सिस्टम)"
+
+msgid "mailable.reviewComplete.name"
+msgstr "समीक्षण पूर्ण झाले"
+
+msgid "mailable.reviewEdit.name"
+msgstr "समीक्षणाचे संपादन झाले"
+
+msgid "mailable.editorAssigned.name"
+msgstr "संपादक नियुक्ती (आपोआप - Auto)"
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "संपादक नियुक्त करा"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "सादरीकरणासाठी संपादक आवश्यक आहे"
+
+msgid "plugins.importexport.common.validation"
+msgstr "स्थानांतर (Export) आणि नोंदणीपूर्वी XML विधीग्राह्य (validate) करा."
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr "प्रकाशित अंकाचा URL"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"निवडलेल्या दोन तारखांदरम्यान (Date Range) सादर झालेली सादरीकरणे आणि त्यांच्या"
+"वर घेतलेला अखेरचा निर्णय विचारात घेऊन स्वीकृती दराची टक्केवारी मोजली "
+"जाते.<br><br>उदाहरणार्थ, या दोन तारखांदरम्यान (Date Range) दहा सादरीकरणे सा"
+"दर झाली. चार स्वीकारली गेली, चार नाकारली गेली आणि दोन अद्याप अंतिम निर्णयाची "
+"वाट पाहत आहेत.<br><br>तर स्वीकृती दर ५०% असेल (८ सादरीकरणांपैकी ४) कारण अंति"
+"म निर्णय न झालेल्या दोन सादरीकरणांना विचारात घेतले जाऊ शकत नाही."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"सादरीकरणांना नकार (desk rejection) किंवा समीक्षणासाठी पुढे पाठवण्यासारख्या "
+"पहिल्या संपादकीय निर्णयासाठी लागणारे दिवस.<br><br>सादरीकरणांवर किती "
+"दिवसांच्या आत निर्णय होण्याची शक्यता आहे याचा अंदाज यावरून बांधता येऊ "
+"शकतो.<br><br>तुमच्या नियतकालिकामध्ये सादरीकरण करणाऱ्या लेखकांना त्यावरील "
+"निर्णयासाठी किती दिवस लागू शकतात याचा अंदाज बांधण्याचा प्रयत्न यातून केला "
+"जातो."
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "इतरत्र समाविष्ट न केलेल्या सादरीकरणांची संख्या"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"अर्थात यामध्ये अजूनही समीक्षणाच्या टप्प्यात असलेल्या किंवा ज्यांची सादरीकरण "
+"प्रक्रिया अपूर्ण राहिलेली आहे अशा एकूण संख्येत न मोजल्या जाणार्‍या इतर "
+"सादरीकरणांचा समावेश असतो."
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "प्रत्येक फाईलच्या डाउनलोड्सची संख्या."
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr ""
+"प्रत्येक शहर, प्रदेश किंवा देशागणिक झालेला वापर (File Views) आणि डाउनलोड्सची "
+"संख्या."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "कालबद्ध डाउनलोड्स (Download Timeline)"
+
+msgid "stats.totalWithinDateRange"
+msgstr "दोन तारखांच्या कालावधीत एकूण"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "प्रगतीपथावरील सादरीकरणे"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "सादरीकरण नाकारले"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "सादरीकरणांना नाकारले (समीक्षणोत्तर)"
+
+msgid "stats.name.daysToReject"
+msgstr "नाकारण्यासाठी लागलेले दिवस"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "सुरूवातीलाच संपादकाकडून नाकारण्याचा (Desk Reject) दर"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "सादरीकरणांना संपादकीय स्तरावर सुरूवातीलाच नाकारले (Desk Reject)"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "समीक्षणोत्तर नाकारण्याचा दर"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "प्रक्रिया अयशस्वी झाली. सूचना/त्रुटींसाठी खालील बाबींची पडताळणी करा."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "खालील बटण वापरून स्थानांतर (Export) केलेली फाईल डाउनलोड करा."
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"चुकीचे फिल्टर कॉन्फिगरेशन [{$filterName}]: {$filterCount} वेळा. फक्त एकच असणे"
+" आवश्यक आहे."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"पूर्ण झालेल्या समीक्षणाच्या सर्व टिप्पण्या. अनामिक समीक्षणप्रक्रियेमुळे "
+"समीक्षकांची नावे गुप्त राखली आहेत"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "हरवलेला पासवर्ड पुन: मिळवण्यासाठी वापरकर्त्यासाठी URL पत्ता"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "वापरकर्त्याने सादर केलेली सर्व सादरीकरणे पाहण्यासाठी URL पत्ता"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr ""
+"वापरकर्त्याला त्याची माहिती (प्रोफाइल) पाहण्यासाठी आणि संपादित करण्यासाठी "
+"URL पत्ता"
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "ई-मेलचा तयार मजकूर (टेम्पलेट) निवडण्यासाठी घेतलेल्या निर्णयाचे नाव"
+
+msgid "emailTemplate.variable.decision.description"
+msgstr ""
+"ई-मेलचा तयार मजकूर (टेम्पलेट) निवडण्यासाठी घेण्यात आलेल्या निर्णयाचे वर्णन"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "खंड, अंक, वर्ष आणि शीर्षकाद्वारे अंकाची ओळख"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"जर निर्णय समीक्षण टप्प्याशी संबंधित असेल तर ज्यात हा निर्णय घेण्यात आला ती "
+"समीक्षण फेरी"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "चर्चेचा विषय"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "नवीन चर्चेचा किंवा उत्तराचा आशय"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "या संपादकाला नियुक्त केलेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "प्राप्तकर्त्याचे किंवा सर्व प्राप्तकर्त्यांचे वापरकर्तानाव"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "शिफारस, जसे की सादरीकरण स्वीकारावे"
+
+msgid "emailTemplate.variable.review.method"
+msgstr "समीक्षणाचा प्रकार, जसे की अनामिक, दुहेरी अनामिक किंवा मुक्त"
+
+msgid "emailTemplate.variable.review.files"
+msgstr "समीक्षकाने संक्रमित (अपलोड) केलेल्या फाईल्स"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"या नियतकालिकाकडून दुहेरी-अनामिक तज्ज्ञ समीक्षण केले जाते. समीक्षकांना तुमच्या"
+" किंवा तुमच्या सह-लेखकांबद्दल कोणतीही ओळख पटवणारी माहिती दिसणार नाही. "
+"त्याचप्रमाणे, तुमच्या सादरीकरणाचे समीक्षक कोण हे तुम्हाला कळणार नाही आणि "
+"तुम्हाला थेट समीक्षकाकडून याबाबत काहीही माहिती मिळणार नाही."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"हे नियतकालिक \"अनामिक समीक्षक\" तज्ज्ञ समीक्षणाची पद्धत आचरते. तुमचे आणि "
+"तुमच्या सहलेखकांची नावे समीक्षकांना दिसतील; तथापि, समीक्षकांची ओळख अनामिक "
+"राहील."
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"हे नियतकालिक मुक्त तज्ज्ञ समीक्षणाची पद्धत (open peer review) आचरते. समीक्षक "
+"तुमचे नाव आणि संलग्नता तसेच तुमच्या सह-लेखकांची नावे आणि संलग्नता पाहू शकती"
+"ल. त्याचप्रमाणे, तुम्हाला समीक्षकांची नावे आणि संलग्नता दिसतील."
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "सादरीकरणाचा सारांश"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "सादरीकरणासाठी लेखकाचा URL"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "सादरीकरणाच्या कार्याच्या पायर्‍यांमधील (wizard) सादरीकरणाचा URL"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"सादरीकरणाच्या कार्यप्रवाहाची (workflow) माहिती घेण्यासाठी नियुक्त केलेल्या "
+"लेखकांची नावे. सहसा हा सादरीकरण सादर करण्याची जबाबदारी घेणारा लेखक असतो"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "सादरीकरणाची फाईल संक्रमित (अपलोड) करणाऱ्या वापरकर्त्याचे पूर्ण नाव"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "या महिन्यात प्राप्त झालेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "संपादकीय क्रियाकलापासाठीच्या पृष्ठाचा दुवा (link)"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "ई-मेल खाते विधीग्राह्य (validate) करण्यासाठी दुवा (link)"
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"संपादकाने केलेल्या समीक्षकाच्या पुनर्नियुक्तीनंतर समीक्षकाला हा ई-मेल पाठवला "
+"जातो."
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"संपादकाद्वारे समीक्षण कार्याची विनंती नाकारलेल्या समीक्षकाला जेव्हा संपादक "
+"पुन्हा आमंत्रित करतो तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"जेव्हा नवा वापरकर्ता संकेतस्थळावर नोंदणी करतो तेव्हा सेटिंग्जसाठी त्याचा ई-मे"
+"ल पत्ता सत्यापित (validate) करण्यासाठी हा ई-मेल आपोआप पाठवला जातो."
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"हा ई-मेल सादरीकरणाच्या अशा लेखकांना सूचित करण्यासाठी पाठवला जातो ज्यांना यात "
+"सहभागी म्हणून नियुक्त केलेले आहे पण त्यांना या सादरीकरणाची कल्पना नसण्याची "
+"शक्यता आहे. सहसा हे सादरीकरण प्रक्रिया पूर्ण करणाऱ्या लेखकाशिवाय इतर सर्व "
+"असतात."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"हा ई-मेल संपादकातर्फे समीक्षकाला पाठवून त्याला सूचित केले जाते की त्यानी "
+"समीक्षण केलेल्या सादरीकरणाबद्दल निर्णय घेण्यात आला आहे."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "आम्ही हे सादरीकरण नाकारण्याचा निर्णय घेतला आहे."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"आम्ही लेखकांना पुढील समीक्षणासाठी सुधारित आवृत्ती (version) सादर करण्यासाठी "
+"आमंत्रित केले आहे."
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण प्रकाशनासाठी स्वीकारले गेले "
+"आहे."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "कॉपीएडिटिंग करून सादरीकरण परतले"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण कॉपीएडिटिंग टप्प्यावरून परतले"
+" आहे."
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण तज्ज्ञ समीक्षणानंतर नाकारण्या"
+"त आले आहे."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांच्या सादरीकरणासाठी समीक्षणाची एक नवी फेरी"
+" सुरू होत आहे."
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला त्यांच्या सादरीकरणाबद्दल \"सुधारित आवृत्ती लिहून पुन्हा सा"
+"दर\" करण्याच्या निर्णयाची माहिती देतो."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की तज्ज्ञ समीक्षणानंतर त्यांचे सादरीकरण "
+"नाकारण्याचा पूर्वीचा निर्णय रद्द केला जात आहे."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की समीक्षणाशिवाय त्यांचे सादरीकरण नाकारण्याचा "
+"पूर्वीचा निर्णय रद्द केला जात आहे."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण प्रकाशनाच्या टप्प्यावर पाठवले"
+" जात आहे."
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण थेट कॉपीएडिटिंगच्या टप्प्या"
+"वर पाठवले जात आहे आणि त्याचे तज्ज्ञ समीक्षण केले जाणार नाही."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"हा संदेश वरिष्ठ संपादक किंवा विभाग संपादकाला सूचित करतो की त्यांची नेमणूक "
+"केलेल्या सादरीकरणांपैकी एकाबद्दल संपादकीय शिफारस केली आहे. हा संदेश तेव्हा "
+"वापरला जातो जेव्हा संपादकाला फक्त संपादकीय निर्णयाची शिफारस करण्याची परवानगी "
+"असते आणि संपादकीय निर्णयाची नोंद करण्यासाठी अधिकृत संपादकाची आवश्यकता असते. "
+"सहभागींना सादरीकरणासाठी नियुक्त करताना हा पर्याय निवडला जाऊ शकतो."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr ""
+"समीक्षणाच्या सोपवलेल्या कामासंबंधी स्मरणपत्र (मानवी हस्तक्षेपाशिवाय - "
+"Automated)"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"समीक्षणाचे सोपवलेले काम नियत तारखेपर्यंत झालेले नाही याची आठवण करून "
+"देण्यासाठी हा ई-मेल समीक्षकाला आपोआप पाठवला जातो."
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"हा ई-मेल संपादकाद्वारे समीक्षकाला त्याचे समीक्षण मिळाल्याची पुष्टी करण्यासाठी"
+" आणि त्याच्या योगदानाबद्दल त्यांचे आभार मानण्यासाठी पाठवला जातो."
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"विभाग संपादकाकडून समीक्षकाला पाठवलेला हा ई-मेल समीक्षकाने सादरीकरणाचे समीक्"
+"षण करण्याचे काम स्वीकारावे किंवा नाकारावे अशी विनंती करतो. "
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"संपादकाकडून समीक्षकाला पाठवलेला हा ई-मेल समीक्षकाने समीक्षणाच्या पुढील "
+"फेरीसाठी सादरीकरणाचे समीक्षण करण्याचे काम स्वीकारावे किंवा नाकारावे अशी "
+"विनंती करतो. शिवाय सादरीकरणाचे शीर्षक, सारांश तसेच समीक्षणाची अंतिम तारीख आणि"
+" सादरीकरण कोठून मिळवायचे याबद्दलची माहितीही प्रदान करतो."
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "पासवर्ड रीसेट करण्यासाठी"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"नोंदणीकृत वापरकर्ता जेव्हा सूचित करतो की तो त्याचा पासवर्ड विसरला आहे किंवा "
+"लॉग-इन करू शकत नाही तेव्हा त्याला हा ई-मेल पाठवला जातो. तो वापरकर्त्याला "
+"त्याचा पासवर्ड रीसेट करण्यासाठी URL पत्ता प्रदान करतो."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"संपादकीय व्यवस्थापकाने वापरकर्ता सेटिंग्जद्वारे नव्या वापरकर्त्याची नोंद "
+"केल्यावर हा ई-मेल नव्या वापरकर्त्याला पाठवला जातो. या ई-मेलद्वारे त्याचे "
+"प्रणालीमध्ये स्वागत करून त्याला त्याच्या वापरकर्तानाव आणि पासवर्ड या माहितीची"
+" नोंद पुरवणे अपेक्षित आहे."
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"सादरीकरण प्रक्रियेतील नोंदलेली माहिती जतन करून शिल्लक भाग नंतर भरता येईल हे "
+"कळवण्यासाठी लेखकाला मानवी हस्तक्षेपाशिवाय (Automated) एक ई-मेल पाठवला जातो"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"लेखक जेव्हा सादरीकरण प्रक्रिया पूर्ण करतो तेव्हा त्याला हा ई-मेल मानवी "
+"हस्तक्षेपाशिवाय (Automated) पाठवला जातो. सादरीकरण केल्याबद्दल त्यात लेखकाचे "
+"आभार मानले जातात आणि सादरीकरण संपादकीय प्रक्रियेत कुठल्या टप्प्यावर आहे याचा "
+"मागोवा कसा घ्यावा याबद्दल माहिती प्रदान केली जाते."
+
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"हा ई-मेल सादरीकरण प्रक्रिया पूर्ण करणार्‍या लेखकाव्यतिरिक्त नोंदलेल्या इतर "
+"लेखकांना मानवी हस्तक्षेपाशिवाय (Automated) पाठवला जातो."
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"समीक्षण टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर दिले "
+"जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"कॉपीएडिटिंग टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर दिले"
+" जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"लेखकाने लेखाची सुधारित आवृत्ती (version) संक्रमित (अपलोड) केल्यावर हा ई-मेल "
+"आपोआप (automatically) नियुक्त केलेल्या संपादकाला पाठवला जातो."
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"सादरीकरणाच्या समीक्षणाच्या कामाचे तपशील बदलल्यावर हा ई-मेल आपोआप "
+"(automatically) समीक्षकाला सूचित करतो."
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"समीक्षक समीक्षणादरम्यान शिफारस करतो तेव्हा हा ई-मेल आपोआप (automatically) "
+"नियुक्त केलेल्या संपादकांना पाठवला जातो"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण समीक्षण टप्प्यावर परत पाठवले "
+"गेले आहे."
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p>प्रणालीतर्फे पाठवल्या जाणार्‍या सगळ्या ई-मेल्ससाठी <a href=\"{$url}\">तया"
+"र मजकूरांचा (टेम्पलेट्स) समावेश करून त्यांचे संपादन</a> करा.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"वापरकर्ता जेव्हा हा ई-मेल पाठवत असेल तेव्हा ई-मेलचा तयार मजकूर (टेम्पलेट्स) "
+"त्याला उपलब्ध करून देण्यासाठी असे तयार मजकूरांचे (टेम्पलेट्स) समावेश करून "
+"त्यांचे संपादन करा. सर्वसाधारण (Default) मजकूर आपोआप (automatically) लोड हो"
+"ईलच शिवाय वापरकर्ता तुम्ही येथे समाविष्ट केलेले इतर कोणतेही तयार मजकूर "
+"(टेम्पलेट्स) विनाविलंब लोड करू शकेल."
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+"तुम्ही खात्रीने <strong>{$template}</strong> हा तयार मजकूर (टेम्पलेट) हटवू "
+"इच्छिता ना?"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"तुम्ही खात्रीने <strong>{$template}</strong> या तयार मजकूराचा (टेम्पलेट) वि"
+"षय आणि मुख्य भाग त्यांच्या सर्वसाधारण (डीफॉल्ट) मूल्यांवर पुनर्स्थापित "
+"(रीसेट) करू इच्छिता ना?"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"जेव्हा नव्या सादरीकरणाची नोंद होते तेव्हा ई-मेल सूचना पाठवण्यासाठी कॉन्फिगर "
+"करा."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "फक्त सादरीकरण प्रक्रियेत भाग घेणाऱ्या लेखकालाच ई-मेल पाठवा."
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"संपादकीय निर्णयाची नोंद केल्यावर लेखकांना ई-मेल सूचना पाठवण्यासाठी कॉन्फिगर "
+"करा."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"नियतकालिकाच्या सादरीकरणांच्या स्वीकार आणि नकाराबाबतची आकडेवारी संपादकांना "
+"दरमहा ई-मेलने पाठवायची की नाही? संपादक त्यांच्या वापरकर्ता प्रोफाइलवर असा "
+"ई-मेल नको असल्यास यासंबंधीची सदस्यता रद्द करू शकतात."
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+"होय, सादरीकरणाच्या टप्प्यावर (wizard) प्रवर्गाची (category) निवड करण्यासाठी "
+"त्या फिल्डचा समावेश करा."
+
+msgid "mailable.versionCreated.name"
+msgstr "आवृत्ती (version) तयार केली"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "इतर लेखकांना सादरीकरणाची पोच"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"जेव्हा संपादकाला सादरीकरणासाठी आपोआप (automatically) नियुक्त केले जाते तेव्हा"
+" त्याला हा ई-मेल पाठवला जातो."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"सादरीकरण करणाऱ्या लेखकांनी त्यांच्या सादरीकरणासह हितसंबंध संघर्षाचे ("
+"Competing Interest - CI) विधान दाखल करणे आवश्यक आहे."
+
+msgid "manager.language.submission.form.description"
+msgstr "सादरीकरण प्रक्रिया आणि मेटाडेटासाठी भाषा निवडा."
+
+msgid "manager.language.submission.from.error"
+msgstr "किमान एक लोकॅल निवडणे आवश्यक आहे."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "समीक्षणासाठी स्मरणपत्रे निर्माण करा"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"अपेक्षित तारखेपूर्वी किंवा नंतर समीक्षणाच्या विनंतीला समीक्षकाने प्रतिसाद "
+"दिला नसेल तर, किंवा समीक्षण प्रक्रिया पूर्ण केली गेली नसेल तर ई-मेलने "
+"स्मरणपत्र पाठवा"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} दिवस अपेक्षित तारखेनंतर"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"सादरीकरण प्रक्रिया पूर्ण करण्यापूर्वी लेखक अनेक संभाव्य समीक्षकांची नावे "
+"सुचवू शकतो ज्यामुळे समीक्षण प्रक्रिया सुलभ होऊ शकते आणि संपादकीय टीमसाठी याबा"
+"बत उपयुक्त माहिती मिळू शकते."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"समीक्षण टप्प्यादरम्यान लेखकांबाबतची खालील माहिती दाखवली जाते. लेखकाने "
+"स्वतःबद्दल, सह-लेखकांबद्दल आणि इतर कोणत्याही योगदानकर्त्यांबद्दल कोणती माहिती"
+" द्यावी याचे थोडक्यात स्पष्टीकरण."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"भाषेचे योजन (सेटिंग्स) सेव्ह करता आलेले नाही. सगळे पर्याय कार्यान्वित करणे "
+"आवश्यक आहे."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"सार्वजनिक प्रदर्शनासाठी संपादकीय सेवांसाठी (editorial masthead) व्यक्तींच्या "
+"भूमिकांचा क्रम परिभाषित करा."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"सादरीकरणाच्या {$localeName} या भाषेत {$authorName} या लेखकाच्या संलग्न "
+"संस्थेचे नाव नाही. या माहितीशिवाय सादरीकरण दाखल करुन (Import) घेता येणार "
+"नाही."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"सर्व सक्रिय संपादकीय सेवा (editorial masthead services) प्रदर्शित करणाऱ्या "
+"पृष्ठाची लिंक."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "मेनू आयटम शीर्षक हवे."
+
+msgid "manager.setup.masthead"
+msgstr "मास्टहेड (Masthead)"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"सार्वजनिक प्रदर्शनासाठी संपादकीय भूमिकांचा (masthead roles) क्रम परिभाषित "
+"करा."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"या विभागात एकसंधपणा राखण्यासाठी आणि शोधादरम्यान सोपेपणा आणण्यासाठी "
+"समीक्षकांची नावे प्रमाणित स्वरूपात प्रदर्शित केली जातील."
+
+msgid "manager.language.websiteLanguages"
+msgstr "संकेतस्थळाच्या भाषा"
+
+msgid "manager.language.submissionLanguages"
+msgstr "सादरीकरणासाठी वापर करता येणार्‍या भाषा"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "भाषांचा समावेश करा / भाषा वगळा"
+
+msgid "manager.language.submissionMetadata"
+msgstr "मेटाडेटा"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "समीक्षणाच्या विनंतीला प्रतिसाद - अपेक्षित तारखेपूर्वी"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "समीक्षण प्रक्रिया - अपेक्षित तारखेपूर्वी"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "समीक्षण प्रक्रिया - अपेक्षित तारखेनंतर"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} दिवस अपेक्षित तारखेपूर्वी"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "स्मरणपत्रे नाहीत"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "समीक्षणाच्या विनंतीला प्रतिसाद - अपेक्षित तारखेनंतर"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "कोणतेही स्मरणपत्र तयार केलेले नाही"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "समीक्षण सादर करताना समीक्षकाच्या सूचना"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "सादरीकरण प्रक्रियेदरम्यान लेखकांना संभाव्य समीक्षकांची नावे सुचवू द्या"
+
+msgid "notification.submissionLocales"
+msgstr "सादरीकरणासाठी लोकॅल्स अपडेट केले."
+
+msgid "settings.roles.masthead"
+msgstr "संपादकीय सेवांतील (editorial masthead) यादीत भूमिका विचारात घ्या"
+
+msgid "settings.roles.permitSettings"
+msgstr "सेटिंग्जमध्ये बदल करण्याची परवानगी द्या"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "दुजोरा देणारी किमान समीक्षणे आवश्यक"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "सादरीकरणावर दुजोरा देणार्‍या समीक्षणांची किमान आवश्यक संख्या"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"कृपया प्रत्येक संपादकाचे पूर्ण नाव, संलग्नता आणि भूमिकेसाठी सुरुवातीच्या आणि "
+"शेवटाच्या तारखांसह संपादकीय इतिहास प्रदान करा."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "ई-मेल पत्ता बदलण्यासाठी सूचना"

@@ -1,13 +1,15 @@
 # rl <biuro@fimagis.pl>, 2022, 2024.
 # Pressto <pressto@amu.edu.pl>, 2022.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
+# Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
+# Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2024-04-20 00:03+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"PO-Revision-Date: 2025-11-04 08:26+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl/>\n"
 "Language: pl\n"
@@ -589,7 +591,7 @@ msgid "common.noneSelected"
 msgstr ""
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Brak danych"
 
 msgid "common.no"
 msgstr "Nie"
@@ -958,7 +960,7 @@ msgid "common.user.nonexistent"
 msgstr "[Użytkownik nie istnieje]"
 
 msgid "common.view"
-msgstr "Widok"
+msgstr "Podgląd"
 
 msgid "common.viewError"
 msgstr "Podgląd błędu"
@@ -1595,7 +1597,7 @@ msgid "notification.confirmSuccess"
 msgstr "Zostałeś zasubskrybowany(a)."
 
 msgid "notification.email"
-msgstr "Wyślij e-mail dla tych rodzajów powiadomień."
+msgstr "Nie wysyłaj wiadomości e-mail dla tych rodzajów powiadomień."
 
 msgid "notification.noneExist"
 msgstr "Nie masz powiadomień."
@@ -1616,7 +1618,7 @@ msgid "notification.notification"
 msgstr "Powiadomienie"
 
 msgid "notification.notifications"
-msgstr "Powiadomienia RSS / Atom"
+msgstr "Powiadomienia"
 
 msgid "notification.sentNotification"
 msgstr "Powiadomienie wysłane."
@@ -1695,29 +1697,8 @@ msgstr "Dyscyplina"
 msgid "search.fullText"
 msgstr "Pełny tekst"
 
-msgid "search.indexTerms"
-msgstr "Słowa kluczowe"
-
-msgid "search.indexTermsLong"
-msgstr "Wszystkie indeksowane terminy"
-
-msgid "search.matchAll"
-msgstr "Wszystkie kategorie"
-
 msgid "search.noResults"
 msgstr "Brak wyników"
-
-msgid "search.operator.and"
-msgstr "oraz"
-
-msgid "search.operator.not"
-msgstr "nie"
-
-msgid "search.operator.or"
-msgstr "lub"
-
-msgid "search.SearchFor"
-msgstr "Znajdź"
 
 msgid "search.searchResults"
 msgstr "Wyniki wyszukiwania"
@@ -1922,6 +1903,7 @@ msgstr "Status rundy {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Raport statystyk redakcyjnych."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "W ramach dbania o dobrą kondycję czasopisma przypominamy o przeglądzie "
@@ -2308,3 +2290,67 @@ msgstr "Autor zmieniony."
 
 #~ msgid "common.homepageImage.altText"
 #~ msgstr "Obraz strony głównej"
+
+msgid "navigation.mySubmissions"
+msgstr "Moje zgłoszenia jako autora"
+
+msgid "navigation.dashboards"
+msgstr "Panel Edytora"
+
+msgid "navigation.reviewAssignments"
+msgstr "Moje zadania jako recenzenta"
+
+msgid "common.editorialMasthead"
+msgstr "Redakcja czasopisma"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Recenzenci w poprzednim roku"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Redakcja wyraża swoje uznanie dla recenzentów z {$year} wymienionych poniżej."
+
+msgid "common.highlights"
+msgstr "Wydarzenia"
+
+msgid "common.showingXofX"
+msgstr "Wyświetlane <strong>{$start} do {$finish}</strong> z {$total}"
+
+msgid "common.viewMoreDetails"
+msgstr "Zobacz więcej szczegółów"
+
+msgid "common.filtersClear"
+msgstr "Wyczyść filtry"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Recenzenci w poprzednich latach"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Recenzja zaakceptowana w dniu"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Recenzja przesłana w dniu"
+
+msgid "common.numero"
+msgstr "Numer"
+
+msgid "common.assignments"
+msgstr "Zadania"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Zobacz <a href=\"{$url}\">Historyczne dane edytorów</a>"
+
+msgid "common.editorialHistory.page.description"
+msgstr "W tej sekcji wymieniono dotychczasowych współpracowników."
+
+msgid "common.editorialHistory"
+msgstr "Historia redakcyjna"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Zobacz {$name} ORCID profile"
+
+msgid "common.editorialHistory.page"
+msgstr "Historyczne dane edytorów"

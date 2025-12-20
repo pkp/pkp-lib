@@ -180,11 +180,9 @@ abstract class PKPRouter
     /**
      * A Generic call to a context defining object (e.g. a Journal, Press, or Server)
      *
-     * @param $forceReload (optional) Reset a context even if it's already been loaded
-     *
-     * @return Context
+     * @param bool $forceReload (optional) Reset a context even if it's already been loaded
      */
-    public function getContext(PKPRequest $request, $forceReload = false)
+    public function getContext(PKPRequest $request, bool $forceReload = false): ?Context
     {
         if ($forceReload || !isset($this->_context)) {
             // Retrieve the requested context path (this validates the path)
@@ -204,7 +202,7 @@ abstract class PKPRouter
 
                 // If the context couldn't be retrieved, it's a 404 error.
                 if (!$this->_context) {
-                    $this->getDispatcher()?->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
             }
         }
@@ -297,9 +295,10 @@ abstract class PKPRouter
      * 4) execution
      * 5) client response
      *
-     * @param $validate whether or not to execute the validation step.
+     * @param array{0:PKPHandler,1:string} $serviceEndpoint
+     * @param bool $validate whether or not to execute the validation step.
      */
-    public function _authorizeInitializeAndCallRequest(callable $serviceEndpoint, PKPRequest $request, array $args, bool $validate = true): void
+    public function _authorizeInitializeAndCallRequest(callable|array $serviceEndpoint, PKPRequest $request, array $args, bool $validate = true): void
     {
         $dispatcher = $this->getDispatcher();
 
@@ -307,7 +306,7 @@ abstract class PKPRouter
         // actually being callable, e.g. a component has been named
         // that does not exist and that no plugin has registered.
         if (!is_callable($serviceEndpoint)) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         // Pass the dispatcher to the handler.
@@ -319,7 +318,7 @@ abstract class PKPRouter
         if ($serviceEndpoint[0]->authorize($request, $args, $roleAssignments)) {
             // Execute class-wide data integrity checks.
             if ($validate) {
-                $serviceEndpoint[0]->validate($request, $args);
+                $serviceEndpoint[0]->validate(null, $request);
             }
 
             // Let the handler initialize itself.
@@ -348,6 +347,8 @@ abstract class PKPRouter
         // Return the result of the operation to the client.
         if (is_string($result)) {
             echo $result;
+        } elseif ($result instanceof \Illuminate\View\View) {
+            echo $result->render();
         } elseif ($result instanceof \PKP\core\JSONMessage) {
             header('Content-Type: application/json');
             echo $result->getString();
@@ -465,8 +466,4 @@ abstract class PKPRouter
         // Assemble and return the final URL
         return $baseUrl . $pathInfo . $queryParameters . $anchor;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPRouter', '\PKPRouter');
 }

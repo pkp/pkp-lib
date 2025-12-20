@@ -1,0 +1,80 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/th/>"
+"\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "comments.email"
+msgstr "อีเมลผู้โพสต์"
+
+msgid "comments.anonymous"
+msgstr "ผู้ใช้ไม่ประสงค์ออกนาม"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "เนื้อหา"
+
+msgid "comments.titleRequired"
+msgstr "จำเป็นต้องมีชื่อเรื่องของความคิดเห็น"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"การลบความคิดเห็นนี้จะลบการตอบกลับทั้งหมดด้วย คุณแน่ใจหรือว่าต้องการทำสิ่งนี้?"
+
+msgid "comments.delete"
+msgstr "ลบความคิดเห็นนี้"
+
+msgid "comments.emailReply"
+msgstr "ตอบกลับทางอีเมล"
+
+msgid "comments.enterComment"
+msgstr "ป้อนความคิดเห็น"
+
+msgid "comments.inResponseTo"
+msgstr "เพื่อตอบกลับ <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "ชื่อผู้โพสต์"
+
+msgid "comments.noComments"
+msgstr "ไม่มีความคิดเห็นจากผู้อ่านที่ถูกโพสต์"
+
+msgid "comments.nReplies"
+msgstr "({$num} การตอบกลับ)"
+
+msgid "comments.oneReply"
+msgstr "(1 การตอบกลับ)"
+
+msgid "comments.postAnonymously"
+msgstr "โพสต์ความคิดเห็นนี้โดยไม่ระบุตัวตน"
+
+msgid "comments.postReply"
+msgstr "โพสต์การตอบกลับ"
+
+msgid "comments.readerComments"
+msgstr "ความคิดเห็นของผู้อ่าน"
+
+msgid "comments.readMore"
+msgstr "อ่านเพิ่มเติม"
+
+msgid "comments.replies"
+msgstr "การตอบกลับ"
+
+msgid "comments.title"
+msgstr "ชื่อเรื่อง"
+
+msgid "comments.viewAllComments"
+msgstr "ดูความคิดเห็นทั้งหมด"
+
+msgid "reader.fullText"
+msgstr "เนื้อหาทั้งหมด:"

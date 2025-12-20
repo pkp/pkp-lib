@@ -16,11 +16,12 @@
 
 namespace PKP\observers\listeners;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
-use PKP\invitation\invitations\RegistrationAccessInvite;
+use PKP\invitation\invitations\registrationAccess\RegistrationAccessInvite;
 use PKP\mail\mailables\ValidateEmailContext as ContextMailable;
 use PKP\mail\mailables\ValidateEmailSite as SiteMailable;
 use PKP\observers\events\UserRegisteredContext;
@@ -70,7 +71,7 @@ class ValidateRegisteredEmail
             return;
         }
 
-        $contextId = null;
+        $contextId = Application::SITE_CONTEXT_ID;
 
         // Create and compile email template
         if (get_class($event) === UserRegisteredContext::class) {

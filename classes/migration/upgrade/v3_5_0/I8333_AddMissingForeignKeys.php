@@ -104,7 +104,6 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
 
         Schema::table('email_log', fn (Blueprint $table) => $table->bigInteger('sender_id')->nullable()->default(null)->change());
         Schema::table('notification_subscription_settings', function (Blueprint $table) {
-            $table->renameIndex('notification_subscription_settings_context', 'notification_subscription_settings_context_id');
             $table->renameColumn('context', 'context_id');
         });
     }
@@ -147,11 +146,12 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
     /**
      * Resets optional/nullable foreign key fields from the source table to NULL when the field contains invalid values
      * Used for NULLABLE relationships
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function cleanOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
     {
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -179,11 +179,12 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
     /**
      * Deletes rows from the source table where the foreign key field contains invalid values
      * Used for NULLABLE relationships, where the source record lose the meaning without its relationship
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function deleteOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
     {
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")

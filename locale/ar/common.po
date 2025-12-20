@@ -1,12 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2024-03-26 13:38+0000\n"
+"PO-Revision-Date: 2025-08-05 03:12+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar/>\n"
@@ -683,10 +683,10 @@ msgid "common.pagination.goToPage"
 msgstr "إذهب إلى {$page}"
 
 msgid "common.pagination.next"
-msgstr "الصفحة التالية"
+msgstr "التالي"
 
 msgid "common.pagination.previous"
-msgstr "الصفحة السابقة"
+msgstr "السابق"
 
 msgid "common.pageNumber"
 msgstr "الصفحة {$pageNumber}"
@@ -1691,29 +1691,8 @@ msgstr "التخصصات العلمية"
 msgid "search.fullText"
 msgstr "النص الكامل"
 
-msgid "search.indexTerms"
-msgstr "عبارات الفهرسة"
-
-msgid "search.indexTermsLong"
-msgstr "كل حقول عبارة الفهرسة"
-
-msgid "search.matchAll"
-msgstr "مطابقة كل الفئات"
-
 msgid "search.noResults"
 msgstr "لا نتائج"
-
-msgid "search.operator.and"
-msgstr "و"
-
-msgid "search.operator.not"
-msgstr "لا"
-
-msgid "search.operator.or"
-msgstr "أو"
-
-msgid "search.SearchFor"
-msgstr "البحث عن"
 
 msgid "search.searchResults"
 msgstr "إبحث ضمن النتائج"
@@ -1792,7 +1771,7 @@ msgstr ""
 "<li>النقر على (حماية المستند)</li>\n"
 "<li>إختيار إزالة البيانات الشخصية من خصائص الملف عند الحفظ</li>\n"
 "<li>النقر على الموافقة ثم حفظ الملف</li></ul></li>\n"
-"<li>ملفات PDF:\n"
+"<li>ملفات Adobe Acrobat PDF:\n"
 "<ul><li>الذهاب إلى (ملف)</li>\n"
 "<li>إختيار الخصائص</li>\n"
 "<li>إزالة الأسماء من حقل المؤلفين</li>\n"
@@ -1936,6 +1915,7 @@ msgstr "حالة الجولة {$round}"
 msgid "notification.type.editorialReport"
 msgstr "ملخص التقرير الإحصائي."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "هذا تذكير لك للتحقق من حالة مجلتك عبر تقرير هيئة التحرير."
 
@@ -1943,7 +1923,7 @@ msgid "notification.type.editorialReminder"
 msgstr "البريد الالكتروني الأسبوعي للمهام المعلقة"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "عنصر قائمة التنقل قد تم تعديله بنجاح"
@@ -2271,3 +2251,93 @@ msgstr "التمييزات"
 
 msgid "common.sandbox"
 msgstr "البرنامج يشتغل بوضعية صندوق الاختبارات."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "معاينة <a href=\"{$url}\">ماضي التحرير</a>"
+
+msgid "common.moreActions"
+msgstr "المزيد من الإجراءات"
+
+msgid "common.editorialMasthead"
+msgstr "دفة التحرير"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "المحكمون المناظرون في العام السابق"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "المحكمون المناظرون في الأعوام الماضية"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "المحررون يعربون عن شكرهم للمحكمين لـ {$year} المدرجة أدناه."
+
+msgid "common.editorialHistory"
+msgstr "ماضي التحرير"
+
+msgid "common.editorialHistory.page"
+msgstr "صفحة ماضي التحرير"
+
+msgid "common.editorialHistory.page.description"
+msgstr "هذا المقطع يدرج المساهمين السابقين."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "معاينة الملف الشخصي في ORCID لـ {$name}"
+
+msgid "common.filtersClear"
+msgstr "إزالة المرشحات"
+
+msgid "common.showingXofX"
+msgstr "إظهار <strong>{$start} إلى {$finish}</strong> من {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "محمَّل"
+
+msgid "form.errorSummaryOne"
+msgstr "تم الكشف عن خطأ واحد! يرجى تصحيح الخطأ أدناه قبل المتابعة."
+
+msgid "form.errorSummaryMany"
+msgstr "تم الكشف عن {$count} من الأخطاء! يرجى تصحيح الأخطاء أدناه قبل المتابعة."
+
+msgid "navigation.dashboards"
+msgstr "دفات القيادة"
+
+msgid "navigation.mySubmissions"
+msgstr "طلبات تقديمي"
+
+msgid "navigation.reviewAssignments"
+msgstr "مهام التحكيم"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "التحكيم تم قبوله في"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "التحكيم تم تسليمه في"
+
+msgid "validator.date.comparison"
+msgstr "التواريخ المقدمة للمقارنة غير صائبة."
+
+msgid "validator.multilingual"
+msgstr "متطلبات تعدد اللغات غير ملباة في هذا الحقل."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "لا"
+
+msgid "common.refreshingData"
+msgstr "إعادة تنشيط البيانات"
+
+msgid "common.viewMoreDetails"
+msgstr "معاينة المزيد من التفاصيل"
+
+msgid "common.assignments"
+msgstr "التعيينات"
+
+msgid "common.yesContinue"
+msgstr "نعم، استمر"
+
+msgid "common.changeLanguage"
+msgstr "تغيير اللغة"

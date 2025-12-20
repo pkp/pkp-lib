@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldBaseAutosuggest.php
  *
@@ -33,6 +34,38 @@ abstract class FieldBaseAutosuggest extends Field
     public $selected = [];
 
     /**
+     * Controlled vocabularies for selection, by locale.
+     *
+     * @var array[] $vocabularies
+     * [
+     *   [
+     *     'locale'          => string,                     // e.g. 'en'
+     *     'addButtonLabel'  => string,                     // e.g. 'Add subject'
+     *     'modalTitleLabel'           => string,           // modal title
+     *     'modalComponent'? => string,                     // custom component (default: VocabularyModal)
+     *     'items'           => array[                       // tree of nodes
+     *       [
+     *         'label'      => string,                     // display text
+     *         'value'      => int|array{                  // either simple ID (for FieldAutosuggestPreset which has predefined options, e.g. Categories )
+     *                                                     // or full payload (for FieldAutosuggestControlledVocab)
+     *                          identifier: string,         // code (e.g. '1.2')
+     *                          name: string,               // display name
+     *                          source?: string            // optional source
+     *                        },
+     *         'selectable'? => bool,                       // leaf nodes (default: false)
+     *         'items'?      => array[]                     // child nodes
+     *       ],
+     *       …
+     *     ]
+     *   ],
+     *   …
+     * ]
+     */
+    public array $vocabularies = [];
+
+
+
+    /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()
@@ -43,6 +76,7 @@ abstract class FieldBaseAutosuggest extends Field
         $config['getParams'] = empty($this->getParams) ? new \stdClass() : $this->getParams;
         $config['selectedLabel'] = __('common.selectedPrefix');
         $config['selected'] = $this->selected;
+        $config['vocabularies'] = $this->vocabularies;
 
         return $config;
     }

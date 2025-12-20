@@ -17,7 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use APP\facades\Repo;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -25,11 +25,12 @@ use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
+use PKP\userGroup\UserGroup;
 
 class PKPPageRouter extends PKPRouter
 {
     /** @var array pages that don't need an installed system to be displayed */
-    public $_installationPages = ['install', 'help', 'header', 'sidebar'];
+    public $_installationPages = ['install', 'help'];
 
     public const ROUTER_DEFAULT_PAGE = './pages/index/index.php';
     public const ROUTER_DEFAULT_OP = 'index';
@@ -169,9 +170,6 @@ class PKPPageRouter extends PKPRouter
             // the system is not yet installed. Redirect to
             // the installation page.
             $request->redirect(Application::SITE_CONTEXT_PATH, 'install');
-        } elseif (Application::isInstalled() && in_array($page, $this->getInstallationPages())) {
-            // Redirect to the index page
-            $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
         }
 
         // Redirect requests from logged-out users to a context which is not
@@ -207,8 +205,7 @@ class PKPPageRouter extends PKPRouter
             } elseif (empty($page)) {
                 $handler = require(self::ROUTER_DEFAULT_PAGE);
             } else {
-                $dispatcher = $this->getDispatcher();
-                $dispatcher->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
         }
 
@@ -234,8 +231,7 @@ class PKPPageRouter extends PKPRouter
         // Redirect to 404 if the operation doesn't exist
         // for the handler.
         if (!is_object($handler) || !in_array($op, get_class_methods($handler))) {
-            $dispatcher = $this->getDispatcher();
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $this->setHandler($handler);
@@ -255,6 +251,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * @copydoc PKPRouter::url()
+     *
+     * @hook PKPPageRouter::url ['request' => $request, 'newContext' => $newContext, 'page' => $page, 'op' => $op, 'path' => $path, 'params' => $params, 'anchor' => $anchor, 'escape' => $escape, 'urlLocaleForPage' => $urlLocaleForPage]
      */
     public function url(
         PKPRequest $request,
@@ -267,6 +265,10 @@ class PKPPageRouter extends PKPRouter
         bool $escape = false,
         ?string $urlLocaleForPage = null,
     ): string {
+        if (Hook::run('PKPPageRouter::url', ['request' => &$request, 'newContext' => &$newContext, 'page' => &$page, 'op' => &$op, 'path' => &$path, 'params' => &$params, 'anchor' => &$anchor, 'escape' => &$escape, 'urlLocaleForPage' => &$urlLocaleForPage, 'result' => &$result]) == Hook::ABORT) {
+            return $result;
+        }
+
         //
         // Base URL, context, and additional path info
         //
@@ -398,61 +400,40 @@ class PKPPageRouter extends PKPRouter
      */
     public function getHomeUrl(PKPRequest $request): string
     {
-        $user = Auth::user(); /** @var \PKP\user\User $user */
-        $userId = $user->getId();
-
-        if ($context = $this->getContext($request)) {
-            // If the user has no roles, or only one role and this is reader, go to "Index" page.
-            // Else go to "submissions" page
-            $userGroups = Repo::userGroup()->userUserGroups($userId, $context->getId());
-
-            if ($userGroups->isEmpty()
-                || ($userGroups->count() == 1 && $userGroups->first()->getRoleId() == Role::ROLE_ID_READER)
-            ) {
-                return $request->url(null, 'index');
-            }
-
-            if(Config::getVar('features', 'enable_new_submission_listing')) {
-
-                $roleIds = $userGroups->map(function ($group) {
-                    return $group->getRoleId();
-                });
-
-                $roleIdsArray = $roleIds->all();
-
-                if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $roleIdsArray))) {
-                    return $request->url(null, 'dashboard', 'editorial');
-
-                }
-                if(count(array_intersect([ Role::ROLE_ID_REVIEWER], $roleIdsArray))) {
-                    return $request->url(null, 'dashboard', 'reviewAssignments');
-
-                }
-                if(count(array_intersect([  Role::ROLE_ID_AUTHOR], $roleIdsArray))) {
-                    return $request->url(null, 'dashboard', 'mySubmissions');
-                }
-            }
-
-            return $request->url(null, 'submissions');
-        } else {
-            // The user is at the site context, check to see if they are
-            // only registered in one place w/ one role
-            $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::SITE_CONTEXT_ID);
-            if ($userGroups->count() == 1) {
-                $firstUserGroup = $userGroups->first();
-                $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($firstUserGroup->getContextId());
-                if (!isset($context)) {
-                    $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
-                }
-                if ($firstUserGroup->getRoleId() == Role::ROLE_ID_READER) {
-                    $request->redirect(null, 'index');
-                }
-            }
+        $context = $this->getContext($request);
+        if (!$context) {
             return $request->url(Application::SITE_CONTEXT_PATH, 'index');
         }
-    }
 
+        $user = Auth::user(); /** @var \PKP\user\User $user */
+        $userId = $user->getId();
+        // fetch user groups for the user in the current context
+        $userGroups = UserGroup::query()
+            ->where('context_id', $context->getId())
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($userId) {
+                $query->withUserId($userId)->withActive();
+            })
+            ->get();
+        if ($userGroups->isEmpty() || ($userGroups->count() == 1 && $userGroups->first()->role_id == Role::ROLE_ID_READER)) {
+            return $request->url(null, 'index');
+        }
+
+        $roleIdsArray = $userGroups->pluck('role_id')->all();
+
+        if (array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $roleIdsArray)) {
+            return $request->url(null, 'dashboard', 'editorial');
+        }
+
+        if (in_array(Role::ROLE_ID_REVIEWER, $roleIdsArray)) {
+            return $request->url(null, 'dashboard', 'reviewAssignments');
+        }
+
+        if (in_array(Role::ROLE_ID_AUTHOR, $roleIdsArray)) {
+            return $request->url(null, 'dashboard', 'mySubmissions');
+        }
+
+        return $request->url(null, 'submissions');
+    }
 
     //
     // Private helper methods.
@@ -514,43 +495,81 @@ class PKPPageRouter extends PKPRouter
      */
     private function _setLocale(PKPRequest $request, ?string $setLocale): void
     {
-        $contextPath = $this->_getRequestedUrlParts(['Core', 'getContextPath'], $request);
-        $urlLocale = $this->_getRequestedUrlParts(['Core', 'getLocalization'], $request);
+        $contextPath = $this->_getRequestedUrlParts(Core::getContextPath(...), $request);
+        $urlLocale = $this->_getRequestedUrlParts(Core::getLocalization(...), $request);
         $multiLingual = count($this->_getContextAndLocales($request, $contextPath)[1]) > 1;
-
-        if (!$multiLingual && !$urlLocale && !$setLocale || $multiLingual && !$setLocale && $urlLocale === Locale::getLocale()) {
+        // Quit if there's no new locale to be set and the request URL is already well-formed
+        if (!$setLocale && ($multiLingual ? $urlLocale === Locale::getLocale() : !$urlLocale)) {
             return;
         }
 
-        $sessionLocale = (function (string $l) use ($request): string {
-            $session = $request->getSession();
-            if (Locale::isSupported($l) && $l !== $session->get('currentLocale')) {
-                $session->put('currentLocale', $l);
-                $request->setCookieVar('currentLocale', $l);
-            }
-            // In case session current locale has been set to non-supported locale, or is null, somewhere else
-            if (!Locale::isSupported($session->get('currentLocale') ?? '')) {
-                $session->put('currentLocale', Locale::getLocale());
-                $request->setCookieVar('currentLocale', Locale::getLocale());
-            }
-            return $session->get('currentLocale');
-        })($setLocale ?? $urlLocale);
-
-        if (preg_match('#^/\w#', $source = $request->getUserVar('source') ?? '')) {
-            $request->redirectUrl($source);
+        $session = $request->getSession();
+        $currentLocale = $session->get('currentLocale') ?? '';
+        if (!Locale::isSupported($currentLocale ?? '')) {
+            $currentLocale = null;
         }
 
+        $newLocale = $setLocale ?? $urlLocale;
+        if (!Locale::isSupported($newLocale)) {
+            $newLocale = $currentLocale ?? Locale::getLocale();
+        }
+
+        if ($newLocale !== $currentLocale) {
+            $session->put('currentLocale', $newLocale);
+            $request->setCookieVar('currentLocale', $newLocale);
+        }
+
+        $protocol = $request->getProtocol();
+        // Do not permit basic auth strings (user:password@url) in source parameter for redirects
+        $source = str_replace('@', '', $request->getUserVar('source') ?? '');
+
+        if (isset($setLocale)) {
+            $targetUrl = '';
+            // The source parameter is coming either from the languageToggle block plugin
+            // and contains $smarty.server.SERVER_NAME|cat:$smarty.server.REQUEST_URI
+            // i.e. the whole URL except the protocol,
+            // or from TopNavActions and contain the whole URL with protocol
+            if (!empty($source) && $this->isAllowedHost($protocol, $source)) {
+                $targetUrl = str_starts_with($source, $protocol) ? $source : $protocol . '://' . $source;
+            } elseif (isset($_SERVER['HTTP_REFERER']) && $this->isAllowedHost($protocol, $_SERVER['HTTP_REFERER'])) {
+                $targetUrl = $_SERVER['HTTP_REFERER'];
+            }
+        } else {
+            if (preg_match('#^/\w#', $source)) {
+                $request->redirectUrl($source);
+            }
+            $targetUrl = $request->getCompleteUrl();
+        }
+
+        $newUrlLocale = $multiLingual ? "/{$newLocale}" : '';
         $indexUrl = $this->getIndexUrl($request);
-        $uri = preg_replace("#^{$indexUrl}#", '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
-        $newUrlLocale = $multiLingual ? "/{$sessionLocale}" : '';
-        $pathInfo = ($uri)
-            ? preg_replace("#^/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : '') . '(?=[/?\\#]|$)#', "/{$contextPath}{$newUrlLocale}", $uri, 1)
-            : "/index{$newUrlLocale}";
-
-        $request->redirectUrl($indexUrl . $pathInfo);
+        $pathInfo = preg_replace('/^' . preg_quote($indexUrl, '/') . '/', '', $targetUrl, 1);
+        $newPathInfo = preg_replace('/^' . preg_quote("/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : ''), '/') . '(?=[\\/?#]|$)/', "/{$contextPath}{$newUrlLocale}", $pathInfo, 1, $replaceCount);
+        // Failed to setup the new URL, fallback to the default initial URL
+        if (!$replaceCount) {
+            $newPathInfo = "/index{$newUrlLocale}";
+        }
+        $request->redirectUrl($indexUrl . $newPathInfo);
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPPageRouter', '\PKPPageRouter');
+    /**
+     * Does the given redirect URL contains an allowed host
+     */
+    private function isAllowedHost(string $protocol, string $redirectUrl): bool
+    {
+        $allowedHosts = Config::getVar('general', 'allowed_hosts');
+        if ($allowedHosts == '') { // disabled (null) or empty string ''
+            return true;
+        }
+        if (str_starts_with($redirectUrl, $protocol)) {
+            $redirectUrl = preg_replace('/^' . preg_quote($protocol . '://', '/') . '/', '', $redirectUrl);
+        }
+        $allowedHosts = array_map(strtolower(...), json_decode($allowedHosts));
+        foreach ($allowedHosts as $allowedHost) {
+            if (str_starts_with(strtolower($redirectUrl), $allowedHost)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

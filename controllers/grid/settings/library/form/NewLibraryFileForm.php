@@ -43,10 +43,10 @@ class NewLibraryFileForm extends LibraryFileForm
      *
      * @see Form::readInputData()
      */
-    public function readInputData()
+    public function readInputData(): void
     {
         $this->readUserVars(['temporaryFileId']);
-        return parent::readInputData();
+        parent::readInputData();
     }
 
     /**
@@ -72,6 +72,7 @@ class NewLibraryFileForm extends LibraryFileForm
         assert(isset($libraryFile));
         $libraryFile->setContextId($this->contextId);
         $libraryFile->setName($this->getData('libraryFileName'), null); // Localized
+        $libraryFile->setData('description', $this->getData('description'), null); // Localized
         $libraryFile->setType($this->getData('fileType'));
         $libraryFile->setPublicAccess($this->getData('publicAccess'));
 

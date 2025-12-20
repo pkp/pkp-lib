@@ -1,0 +1,79 @@
+{
+	"title": "Email Log",
+	"description": "Logged email regarding a submission.",
+	"properties": {
+		"_href": {
+			"type": "string",
+			"description": "A URL to this object in the REST API.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"id": {
+			"type": "integer",
+			"description": "The id of the email log.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"assocId": {
+			"type": "integer",
+			"description": "The ID of the submission associated with the logged email.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"assocType": {
+			"type": "integer",
+			"description": "The assoc object. Typically `ASSOC_TYPE_SUBMISSION`.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"dateSent": {
+			"type": "string",
+			"description": "The date the email was logged.",
+			"readOnly": true,
+			"apiSummary": true,
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"eventType": {
+			"type": "integer",
+			"description": "The type of event resulting in the email being sent. One of the `SubmissionEmailLogEventType` values.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"senderId": {
+			"type": "integer",
+			"description": "The user ID of the email sender. Null for automated emails.",
+			"readOnly": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"fromAddress": {
+			"type": "string",
+			"description": "The email address of the sender.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"subject": {
+			"type": "string",
+			"description": "The subject of the email.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"body": {
+			"type": "string",
+			"description": "The full body of the email.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"recipients": {
+			"type": "string",
+			"description": "The recipients names and email addresses.",
+			"readOnly": true,
+			"apiSummary": true
+		}
+	}
+}

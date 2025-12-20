@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionRequiredPolicy.php
  *
@@ -37,10 +38,9 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
     {
         parent::__construct($request, $args, $submissionParameterName, 'user.authorization.invalidSubmission', $operations);
 
-        $callOnDeny = [$request->getDispatcher(), 'handle404', []];
         $this->setAdvice(
             AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY,
-            $callOnDeny
+            fn () => throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException()
         );
     }
 
@@ -74,8 +74,4 @@ class SubmissionRequiredPolicy extends DataObjectRequiredPolicy
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION, $submission);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionRequiredPolicy', '\SubmissionRequiredPolicy');
 }

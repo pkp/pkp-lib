@@ -1,11 +1,13 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2023.
+# Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/id/>\n"
 "Language: id\n"
@@ -13,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Bahasa Tambahan"
@@ -153,11 +155,10 @@ msgstr "Kesalahan penguraian file template email<tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Salah mengurai file konfigurasi filter <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Pembaruan tidak didukung. Lihat dokumen/UPGRADE-UNSUPPORTED untuk rincian "
-"lanjut."
+"Upgrade tidak didukung. Lihat Panduan Upgrade (https://docs.pkp.sfu.ca/dev/"
+"upgrade-guide) untuk rincian lanjut."
 
 msgid "installer.timezoneInstructions"
 msgstr "Zona waktu yang digunakan untuk sistem ini."
@@ -252,11 +253,49 @@ msgstr ""
 #~ msgid "installer.manualInstall"
 #~ msgstr "Instal Manual"
 
-#~ msgid "installer.miscSettings"
-#~ msgstr "Pengaturan Lain"
-
 #~ msgid "installer.pleaseUpgradeAfterManualInstall"
 #~ msgstr ""
 #~ "Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. "
 #~ "Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi "
 #~ "utama untuk upgrade ini."
+
+msgid "installer.miscSettings"
+msgstr "Pengaturan Beragam"
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Tidak dapat membaca file config atau file tidak tersedia pada path yang "
+"diharapkan. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Tidak dapat menguraikan file config."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Tidak dapat menulis variabel app key pada file config."
+
+msgid "installer.appKey.write.error"
+msgstr "Tidak dapat menulis app key pada file config."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Silakan tambahkan variabel konfigurasi bernama `app_key` di bawah bagian "
+"`general` secara manual atau jalankan perintah `php lib/pkp/tools/appKey.php "
+"configure` untuk mengaturnya dari CLI."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Variabel konfigurasi bernama `app_key` tidak didefinisikan di bagian `umum`. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Variabel konfigurasi bernama `app_key` sudah didefinisikan di bagian `umum`. "
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Cipher tidak didukung atau panjang kunci salah. Cipher yang didukung adalah: "
+"{$ciphers}."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Tetapkan nilai `app_key` di bawah bagian `general` dalam berkas `config.inc."
+"php` ke {$key} ."

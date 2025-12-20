@@ -1,14 +1,15 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Marc Bria <marc.bria@gmail.com>, 2023.
 # Jonas Raoni Soares da Silva <weblate@raoni.org>, 2024.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2024-05-02 14:38+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-09-17 04:30+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es/>\n"
 "Language: es\n"
@@ -192,6 +193,9 @@ msgstr "Asignado"
 
 msgid "common.assigned.date"
 msgstr "Asignado: {$dateAssigned}"
+
+msgid "common.assignments"
+msgstr "Asignaciones"
 
 msgid "common.available"
 msgstr "Disponible"
@@ -1719,29 +1723,8 @@ msgstr "Disciplina(s)"
 msgid "search.fullText"
 msgstr "Texto completo"
 
-msgid "search.indexTerms"
-msgstr "Términos de indexación"
-
-msgid "search.indexTermsLong"
-msgstr "Todos los campos de términos de la indexación"
-
-msgid "search.matchAll"
-msgstr "Coincidencia en todas las categorías"
-
 msgid "search.noResults"
 msgstr "No hay resultados"
-
-msgid "search.operator.and"
-msgstr "y"
-
-msgid "search.operator.not"
-msgstr "no"
-
-msgid "search.operator.or"
-msgstr "o"
-
-msgid "search.SearchFor"
-msgstr "Buscar"
 
 msgid "search.searchResults"
 msgstr "Resultados de la búsqueda"
@@ -1799,14 +1782,14 @@ msgstr ""
 "<p>Para asegurar la integridad de la evaluación por pares anónima se debe "
 "hacer todo lo posible para impedir que los autores/as conozcan la identidad "
 "de los revisores/as, y viceversa. Para ello, los autores/as, editores/as y "
-"revisores/as que suban documentos como parte de la revisión deben comprobar "
-"que se han seguido los pasos siguientes relacionados con el texto y con las "
-"propiedades del archivo:</p>\n"
+"revisores/as que carguen documentos como parte de la revisión deben "
+"comprobar que han seguido los pasos descritos a continuación relacionados "
+"con el texto y con las propiedades del archivo:</p>\n"
 "<ul><li>Los autores/as del documento han eliminado sus nombres del texto y "
 "han empleado \"Autor/a\" y el año de publicación en las referencias y notas "
-"a pie de página en lugar del nombre del autor/a, el título del artículo, etc."
-"</li>\n"
-"<li>Los autores/as del documento han eliminado la información personal de "
+"a pie de página en lugar del nombre del autor/a, el título del artículo, "
+"etc.</li>\n"
+"<li>Los autores/as del documento han eliminado su información personal de "
 "las propiedades del archivo siguiendo estos pasos:\n"
 "<ul><li>Microsoft Word para Windows:\n"
 "<ul><li>Ir a \"Archivo\"</li>\n"
@@ -1814,18 +1797,18 @@ msgstr ""
 "<li>Hacer clic en \"Comprobar si hay problemas\"</li>\n"
 "<li>Hacer clic en \"Inspeccionar documento\"</li>\n"
 "<li>En el cuadro de diálogo de \"Inspeccionar documento\", seleccionar las "
-"casillas para elegir el tipo de contenido oculto que desee inspeccionar.</"
-"li>\n"
+"casillas para elegir el tipo de contenido oculto que desee inspeccionar.</li>"
+"\n"
 "<li>Hacer clic en \"Quitar todo\"</li>\n"
 "<li>Hacer clic en \"Cerrar\"</li>\n"
 "<li>Guardar el documento</li></ul>\n"
 "<li>Microsoft Word para MacOS:\n"
 "<ul><li>Ir a \"Herramientas\"</li>\n"
 "<li>Hacer clic en \"Proteger documento\"</li>\n"
-"<li>Seleccionar \"Eliminar información personal del archivo al guardar\"</"
-"li>\n"
+"<li>Seleccionar \"Eliminar información personal del archivo al guardar\"</li>"
+"\n"
 "<li>Hacer clic en OK y guardar el archivo</li></ul></li>\n"
-"<li>PDF:\n"
+"<li>Adobe Acrobat (PDF):\n"
 "<ul><li>Ir a \"Archivo\"</li>\n"
 "<li>Seleccionar \"Propiedades\"</li>\n"
 "<li>Eliminar cualquier nombre del campo \"autor/a\"</li>\n"
@@ -1976,6 +1959,7 @@ msgstr "Estado de la ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumen del informe de estadísticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Le recordamos amablemente que compruebe la salud de su revista a través del "
@@ -1985,7 +1969,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Correo electrónico semanal de las tareas pendientes"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "El elemento del menú de navegación ha sido actualizado con éxito"
@@ -2329,3 +2313,92 @@ msgstr "Destacados"
 
 msgid "common.sandbox"
 msgstr "Aplicación ejecutándose en modo sandbox."
+
+msgid "navigation.mySubmissions"
+msgstr "Mis envíos como autor/a"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mis asignaciones como revisor/a"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Cargado"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Revisión enviada el"
+
+msgid "validator.date.comparison"
+msgstr "Las fechas proporcionadas no son válidas para la comparación."
+
+msgid "validator.multilingual"
+msgstr "No se cumple el requisito de multilenguaje para este campo."
+
+msgid "common.numero"
+msgstr "Núm."
+
+msgid "common.refreshingData"
+msgstr "Actualizando datos"
+
+msgid "common.viewMoreDetails"
+msgstr "Ver más detalles"
+
+msgid "common.moreActions"
+msgstr "Más acciones"
+
+msgid "common.editorialMasthead"
+msgstr "Cabecera editorial"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Evaluaciones por pares del año anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Evaluaciones por pares de los años pasados"
+
+msgid "common.editorialHistory"
+msgstr "Histórico editorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Página del histórico editorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Esta sección enumera los colaboradores/as anteriores."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ver el perfil ORCID de {$name}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ver el <a href=\"{$url}\">histórico editorial</a>"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Los editores/as expresan su agradecimiento a los revisores/as de {$year} "
+"listados a continuación."
+
+msgid "common.filtersClear"
+msgstr "Eliminar filtros"
+
+msgid "common.yesContinue"
+msgstr "Sí, continuar"
+
+msgid "common.showingXofX"
+msgstr "Mostrando <strong>{$start} a {$finish}</strong> de {$total}"
+
+msgid "form.errorSummaryOne"
+msgstr "Se ha detectado 1 error. Por favor, corríjalo antes de continuar."
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} errores detectados. Por favor, corríjalos antes de continuar."
+
+msgid "navigation.dashboards"
+msgstr "Panel de control del editor/a"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Revisión aceptada el"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.changeLanguage"
+msgstr "Cambiar idioma"

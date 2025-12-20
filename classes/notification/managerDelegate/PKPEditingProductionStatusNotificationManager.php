@@ -3,15 +3,15 @@
 /**
  * @file classes/notification/managerDelegate/PKPEditingProductionStatusNotificationManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEditingProductionStatusNotificationManager
  *
- * @ingroup classses_notification_managerDelegate
+ * @ingroup classes_notification_managerDelegate
  *
- * @brief Editing and productionstatus notifications types manager delegate.
+ * @brief Editing and production status notifications types manager delegate.
  */
 
 namespace PKP\notification\managerDelegate;
@@ -21,7 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\security\Role;
@@ -35,7 +35,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
      */
     public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
-        return match($notification->type) {
+        return match ($notification->type) {
             Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => __('notification.type.assignCopyeditors'),
             Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => __('notification.type.awaitingCopyedits'),
             Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER => __('notification.type.assignProductionUser'),
@@ -60,7 +60,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                 if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type for notification!');
                 }
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', [$notification->assocId]);
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'dashboard', 'editorial', null, ['workflowSubmissionId' => $notification->assocId]);
         }
         throw new \Exception('Unmatched notification type!');
     }
@@ -76,7 +76,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $submissionId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $submissionId): void
     {
         if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
             throw new \Exception('Unexpected assoc type for notification!');
@@ -91,10 +91,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 
-        // Get the copyediting and production discussions
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var \PKP\query\QueryDAO $queryDao */
-        $productionQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
-        $productionQuery = $productionQueries->next();
+        // Get the production discussions
+        $productionQuery = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+            ->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)
+            ->first();
 
         // Get the copyedited files
         $countCopyeditedFiles = Repo::submissionFile()
@@ -131,7 +131,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                 if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS) {
                                     // Add 'awaiting representations' notification
                                     $this->_createNotification(
-                                        $request,
                                         $submissionId,
                                         $editorStageAssignment->userId,
                                         $notificationType,
@@ -145,7 +144,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                 if ($notificationType == Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER) {
                                     // Add 'assign a user' notification
                                     $this->_createNotification(
-                                        $request,
                                         $submissionId,
                                         $editorStageAssignment->userId,
                                         $notificationType,
@@ -165,12 +163,13 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                         $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                     } else {
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
-                        $editingQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
-                        if ($editingQueries->next()) {
+                        $editingQueries = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                            ->withStageId(WORKFLOW_STAGE_ID_EDITING)
+                            ->first();
+                        if ($editingQueries) {
                             if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Add 'awaiting copyedits' notification
                                 $this->_createNotification(
-                                    $request,
                                     $submissionId,
                                     $editorStageAssignment->userId,
                                     $notificationType,
@@ -184,7 +183,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                             if ($notificationType == Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR) {
                                 // Add 'assign a copyeditor' notification
                                 $this->_createNotification(
-                                    $request,
                                     $submissionId,
                                     $editorStageAssignment->userId,
                                     $notificationType,
@@ -219,7 +217,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * Create a notification if none exists.
      */
-    public function _createNotification(PKPRequest $request, int $submissionId, int $userId, int $notificationType, ?int $contextId): void
+    public function _createNotification(int $submissionId, int $userId, int $notificationType, ?int $contextId): void
     {
         $notification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->withUserId($userId)
@@ -229,7 +227,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         if (!$notification) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
-                $request,
                 $userId,
                 $notificationType,
                 $contextId,
@@ -238,8 +235,4 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             );
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\PKPEditingProductionStatusNotificationManager', '\PKPEditingProductionStatusNotificationManager');
 }

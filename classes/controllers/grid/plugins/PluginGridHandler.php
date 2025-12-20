@@ -129,7 +129,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'uploadPlugin'),
                         __('manager.plugins.upload'),
-                        'modal_add_file'
                     ),
                     __('manager.plugins.upload'),
                     'add'
@@ -469,8 +468,4 @@ abstract class PluginGridHandler extends CategoryGridHandler
 
         return new JSONMessage(true, $uploadPluginForm->fetch($request));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\plugins\PluginGridHandler', '\PluginGridHandler');
 }

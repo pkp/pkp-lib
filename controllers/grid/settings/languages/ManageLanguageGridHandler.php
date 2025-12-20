@@ -22,6 +22,7 @@ use PKP\controllers\grid\languages\LanguageGridHandler;
 use PKP\core\JSONMessage;
 use PKP\facades\Locale;
 use PKP\notification\Notification;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 
@@ -49,6 +50,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $this->addPolicy(new CanAccessSettingsPolicy());
         return parent::authorize($request, $args, $roleAssignments);
     }
 

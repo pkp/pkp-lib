@@ -1,0 +1,2852 @@
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022, 2023.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
+# Sérgio Reis <disergioreis@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
+"PO-Revision-Date: 2025-10-24 20:18+0000\n"
+"Last-Translator: Sérgio Reis <disergioreis@gmail.com>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/pt/>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Os autores desta publicação não podem ser editados porque já se encontra "
+"publicada."
+
+msgid "author.publicationNotFound"
+msgstr "A publicação deste autor não foi encontrada."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Forneça uma lista formatada das referências citadas nesta submissão. Separe "
+"as referências individuais através de uma linha em branco."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Foram submetidas novas revisões e estão a ser analisadas pelo editor."
+
+#, fuzzy
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Uma ou mais revisões ultrapassaram o prazo. A equipa editorial foi "
+"notificada e irá proceder para assegurar-se que as revisões ficam "
+"concluídas. Não precisa de tomar qualquer ação neste momento. Será "
+"notificado quando uma decisão for tomada."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Enviar Como"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Selecione o papel que melhor descreve a sua contribuição nesta submissão."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Selecione um papel editorial se pretender editar e publicar esta submissão."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Requisitos de Submissão"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Todas as submissões devem cumprir os seguintes requisitos."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Sim, a minha submissão cumpre todos os requisitos."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Submissão concluída"
+
+msgid "submission.submit.genre.label"
+msgstr "Que tipo de ficheiro é este?"
+
+msgid "submission.submit.genre.description"
+msgstr "Escolha a opção que melhor descreve este ficheiro."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Deseja realmente remover este ficheiro?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Por agora, pode:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Rever esta submissão"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Criar uma nova submissão"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Voltar à área pessoal"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Metadados estendidos"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "E-mail de Registo na Crossref"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Insira um e-mail de registo na Crossref válido. Pode registar gratuitamente "
+"o seu e-mail no site da Crossref."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "Chave da API ISBNdb"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Insira a chave de API ISBNdb. Se ainda não possui uma chave, pode solicitar "
+"gratuitamente no projeto ISBNdb."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Email de Registo na PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Insira um email de registo na PubMed válido."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "Chave WorldCat API"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Insira uma chave WorldCat API válida, caso possua."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Módulo de Citação"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Selecione um dos módulos de citação fornecidos."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Não usar como padrão (ainda ficará disponível para o editor)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Erro interno. Foi publicado um valor inválido para a configuração 'filtro "
+"opcional'. Por favor reporte este bug."
+
+msgid "metadata.property.displayName.author"
+msgstr "Autores"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Para obter os melhores resultados, os autores devem ser inseridos no "
+"seguinte formato: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Editores"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Para obter os melhores resultados, os editores devem ser inseridos no "
+"seguinte formato: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Título do Artigo"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Insira um título do artigo válido."
+
+msgid "metadata.property.displayName.source"
+msgstr "Título da Publicação"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Insira um título da publicação válido."
+
+msgid "metadata.property.displayName.date"
+msgstr "Data de Publicação"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Insira uma data de publicação válida (formato: AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Data de Acesso"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Insira uma data de acesso válida (formato: AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Número"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Insira um número válido."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Volume"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Insira um volume válido."
+
+msgid "metadata.property.displayName.season"
+msgstr "Época"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Insira um identificador de época válido."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Título do Capítulo"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Insira um título de capítulo válido."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Edição"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Insira uma edição válida."
+
+msgid "metadata.property.displayName.series"
+msgstr "Série"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Insira uma série válida."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Suplemento"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Insira um suplemento válido."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Data da Conferência"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Insira uma data de conferência válida (formato: AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Local da Conferência"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Insira um local de conferência válido."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Título da Conferência"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Insira um título da conferência válido."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Patrocinador da Conferência"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Insira um patrocinador da conferência válido."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Instituição"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Insira uma instituição válida."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Primeira Página"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Insira uma primeira página válida (deve ser um valor numérico)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Última Página"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Insira uma última página válida (deve ser um valor numérico)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Número de Páginas"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Insira um número total de páginas válido (deve ser um valor numérico)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Local da Editora"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Insira um local da editora válido."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Nome da Editora"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Insira um nome de editora válido."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Insira um ISBN válido (9 ou 13 dígitos)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN Impresso"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Insira um ISSN impresso válido."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Insira um eISSN válido."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Insira um DOI válido."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "ID personalizado da Publicação"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Insira um ID personalizado da publicação válido."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Insira um CODEN válido."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Insira um SICI válido."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Insira um PMID válido."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Link para a Publicação"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Insira um link alternativo para a publicação válido."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Comentário"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Insira um comentário válido."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Anotação"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Insira uma anotação válida."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Tipo de Publicação"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Certifique-se que define sempre um tipo de publicação. Os valores atualmente "
+"suportados são livros (para livros ou capítulos de livros) e revistas (para "
+"artigos de revistas). Caso contrário a formatação de saída da citação não "
+"funcionará corretamente."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Tipo de Título"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Certifique-se que definiu um tipo de título válido. Os valores suportados "
+"são 'abreviados', 'traduzidos', 'alternativos' e 'uniforme'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Parte do título ignorada durante a classificação"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Insira apenas os caracteres iniciais do título que devem ser ignorados ao "
+"classificar o título."
+
+msgid "metadata.property.displayName.title"
+msgstr "Título"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Insira um título válido."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Subtítulo"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Insira um subtítulo válido."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Número da Parte"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Insira um número da parte válido."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Nome da Parte"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Insira um nome da parte válido."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Tipo de Nome"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Certifique-se que definiu um tipo de nome válido. Os valores suportados são "
+"'pessoal', 'corporativo' e 'conferência'."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Resumo"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Não designado"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Minhas Designações"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Submissões Arquivadas"
+
+msgid "submission.authors"
+msgstr "Autores"
+
+msgid "submission.authorBiography"
+msgstr "Biografia do Autor"
+
+msgid "submission.authorBiographies"
+msgstr "Biografias do Autor"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"
+
+msgid "submission.mySubmissions"
+msgstr "Minhas Publicações"
+
+msgid "submission.addFile"
+msgstr "Upload Ficheiro"
+
+msgid "submission.additionalFiles"
+msgstr "Ficheiros Adicionais"
+
+msgid "submission.agencies"
+msgstr "Agências"
+
+msgid "submission.abstractViews"
+msgstr "Acessos ao Resumo"
+
+msgid "submission.accepted"
+msgstr "Aceite"
+
+msgid "submission.acknowledge"
+msgstr "Acusar Receção"
+
+msgid "submission.ask"
+msgstr "Solicitada em"
+
+msgid "submission.attachedFile"
+msgstr "Ficheiro Anexado"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Regressar à Edição da Submissão"
+
+msgid "submission.changeComments"
+msgstr "Mudar para"
+
+msgid "submission.changeFile"
+msgstr "Modificar Ficheiro"
+
+msgid "submission.citations"
+msgstr "Referências"
+
+msgid "submission.citations.description"
+msgstr ""
+"Introduza cada referência numa nova linha de forma a que possam ser "
+"recolhidas separadamente."
+
+msgid "submission.parsedCitations"
+msgstr "Referências Extraídas"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"As seguintes referências foram recolhidas e estarão ligadas aos metadados da "
+"submissão."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Recolher e Guardar Referências"
+
+msgid "submission.comments.addComment"
+msgstr "Adicionar Comentário"
+
+msgid "submission.comments.comments"
+msgstr "Comentários"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Deseja realmente eliminar o comentário?"
+
+msgid "submission.comments.corrections"
+msgstr "Correções"
+
+msgid "submission.comments.editComment"
+msgstr "Editar Comentário"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importar Revisão por Pares"
+
+msgid "submission.comments.addReviews"
+msgstr "Adicionar Revisões ao E-mail"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Revisor {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Nenhum comentário"
+
+msgid "submission.comments.noReviews"
+msgstr "Nenhuma revisão"
+
+msgid "submission.comments.review"
+msgstr "Revisão"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Enviar decisão editorial aos Revisores"
+
+msgid "submission.comments.subject"
+msgstr "Assunto"
+
+msgid "submission.complete"
+msgstr "Concluída"
+
+msgid "submission.contributors"
+msgstr "Lista de Contribuidores"
+
+msgid "submission.copyedited"
+msgstr "Texto editado"
+
+msgid "submission.copyediting"
+msgstr "Edição de Texto"
+
+msgid "submission.queryNoteFiles"
+msgstr "Ficheiros de Discussão"
+
+msgid "submission.coverage"
+msgstr "Informação de Cobertura"
+
+msgid "submission.details"
+msgstr "Detalhes da Submissão"
+
+msgid "submission.done"
+msgstr "Concluída em"
+
+msgid "submission.downloads"
+msgstr "Downloads"
+
+msgid "submission.dueDate"
+msgstr "Prazo para Conclusão"
+
+msgid "submission.due"
+msgstr "Prazo"
+
+msgid "submission.editing"
+msgstr "Edição"
+
+msgid "submission.editMetadata"
+msgstr "Editar Metadados"
+
+msgid "submission.editorial"
+msgstr "Edição de Texto"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Voltar para Histórico de e-mail"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Deseja realmente limpar o histórico de e-mail da submissão?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Deseja realmente eliminar esta entrada no histórico de e-mail?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Eliminar entrada no histórico"
+
+msgid "submission.emailLog"
+msgstr "Histórico de e-mail"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$userFullName} ({$username}) foi designado para esta submissão como "
+"{$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$userFullName}\" ({$username}) foi removido como {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Voltar para Histórico de Eventos"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Deseja realmente limpar o histórico de eventos da submissão?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Deseja realmente eliminar esta entrada no histórico de eventos?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Eliminar Entrada do Histórico"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Um e-mail sobre a decisão foi enviado para {$recipientCount} revisor(es) com "
+"o assunto {$subject}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Submissão inicial concluída."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+"{$filename} ({$username}) concordou com os termos dos direitos de autor para "
+"a submissão."
+
+msgid "submission.event.fileRevised"
+msgstr ""
+"Revisão \"{$filename}\" foi carregada para o ficheiro {$submissionFileId})."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Metadados da submissão atualizados"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Ficheiro da submissão atualizado"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Tarefa de Revisão aceite pelo procuração"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Tarefa de Revisão aceite"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Tarefa de Revisão recusada"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Data limite de revisão alterada"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Revisor designado para a submissão"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Classificação do Revisor submetida"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Revisor desassociado da submissão"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Ficheiro de Revisão atualizado"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Tarefa de Revisão iniciada"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Ficheiro de Recomendações do Revisor"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Tarefa de Revisão reiniciada"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Revisão reenviada"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Ficheiro de revisões do Revisor atualizado"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+"{$senderName} enviou um lembrete para {$recipientName} sobre a tarefa de "
+"revisão"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+"Um e-mail de lembrete automático foi enviado para {$recipientName} sobre a "
+"tarefa de revisão"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Foi enviado um e-mail:"
+
+msgid "submission.event.viewEmail"
+msgstr "Ver E-mail"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Os autores podem editar os metadados quando a submissão estiver na etapa "
+"{stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Os autores agora não podem editar os metadados quando a submissão estiver na "
+"etapa {stage}."
+
+msgid "submission.files"
+msgstr "Ficheiros"
+
+msgid "submission.files.downloadAll"
+msgstr "Download de Todos os Ficheiros"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Um registo do carregador de ficheiros é guardado quando o ficheiro é criado "
+"e não pode ser alterado."
+
+msgid "submission.firstPublished"
+msgstr "Publicado pela primeira vez"
+
+msgid "submission.forTheEditors"
+msgstr "Para os Editores"
+
+msgid "submission.galley"
+msgstr "Composição final"
+
+msgid "submission.history.clearLog"
+msgstr "Limpar Histórico"
+
+msgid "submission.history"
+msgstr "Histórico"
+
+msgid "submission.history.noLogEntries"
+msgstr "Nenhuma entrada no histórico."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Entradas Recentes"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Histórico de e-mail"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Histórico de eventos"
+
+msgid "submission.history.submissionNotes"
+msgstr "Notas da submissão"
+
+msgid "submission.history.viewLog"
+msgstr "Visualizar histórico"
+
+msgid "submission.howToCite"
+msgstr "Como Citar"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Mais Formatos de Citação"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Descarregar Citação"
+
+msgid "submission.initiated"
+msgstr "Iniciado"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Atualizado em {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Versões"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Esta é uma versão desatualizada publicada em {$datePublished}. Consulte a <a "
+"href=\"{$urlRecentVersion}\">versão mais recente</a>."
+
+msgid "submission.identifiers"
+msgstr "Identificadores"
+
+msgid "submission.publisherId"
+msgstr "Id da Editora"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"O ID da editora pode ser usado como identificador para bases de dados "
+"externas. Por exemplo, itens exportados para a PubMed podem incluir o ID da "
+"editora. Estes não devem ser usados nos DOIs."
+
+msgid "submission.publisherId.enable"
+msgstr "Ativar para {$objects}"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Info Submissão"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadados"
+
+msgid "submission.informationCenter.notes"
+msgstr "Notas"
+
+msgid "submission.informationCenter.history"
+msgstr "Histórico"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Mostrar eventos de versões anteriores"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Notificar"
+
+msgid "submission.lastModified"
+msgstr "Última alteração"
+
+msgid "submission.layout.addGalley"
+msgstr "Adicionar layout para composição final"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Deseja realmente eliminar permanentemente esta composição?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Deseja realmente remover esta imagem da composição final?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Eliminar esta folha de estilo."
+
+msgid "submission.layout.editGalley"
+msgstr "Editar o modelo para layout"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Formato da Composição Final"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Ficheiros de composição HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "Imagens"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Rótulo"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"O rótulo é utilizado para identificar o formato do documento (ex.: HTML, "
+"PDF, etc)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "É obrigatória inserir o rótulo."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "É obrigatório o idioma da composição final."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "É obrigatório o idioma da composição final."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "URL remoto"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Forneça um URL remoto válido (inclua http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Nenhuma imagem incluída"
+
+msgid "submission.layout.galleys"
+msgstr "Composição Final"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Folha de Estilo"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Estilo"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Composição Inicial"
+
+msgid "submission.layout.layoutFile"
+msgstr "Modelo para Layout"
+
+msgid "submission.layout"
+msgstr "Layout"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Versão de Layout"
+
+msgid "submission.layout.newGalley"
+msgstr "Criar nova composição"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Nenhuma folha de estilo incluída."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Visualizando a composição"
+
+msgid "submission.layout.viewProof"
+msgstr "Ler prova"
+
+msgid "submission.metadata"
+msgstr "Metadados da submissão"
+
+msgid "submission.noReviewAssignments"
+msgstr "Sem revisões"
+
+msgid "submission.notes.addNewNote"
+msgstr "Adicionar nova Nota"
+
+msgid "submission.notes.attachedFile"
+msgstr "Documento anexado"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Voltar para notas da Submissão"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Notas"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Eliminar Todas as Notas"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Comprimir Notas"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Eliminar todas as Notas da submissão?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Eliminar esta Nota da submissão?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Criar nova nota"
+
+msgid "submission.notes.deleteNote"
+msgstr "Remover nota"
+
+msgid "submission.notes.editNote"
+msgstr "Editar nota"
+
+msgid "submission.notes.expandNotes"
+msgstr "Expandir notas"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Sem notas da submissão"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Eliminar ficheiro carregado"
+
+msgid "submission.notes"
+msgstr "Notas da submissão"
+
+msgid "submission.notes.updateNote"
+msgstr "Atualizar nota"
+
+msgid "submission.notes.viewNotes"
+msgstr "Ver notas"
+
+msgid "submission.originalFile"
+msgstr "Ficheiro original"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Edição"
+
+msgid "submission.page.history"
+msgstr "#{$id} Histórico"
+
+msgid "submission.page.review"
+msgstr "#{$id} Revisão"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Sinopse"
+
+msgid "submission.page.citations"
+msgstr "Citações #{$id}"
+
+msgid "submission.peerReview"
+msgstr "Revisão"
+
+msgid "submission.production"
+msgstr "Produção"
+
+msgid "submission.recommendation"
+msgstr "Recomendação: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Rejeitado"
+
+msgid "submission.request"
+msgstr "Pedido"
+
+msgid "submission.response"
+msgstr "Resposta"
+
+msgid "submission.restrictions"
+msgstr "Restrições"
+
+msgid "submission.reviewMetadata"
+msgstr "Rever metadados"
+
+msgid "submission.review"
+msgstr "Revisão"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Rever e Submeter"
+
+msgid "submission.reviewed"
+msgstr "Revisto"
+
+msgid "submission.reviewVersion"
+msgstr "Rever versão"
+
+msgid "submission.rights"
+msgstr "Direitos"
+
+msgid "submissions.active"
+msgstr "Ativo"
+
+msgid "submissions.archived"
+msgstr "Arquivado"
+
+msgid "submission.saveMetadata"
+msgstr "Guardar metadados"
+
+msgid "submissions.completed"
+msgstr "Concluído"
+
+msgid "submissions.declined"
+msgstr "Rejeitado"
+
+msgid "submissions.incomplete"
+msgstr "Incompleto"
+
+msgid "submissions.noSubmissions"
+msgstr "Sem submissões"
+
+msgid "submissions.queuedEditing"
+msgstr "Em Edição"
+
+msgid "submissions.queued"
+msgstr "Em fila"
+
+msgid "submissions.queuedUnassigned"
+msgstr "A aguardar designação de um editor."
+
+msgid "submissions.ruling"
+msgstr "Decisão"
+
+msgid "submission.source"
+msgstr "Fonte"
+
+msgid "submissions.submit"
+msgstr "Submeter"
+
+msgid "submissions.submitted"
+msgstr "Submetido"
+
+msgid "submission.submission"
+msgstr "Submissão"
+
+msgid "submission.submissionTitle"
+msgstr "Título da Submissão:"
+
+msgid "submission.start"
+msgstr "Iniciar"
+
+msgid "submission.submissionHistory"
+msgstr "Histórico da submissão"
+
+msgid "submission.submissionManuscript"
+msgstr "Manuscrito da submissão"
+
+msgid "submission.submissionReview"
+msgstr "Revisão da submissão"
+
+msgid "submission.submitter"
+msgstr "Submetido por"
+
+msgid "submission.submit.selectFile"
+msgstr "Selecionar Ficheiro"
+
+msgid "submission.submit.fileInformation"
+msgstr "Informação do Ficheiro"
+
+msgid "submission.submit.fileAdded"
+msgstr "Ficheiro Adicionado"
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+"Adicionar este colaborador quando identificar os autores em listas de "
+"publicação."
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Listas de Publicação"
+
+msgid "submission.submit.newFile"
+msgstr "Adicionar outro Ficheiro"
+
+msgid "submission.submit.metadataForm"
+msgstr "Informações Adicionais"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Idioma da Submissão"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Escolha o idioma principal da submissão."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Ficheiros de Submissão"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Ficheiros Dependentes"
+
+msgid "submission.manageDependentFiles"
+msgstr "Gerir Ficheiros Dependentes"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Envie todos os ficheiros que a equipa editorial necessite para avaliar a sua "
+"submissão."
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% de upload concluído"
+
+msgid "submission.upload.dependent"
+msgstr "Upload Ficheiro Dependente"
+
+msgid "submission.upload.query"
+msgstr "Upload Ficheiro de Discussão"
+
+msgid "submission.summary"
+msgstr "Resumo"
+
+msgid "submission.supportingAgencies"
+msgstr "Agências de Financiamento"
+
+msgid "submission.currentAgencies"
+msgstr "Agências Atuais"
+
+msgid "submission.indexingInformation"
+msgstr "Informação de Indexação"
+
+msgid "submission.titleAndAbstract"
+msgstr "Título e Resumo"
+
+msgid "submission.underway"
+msgstr "Em curso"
+
+msgid "submission.uploadFileTo"
+msgstr "Upload do ficheiro"
+
+msgid "submission.createRemote"
+msgstr "Criar remoto"
+
+msgid "submission.viewMetadata"
+msgstr "Ver Metadados"
+
+msgid "submission.views"
+msgstr "Acessos"
+
+msgid "submission.uploadSuccessful"
+msgstr "O seu ficheiro foi carregado."
+
+msgid "submission.loadMessage"
+msgstr "Aguarde até que o seu ficheiro seja carregado para o servidor."
+
+msgid "submission.artworkFileDetails"
+msgstr "Detalhes do Ficheiro de Arte"
+
+msgid "submission.fileDetails"
+msgstr "Detalhes do Ficheiro"
+
+msgid "submission.nameRequired"
+msgstr "É necessário um nome para este item."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "AAAA-MM-DD"
+
+msgid "submission.submit.contributorRole"
+msgstr "Papel do Colaborador"
+
+msgid "submission.submit.addAuthor"
+msgstr "Adicionar Colaborador"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduza um idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Insira um assunto."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Insira uma Área de Conhecimento."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Insira uma palavra-chave."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Insira informação de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduza o tipo."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduza a fonte."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduza os direitos."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduza as referências."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Insira a Declaração de Disponibilidade de Dados Científicos."
+
+msgid "submission.form.name"
+msgstr "Nomeie o ficheiro (por exemplo, Manuscrito; Tabela 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Substituir um ficheiro existente?"
+
+msgid "workflow.review.internalReview"
+msgstr "Revisão Interna"
+
+msgid "workflow.stage.any"
+msgstr "Qualquer Etapa"
+
+msgid "workflow.stage"
+msgstr "Etapa"
+
+msgid "submission.status.editorial"
+msgstr "Em Edição de Texto"
+
+msgid "submission.status.production"
+msgstr "Em Leitura Provas"
+
+msgid "submission.status.review"
+msgstr "Em Revisão"
+
+msgid "submission.status.submission"
+msgstr "A aguardar a Decisão Editorial"
+
+msgid "submission.status.unassigned"
+msgstr "Não designado"
+
+msgid "submission.status.declined"
+msgstr "Rejeitado"
+
+msgid "submission.status.published"
+msgstr "Publicado"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Upload Ficheiro"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Upload Ficheiro Submissão"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Detalhes Revisão"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Confirmar"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Dever inserir um nome para este ficheiro"
+
+msgid "submission.upload.noGenre"
+msgstr "Em falta ou componente inválido!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Grupo de utilizadores em falta ou inválido!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Detetada Possível Duplicação ou Revisão"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"O nome do ficheiro carregado tem o mesmo nome de um ficheiro carregado "
+"anteriormente, \"{$revisedFileName}\". Este ficheiro visa substituir "
+"\"{$revisedFileName}\"? Se assim for, selecione o ficheiro abaixo. Caso "
+"contrário, selecione \"Esta não é uma revisão de um ficheiro existente\" "
+"antes de prosseguir."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Selecione o ficheiro que gostaria de rever."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Se está a enviar uma revisão de um ficheiro existente, indique qual."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Esta não é uma revisão de um ficheiro existente"
+
+msgid "submission.upload.userGroup"
+msgstr "Carregar este ficheiro no meu papel como..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Se pretender enviar um Livro com capítulos independentes, deve inserir todos "
+"os capítulos individualmente, usando o seu papel de editor de livro."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Upload um Ficheiro de Biblioteca"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Categoria de Documento de Submissão"
+
+msgid "submission.upload.finalDraft"
+msgstr "Upload Ficheiro"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Upload Ficheiro Edição Texto"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Upload Ficheiros"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Após a revisão do ficheiro atribuído, registe todos os comentários no "
+"ficheiro abaixo, e/ou carregue uma cópia anotada do ficheiro (ou outro "
+"ficheiro)."
+
+msgid "submission.upload.productionReady"
+msgstr "Upload ficheiro pronto para produção"
+
+msgid "submission.upload.proof"
+msgstr "Upload ficheiro pronto para produção"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Não há ficheiros para rever de momento."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Foram solicitadas revisões."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Foram submetidas revisões e é necessária emitir uma decisão."
+
+#, fuzzy
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "A submissão deve ser objeto de nova ronda de revisão."
+
+#, fuzzy
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "A submissão foi enviada para uma nova ronda de revisão."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Enviado para revisão externa."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Submissão aceite."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Submissão rejeitada."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "A aguardar seleção de revisores."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "A aguardar respostas dos revisores."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Foram submetidas novas revisões."
+
+#, fuzzy
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Todos os revisores responderam e é necessário emitir uma decisão."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Uma revisão ultrapassou o prazo."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "A aguardar recomendações dos editores."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Uma nova recomendação editorial foi submetida."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Todas as recomendações foram introduzidas, e é necessária uma decisão."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Inativo por mais de {$days} dias na etapa de {$stage}."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Uma nova submissão aguarda ser enviada para revisão ou ser recusada."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Participantes"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Nenhum Designado"
+
+msgid "editor.submission.participant"
+msgstr "Participante"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Adicionar Participante"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Editar Designação"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Os utilizadores são atribuídos a etapas do fluxo de trabalho por grupo de "
+"utilizadores. Qualquer utilizador designado a esta etapa será "
+"automaticamente atribuído a outras etapas às quais o seu grupo de "
+"utilizadores foi atribuído. Normalmente é reservado para editores, autores e "
+"tradutores."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Remover Participante"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Está prestes a remover este participante de <strong>todas</strong> as etapas."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Deve selecionar um grupo de utilizadores."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr ""
+"Deve selecionar um utilizador para o grupo de utilizadores especificado."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"O participante que selecionou foi indicado para realizar uma revisão "
+"anónima. Se o atribuir como um participante, irá ter acesso à identidade do "
+"autor. É preferível não atribuir este participante a não ser que possa "
+"garantir a integridade do processo de revisão por pares."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Não Permitir Edição de Metadados"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Permitir Edição de Metadados"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Tem a certeza de que pretende proibir os autores desta submissão de "
+"alterarem os metadados da submissão nesta etapa?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Deseja realmente dar permissões aos autores desta submissão para que editem "
+"os metadados nesta etapa?"
+
+msgid "editor.submission.decision"
+msgstr "Decisão"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Notificar Autores"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Notificar Revisores"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Envie um e-mail aos revisores para lhes agradecer pela revisão e informá-los "
+"de que foi tomada uma decisão. Cada revisor receberá um e-mail separado para "
+"garantir o anonimato. O termo {$recipientName} pode ser usada na mensagem "
+"para incluir o nome de cada revisor com segurança."
+
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Envie um e-mail para os revisores designados a informá-los de que sua "
+"atribuição de revisão foi cancelada."
+
+msgid "editor.submission.decision.accept"
+msgstr "Aceitar Submissão"
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Esta submissão será aceite para publicação e enviada para edição de texto."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} aceitou esta submissão e enviou para a etapa de edição de "
+"texto."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Submissão Aceite"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"A submissão, {$title}, foi aceite para publicação e enviada para a etapa de "
+"edição de texto. Todas as notificações foram enviadas, exceto aquelas que "
+"optou por ignorar."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Enviar um e-mail aos autores para informá-los de que a sua submissão foi "
+"aceite para publicação. Este e-mail não será enviado até que a decisão seja "
+"registada."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para que eles saibam que a ronda de revisão foi "
+"encerrada. Este e-mail não será enviado até que a decisão seja registada."
+
+msgid "editor.submission.decision.decline"
+msgstr "Recusar Submissão"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Esta submissão será rejeitada. A etapa de revisão por pares será encerrada e "
+"a submissão arquivada."
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} rejeitou esta submissão."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Submissão Rejeitada"
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"A submissão, {$title}, foi rejeitada e enviada para o arquivo. Todas as "
+"notificações foram enviadas, exceto as que optou por ignorar."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los de que a sua submissão foi "
+"rejeitada. Este e-mail não será enviado até que a decisão seja registada."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Esta submissão será rejeitada. Não será conduzida qualquer revisão adicional "
+"e a submissão será arquivada."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Nova Ronda de Revisão"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Abra outra ronda de revisão para esta submissão."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} criou uma nova ronda de revisão para esta submissão."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Ronda de Revisão Criada"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"Foi criada uma nova ronda de revisão para a submissão, {$title}. O autor foi "
+"notificado, a não ser que tenha ignorado o envio desse email."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Envia um e-mail aos autores a informá-los de que a submissão foi enviada "
+"para um nova ronda de revisão. Este email não será enviado até que seja "
+"registada uma decisão."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+"Selecione ficheiros que devem ser enviados para a etapa de edição de texto."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Selecione os ficheiros que devem ser enviados para revisão."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+"Selecione os ficheiros que devem ser enviados para a etapa de produção."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Pedir Revisões"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"O autor deve enviar revisões antes da submissão ser aceite para publicação."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} solicitou revisões para esta submissão."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Revisões solicitadas"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"Foram solicitadas revisões para a submissão: {$title}. Todas as notificações "
+"foram enviadas, exceto as que optou por ignorar."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los de que serão solicitadas "
+"revisões antes da submissão ser aceite para publicação. Inclua todos os "
+"detalhes que o autor irá necessitar para rever a sua submissão. Quando "
+"apropriado, lembre-se de anonimizar qualquer comentário do revisor. Este e-"
+"mail não será enviado até que a decisão seja registada."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Cancelar Ronda de Revisão"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Cancele a ronda de revisão atual e envie a submissão de volta para a última "
+"ronda de revisão. Se esta for a primeira ronda de revisão, ela será enviada "
+"de volta à fase de submissão."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} cancelou a ronda de revisão."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Cancelada a última ronda de revisão."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"A ronda de revisão para a submissão {$title} foi cancelada. Todas as "
+"notificações foram enviadas, exceto as que optou por ignorar."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Só pode cancelar a ronda de revisão se nenhum revisor designado tiver alguma "
+"revisão concluída ou enviada."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Resubmeter para Revisão"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"O autor deve enviar revisões que serão enviadas para outra ronda de revisão "
+"antes da submissão ser aceite para publicação."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} solicitou revisões para esta submissão que devem ser enviadas "
+"para outra ronda de revisão."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Revisões solicitadas"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Foram solicitadas revisões para a submissão {$title}. A decisão de enviar as "
+"revisões para outra ronda de revisão foi registada. Todas as notificações "
+"foram enviadas, exceto as que optou por ignorar."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los que as revisões terão que ser "
+"concluídas e enviadas para nova ronda de revisão. Inclua todas os detalhes "
+"que o autor irá necessitar para rever a sua submissão. Quando apropriado, "
+"lembre-se de anonimizar quaisquer comentários do revisor."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Enviar para Revisão"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Esta submissão está pronta para ser enviada para revisão por pares."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} enviou esta submissão para a etapa de revisão."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Enviado para Revisão"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"A submissão {$title} foi enviada para a etapa de revisão. O autor foi "
+"notificado, a menos que tenha optado por ignorar esse e-mail."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nova ronda de revisão"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Enviar para Produção"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Envie esta submissão para a etapa de produção para ser preparada para "
+"publicação."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} enviou esta submissão para a etapa de produção."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Enviado para Produção"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+"A submissão {$title} foi enviada para a etapa de produção. O autor foi "
+"notificado, a menos que tenha optado por ignorar esse e-mail."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail para os autores a informá-lo de que esta submissão foi "
+"enviada para a etapa de produção. Este e-mail não será enviado antes da "
+"decisão ficar registada."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Cancelar Edição de Texto"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Envie esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+"{$editorName} enviou esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Enviado de volta para edição de texto"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"A submissão {$title} foi enviada para o passo de edição de texto. O autor "
+"foi notificado, a menos que tenha optado por ignorar esse e-mail."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail para os autores para que saibam que a edição de texto foi "
+"cancelada e a submissão passará por uma nova revisão editorial."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Voltar para Edição de texto"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Envie esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+"{$editorName} enviou esta submissão de volta para a etapa de edição de texto."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Enviar de volta para Edição de texto"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"A submissão {$title} foi enviada de volta para a etapa de edição de texto. O "
+"autor foi notificado, a menos que tenha optado por ignorar esse e-mail."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los de que esta submissão foi "
+"enviada de volta para a etapa de edição de texto. Explique o porquê desta "
+"decisão ter sido tomada e informe o autor das edições adicionais que serão "
+"necessárias antes da submissão estar pronta para produção."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Aceitar e Saltar Revisão"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Aceitar esta submissão para publicação e saltar a etapa de revisão. Esta "
+"decisão irá enviar a submissão para a etapa de edição de texto."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} saltou a etapa de revisão e enviou a submissão para a etapa de "
+"edição de texto."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Saltar Revisão"
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"A submissão {$title} saltou a etapa de revisão e foi enviada para a etapa de "
+"edição de texto. O autor foi notificado, a menos que tenha optado por "
+"ignorar esse e-mail."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los de que esta submissão foi "
+"aceite para publicação e enviada para a etapa de edição de texto sem "
+"revisão. Este e-mail não será enviado antes que a decisão fique registada."
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Enviar para Revisão Interna"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"O ficheiro de prova de página deve ser marcado como aprovado para ser "
+"disponibilizado. Quer aprová-lo?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Aprovar Provas"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Este ficheiro de prova não estará mais disponível publicamente para download "
+"ou compra. Quer desaprová-lo?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Reverter Rejeição"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Reverta a decisão anterior de rejeitar esta submissão e devolva-a ao fluxo "
+"ativo do processo editorial. O autor foi notificado, a menos que tenha "
+"optado por ignorar o e-mail."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} reverteu a decisão de rejeitar esta submissão."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Submissão Reativada"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Esta submissão, {$title}, está agora ativa na etapa de revisão."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Envie um e-mail aos autores para informá-los de que uma decisão anterior de "
+"rejeitar esta submissão foi revertida. Explique o porquê da decisão ter sido "
+"revertida e informe-os se a submissão deverá ser submetida a nova revisão."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"A submissão {$title}, está agora ativa na etapa da submissão. O autor foi "
+"notificado, a menos que tenha optado por ignorar esse e-mail."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Atribua um editor para permitir decisões editoriais nesta etapa."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Envie uma mensagem aos editores decisores para informá-los da recomendação. "
+"Explique o porquê de ter emitido essa recomendação em resposta às "
+"recomendações e comentários enviados pelos revisores."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Recomendo Aceitar"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Recomendar que esta submissão seja aceite para publicação e enviada para "
+"edição de texto."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} recomendou que esta submissão seja aceite e enviada para "
+"edição de texto."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Recomendação Submetida"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"A sua recomendação foi registada e o(s) editor(es) decisor(es) foi(ram) "
+"notificado(s)."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Recomendo Revisões"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Recomendo que sejam solicitadas revisões ao autor antes da submissão ser "
+"aceite para publicação."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} recomendou que sejam solicitadas revisões."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Recomendo Reenviar para Revisão"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Recomendo que seja solicitado ao autor que efetue revisões que sejam alvo de "
+"nova ronda de revisão."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} recomendou que sejam solicitadas revisões ao autor e que sejam "
+"enviadas para nova ronda de revisão."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Recomendo Rejeitar"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Recomendar que a submissão seja rejeitada para publicação."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} recomendou que esta submissão seja rejeitada."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Realizar Recomendação"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Alterar Recomendação"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Recomendação: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Recomendações: {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Não pode emitir uma recomendação antes de ser designado um editor com "
+"permissões para registar uma decisão."
+
+msgid "editor.submission.recommendation"
+msgstr "Recomendação"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Recomendar uma decisão editorial para esta submissão."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Recomendações Gravadas"
+
+msgid "submission.currentStage"
+msgstr "Etapa Atual"
+
+msgid "submission.noActionRequired"
+msgstr "Nenhuma ação requerida"
+
+msgid "submission.actionNeeded"
+msgstr "Ação necessária"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Ficheiros de Revisão"
+
+msgid "submission.submit.currentFile"
+msgstr "Ficheiro atual"
+
+msgid "submission.finalDraft"
+msgstr "Ficheiros de Rascunho"
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"Ocorreu um erro ao tentar atribuir o auditor. Por favor, tente novamente."
+
+msgid "submission.event.fileEdited"
+msgstr "Os metadados do ficheiro \"{$filename}\" foi editado por {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Um ficheiro \"{$filename}\" foi submetido {$submissionId} por {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Um ficheiro \"{$filename}\" foi eliminado para a submissão {$submissionId} "
+"por {$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Uma revisão do ficheiro \"{$filename}\" foi carregada para a submissão "
+"{$submissionId} por {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Uma revisão do ficheiro \"{$filename}\" foi eliminada da submissão "
+"{$submissionId} por {$username}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"Um ficheiro \"{$filename}\" teve a sua última revisão removida por "
+"{$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"{$userFullName}\" ({$username}) foi adicionado como auditor para o ficheiro "
+"\"{$filename}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"{$userFullName}\" ({$username}) foi removido como auditor do ficheiro "
+"\"{$filename}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) concluiu uma auditoria e enviou "
+"\"{$filename}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$userFullName}\" ({$username}) assinou em \"{$filename}.\""
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"{$userFullName}\" ({$username}) aprovou as provas para "
+"\"{$publicationFormatName}.\""
+
+msgid "submission.overview"
+msgstr "Visão Geral da Submissão"
+
+msgid "submission.description"
+msgstr "Descrição"
+
+msgid "submission.stageNotInitiated"
+msgstr "Etapa não iniciada."
+
+msgid "submission.documents"
+msgstr "Documentos da Submissão"
+
+msgid "notification.type.editorAssign"
+msgstr "Foi designado como editor para a submissão \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Foi-lhe solicitado que revisse o texto de \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Foi-lhe solicitado que revisse os layouts de \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "Foi-lhe solicitado que criasse um índice para \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Última decisão editorial."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Submissão aceite."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Processo de revisão externa iniciado."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Revisões requeridas."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Resubmeter para revisão."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Uma nova ronda de revisão foi iniciada."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Submissão rejeitada."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Submissão rejeitada reativada."
+
+msgid "notification.uploadedResponse"
+msgstr "Resposta carregada."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Um editor deve ser designado antes da revisão ser iniciada. Adicione um "
+"editor usando a lista de Participantes."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Uma nova versão de uma submissão foi criada"
+
+msgid "notification.type.revertDecline"
+msgstr "A decisão de rejeitar esta submissão foi revertida."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Anexos do Revisor"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Selecionar ficheiros de revisão a partilhar com o(s) autor(es)"
+
+msgid "submission.productionReady"
+msgstr "Livro Disponível"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Upload do Ficheiro Revisto"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} designada(o) para a ronda {$round} de revisão da submissão "
+"{$submissionId} ."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"A ronda {$round} revista por {$reviewerName} para a submissão "
+"{$submissionId} foi eliminada."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} marcou a ronda de revisão {$round} para a submissão "
+"{$submissionId} como não considerada."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"A ronda {$round} revista por {$reviewerName} para a submissão "
+"{$submissionId} foi reiniciada."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Reenvie o pedido de revisão da ronda {$round} para {$reviewerName} para a "
+"submissão {$submissionid}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"O editor {$editorName} confirmou uma revisão da ronda de revisão {$round} para "
+"a submissão {$submissionId}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} concluiu a revisão da ronda de revisão {$round} da submissão "
+"{$submissionId}."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "A aguardar a resposta do revisor."
+
+msgid "submission.review.status.declined"
+msgstr "O revisor rejeitou este pedido de revisão."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "O revisor ultrapassou o prazo para a resposta."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "O revisor ultrapassou o prazo para a revisão."
+
+msgid "submission.review.status.accepted"
+msgstr "Esta revisão foi aceite."
+
+msgid "submission.review.status.received"
+msgstr "O revisor submeteu os seus comentários."
+
+msgid "submission.review.status.complete"
+msgstr "Esta revisão foi concluída."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Esta revisão está concluída e foi enviado um agradecimento ao revisor pela "
+"sua contribuição."
+
+msgid "submission.document"
+msgstr "Documento"
+
+msgid "submission.art"
+msgstr "Obra de arte"
+
+msgid "submission.supplementary"
+msgstr "Conteúdo Suplementar"
+
+msgid "submission.supplementary.creator"
+msgstr "Criador (ou proprietário) do ficheiro"
+
+msgid "submission.supplementary.subject"
+msgstr "Assunto"
+
+msgid "submission.supplementary.publisher"
+msgstr "Editora"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Entidade ou Agência Financiadora"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Vá para o fluxo de trabalho desta submissão"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Processo de produção iniciado."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Deve ser designado um editor de produção antes que o processo de produção "
+"possa ser iniciado. Adicione um editor de produção através da lista de "
+"Participantes."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Deve ser designado um editor de produção antes que o processo de produção "
+"possa ser iniciado. Adicione um editor de produção através da lista de "
+"Participantes."
+
+msgid "submission.reviewForm"
+msgstr "Formulário de revisão"
+
+msgid "submission.reviewFormResponse"
+msgstr "Resposta do formulário de revisão"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Criar um novo elemento de formulário de revisão"
+
+msgid "grid.action.editMetadata"
+msgstr "Editar Metadados"
+
+msgid "submission.permissions"
+msgstr "Permissões"
+
+msgid "submission.attachPermissions"
+msgstr "Anexe as seguintes permissões à submisão:"
+
+msgid "submission.license"
+msgstr "Licença"
+
+msgid "submission.copyright"
+msgstr "Direitos de Autor"
+
+msgid "submission.copyright.agree"
+msgstr "Sim, concordo com a declaração de direitos de autor."
+
+msgid "submission.copyrightHolder"
+msgstr "Proprietário dos Direitos de Autor"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Declaração de direitos de autor personalizada"
+
+msgid "submission.copyrightOther"
+msgstr "Declaração de direitos de autor"
+
+msgid "submission.copyrightYear"
+msgstr "Ano dos Direitos de Autor"
+
+msgid "submission.copyrightStatement"
+msgstr "Direitos de Autor (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Indique um URL remoto válido (incluindo http://)."
+
+msgid "submission.licenseURL"
+msgstr "URL da Licença"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Atribuição-NãoComercial-SemDerivações 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Atribuição-NãoComercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Atribuição-NãoComercial-CompartilhaIgual 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Atribuição-SemDerivações 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribuição 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Atribuição-CompartilhaIgual 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/4.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\">Licença Internacional Creative Commons Atribuição-NãoComercial-"
+"SemDerivações 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/4.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Licença "
+"Internacional Creative Commons Atribuição-NãoComercial 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/4.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\">Licença Internacional Creative Commons Atribuição-NãoComercial-"
+"CompartilhaIgual 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/4.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Licença "
+"Internacional Creative Commons Atribuição-SemDerivações 4.0</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Licença "
+"Internacional Creative Commons Atribuição 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/4.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Licença "
+"Internacional Creative Commons Atribuição-CompartilhaIgual 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/3.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">Licença Internacional Creative Commons Atribuição-NãoComercial-"
+"SemDerivações 3.0 não exportada</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/3.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Licença "
+"Internacional Creative Commons Atribuição-NãoComercial 3.0 não exportada</a>."
+"</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/3.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado com a<a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">Licença Internacional Creative Commons Atribuição-NãoComercial-"
+"CompartilhaIgual 3.0 não exportada</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/3.0/88x31.png\" /></a><p>Este trabalho é licenciado sob uma licença <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\">Licença Internacional Creative Commons Atribuição-SemDerivações 3.0 não "
+"exportada</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado sob a<a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Licença "
+"Internacional Creative Commons Attribuiçã 3.0 não exportada</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/3.0/88x31.png\" /></a><p>Este trabalho encontra-se publicado sob a<a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Licença "
+"Internacional Creative Commons Atribuição-CompartilhaIgual 3.0 não "
+"exportada</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Discussões Pré-Revisão"
+
+msgid "submission.queries.review"
+msgstr "Rever Discussões"
+
+msgid "submission.queries.editorial"
+msgstr "Discussões de edição de texto"
+
+msgid "submission.query.subject"
+msgstr "Assunto"
+
+msgid "submission.query.messages"
+msgstr "Mensagens"
+
+msgid "submission.query.replies"
+msgstr "Respostas"
+
+msgid "submission.query.from"
+msgstr "De"
+
+msgid "submission.query.lastReply"
+msgstr "Última Resposta"
+
+msgid "submission.query.closed"
+msgstr "Fechado"
+
+msgid "submission.query.addNote"
+msgstr "Adicionar Mensagem"
+
+msgid "submission.query.leaveQuery"
+msgstr "Sair da Discussão"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Se sair da discussão não receberá mais notificações de novas mensagens. "
+"Deseja realmente sair da discussão?"
+
+msgid "grid.action.openNoteForm"
+msgstr "Adicionar uma nova resposta à discussão"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} respondeu a {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} iniciou uma discussion: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Há uma nova discussão com o título \"{$queryTitle}\" relativa à submissão "
+"\"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Foi adicionado à discussão intitulada \"{$queryTitle}\" relativa à submissão "
+"\"{$submissionTitle}\"."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Tem de designar pelo menos um participante para esta submissão antes de "
+"iniciar uma discussão."
+
+msgid "submission.list.infoCenter"
+msgstr "Registo de Atividade & Notas"
+
+msgid "submission.list.empty"
+msgstr "Não foram encontradas submissões."
+
+msgid "submission.list.responseDue"
+msgstr "Resposta Até: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Designação de Revisão"
+
+msgid "submission.list.reviewDue"
+msgstr "Revisão Até: {$date}"
+
+msgid "submission.list.reviewComplete"
+msgstr "Revisão Enviada"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Revisão Cancelada"
+
+msgid "submission.list.confirmDelete"
+msgstr "Apagar submissão?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Ver Todas as Submissões"
+
+msgid "submission.list.viewSubmission"
+msgstr "Ver Submissão"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Revisões atribuídas terminadas"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revisões enviadas"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Ficheiros de edição de texto enviados"
+
+msgid "submission.list.galleysCreated"
+msgstr "Criadas composição finais"
+
+msgid "submission.list.filesPrepared"
+msgstr "Ficheiros preparados"
+
+msgid "submission.list.discussions"
+msgstr "Discussões abertas"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Foram-lhe atribuídos vários papéis nesta submissão. Deseja aceder à <a href="
+"\"{$urlAuthorWorkflow}\">Visualiação do Autor</a>  ou ao <a href="
+"\"{$urlEditorialWorkflow}\">Processo Editorial</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Foi-lhe atribuído um papel editorial a esta submissão. Deseja aceder ao <a "
+"href=\"{$urlEditorialWorkflow}\">Processo Editorial</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "A submissão deve ser completada antes de um editor a rever."
+
+msgid "submission.list.currentStage"
+msgstr "Atualmente na etapa {$stage}."
+
+msgid "submission.list.activity"
+msgstr "Atividade"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dias desde a última atividade"
+
+msgid "submission.list.assignEditor"
+msgstr "Designar Editor"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Esta submissão já foi enviada. Visite o seu <a href=\"{$url}\">dashboard</a> "
+"para a visualizar."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Antes de começar"
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+"Selecione apenas as categorias que são apropriadas para a sua submissão."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Alterar Configurações da Submissão"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Conclua os passos para submeter uma submissão"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"A submissão, <strong>{$title}</strong>, será enviada para <strong>{$context}"
+"</strong> para revisão editorial. Deseja realmente concluir este envio?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Há um ou mais problemas que precisam de ser corrigidos antes que a possa "
+"submeter. Reveja as informações abaixo e faça as alterações solicitadas."
+
+msgid "submission.wizard.validating"
+msgstr "A verificar a sua submissão"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Adicione qualquer informação que considere que a equipa editorial deva saber "
+"ao avaliar a submissão."
+
+msgid "submission.wizard.confirm"
+msgstr "Confirme a seguinte informação antes de enviar."
+
+msgid "submission.wizard.title"
+msgstr "Iniciar uma Submissão"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Iniciar uma Submissão: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "Nenhum contribuidor foi adicionado para esta submissão."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "Um ou mais contribuidores têm elementos em falta em {$language}."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Não Permitido"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Consentimento de Privacidade"
+
+msgid "submission.wizard.saved"
+msgstr "Guardado para mais tarde"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Os detalhes da submissão foram guardados no sistema, mas ainda não foram "
+"submetidas para consideração. Pode voltar para concluir a submissão a "
+"qualquer momento, seguindo o link abaixo."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Enviámos-lhe uma cópia deste link para {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Secção Fechada"
+
+msgid "submission.wizard.start"
+msgstr "Iniciar Submissão"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Iniciar uma nova submissão"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Foi encontrado um erro e não foi possível guardar a sua submissão. Pode ter "
+"sido desconectado."
+
+msgid "grid.category.categories"
+msgstr "Categorias"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Título (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Título (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Data de publicação (mais antiga primeiro)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Data de publicação (mais recente primeiro)"
+
+msgid "category.category"
+msgstr "Categorias"
+
+msgid "category.coverImage"
+msgstr "Imagem de Capa"
+
+msgid "submission.submit.placement.categories"
+msgstr "Categorias"
+
+msgid "submission.currentCoverImage"
+msgstr "Imagem Atual"
+
+msgid "catalog.category.noItems"
+msgstr "Esta categoria ainda não tem publicações."
+
+msgid "catalog.category.subcategories"
+msgstr "Subcategorias"
+
+msgid "publication.contributors"
+msgstr "Contribuidores"
+
+msgid "publication.createVersion"
+msgstr "Criar Nova Versão"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "A data deve estar no formato AAAA-MM-DD, por exemplo 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "Uma nova versão foi criada."
+
+msgid "publication.publicationLicense"
+msgstr "Permissões e Divulgação"
+
+msgid "publication.status.scheduled"
+msgstr "Agendado"
+
+msgid "publication.status.unpublished"
+msgstr "Despublicado"
+
+msgid "publication.titleAbstract"
+msgstr "Título e Resumo"
+
+msgid "publication.unschedule"
+msgstr "Desagendar"
+
+msgid "publication.urlPath"
+msgstr "Caminho URL"
+
+msgid "publication.urlPath.description"
+msgstr "Um caminho opcional para usar no URL em vez do ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "O caminho URL já foi usado e não pode ser usado de novo."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "O caminho URL não pode ser um número."
+
+msgid "publication.version.all"
+msgstr "Todas as Versões"
+
+msgid "publication.version.confirm"
+msgstr "Deseja realmente criar uma nova versão?"
+
+msgid "publication.abstract.wordCountLong"
+msgstr ""
+"O resumo é demasiado longo. Não deve ter mais do que {$limit} palavras. "
+"Atualmente tem {$count} palavras."
+
+msgid "publication.wordCount"
+msgstr "Contagem de palavras: {$count}/{$limit}"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Falha ao marcar o DOI como a precisar de sincronização para "
+"{$pubObjectTitle}. O DOI não pode ser marcado como a precisar de "
+"sincronização porque ainda não foi registado ou submetido."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Falha ao marcar o DOI como registado para {$pubObjectTitle}. A submissão "
+"deve ser publicada antes que o estado seja atualizado."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Isto é uma visualização prévia e não foi ainda publicado. <a href="
+"\"{$url}\">Ver submissão</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Nenhum documento anexado à submissão."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmação"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "A submeter em <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "A submeter para a secção <strong>{$section}</strong>."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"A submeter para a secção <strong>{$section}</strong> em <strong>{$language}</"
+"strong>."
+
+msgid "submission.type.tip"
+msgstr ""
+"O tipo de submissão normalmente é 'imagem', 'texto' ou outros tipos de "
+"multimédia, incluindo 'software' ou 'interactivo'. Escolha o mais relevante "
+"para a sua submissão. Exemplos podem ser encontrados em <a target=\"_blank\" "
+"href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Esta submissão deriva de outro recurso? Se assim for, pode inserir um URL ou "
+"descrição desse recurso."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Se desejar, pode inserir uma breve declaração sobre os direitos de acesso "
+"mantidos sobre esta submissão."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Adicionar informações extra à sua submissão. Pressione 'enter' após cada "
+"termo."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contacto principal para correspondência editorial."
+
+msgid "submission.dataAvailability"
+msgstr "Declaração de Disponibilidade de Dados Científicos"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Indique se disponibilizou provas que suportem este trabalho e, em caso "
+"afirmativo, onde e como podem ser acedidas"
+
+msgid "submission.files.required.genre"
+msgstr "Deve enviar pelo menos um ficheiro {$genre}."
+
+msgid "submission.files.required.genres"
+msgstr "Deve enviar pelo menos um ficheiro de cada tipo: {$genres}."
+
+msgid "publication.version"
+msgstr "Versão {$version}"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Pode atualizar esta discussão durante {$allowedEditTimeNoticeLimit} minutos."
+
+msgid "submission.submissionFile"
+msgstr "Ficheiro submetido"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Regressou para revisão."
+
+#~ msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+#~ msgstr ""
+#~ "{$editorName} reverteu a decisão de aceitar a submissão e enviou de volta "
+#~ "para a etapa de submissão."
+
+#~ msgid ""
+#~ "editor.submission.decision.backToSubmissionFromCopyediting.description"
+#~ msgstr ""
+#~ "Reverter a decisão de aceitar a submissão e enviar de volta para a etapa "
+#~ "de submissão."
+
+#~ msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+#~ msgstr ""
+#~ "Envie um e-mail aos autores para informá-los que a sua submissão irá "
+#~ "regressra à etapa de submissão. Explique o porquê de ter sido tomada esta "
+#~ "decisão e informe o autor do trabalho adicional a ser realizado antes de "
+#~ "avançar com a submissão."
+
+#~ msgid "editor.submission.decision.backToSubmission.completed.description"
+#~ msgstr "A submissão, {$title}, foi enviada de volta à etapa de submissão."
+
+#~ msgid "editor.submission.decision.backToSubmission.completed"
+#~ msgstr "Enviar de volta à Submissão"
+
+#~ msgid "editor.submission.decision.backToSubmission"
+#~ msgstr "Voltar à Submissão"
+
+msgid "submission.authors.label"
+msgstr "Autores"
+
+msgid "submission.author.list"
+msgstr "Lista de Autores"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Indique qualquer conflito de interesse que possa ter no contexto deste "
+"trabalho."
+
+msgid "author.competingInterests"
+msgstr "Conflito de Interesses"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Atribuído a mim"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Sugestões do revisor"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Revisores sugeridos pelo autor"
+
+msgid "author.authorNotFound"
+msgstr "Não foi possível encontrar o autor para esta afiliação."
+
+msgid "ror.nameRequired"
+msgstr "É necessário um nome ROR."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Idioma atual da submissão:"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Cancelar submissão"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "A submissão foi cancelada e todos os dados associados foram eliminados."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Para sugestão do revisor"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Modificar"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Alterar idioma da submissão para"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Foi recebida uma recomendação editorial"
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "A submissão avançou para a próxima fase de revisão"
+
+msgid "workflow.reviewRoundN"
+msgstr "Rodada de revisão {$number}"
+
+msgid "fileManager.filesForReview"
+msgstr "Ficheiros para revisão"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Apagar submissões incompletas"
+
+msgid "workflow.stageNotStarted"
+msgstr "A fase {$stage} ainda não foi iniciada."
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Enviar revisão para ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Enviar esta revisão para o revisor do ORCID?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Recusado durante a fase {$stageName}."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Apenas autorizado a recomendar uma decisão editorial"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Por favor, indique uma afiliação ROR ou, pelo menos, um nome de afiliação."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Submissão cancelada"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "A recomendação foi feita por si."
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisões carregadas"
+
+msgid "submission.review.status.viewed"
+msgstr "O editor já visualizou a revisão."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "A revisão foi concluída em {$date}"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "O revisor cancelou o pedido de revisão"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "O revisor cancelou o pedido de revisão em <b>{$date}</b>."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Continuar sem um número mínimo de avaliações confirmadas?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"O número mínimo de revisões confirmadas não foi atingido. Ainda deseja "
+"prosseguir com esta decisão editorial?"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Selecione as submissões incompletas para serem eliminadas."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "A submissão está atualmente na fase de {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"A submissão avançou para a próxima ronda de revisão, foi aceite e encontra-"
+"se atualmente na fase de {$stage}."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Ficheiros carregados no momento do envio"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "A revisão foi confirmada pelo editor"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "A revisão foi aceite pelo editor em <b>{$date}</b>."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Aviso: Esta versão foi publicada. Editá-la pode afetar o conteúdo publicado."
+
+msgid "ror.displayLocaleRequired"
+msgstr "É necessário definir o idioma de exibição do ROR."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "A aguardar resposta dos revisores"

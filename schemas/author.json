@@ -2,20 +2,20 @@
 	"title": "Author",
 	"description": "An author of a publication.",
 	"required": [
-		"email",
-		"givenName",
 		"publicationId",
-		"userGroupId"
+		"contributorRoles",
+		"contributorType"
 	],
 	"properties": {
-		"affiliation": {
-			"type": "string",
+		"affiliations": {
+			"type": "array",
 			"description": "The scholarly institution this contributor is employed by or affiliated with.",
-			"multilingual": true,
 			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Affiliation"
+			}
 		},
 		"biography": {
 			"type": "string",
@@ -28,7 +28,10 @@
 		"competingInterests": {
 			"type": "string",
 			"description": "A declaration of potential competing interests.",
-			"multilingual": "true"
+			"multilingual": "true",
+			"validation": [
+				"nullable"
+			]
 		},
 		"country": {
 			"type": "string",
@@ -40,11 +43,57 @@
 				"regex:/^[A-Z]{2}$/"
 			]
 		},
+		"contributorRoles": {
+			"type": "array",
+			"description": "The names of this contributor's roles in the publication, such as 'Author' or 'Translator', and the translations",
+			"apiSummary": true,
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/ContributorRole"
+			},
+			"validation": [
+				"min:1",
+				"nullable"
+			]
+		},
+		"contributorType": {
+			"type": "string",
+			"description": "The name of this contributor's type.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"creditRoles": {
+			"type": "array",
+			"description": "CRediT Roles",
+			"apiSummary": true,
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"role": {
+						"type": "string",
+						"validation": [
+							"url"
+						]
+					},
+					"degree": {
+						"type": "string"
+					}
+				}
+			},
+			"validation": [
+				"nullable"
+			]
+		},
 		"email": {
 			"type": "string",
 			"apiSummary": true,
 			"validation": [
-				"email_or_localhost"
+				"email_or_localhost",
+				"nullable"
 			]
 		},
 		"familyName": {
@@ -57,7 +106,7 @@
 		},
 		"fullName": {
 			"type": "string",
-			"description": "The full name of the author. This will be the preferredPublicName or, if that is not available, a string containing the givenName and familyName.",
+			"description": "The full name of the author. This will be the preferredPublicName or, if that is not available, a string containing the givenName and familyName, or organization name, or anonymous",
 			"apiSummary": true,
 			"readOnly": true
 		},
@@ -79,7 +128,7 @@
 			"default": true,
 			"apiSummary": true
 		},
-		"locale": {
+		"submissionLocale": {
 			"type": "string",
 			"description": "The primary locale of the submission this author is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
 			"apiSummary": true,
@@ -92,6 +141,14 @@
 			"validation": [
 				"nullable",
 				"orcid"
+			]
+		},
+		"organizationName": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
 			]
 		},
 		"preferredPublicName": {
@@ -119,17 +176,6 @@
 				"url",
 				"nullable"
 			]
-		},
-		"userGroupId": {
-			"type": "integer",
-			"description": "The ID of this contributor's assigned user group. See userGroupName.",
-			"apiSummary": true
-		},
-		"userGroupName": {
-			"type": "string",
-			"description": "The name of this contributor's role in the publication, such as 'Author' or 'Translator'.",
-			"apiSummary": true,
-			"readOnly": true
 		},
 		"orcidSandbox": {
 			"type": "string",
@@ -190,6 +236,18 @@
 		"orcidWorkPutCode": {
 			"type": "string",
 			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidVerificationRequested": {
+			"type": "boolean",
+			"apiSummary": false
+		},
+		"orcidDisplayValue": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true,
 			"validation": [
 				"nullable"
 			]

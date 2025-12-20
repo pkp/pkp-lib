@@ -1,0 +1,214 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "default.groups.name.productionEditor"
+msgstr "निर्मिती संपादक (प्रॉडक्शन एडिटर)"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE (प्रॉडक्शन एडिटर)"
+
+msgid "default.groups.name.copyeditor"
+msgstr "कॉपीएडिटर"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "कॉपीएडिटर्स"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE (कॉपीएडिटर)"
+
+msgid "default.groups.name.proofreader"
+msgstr "प्रूफरीडर"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "जनसंपर्क (पीआर)"
+
+msgid "default.groups.plural.designer"
+msgstr "रचनाकारांचा गट (डिझाइनर्स)"
+
+msgid "default.groups.abbrev.designer"
+msgstr "रचना (डिझाइन)"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "अंतर्गत समीक्षक (Reviewer)"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR (अंतर्गत समीक्षक)"
+
+msgid "default.groups.plural.marketing"
+msgstr "विपणन आणि विक्री समन्वयक (मार्केटिंग आणि सेल्स कोऑर्डिनेटर्स)"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS (मार्केटिंग आणि सेल्स)"
+
+msgid "default.groups.name.funding"
+msgstr "निधी समन्वयक (कोऑर्डिनेटर)"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC (फंड कोऑर्डिनेटर)"
+
+msgid "default.groups.plural.indexer"
+msgstr "सूचीकार (इंडेक्सर्स)"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND (सूचीकार)"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "लेआउट संपादक"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE (लेआउट एडिटर)"
+
+msgid "default.groups.name.author"
+msgstr "लेखक"
+
+msgid "default.groups.plural.author"
+msgstr "लेखक"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU (लेखक)"
+
+msgid "default.groups.plural.translator"
+msgstr "अनुवादक"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans (अनुवादक)"
+
+msgid "default.groups.name.reader"
+msgstr "वाचक"
+
+msgid "default.groups.plural.reader"
+msgstr "वाचक"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Read (वाचक)"
+
+msgid "default.genres.other"
+msgstr "इतर"
+
+msgid "default.genres.image"
+msgstr "प्रतिमा"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML स्टाइलशीट"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>तुमच्या सादरीकरणाचे मूल्यमापन करण्यासाठी आमच्या संपादकीय टीमला आवश्यक त्या"
+" फाईल्स द्या. मुख्य कामाव्यतिरिक्त, संपादकांसाठी उपयुक्त होतील असे तुम्हाला "
+"वाटणार्‍या डेटा सेट, हितसंबंध विषयक विधाने किंवा इतर कोणत्याही पूरक फाईल्सही "
+"सादर करू शकता.</p>"
+
+msgid "default.groups.plural.proofreader"
+msgstr "प्रूफरीडर्स"
+
+msgid "default.groups.name.designer"
+msgstr "रचनाकार (डिझायनर)"
+
+msgid "default.groups.name.translator"
+msgstr "अनुवादक"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "अंतर्गत समीक्षकांचा गट (Reviewers)"
+
+msgid "default.genres.multimedia"
+msgstr "बहुप्रसारमाध्यमे"
+
+msgid "default.groups.plural.funding"
+msgstr "निधी समन्वयक (कोऑर्डिनेटर्स)"
+
+msgid "default.groups.name.indexer"
+msgstr "सूचीकार (इंडेक्सर)"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "लेआउट संपादक"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>या सादरीकरणाबरोबर सगळ्या योगदानकर्त्यांची माहिती जोडा. येथे जोडलेल्या "
+"योगदानकर्त्यांना सादरीकरणाबाबतची पुष्टी करण्यासाठी ई-मेल आणि या सादरीकरणाशी "
+"संबंधीत नोंदवलेल्या सर्व संपादकीय निर्णयांची प्रत त्यांना पाठवली जाईल.</"
+"p><p>जर एखाद्या योगदानकर्त्याशी ई-मेलद्वारे संपर्क साधता येण्यात अडचणी असतील "
+"जसे त्यांना अनामिक राहायची इच्छा असेल किंवा त्यांचे ई-मेल खाते नसेल, तर कृपया"
+" बनावट ई-मेल पत्ता प्रविष्ट करू नका. सादरीकरण प्रक्रियेच्या नंतरच्या टप्प्या"
+"वर तुम्ही संपादकाला पाठवलेल्या संदेशात या योगदानकर्त्याबद्दल माहिती देऊ "
+"शकता.</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>आमच्या प्रणालीमध्ये तुमचे सादरीकरण व्यवस्थापित करण्यात मदत करण्यासाठी "
+"कृपया खालील तपशील द्या.</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>तुमचे सादरीकरण व्यवस्थापित करण्यासाठी आमच्या संपादकीय टीमला साह्यभूत "
+"ठरणारा खालील तपशील कृपया द्या.</p><p>मेटाडेटा (लेखक, शीर्षक, वगैरे) भरताना "
+"तुमचे सादरीकरण व्यवस्थापित करणाऱ्या व्यक्तीला सर्वात उपयुक्त वाटतील अशा नोंदी"
+" करा. प्रकाशनापूर्वी ही माहिती बदलता येईल.</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>सादरीकरण प्रक्रिया पूर्ण करण्यापूर्वी तुम्ही भरलेल्या माहितीचे पुनरावलोकन "
+"करा. प्रत्येक विभागाच्या वरच्या बाजूला असलेल्या एडिट बटणावर क्लिक करून "
+"तुम्हाला दिसणार्‍या कोणत्याही तपशीलांमध्ये बदल करू शकता.</p><p>तुम्ही तुमचे "
+"सादरीकरण प्रक्रिया पूर्ण केल्यानंतर, आमच्या संपादकीय टीमच्या एका सदस्याला "
+"त्याचे समीक्षण करण्यासाठी नियुक्त केले जाईल. कृपया तुम्ही येथे नमूद केलेले "
+"तपशील शक्य तितके अचूक असल्याची खात्री करा.</p>"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "संकेतस्थळाचा व्यवस्थापक (साइट अ‍ॅडमिन)"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "संकेतस्थळाचे व्यवस्थापक (साइट अ‍ॅडमिन्स)"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "निर्मिती संपादक (प्रॉडक्शन एडिटर्स)"
+
+msgid "default.groups.name.marketing"
+msgstr "विपणन आणि विक्री समन्वयक (मार्केटिंग आणि सेल्स कोऑर्डिनेटर)"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>हा <a href=\"{$contextUrl}\">{$contextName}</a> कडून आलेला "
+"मानवी नियंत्रणाशिवाय पाठवलेला संदेश आहे.</p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>लेखन {$contextName} वर सादर केल्याबद्दल धन्यवाद. तुम्हाला फाईल्स संक्रमित "
+"(अपलोड) करण्यास, सह-लेखकांची माहिती देण्यास (identify) तसेच शीर्षक आणि सारां"
+"श यासारखी माहिती देण्यास सांगितले जाईल.<p><p>जर तुम्ही यापूर्वी हे केले नसेल "
+"तर कृपया आमची <a href=\"{$submissionGuidelinesUrl}\" target=\"_blank\""
+">सादरीकरणासंबंधी (सबमिशन) मार्गदर्शक तत्त्वे</a> नजरेखालून घालावीत. फॉर्म "
+"भरताना, आमच्या संपादकांना तुमच्या कामाचे योग्य मूल्यमापन करण्यास मदत होईल असे"
+" शक्य तितके तपशील द्या.</p><p>ही प्रक्रिया एका बैठकीत अपूर्ण राहिली तर तुम्ही"
+" जेवढी माहिती दिली आहे ती सेव्ह करून, उरलेली नव्या बैठकीत देऊ शकता. दिलेली "
+"माहिती सादर करण्यापूर्वी तुम्ही तिचे पुनरावलोकन आणि त्यात फेरफारही करू "
+"शकाल.<p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "संपादकीय मंडळ सदस्य"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBM"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "संपादकीय मंडळ सदस्य (Members)"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>सादरीकरण प्रक्रिया करताना, तुमच्याकडे अनेक संभाव्य समीक्षकांची नावे "
+"सुचवण्याचा पर्याय आहे. ही समीक्षणप्रक्रिया सुलभ करण्यासाठी आणि संपादकीय "
+"मंडळासाठी मौल्यवान माहिती ठरू शकते. तुमच्या क्षेत्रातील तज्ञ पण तुमच्या कामा"
+"त त्यांचा हितसंबंध दडलेला (conflict of interest) नाही असे समीक्षक निवडा. या "
+"वैशिष्ट्याचा उद्देश समीक्षणप्रक्रिया सुधारणे तसेच लेखकांना आणि संपादकीय "
+"मंडळाला, दोघांनाही, अधिक कार्यक्षम अनुभवाचे प्रत्यंतर देण्याचा आहे.</p>"

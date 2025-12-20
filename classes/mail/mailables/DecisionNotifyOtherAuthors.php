@@ -21,6 +21,7 @@ use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
+use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\user\User;
@@ -29,6 +30,7 @@ class DecisionNotifyOtherAuthors extends Mailable
 {
     use Configurable;
     use Sender;
+    use Recipient;
 
     /** @var string An email variable that contains the message that was sent to the submitting author */
     public const MESSAGE_TO_SUBMITTING_AUTHOR = 'messageToSubmittingAuthor';
@@ -72,7 +74,7 @@ class DecisionNotifyOtherAuthors extends Mailable
         parent::setData($locale);
 
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
 
         $this->viewData[self::SUBMITTING_AUTHOR_NAME] = $this->getSubmittingAuthorName($locale);

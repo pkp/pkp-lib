@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/user/Collector.php
  *
@@ -14,10 +15,10 @@
 namespace PKP\user;
 
 use APP\core\Application;
-use Exception;
 use Carbon\Carbon;
-use Illuminate\Database\MySqlConnection;
+use Exception;
 use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
@@ -30,7 +31,7 @@ use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
-use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\user\enums\UserMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 
 /**
@@ -47,7 +48,7 @@ class Collector implements CollectorInterface
 
     public const STATUS_ACTIVE = 'active';
     public const STATUS_DISABLED = 'disabled';
-    public const STATUS_ALL = null;
+    public const STATUS_ALL = 'all';
 
     public DAO $dao;
 
@@ -70,7 +71,7 @@ class Collector implements CollectorInterface
     public ?array $settings = null;
     public ?string $searchPhrase = null;
     public ?array $excludeSubmissionStage = null;
-    public ?array $excludeRoles = null;
+    public ?array $excludeUserGroupIds = null;
     public ?array $assignedTo = null;
     public ?int $reviewerRating = null;
     public ?int $reviewsCompleted = null;
@@ -80,7 +81,7 @@ class Collector implements CollectorInterface
     public ?int $count = null;
     public ?int $offset = null;
     public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
-    public UserUserGroupMastheadStatus $userUserGroupMastheadStatus = UserUserGroupMastheadStatus::STATUS_ALL;
+    public UserMastheadStatus $userMastheadStatus = UserMastheadStatus::STATUS_ALL;
 
     /**
      * Constructor
@@ -112,6 +113,15 @@ class Collector implements CollectorInterface
     {
         return $this->dao->getIds($this);
     }
+
+    /**
+     * @return Collection<int,string>
+     */
+    public function getUsernames(): Collection
+    {
+        return $this->dao->getUsernames($this);
+    }
+
 
     /**
      * Limit results to users in these user groups
@@ -261,12 +271,11 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Retrieve a set of users not assigned to the given roles
-     * (Replaces UserGroupDAO::getUsersNotInRole)
+     * Retrieve a set of users not assigned to the given user groups
      */
-    public function filterExcludeRoles(?array $excludedRoles): self
+    public function filterExcludeUserGroupIds(?array $excludeUserGroupIds): self
     {
-        $this->excludeRoles = $excludedRoles;
+        $this->excludeUserGroupIds = $excludeUserGroupIds;
         return $this;
     }
 
@@ -282,9 +291,9 @@ class Collector implements CollectorInterface
     /**
      * Filter by user's masthead status for the given role
      */
-    public function filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus $userUserGroupMastheadStatus): self
+    public function filterByUserMastheadStatus(UserMastheadStatus $userMastheadStatus): self
     {
-        $this->userUserGroupMastheadStatus = $userUserGroupMastheadStatus;
+        $this->userMastheadStatus = $userMastheadStatus;
         return $this;
     }
 
@@ -317,8 +326,8 @@ class Collector implements CollectorInterface
      */
     public function filterByStatus(?string $status): self
     {
-        if (!in_array($this->status, [self::STATUS_ACTIVE, self::STATUS_DISABLED, self::STATUS_ALL], true)) {
-            throw new InvalidArgumentException("Invalid status: \"{$this->status}\"");
+        if (!in_array($status, [self::STATUS_ACTIVE, self::STATUS_DISABLED, self::STATUS_ALL], true)) {
+            throw new InvalidArgumentException("Invalid status: \"{$status}\"");
         }
         $this->status = $status;
         return $this;
@@ -482,12 +491,16 @@ class Collector implements CollectorInterface
             $this->roleIds === null &&
             $this->contextIds === null &&
             $this->workflowStageIds === null &&
-            $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ALL) {
+            $this->userMastheadStatus === UserMastheadStatus::STATUS_ALL) {
 
             return $this;
         }
 
         $currentDateTime = Core::getCurrentDate();
+        if ($this->status === self::STATUS_ALL) {
+            $this->userUserGroupStatus = UserUserGroupStatus::STATUS_ALL;
+        }
+
         $subQuery = DB::table('user_user_groups as uug')
             ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->whereColumn('uug.user_id', '=', 'u.user_id')
@@ -521,30 +534,28 @@ class Collector implements CollectorInterface
                     ->where('uug.date_end', '<=', $currentDateTime)
             )
             ->when(
-                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_NULL,
+                $this->userMastheadStatus === UserMastheadStatus::STATUS_NULL,
                 fn (Builder $subQuery) =>
                     $subQuery->whereNull('uug.masthead')
             )
             ->when(
-                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ON,
+                $this->userMastheadStatus === UserMastheadStatus::STATUS_ON,
                 fn (Builder $subQuery) =>
                     $subQuery->where('ug.masthead', 1)
                         ->where('uug.masthead', 1)
             )
             ->when(
-                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_OFF,
+                $this->userMastheadStatus === UserMastheadStatus::STATUS_OFF,
                 fn (Builder $subQuery) =>
                     $subQuery->where('ug.masthead', 0)
-                        ->orWhere('uug.masthead', 0)
+                        ->orWhere('uug.masthead', 1)
                         ->orWhereNull('uug.masthead')
             );
 
         $query->whereExists($subQuery);
 
-        if ($this->excludeRoles != null) {
-            $excludeRolesSubQuery = clone $subQuery;
-            $excludeRolesSubQuery->whereIn('ug.role_id', $this->excludeRoles);
-            $query->whereNotExists($excludeRolesSubQuery);
+        if ($this->excludeUserGroupIds != null) {
+            $query->whereNotExists(fn (Builder $query) => $query->from('user_user_groups as xuug')->whereColumn('xuug.user_id', '=', 'u.user_id')->whereIn('xuug.user_group_id', $this->excludeUserGroupIds));
         }
 
         return $this;
@@ -609,19 +620,19 @@ class Collector implements CollectorInterface
                         ->where('uug.date_end', '<=', $currentDateTime)
                 )
                 ->when(
-                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_NULL,
+                    $this->userMastheadStatus === UserMastheadStatus::STATUS_NULL,
                     fn (Builder $query) =>
                         $query->whereNull('uug.masthead')
                 )
                 ->when(
-                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ON,
+                    $this->userMastheadStatus === UserMastheadStatus::STATUS_ON,
                     fn (Builder $query) =>
                         $query->where('uug.masthead', 1)
                 )
                 ->when(
-                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_OFF,
+                    $this->userMastheadStatus === UserMastheadStatus::STATUS_OFF,
                     fn (Builder $query) =>
-                        $query->where('uug.masthead', 0)
+                        $query->where('uug.masthead', 1)
                 )
         );
         return $this;
@@ -739,6 +750,17 @@ class Collector implements CollectorInterface
                             ->join('controlled_vocab_entry_settings AS cves', 'ui.controlled_vocab_entry_id', '=', 'cves.controlled_vocab_entry_id')
                             ->whereColumn('ui.user_id', '=', 'u.user_id')
                             ->whereRaw('LOWER(cves.setting_value) LIKE LOWER(?)', [$word])
+                    )
+                    ->orWhereExists(
+                        fn (Builder $query) => $query->from('user_user_groups', 'uug')
+                            ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+                            ->whereColumn('uug.user_id', '=', 'u.user_id')
+                            ->whereExists(
+                                fn (Builder $query) => $query->from('user_group_settings', 'ugs')
+                                    ->whereColumn('ugs.user_group_id', '=', 'ug.user_group_id')
+                                    ->where('ugs.setting_name', '=', 'name')
+                                    ->whereRaw('LOWER(ugs.setting_value) LIKE LOWER(?)', [$word])
+                            )
                     )
             );
         }

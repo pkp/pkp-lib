@@ -29,6 +29,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nýrri ritrýni hefur verið skilað og er í athugun hjá ritstjóra."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Einn eða fleiri ritrýnar eru á eftir áætlun. Ritstjórateymið hefur verið "
@@ -1305,9 +1306,11 @@ msgstr "Búið er að biðja um ritrýni."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ritrýni hefur verið send inn."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Það þarf að senda innsendinguna aftur inn fyrir næstu umferð ritrýni."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Búið er að endursenda innsendinguna fyrir nýja umferð ritrýni."
 
@@ -1329,6 +1332,7 @@ msgstr "Bíður svara frá ritrýnum."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Engin ritrýni hefur verið send inn."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Allir ritrýnar hafa svarað og ákvörðunar er beðið."
 
@@ -2018,7 +2022,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Ristjórinn {$userName} hefur staðfest ritrýni fyrir {$round} umferð "
+"Ristjórinn {$editorName} hefur staðfest ritrýni fyrir {$round} umferð "
 "innsendingar {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2546,7 +2550,7 @@ msgstr "Allar útgáfur"
 msgid "publication.version.confirm"
 msgstr "Ertu viss um að þú viljir búa til nýja útgáfu?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Útdrátturinn er of langur. Hann ætti að vera {$limit} orð eða styttri. "
 "Núverandi lengd er {$count} orð."

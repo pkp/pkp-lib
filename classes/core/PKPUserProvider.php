@@ -60,6 +60,11 @@ class PKPUserProvider implements UserProvider
      */
     public function retrieveById($id)
     {
+        // If the request has already been initialized with the user object, use it.
+        if (($user = Application::get()->getRequest()->getUser()) && $user->getId() == $id) {
+            return $user;
+        }
+
         return Repo::user()->get($id);
     }
 

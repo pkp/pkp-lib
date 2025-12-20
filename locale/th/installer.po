@@ -1,0 +1,234 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
+"th/>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "installer.additionalLocales"
+msgstr "ภาษาเพิ่มเติม"
+
+msgid "installer.administratorAccount"
+msgstr "บัญชีผู้ดูแลระบบ"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"บัญชีผู้ใช้นี้จะกลายเป็นผู้ดูแลระบบของไซต์และมีสิทธิ์เข้าถึงระบบทั้งหมด "
+"สามารถสร้างบัญชีผู้ใช้อื่น ๆ ได้หลังจากการติดตั้ง"
+
+msgid "installer.form.usernameRequired"
+msgstr "จำเป็นต้องระบุชื่อผู้ใช้สำหรับบัญชีผู้ดูแลระบบ"
+
+msgid "installer.form.timeZoneRequired"
+msgstr "ต้องเลือกเขตเวลา"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"ให้รหัสไซต์ที่ไม่ซ้ำและ URL ฐาน OAI แก่ PKP "
+"เพื่อวัตถุประสงค์เฉพาะทางสถิติและการแจ้งเตือนด้านความปลอดภัย"
+
+msgid "installer.miscSettings"
+msgstr "การตั้งค่าอื่น ๆ"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"เวอร์ชัน PHP ของเซิร์ฟเวอร์ของคุณไม่รองรับโดยซอฟต์แวร์นี้ "
+"โปรดตรวจสอบข้อกำหนดการติดตั้งใน docs/README อีกครั้ง"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">ไม่</span>"
+
+msgid "installer.checkYes"
+msgstr "ใช่"
+
+msgid "installer.configFileError"
+msgstr "ไฟล์การกำหนดค่า <tt>config.inc.php</tt> ไม่พบหรือไม่สามารถอ่านได้"
+
+msgid "installer.connectionCharset"
+msgstr "ชุดอักขระการเชื่อมต่อ"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "เนื้อหาของไฟล์การกำหนดค่า"
+
+msgid "installer.databaseDriver"
+msgstr "ตัวขับเคลื่อนฐานข้อมูล"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>ระบบรองรับ MySQL และ PostgreSQL "
+"หากคุณไม่สามารถเลือกตัวเลือกเหล่านี้ด้านล่างได้ "
+"ให้ติดต่อผู้ดูแลระบบเพื่อให้แน่ใจว่าเซิร์ฟเวอร์ของคุณมีส่วนเสริม PHP "
+"ที่จำเป็น</strong>"
+
+msgid "installer.databaseHost"
+msgstr "โฮสต์"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"ปล่อยชื่อโฮสต์ว่างไว้เพื่อเชื่อมต่อโดยใช้โดเมนซ็อกเก็ตแทนการเชื่อมต่อผ่าน "
+"TCP/IP ไม่จำเป็นสำหรับ MySQL ซึ่งจะใช้ซ็อกเก็ตโดยอัตโนมัติเมื่อป้อน "
+"\"localhost\" แต่จำเป็นสำหรับเซิร์ฟเวอร์ฐานข้อมูลบางตัว เช่น PostgreSQL"
+
+msgid "installer.databaseName"
+msgstr "ชื่อฐานข้อมูล"
+
+msgid "installer.databasePassword"
+msgstr "รหัสผ่าน"
+
+msgid "installer.databaseSettings"
+msgstr "การตั้งค่าฐานข้อมูล"
+
+msgid "installer.databaseUsername"
+msgstr "ชื่อผู้ใช้"
+
+msgid "installer.filesDir"
+msgstr "ไดเรกทอรีสำหรับการอัปโหลด"
+
+msgid "installer.fileSettings"
+msgstr "การตั้งค่าไฟล์"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "ต้องเลือกชุดอักขระของลูกค้า"
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "ต้องเลือกตัวขับเคลื่อนฐานข้อมูล"
+
+msgid "installer.form.databaseNameRequired"
+msgstr "จำเป็นต้องระบุชื่อฐานข้อมูล"
+
+msgid "installer.form.emailRequired"
+msgstr "จำเป็นต้องระบุที่อยู่อีเมลที่ถูกต้องสำหรับบัญชีผู้ดูแลระบบ"
+
+msgid "installer.form.filesDirRequired"
+msgstr "จำเป็นต้องระบุไดเรกทอรีที่จะใช้ในการจัดเก็บไฟล์ที่อัปโหลด"
+
+msgid "installer.form.localeRequired"
+msgstr "ต้องเลือกภาษา"
+
+msgid "installer.form.passwordRequired"
+msgstr "จำเป็นต้องระบุรหัสผ่านสำหรับบัญชีผู้ดูแลระบบ"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "รหัสผ่านของผู้ดูแลระบบไม่ตรงกัน"
+
+msgid "installer.form.separateMultiple"
+msgstr "แยกหลายค่าโดยใช้เครื่องหมายจุลภาค"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"ชื่อผู้ใช้ของผู้ดูแลระบบสามารถมีได้เฉพาะอักขระตัวเลข ตัวอักษร อักขระขีดล่าง "
+"และขีดกลางเท่านั้น และต้องเริ่มต้นและสิ้นสุดด้วยอักขระตัวเลขหรือตัวอักษร"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>คำเตือน: เวอร์ชัน PHP "
+"ของคุณในปัจจุบันไม่เป็นไปตามข้อกำหนดขั้นต่ำสำหรับการติดตั้ง "
+"แนะนำให้คุณอัปเกรดเป็นเวอร์ชันที่ใหม่กว่าของ PHP</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "เกิดข้อผิดพลาดระหว่างการติดตั้ง"
+
+msgid "installer.installerSQLStatements"
+msgstr "คำสั่ง SQL สำหรับการติดตั้ง"
+
+msgid "installer.installFileError"
+msgstr ""
+"ไฟล์การติดตั้ง <tt>dbscripts/xml/install.xml</tt> ไม่พบหรือไม่สามารถอ่านได้"
+
+msgid "installer.installFilesDirError"
+msgstr "ไดเรกทอรีที่ระบุสำหรับการอัปโหลดไฟล์ไม่พบหรือไม่สามารถเขียนได้"
+
+msgid "installer.installParseDBFileError"
+msgstr "เกิดข้อผิดพลาดในการแยกไฟล์การติดตั้งฐานข้อมูล <tt>{$file}</tt>"
+
+msgid "installer.installMigrationError"
+msgstr ""
+"เกิดข้อยกเว้นระหว่างการดำเนินการคลาสการย้ายข้อมูล <tt>{$class}</tt> "
+"ข้อความข้อยกเว้นคือ {$message}"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "เกิดข้อผิดพลาดในการแยกไฟล์แม่แบบอีเมล <tt>{$file}</tt>"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "เกิดข้อผิดพลาดในการแยกไฟล์การกำหนดค่าฟิลเตอร์ <tt>{$file}</tt>"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"ไม่รองรับการอัปเกรด ดูคู่มือการอัปเกรดที่ https://docs.pkp.sfu.ca/dev/"
+"upgrade-guide สำหรับรายละเอียดเพิ่มเติม"
+
+msgid "installer.timezoneInstructions"
+msgstr "เขตเวลาที่จะใช้สำหรับระบบนี้"
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"เลือกภาษาที่เพิ่มเติมใด ๆ ที่จะรองรับในระบบนี้ "
+"สามารถติดตั้งภาษาเพิ่มเติมได้ตลอดเวลาจากอินเตอร์เฟซการจัดการไซต์<br>* = "
+"แสดงภาษาที่ยังแปลไม่สมบูรณ์ (> 90% ของคำแปลแล้ว)"
+
+msgid "installer.locale"
+msgstr "ภาษา"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "ภาษาที่ถูกระบุอาจยังไม่สมบูรณ์"
+
+msgid "installer.localeSettings"
+msgstr "การตั้งค่าภาษา"
+
+msgid "installer.oaiSettings"
+msgstr "การตั้งค่า OAI"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"ตัวระบุที่ใช้ในการระบุระเบียนเมตาดาทาที่ถูกจัดทำดัชนีจากไซต์นี้โดยใช้ <a "
+"href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives "
+"Initiative</a> Protocol for Metadata Harvesting"
+
+msgid "installer.oaiRepositoryId"
+msgstr "ตัวระบุคลัง"
+
+msgid "installer.publicFilesDirError"
+msgstr "ไดเรกทอรีไฟล์สาธารณะไม่พบหรือไม่สามารถเขียนได้"
+
+msgid "installer.releaseNotes"
+msgstr "หมายเหตุการปล่อยเวอร์ชัน"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "ขั้นตอนก่อนการติดตั้ง"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. ไฟล์และไดเรกทอรีต่อไปนี้ (รวมทั้งเนื้อหาภายใน) "
+"จะต้องสามารถเขียนได้:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> สามารถเขียนได้ (ไม่บังคับ): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> สามารถเขียนได้: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> สามารถเขียนได้: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> สามารถเขียนได้: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> สามารถเขียนได้: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> สามารถเขียนได้: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. "
+"จะต้องสร้างไดเรกทอรีสำหรับจัดเก็บไฟล์ที่อัปโหลดและต้องทำให้สามารถเขียนได้ (ดู"
+" \"การตั้งค่าไฟล์\" ด้านล่าง)</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>การติดตั้ง PHP ของคุณยังไม่ได้เปิดใช้โมดูล XSL โปรดเปิดใช้งาน "
+"หรือกำหนดค่าพารามิเตอร์ xslt_command ในไฟล์ config.inc.php ของคุณ</p>"
+
+msgid "installer.beacon"
+msgstr "Beacon"

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup classes_plugins_importexport import/export deployment
  */
@@ -73,6 +74,9 @@ class PKPImportExportDeployment
     /** @var array Connection between the author id from the XML import file and the DB file IDs */
     private $_authorDBIds;
 
+    /** @var array Connection between the publication id from the XML import file and the DB publication IDs */
+    private $_publicationDBIds;
+
     /** @var string Base path for the import source */
     private $_baseImportPath = '';
 
@@ -81,6 +85,9 @@ class PKPImportExportDeployment
 
     /** @var array A list of exported root elements to display to the user after the export is complete */
     private $_exportRootEntities;
+
+    /** A list of import and export options, currently used in CLI mode */
+    private ?array $_opts = null;
 
     /**
      * Constructor
@@ -209,7 +216,6 @@ class PKPImportExportDeployment
     /**
      * Get the import/export publication.
      *
-     * @return Publication
      */
     public function getPublication(): ?Publication
     {
@@ -481,6 +487,53 @@ class PKPImportExportDeployment
     }
 
     /**
+     * Set the array of the inserted publication DB Ids.
+     *
+     * @param array $publicationDBIds
+     */
+    public function setPublicationDBIds($publicationDBIds)
+    {
+        return $this->_publicationDBIds = $publicationDBIds;
+    }
+
+    /**
+     * Get the array of the inserted publication DB Ids.
+     *
+     * @return array
+     */
+    public function getPublicationDBIds()
+    {
+        return $this->_publicationDBIds;
+    }
+
+    /**
+     * Get the publication DB Id.
+     *
+     * @param int $publicationId
+     *
+     * @return ?int
+     */
+    public function getPublicationDBId($publicationId)
+    {
+        if (array_key_exists($publicationId, $this->_publicationDBIds)) {
+            return $this->_publicationDBIds[$publicationId];
+        }
+
+        return null;
+    }
+
+    /**
+     * Set the publication DB Id.
+     *
+     * @param int $publicationId
+     * @param int $DBId
+     */
+    public function setPublicationDBId($publicationId, $DBId)
+    {
+        return $this->_publicationDBIds[$publicationId] = $DBId;
+    }
+
+    /**
      * Set the directory location for the import source
      *
      * @param string $path
@@ -542,6 +595,18 @@ class PKPImportExportDeployment
     public function getExportRootEntities()
     {
         return $this->_exportRootEntities;
+    }
+
+    /** Get import and export options */
+    public function getOpts(): ?array
+    {
+        return $this->_opts;
+    }
+
+    /** Set import and export options */
+    public function setOpts(?array $opts): void
+    {
+        $this->_opts = $opts;
     }
 
     /**
@@ -729,8 +794,4 @@ class PKPImportExportDeployment
 
         return false;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\PKPImportExportDeployment', '\PKPImportExportDeployment');
 }

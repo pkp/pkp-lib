@@ -1,14 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
+# Emma U <emmaupkp@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-11-01 14:38+0000\n"
-"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2025-06-16 18:06+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -829,3 +829,50 @@ msgid "orcid.verify.duplicateOrcidAuthor"
 msgstr ""
 "Des doublons d'identifiants ORCID pour des contributeur.trice.s ont été "
 "détectés."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Saisissez le nom complet de l'institution ci-dessous, en évitant les "
+"acronymes. Sélectionnez le nom dans la liste déroulante et cliquez sur "
+"\"Ajouter\" pour inclure l'affiliation dans votre profil (par exemple, « "
+"Université de Montréal »)."
+
+#, fuzzy
+msgid "user.affiliations.institution"
+msgstr "Institution"
+
+msgid "user.affiliations.translation"
+msgstr "Pour en savoir plus"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Modifier le nom de l'institution"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Supprimer l'institution"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Cliquez pour modifier ou supprimer"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Toutes traductions disponibles"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} de {$total} langues complétées"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Saisissez le nom de l'institut en {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Nom de l'institution en {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Êtes-vous sûr ?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "L'affiliation <strong>{$affiliation}</strong> sera supprimée."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Saisissez le nom de l'institut en {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "La phrase recherchée n'a pas été trouvée"

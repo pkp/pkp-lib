@@ -115,7 +115,7 @@ class AnnouncementTypeGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addAnnouncementType', null, null),
                     __('grid.action.addAnnouncementType'),
-                    'modal_add_item',
+                    null,
                     true
                 ),
                 __('grid.action.addAnnouncementType'),

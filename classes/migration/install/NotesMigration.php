@@ -36,8 +36,8 @@ class NotesMigration extends \PKP\migration\Migration
 
             $table->datetime('date_created');
             $table->datetime('date_modified')->nullable();
-            $table->string('title', 255)->nullable();
             $table->text('contents')->nullable();
+            $table->boolean('is_headnote')->default(false);
 
             $table->index(['assoc_type', 'assoc_id'], 'notes_assoc');
         });

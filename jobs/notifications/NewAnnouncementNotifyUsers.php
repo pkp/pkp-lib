@@ -61,7 +61,10 @@ class NewAnnouncementNotifyUsers extends BaseJob
 
     public function handle()
     {
-        $announcement = Repo::announcement()->get($this->announcementId);
+        /** @var \PKP\announcement\Announcement $announcement */
+        $announcement = app()->get(Announcement::class);
+        $announcement = $announcement->find($this->announcementId);
+        
         // Announcement was removed
         if (!$announcement) {
             throw new JobException(JobException::INVALID_PAYLOAD);
@@ -88,7 +91,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
             $mailable = $this->createMailable($context, $recipient, $announcement, $template)
                 ->allowUnsubscribe($notification);
 
-            $mailable->setData($this->locale);
+            $mailable->setLocale($this->locale);
             Mail::send($mailable);
         }
     }
@@ -97,9 +100,9 @@ class NewAnnouncementNotifyUsers extends BaseJob
      * Creates new announcement notification email
      */
     protected function createMailable(
-        Context $context,
-        User $recipient,
-        Announcement $announcement,
+        Context       $context,
+        User          $recipient,
+        Announcement  $announcement,
         EmailTemplate $template
     ): AnnouncementNotify {
         $mailable = new AnnouncementNotify($context, $announcement);

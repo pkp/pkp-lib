@@ -23,6 +23,54 @@ msgstr "(Your institution, e.g. \"Simon Fraser University\")"
 msgid "user.affiliations"
 msgstr "Affiliations"
 
+msgid "user.affiliations.description"
+msgstr ""
+"Enter the full name of the institution below, avoiding any acronyms. "
+"Select the name from the dropdown and click \"Add\" to include the "
+"affiliation in your profile. (e.g. \"Simon Fraser University\")"
+
+msgid "user.affiliations.institution"
+msgstr "Institution"
+
+msgid "user.affiliations.translation"
+msgstr "More information"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Edit institution name"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Remove institution"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Click to edit or delete"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "All translations available"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} of {$total} languages completed"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Type the institute name in {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Institute name in {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Are you sure?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "The affiliation <strong>{$affiliation}</strong> will be deleted."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Type the institute name in {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Your search phrase could not be found"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "The primary language {$primaryLocale} is required"
+
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."
 
@@ -69,6 +117,9 @@ msgstr "A workflow stage was not specified."
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Workflow access for incomplete submission is restricted."
 
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr "Add, update or delete of reviewer suggestion for completed submission is restricted."
+
 msgid "user.authorization.pluginRequired"
 msgstr "A plugin was not specified and is required."
 
@@ -77,6 +128,12 @@ msgstr "You do not have permission to access this review assignment."
 
 msgid "user.authorization.submissionQuery"
 msgstr "You do not have permission to access this discussion."
+
+msgid "user.authorization.submissionQuery.edit"
+msgstr "You do not have permission to modify this discussion."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "The user should be anonymous. You are currently logged-in."
 
 msgid "user.biography"
 msgstr "Bio Statement (e.g., department and rank)"
@@ -138,6 +195,9 @@ msgstr ""
 "We've sent a confirmation email to you at {$email}. Please follow the "
 "instructions in that email to activate your new account. If you do not see "
 "an email, please check to see if it was put in your spam folder."
+
+msgid "user.login.activate.description"
+msgstr "Confirm and activate your account"
 
 msgid "user.login.activate"
 msgstr "Activate Account"
@@ -239,6 +299,13 @@ msgstr ""
 "Please provide the full name as the author should be identified on the "
 "published work. Example: Dr. Alan P. Mwandenga"
 
+msgid "user.preferredAvatarInitials"
+msgstr "Preferred Avatar Initials"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Enter the two letters you’d like to use as your avatar. These initials will be displayed to represent you."
+
 msgid "user.profile.changePasswordInstructions"
 msgstr ""
 "Enter your current and new passwords below to change the password for your "
@@ -260,6 +327,9 @@ msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
 "You have added a family name for a language that is missing the given name. "
 "Please add a given name for this language."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Please add an affiliation in the submission language."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "A mailing address is required."
@@ -549,7 +619,6 @@ msgstr "hidden"
 msgid "orcid.manager.settings.description"
 msgstr "Please configure the ORCID API access for use in pulling ORCID profile information into user and author profiles and updating connected ORCID records with new publications (only for ORCID Members)."
 
-#, fuzzy
 msgid "orcid.manager.settings.description.globallyconfigured"
 msgstr "The ORCID API was configured globally by the host. The ORCID API, Client ID, and Client Secret have been set at the site-level and cannot be changed here. Contact your site administrator to disable ORCID functionality or change these credentials."
 
@@ -589,7 +658,6 @@ msgstr "Send e-mail to request ORCID authorization from authors when an article 
 msgid "orcid.manager.settings.logSectionTitle"
 msgstr "ORCID request log"
 
-#, fuzzy
 msgid "orcid.manager.settings.logLevel.help"
 msgstr "Select the amount of logging output written by the ORCID feature"
 
@@ -620,6 +688,9 @@ msgstr "See below to request authenticated ORCID iD"
 msgid "orcid.author.unauthenticated"
 msgstr "ORCID iD not authenticated! Please request authentication from the contributor."
 
+msgid "orcid.unauthenticated"
+msgstr "(unauthenticated)"
+
 msgid "orcid.verify.title"
 msgstr "ORCID Authorization"
 
@@ -634,6 +705,9 @@ msgstr "The submission will be added to your ORCID record during publication."
 
 msgid "orcid.verify.success"
 msgstr "Your ORCID iD has been verified and successfully associated with the submission."
+
+msgid "orcid.verify.success.redirect"
+msgstr "You will now be automatically directed back to {$contextName}."
 
 msgid "orcid.verify.failure"
 msgstr "Your ORCID iD could not be verified. The link is no longer valid."
@@ -660,21 +734,20 @@ msgid "orcid.connect"
 msgstr "Create or Connect your ORCID iD"
 
 msgid "orcid.authorise"
-msgstr "Authorise and Connect your ORCID iD"
+msgstr "Authorize and Connect your ORCID iD"
 
 msgid "orcid.about.title"
 msgstr "What is ORCID?"
 
 msgid "orcid.about.orcidExplanation"
-msgstr "ORCID is an independent non-profit organization that provides a persistent identifier – an ORCID iD – that distinguishes you from other researchers and a mechanism for linking your research outputs and activities to your iD. ORCID is integrated into many systems used by publishers, funders, institutions, and other research-related services. Learn more at <a href=\"https://orcid.org\">orcid.org</a>."
+msgstr "ORCID is an independent non-profit organization that provides a persistent identifier – an ORCID iD – that distinguishes you from other researchers and a mechanism for linking your research outputs and activities to your iD. ORCID is integrated into many systems used by publishers, funders, institutions, and other research-related services. Learn more at https://orcid.org."
 
 msgid "orcid.about.howAndWhy.title"
 msgstr "How and why we collect ORCID iDs?"
 
-#, fuzzy
 msgid "orcid.about.howAndWhyPublicAPI"
 msgstr ""
-"This journal is collecting your ORCID iD so we and the wider community can "
+"This site is collecting your ORCID iD so we and the wider community can "
 "be confident that you are correctly identified and connected with your "
 "publication(s). This will ensure your connection to your full body of work "
 "stays with you throughout your career. <br>\n"
@@ -686,13 +759,12 @@ msgstr ""
 "\tLearn more in <a href=\"https://info.orcid.org/"
 "whats-so-special-about-signing-in/\">What’s so special about signing "
 "in.</a><br>\n"
-"This journal will collect and display authenticated authors’ and coauthors’ "
-"iDs on the OJS profile and article page."
+"This site will collect and display authenticated authors’ and coauthors’ "
+"iDs on the user profile and where authorship is listed."
 
-#, fuzzy
 msgid "orcid.about.howAndWhyMemberAPI"
 msgstr ""
-"This journal is collecting your ORCID iD so we and the wider community can "
+"This site is collecting your ORCID iD so we and the wider community can "
 "be confident you are correctly identified and connected with your "
 "publication(s). This will ensure your connection to your full body of work "
 "stays with you throughout your career.<br>\n"
@@ -704,8 +776,8 @@ msgstr ""
 "\tLearn more in <a href=\"https://info.orcid.org/"
 "whats-so-special-about-signing-in/\">What’s so special about signing "
 "in.</a><br>\n"
-"\tThis journal will collect and display authenticated authors’ and coauthors’"
-" iDs on the OJS profile and article page. In addition, article metadata will "
+"\tThis site will collect and display authenticated authors’ and coauthors’"
+" iDs on the profile and where authorship is listed. In addition, publication metadata will "
 "automatically be pushed to your ORCID record, enabling us to help you keep "
 "your record up-to-date with trusted information. Learn more in <a href=\""
 "https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">Six "
@@ -714,7 +786,6 @@ msgstr ""
 msgid "orcid.about.display.title"
 msgstr "Where are ORCID iDs displayed?"
 
-#, fuzzy
 msgid "orcid.about.display"
 msgstr ""
 "To acknowledge that you have used your iD and that it has been "
@@ -766,13 +837,19 @@ msgid "orcid.field.verification.request"
 msgstr "Request verification"
 
 msgid "orcid.field.verification.requested"
-msgstr "Verification requested!"
+msgstr "ORCID Verification has been requested!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Resend Verification Email"
 
 msgid "orcid.field.authorEmailModal.title"
 msgstr "Request ORCID verification"
 
 msgid "orcid.field.authorEmailModal.message"
 msgstr "Would you like to send an email to this author requesting they verify their ORCID?"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "The email will be sent once the author has been created."
 
 msgid "orcid.field.deleteOrcidModal.title"
 msgstr "Delete ORCID"
@@ -782,3 +859,27 @@ msgstr "Are you sure you want to remove this ORCID?"
 
 msgid "orcid.field.unverified.shouldRequest"
 msgstr "This ORCID has not been verified. Please remove this unverified ORCID and request verification from the user/author directly."
+
+msgid "user.removeRole.message"
+msgstr "Are you sure you want to permanently remove this role? This action will revoke the user's access to all information and permissions associated with this role."
+
+msgid "user.futureRole.notification.message"
+msgstr "Your role is scheduled to begin on {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr "Until then, you can review and update your profile. If you believe this is an error, please contact the administrator."
+
+msgid "user.disabledModal.description"
+msgstr "Current Roles : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Disable {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Enable {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Bio Statement"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "You cannot remove the role. At least one role must be assigned to the user."

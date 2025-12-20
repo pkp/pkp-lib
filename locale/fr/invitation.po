@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-17 12:49+0000\n"
+"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Le groupe d'utilisateurs est attribué à l'utilisateur invité"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"L'invitation ne peut pas être envoyée car vous n'avez défini aucun "
+"changement de groupe d'utilisateurs"
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Veuillez fournir un nom d'utilisateur"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Veuillez fournir une affiliation"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Veuillez fournir un pays"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Veuillez fournir un prénom"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Veuillez fournir un nom de famille"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Veuillez fournir une date de début pour les groupes d'utilisateurs ajoutés"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Au moins un groupe d'utilisateurs à ajouter doit être défini"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Au moins un groupe d'utilisateurs à supprimer doit être défini"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Lorsqu'une invitation comporte un identifiant utilisateur ({$userId}), "
+"l'utilisateur correspondant doit exister."
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Les rôles utilisateur supprimés ne peuvent pas être définis pour des "
+"utilisateurs inexistants."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Les groupes d'utilisateurs fournis contiennent des entrées en double."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Lorsqu'une invitation est associée à une adresse e-mail ({$email}), cette "
+"adresse ne doit pas être utilisée par un autre utilisateur."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Il existe déjà un utilisateur avec le nom d'utilisateur {$username}. "
+"Veuillez en essayer un autre."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Veuillez fournir un mot de passe"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"Veuillez fournir un identifiant de groupe d'utilisateurs pour les groupes "
+"d'utilisateurs ajoutés"

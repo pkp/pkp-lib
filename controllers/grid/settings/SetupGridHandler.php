@@ -20,6 +20,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\file\TemporaryFileManager;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 
@@ -47,6 +48,7 @@ class SetupGridHandler extends GridHandler
         if ($contextRequired) {
             $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         }
+        $this->addPolicy(new CanAccessSettingsPolicy());
         return parent::authorize($request, $args, $roleAssignments);
     }
 

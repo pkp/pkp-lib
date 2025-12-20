@@ -69,7 +69,6 @@ class AssignEditors
 
             // Send notification
             $notification = $notificationManager->createNotification(
-                Application::get()->getRequest(),
                 $manager->getId(),
                 Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
                 $event->context->getId(),
@@ -80,7 +79,7 @@ class AssignEditors
 
             // Check if subscribed to this type of emails
             $unsubscribed = in_array(
-                Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+                Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
                 $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
                     NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
                     $manager->getId(),

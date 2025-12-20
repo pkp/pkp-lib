@@ -20,12 +20,12 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use Exception;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
 
 class InvitationHandler extends Handler
 {
+    public $_isBackendPage = true;
     public const REPLY_PAGE = 'invitation';
     public const REPLY_OP_ACCEPT = 'accept';
     public const REPLY_OP_DECLINE = 'decline';
@@ -35,6 +35,7 @@ class InvitationHandler extends Handler
      */
     public function accept(array $args, Request $request): void
     {
+        $this->setupTemplate($request);
         $invitation = $this->getInvitationByKey($request);
         $invitationHandler = $invitation->getInvitationActionRedirectController();
         $invitationHandler->preRedirectActions(InvitationAction::ACCEPT);
@@ -46,10 +47,21 @@ class InvitationHandler extends Handler
      */
     public function decline(array $args, Request $request): void
     {
+        $this->setupTemplate($request);
+        $invitation = $this->getInvitationByKey($request);
+        $invitationHandler = $invitation->getInvitationActionRedirectController();
+        $invitationHandler->declineHandle($request);
+    }
+
+    /**
+     * Confirm decline invitation handler
+     */
+    public function confirmDecline(array $args, Request $request): void
+    {
         $invitation = $this->getInvitationByKey($request);
         $invitationHandler = $invitation->getInvitationActionRedirectController();
         $invitationHandler->preRedirectActions(InvitationAction::DECLINE);
-        $invitationHandler->declineHandle($request);
+        $invitationHandler->confirmDecline($request);
     }
 
     private function getInvitationByKey(Request $request): Invitation
@@ -61,19 +73,18 @@ class InvitationHandler extends Handler
             ->getByIdAndKey($id, $key);
 
         if (is_null($invitation)) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
-
         return $invitation;
     }
 
-    public static function getActionUrl(InvitationAction $action, Invitation $invitation): string
+    public static function getActionUrl(InvitationAction $action, Invitation $invitation): ?string
     {
         $invitationId = $invitation->getId();
         $invitationKey = $invitation->getKey();
 
         if (!isset($invitationId) || !isset($invitationKey)) {
-            throw new Exception();
+            return null;
         }
 
         $request = Application::get()->getRequest();

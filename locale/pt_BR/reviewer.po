@@ -1,19 +1,20 @@
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-09-06 19:01+0000\n"
-"Last-Translator: Daniel Caixeta <daniel.caixeta@inep.gov.br>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/reviewer/pt_BR/>\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/reviewer/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Requisição"
@@ -138,3 +139,66 @@ msgid "user.authorization.submissionReviewer"
 msgstr ""
 "O usuário atual não está designado como avaliador para o documento "
 "requisitado."
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Avaliação da rodada {$round} enviada em {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Rodada {$round} Avaliação enviada por você para"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Comentários do Avaliador"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Para editores e autores"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Somente para editores"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Motivo da recusa enviado por e-mail"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Nenhuma razão foi dada para a recusa do convite de avaliação."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Data de recusa"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Leia a avaliação da rodada {$round}"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Comentário {$index}: "
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Avaliações Anteriores"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Metadados do artigo"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tipo"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Resumo"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Palavras-chave"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Informações gerais"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Anexos"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Esses são os arquivos que você anexou junto com sua avaliação"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Arquivos para avaliação"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Esses arquivos foram enviados a você para avaliação"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "A avaliação não foi concluída."

@@ -3,8 +3,8 @@
 /**
  * @file classes/install/Installer.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Installer
@@ -17,9 +17,9 @@
 namespace PKP\install;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -37,6 +37,8 @@ use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
+use PKP\task\UpdateIPGeoDB;
+use PKP\task\UpdateRorRegistryDataset;
 use PKP\xml\PKPXMLParser;
 use PKP\xml\XMLNode;
 
@@ -546,6 +548,8 @@ class Installer
             $this->wroteConfig = false;
         }
 
+        Config::resetData();
+
         return true;
     }
 
@@ -943,12 +947,49 @@ class Installer
         $this->setError(self::INSTALLER_ERROR_GENERAL, 'installer.unsupportedPhpError');
         return false;
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\install\Installer', '\Installer');
-    define('INSTALLER_ERROR_GENERAL', Installer::INSTALLER_ERROR_GENERAL);
-    define('INSTALLER_ERROR_DB', Installer::INSTALLER_ERROR_DB);
-    define('INSTALLER_DATA_DIR', Installer::INSTALLER_DATA_DIR);
-    define('INSTALLER_DEFAULT_LOCALE', Installer::INSTALLER_DEFAULT_LOCALE);
+    /**
+     * Update the tables rors and ror_settings with latest data set dump from Ror.org
+     */
+    public function updateRorRegistryDataset(): bool
+    {
+        PKPApplication::upgrade();
+
+        $updateRorRegistryDataset = new UpdateRorRegistryDataset();
+        $updateRorRegistryDataset->execute();
+
+        return true;
+    }
+
+    /**
+     * Download IPGeoDB
+     */
+    public function downloadIPGeoDB(): bool
+    {
+        PKPApplication::upgrade();
+        $updateIPGeoDB = new UpdateIPGeoDB();
+        $updateIPGeoDB->execute();
+        return true;
+    }
+
+    /**
+     * Rebuild the search index.
+     */
+    public function rebuildSearchIndex(): bool
+    {
+        $searchEngine = app(\Laravel\Scout\EngineManager::class)->engine();
+        $searchEngine->flush(Config::getVar('search_index_name', 'submissions'));
+
+        $submissions = Repo::submission()->getCollector()
+            ->filterByContextIds([Application::SITE_CONTEXT_ID_ALL])
+            ->getIds()->chunk(100)->each(function ($submissionIds) use ($searchEngine) {
+                $submissions = Repo::submission()->getCollector()
+                    ->filterByContextIds([Application::SITE_CONTEXT_ID_ALL])
+                    ->filterBySubmissionIds($submissionIds->toArray())
+                    ->getMany();
+                $searchEngine->update($submissions);
+            });
+
+        return true;
+    }
 }

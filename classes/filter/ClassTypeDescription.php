@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/ClassTypeDescription.php
  *
@@ -20,10 +21,10 @@ namespace PKP\filter;
 class ClassTypeDescription extends TypeDescription
 {
     /** @var string a valid class name */
-    public $_className;
+    public string $_className;
 
     /** @var string a valid package name */
-    public $_packageName;
+    public string $_packageName;
 
     //
     // Setters and Getters
@@ -43,7 +44,7 @@ class ClassTypeDescription extends TypeDescription
     /**
      * @see TypeDescription::parseTypeName()
      */
-    public function parseTypeName($typeName)
+    public function parseTypeName(string $typeName): bool
     {
         $splitName = $this->splitClassName($typeName);
         if ($splitName === false) {
@@ -61,7 +62,7 @@ class ClassTypeDescription extends TypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType($object)
+    public function checkType($object): bool
     {
         // We expect an object
         if (!is_object($object)) {
@@ -93,6 +94,7 @@ class ClassTypeDescription extends TypeDescription
     public function splitClassName($typeName)
     {
         // This should be a class - identify package and class name
+        // This behaviour is DEPRECATED with pkp/pkp-lib#8186
         $typeNameParts = explode('.', $typeName);
 
         $className = array_pop($typeNameParts);

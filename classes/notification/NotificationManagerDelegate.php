@@ -46,7 +46,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
     /**
      * Define operations to update notifications.
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $assocId): void
     {
     }
 
@@ -56,10 +56,10 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
      *
      * @copydoc PKPNotificationOperationManager::createNotification()
      */
-    public function createNotification(PKPRequest $request, ?int $userId = null, ?int $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?Notification
+    public function createNotification(?int $userId = null, ?int $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?Notification
     {
         assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
-        return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params);
+        return parent::createNotification($userId, $notificationType, $contextId, $assocType, $assocId, $level, $params);
     }
 
     /**
@@ -73,8 +73,4 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
     {
         return false;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\NotificationManagerDelegate', '\NotificationManagerDelegate');
 }

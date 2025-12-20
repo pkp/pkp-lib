@@ -140,20 +140,20 @@ class NotificationHandler extends Handler
     public function _validateUnsubscribeRequest($validationToken, $notificationId)
     {
         if ($validationToken == null || $notificationId == null) {
-            $this->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         /** @var Notification $notification */
         $notification = Notification::find($notificationId);
 
         if (!isset($notification) || $notification->id == null) {
-            $this->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $notificationManager = new NotificationManager();
 
         if (!$notificationManager->validateUnsubscribeToken($validationToken, $notification)) {
-            $this->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         return $notification;

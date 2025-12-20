@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/QueryWorkflowStageAccessPolicy.php
  *
@@ -15,10 +16,10 @@
 
 namespace PKP\security\authorization;
 
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\internal\ContextPolicy;
 use PKP\security\authorization\internal\QueryUserAccessibleWorkflowStageRequiredPolicy;
-use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 
 class QueryWorkflowStageAccessPolicy extends ContextPolicy
@@ -29,19 +30,14 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy
      * @param PKPRequest $request
      * @param array $args request arguments
      * @param array $roleAssignments
-     * @param string $submissionParameterName
      * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
      */
-    public function __construct($request, &$args, $roleAssignments, $submissionParameterName, $stageId)
+    public function __construct($request, &$args, $roleAssignments, $stageId = null)
     {
         parent::__construct($request);
 
         // A workflow stage component requires a valid workflow stage.
-        $this->addPolicy(new WorkflowStageRequiredPolicy($stageId));
-
-        // A workflow stage component can only be called if there's a
-        // valid submission in the request.
-        $this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
+        $this->addPolicy(new WorkflowStageRequiredPolicy($stageId, PKPApplication::ASSOC_TYPE_QUERY));
 
         // Extends UserAccessibleWorkflowStageRequiredPolicy in order to permit users with review assignments
         // to access the reviews grid
@@ -54,8 +50,4 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy
         }
         $this->addPolicy($roleBasedPolicy);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\QueryWorkflowStageAccessPolicy', '\QueryWorkflowStageAccessPolicy');
 }

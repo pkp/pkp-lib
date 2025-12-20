@@ -47,7 +47,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
     /**
      * @see TypeDescription::parseTypeName()
      */
-    public function parseTypeName($typeName)
+    public function parseTypeName(string $typeName): bool
     {
         // Standard validators are based on string input.
         parent::parseTypeName('string');
@@ -85,7 +85,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType($object)
+    public function checkType($object): bool
     {
         // Check primitive type.
         if (!parent::checkType($object)) {

@@ -1,0 +1,816 @@
+# Emma U <emmaupkp@gmail.com>, 2025.
+# Michal Pinkas <pinkasm@bgu.ac.il>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-05-05 18:49+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"Language-Team: Hebrew <http://translate.pkp.sfu.ca/projects/pkp-lib/user/he/>"
+"\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.affiliation"
+msgstr "השתייכות ארגונית"
+
+msgid "user.affiliation.description"
+msgstr "(הארגון שלך, למשל: \"אוניברסיטת תל אביב\")"
+
+msgid "user.affiliations"
+msgstr "השתייכויות ארגוניות"
+
+msgid "user.accountInformation"
+msgstr "פרטי חשבון"
+
+msgid "user.affiliations.description"
+msgstr ""
+"הכנס שם מלא של המוסד למטה, יש להימנע מראשי תיבות. בחר.י את השם מהטבלה והקש "
+"\"הוסף\" כדי לכלול את ההשתייכות הארגונית לפרופיל שלך (למשל: \"אוניברסיטת תל "
+"אביב\")"
+
+msgid "user.affiliations.institution"
+msgstr "מוסד"
+
+msgid "user.affiliations.translation"
+msgstr "מידע נוסף"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "עריכת שם מוסד"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "הסרת מוסד"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "לחץ כדי לערוך או למחוק"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "כל התרגומים זמינים"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "הקלד את שם המכון ב- {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "אתה בטוח?"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "לא היתה אפשרות למצוא את ביטוי החיפוש שלך"
+
+msgid "user.authorization.accessDenied"
+msgstr "הגישה נדחתה."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "תהליך ההזדהות חסר או לא תקף."
+
+msgid "user.authorization.loginRequired"
+msgstr "נדרשת התחברות."
+
+msgid "user.authorization.privateOperation"
+msgstr "הפעולה שניסית לגשת אליה היא פרטית או שאינה קיימת."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "הגישה למערכת נדחתה. הגישה מוגבלת כרגע."
+
+msgid "user.changePassword"
+msgstr "שינוי סיסמה"
+
+msgid "user.dateRegistered"
+msgstr "תאריך הרשמה"
+
+msgid "user.email"
+msgstr "דואר אלקטרוני"
+
+msgid "user.givenName"
+msgstr "שם פרטי"
+
+msgid "user.interests"
+msgstr "תחומי עניין"
+
+msgid "user.gossip"
+msgstr "הערות מערכת"
+
+msgid "user.group"
+msgstr "קבוצת משתמשים"
+
+msgid "user.familyName"
+msgstr "שם משפחה"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"תמונת פרופיל לא תקינה. הפורמטים האפשריים: gif, .jpg, png, מימדי התמונה לא "
+"יעלו על 150X150 פיקסלים"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "חשבונך הושבת מהסיבה: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr "החשבון שלך הושבת. אנא צור קשר עם מנהל המערכת לקבלת מידע נוסף."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"שלחנו לך הודעת אישור בדוא\"ל לכתובת {$email}. אנא עקבו אחר ההוראות בהודעת "
+"דוא\"ל זו כדי להפעיל את החשבון החדש שלכם. אם אינך רואה הודעת דוא\"ל, בדוק אם "
+"היא הוכנסה לתיקיית הספאם שלך."
+
+msgid "user.login.activate"
+msgstr "הפעל חשבון"
+
+msgid "user.login.activated"
+msgstr ""
+"תודה שהפעלת את החשבון שלך. כעת תוכל להיכנס באמצעות האישורים שסיפקת בעת יצירת "
+"חשבונך."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"יש לבחור סיסמה חדשה לפני הכניסה לחשבון האישי.<br /><br /> יש להכניס את שם "
+"בעל החשבון ואת הסיסמה הנוכחית ולהחליף אותה בסיסמה חדשה."
+
+msgid "user.profile.form.emailRequired"
+msgstr "נדרשת כתובת דוא\"ל תקפה."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "הסיסמה הנוכחית שהזנת הייתה שגויה."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "עליך להסכים לתנאי הצהרת הפרטיות."
+
+msgid "user.profile.newPassword"
+msgstr "סיסמה חדשה"
+
+msgid "user.profile.oldPassword"
+msgstr "סיסמה נוכחית"
+
+msgid "user.profile"
+msgstr "פרופיל"
+
+msgid "user.profile.publicProfile"
+msgstr "פרופיל משתמש"
+
+msgid "user.name"
+msgstr "שם"
+
+msgid "user.password"
+msgstr "סיסמה"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "חזרה על סיסמה חדשה"
+
+msgid "user.login.registerNewAccount"
+msgstr "הרשמה"
+
+msgid "user.repeatPassword"
+msgstr "חזור על סיסמה"
+
+msgid "user.register.form.emailConsent"
+msgstr "כן, אני מעוניין לקבל הודעה על פרסומים והודעות חדשות."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "הסיסמאות אינן תואמות."
+
+msgid "user.phone"
+msgstr "טלפון"
+
+msgid "user.profile.editProfile"
+msgstr "עריכת פרופיל"
+
+msgid "user.login.forgotPassword"
+msgstr "שכחת את הסיסמה שלך?"
+
+msgid "user.login.loginError"
+msgstr "שם משתמש/דוא\"ל או סיסמה לא תקפים. נסה שוב."
+
+msgid "user.login"
+msgstr "כניסה"
+
+msgid "user.preferredPublicName"
+msgstr "שם ציבורי מועדף"
+
+msgid "user.profile.form.countryRequired"
+msgstr "נדרשת מדינה."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "נדרש שם פרטי."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "נא להוסיף שיוך ארגוני בשפת ההגשה."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "נדרשת כתובת דואר."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "עליך להזין את הסיסמה החדשה."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "נדרשת סיסמה."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "הסיסמה החדשה זהה לסיסמה הישנה."
+
+msgid "user.profile.form.profileImage"
+msgstr "תמונת פרופיל"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "נדרשת קבוצת משתמשים."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "נדרש שם משתמש."
+
+msgid "user.editMyProfile"
+msgstr "ערוך את הפרופיל שלי"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} מתוך {$total} שפות שהושלמו"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "השיוך <strong>{$affiliation}</strong> יימחק."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "הקלד את שם המכון ב- {$language}"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "השפה הראשית {$primaryLocale} נדרשת"
+
+msgid "user.authorization.contextRequired"
+msgstr "אתה לא יכול לקרוא לפעולה זו ללא הקשר (עיתונות, כתב עת, כנס וכו')."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "עליך להגדיר קבוצת משתמשים תקפה כדי לגשת לפעולה זו."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"משתמש עם תפקיד מנהל (כלומר עורך הפקה) חייב להיות מוקצה לשלב לפני שתוכל "
+"להמשיך."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "אין לך כעת גישה לשלב זה של תהליך העבודה."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "לא צוין שלב בתהליך העבודה."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr "הוספה, עדכון או מחיקה של הצעת סוקר להגשה שהושלמה מוגבלת."
+
+msgid "user.authorization.pluginRequired"
+msgstr "תוסף לא צוין והוא נדרש."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "אין לך הרשאה לגשת למשימת סקירה זו."
+
+msgid "user.authorization.submissionQuery"
+msgstr "אין לך הרשאה לגשת לדיון זה."
+
+msgid "user.biography"
+msgstr "הצהרת ביוגרפיה (למשל, מחלקה ודרגה)"
+
+msgid "user.gossip.description"
+msgstr ""
+"רשום הערות על סוקר זה שברצונך להפוך לגלויות למפעילים אחרים, למנהלים ולכל "
+"העורכים. הערות יהיו גלויות למשימות סקירה עתידיות."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"אישור נשלח לכתובת הדוא\"ל שלך אם נמצא חשבון תואם. אנא עקוב אחר ההוראות "
+"בדוא\"ל כדי לאפס את הסיסמה שלך."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"מצטערים, פג תוקפו של הקישור שלחצת עליו או שאינו תקף. נסה לאפס את הסיסמה שוב."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"סיסמה חדשה נשלחה לכתובת הדוא\"ל שלך. כעת תוכל להיכנס לאתר עם הסיסמה החדשה "
+"שלך."
+
+msgid "user.login.registeredEmail"
+msgstr "דוא\"ל של משתמש רשום"
+
+msgid "user.login.registrationComplete"
+msgstr "ההרשמה הושלמה"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "תודה שנרשמת! מה היית רוצה לעשות הלאה?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "הצגת הגשות"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "הגשה חדשה"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "המשך לגלוש"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"אנא ספק את השם המלא מכיוון שיש לזהות את המחבר ביצירה שפורסמה. דוגמה: ד\"ר "
+"אלן פ. מוונדנגה"
+
+msgid "user.preferredAvatarInitials"
+msgstr "ראשי תיבות מועדפים של אווטאר"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"הזן את שתי האותיות שבהן ברצונך להשתמש כאווטאר שלך. ראשי תיבות אלה יוצגו כדי "
+"לייצג אותך."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"הזינו את הסיסמאות הנוכחיות והחדשות שלכם למטה כדי לשנות את הסיסמה לחשבון שלכם."
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "גיליון חדש פורסם התראות דוא\"ל"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"הזן את כתובת הדוא\"ל של החשבון שלך למטה ודוא\"ל יישלח אליך עם הוראות כיצד "
+"לאפס את הסיסמה שלך."
+
+msgid "user.register.form.emailExists"
+msgstr "כתובת הדואר האלקטרוני שנבחרה כבר נמצאת בשימוש על-ידי משתמש אחר."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"נרשמת בהצלחה. <a href=\"{$profileUrl}\">לחץ כאן</a> כדי להשלים את פרופיל "
+"המשתמש שלך."
+
+msgid "user.role.assistant"
+msgstr "עוזר"
+
+msgid "user.role.editors"
+msgstr "עורכים"
+
+msgid "user.role.siteAdmins"
+msgstr "מנהלי האתר"
+
+msgid "user.role.ended"
+msgstr "התפקיד הסתיים"
+
+msgid "user.signature"
+msgstr "חתימה"
+
+msgid "user.url"
+msgstr "כתובת של דף הבית"
+
+msgid "user.userHome"
+msgstr "דף הבית של המשתמש"
+
+msgid "user.username"
+msgstr "שם משתמש"
+
+msgid "user.usernameOrEmail"
+msgstr "שם משתמש או דוא\"ל"
+
+msgid "user.workingLanguages"
+msgstr "שפות עבודה"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"מזהה ה-ORCID שציינת אינו תקף. נא לכלול את ה-URI המלא (למשל \"https://orcid."
+"org/0000-0002-1825-0097\")."
+
+msgid "user.apiKeyEnabled"
+msgstr "אפשר ליישומים חיצוניים עם מפתח ה-API לגשת לחשבון זה"
+
+msgid "orcid.instructions"
+msgstr ""
+"ניתן למלא טופס זה מראש במידע מפרופיל ORCID. הזן את כתובת הדוא\"ל או מזהה ה-"
+"ORCID המשויך לפרופיל ה-ORCID ולאחר מכן לחץ על \"שלח\"."
+
+msgid "orcid.emailOrOrcid"
+msgstr "כתובת דוא\"ל או מזהה ORCID:"
+
+msgid "orcid.manager.settings.title"
+msgstr "הגדרות ORCID API"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"אנא הגדירו את גישת ה-ORCID API לשימוש במשיכת פרטי פרופיל ORCID לפרופילי "
+"משתמשים ומחברים ועדכון רשומות ORCID מחוברות בפרסומים חדשים (רק לחברי ORCID)."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "חבר"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "ארגז חול לחברים"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "סוד הלקוח"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "יומן בקשות ORCID"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "שגיאות"
+
+msgid "orcid.author.accessDenied"
+msgstr "הגישה ל-ORCID נמנעה ב"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "גישה לרשומת ORCID ניתנת בהיקף {$orcidAccessScope}, בתוקף עד"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "שלח דואר אלקטרוני כדי לבקש אישור ORCID מהתורם"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "ראה להלן כדי לבקש מזהה ORCID מאומת"
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "ההגשה תתווסף לרשומת ה-ORCID שלך במהלך הפרסום."
+
+msgid "orcid.verify.success"
+msgstr "מזהה ה-ORCID שלך אומת ושויך בהצלחה להגשה."
+
+msgid "orcid.failure.contact"
+msgstr "יש לפנות למנהל כתב העת עם שמך, תעודת זהות ORCID ופרטי הגשתך."
+
+msgid "orcid.connect"
+msgstr "צור או חבר את מזהה ה-ORCID שלך"
+
+msgid "orcid.authorise"
+msgstr "אשר וחבר את מזהה ה-ORCID שלך"
+
+msgid "orcid.about.title"
+msgstr "מה זה ORCID?"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "סוד הלקוח אינו תקף, אנא בדוק את פרטי הכניסה שלך"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "זוהו ORCiD כפולים עבור תורמים."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "זוהו ORCiD לא מאומתים עבור תורמים."
+
+msgid "orcid.manager.context.enabled"
+msgstr "הפעלת פונקציונליות ORCID"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "הפעלת פונקציונליות ORCID בכל האתר"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ניתן להפעיל ולהגדיר פונקציונליות ORCID ברמת האתר עבור כל כתבי העת/מכונות "
+"הדפוס/שרתים. אם אפשרות זו זמינה, היא תעקוף את כל האישורים ברמת ההקשר ותחיל "
+"את האישורים הבאים על כל כתבי העת/מכונות הדפוס/שרתים בהתקנה זו."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "שלח מחדש דוא\"ל אימות"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "בקשת אימות ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr "האם תרצה לשלוח דוא\"ל למחבר זה בבקשה לאמת את ה-ORCID שלו?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "מחיקת ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "האם אתה בטוח שברצונך להסיר את ה-ORCID הזה?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"ORCID זה לא אומת. אנא הסר את ה-ORCID הלא מאומת ובקש אימות ישירות "
+"מהמשתמש/המחבר."
+
+msgid "user.futureRole.notification.message"
+msgstr "התפקיד שלך מתוזמן להתחיל ב- {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"עד אז, תוכל לבדוק ולעדכן את הפרופיל שלך. אם אתה סבור שזו שגיאה, אנא צור קשר "
+"עם מנהל המערכת."
+
+msgid "user.disabledModal.description"
+msgstr "תפקידים נוכחיים : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "הפיכת {$fullName} ללא זמין"
+
+msgid "user.profile.identity"
+msgstr "זהות"
+
+msgid "user.profile.contact"
+msgstr "איש קשר"
+
+msgid "user.apiKey"
+msgstr "מפתח API"
+
+msgid "user.apiKey.generate"
+msgstr "צור מפתח API"
+
+msgid "user.apiKey.remove"
+msgstr "למחוק"
+
+msgid "user.apiKey.generateWarning"
+msgstr "יצירת מפתח API חדש תבטל את התוקף של כל מפתח קיים עבור משתמש זה."
+
+msgid "user.apiKey.removeWarning"
+msgstr "מחיקת מפתח תבטל את הגישה לכל אפליקציה שמשתמשת בו."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "האם אתה בטוח שברצונך למחוק את מפתח ה-API הזה?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"לפני יצירת מפתח API, מנהל האתר שלך חייב להגדיר סוד בקובץ התצורה ("
+"\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr ""
+"הנתונים שלך מאוחסנים בהתאם להצהרת הפרטיות שלנו <a href=\"{$privacyUrl}\" "
+"target=\"_blank\"></a>."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "לא ניתן להשלים את הבקשה לאיפוס סיסמה מאחר ש-{$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "הזן סיסמה חדשה כדי לעדכן את סיסמת הכניסה."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "הסיסמה עודכנה בהצלחה. אנא היכנס עם סיסמה מעודכנת."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"ביקשת לשנות את כתובת הדוא\"ל שלך ל-\"{$pendingEmail}\". כבר שלחנו לך דוא\"ל "
+"עם הנחיות כיצד לאמת את כתובת הדוא\"ל שהשתנתה."
+
+msgid "orcid.displayName"
+msgstr "ORCID"
+
+msgid "orcid.description"
+msgstr "מאפשר ייבוא של פרטי פרופיל משתמש מ-ORCID."
+
+msgid "orcid.noData"
+msgstr "לא מצאתי נתונים מ-ORCID."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "מוסתרים"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "מזהה לקוח"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "הגדרות דואר אלקטרוני"
+
+msgid "orcid.manager.settings.saved"
+msgstr "הגדרות שמורות"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"שלח דואר אלקטרוני כדי לבקש אישור ORCID מהמחברים כאשר מאמר מתקבל, כלומר. נשלח "
+"לעריכת עותק"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "כל"
+
+msgid "orcid.manager.settings.city"
+msgstr "עיר"
+
+msgid "orcid.author.unauthenticated"
+msgstr "מזהה ORCID לא מאומת! אנא בקש אימות מהמחבר."
+
+msgid "orcid.unauthenticated"
+msgstr "(לא מאומת)"
+
+msgid "orcid.verify.title"
+msgstr "הרשאת ORCID"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "ההגשה נוספה לרשומת ה-ORCID שלך."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "לא היתה אפשרות להוסיף את ההגשה לרשומת ה-ORCID שלך."
+
+msgid "orcid.verify.success.redirect"
+msgstr "כעת תנותב אוטומטית בחזרה אל {$contextName}."
+
+msgid "orcid.verify.failure"
+msgstr "לא היתה אפשרות לאמת את מזהה ה-ORCID שלך. הקישור אינו תקף עוד."
+
+msgid "orcid.verify.denied"
+msgstr "מנעת גישה לרשומת ה-ORCID שלך."
+
+msgid "orcid.authFailure"
+msgstr "קישור ההרשאה של ORCID כבר היה בשימוש או שאינו תקף."
+
+msgid "orcid.invalidClient"
+msgstr "אישורי לקוח לא תקפים"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "המשתמש צריך להישאר אנונימי. אתה מחובר כעת."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "הוספת שם משפחה לשפה שחסר בה השם הפרטי. נא להוסיף שם פרטי לשפה זו."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "בעיה בהתראות דוא\"ל בגישה פתוחה"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"כתובת ה- URL שצוינה אינה תקפה. אנא בדוק שוב את כתובת האתר ונסה שוב. (רמז: "
+"נסה/י להוסיף http:// לתחילת כתובת ה-URL.)"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "השאר את שדות הסיסמה ריקים כדי לשמור על הסיסמה הנוכחית."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "user.orcid"
+msgstr "מזהה ORCID"
+
+msgid "user.profile.public"
+msgstr "ציבורי"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "ציבורי"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "ארגז חול ציבורי"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "טווח גישה לפרופיל"
+
+msgid "orcid.author.deleteORCID"
+msgstr "מחק ORCID iD ואסימון!"
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "מזהה ORCID כבר נשמר להגשה זו."
+
+msgid "orcid.about.display.title"
+msgstr "היכן מוצגים מזהי ORCID?"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "מזהה לקוח לא תקף"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "סוד לקוח לא תקף"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "תצורה לפי כתב עת"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "מזהה הלקוח תקף"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "מזהה הלקוח אינו תקף, אנא בדוק את הקלט שלך"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "סוד הלקוח תקף"
+
+msgid "orcid.field.verification.request"
+msgstr "בקשת אימות"
+
+msgid "orcid.field.verification.requested"
+msgstr "התבקש אימות ORCID!"
+
+msgid "user.enabledModal.title"
+msgstr "הפוך את {$fullName} לזמין"
+
+msgid "user.bioStatement"
+msgstr "הצהרת ביוגרפיה"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "כיצד ומדוע אנו אוספים תעודות זהות של ORCID?"
+
+msgid "user.removeRole.message"
+msgstr "האם אתה בטוח שאתה רוצה להסיר את התפקיד הזה לצמיתות?"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "אינך יכול להסיר את התפקיד. יש להקצות לפחות תפקיד אחד למשתמש."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "לתפקיד הנוכחי אין גישה לפעולה זו."
+
+msgid "user.login.registrationPendingValidation"
+msgstr "הרישום ממתין לאימות"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "השאירו אותי מחובר"
+
+msgid "user.login.resetPassword"
+msgstr "איפוס סיסמה"
+
+msgid "user.logOut"
+msgstr "התנתקות"
+
+msgid "user.logOutAs"
+msgstr "התנתק כ-{$username}"
+
+msgid "user.hello"
+msgstr "שלום "
+
+msgid "user.mailingAddress"
+msgstr "כתובת למשלוח דואר"
+
+msgid "user.myAccount"
+msgstr "החשבון שלי"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "שם המכון ב- {$language}"
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "לא הוקצתה לך גישה עם תפקיד המורשה לגשת לפעולה זו."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "גישה לתהליך העבודה עבור הגשה שלא הושלמה מוגבלת."
+
+msgid "user.changeMyPassword"
+msgstr "שנה את הסיסמה שלי"
+
+msgid "user.dateLastLogin"
+msgstr "כניסה אחרונה"
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"כן, אני מסכים שהנתונים שלי ייאספו ויאוחסן בהתאם להצהרת הפרטיות <a href=\""
+"{$privacyUrl}\" target=\"_blank\"></a>פרטיות."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "שדות כתובת הדואר האלקטרוני אינם תואמים."
+
+msgid "user.role.author"
+msgstr "מחבר"
+
+msgid "user.role.author_s"
+msgstr "מחבר(ים)"
+
+msgid "user.role.authors"
+msgstr "מחברים"
+
+msgid "user.role.editor"
+msgstr "עורך"
+
+msgid "user.role.reader"
+msgstr "קורא"
+
+msgid "user.role.readers"
+msgstr "קוראים"
+
+msgid "user.role.reviewer"
+msgstr "סוקר"
+
+msgid "user.role.reviewers"
+msgstr "סוקרים"
+
+msgid "user.role.siteAdmin"
+msgstr "מנהל האתר"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"שם המשתמש יכול להכיל רק אותיות קטנות, מספרים, מקפים ומקפים תחתונים. עליו "
+"להתחיל ולהסתיים באות קטנה או מספר."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "יש לבחור תפקיד אחד לפחות."
+
+msgid "user.register.form.usernameExists"
+msgstr "שם המשתמש שנבחר כבר נמצא בשימוש על-ידי משתמש אחר."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "הסיסמה חייבת להכיל לפחות {$length} תווים."
+
+msgid "user.role.copyeditor"
+msgstr "עורך לשון"
+
+msgid "user.role.copyeditors"
+msgstr "עורכי לשון"
+
+msgid "user.register.registerAs"
+msgstr "הירשם ב-{$contextName} כ..."
+
+msgid "user.register"
+msgstr "הירשם"
+
+msgid "user.role.proofreader"
+msgstr "מגיה"
+
+msgid "user.role.proofreaders"
+msgstr "מגיהים"
+
+msgid "user.register.usernameRestriction"
+msgstr "שם המשתמש חייב להכיל רק אותיות קטנות, מספרים ומקפים/מקפים תחתונים."
+
+msgid "user.role.layoutEditor"
+msgstr "מעמד"
+
+msgid "user.role.layoutEditors"
+msgstr "מעמדים"
+
+msgid "user.roles"
+msgstr "תפקידים"
+
+msgid "user.sendPassword"
+msgstr "אישור"
+
+msgid "user.sendPassword.description"
+msgstr "שלח לי דוא\"ל אישור הכולל את שם המשתמש והסיסמה שלי"
+
+msgid "user.title"
+msgstr "כותר"

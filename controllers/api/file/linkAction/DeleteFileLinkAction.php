@@ -47,7 +47,7 @@ class DeleteFileLinkAction extends FileLinkAction
                     null,
                     $this->getActionArgs($submissionFile, $stageId)
                 ),
-                'modal_delete'
+                'negative'
             ),
             __($localeKey),
             'delete'

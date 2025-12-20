@@ -1145,8 +1145,8 @@ msgstr "თარიღისა და დროის ფორმატებ
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "აირჩიეთ სასურველი ფორმატი თარიღებისა და დროისთვის. სპეციალური ფორმატის "
-"შეყვანა შესაძლებელია სპეციალური <a href='http://php.net/manual/en/function."
-"strftime.php#refsect1-function.strftime-parameters'>ფორმატის სიმბოლოების "
+"შეყვანა შესაძლებელია სპეციალური <a href='http://php.net/manual/en/datetime."
+"format.php#refsect1-datetime.format-parameters'>ფორმატის სიმბოლოების "
 "გამოყენებით</a> ."
 
 msgid "manager.setup.dateTime.longDate"
@@ -1661,9 +1661,6 @@ msgstr "ვალუტა"
 
 msgid "settings.roles.roleOptions"
 msgstr "როლის პარამეტრები"
-
-msgid "settings.roles.showTitles"
-msgstr "როლის სათაურის ჩვენება თანამშრომელთა სიაში"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "მომხმარებლის თვითრეგისტრირების დაშვება"

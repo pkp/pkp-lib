@@ -56,7 +56,6 @@ class ReviewNotesLinkAction extends LinkAction
                 $actionArgs
             ),
             __('editor.review') . ': ' . htmlspecialchars($submission->getCurrentPublication()->getLocalizedTitle(null, 'html')),
-            'modal_information'
         );
 
         $icon = match ($reviewAssignment->getConsidered()) {

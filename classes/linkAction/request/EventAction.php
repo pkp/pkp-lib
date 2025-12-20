@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/EventAction.php
  *
@@ -65,8 +66,4 @@ class EventAction extends LinkActionRequest
             ]
         );
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\EventAction', '\EventAction');
 }

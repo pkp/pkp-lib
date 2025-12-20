@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/FilterHelper.php
  *
@@ -291,8 +292,4 @@ class FilterHelper
 
         return $resultArray;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\FilterHelper', '\FilterHelper');
 }

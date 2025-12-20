@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileRequestedRevisionRequiredPolicy.php
  *
@@ -36,7 +37,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -95,8 +96,4 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         // Made it through -- permit access.
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileRequestedRevisionRequiredPolicy', '\SubmissionFileRequestedRevisionRequiredPolicy');
 }

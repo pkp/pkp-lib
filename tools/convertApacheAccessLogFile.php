@@ -251,7 +251,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
         $filteredFilePath = $filePath . '_tmp';
         $callback = fn (Context $context): string => $context->getPath();
-        $escapedContextPaths = implode('/|/', array_map('escapeshellarg', array_map($callback, $this->contextsByPath)));
+        $escapedContextPaths = implode('/|/', array_map(escapeshellarg(...), array_map($callback, $this->contextsByPath)));
         $output = null;
         $returnValue = 0;
         exec(escapeshellarg(self::EGREP_PATH) . " -i '" . $escapedContextPaths . "' " . escapeshellarg($filePath) . ' > ' . escapeshellarg($filteredFilePath), $output, $returnValue);

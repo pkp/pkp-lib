@@ -16,34 +16,32 @@
 	<h1>{translate key="common.editorialHistory.page"}</h1>
 	<p>{translate key="common.editorialHistory.page.description"}</p>
 	{foreach from=$mastheadRoles item="mastheadRole"}
-		{if array_key_exists($mastheadRole->getId(), $mastheadUsers)}
-			<h2>{$mastheadRole->getLocalizedName()|escape}</h2>
-			<ul>
-				{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
+		{if array_key_exists($mastheadRole->id, $mastheadUsers)}
+			<h2>{$mastheadRole->getLocalizedData('name')|escape}</h2>
+			<ul class="user_listing" role="list">
+				{foreach from=$mastheadUsers[$mastheadRole->id] item="mastheadUser"}
 					<li>
-						<ul id="commaList">
-							<li>{$mastheadUser['user']->getFullName()|escape}</li>
-							{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
-								<li>{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</li>
-							{/if}
-							{if $mastheadUser['user']->getData('orcid')}
+						{strip}
+						<span class="date_start">
+							{foreach name="services" from=$mastheadUser['services'] item="service"}
+								{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}
+								{if !$smarty.foreach.services.last}{translate key="common.commaListSeparator"}{/if}
+							{/foreach}
+						</span>
+						<span class="name">
+							{$mastheadUser['user']->getFullName()|escape}
+							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->hasVerifiedOrcid()}
 								<span class="orcid">
-									{if $mastheadUser['user']->getData('orcidAccessToken')}
+									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank" aria-label="{translate key="common.editorialHistory.page.orcidLink" name=$mastheadUser['user']->getFullName()|escape}">
 										{$orcidIcon}
-									{/if}
-									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
-										{$mastheadUser['user']->getData('orcid')|escape}
 									</a>
 								</span>
 							{/if}
-							<li>
-								{foreach from=$mastheadUser['services'] item="service"}
-									<ul>
-										<li>{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}</li>
-									</ul>
-								{/foreach}
-							</li>
-						</ul>
+						</span>
+						{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
+							<span class="affiliation">{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</span>
+						{/if}
+						{/strip}
 					</li>
 				{/foreach}
 			</ul>

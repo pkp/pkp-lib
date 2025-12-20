@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file pages/libraryFiles/LibraryFileHandler.php
  *
@@ -34,7 +35,7 @@ class LibraryFileHandler extends Handler
      *
      * @param Handler $callingHandler
      */
-    public function __construct($callingHandler)
+    public function __construct($callingHandler = null)
     {
         $this->_callingHandler = $callingHandler;
     }

@@ -3,8 +3,8 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
@@ -25,6 +25,8 @@ use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
@@ -34,6 +36,7 @@ use PKP\components\forms\submission\ConfirmSubmission;
 use PKP\components\forms\submission\ForTheEditors;
 use PKP\components\forms\submission\PKPSubmissionFileForm;
 use PKP\components\listPanels\ContributorsListPanel;
+use PKP\components\listPanels\ReviewerSuggestionsListPanel;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -43,11 +46,13 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 abstract class PKPSubmissionHandler extends Handler
 {
     public const SECTION_TYPE_CONFIRM = 'confirm';
     public const SECTION_TYPE_CONTRIBUTORS = 'contributors';
+    public const SECTION_TYPE_REVIEWER_SUGGESTIONS = 'reviewerSuggestions';
     public const SECTION_TYPE_FILES = 'files';
     public const SECTION_TYPE_FORM = 'form';
     public const SECTION_TYPE_TEMPLATE = 'template';
@@ -69,6 +74,7 @@ abstract class PKPSubmissionHandler extends Handler
                 'index',
                 'saved',
                 'wizard', // @deprecated 3.4
+                'cancelled',
             ]
         );
     }
@@ -80,7 +86,7 @@ abstract class PKPSubmissionHandler extends Handler
     {
         $submissionId = (int) $request->getUserVar('id');
 
-        // Creating a new submission
+        // Creating a new submission or viewing cancelled screen
         if ($submissionId === 0) {
             $this->addPolicy(new UserRequiredPolicy($request));
             $this->markRoleAssignmentsChecked();
@@ -197,14 +203,13 @@ abstract class PKPSubmissionHandler extends Handler
         $orderedLocales = $supportedLocales;
         uksort($orderedLocales, fn ($a, $b) => $b === $submission->getData('locale') ? 1 : -1);
 
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::query()
+            ->withContextIds([$context->getId()])
+            ->get();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
+        $genres = $genreDao->getEnabledByContextId($context->getId())->toAssociativeArray();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()
@@ -216,16 +221,23 @@ abstract class PKPSubmissionHandler extends Handler
         $reconfigureSubmissionForm = $this->getReconfigureForm($context, $submission, $publication, $sections, $categories);
 
         $steps = $this->getSteps($request, $submission, $publication, $formLocales, $sections, $categories);
+        $components = [
+            $submissionFilesListPanel['id'] => $submissionFilesListPanel,
+            $contributorsListPanel->id => $contributorsListPanel->getConfig(),
+            $reconfigureSubmissionForm->id => $reconfigureSubmissionForm->getConfig(),
+        ];
+
+        if ($context->getData('reviewerSuggestionEnabled')) {
+            $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $formLocales);
+            $components[$reviewerSuggestionsListPanel->id] = $reviewerSuggestionsListPanel->getConfig();
+        }
+
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         $templateMgr = TemplateManager::getManager($request);
-
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),
-            'components' => [
-                $submissionFilesListPanel['id'] => $submissionFilesListPanel,
-                $contributorsListPanel->id => $contributorsListPanel->getConfig(),
-                $reconfigureSubmissionForm->id => $reconfigureSubmissionForm->getConfig(),
-            ],
+            'components' => $components,
             'i18nConfirmSubmit' => $this->getConfirmSubmitMessage($submission, $context),
             'i18nDiscardChanges' => __('common.discardChanges'),
             'i18nDisconnected' => __('common.disconnected'),
@@ -236,11 +248,11 @@ abstract class PKPSubmissionHandler extends Handler
             'i18nUnableToSave' => __('submission.wizard.unableToSave'),
             'i18nUnsavedChanges' => __('common.unsavedChanges'),
             'i18nUnsavedChangesMessage' => __('common.unsavedChangesMessage'),
-            'publication' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            'publication' => Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             'publicationApiUrl' => $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId()),
             'reconfigurePublicationProps' => $this->getReconfigurePublicationProps(),
             'reconfigureSubmissionProps' => $this->getReconfigureSubmissionProps(),
-            'submission' => Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres),
+            'submission' => Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles),
             'submissionApiUrl' => Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
             'submissionSavedUrl' => $this->getSubmissionSavedUrl($request, $submission->getId()),
             'submissionWizardUrl' => Repo::submission()->getUrlSubmissionWizard($context, $submission->getId()),
@@ -257,6 +269,41 @@ abstract class PKPSubmissionHandler extends Handler
             'submittingTo' => $this->getSubmittingTo($context, $submission, $sections, $categories),
             'reviewSteps' => $this->getReviewStepsForSmarty($steps),
         ]);
+
+
+        $currentUser = $request->getUser();
+        $isAdmin = $currentUser->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
+        $isAuthor = false;
+
+        if (!$isAdmin) {
+            $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->get()
+                ->map(fn ($userGroup) => $userGroup->id)
+                ->toArray();
+
+            $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+                ->withUserId($currentUser->getId())
+                ->get();
+
+            foreach ($stageAssignments as $stageAssignment) {
+                if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
+                    $isAuthor = true;
+                    break;
+                }
+            }
+        }
+
+        if ($isAdmin || $isAuthor) {
+            $templateMgr->setState([
+                'submissionCancelApiUrl' => $this->getSubmissionCancelUrl($request, $submission->getId()),
+                'submissionCancelledUrl' => $this->getSubmissionCancelledUrl($request),
+            ]);
+
+            $templateMgr->assign([
+                'canCancelSubmission' => true,
+            ]);
+        }
 
         $templateMgr->display('submission/wizard.tpl');
     }
@@ -277,13 +324,28 @@ abstract class PKPSubmissionHandler extends Handler
     }
 
     /**
+     * Display the submission cancelled screen
+     */
+    public function cancelled(array $args, Request $request): void
+    {
+        $this->setupTemplate($request);
+
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'pageTitle' => __('submission.wizard.submissionCancelled'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_NARROW,
+        ]);
+        $templateMgr->display('submission/cancelled.tpl');
+    }
+
+    /**
      * Display the saved for later screen
      */
     public function saved(array $args, Request $request): void
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $this->setupTemplate($request);
@@ -308,10 +370,15 @@ abstract class PKPSubmissionHandler extends Handler
         $controlledVocabUrl = $this->getControlledVocabBaseUrl($request, $submission->getId());
 
         $steps = [];
-        $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections, $controlledVocabUrl);
         $steps[] = $this->getFilesStep($request, $submission, $publication, $locales, $publicationApiUrl);
+        $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections, $controlledVocabUrl);
         $steps[] = $this->getContributorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl, $categories);
+
+        if ($request->getContext()->getData('reviewerSuggestionEnabled')) {
+            $steps[] = $this->getReviewerSuggestionsStep($request);
+        }
+
         $steps[] = $this->getConfirmStep($request, $submission, $publication, $locales, $publicationApiUrl);
 
         return $steps;
@@ -367,6 +434,39 @@ abstract class PKPSubmissionHandler extends Handler
                 ]
             );
     }
+    /**
+     * Get the API endpoint to cancel the submission.
+     */
+    protected function getSubmissionCancelUrl(Request $request, int $submissionId): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_API,
+                $request->getContext()->getPath(),
+                '_submissions',
+                null,
+                null,
+                ['ids' => $submissionId],
+            );
+    }
+
+    /**
+     * Get the URL to the page that is shown after the submission has been cancelled
+     */
+    protected function getSubmissionCancelledUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $request->getContext()->getPath(),
+                'submission',
+                'cancelled',
+            );
+    }
 
     /**
      * Get the url to the submission's files API endpoint
@@ -413,9 +513,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->getMany();
 
         // Don't allow dependent files to be uploaded with the submission
-        $genres = array_values(
-            array_filter($genres, fn ($genre) => !$genre->getDependent())
-        );
+        $genres = array_filter($genres, fn ($genre) => !$genre->getDependent());
 
         $form = new PKPSubmissionFileForm(
             $this->getSubmissionFilesApiUrl($request, $submission->getId()),
@@ -431,18 +529,18 @@ abstract class PKPSubmissionHandler extends Handler
             'emptyAddLabel' => __('common.upload.addFile'),
             'fileStage' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'form' => $form->getConfig(),
-            'genres' => array_map(
+            'genres' => array_values(array_map(
                 fn ($genre) => [
                     'id' => (int) $genre->getId(),
                     'name' => $genre->getLocalizedName(),
                     'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
                 ],
                 $genres
-            ),
+            )),
             'id' => 'submissionFiles',
             'items' => Repo::submissionFile()
-                ->getSchemaMap()
-                ->summarizeMany($submissionFiles, $genres)
+                ->getSchemaMap($submission, $genres)
+                ->summarizeMany($submissionFiles)
                 ->values(),
             'options' => [
                 'maxFilesize' => Application::getIntMaxFileMBs(),
@@ -471,8 +569,12 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get an instance of the ContributorsListPanel component
      */
-    protected function getContributorsListPanel(Request $request, Submission $submission, Publication $publication, array $locales): ContributorsListPanel
-    {
+    protected function getContributorsListPanel(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales
+    ): ContributorsListPanel {
         return new ContributorsListPanel(
             'contributors',
             __('publication.contributors'),
@@ -485,26 +587,50 @@ abstract class PKPSubmissionHandler extends Handler
     }
 
     /**
+     * Get an instance of the ReviewerSuggestionsListPanel component
+     */
+    protected function getReviewerSuggestionsListPanel(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales
+    ): ReviewerSuggestionsListPanel {
+        return new ReviewerSuggestionsListPanel(
+            'reviewerSuggestions',
+            __('submission.reviewerSuggestions'),
+            $submission,
+            $request->getContext(),
+            $locales,
+            [], // Populated by publication state
+            true
+        );
+    }
+
+    /**
      * Get the user groups that a user can submit in
      */
-    protected function getSubmitUserGroups(Context $context, User $user): LazyCollection
+    protected function getSubmitUserGroups(Context $context, User $user): Collection
     {
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByUserIds([$user->getId()])
-            ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
-            ->getMany();
-
-        // Users without a submitting role can submit as an
-        // author role that allows self registration
-        if (!$userGroups->count()) {
-            $defaultUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
-            return LazyCollection::make(function () use ($defaultUserGroup) {
-                if ($defaultUserGroup) {
-                    yield $defaultUserGroup->getId() => $defaultUserGroup;
-                }
+        $request = Application::get()->getRequest();
+        $isAdmin = $request->getUser()->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
+        $query = UserGroup::query()->withContextIds([$context->getId()])
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
             });
+        $userGroups = $isAdmin
+            ? $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
+            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])->get(); // For non-admin users, query for the groups tht give them access to the submission stage
+
+        // Users without a submitting role or access to submission stage can submit as an
+        // author role that allows self registration.
+        // They are also assigned the author role
+        if ($userGroups->isEmpty()) {
+            $defaultUserGroup = UserGroup::withContextIds([$context->getId()])
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->permitSelfRegistration(true)
+                ->first();
+
+            $userGroups = collect($defaultUserGroup ? [$defaultUserGroup->id => $defaultUserGroup] : []);
         }
 
         return $userGroups;
@@ -534,8 +660,13 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the state for the contributors step
      */
-    protected function getContributorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
-    {
+    protected function getContributorsStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl
+    ): array {
         return [
             'id' => 'contributors',
             'name' => __('publication.contributors'),
@@ -553,10 +684,38 @@ abstract class PKPSubmissionHandler extends Handler
     }
 
     /**
+     * Get the state for the reviewer suggestion step
+     */
+    protected function getReviewerSuggestionsStep(Request $request): array
+    {
+        return [
+            'id' => 'reviewerSuggestions',
+            'name' => __('submission.reviewerSuggestions'),
+            'reviewName' => __('submission.reviewerSuggestions'),
+            'sections' => [
+                [
+                    'id' => 'reviewerSuggestions',
+                    'name' => __('submission.reviewerSuggestions'),
+                    'type' => self::SECTION_TYPE_REVIEWER_SUGGESTIONS,
+                    'description' => $request->getContext()->getLocalizedData('reviewerSuggestionsHelp'),
+                ],
+            ],
+            'reviewTemplate' => '/submission/review-reviewer-suggestions.tpl',
+        ];
+    }
+
+    /**
      * Get the state for the details step
      */
-    protected function getDetailsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, array $sections, string $controlledVocabUrl): array
-    {
+    protected function getDetailsStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl,
+        array $sections,
+        string $controlledVocabUrl
+    ): array {
         $titleAbstractForm = $this->getDetailsForm(
             $publicationApiUrl,
             $locales,
@@ -608,8 +767,14 @@ abstract class PKPSubmissionHandler extends Handler
      * If no metadata is enabled during submission, the metadata
      * form is not shown.
      */
-    protected function getEditorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, LazyCollection $categories): array
-    {
+    protected function getEditorsStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl,
+        LazyCollection $categories
+    ): array {
         $metadataForm = $this->getForTheEditorsForm(
             $publicationApiUrl,
             $locales,
@@ -672,8 +837,13 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the state for the Confirm step
      */
-    protected function getConfirmStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
-    {
+    protected function getConfirmStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl
+    ): array {
         $sections = [
             [
                 'id' => 'review',
@@ -769,11 +939,15 @@ abstract class PKPSubmissionHandler extends Handler
     protected function getWorkflowUrl(Submission $submission, User $user): string
     {
         $request = Application::get()->getRequest();
-        
+        $stages = Application::getApplicationStages();
+
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
         $hasStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
+            ->withStageIds([
+                // WORKFLOW_STAGE_ID_SUBMISSION for OJS/OMP and WORKFLOW_STAGE_ID_PRODUCTION for OPS, see pkp/pkp-lib#10874
+                array_shift($stages)
+            ])
             ->withUserId($user->getId())
             ->exists();
 

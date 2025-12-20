@@ -67,6 +67,14 @@
 		{fbvElement type="text" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
+	{fbvFormSection title="manager.setup.masthead" list=true}
+		{fbvElement type="checkbox" id="masthead" checked=true label="invitation.masthead.show" translate="true" disabled="true"}
+	{/fbvFormSection}
+
+	{if $reviewerSuggestionId}
+		{fbvElement type="hidden" id="reviewerSuggestionId" name="reviewerSuggestionId" value=$reviewerSuggestionId}
+	{/if}
+
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

@@ -28,7 +28,7 @@
         "
     >
         <notification v-if="!publication.authors.length" type="warning" class="submissionWizard__reviewEmptyWarning">
-            <icon icon="exclamation-triangle" :inline="true"></icon>
+            <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
             {translate key="submission.wizard.noContributors"}
         </notification>
         <ul
@@ -40,7 +40,7 @@
                 :key="i"
             >
                 <notification type="warning">
-                    <icon icon="exclamation-triangle" :inline="true"></icon>
+                    <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
                     {{ error }}
                 </notification>
             </li>
@@ -63,7 +63,12 @@
                     >
                         {translate key="author.users.contributor.principalContact"}
                     </badge>
-                    <badge>{{ localize(author.userGroupName) }}</badge>
+                    <badge 
+                        v-for="(role) in author.contributorRoles"
+                        :key="role.id"
+                    >
+                        {{ localize(role.name) }}
+                    </badge>
                 </span>
             </li>
             {call_hook name="Template::SubmissionWizard::Section::Review::Contributors" submission=$submission step=$step.id}

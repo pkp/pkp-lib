@@ -1711,29 +1711,8 @@ msgstr "Επιστημονικοί κλάδοι"
 msgid "search.fullText"
 msgstr "Πλήρες κείμενο"
 
-msgid "search.indexTerms"
-msgstr "Όροι ευρετηρίασης"
-
-msgid "search.indexTermsLong"
-msgstr "Όλα τα πεδία ευρετηρίασης"
-
-msgid "search.matchAll"
-msgstr "Εύρεση αποτελεσμάτων που περιέχουν όλους τους όρους."
-
 msgid "search.noResults"
 msgstr "Κανένα αποτέλεσμα"
-
-msgid "search.operator.and"
-msgstr "και"
-
-msgid "search.operator.not"
-msgstr "όχι"
-
-msgid "search.operator.or"
-msgstr "ή"
-
-msgid "search.SearchFor"
-msgstr "Αναζήτηση για"
 
 msgid "search.searchResults"
 msgstr "Αποτελέσματα αναζήτησης"
@@ -1968,6 +1947,7 @@ msgstr "Κατάσταση γύρου {$round}."
 msgid "notification.type.editorialReport"
 msgstr "Περίληψη αναφοράς στατιστικών."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Μια υπενθύμιση για να ελέγξετε την υγεία του περιοδικού σας μέσω της "

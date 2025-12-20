@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup linkAction_request Link Action Request
  */
@@ -54,8 +55,4 @@ class LinkActionRequest
     {
         return [];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\LinkActionRequest', '\LinkActionRequest');
 }

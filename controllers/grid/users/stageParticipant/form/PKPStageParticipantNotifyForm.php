@@ -27,13 +27,17 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\editorialTask\Participant;
 use PKP\form\Form;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
 use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
 use PKP\notification\Notification;
-use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\security\Validation;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -77,11 +81,11 @@ class PKPStageParticipantNotifyForm extends Form
         // Some other forms (e.g. the Add Participant form) subclass this form and
         // may not enforce the sending of an email.
         if ($this->isMessageRequired()) {
-            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
+            $this->addCheck(new FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
         }
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userId', 'required', 'stageParticipants.notify.warning'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidator($this, 'userId', 'required', 'stageParticipants.notify.warning'));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     /**
@@ -100,15 +104,22 @@ class PKPStageParticipantNotifyForm extends Form
             $mailable = $this->getStageMailable($context, $submission);
             $data = $mailable->getData();
             $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-            $templates = [$mailable::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
+
+            $templates = [];
+            if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $defaultTemplate, $context->getId())) {
+                $templates[$mailable::getEmailTemplateKey()] = $defaultTemplate->getLocalizedData('name');
+            }
             $alternateTemplates = Repo::emailTemplate()->getCollector($context->getId())
                 ->alternateTo([$mailable::getEmailTemplateKey()])
                 ->getMany();
+
             foreach ($alternateTemplates as $alternateTemplate) {
-                $templates[$alternateTemplate->getData('key')] = Mail::compileParams(
-                    $alternateTemplate->getLocalizedData('name'),
-                    $data
-                );
+                if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $alternateTemplate, $context->getId())) {
+                    $templates[$alternateTemplate->getData('key')] = Mail::compileParams(
+                        $alternateTemplate->getLocalizedData('name'),
+                        $data
+                    );
+                }
             }
         }
 
@@ -174,22 +185,6 @@ class PKPStageParticipantNotifyForm extends Form
             $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         }
 
-        // Create a query
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->newDataObject();
-        $query->setAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION);
-        $query->setAssocId($submission->getId());
-        $query->setStageId($this->_stageId);
-        $query->setSequence(REALLY_BIG_NUMBER);
-        $queryDao->insertObject($query);
-        $queryDao->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
-
-        // Add the current user and message recipient as participants.
-        $queryDao->insertParticipant($query->getId(), $user->getId());
-        if ($user->getId() != $request->getUser()->getId()) {
-            $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
-        }
-
         // Populate mailable with data before compiling headNote
         $mailable
             ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
@@ -198,18 +193,42 @@ class PKPStageParticipantNotifyForm extends Form
             ->body($this->getData('message'))
             ->subject($template->getLocalizedData('subject'));
 
+        // Create a query
+        $query = EditorialTask::create([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'stageId' => $this->_stageId,
+            'seq' => REALLY_BIG_NUMBER,
+            'createdBy' => $user->getId(),
+            'type' => EditorialTaskType::DISCUSSION,
+            'title' => Mail::compileParams(
+                $template->getLocalizedData('subject'),
+                $mailable->getData()
+            ),
+        ]);
+
+        Repo::editorialTask()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
+
+        // Add the current user and message recipient as participants.
+        Participant::create([
+            'editTaskId' => $query->id,
+            'userId' => $user->getId()
+        ]);
+        if ($user->getId() != $request->getUser()->getId()) {
+            Participant::create([
+                'editTaskId' => $query->id,
+                'userId' => $request->getUser()->getId()
+            ]);
+        }
+
         //Substitute email template variables not available before form being executed
         $additionalVariables = $this->getEmailVariableNames($template->getData('key'));
 
         // Create a head note
         $headNote = Note::create([
-            'userId' =>  $request->getUser()->getId(),
+            'userId' => $request->getUser()->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
-            'assocId' => $query->getId(),
-            'title' => Mail::compileParams(
-                $template->getLocalizedData('subject'),
-                $mailable->getData()
-            ),
+            'assocId' => $query->id,
             'contents' => Mail::compileParams(
                 $this->getData('message'),
                 array_intersect_key($mailable->getData(), $additionalVariables)
@@ -219,28 +238,30 @@ class PKPStageParticipantNotifyForm extends Form
         // Send the email
         $notificationMgr = new NotificationManager();
         $notification = $notificationMgr->createNotification(
-            $request,
             $userId,
             Notification::NOTIFICATION_TYPE_NEW_QUERY,
             $request->getContext()->getId(),
             PKPApplication::ASSOC_TYPE_QUERY,
-            $query->getId(),
+            $query->id,
             Notification::NOTIFICATION_LEVEL_TASK
         );
 
-        $mailable->allowUnsubscribe($notification);
         $logRepository = null;
-        try {
-            Mail::send($mailable);
-            $logRepository = Repo::emailLogEntry();
-        } catch (TransportException $e) {
-            $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification(
-                $request->getUser()->getId(),
-                Notification::NOTIFICATION_TYPE_ERROR,
-                ['contents' => __('email.compose.error')]
-            );
-            error_log($e->getMessage());
+        if ($notification) {
+            // Only send the email if notifications have not been disabled
+            $mailable->allowUnsubscribe($notification);
+            try {
+                Mail::send($mailable);
+                $logRepository = Repo::emailLogEntry();
+            } catch (TransportException $e) {
+                $notificationMgr = new NotificationManager();
+                $notificationMgr->createTrivialNotification(
+                    $request->getUser()->getId(),
+                    Notification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                error_log($e->getMessage());
+            }
         }
 
         // remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
@@ -349,7 +370,6 @@ class PKPStageParticipantNotifyForm extends Form
             $context = $request->getContext();
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
-                $request,
                 $userId,
                 $type,
                 $context->getId(),

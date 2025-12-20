@@ -32,6 +32,12 @@
 		{/fbvFormSection}
 	{/fbvFormArea}
 
+	{fbvFormArea id="description"}
+		{fbvFormSection title="common.description" required=true}
+			{fbvElement type="textarea" multilingual="true" id="description" value=$description}
+		{/fbvFormSection}
+	{/fbvFormArea}
+
 	{fbvFormArea id="file"}
 		{fbvFormSection title="common.file"}
 			<table id="fileInfo" class="data" width="100%">

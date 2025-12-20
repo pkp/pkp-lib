@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/section/Repository.php
  *
@@ -88,7 +89,7 @@ class Repository
     public function validate(?Section $object, array $props, Context $context): array
     {
         $errors = [];
-        $allowedLocales = $context->getSupportedSubmissionLocales();
+        $allowedLocales = $context->getSupportedFormLocales();
         $primaryLocale = $context->getPrimaryLocale();
 
         $validator = ValidatorFactory::make(

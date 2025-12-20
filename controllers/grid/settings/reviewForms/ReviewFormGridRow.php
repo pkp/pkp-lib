@@ -56,7 +56,7 @@ class ReviewFormGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editReviewForm', null, ['rowId' => $rowId]),
                             __('grid.action.edit'),
-                            'modal_edit',
+                            null,
                             true
                         ),
                         __('grid.action.edit'),
@@ -73,7 +73,8 @@ class ReviewFormGridRow extends GridRow
                         $request->getSession(),
                         __('manager.reviewForms.confirmCopy'),
                         null,
-                        $router->url($request, null, null, 'copyReviewForm', null, ['rowId' => $rowId])
+                        $router->url($request, null, null, 'copyReviewForm', null, ['rowId' => $rowId]),
+                        'primary'
                     ),
                     __('grid.action.copy'),
                     'copy'
@@ -87,7 +88,7 @@ class ReviewFormGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'editReviewForm', null, ['rowId' => $rowId, 'preview' => 1]),
                         __('grid.action.preview'),
-                        'preview',
+                        null,
                         true
                     ),
                     __('grid.action.preview'),
@@ -104,7 +105,8 @@ class ReviewFormGridRow extends GridRow
                             $request->getSession(),
                             __('manager.reviewForms.confirmDelete'),
                             null,
-                            $router->url($request, null, null, 'deleteReviewForm', null, ['rowId' => $rowId])
+                            $router->url($request, null, null, 'deleteReviewForm', null, ['rowId' => $rowId]),
+                            'negative'
                         ),
                         __('grid.action.delete'),
                         'delete'

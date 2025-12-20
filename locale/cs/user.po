@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2024-06-04 21:35+0000\n"
+"PO-Revision-Date: 2025-10-23 06:51+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/user/cs/>"
 "\n"
@@ -800,3 +800,158 @@ msgstr "Zjištěny duplicitní ORCiD pro přispěvatele."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Zjištěny neověřené ORCiD pro přispěvatele."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Níže uveďte celý název instituce a vyvarujte se jakýchkoli zkratek. Vyberte "
+"název z rozbalovacího seznamu a kliknutím na tlačítko \"Přidat\" zahrňte "
+"příslušnost do svého profilu. (např. \"Univerzita Karlova\")"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Název institutu v {$language}"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Afiliace <strong>{$affiliation}</strong> bude smazána."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Přidání, aktualizace nebo odstranění návrhu recenzenta pro dokončené podání "
+"je omezeno."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Preferované iniciály avatara"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Zadejte dvě písmena, která chcete použít jako svůj avatar. Tyto iniciály se "
+"zobrazí a budou vás reprezentovat."
+
+msgid "user.role.ended"
+msgstr "Role ukončena"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Požádali jste o změnu e-mailu na \"{$pendingEmail}\". Již jsme vám zaslali e-"
+"mail s pokyny, jak změněný e-mail ověřit."
+
+msgid "orcid.unauthenticated"
+msgstr "(neověřeno)"
+
+msgid "user.affiliations.institution"
+msgstr "Instituce"
+
+msgid "user.affiliations.translation"
+msgstr "Více informací"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Upravit název instituce"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Odebrat instituci"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Kliknutím upravíte nebo odstraníte"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Všechny dostupné překlady"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} z {$total} jazyků je dokončeno"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Zadejte název institutu v {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Jste si jisti?"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Napište název instituce v {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Vámi hledaná fráze nebyla nalezena"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Je vyžadován primární jazyk {$primaryLocale}"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Přidejte prosím afiliaci v jazyce podání."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Nyní budete automaticky přesměrováni zpět na {$contextName}."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Povolení funkcionality ORCID"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Povolení funkcionality ORCID na celém webu"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"Funkcionalitu ORCID lze volitelně povolit a nakonfigurovat na úrovni webu "
+"pro všechny časopisy/nakladatelství/servery. Pokud je tato funkce povolena, "
+"přepíše všechna pověření na úrovni kontextu a použije následující pověření "
+"pro všechny časopisy/nakladatelství/servery v této instalaci."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Do té doby si můžete svůj profil prohlédnout a aktualizovat. Pokud se "
+"domníváte, že se jedná o chybu, obraťte se na správce."
+
+msgid "orcid.field.verification.request"
+msgstr "Žádost o ověření"
+
+msgid "orcid.field.verification.requested"
+msgstr "Bylo vyžádáno ověření ORCID!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Opětovné odeslání ověřovacího e-mailu"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Vyžádat ověření ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr "Chcete tomuto autorovi poslat e-mail s žádostí o ověření ORCID?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Vymazat ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Opravdu chcete odstranit tento ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Tento ORCID nebyl ověřen. Odstraňte prosím tento neověřený ORCID a požádejte "
+"o ověření přímo uživatele/autora."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Opravdu chcete tuto roli trvale odebrat? Tato akce odebere uživateli přístup "
+"ke všem informacím a oprávněním spojeným s touto rolí."
+
+msgid "user.futureRole.notification.message"
+msgstr "Začátek vaší role je naplánován na {$roleStartDate}"
+
+msgid "user.disabledModal.description"
+msgstr "Současné role : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Zakázat {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Povolit {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Prohlášení o životopisu"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Uživatel by měl být anonymní. V současné době jste přihlášeni."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Nemůžete odebrat tuto roli. Uživateli musí být přiřazena alespoň jedna role."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "E-mail bude odeslán po vytvoření autora."
+
+msgid "user.login.activate.description"
+msgstr "Potvrďte a aktivujte svůj účet"

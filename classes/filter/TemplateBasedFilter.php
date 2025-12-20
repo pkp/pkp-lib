@@ -104,7 +104,3 @@ class TemplateBasedFilter extends PersistableFilter
         return $output;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\TemplateBasedFilter', '\TemplateBasedFilter');
-}

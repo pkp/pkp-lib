@@ -1,0 +1,90 @@
+# Milutin Markovic <admin@fcjk.me>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"Last-Translator: Milutin Markovic <admin@fcjk.me>\n"
+"Language-Team: Montenegrin <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/cnr/>\n"
+"Language: cnr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+#, fuzzy
+msgid "manager.website.information"
+msgstr "Informacije"
+
+#, fuzzy
+msgid "manager.website.appearance"
+msgstr "Izgled"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Fajl slike je neophodan. Provjerite da li ste odabrali i dostavili fajl."
+
+msgid "manager.announcements"
+msgstr "Obaveštenja"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Da li ste sigurni da želite da trajno obrišete ovo obaveštenje?"
+
+msgid "manager.announcements.create"
+msgstr "Napravi novo obaveštenje"
+
+#, fuzzy
+msgid "manager.announcements.createTitle"
+msgstr "Napravi"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Ističе"
+
+msgid "manager.announcements.datePublish"
+msgstr "Objavljeno"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Izbrišite obavijest"
+
+msgid "manager.announcements.edit"
+msgstr "Izmijeni obaveštenje"
+
+msgid "manager.announcements.editTitle"
+msgstr "Izmijeni"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Molimo odaberite godinu i/ili mjesec kao dodatak datuma dana isticanja."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Datum isticanja"
+
+msgid "manager.users"
+msgstr "Korisnici"
+
+msgid "manager.workflow"
+msgstr "Proces rada"
+
+msgid "manager.workflow.title"
+msgstr "Podešavanje procesa rada"
+
+msgid "manager.distribution"
+msgstr "Distribucija"
+
+msgid "manager.website"
+msgstr "Sajt"
+
+msgid "manager.website.title"
+msgstr "Podešavanja sajta"
+
+msgid "stats.editorialActivity"
+msgstr "Urednička aktivnost"
+
+msgid "manager.distribution.title"
+msgstr "Podešavanje distribucije"
+
+msgid "manager.statistics.reports"
+msgstr "Izvještaji"
+
+msgid "manager.announcementTypes"
+msgstr "Tipovi obavještenja"

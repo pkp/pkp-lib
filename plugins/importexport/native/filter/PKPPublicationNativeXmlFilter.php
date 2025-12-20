@@ -17,11 +17,12 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use PKP\publication\PKPPublication;
+use APP\facades\Repo;
 use APP\plugins\importexport\native\NativeImportExportDeployment;
 use APP\publication\Publication;
 use Exception;
-use PKP\citation\CitationDAO;
-use PKP\db\DAORegistry;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\plugins\PluginRegistry;
@@ -88,14 +89,27 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         $this->addIdentifiers($doc, $entityNode, $entity);
 
-        $entityNode->setAttribute('version', $entity->getData('version') ?: 1);
+        $publicationVersionInfo = $entity->getVersion();
+
+        if (isset($publicationVersionInfo)) {
+            $entityNode->setAttribute('version_stage', $publicationVersionInfo->stage->value);
+            $entityNode->setAttribute('version_minor', $publicationVersionInfo->minorNumbering);
+            $entityNode->setAttribute('version_major', $publicationVersionInfo->majorNumbering);
+        }
+
+        if ($sourcePublicationId = $entity->getData('sourcePublicationId')) {
+            $entityNode->setAttribute('source_publication_id', $sourcePublicationId);
+        }
+
+        $entityNode->setAttribute('id', $entity->getId());
+
         $entityNode->setAttribute('status', $entity->getData('status'));
         if ($primaryContactId = $entity->getData('primaryContactId')) {
             $entityNode->setAttribute('primary_contact_id', $primaryContactId);
         }
         $entityNode->setAttribute('url_path', $entity->getData('urlPath'));
 
-        if ($entity->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($entity->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             $entityNode->setAttribute('seq', (int) $entity->getData('seq'));
         } else {
             $entityNode->setAttribute('seq', '0');
@@ -213,13 +227,15 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         // add controlled vocabularies
         // get the supported locale keys
-        $supportedLocales = $deployment->getContext()->getSupportedFormLocales();
         $controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
         foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
-            $dao = DAORegistry::getDAO($mappings[0]);
-            $getFunction = $mappings[1];
-            $controlledVocabularyNodeName = $mappings[2];
-            $controlledVocabulary = $dao->$getFunction($entity->getId(), $supportedLocales);
+            $symbolic = $mappings[0];
+            $controlledVocabularyNodeName = $mappings[1];
+            $controlledVocabulary = Repo::controlledVocab()->getBySymbolic(
+                $symbolic,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $entity->getId()
+            );
             $this->addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
         }
     }
@@ -304,10 +320,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => ['SubmissionKeywordDAO', 'getKeywords', 'keyword'],
-            'agencies' => ['SubmissionAgencyDAO', 'getAgencies', 'agency'],
-            'disciplines' => ['SubmissionDisciplineDAO', 'getDisciplines', 'discipline'],
-            'subjects' => ['SubmissionSubjectDAO', 'getSubjects', 'subject'],
+            'keywords' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, 'keyword'],
+            'agencies' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY, 'agency'],
+            'disciplines' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, 'discipline'],
+            'subjects' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, 'subject'],
         ];
     }
 
@@ -337,10 +353,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      */
     private function createCitationsNode($doc, $deployment, $publication)
     {
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-
         $nodeCitations = $doc->createElementNS($deployment->getNamespace(), 'citations');
-        $submissionCitations = $citationDao->getByPublicationId($publication->getId())->toAssociativeArray();
+        $submissionCitations = $publication->getData('citations') ?? [];
 
         foreach ($submissionCitations as $submissionCitation) {
             $rawCitation = $submissionCitation->getRawCitation();

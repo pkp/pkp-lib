@@ -1,0 +1,21 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-03-23 22:30+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"metadata-dc11/mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "plugins.metadata.dc11.displayName"
+msgstr "डब्लिन कोअर 1.1 मेटाडेटा"
+
+msgid "plugins.metadata.dc11.description"
+msgstr ""
+"डब्लिन कोअर स्वरूप (version) 1.1 schemas and application adapters ला "
+"सहाय्यकारी होते."

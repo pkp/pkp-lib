@@ -14,6 +14,8 @@
 		$('#userGroupForm').pkpHandler(
 			'$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler', {ldelim}
 			selfRegistrationRoleIds: {$selfRegistrationRoleIds|@json_encode},
+			permitSettingsRoleIds: {$permitSettingsRoleIds|@json_encode},
+			mySettingsAccessUserGroupIds: {$mySettingsAccessUserGroupIds|default:[]|@json_encode},
 			recommendOnlyRoleIds: {$recommendOnlyRoleIds|@json_encode},
 			roleForbiddenStagesJSON: {$roleForbiddenStagesJSON},
 			notChangeMetadataEditPermissionRoles: {$notChangeMetadataEditPermissionRoles|@json_encode},
@@ -30,7 +32,7 @@
 		<input type="hidden" id="userGroupId" name="userGroupId" value="{$userGroupId|escape}" />
 	{/if}
 	{fbvFormArea id="userGroupDetails"}
-		<h3>{translate key="settings.roles.roleDetails"}</h3>
+		<h3 class="mb-2 text-xl-bold">{translate key="settings.roles.roleDetails"}</h3>
 		{fbvFormSection title="settings.roles.from" for="roleId" required="true"}
 			{fbvElement type="select" name="roleId" from=$roleOptions id="roleId" selected=$roleId disabled=$disableRoleSelect required="true"}
 		{/fbvFormSection}
@@ -52,11 +54,11 @@
 	<div id="userGroupOptionsContainer" class="full left">
 		{fbvFormArea id="userGroupOptions"}
 			{fbvFormSection title="settings.roles.roleOptions" list="true"}
-				{fbvElement type="checkbox" name="showTitle" id="showTitle" checked=$showTitle label="settings.roles.showTitles"}
 				{fbvElement type="checkbox" name="permitSelfRegistration" id="permitSelfRegistration" checked=$permitSelfRegistration label="settings.roles.permitSelfRegistration"}
 				{fbvElement type="checkbox" name="recommendOnly" id="recommendOnly" checked=$recommendOnly label="settings.roles.recommendOnly"}
 				{fbvElement type="checkbox" name="permitMetadataEdit" id="permitMetadataEdit" checked=$permitMetadataEdit label="settings.roles.permitMetadataEdit"}
 				{fbvElement type="checkbox" name="masthead" id="masthead" checked=$masthead label="settings.roles.masthead"}
+				{fbvElement type="checkbox" name="permitSettings" id="permitSettings" checked=$permitSettings label="settings.roles.permitSettings"}
 			{/fbvFormSection}
 		{/fbvFormArea}
 	</div>

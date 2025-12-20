@@ -32,13 +32,14 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * Fetch a review round, creating it if needed.
      *
      * @param int $submissionId
+     * @param int $publicationId
      * @param int $stageId One of the WORKFLOW_*_REVIEW_STAGE_ID constants.
      * @param int $round
-     * @param int $status One of the ReviewRound::REVIEW_ROUND_STATUS_* constants.
+     * @param ?int $status One of the ReviewRound::REVIEW_ROUND_STATUS_* constants.
      *
      * @return ?ReviewRound
      */
-    public function build($submissionId, $stageId, $round, $status = null)
+    public function build(int $submissionId, int $publicationId, int $stageId, int $round, ?int $status = null): ?ReviewRound
     {
         // If one exists, fetch and return.
         $reviewRound = $this->getReviewRound($submissionId, $stageId, $round);
@@ -54,6 +55,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
             unset($reviewRound);
             $reviewRound = $this->newDataObject();
             $reviewRound->setSubmissionId($submissionId);
+            $reviewRound->setPublicationId($publicationId);
             $reviewRound->setRound($round);
             $reviewRound->setStageId($stageId);
             $reviewRound->setStatus($status);
@@ -88,11 +90,12 @@ class ReviewRoundDAO extends \PKP\db\DAO
     {
         $this->update(
             'INSERT INTO review_rounds
-				(submission_id, stage_id, round, status)
+				(submission_id, publication_id, stage_id, round, status)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
             [
                 (int)$reviewRound->getSubmissionId(),
+                (int)$reviewRound->getPublicationId(),
                 (int)$reviewRound->getStageId(),
                 (int)$reviewRound->getRound(),
                 (int)$reviewRound->getStatus()
@@ -114,11 +117,13 @@ class ReviewRoundDAO extends \PKP\db\DAO
             'UPDATE	review_rounds
 			SET	status = ?
 			WHERE	submission_id = ? AND
+			    publication_id = ? AND
 				stage_id = ? AND
 				round = ?',
             [
                 (int)$reviewRound->getStatus(),
                 (int)$reviewRound->getSubmissionId(),
+                (int)$reviewRound->getPublicationId(),
                 (int)$reviewRound->getStageId(),
                 (int)$reviewRound->getRound()
             ]
@@ -128,6 +133,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a review round
+     * FIXME: Should probably use publication ID by default in future
      *
      * @param int $submissionId
      * @param int $stageId One of the Stage_id_* constants.
@@ -204,6 +210,42 @@ class ReviewRoundDAO extends \PKP\db\DAO
         return new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
     }
 
+
+    /**
+     * Get an iterator of review round objects associated with this publication.
+     *
+     * @param int $publicationId
+     * @param int|null $stageId One of the Stage_id_* constants.
+     * @param int|null $round The review round to be retrieved.
+     * @return DAOResultFactory<ReviewRound>
+     */
+    public function getByPublicationId(int $publicationId, ?int $stageId = null, ?int $round = null): DAOResultFactory
+    {
+        $q = DB::table('review_rounds', 'rr')
+            ->where('rr.publication_id', '=', $publicationId)
+            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
+            ->when($round, fn (Builder $q) => $q->where('rr.round', '=', $round))
+            ->orderBy('rr.stage_id')
+            ->orderBy('rr.round');
+
+        return new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
+    }
+
+    /**
+     * Get an iterator of review round objects associated with a set of publication IDs
+     */
+    public function getByPublicationIds($publicationIds, $stageId = null, $round = null): DAOResultFactory
+    {
+        $q = DB::table('review_rounds', 'rr')
+            ->whereIn('rr.publication_id', $publicationIds)
+            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
+            ->when($round, fn (Builder $q) => $q->where('rr.round', '=', $round))
+            ->orderBy('rr.stage_id')
+            ->orderBy('rr.round');
+
+        return new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
+    }
+
     /**
      * Get the current review round for a given stage (or for the latest stage)
      *
@@ -227,6 +269,25 @@ class ReviewRoundDAO extends \PKP\db\DAO
         );
         $row = $result->current();
         return $row ? (int) $row->round : 1;
+    }
+
+    /**
+     * Get the current review round by publication ID for a given stage (or for the latest stage)
+     *
+     * @param int $publicationId
+     * @param int|null $stageId One of the Stage_id_* constants.
+     * @return int
+     */
+    public function getCurrentRoundByPublicationId(int $publicationId, ?int $stageId = null): int
+    {
+        $result = DB::table('review_rounds', 'rr')
+            ->where('rr.publication_id', '=', $publicationId)
+            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
+            ->selectRaw('MAX(stage_id) as stage_id, MAX(round) as round')
+            ->pluck('round')
+            ->first();
+
+        return $result ?? 1;
     }
 
     /**
@@ -257,6 +318,32 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
+     * Get the last review round for a given stage (or for the latest stage)
+     *
+     * @param int $publicationId
+     * @param int|null $stageId One of the Stage_id_* constants.
+     * @return ?ReviewRound
+     */
+    public function getLastReviewRoundByPublicationId(int $publicationId, ?int $stageId = null): ?ReviewRound
+    {
+        $q = DB::table('review_rounds', 'rr')
+            ->where('rr.publication_id', '=', $publicationId)
+            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
+            ->orderByDesc('rr.stage_id')
+            ->orderByDesc('rr.round');
+
+        $resultsFactory = new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
+
+        try {
+            /** @var ReviewRound $reviewRound */
+            $reviewRound = $resultsFactory->next();
+            return $reviewRound;
+        } catch (\Exception $_exception) {
+            return null;
+        }
+    }
+
+    /**
      * Check if submission has a review round (in the given stage id)
      */
     public function submissionHasReviewRound(int $submissionId, ?int $stageId = null): bool
@@ -273,6 +360,21 @@ class ReviewRoundDAO extends \PKP\db\DAO
             $params
         );
         return (bool) $result->current();
+    }
+
+    /**
+     * Check if a publication has a review round (in the given stage id)
+     *
+     * @param int $publicationId
+     * @param int|null $stageId One of the Stage_id_* constants.
+     * @return bool
+     */
+    public function publicationHasReviewRound(int $publicationId, ?int $stageId = null): bool
+    {
+        return (bool) DB::table('review_rounds', 'rr')
+            ->where('rr.publication_id', '=', $publicationId)
+            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
+            ->first();
     }
 
     /**
@@ -311,6 +413,17 @@ class ReviewRoundDAO extends \PKP\db\DAO
     public function deleteBySubmissionId($submissionId)
     {
         $reviewRounds = $this->getBySubmissionId($submissionId);
+        while ($reviewRound = $reviewRounds->next()) {
+            $this->deleteObject($reviewRound);
+        }
+    }
+
+    /**
+     * Delete review round by publication ID.
+     */
+    public function deleteByPublicationId(int $publicationId): void
+    {
+        $reviewRounds = $this->getByPublicationId($publicationId);
         while ($reviewRound = $reviewRounds->next()) {
             $this->deleteObject($reviewRound);
         }
@@ -369,6 +482,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
         $reviewRound->setId((int)$row['review_round_id']);
         $reviewRound->setSubmissionId((int)$row['submission_id']);
+        $reviewRound->setPublicationId((int)$row['publication_id']);
         $reviewRound->setStageId((int)$row['stage_id']);
         $reviewRound->setRound((int)$row['round']);
         $reviewRound->setStatus((int)$row['status']);
@@ -380,7 +494,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * Get the number of review rounds in a submission
      *
      * @param  int $submissionId  Submission id for which review round count need to be determined
-     * @param  int $stageId  Review stage id for which review round count need to be determined
+     * @param  int|null $stageId  Review stage id for which review round count need to be determined
      *
      * @throws \Exception
      *
@@ -398,8 +512,27 @@ class ReviewRoundDAO extends \PKP\db\DAO
             ->when(!is_null($stageId), fn ($query) => $query->where('stage_id', $stageId))
             ->getCountForPagination();
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewRound\ReviewRoundDAO', '\ReviewRoundDAO');
+    /**
+     * Get the number of review rounds in a publication
+     *
+     * @param  int $publicationId  Publication id for which review round count need to be determined
+     * @param  int|null $stageId  Review stage id for which review round count need to be determined
+     *
+     * @throws \Exception
+     *
+     * @return int      Number of internal review round associated with this submission
+     *
+     */
+    public function getReviewRoundCountByPublicationId(int $publicationId, ?int $stageId = null)
+    {
+        if (!is_null($stageId) && !in_array($stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])) {
+            throw new \Exception('Not a valid review stage');
+        }
+
+        return DB::table('review_rounds')
+            ->where('publication_id', $publicationId)
+            ->when(!is_null($stageId), fn ($query) => $query->where('stage_id', $stageId))
+            ->getCountForPagination();
+    }
 }

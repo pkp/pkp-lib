@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/users/filter/PKPUserUserXmlFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserUserXmlFilter
@@ -21,8 +21,10 @@ use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
-use PKP\user\InterestManager;
+use PKP\security\Role;
 use PKP\user\User;
+use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
 
 class PKPUserUserXmlFilter extends NativeExportFilter
 {
@@ -91,7 +93,12 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         // Add metadata
         $this->createLocalizedNodes($doc, $userNode, 'givenname', $user->getGivenName(null));
         $this->createLocalizedNodes($doc, $userNode, 'familyname', $user->getFamilyName(null));
-        $this->createLocalizedNodes($doc, $userNode, 'affiliation', $user->getAffiliation(null));
+
+        if ($user->getAffiliation(null) && count(array_filter($user->getAffiliation(null))) > 0) {
+            $affiliationNode = $doc->createElementNS($deployment->getNamespace(), 'affiliation');
+            $this->createLocalizedNodes($doc, $affiliationNode, 'name', $user->getAffiliation(null));
+            $userNode->appendChild($affiliationNode);
+        }
 
         $this->createOptionalNode($doc, $userNode, 'country', $user->getCountry());
         $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($user->getEmail(), ENT_COMPAT, 'UTF-8')));
@@ -131,18 +138,34 @@ class PKPUserUserXmlFilter extends NativeExportFilter
             $this->createOptionalNode($doc, $userNode, 'disabled_reason', $user->getDisabledReason());
         }
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByUserIds([$user->getId()])
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withUserIds([$user->getId()])
+            ->withContextIds([$context->getId()])
+            ->get();
 
         foreach ($userGroups as $userGroup) {
-            $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->getName($context->getPrimaryLocale()), ENT_COMPAT, 'UTF-8')));
+            $userUserGroups = UserUserGroup::withUserGroupIds([$userGroup->id])
+                ->withUserId($user->getId())
+                ->get();
+            foreach ($userUserGroups as $userUserGroup) {
+                $userUserGroupNode = $doc->createElementNS($deployment->getNamespace(), 'user_user_group');
+                $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->name[$context->getPrimaryLocale()], ENT_COMPAT, 'UTF-8')));
+                if ($userUserGroup->dateStart) {
+                    $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'date_start', $userUserGroup->dateStart));
+                }
+                if ($userUserGroup->dateEnd) {
+                    $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'date_end', $userUserGroup->dateEnd));
+                }
+                $masthead = $userUserGroup->masthead;
+                if ($userGroup->roleId = Role::ROLE_ID_REVIEWER) {
+                    $masthead = true;
+                }
+                $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'masthead', $masthead ? 'true' : 'false'));
+                $userNode->appendChild($userUserGroupNode);
+            }
         }
 
         // Add Reviewing Interests, if any.
-        $interestManager = new InterestManager();
-        $interests = $interestManager->getInterestsString($user);
+        $interests = Repo::userInterest()->getInterestsString($user);
         $this->createOptionalNode($doc, $userNode, 'review_interests', $interests);
 
         return $userNode;
@@ -154,9 +177,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $context = $deployment->getContext();
         $userGroupsNode = $doc->createElementNS($deployment->getNamespace(), 'user_groups');
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');
@@ -164,7 +185,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $exportFilter = array_shift($userGroupExportFilters);
         $exportFilter->setDeployment($this->getDeployment());
 
-        $userGroupsArray = $userGroups->toArray();
+        $userGroupsArray = $userGroups->all();
         $userGroupsDoc = $exportFilter->execute($userGroupsArray);
         if ($userGroupsDoc->documentElement instanceof \DOMElement) {
             $clone = $doc->importNode($userGroupsDoc->documentElement, true);

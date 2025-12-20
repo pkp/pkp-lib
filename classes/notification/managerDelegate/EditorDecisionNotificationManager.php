@@ -62,7 +62,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $assocId): void
     {
         if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
             throw new \Exception('Unexpected assoc type!');
@@ -93,7 +93,6 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
         // got here from the editor decision which sends its own email.
         foreach ((array) $userIds as $userId) {
             $this->createNotification(
-                $request,
                 $userId,
                 $this->getNotificationType(),
                 $request->getContext()->getId(),
@@ -158,8 +157,4 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
             default => Notification::NOTIFICATION_LEVEL_NORMAL
         };
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\EditorDecisionNotificationManager', '\EditorDecisionNotificationManager');
 }

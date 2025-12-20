@@ -3,8 +3,8 @@
 /**
  * @file classes/filter/FilterDAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilterDAO
@@ -337,7 +337,7 @@ class FilterDAO extends \PKP\db\DAO
      * @param $checkRuntimeEnvironment whether to remove filters
      *  from the result set that do not match the current run-time environment.
      *
-     * @return filter instances (transformations) in the given group
+     * @return array<int,Filter> instances (transformations) in the given group
      */
     public function getObjectsByGroup(
         string $groupSymbolic,
@@ -621,8 +621,4 @@ class FilterDAO extends \PKP\db\DAO
             $this->_deleteSubFiltersByParentFilterId($subFilterId);
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\FilterDAO', '\FilterDAO');
 }

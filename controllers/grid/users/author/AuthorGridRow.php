@@ -81,7 +81,6 @@ class AuthorGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editAuthor', null, $actionArgs),
                             __('grid.action.editContributor'),
-                            'modal_edit'
                         ),
                         __('grid.action.edit'),
                         'edit'
@@ -96,30 +95,12 @@ class AuthorGridRow extends GridRow
                             __('common.confirmDelete'),
                             __('common.delete'),
                             $router->url($request, null, null, 'deleteAuthor', null, $actionArgs),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.delete'),
                         'delete'
                     )
                 );
-
-                $author = Repo::author()->get((int) $rowId, $this->getPublication()->getId());
-
-                if ($author && !Repo::user()->getByEmail($author->getEmail(), true)) {
-                    $this->addAction(
-                        new LinkAction(
-                            'addUser',
-                            new AjaxModal(
-                                $router->url($request, null, null, 'addUser', null, $actionArgs),
-                                __('grid.user.add'),
-                                'modal_add_user',
-                                true
-                            ),
-                            __('grid.user.add'),
-                            'add_user'
-                        )
-                    );
-                }
             }
         }
     }

@@ -185,7 +185,7 @@ function __p(string $key, int $number, array $replace = [], ?string $locale = nu
 
 /**
  * Check if run on CLI
- * 
+ *
  * @deprecated 3.5.0 use PKPContainer::getInstance()->runningInConsole()
  */
 if (!function_exists('runOnCLI')) {
@@ -234,7 +234,7 @@ if (!function_exists('convertHrToBytes')) {
 if (!function_exists('isValidJson')) {
     function isValidJson(mixed $data): bool
     {
-        if (!empty($data)) {
+        if (!empty($data) && is_string($data)) {
             @json_decode($data);
             return (json_last_error() === JSON_ERROR_NONE);
         }
@@ -264,5 +264,34 @@ if (!function_exists('paramToArray')) {
         }
 
         return [$value];
+    }
+}
+
+/**
+ * Deep merge two arrays when both the keys of is array
+ * This is better than `array_merge_recursive` which turns the scaler values into array also
+ * at the merge time.
+ *
+ * @param array $array1
+ * @param array $array2
+ *
+ * @return array
+ */
+if (!function_exists('deepArrayMerge')) {
+    function deepArrayMerge(array $array1, array $array2): array
+    {
+        $merged = $array1;
+
+        foreach ($array2 as $key => $value) {
+            // If the key exists in both arrays and both values are arrays, merge them recursively
+            if (isset($merged[$key]) && is_array($merged[$key]) && is_array($value)) {
+                $merged[$key] = deepArrayMerge($merged[$key], $value);
+            } else {
+                // Otherwise, assign the value from the second array
+                $merged[$key] = $value;
+            }
+        }
+
+        return $merged;
     }
 }

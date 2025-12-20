@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-12-21 17:52+0000\n"
+"PO-Revision-Date: 2025-09-24 06:49+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fi/>\n"
@@ -592,7 +592,7 @@ msgid "common.noneProvided"
 msgstr "Ei annettuja kohteita"
 
 msgid "common.no"
-msgstr "Nro"
+msgstr "Ei"
 
 msgid "common.noItemsFound"
 msgstr "Kohteita ei löytynyt."
@@ -1699,29 +1699,8 @@ msgstr "Tieteenala(t)"
 msgid "search.fullText"
 msgstr "Kokoteksti"
 
-msgid "search.indexTerms"
-msgstr "Asiasanat"
-
-msgid "search.indexTermsLong"
-msgstr "Kaikki asiasanakentät"
-
-msgid "search.matchAll"
-msgstr "Yhdistä kaikki kategoriat"
-
 msgid "search.noResults"
 msgstr "Ei tuloksia"
-
-msgid "search.operator.and"
-msgstr "ja"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Hae"
 
 msgid "search.searchResults"
 msgstr "Hakutulokset"
@@ -1950,6 +1929,7 @@ msgstr "Kierroksen {$round} tila"
 msgid "notification.type.editorialReport"
 msgstr "Kävijäraportin yhteenveto."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "Muista tarkistaa julkaisusi toimitustyötä koskeva raportti."
 
@@ -1957,7 +1937,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Viikottainen sähköposti keskeneräisistä tehtävistä"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigaatiovalikko päivitettiin onnistuneesti"
@@ -2292,3 +2272,97 @@ msgstr "Näytä kaikki"
 
 msgid "common.highlights"
 msgstr "Nostot"
+
+msgid "navigation.dashboards"
+msgstr "Toimittajan hallintapaneeli"
+
+msgid "navigation.mySubmissions"
+msgstr "Omat käsikirjoitukseni"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Näytä <a href=\"{$url}\">toimituksellinen historia</a>"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Vertaisarvioijat edelliseltä vuodelta"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Vertaisarvioijat aiemmilta vuosilta"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Toimittajat kiittävät alla lueteltuja vuoden {$year} arvioijia."
+
+msgid "common.editorialHistory"
+msgstr "Toimituksellinen historia"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Tässä osiossa on luettelo aiemmista toimituskunnan avustajista."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Näytä henkilön {$name} ORCID-profiili"
+
+msgid "common.assignments"
+msgstr "Tehtävät"
+
+msgid "common.changeLanguage"
+msgstr "Vaihda kieltä"
+
+msgid "form.errorSummaryOne"
+msgstr "Havaittiin 1 virhe! Korjaa alla oleva virhe ennen kuin jatkat."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Havaittiin {$count} virhettä! Korjaa alla olevat virheet ennen kuin jatkat."
+
+msgid "common.yesContinue"
+msgstr "Kyllä, jatka"
+
+msgid "common.showingXofX"
+msgstr "Näytetään <strong>{$start}–{$finish}</strong> / {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Ladattu"
+
+msgid "navigation.reviewAssignments"
+msgstr "Omat arviointipyyntöni"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Arviointi lähetetty"
+
+msgid "validator.date.comparison"
+msgstr "Vertailua varten annetut päivämäärät ovat virheellisiä."
+
+msgid "validator.multilingual"
+msgstr "Tämän kentän monikielisyysvaatimus ei täyty."
+
+msgid "common.moreActions"
+msgstr "Lisää toimintoja"
+
+msgid "common.editorialMasthead"
+msgstr "Toimituskunnan tiedot"
+
+msgid "common.editorialHistory.page"
+msgstr "Toimituksellisen historian sivu"
+
+msgid "common.filtersClear"
+msgstr "Tyhjennä suodattimet"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Arviointipyyntö hyväksytty"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Ei"
+
+msgid "common.refreshingData"
+msgstr "Päivitetään tietoja"
+
+msgid "common.viewMoreDetails"
+msgstr "Näytä lisätietoja"
+
+msgid "common.sandbox"
+msgstr "Sovellus on testitilassa."

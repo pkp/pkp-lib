@@ -1,13 +1,14 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
+# "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2024-02-19 11:08+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2025-11-28 16:34+0000\n"
+"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da/>\n"
 "Language: da\n"
@@ -282,7 +283,7 @@ msgid "common.confirmed.date"
 msgstr "Bekræftet: {$dateConfirmed}"
 
 msgid "common.content"
-msgstr "Tilfreds"
+msgstr "Indhold"
 
 msgid "common.contents"
 msgstr "Indhold"
@@ -714,7 +715,7 @@ msgid "common.preview"
 msgstr "Vis"
 
 msgid "common.publisher"
-msgstr "Forlægger"
+msgstr "Udgiver"
 
 msgid "common.quality"
 msgstr "Kvalitet"
@@ -1340,7 +1341,7 @@ msgid "icon.letter.alt"
 msgstr "Brev"
 
 msgid "icon.mail.alt"
-msgstr "Post"
+msgstr "E-mail"
 
 msgid "icon.unchecked.alt"
 msgstr "Ikke markeret"
@@ -1707,29 +1708,8 @@ msgstr "Fagområde(r)"
 msgid "search.fullText"
 msgstr "Fuldtekst"
 
-msgid "search.indexTerms"
-msgstr "Indekstermer"
-
-msgid "search.indexTermsLong"
-msgstr "Alle indeksterm-felter"
-
-msgid "search.matchAll"
-msgstr "Find alle kategorier"
-
 msgid "search.noResults"
 msgstr "Ingen resultater"
-
-msgid "search.operator.and"
-msgstr "og"
-
-msgid "search.operator.not"
-msgstr "ikke"
-
-msgid "search.operator.or"
-msgstr "eller"
-
-msgid "search.SearchFor"
-msgstr "Søg efter"
 
 msgid "search.searchResults"
 msgstr "Søgeresultater"
@@ -1810,7 +1790,7 @@ msgstr ""
 "<li>Klik på Beskyt dokument</li>\n"
 "<li>Vælg Slet personlige oplysninger fra filen, når den gemmes</li>\n"
 "<li>Klik på OK, og gem filen</li></ul></li>\n"
-"<li>PDF:\n"
+"<li>Acrobat Adobe (PDF):\n"
 "<ul><li>Gå til fil</li>\n"
 "<li>Vælg Egenskaber</li>\n"
 "<li>Fjern ethvert navn i forfatterfeltet</li>\n"
@@ -1899,7 +1879,7 @@ msgid "timeZone"
 msgstr "Tidszone"
 
 msgid "user.email"
-msgstr "E-mail-adresse"
+msgstr "E-mailadresse"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1962,32 +1942,31 @@ msgstr "Sammendrag af statistikrapport."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Dette er en venlig påmindelse til dig om at kontrollere dit tidsskrifts "
-"tilstand via den redaktionelle rapport."
+"Kontrollér venligst dit tidsskrifts tilstand via den redaktionelle rapport."
 
 msgid "notification.type.editorialReminder"
 msgstr "Ugentlig e-mail om uafsluttede opgaver"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Navigationsmenu-elementerne blev opdateret"
+msgstr "Elementet i navigationsmenuen blev med succes opdateret"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Navigationsmenu-elementerne blev fjernet"
+msgstr "Elementet i navigationsmenuen blev med succes fjernet"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Navigationsmenu-elementerne blev tilføjet"
+msgstr "Elementet i navigationsmenuen blev med succes tilføjet"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Navigationsmenuen blev tilføjet"
+msgstr "Navigationsmenuen blev med succes tilføjet"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Navigationsmenu blev opdateret"
+msgstr "Navigationsmenu blev med succes opdateret"
 
 msgid "notification.removedNavigationMenu"
-msgstr "Navigationsmenu blev fjernet"
+msgstr "Navigationsmenu blev med succes fjernet"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Du er ikke længere tilmeldt"
@@ -2310,3 +2289,93 @@ msgstr "Vis alle"
 
 msgid "common.sandbox"
 msgstr "Programmet kører i sandkassetilstand."
+
+msgid "navigation.reviewAssignments"
+msgstr "Mine opgaver som bedømmer"
+
+msgid "common.yesContinue"
+msgstr "Ja, fortsæt"
+
+msgid "common.showingXofX"
+msgstr "Viser <strong>{$start} til {$finish}</strong> af {$total}"
+
+msgid "common.loaded"
+msgstr "Indlæst"
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} fejl opdaget! Ret venligst fejlene nedenfor før du fortsætter."
+
+msgid "navigation.mySubmissions"
+msgstr "Mine opgaver som forfatter"
+
+msgid "common.refreshingData"
+msgstr "Genindlæser data"
+
+msgid "common.viewMoreDetails"
+msgstr "Se flere detaljer"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Fagfællebedømmere i de seneste år"
+
+msgid "common.editorialHistory"
+msgstr "Redaktionshistorik"
+
+msgid "common.editorialHistory.page"
+msgstr "Redaktionshistoriksside"
+
+msgid "validator.multilingual"
+msgstr "Flersproget krav er ikke opfyldt for dette felt."
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Fagfællebedømmere i det foregående år"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Redaktørerne værdsætter bedømmerne i {$year} oplistet nedenfor."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Se ORCID profil for {$name}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryOne"
+msgstr "1 fejl opdaget! Ret venligst fejlen nedenfor før du fortsætter."
+
+msgid "navigation.dashboards"
+msgstr "Redaktørbetjeningspanel"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Bedømmelse accepteret den"
+
+msgid "validator.date.comparison"
+msgstr "Ugyldige datoer angivet til sammenligning."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Se <a href=\"{$url}\">Redaktionshistorik</a>"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Denne sektion oplister tidligere bidragydere."
+
+msgid "common.assignments"
+msgstr "Opgaver"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Bedømmelse indsendt den"
+
+msgid "common.numero"
+msgstr "Nr."
+
+msgid "common.moreActions"
+msgstr "Flere handlinger"
+
+msgid "common.filtersClear"
+msgstr "Ryd filtre"
+
+msgid "common.editorialMasthead"
+msgstr "Redaktionel kolofon"
+
+msgid "common.changeLanguage"
+msgstr "Skift sprog"

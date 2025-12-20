@@ -171,8 +171,3 @@ class PageHandler extends Handler
         exit;
     }
 }
-
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\page\PageHandler', '\PageHandler');
-}

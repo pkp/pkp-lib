@@ -146,11 +146,11 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
 
-        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->submission_file_id => $this->fromRow($row);
             }
@@ -163,7 +163,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     public function fromRow(object $primaryRow): SubmissionFile
     {
         $submissionFile = parent::fromRow($primaryRow);
-        $submissionFile->setData('locale', $primaryRow->locale);
+        $submissionFile->setData('submissionLocale', $primaryRow->submission_locale);
         $submissionFile->setData('path', $primaryRow->path);
         $submissionFile->setData('mimetype', $primaryRow->mimetype);
 
@@ -353,16 +353,15 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         int $excludePubObjectId,
         int $contextId
     ): bool {
-        $result = DB::table($this->settingsTable . ' as sfs')
+        return DB::table($this->settingsTable . ' as sfs')
             ->join('submission_files AS sf', 'sfs.submission_file_id', '=', 'sf.submission_file_id')
             ->join('submissions AS s', 'sf.submission_id', '=', 's.submission_id')
             ->where([
-                'sfs.setting_name' => 'pub-id::' . (string) $pubIdType,
-                'sfs.setting_value' => (string) $pubId,
-                'sfs.submission_file_id' => (int) $excludePubObjectId,
-                's.context_id' => (int) $contextId
-            ])->getCountForPagination();
-        return $result > 0;
+                ['sfs.setting_name', '=', "pub-id::{$pubIdType}"],
+                ['sfs.setting_value', '=', (string) $pubId],
+                ['sfs.submission_file_id', '<>', (int) $excludePubObjectId],
+                ['s.context_id', '=', (int) $contextId]
+            ])->count() > 0;
     }
 
     /**
@@ -374,10 +373,10 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->updateOrInsert(
                 [
                     'submission_file_id' => (int) $pubObjectId,
+                    'locale' => '',
                     'setting_name' => 'pub-id::' . (string) $pubIdType,
-                    'setting_value' => (string) $pubId
                 ],
-                ['locale' => '']
+                ['setting_value' => (string) $pubId]
             );
     }
 

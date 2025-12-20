@@ -1,10 +1,10 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2023-06-29 16:57+0000\n"
+"PO-Revision-Date: 2025-03-28 13:27+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "da/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Anmodning"
@@ -137,3 +137,66 @@ msgid "user.authorization.submissionReviewer"
 msgstr ""
 "Den nuværende bruger er ikke tildelt rollen som bedømmer på det ønskede "
 "dokument."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Tidligere bedømmelser"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Runde {$round} bedømmelse indsendt d. {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Læs runde {$round} bedømmelse"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Til redaktører og forfattere"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Ingen grund angivet for afvisning af invitation til at bedømme."
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Denne bedømmelse blev ikke afsluttet."
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Runde {$round} bedømmelse indsendt af dig til"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Kommentarer fra bedømmer"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Kun til redaktører"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Kommentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Afvisningsgrund sendt på e-mail"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Afvisningsdato"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikelmetadata"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Resumé"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Nøgleord"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Generel information"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Vedhæftede filer"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Dette er filer, som du vedhæftede sammen med din bedømmelse"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Filer til bedømmelse"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Disse filer blev sendt til dig for at blive bedømt"

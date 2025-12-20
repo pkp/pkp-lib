@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueryTitleGridColumn.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryTitleGridColumn
@@ -77,13 +77,12 @@ class QueryTitleGridColumn extends GridColumn
     {
         // Retrieve the submission file.
         $query = $row->getData();
-        $headNote = $query->getHeadNote();
 
         // Create the cell action to download a file.
         $router = $request->getRouter();
         $actionArgs = array_merge(
             $this->_actionArgs,
-            ['queryId' => $query->getId()]
+            ['queryId' => $query->id]
         );
 
         return array_merge(
@@ -93,10 +92,9 @@ class QueryTitleGridColumn extends GridColumn
                     'readQuery',
                     new AjaxModal(
                         $router->url($request, null, null, 'readQuery', null, $actionArgs),
-                        $headNote ? htmlspecialchars($headNote->title) : '&mdash;',
-                        'modal_edit'
+                        $query->title ?? '—',
                     ),
-                    ($headNote?->title != '') ? htmlspecialchars($headNote->title) : '&mdash;',
+                    ($query?->title != '') ? htmlspecialchars($query->title) : '&mdash;',
                     null
                 )
             ]

@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/query/ManageQueryNoteFilesGridHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageQueryNoteFilesGridHandler
@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\files\query;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\controllers\grid\files\query\form\ManageQueryNoteFilesForm;
 use PKP\controllers\grid\files\SelectableSubmissionFileListCategoryGridHandler;
@@ -78,7 +79,7 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 
         // Passed the checks above. If it's part of the current query, mark selected.
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
-        $headNote = $query->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($query->id);
         return $submissionFile->getData('assocType') == Application::ASSOC_TYPE_NOTE && $submissionFile->getData('assocId') == $headNote->id;
     }
 
@@ -98,7 +99,7 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
         $submission = $this->getSubmission();
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
 
-        $manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'));
+        $manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->id, $request->getUserVar('noteId'));
         $manageQueryNoteFilesForm->readInputData();
 
         if ($manageQueryNoteFilesForm->validate()) {

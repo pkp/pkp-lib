@@ -35,7 +35,3 @@ class OAIIdentifier
     /** @var string if this record is deleted */
     public $status;
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\OAIIdentifier', '\OAIIdentifier');
-}

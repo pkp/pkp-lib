@@ -1,0 +1,758 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/mr/"
+">\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "grid.action.upgrade"
+msgstr "अपग्रेड करा"
+
+msgid "grid.action.addNote"
+msgstr "टीप समाविष्ट करा (Add Note)"
+
+msgid "grid.action.updateQuery"
+msgstr "चर्चा अद्ययावत (अपडेट) करा"
+
+msgid "grid.action.deleteMedia"
+msgstr "माध्यम (मीडिया) हटवा"
+
+msgid "grid.action.saveOrdering"
+msgstr "अनुक्रम (Order) सेव्ह करा"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "फेरी/टप्पा (stage) रद्द करा"
+
+msgid "grid.action.deleteSection"
+msgstr "विभाग हटवा"
+
+msgid "grid.action.extendAll"
+msgstr "सगळ्यांचा विस्तार करा (Extend all)"
+
+msgid "grid.action.moveItem"
+msgstr "आयटमचे स्थानांतर करा"
+
+msgid "grid.action.accept"
+msgstr "हे सादरीकरण स्वीकारा"
+
+msgid "grid.action.requestAccount"
+msgstr "सहभागी समाविष्ट करा"
+
+msgid "grid.action.expand"
+msgstr "विस्तार करा"
+
+msgid "grid.action.advancedSearch"
+msgstr "सखोल (Advanced) शोध"
+
+msgid "grid.action.newRound"
+msgstr "नवी फेरी तयार करा"
+
+msgid "grid.action.addAnnouncement"
+msgstr "घोषणा समाविष्ट करा"
+
+msgid "grid.action.addInstitution"
+msgstr "संस्था समाविष्ट करा"
+
+msgid "grid.action.logInAs"
+msgstr "या भूमिकेतून लॉग-इन करा (Login As)"
+
+msgid "grid.action.install"
+msgstr "स्थापित करा (Install)"
+
+msgid "grid.task.status.new"
+msgstr "लक्षात आल्यावर तपासले"
+
+msgid "grid.columns.url"
+msgstr "संकेतस्थळावरील पत्ता (URL)"
+
+msgid "grid.action.addSponsor"
+msgstr "प्रायोजक समाविष्ट करा"
+
+msgid "grid.action.deleteSponsor"
+msgstr "प्रायोजक हटवा"
+
+msgid "grid.action.addSeries"
+msgstr "मालिका/क्रम समाविष्ट करा"
+
+msgid "grid.action.editCategory"
+msgstr "प्रवर्ग (Category) संपादित करा"
+
+msgid "grid.contributor.title"
+msgstr "आधारस्तंभ (Sources of Support)"
+
+msgid "grid.action.deleteContributor"
+msgstr "योगदानकर्त्याला हटवा"
+
+msgid "grid.action.addContributor"
+msgstr "योगदानकर्ता समाविष्ट करा"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "सादरीकरणांचा संग्रह"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "समीक्षण संसाधने"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "प्रकाशन संसाधने"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "प्रदर्शित करा"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "प्रकाशन सूची"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "संपूर्ण"
+
+msgid "grid.roles.stageAssignment"
+msgstr "टप्प्यावरील कामगिरी"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "सगळे परवानगी स्तर"
+
+msgid "grid.user.enroll"
+msgstr "वापरकर्त्याची नोंद करा"
+
+msgid "grid.user.enable"
+msgstr "वापरकर्ता खाते कार्यान्वित करा (Enable)"
+
+msgid "grid.user.mustChangePassword"
+msgstr "पासवर्ड बदला"
+
+msgid "grid.user.userDetails"
+msgstr "वापरकर्त्याचे तपशील"
+
+msgid "grid.user.addRoles"
+msgstr "भूमिकांचा समावेश करा"
+
+msgid "grid.noItems"
+msgstr "घटकरहीत (No Items)"
+
+msgid "grid.settings"
+msgstr "सेटिंग्ज"
+
+msgid "grid.noAuditors"
+msgstr "ऑडिटर नाहीत"
+
+msgid "grid.action.uninstall"
+msgstr "विस्थापित करा (अनइनस्टॉल)"
+
+msgid "grid.action.manageAccess"
+msgstr "प्रवेश व्यवस्थापित करा"
+
+msgid "grid.action.sort"
+msgstr "क्रमवारी लावा (Sort)"
+
+msgid "grid.action.addItem"
+msgstr "आयटम समाविष्ट करा (Add Item)"
+
+msgid "grid.action.addQuery"
+msgstr "चर्चा समाविष्ट करा (Add discussion)"
+
+msgid "grid.action.readQuery"
+msgstr "चर्चा वाचा"
+
+msgid "grid.action.deleteQuery"
+msgstr "चर्चा हटवा"
+
+msgid "grid.action.reload"
+msgstr "अद्ययावत (रीलोड) करा"
+
+msgid "grid.action.deleteFile"
+msgstr "फाईल हटवा"
+
+msgid "grid.action.editMedia"
+msgstr "माध्यम (मीडिया) संपादित करा"
+
+msgid "grid.action.editSection"
+msgstr "विभाग संपादित करा"
+
+msgid "grid.action.export"
+msgstr "स्थानांतर करा (Export)"
+
+msgid "grid.action.editorialHistory"
+msgstr "संपादकीय इतिहास"
+
+msgid "grid.action.remove"
+msgstr "बाजूला काढा (Remove)"
+
+msgid "grid.action.edit"
+msgstr "संपादित करा"
+
+msgid "grid.action.approve"
+msgstr "संमती द्या (Approve)"
+
+msgid "grid.action.setApproval"
+msgstr "अनुमती निश्चित करा (Set Approval)"
+
+msgid "grid.action.moreInformation"
+msgstr "अधिक माहिती"
+
+msgid "grid.action.addAuthor"
+msgstr "लेखक समाविष्ट करा"
+
+msgid "grid.action.editAuthor"
+msgstr "लेखकाचे नाव संपादित करा"
+
+msgid "grid.action.deleteAuthor"
+msgstr "लेखक हटवा"
+
+msgid "grid.action.addAuditor"
+msgstr "ऑडिटर समाविष्ट करा"
+
+msgid "grid.action.order"
+msgstr "अनुक्रम ठरवा (Order)"
+
+msgid "grid.action.cancelOrdering"
+msgstr "अनुक्रम (Ordering) रद्द करा"
+
+msgid "grid.action.collapse"
+msgstr "लपवा/आकार कमी करा (Collapse)"
+
+msgid "grid.action.collapseAll"
+msgstr "सगळेच लपवा (Collapse all)"
+
+msgid "grid.action.wizard"
+msgstr "सेटिंग्जच्या पायर्‍या (wizard)"
+
+msgid "grid.action.readReview"
+msgstr "हे समीक्षण वाचा"
+
+msgid "grid.action.email"
+msgstr "ई-मेल पाठवा"
+
+msgid "grid.action.addReviewer"
+msgstr "समीक्षक समाविष्ट करा"
+
+msgid "grid.action.addFile"
+msgstr "फाईल समाविष्ट करा"
+
+msgid "grid.action.editFile"
+msgstr "फाईल संपादित करा"
+
+msgid "grid.action.requestRevisions"
+msgstr "या सादरीकरणात सुधारणा करण्यासाठी (revisions) विनंती करा"
+
+msgid "grid.action.decline"
+msgstr "हे सादरीकरण नाकारा"
+
+msgid "grid.action.internalReview"
+msgstr "हे सादरीकरण अंतर्गत समीक्षणासाठी पाठवा"
+
+msgid "grid.action.externalReview"
+msgstr "हे सादरीकरण बाह्य समीक्षणासाठी पाठवा"
+
+msgid "grid.action.settings"
+msgstr "सेटिंग्ज"
+
+msgid "grid.action.orderItems"
+msgstr "अनुक्रमाची रीत कार्यान्वित करा (Enable ordering mode)"
+
+msgid "grid.action.resetAll"
+msgstr "सगळे घटक सर्वसाधारण (डीफॉल्ट) मूल्यांवर रीसेट करा"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "एक नव्या मजकूराचा (टेम्पलेट) ई-मेल समाविष्ट करा"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "हा ई-मेल मजकूर (टेम्पलेट) संपादित करा"
+
+msgid "grid.action.disableEmail"
+msgstr "हा ई-मेल मजकूर (टेम्पलेट) अकार्यान्वित (disable) करा"
+
+msgid "grid.action.expandAll"
+msgstr "सगळ्यांचाच विस्तार (Expand) करा"
+
+msgid "grid.action.notify"
+msgstr "या वापरकर्त्याला सूचित करा"
+
+msgid "grid.action.editUserGroup"
+msgstr "हा वापरकर्ता गट संपादित करा"
+
+msgid "grid.action.removeUserGroup"
+msgstr "हा वापरकर्ता गट वगळा"
+
+msgid "grid.action.disable"
+msgstr "अकार्यान्वित (disable) करा"
+
+msgid "grid.action.details"
+msgstr "हा आयटम पहा"
+
+msgid "grid.action.selectCreate"
+msgstr "नव्या समीक्षकाची भर घाला"
+
+msgid "grid.action.search"
+msgstr "शोधा"
+
+msgid "grid.action.viewLibrary"
+msgstr "दस्तऐवज (Document) संग्रह पहा"
+
+msgid "grid.action.sendReminder"
+msgstr "या वापरकर्त्याला नेमून दिलेल्या कामाविषयी स्मरणपत्र पाठवा"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "समीक्षकासाठीची मार्गदर्शक तत्त्वे पहा"
+
+msgid "grid.action.thankReviewer"
+msgstr "या समीक्षकाला आभाराचा संदेश पाठवा"
+
+msgid "grid.action.uploadFile"
+msgstr "फाईल संक्रमित (अपलोड) करा"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "घोषणा प्रकार समाविष्ट करा"
+
+msgid "grid.action.mergeUser"
+msgstr "वापरकर्ता विलीन करा"
+
+msgid "grid.action.unassignUser"
+msgstr "वापरकर्त्याची नियुक्ती रद्द करा"
+
+msgid "grid.action.history"
+msgstr "पूर्वेतिहास पहा"
+
+msgid "grid.action.enable"
+msgstr "कार्यान्वित करा (Enable)"
+
+msgid "grid.action.bookInfo"
+msgstr "सादरीकरणासंबंधी माहिती"
+
+msgid "grid.action.exportAllUsers"
+msgstr "सर्व वापरकर्त्यांची माहिती पाठवा (Export )"
+
+msgid "grid.action.activate"
+msgstr "कार्यान्वित करा (Activate)"
+
+msgid "grid.action.deactivate"
+msgstr "निष्क्रिय करा (Deactivate)"
+
+msgid "grid.action.copy"
+msgstr "कॉपी करा"
+
+msgid "grid.action.preview"
+msgstr "पूर्वावलोकन करा (Preview)"
+
+msgid "grid.action.moreItems"
+msgstr "आणखी दाखवा (Load more)"
+
+msgid "grid.action.users"
+msgstr "वापरकर्ते पहा/निवडा"
+
+msgid "grid.task.status.completed"
+msgstr "हे काम पूर्ण झाले"
+
+msgid "grid.task.status.unfinished"
+msgstr "कार्य अपूर्ण राहिले आहे"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"हे समीक्षण उपलब्ध झाले आहे. ते वाचण्यासाठी डावीकडील 'note/टीप' चिन्हावर क्लि"
+"क करा."
+
+msgid "grid.columns.actions"
+msgstr "कार्यवाही"
+
+msgid "grid.columns.institution"
+msgstr "संस्था"
+
+msgid "grid.columns.auditor"
+msgstr "ऑडिटर"
+
+msgid "grid.columns.locale"
+msgstr "लोकॅल"
+
+msgid "grid.columns.locale.code"
+msgstr "चिन्ह (Code)"
+
+msgid "grid.sponsor.title"
+msgstr "प्रायोजक संस्था"
+
+msgid "grid.action.editSponsor"
+msgstr "प्रायोजक संपादित करा"
+
+msgid "grid.action.editSeries"
+msgstr "मालिका/क्रम संपादित करा"
+
+msgid "grid.action.deleteSeries"
+msgstr "मालिका/क्रम हटवा"
+
+msgid "grid.action.addCategory"
+msgstr "प्रवर्ग (Category) समाविष्ट करा"
+
+msgid "grid.action.deleteCategory"
+msgstr "प्रवर्ग (Category) हटवा"
+
+msgid "grid.action.newVersion"
+msgstr "नवी आवृत्ती (version) तयार करा"
+
+msgid "grid.reviewForm.title"
+msgstr "समीक्षणासाठी फॉर्म"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "प्रतिसादाचे पर्याय"
+
+msgid "grid.noFiles"
+msgstr "कोणत्याही फाईल्स नाहीत"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "फाईल्स"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "संपादकीय संसाधने"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "प्रकाशन मजकूराच्या साच्याची (टेम्पलेट) संसाधने"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "यादीतील विशिष्ट कार्य (Item)"
+
+msgid "author.users.contributor.principalContact"
+msgstr "प्राथमिक संपर्क"
+
+msgid "contributor.listPanel.preview"
+msgstr "पूर्वावलोकन (Preview)"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "स्वरूप (Format)"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "संक्षिप्त रूप (Abbreviated)"
+
+msgid "grid.roles.currentRoles"
+msgstr "सध्याच्या भूमिका"
+
+msgid "grid.roles.add"
+msgstr "नवी भूमिकेची भर घाला"
+
+msgid "grid.user.currentUsers"
+msgstr "सध्याचे वापरकर्ते"
+
+msgid "grid.user.currentEnrollment"
+msgstr "सध्याची नोंदणी"
+
+msgid "grid.user.allRoles"
+msgstr "सगळ्या भूमिका"
+
+msgid "grid.user.add"
+msgstr "वापरकर्ता खाते निर्माण करा"
+
+msgid "grid.user.edit"
+msgstr "वापरकर्ता संपादित करा"
+
+msgid "grid.user.email"
+msgstr "ई-मेल"
+
+msgid "grid.user.disable"
+msgstr "वापरकर्ता खाते अकार्यान्वित करा (Disable)"
+
+msgid "grid.user.enableReason"
+msgstr "वापरकर्ता कार्यान्वित (Enable) करण्याचे कारण"
+
+msgid "grid.user.error"
+msgstr ""
+"या वापरकर्त्याचे व्यवस्थापन करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "कृपया वापरकर्ता निवडा"
+
+msgid "grid.action.delete"
+msgstr "हटवा"
+
+msgid "grid.action.disapprove"
+msgstr "नाकारा (Disapprove)"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "यादीमध्ये"
+
+msgid "author.users.contributor.role"
+msgstr "भूमिका"
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} भूमिका रद्द केली."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} भूमिका {$stageName} टप्प्यावर निश्चित केली."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} भूमिका {$stageName} टप्प्यातून रद्द केली."
+
+msgid "grid.submission.itemTitle"
+msgstr "लेखक; शीर्षक"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "लेखकाने सादर न केलेल्या अपूर्ण सादरीकरणांचा समावेश करा."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "पर्याय यादीत (मेनूत) समावेश करा"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "एका दुव्याचा समावेश करा (Add Item)"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "मार्गनिर्देशन दुवे (Navigation Menu Items) नाहीत"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "मार्गनिर्देशन पर्याय (Navigation Menus) नाहीत"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "एक प्रकार निवडा..."
+
+msgid "grid.action.view"
+msgstr "पहा"
+
+msgid "author.users.contributor.name"
+msgstr "नाव"
+
+msgid "author.users.contributor.email"
+msgstr "ई-मेल पत्ता"
+
+msgid "grid.user.mustProvideName"
+msgstr "कृपया सुरुवातीला वापरकर्त्याचे किमान आडनाव नोंदवा."
+
+msgid "grid.user.generatePassword"
+msgstr "पासवर्ड निर्माण करा"
+
+msgid "grid.user.notifyUser"
+msgstr "वापरकर्त्याला सूचित करा"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "वापरकर्त्याला स्वागताचा ई-मेल पाठवा."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"पुढच्या वेळी लॉग-इन करताना वापरकर्त्याने त्याचा पासवर्ड बदललेला असायला हवा."
+
+msgid "grid.user.moreDetails"
+msgstr "वापरकर्त्याचे विस्तृत तपशील"
+
+msgid "grid.user.lessDetails"
+msgstr "वापरकर्त्याचे त्रोटक तपशील"
+
+msgid "grid.user.userRoles"
+msgstr "वापरकर्त्याच्या भूमिका (Roles)"
+
+msgid "grid.user.step1"
+msgstr "पायरी #१: वापरकर्त्याचा तपशील भरा"
+
+msgid "grid.user.step2"
+msgstr "पायरी #२: {$userFullName} मध्ये वापरकर्त्याच्या भूमिकांचा समावेश करा"
+
+msgid "grid.user.addRole"
+msgstr "भूमिका समाविष्ट करा"
+
+msgid "grid.user.selectUser"
+msgstr "वापरकर्ता निवडा"
+
+msgid "grid.user.mergeUsers"
+msgstr "वापरकर्ते विलीन करा"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "या वापरकर्त्यामध्ये विलीन करा"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "सर्व नोंदणीकृत वापरकर्ते"
+
+msgid "grid.preparedEmails.title"
+msgstr "तयार केलेले ई-मेलचे मजकूर (टेम्पलेट्स)"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "सध्याची यादी"
+
+msgid "grid.plugin.allCategories"
+msgstr "सगळे प्रवर्ग (Categories)"
+
+msgid "grid.plugin.disable"
+msgstr "तुम्हाला हा प्लग-इन अकार्यान्वित (disable) करायचा आहे का?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "मुद्रित शोधन दुरुस्त्या झालेल्या आहेत. तुम्ही हे काम रद्द करू शकता"
+
+msgid "grid.artworkFile.caption"
+msgstr "मथळा"
+
+msgid "grid.artworkFile.credit"
+msgstr "श्रेय"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "कॉपीराइट मालक"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "परवानगीच्या अटी"
+
+msgid "grid.artworkFile.placement"
+msgstr "सादरीकरणामध्ये नेमके स्थान"
+
+msgid "grid.userGroup.assignStage"
+msgstr "फेरी/टप्पा (stage) निश्चित करा"
+
+msgid "grid.userGroup.allStages"
+msgstr "कार्यप्रवाहातील (वर्कफ्लो) सगळे टप्पे"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "परवानगीच्या स्तराची मर्यादा"
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"{$userGroupName} भूमिका वगळता येत नाही. सध्या {$usersCount} वापरकर्ते त्या "
+"भूमिकेत आहेत."
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "वापरकर्ता सम्मीलित करा"
+
+msgid "grid.remotelyHostedItem"
+msgstr "हा घटक इंटरनेटवर सुदूर ठेवलेला आहे."
+
+msgid "grid.action.addUser"
+msgstr "वापरकर्ता खाते निर्माण करा (Add User)"
+
+msgid "grid.action.unassignReviewer"
+msgstr "या समीक्षकाची नियुक्ती रद्द करा"
+
+msgid "grid.action.approveCopyedit"
+msgstr "पुढील टप्प्यावर पाठवण्यासाठी ही कॉपीएडिट फाईल मंजूर करा"
+
+msgid "grid.action.restoreDefaults"
+msgstr "सर्वसाधारण मांडणी पुनर्संचयित करा (Restore Defaults)"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr ""
+"तुम्ही खात्रीने सर्वसाधारण मांडणी पुनर्संचयित करू इच्छिता (Restore Defaults) "
+"?"
+
+msgid "grid.action.downloadAll"
+msgstr "सर्व फाईल्स संग्रहीत (archive) करण्यासाठी उतरवून घ्या (डाउनलोड)"
+
+msgid "grid.action.selectFiles"
+msgstr "व्यवस्थापित (manage) करण्यासाठी फाईल्स निवडा"
+
+msgid "grid.action.sendToProduction"
+msgstr "हे सादरीकरण प्रकाशनासाठी पाठवा"
+
+msgid "grid.action.importexport"
+msgstr "संकेतस्थळावरील डेटा किंवा मजकूर दाखल करा (Import) किंवा पाठवा (export)"
+
+msgid "grid.action.resetEmail"
+msgstr ""
+"हे ई-मेल मजकूर (टेम्पलेट) सर्वसाधारण (डीफॉल्ट) मूल्यांवर पुनर्स्थापित (रीसेट)"
+" करा"
+
+msgid "grid.action.addUserGroup"
+msgstr "नवीन वापरकर्ता गट समाविष्ट करा"
+
+msgid "grid.action.enrolExisting"
+msgstr "अस्तित्वात असलेल्या वापरकर्त्याची समीक्षक म्हणून नोंदणी करा"
+
+msgid "grid.action.viewMetadata"
+msgstr "या सादरीकरणाचा मेटाडेटा (लेखक, शीर्षक, वगैरे) पहा"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "हितसंबंधांच्या संघर्षाबाबत धोरण पहा"
+
+msgid "grid.action.unconsiderReview"
+msgstr "हे समीक्षण पूर्ण झाले आहे, परंतु तुम्ही ते अमान्य करू शकता"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "तुम्ही खात्रीने सर्व वापरकर्त्यांची माहिती पाठवू (Export ) इच्छिता ना?"
+
+msgid "grid.task.status.uploaded"
+msgstr "स्तंभाचे शीर्षक ही फाईल कोणी संक्रमित (अपलोड) केली हे दर्शवते"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"तुम्ही खात्रीने {$name} या योगदानकर्त्याला हटवू इच्छिता ना? ही कृती रद्द करता"
+" येणार नाही."
+
+msgid "grid.submissionChecklist.title"
+msgstr "सादरीकरणांची यादी (चेकलिस्ट)"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "प्राथमिक संपर्क सिद्ध (सेट) करा"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "या प्रकाशनातील योगदानकर्त्यांची ओळख खालील स्वरूपात पटवली जाईल."
+
+msgid "grid.user.disableReason"
+msgstr "वापरकर्ता अकार्यान्वित (Disable) करण्याचे कारण"
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"हा ई-मेल पाठवताना एक त्रुटी आली. तुमचे ई-मेल सर्व्हर कॉन्फिगरेशन कार्यक्षम "
+"असल्याची खात्री करा आणि/किंवा तुमच्या प्रणाली (सिस्टम) प्रशासकाशी संपर्क "
+"साधा."
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"तुमच्याकडे या वापरकर्त्याचे व्यवस्थापन करण्यासाठी पुरेशा परवानग्या नाहीत. "
+"वापरकर्त्याचे व्यवस्थापन करण्यासाठी, तुम्ही एकतर संकेतस्थळाचा प्रशासक असणे "
+"आवश्यक आहे, किंवा या वापरकर्त्याने नोंदणी केलेल्या सर्व संदर्भांचे व्यवस्था"
+"पन करणे आवश्यक आहे."
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "या वापरकर्त्यासाठी स्वैर (रँडम) पासवर्ड निर्माण करा."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "यापुढे लॉग-इन करताना वापरकर्त्याने पासवर्ड बदलणे आवश्यक आहे."
+
+msgid "grid.user.userNoRoles"
+msgstr "या वापरकर्त्याकडे एकही भूमिका (Role) नाही."
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"हा वापरकर्ता म्हणून लॉग-इन करताय का? तुम्ही करणार असलेल्या सगळ्या क्रियांचा "
+"संबंध या वापरकर्त्याशी जोडला जाईल."
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"तुम्ही खात्रीने \"{$oldUsername}\" वापरकर्तानाव असलेले खाते \"{$newUsername}"
+"\" वापरकर्तानाव असलेल्या खात्यात विलीन करू इच्छिता? पूर्वीचे \"{$oldUsername}"
+"\" वापरकर्तानाव असलेले खाते नंतर अस्तित्वात राहणार नाही. हा निर्णय फिरवताही "
+"येणार नाही."
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "संपर्क माहिती (लेखक/प्रकाशक नसल्यास)"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "भूमिकांसाठी नियुक्त केलेल्यांची यादी करा"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr ""
+"{$userGroupName} ही भूमिका सर्वसाधारण (डीफॉल्ट) आहे आणि ती वगळता येणार नाही."
+
+msgid "grid.action.editContributor"
+msgstr "सहभाग्याचे नाव संपादित करा"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "समीक्षकाचा प्रस्ताव (Suggestion) काढून टाका"
+
+msgid "grid.user.logInAs"
+msgstr "या भूमिकेतून लॉग-इन करा (Login As)"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"कृपया लक्षात ठेवा की एकदा वापरकर्ता अकार्यान्वित झाल्यानंतर (disabled), तो "
+"पुन्हा कार्यान्वित होईपर्यंत (enable) तुम्ही त्याला कोणतीही भूमिका देऊ शकणार "
+"नाही."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "समीक्षकाच्या प्रस्तावाचा (Suggestion) समावेश करा"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"तुम्हाला खात्रीने हा प्रस्ताव काढून टाकायचा आहे? ही कृती रद्द करता येणार "
+"नाही."
+
+msgid "grid.user.remove"
+msgstr "वापरकर्ता हटवा"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"वापरकर्ता कार्यान्वित झाल्यानंतर (enabled), त्याला संकेतस्थळावर केव्हाही "
+"प्रवेश मिळतो आणि तुम्ही त्याला आवश्यकतेनुसार वेगळ्या भूमिकांमध्ये आमंत्रित "
+"करू शकाल."

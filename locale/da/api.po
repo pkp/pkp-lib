@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2024-08-23 14:45+0000\n"
+"PO-Revision-Date: 2025-12-15 12:57+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
 "\n"
@@ -118,11 +118,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "Det plugin, der i øjeblikket er konfigureret, skal være et plugin for en "
 "registreringsopganisation."
-
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Du kan ikke angive eller anbefale en beslutning til denne indsendelse, da "
-"den allerede er blevet publiceret."
 
 msgid "api.emails.400.missingBody"
 msgstr "Du skal inkludere en e-mail, der skal sendes."
@@ -377,3 +372,77 @@ msgstr "Højdepunktet, som du anmodede om, blev ikke fundet."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Der kunne ikke tildeles en DOI til dette element."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Du kan ikke ændre sproget på denne indsendelse, da den allerede har mere end "
+"en publiceringsversion eller en publiceret udgivelse."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Bedømmeren af denne opgave kunne ikke findes"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "De eneste gyldige værdier er 'accepter' og 'afvis'"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Den angivne sektion findes ikke."
+
+msgid "api.submission.400.invalidId"
+msgstr "Ugyldigt ID: \"{$id}\" angivet."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Den ror, du efterspurgte, blev ikke fundet."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Dette grænsepunkt er ikke tilgængeligt fra hele webstedets navnerum, og der "
+"skal anmodes om det i en given kontekst."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "Du angav en ugyldig \"eventType\",{$eventType}, for forfatter-e-mails."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Indsendelsen til denne bedømmelsesopgave kunne ikke findes."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Anmodningen mangler den påkrævede forespørgselsparameter 'ids'. Angiv "
+"venligst 'ids' for den indendelse, du ønsker at slette."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Var ikke i stand til at færdiggøre den påtænkte handling på ressourcen."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Du kan ikke udføre denne operation med deaktiveret ORCID funktionalitet."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Publikationens identifikationsformular er utilgængelig, da der ikke er nogle "
+"aktiverede identifikationer."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Den forfatter, du efterspurgte, blev ikke fundet"
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Ude af stand til at behandle API anmodning."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Ude af stand til at modtage ethvert forventet svar."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Ugyldig forfatter-venlig parameter."
+
+msgid "api.400.routeNotDefined"
+msgstr "Der blev ikke angivet en API rute."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Du kan ikke lave ændringer i forfattere på indsendelser, som du ikke er "
+"tildelt."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"At tildele en forfatters ORCiD ID via rediger/tilføj forfatter endpoints er "
+"ikke tilladt. Brug venligst \"orcid/requestAuthorVerification/{authorId}\" "
+"endpoint for at bede en forfatter om at opdatere deres ORCiD ID."

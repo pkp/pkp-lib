@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/UserRequiredPolicy.php
  *
@@ -41,7 +42,7 @@ class UserRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         if ($this->_request->getUser()) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
@@ -49,8 +50,4 @@ class UserRequiredPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\UserRequiredPolicy', '\UserRequiredPolicy');
 }

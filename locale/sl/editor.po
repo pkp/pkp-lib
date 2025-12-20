@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2025-04-14 15:15+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sl/>\n"
@@ -20,7 +20,7 @@ msgid "editor.submissionArchive.confirmDelete"
 msgstr "Ste prepričani, da želite za vedno zbrisati ta prispevek?"
 
 msgid "editor.activityLog"
-msgstr "Zapis aktivnosti"
+msgstr "Zgodovina prispevka"
 
 msgid "editor.submissionLibrary"
 msgstr "Knjižnica prispevka"
@@ -191,7 +191,7 @@ msgid "editor.submissionReview.anonymous"
 msgstr "Anonimen recenzent/znan avtor"
 
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Anonimen rezenzent/anonimen avtor"
+msgstr "Anonimen recenzent/anonimen avtor"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Datoteke za recenzijo"
@@ -314,7 +314,7 @@ msgid "editor.review.rateReviewer"
 msgstr "Ocenite recenzenta"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Ocenite kvaliteto opravljene recenzije. Ocena ne bo vidna recnezentu."
+msgstr "Ocenite kvaliteto opravljene recenzije. Ocena ne bo vidna recenzentu."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Brez ocene"
@@ -619,3 +619,63 @@ msgstr "Prišlo je do težave pri koraku {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Ista institucija kot pri avtorju"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Izberite recenzenta iz predlaganih recenzentov"
+
+msgid "editor.review.reviewViewed"
+msgstr "Recenzija pregledana"
+
+msgid "editor.submission.search"
+msgstr "Išči po prispevku, IDju, avtorjih, ključnih besedah, itd."
+
+msgid "editor.submission.days"
+msgstr "Dnevi"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dnevi v fazi"
+
+msgid "editor.submission.viewSummary"
+msgstr "Povzetek"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Zabeleži odgovor v imenu recenzenta"
+
+msgid "editor.review.download"
+msgstr "Prenesi recenzijski obrazec"
+
+msgid "editor.review.authorOnly"
+msgstr "Pikazani samo razdelki za avtorja"
+
+msgid "editor.review.allSections"
+msgstr "Prikaz vseh razdelkov recenzijskega obrazca"
+
+msgid "editor.review.logResponse.for"
+msgstr "Zabeleži odgovor v imenu"
+
+msgid "editor.review.logResponse"
+msgstr "Zabeleži odgovor"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Izbira odgovora je obvezna"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzent je sprejel recenzentsko povabilo"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzent je zavrnil recenzentsko povabilo"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Če ste bili v komunikaciji z recenzenti preko emaila ali kako drugače, lahko "
+"zabeležite odgovor v njihovem imenu"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Rok za odziv na prošnjo za recenzijo mora biti krajši ali enak roku za "
+"opravljanje recenzije."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Prišlo je do napake pri dodajanju recenzenta, ker mora biti rok za odziv na "
+"prošnjo za recenzijo krajši ali enak roku za opravljanje recenzije."

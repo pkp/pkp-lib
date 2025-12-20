@@ -96,7 +96,8 @@ class LanguageGridCellProvider extends GridCellProvider
                         $request->getSession(),
                         __('admin.languages.confirmDisable'),
                         __('common.disable'),
-                        $router->url($request, null, null, 'disableLocale', null, $actionArgs)
+                        $router->url($request, null, null, 'disableLocale', null, $actionArgs),
+                        'negative'
                     );
                 } else {
                     $action = 'enable-' . $row->getId();
@@ -111,7 +112,8 @@ class LanguageGridCellProvider extends GridCellProvider
                         $request->getSession(),
                         __('admin.languages.confirmSitePrimaryLocaleChange'),
                         __('locale.primary'),
-                        $router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs)
+                        $router->url($request, null, null, 'setPrimaryLocale', null, $actionArgs),
+                        'primary'
                     );
                 }
                 break;

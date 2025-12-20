@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/managerDelegate/PKPApproveSubmissionNotificationManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApproveSubmissionNotificationManager
@@ -32,7 +32,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     {
         $dispatcher = Application::get()->getDispatcher();
         $context = $request->getContext();
-        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->assocId);
+        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'dashboard', 'editorial', null, ['workflowSubmissionId' => $notification->assocId]);
     }
 
     /**
@@ -54,7 +54,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $assocId): void
     {
         $submissionId = $assocId;
         $submission = Repo::submission()->get($submissionId);
@@ -77,7 +77,6 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
             if (!$notification && $isPublished == $forPublicationState) {
                 // Create notification.
                 $this->createNotification(
-                    $request,
                     null,
                     $type,
                     $submission->getData('contextId'),
@@ -98,8 +97,4 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     {
         return true;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\PKPApproveSubmissionNotificationManager', '\PKPApproveSubmissionNotificationManager');
 }

@@ -48,5 +48,13 @@
 		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 
+	/**
+	 * Determine whether or not the link action should be debounced.
+	 * @return {boolean} Whether or not to debounce the link action.
+	 */
+	$.pkp.classes.linkAction.OpenWindowRequest.prototype.shouldDebounce =
+			function() {
+		return false;
+	};
 
 }(jQuery));

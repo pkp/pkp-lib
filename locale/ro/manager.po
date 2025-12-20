@@ -1624,9 +1624,6 @@ msgstr "Valuta"
 msgid "settings.roles.roleOptions"
 msgstr "Opțiuni de rol"
 
-msgid "settings.roles.showTitles"
-msgstr "Afișați titlul rolului în lista de contribuabili"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Permiteți auto-înregistrarea utilizatorului"
 

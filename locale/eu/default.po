@@ -1,9 +1,10 @@
 # Informatikaria <informatikaria@ueu.eus>, 2023.
 # Josu Acosta <josuacostacalvo@gmail.com>, 2024.
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-12 14:03+0000\n"
-"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
+"PO-Revision-Date: 2025-10-29 16:00+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "eu/>\n"
 "Language: eu\n"
@@ -20,7 +21,7 @@ msgid "default.groups.plural.siteAdmin"
 msgstr "Guneko kudeatzaileak"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdE."
+msgstr "ProdE"
 
 msgid "default.groups.name.copyeditor"
 msgstr "Kopien editorea"
@@ -39,3 +40,174 @@ msgstr "Egileak"
 
 msgid "default.groups.name.author"
 msgstr "Egilea"
+
+msgid "default.groups.plural.funding"
+msgstr "Finantzaketa koordinatzaileak"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FK"
+
+msgid "default.groups.name.funding"
+msgstr "Finantzaketa koordinatzailea"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Produkzio editorea"
+
+msgid "default.groups.name.proofreader"
+msgstr "Proben zuzentzailea"
+
+msgid "default.groups.name.designer"
+msgstr "Diseinatzailea"
+
+msgid "default.groups.name.indexer"
+msgstr "Dokumentalista"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Maketatzailea"
+
+msgid "default.groups.name.marketing"
+msgstr "Marketing eta salmenta koordinatzailea"
+
+msgid "default.groups.name.translator"
+msgstr "Itzultzailea"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p><a href=\"{$contextUrl}\">{$contextName}</a>-ren mezu "
+"automatikoa da hau.</p>"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Ekoizpen-editoreak"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Zuzentzaileak"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "ZUZ"
+
+msgid "default.groups.plural.designer"
+msgstr "Diseinatzaileak"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Diseinua"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Barne-ebaluatzailea"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Barne-ebaluatzaileak"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "BI"
+
+msgid "default.groups.plural.marketing"
+msgstr "Marketin eta salmenta koordinatzaileak"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.indexer"
+msgstr "Dokumentalistak"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "DOK"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Maketatzaileak"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "MAK"
+
+msgid "default.groups.abbrev.author"
+msgstr "EG"
+
+msgid "default.groups.plural.translator"
+msgstr "Itzultzaileak"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Itzul"
+
+msgid "default.groups.plural.reader"
+msgstr "Irakurleak"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Irakur"
+
+msgid "default.genres.other"
+msgstr "Beste bat"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Erredakzio-batzordeko kidea"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Erredakzio-batzordeko kideak"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBK"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Irudia"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML estilo-orria"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>Eman iezazkiguzu gure erredakzio-taldeak zure bidalketa ebaluatzeko behar "
+"dituen fitxategi guztiak. Lan nagusiaz gain, datu-multzoak, interes-gatazken "
+"adierazpenak edo bestelako fitxategi osagarriak bidali ditzakezu, gure "
+"editoreentzat lagungarriak badira.</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Mesedez, eman ondorengo xehetasunak zure bidalketa gure sisteman "
+"kudeatzen laguntzeko.</p>"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Bidaltzean, hainbat ebaluatzaile potentzial iradokitzeko aukera duzu. "
+"Horrek berrikuspen prozesua erraztu eta ekarpen baliotsua eman diezaioke "
+"erredakzio-taldeari. Aukeratu zure arloan adituak diren eta zure lanarekin "
+"interes-gatazkarik ez duten ebaluatzaileak. Ezaugarri honek berrikuspen-"
+"prozesua hobetzea eta egileentzat zein erredakzio-taldearentzat esperientzia "
+"eraginkorragoa sustatzea du helburu.</p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>Eskerrik asko {$contextName}-ra bidaltzeagatik. Fitxategiak igotzeko, "
+"egilekideak identifikatzeko eta izenburua eta laburpena bezalako informazioa "
+"emateko eskatuko zaizu.</p><p>Mesedez, irakurri gure <a href=\""
+"{$submissionGuidelinesUrl}\" target=\"_blank\">Bidalketa Jarraibideak</a>, "
+"oraindik egin ez baduzu. Inprimakiak betetzerakoan, eman ahalik eta "
+"xehetasun gehien, gure editoreei zure lana ebaluatzen laguntzeko.</"
+"p><p>Behin hasita, zure bidalketa gorde eta geroago itzul zaitezke. Edozein "
+"informazio berrikusi eta zuzendu ahal izango duzu bidali aurretik.</p>"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>Gehitu bidalketa honetako kolaboratzaile guztien xehetasunak. Hemen "
+"gehitutako kolaboratzaileei bidalketaren baieztapen-mezu elektroniko bat "
+"bidaliko zaie, baita bidalketa honen aurka erregistratutako erabaki "
+"editorial guztien kopia bat ere.</p><p>Kolaboratzaile batekin ezin bada "
+"posta elektronikoz harremanetan jarri, anonimoa izan behar duelako edo "
+"helbide elektronikorik ez duelako, mesedez, ez sartu helbide elektroniko "
+"faltsu bat. Kolaboratzaile honi buruzko informazioa gehi dezakezu editoreari "
+"bidalitako mezu batean bidalketa prozesuko ondorengo urrats batean.</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>Mesedez, eman ondorengo xehetasunak gure erredakzio-taldeari zure "
+"bidalketa kudeatzen laguntzeko.</p><p>Metadatuak sartzerakoan, zure "
+"bidalketa kudeatzen duen pertsonarentzat lagungarrienak izango direla uste "
+"dituzunak sartu. Informazio hau argitaratu aurretik alda daiteke.</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Berrikusi sartu duzun informazioa, bidalketa amaitu aurretik. Hemen "
+"agertzen diren xehetasunak alda ditzakezu atal bakoitzaren goialdean dagoen "
+"editatu botoian klik eginez.</p><p>Bidalketa amaitutakoan, gure erredakzio-"
+"taldeko kide bati esleituko zaio berrikuspena. Ziurtatu hemen sartu dituzun "
+"datuak ahalik eta zehatzenak direla.</p>"

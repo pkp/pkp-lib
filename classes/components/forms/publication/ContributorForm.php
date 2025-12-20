@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/components/form/publication/ContributorForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContributorForm
@@ -15,8 +16,11 @@
 
 namespace PKP\components\forms\publication;
 
-use APP\facades\Repo;
 use APP\submission\Submission;
+use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorType;
+use PKP\components\forms\FieldAffiliations;
+use PKP\components\forms\FieldCreditRoles;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldOrcid;
 use PKP\components\forms\FieldRichTextarea;
@@ -25,8 +29,6 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\orcid\OrcidManager;
-use PKP\security\Role;
-use PKP\userGroup\UserGroup;
 use Sokil\IsoCodes\IsoCodesFactory;
 
 class ContributorForm extends FormComponent
@@ -48,16 +50,6 @@ class ContributorForm extends FormComponent
         $this->submission = $submission;
         $this->context = $context;
 
-        $authorUserGroupsOptions = Repo::userGroup()
-            ->getCollector()
-            ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-            ->filterByContextIds([$context->getId()])
-            ->getMany()
-            ->map(fn (UserGroup $authorUserGroup) => [
-                'value' => (int) $authorUserGroup->getId(),
-                'label' => $authorUserGroup->getLocalizedName(),
-            ]);
-
         $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {
@@ -69,37 +61,76 @@ class ContributorForm extends FormComponent
         usort($countries, function ($a, $b) {
             return strcmp($a['label'], $b['label']);
         });
+        array_unshift($countries, "");
 
+        $contributorRoles = ContributorRole::query()
+            ->withContextId($context->getId())
+            ->get()
+            ->map(fn (ContributorRole $role): array => ['value' => $role->id, 'label' => $role->getLocalizedData('name')])
+            ->values()
+            ->toArray();
+
+        $showWhenPerson = ['contributorType', [ContributorType::PERSON->getName()]];
+        $showWhenOrganization = ['contributorType', [ContributorType::ORGANIZATION->getName()]];
+        $showWhenPersOrg = ['contributorType', [ContributorType::PERSON->getName(), ContributorType::ORGANIZATION->getName()]];
+
+        $this->addField(new FieldOptions('contributorType', [
+            'label' => __('submission.submit.contributorType.title'),
+            'description' => __('submission.submit.contributorType.description'),
+            'isRequired' => true,
+            'type' => 'radio',
+            'value' => ContributorType::PERSON->getName(),
+            'options' => array_map(
+                fn (string $name): array => ['value' => $name, 'label' => __("submission.submit.contributorType." . strtolower($name))],
+                ContributorType::getTypes()
+            ),
+        ]));
         $this->addField(new FieldText('givenName', [
-            'label' => __('user.givenName'),
-            'isMultilingual' => true,
-            'isRequired' => true
-        ]))
+                'label' => __('user.givenName'),
+                'showWhen' => $showWhenPerson,
+                'isMultilingual' => true,
+                'isRequired' => $showWhenPerson
+            ]))
             ->addField(new FieldText('familyName', [
                 'label' => __('user.familyName'),
+                'showWhen' => $showWhenPerson,
                 'isMultilingual' => true,
             ]))
             ->addField(new FieldText('preferredPublicName', [
                 'label' => __('user.preferredPublicName'),
+                'showWhen' => $showWhenPerson,
                 'description' => __('user.preferredPublicName.description'),
                 'isMultilingual' => true,
-            ]))
-            ->addField(new FieldText('email', [
+            ]));
+        $this->addField(new FieldText('organizationName', [
+            'label' => __('submission.submit.contributor.organizationName'),
+            'showWhen' => $showWhenOrganization,
+            'isMultilingual' => true,
+            'isRequired' => $showWhenOrganization
+        ]));
+        $this->addField(new FieldText('email', [
                 'label' => __('user.email'),
-                'isRequired' => true,
+                'isRequired' => $showWhenPersOrg,
             ]))
             ->addField(new FieldSelect('country', [
                 'label' => __('common.country'),
                 'options' => $countries,
-                'isRequired' => true,
-            ]))
-            ->addField(new FieldText('url', [
-                'label' => __('user.url'),
+                'isRequired' => $showWhenPersOrg,
             ]));
+        $this->addField(new FieldText('rorId', [
+                'label' => __('submission.submit.contributor.rorId'),
+                'showWhen' => $showWhenOrganization,
+                'description' => __('submission.submit.contributor.rorId.description'),
+        ]));
+        $this->addField(new FieldText('url', [
+            'label' => __('user.url'),
+            'showWhen' => $showWhenPersOrg,
+        ]));
 
         if (OrcidManager::isEnabled()) {
             $this->addField(new FieldOrcid('orcid', [
                 'label' => __('user.orcid'),
+                'showWhen' => $showWhenPerson,
                 'tooltip' => __('orcid.about.orcidExplanation'),
             ]), [FIELD_POSITION_AFTER, 'url']);
         }
@@ -110,27 +141,39 @@ class ContributorForm extends FormComponent
                 'label' => __('author.competingInterests'),
                 'description' => __('author.competingInterests.description'),
                 'isMultilingual' => true,
+                'isRequired' => true,
             ]));
         }
         $this->addField(new FieldRichTextarea('biography', [
             'label' => __('user.biography'),
+            'showWhen' => $showWhenPersOrg,
             'isMultilingual' => true,
-        ]))
-            ->addField(new FieldText('affiliation', [
-                'label' => __('user.affiliation'),
-                'isMultilingual' => true,
-            ]));
+        ]));
 
-        if ($authorUserGroupsOptions->count() > 1) {
-            $this->addField(new FieldOptions('userGroupId', [
-                'label' => __('submission.submit.contributorRole'),
-                'type' => 'radio',
-                'value' => $authorUserGroupsOptions->first()['value'],
-                'options' => $authorUserGroupsOptions->values(),
+        $this->addField(new FieldAffiliations('affiliations', [
+            'label' => __('user.affiliations'),
+            'showWhen' => $showWhenPersOrg,
+            'description' => __('user.affiliations.description'),
+            'isMultilingual' => false,
+        ]));
+
+
+        if (count($contributorRoles) > 1) {
+            $this->addField(new FieldOptions('contributorRoles', [
+                'label' => __('submission.submit.contributorRoles.label'),
+                'type' => 'checkbox',
+                'isRequired' => true,
+                'value' => [],
+                'options' => $contributorRoles,
             ]));
         } else {
-            $this->addHiddenField('userGroupId', $authorUserGroupsOptions->first()['value']);
+            $this->addHiddenField('contributorRoles', $contributorRoles[0]['value'] ?? []);
         }
+
+        $this->addField(new FieldCreditRoles('creditRoles', [
+            'label' => __('submission.submit.creditRoles.label'),
+            'description' => __('submission.submit.creditRoles.description'),
+        ]));
 
         $this->addField(new FieldOptions('includeInBrowse', [
             'label' => __('submission.submit.includeInBrowse.title'),

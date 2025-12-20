@@ -217,6 +217,16 @@
 				"nullable"
 			]
 		},
+		"preferredAvatarInitials": {
+			"type": "string",
+			"description": "An optional field for users to specify the initials that they want to be displayed in their avatars.",
+			"multilingual": false,
+			"apiSummary": false,
+			"validation": [
+				"nullable",
+				"max:2"
+			]
+		},
 		"signature": {
 			"type": "string",
 			"multilingual": true,
@@ -270,6 +280,13 @@
 				"nullable"
 			]
 		},
+		"orcidEmailToken": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"orcidIsVerified": {
 			"type": "boolean",
 			"apiSummary": true,
@@ -290,6 +307,70 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"stageAssignments": {
+			"apiSummary": true,
+			"readOnly": true,
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"stageAssignmentId": {
+						"type": "integer"
+					},
+					"stageAssignmentUserGroup": {
+						"type": "object",
+						"$ref": "#/definitions/UserGroup"
+					},
+					"stageAssignmentStageId": {
+						"type": "integer"
+					},
+					"stageAssignmentStage": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "string"
+							},
+							"label": {
+								"type": "string"
+							}
+						}
+					},
+					"canChangeMetadata": {
+						"type": "boolean"
+					},
+					"recommendOnly": {
+						"type": "boolean"
+					}
+				}
+			}
+		},
+		"displayInitials": {
+			"description": "The initials that will be displayed for a user.",
+			"type": "string",
+			"apiSummary": true
+		},
+		"orcidDisplayValue": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"canLoginAs": {
+			"type": "boolean",
+			"description": "Whether the current user can log in as this user.",
+			"readOnly": true,
+			"apiSummary": true,
+			"apiDetail": true
+		},
+		"canMergeUsers": {
+			"type": "boolean",
+			"description": "Whether the current user can merge this user account with another.",
+			"readOnly": true,
+			"apiSummary": true,
+			"apiDetail": true
 		}
 	}
 }

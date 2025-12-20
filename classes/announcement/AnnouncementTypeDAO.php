@@ -19,9 +19,8 @@
 namespace PKP\announcement;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Generator;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
 class AnnouncementTypeDAO extends \PKP\db\DAO
@@ -116,8 +115,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
      */
     public function deleteById(int $typeId): int
     {
-        $collector = Repo::announcement()->getCollector()->filterByTypeIds([$typeId]);
-        Repo::announcement()->deleteMany($collector);
+        Announcement::withTypeIds([$typeId])->delete();
 
         return DB::table('announcement_types')
             ->where('type_id', '=', $typeId)
@@ -149,8 +147,4 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
             yield $row->type_id => $this->_fromRow((array) $row);
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\announcement\AnnouncementTypeDAO', '\AnnouncementTypeDAO');
 }

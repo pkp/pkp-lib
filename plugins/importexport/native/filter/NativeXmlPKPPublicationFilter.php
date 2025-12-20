@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlPKPPublicationFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPKPPublicationFilter
@@ -19,11 +19,11 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use PKP\citation\CitationDAO;
-use PKP\db\DAORegistry;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
+use PKP\publication\helpers\PublicationVersionInfo;
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
 {
@@ -76,10 +76,26 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
         $publication->setData('submissionId', $submission->getId());
 
-        $publication->stampModified();
+        $publication->stampCreated();
         $publication = $this->populateObject($publication, $node);
 
-        $publication->setData('version', $node->getAttribute('version'));
+        if ($node->getAttribute('version_stage')) {
+            $versionStageInfo = PublicationVersionInfo::fromArray([
+                'stage' => $node->getAttribute('version_stage'),
+                'minor' => $node->getAttribute('version_minor'),
+                'major' => $node->getAttribute('version_major')
+            ]);
+
+            $publication->setVersion($versionStageInfo);
+        }
+
+        if ($sourcePublicationId = $node->getAttribute('source_publication_id')) {
+            $newSourceId = $deployment->getPublicationDBId($sourcePublicationId);
+            if ($newSourceId) {
+                $publication->setData('sourcePublicationId', $newSourceId);
+            }
+        }
+
         $publication->setData('seq', $node->getAttribute('seq'));
         $publication->setData('accessStatus', $node->getAttribute('access_status'));
         $publication->setData('status', $node->getAttribute('status'));
@@ -87,9 +103,16 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
         $publicationId = Repo::publication()->dao->insert($publication);
         $publication = Repo::publication()->get($publicationId);
+
         // Non-persisted temporary ID, will be updated and stored once the authors get parsed
-        $publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
+        if ($primaryContact = $node->getAttribute('primary_contact_id')) {
+            $publication->setData('primaryContactId', $primaryContact);
+        }
+
         $deployment->setPublication($publication);
+
+        $importPublicationId = $node->getAttribute('id');
+        $deployment->setPublicationDBId($importPublicationId, $publicationId);
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {
@@ -138,10 +161,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         if (in_array($n->tagName, $setterMappings)) {
             $publication->setData($n->tagName, $value, $locale);
         } elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
-            $controlledVocabulariesDao = $submissionKeywordDao = DAORegistry::getDAO($controlledVocabulariesMappings[$n->tagName][0]);
-            $insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
-
+            $symbolic = $controlledVocabulariesMappings[$n->tagName][0];
             $controlledVocabulary = [];
+
             for ($nc = $n->firstChild; $nc !== null; $nc = $nc->nextSibling) {
                 if ($nc instanceof \DOMElement) {
                     $controlledVocabulary[] = $nc->textContent;
@@ -151,7 +173,13 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             $controlledVocabulariesValues = [];
             $controlledVocabulariesValues[$locale] = $controlledVocabulary;
 
-            $controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
+            Repo::controlledVocab()->insertBySymbolic(
+                $symbolic,
+                $controlledVocabulariesValues,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId(),
+                false
+            );
 
             $publicationNew = Repo::publication()->get($publication->getId());
             $publication->setData($n->tagName, $publicationNew->getData($n->tagName));
@@ -270,18 +298,20 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      */
     public function parseCitations($n, $publication)
     {
-        $publicationId = $publication->getId();
-        $citationsString = '';
+        $opts = $this->getDeployment()->getOpts();
+
+        // If the import is via CLI, consider citation-metadata-lookup option.
+        // Else, enable metadata lookup by default.
+        $metadataLookup = $opts['citation-metadata-lookup'] ?? true;
+        $citationsRaw = '';
         foreach ($n->childNodes as $citNode) {
             $nodeText = trim($citNode->textContent);
             if (empty($nodeText)) {
                 continue;
             }
-            $citationsString .= $nodeText . "\n";
+            $citationsRaw .= $nodeText . "\n";
         }
-        $publication->setData('citationsRaw', $citationsString);
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $citationDao->importCitations($publicationId, $citationsString);
+        Repo::citation()->importCitations($publication, $citationsRaw, $metadataLookup);
     }
 
     //
@@ -315,10 +345,10 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => ['SubmissionKeywordDAO', 'insertKeywords'],
-            'agencies' => ['SubmissionAgencyDAO', 'insertAgencies'],
-            'disciplines' => ['SubmissionDisciplineDAO', 'insertDisciplines'],
-            'subjects' => ['SubmissionSubjectDAO', 'insertSubjects'],
+            'keywords' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD],
+            'agencies' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY],
+            'disciplines' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE],
+            'subjects' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT],
         ];
     }
 

@@ -1,10 +1,11 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024, 2025.
+# Mitja Podreka <mitja.podreka@ff.uni-lj.si>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2024-06-10 09:51+0000\n"
+"PO-Revision-Date: 2025-10-27 19:09+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "sl/>\n"
@@ -134,9 +135,9 @@ msgstr ""
 
 msgid "user.login.accountNotValidated"
 msgstr ""
-"Vaš e-poštni naslov še ni bil preverjen. Prosimo preverite vašo elektronsko "
-"pošto in sledite navodilom, ki smo jih poslali na {$email}. Če niste dobili "
-"nobenega sporočila, preverite mapo z neželjeno pošto."
+"Vaš e-naslov še ni bil preverjen. Prosimo preverite vašo e-pošto in sledite "
+"navodilom, ki smo jih poslali na {$email}. Če niste dobili nobenega "
+"sporočila, preverite mapo z neželeno pošto."
 
 msgid "user.login.activate"
 msgstr "Aktiviraj račun"
@@ -162,9 +163,8 @@ msgstr "Prijava"
 
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"Če je bil vaš email naslov najden, je bilo postano potrdilo na vaš e-poštni "
-"naslov. Prosimo sledite navodilom v sporočilu, da boste ponastavili vaše "
-"geslo."
+"Če je bil vaš e-naslov najden, je bilo postano potrdilo na vaš e-naslov. "
+"Prosimo sledite navodilom v sporočilu, da boste ponastavili vaše geslo."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
@@ -173,8 +173,8 @@ msgstr ""
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr ""
-"Novo geslo je bilo poslano na vaš e-poštni naslov. Prijavite se lahko z "
-"novim geslom."
+"Novo geslo je bilo poslano na vaš e-naslov. Prijavite se lahko z novim "
+"geslom."
 
 msgid "user.login.registeredEmail"
 msgstr "Registrirana e-pošta uporabnika"
@@ -213,7 +213,7 @@ msgid "user.hello"
 msgstr "Pozdravljeni, "
 
 msgid "user.mailingAddress"
-msgstr "Naslov"
+msgstr "Poštni naslov"
 
 msgid "user.myAccount"
 msgstr "Moj račun"
@@ -248,7 +248,7 @@ msgid "user.profile.form.countryRequired"
 msgstr "Država je obvezna."
 
 msgid "user.profile.form.emailRequired"
-msgstr "Veljaven e-potšni naslov je obvezen."
+msgstr "Veljaven e-naslov je obvezen."
 
 msgid "user.profile.form.givenNameRequired"
 msgstr "Ime je obvezno."
@@ -259,7 +259,7 @@ msgstr ""
 "še ime za ta jezik."
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "E-poštni naslov je obvezen."
+msgstr "E-naslov je obvezen."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Vpisati morate novo geslo."
@@ -332,13 +332,13 @@ msgstr ""
 "Da, želim biti obveščen o izdanih novih številkah in obvestilih revije."
 
 msgid "user.register.form.emailExists"
-msgstr "Izbrani e-poštni naslov je že uporabljen za drugega uporabnika."
+msgstr "Izbrani e-naslov je že uporabljen za drugega uporabnika."
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Gesla se ne ujemata."
 
 msgid "user.register.form.emailsDoNotMatch"
-msgstr "Polji za e-poštni naslov se ne ujemata."
+msgstr "Polji za e-naslov se ne ujemata."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
@@ -518,7 +518,7 @@ msgstr ""
 "geslom."
 
 msgid "user.usernameOrEmail"
-msgstr "Uporabniško ime ali geslo"
+msgstr "Uporabniško ime ali e-naslov"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Dostop do delovnega toka ne dokončane oddaje je omejen."
@@ -745,3 +745,159 @@ msgstr "Zaznani so bili podvojeni ORCiD identifikatorji za avtorje."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Zaznani so bili neavtenticirani ORCiD identifikatorji za avtorje."
+
+msgid "user.affiliations.institution"
+msgstr "Ustanova"
+
+msgid "user.affiliations.translation"
+msgstr "Več informacij"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Odstrani ustanovo"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Kliknite za urejanje ali brisanje"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} od {$total} jezikov je zaključenih"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Vpišite ime ustanove v jeziku {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Ime ustanove v jeziku {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Ste prepričani?"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Tip ustanove v jeziku {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Vaše iskalne fraze ni bilo mogoče najti"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Primarni jezik {$primaryLocale} je obvezen"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Prosimo dodajte ustanovo v jeziku prispevka."
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Uredi ime ustanove"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Zahtevali ste sprememo vašega emaila v \"{$pendingEmail}\". Poslali smo vam "
+"email z navodili, kako lahko potrdite vaš novi email."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Do takrat lahko pregledate in posodobite svoj profil. Če mislite, da je to "
+"napaka, se prosimo obrnite na administratorja."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Spodaj vpišite polno ime ustanove, brez okrajšav. Izberite ime v spustnem "
+"seznamu in kliknite \"Dodaj\", da dodate ustanovo v vaš profil. (npr. "
+"\"Univerza v Ljubljani\")"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Vsi prevodi so na voljo"
+
+msgid "orcid.unauthenticated"
+msgstr "(neavtoriziran)"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Ustanova <strong>{$affiliation}</strong> bo odstranjena."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Avtomatično boste preusmerjeni nazaj na {$contextName}."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Dodajanje, urejanje ali brisanje recenzentskega priporočila za končan "
+"prispevek je omejeno."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Omogoči ORCID funkcionalnost"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Željene začetnice avatarja"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Omogoči ORCID funkcionalnost na celotnem spletišču"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Vnesite dve črki, ki ju želite uporabljati kot vaš avatar. Te inicialke bodo "
+"prikazane kot vaše ime."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID funkcionalnost je lahko omogočena in nastavljena na nivoju celotnega "
+"spletišča za vse revije/založbe/strežnike. Če je to omogočeno, bo to "
+"preglasilo vse nastavitve na conteksntih nivojih in bodo povsod uporabljene "
+"spodnje nastavitve za vse revije/založbe/strežnike na tej namestitvi."
+
+msgid "user.role.ended"
+msgstr "Vloga se je končala"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID preverjanje je bilo zahtevano!"
+
+msgid "orcid.field.verification.request"
+msgstr "Zahtevajte preverjanje"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Ponovno pošljite email za preverjanje"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Zahtevajte ORCID preverjanje"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Želite poslati email temu avtorju z zahtevo za preverjanje njegovega ORCIDa?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Odstrani ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Ste prepričani, da želite odstraniti ta ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Ta ORCID ni bil potrjen. Prosimo odstranite ta nepotrjen ORCID in prosite za "
+"potrditev s strani uporabnika/avtorja direktno."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Ste prepričani, da želite trajno odstraniti to vlogo? S to akcijo boste "
+"uporabniku odvzeli dostope do vseh informacij in dovoljenj povezanih s to "
+"vlogo."
+
+msgid "user.futureRole.notification.message"
+msgstr "Začetek vaše vloge je bil nastavljen na {$roleStartDate}"
+
+msgid "user.disabledModal.description"
+msgstr "Trenutne vloge : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Onemogoči uporabnika {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Omogoči uporabnika {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografija"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Uporabnik bi moral biti anonimen. Trenutno ste prijavljeni v sistem."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "Vloge ne morete odstraniti. Uporabnik mora imeti vsaj eno vlogo."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Ta email bo poslan, ko bo ustvarjen uporabnik."
+
+msgid "user.login.activate.description"
+msgstr "Potrdite in aktivirajte svoj uporabniški račun"

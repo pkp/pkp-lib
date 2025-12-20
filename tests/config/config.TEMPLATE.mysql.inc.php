@@ -27,9 +27,6 @@ time_format = "h:i A"
 allowed_hosts = "[\"mydomain.org\"]"
 
 [cache]
-cache = file
-memcache_hostname = localhost
-memcache_port = 11211
 web_cache = Off
 web_cache_hours = 1
 

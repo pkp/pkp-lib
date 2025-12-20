@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Mail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\core\PKPApplication;
 use PKP\core\Core;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\jobs\BaseJob;
@@ -50,7 +51,7 @@ class ReviewReminder extends BaseJob
         }
 
         $submission = Repo::submission()->get($reviewAssignment->getData('submissionId'));
-        
+
         $contextService = app()->get('context');
         $context = $contextService->get($this->contextId);
 
@@ -59,7 +60,7 @@ class ReviewReminder extends BaseJob
 
         $primaryLocale = $context->getPrimaryLocale();
         $emailTemplate = Repo::emailTemplate()->getByKey(
-            $context->getId(), 
+            $context->getId(),
             $mailable::getEmailTemplateKey()
         );
 
@@ -68,7 +69,7 @@ class ReviewReminder extends BaseJob
             ->from($context->getData('contactEmail'), $context->getData('contactName'))
             ->recipients([$reviewer]);
 
-        $mailable->setData($primaryLocale);
+        $mailable->setLocale($primaryLocale);
 
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
 
@@ -76,7 +77,6 @@ class ReviewReminder extends BaseJob
             $reviewInvitation = new ReviewerAccessInvite();
             $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
 
-            $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
             $reviewInvitation->updatePayload();
 
             $reviewInvitation->invite();
@@ -95,6 +95,8 @@ class ReviewReminder extends BaseJob
             'dateReminded' => Core::getCurrentDate(),
             'reminderWasAutomatic' => 1
         ]);
+
+        Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_REMIND_AUTO, $mailable, $submission);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,

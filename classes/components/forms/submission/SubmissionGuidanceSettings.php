@@ -41,13 +41,14 @@ class SubmissionGuidanceSettings extends FormComponent
             'submissions'
         );
 
-        $this->addField(new FieldRichTextarea('authorGuidelines', [
+        $this
+            ->addField(new FieldRichTextarea('authorGuidelines', [
             'label' => __('manager.setup.authorGuidelines'),
             'description' => __('manager.setup.authorGuidelines.description', ['url' => $submissionUrl]),
             'isMultilingual' => true,
             'value' => $context->getData('authorGuidelines'),
             'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-            'plugins' => 'paste,link,lists',
+            'plugins' => ['link','lists'],
         ]))
             ->addField(new FieldRichTextarea('beginSubmissionHelp', [
                 'label' => __('submission.wizard.beforeStart'),
@@ -55,7 +56,7 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('beginSubmissionHelp'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldRichTextarea('submissionChecklist', [
                 'label' => __('manager.setup.submissionPreparationChecklist'),
@@ -63,7 +64,7 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('submissionChecklist'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldRichTextarea('uploadFilesHelp', [
                 'label' => __('submission.upload.uploadFiles'),
@@ -71,7 +72,7 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('uploadFilesHelp'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldRichTextarea('contributorsHelp', [
                 'label' => __('publication.contributors'),
@@ -79,7 +80,7 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('contributorsHelp'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldRichTextarea('detailsHelp', [
                 'label' => __('common.details'),
@@ -87,7 +88,7 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('detailsHelp'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldRichTextarea('forTheEditorsHelp', [
                 'label' => __('submission.forTheEditors'),
@@ -95,7 +96,7 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('forTheEditorsHelp'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldRichTextarea('reviewHelp', [
                 'label' => __('submission.reviewAndSubmit'),
@@ -103,7 +104,7 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('reviewHelp'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldRichTextarea('copyrightNotice', [
                 'label' => __('manager.setup.copyrightNotice'),
@@ -111,7 +112,30 @@ class SubmissionGuidanceSettings extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('copyrightNotice'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]));
+
+        $this->addReviewSuggestionGuidanceDetail($this->context);
+    }
+
+    /**
+     * Add review suggestion guidance text
+     */
+    protected function addReviewSuggestionGuidanceDetail(Context $context): void
+    {
+        $schema = app()->get('schema'); /** @var \PKP\services\PKPSchemaService $schema */
+
+        if (!collect($schema->get("context")->properties)->has("reviewerSuggestionEnabled")) {
+            return;
+        }
+
+        $this->addField(new FieldRichTextarea('reviewerSuggestionsHelp', [
+            'label' => __('submission.forReviewerSuggestion'),
+            'description' => __('manager.setup.workflow.reviewerSuggestionsHelp.description'),
+            'isMultilingual' => true,
+            'value' => $context->getData('reviewerSuggestionsHelp'),
+            'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+            'plugins' => ['link', 'lists'],
+        ]));
     }
 }

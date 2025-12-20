@@ -1,11 +1,12 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024, 2025.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
+# Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2024-01-31 12:37+0000\n"
+"PO-Revision-Date: 2025-05-21 06:36+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_BR/>\n"
@@ -313,7 +314,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Avaliador Recebeu Agradecimentos"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr "Solicitar Reenvio"
+msgstr "Solicitação Reenviada"
 
 msgid "editor.review.reviewerComments"
 msgstr "Comentários do Avaliador"
@@ -640,3 +641,63 @@ msgstr "Houve um problema na etapa {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Mesma instituição do autor"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Selecione um avaliador nas sugestões do avaliador"
+
+msgid "editor.review.reviewViewed"
+msgstr "Avaliação Visualizada"
+
+msgid "editor.submission.search"
+msgstr "Pesquisar submissões, ID, autores, palavras-chave, etc."
+
+msgid "editor.submission.days"
+msgstr "Dias"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dias no estágio"
+
+msgid "editor.submission.viewSummary"
+msgstr "Resumo"
+
+msgid "editor.review.logResponse.for"
+msgstr "Resposta de log para"
+
+msgid "editor.review.logResponse"
+msgstr "Resposta de log"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Uma resposta deve ser selecionada"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "O avaliador aceitou o convite para avaliar"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "O avaliador recusou o convite para avaliar"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registre a resposta em nome do avaliador"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Se o avaliador entrar em contato com você por e-mail ou qualquer outro meio, "
+"você poderá registrar a resposta dele"
+
+msgid "editor.review.download"
+msgstr "Baixar formulário de avaliação"
+
+msgid "editor.review.authorOnly"
+msgstr "Seções exibidas somente para autores"
+
+msgid "editor.review.allSections"
+msgstr "O formulário do editor mostra todas as seções de avaliação"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"A data limite da entrega da avaliação deve ser maior ou igual à data limite "
+"da resposta."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Ocorreu um erro ao adicionar o avaliador, pois a data de limite de entrega "
+"da avaliação deve ser igual ou maior que a data de limite da resposta."

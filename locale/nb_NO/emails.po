@@ -1,0 +1,510 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
+"PO-Revision-Date: 2024-09-16 10:48+0000\n"
+"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/emails/nb_NO/>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Vi har mottatt innleveringen din"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Takk for at du har sendt inn «{$submissionTitle}» til {$contextName}. Du kan "
+"følge innleveringen gjennom den redaksjonelle prosessen ved å logge deg inn "
+"på tidsskriftets nettsted:<br />\n"
+"<br />\n"
+"Innleveringens URL: {$submissionUrl}<br />\n"
+"Brukernavn: {$recipientUsername}<br />\n"
+"<br />\n"
+"Ta kontakt med meg om du har spørsmål. Takk for at du velger tidsskriftet "
+"vårt som kanal for å publisere arbeidet ditt.<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
+"Denne e-posten sendes automatisk til en forfatter når vedkommende sender inn "
+"sin innlevering."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Bekreftelse på fullført fagfellevurdering"
+
+msgid "emails.reviewAck.body"
+msgstr ""
+"<p>{$recipientName}:</p>\n"
+"<p>Takk for at du har fullført vurderingen av manuskriptet "
+"«{$submissionTitle}» for {$journalName}. Vi setter stor pris på at du bidrar "
+"til å sikre den faglige kvaliteten på artiklene vi publiserer.</p>\n"
+"<p>Med vennlig hilsen,</p>\n"
+"<p>{$signature}</p>"
+
+msgid "emails.decision.notifyReviewers.subject"
+msgstr "Takk for vurderingen din"
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+"<p>Kjære {$recipientName},</p>\n"
+"<p>Takk for at du fullførte din vurdering av innsendelsen, {$submissionTitle}"
+", for {$journalName}. Vi setter stor pris på din tid og ekspertise i å bidra "
+"til kvaliteten på det arbeidet vi publiserer. Vi har delt dine kommentarer "
+"med forfatterne, sammen med kommentarene fra våre andre fagfeller og "
+"redaktørens beslutning.</p>\n"
+"<p>Basert på tilbakemeldingene vi mottok, har vi informert forfatterne om "
+"følgende:</p> \n"
+"<p>{$decisionDescription}</p> \n"
+"<p>Ditt forslag ble vurdert sammen med forslagene fra andre fagfeller før vi "
+"kom til en beslutning. Av og til kan redaktørens beslutning avvike fra "
+"anbefalingen gitt av en eller flere fagfeller. Vi er takknemlige for våre "
+"fagfellers ekspertise og forslag.</p>\n"
+"<p>Det har vært en glede å samarbeide med deg som fagfelle for {$journalName}"
+", og vi håper å få muligheten til å arbeide med deg igjen i fremtiden.</p>\n"
+"<p>Med vennlig hilsen,</p> \n"
+"<p>{$journalSignature}</p>"
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr "En oppdatering angående din innlevering"
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+"<p>Følgende e-post ble sendt til {$submittingAuthorName} fra {$journalName} "
+"angående {$submissionTitle}.</p>\n"
+"<p>Du mottar en kopi fordi du er blitt oppgitt som forfatter av denne "
+"innleveringen. Instruksjonene i e-posten er tiltenkt korresponderende "
+"forfatter, {$submittingAuthorName}, og du trenger ikke foreta deg noe på "
+"nåværende tidspunkt.</p>\n"
+"\n"
+"{$messageToSubmittingAuthor}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Redaktørens beslutning"
+
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"<p>{$recipientName}:</p>\n"
+"<p>Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}»"
+", som du sendte inn til {$journalName}. </p>\n"
+"<p>Vår beslutning er: Sendes til fagfellevurdering</p>\n"
+"<p>Innleveringens URL: {$submissionUrl}</p>"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"<p>{$authors}:</p>\n"
+"<p>Redigeringen av «{$submissionTitle}» er ferdigstilt. Vi sender den videre "
+"til produksjon.</p>\n"
+"<p>Innleveringens URL: {$submissionUrl}</p>"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"<p>{$authors}:</p>\n"
+"<p>Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}»"
+", som du sendte inn til {$journalName}.</p>\n"
+"<p>Vår beslutning er: Omarbeiding kreves</p>"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"<p>{$authors}:</p>\n"
+"<p>Vi har tatt en beslutning angående innleveringen din «{$submissionTitle}»"
+", som du sendte inn til {$journalName}.</p>\n"
+"<p>Vår beslutning er: Lever inn til ny fagfellevurdering</p>"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"<p>{$authors}:</p>\n"
+"<p>Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}»"
+", som du sendte inn til {$contextName}. </p>\n"
+"<p>Vår beslutning er: Manuskriptet avvises</p>"
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Redaktørens anbefaling"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"<p>{$editors}:</p>\n"
+"<p>Min anbefaling for innleveringen &quot;{$submissionTitle}&quot; til "
+"{$journalName}, er: {$recommendation}</p>"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Forespørsel om manuskriptredigering"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"<p>{$recipientName}:\n"
+"<p>Takk for at du har sagt deg villig til å bidra til arbeidet vårt. "
+"Innleveringen «{$submissionTitle}»; for {$journalName} er klar for "
+"redigering. Du finner innleveringen på tidsskriftets nettsted, sammen med "
+"vår «Instruks for språkvask.</p>\n"
+"<p>1. Klikk på innleveringens URL under</p>\n"
+"<p>2. Åpne filer som er tilgjengelige under «Filer til språkvask». Legg til "
+"eventuelle kommentarer i diskusjonsfeltet.</p>\n"
+"<p>3. Lagre de språkvaskede filene og last dem opp.</p>\n"
+"<p>4. Informer redaktøren at alle filene har blitt bearbeidet og at "
+"produksjonen kan starte.</p>\n"
+"<p>{$journalName} URL: {$submissionUrl}</p>\n"
+"<p>Brukernavn: {$recipientUsername}</p>"
+
+#, fuzzy
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr "Innleveringen din har blitt sendt til en ny runde med fagfellevurdering"
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+"<p> {$recipientName},</p> \n"
+"<p>Din reviderte innsendelse, {$submissionTitle}, har blitt sendt til en ny "
+"runde med fagfellevurdering. \n"
+"Du vil høre fra oss med tilbakemeldinger fra fagfellene og informasjon om "
+"neste steg.</p>\n"
+"<p>Hvis du har noen spørsmål, vennligst kontakt meg via ditt <a href=\""
+"{$authorSubmissionUrl}\">innleveringsdashboard</a>.</p> \n"
+"<p>Med vennlig hilsen,</p> \n"
+"<p>{$signature}</p>\n"
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+"<p>Kjære {$recipientName},</p> \n"
+"<p>Beslutningen om å avvise din innlevering, {$submissionTitle}, har blitt "
+"omgjort. En redaktør vil fullføre vurderingsrunden, og du vil bli varslet "
+"når en beslutning er tatt.</p> \n"
+"<p>Av og til blir en beslutning om å avslå en innlevering registrert ved en "
+"feil i vårt system og må rettes opp. Jeg beklager for eventuell forvirring "
+"dette kan ha forårsaket.</p> \n"
+"<p>Vi vil kontakte deg hvis vi trenger ytterligere assistanse.</p>\n"
+"<p>Hvis du har noen spørsmål, vennligst kontakt meg via <a href=\""
+"{$authorSubmissionUrl}\">innleveringsdashboardet</a>.</p>\n"
+"<p>Med vennlig hilsen,</p>\n"
+"<p>{$signature}</p>\n"
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+"<p>Kjære {$recipientName},</p> \n"
+"<p>Beslutningen om å avvise din innlevering, {$submissionTitle}, har blitt "
+"omgjort. En redaktør vil se nærmere på din innlevering før han eller hun "
+"bestemmer om innleveringen skal avslås eller sendes til fagfellevurdering.</"
+"p> \n"
+"<p>Av og til blir en beslutning om å avslå en innlevering registrert ved en "
+"feil i vårt system og må rettes opp. Jeg beklager for eventuell forvirring "
+"dette kan ha forårsaket.</p> \n"
+"<p>Vi vil kontakte deg hvis vi trenger ytterligere assistanse.</p> \n"
+"<p>Hvis du har noen spørsmål, vennligst kontakt meg via <a href=\""
+"{$authorSubmissionUrl}\">innleveringsdashboardet</a>.</p>\n"
+"<p>Med vennlig hilsen,</p>\n"
+"<p>{$signature}</p>\n"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}», "
+"som du sendte inn til {$contextName}.<br />\n"
+"<br />\n"
+"Vår beslutning er: Manuskriptet avvises"
+
+msgid "emails.editorialReminder.subject"
+msgstr "Utestående redaksjonelle oppgaver for {$journalName}"
+
+#, fuzzy
+msgid "emails.editorialReminder.body"
+msgstr ""
+"<p>{$recipientName},</p><p>Du er for øyeblikket tildelt "
+"{$numberOfSubmissions} innleveringer i <a href=\"{$contextUrl}\""
+">{$contextName}</a>. Følgende innleveringer<b>venter på ditt "
+"svar</b>.</p>{$outstandingTasks}<p>Se alle dine oppgaver på ditt <a href=\""
+"{$submissionsUrl}\">innleveringsdashboard</a>.</p><p>Hvis du har noen "
+"spørsmål angående dine oppgaver, vennligst kontakt {$contactName} på "
+"{$contactEmail}.</p>"
+
+msgid "discussion.notification.description"
+msgstr ""
+"Denne e-posten sendes når en bruker starter en ny diskusjon eller svarer på "
+"et eksisterende diskusjonsinnlegg."
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+"<p>{$recipientName},</p><p>Din innlevering, {$submissionTitle}, har blitt "
+"sendt tilbake til manuskrptredigerind, hvor den vil gjennomgå ytterligere "
+"redigering og formatering for å forberede den for publisering.</p><p>Av og "
+"til blir en innlevering sendt til produksjonsstadiet før den er klar for de "
+"endelige korrekturene for publisering. Din innlevering er fremdeles under "
+"utarbeidelse. Jeg beklager eventuell forvirring dette har skapt.</p><p>Hvis "
+"du har noen spørsmål, vennligst kontakt meg via ditt <a href=\""
+"{$authorSubmissionUrl}\">innleveringsdashboard</a>.</p><p>Vi vil kontakte "
+"deg hvis vi trenger ytterligere assistanse.</p><p>Med vennlig "
+"hilsen,</p><p>{$signature}</p>"
+
+#, fuzzy
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr "Innleveringen din er sendt tilbake til fagfellevurdering"
+
+#, fuzzy
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+"<p>{$recipientName},</p><p>Din innlevering, {$submissionTitle}, har blitt "
+"sendt tilbake til fagfellevurderingsstadiet. Den vil gjennomgå ytterligere "
+"fagfellevurdering før den kan bli akseptert for publisering.</p><p>Noen "
+"ganger kan en beslutning om å akseptere en innsendelse bli registrert ved en "
+"feil i vårt system, og vi må sende den tilbake til fagfellevurdering. Jeg "
+"beklager for forvirringingen dette har forårsaket. Vi gjør vårt ytterste for "
+"å fullføre ytterligere fagfellevurdering raskt slik at du får en endelig "
+"beslutning så fort som mulig.</p><p>Hvis du har noen spørsmål, vennligst "
+"kontakt meg fra ditt <a href=\"{$authorSubmissionUrl}\""
+">innleveringsdashboard</a>.</p><p>Med vennlig hilsen,</p><p>{$signature}</p>"
+
+#, fuzzy
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr "En fagfellevurderingsrunde for din innlevering har blitt kansellert"
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewResendRequest.subject"
+msgstr "Ber om din fagfellevurdering for {$contextName}"
+
+#, fuzzy
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+"<p>{$recipientName},</p><p>Nylig avslo du vår forespørsel om å "
+"fagfellevurdere en innlevering, {$submissionTitle}, for {$contextName}. Jeg "
+"skriver for å høre om du allikevel har mulighet til å gjennomføre "
+"vurderingen.</p><p>Vi ville være veldig takknemlige omdu har mulighet til å "
+"utføre denne vurderingen, men vi forstår hvis det ikke er mulig akkurat nå. "
+"Uansett, vennligst <a href=\"{$reviewAssignmentUrl}\">aksepter eller avvis "
+"forespørselen</a> innen {$responseDueDate}, slik at vi kan finne en annen "
+"fagfelle.</p><p>Hvis du har spørsmål, vennligst kontakt meg.</p><p>Med "
+"vennlig hilsen,</p>{$signature}"
+
+#, fuzzy
+msgid "emails.footer.unsubscribe"
+msgstr ""
+"<br><br>—<br><a href=\"{$unsubscribeUrl}\">Avslutt abonnement</a> på e-"
+"poster sendt av <a href=\"{$contextUrl}\">{$contextName}</a>."
+
+#, fuzzy
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+"<br><br>—<br>Svar på denne kommentaren på <a href=\"{$submissionUrl}\""
+">#{submissionId} {authorsShort}</a> eller <a href=\"{$unsubscribeUrl}\""
+">avslutt abonnement</a> på e-poster sendt av <a href=\"{$contextUrl}\""
+">{$contextName}</a>."
+
+#, fuzzy
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+"<br><br>—<br>Dette er en automatisk melding fra <a href=\"{$contextUrl}\""
+">{contextName}</a>. Du kan <a href=\"{unsubscribeUrl}\">avslutte "
+"abonnementet</a> på denne e-posten når som helst."
+
+#, fuzzy
+msgid "emailTemplate.variable.unsubscribe"
+msgstr "Lenken for å avslutte abonnementet på denne e-posten."
+
+msgid "emails.discussion.subject"
+msgstr "En beskjed angående {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Skriv inn beskjeden din her."
+
+#, fuzzy
+msgid "emails.versionCreated.subject"
+msgstr "En ny versjon ble opprettet for {$submissionTitle}"
+
+#, fuzzy
+msgid "emails.versionCreated.body"
+msgstr ""
+"<p>{$recipientName},</p><p>Dette er en automatisk melding for å informere "
+"deg om at en ny versjon av din innlevering, {$submissionTitle}, ble "
+"opprettet. Du kan se denne versjonen fra ditt innleveringsdashboard på "
+"følgende lenke:</p><p><a href=\"{$submissionUrl}\">{$submissionTitle}</a></"
+"p><hr><p>Dette er en automatisk e-post sendt fra <a href=\"{$contextUrl}\""
+">{$contextName}</a>.</p>"
+
+#, fuzzy
+msgid "emails.reviewComplete.subject"
+msgstr ""
+"Fagfelleurdering fullført: {reviewerName} anbefaler {reviewRecommendation} "
+"for #{submissionId} {authorsShort} — {$submissionTitle}"
+
+#, fuzzy
+msgid "emails.reviewComplete.body"
+msgstr ""
+"<p>{$recipientName},</p>\n"
+"<p>{$reviewerName} har fullført følgende fagfellevurdering: <a href=\""
+"{$submissionUrl}\">#{$submissionId} {$authorsShort} — {$submissionTitle} "
+"</a></p>\n"
+"<p>Anbefaling: {$reviewRecommendation}</p>\n"
+"<p>Type: {$reviewMethod}</p>\n"
+"<p>Log inn <a href=\"{$submissionUrl}\">for å se alle filer og kommentarer</"
+"a> gitt av denne fagfellen.</p>"
+
+#, fuzzy
+msgid "emails.reviewEdit.subject"
+msgstr "Ditt fagfellevurderingsoppdrag for {$contextName} er blitt endret"
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Aksepter forespørsel om fagfellevurdering"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Redaktorer:<br />\n"
+"<br />\n"
+"Takk for forespørselen om å vurdere innleveringen &quot;{$submissionTitle},"
+"&quot; for {$contextName}. Jeg har tid og anledning til å vurdere "
+"manuskriptet, og tar sikte på å ferdigstille vurderingen innen "
+"{$reviewDueDate}, om ikke før.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+"Denne e-posten sendes automatisk til forfattere på en innlevering som ikke "
+"er korresponderende forfatter."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Bekreftelse på innlevering"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Kjære {$recipientName}</p><p>Du er angitt som medforfatter på et "
+"manuskript innsendt til {$contextName}. Innsenderen, {$submitterName}, har "
+"oppgitt følgende information:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Hvis noen av disse opplysningene er "
+"feil, eller du ikke ønsker å være angitt som medforfatter på dette "
+"manuskript, vær vennlig å kontakte mig.</p><p>Takk for at du vurderer dette "
+"tidsskrift til for arbeidet ditt.</p><p>Med vennlig hilsen</"
+"p>{$contextSignature}"
+
+#, fuzzy
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Denne e-posten sendes av en seksjonsredaktør for å bekrefte at "
+#~ "fagfellevurderingen er mottatt, og takke fagfellen for innsatsen."
+
+msgid "emails.orcidRequestAuthorAuthorization.description"
+msgstr "Denne e-postmalen brukes til å spørre om ORCID-tilgang fra forfattere."
+
+msgid "emails.orcidRequestAuthorAuthorization.body"
+msgstr ""
+"Kjære {$recipientName}, <br />\n"
+"<br />\n"
+"Du er oppført som forfatter på manusinnleveringen \"{$submissionTitle}\" til "
+"{$contextName}. <br />\n"
+"For å bekrefte forfatterskapet ditt, vennligst legg til ORCID-ID-en din i "
+"denne innleveringen ved å gå til lenken nedenfor. <br />\n"
+"<br />\n"
+"<a href=\"{$authorOrcidUrl}\"> <img id = \"orcid-id-logo\" src = \""
+"https://orcid.org/sites/default/files/images/orcid_16x16.png\" width = '16 ' "
+"height = '16 'alt = \"ORCID iD icon\" style = \"display: block; margin: 0 "
+".5em 0 0; padding: 0; float: left;\" /> Registrer eller koble ORCID iD </a> <"
+"br />\n"
+"<br />\n"
+"<br />\n"
+"<a href=\"{$orcidAboutUrl}\"> Mer informasjon om ORCID på {$contextName} </a>"
+" <br />\n"
+"<br />\n"
+"Ta gjerne kontakt hvis du har spørsmål. <br />\n"
+"<br />\n"
+"{$principalContactSignature} <br />\n"
+
+msgid "emails.orcidRequestAuthorAuthorization.subject"
+msgstr "Forespørsel om tilgang til ORCID"
+
+msgid "emails.orcidCollectAuthorId.description"
+msgstr "Denne e-posten brukes til å samle inn ORCID fra forfattere."
+
+msgid "emails.orcidCollectAuthorId.body"
+msgstr ""
+"Kjære {$recipientName}, <br />\n"
+"<br />\n"
+"Du er oppført som forfatter på en manusinnlevering til {$contextName}. <br />"
+"\n"
+"For å bekrefte forfatterskapet ditt, vennligst legg til ORCID-ID-en din i "
+"denne innleveringen ved å gå til lenken nedenfor. <br />\n"
+"<br />\n"
+"<a href=\"{$authorOrcidUrl}\"> <img id = \"orcid-id-logo\" src = \""
+"https://orcid.org/sites/default/files/images/orcid_16x16.png\" width = '16 ' "
+"height = '16 'alt = \"ORCID iD icon\" style = \"display: block; margin: 0 "
+".5em 0 0; padding: 0; float: left;\" /> Registrer eller koble ORCID iD </a> <"
+"br />\n"
+"<br />\n"
+"<br />\n"
+"<a href=\"{$orcidAboutUrl}\"> Mer informasjon om ORCID på {$contextName} </a>"
+" <br />\n"
+"<br />\n"
+"Ta gjerne kontakt hvis du har spørsmål. <br />\n"
+"<br />\n"
+"{$principalContactSignature} <br />\n"
+
+msgid "emails.orcidCollectAuthorId.subject"
+msgstr "ORCID for innlevering"

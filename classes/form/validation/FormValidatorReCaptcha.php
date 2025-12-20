@@ -27,7 +27,7 @@ class FormValidatorReCaptcha extends FormValidator
     /** @var string The response field containing the reCaptcha response */
     private const RECAPTCHA_RESPONSE_FIELD = 'g-recaptcha-response';
     /** @var string The request URL */
-    private const RECAPTCHA_URL = 'https://www.google.com/recaptcha/api/siteverify';
+    private const RECAPTCHA_URL = 'https://www.recaptcha.net/recaptcha/api/siteverify';
     /** @var string The initiating IP address of the user */
     private $_userIp;
     /** @var string The hostname to expect in the validation response */
@@ -127,8 +127,4 @@ class FormValidatorReCaptcha extends FormValidator
             throw new Exception(implode("\n", $errors) ?: 'The reCaptcha validation failed.');
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorReCaptcha', '\FormValidatorReCaptcha');
 }

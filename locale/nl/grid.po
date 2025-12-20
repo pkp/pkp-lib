@@ -1,15 +1,20 @@
+# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: nl_NL\n"
+"PO-Revision-Date: 2025-07-15 14:00+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/nl/>"
+"\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Geen onderdelen"
@@ -131,7 +136,7 @@ msgid "grid.action.order"
 msgstr "Sorteren"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Bewaar volgorde"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Sorteren opheffen"
@@ -233,7 +238,7 @@ msgid "grid.action.editUserGroup"
 msgstr "Gebruikersgroep bewerken"
 
 msgid "grid.action.removeUserGroup"
-msgstr ""
+msgstr "Verwijder deze gebruikersgroep"
 
 msgid "grid.action.disable"
 msgstr "Schakel uit"
@@ -284,7 +289,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Nieuwsbericht toevoegen"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Voeg instelling toe"
 
 msgid "grid.action.mergeUser"
 msgstr "Gebruiker samenvoegen"
@@ -299,7 +304,7 @@ msgid "grid.action.unconsiderReview"
 msgstr "Deze review is afgewerkt, maar u kan ze ook terugtrekken"
 
 msgid "grid.action.enable"
-msgstr "Inschakelen"
+msgstr "In de gelegenheid stellen"
 
 msgid "grid.action.bookInfo"
 msgstr "Informatie over de inzending"
@@ -365,7 +370,7 @@ msgid "grid.columns.locale"
 msgstr "Taalkode"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Code"
 
 msgid "grid.sponsor.title"
 msgstr "Sponsors"
@@ -408,9 +413,11 @@ msgstr "Verwijder bijdrager"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Bent u zeker dat u {$name} als bijdrager wilt verwijderen? Deze handeling "
+"kan niet worden ongedaan gemaakt."
 
 msgid "grid.action.newVersion"
-msgstr ""
+msgstr "Maak een nieuwe versie"
 
 msgid "grid.reviewForm.title"
 msgstr "Reviewformulieren"
@@ -449,28 +456,30 @@ msgid "author.users.contributor.principalContact"
 msgstr "Primair contact"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Wijs een hoofdcontactpersoon aan"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Voorvertoning"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
+"Bijdragers aan deze publicatie zullen worden geïdentificeerd in de volgende "
+"formulieren."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Formulier"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Weergave"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Afgekort"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Publicatielijsten"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Volledig"
 
 msgid "grid.roles.currentRoles"
 msgstr "Huidige rollen"
@@ -506,7 +515,7 @@ msgid "grid.user.email"
 msgstr "E-mail"
 
 msgid "grid.user.enable"
-msgstr "Inschakelen"
+msgstr "Stel gebruiker in de gelegenheid"
 
 msgid "grid.user.disable"
 msgstr "Afsluiten"
@@ -526,13 +535,13 @@ msgid "grid.user.errorEmail"
 msgstr ""
 "Er is een fout opgetreden bij het verzenden van deze e-mail. Kijk na of de "
 "configuratie van uw server klopt en/of neem contact op met uw "
-"systeembeheerder"
+"systeembeheerder."
 
 msgid "grid.user.cannotAdminister"
 msgstr "U heeft niet voldoende bevoegdheden om deze gebruiker te bewerken."
 
 msgid "grid.user.mustProvideName"
-msgstr "Geef als eerste de achternaam van de gebruiker"
+msgstr "Geef als eerste de achternaam van de gebruiker."
 
 msgid "grid.user.generatePassword"
 msgstr "Genereer wachtwoord"
@@ -544,7 +553,7 @@ msgid "grid.user.notifyUser"
 msgstr "Stuur de gebruiker een notificatie"
 
 msgid "grid.user.notifyUserDescription"
-msgstr "Stuur de gebruiker een welkomstmail"
+msgstr "Stuur de gebruiker een welkomstmail."
 
 msgid "grid.user.mustChangePassword"
 msgstr "Wachtwoord veranderen"
@@ -626,7 +635,7 @@ msgid "grid.plugin.disable"
 msgstr "Weet u zeker dat u deze plugin uit wilt schakelen?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Proefcorrecties zijn gemaakt, maar u kan ze ook terugtrekken."
+msgstr "Proefcorrecties zijn gemaakt, maar u kan ze ook terugtrekken"
 
 msgid "grid.artworkFile.caption"
 msgstr "Bijschrift"
@@ -706,7 +715,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Kies een type..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Zie"
 
 msgid "author.users.contributor.name"
 msgstr "Naam"
@@ -722,3 +731,35 @@ msgstr "In bladerlijsten"
 
 msgid "grid.action.editContributor"
 msgstr "Bewerk bijdrager"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Voeg de suggestie van de Reviewer toe"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Vernietig de suggestie van de Reviewer"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Verschijn in het colofon"
+
+msgid "grid.user.remove"
+msgstr "Verwijder gebruiker"
+
+msgid "grid.user.logInAs"
+msgstr "Log in als"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Bent u zeker dat u deze suggestie wilt verwijderen? Deze handeling kan niet "
+"worden ongedaan gemaakt."
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Zodra de gebruiker in de gelegenheid is gesteld, zal deze toegang weer "
+"toegang krijgen tot de site en kun je deze uitnodigen voor de benodigde "
+"rollen."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Let u alstublieft op, dat zodra een gebruiker is uitgeschakeld, je deze niet "
+"meer zal kunnen toevoegen in een rol, totdat de gebruiker weer in de "
+"gelegenheid is gesteld."

@@ -116,6 +116,13 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = null;
 
+	/**
+	 * The "init" params for tinymce
+	 * @private
+	 * @type {Array}
+	 */
+	$.pkp.controllers.SiteHandler.prototype.tinymceParams_ = null;
+
 
 	//
 	// Public static methods.
@@ -141,8 +148,7 @@
 				width: '100%',
 				resize: 'both',
 				entity_encoding: 'raw',
-				plugins: 'paste,fullscreen,link,lists,code,' +
-						'image,-pkpTags,noneditable',
+				plugins: ['fullscreen','link','lists','code','image','-pkpTags'],
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
@@ -154,7 +160,10 @@
 						'image | pkpTags',
 				statusbar: false,
 				content_css: contentCSS,
-				browser_spellcheck: true
+				browser_spellcheck: true,
+				skin: 'tinymce-5',
+				license_key: 'gpl',
+				menubar: false
 			};
 
 			// Support image uploads
@@ -165,26 +174,27 @@
 				tinymceParamDefaults.remove_script_host = false;
 				// https://www.tiny.cloud/docs/general-configuration-guide/upload-images/
 				tinymceParamDefaults.images_upload_handler = function(
-						blobInfo, success, failure) {
-
-					/*global FormData: false */
-					var data = new FormData();
-					data.append('file', blobInfo.blob(), blobInfo.filename());
-					$.ajax({
-						method: 'POST',
-						url: $.pkp.plugins.generic.tinymceplugin.uploadUrl,
-						data: data,
-						processData: false,
-						contentType: false,
-						headers: {
-							'X-Csrf-Token': pkp.currentUser.csrfToken
-						},
-						success: function(r) {
-							success(r.url);
-						},
-						error: function(r) {
-							failure(r.responseJSON.errorMessage);
-						}
+						blobInfo, progress) {
+					return new Promise(function (resolve, reject) {
+						/*global FormData: false */
+						var data = new FormData();
+						data.append('file', blobInfo.blob(), blobInfo.filename());
+						$.ajax({
+							method: 'POST',
+							url: $.pkp.plugins.generic.tinymceplugin.uploadUrl,
+							data: data,
+							processData: false,
+							contentType: false,
+							headers: {
+								'X-Csrf-Token': pkp.currentUser.csrfToken
+							},
+							success: function(r) {
+								resolve(r.url);
+							},
+							error: function(r) {
+								reject(r.responseJSON.error);
+							}
+						});
 					});
 				};
 			}
@@ -203,6 +213,8 @@
 					$.pkp.controllers.SiteHandler.prototype.triggerTinyMCEInitialized;
 			tinymceParams.setup =
 					$.pkp.controllers.SiteHandler.prototype.triggerTinyMCESetup;
+
+			$.pkp.controllers.SiteHandler.prototype.tinymceParams_ = tinymceParams;
 
 			tinyMCE.init(tinymceParams);
 		}
@@ -237,23 +249,22 @@
 
 		// For read-only controls, set up TinyMCE read-only mode.
 		if (target.attr('readonly')) {
-			tinyMCEObject.settings.readonly = true;
+			$.pkp.controllers.SiteHandler.prototype.tinymceParams_.readonly = true;
 		}
 
 		if (target.attr('wordCount') && target.attr('wordCount') > 0) {
-			tinyMCEObject.settings.plugins =
-					tinyMCEObject.settings.plugins + ',pkpwordcount';
-			tinyMCEObject.settings.statusbar = true;
+			$.pkp.controllers.SiteHandler.prototype.tinymceParams_.plugins.push('pkpwordcount');
+			$.pkp.controllers.SiteHandler.prototype.tinymceParams_.statusbar = true;
 		}
 
 		if (target.attr('dir')) {
-			tinyMCEObject.settings.directionality = target.attr('dir');
+			$.pkp.controllers.SiteHandler.prototype.tinymceParams_.directionality = target.attr('dir');
 		}
 
 		// Set height based on textarea rows
 		height = target.attr('rows') || 10; // default: 10
 		height *= 20; // 20 pixels per row
-		tinyMCEObject.settings.height = height.toString() + 'px';
+		$.pkp.controllers.SiteHandler.prototype.tinymceParams_.height = height.toString() + 'px';
 
 		// Add a fake HTML5 placeholder when the editor is intitialized
 		tinyMCEObject.on('init', function(tinyMCEObject) {

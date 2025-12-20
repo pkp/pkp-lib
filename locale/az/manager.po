@@ -770,9 +770,6 @@ msgstr "Ödəniş üsulu"
 msgid "settings.roles.roleOptions"
 msgstr "Rol seçimləri"
 
-msgid "settings.roles.showTitles"
-msgstr "Qatqı edənlərin siyahısında rol başlığını göstərin"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "İstifadəçilərin öz-qeydiyyatına icazə verin"
 
@@ -2509,7 +2506,7 @@ msgstr ""
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "İstədiyiniz tarix və saat formatını seçin. <a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters'>Xüsusi bir "
+"datetime.format.php#refsect1-datetime.format-parameters'>Xüsusi bir "
 "tarix və saat formatı</a> üçün xüsusi bir format daxil edə bilərsiniz."
 
 msgid "manager.setup.privacyStatement.description"

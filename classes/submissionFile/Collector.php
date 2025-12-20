@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submissionFile/Collector.php
  *
@@ -51,6 +52,9 @@ class Collector implements CollectorInterface
 
     /** @var null|array get submission files matching an ASSOC_ID with one of the assocTypes */
     protected $assocIds = null;
+
+    /** @var null|array get submission files matching one or more DOI IDs */
+    public ?array $doiIds = null;
 
     /** @var bool include submission files in the SubmissionFile::SUBMISSION_FILE_DEPENDENT stage */
     protected $includeDependentFiles = false;
@@ -177,6 +181,16 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Set DOI filter
+     */
+    public function filterByDoiIds(?array $doiIds): self
+    {
+        $this->doiIds = $doiIds;
+
+        return $this;
+    }
+
+    /**
      * Whether or not to include dependent files in the results
      */
     public function includeDependentFiles(bool $includeDependentFiles = true): self
@@ -217,7 +231,7 @@ class Collector implements CollectorInterface
         $qb = DB::table($this->dao->table . ' as sf')
             ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
             ->join('files as f', 'f.file_id', '=', 'sf.file_id')
-            ->select(['sf.*', 'f.*', 's.locale as locale']);
+            ->select(['sf.*', 'f.*', 's.locale as submission_locale']);
 
         if ($this->submissionIds !== null) {
             $qb->whereIn('sf.submission_id', $this->submissionIds);
@@ -262,6 +276,10 @@ class Collector implements CollectorInterface
 
         if ($this->uploaderUserIds !== null) {
             $qb->whereIn('sf.uploader_user_id', $this->uploaderUserIds);
+        }
+
+        if ($this->doiIds !== null) {
+            $qb->whereIn('sf.doi_id', $this->doiIds);
         }
 
         if ($this->includeDependentFiles !== true && $this->fileStages !== null && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {

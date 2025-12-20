@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-04-09 13:04+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/uk/>\n"
@@ -620,3 +620,61 @@ msgstr "Виникла проблема з кроком {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Така само установа, як і в автора"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Виберіть рецензента з пропозицій щодо рецензентів"
+
+msgid "editor.review.reviewViewed"
+msgstr "Рецензію переглянуто"
+
+msgid "editor.submission.daysInStage"
+msgstr "Днів на стадії"
+
+msgid "editor.submission.days"
+msgstr "Днів"
+
+msgid "editor.submission.viewSummary"
+msgstr "Резюме"
+
+msgid "editor.review.logResponse.for"
+msgstr "Відповідь журналу для"
+
+msgid "editor.review.logResponse"
+msgstr "Відповідь журналу"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Потрібно вибрати відповідь"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Рецензент прийняв запрошення до рецензування"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Запишіть відповідь від імені рецензента"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Якщо рецензент зв’яжеться з вами електронною поштою чи в інший спосіб, ви "
+"можете записати його відповідь"
+
+msgid "editor.review.download"
+msgstr "Завантажити форму рецензії"
+
+msgid "editor.review.authorOnly"
+msgstr "Відображаються розділи лише для автора"
+
+msgid "editor.review.allSections"
+msgstr "Форма редактора показує всі розділи рецензії"
+
+msgid "editor.submission.search"
+msgstr "Пошук матеріалів, ID, авторів, ключових слів тощо"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Рецензент відхилив запрошення до рецензування"
+
+msgid "editor.review.importantDates.notice"
+msgstr "Термін рецензування має бути більшим або дорівнювати терміну відповіді."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Під час додавання рецензента сталася помилка, оскільки термін рецензування "
+"повинен дорівнювати терміну відповіді або бути більшим."

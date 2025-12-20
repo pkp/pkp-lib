@@ -1,7 +1,7 @@
-# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024.
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-07-01 08:40+0000\n"
+"PO-Revision-Date: 2025-01-28 15:51+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
 "mr/>\n"
@@ -38,9 +38,8 @@ msgstr "टिप्पणीची नोंद करा"
 msgid "comments.inResponseTo"
 msgstr "<a href=\"{$url}\">{$title}</a> च्या प्रतिसादात"
 
-#, fuzzy
 msgid "comments.name"
-msgstr "संदेश पाठवणार्‍याचे नाव"
+msgstr "पोस्टरचे नाव"
 
 msgid "comments.noComments"
 msgstr "वाचकांच्या टिप्पण्या अद्याप नोंदवलेल्या नाहीत."

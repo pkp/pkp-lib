@@ -41,7 +41,7 @@ class UserGroupGridRow extends GridRow
 
         $rowId = $this->getId();
 
-        $actionArgs = ['userGroupId' => $userGroup->getId()];
+        $actionArgs = ['userGroupId' => $userGroup->id];
         $this->setRequestArgs($actionArgs);
 
         // Only add row actions if this is an existing row.
@@ -53,7 +53,6 @@ class UserGroupGridRow extends GridRow
                 new AjaxModal(
                     $router->url($request, null, null, 'editUserGroup', null, $actionArgs),
                     __('grid.action.edit'),
-                    'modal_edit'
                 ),
                 __('grid.action.edit'),
                 'edit'
@@ -65,7 +64,8 @@ class UserGroupGridRow extends GridRow
                     $request->getSession(),
                     __('settings.roles.removeText'),
                     null,
-                    $router->url($request, null, null, 'removeUserGroup', null, $actionArgs)
+                    $router->url($request, null, null, 'removeUserGroup', null, $actionArgs),
+                    'negative'
                 ),
                 __('grid.action.remove'),
                 'delete'

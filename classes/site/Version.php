@@ -315,13 +315,9 @@ class Version extends \PKP\core\DataObject
      */
     public function isCompatible(string $constraints): bool
     {
-        $semver = new semver();
+        $semver = new Semver();
         $version = $this->getVersionString();
 
         return $semver->satisfies($version, $constraints);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\site\Version', '\Version');
 }

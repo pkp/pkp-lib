@@ -1,11 +1,12 @@
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-04-17 14:58+0000\n"
-"Last-Translator: Kay <kay.pepping@huygens.knaw.nl>\n"
+"PO-Revision-Date: 2025-07-10 14:21+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "nl/>\n"
 "Language: nl\n"
@@ -133,7 +134,7 @@ msgid "default.genres.other"
 msgstr "Andere"
 
 msgid "default.genres.multimedia"
-msgstr "Multimedia"
+msgstr "Diverse media"
 
 msgid "default.genres.image"
 msgstr "Afbeelding"
@@ -195,3 +196,22 @@ msgstr ""
 "heeft voltooid, wordt een redactielid toegewezen om deze te beoordelen. Zorg "
 "ervoor dat de gegevens die u hier heeft ingevuld zo nauwkeurig mogelijk "
 "zijn.</p>"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Leden van de redactieraad"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Lid van de redactieraad"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "LR (Lid van de redactieraad)"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p> Wanneer u overgaat tot inzending, hebt u de mogelijkheid een aantal "
+"mogelijke recensenten voor te stellen. Dit kan bijdragen aan het "
+"stroomlijnen van het recensieproces en voorzien in waardevolle inbreng voor "
+"de redactieraad. U wordt vriendelijk verzocht recensenten te kiezen die in "
+"hun veld deskundig zijn en geen belangenverstrengeling hebben met uw werk. "
+"Deze functie is bedoeld om het beoordelingsproces te verbeteren en te zorgen "
+"voor een efficiëntere ervaring voor zowel auteurs als de redactieraad.</p>"

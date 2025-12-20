@@ -15,11 +15,12 @@
 
 namespace PKP\components\forms\context;
 
-use APP\facades\Repo;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\security\Role;
+use PKP\userGroup\UserGroup;
+
 
 class PKPAppearanceMastheadForm extends FormComponent
 {
@@ -42,22 +43,22 @@ class PKPAppearanceMastheadForm extends FormComponent
 
         $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
 
-        $collector = Repo::userGroup()->getCollector();
-        $allMastheadUserGroups = $collector
-            ->filterByContextIds([$context->getId()])
-            ->filterByMasthead(true)
-            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderBy($collector::ORDERBY_ROLE_ID)
-            ->getMany()
-            ->toArray();
-
-        // sort the mashead roles in their saved order
-        $sortedAllMastheadUserGroups = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
-
+        $allMastheadUserGroups = UserGroup::withContextIds($context->getId())
+            ->masthead(true)
+            ->excludeRoleIds(Role::ROLE_ID_REVIEWER)
+            ->orderByRoleId()
+            ->get();
+    
+        // Sort the masthead user groups in their saved order
+        $sortedAllMastheadUserGroups = $allMastheadUserGroups->sortBy(function ($userGroup) use ($savedMastheadUserGroupIdsOrder) {
+            return array_search($userGroup->id, $savedMastheadUserGroupIdsOrder);
+        })->values();
+        
+        $mastheadOptions = [];
         foreach ($sortedAllMastheadUserGroups as $userGroup) {
             $mastheadOptions[] = [
-                'value' => $userGroup->getId(),
-                'label' => $userGroup->getLocalizedName()
+                'value' => $userGroup->id,
+                'label' => $userGroup->getLocalizedData('name')
             ];
         }
 
@@ -69,9 +70,9 @@ class PKPAppearanceMastheadForm extends FormComponent
             'options' => $mastheadOptions,
             'allowOnlySorting' => true
         ]))
-            ->addField(new FieldHTML('reviewer', [
-                'label' => __('user.role.reviewers'),
-                'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
-            ]));
+        ->addField(new FieldHTML('reviewer', [
+            'label' => __('user.role.reviewers'),
+            'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
+        ]));
     }
 }

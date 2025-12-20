@@ -29,6 +29,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -65,6 +66,7 @@ class ReviewFormElementsGridHandler extends GridHandler
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         $this->reviewFormId = (int) $request->getUserVar('reviewFormId');
         $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
@@ -95,7 +97,7 @@ class ReviewFormElementsGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'createReviewFormElement', null, ['reviewFormId' => $this->reviewFormId]),
                     __('manager.reviewFormElements.create'),
-                    'modal_add_item',
+                    null,
                     true
                 ),
                 __('manager.reviewFormElements.create'),

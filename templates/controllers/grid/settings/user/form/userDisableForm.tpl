@@ -21,10 +21,12 @@
 
 	{if $enable}
 		{fbvFormSection title="grid.user.enableReason" for="disableReason"}
+			<p class="mb-4">{translate key ="grid.user.enableReasonDescription"}</p>
 			{fbvElement type="textarea" id="disableReason" value=$disableReason size=$fbvStyles.size.LARGE}
 		{/fbvFormSection}
 	{else}
 		{fbvFormSection title="grid.user.disableReason" for="disableReason"}
+			<p class="mb-4">{translate key ="grid.user.disableReasonDescription"}</p>
 			{fbvElement type="textarea" id="disableReason" value=$disableReason size=$fbvStyles.size.LARGE}
 		{/fbvFormSection}
 	{/if}

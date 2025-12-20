@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
+"PO-Revision-Date: 2025-08-19 19:08+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/fi/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Ei kohteita"
@@ -729,3 +729,32 @@ msgstr "Näkyy luetteloissa"
 
 msgid "grid.action.editContributor"
 msgstr "Muokkaa tekijää"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Näytä toimituskunnan tiedoissa"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Kun käyttäjä aktivoidaan, hän saa jälleen pääsyn sivustolle, ja voit kutsua "
+"hänet tarvittaessa rooleihin."
+
+msgid "grid.user.remove"
+msgstr "Poista käyttäjä"
+
+msgid "grid.user.logInAs"
+msgstr "Kirjaudu käyttäjänä"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Huomaa, että kun käyttäjä on poistettu käytöstä, häntä ei voi lisätä "
+"mihinkään rooleihin ennen kuin hänet on aktivoitu uudelleen."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Lisää arvioijaehdotus"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Poista arvioijaehdotus"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Haluatko varmasti poistaa tämän ehdotuksen? Tätä toimintoa ei voi perua."

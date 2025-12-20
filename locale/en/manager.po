@@ -849,6 +849,66 @@ msgstr "Whether or not to restrict access to the API endpoints for COUNTER SUSHI
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Make the COUNTER SUSHI statistics publicly available"
 
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 Reports"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr "See <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\">COUNTER 5.0.3 documentation</a> for more information about each report."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "There are no COUNTER R5 usage statistics available yet."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Report Settings"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Start Date"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr "Date should be in format YYYY-MM-DD or YYYY-MM. Earliest possible date is {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "End Date"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr "Date should be in format YYYY-MM-DD or YYYY-MM. Last possible date is {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "The date format is not valid."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Customer ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metric Type"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Attributes To Show"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Year Of Publication"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr "A list or range of years of publication to return in response in format of yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP format is not valid."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Submission ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "The submission ID does not exist."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Include Parent Details"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Exclude Monthly Details"
+
 msgid "manager.statistics.reports"
 msgstr "Reports"
 
@@ -935,7 +995,6 @@ msgstr "Custom DOI Suffix Pattern"
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr "One or more selected DOI types are not allowed for the configured DOI registration agency."
 
-#, fuzzy
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr "Select the format to use when the application generates a DOI."
 
@@ -974,6 +1033,9 @@ msgstr "DOI Versioning"
 msgid "doi.authorization.enabledRequired"
 msgstr "You cannot call this operation without DOIs enabled."
 
+msgid "publicPeerReviews.authorization.enabledRequired"
+msgstr "You cannot call this operation without Public Peer Reviews enabled."
+
 msgid "doi.manager.versions.countStatement"
 msgstr "There are {$count} versions."
 
@@ -1006,14 +1068,12 @@ msgstr "Advanced"
 msgid "manager.setup.copyrightNotice"
 msgstr "Copyright Notice"
 
-#, fuzzy
 msgid "manager.setup.copyrightNotice.description"
 msgstr "The following appears on the <a href=\"{$url}\">submissions</a> page where authors will learn about the requirements for submission. Authors will be required to confirm that they agree with the copyright notice before their submission is complete."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Author Guidelines"
 
-#, fuzzy
 msgid "manager.setup.authorGuidelines.description"
 msgstr "The following appears on the <a href=\"{$url}\">submissions</a> page where authors will learn about what they must do to prepare their work for submission. Provide guidance on anything they might need to know, such as bibliographic and formatting standards, alongside examples of common citation formats to be used. You may also wish to provide details about the preferred format and subject matter of submissions."
 
@@ -1193,8 +1253,8 @@ msgstr "Date and Time Formats"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Choose the preferred format for dates and times. A custom format can be "
-"entered using the special <a href=\"https://www.php.net/manual/en/function."
-"strftime.php#refsect1-function.strftime-parameters\">format characters</a>."
+"entered using the special <a href=\"https://www.php.net/manual/en/datetime."
+"format.php#refsect1-datetime.format-parameters\">format characters</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Date"
@@ -1273,16 +1333,34 @@ msgstr "No reminder set"
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"
 
+msgid "manager.setup.reviewOptions.publicReviewerComments.show"
+msgstr "Publicly Show Reviewer Comments"
+
+msgid "manager.setup.reviewOptions.publicReviewerComments.label"
+msgstr "Make reviewer comments publicly visible with published content"
+
+msgid "manager.setup.reviewOptions.publicReviewerComments.description"
+msgstr "Enable this setting if you'd like the review process to be made publicly visible alongside published submissions. This supports transparent peer review practices and can help foster greater trust and accountability."
+
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Present a link to <button type=\"button\">how to ensure all files are "
 "anonymized</button> during upload"
 
-msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
-msgstr "Recommended Reviewers Number"
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minimum Confirmed Reviews Required"
 
-msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
-msgstr "Sufficient number of reviewers needed per submission to make recommendation before making a decision"
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimum number of confirmed reviews required for a submission"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Reviewer Suggestion at Submission"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr "Author can suggest several potential reviewers before completing the submission which can streamline the review process and provide valuable input for editorial team."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "Allow authors to suggest potential reviewers at submission process"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsor Relationship and Policy Description"
@@ -1327,6 +1405,9 @@ msgstr "The following is shown to authors during the upload files step. Provide 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr "The following is shown to authors during the contributors step. Provide a brief explanation of what information the author should provide about themselves, co-authors, and any other contributors."
 
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr "The following is shown to authors during the reviewer suggestions step. Provide a brief explanation of what information the author should provide about themselves, co-authors, and any other contributors."
+
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr "The following is shown to authors during the details step, when they are asked to provide the title, abstract, and other key information about their submission."
 
@@ -1367,6 +1448,62 @@ msgstr "Assign {$name} as {$role}"
 msgid "manager.categories.form.assignEditors.description"
 msgstr "Select the editorial users who should be assigned automatically to all new submissions to this category."
 
+msgid "manager.category.saved"
+msgstr "Category saved"
+
+msgid "manager.category.toggleSubcategories"
+msgstr "Expand or collapse sub-categories"
+
+msgid "manager.category.expandSubcategories"
+msgstr "Expand sub-categories"
+
+msgid "manager.category.collapseSubcategories"
+msgstr "Collapse sub-categories"
+
+msgid "manager.category.deleteCategory"
+msgstr "Delete Category"
+
+msgid "manager.category.confirmDelete"
+msgstr "I understand the consequences, delete this category"
+
+msgid "manager.category.delete.confirmationTitle"
+msgstr "Are you absolutely sure you want to delete \"{$title}\" category?"
+
+msgid "manager.category.delete.message.body"
+msgstr ""
+"<div class=\"font-semibold\">"
+"Warning: Deleting this category will remove all {$subCategoryCount} sub-categories within it."
+"</div>"
+"<div class=\"text-secondary\">"
+"<p class=\"mt-6\">This action cannot be undone. Deleting the category will:</p>"
+"<ul role=\"list\" class=\"list-disc ml-8\">"
+"<li>Permanently remove all nested sub-categories</li>"
+"<li>Unassign this category from any submissions currently using it</li>"
+"</ul>"
+"<p class=\"mt-4\">This will not delete the submissions themselves — they will simply be left without a category.</p>"
+"</div>"
+"<p class=\"mt-4 text-primary text-lg-bold\">To confirm, please type the name of the category \"{$title}\" below to proceed</p>"
+
+msgid "manager.category.deleted"
+msgstr "Category Deleted"
+
+msgid "manager.category.deleted.description"
+msgstr ""
+"<p>\"{$title}\" and its {$subCategoryCount} sub-categories have been successfully deleted.</p>"
+"<p class=\"mt-4 text-secondary\">All submissions previously tagged under these categories are now unassigned. You can reassign them from the submission details page.</p>"
+
+msgid "manager.category.backToCategories"
+msgstr "Back to Categories"
+
+msgid "grid.category.categoryName"
+msgstr "Category Name"
+
+msgid "manager.category.assignedTo"
+msgstr "Assigned To"
+
+msgid "manager.category.form.assignEditors"
+msgstr "Editorial Assignments"
+
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
 
@@ -1386,7 +1523,7 @@ msgid "plugins.categories.metadata"
 msgstr "Metadata Plugins"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Metadata Plugins implement additional meta-data standards."
+msgstr "Metadata Plugins implement additional metadata standards."
 
 msgid "plugins.categories.auth"
 msgstr "Authorization Plugins"
@@ -1727,11 +1864,11 @@ msgstr "Consider role in masthead list"
 msgid "settings.roles.roleOptions"
 msgstr "Role Options"
 
-msgid "settings.roles.showTitles"
-msgstr "Show role title in contributor list"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Allow user self-registration"
+
+msgid "settings.roles.permitSettings"
+msgstr "Permit changes to Settings"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
@@ -2226,6 +2363,9 @@ msgid "manager.setup.metadata.citations.require"
 msgstr ""
 "Require the author to provide references before accepting their submission."
 
+msgid "manager.setup.metadata.citationsMetadataLookup.enable"
+msgstr "Enable references structuring and metadata lookup"
+
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
 "A short statement describing whether or not the author(s) have made their research data available and, if so, where readers may access it."
@@ -2242,6 +2382,25 @@ msgstr "Ask the author to provide a data availability statement during submissio
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
 "Require the author to provide a data availability statement before accepting their submission."
+
+msgid "manager.setup.metadata.plainLanguageSummary"
+msgstr "Plain language summary"
+
+msgid "manager.setup.metadata.plainLanguageSummary.description"
+msgstr "A short summary of the submission intended for a general audience."
+
+msgid "manager.setup.metadata.plainLanguageSummary.enable"
+msgstr "Enable plain language summary metadata"
+
+msgid "manager.setup.metadata.plainLanguageSummary.noRequest"
+msgstr "Do not request a plain language summary from the author during submission."
+
+msgid "manager.setup.metadata.plainLanguageSummary.request"
+msgstr "Ask the author to provide a plain language summary during submission."
+
+msgid "manager.setup.metadata.plainLanguageSummary.require"
+msgstr ""
+"Require the author to provide a plain language summary before accepting their submission."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Validation errors:"
@@ -2267,18 +2426,18 @@ msgstr "Unknown encoding {$param}"
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "The content is not encoded as {$param}"
 
-msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr ""
-"The import file includes an author '{$authorName}', with the user group "
-"'{$userGroupName}'. There is no user group defined in the destination "
-"installation with a user group with this name."
-
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "UserGroup Missing for author name {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
 "The author {$authorName} does not have a given name in the submission's "
+"language, {$localeName}. The submission can not be imported without this "
+"information."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"The author {$authorName} does not have an affiliation name in the submission's "
 "language, {$localeName}. The submission can not be imported without this "
 "information."
 
@@ -2404,7 +2563,6 @@ msgstr "A URL must be provided"
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Learn more about when this menu item will be displayed or hidden."
 
-#, fuzzy
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
 "When a menu item opens a submenu, it's link can not be followed on all "
@@ -2520,6 +2678,9 @@ msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
 "This link will only be displayed if you have entered a privacy statement "
 "under Settings > Workflow > Submissions."
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "The menu item title is required."
 
 msgid "grid.category.add"
 msgstr "Add Category"
@@ -2925,7 +3086,6 @@ msgstr "The files uploaded by the reviewer"
 msgid "emailTemplate.variable.review.name"
 msgstr "The name of the reviewer"
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "A description of the default review method, such as double anonymous or open"
@@ -3588,3 +3748,188 @@ msgstr "Change Email Address Invitation"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validate XML before the export and registration."
+
+msgid "manager.selectCategories"
+msgstr "Select Categories"
+
+msgid "manager.template.tasksAndDiscussions"
+msgstr "Tasks and Discussions"
+
+msgid "manager.userComment.deleteReport"
+msgstr "Delete Report"
+
+msgid "manager.userComment.deleteReport.confirm"
+msgstr "Are you sure you want to delete this report? This action cannot be undone."
+
+msgid "manager.userComment.deleteReport.success"
+msgstr "The report has been deleted successfully."
+
+msgid "manager.userComment.commentUpdated"
+msgstr "The comment has been updated successfully."
+
+msgid "manager.userComment.deleteComment"
+msgstr "Delete Comment"
+
+msgid "manager.userComment.deleteComment.confirm"
+msgstr "Are you sure you want to delete this comment? This action cannot be undone."
+
+msgid "manager.userComment.deleteComment.success"
+msgstr "The comment has been deleted successfully."
+
+msgid "manager.userComment.userComments"
+msgstr "User Comments"
+
+msgid "manager.userComment.viewDetailsCommentBy"
+msgstr "View comment details by"
+
+msgid "manager.userComment.reports"
+msgstr "Reports"
+
+msgid "manager.userComment.comment"
+msgstr "Comment"
+
+msgid "manager.userComment.comments"
+msgstr "Comments"
+
+msgid "manager.userComment.reportedBy"
+msgstr "Reported By"
+
+msgid "manager.userComment.report.reason"
+msgstr "Reason"
+
+msgid "manager.userComment.dateReported"
+msgstr "Date Reported"
+
+msgid "manager.userComment.approveComment"
+msgstr "Approve Comment"
+
+msgid "manager.userComment.hideComment"
+msgstr "Hide Comment"
+
+msgid "manager.userComment.approveThisComment.description"
+msgstr "Approving a comment will make it visible to all users on the site."
+
+msgid "manager.userComment.approved"
+msgstr "Approved"
+
+msgid "manager.userComment.hiddenOrNeedsApproval"
+msgstr "Hidden/Needs Approval"
+
+msgid "manager.userComment.reported"
+msgstr "Reported"
+
+msgid "manager.userComment.report.description"
+msgstr "This is the list of all the users who have reported this comment"
+
+msgid "manager.userComment.report.noReports"
+msgstr "No one has reported this comment yet"
+
+msgid "manager.userComment.commentPreview"
+msgstr "Comment preview"
+
+msgid "manager.userComment.viewComment"
+msgstr "View Comment"
+
+msgid "manager.userComment.viewReportDetailsBy"
+msgstr "View report details by"
+
+msgid "manager.userComment.reportPreview"
+msgstr "Report preview"
+
+msgid "manager.userComment.approved.note"
+msgstr "This comment was approved on {$approvedAt} by {$approvedBy}."
+
+msgid "manager.userComment.approval.warning"
+msgstr "Approving this comment will make it visible to all users on the site"
+
+msgid "manager.userComment.all"
+msgstr "All"
+
+msgid "manager.userComment.viewReport"
+msgstr "View Report"
+
+msgid "manager.userComment.enableComments"
+msgstr "Enable Public Comments"
+
+msgid "manager.contributorRoles.add"
+msgstr "Add Role"
+
+msgid "manager.contributorRoles.edit"
+msgstr "Edit Role"
+
+msgid "manager.contributorRoles.title"
+msgstr "Contributor Roles"
+
+msgid "manager.contributorRoles.identifier"
+msgstr "Role Identifier"
+
+msgid "manager.contributorRoles.name"
+msgstr "Role Name"
+
+msgid "manager.contributorRoles.name.description"
+msgstr "Fill name in all of the languages."
+
+msgid "manager.contributorRoles.saved"
+msgstr "Contributor role saved"
+
+msgid "manager.contributorRoles.error.nameRequired"
+msgstr "Role names required in all of the languages."
+
+msgid "manager.contributorRoles.error.delete.inUse"
+msgstr "One or more contributors are using this role. Change the role to another before delete."
+
+msgid "manager.contributorRoles.delete.role"
+msgstr "Delete Role"
+
+msgid "manager.contributorRoles.alert.delete.confirm"
+msgstr "I understand the consequences, delete this role"
+
+msgid "manager.contributorRoles.alert.delete.confirmationTitle"
+msgstr "Are you absolutely sure you want to delete \"{$contributorRoleIdentifier}\" role?"
+
+msgid "manager.contributorRoles.alert.delete.message.body"
+msgstr ""
+"<div class=\"text-secondary\">"
+"<p class=\"mt-6\">This action cannot be undone. Before deleting this role, check these:</p>"
+"<ul role=\"list\" class=\"list-disc ml-8\">"
+"<li>At least one AUTHOR role must exist</li>"
+"<li>Unassign this role from any contributor currently using it</li>"
+"</ul>"
+"</div>"
+"<p class=\"mt-4 text-primary text-lg-bold\">To confirm, please type \"{$contributorRoleIdentifier}\" below to proceed</p>"
+
+msgid "manager.contributorRoles.alert.deleted"
+msgstr "Role Deleted"
+
+msgid "manager.contributorRoles.alert.deleted.description"
+msgstr "<p>\"{$contributorRoleIdentifier}\" has been successfully deleted.</p>"
+
+msgid "manager.contributorRoles.backToRoles"
+msgstr "Back to Contributor Roles"
+
+msgid "plugins.importexport.common.error.missingContributorType"
+msgstr "Missing contributor type; defaults to person."
+
+msgid "plugins.importexport.common.error.missingEmail"
+msgstr "The author {$authorName} does not have an email."
+
+msgid "plugins.importexport.common.error.missingCountry"
+msgstr "The author {$authorName} does not have a country."
+
+msgid "plugins.importexport.common.error.noContributorRole"
+msgstr "The author '{$authorName}' does not have any contributor role. Defaults to AUTHOR."
+
+msgid "manager.reviewerRecommendations.type.approved"
+msgstr "Approved"
+
+msgid "manager.reviewerRecommendations.type.revisionsRequested"
+msgstr "Revisions requested"
+
+msgid "manager.reviewerRecommendations.type.withComments"
+msgstr "With Comments"
+
+msgid "manager.reviewerRecommendations.recommendationType"
+msgstr "Recommendation type"
+
+msgid "manager.reviewerRecommendations.type.notApproved"
+msgstr "Not Approved"

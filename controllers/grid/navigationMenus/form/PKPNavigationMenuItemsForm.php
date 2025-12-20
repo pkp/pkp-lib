@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\navigationMenus\form;
 
+use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -28,8 +29,7 @@ class PKPNavigationMenuItemsForm extends Form
     /** @var int $navigationMenuItemId the ID of the navigationMenuItem */
     public $navigationMenuItemId;
 
-    /** @var int */
-    public $_contextId;
+    public ?int $_contextId;
 
     /**
      * Constructor
@@ -37,13 +37,14 @@ class PKPNavigationMenuItemsForm extends Form
      * @param int $contextId
      * @param int $navigationMenuItemId
      */
-    public function __construct(int $contextId, $navigationMenuItemId)
+    public function __construct(?int $contextId, $navigationMenuItemId)
     {
         $this->_contextId = $contextId;
         $this->navigationMenuItemId = $navigationMenuItemId;
 
         parent::__construct('controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'title', 'required', 'manager.navigationMenus.items.form.title.required', $this->defaultLocale));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
@@ -55,10 +56,8 @@ class PKPNavigationMenuItemsForm extends Form
 
     /**
      * Get the current context id.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): ?int
     {
         return $this->_contextId;
     }
@@ -178,27 +177,41 @@ class PKPNavigationMenuItemsForm extends Form
             $navigationMenuItem = $navigationMenuItemDao->newDataObject();
             $navigationMenuItem->setTitle($this->getData('title'), null);
         } else {
-            $localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
+            // The NMI will have localized title in the navigation_menu_item_settings table
+            // only if the user is defining one explicitely.
+            // This is not always the case for the default NMIs that, by default, get their titles
+            // from the titleLocaleKey setting of the NMI.
 
-            app()->get('navigationMenu')
+            // Get the title that have been explicitely set in the settings tatble
+            $localizedTitlesFromDB = $navigationMenuItem->getTitle(null) ?? [];
+
+            // Get the set of all displayed titles, no matter the source. 
+            Services::get('navigationMenu')
                 ->setAllNMILocalizedTitles($navigationMenuItem);
+            $originalDisplayTitles = $navigationMenuItem->getTitle(null);
 
-            $localizedTitles = $navigationMenuItem->getTitle(null);
+            $newTitles = [];
+
+            // Get the explicitely provided user titles
             $inputLocalizedTitles = $this->getData('title');
-            foreach ($localizedTitles as $locale => $title) {
-                if ($inputLocalizedTitles[$locale] != $title) {
-                    if (!isset($inputLocalizedTitles[$locale]) || trim($inputLocalizedTitles[$locale]) == '') {
-                        $navigationMenuItem->setTitle(null, $locale);
-                    } else {
-                        $navigationMenuItem->setTitle($inputLocalizedTitles[$locale], $locale);
-                    }
-                } else {
-                    if (!$localizedTitlesFromDB
-                        || !array_key_exists($locale, $localizedTitlesFromDB)) {
-                        $navigationMenuItem->setTitle(null, $locale);
-                    }
+
+            // Explicit define the localized title of the NMI.
+            foreach ($inputLocalizedTitles as $locale => $inputTitle) {
+                $trimmedTitle = trim($inputTitle);
+
+                // If empty, set to null (resets to default)
+                if ($trimmedTitle === '') {
+                    $newTitles[$locale] = null;
+                    continue;
+                }
+
+                // Update title if explicitly defined or changed from default
+                if (isset($localizedTitlesFromDB[$locale]) || ($originalDisplayTitles[$locale] ?? null) !== $trimmedTitle) {
+                    $newTitles[$locale] = $trimmedTitle;
                 }
             }
+
+            $navigationMenuItem->setData('title', $newTitles);
         }
 
         $navigationMenuItem->setPath($this->getData('path'));

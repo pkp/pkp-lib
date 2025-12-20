@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-08 00:21+0000\n"
+"PO-Revision-Date: 2025-06-02 20:51+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk/>\n"
@@ -1324,10 +1324,10 @@ msgstr "Ревизии се поднесени и потребна е одлук
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
-"Поднесокот мора повторно да биде поднесен за уште една рунда на рецензија."
+"Поднесокот мора повторно да биде поднесен за уште еден циклус на рецензија."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Поднесокот беше повторно поднесен за уште една рунда на рецензија."
+msgstr "Поднесокот беше повторно поднесен за уште еден циклус на рецензија."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Испратен за надворешна рецензија."
@@ -1348,7 +1348,7 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Поднесени се нови рецензии."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Сите рецензенти имаат одговорено и потребна е одлука."
+msgstr "Сите рецензенти се потврдени и потребна е одлука."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Изминат е рокот на една рецензија."
@@ -2050,7 +2050,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Уредникот {$userName} потврди рецензија за {$round} рунда на рецензија за "
+"Уредникот {$editorName} потврди рецензија за {$round} рунда на рецензија за "
 "поднесокот {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2591,7 +2591,7 @@ msgstr "Сите верзии"
 msgid "publication.version.confirm"
 msgstr "Дали сте сигурни дека сакате да создадете нова верзија?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Апстрактот е премногу долг. Треба да има {$limit} или помалку зборови. "
 "Моментално има {$count} зборови."
@@ -2698,3 +2698,502 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Молам оградете се од било кои компетирачки интереси од овој автор кој би "
 "можеел да биде поврзан со истражуваниот предмет."
+
+msgid "author.authorNotFound"
+msgstr "Авторот за оваа припадност не може да се најде."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Ве молиме наведете припадност на ROR или барем едно име на припадност."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Ве молиме наведете го името на припадноста во примарната локација за "
+"поднесување."
+
+msgid "ror.nameRequired"
+msgstr "Потребно е име ROR."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Потребна е локација за прикажување ROR."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Препораката е дадена од вас."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Рецензенти предложени од авторот"
+
+msgid "submission.review.status.viewed"
+msgstr "Уредникот го прегледал прегледот."
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Промена"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Промени јазик за поднесување За"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Тековен јазик за поднесување:"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Ова е примарен јазик за поднесување. Промената на ова ќе има ефекти врз "
+"поднесувањето и внесените метаподатоци"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Пред да го промените јазикот за поднесување, проверете дали сте ги "
+"пополниле следните полиња за метаподатоци за да го одржите интегритетот на "
+"системот. Исто така, имајте предвид дека информациите за соработниците и "
+"имињата на датотеките ќе бидат копирани од претходно внесените "
+"информации.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Внесете го насловот на поднесокот овде на {$language}. Можете да го "
+"форматирате вашиот наслов по потреба"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Се препорачува да се вклучи апстрактот на {$language}. Ова помага да се "
+"осигура дека содржината е достапна"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Погледнете го резимето на поднесување"
+
+msgid "submission.list.completeSubmission"
+msgstr "Целосно поднесување"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Дали сте сигурни дека сакате да го откажете овој поднесок? Ова ќе го избрише "
+"поднесокот и сите поврзани податоци. Ова дејство не може да се врати."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Потребен е минимален број потврдени рецензии: {$number}."
+
+msgid "workflow.stageNotStarted"
+msgstr "Фазата {$stage} сè уште не е започната."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Поднесувањето моментално е во фаза на {$stage}."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Датотеки поставени во моментот на поднесување"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Статус на рецензент"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Изберете нецелосни поднесоци за бришење."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Избришете ги нецелосните поднесоци"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Поднесувањето е откажано"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Откажете го поднесувањето"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Поднесувањето е откажано, а сите поврзани податоци се избришани."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "За предлог на рецензентот"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Предлози за рецензенти"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Не се предложени рецензенти за овој поднесок."
+
+msgid "submission.dashboard.view.active"
+msgstr "Активни поднесоци"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Доделени за мене"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Рецензиите се поднесени"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Потребен е уредник"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Сите во рецензија"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Се чекаат рецензии"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Рецензиите се задоцнети"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Сите во фаза на уредување"
+
+msgid "submission.dashboard.view.production"
+msgstr "Сите во фаза на производство"
+
+msgid "submission.dashboard.view.published"
+msgstr "Објавено"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Нецелосни поднесоци"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Одбиено"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Побарани се ревизии"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Сите задачи"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Во очекување"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Завршено / Откажано"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Сите задачи"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Архивирана"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Одбиено"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Завршено"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Објавено"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Преглед (круг {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Закажано за објавување"
+
+msgid "submission.stage.published"
+msgstr "Објавено"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Потврдете го бришењето на JATS XML"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Дејство Потребно од мене"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Оваа датотека JATS се генерира автоматски од метаподатоците за поднесување"
+
+msgid "publication.jats.lastModified"
+msgstr "Последна измена на {$modificationDate} од {$username}"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Избришете ја датотеката JATS"
+
+msgid "submission.files.content.error"
+msgstr ""
+"Содржината на датотеката за поднесување „{$fileName}“ не може да се врати."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Причини за предлагање на рецензент"
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Јазикот на поднесување ({$language}) не е еден од поддржаните јазици за "
+"поднесување. Сè уште можете да ги уредувате деталите за поднесување, но "
+"новите поднесоци во моментов не се прифаќаат на овој јазик."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Доделени рецензенти"
+
+msgid "dashboard.submitRevisions"
+msgstr "Поднесете ревизии"
+
+msgid "workflow.uploadRevisions"
+msgstr "Поставете ревизии"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Одговори на барањето"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Завршете ја рецензијата"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Барањето за рецензија е задоцнето за {$days} дена"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Повторно испратете барање за рецензија"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Откажи го рецензентот"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Уредете го датумот на доспевање"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Погледнете ја препораката"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Прикажи непрочитана препорака"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Да се испрати оваа рецензија до ORCID на рецензентот?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Одбиено за време на фазата {$stageName}."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Дозволено е само да препорача уредувачка одлука"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Овие датотеки се поднесени од авторот откако беа побарани ревизии"
+
+msgid "fileManager.filesForReview"
+msgstr "Датотеки за рецензија"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Поставени ревизии"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Ова се датотеки од фазата на рецензија кои треба да се копираат"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Ова се датотеките кои ќе бидат испратени на објавување"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Името на припадноста недостасува во {$language} за една или повеќе "
+"припадности за еден или повеќе од соработниците."
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Закажано за објавување"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Поднесени се ревизии на авторот"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Да се објави во изданието {$issue}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Се бара ревизија"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Се појави грешка при обидот да се создаде стандардна содржина JATS. Ве "
+"молиме проверете дали е инсталиран приклучокот JatsTemplate."
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Ве молиме споделете зошто го препорачувате овој рецензент и спомнете дали "
+"има некаков потенцијален конфликт на интереси."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Рокот за завршување на оваа рецензија е поминат. Ве молиме пополнете ја "
+"рецензијата најрано."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Барањето за рецензија е споделено со рецензентот. Се чека одговор за "
+"<b>{$days} дена на {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Овој рецензент го прифати барањето за рецензија. Нивните рецензии треба да "
+"се случат за <b>{$days} дена на {$date}.</b>"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Сите уреднички препораки се примени, и потребна е одлука."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Потврден е минимум потребен број на рецензии. Потребна е одлука."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Минималниот број на потврдени рецензии не е исполнет. Дали сè уште сакате да "
+"продолжите со оваа уредувачка одлука?"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Рецензијата е задоцнета за {$days} дена"
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Продолжете без минимални потврдени рецензии?"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Поднесокот премина во следниот круг на преглед, беше прифатен и моментално е "
+"во фаза на {$stage}."
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Овој рецензент не ја завршил својата рецензија. Одговорот требаше да се "
+"добие на <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Рецензијата беше прифатена од уредникот на <b>{$date}</b>."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Поднесокот е префрлен во следниот круг на рецензија"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Рецензентот го откажа барањето за рецензија"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Погледнете детали"
+
+msgid "workflow.reviewRoundN"
+msgstr "Круг на рецензија {$number}"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Отстрани доделување"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Овие датотеки ќе бидат испратени до рецензентите за рецензија"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Испрати рецензија до ORCID"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Уредени датотеки"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"Станува збор за уредени датотеки кои ќе бидат однесени во фаза на "
+"производство"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Дали сте сигурни дека сакате да ги избришете избраните ставки? Ова дејство "
+"не може да се врати. Потврдете за да продолжите."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Потврдете го бришењето на нецелосни поднесоци"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Поставени уредени датотеки: {$count}"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Потребни се рецензии"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Сите во фаза на поднесување"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Сите во фаза на преглед"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Ќе ја отстраните постоечката JATS XML-датотека од оваа публикација. Дали си "
+"сигурен?"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr ""
+"Прегледајте го ажурирањето {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Примени филтри"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Започнете нов поднесок"
+
+msgid "dashboard.assignReviewers"
+msgstr "Доделете рецензенти"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Побарани ревизии од авторот"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Ревизиите побарани од авторот да се пренесат во нов круг на преглед"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Ќе се создаде нов круг за рецензија"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Прифатете го или отфрлете го ова барање до {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Барањето е одбиено на {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Рецензијата е испратена на {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Помина рокот за одговор на ова барање. Ве молиме прифатете го или отфрлете "
+"го ова барање најрано."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Ве молиме пополнете ја оваа рецензија до {$date}."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Се чека одговор од рецензентот"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Барањето за рецензија е одбиено на {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Рецензентот го одби барањето за рецензија на <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Овој рецензент не одговорил на барањето за рецензија. Одговорот требаше да "
+"се добие на <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Тековна рецензија - барањето е прифатено"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Рецензијата е завршена на {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Recenzijata беше завршенa на {$date} со следнава препорака: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Рецензијата беше потврдена од уредникот"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Рецензентот го откажа барањето за рецензија на <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Се чека одговор од рецензентот"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Барањето за рецензија е повторно споделено со рецензентот. Се чека одговор "
+"за {$days} дена на {$date}"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Препорачаните уредници имаат задача да ги советуваат следните чекори за овој "
+"поднесок"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Добиена е уредничка препорака"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Не можете да пристапите до овој поднесок како Управник во весник бидејќи вие "
+"сте автор. За да го видите, одете во „Мои поднесоци“"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Не можете да пристапите до овој поднесок како менаџер на весник бидејќи вие "
+"сте рецензент. За да го видите, одете во „Прегледајте задачи“"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Предупредување: Оваа верзија е објавена. Неговото уредување може да влијае "
+"на објавената содржина."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Рецензијата беше завршена на {$date}"

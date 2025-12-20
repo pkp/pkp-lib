@@ -60,7 +60,7 @@ class FileArchive
                 Config::getVar('cli', 'tar') . ' -c -z ' .
                     '-f ' . escapeshellarg($archivePath) . ' ' .
                     '-C ' . escapeshellarg($filesDir) . ' ' .
-                    implode(' ', array_map('escapeshellarg', array_keys($files)))
+                    implode(' ', array_map(escapeshellarg(...), array_keys($files)))
             );
         } else {
             throw new Exception('No archive tool is available!');
@@ -92,8 +92,4 @@ class FileArchive
     {
         return self::zipFunctional() || self::tarFunctional();
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\FileArchive', '\FileArchive');
 }

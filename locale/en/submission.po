@@ -28,10 +28,28 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr "New reviews have been submitted and are being considered by the editor."
 
 msgid "author.submission.roundStatus.reviewOverdue"
-msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
+msgstr "One or more reviewers missed their deadline. The editorial team is aware and will ensure the reviews are completed. No action is needed from you right now. You'll be notified once a decision is made."
 
-msgid "submission.author.list"
-msgstr "Submission Author List"
+msgid "author.authorNotFound"
+msgstr "The author for this affiliation could not be found."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Please provide a ROR affiliation or at least one affiliation name."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Please provide affiliation name in the submission primary locale."
+
+msgid "publication.editorEditWarning"
+msgstr "Warning: This version has been published. Editing it may impact the published content."
+
+msgid "ror.nameRequired"
+msgstr "A ROR name is required."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR display locale is required."
+
+msgid "submission.plainLanguageSummary"
+msgstr "Plain language summary"
 
 msgid "submission.authors.label"
 msgstr "Authors"
@@ -62,6 +80,15 @@ msgstr "Yes, my submission meets all of these requirements."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Submission complete"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Submission cancelled"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Cancel submission"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Submission has been cancelled, and all associated data has been deleted."
 
 msgid "submission.submit.genre.label"
 msgstr "What kind of file is this?"
@@ -447,6 +474,212 @@ msgstr "References"
 msgid "submission.citations.description"
 msgstr "Enter each reference on a new line so that they can be extracted and recorded separately."
 
+msgid "submission.citations.structured"
+msgstr "Structured References"
+
+msgid "submission.citations.structured.citationsMetadataLookup"
+msgstr "References Metadata Lookup"
+
+msgid "submission.citations.structured.description"
+msgstr ""
+"Enter each reference on a new line so that they can be individually processed. "
+"You can add one or multiple references at a time. "
+"Click \"Add\" button to process and move them into the table below. "
+"To edit existing entries, please use the \"Edit\" option in the table to modify individual entries."
+
+msgid "submission.citations.structured.citationsMetadataLookup.description"
+msgstr ""
+"Structuring and Metadata Lookup is enabled for this Journal. "
+"The system will process your references and retrieve DOIs and other metadata from external sources. "
+"This may take some time, but you can continue working on your submission and return to this page later to view the updated structured citations. "
+
+msgid "submission.citations.structured.descriptionTable"
+msgstr "The above references have been organised here in a structured format."
+
+msgid "submission.citations.structured.noStructuredInformationFound"
+msgstr "No structured information found"
+
+msgid "submission.citations.structured.enableCitationsMetadataLookup"
+msgstr "Enable Metadata Lookup"
+
+msgid "submission.citations.structured.enableModal.title"
+msgstr "Enable usage of Structured Citations"
+
+msgid "submission.citations.structured.enableModal.confirm"
+msgstr ""
+"This will enable structured citations for this submission. "
+
+msgid "submission.citations.structured.disableModal.title"
+msgstr "Disable usage of Structured Citations"
+
+msgid "submission.citations.structured.disableModal.confirm"
+msgstr ""
+"This will disable structured citations for this submission. "
+"This will also remove all references currently listed. "
+"You'll need to re-enter and process your citations again if you continue."
+
+msgid "submission.citations.structured.addRaw.empty"
+msgstr "The raw citations cannot be empty, please review and try again."
+
+msgid "submission.citations.structured.addRaw.success"
+msgstr "All raw citations are added to the list below."
+
+msgid "submission.citations.structured.addRaw.partialSuccess"
+msgstr "The citations above are duplicates. All other citations are added to the list below."
+
+msgid "submission.citations.structured.addRaw.errors"
+msgstr "There were errors during adding the raw citations. Please try again."
+
+msgid "submission.citations.structured.processing.title"
+msgstr "Processing references - {$processed}/{$total}"
+
+msgid "submission.citations.structured.processing.description"
+msgstr ""
+"We're retrieving metadata for each reference. This may take a few moments. "
+"While we aim to match as many references as possible, some entries may not return metadata. "
+"Feel free to continue working in the meantime."
+
+msgid "submission.citations.structured.processed.title"
+msgstr "All {$total} references successfully processed"
+
+msgid "submission.citations.structured.processed.description"
+msgstr "All references have been processed and added below. You can review, edit or remove them at any time."
+
+msgid "submission.citations.structured.deleteDialog.title"
+msgstr "Delete this structured citation."
+
+msgid "submission.citations.structured.deleteDialog.confirm"
+msgstr "This will remove this citation."
+
+msgid "submission.citations.structured.deleteAllLink"
+msgstr "Delete all references"
+
+msgid "submission.citations.structured.deleteAllDialog.title"
+msgstr "Delete all references"
+
+msgid "submission.citations.structured.deleteAllDialog.confirm"
+msgstr "This will remove all references currently listed. You'll need to re-enter and process your citations again if you continue."
+
+msgid "submission.citations.structured.reprocessAllCitations"
+msgstr "Reprocess all references"
+
+msgid "submission.citations.structured.reprocessAllCitations.title"
+msgstr "Reprocess all references"
+
+msgid "submission.citations.structured.reprocessAllCitations.confirm"
+msgstr "This will reprocess all references currently listed. You'll need to re-enter your manual changes again if you continue."
+
+msgid "submission.citations.structured.collapseAll"
+msgstr "Collapse All"
+
+msgid "submission.citations.structured.expandAll"
+msgstr "Expand All"
+
+msgid "submission.citations.structured.collapse"
+msgstr "Collapse"
+
+msgid "submission.citations.structured.expand"
+msgstr "Expand"
+
+msgid "submission.citations.structured.search.placeholder"
+msgstr "Search references here"
+
+msgid "submission.citations.structured.emptyCitations"
+msgstr "The citations list is empty, please add citations above."
+
+msgid "submission.citations.structured.reprocessDialog.title"
+msgstr "Are you sure you want to reprocess this citation?"
+
+msgid "submission.citations.structured.editModal.title"
+msgstr "Edit citation"
+
+msgid "submission.citations.structured.header.article"
+msgstr "Article Information"
+
+msgid "submission.citations.structured.header.authors"
+msgstr "Author Information"
+
+msgid "submission.citations.structured.header.journal"
+msgstr "Journal Information"
+
+msgid "submission.citations.structured.label.authorOrcid"
+msgstr "ORCID profile for {$givenName} {$familyName}"
+
+msgid "submission.citations.structured.label.citation"
+msgstr "Citation"
+
+msgid "submission.citations.structured.label.rawCitation"
+msgstr "Edit Raw Citation"
+
+msgid "submission.citations.structured.label.doi"
+msgstr "DOI"
+
+msgid "submission.citations.structured.description.doi"
+msgstr "e.g. 10.1000/182, doi:10.1000/182, https://doi.org/10.1000/182"
+
+msgid "submission.citations.structured.label.title"
+msgstr "Title"
+
+msgid "submission.citations.structured.label.date"
+msgstr "Publication Date"
+
+msgid "submission.citations.structured.label.type"
+msgstr "Type"
+
+msgid "submission.citations.structured.label.volume"
+msgstr "Volume"
+
+msgid "submission.citations.structured.label.issue"
+msgstr "Issue"
+
+msgid "submission.citations.structured.label.issueNumber"
+msgstr "Issue Number"
+
+msgid "submission.citations.structured.label.pages"
+msgstr "Pages"
+
+msgid "submission.citations.structured.label.firstPage"
+msgstr "First Page"
+
+msgid "submission.citations.structured.label.lastPage"
+msgstr "Last Page"
+
+msgid "submission.citations.structured.label.sourceName"
+msgstr "Source Name"
+
+msgid "submission.citations.structured.label.sourceIssn"
+msgstr "Source Issn"
+
+msgid "submission.citations.structured.label.sourceHost"
+msgstr "Publisher or Host"
+
+msgid "submission.citations.structured.label.sourceType"
+msgstr "Source Type"
+
+msgid "submission.citations.structured.label.url"
+msgstr "URL"
+
+msgid "submission.citations.structured.label.urn"
+msgstr "URN"
+
+msgid "submission.citations.structured.label.arxiv"
+msgstr "Arxiv"
+
+msgid "submission.citations.structured.description.arxiv"
+msgstr "e.g. 1234.123456v2, arxiv:1234.123456v2, https://arxiv.org/abs/1234.123456v2"
+
+msgid "submission.citations.structured.label.handle"
+msgstr "Handle"
+
+msgid "submission.citations.structured.description.handle"
+msgstr "e.g. 20.1000/100, handle:20.1000/100, https://hdl.handle.net/20.1000/100"
+
+msgid "submission.citations.structured.label.openAlex"
+msgstr "OpenAlex"
+
+msgid "submission.citations.structured.label.wikidata"
+msgstr "Wikidata"
+
 msgid "submission.parsedCitations"
 msgstr "Extracted References"
 
@@ -634,7 +867,7 @@ msgid "submission.event.reviewer.reviewerReminded"
 msgstr "{$senderName} sent a reminder to {$recipientName} regarding their review assignment"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
-msgstr "An automatic reminder email was sent to to {$recipientName} regarding their review assignment"
+msgstr "An automatic reminder email was sent to {$recipientName} regarding their review assignment"
 
 msgid "submission.event.subjectPrefix"
 msgstr "An email has been sent:"
@@ -662,6 +895,9 @@ msgstr "First published"
 
 msgid "submission.forTheEditors"
 msgstr "For the Editors"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "For Reviewer Suggestion"
 
 msgid "submission.galley"
 msgstr "Galley"
@@ -1146,6 +1382,15 @@ msgstr "Name the file (e.g., Manuscript; Table 1)"
 msgid "submission.form.replaceExisting"
 msgstr "Replacing an Existing File?"
 
+msgid "workflow.attachUploadedFiles"
+msgstr "Attach files uploaded during the submission workflow, such as revisions or files to be reviewed."
+
+msgid "workflow.attachWorkflowFiles"
+msgstr "Attach Workflow Files"
+
+msgid "workflow.files"
+msgstr "Workflow Files"
+
 msgid "workflow.review.internalReview"
 msgstr "Internal Review"
 
@@ -1245,6 +1490,9 @@ msgstr "Upload a File Ready for Publication"
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "There are no files for you to revise at this time."
 
+msgid "submission.reviewerSuggestions"
+msgstr "Reviewer Suggestions"
+
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Revisions have been requested."
 
@@ -1252,13 +1500,13 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisions have been submitted and a decision is needed."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "The submission must be resubmitted for another review round."
+msgstr "Revisions requested from the author to be taken to a new review round."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Submission has been resubmitted for another review round."
+msgstr "Revisions submitted. A new review round needs to be created."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "Sent to external review."
+msgstr "Sent for external review."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Submission accepted."
@@ -1276,10 +1524,13 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "New reviews have been submitted."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "All reviewers have responded and a decision is needed."
+msgstr "All reviews are confirmed and a decision is needed."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "A review is overdue."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Recommendation has been made by you."
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
 msgstr "Awaiting recommendations from editors."
@@ -1301,6 +1552,9 @@ msgstr "A new submission is waiting to be sent for review or declined."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Participants"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Reviewers Suggested by Author"
 
 msgid "editor.submission.noneAssigned"
 msgstr "None Assigned"
@@ -1819,7 +2073,7 @@ msgid "log.review.reviewerResendRequest"
 msgstr "Resent the request to review in round {$round} to {$reviewerName} for submission {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
-msgstr "Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}."
+msgstr "Editor {$editorName} has confirmed a review for the round {$round} review for submission {$submissionId}."
 
 msgid "log.review.reviewReady"
 msgstr "{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}."
@@ -1841,6 +2095,9 @@ msgstr "This review has been accepted."
 
 msgid "submission.review.status.received"
 msgstr "The reviewer has submitted their review."
+
+msgid "submission.review.status.viewed"
+msgstr "The editor has viewed the review."
 
 msgid "submission.review.status.complete"
 msgstr "This review has been completed."
@@ -2025,8 +2282,17 @@ msgstr "Add a new reply to the discussion"
 msgid "submission.query.activity"
 msgstr "{$responderName} replied to {$noteTitle}: {$noteContents}"
 
+msgid "submission.query.activityName"
+msgstr "Activity"
+
 msgid "submission.query.new"
 msgstr "{$creatorName} started a discussion: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.started"
+msgstr "Started"
+
+msgid "submission.query.task"
+msgstr "Task"
 
 msgid "submission.query.activity.contents"
 msgstr "There is new activity in the discussion titled \"{$queryTitle}\" regarding the submission \"{$submissionTitle}\"."
@@ -2042,6 +2308,73 @@ msgstr "You must assign at least one participant to this submission before initi
 
 msgid "submission.query.allowedEditTime"
 msgstr "You can update this discussion for {$allowedEditTimeNoticeLimit} minutes."
+
+msgid "submission.task.validation.error.participant.responsible"
+msgstr "There should be one user responsible for the task."
+
+msgid "submission.task.validation.error.reviewer.anonymous"
+msgstr "Cannot disclose the identity of reviewers in the task/discussion."
+
+msgid "submission.task.validation.error.review.anonymous"
+msgstr "Cannot allow participation of authors together with reviewers in a task/discussion during anonymous reviews."
+
+msgid "submission.task.validation.error.participant.required"
+msgstr "At least one participant is required for a task."
+
+msgid "submission.task.validation.error.participants.required"
+msgstr "At least two participants are required for a discussion."
+
+msgid "submission.task.validation.error.assignment.required"
+msgstr "Participant must be assigned to the submission in the current stage or be a reviewer."
+
+msgid "submission.task.dueInterval.1week"
+msgstr "1 week"
+
+msgid "submission.task.dueInterval.2weeks"
+msgstr "2 weeks"
+
+msgid "submission.task.dueInterval.3weeks"
+msgstr "3 weeks"
+
+msgid "submission.task.dueInterval.4weeks"
+msgstr "4 weeks"
+
+msgid "submission.task.dueInterval.1month"
+msgstr "1 month"
+
+msgid "submission.task.dueInterval.1month.15days"
+msgstr "1 month and 15 days"
+
+msgid "submission.task.dueInterval.2months"
+msgstr "2 months"
+
+msgid "submission.task.dueInterval.2months.15days"
+msgstr "2 months and 15 days"
+
+msgid "submission.task.dueInterval.3months"
+msgstr "3 months"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Current Submission Language:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Change"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Change Submission Language For"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr "This is the primary submission language. Changing this will have effects on the submission and the metadata entered"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr "<strong>Before changing the submission language, ensure you have filled out the following metadata fields to maintain system integrity. "
+"Also, note that contributor information and file names will be copied from previously entered information.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr "Enter submission title here in {$language}. You can format your title as needed"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr "Including the abstract in {$language} is recommended. This helps ensure that the content is accessible"
 
 msgid "submission.list.infoCenter"
 msgstr "Activity Log & Notes"
@@ -2116,6 +2449,9 @@ msgstr "Days since last activity"
 msgid "submission.list.assignEditor"
 msgstr "Assign Editor"
 
+msgid "submission.list.completeSubmission"
+msgstr "Complete submission"
+
 msgid "submission.wizard.alreadySubmitted"
 msgstr "This submission has already been submitted. Please visit your <a href=\"{$url}\">submissions dashboard</a> to view it."
 
@@ -2125,11 +2461,22 @@ msgstr "Before you begin"
 msgid "submission.wizard.categories.description"
 msgstr "Select only the categories that are appropriate for your submission."
 
+msgid "submission.wizard.categories.descriptionWithCircularReferenceWarning"
+msgstr ""
+"Select only the categories that are appropriate for your submission.<br>"
+"<sub class=\"text-negative\">Some categories are not displayed due to circular references in the category hierarchy. Please contact your Site Administrator to resolve this.</sub>"
+
+msgid "submission.categories.circularReferenceWarning"
+msgstr "<sub class=\"text-negative\">Some categories are not displayed due to circular references in the category hierarchy. Please contact your Site Administrator to resolve this.</sub>"
+
 msgid "submission.wizard.changeSubmission"
 msgstr "Change Submission Settings"
 
 msgid "submission.wizard.completeSteps"
 msgstr "Complete the steps to make a submission"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr "Are you sure you wish to cancel this submission? This will delete the submission and all associated data. This action cannot be undone."
 
 msgid "submission.wizard.confirmSubmit"
 msgstr "The submission, <strong>{$title}</strong>, will be submitted to <strong>{$context}</strong> for editorial review. Are you sure you want to complete this submission?"
@@ -2155,8 +2502,14 @@ msgstr "Make a Submission: {$step}"
 msgid "submission.wizard.noContributors"
 msgstr "No contributors have been added for this submission."
 
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "No reviewers have been suggested for this submission."
+
 msgid "submission.wizard.missingContributorLanguage"
 msgstr "The given name is missing in {$language} for one or more of the contributors."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr "The affiliation name is missing in {$language} for one or more affiliations for one or more of the contributors."
 
 msgid "submission.wizard.notAllowed"
 msgstr "Not Allowed"
@@ -2265,8 +2618,14 @@ msgstr "All Versions"
 msgid "publication.version.confirm"
 msgstr "Are you sure you want to create a new version?"
 
-msgid "publication.wordCountLong"
+msgid "publication.versionStringWithRound"
+msgstr "{$versionString} (Round {$round})"
+
+msgid "publication.abstract.wordCountLong"
 msgstr "The abstract is too long. It should be {$limit} words or less. It is currently {$count} words long."
+
+msgid "publication.plainLanguageSummary.wordCountLong"
+msgstr "The plain language summary is too long. It should be {$limit} words or less. It is currently {$count} words long."
 
 msgid "publication.wordCount"
 msgstr "Word Count: {$count}/{$limit}"
@@ -2328,9 +2687,6 @@ msgstr "You must upload at least one {$genre} file."
 msgid "submission.files.required.genres"
 msgstr "You must upload at least one of each of the following file types: {$genres}."
 
-msgid "publication.version"
-msgstr "Version {$version}"
-
 msgid "submission.submissionFile"
 msgstr "Submission File"
 
@@ -2343,14 +2699,17 @@ msgstr "Active submissions"
 msgid "submission.dashboard.view.needsEditor"
 msgstr "Needs editor"
 
-msgid "submission.dashboard.view.initialReview"
-msgstr "All in desk/initial review"
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "All in submission stage"
 
 msgid "submission.dashboard.view.reviewExternal"
 msgstr "All in peer review"
 
-msgid "submission.dashboard.view.needsReviewer"
-msgstr "Needs reviewers"
+msgid "submission.dashboard.view.reviewAll"
+msgstr "All in review stage"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Needs reviews"
 
 msgid "submission.dashboard.view.awaitingReviews"
 msgstr "Awaiting reviews"
@@ -2358,11 +2717,14 @@ msgstr "Awaiting reviews"
 msgid "submission.dashboard.view.reviewsSubmitted"
 msgstr "Reviews submitted"
 
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Reviews overdue"
+
 msgid "submission.dashboard.view.copyediting"
-msgstr "All in copyediting"
+msgstr "All in copyediting stage"
 
 msgid "submission.dashboard.view.production"
-msgstr "All in production"
+msgstr "All in production stage"
 
 msgid "submission.dashboard.view.scheduled"
 msgstr "Scheduled for publication"
@@ -2377,7 +2739,7 @@ msgid "submission.dashboard.view.revisionsRequested"
 msgstr "Revisions requested"
 
 msgid "submission.dashboard.view.revisionsSubmitted"
-msgstr "Revisions submitted"
+msgstr "Author revisions submitted"
 
 msgid "submission.dashboard.view.incompleteSubmissions"
 msgstr "Incomplete submissions"
@@ -2394,14 +2756,35 @@ msgstr "Completed / Declined"
 msgid "submission.dashboard.view.reviewAssignments.all"
 msgstr "All assignments"
 
-msgid "submission.dashboard.view.reviewAssignments.pending"
-msgstr "Pending"
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Action Required by me"
 
 msgid "submission.dashboard.view.reviewAssignments.archived"
-msgstr "Completed / Declined"
+msgstr "Archived"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Declined"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Completed"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Published"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Review (Round {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Scheduled For Publication"
+
+msgid "submission.stage.published"
+msgstr "Published"
 
 msgid "publication.jats"
 msgstr "JATS XML"
+
+msgid "publication.bodyText"
+msgstr "Body Text"
 
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
@@ -2430,3 +2813,575 @@ msgstr "Competing Interests"
 msgid "author.competingInterests.description"
 msgstr "Please disclose any competing interests this author may have with the research subject."
 
+msgid "author.competingInterests.required"
+msgstr "A competing interest statement is required."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Reasons for suggesting reviewer"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr "Please share why you are recommending this reviewer and mention is there are any potential conflict of interest."
+
+msgid "submission.localeNotSupported"
+msgstr "The language of the submission ({$language}) is not one of the supported submission languages. You can still edit the submission details but new submissions are not currently accepted with this language."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Reviewers assigned"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Review update {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Apply Filters"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Start A New Submission"
+
+msgid "dashboard.assignReviewers"
+msgstr "Assign Reviewers"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Revisions requested from author"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Revisions requested from the author to be taken to a new review round"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "New review round to be created"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "To be published in issue {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Copyedited Files Uploaded: {$count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revision requested"
+
+msgid "dashboard.submitRevisions"
+msgstr "Submit revisions"
+
+msgid "workflow.uploadRevisions"
+msgstr "Upload revisions"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Respond to request"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Finish review"
+
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Please accept or decline this request by {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Request declined on {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Review submitted on {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr "Deadline for responding to this request has passed. Please accept or decline this request at the earliest."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Please complete this review by {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr "Deadline for completing this review has passed. Please complete the review at the earliest."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Awaiting Response from the reviewer"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr "Review request has been shared with reviewer. Awaiting response in <b>{$days} days on {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Review Request declined on {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Reviewer declined the review request on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Review Request overdue by {$days} days"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr "This reviewer has not responded to the review request. A response was due on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Ongoing review - request accepted"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr "This reviewer has accepted the review request. Their review is due in <b>{$days} days on {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Review overdue by {$days} days"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr "This reviewer has not completed their review. A response was due on <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Review completed on {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr "The review was completed on {$date} with the following recommendation: <b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "The review was completed on {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Review was confirmed by editor"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "The review was accepted by the editor on <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Reviewer cancelled review request"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Reviewer has cancelled the review request on <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Awaiting Response from the reviewer"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr "Review request has been reshared with reviewer. Awaiting response in {$days} days on {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "View details"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Resend Review Request"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Cancel Reviewer"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Unassign"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Edit Due Date"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "View recommendation"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "View unread recommendation"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Send Review To ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Send this review to the reviewer's ORCID?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Declined during the {$stageName} stage."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr "Recommending Editors are tasked to advise the next steps for this submission"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "An editorial recommendation has been received"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "All editorial recommendations have been received, and a decision is required."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr "You cannot access this submission as a Journal Manager since you are the author. To view it, go to \"My Submissions\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr "You cannot access this submission as a Journal Manager since you are the reviewer. To view it, go to \"Review Assignments\""
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Minimum required number of reviews have been confirmed. A decision is needed."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Minimum number of confirmed reviews required: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Proceed Without Minimum Confirmed Reviews?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr "The minimum number of confirmed reviews has not been met. Do you still want to proceed with this editorial decision?"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Only allowed to recommend an editorial decision"
+
+msgid "workflow.stageNotStarted"
+msgstr "The {$stage} stage has not yet been initiated."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "The submission is currently in the {$stage} stage."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr "The submission advanced to the next review round, was accepted, and is currently in the {$stage} stage."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "The submission has been advanced to the next round of review"
+
+msgid "workflow.reviewRoundN"
+msgstr "Review Round {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Files uploaded at the time of submission"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisions Uploaded"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "These files have been submitted by the author after revisions were requested"
+
+msgid "fileManager.filesForReview"
+msgstr "Files for Review"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "These files will be sent to the reviewers to review"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Copyedited Files"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "These are edited files that will be taken to the production stage"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "These are files from the review stage which are to be copyedited"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "These are the files that will be sent for publication"
+
+msgid "fileManager.sendFileToTextEditor"
+msgstr "Send File to Text Editor"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Reviewer status"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirm Delete of Incomplete Submissions"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr "Are you sure you want to delete the selected items? This action cannot be undone. Please confirm to proceed."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Select incomplete submissions to be deleted."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Delete Incomplete Submissions"
+
+msgid "publication.sendToTextEditor.label"
+msgstr "To which version would you like to send this file?"
+
+msgid "publication.scheduledForPublication.reviewDetails.label"
+msgstr "Review Publishing Details"
+
+msgid "publication.scheduledForPublication.reviewDetails.description"
+msgstr "Before scheduling this submission for publication, please take a moment to review some of the entered important details. This is your opportunity to assign a version name, confirm the issue it belongs to, and ensure all necessary information is correct."
+
+msgid "publication.versionSource.create.label"
+msgstr "Which version should metadata be copied from?"
+
+msgid "publication.versionSource.create.description"
+msgstr "The selected version's metadata will be used to pre-fill fields in the new version. You can make edits after importing."
+
+msgid "publication.scheduledForPublication.versionStage.label"
+msgstr "Assign a publication stage before publishing the submission"
+
+msgid "publication.scheduledForPublication.versionStage.description"
+msgstr "A submission cannot be published if it's still an \"Unassigned Version\". You need to assign an article stage before publishing"
+
+msgid "publication.versionStage.label"
+msgstr "Publication Stage"
+
+msgid "publication.versionStage.description"
+msgstr "Would you like to assign a stage to this document, such as author's original or version of record? Based on your selection, the document information will be automatically updated."
+
+msgid "publication.versionStage.unassignedVersion"
+msgstr "Unassigned version ({$publicationCreatedDate})"
+
+msgid "publication.versionStage.display"
+msgstr "{$stage} {$majorNumbering}.{$minorNumbering}"
+
+msgid "publication.required.versionStage"
+msgstr ""
+"The publication must have a version stage assigned before it can "
+"be published."
+
+msgid "publication.publishReviewCurate.notice"
+msgstr "TBD"
+
+msgid "publication.publishReviewCurate.options.heading"
+msgstr "Publish-Review-Curate Options"
+
+msgid "publication.publishReviewCurate.options.description"
+msgstr ""
+"You are publishing this as a Published Manuscript Under Review. Would you like to to start the review process?<br>"
+"This will create a new review round and new unpublished Version of Record to be published upon review completion."
+
+msgid "publication.publishReviewCurate.options.label"
+msgstr "Create new review round and new unpublished Version of Record"
+
+msgid "publication.publishReviewCurate.errors.reviewCreationError"
+msgstr "Unable to create a new review round. Please do so manually."
+
+msgid "publication.required.versionStage.assignment"
+msgstr "The stage version that will be assigned to the publication is \"{$versionString}\""
+
+msgid "publication.required.versionStage.alreadyAssignment"
+msgstr "The publication version is \"{$versionString}\""
+
+msgid "publication.versionStage.authorOriginal"
+msgstr "Author Original"
+
+msgid "publication.versionStage.publishedManuscriptUnderReview"
+msgstr "Published Manuscript Under Review"
+
+msgid "publication.versionStage.versionOfRecord"
+msgstr "Version of Record"
+
+msgid "publication.revisionSignificance.label"
+msgstr "Revision Significance"
+
+msgid "publication.revisionSignificance.description"
+msgstr "Would you like to assign a revision significance to this document, such as minor or major? Based on your selection, the document information will be automatically updated."
+
+msgid "publication.revisionSignificance.major"
+msgstr "Major Revision"
+
+msgid "publication.revisionSignificance.minor"
+msgstr "Minor Revision"
+
+msgid "submission.submit.creditRoles.degrees.lead"
+msgstr "Lead"
+
+msgid "submission.submit.creditRoles.degrees.equal"
+msgstr "Equal"
+
+msgid "submission.submit.creditRoles.degrees.supporting"
+msgstr "Supporting"
+
+msgid "submission.submit.creditRoles.title"
+msgstr "CRediT roles and the degrees of contribution"
+
+msgid "submission.submit.creditRoles.description"
+msgstr "Select the CRediT roles of the contributor and the degrees of contribution."
+
+msgid "submission.submit.creditRoles.label"
+msgstr "CRediT Roles"
+
+msgid "submission.submit.creditRoles.role"
+msgstr "Role"
+
+msgid "submission.submit.creditRoles.degree"
+msgstr "Degree"
+
+msgid "submission.submit.creditRoles.selectRole"
+msgstr "Select a new role (required)"
+
+msgid "submission.submit.creditRoles.selectDegree"
+msgstr "Degree"
+
+msgid "submission.submit.creditRoles.button.add"
+msgstr "Add Another Role"
+
+msgid "submission.submit.creditRoles.button.remove"
+msgstr "Remove Role"
+
+msgid "discussion.addNewMessage"
+msgstr "Add New Message"
+
+msgid "discussion.addTaskDetails"
+msgstr "Add Task Details"
+
+msgid "discussion.closeThisDiscussion"
+msgstr "Close this Discussion"
+
+msgid "discussion.confirmCloseDiscussion"
+msgstr "Are you sure you want to close this discussion? Closing the discussion won't stop you from sending or receiving messages in this thread - this ensures no message is lost."
+
+msgid "discussion.confirmReopenDiscussion"
+msgstr "Are you sure you want to reopen this discussion?"
+
+msgid "discussion.description"
+msgstr "Use this space to start discussions, assign tasks to others, or create your personal task list to help you move this submission to the next stage."
+
+msgid "discussion.form.createDontStartTask"
+msgstr "Create Task (Do Not Start)"
+
+msgid "discussion.form.description"
+msgstr "Open for What? Open to What? Beyond Content"
+
+msgid "discussion.form.detailsDescription"
+msgstr "Use this space to share essential information."
+
+msgid "discussion.form.detailsNameDescription"
+msgstr "Please enter the name for the task and discussion."
+
+msgid "discussion.form.detailsParticipantsDescription"
+msgstr "You have the option to assign participants or allocate it solely to yourself."
+
+msgid "discussion.form.discussionDescription"
+msgstr "You can start a discussion thread here by adding a message. This space is also available for providing a brief overview of the task, including any key details, goals, or specific instructions to help guide the assignees."
+
+msgid "discussion.form.startTaskUponSaving"
+msgstr "Begin Task Upon Saving"
+
+msgid "discussion.form.taskInfoAssigneesDescription"
+msgstr "If there is a specific participant designated to complete this task, please assign it to them here."
+
+msgid "discussion.form.taskInfoAssigneesLabel"
+msgstr "Responsible to complete this task"
+
+msgid "discussion.form.taskInfoConvertToTask"
+msgstr "You can convert this into a task by clicking <strong>Edit</strong>."
+
+msgid "discussion.form.taskInfoDescription"
+msgstr "Enter the tasks details here to help manage this task effectively, if selected."
+
+msgid "discussion.form.taskInfoDueDateDescription"
+msgstr "If there is a deadline for this task, you can indicate it here. The due date will be communicated and established for each participant assigned to this task."
+
+msgid "discussion.form.taskInfoLabel"
+msgstr "Enter task information"
+
+msgid "discussion.form.taskInfoReopenAndConvertToTask"
+msgstr "You can convert this into a task by re-opening the discussion and clicking <strong>Edit</strong>."
+
+msgid "discussion.form.taskInformation"
+msgstr "Task Information"
+
+msgid "discussion.form.templatesLabel"
+msgstr "Templates to get you started!"
+
+msgid "discussion.messageFrom"
+msgstr "Message from {$from}"
+
+msgid "discussion.name"
+msgstr "Discussion"
+
+msgid "discussion.reopenThisDiscussion"
+msgstr "Reopen this Discussion"
+
+msgid "discussion.template.discussionDescription"
+msgstr "This discussion template pre-fills the name, participants, and starting message. You can adjust the details before starting."
+
+msgid "discussion.template.taskDescription"
+msgstr "This task template auto-fills the task name, due date, description, and roles. After selecting the template, you can modify any details before saving the task."
+
+msgid "discussion.title"
+msgstr "Desk Review Tasks & Discussions"
+
+msgid "stage.submission"
+msgstr "Submission Stage"
+
+msgid "stage.review"
+msgstr "Review Stage"
+
+msgid "stage.copyediting"
+msgstr "Copyediting Stage"
+
+msgid "stage.production"
+msgstr "Production Stage"
+
+msgid "task.closeThisTask"
+msgstr "Close this Task"
+
+msgid "task.completeThisTask"
+msgstr "Complete this task"
+
+msgid "task.confirmCloseTask"
+msgstr "Are you sure you want to close this task? Closing the task won't end the discussion - you can still send messages on it."
+
+msgid "task.confirmReopenTask"
+msgstr "Are you sure you want to reopen this task?"
+
+msgid "task.confirmStartTask"
+msgstr "Are you sure you want to start this task?"
+
+msgid "task.owner"
+msgstr "Task Owner"
+
+msgid "task.reopenThisTask"
+msgstr "Reopen this task"
+
+msgid "task.startThisTask"
+msgstr "Start this task"
+
+msgid "task.startedBy"
+msgstr "Task started by"
+
+msgid "taskTemplate.apply"
+msgstr "Apply Template"
+
+msgid "taskTemplate.applyConfirmation"
+msgstr "Applying this template will replace information in related fields on the form. These changes won't be saved unless you choose to save. Continue?"
+
+msgid "taskTemplates.title"
+msgstr "Tasks and Discussions Templates"
+
+msgid "taskTemplates.description"
+msgstr "Use this space to create templates for tasks and discussions. These templates automatically fill in the task name, due date, description, and roles, giving you a head start."
+
+msgid "taskTemplates.templateName"
+msgstr "Task and discussion template name"
+
+msgid "taskTemplates.templateAutoAdd"
+msgstr "Automatically add this task and discussion when a submission reaches a specific stage"
+
+msgid "taskTemplates.templateAutoAddAtStage"
+msgstr "Auto-add at stage"
+
+msgid "taskTemplates.templateAutoAddInStage"
+msgstr "Automatically add this task and/or discussion when a submission reaches the stage"
+
+msgid "taskTemplates.add"
+msgstr "Add template"
+
+msgid "taskTemplates.addInStage"
+msgstr "Add Task and Discussion Template in {$stage}"
+
+msgid "taskTemplates.edit"
+msgstr "Edit Task and Discussion Template"
+
+msgid "taskTemplates.dueDateFromCreationDate"
+msgstr "{$dueDate} from the creation date"
+
+msgid "taskTemplates.confirmAutoAdd"
+msgstr "Confirm Automatic Addition"
+
+msgid "taskTemplates.confirmAutoAddEnable"
+msgstr "Are you sure you want this task/discussion template to be automatically added when a submission reaches the {$stage}?"
+
+msgid "taskTemplates.confirmAutoAddDisable"
+msgstr "Are you sure you want to stop automatically adding this task/discussion template when a submission reaches the {$stage}?"
+
+msgid "taskTemplates.confirmEmailTemplate"
+msgstr "Applying this email template will replace the discussion text in the form. The changes will not be saved unless you choose to save. Do you want to continue?"
+
+msgid "submission.submit.contributor.organizationName"
+msgstr "Organization Name"
+
+msgid "submission.submit.contributor.rorId"
+msgstr "ROR ID"
+
+msgid "submission.submit.contributor.rorId.description"
+msgstr "Enter organization's ROR ID."
+
+msgid "submission.wizard.missingContributorLanguageOrganization"
+msgstr "The organization name is missing in {$language} for one or more of the contributors."
+
+msgid "submission.submit.contributorRoles.label"
+msgstr "Contributor Roles"
+
+msgid "submission.submit.contributorType.title"
+msgstr "Contributor Type"
+
+msgid "submission.submit.contributorType.description"
+msgstr "Selecting a contributor type will determine which fields you need to complete in this form."
+"Please note that if you change the contributor type after you've started filling out the form, any information you've already entered will not be saved."
+
+msgid "submission.submit.contributorType.person"
+msgstr "Person"
+
+msgid "submission.submit.contributorType.organization"
+msgstr "Organization or group"
+
+msgid "submission.submit.contributorType.anonymous"
+msgstr "Anonymous"

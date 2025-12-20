@@ -33,6 +33,9 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->foreign('submission_id')->references('submission_id')->on('submissions');
             $table->index(['submission_id'], 'review_rounds_submission_id');
 
+            // Foreign key constraint and index depend on publication table, added in app-specific migration
+            $table->bigInteger('publication_id');
+
             $table->bigInteger('stage_id')->nullable();
             $table->smallInteger('round');
             $table->bigInteger('review_revision')->nullable();
@@ -58,11 +61,20 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->index(['reviewer_id'], 'review_assignments_reviewer_id');
 
             $table->text('competing_interests')->nullable();
-            $table->smallInteger('recommendation')->nullable();
+
+            $table->bigInteger('reviewer_recommendation_id')->nullable();
+            $table
+                ->foreign('reviewer_recommendation_id')
+                ->references('reviewer_recommendation_id')
+                ->on('reviewer_recommendations')
+                ->onDelete('set null');
+            $table->index(['reviewer_recommendation_id'], 'review_assignments_recommendation_id');
+
             $table->datetime('date_assigned')->nullable();
             $table->datetime('date_notified')->nullable();
             $table->datetime('date_confirmed')->nullable();
             $table->datetime('date_completed')->nullable();
+            $table->datetime('date_considered')->nullable();
             $table->datetime('date_acknowledged')->nullable();
             $table->datetime('date_due')->nullable();
             $table->datetime('date_response_due')->nullable();

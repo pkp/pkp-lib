@@ -1,192 +1,218 @@
+# Nina Trubanova <nina.trubanova@ucdconnect.ie>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-11-27 11:12+0000\n"
-"Last-Translator: mhh <mhh@centrum.sk>\n"
+"PO-Revision-Date: 2025-03-11 15:16+0000\n"
+"Last-Translator: Nina Trubanova <nina.trubanova@ucdconnect.ie>\n"
 "Language-Team: Slovak <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"sk_SK/>\n"
-"Language: sk_SK\n"
+"sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
-msgstr ""
+msgstr "Informácia"
 
 msgid "manager.website.appearance"
-msgstr ""
+msgstr "Vzhľad"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
+"Vyžaduje sa obrázkový súbor. Uistite sa, že ste vybrali a nahrali súbor."
 
 msgid "manager.announcements"
-msgstr ""
+msgstr "Oznámenia"
 
 msgid "manager.announcements.confirmDelete"
-msgstr ""
+msgstr "Ste si istí, že chcete natrvalo odstrániť oznámenie {$title}?"
 
 msgid "manager.announcements.create"
-msgstr ""
+msgstr "Vytvoriť nové oznámenie"
 
 msgid "manager.announcements.createTitle"
-msgstr ""
+msgstr "Vytvoriť"
 
 msgid "manager.announcements.dateExpire"
-msgstr ""
+msgstr "Vypršanie"
 
 msgid "manager.announcements.datePublish"
-msgstr ""
+msgstr "Publikované"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr ""
+msgstr "Zmazať oznámenie"
 
 msgid "manager.announcements.edit"
-msgstr ""
+msgstr "Editovať oznámenie"
 
 msgid "manager.announcements.editTitle"
-msgstr ""
+msgstr "Editovať"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr ""
+msgstr "Okrem dňa uplynutia platnosti vyberte aj rok a/alebo mesiac."
 
 msgid "manager.announcements.form.dateExpire"
-msgstr ""
+msgstr "Dátum uplynutia platnosti"
 
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
+"Oznámenie sa bude čitateľom zobrazovať do tohto dátumu. Ak sa má oznámenie "
+"zobrazovať na dobu neurčitú, ponechajte prázdne."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr ""
+msgstr "Okrem mesiaca uplynutia platnosti vyberte aj rok a/alebo deň."
 
 msgid "manager.announcements.form.dateExpireValid"
-msgstr ""
+msgstr "Vyberte platný dátum vypršania platnosti oznámenia."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr ""
+msgstr "Okrem roku uplynutia platnosti vyberte aj mesiac a/alebo deň."
 
 msgid "manager.announcements.form.description"
-msgstr ""
+msgstr "Oznámenie"
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr ""
+msgstr "Celé znenie oznámenia."
 
 msgid "manager.announcements.form.descriptionRequired"
-msgstr ""
+msgstr "Vyžaduje sa opis oznámenia."
 
 msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr ""
+msgstr "Stručný opis, ktorý sa zobrazí spolu s názvom oznámenia."
 
 msgid "manager.announcements.form.descriptionShortRequired"
-msgstr ""
+msgstr "Vyžaduje sa krátky opis oznámenia."
 
 msgid "manager.announcements.form.descriptionShort"
-msgstr ""
+msgstr "Krátky opis"
 
 msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr ""
+msgstr "Uložiť a vytvoriť ďalšie"
 
 msgid "manager.announcements.form.titleRequired"
-msgstr ""
+msgstr "Vyžaduje sa názov oznámenia."
 
 msgid "manager.announcements.form.title"
-msgstr ""
+msgstr "Názov"
 
 msgid "manager.announcements.form.typeId"
-msgstr ""
+msgstr "Typ"
 
 msgid "manager.announcements.form.typeIdValid"
-msgstr ""
+msgstr "Vyberte platný typ oznámenia."
 
 msgid "manager.announcements.noneCreated"
-msgstr ""
+msgstr "Nebolo vytvorené žiadne oznámenie."
 
 msgid "manager.announcements.title"
-msgstr ""
+msgstr "Názov"
 
 msgid "manager.announcements.type"
-msgstr ""
+msgstr "Typ"
 
 msgid "manager.announcementTypes"
-msgstr ""
+msgstr "Typy oznámení"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
+"Varovanie! Všetky oznámenia s týmto typom oznámenia budú tiež vymazané. Ste "
+"si istí, že chcete pokračovať a vymazať tento typ oznámenia?"
 
 msgid "manager.announcementTypes.create"
-msgstr ""
+msgstr "Vytvoriť typ oznámenia"
 
 msgid "manager.announcementTypes.createTitle"
-msgstr ""
+msgstr "Vytvoriť"
 
 msgid "manager.announcementTypes.edit"
-msgstr ""
+msgstr "Editovať typ oznámenia"
 
 msgid "manager.announcementTypes.editTitle"
-msgstr ""
+msgstr "Editovať"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr ""
+msgstr "Uložiť a vytvoriť ďalší"
 
 msgid "manager.announcementTypes.form.typeNameExists"
-msgstr ""
+msgstr "Typ oznámenia s týmto názvom už existuje."
 
 msgid "manager.announcementTypes.form.typeName"
-msgstr ""
+msgstr "Názov"
 
 msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr ""
+msgstr "Vyžaduje sa názov typu oznámenia."
 
 msgid "manager.announcementTypes.noneCreated"
-msgstr ""
+msgstr "Neboli vytvorené žiadne typy oznámení."
 
 msgid "manager.announcementTypes.typeName"
-msgstr ""
+msgstr "Typ oznámenia"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Uložiť všetko"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Uložiť DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Chystáte sa odoslať metadátové záznamy DOI pre počet položiek {$count} do "
+"{$registrationAgency}. Ste si istí, že chcete tieto záznamy uložiť?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Označiť DOI ako registrované"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Chystáte sa označiť metadátové záznamy DOI pre počet položiek {$count} ako "
+"registrované. Ste si istí, že chcete tieto záznamy označiť ako registrované?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Označiť DOI ako neregistrované"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Chystáte sa označiť metadátové záznamy DOI pre počet položiek {$count} ako "
+"neregistrované. Ste si istí, že chcete tieto záznamy označiť ako "
+"neregistrované?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Označiť DOI ako potrebujúce synchronizáciu"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Chystáte sa označiť metadátové záznamy DOI pre počet položiek {$count} ako "
+"položky, ktoré potrebujú synchronizáciu. Stav Potrebuje synchronizáciu možno "
+"použiť len na predtým odoslané DOI. Ste si istí, že chcete tieto záznamy "
+"označiť ako neaktuálne?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Exportovať DOI"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Chystáte sa exportovať metaúdajové záznamy DOI pre počet položiek {$count} "
+"do {$registrationAgency}. Ste si istí, že chcete exportovať tieto záznamy?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Priradiť DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Chystáte sa priradiť nové DOI pre počet položiek {$count}, čo sú všetky "
+"oprávnené položky, ktoré ešte nemajú priradené DOI. Ste si istí, že chcete "
+"týmto položkám priradiť DOI?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Uložiť všetky DOI"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Chystáte sa naplánovať uloženie všetkých zostávajúcich záznamov metaúdajov "
+"DOI do {$registrationAgency}. Uložené budú len publikované položky s DOI. "
+"Stav každej položky sa aktualizuje po prijatí odpovede. Ste si istí, že "
+"chcete naplánovať uloženie všetkých týchto položiek?"
 
 msgid "manager.dois.actions.description"
 msgstr ""
@@ -1472,9 +1498,6 @@ msgid "manager.paymentMethod.currency"
 msgstr ""
 
 msgid "settings.roles.roleOptions"
-msgstr ""
-
-msgid "settings.roles.showTitles"
 msgstr ""
 
 msgid "settings.roles.permitSelfRegistration"
@@ -3123,3 +3146,8 @@ msgstr "Hlavný titulok"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validujte XML pred exportom a registráciou."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Musíte <a href=\"#announcements/announcement-settings\">povoliť "
+"oznámenia</a>."

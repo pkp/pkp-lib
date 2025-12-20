@@ -202,7 +202,6 @@ abstract class ImportExportPlugin extends Plugin
      * @param string $basePath Base path for temporary file storage
      * @param string $objectsFileNamePart Part different for each object type.
      * @param string $extension
-     * @param ?DateTime $dateFilenamePart
      *
      * @return string
      */
@@ -222,6 +221,8 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param array $errors
      * @param string $xml
+     *
+     * @throws Exception
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
@@ -451,7 +452,6 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Create file given its name and content
      *
-     * @param ?DateTime $dateFilenamePart
      *
      * @return string
      */
@@ -463,8 +463,4 @@ abstract class ImportExportPlugin extends Plugin
 
         return $exportFileName;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\ImportExportPlugin', '\ImportExportPlugin');
 }

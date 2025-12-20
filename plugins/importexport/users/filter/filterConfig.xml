@@ -16,7 +16,7 @@
 			symbolic="user=>user-xml"
 			displayName="plugins.importexport.users.displayName"
 			description="plugins.importexport.users.description"
-			inputType="class::lib.pkp.classes.user.User[]"
+			inputType="class::PKP\user\User[]"
 			outputType="xml::schema(lib/pkp/plugins/importexport/users/pkp-users.xsd)" />
 		<!-- Native XML Users input -->
 		<filterGroup
@@ -24,13 +24,13 @@
 			displayName="plugins.importexport.users.displayName"
 			description="plugins.importexport.users.description"
 			inputType="xml::schema(lib/pkp/plugins/importexport/users/pkp-users.xsd)"
-			outputType="class::classes.users.User[]" />
+			outputType="class::PKP\user\User[]" />
 		<!-- Native XML usergroup output -->
 		<filterGroup
 			symbolic="usergroup=>user-xml"
 			displayName="plugins.importexport.users.displayName"
 			description="plugins.importexport.users.description"
-			inputType="class::lib.pkp.classes.security.UserGroup[]"
+			inputType="class::PKP\userGroup\UserGroup[]"
 			outputType="xml::schema(lib/pkp/plugins/importexport/users/pkp-users.xsd)" />
 		<!-- Native XML usergroup input -->
 		<filterGroup
@@ -38,7 +38,7 @@
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="xml::schema(lib/pkp/plugins/importexport/users/pkp-users.xsd)"
-			outputType="class::lib.pkp.classes.security.UserGroup[]" />
+			outputType="class::PKP\userGroup\UserGroup[]" />
 	</filterGroups>
 	<filters>
 		<!-- Native XML users output -->

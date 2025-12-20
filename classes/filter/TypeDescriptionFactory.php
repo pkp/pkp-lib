@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/TypeDescriptionFactory.php
  *
@@ -80,29 +81,28 @@ class TypeDescriptionFactory
      *
      * @return TypeDescription|null if the type description is invalid.
      */
-    public function &instantiateTypeDescription($typeDescription)
+    public function instantiateTypeDescription($typeDescription): ?TypeDescription
     {
-        $nullVar = null;
-
         // Identify the namespace
         $typeDescriptionParts = explode('::', $typeDescription);
         if (count($typeDescriptionParts) != 2) {
-            return $nullVar;
+            return null;
         }
 
         // Map the namespace to a type description class
         $typeDescriptionClass = $this->_namespaceMap($typeDescriptionParts[0]);
         if (is_null($typeDescriptionClass)) {
-            return $nullVar;
+            return null;
         }
 
         // Instantiate and return the type description object
-        $typeDescriptionObject = & instantiate($typeDescriptionClass, 'TypeDescription', null, null, $typeDescriptionParts[1]);
-        if (!is_object($typeDescriptionObject)) {
-            return $nullVar;
+        if (strpos($typeDescriptionClass, '.')) {
+            // DEPRECATED: Use old instantiate function
+            return instantiate($typeDescriptionClass, 'TypeDescription', null, null, $typeDescriptionParts[1]);
+        } else {
+            // New behaviour: Use fully qualified class name
+            return new $typeDescriptionClass();
         }
-
-        return $typeDescriptionObject;
     }
 
 
@@ -114,33 +114,16 @@ class TypeDescriptionFactory
      * class name.
      *
      * FIXME: Move this map to the Application object.
-     *
-     * @param string $namespace
-     *
-     * @return string
      */
-    public function _namespaceMap($namespace)
+    public function _namespaceMap(string $namespace): ?string
     {
-        static $namespaceMap = [
+        return match($namespace) {
             self::TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.pkp.classes.filter.PrimitiveTypeDescription',
             self::TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.pkp.classes.filter.ClassTypeDescription',
             self::TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.pkp.classes.metadata.MetadataTypeDescription',
             self::TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.pkp.classes.xslt.XMLTypeDescription',
-            self::TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription'
-        ];
-        return $namespaceMap[$namespace] ?? null;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\TypeDescriptionFactory', '\TypeDescriptionFactory');
-    foreach ([
-        'TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE',
-        'TYPE_DESCRIPTION_NAMESPACE_CLASS',
-        'TYPE_DESCRIPTION_NAMESPACE_METADATA',
-        'TYPE_DESCRIPTION_NAMESPACE_XML',
-        'TYPE_DESCRIPTION_NAMESPACE_VALIDATOR',
-    ] as $constantName) {
-        define($constantName, constant('\TypeDescriptionFactory::' . $constantName));
+            self::TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription',
+            default => null
+        };
     }
 }

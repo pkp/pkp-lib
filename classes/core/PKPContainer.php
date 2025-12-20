@@ -3,13 +3,11 @@
 /**
  * @file classes/core/PKPContainer.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContainer
- *
- * @ingroup core
  *
  * @brief Bootstraps Laravel services, application-level parts and creates bindings
  */
@@ -25,21 +23,26 @@ use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
-use PKP\core\PKPAppKey;
-use PKP\core\ConsoleCommandServiceProvider;
-use PKP\core\ScheduleServiceProvider;
+use Laravel\Scout\EngineManager;
 use PKP\config\Config;
+use PKP\core\PKPBladeViewServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
 
 class PKPContainer extends Container
 {
+    /**
+     * Define if the app currently runing the unit test
+     */
+    private bool $isRunningUnitTest = false;
+
     /**
      * The base path of the application, needed for base_path helper
      */
@@ -54,6 +57,7 @@ class PKPContainer extends Container
         $this->settingProxyForStreamContext();
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
+        $this->registerClassAliases();
     }
 
     /**
@@ -83,6 +87,7 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
+        $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, function () {
             return new class () implements ExceptionHandler {
                 public function shouldReport(Throwable $exception)
@@ -99,15 +104,20 @@ class PKPContainer extends Container
                 {
                     $pkpRouter = Application::get()->getRequest()->getRouter();
 
-                    if($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
+                    if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
+                        if ($exception instanceof \Illuminate\Validation\ValidationException) {
+                            return response()
+                                ->json($exception->errors(), $exception->status);
+                        }
+
                         return response()->json(
                             [
                                 'error' => $exception->getMessage()
                             ],
                             in_array($exception->getCode(), array_keys(Response::$statusTexts))
-                                ? $exception->getCode()
-                                : Response::HTTP_INTERNAL_SERVER_ERROR
-                        )->send();
+                            ? $exception->getCode()
+                            : Response::HTTP_INTERNAL_SERVER_ERROR
+                        );
                     }
 
                     return null;
@@ -159,10 +169,10 @@ class PKPContainer extends Container
         $this->loadConfiguration();
 
         $this->register(new AppServiceProvider($this));
-        $this->register(new \PKP\core\PKPEncryptionServiceProvider($this));
-        $this->register(new \PKP\core\PKPAuthServiceProvider($this));
+        $this->register(new PKPEncryptionServiceProvider($this));
+        $this->register(new PKPAuthServiceProvider($this));
         $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
-        $this->register(new \PKP\core\PKPSessionServiceProvider($this));
+        $this->register(new PKPSessionServiceProvider($this));
         $this->register(new \Illuminate\Pipeline\PipelineServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
@@ -179,6 +189,10 @@ class PKPContainer extends Container
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
+        $this->register(new ValidationServiceProvider($this));
+        $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
+        $this->register(new \Laravel\Scout\ScoutServiceProvider($this));
+        $this->register(new PKPBladeViewServiceProvider($this));
     }
 
     /**
@@ -325,11 +339,28 @@ class PKPContainer extends Container
                 \Illuminate\Contracts\Encryption\Encrypter::class,
                 \Illuminate\Contracts\Encryption\StringEncrypter::class,
             ],
+            'view' => [
+                \Illuminate\Support\Facades\View::class,
+            ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);
             }
         }
+    }
+
+    /**
+     * Register class aliases to simplify the usage of the class 
+     * To register more aliases, as AliasLoader::getInstance()->alias('key', SomeClass::class)
+     */
+    protected function registerClassAliases(): void
+    {
+        $aliases = [
+            'Str' => \Illuminate\Support\Str::class,
+            'Arr' => \Illuminate\Support\Arr::class,
+        ];
+
+        AliasLoader::getInstance($aliases)->register();
     }
 
     /**
@@ -407,7 +438,7 @@ class PKPContainer extends Container
             'driver' => 'database',
             'table' => 'jobs',
             'queue' => 'default',
-            'retry_after' => 240,
+            'retry_after' => 610,
             'after_commit' => true,
         ];
         $items['queue']['failed'] = [
@@ -448,17 +479,50 @@ class PKPContainer extends Container
 
         // Cache configuration
         $items['cache'] = [
-            'default' => 'opcache',
+            'default' => Config::getVar('cache', 'default', 'file'),
             'stores' => [
                 'opcache' => [
                     'driver' => 'opcache',
-                    'path' => Core::getBaseDir() . '/cache/opcache'
+                    'path' => Config::getVar('cache', 'path', Core::getBaseDir() . '/cache/opcache')
+                ],
+                'file' => [
+                    'driver' => 'file',
+                    'path' => Config::getVar('cache', 'path', Core::getBaseDir() . '/cache/opcache')
                 ]
+            ]
+        ];
+
+        $items['scout'] = [
+            'driver' => Config::getVar('search', 'driver', 'database'),
+        ];
+
+        // Blade view settings
+        $items['view'] = [
+            'compiled' => Str::of(
+                Config::getVar('cache', 'compiled', Core::getBaseDir() . '/cache/opcache')
+            )->beforeLast('/')->append('/t_compile')->value(),
+            'cache' => false, // FIXME: Must be true in production, should it be a control config ?
+            'compiled_extension' => 'php',
+            'relative_hash' => false,
+            'paths' => [
+                'app' => $this->basePath('templates'),
+                'pkp' => $this->basePath('lib/pkp/templates'),
+            ],
+            'components' =>  [
+                // Component namespace here registered based on hierarchy and priority,
+                // do not alter the ordering
+                'namespace' => [
+                    'app' => Application::get()->getNamespace() . PKPBladeViewServiceProvider::VIEW_NAMESPACE_PATH,
+                    'pkp' => $this->getNamespace() . PKPBladeViewServiceProvider::VIEW_NAMESPACE_PATH,
+                ],
             ]
         ];
 
         // Create instance and bind to use globally
         $this->instance('config', new Repository($items));
+
+        app()->extend(EngineManager::class, fn (EngineManager $s) => $s->extend('opensearch', fn () => new \PKP\search\engines\OpenSearchEngine()));
+        app()->extend(EngineManager::class, fn (EngineManager $s) => $s->extend('database', fn () => new \PKP\search\engines\DatabaseEngine()));
     }
 
     /**
@@ -489,7 +553,7 @@ class PKPContainer extends Container
             : Config::getVar('email', 'default');
 
         if (!$default) {
-            throw new Exception('Mailer driver isn\'t specified in the application\'s config');
+            throw new Exception('The mailer driver isn\'t specified in the config.inc.php configuration file. See the "default" setting in the [email] configuration. Configuration details are available in the config.TEMPLATE.inc.php template.');
         }
 
         return $default;
@@ -539,15 +603,6 @@ class PKPContainer extends Container
     }
 
     /**
-     * Override Laravel method; always false.
-     * Prevents the undefined method error when the Log Manager tries to determine the driver
-     */
-    public function runningUnitTests(): bool
-    {
-        return false;
-    }
-
-    /**
      * Determine if the application is currently down for maintenance.
      */
     public function isDownForMaintenance(): bool
@@ -571,7 +626,7 @@ class PKPContainer extends Container
         if (mb_stripos($_SERVER['SCRIPT_NAME'] ?? '', $scriptPath) !== false) {
             return true;
         }
-        
+
         if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
             return true;
         }
@@ -590,8 +645,37 @@ class PKPContainer extends Container
 
         return $this->get('config')['app']['env'];
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPContainer', '\PKPContainer');
+    /**
+     * Override Laravel method; always false.
+     * Prevents the undefined method error when the Log Manager tries to determine the driver
+     */
+    public function runningUnitTests(): bool
+    {
+        return $this->isRunningUnitTest;
+    }
+
+    /**
+     * Set the app running unit test
+     */
+    public function setRunningUnitTests(): void
+    {
+        $this->isRunningUnitTest = true;
+    }
+
+    /**
+     * Unset the app running unit test
+     */
+    public function unsetRunningUnitTests(): void
+    {
+        $this->isRunningUnitTest = false;
+    }
+
+    /**
+     * Get the application namespace.
+     */
+    public function getNamespace(): string
+    {
+        return 'PKP\\';
+    }
 }

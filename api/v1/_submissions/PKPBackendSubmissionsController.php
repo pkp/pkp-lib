@@ -20,12 +20,13 @@ namespace PKP\API\v1\_submissions;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Collector;
+use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\API\v1\submissions\AnonymizeData;
-use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -36,6 +37,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\DashboardView;
 use PKP\submission\PKPSubmission;
+use PKP\userGroup\UserGroup;
 
 abstract class PKPBackendSubmissionsController extends PKPBaseController
 {
@@ -71,20 +73,17 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         Route::get('', $this->getMany(...))
             ->name('_submission.getMany')
             ->middleware([
-                self::roleAuthorizer(
-                    Config::getVar('features', 'enable_new_submission_listing')
-                        ? [
-                            Role::ROLE_ID_SITE_ADMIN,
-                            Role::ROLE_ID_MANAGER,
-                        ] : [
-                            Role::ROLE_ID_SITE_ADMIN,
-                            Role::ROLE_ID_MANAGER,
-                            Role::ROLE_ID_SUB_EDITOR,
-                            Role::ROLE_ID_AUTHOR,
-                            Role::ROLE_ID_REVIEWER,
-                            Role::ROLE_ID_ASSISTANT,
-                        ]
-                ),
+                self::roleAuthorizer([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]),
+            ]);
+
+        Route::delete('', $this->bulkDeleteIncompleteSubmissions(...))
+            ->name('_submission.incomplete.delete')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_AUTHOR,
+                ]),
             ]);
 
         Route::delete('{submissionId}', $this->delete(...))
@@ -98,50 +97,47 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ])
             ->whereNumber('submissionId');
 
-        if (Config::getVar('features', 'enable_new_submission_listing')) {
+        Route::get('assigned', $this->assigned(...))
+            ->name('_submission.assigned')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                    Role::ROLE_ID_ASSISTANT,
+                    Role::ROLE_ID_AUTHOR,
+                ]),
+            ]);
 
-            Route::get('assigned', $this->assigned(...))
-                ->name('_submission.assigned')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_ASSISTANT,
-                        Role::ROLE_ID_AUTHOR,
-                    ]),
-                ]);
+        Route::get('reviews', $this->reviews(...))
+            ->name('_submission.reviews')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                    Role::ROLE_ID_ASSISTANT,
+                    Role::ROLE_ID_AUTHOR,
+                ])
+            ]);
 
-            Route::get('reviews', $this->reviews(...))
-                ->name('_submission.reviews')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_ASSISTANT,
-                        Role::ROLE_ID_AUTHOR,
-                    ])
-                ]);
+        Route::get('viewsCount', $this->getViewsCount(...))
+            ->name('_submission.getViewsCount')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                    Role::ROLE_ID_ASSISTANT,
+                    Role::ROLE_ID_AUTHOR,
+                    Role::ROLE_ID_REVIEWER,
+                ])
+            ]);
 
-            Route::get('viewsCount', $this->getViewsCount(...))
-                ->name('_submission.getViewsCount')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_ASSISTANT,
-                        Role::ROLE_ID_AUTHOR,
-                        Role::ROLE_ID_REVIEWER,
-                    ])
-                ]);
-
-            Route::get('reviewerAssignments', $this->getReviewAssignments(...))
-                ->name('_submission.getReviewAssignments')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_REVIEWER,
-                    ])
-                ]);
-        }
+        Route::get('reviewerAssignments', $this->getReviewAssignments(...))
+            ->name('_submission.getReviewAssignments')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_REVIEWER,
+                ])
+            ]);
     }
 
     /**
@@ -186,49 +182,28 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
-                    $val = array_map('intval', paramToArray($val));
-                    if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
-                        $val = array_shift($val);
-                    }
-                    $collector->assignedTo($val);
+                    // this is specifically used for assigned editors
+                    $collector->assignedTo(array_map(intval(...), paramToArray($val)), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                     break;
             }
         }
 
-        /**
-         * FIXME: Clean up before release pkp/pkp-lib#7495.
-         * In new submission lists this endpoint is dedicated to retrieve all submissions only by admins and managers
-         */
-        if (!Config::getVar('features', 'enable_new_submission_listing')) {
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-            // Anyone not a manager or site admin can only access their assigned submissions
-            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-            $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-            Hook::run('API::_submissions::params', [$collector, $illuminateRequest]);
-            if (!$canAccessUnassignedSubmission) {
-                if (!is_array($collector->assignedTo)) {
-                    $collector->assignedTo([$currentUser->getId()]);
-                } elseif ($collector->assignedTo != [$currentUser->getId()]) {
-                    return response()->json([
-                        'error' => __('api.submissions.403.requestedOthersUnpublishedSubmissions'),
-                    ], Response::HTTP_FORBIDDEN);
-                }
-            }
-        }
+        $submissions = $collector->getMany()->remember();
 
-        $submissions = $collector->getMany();
+        $contextId = $context->getId();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($contextId)->cursor();
+
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres, $userRoles)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -247,19 +222,20 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
 
         $collector = $this->getSubmissionCollector($illuminateRequest->query());
+        $queryParams = $illuminateRequest->query();
 
         $submissions = $collector
             ->filterByContextIds([$context->getId()])
-            ->assignedTo([$user->getId()])
-            ->getMany();
+            ->assignedTo([$user->getId()], $queryParams['assignedWithRoles'] ?? null)
+            ->getMany()
+            ->remember();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $contextId = $context->getId();
+        $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -267,6 +243,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 $submissions,
                 $userGroups,
                 $genres,
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
                 $this->anonymizeReviews($submissions)
             )->values(),
         ], Response::HTTP_OK);
@@ -296,14 +273,22 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         // limit results depending on a role
 
         if (!$this->canAccessAllSubmissions()) {
-            $collector->assignedTo([$currentUser->getId()]);
+            $assignedWithRoles = array_map(
+                intval(...),
+                paramToArray($queryParams['assignedWithRoles'] ?? [])
+            );
+
+            $collector->assignedTo([$currentUser->getId()], $assignedWithRoles);
         }
 
         foreach ($queryParams as $param => $val) {
             switch ($param) {
-                case 'needsReviewers':
-                    $numReviewersPerSubmission = $context->getData('numReviewersPerSubmission');
-                    $collector->filterByReviewersActive(range(0, (int) $numReviewersPerSubmission));
+                case 'needsReviews':
+                    $collector->filterByNumReviewsConfirmedLimit(
+                        $context->getNumReviewsPerSubmission() == Context::REVIEWS_DEFAULT_COUNT ?
+                            Context::REVIEWS_REQUIRED_COUNT :
+                            $context->getNumReviewsPerSubmission()
+                    );
                     break;
                 case 'awaitingReviews':
                     $collector->filterByAwaitingReviews(true);
@@ -312,7 +297,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     $collector->filterByReviewsSubmitted(true);
                     break;
                 case 'reviewsOverdue':
-                    $collector->filterByOverdue(true);
+                    $collector->filterByReviewsOverdue(true);
                     break;
                 case 'revisionsRequested':
                     $collector->filterByRevisionsRequested(true);
@@ -323,19 +308,23 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             }
         }
 
-        $submissions = $collector->getMany();
+        $submissions = $collector->getMany()->remember();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $contextId = $context->getId();
+        $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList(
+                $submissions,
+                $userGroups,
+                $genres,
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
+            )->values(),
         ], Response::HTTP_OK);
     }
 
@@ -352,8 +341,13 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
         $currentUser = $request->getUser();
+        $queryParams = $illuminateRequest->query();
+        $assignedWithRoles = array_map(
+            intval(...),
+            paramToArray($queryParams['assignedWithRoles'] ?? [])
+        );
 
-        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser);
+        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser, $assignedWithRoles, true);
 
         return response()->json(
             $dashboardViews->map(fn (DashboardView $view) => $view->getCount()),
@@ -375,16 +369,28 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
         $currentUser = $request->getUser();
         $collector = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewerIds([$currentUser->getId()])
+            ->filterByReviewerIds([$currentUser->getId()], true)
             ->filterByContextIds([$context->getId()]);
 
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
-                case 'pending':
-                    $collector->filterByIsIncomplete(true);
+                case 'actionRequired':
+                    $collector->filterByActionRequiredByReviewer(true);
+                    break;
+                case 'active':
+                    $collector->filterByActive(true);
                     break;
                 case 'archived':
                     $collector->filterByIsArchived(true);
+                    break;
+                case 'declined':
+                    $collector->filterByDeclined(true);
+                    break;
+                case 'completed':
+                    $collector->filterByCompleted(true);
+                    break;
+                case 'published':
+                    $collector->filterByPublished(true);
                     break;
             }
         }
@@ -431,6 +437,78 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
     }
 
     /**
+     * Delete a list of incomplete submissions
+     */
+    public function bulkDeleteIncompleteSubmissions(Request $illuminateRequest): JsonResponse
+    {
+        $submissionIdsRaw = paramToArray($illuminateRequest->query('ids') ?? []);
+
+        if (empty($submissionIdsRaw)) {
+            return response()->json([
+                'error' => __('api.submission.400.missingQueryParam'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $submissionIds = [];
+
+        foreach ($submissionIdsRaw as $id) {
+            $integerId = intval($id);
+
+            if (!$integerId) {
+                return response()->json([
+                    'error' => __('api.submission.400.invalidId', ['id' => $id])
+                ], Response::HTTP_BAD_REQUEST);
+            }
+
+            $submissionIds[] = $id;
+        }
+
+        $collector = $this->getSubmissionCollector($illuminateRequest->query())
+            ->filterBySubmissionIds($submissionIds)
+            ->filterByIncomplete(true);
+
+        $request = Application::get()->getRequest();
+        $context = $this->getRequest()->getContext();
+        $user = $request->getUser();
+
+        if ($user->hasRole([Role::ROLE_ID_AUTHOR], $context->getId())) {
+            $userId = $request->getUser()->getId();
+            $collector->assignedTo([$userId]);
+        }
+
+        $submissions = $collector->getMany()->all();
+
+        $submissionIdsFound = array_map(fn (Submission $submission) => $submission->getData('id'), $submissions);
+
+        if (array_diff($submissionIds, $submissionIdsFound)) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+
+        foreach ($submissions as $submission) {
+            if ($context->getId() != $submission->getData('contextId')) {
+                return response()->json([
+                    'error' => __('api.submissions.403.deleteSubmissionOutOfContext'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+
+            if (!Repo::submission()->canCurrentUserDelete($submission)) {
+                return response()->json([
+                    'error' => __('api.submissions.403.unauthorizedDeleteSubmission'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+        }
+
+        foreach ($submissions as $submission) {
+            Repo::submission()->delete($submission);
+        }
+
+        return response()->json([], Response::HTTP_OK);
+    }
+
+    /**
      * Configure a submission Collector based on the query params
      */
     protected function getSubmissionCollector(array $queryParams): Collector
@@ -463,15 +541,15 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
 
                 case 'status':
-                    $collector->filterByStatus(array_map('intval', paramToArray($val)));
+                    $collector->filterByStatus(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'stageIds':
-                    $collector->filterByStageIds(array_map('intval', paramToArray($val)));
+                    $collector->filterByStageIds(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'categoryIds':
-                    $collector->filterByCategoryIds(array_map('intval', paramToArray($val)));
+                    $collector->filterByCategoryIds(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'daysInactive':
@@ -491,11 +569,14 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
 
                 case 'isOverdue':
-                    $collector->filterByOverdue(true);
+                    $collector->filterByReviewsOverdue(true);
                     break;
 
                 case 'isIncomplete':
                     $collector->filterByIncomplete(true);
+                    break;
+                case 'isUnassigned':
+                    $collector->filterByisUnassigned(true);
                     break;
             }
         }

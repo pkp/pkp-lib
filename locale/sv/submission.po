@@ -31,6 +31,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nya granskningar har inkommit och är under övervägande hos redaktör."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "En eller flera granskare har missat sin deadline. Redaktionen har blivit "
@@ -1305,9 +1306,11 @@ msgstr "Bearbetningar begärda."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Bearbetningar har skickats in."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Bidraget måste sändas in på nytt för en ny granskningsomgäng."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Bidraget har sänts in på nytt för en ny granskningsomgång."
 
@@ -1329,6 +1332,7 @@ msgstr "Väntar på svar från granskare."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nya granskningar har inkommit."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Alla granskningar har inkommit och nu behövs ett redaktörsbeslut."
 
@@ -2025,7 +2029,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Redaktören {$userName} har bekräftat granskning av bidraget {$submissionId} "
+"Redaktören {$editorName} har bekräftat granskning av bidraget {$submissionId} "
 "för granskningsomgång {$round}."
 
 msgid "log.review.reviewReady"
@@ -2551,7 +2555,7 @@ msgstr "Alla versioner"
 msgid "publication.version.confirm"
 msgstr "Vill du skapa en ny version?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstractet är för långt. Det får inte vara fler än {$limit} ord. Nu är det "
 "{$count} ord."

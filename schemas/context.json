@@ -92,6 +92,13 @@
 				"in:0,enable,request,require"
 			]
 		},
+        "citationsMetadataLookup": {
+            "type": "boolean",
+            "description": "Enable metadata lookup by default for new submissions.",
+            "validation": [
+                "nullable"
+            ]
+        },
 		"competingInterests": {
 			"type": "string",
 			"multilingual": true,
@@ -216,6 +223,12 @@
 			"validation": [
 				"nullable",
 				"in:1,2,3"
+			]
+		},
+		"enablePublicPeerReviews": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
 			]
 		},
 		"defaultMetricType": {
@@ -475,6 +488,13 @@
 				"nullable"
 			]
 		},
+		"licenseTerms": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"licenseUrl": {
 			"type": "string",
 			"validation": [
@@ -572,7 +592,7 @@
 				"min:0"
 			]
 		},
-		"numReviewersPerSubmission": {
+		"numReviewsPerSubmission": {
 			"type": "integer",
 			"default": 0,
 			"validation": [
@@ -859,7 +879,7 @@
 			"items": {
 				"type": "string",
 				"validation": [
-					"regex:/^([a-z]{2})((_[A-Z]{2})?)(@[a-z]{0,})?$/"
+					"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
 				]
 			}
 		},
@@ -868,7 +888,7 @@
 			"items": {
 				"type": "string",
 				"validation": [
-					"regex:/^([a-z]{2})((_[A-Z]{2})?)(@[a-z]{0,})?$/"
+					"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
 				]
 			}
 		},
@@ -972,6 +992,22 @@
 			"validation": [
 				"nullable",
 				"in:0,enable,request,require"
+			]
+		},
+		"plainLanguageSummary": {
+			"type": "string",
+			"description": "Enable plain language summary metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"enablePublicComments": {
+			"type": "boolean",
+			"description": "Whether or not the public commenting feature should be enabled.",
+			"default": false,
+			"validation": [
+				"nullable"
 			]
 		}
 	}

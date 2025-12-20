@@ -19,6 +19,7 @@
 namespace PKP\controllers\grid\users\author;
 
 use APP\controllers\grid\users\author\form\AuthorForm;
+use PKP\publication\PKPPublication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
@@ -139,7 +140,6 @@ class AuthorGridHandler extends GridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'addAuthor', null, $actionArgs),
                         __('grid.action.addContributor'),
-                        'modal_add_user'
                     ),
                     __('grid.action.addContributor'),
                     'add_user'
@@ -276,9 +276,6 @@ class AuthorGridHandler extends GridHandler
         $submission = $this->getSubmission();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return false;
-        }
 
         if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return true;

@@ -19,12 +19,12 @@
 namespace PKP\security;
 
 use APP\core\Application;
-use APP\facades\Repo;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\db\DAO;
-use PKP\db\DAORegistry;
+use PKP\userGroup\UserGroup;
 
 class RoleDAO extends DAO
 {
@@ -56,10 +56,9 @@ class RoleDAO extends DAO
     /**
      * Return an array of row objects corresponding to the roles a given user has
      *
-     *
-     * @return array of Roles
+     * @return Role[]
      */
-    public function getByUserId(int $userId, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
+    public function getByUserId(int $userId, ?int $contextId = Application::SITE_CONTEXT_ID_ALL): array
     {
         $result = DB::table('user_groups AS ug')
             ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
@@ -84,19 +83,22 @@ class RoleDAO extends DAO
      * Return an array of objects corresponding to the roles a given user has,
      * grouped by context id.
      *
+     * @return array{int: array<int, Role>}
      *
-     * @return array
      */
-    public function getByUserIdGroupedByContext(int $userId)
+    public function getByUserIdGroupedByContext(int $userId): array
     {
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $userGroups = Repo::userGroup()->userUserGroups($userId);
+        $userGroups = UserGroup::query()
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($userId) {
+                $query->withUserId($userId)->withActive();
+            })
+            ->get();
 
         $roles = [];
         foreach ($userGroups as $userGroup) {
-            $role = $roleDao->newDataObject();
-            $role->setRoleId($userGroup->getRoleId());
-            $roles[(int) $userGroup->getContextId()][$userGroup->getRoleId()] = $role;
+            $role = $this->newDataObject();
+            $role->setRoleId($userGroup->roleId);
+            $roles[(int) $userGroup->contextId][$userGroup->roleId] = $role;
         }
 
         return $roles;
@@ -147,8 +149,4 @@ class RoleDAO extends DAO
     {
         return [Role::ROLE_ID_MANAGER];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\RoleDAO', '\RoleDAO');
 }

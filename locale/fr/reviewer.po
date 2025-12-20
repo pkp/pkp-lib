@@ -1,0 +1,212 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024, 2025.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
+"PO-Revision-Date: 2025-07-30 00:34+0000\n"
+"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
+"fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Demande"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Lignes directrices"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Télécharger & Examiner"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Terminer"
+
+msgid "reviewer.step1.request"
+msgstr "Demande d’évaluation"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Vous avez été choisi(e) en tant que rapporteur(se) potentiel(lle) de la "
+"soumission suivante. Voici un aperçu de la soumission, ainsi que les "
+"échéanciers associés à son examen. Nous espérons que vous pourrez participer "
+"au processus d'examen."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Voir tous les détails de la soumission"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Fichiers du rapporteur"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Refuser la demande d’évaluation"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Vous pouvez indiquer au rédacteur, dans le champ ci-dessous, les raisons "
+"pour lesquelles vous refusez de participer à ce processus d'examen."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Accepter l'examen, continuer à l'étape #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continuer à l'étape #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Soumettre l'examen"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Sauvegarder pour plus tard"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Lignes directrices des rapporteurs"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"La maison d'édition a adopté une politique de divulgation des intérêts "
+"opposés chez ses rapporteurs. Veuillez prendre un moment pour lire cette "
+"politique."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Je n'ai pas d'intérêts concurrents"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr ""
+"Il est possible que j'aie des intérêts concurrents (veuillez spécifier)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Intérêts opposés"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Lignes directrices des examens"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Cet éditeur n'a pas établi de lignes directrices pour les rapporteurs."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Cliquez sur les noms des fichiers pour télécharger et examiner (sur l'écran "
+"ou après les avoir imprimés) les fichiers associés à cette soumission."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Saisir (ou copier/coller) votre évaluation de cette soumission dans le "
+"formulaire ci-dessous."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Transférez des fichiers que vous souhaitez que l'éditeur·rice et/ou l'auteur·"
+"e consultent, y compris des versions révisées des fichiers d'évaluation "
+"originaux."
+
+msgid "reviewer.complete"
+msgstr "Examen envoyé"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Voulez-vous vraiment envoyer cette évaluation ?"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Merci d'avoir examiné cette soumission. Votre examen a bien été reçu. Nous "
+"apprécions votre contribution à la qualité du travail que nous publions. Le "
+"rédacteur pourrait vous contacter à nouveau pour obtenir d'autres "
+"renseignements, le cas échéant."
+
+msgid "reviewer.aboutDueDates"
+msgstr "À propos des dates d'échéance"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Le rédacteur demande que vous acceptiez ou refusiez d'examiner la soumission "
+"avant la date d'échéance, et complétiez l'examen avant la date d'échéance."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Ce texte sera transmis à l'auteur et au rédacteur"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Ce texte sera transmis au rédacteur"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Envoyez une copie de ce courriel de notification par BCC aux évaluateur·rice·"
+"s suivant·e·s."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Envoyer aux évaluateur·rice·s"
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"L'utilisateur courant n'est pas assigné comme rapporteur pour le document "
+"demandé."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Relecteurs précédents"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Tour d'évaluation {$round} soumis par vous pour"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "L'évaluation n'a pas été terminée."
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Tour d'évaluation {$round} soumis le {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Consulter le tour d'évaluation {$round}"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Commentaires des relecteurs"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Pour les éditeurs et les auteurs"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Réservé aux éditeurs"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Commentaire {$index} : "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Motif du refus envoyé par e-mail"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Date de refus"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Métadonnées de l'article"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Résumé"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Mots clés"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Informations générales"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Pièces jointes"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Ce sont les fichiers que vous avez joints à votre évaluation"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Fichiers à évaluer"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Ces fichiers vous ont été envoyés pour évaluation"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr ""
+"Aucune raison n'a été donnée pour justifier le refus de l'invitation à "
+"participer à l'évaluation."

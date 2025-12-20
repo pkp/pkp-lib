@@ -20,7 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 
 /**
- * @extends \PKP\core\DataObject<DAO|RepresentationDAOInterface>
+ * @extends \PKP\core\DataObject
  */
 class Representation extends \PKP\core\DataObject
 {
@@ -172,12 +172,8 @@ class Representation extends \PKP\core\DataObject
     /**
      * @copydoc \PKP\core\DataObject::getDAO()
      */
-    public function getDAO(): \PKP\db\DAO
+    public function getDAO(): \PKP\db\DAO|\PKP\core\EntityDAO
     {
         return Application::getRepresentationDAO();
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\Representation', '\Representation');
 }

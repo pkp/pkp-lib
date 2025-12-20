@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-05-13 15:39+0000\n"
+"PO-Revision-Date: 2024-11-20 00:09+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca/>\n"
@@ -31,6 +31,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "S'han tramès noves revisions i l'editor/a les està considerant."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Un o més revisors/ores han excedit la data límit. L'equip editorial ha estat "
@@ -288,7 +289,7 @@ msgid "metadata.property.validationMessage.issn"
 msgstr "Introduïu un ISSN en paper vàlid."
 
 msgid "metadata.property.displayName.eissn"
-msgstr "ISSN electrònic"
+msgstr "eISSN"
 
 msgid "metadata.property.validationMessage.eissn"
 msgstr "Introduïu un ISSN electrònic vàlid."
@@ -1323,10 +1324,12 @@ msgstr "S'han sol·licitat les revisions."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "S'han enviat les revisions i ara s'ha de prendre una decisió."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "La tramesa s'ha de tornar a enviar per fer-hi una altra ronda de revisió."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "La tramesa s'ha tornat a enviar per fer-hi una altra ronda de revisió."
 
@@ -1348,6 +1351,7 @@ msgstr "En espera de respostes dels revisors/ores."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Hi ha noves revisions preparades."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Tots els revisors/ores han contestat i s'ha de prendre una decisió."
 
@@ -2025,7 +2029,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"L'editor/a {$userName} ha confirmat una revisió per a la ronda {$round} de "
+"L'editor/a {$editorName} ha confirmat una revisió per a la ronda {$round} de "
 "revisió de la tramesa {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2551,7 +2555,7 @@ msgstr "Totes les versions"
 msgid "publication.version.confirm"
 msgstr "Segur que voleu crear una versió nova?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "El resum és massa llarg. Hauria de tenir {$limit} paraules o menys. "
 "Actualment en té {$count}."

@@ -11,6 +11,7 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
+<div class="semantic-defaults">
 	<h1 class="app__pageHeading">
 		{translate key="installer.appInstallation"}
 	</h1>
@@ -138,7 +139,7 @@
 					{fbvElement type="select" id="databaseDriver" from=$databaseDriverOptions selected=$databaseDriver translate=false size=$fbvStyles.size.SMALL}
 				{/fbvFormSection}
 				{fbvFormSection label="installer.databaseHost"}
-					{fbvElement type="text" id="databaseHost" value=$databaseHost maxlength="60" size=$fbvStyles.size.MEDIUM}
+					{fbvElement type="text" id="databaseHost" value=$databaseHost maxlength="100" size=$fbvStyles.size.MEDIUM}
 				{/fbvFormSection}
 				{fbvFormSection label="installer.databaseUsername"}
 					{fbvElement type="text" id="databaseUsername" value=$databaseUsername maxlength="60" size=$fbvStyles.size.MEDIUM}
@@ -166,4 +167,5 @@
 			{fbvFormButtons id="installFormSubmit" submitText="common.save" hideCancel=true submitText="installer.installApplication"}
 		</form>
 	</div>
+</div>
 {/block}

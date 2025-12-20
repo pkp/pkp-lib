@@ -19,13 +19,15 @@
 {/if}
 	// Initialize JS handler.
 	$(function() {ldelim}
-		$('#{$inElElId|escape:javascript}').pkpHandler(
-			'$.pkp.controllers.UrlInDivHandler',
-			{ldelim}
-				sourceUrl: {$inElUrl|json_encode},
-				refreshOn: {$refreshOn|json_encode}
-			{rdelim}
-		);
+		$('div#{$inElElId|escape:javascript}')
+			.last()
+			.pkpHandler(
+				'$.pkp.controllers.UrlInDivHandler',
+				{ldelim}
+					sourceUrl: {$inElUrl|json_encode},
+					refreshOn: {$refreshOn|json_encode}
+				{rdelim}
+			);
 	{rdelim});
 {if $inVueEl}
 </component>

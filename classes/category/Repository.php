@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/Repository.php
  *
@@ -13,8 +14,16 @@
 
 namespace PKP\category;
 
+use APP\core\Application;
 use APP\core\Request;
+use APP\facades\Repo;
+use APP\file\PublicFileManager;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Validation\Validator;
+use PKP\context\Context;
+use PKP\context\SubEditorsDAO;
+use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -32,7 +41,7 @@ class Repository
 
     /** @var PKPSchemaService<Category> $schemaService */
     protected $schemaService;
-
+    private const CATEGORY_PATH_REGEX = '/^[a-zA-Z0-9\/._-]+$/';
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
     {
@@ -64,32 +73,74 @@ class Repository
     }
 
     /**
-     * Get the breadcrumb of a category
-     *
-     * @return string For example: Social Sciences > Anthropology
-     */
-    public function getBreadcrumb(Category $category, ?Category $parent = null): string
-    {
-        return !$parent
-            ? $category->getLocalizedTitle()
-            : __('common.categorySeparator', [
-                'parent' => $parent->getLocalizedTitle(),
-                'child' => $category->getLocalizedTitle()
-            ]);
-    }
-
-    /**
-     * Get the breadcrumbs for a Collection of categories
+     * Get the breadcrumbs for a Collection of categories. Categories with circular references are excluded from the result.
      */
     public function getBreadcrumbs(LazyCollection $categories): LazyCollection
     {
-        return $categories->map(function (Category $category) use ($categories) {
-            /** @var ?Category $parent */
-            $parent = $categories->first(
-                fn (Category $c) => $c->getId() === $category->getParentId()
-            );
-            return $this->getBreadcrumb($category, $parent);
+        return $categories->map(function (Category $category) use (&$u, $categories) {
+            $processedIds = [];
+            $currentCategory = $category;
+            $result = $currentCategory->getLocalizedTitle();
+            // Traverse up category tree until we reach a top-level category
+            while ($currentCategory->getParentId() && $parent = $categories->get($currentCategory->getParentId())) {
+                // A category should not be visited more than once.
+                if (in_array($parent->getId(), $processedIds)) {
+                    // If we encounter a circular reference, we stop processing and return an empty string.
+                    $result = '';
+                    break;
+                }
+
+                // Format this level, but with the accumulated result as the child instead of just the current category title
+                $result = __('common.categorySeparator', [
+                    'parent' => $parent->getLocalizedTitle(),
+                    'child' => $result
+                ]);
+
+                $processedIds[] = $currentCategory->getId();
+                $currentCategory = $parent;
+            }
+
+            return $result;
+        })->filter(fn ($breadcrumb) => $breadcrumb !== ''); // Filter out empty breadcrumbs due to circular references.
+    }
+
+    /**
+     * Create tree data structure compatible with Autosuggest fields Vocabulary
+     */
+    public function getCategoryVocabularyStructure(LazyCollection $categories): array
+    {
+        // Build a map of nodes
+        $map = [];
+        $categories->each(function ($item) use (&$map) {
+            $id = $item->getId();
+            $map[$id] = [
+                'label' => $item->getLocalizedTitle(),
+                'value' => $id,
+                'selectable' => true
+            ];
         });
+
+        // Link children to their parents
+        $categories->each(function ($item) use (&$map) {
+            $parentId = $item->getData('parentId');
+            if ($parentId !== null && isset($map[$parentId])) {
+                if (!isset($map[$parentId]['items'])) {
+                    $map[$parentId]['items'] = [];
+                }
+                $map[$parentId]['items'][] = &$map[$item->getId()];
+            }
+        });
+
+        // Collect root items (those with no parentId)
+        $hierarchy = [];
+        $categories->each(function ($item) use (&$map, &$hierarchy) {
+            if ($item->getData('parentId') === null) {
+                $hierarchy[] = &$map[$item->getId()];
+            }
+        });
+
+        return $hierarchy;
+
     }
 
     /** @copydoc DAO::getCollector() */
@@ -113,15 +164,16 @@ class Repository
      * Perform validation checks on data used to add or edit a category.
      *
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
      *
      * @hook Category::validate [[&$errors, $object, $props, $allowedLocales, $primaryLocale]]
      */
-    public function validate(?Category $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?Category $object, array $props, Context $context): array
     {
+        $primaryLocale = $context->getData('primaryLocale');
+        $allowedLocales = $context->getData('supportedFormLocales');
+
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
@@ -142,6 +194,61 @@ class Repository
         ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($this->dao->schema), $allowedLocales);
 
         $errors = [];
+
+        if (isset($props['contextId'])) {
+            $validator->after(function (Validator $validator) use ($props, $context) {
+                if (!Application::getContextDAO()->exists($props['contextId'])) {
+                    $validator->errors()->add('contextId', __('api.contexts.404.contextNotFound'));
+                }
+                if ($context->getId() !== $props['contextId']) {
+                    $validator->errors()->add('contextId', __('api.categories.400.invalidContext'));
+                }
+            });
+        }
+
+        if (isset($props['path'])) {
+            $validator->after(function (Validator $validator) use ($props, $context, $object) {
+                // Check if path matches the allowed pattern
+                if (!preg_match(self::CATEGORY_PATH_REGEX, $props['path'] ?: '')) {
+                    $validator->errors()->add('path', __('grid.category.pathAlphaNumeric'));
+                }
+
+                $existingCategoryWithPath = Repo::category()->getCollector()
+                    ->filterByContextIds([$props['contextId']])
+                    ->filterByPaths([$props['path']])
+                    ->getMany()
+                    ->first();
+
+                $id = (array_key_exists('categoryId', $props) ? $props['categoryId'] : $object?->getId()) ?? null;
+                $existingCategoryWithId = $id ? Repo::category()->get($id, $context->getId()) : null;
+
+                if ($existingCategoryWithPath && $existingCategoryWithPath->getPath() !== $existingCategoryWithId?->getPath()) {
+                    $validator->errors()->add('path', __('grid.category.pathExists'));
+                }
+            });
+        }
+
+        if (isset($props['image']['temporaryFileId'])) {
+            $validator->after(function (Validator $validator) use ($props, $context) {
+                $temporaryFileId = $props['image']['temporaryFileId'];
+                $temporaryFileManager = new TemporaryFileManager();
+                $user = Application::get()->getRequest()->getUser();
+                $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
+                $imageExtension = $temporaryFile ? $temporaryFileManager->getImageExtension($temporaryFile->getFileType()) : [];
+                $isValidExtension = in_array($imageExtension, Category::SUPPORTED_IMAGE_TYPES);
+
+                if (
+                    !$isValidExtension ||
+                    !$temporaryFile ||
+                    !($temporaryFileManager->getImageExtension($temporaryFile->getFileType())) ||
+                    !($sizeArray = getimagesize($temporaryFile->getFilePath())) ||
+                    $sizeArray[0] <= 0 ||
+                    $sizeArray[1] <= 0
+                ) {
+                    $validator->errors()->add('image', __('form.invalidImage'));
+                }
+            });
+        }
 
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
@@ -172,11 +279,31 @@ class Repository
         $this->dao->update($newCategory);
     }
 
-    /** @copydoc DAO::delete() */
+    /**
+     * Delete a category and all its subcategories.
+     *
+     * @hook Category::delete::before [[$category]]
+     */
     public function delete(Category $category)
     {
+        $subCategories = Repo::category()->getCollector()
+            ->filterByParentIds([$category->getId()])
+            ->getMany();
+
+        foreach ($subCategories as $subCategory) {
+            $this->delete($subCategory);
+        }
+
         Hook::call('Category::delete::before', [$category]);
+
         $this->dao->delete($category);
+        $image = $category->getImage();
+
+        if ($image) {
+            $publicFileManager = new PublicFileManager();
+            $publicFileManager->removeContextFile($category->getContextId(), $image['uploadName']);
+            $publicFileManager->removeContextFile($category->getContextId(), $image['thumbnailName']);
+        }
         Hook::call('Category::delete', [$category]);
     }
 
@@ -189,5 +316,69 @@ class Repository
             /** @var Category $category */
             $this->delete($category);
         }
+    }
+
+    /**
+     * @param array $subEditors - Editor IDs grouped by Group ID. Example:
+     * ```
+     * [
+     *  3 => [6, 8]
+     * ]
+     * ```
+     * In the example above, `3` represents the group ID, while `6` and `8` are the editor IDs to assign to that group.
+     */
+    public function updateEditors(int $categoryId, array $subEditors, array $assignableRoles, int $contextId): void
+    {
+        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+        /** @var SubEditorsDAO $subEditorsDao */
+        $subEditorsDao->deleteBySubmissionGroupId($categoryId, Application::ASSOC_TYPE_CATEGORY, $contextId);
+
+        if (!empty($subEditors)) {
+            $allowedEditors = Repo::user()
+                ->getCollector()
+                ->filterByRoleIds($assignableRoles)
+                ->filterByContextIds([$contextId])
+                ->getIds();
+            foreach ($subEditors as $userGroupId => $userIds) {
+                if ($userIds) {
+                    foreach ($userIds as $userId) {
+                        if (!$allowedEditors->contains($userId)) {
+                            continue;
+                        }
+                        $subEditorsDao->insertEditor($contextId, $categoryId, $userId, Application::ASSOC_TYPE_CATEGORY, (int)$userGroupId);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Check for circular references in the category tree.
+     *
+     * @param int $categoryId - The ID of the category to check.
+     * @param int|null $newParentId - If provided, this checks whether assigning it as the new parent would create a circular reference.
+     */
+    public function hasCircularReference(int $categoryId, ?int $newParentId, ?int $contextId): bool
+    {
+        $visited = [];
+
+        // When checking if a proposed new parent would result in a circular reference, start from the new parent.
+        // Otherwise, start from the category.
+        $currentId = $newParentId ?? $categoryId;
+
+        while ($currentId !== null) {
+            if (isset($visited[$currentId])) {
+                return true; // A category should not be visited twice.
+            }
+
+            if ($newParentId !== null && $currentId === $categoryId) {
+                return true; // The categoryId exist in the parent chain of the proposed new parent.
+            }
+
+            $visited[$currentId] = true;
+            $currentId = Repo::category()->get($currentId, $contextId)?->getParentId();
+        }
+
+        return false;
     }
 }

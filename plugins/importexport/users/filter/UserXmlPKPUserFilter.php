@@ -19,15 +19,18 @@ namespace PKP\plugins\importexport\users\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
 use PKP\mail\mailables\UserCreated;
 use PKP\plugins\importexport\users\PKPUserImportExportDeployment;
+use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\SiteDAO;
-use PKP\user\InterestManager;
 use PKP\user\User;
+use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
 
 class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -98,7 +101,8 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
-                    case 'username': $user->setUsername($n->textContent);
+                    case 'username':
+                        $user->setUsername($n->textContent);
                         break;
                     case 'givenname':
                         $locale = $n->getAttribute('locale');
@@ -115,25 +119,33 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         $user->setFamilyName($n->textContent, $locale);
                         break;
                     case 'affiliation':
-                        $locale = $n->getAttribute('locale');
+                        $affiliationNameNode = $n->firstElementChild;
+                        $locale = $affiliationNameNode->getAttribute('locale');
                         if (empty($locale)) {
                             $locale = $site->getPrimaryLocale();
                         }
-                        $user->setAffiliation($n->textContent, $locale);
+                        $user->setAffiliation($affiliationNameNode->textContent, $locale);
                         break;
-                    case 'country': $user->setCountry($n->textContent);
+                    case 'country':
+                        $user->setCountry($n->textContent);
                         break;
-                    case 'email': $user->setEmail($n->textContent);
+                    case 'email':
+                        $user->setEmail($n->textContent);
                         break;
-                    case 'url': $user->setUrl($n->textContent);
+                    case 'url':
+                        $user->setUrl($n->textContent);
                         break;
-                    case 'orcid': $user->setOrcid($n->textContent);
+                    case 'orcid':
+                        $user->setOrcid($n->textContent);
                         break;
-                    case 'phone': $user->setPhone($n->textContent);
+                    case 'phone':
+                        $user->setPhone($n->textContent);
                         break;
-                    case 'billing_address': $user->setBillingAddress($n->textContent);
+                    case 'billing_address':
+                        $user->setBillingAddress($n->textContent);
                         break;
-                    case 'mailing_address': $user->setMailingAddress($n->textContent);
+                    case 'mailing_address':
+                        $user->setMailingAddress($n->textContent);
                         break;
                     case 'biography':
                         $locale = $n->getAttribute('locale');
@@ -142,7 +154,8 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         }
                         $user->setBiography($n->textContent, $locale);
                         break;
-                    case 'gossip': $user->setGossip($n->textContent);
+                    case 'gossip':
+                        $user->setGossip($n->textContent);
                         break;
                     case 'signature':
                         $locale = $n->getAttribute('locale');
@@ -151,21 +164,29 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         }
                         $user->setSignature($n->textContent, $locale);
                         break;
-                    case 'date_registered': $user->setDateRegistered($n->textContent);
+                    case 'date_registered':
+                        $user->setDateRegistered($n->textContent);
                         break;
-                    case 'date_last_login': $user->setDateLastLogin($n->textContent);
+                    case 'date_last_login':
+                        $user->setDateLastLogin($n->textContent);
                         break;
-                    case 'date_last_email': $user->setDateLastEmail($n->textContent);
+                    case 'date_last_email':
+                        $user->setDateLastEmail($n->textContent);
                         break;
-                    case 'date_validated': $user->setDateValidated($n->textContent);
+                    case 'date_validated':
+                        $user->setDateValidated($n->textContent);
                         break;
-                    case 'inline_help':$n->textContent == 'true' ? $user->setInlineHelp(true) : $user->setInlineHelp(false) ;
+                    case 'inline_help':
+                        $n->textContent == 'true' ? $user->setInlineHelp(true) : $user->setInlineHelp(false) ;
                         break;
-                    case 'auth_string': $user->setAuthStr($n->textContent);
+                    case 'auth_string':
+                        $user->setAuthStr($n->textContent);
                         break;
-                    case 'disabled_reason': $user->setDisabledReason($n->textContent);
+                    case 'disabled_reason':
+                        $user->setDisabledReason($n->textContent);
                         break;
-                    case 'locales': $user->setLocales(preg_split('/:/', $n->textContent));
+                    case 'locales':
+                        $user->setLocales(preg_split('/:/', $n->textContent));
                         break;
                     case 'password':
                         if ($n->getAttribute('must_change') == 'true') {
@@ -204,7 +225,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             $user = $userByUsername;
             $userId = $user->getId();
         } elseif (!$userByUsername && !$userByEmail) {
-            // if user names do not exists in the site primary locale
+            // if usernames do not exist in the site primary locale
             // copy one of the existing for the default/required site primary locale
             if (empty($user->getGivenName($site->getPrimaryLocale()))) {
                 // get all user given names, family names and affiliations
@@ -264,8 +285,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                 $n = $interestNodeList->item(0);
                 if ($n) {
                     $interests = preg_split('/,\s*/', $n->textContent);
-                    $interestManager = new InterestManager();
-                    $interestManager->setInterestsForUser($user, $interests);
+                    Repo::userInterest()->setInterestsForUser($user, $interests);
                 }
             }
 
@@ -291,25 +311,66 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
 
         // We can only assign a user to a user group if persisted to the database by $userId
         if ($userId) {
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->getMany();
+            $userGroups = UserGroup::withContextIds([$context->getId()])
+                ->get();
 
             // Extract user groups from the User XML and assign the user to those (existing) groups.
             // Note:  It is possible for a user to exist with no user group assignments so there is
             // no exception thrown as is the case with \PKP\author\Author import.
-            $userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
-            if ($userGroupNodeList->length > 0) {
-                for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
-                    $n = $userGroupNodeList->item($i);
+            $userUserGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_user_group');
+
+            if ($userUserGroupNodeList->length > 0) {
+                for ($i = 0; $i < $userUserGroupNodeList->length; $i++) {
+                    $n = $userUserGroupNodeList->item($i);
+
+                    $userGroupNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref')->item(0);
+                    $dateStartNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_start')->item(0);
+                    $dateStart = $dateStartNode?->textContent;
+                    $dateEndNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_end')->item(0);
+                    $dateEnd = $dateEndNode?->textContent;
+                    $mastheadNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'masthead')->item(0);
+                    $masthead = filter_var($mastheadNode->textContent, FILTER_VALIDATE_BOOLEAN);
 
                     /** @var \PKP\userGroup\UserGroup $userGroup */
                     foreach ($userGroups as $userGroup) {
                         // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list
-                        // and the user is not already assigned to that group
-                        if (in_array($n->textContent, $userGroup->getName(null)) && !Repo::userGroup()->userInGroup($userId, $userGroup->getId())) {
-                            // Found a candidate; assign user to it.
-                            Repo::userGroup()->assignUserToGroup($userId, $userGroup->getId());
+                        if (in_array($userGroupNode->textContent, $userGroup->name)) {
+                            $endedExists = UserUserGroup::withUserId($userId)
+                                ->withUserGroupIds([$userGroup->id])
+                                ->withEnded()
+                                ->get()
+                                ->count() > 0;
+                            $activeExists = UserUserGroup::withUserId($userId)
+                                ->withUserGroupIds([$userGroup->id])
+                                ->withActive()
+                                ->get()
+                                ->count() > 0;
+
+                            // if it is an active user group (according to the XML that is imported),
+                            // and the user is currently not active in that group
+                            // or
+                            // if it is a past/ended user group (according to the XML that is imported),
+                            // and there is no such entry in the user_user_group table
+                            if (($dateEnd == null && !$activeExists) || ($dateEnd != null && !$endedExists)) {
+                                // import that user_user_group
+                                if ($userGroup->roleId = Role::ROLE_ID_REVIEWER) {
+                                    $masthead = true;
+                                }
+
+                                $dateStart = $startDate ?? Core::getCurrentDate();
+                                // Clear editorial masthead cache if a new user is assigned to a masthead role
+                                if ($userGroup->masthead && $masthead) {
+                                    Repo::userGroup()::forgetEditorialCache($userGroup->contextId);
+                                }
+
+                                UserUserGroup::create([
+                                    'userId' => $userId,
+                                    'userGroupId' => $userGroup->id,
+                                    'dateStart' => $dateStart,
+                                    'dateEnd' => $dateEnd,
+                                    'masthead' => $masthead,
+                                ]);
+                            }
                         }
                     }
                 }

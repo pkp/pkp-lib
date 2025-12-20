@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/PKPSiteAccessPolicy.php
  *
@@ -54,7 +55,7 @@ class PKPSiteAccessPolicy extends PolicySet
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Retrieve the user from the session.
         $request = Application::get()->getRequest();
@@ -67,9 +68,4 @@ class PKPSiteAccessPolicy extends PolicySet
         // Execute handler operation checks.
         return parent::effect();
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\PKPSiteAccessPolicy', '\PKPSiteAccessPolicy');
-    define('SITE_ACCESS_ALL_ROLES', PKPSiteAccessPolicy::SITE_ACCESS_ALL_ROLES);
 }

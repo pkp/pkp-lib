@@ -21,13 +21,18 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use DateTime;
+use Illuminate\Support\Collection;
+use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\orcid\OrcidManager;
+use Illuminate\Support\Facades\View;
+use PKP\core\PKPContainer;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
 
 class AboutContextHandler extends Handler
 {
@@ -53,11 +58,29 @@ class AboutContextHandler extends Handler
      * @param \PKP\core\PKPRequest $request
      */
     public function index($args, $request)
-    {
+    {   
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $templateMgr->display('frontend/pages/about.tpl');
     }
+
+
+    private function getSortedMastheadUserGroups(Context $context): Collection
+    {
+        $mastheadUserGroups = UserGroup::withContextIds([$context->getId()])
+            ->masthead(true)
+            ->excludeRoles([Role::ROLE_ID_REVIEWER])
+            ->get();
+
+        $savedOrder = (array) $context->getData('mastheadUserGroupIds');
+
+        $sortedUserGroups = $mastheadUserGroups->sortBy(function ($userGroup) use ($savedOrder) {
+            return array_search($userGroup->id, $savedOrder);
+        });
+
+        return $sortedUserGroups;
+    }
+
 
     /**
      * Display editorial masthead page.
@@ -71,36 +94,29 @@ class AboutContextHandler extends Handler
     {
         $context = $request->getContext();
 
-        $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
+        // Get sorted masthead roles using the extracted method
+        $mastheadRoles = $this->getSortedMastheadUserGroups($context);
 
-        $collector = Repo::userGroup()->getCollector();
-        $allMastheadUserGroups = $collector
-            ->filterByContextIds([$context->getId()])
-            ->filterByMasthead(true)
-            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderBy($collector::ORDERBY_ROLE_ID)
-            ->getMany()
-            ->toArray();
-
-        // sort the masthead roles in their saved order for display
-        $mastheadRoles = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
-
-        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds($mastheadRoles, $context->getId());
+        // Get all user IDs grouped by user group ID for the masthead roles
+        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
+            $mastheadRoles->all(),
+            $context->getId()
+        );
 
         $mastheadUsers = [];
-        foreach ($mastheadRoles as $mastheadUserGroup) {
-            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
+        foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($mastheadUserGroup->getId())
+                    ->withUserGroupIds([$userGroupId])
                     ->withActive()
                     ->withMasthead()
                     ->first();
                 if ($userUserGroup) {
-                    $startDatetime = new DateTime($userUserGroup->dateStart);
-                    $mastheadUsers[$mastheadUserGroup->getId()][$user->getId()] = [
+                    $startDatetime = $userUserGroup->dateStart ? new DateTime($userUserGroup->dateStart) : null;
+                    $mastheadUsers[$userGroupId][$user->getId()] = [
                         'user' => $user,
-                        'dateStart' => $startDatetime->format('Y'),
+                        'dateStart' => $startDatetime ? $startDatetime->format('Y') : '',
                     ];
                 }
             }
@@ -111,7 +127,11 @@ class AboutContextHandler extends Handler
         $usersCollector = Repo::user()->getCollector();
         $reviewers = $usersCollector
             ->filterByUserIds($reviewerIds->toArray())
-            ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
+            ->orderBy(
+                $usersCollector::ORDERBY_FAMILYNAME,
+                $usersCollector::ORDER_DIR_ASC,
+                [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
+            )
             ->getMany();
 
         Hook::call('AboutContextHandler::editorialMasthead', [$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]);
@@ -140,43 +160,37 @@ class AboutContextHandler extends Handler
     {
         $context = $request->getContext();
 
-        $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
+        // get sorted masthead roles using the extracted method
+        $mastheadRoles = $this->getSortedMastheadUserGroups($context);
 
-        $collector = Repo::userGroup()->getCollector();
-        $allMastheadUserGroups = $collector
-            ->filterByContextIds([$context->getId()])
-            ->filterByMasthead(true)
-            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderBy($collector::ORDERBY_ROLE_ID)
-            ->getMany()
-            ->toArray();
-
-        // sort the masthead roles in their saved order for display
-        $mastheadRoles = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
-
-        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds($mastheadRoles, $context->getId(), UserUserGroupStatus::STATUS_ENDED);
+        // get all user IDs grouped by user group ID for the masthead roles with ended status
+        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
+            $mastheadRoles->all(),
+            $context->getId(),
+            UserUserGroupStatus::STATUS_ENDED
+        );
 
         $mastheadUsers = [];
-        foreach ($mastheadRoles as $mastheadUserGroup) {
-            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
+        foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($mastheadUserGroup->getId())
+                    ->withUserGroupIds([$userGroupId])
                     ->withEnded()
                     ->withMasthead()
-                    ->sortBy('date_start', 'desc')
+                    ->orderBy('date_start', 'desc')
                     ->get();
                 $services = [];
                 foreach ($userUserGroups as $userUserGroup) {
-                    $startDatetime = new DateTime($userUserGroup->dateStart);
+                    $startDatetime = $userUserGroup->dateStart ? new DateTime($userUserGroup->dateStart) : null;
                     $endDatetime = new DateTime($userUserGroup->dateEnd);
                     $services[] = [
-                        'dateStart' => $startDatetime->format('Y'),
+                        'dateStart' => $startDatetime ? $startDatetime->format('Y') : '',
                         'dateEnd' => $endDatetime->format('Y'),
                     ];
                 }
                 if (!empty($services)) {
-                    $mastheadUsers[$mastheadUserGroup->getId()][$user->getId()] = [
+                    $mastheadUsers[$userGroupId][$user->getId()] = [
                         'user' => $user,
                         'services' => $services
                     ];

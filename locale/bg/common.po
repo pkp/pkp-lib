@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-23 16:53+0000\n"
+"PO-Revision-Date: 2025-12-12 23:50+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg/>\n"
@@ -680,10 +680,10 @@ msgid "common.pagination.goToPage"
 msgstr "Отиди на {$page}"
 
 msgid "common.pagination.next"
-msgstr "Следваща страница"
+msgstr "Следваща"
 
 msgid "common.pagination.previous"
-msgstr "Предишна страница"
+msgstr "Предишна"
 
 msgid "common.pageNumber"
 msgstr "Страница {$pageNumber}"
@@ -1302,7 +1302,7 @@ msgid "help.toc"
 msgstr "Съдържание"
 
 msgid "help.previous"
-msgstr "Назад"
+msgstr "Предишна"
 
 msgid "help.next"
 msgstr "Напред"
@@ -1708,29 +1708,8 @@ msgstr "Дисциплини"
 msgid "search.fullText"
 msgstr "Пълен текст"
 
-msgid "search.indexTerms"
-msgstr "Индексирани термини"
-
-msgid "search.indexTermsLong"
-msgstr "Всички полета на индексираните термини"
-
-msgid "search.matchAll"
-msgstr "Съвпадение на всички категории"
-
 msgid "search.noResults"
 msgstr "Няма резултати"
-
-msgid "search.operator.and"
-msgstr "и (логически +)"
-
-msgid "search.operator.not"
-msgstr "без (логически -)"
-
-msgid "search.operator.or"
-msgstr "или"
-
-msgid "search.SearchFor"
-msgstr "Търсене за"
 
 msgid "search.searchResults"
 msgstr "Резултати от търсене"
@@ -1787,10 +1766,10 @@ msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>За да се гарантира целостта на анонимната рецензия, трябва да се положат "
 "всички усилия, за да се предотврати взаимното познаване на самоличността на "
-"авторите и рецензентите. Това включва авторите, редакторите и рецензентите "
-"(които качват документи като част от прегледа си) да проверят дали са "
-"предприети следните стъпки по отношение на текста и свойствата на файла:</"
-"p>\n"
+"авторите и рецензентите. Това включва авторите, редакторите и рецензентите ("
+"които качват документи като част от прегледа си) да проверят дали са "
+"предприети следните стъпки по отношение на текста и свойствата на файла:</p>"
+"\n"
 "<ul><li>Авторите на документа са изтрили имената си от текста, като в "
 "препратките и бележките под линия са използвани „Автор“ и година, вместо "
 "името на автора, заглавието на статията и т.н.</li>\n"
@@ -1812,7 +1791,7 @@ msgstr ""
 "<li>Щракнете върху Защита на документ</li>\n"
 "<li>Изберете Премахване на лична информация за този файл при запазване</li>\n"
 "<li>Щракнете върху OK и запазете файла</li></ul></li>\n"
-"<li>PDF:\n"
+"<li>Adobe Acrobat (PDF):\n"
 "<ul><li>Отидете до файл</li>\n"
 "<li>Изберете свойства</li>\n"
 "<li>Премахнете всяко име в полето за автор</li>\n"
@@ -1835,7 +1814,7 @@ msgid "submission.task.responseDueDate"
 msgstr "Отговор за рецензиране до дата"
 
 msgid "navigation.goBack"
-msgstr "Назад"
+msgstr "Обратно назад"
 
 msgid "notification.addedReviewer"
 msgstr ""
@@ -1963,14 +1942,14 @@ msgstr "Резюме на статистическия доклад."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Това е напомняне за вас да проверите състоянието на вашето списание чрез "
+"Това е напомняне за вас да проверите състоянието на вашите публикации чрез "
 "редакционния доклад."
 
 msgid "notification.type.editorialReminder"
 msgstr "Седмичен имейл с неизпълнени задачи"
 
 msgid "semicolon"
-msgstr "{$label} :"
+msgstr "{$label} : "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Елементът от менюто за навигация бе актуализиран успешно"
@@ -2287,3 +2266,98 @@ msgstr "Показване по-малко"
 
 msgid "common.sandbox"
 msgstr "Приложението работи в защитен режим (пясъчна среда)."
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Рецензенти през предходните години"
+
+msgid "common.editorialHistory"
+msgstr "Редакционна история"
+
+msgid "common.editorialHistory.page"
+msgstr "Страница Редакционна история"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Този раздел изброява предишни сътрудници на изданието."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Вижте {$name} ORCID профил"
+
+msgid "common.filtersClear"
+msgstr "Изчистване на филтри"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Зареден"
+
+msgid "navigation.dashboards"
+msgstr "Табло за управление"
+
+msgid "navigation.reviewAssignments"
+msgstr "Мои задания като рецензент"
+
+msgid "navigation.mySubmissions"
+msgstr "Мои изпратени материали"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Рецензията е приета на"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Рецензията е изпратена на"
+
+msgid "validator.date.comparison"
+msgstr "Предоставени са невалидни дати за сравнение."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Не"
+
+msgid "common.refreshingData"
+msgstr "Данните се обновяват"
+
+msgid "common.viewMoreDetails"
+msgstr "Преглеждане на повече подробности"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Вижте <a href=\"{$url}\">Редакционна история</a>"
+
+msgid "common.moreActions"
+msgstr "Още действия"
+
+msgid "common.editorialMasthead"
+msgstr "Редакторско каре"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Рецензенти през предходната година"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Редакторите изразяват своята признателност към рецензентите за {$year}, "
+"изброени по-долу."
+
+msgid "common.assignments"
+msgstr "Асоциирани задания"
+
+msgid "common.showingXofX"
+msgstr "Показани са <strong>{$start} до {$finish}</strong> от {$total}"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Открита е 1 грешка! Моля, коригирайте грешката по-долу, преди да продължите."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Открити са {$count} грешки! Моля, коригирайте грешките по-долу, преди да "
+"продължите."
+
+msgid "validator.multilingual"
+msgstr "Многоезичното изискване не е изпълнено за това поле."
+
+msgid "common.yesContinue"
+msgstr "Да, Продължение"
+
+msgid "common.changeLanguage"
+msgstr "Смяна на език"

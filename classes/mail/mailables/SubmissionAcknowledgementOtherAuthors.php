@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/mailables/SubmissionAcknowledgementOtherAuthors.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAcknowledgementOtherAuthors
@@ -75,12 +75,15 @@ class SubmissionAcknowledgementOtherAuthors extends Mailable
     {
         $authors = $this->submission->getCurrentPublication()->getData('authors');
 
-        if ($authors->empty()) {
+        if ($authors->isEmpty()) {
             return '';
         }
 
         return $authors
-            ->map(fn (Author $author) => join(__('common.commaListSeparator'), [$author->getFullName(), $author->getLocalizedAffiliation()]))
+            ->map(fn (Author $author) => join(
+                __('common.commaListSeparator'),
+                [$author->getFullName(), $author->getLocalizedAffiliationNamesAsString()]
+            ))
             ->join('<br>');
     }
 }

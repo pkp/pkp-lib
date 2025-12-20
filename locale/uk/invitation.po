@@ -1,0 +1,424 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-11-03 16:40+0000\n"
+"Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Потрібно визначити принаймні одну групу користувачів для видалення"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Потрібно визначити принаймні одну групу користувачів для додавання"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Група користувачів призначається запрошеному користувачеві"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Видалити ролі користувачів неможливо для користувачів, які не існують."
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Потрібно вказати надане ім'я"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Потрібно вказати прізвище"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Поле :attribute заборонено"
+
+msgid "invitation.step"
+msgstr "КРОК"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Якщо запрошенню призначено електронну адресу ({$email}), ця адреса не "
+"повинна використовуватися іншим користувачем."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Потрібно вказати ім'я користувача"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Потрібно ввести пароль"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Потрібно вказати афілійованість"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Потрібно вказати країну"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"Для доданих груп користувачів необхідно вказати ідентифікатор групи "
+"користувачів"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Знайдено неочікувані властивості в елементі за індексом {$attribute}: "
+"{$properties}."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Для доданих груп користувачів необхідно вказати дату початку"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"Ідентифікатор {reviewAssignmentId} не відповідає дійсному завданню з "
+"рецензування"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Для доданих груп користувачів необхідно надати заголовок"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Це запрошення не можна скасувати"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Для цього типу запрошення не визначено спосіб надсилання поштою"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr ""
+"Ви не можете одночасно вказати електронну пошту й ідентифікатор користувача."
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Не вдалося виконати цю операцію запрошення"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Указаний ідентифікатор групи користувачів {$userGroupId} не існує"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Доступ до атрибута для існуючих користувачів заборонено"
+
+msgid "invitation.validation.required"
+msgstr "Поле {$attribute} обов'язкове для заповнення."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Доступ до атрибута не дозволено для неіснуючих користувачів"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr ""
+"Цей атрибут повинен мати значення, що дорівнює або пізніше сьогоднішнього дня"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Потрібне значення локалі '{$primaryLocale}'"
+
+msgid "invitation.header"
+msgstr "Запрошення"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} – Ввести деталі"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Перевірити ORCID iD"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Так, я погоджуюся на збирання та зберігання моїх даних відповідно до {$url}"
+
+msgid "invitation.email.description"
+msgstr "наприклад: aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Після прийняття запрошення користувача буде перенаправлено на ORCID для "
+"підтвердження облікового запису, якщо він цього забажає."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Якщо вам відомо ім'я користувача, ви можете ввести цю інформацію. Однак "
+"користувач може змінити цю інформацію."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Якщо вам відоме прізвище користувача, ви можете ввести цю інформацію. Однак "
+"користувач може змінити цю інформацію."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Перевірити ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} – Перевірити ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Ввести деталі"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Введіть свої дані, такі як електронна адреса, афіліація тощо. Відповідно до "
+"GDPR цю інформацію можете змінити лише ви. Ви також можете вибрати, чи "
+"хочете, щоб ця інформація була видимою для редактора у Вашому профілі."
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Будь ласка, надайте наступну інформацію, щоб допомогти нам керувати Вашим "
+"обліковим записом"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Переглянути та створити обліковий запис"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} – Переглянути та створити обліковий запис"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Пропустити перевірку ORCID"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Це може бути комбінація великих літер, малих літер або цифр"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Він має містити щонайменше 6 символів і може бути комбінацією великих літер, "
+"малих літер, цифр і символів"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Заява про конфіденційність"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Запрошення не може бути надіслано, оскільки Ви не визначили жодних змін у "
+"групі користувачів"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Введені групи користувачів містять дублікати записів."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "Користувач з іменем {$username} уже існує. Спробуйте інше ім'я."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Якщо запрошенню призначено ідентифікатор користувача ({$userId}), "
+"відповідний користувач має існувати."
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Запросити на роль"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Запросіть користувача отримати роль"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Введіть деталі"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Огляд і запрошення на ролі"
+
+msgid "userInvitation.searchField.description"
+msgstr "наприклад, aeinstein@example.com або aeinstein чи 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "invitation.role.dateEnd"
+msgstr "Дата закінчення"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Роль"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Дата початку"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Запросити користувача на роль"
+
+msgid "userInvitation.modal.title"
+msgstr "Запрошення надіслано"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Видалити роль"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Шукати користувача"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} – Шукати користувача"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Шукати користувача"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Якщо користувача не існує, ви можете запросити його взяти на себе ролі. Якщо "
+"користувач уже існує в системі, ви можете переглянути його інформацію та "
+"запросити його взяти на себе додаткові ролі."
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Ввести деталі"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} – Введіть деталі й запросіть на ролі"
+
+msgid "invitation.role.selectRole"
+msgstr "Вибрати нову роль"
+
+msgid "invitation.role.dateStart"
+msgstr "Дата початку"
+
+msgid "invitation.role.addRole.button"
+msgstr "Додати іншу роль"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Дата закінчення"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Переглянути й запросити на ролі"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} – Змінити електронну адресу, надану користувачеві"
+
+msgid "userInvitation.modal.button"
+msgstr "Переглянути всіх користувачів"
+
+msgid "invitation.decline.confirm"
+msgstr "Підтвердити відхилення запрошення"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Відхилити запрошення"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Ви впевнені, що хочете відхилити це запрошення? Підтвердіть відхилення, "
+"натиснувши кнопку нижче."
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Детальна форма користувача щодо прийняття запрошення"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Країна афілійованості"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Це країна, у якій розташований інститут, з яким ви афілійовані"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Користувача наразі вимкнено."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Користувача було вимкнено. Ви не можете призначити йому роль, поки він "
+"вимкнений. Будь ласка, спочатку увімкніть користувача, щоб запросити його на "
+"роль."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Згода на конфіденційність"
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Будь ласка, вийдіть із системи та ввійдіть у правильний обліковий запис, щоб "
+"прийняти це запрошення."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Пошук користувача за адресою електронної пошти, іменем користувача або ORCID "
+"iD. Введіть лише одне, щоб розпочати!"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Це інститут, з яким Ви пов'язані"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Деталі облікового запису"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Деталі користувача"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Переглянути всі подані роботи"
+
+msgid "invitation.tableHeader.name"
+msgstr "Ім'я"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Укажіть хоча б один критерій пошуку."
+
+msgid "invitation.cancelInvite.title"
+msgstr "Скасувати запрошення"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Скасувати дію запрошення"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Модифікувати роль"
+
+msgid "invitation.management.options"
+msgstr "Варіанти керування запрошенням"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Крок назад"
+
+msgid "userInvitation.status.invited"
+msgstr "Запрошено {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Редагувати запрошення"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Скасувати процес запрошення на роль?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Скасувати процес запрошення"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Якщо ви відредагуєте існуюче запрошення або додасте нову роль, поточне "
+"запрошення буде скасовано, і буде надіслано нове. Ви впевнені, що хочете "
+"продовжити?"
+
+msgid "validation.after_or_equal"
+msgstr "Дата початку має бути більшою або рівною сьогоднішній"
+
+msgid "invitation.removeRoles"
+msgstr "Користувача вилучено з ролі"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Запрошення не прийнято. Ви ввійшли як інший користувач."
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Будь ласка, підтвердіть, що Ви прочитали та погоджуєтеся з політикою "
+"конфіденційності"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Також відоме як ім'я або перше ім'я, це та частина особистого імені, яка "
+"ідентифікує особу."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Прізвище, родинне ім'я або по батькові — це переважно спадкова частина "
+"власного імені, яка вказує на родину."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Ви переглядаєте деталі користувача {$name}"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Скасування запрошення, надісланого користувачу {$givenName} {$familyName}, "
+"деактивує посилання для прийняття, надіслане електронною поштою. Ось деталі "
+"запрошення: "
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Ви впевнені, що хочете скасувати? Якщо Ви скасуєте зараз, процес прийняття "
+"ролі зупиниться, і Вам потрібно буде перезапустити процес із запрошенням "
+"електронною поштою, щоб знову прийняти роль. Якщо Ви вже є користувачем, Вас "
+"буде перенаправлено назад на інформаційну панель. Якщо ні, Вам потрібно буде "
+"отримати доступ до запрошення електронною поштою, щоб розпочати процес знову."
+
+msgid "invitation.masthead.show"
+msgstr "З'являтися в заголовку"
+
+msgid "invitation.masthead.hidden"
+msgstr "Не відображається в заголовку"
+
+msgid "userInvitation.cancel.message"
+msgstr "Ви впевнені, що хочете скасувати це запрошення?"

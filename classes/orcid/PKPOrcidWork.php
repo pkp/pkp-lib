@@ -15,6 +15,7 @@
 namespace PKP\orcid;
 
 use APP\author\Author;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\plugins\PubIdPlugin;
@@ -28,7 +29,6 @@ use PKP\plugins\PluginRegistry;
 abstract class PKPOrcidWork
 {
     public const PUBID_TO_ORCID_EXT_ID = ['doi' => 'doi', 'other::urn' => 'urn'];
-    public const USER_GROUP_TO_ORCID_ROLE = ['Author' => 'AUTHOR', 'Translator' => 'CHAIR_OR_TRANSLATOR', 'Journal manager' => 'AUTHOR'];
 
     protected array $data = [];
 
@@ -63,9 +63,9 @@ abstract class PKPOrcidWork
             $request,
             Application::ROUTE_PAGE,
             $this->context->getPath(),
-            'article',
+            $this->getAppSpecificUrlHandlerName(),
             'view',
-            $submission->getId(),
+            [$submission->getId()],
             urlLocaleForPage: '',
         );
 
@@ -88,11 +88,15 @@ abstract class PKPOrcidWork
             ],
             'publication-date' => $this->buildOrcidPublicationDate($this->publication),
             'url' => $publicationUrl,
-            'language-code' => LocaleConversion::getIso1FromLocale($publicationLocale),
             'contributors' => [
                 'contributor' => $this->buildOrcidContributors($this->authors, $this->context, $this->publication)
             ]
         ];
+
+        $iso1PublicationLocale = LocaleConversion::getIso1FromLocale($publicationLocale);
+        if ($iso1PublicationLocale) {
+            $orcidWork['language-code'] = $iso1PublicationLocale;
+        }
 
         $bibtexCitation = $this->getBibtexCitation($submission);
         if (!empty($bibtexCitation)) {
@@ -106,7 +110,10 @@ abstract class PKPOrcidWork
 
         foreach ($this->publication->getData('title') as $locale => $title) {
             if ($locale !== $publicationLocale) {
-                $orcidWork['title']['translated-title'] = ['value' => $title, 'language-code' => LocaleConversion::getIso1FromLocale($locale)];
+                $iso1Locale = LocaleConversion::getIso1FromLocale($locale);
+                if ($iso1Locale) {
+                    $orcidWork['title']['translated-title'] = ['value' => $title, 'language-code' => $iso1Locale];
+                }
             }
         }
 
@@ -220,7 +227,7 @@ abstract class PKPOrcidWork
     }
 
     /**
-     * Parse publication date and use  as the publication date of the ORCID work.
+     * Parse publication date and use as the publication date of the ORCID work.
      *
      * @return array Associative array with year, month and day
      */
@@ -257,18 +264,18 @@ abstract class PKPOrcidWork
                 ]
             ];
 
-            $userGroup = $author->getUserGroup();
-            $role = self::USER_GROUP_TO_ORCID_ROLE[$userGroup->getName('en')];
-
-            if ($role) {
-                $contributor['contributor-attributes']['contributor-role'] = $role;
-            }
+            collect($author->getContributorRoleIdentifiers())
+                ->map(fn (string $identifier) => self::getContributorRolesOrcid($identifier))
+                ->filter()
+                ->each(function (string $role) use (&$contributor) {
+                    $contributor['contributor-attributes'][] = ['contributor-role' => $role];
+                });
 
             if ($author->getOrcid()) {
                 $orcid = basename(parse_url($author->getOrcid(), PHP_URL_PATH));
 
                 if ($author->getData('orcidSandbox')) {
-                    $uri = ORCID_URL_SANDBOX . $orcid;
+                    $uri = OrcidManager::ORCID_URL_SANDBOX . $orcid;
                     $host = 'sandbox.orcid.org';
                 } else {
                     $uri = $author->getOrcid();
@@ -290,11 +297,20 @@ abstract class PKPOrcidWork
         return $contributors;
     }
 
+    public static function getContributorRolesOrcid(string $role): ?string
+    {
+        return match($role) {
+            ContributorRoleIdentifier::AUTHOR->getName() => 'AUTHOR',
+            ContributorRoleIdentifier::EDITOR->getName() => 'EDITOR',
+            ContributorRoleIdentifier::CHAIR->getName(),
+                ContributorRoleIdentifier::TRANSLATOR->getName() => 'CHAIR_OR_TRANSLATOR',
+            default => null
+        };
+    }
+
     /**
      * Gets any non-DOI PubId external IDs, e.g. for Issues
      *
-     * @param PubIdPlugin $plugin
-     * @return array
      */
     protected function getAppPubIdExternalIds(PubIdPlugin $plugin): array
     {
@@ -304,7 +320,6 @@ abstract class PKPOrcidWork
     /**
      * Gets any app-specific DOI external IDs, e.g. for Issues
      *
-     * @return array
      */
     protected function getAppDoiExternalIds(): array
     {
@@ -314,8 +329,6 @@ abstract class PKPOrcidWork
     /**
      * Uses the CitationStyleLanguage plugin to get bibtex citation if possible
      *
-     * @param Submission $submission
-     * @return string
      */
     protected function getBibtexCitation(Submission $submission): string
     {
@@ -323,7 +336,19 @@ abstract class PKPOrcidWork
     }
 
     /**
-     * Get app-specific 'type' of work for item
+     * Gets the correct app-specific URL handler name for generating publication URLs
+     */
+    protected function getAppSpecificUrlHandlerName(): string
+    {
+        $appName = Application::get()->getName();
+        return match ($appName) {
+            'ops' => 'preprint',
+            default => 'article',
+        };
+    }
+
+    /**
+     * Get app-specific 'type' of work for an item
      */
     abstract protected function getOrcidPublicationType(): string;
 }

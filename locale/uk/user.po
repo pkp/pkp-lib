@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2024-06-07 09:02+0000\n"
+"PO-Revision-Date: 2025-10-27 07:51+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "uk/>\n"
@@ -106,7 +106,7 @@ msgid "user.email"
 msgstr "Електронна пошта"
 
 msgid "user.givenName"
-msgstr "Ім'я"
+msgstr "Надане ім'я"
 
 msgid "user.interests"
 msgstr "Наукові інтереси"
@@ -794,3 +794,165 @@ msgstr "Виявлено неавтентифіковані ORCID учасник
 
 msgid "orcid.manager.status.configuration.clientSecretInvalid"
 msgstr "Клієнтський ID коректний; будь ласка, перевірте свої облікові дані"
+
+msgid "user.disabledModal.title"
+msgstr "Вимкнути {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Біологічна заява"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Додавання, оновлення або видалення пропозицій рецензентів для готових подань "
+"обмежено."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Увімкніть функціональність ORCID"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Бажані ініціали аватару"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Увімкніть функціональність ORCID на всьому вебсайті"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Введіть дві букви, які ви хочете використовувати як свій аватар. Ці ініціали "
+"відображатимуться, щоб представляти вас."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"Функціональність ORCID можна додатково ввімкнути та налаштувати на рівні "
+"вебсайту для всіх журналів / е-видавництв / серверів. Якщо її ввімкнено, це "
+"замінить усі облікові дані на рівні контексту та застосує наступні облікові "
+"дані до всіх журналів / е-видавництв / серверів у цій установці."
+
+msgid "user.role.ended"
+msgstr "Роль закінчилася"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Ви надіслали запит на зміну електронної пошти на \"{$pendingEmail}\". Ми вже "
+"надіслали вам електронний лист з інструкціями щодо підтвердження зміненої "
+"електронної адреси."
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Ви впевнені, що хочете видалити цей ORCID?"
+
+msgid "orcid.unauthenticated"
+msgstr "(неавтентифікований)"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Цей ORCID не було підтверджено. Будь ласка, видаліть цей неперевірений ORCID "
+"і попросіть підтвердження безпосередньо від користувача / автора."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Зараз Ви будете автоматично перенаправлені назад до {$contextName}."
+
+msgid "user.disabledModal.description"
+msgstr "Поточні ролі: {$roles}"
+
+msgid "user.enabledModal.title"
+msgstr "Увімкнути {$fullName}"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Нижче введіть повну назву установи, уникаючи абревіатур. Виберіть ім’я зі "
+"спадного меню та натисніть «Додати», щоб включити афілійованість у свій "
+"профіль (наприклад \"Національний юридичний університет імені Ярослава "
+"Мудрого\")."
+
+msgid "user.affiliations.institution"
+msgstr "Установа"
+
+msgid "user.affiliations.translation"
+msgstr "Більше інформації"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Відредагувати назву установи"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Видалити установу"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Клацніть, аби редагувати чи видалити"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Усі доступні переклади"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "Заповнено {$count} з {$total} мов"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Введіть назву установи мовою {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Назва установи мовою {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Ви впевнені?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Місце роботи <strong>{$affiliation}</strong> буде видалено."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Введіть назву установи мовою {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Вашу пошукову фразу не знайдено"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Потрібна основна мова {$primaryLocale}"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr ""
+"Будь ласка, додайте афілійованість (місце роботи чи навчання) мовою подання."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Повторно надіслати електронний лист для підтвердження"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Запит на підтвердження ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Хочете надіслати електронного листа цьому автору з проханням підтвердити "
+"свій ORCID?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Видалити ORCID"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Ви впевнені, що хочете остаточно видалити цю роль? Ця дія призведе до "
+"скасування доступу користувача до всієї інформації та дозволів, пов’язаних "
+"із цією роллю."
+
+msgid "user.futureRole.notification.message"
+msgstr "Початок Вашої ролі запланований на {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"До того часу Ви можете переглянути й оновити свій профіль. Якщо вважаєте, що "
+"це помилка, зверніться до адміністратора."
+
+msgid "orcid.field.verification.request"
+msgstr "Підтвердження запиту"
+
+msgid "orcid.field.verification.requested"
+msgstr "Надійшов запит на підтвердження ORCID!"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Користувач повинен бути анонімним. Ви зараз увійшли в систему."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Ви не можете видалити роль. Користувачеві має бути призначена принаймні одна "
+"роль."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Електронний лист буде надіслано відразу після створення автора."
+
+msgid "user.login.activate.description"
+msgstr "Підтвердіть і активуйте свій обліковий запис"

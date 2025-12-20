@@ -1,0 +1,263 @@
+# wenshao521！ <wainixueer3334@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-04T08:55:27-08:00\n"
+"PO-Revision-Date: 2025-05-15 23:59+0000\n"
+"Last-Translator: wenshao521！ <wainixueer3334@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/installer/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "installer.additionalLocales"
+msgstr "额外的语言环境"
+
+msgid "installer.administratorAccount"
+msgstr "管理员帐户"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"这个帐户将成为站点的管理员，并且可以存取整站的所有内容，额外的用户信息可以在"
+"安装后添加."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">未通过</span>"
+
+msgid "installer.checkYes"
+msgstr "通过"
+
+msgid "installer.configFileError"
+msgstr "配置文件 <tt>config.inc.php</tt> 不存在或者不可读."
+
+msgid "installer.connectionCharset"
+msgstr "连接字符集"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "配置文件内容"
+
+msgid "installer.databaseDriver"
+msgstr "数据库驱动"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>如果选择括弧中所列的数据库驱动程序，但没有安装与启用所需的PHP函数的"
+"话，可能无法执行。</strong><br />上面个别列出由于学术目的而不支持的数据库驱动"
+"程序，而且不太可能运作。"
+
+msgid "installer.databaseHost"
+msgstr "主机"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"不填入主机名称会使用网域接口代替TCP/IP链接。这对MySQL来说并不必要，如果输入"
+"\"localhost\"它会自动使用接口，不过对某些其他的数据库服务器，好比PostgreSQL来"
+"说就是必要的."
+
+msgid "installer.databaseName"
+msgstr "数据库名"
+
+msgid "installer.databasePassword"
+msgstr "密码"
+
+msgid "installer.databaseSettings"
+msgstr "数据库设置"
+
+msgid "installer.databaseUsername"
+msgstr "用户名"
+
+msgid "installer.filesDir"
+msgstr "上传路径"
+
+msgid "installer.fileSettings"
+msgstr "文件设置"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "客户端字符设置必选."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "数据库驱动必须选择一个."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "数据库名字是必须的."
+
+msgid "installer.form.emailRequired"
+msgstr "一个有效的管理员帐户的电子邮箱是必须的."
+
+msgid "installer.form.filesDirRequired"
+msgstr "用于存储上传文件的路径是必须的."
+
+msgid "installer.form.localeRequired"
+msgstr "至少一个语言环境选择."
+
+msgid "installer.form.passwordRequired"
+msgstr "管理员的帐号密码是必须的."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "管理员的密码不相符."
+
+msgid "installer.form.separateMultiple"
+msgstr "用逗号分隔多个值"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"管理员的用户名能包含数字和字符，下划线和链接符，而且必须以字母和数字开始和结"
+"束."
+
+msgid "installer.form.usernameRequired"
+msgstr "管理员的用户名是必须的."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "必须选择一个时区。"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>警告：您当前PHP的版本不符合系统安装的最低要求. 推荐您升级系统的"
+"PHP版本到最新.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "安装过程报错"
+
+msgid "installer.installerSQLStatements"
+msgstr "安装SQL语句"
+
+msgid "installer.installFileError"
+msgstr "安装文件 <tt>dbscripts/xml/install.xml</tt> 不存在后者不可读."
+
+msgid "installer.installFilesDirError"
+msgstr "为上传文件指定的目录不存在或者不可读."
+
+msgid "installer.installParseDBFileError"
+msgstr "错误解析数据库安装文件模板 <tt>{$file}</tt>."
+
+msgid "installer.installMigrationError"
+msgstr "执行迁移类 <tt>{$class}</tt> 时抛出异常，异常信息为：{$message}。"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "错误解析电子邮件模板文件<tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "错误解析过滤配置文件<tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "不支持升级。详情请参见升级指南（https://docs.pkp.sfu.ca/dev/upgrade-guide）。"
+
+msgid "installer.timezoneInstructions"
+msgstr "系统使用的时区。"
+
+msgid "installer.additionalLocalesInstructions"
+msgstr "选择系统中支持的其他语言。您也可以随时通过站点管理界面安装其他语言。<br>* = "
+"表示该语言尚未完全翻译（已翻译术语少于90%）"
+
+msgid "installer.locale"
+msgstr "语言设置"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "标记的语言环境尚未完成."
+
+msgid "installer.localeSettings"
+msgstr "语言环境设置"
+
+msgid "installer.oaiSettings"
+msgstr "OAI 设置"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"一个独一无二的识别码，用来识别本站使用<a href=\"https://www.openarchives.org/"
+"\" target=\"_blank\">开放存档计划(Open Archives Initiative)</a>元数据搜集协定"
+"所索引的元数据记录 "
+
+msgid "installer.oaiRepositoryId"
+msgstr "OAI库标识符"
+
+msgid "installer.publicFilesDirError"
+msgstr "Public的文件的目录不存在或不可写."
+
+msgid "installer.releaseNotes"
+msgstr "发行说明"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "安装前步骤"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. 以下文件和目录（及其内容）必须可写：</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> 是可写的（可选）： {$writable_config}</"
+"li>\n"
+"\t\t\t<li><tt>public/</tt> 是可写的： {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> 是可写的： {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> 是可写的： {$writable_templates_cache}</"
+"li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> 是可写的： {$writable_templates_compile}"
+"</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> 是可写的： {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2.  必须创建一个用于存储上传文件的目录，并使该目录可写（请参见下面"
+"的“文件设置”）。</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>您的PHP安装未启用XSL模块。 请启用它，或在config.inc.php文件中配置"
+"xslt_command参数。</p>"
+
+msgid "installer.beacon"
+msgstr "信标"
+
+msgid "installer.beacon.enable"
+msgstr "为PKP提供唯一的站点ID和OAI基本URL，仅用于统计和安全警报目的。"
+
+msgid "installer.unsupportedPhpError"
+msgstr "该软件不支持您服务器的PHP版本。 请在 docs/README 中仔细检查安装要求。"
+
+#~ msgid "installer.clientCharset"
+#~ msgstr "客户端字符设置"
+
+#~ msgid "installer.clientCharsetInstructions"
+#~ msgstr "从浏览器发送和接受数据的使用的编码."
+
+#~ msgid "installer.encryption"
+#~ msgstr "密码加密算法"
+
+#~ msgid "installer.form.encryptionRequired"
+#~ msgstr "用户密码加密算法必须选择."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"请在 general 部分手动添加名为 app_key 的配置变量，或运行命令 php lib/pkp/"
+"tools/appKey.php configure 通过命令行界面设置该变量。"
+
+msgid "installer.appKey.validate.error"
+msgstr "不支持的加密算法或密钥长度错误。支持的加密算法有：{$ciphers}。"
+
+msgid "installer.miscSettings"
+msgstr "杂项设置"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr "general 部分未定义名为 app_key 的配置变量。 "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr "general 部分已定义名为 app_key 的配置变量。 "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr "无法读取配置文件，或者配置文件在预期路径不存在。 "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "无法解析配置文件。"
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "无法在配置文件中写入 app_key 变量。"
+
+msgid "installer.appKey.write.error"
+msgstr "无法在配置文件中写入应用密钥（app key）。"
+
+msgid "installer.appKey.set.value"
+msgstr "请在 config.inc.php 文件的 general 部分将 app_key 的值设置为 {$key}。"

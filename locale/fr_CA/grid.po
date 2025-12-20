@@ -1,12 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
-# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2025.
+# Emma U <emmaupkp@gmail.com>, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-16 10:37+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-08-15 14:36+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "grid/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -14,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:47:56 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "grid.noItems"
@@ -311,7 +313,7 @@ msgid "grid.action.bookInfo"
 msgstr "Renseignements sur la soumission"
 
 msgid "grid.action.logInAs"
-msgstr "Connexion sous"
+msgstr "Se connecter en tant que"
 
 msgid "grid.action.exportAllUsers"
 msgstr "Exporter tous les utilisateurs-trices"
@@ -478,7 +480,6 @@ msgstr "Affichage"
 msgid "contributor.listPanel.preview.abbreviated"
 msgstr "Abrégé"
 
-#, fuzzy
 msgid "contributor.listPanel.preview.publicationLists"
 msgstr "Listes de publications"
 
@@ -741,3 +742,33 @@ msgstr "Dans les listes à parcourir"
 
 msgid "grid.action.editContributor"
 msgstr "Modifier un-e contributeur-trice"
+
+msgid "grid.user.logInAs"
+msgstr "Connexion sous"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Ajouter une suggestion d'évaluateur-trice"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Supprimer suggestion d'évaluateur-trice"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Êtes-vous certain que vous souhaitez supprimer cette suggestion ? Cette "
+"action ne peut être annulée."
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Une fois que l'utilisateur-trice est activé-e, son accès au site sera "
+"rétabli, et vous pourrez l'inviter à des rôles différents."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Veuillez noter qu'une fois qu'un utilisateur-trice est désactivé-e, vous ne "
+"pourrez plus l'ajouter à aucun rôle jusqu'à ce qu'il soit réactivé-e."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Apparaître dans l'entête"
+
+msgid "grid.user.remove"
+msgstr "Supprimer utilisateur-trice"

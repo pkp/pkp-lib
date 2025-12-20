@@ -21,6 +21,7 @@ msgstr ""
 "Iesniegt formatētu atsauču sarakstu darbiem, kas citēti šajā materiālā. "
 "Atsevišķas atsauces atdalīt ar tukšu rindu."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Viens vai vairāki recenzenti nokavēja termiņu. Redakcijas kolēģija ir "
@@ -420,7 +421,7 @@ msgstr ""
 msgid "publication.titleAbstract"
 msgstr "Virsraksts un kopsavilkums"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Kopsavilkums ir pārāk garš. Tam jābūt ne vairāk kā {$limit} vārdus garam. "
 "Šobrīd tā garums {$count} vārdu."
@@ -1804,9 +1805,11 @@ msgstr "Augšupielādēt publicēšanai gatavu datni"
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "Šobrīd nav datņu, kuras vajadzētu pārskatīt."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Materiāls ir atkārtoti iesniegts vēl vienai recenzēšanas kārtai."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Materiāls atkārtoti jāiesniedz vēl vienai recenzēšanas kārtai."
 
@@ -1828,6 +1831,7 @@ msgstr "Tiek gaidītas atbildes no recenzentiem."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ir iesniegtas jaunas recenzijas."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Visi recenzenti ir snieguši atbildes, un ir jāpieņem lēmums."
 
@@ -2252,7 +2256,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Redaktors {$userName} ir apstiprinājis iesniegtā materiāla {$submissionId} "
+"Redaktors {$editorName} ir apstiprinājis iesniegtā materiāla {$submissionId} "
 "recenziju {$round}. kārtai."
 
 msgid "submission.review.status.awaitingResponse"

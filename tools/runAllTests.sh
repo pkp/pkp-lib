@@ -25,10 +25,6 @@
 
 set -e # Fail on first error
 
-# We recommend using Travis (https://travis-ci.org/) for continuous-integration
-# based testing. Review the Travis configuration file (.travis.yml) as a
-# reference for running the test locally, should you choose to do so.
-
 ### Command Line Options ###
 
 # Run all types of tests by default, unless one or more is specified

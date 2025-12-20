@@ -26,8 +26,10 @@ use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\UserGroup;
 
 class StageAssignment extends Model
 {
@@ -53,6 +55,11 @@ class StageAssignment extends Model
     public function userGroupStages(): HasMany
     {
         return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
+    }
+
+    public function userGroup(): BelongsTo
+    {
+        return $this->belongsTo(UserGroup::class, 'user_group_id', 'user_group_id');
     }
 
     // Accessors and Mutators
@@ -90,7 +97,7 @@ class StageAssignment extends Model
     public function scopeWithSubmissionIds(Builder $query, ?array $submissionIds): Builder
     {
         return $query->when($submissionIds !== null, function ($query) use ($submissionIds) {
-            return $query->whereIn('submission_id', $submissionIds);
+            return $query->whereIn('stage_assignments.submission_id', $submissionIds);
         });
     }
 
@@ -142,7 +149,8 @@ class StageAssignment extends Model
     {
         return $query->when($contextId !== null, function ($query) use ($contextId) {
             return $query->join('submissions', 'stage_assignments.submission_id', '=', 'submissions.submission_id')
-                        ->where('submissions.context_id', $contextId);
+                ->where('submissions.context_id', $contextId);
         });
     }
+
 }

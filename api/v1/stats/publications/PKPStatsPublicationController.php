@@ -759,7 +759,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
                 } elseif (!is_array($value)) {
                     $value = [$value];
                 }
-                $returnParams['pkpSectionIds'] = array_map('intval', $value);
+                $returnParams['pkpSectionIds'] = array_map(intval(...), $value);
                 break;
 
             case 'submissionIds':
@@ -768,7 +768,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
                 } elseif (!is_array($value)) {
                     $value = [$value];
                 }
-                $returnParams[$requestParam] = array_map('intval', $value);
+                $returnParams[$requestParam] = array_map(intval(...), $value);
                 break;
         }
         return $returnParams;

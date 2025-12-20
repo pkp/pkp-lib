@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPContextService.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextService
@@ -21,7 +21,11 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
+use Illuminate\Support\Arr;
+use PKP\announcement\Announcement;
 use PKP\announcement\AnnouncementTypeDAO;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
+use PKP\author\contributorRole\ContributorRole;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
@@ -47,7 +51,10 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\submission\GenreDAO;
+use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\validation\ValidatorFactory;
+use PKP\userGroup\UserGroup;
+use PKP\userGroup\relationships\UserUserGroup;
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -546,10 +553,29 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
 
-        Repo::userGroup()->installSettings($context->getId(), 'registry/userGroups.xml');
+        $userGroupRepository = app(UserGroupRepository::class);
+        $userGroupRepository->installSettings($context->getId(), 'registry/userGroups.xml');
 
-        $managerUserGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_MANAGER], $context->getId(), true)->firstOrFail();
-        Repo::userGroup()->assignUserToGroup($currentUser->getId(), $managerUserGroup->getId());
+
+        $managerUserGroup = UserGroup::withContextIds([$context->getId()])
+            ->withRoleIds([Role::ROLE_ID_MANAGER])
+            ->isDefault(true)
+            ->firstOrFail();
+
+        $assignmentExists = UserUserGroup::query()
+            ->withUserId($currentUser->getId())
+            ->withUserGroupIds([$managerUserGroup->id])
+            ->exists();
+
+        if (!$assignmentExists) {
+            UserUserGroup::create([
+                'userId' => $currentUser->getId(),
+                'userGroupId' => $managerUserGroup->userGroupId,
+                'dateStart' => null,
+                'dateEnd' => null,
+                'masthead' => null,
+            ]);
+        }
 
         $fileManager = new FileManager();
         foreach ($this->installFileDirs as $dir) {
@@ -560,6 +586,18 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
 
         Repo::emailTemplate()->dao->installAlternateEmailTemplates($context->getId());
+        Repo::emailTemplate()->dao->setTemplateDefaultUnrestirctedSetting($context->getId());
+
+        // Add contributor roles
+        collect([
+            'default.groups.name.author' => ContributorRoleIdentifier::AUTHOR->getName(),
+            'default.groups.name.translator' => ContributorRoleIdentifier::TRANSLATOR->getName(),
+        ])
+            ->each(fn (string $identifier, string $nameLocaleKey) => ContributorRole::add([
+                'name' => Arr::mapWithKeys($supportedLocales, fn (string $l) => [$l => __($nameLocaleKey, locale: $l)]),
+                'contributorRoleIdentifier' => $identifier,
+                'contextId' => $context->getId(),
+            ]));
 
         // Load all plugins so they can hook in and add their installation settings
         PluginRegistry::loadAllPlugins();
@@ -622,16 +660,13 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         Repo::reviewAssignment()->deleteByContextId($context->getId());
 
-        Repo::userGroup()->deleteByContextId($context->getId());
+        UserGroup::withContextIds($context->getId())->delete();
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->deleteByContextId($context->getId());
 
-        Repo::announcement()->deleteMany(
-            Repo::announcement()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-        );
+        // TODO is it OK to delete without listening Model's delete-associated events (not loading each Model)?
+        Announcement::withContextIds([$context->getId()])->delete();
 
         Repo::highlight()
             ->getCollector()

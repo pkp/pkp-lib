@@ -1,0 +1,390 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"en/>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "At least one user group to add must be defined"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "The user group is assigned to the invited user"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "At least one user group to remove must be defined"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Remove user roles can't be defined for not existing users."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr "The invitation can not be dispatched because you have not defined any user group changes"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "The provided user groups contain duplicate entries."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "There is already an existing user with the username {$username}. Try another one."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr "When an invitation has a user id ({$userId}) assigned, the corresponding user must exist."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr "When an invitation has an email ({$email}) assigned, this email must not be in use by another user."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "A username must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "A password must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "An affiliation must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "A country must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "A given name must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "A family name must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "For added user groups, a user group id must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "For added user groups, a date start must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "For added user groups, a masthead must be provided"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "This invitation type does not have a mailable defined"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "This invitation operation failed"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "The provided user group ID {$userGroupId} does not exist"
+
+msgid "invitation.validation.required"
+msgstr "The {$attribute} field is required."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr "Unexpected properties found in the item at index {$attribute}: {$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "The id {reviewAssignmentId} does not correspond to a valid review assignment"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "This invitation can't be cancelled"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "You cannot provide both email and userId together."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "The attribute is not allowed to be access for existing users"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "The attribute is not allowed to be access for non existing users"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "This attribute must have a value equal or after today"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "The :attribute field is prohibited"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "A value for locale '{$primaryLocale}' is required"
+
+msgid "invitation.step"
+msgstr "STEP"
+
+msgid "invitation.header"
+msgstr "Invitations"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Invite to a role"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Invite user to take a role"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Enter details"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Review & invite for roles"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Search User"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Search User"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Search User"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr "If the user does not exist, you can invite them to take on roles. If the user already exists in the system, you can view their information and invite them to take on additional roles."
+
+msgid "userInvitation.searchField.description"
+msgstr "e.g. aeinstein@example.com or aeinstein or 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Enter details"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Enter details and invite for roles"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Save And Continue"
+
+msgid "invitation.role.selectRole"
+msgstr "Select a new role"
+
+msgid "invitation.role.dateStart"
+msgstr "Start Date"
+
+msgid "invitation.role.dateEnd"
+msgstr "End Date"
+
+msgid "invitation.role.addRole.button"
+msgstr "Add Another Role"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Role"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Start Date"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "End Date"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Review & invite for roles"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Invite user to the role"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Modify email shared with the user"
+
+msgid "userInvitation.modal.title"
+msgstr "Invitation Sent"
+
+msgid "userInvitation.modal.button"
+msgstr "View All Users"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Remove Role"
+
+msgid "invitation.email.description"
+msgstr "e.g. aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr "On accepting the invite, the user will be redirected to ORCID to verify their account, if they wish to."
+
+msgid "invitation.givenName.description"
+msgstr "If you know the given name of the user, you can enter the information. However, this information can be changed by the user."
+
+msgid "invitation.familyName.description"
+msgstr "If you know the family name of the user, you can enter the information. However, this information can be changed by the user."
+
+msgid "invitation.decline.confirm"
+msgstr "Confirm Decline Invitation"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Decline Invitation"
+
+msgid "invitation.decline.confirm.description"
+msgstr "Are you sure you want to decline this invitation? Confirm the decline by clicking the button below."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verify ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verify ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Save and continue"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Save and continue"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Enter details"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Enter details"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr "Enter your details like email ID, affiliation etc. As per the GDPR compliance, this information can only modified by you. You can also choose if you want this information to be visible on your profile to the editor."
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Save and continue"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Accept invitation user details form"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Please provide the following details to help us to manage your account"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Review & create account"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Review & create account"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Skip ORCID verification"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verify ORCID iD"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "It could be a combination of uppercase letters, lowercase letters or numbers"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr "It should be at least 6 characters long and could be a combination of uppercase letters, lowercase letters, numbers and symbols"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "Yes, I agree to have my data collected and stored according to the {$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Privacy Statement"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "Also known as a forename or the first name, it is tha part of a personal name that identifies a person."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr "A surname, family name, or last name is the mostly hereditary portion of one's personal name that indicates one's family."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "This is the institute you are affiliated with"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "This is a country in which the institute you are affiliated with is situated"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Country of affiliation"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Account Details"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "User Details"
+
+msgid "acceptInvitation.modal.button"
+msgstr "View All Submissions"
+
+msgid "invitation.tableHeader.name"
+msgstr "Name"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Provide at least one search criteria."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "You are viewing {$name}'s user details"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "The id {reviewAssignmentId} does not correspond to a valid review assignment"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "This invitation can't be cancelled"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "You cannot provide both email and userId together."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "The attribute is not allowed to be access for existing users"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "The attribute is not allowed to be access for non existing users"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "This attribute must have a value equal or after today"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "The :attribute field is prohibited"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Cancel Invite"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Cancel Invitation"
+
+msgid "invitation.cancelInvite.message"
+msgstr "Canceling the invitation sent to {$givenName} {$familyName} will deactivate acceptance link sent via email. Here are the invitation details: "
+
+msgid "invitation.masthead.show"
+msgstr "Appear on the masthead"
+
+msgid "invitation.masthead.hidden"
+msgstr "Does not appear on the masthead"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modify Role"
+
+msgid "invitation.management.options"
+msgstr "Invitation management options"
+
+msgid "userInvitation.cancel.message"
+msgstr "Are you sure want to cancel this invitation?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Go Back"
+
+msgid "userInvitation.status.invited"
+msgstr "Invited {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Edit Invitation"
+
+msgid "userInvitation.edit.message"
+msgstr "If you edit the existing invitation or add a new role, the current invitation will be canceled and, a new one will be sent. Are you sure you want to proceed?"
+
+msgid "validation.after_or_equal"
+msgstr "Start date should be greater than or equal to today"
+
+msgid "invitation.removeRoles"
+msgstr "User Removed From Role"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Please confirm that you have read and agree privacy statement"
+
+msgid "acceptInvitation.cancel.message"
+msgstr "Are you sure you want to cancel? Canceling now will stop the role acceptance process, and you’ll need to restart from the invitation email to accept the role again. If you’re already a user, you’ll be taken back to the dashboard. If not, you’ll need to access the invitation email to start the process again."
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Cancel Role Invitation Process?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Cancel Invitation Process"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Invitation not accepted. You're logged in as a different user."
+
+msgid "acceptInvitation.authorization.message"
+msgstr "Please log out and sign in with the correct account to accept this invitation."
+
+msgid "userInvitation.searchField"
+msgstr "Search for a user by email address, username, or ORCID iD. Enter only one to get started!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "The user is currently disabled."
+
+msgid "userInvitation.user.disableMessage"
+msgstr "The user was disabled. You cannot assign them a role while they are disabled. Please enable the user first to invite them to a role."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Privacy Consent"
+

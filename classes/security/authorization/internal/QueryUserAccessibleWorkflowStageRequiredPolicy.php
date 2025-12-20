@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/QueryUserAccessibleWorkflowStageRequiredPolicy.php
  *
@@ -29,7 +30,7 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $result = parent::effect();
         if ($result === AuthorizationPolicy::AUTHORIZATION_PERMIT) {
@@ -60,8 +61,4 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
 
         return $result;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\QueryUserAccessibleWorkflowStageRequiredPolicy', '\QueryUserAccessibleWorkflowStageRequiredPolicy');
 }

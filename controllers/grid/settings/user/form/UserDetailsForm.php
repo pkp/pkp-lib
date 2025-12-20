@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/user/form/UserDetailsForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserDetailsForm
@@ -24,6 +24,7 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use PKP\affiliation\Affiliation;
 use PKP\core\Core;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
@@ -31,7 +32,6 @@ use PKP\identity\Identity;
 use PKP\mail\mailables\UserCreated;
 use PKP\notification\Notification;
 use PKP\security\Validation;
-use PKP\user\InterestManager;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -154,7 +154,6 @@ class UserDetailsForm extends UserForm
         if (isset($this->user)) {
             $user = $this->user;
             $templateMgr->assign('user', $user);
-            $interestManager = new InterestManager();
 
             $data = [
                 'username' => $user->getUsername(),
@@ -169,7 +168,7 @@ class UserDetailsForm extends UserForm
                 'mailingAddress' => $user->getMailingAddress(),
                 'country' => $user->getCountry(),
                 'biography' => $user->getBiography(null), // Localized
-                'interests' => $interestManager->getInterestsForUser($user),
+                'interests' => Repo::userInterest()->getInterestsForUser($user),
                 'locales' => $user->getLocales(),
             ];
             $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($user->getId());
@@ -182,7 +181,7 @@ class UserDetailsForm extends UserForm
             $data = [
                 'givenName' => $author->getGivenName(null), // Localized
                 'familyName' => $author->getFamilyName(null), // Localized
-                'affiliation' => $author->getAffiliation(null), // Localized
+                'affiliation' => $this->getFormFieldFromAffiliation(current($author->getAffiliations())), // this case is only used by the QuickSubmitPlugin, and the author has only one affiliation
                 'preferredPublicName' => $author->getPreferredPublicName(null), // Localized
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),
@@ -392,9 +391,24 @@ class UserDetailsForm extends UserForm
             }
         }
 
-        $interestManager = new InterestManager();
-        $interestManager->setInterestsForUser($this->user, $this->getData('interests'));
+        Repo::userInterest()->setInterestsForUser($this->user, $this->getData('interests'));
 
         return $this->user;
+    }
+
+    /**
+     * Get this affiliation form field value (as array($locale => $name)) from author affiliation
+     */
+    protected function getFormFieldFromAffiliation(Affiliation $affiliation): array
+    {
+        $request = Application::get()->getRequest();
+        $site = $request->getSite();
+        $sitePrimaryLocale = $site->getPrimaryLocale();
+        $context = $request->getContext();
+        $supportedFormLocales = $context->getSupportedFormLocales();
+        if (!in_array($sitePrimaryLocale, $supportedFormLocales)) {
+            $supportedFormLocales[] = $sitePrimaryLocale;
+        }
+        return $affiliation->getAffiliationName(null, $supportedFormLocales);
     }
 }

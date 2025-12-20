@@ -84,16 +84,23 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @param int[] $assocIds Section or category ids
      * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
+     * @param bool $allowDisabled If true, include disabled users in the results. By default, only enabled users are included.
      *
-     * @return Collection result rows with userId and userGroupId columns
+     * @return \Illuminate\Support\Collection<int, \stdClass> result rows with userId and userGroupId properties
      */
-    public function getBySubmissionGroupIds(array $assocIds, int $assocType, int $contextId): Collection
+    public function getBySubmissionGroupIds(array $assocIds, int $assocType, int $contextId, bool $allowDisabled = false): Collection
     {
         return DB::table('subeditor_submission_group')
-            ->where('assoc_type', '=', $assocType)
-            ->where('context_id', '=', $contextId)
-            ->whereIn('assoc_id', $assocIds)
-            ->get(['user_id as userId', 'user_group_id as userGroupId']);
+            ->where('subeditor_submission_group.assoc_type', '=', $assocType)
+            ->where('subeditor_submission_group.context_id', '=', $contextId)
+            ->whereIn('subeditor_submission_group.assoc_id', $assocIds)
+            ->when(!$allowDisabled, function ($query) {
+                return $query->join('users', 'subeditor_submission_group.user_id', '=', 'users.user_id')
+                    ->where('users.disabled', '=', false);
+            })->get([
+                'subeditor_submission_group.user_id as userId',
+                'subeditor_submission_group.user_group_id as userGroupId'
+            ]);
     }
 
     /**
@@ -197,10 +204,9 @@ class SubEditorsDAO extends \PKP\db\DAO
         // that will cause duplicates to be overwritten
         $assignments = collect($assignments)->mapWithKeys(fn ($assignment, $key) => [$assignment->userId . '-' . $assignment->userGroupId => $assignment]);
 
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::query()
+            ->withContextIds([$submission->getData('contextId')])
+            ->get();
 
         $userGroupIds = $userGroups->keys();
 
@@ -210,13 +216,13 @@ class SubEditorsDAO extends \PKP\db\DAO
         });
 
         foreach ($assignments as $assignment) {
-            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() == $assignment->userGroupId);
+            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->id == $assignment->userGroupId);
             Repo::stageAssignment()
                 ->build(
                     $submission->getId(),
                     $assignment->userGroupId,
                     $assignment->userId,
-                    $userGroup->getRecommendOnly()
+                    $userGroup->recommendOnly,
                 );
         }
 
@@ -233,7 +239,6 @@ class SubEditorsDAO extends \PKP\db\DAO
         // Send a notification to assigned users
         foreach ($assignments as $assignment) {
             $notificationManager->createNotification(
-                Application::get()->getRequest(),
                 $assignment->userId,
                 Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
                 $submission->getData('contextId'),
@@ -310,8 +315,4 @@ class SubEditorsDAO extends \PKP\db\DAO
             ->groupBy('user_id')
             ->map(fn ($userGroups) => $userGroups->pluck('user_group_id'));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\context\SubEditorsDAO', '\SubEditorsDAO');
 }

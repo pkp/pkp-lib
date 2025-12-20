@@ -1,10 +1,11 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
+# "Dr. Uğur Koçak" <ugurkocak@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-06-03 05:04+0000\n"
+"PO-Revision-Date: 2025-08-17 00:26+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
@@ -32,10 +33,9 @@ msgstr ""
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Bir veya daha fazla hakem değerlendirme için verilen son tarihte dönüş "
-"sağlamadı. Editörler bilgilendirildi ve değerlendirmenin tamamlanması için "
-"gerekeni gerçekleştirecektir. Şu anda herhangi bir işlem yapmanız "
-"gerekmiyor. Değerlendirme tamamlandığında bilgilendirileceksiniz."
+"Bir veya daha fazla hakem değerlendirme tarihi içerisinde dönüş sağlamamış. "
+"Editörler değerlendirmenin tamamlanmasını sağlayacaktır. Şu anda herhangi "
+"bir işlem yapmanıza gerek yok. Bir karar verildiğinde size bildirilecektir."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "olarak Gönder"
@@ -1301,10 +1301,10 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Düzeltmeler gönderildi ve karara ihtiyaç var."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Gönderi başka bir değerlendirme turu için tekrar gönderilmelidir."
+msgstr "Aday makale için majör revizyon talep edilmiştir."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Gönderi başka bir inceleme turu için tekrar gönderildi."
+msgstr "Aday makale için revizyonlar yüklenmiştir."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Harici değerlendirmeye gönderildi."
@@ -1325,7 +1325,7 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Yeni değerlendirmeler gönderildi."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Tüm değerlendirmeler bekliyor ve bir karar gerekli."
+msgstr "Hakem değerlendirmeleri tamamlanmıştır. Editör kararı gerekli."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Bir değerlendirme gecikti."
@@ -1583,11 +1583,8 @@ msgstr ""
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Düzeltme İstendi"
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
-msgstr ""
-"{$title} başlıklı aday makale için yeni bir değerlendirme turuna alınmak "
-"üzere düzeltme istendi. Yeni bir değerlendirme turu için karar kaydedildi."
+msgstr "{$title} başlıklı aday makale için majör revizyon istenildi."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
@@ -1608,7 +1605,6 @@ msgstr "{$editorName} tarafından değerlendirme aşamasında gönderildi."
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Değerlendirme için Gönder"
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "{$title} başlıklı aday makale değerlendirme aşamasına gönderildi."
 
@@ -1627,11 +1623,9 @@ msgstr "{$editorName} makaleyi üretim aşamasına gönderdi."
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Üretim Aşamasına Gönder"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "{$title} başlıklı makale üretim aşamasına gönderildi."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Makalenin üretim aşamasına gönderildiğini bildirmek için yazarlara e-posta "
@@ -1649,11 +1643,10 @@ msgstr "{$editorName}, makaleyi son kopya düzenleme aşamasından geri gönderd
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Son Kopya Düzenlemeden Geri Gönderildi"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"{$title} başlıklı aday makale , son kopya düzenleme aşamasından geri "
-"gönderildi."
+"{$title} başlıklı aday makale , son kopya düzenleme aşamasından "
+"değerlendirme aşamasına geri gönderildi."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -1673,7 +1666,6 @@ msgstr ""
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Son Kopya Düzenlemeye Geri Gönderildi"
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale, son kopya düzenleme aşamasına geri gönderildi."
@@ -1701,13 +1693,11 @@ msgstr ""
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Değerlendirmeyi Atla"
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale değerlendirme aşamasına alınmadan kabul edildi "
 "ve son kopya düzenleme aşamasına gönderildi."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara, aday makalenin değerlendirmeye alınmadan yayına kabul edildiğini "
@@ -1733,10 +1723,9 @@ msgstr ""
 msgid "editor.submission.decision.revertDecline"
 msgstr "Reddetmeyi Geri Al"
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
-"Aday makalenin red kararını geri alın ve değerlendirme aşamasına geri "
+"Aday makalenin red kararını iptal edin ve değerlendirme aşamasına geri "
 "gönderin."
 
 msgid "editor.submission.decision.revertDecline.log"
@@ -1756,13 +1745,14 @@ msgstr ""
 "posta gönderin. Kararın neden geri alındığını açıklayın ve aday makalenin "
 "daha fazla değerlendirmeye tabi olacağını onlara bildirin."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "{$title} başlıklı aday makale artık yeni başvuru aşamasında aktiftir."
+msgstr ""
+"{$title} başlıklı aday makale artık yeni başvuru aşamasında aktif durumdadır."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Bu aşamada editör kararlarını etkinleştirmek için bir editör atayın."
+msgstr ""
+"Bu aşama için editoryal kararların alınmasını sağlamak üzere bir editör "
+"atayın."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
@@ -1991,8 +1981,8 @@ msgstr "Revize Edilmiş Dosyayı Yükle"
 
 msgid "log.review.reviewerAssigned"
 msgstr ""
-"{$reviewerName} {$submissionId} numaralı gönderiyi değerlendirmeyi {$round}. "
-"kez kabul etti."
+"{$reviewerName}, {$submissionId} numaralı gönderiyi {$round}. inceleme turu "
+"için değerlendirmek üzere atandı."
 
 msgid "log.review.reviewCleared"
 msgstr ""
@@ -2016,7 +2006,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} adlı editör {$submissionId} nuaralı için {$round}. tur "
+"{$editorName} adlı editör {$submissionId} nuaralı için {$round}. tur "
 "incelemesi için bir değerlendirme doğruladı."
 
 msgid "log.review.reviewReady"
@@ -2112,7 +2102,7 @@ msgid "submission.copyright"
 msgstr "Telif Hakkı"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Evet, telif hakkı bildirim koşullarını okudum ve kabul ediyorum."
 
 msgid "submission.copyrightHolder"
 msgstr "Telif Hakkı Sahibi"
@@ -2394,72 +2384,87 @@ msgstr "Editör Ata"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Aday makale başvurusu tamamlandı. Görüntülemek için <a href=“{$url}”>makale "
+"paneli</a>ni ziyaret edin."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Başlangıç"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Yalnızca başvurunuz için uygun olan kategorileri seçin."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Başvuru Ayarlarını Değiştirme"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Gönderimi yapmak için adımları tamamlayın"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"<strong>{$title}</strong> başlıklı aday makaleniz, editöryal değerlendirme "
+"için <strong>{$context}</strong> için gönderilecektir. Tamamlamak "
+"istediğinize emin misiniz?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Gönderimi bitirmeden önce tamamlamanız gereken bir veya daha fazla eksik "
+"bulunmaktadır. Lütfen aşağıdaki bilgileri inceleyerek gerekli düzeltmeleri "
+"yapınız."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Gönderiniz kontrol ediliyor"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Aday makalenizin değerlendirilmesi sırasında editör ekibimizin bilmesi "
+"gerektiğini düşündüğünüz noktaları açıklaınız."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Lütfen gönderimi tamamlamadan önce aşağıdakileri onaylayınız."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Makale Gönder"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Makale Gönder: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Bu gönderim için herhangi bir yazar eklenmemiştir."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr ""
+msgstr "Bir veya daha fazla yazarın {$language} dilinde isim bilgisi eksiktir."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "İzin Verilmedi"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Gizlilik Onayı"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Daha Sonrası İçin Kaydedildi"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Aday makale bilgileriniz sistemimize kaydedilmiştir, ancak henüz gönderim "
+"tamamlanmamıştır. Aşağıdaki bağlantıyı kullanarak gönderinizi "
+"tamamlayabilirsiniz."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "Bu bağlantının bir kopyasını {$email} adresinize e-posta ile gönderdik."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Bölüm Kapandı"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Gönderime Başla"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Yeni bir gönderime başla"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Bir hata oluştu ve aday makale bilgilerini kaydedemedik. Bağlantınız "
+"kesilmiş olabilir."
 
 msgid "grid.category.categories"
 msgstr "Kategoriler"
@@ -2539,7 +2544,7 @@ msgstr "Tüm Sürümler"
 msgid "publication.version.confirm"
 msgstr "Yeni bir sürüm oluşturmak istediğinizden emin misiniz?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Özet çok uzun. {$limit} kelime veya daha az olmalıdır. Şu anda {$count} "
 "kelime uzunluğunda."
@@ -2557,10 +2562,9 @@ msgstr ""
 "{$pubObjectTitle} için DOI kayıtlı olarak işaretlenemedi. Bundan önce makale "
 "yayımlanmalıdır."
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"Bu bir önizlemedir ve yayınlanmamıştır.  <a href=\"{$url}\">Makaleyi "
+"Bu bir ön izlemedir ve yayımlanmamıştır. <a href=\"{$url}\">Makaleyi "
 "görüntüle</a>"
 
 msgid "author.submit.noFiles"
@@ -2570,13 +2574,15 @@ msgid "author.submit.confirmation"
 msgstr "Onay"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "<strong>{$language}</strong> dilinde gönderiliyor."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "<strong>{$section}</strong> makale türünde gönderiliyor."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"<strong>{$language}</strong> dilinde <strong>{$section}</strong> makale "
+"türünde gönderiliyor."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2605,16 +2611,20 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Editör yazışmaları için ana iletişim."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Veri Kullanılabilirliği Bildirimi"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Bu aday makaleyi destekleyen kanıtları sunup sunmadığınızı belirtiniz, eğer "
+"sunduysanız, bu kanıtların nerede ve nasıl erişilebileceğini açıklayınız."
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "En az bir {$genre} türünde dosya yüklemeniz gerekmektedir."
 
 msgid "submission.files.required.genres"
 msgstr ""
+"{$genres} dosya türlerinden her birinden en az bir tane yüklemeniz "
+"gerekmektedir."
 
 msgid "publication.version"
 msgstr "Sürüm {$version}"
@@ -2657,3 +2667,522 @@ msgstr "Değerlendirme aşamasına geri dönüldü."
 
 msgid "submission.author.list"
 msgstr "Yazar Listesi"
+
+msgid "author.authorNotFound"
+msgstr "Bu kurum için yazar bulunamadı."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Lütfen bir ROR kurumu veya en az bir kurum adı belirtin."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Lütfen başvuru birincil dilinde kurum adını belirtin."
+
+msgid "ror.nameRequired"
+msgstr "ROR kurum ismi zorunlu."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR görünen dil için gerekli."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Gönderim iptal edildi ve ilgili tüm veriler silindi."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Başvuru iptal edildi"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Gönderimi iptal et"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Önerilen Hakemler için"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Öneri sizin tarafınızdan yapılmıştır."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Yazar Tarafından Önerilen Hakemler"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Geçerli Başvuru Dili:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Değiştir"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Aday makale dilini değiştir"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Bu, birincil başvuru dilidir. Bunu değiştirmenin ilk aşamada girilen "
+"üstveriler üzerinde etkileri olacaktır."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Dili değiştirmeden önce, sistem bütünlüğünü korumak için aşağıdaki "
+"üstveri alanlarını doldurduğunuzdan emin olun. Ayrıca, yazar bilgilerinin ve "
+"dosya adlarının daha önce girilen bilgilerden kopyalanacağını "
+"unutmayın.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Aday makale başlığını {$language} olarak girin. Başlığınızı gerektiği gibi "
+"biçimlendirebilirsiniz."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Özün {$language} dilinde eklenmesi önerilir. Bu, içeriğin erişilebilir "
+"olmasını sağlamaya yardımcı olur"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Başvuru Özetini Görüntüle"
+
+msgid "submission.list.completeSubmission"
+msgstr "Başvuruyu tamamla"
+
+msgid "submission.review.status.viewed"
+msgstr "Editör değerlendirmeyi inceledi."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Bu tartışmayı {$allowedEditTimeNoticeLimit} dakika boyunca "
+"güncelleyebilirsiniz."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Hakem Önerileri"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr ""
+"{$number} adet hakemlik tamamlanmış ve editörler tarafından onaylanmıştır."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Değerlendirmenin tamamlanması için gerekli en az hakem değerlendirmeyi "
+"tamamlamamıştır. Yine de bu editöryal karar vermeye devam etmek istiyor "
+"musunuz?"
+
+msgid "workflow.stageNotStarted"
+msgstr "{$stage} aşaması henüz başlatılmamıştır."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Aday makale şu anda {$stage} aşamasındadır."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Aday makale yeni bir değerlendirme turuna gönderilmiştir"
+
+msgid "workflow.reviewRoundN"
+msgstr "{$number}. Değerlendirme Turu"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Gönderim sırasında yüklenen dosyalar"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Yüklenen Revizyonlar"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Bu dosyalar, revizyonlar talep edildikten sonra yazar tarafından "
+"gönderilmiştir"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Bu dosyalar değerlendirilmek üzere hakemlere gönderilecektir"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Son Kopya Dosyaları"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Bunlar değerlendirme aşamasından son kopya aşamasına aktarılacak dosyalardır"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Bunlar yayınlanmak üzere hazırlanacak son kopya dosyalarıdır"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Gönderimi tamamlanmamış gönderimleri sil"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Seçili öğeleri silmek istediğinizden emin misiniz? Bu işlem geri alınamaz. "
+"Devam etmek için lütfen onaylayın."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Silinecek gönderimi tamamlanmamış aday makaleleri seçin."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Gönderimi Tamamlanmamış Makaleleri Sil"
+
+msgid "author.competingInterests"
+msgstr "Çıkar Çatışması"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Lütfen bu yazarın araştırma konusu ile ilgili herhangi bir çıkar çatışması "
+"varsa beyan ediniz."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Bu gönderi için herhangi bir hakem önerilmemiştir."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Bana atanan"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktif makaleler"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Değerlendirmeler tamamlandı"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Değerlendirmeler gecikti"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Tüm son kopyadakiler"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Tüm değerlendirmedekiler"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Değerlendirme bekleniyor"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arşivlenenler"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Hakemden Yanıt Bekleniyor"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Detayları görüntüle"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Hakemlik Davetini Tekrar Gönder"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Hakemlik Davetini İptal Et"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "İptal Et"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Son Tarihi Değiştir"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Değerlendirmeyi görüntüle"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "{$stageName} aşamasında reddedildi."
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Editör önerileri alındı"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Tüm editör önerileri tamamlanmış olup, nihai karar verilmesi gerekmektedir."
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Hakem durumu"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Değerlendirme gerekli"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Gönderimi iptal etmek istediğinizden emin misiniz? Bu, gönderimi ve ilişkili "
+"tüm verileri silecektir. Bu işlem geri alınamaz."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr "Bir veya daha fazla yazarın {$language} dilinde kurum adı eksiktir."
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Hakem, hakemlik davetini kabul etmiştir. Değerlendirmeyi<b>{$days} gün "
+"içinde, {$date}</b> tarihine kadar tamamlaması beklenmektedir."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Hakemlik daveti hakemle tekrar paylaşılmıştır. {$days} gün içinde, {$date} "
+"tarihine kadar yanıt vermesi bekleniyor."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Editör Önerileri, aday makale için bir sonraki adımları tavsiye etme "
+"görevine sahiptir."
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Yönetici olarak bu aday makaleye erişemezsiniz, çünkü aday makalenin "
+"hakemisiniz. Görüntülemek için \"Hakemliklerim\" bölümüne gidin."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Sadece editöryal bir karar önerilebilirsiniz."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Aday makale yeni bir değerlendirme turuna geçti, şu anda {$stage} "
+"aşamasındadır."
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Bunlar üretim aşamasına alınacak düzenlenmiş dosyalardır"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"En az gereklilikte hakem değerlendirmesi tamamlanmış ve editörlerce "
+"onaylanmıştır. Nihai karar verilmesi gerekmektedir."
+
+msgid "fileManager.filesForReview"
+msgstr "Değerlendirme Dosyaları"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Editör atanmalı"
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr ""
+"Ez az olması gereken hakemlik sayısı tamamlanmadan devam etmek istiyor "
+"musunuz?"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Tüm ön değerlendirmedekiler"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Tüm değerlendirmedekiler"
+
+msgid "submission.dashboard.view.production"
+msgstr "Tüm üretim sürecindekiler"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Yayın için planlananlar"
+
+msgid "submission.dashboard.view.published"
+msgstr "Yayınlananlar"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Reddedilenler"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Revizyon istenilenler"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Revizyon yüklenenler"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Gönderimi yarım kalanlar"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Tüm atamalar"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Bekliyor"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Tamamlanan / Reddedilen"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Tüm atananlar"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Benim işlem yapmam gerekenler"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Reddedilenler"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Tamamlananlar"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Yayımlananlar"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Değerlendirme ({$round}. Tur)"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Yayımlanmak üzere Planlanan"
+
+msgid "submission.stage.published"
+msgstr "Yayımlananlar"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "JATS XML'in silinmesini onayla"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Bu yayından mevcut JATS XML dosyasını kaldırmak üzeresiniz. Emin misiniz?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "JATS Dosyasını Sil"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Bu JATS dosyası, aday makale üst verilerinden otomatik olarak "
+"oluşturulmuştur."
+
+msgid "publication.jats.lastModified"
+msgstr ""
+"Son Değişiklik: {$modificationDate} tarihinde, {$username} tarafından "
+"yapılmıştır."
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Varsayılan JATS içeriği oluşturulurken bir hata oluştu. Lütfen JatsTemplate "
+"eklentisinin yüklü olduğundan emin olun."
+
+msgid "submission.files.content.error"
+msgstr "'{$fileName}' dosyasının içeriği alınamadı."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Hakemin önerilme sebebi"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Lütfen bu hakemi neden önerdiğinizi açıklayınız ve herhangi bir çıkar "
+"çatışması olup olmadığını belirtiniz."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Aday makalenin dili ({$language}), desteklenen gönderim dillerinden biri "
+"değildir. Gönderim detaylarını düzenlemeye devam edebilirsiniz, ancak bu "
+"dilde yeni aday makaleler şu anda kabul edilmemektedir."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Hakem atananlar"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr ""
+"Değerlendirme güncellemesi {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Filtreyi Uygula"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Makale Gönder"
+
+msgid "dashboard.assignReviewers"
+msgstr "Hakem Ata"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Yazardan revizyon talep edildi"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Yazardan gelen revizyonlar, tekrar değerlendirme için yeni bir tura "
+"alınacaktır."
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Yeni bir değerlendirme turu oluşturulacak"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "{$issue} sayısında yayımlanacak"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "{$count} adet Düzenlenmiş Dosyalar Yüklendi"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revizyon talep edildi"
+
+msgid "dashboard.submitRevisions"
+msgstr "Revizyon yükle"
+
+msgid "workflow.uploadRevisions"
+msgstr "Revizyon yükle"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Taleplere yanıt ver"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Değerlendirmeyi tamamla"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Lütfen bu talebi {$date} tarihine kadar kabul veya reddedin."
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "İstek {$date} tarihinde reddedildi."
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Değerlendirme {$date} tarihinde gönderildi."
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Hakemlik davetine yanıt verme süresi dolmuştur. Lütfen en kısa sürede daveti "
+"kabul edin veya reddedin."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Lütfen bu değerlendirmeyi {$date} tarihine kadar tamamlayınız."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Değerlendirmeyi yapmak için verilen süresi dolmuştur. Lütfen "
+"değerlendirmenizi en kısa sürede tamamlayınız."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Hakemlik daveti gönderilmiştir. <b>{$days} gün içinde, {$date}</b> yanıt "
+"bekleniyor."
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Hakemlik daveti {$date} tarihinde reddedildi."
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Hakem, değerlendirme talebini <b>{$date}</b> tarihinde reddetti."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Hakemlik daveti, {$days} gün gecikti"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Hakem, hakemlik davetine yanıt vermemiştir. Davet için yanıt vermesi gereken "
+"tarih: <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Değerlendirme devam ediyor - Hakemlik daveti kabul edildi"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Değerlendirme, {$days} gün gecikmiştir."
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Hakem, değerlendirmeyi tamamlamamıştır. <b>{$date}</b> tarihine kadar "
+"tamamlaması gerekliydi."
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "{$date} tarihinde değerlendirme tamamlandı"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Değerlendirme, {$date} tarihinde tamamlanmıştır. Hakemin önerisi: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Değerlendirme editör tarafından onaylandı"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr ""
+"Değerlendirme, editör tarafından <b>{$date}</b> tarihinde onaylanmıştır."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Hakem, hakemlik davetini reddetti"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Hakemlik davetini <b>{$date}</b> tarihinde reddetti."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Hakemlik davetine yanıt bekleniyor"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Okunmamış değerlendirmeyi gör"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "ORICD ile Hakeme Gönder"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Hakemlik davetini bu ORCID'e göndermek istiyor musunuz?"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Yönetici olarak bu aday makaleye erişemezsiniz, çünkü aday makalenin "
+"yazarsınız. Görüntülemek için \"Makalelerim\" bölümüne gidin."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Uyarı: Bu sürüm yayınlanmıştır. Düzenleme yapmak yayınlanan içeriği "
+"etkileyebilir."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Değerlendirme {$date} tarihinde tamamlanmıştır."

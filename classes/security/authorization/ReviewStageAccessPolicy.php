@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/ReviewStageAccessPolicy.php
  *
@@ -52,8 +53,4 @@ class ReviewStageAccessPolicy extends ContextPolicy
         // Add the role-specific policies to this policy set.
         $this->addPolicy($workflowStagePolicy);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\ReviewStageAccessPolicy', '\ReviewStageAccessPolicy');
 }

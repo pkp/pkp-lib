@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
+"PO-Revision-Date: 2025-04-07 11:32+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Ni postavk"
@@ -511,10 +511,10 @@ msgid "grid.user.email"
 msgstr "Email"
 
 msgid "grid.user.enable"
-msgstr "Omogoči"
+msgstr "Omogoči uporabnika"
 
 msgid "grid.user.disable"
-msgstr "Onemogoči"
+msgstr "Onemogoči uporabnika"
 
 msgid "grid.user.disableReason"
 msgstr "Razlog za onemogočitev"
@@ -726,3 +726,31 @@ msgstr "Uredi sodelavca"
 
 #~ msgid "grid.user.authSource"
 #~ msgstr "Avtentikacijski vir"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Dodajte predlog recenzenta"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Odstranite predlog recenzenta"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr "Ste prepričani, da želite odstraniti ta predlog? Akcija je nepovratna."
+
+msgid "grid.user.remove"
+msgstr "Odstrani uporabnika"
+
+msgid "grid.user.logInAs"
+msgstr "Prijavi se kot"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Ko je uporabnik omogočen, pridobi dostop do spletne strani in mu lahko "
+"dodelite vloge po potrebi."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Če je uporabnik onemogočen, mu ne morete dodati vloge, dokler ni ponovno "
+"omogočen."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Prikaži na kolofonu"

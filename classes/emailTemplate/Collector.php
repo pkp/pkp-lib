@@ -32,7 +32,7 @@ class Collector implements CollectorInterface
      * default.
      */
     public ?bool $isModified = null;
-    public int $contextId;
+    public ?int $contextId;
     public ?array $keys = null;
     public ?string $searchPhrase = null;
     public ?int $count = null;
@@ -41,7 +41,7 @@ class Collector implements CollectorInterface
 
     public const EMAIL_TEMPLATE_STAGE_DEFAULT = 0;
 
-    public function __construct(DAO $dao, int $contextId)
+    public function __construct(DAO $dao, ?int $contextId)
     {
         $this->dao = $dao;
         $this->contextId = $contextId;
@@ -162,16 +162,19 @@ class Collector implements CollectorInterface
         $q = DB::table('email_templates_default_data as etddata')
             ->select('email_key')
             ->selectRaw('NULL as email_id')
-            ->selectRaw($this->contextId . ' as context_id')
-            ->selectRaw('NULL as alternate_to')
+            ->selectRaw($this->contextId !== null ? $this->contextId . ' as context_id' : 'NULL as context_id')
+            ->selectRaw('NULL as alternate_to');
 
-            ->whereNotIn('etddata.email_key', function (Builder $q) {
-                $q->select('et.email_key')
-                    ->from('email_templates as et')
-                    ->where('et.context_id', $this->contextId);
-            })
+            // Handle case when contextId is provided
+            if ($this->contextId !== null) {
+                $q->whereNotIn('etddata.email_key', function (Builder $q) {
+                    $q->select('et.email_key')
+                        ->from('email_templates as et')
+                        ->where('et.context_id', $this->contextId);
+                });
+            }
 
-            ->when(!is_null($this->keys), function (Builder $q) {
+            $q->when(!is_null($this->keys), function (Builder $q) {
                 return $q->whereIn('email_key', $this->keys);
             })
 

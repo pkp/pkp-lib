@@ -1,10 +1,11 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
+# Ivan <salarysalo@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-05-28 14:51+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -35,7 +36,7 @@ msgstr "Нові рецензії були надіслані і розгляд�
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Один або кілька рецензентів пропустили дедлайн. Редакційна колегія була "
+"Один або кілька рецензентів пропустили дедлайн. Редакційна команда була "
 "повідомлена і вживатиме заходів для забезпечення завершення рецензування. "
 "Вам не потрібно робити ніяких дій у цей час. Ви отримаєте сповіщення про "
 "прийняття рішення."
@@ -154,13 +155,13 @@ msgid "metadata.property.displayName.article-title"
 msgstr "Назва статті / праці"
 
 msgid "metadata.property.validationMessage.article-title"
-msgstr "Будь ласка, вкажіть коректну назву статті/праці."
+msgstr "Будь ласка, вкажіть коректну назву статті / праці."
 
 msgid "metadata.property.displayName.source"
 msgstr "Назва публікації"
 
 msgid "metadata.property.validationMessage.source"
-msgstr "Будь ласка, вкажіть коректну назву журналу/книги."
+msgstr "Будь ласка, вкажіть коректну назву журналу / книги."
 
 msgid "metadata.property.displayName.date"
 msgstr "Дата публікації"
@@ -280,7 +281,7 @@ msgid "metadata.property.displayName.publisher-name"
 msgstr "Назва/ім'я видавця"
 
 msgid "metadata.property.validationMessage.publisher-name"
-msgstr "Будь ласка, вкажіть коректну назву/ім'я видавця."
+msgstr "Будь ласка, вкажіть коректну назву / ім'я видавця."
 
 msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
@@ -295,7 +296,7 @@ msgid "metadata.property.validationMessage.issn"
 msgstr "Будь ласка, вкажіть коректний номер друкованого ISSN."
 
 msgid "metadata.property.displayName.eissn"
-msgstr "eISSN"
+msgstr "Електронний ISSN (eISSN)"
 
 msgid "metadata.property.validationMessage.eissn"
 msgstr "Будь ласка, вкажіть коректний номер eISSN."
@@ -429,7 +430,7 @@ msgid "submission.authorBiographies"
 msgstr "Біографії авторів"
 
 msgid "submission.authorWithAffiliation"
-msgstr "{$name}, {$affiliation}"
+msgstr "автор {$name}, афіліація {$affiliation}"
 
 msgid "submission.shortAuthor"
 msgstr "{$author} та ін."
@@ -760,7 +761,7 @@ msgid "submission.versions"
 msgstr "Версії"
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$version})"
+msgstr "дата публікації {$datePublished}, версія ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -1325,10 +1326,10 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Подано правки, і потрібне рішення."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Подання має бути повторно подано на рецензування."
+msgstr "Редакції, надіслані від автора для нового раунду рецензування."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Подання було повторно подано на рецензування."
+msgstr "Надіслані зміни. Необхідно створити новий раунд рецензування."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Надіслано на зовнішнє рецензування."
@@ -1349,7 +1350,7 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Нові рецензії були подані."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Усі рецензії наявні, і потрібне рішення."
+msgstr "Усі відгуки підтверджені, і потрібне рішення."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Рецензія прострочена."
@@ -2053,7 +2054,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Редактор {$userName} підтвердив рецензію для раунду {$round} рецензування "
+"Редактор {$editorName} підтвердив рецензію для раунду {$round} рецензування "
 "для подання {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2360,7 +2361,7 @@ msgstr ""
 "\"{$submissionTitle}\"."
 
 msgid "submission.query.participantTitle"
-msgstr "{$fullName}, {$userGroup}"
+msgstr "ім'я {$fullName}, група {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
 msgstr ""
@@ -2607,7 +2608,7 @@ msgstr "Всі версії"
 msgid "publication.version.confirm"
 msgstr "Ви впевнені, що хочете створити нову версію?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Анотація занадто довга. Довжина має бути не більше {$limit} слів або менше. "
 "Наразі вона складається з {$count} слів."
@@ -2768,3 +2769,497 @@ msgstr ""
 
 msgid "author.competingInterests"
 msgstr "Конкуруючі інтереси"
+
+msgid "author.authorNotFound"
+msgstr "Не вдалося знайти автора із цією афілійованістю."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Будь ласка, укажіть афілійованість за РДО (Реєстром дослідницьких "
+"організацій) або принаймні одну афілійовану назву."
+
+msgid "ror.nameRequired"
+msgstr "Потрібно вказати назву за РДО."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Скасувати подання"
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Будь ласка, укажіть афілійовану назву в основній мовній локалізації подання."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Необхідна вказати локалізацію відображення РДО."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Подання скасовано"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Подання скасовано, а всі пов’язані дані видалено."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Поточна мова подання:"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Змінити мову подання на"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Ви впевнені, що бажаєте скасувати це подання? Це призведе до видалення "
+"подання та всіх пов’язаних даних. Цю дію не можна скасувати."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Це основна мова подання. Зміна цього вплине на подані дані та введені "
+"метадані"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Перш ніж змінювати мову подання, переконайтеся, що ви заповнили "
+"наступні поля метаданих, щоб зберегти цілісність системи. Також зауважте, що "
+"інформацію про співавтора та імена файлів буде скопійовано з попередньо "
+"введеної інформації.</strong>"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Для пропозиції рецензента"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Пропозиції рецензента"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Рекомендацію надали ви."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Рецензенти, запропоновані автором"
+
+msgid "submission.review.status.viewed"
+msgstr "Редактор переглянув рецензію."
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Змінити"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Введіть тут назву подання мовою {$language}. Ви можете відформатувати "
+"заголовок за потреби"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Рекомендовано включити анотацію мовою {$language}. Це допомагає забезпечити "
+"доступність вмісту"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Переглянути резюме подання"
+
+msgid "submission.list.completeSubmission"
+msgstr "Завершити подачу матеріалів"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Рецензентів для цього подання не запропоновано."
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Всі призначення"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "В очікуванні"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Мінімально необхідну кількість відгуків підтверджено. Потрібне рішення."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Продовжити без мінімальних підтверджених відгуків?"
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Подання зараз на стадії {$stage}."
+
+msgid "workflow.reviewRoundN"
+msgstr "Раунд {$number} розгляду"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Редакції завантажено"
+
+msgid "fileManager.filesForReview"
+msgstr "Файли для перегляду"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Скопійовано відредаговані файли"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Це файли, які будуть надіслані для публікації"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Статус рецензента"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Виберіть неповні подання для видалення."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Видалити неповні подання"
+
+msgid "submission.dashboard.view.active"
+msgstr "Активні подання"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Все в експертній оцінці"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Чекає відгуків"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Відгуки надіслано"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Передивитись рекомендацію"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Буде опубліковано у номері {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Завантажено скопійовано відредагованих файлів: {$count}"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"На {$language} відсутня назва афілійованої організації для одного чи кількох "
+"співавторів."
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Ви збираєтеся видалити існуючий XML-файл JATS із цієї публікації. Ви "
+"впевнені?"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Призначене мені"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Під час спроби створити вміст JATS за замовчуванням сталася помилка. "
+"Переконайтеся, що плагін JatsTemplate встановлено."
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Потребує редактора"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Розкажіть, чому ви рекомендуєте цього рецензента, і вкажіть, чи існує "
+"потенційний конфлікт інтересів."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Призначено рецензентів"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Редакції, надіслані від автора для чергового раунду перегляду"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Завершити ревью"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Відгук надіслано {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Термін відповіді на цей запит минув. Будь ласка, прийміть або відхиліть цей "
+"запит якнайшвидше."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Запит на перевірку надіслано рецензенту. Очікування відповіді через "
+"<b>{$days} днів {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Цей рецензент прийняв запит на перевірку. Їх перевірка має бути виконана "
+"через <b>{$days} днів {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Перевірку було завершено {$date} з такою рекомендацією: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Рецензент скасував запит на перевірку <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Скасувати Рецензента"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Редагувати термін виконання"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Надіслати цей огляд до ORCID рецензента (https://orcid.org/)?"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Необхідна мінімальна кількість підтверджених відгуків: {$number}."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Мінімальна кількість підтверджених відгуків не досягнута. Ви все ще бажаєте "
+"продовжити це редакційне рішення?"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Дозволено лише рекомендувати редакційне рішення. \"Валите\"?)"
+
+msgid "workflow.stageNotStarted"
+msgstr "Етап {$stage} ще не розпочато."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Подання перейшло до наступного раунду перевірки, було прийнято та зараз "
+"знаходиться на стадії {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Подання передано до наступного раунду перевірки"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Файли, завантажені під час подання"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Ці файли були надіслані автором після запиту на редагування"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Ці файли буде надіслано рецензентам для перевірки"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Це відредаговані файли, які будуть передані на етап виробництва"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Це файли зі стадії перевірки, які потрібно відредагувати"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Підтвердити видалення незавершених матеріалів"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Ви впевнені, що бажаєте видалити вибрані елементи? Цю дію не можна "
+"скасувати. Підтвердьте, щоб продовжити."
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Потребує оглядів"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Все на стадії подання"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Все на стадії перевірки"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Відгуки прострочені"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Усе на етапі копіювання"
+
+msgid "submission.dashboard.view.production"
+msgstr "Все на стадії виробництва"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Заплановано до публікації"
+
+msgid "submission.dashboard.view.published"
+msgstr "Опубліковане"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Відхилене"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Запитані зміни"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Надіслано авторські редакції"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Неповні подання"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Виконано / Відхилено"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Всі доручення"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Від мене вимагається дія"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Заархівовано"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Відхилене"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Завершено"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Опубліковане"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Огляд (раунд {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Заплановане до публікації"
+
+msgid "submission.stage.published"
+msgstr "Опубліковане"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Підтвердити видалення JATS XML"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Видалити файл JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Цей файл JATS створюється автоматично за допомогою метаданих подання"
+
+msgid "publication.jats.lastModified"
+msgstr "Остання зміна {$modificationDate} користувачем {$username}"
+
+msgid "submission.files.content.error"
+msgstr "Не вдалося отримати вміст файлу подання \"{$fileName}\"."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Причини пропозиції рецензента"
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Мова подання ({$language}) не є однією з підтримуваних мов подання. Ви все "
+"ще можете редагувати деталі подання, але нові подання цією мовою наразі не "
+"приймаються."
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Переглянути оновлення {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Застосувати фільтри"
+
+msgid "dashboard.assignReviewers"
+msgstr "Призначити рецензентів"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Від автора запитуються зміни"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Буде створено новий раунд розгляду"
+
+msgid "dashboard.revisionRequested"
+msgstr "Запит на перегляд"
+
+msgid "dashboard.submitRevisions"
+msgstr "Надішліть зміни"
+
+msgid "workflow.uploadRevisions"
+msgstr "Завантажити версії"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Створити Нове подання"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Відповісти на запит"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Прийміть або відхиліть цей запит до {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Запит відхилено {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Завершіть цей огляд до {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Кінцевий термін завершення перевірки минув. Будь ласка, завершіть розгляд "
+"якнайшвидше."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Очікується відповідь від рецензента"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Запит на перегляд відхилено {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Рецензент відхилив запит на перегляд <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Запит на перегляд прострочено на {$days} днів"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Цей рецензент не відповів на запит на перевірку. Відповідь мала бути "
+"надіслана до <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Триває перевірка – запит прийнято"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Перегляд затримано на {$days} днів"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Цей рецензент не завершив рецензування. Відповідь мала бути надіслана до "
+"<b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Перевірку завершено {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Відгук підтверджено редактором"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Рецензія була прийнята редактором <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Рецензент скасував запит на перевірку"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Очікується відповідь від рецензента"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Запит на перегляд повторно надіслано рецензенту. Очікування відповіді через "
+"{$days} днів {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Дивитись деталі"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Перенадіслати запит на перегляд"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Скасувати призначення"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Передивитись непрочитану рекомендацію"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Надіслати відгук до ORCID"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Відхилено на етапі {$stageName}."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Редакторам-рекомендаторам доручено порадити наступні кроки для цього подання"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Отримано редакційну рекомендацію"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Усі редакційні рекомендації отримано, потрібне рішення."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Ви не можете отримати доступ до цього подання як менеджер журналу, оскільки "
+"ви є автором. Щоб переглянути його, перейдіть у розділ «Мої матеріали»"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Ви не можете отримати доступ до цього подання як менеджер журналу, оскільки "
+"ви є рецензентом. Щоб переглянути його, перейдіть у розділ «Переглянути "
+"завдання»"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Попередження: цю версію опубліковано. Її редагування може вплинути на "
+"опублікований вміст."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Рецензування завершено {$date}"

@@ -94,7 +94,7 @@ class PKPMastheadForm extends FormComponent
                 'isMultilingual' => true,
                 'groupId' => 'editorialMasthead',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,lists,image,code',
+                'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
                 'value' => $context->getData('editorialHistory'),
             ]))
@@ -116,7 +116,7 @@ class PKPMastheadForm extends FormComponent
                 'size' => 'large',
                 'groupId' => 'about',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,lists,image,code',
+                'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
                 'value' => $context->getData('about'),
             ]));

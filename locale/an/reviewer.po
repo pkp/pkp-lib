@@ -1,0 +1,201 @@
+# Emma U <emmaupkp@gmail.com>, 2025.
+# Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-06-05 22:51+0000\n"
+"Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
+"Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/an/>\n"
+"Language: an\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Información cheneral"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Pa l'autor/a y l'editor/a"
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"L'usuario/a actual no ye asignau como revisor/a pa lo documento solicitau."
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Solicitut"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Directrices"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Descarga y revisión"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Finalización"
+
+msgid "reviewer.step1.request"
+msgstr "Solicitut de revisión"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Ha estau triau/da como posible revisor/a d'o ninvio siguient. Contino "
+"trobará un resumen d'a propuesta, asinas como lo cronograma d'estarevisión. "
+"Asperamos contar con a suya colaboración."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Veyer toz los detalles d'o ninvio"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Fichers d'o revisor/a"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Refusar la solicitut de revisión"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"En o campo siguient puede comunicar a l'editor los motivos per los cuals ha "
+"refusau esta revisión."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Aceptar la revisión y continar con o paso #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continar con o paso #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Ninviar la revisión"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Alzar pa mas entabant"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Directrices pa lo revisor/a"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Esta editorial tien una politica respective a la divulgación de posibles "
+"conflictos d'intereses per parte d'os suyos revisors/as. Leiga atentament "
+"esta politica."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "No tiengo garra conflicto d'intereses"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Ye posible que exista un conflicto d'intereses (Especificar contino)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Conflicto d'intereses"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Directrices d'a revisión"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Esta editorial no ha establiu directrices pa lo revisor/a."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Fe clic en o nombre d'os fichers pa descargar y revisar (en a pantalla u ya "
+"imprentaus) los fichers relacionaus con este ninvio."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Escribe (u apega) la tuya revisión d'este ninvio en o formulario que "
+"s'amuestra contino."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Amás, puez puyar los fichers pa que l'editor y/u l'autor los consulten, "
+"incluyindo las versions revisadas d'o(s) fichero(s) d'a revisión orichinal."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Revisions previas"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Ronda {$round} Revisión ninviada a {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Revisión de lectura tongada {$round}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Ronda {$round} Revisión ninviada per tu pa"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Comentarios d'o revisor/a"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Resumen"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Parolas clau"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Pa editors/as y autors/as"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Nomás pa editors/as"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Fichers adjuntos"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Comentario {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Motivo d'o refuse ninviau per correu electronico"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Estes son los fichers que ha adchuntau de conchunta con a revisión"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Fichers pa revisar"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "No s'ha dau garra motivo pa lo refuse d'a invitación a revisar."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Data de refuse"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Metadatos de l'articlo"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tipo"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Le han ninviau estes fichers pa que los revise"
+
+msgid "reviewer.complete"
+msgstr "Revisión presentada"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Yes seguro de que quiers presentar esta revisión?"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Gracias per completar la revisión d'este ninvio. La revisión s'ha ninviau "
+"con exito. Le agradeixemos que haiga contribuyiu a que lo treballo que "
+"publicamos sía de calidat. L'editor/a se meterá en contacto con vusté si "
+"precisa mas información."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Sobre las datas limite"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Lo editor solicita que acepte u refuse la revisión antes d'a \"Data limite "
+"de respuesta\" y remate la revisión antes d'a \"Data limite d'a revisión\"."
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Nomás pa l'editor/a"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Ninviar una copia d'esta notificación per CCO a los siguients revisors/as."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Ninviar a los revisors/as"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "No s'ha rematau la revisión."

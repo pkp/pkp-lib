@@ -133,6 +133,9 @@ msgstr ""
 msgid "editor.submission.addReviewer"
 msgstr "Add Reviewer"
 
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Select a Reviewer from Reviewer Suggestions"
+
 msgid "editor.submission.findAndSelectReviewer"
 msgstr "Locate a Reviewer"
 
@@ -298,6 +301,9 @@ msgstr "Review Confirmed"
 msgid "editor.review.reviewSubmitted"
 msgstr "Review Submitted"
 
+msgid "editor.review.reviewViewed"
+msgstr "Review Viewed"
+
 msgid "editor.review.reviewerThanked"
 msgstr "Reviewer Thanked"
 
@@ -369,6 +375,12 @@ msgstr "Schedule For Publication"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Copyediting Files"
+
+msgid "editor.selectSubmissionFilesStage"
+msgstr "Select submission stage"
+
+msgid "editor.submission.productionFiles"
+msgstr "Production Files"
 
 msgid "editor.submission.selectReviewer"
 msgstr "Select Reviewer"
@@ -465,6 +477,11 @@ msgstr "Search submissions, ID, authors, keywords, etc."
 msgid "editor.submission.days"
 msgstr "Days"
 
+msgid "editor.submission.daysInStage"
+msgstr "Days in Stage"
+
+msgid "editor.submission.viewSummary"
+msgstr "Summary"
 
 msgid "editor.article.reviewForms"
 msgstr "Review Forms"
@@ -579,7 +596,6 @@ msgstr "Reassign"
 msgid "reviewer.list.reassign.withName"
 msgstr "Reassign {$name}"
 
-#, fuzzy
 msgid "reviewer.list.currentlyAssigned"
 msgstr "This reviewer has already been assigned to this review round."
 
@@ -627,3 +643,33 @@ msgstr "Skip this email"
 
 msgid "editor.decision.stepError"
 msgstr "There was a problem with the {$stepName} step."
+
+msgid "editor.review.logResponse.for"
+msgstr "Log Response for"
+
+msgid "editor.review.logResponse"
+msgstr "Log Response"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "A response must be selected"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Reviewer has accepted the invitation to review"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Reviewer has declined the invitation to review"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Record the response on behalf of the reviewer"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr "If the reviewer contacts you through email or any other means, you can record their response for them"
+
+msgid "editor.review.download"
+msgstr "Download Review Form"
+
+msgid "editor.review.authorOnly"
+msgstr "Author-Only Sections Displayed"
+
+msgid "editor.review.allSections"
+msgstr "Editor Form Shows All Review Sections"

@@ -1,12 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2022.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2024-03-16 10:39+0000\n"
+"PO-Revision-Date: 2025-03-18 14:49+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar/>\n"
@@ -480,7 +480,7 @@ msgstr "إعادة ضبط الكل"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
-"إذا أعدت ضبط كل القوالب، فإن أي تعديلات عليها ستفقد. هل تؤكد هذا الإجراء؟"
+"إذا أعدت ضبط كل القوالب، فإن أي تعديلات عليها ستفقد.   هل تؤكد هذا الإجراء؟"
 
 msgid "manager.emails.reset.message"
 msgstr ""
@@ -1157,8 +1157,8 @@ msgstr "تنسيقات التاريخ والوقت"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "إختر التنسيق المفضل للتواريخ والأوقات. يمكن إدخال تنسيق مخصص باستعمال <a "
-"href=\"https://www.php.net/manual/en/function.strftime.php#refsect1-function."
-"strftime-parameters\">حروف التنسيق</a> الخاصة."
+"href=\"https://www.php.net/manual/en/datetime.format.php#refsect1-datetime."
+"format-parameters\">حروف التنسيق</a> الخاصة."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "التاريخ"
@@ -1659,9 +1659,6 @@ msgstr "العملة"
 
 msgid "settings.roles.roleOptions"
 msgstr "خيارات الدور"
-
-msgid "settings.roles.showTitles"
-msgstr "إظهار عنوان الدور في قائمة المشاركين"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "إسمح للمستخدمين بتسجيل أنفسهم"
@@ -3646,3 +3643,122 @@ msgstr "طاقم المجلة"
 
 msgid "plugins.importexport.common.validation"
 msgstr "تحقق من نصوص XML قبل التصدير والتسجيل."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "الإصدار المنصب: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "لغات الموقع"
+
+msgid "manager.language.submissionLanguages"
+msgstr "لغات طلبات التقديم"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "إضافة/إزالة اللغات"
+
+msgid "manager.language.submissionMetadata"
+msgstr "البيانات الوصفية"
+
+msgid "manager.language.submission.form.description"
+msgstr "إختر لغات طلبات التقديم والبيانات الوصفية."
+
+msgid "manager.language.submission.from.error"
+msgstr "ينبغي إختيار لغة واحدة على الأقل."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "ضع التذكيرات للتحكيم"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"أرسل بريدًا الكترونيًا للتذكير بشأن استجابة التحكيم قبل الموعد أو بعده (إذا "
+"لم يستجب المحكم إلى إلتماس التحكيم) أو (لم يقدم المحكم إجابة بشأن تحكيمه)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "استجابة إلتماس التحكيم - قبل موعد الاستيجاب"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "استجابة إلتماس التحكيم - بعد موعد الاستيجاب"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "تسليم التحكيم - قبل موعد الاستيجاب"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "تسليم التحكيم - بعد موعد الاستيجاب"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} من الأيام بعد موعد الاستيجاب"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "لا أحد"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "لم يتم ضبط أي تذكير"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "إقتراح المحكمين عند طلب التقديم"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "السماح للمؤلفين باقتراح المحكمين المحتملين عند عملية التقديم"
+
+msgid "notification.submissionLocales"
+msgstr "لغات طلب التقديم تم تحديثها."
+
+msgid "settings.roles.masthead"
+msgstr "خذ بنظر الاعتبار الدور في قائمة الكادر"
+
+msgid "settings.roles.permitSettings"
+msgstr "السماح بتغيير الإعدادات"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} من الأيام قبل موعد الاستيجاب"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"ما يلي يتم إظهاره إلى المؤلفين خلال خطوة إقتراح المحكمين. أعط شرحًا موجزًا "
+"عن المعلومات التي ينبغي على المؤلف توفيرها عن نفسه، عن المؤلفين المشاركين، "
+"أو غيرهم من المساهمين."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "تعذر حفظ إعداد اللغة. ينبغي تمكين كل الخيارات."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"يمكن للمؤلف إقتراح عدد من المحكمين المحتملين قبل إكمال طلب التقديم وذلك "
+"يمكنه أن ييسر عملية التحكيم ويقدم معلومات قيمة لفريق التحرير."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "عرِّف ترتيب أدوار طاقم التحرير لعرضه للعامة."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"المؤلف {$authorName} ليس لديه اسم جهة الانتساب بلغة طلب التقديم، "
+"{$localeName}. لا يمكن اسنيراد طلب التقديم بدون هذه المعلومة."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "رابط يؤدي إلى صفحة تعرض كل خدمات التحرير النشطة."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "عنوان عنصر القائمة مطلوب حتمًا."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "عرِّف ترتيب أدوار طاقم الإدارة لعرضه للعامة."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"سيتم عرض المحكمين بتنسيق موحد للحفاظ على التوحيد وضمان سهولة اكتشافهم في هذا "
+"المقطع."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "تغيير دعوة البريد الالكتروني"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"يرجى تزويد ماضي هيئة التحرير، متضمنًا الاسم الكامل، الانتساب، وتاريخ البدء "
+"وتاريخ الانتهاء لدور كل محرر."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "أقل عدد مطلوب من التحكيمات المؤكدة"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "أقل عدد من التحكيمات المؤكدة المطلوبة لطلب التقديم"

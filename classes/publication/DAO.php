@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/publication/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -13,20 +14,19 @@
 
 namespace PKP\publication;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
-use PKP\citation\CitationDAO;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
-use PKP\submission\SubmissionAgencyDAO;
-use PKP\submission\SubmissionDisciplineDAO;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
 
 /**
  * @template T of Publication
@@ -48,41 +48,6 @@ class DAO extends EntityDAO
 
     /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'publication_id';
-
-    /** @var SubmissionKeywordDAO */
-    public $submissionKeywordDao;
-
-    /** @var SubmissionSubjectDAO */
-    public $submissionSubjectDao;
-
-    /** @var SubmissionDisciplineDAO */
-    public $submissionDisciplineDao;
-
-    /** @var SubmissionAgencyDAO */
-    public $submissionAgencyDao;
-
-    /** @var CitationDAO */
-    public $citationDao;
-
-    /**
-     * Constructor
-     */
-    public function __construct(
-        SubmissionKeywordDAO $submissionKeywordDao,
-        SubmissionSubjectDAO $submissionSubjectDao,
-        SubmissionDisciplineDAO $submissionDisciplineDao,
-        SubmissionAgencyDAO $submissionAgencyDao,
-        CitationDAO $citationDao,
-        PKPSchemaService $schemaService
-    ) {
-        parent::__construct($schemaService);
-
-        $this->submissionKeywordDao = $submissionKeywordDao;
-        $this->submissionSubjectDao = $submissionSubjectDao;
-        $this->submissionDisciplineDao = $submissionDisciplineDao;
-        $this->submissionAgencyDao = $submissionAgencyDao;
-        $this->citationDao = $citationDao;
-    }
 
     /**
      * Get the parent object ID column name
@@ -130,11 +95,10 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
-
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
             foreach ($rows as $row) {
                 yield $row->publication_id => $this->fromRow($row);
             }
@@ -188,6 +152,7 @@ class DAO extends EntityDAO
      */
     public function fromRow(object $row): Publication
     {
+        /** @var Publication $publication */
         $publication = parent::fromRow($row);
 
         $this->setDoiObject($publication);
@@ -197,6 +162,21 @@ class DAO extends EntityDAO
             ->where('s.submission_id', '=', $publication->getData('submissionId'))
             ->value('locale');
         $publication->setData('locale', $locale);
+
+        $citations = Repo::citation()->getByPublicationId($publication->getId());
+        $publication->setData('citations', $citations);
+        $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
+            public function __construct(public int $publicationId)
+            {
+            }
+            public function __toString()
+            {
+                return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
+            }
+        });
+
+        $publicationVersionString = Repo::publication()->getVersionString($publication);
+        $publication->setData('versionString', $publicationVersionString);
 
         $this->setAuthors($publication);
         $this->setCategories($publication);
@@ -217,10 +197,10 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $id);
         $this->saveCategories($publication);
 
-        // Parse the citations
-        if ($publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
-        }
+        Repo::citation()->importCitations(
+            $publication,
+            $publication->getData('citationsRaw')
+        );
 
         return $id;
     }
@@ -237,8 +217,11 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
 
-        if ($oldPublication && $oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
+        if ($oldPublication) {
+            Repo::citation()->importCitations(
+                $publication,
+                $publication->getData('citationsRaw')
+            );
         }
     }
 
@@ -260,7 +243,7 @@ class DAO extends EntityDAO
         $this->deleteAuthors($publicationId);
         $this->deleteCategories($publicationId);
         $this->deleteControlledVocab($publicationId);
-        $this->deleteCitations($publicationId);
+        Repo::citation()->deleteByPublicationId($publicationId);
 
         return $affectedRows;
     }
@@ -302,12 +285,14 @@ class DAO extends EntityDAO
     public function changePubId($pubObjectId, $pubIdType, $pubId)
     {
         DB::table($this->settingsTable)
-            ->update([
-                'publication_id' => (int) $pubObjectId,
-                'locale' => '',
-                'setting_name' => 'pub-id::' . $pubIdType,
-                'setting_value' => (string) $pubId
-            ]);
+            ->updateOrInsert(
+                [
+                    'publication_id' => (int) $pubObjectId,
+                    'locale' => '',
+                    'setting_name' => 'pub-id::' . (string) $pubIdType,
+                ],
+                ['setting_value' => (string) $pubId]
+            );
     }
 
     /**
@@ -370,10 +355,41 @@ class DAO extends EntityDAO
      */
     protected function setControlledVocab(Publication $publication)
     {
-        $publication->setData('keywords', $this->submissionKeywordDao->getKeywords($publication->getId()));
-        $publication->setData('subjects', $this->submissionSubjectDao->getSubjects($publication->getId()));
-        $publication->setData('disciplines', $this->submissionDisciplineDao->getDisciplines($publication->getId()));
-        $publication->setData('supportingAgencies', $this->submissionAgencyDao->getAgencies($publication->getId()));
+        $publication->setData(
+            'keywords',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
+
+        $publication->setData(
+            'subjects',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
+
+        $publication->setData(
+            'disciplines',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
+
+        $publication->setData(
+            'supportingAgencies',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
     }
 
     /**
@@ -410,20 +426,12 @@ class DAO extends EntityDAO
     {
         // Update controlled vocabularly for which we have props
         foreach ($values as $prop => $value) {
-            switch ($prop) {
-                case 'keywords':
-                    $this->submissionKeywordDao->insertKeywords($value, $publicationId);
-                    break;
-                case 'subjects':
-                    $this->submissionSubjectDao->insertSubjects($value, $publicationId);
-                    break;
-                case 'disciplines':
-                    $this->submissionDisciplineDao->insertDisciplines($value, $publicationId);
-                    break;
-                case 'supportingAgencies':
-                    $this->submissionAgencyDao->insertAgencies($value, $publicationId);
-                    break;
-            }
+            match ($prop) {
+                'keywords' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+                'subjects' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+                'disciplines' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+                'supportingAgencies' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+            };
         }
     }
 
@@ -432,61 +440,35 @@ class DAO extends EntityDAO
      */
     protected function deleteControlledVocab(int $publicationId)
     {
-        $this->submissionKeywordDao->insertKeywords([], $publicationId);
-        $this->submissionSubjectDao->insertSubjects([], $publicationId);
-        $this->submissionDisciplineDao->insertDisciplines([], $publicationId);
-        $this->submissionAgencyDao->insertAgencies([], $publicationId);
+        ControlledVocab::query()
+            ->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationId)
+            ->delete();
     }
 
     /**
      * Set a publication's category property
      */
-    protected function setCategories(Publication $publication)
+    protected function setCategories(Publication $publication): void
     {
-        $publication->setData(
-            'categoryIds',
-            Repo::category()->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->getIds()
-                ->toArray()
-        );
+        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id')->toArray();
+        $publication->setData('categoryIds', $categoryIds);
     }
 
     /**
      * Save the assigned categories
      */
-    protected function saveCategories(Publication $publication)
+    protected function saveCategories(Publication $publication): void
     {
-        Repo::category()->dao->deletePublicationAssignments($publication->getId());
-        if (!empty($publication->getData('categoryIds'))) {
-            foreach ($publication->getData('categoryIds') as $categoryId) {
-                Repo::category()->dao->insertPublicationAssignment($categoryId, $publication->getId());
-            }
-        }
+        $categoryIds = (array) $publication->getData('categoryIds');
+        Repo::publication()->assignCategoriesToPublication($publication->getId(), $categoryIds);
     }
 
     /**
      * Delete the category assignments
      */
-    protected function deleteCategories(int $publicationId)
+    protected function deleteCategories(int $publicationId): void
     {
-        Repo::category()->dao->deletePublicationAssignments($publicationId);
-    }
-
-    /**
-     * Save the citations
-     */
-    protected function saveCitations(Publication $publication)
-    {
-        $this->citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
-    }
-
-    /**
-     * Delete the citations
-     */
-    protected function deleteCitations(int $publicationId)
-    {
-        $this->citationDao->deleteByPublicationId($publicationId);
+        PublicationCategory::where('publication_id', $publicationId)->delete();
     }
 
     /**
@@ -498,5 +480,46 @@ class DAO extends EntityDAO
         if (!empty($publication->getData('doiId'))) {
             $publication->setData('doiObject', Repo::doi()->get($publication->getData('doiId')));
         }
+    }
+
+    /**
+     * Get setting values for the given setting name of all submission's minor versions in the given stage and a given version major
+     */
+    public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
+    {
+        return DB::table('publication_settings AS ps')
+            ->join('publications AS p', 'p.publication_id', '=', 'ps.publication_id')
+            ->where('p.submission_id', '=', $submissionId)
+            ->where('p.version_stage', '=', $versionStage)
+            ->where('p.version_major', '=', $versionMajor)
+            ->where('ps.setting_name', '=', $settingName)
+            ->select('ps.setting_value')
+            ->pluck('setting_value');
+    }
+
+    /**
+     * Get all submission IDs for which DOIs can be exported.
+     * If the same DOI is used for all versions: the current publication needs to have a DOI and is published.
+     * If different DOIs are used for different versions: a publication that have a DOI and is published needs to exist.
+     */
+    public function getExportableDOIsSubmissionIds(int $contextId, bool $doiVersioning): array
+    {
+        return DB::table('publications as p')
+            ->select(['p.submission_id'])
+            ->join(
+                'submissions as s',
+                function (JoinClause $join) use ($doiVersioning) {
+                    $join
+                        ->on('p.submission_id', '=', 's.submission_id')
+                        ->when((!$doiVersioning), function (Builder $qb) {
+                            $qb->on('s.current_publication_id', '=', 'p.publication_id');
+                        });
+                }
+            )
+            ->where('s.context_id', '=', $contextId)
+            ->where('p.status', '=', Publication::STATUS_PUBLISHED)
+            ->whereNotNull('p.doi_id')
+            ->pluck('p.submission_id')
+            ->all();
     }
 }

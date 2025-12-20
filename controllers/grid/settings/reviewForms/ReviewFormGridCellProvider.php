@@ -77,7 +77,8 @@ class ReviewFormGridCellProvider extends GridCellProvider
                                 'deactivateReviewForm',
                                 null,
                                 ['reviewFormKey' => $element->getId()]
-                            )
+                            ),
+                            'negative'
                         )
                     )];
                 } else {
@@ -94,7 +95,8 @@ class ReviewFormGridCellProvider extends GridCellProvider
                                 'activateReviewForm',
                                 null,
                                 ['reviewFormKey' => $element->getId()]
-                            )
+                            ),
+                            'primary'
                         )
                     )];
                 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/HandlerOperationPolicy.php
  *
@@ -88,8 +89,4 @@ class HandlerOperationPolicy extends AuthorizationPolicy
         assert(!empty($requestedOperation));
         return in_array($requestedOperation, $this->_operations);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\HandlerOperationPolicy', '\HandlerOperationPolicy');
 }

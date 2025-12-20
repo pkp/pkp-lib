@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/metadata/MetadataTypeDescription.php
  *
@@ -77,7 +78,7 @@ class MetadataTypeDescription extends ClassTypeDescription
     /**
      * @see TypeDescription::parseTypeName()
      */
-    public function parseTypeName($typeName)
+    public function parseTypeName(string $typeName): bool
     {
         // Configure the parent class type description
         // with the expected meta-data class.
@@ -116,7 +117,7 @@ class MetadataTypeDescription extends ClassTypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType($object)
+    public function checkType($object): bool
     {
         // First of all check whether this is a
         // meta-data description at all.

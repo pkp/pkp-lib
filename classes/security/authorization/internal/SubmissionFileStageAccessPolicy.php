@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileStageAccessPolicy.php
  *
@@ -56,7 +57,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
@@ -101,20 +102,34 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
 
-            if (count($stageAssignments[$reviewStage]) === 1 && in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[$reviewStage])) {
+            if (in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[$reviewStage])) {
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
                 if ($reviewRound) {
+                    $externalReviewDecisions = [
+                        Decision::ACCEPT,
+                        Decision::PENDING_REVISIONS,
+                        Decision::NEW_EXTERNAL_ROUND,
+                        Decision::RESUBMIT,
+                    ];
+
+                    $internalReviewDecisions = [
+                        Decision::ACCEPT_INTERNAL,
+                        Decision::PENDING_REVISIONS_INTERNAL,
+                        Decision::NEW_INTERNAL_ROUND,
+                        Decision::RESUBMIT_INTERNAL,
+                    ];
+
+                    // Select decision types based on review stage
+                    $decisionTypes = $reviewStage === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW
+                        ? $externalReviewDecisions
+                        : $internalReviewDecisions;
+
                     $countDecisions = Repo::decision()->getCollector()
                         ->filterBySubmissionIds([$submission->getId()])
                         ->filterByStageIds([$reviewRound->getStageId()])
                         ->filterByReviewRoundIds([$reviewRound->getId()])
-                        ->filterByDecisionTypes([
-                            Decision::ACCEPT,
-                            Decision::PENDING_REVISIONS,
-                            Decision::NEW_EXTERNAL_ROUND,
-                            Decision::RESUBMIT
-                        ])
+                        ->filterByDecisionTypes($decisionTypes)
                         ->getCount();
 
                     if ($countDecisions) {
@@ -131,8 +146,4 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileStageAccessPolicy', '\SubmissionFileStageAccessPolicy');
 }

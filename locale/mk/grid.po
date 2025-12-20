@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:39+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2025-04-04 13:21+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "mk/>\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Нема елементи"
@@ -355,7 +356,7 @@ msgid "grid.columns.institution"
 msgstr "Институција"
 
 msgid "grid.columns.url"
-msgstr "URL"
+msgstr "УРЛ"
 
 msgid "grid.columns.auditor"
 msgstr "Ревизор"
@@ -509,10 +510,10 @@ msgid "grid.user.email"
 msgstr "Имејл"
 
 msgid "grid.user.enable"
-msgstr "Овозможи"
+msgstr "Овозможи корисник"
 
 msgid "grid.user.disable"
-msgstr "Оневозможи"
+msgstr "Оневозможи корисник"
 
 msgid "grid.user.disableReason"
 msgstr "Причина за оневозможување на корисник"
@@ -721,3 +722,33 @@ msgstr "Во листата за преглед"
 
 msgid "grid.action.editContributor"
 msgstr "Уреди соработник"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Избришете го предлогот за рецензент"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Дали сте сигурни дека сакате да го отстраните овој предлог? Ова дејство не "
+"може да се врати."
+
+msgid "grid.user.remove"
+msgstr "Отстрани корисник"
+
+msgid "grid.user.logInAs"
+msgstr "Логирај се како"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Имајте предвид дека штом корисникот е оневозможен, нема да можете да го "
+"додавате во која било улога додека корисникот не биде овозможен повторно."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Додадете предлог за рецензент"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Откако корисникот ќе биде овозможен, тој ќе го врати пристапот до страницата "
+"и ќе можете да го поканите на улоги по потреба."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Појавете се на Мастхед"

@@ -9,9 +9,7 @@
  *
  * @class PKPBaseController
  *
- * @ingroup core
- *
- * @brief Base abstract controller class that all controller must extend
+ * @brief Base abstract controller class that all controllers must extend
  *
  */
 
@@ -23,6 +21,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Route;
 use PKP\security\authorization\AllowedHostsPolicy;
@@ -97,7 +97,7 @@ abstract class PKPBaseController extends Controller
         $routes = $router->getRoutes(); /** @var \Illuminate\Routing\RouteCollection $routes */
         $request ??= app('request');
 
-        if($routes->count() <= 0) {
+        if ($routes->count() <= 0) {
             return null;
         }
 
@@ -112,18 +112,20 @@ abstract class PKPBaseController extends Controller
         if (!$requestedRoute = static::getRequestedRoute($request)) {
             return null;
         }
-        
+
         $calledRouteController = (new ReflectionFunction($requestedRoute->action['uses']))->getClosureThis();
 
-        // When the routes are added to router as a closure/callable from other section like from a 
+        // When the routes are added to router as a closure/callable from other section like from a
         // plugin through the hook, the resolved called route class may not be an instance of
-        // `PKPBaseController` and we need to resolve the current controller instance from 
+        // `PKPBaseController` and we need to resolve the current controller instance from
         // `APIHandler::getApiController` method
         if ($calledRouteController instanceof self) {
             return $calledRouteController;
         }
 
-        $apiHandler = Application::get()->getRequest()->getRouter()->getHandler(); /** @var \PKP\handler\APIHandler $apiHandler */
+        /** @var \PKP\handler\APIHandler $apiHandler */
+        $apiHandler = Application::get()->getRequest()->getRouter()->getHandler();
+
         return $apiHandler->getApiController();
     }
 
@@ -190,7 +192,7 @@ abstract class PKPBaseController extends Controller
      * Policies must be added in the authorize() method before the parent::authorize()
      * call so that PKPBaseController::authorize() will be able to enforce them.
      *
-     * @param bool                          $addToTop               Whether to insert the new policy to the top of the list.
+     * @param bool $addToTop Whether to insert the new policy to the top of the list.
      *
      */
     public function addPolicy(AuthorizationPolicy|PolicySet $authorizationPolicy, bool $addToTop = false): void
@@ -388,6 +390,11 @@ abstract class PKPBaseController extends Controller
             if (isset($queryParams[$parameterName])) {
                 return $queryParams[$parameterName];
             }
+
+            $inputs = $illuminateRequest->input();
+            if (isset($inputs[$parameterName])) {
+                return $inputs[$parameterName];
+            }
         }
 
         return $default;
@@ -576,5 +583,23 @@ abstract class PKPBaseController extends Controller
         }
 
         return true;
+    }
+
+    /**
+     * Format and returns paginated response data.
+     *
+     * @param LengthAwarePaginator $pagination - The object with paginated data and metadata.
+     *
+     */
+    public function formatPaginatedResponseData(LengthAwarePaginator $pagination): array
+    {
+        return [
+            'data' => $pagination->values(),
+            'total' => $pagination->total(),
+            'pagination' => [
+                'lastPage' => $pagination->lastPage(),
+                'currentPage' => $pagination->currentPage(),
+            ]
+        ];
     }
 }

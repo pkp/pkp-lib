@@ -1717,29 +1717,8 @@ msgstr "Disciplines"
 msgid "search.fullText"
 msgstr "Text complet"
 
-msgid "search.indexTerms"
-msgstr "Termes de l’índex"
-
-msgid "search.indexTermsLong"
-msgstr "Tots els camps de termes de l’índex"
-
-msgid "search.matchAll"
-msgstr "Coincidència a totes les categories"
-
 msgid "search.noResults"
 msgstr "No hi ha resultats"
-
-msgid "search.operator.and"
-msgstr "i"
-
-msgid "search.operator.not"
-msgstr "no"
-
-msgid "search.operator.or"
-msgstr "o"
-
-msgid "search.SearchFor"
-msgstr "Cercar"
 
 msgid "search.searchResults"
 msgstr "Resultats de la cerca"
@@ -1970,6 +1949,7 @@ msgstr "Estat de la ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resum de l'informe d'estadístiques."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Us recordem amablement que comproveu la salut de la vostra revista "

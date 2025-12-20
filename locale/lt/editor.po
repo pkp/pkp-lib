@@ -1,0 +1,673 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"editor/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Pasirinktas dalyvis šiam etapui nepriskiriamas."
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Vidutiniškai reikia pateikti recenziją per (dienos)"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Jei recenzentas susisieks su jumis el. paštu arba bet kokiu kitu būdu, "
+"galite užfiksuoti jų atsakymą už juos"
+
+msgid "editor.review.download"
+msgstr "Atsisiųsti atsiliepimo formą"
+
+msgid "editor.review.authorOnly"
+msgstr "Rodomi tik autoriui skirti skyriai"
+
+msgid "editor.review.allSections"
+msgstr "Redaktoriaus formoje rodomi visi atsiliepimų skyriai"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Ar tikrai norite visam laikui ištrinti šį pateikimą?"
+
+msgid "editor.activityLog"
+msgstr "Veiklos žurnalas"
+
+msgid "editor.submissionLibrary"
+msgstr "Straipsnių biblioteka"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Sprendimas užregistruotas"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Pateikimas atmestas."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Pateikimas priimtas."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Pateikimas paskelbtas."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Išsiųsta naujam peržiūros etapui."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Išsiųsta į gamybą."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Pateikimas priimtas peržiūrai."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Keisti sprendimą"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Jūs neturite leidimo įrašyti šio sprendimo šiame pateiktame dokumente."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Redaktorius nebuvo atpažintas ir gali neturėti leidimo įrašyti sprendimo dėl "
+"šio pateikimo."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Negalite siųsti el. laiško šiems gavėjams: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Šio peržiūros etapo rasti nepavyko."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Buvo numatytas peržiūros etapas, tačiau šis sprendimas peržiūros etape "
+"nepriimamas."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Šis peržiūros etapas nėra šio pateikimo dalis."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Pateikimas nėra tinkamame darbo eigos etape, kad būtų galima priimti šį "
+"sprendimą."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Kad galėtumėte užregistruoti redakcinį sprendimą, turite būti priskirtas "
+"šiam pateikimui."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Norint priimti šį sprendimą, reikia pateikti peržiūros etapo ID."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Rekomendacijos pateikti negalima, nebent šiam etapui būtų paskirtas "
+"redaktorius, galintis priimti galutinį sprendimą."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Dėl šio pateikimo sprendimo priimti nepavyko. Pateikimo ID nėra arba jis "
+"neatitinka prašomo pateikimo."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Šio sprendimo nerasta. Pateikite atpažįstamą sprendimo tipą."
+
+msgid "editor.review.notInitiated"
+msgstr "Recenzuoti nepradėta."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Pranešimas vartotojui"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Pažymėkite žemiau pateiktus failus, kuriuos norite siųsti recenzuoti."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr ""
+"Turite pasirinkti mažiausiai vieną dokumentą, kad galėtumėte paskirti "
+"vartotoją."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Reikia įtraukti asmeninį pranešimą."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Nesiųsti elektroninio laiško tikrintojui"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Reikia nurodyti vartotoją, kurį norite pasirinkti."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Įkelti arba pasirinkti failus"
+
+msgid "editor.submission.selectFiles"
+msgstr "Pasirinkti failus"
+
+msgid "editor.submission.revisions"
+msgstr "Taisymai"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Norėdami pakviesti skaitytojus recenzuoti straipsnį, paspauskite <em>+"
+"Pridėti recenzentą</em>. Bloknoto piktograma pažymi, kad recenzija pateikta "
+"ir po konsultacijų gali būti pažymėta kaip <em>pripažinta</em>. Šalia "
+"vėluojančių recenzijų atsiranda raudona voko ikona, aoie tai primenanti "
+"recenzentams."
+
+msgid "editor.submission.addReviewer"
+msgstr "Pridėti recenzentą"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Pasirinkite recenzentą iš recenzentų pasiūlymų"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Rasti recenzentą"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Rasti vartotoją"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Rodyti failus iš visų prieinamų darbo eigos etapų."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Dabartiniai recenzijos failai {$round} recenzavimui"
+
+msgid "editor.submission.backToSearch"
+msgstr "Grįžti į paiešką"
+
+msgid "editor.review.createReviewer"
+msgstr "Sukurti naują recenzentą"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Įtraukti esamą vartotoją"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Atšaukti recenzentą"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Atšaukti apžvalgininką"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Atkurti recenzentą"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Persiųsti peržiūros užklausą iš naujo"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Recenzavimo tipas"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Pranešti autoriui (-iams) elektroniniu paštu: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Pranešti redaktoriui (-iams) elektroniniu paštu: {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Nepranešti"
+
+msgid "editor.submissionReview.open"
+msgstr "Viešas recenzavimas"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Anoniminis recenzentas / Atskleistas autorius"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Anoniminis recenzentas / Anoniminis autorius"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Recenzuotini failai"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Užverti failų pasirinkimą"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Taisyti"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Anoniminis recenzentas"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Elektroninis laiškas recenzentui"
+
+msgid "editor.review.importantDates"
+msgstr "Svarbios datos"
+
+msgid "editor.review.importantDates.notice"
+msgstr "Peržiūros terminas turi būti vėlesnis arba lygus atsakymo terminui."
+
+msgid "editor.review.uploadRevision"
+msgstr "Įkelti pataisymus"
+
+msgid "editor.review.newReviewRound"
+msgstr "Reikia pakartotinio recenzavimo"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Pataisymai nebus peržiūrimi naujo recenzavimo raundo metu."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Pataisymai bus peržiūrimi naujo recenzavimo raundo metu."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Pataisymams neturėtų būti taikomas naujas kolegialus vertinimas."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
+"Pataisymai turėtų būti vertinami pakartotinai atliekant tarpusavio "
+"vertinimus."
+
+msgid "editor.review.dateAccepted"
+msgstr "Recenzijos priėmimo data"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Recenzijos pridėtos prie pranešimo."
+
+msgid "editor.review.noReviews"
+msgstr "Nėra recenzijų, kurias būtų galima importuoti"
+
+msgid "editor.review.reminder"
+msgstr "Priminimas dėl recenzijos"
+
+msgid "editor.review.thankReviewer"
+msgstr "Padėkoti recenzentui"
+
+msgid "editor.review.reminderError"
+msgstr "Įvyko klaida siunčiant priminimą dėl recenzijos"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Įvyko klaida siunčiant padėką recenzentui"
+
+msgid "editor.review.skipEmail"
+msgstr "Nesiųsti elektroninio laiško recenzentui."
+
+msgid "editor.review.sendReminder"
+msgstr "Siųsti priminimą"
+
+msgid "editor.review.readReview"
+msgstr "Skaityti recenziją"
+
+msgid "editor.review.readNewReview"
+msgstr "Skaityti naują recenziją"
+
+msgid "editor.review.responseDue"
+msgstr "Atsakyti iki: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Prašymas išsiųstas"
+
+msgid "editor.review.requestAccepted"
+msgstr "Prašymas priimtas"
+
+msgid "editor.review.requestDeclined"
+msgstr "Prašymas atmestas"
+
+msgid "editor.review.requestCancelled"
+msgstr "Užklausa atšaukta"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzentas atmetė šį prašymą recenzuoti."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktorius atšaukė šią peržiūros užklausą."
+
+msgid "editor.review.revertDecision"
+msgstr "Atšaukti sprendimą"
+
+msgid "editor.review.reviewDue"
+msgstr "Recenziją pateikti iki: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Recenziją pateikti iki"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Recenzija užbaigta"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Recenzija patvirtinta"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Recenzija pateikta"
+
+msgid "editor.review.reviewViewed"
+msgstr "Peržiūrėta apžvalga"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzentas padėkojo"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Prašymas išsiųstas iš naujo"
+
+msgid "editor.review.reviewerComments"
+msgstr "Recenzento komentarai"
+
+msgid "editor.review.rateReviewer"
+msgstr "Recenzento vertinimas"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Įvertinkite pateiktos recenzijos kokybę. Šiuo vertinimu nebus pasidalinta su "
+"recenzentu."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Nėra vertinimo"
+
+msgid "editor.review.mustSelect"
+msgstr "Turite nurodyti recenzentą"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Įvyko klaida skiriant recenzentą. Pabandykite dar kartą."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Pridedant recenzentą įvyko klaida, nes peržiūros terminas turi būti lygus "
+"arba vėlesnis už atsakymo terminą."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Įvyko klaida trinant recenzentą. Pabandykite dar kartą."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Atkuriant recenzento vardą įvyko klaida. Bandykite dar kartą."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Prašydami recenzento persvarstyti kvietimą peržiūrėti, įvyko klaida. "
+"Bandykite dar kartą."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Įtraukti vartotoją į šią recenzentų grupę"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Ar norite pažymėti šią recenziją kaip nesvarstytiną? Recenzavimo istorija "
+"bus išsaugota."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Nesvarstyti šios recenzijos"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Kai recenzija bus perskaityta, spauskite „Patvirtinti“. Taip patvirtinsite, "
+"kad recenzavimo procesas būtų tęsiamas. Jei recenzentas recenziją pateikė "
+"kitur, įkelkite dokumentą ir spaustkite „Patvirtinti“. Tik taip galėsite "
+"tęsti."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Diskusijos su pasirinktais dalyviais negalima kurti, nes tai paveiktų "
+"peržiūros proceso anonimiškumą."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Publikavimo grafikas"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Kalbos redagavimo failai"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Nurodyti recenzentą"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Atlikti užduotį iki"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Užduočių planas"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Įtraukti esamą vartotoją kaip recenzentą"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Šio dokumento neprašyta patikrinti"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Vartotojui reikia išsiųsti elektroninį laišką"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Priminimas dėl pataisymų"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Norint siųsti failą į leidybą reikia patvirtinti suredaguotą failą. Ar "
+"norite jį patvirtinti?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Pašalinus šio redaguoto failo patvirtinimą, jo nebebus galima siųsti "
+"produkcijai. Ar norite pašalinti jo patvirtinimą?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Priskirti tikrintoją"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Į bet kurį straipsnio teikimo etapą įkelti failai gali būti pateikti "
+"redaguojamų failų sąraše, pažymint žemiau esantį pasirinkimą „įtraukti“ ir "
+"paspaudžiant „ieškoti“: visi pasiekiami failai bus pateikti sąraše bei "
+"pasirinkti įtraukti. Dar neįtraukti failai gali būti įtraukiami į sąrašą "
+"paspaudžiant failo įkėlimo nuorodą."
+
+msgid "editor.review"
+msgstr "Recenzija"
+
+msgid "editor.review.reviewDetails"
+msgstr "Informacija apie recenziją"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Nėra įkeltų failų"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Neįkėlėte jokių recenzijos failų."
+
+msgid "editor.review.emailReviewer"
+msgstr "Siųsti elektroninį laišką recenzentui"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Parengti leidybai failai"
+
+msgid "editor.submission.newRound"
+msgstr "Recenzuoti dar kartą"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Registruoti redakcijos sprendimą"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Registruoti redaktoriaus rekomendacijas"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Pranešti redaktoriams"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Nesiųsti elektroninio laiško redaktoriams."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Sukurkite recenzavimo diskusiją apie šį rekomendavimą."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Nesukurkite recenzavimo diskusijos."
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Jūs ketinate šį straipsnį recenzuoti dar kartą. Anksčiau recenzuojant "
+"nenaudoti failai pateikiami žemiau."
+
+msgid "editor.submission.createNewRound"
+msgstr "Recenzuoti dar kartą"
+
+msgid "editor.submission.search"
+msgstr "Ieškoti pateiktų failų, ID, autorių, raktinių žodžių ir kt."
+
+msgid "editor.submission.days"
+msgstr "Dienos"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dienos scenoje"
+
+msgid "editor.submission.viewSummary"
+msgstr "Santrauka"
+
+msgid "editor.article.reviewForms"
+msgstr "Recenzijų formos"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Pasirinkti recenzijų formas"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Įspėjimas: pakeitus recenzavimo formą bus paveikti visi recenzentų pateikti "
+"atsakymai naudojant šią formą. Ar tikrai norite tęsti?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Niekas nepasirinkta"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Nepasirinkote jokių failų recenzentui recenzuoti."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Reikia pateikti diskusijos temą."
+
+msgid "submission.queries.messageRequired"
+msgstr "Reikia pateikti diskusijos pranešimą."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Pridėti failai"
+
+msgid "grid.action.editQuery"
+msgstr "Taisyti diskusiją"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Prie šios diskusijos galima pridėti failus iš žemiau esančio sąrašo."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Nurodytas recenzentas"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Patvirtinti pataisymus"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Panaikinti patvirtintus pataisymus"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Patvirtinti šiuos pataisymus, kad nurodytumėte, jog korektūra baigta ir "
+"failas parengtas publikavimui."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Panaikinti šiuos patvirtintus pataisymus, kad nurodytumėte, jog korektūra "
+"nebėra baigta ir failas neparengtas publikavimui."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Ar tikrai norite atšaukti sprendimą atmesti šį pateikimą?"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Viešasis identifikatorius „{$publicIdentifier}“ negali būti skaičius."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Šablonas „{$pattern}“ negali būti naudojamas viešajam identifikatoriui."
+
+msgid "reviewer.list.filterRating"
+msgstr "Įvertintas mažiausiai"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktyvūs"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Aktyvios recenzijos šiuo metu paskirtos"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Šis recenzentas baigė recenziją paskutiniame etape."
+
+msgid "reviewer.list.completedReviews"
+msgstr "Recenzuoti pabaigta"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Prašymai recenzuoti atmesti"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Peržiūros užklausos atšauktos"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Recenzento vertinimas: {$rating}"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Ta pati institucija kaip ir autorius"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Prieš {$days} dienų"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Vakar"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Paskutinė recenzija paskirta prieš (dienos)"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Niekada nepaskirta"
+
+msgid "reviewer.list.reassign"
+msgstr "Perskirstyti"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Priskirti {$name} iš naujo"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Šis (-i) recenzentas (-ė) užblokuotas (-a), nes jam (-ai) priskirtas "
+"vaidmuo, leidžiantis matyti autoriaus tapatybę. Nėra galimybės užtikrinti "
+"anoniminį recenzavimą. Ar vis tiek norite atblokuoti šį (-ią) recenzentą "
+"(-ę)?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Atblokuoti"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Recenzuojamos sritys"
+
+msgid "reviewer.list.biography"
+msgstr "Biografija"
+
+msgid "reviewer.list.empty"
+msgstr "Nerasta recenzentų"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Priskirta ankstesniam etapui"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Atšaukti sprendimą"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Ar tikrai norite atšaukti šį sprendimą?"
+
+msgid "editor.decision.completeSteps"
+msgstr "Norėdami priimti šį sprendimą, atlikite šiuos veiksmus"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Nepraleiskite šio el. laiško"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Šis žingsnis praleistas ir el. laiškas nebus išsiųstas."
+
+msgid "editor.decision.recordDecision"
+msgstr "Įrašyti sprendimą"
+
+msgid "editor.decision.skipEmail"
+msgstr "Praleisti šį el. laišką"
+
+msgid "editor.decision.stepError"
+msgstr "Iškilo problema su žingsniu „{$stepName}“."
+
+msgid "editor.review.logResponse.for"
+msgstr "Žurnalo atsakymas"
+
+msgid "editor.review.logResponse"
+msgstr "Žurnalo atsakymas"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Turi būti pasirinktas atsakymas"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzentas priėmė kvietimą peržiūrėti"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzentas atmetė kvietimą peržiūrėti"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Įrašykite atsakymą recenzento vardu"

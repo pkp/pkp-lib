@@ -129,7 +129,7 @@ class SectionController extends PKPBaseController
             switch ($param) {
                 case 'typeIds':
                     $collector->filterByTypeIds(
-                        array_map('intval', paramToArray($val))
+                        array_map(intval(...), paramToArray($val))
                     );
                     break;
                 case 'count':

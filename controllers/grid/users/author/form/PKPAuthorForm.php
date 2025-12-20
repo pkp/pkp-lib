@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/form/PKPAuthorForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorForm
@@ -21,11 +21,15 @@ namespace PKP\controllers\grid\users\author\form;
 use APP\author\Author;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
+use PKP\affiliation\Affiliation;
+use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
+use PKP\userGroup\UserGroup;
 
 class PKPAuthorForm extends Form
 {
@@ -61,6 +65,7 @@ class PKPAuthorForm extends Form
             }
             return true;
         }));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'affiliation', 'optional', 'user.profile.form.affiliationRequired.locale', $this->defaultLocale));
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'submission.submit.form.contributorRoleRequired'));
@@ -127,7 +132,7 @@ class PKPAuthorForm extends Form
                 'givenName' => $author->getGivenName(null),
                 'familyName' => $author->getFamilyName(null),
                 'preferredPublicName' => $author->getPreferredPublicName(null),
-                'affiliation' => $author->getAffiliation(null),
+                'affiliation' => $this->getFormFieldFromAffiliation(current($author->getAffiliations())), // in this form only used by the QuickSubmitPlugin author has only one affiliation
                 'country' => $author->getCountry(),
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),
@@ -153,7 +158,7 @@ class PKPAuthorForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $context = $request->getContext();
-        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId());
+        $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds($context->getId())->get();
         $publication = $this->getPublication();
         $countries = [];
         foreach (Locale::getCountries() as $country) {
@@ -222,10 +227,11 @@ class PKPAuthorForm extends Form
             }
         }
 
-        $author->setGivenName(array_map('trim', $this->getData('givenName')), null);
+        $author->setGivenName(array_map(trim(...), $this->getData('givenName')), null);
         $author->setFamilyName($this->getData('familyName'), null);
         $author->setPreferredPublicName($this->getData('preferredPublicName'), null);
-        $author->setAffiliation($this->getData('affiliation'), null); // localized
+        $newAffiliation = $this->getAffiliationFromFormField($this->getData('affiliation'), $submission, $context);
+        $author->setAffiliations($newAffiliation ? [$newAffiliation] : []);
         $author->setCountry($this->getData('country'));
         $author->setEmail($this->getData('email'));
         $author->setUrl($this->getData('userUrl'));
@@ -263,5 +269,43 @@ class PKPAuthorForm extends Form
             $publication = Repo::publication()->edit($publication, []);
         }
         return $authorId;
+    }
+
+    /**
+     * Get this affiliation form field value (as array($locale => $name)) from author affiliation
+     */
+    protected function getFormFieldFromAffiliation(Affiliation $affiliation): array
+    {
+        $publication = $this->getPublication(); /** @var Publication $publication */
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $context = app()->get('context')->get($submission->getData('contextId'));
+
+        $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
+        return $affiliation->getAffiliationName(null, $allowedLocales);
+    }
+
+    /**
+     * Get author affiliation from this affiliation form field.
+     */
+    protected function getAffiliationFromFormField(array $oldAffiliation, Submission $submission, Context $context): ?Affiliation
+    {
+        $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
+
+        $affiliation = Repo::affiliation()->newDataObject();
+        foreach ($oldAffiliation as $locale => $name) {
+            $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
+            if ($ror) {
+                $affiliation->setRor($ror->getRor());
+                break;
+            } else {
+                if (in_array($locale, $allowedLocales)) {
+                    $affiliation->setName($name, $locale);
+                }
+            }
+        }
+        if ($affiliation->getRor()) {
+            $affiliation->setName(null);
+        }
+        return ($affiliation->getRor() || $affiliation->getName()) ? $affiliation : null;
     }
 }

@@ -56,7 +56,8 @@ class LanguageGridRow extends GridRow
                                 $request->getSession(),
                                 __('admin.languages.confirmUninstall'),
                                 __('grid.action.remove'),
-                                $router->url($request, null, null, 'uninstallLocale', null, $actionArgs)
+                                $router->url($request, null, null, 'uninstallLocale', null, $actionArgs),
+                                'negative'
                             ),
                             __('grid.action.remove'),
                             'delete'
@@ -71,7 +72,8 @@ class LanguageGridRow extends GridRow
                                 $request->getSession(),
                                 __('manager.language.confirmDefaultSettingsOverwrite'),
                                 __('manager.language.reloadLocalizedDefaultSettings'),
-                                $router->url($request, null, null, 'reloadLocale', null, $actionArgs)
+                                $router->url($request, null, null, 'reloadLocale', null, $actionArgs),
+                                'primary'
                             ),
                             __('manager.language.reloadLocalizedDefaultSettings')
                         )

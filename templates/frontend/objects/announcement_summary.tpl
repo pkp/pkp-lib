@@ -14,31 +14,31 @@
 	{assign var="heading" value="h2"}
 {/if}
 
-<article class="obj_announcement_summary{if $announcement->getImage()} obj_announcement_summary_has_image{/if}">
-	{if $announcement->getImage()}
+<article class="obj_announcement_summary{if $announcement->image} obj_announcement_summary_has_image{/if}">
+	{if $announcement->image}
 		<img
 			class="obj_announcement_summary_image"
-			src="{$announcement->getImageUrl()}"
-			alt="{$announcement->getImageAltText()}"
+			src="{$announcement->imageUrl}"
+			alt="{$announcement->imageAltText}"
 		/>
 	{/if}
 	<div class="obj_announcement_summary_details">
 		<{$heading}>
-			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
-				{$announcement->getLocalizedTitle()|escape}
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
+				{$announcement->getLocalizedData('title')|escape}
 			</a>
 		</{$heading}>
 		<div class="date">
-			{$announcement->getDatePosted()|date_format:$dateFormatShort}
+			{$announcement->datePosted->format($dateFormatShort)}
 		</div>
 		<div class="summary">
-			{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
+			{$announcement->getLocalizedData('descriptionShort')|strip_unsafe_html}
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}" class="read_more">
 				<span aria-hidden="true" role="presentation">
 					{translate key="common.readMore"}
 				</span>
 				<span class="pkp_screen_reader">
-					{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
+					{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedData('title')|escape}
 				</span>
 			</a>
 		</div>

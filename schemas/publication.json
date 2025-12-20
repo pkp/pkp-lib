@@ -20,6 +20,13 @@
 				"nullable"
 			]
 		},
+		"plainLanguageSummary": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"authors": {
 			"type": "array",
 			"description": "A list of the authors for this publication.",
@@ -49,6 +56,7 @@
 		"categoryIds": {
 			"type": "array",
 			"apiSummary": true,
+			"readOnly": true,
 			"items": {
 				"type": "integer"
 			}
@@ -58,12 +66,14 @@
 			"description": "Optional metadata that contains an array of references for works cited in this submission. References have been split and parsed from the raw text.",
 			"readOnly": true,
 			"items": {
-				"type": "string"
+				"type": "object",
+				"$ref": "#/definitions/Citation"
 			}
 		},
 		"citationsRaw": {
 			"type": "string",
 			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
+			"readOnly": true,
 			"validation": [
 				"nullable"
 			]
@@ -117,6 +127,14 @@
 				}
 			}
 		},
+		"createdAt": {
+			"type": "string",
+			"description": "The timestamp when this publication was created.",
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
 		"dataAvailability": {
 			"type": "string",
 			"description": "Optional metadata that describes whether the author(s) have made their data available and, if so, where readers may access it.",
@@ -141,7 +159,24 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
 		},
 		"doiObject": {
@@ -179,7 +214,24 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
 		},
 		"lastModified": {
@@ -247,6 +299,14 @@
 				"nullable"
 			]
 		},
+		"sourcePublicationId": {
+			"type": "integer",
+			"description": "The ID of another publication that this one is derived from. Used to reference the source publication when creating versions.",
+			"validation": [
+				"nullable"
+			],
+			"apiSummary": true
+		},
 		"subjects": {
 			"type": "array",
 			"description": "Optional metadata that consists of keywords, key phrases or classification codes that describe the submission's topics.",
@@ -255,7 +315,24 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
 		},
 		"submissionId": {
@@ -280,17 +357,25 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
-		},
-		"status": {
-			"type": "integer",
-			"description": "Whether the publication is Queued (not yet scheduled for publication), Declined, Published or Scheduled (scheduled for publication at a future date). One of the `PKPSubmission::STATUS_*` constants. Default is `PKPSubmission::STATUS_QUEUED`.",
-			"apiSummary": true,
-			"default": 1,
-			"validation": [
-				"in:1,3,4,5"
-			]
 		},
 		"title": {
 			"type": "string",
@@ -324,13 +409,35 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
-		"version": {
+		"versionMajor": {
 			"type": "integer",
-			"description": "The version number of this publication. Version numbers should increment by one so that the third publication of a submission will have the version number `3`. Version numbers should typically be set automatically and editorial staff should not be encouraged to modify them.",
+			"description": "The major part of the version of a publication given the major.minor notation of the version",
 			"apiSummary": true,
 			"validation": [
 				"min:1"
 			]
+		},
+		"versionMinor": {
+			"type": "integer",
+			"description": "The minor part of the version of a publication given the major.minor notation of the version",
+			"apiSummary": true,
+			"validation": [
+				"min:0"
+			]
+		},
+		"versionStage": {
+			"type": "string",
+			"description": "The version stage as given in VersionStage enumeration",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"versionString": {
+			"type": "string",
+			"description": "The calculated display string of the version of this publication",
+			"apiSummary": true,
+			"readOnly": true
 		}
 	}
 }

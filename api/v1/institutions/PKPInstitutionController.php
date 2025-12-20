@@ -251,6 +251,6 @@ class PKPInstitutionController extends PKPBaseController
      */
     protected function convertIpToArray(string $ipString): array
     {
-        return array_map('trim', explode(PHP_EOL, trim($ipString)));
+        return array_map(trim(...), explode(PHP_EOL, trim($ipString)));
     }
 }

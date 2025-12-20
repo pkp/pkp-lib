@@ -55,7 +55,7 @@ class Dispatcher
      *
      * @return array an array of Router names
      */
-    public function &getRouterNames(): array
+    public function getRouterNames(): array
     {
         return $this->_routerNames;
     }
@@ -96,7 +96,6 @@ class Dispatcher
     {
         // Make sure that we have at least one router configured
         $routerNames = $this->getRouterNames();
-        assert(count($routerNames) > 0);
 
         // Go through all configured routers by priority
         // and find out whether one supports the incoming request
@@ -300,18 +299,4 @@ class Dispatcher
         }
         return $contents;
     }
-
-    /**
-     * Handle a 404 error (page not found).
-     */
-    public static function handle404()
-    {
-        header('HTTP/1.0 404 Not Found');
-        echo "<h1>404 Not Found</h1>\n";
-        exit;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\Dispatcher', '\Dispatcher');
 }

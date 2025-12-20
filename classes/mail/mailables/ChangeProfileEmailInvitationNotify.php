@@ -16,13 +16,11 @@
 
 namespace PKP\mail\mailables;
 
-use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
-use PKP\user\User;
 
 class ChangeProfileEmailInvitationNotify extends Mailable
 {

@@ -84,6 +84,30 @@ msgstr "View Announcement"
 msgid "common.allDownloads"
 msgstr "All Downloads"
 
+msgid "common.closed"
+msgstr "Closed"
+
+msgid "common.createdBy"
+msgstr "Created by"
+
+msgid "common.dueDate"
+msgstr "Due Date"
+
+msgid "common.history"
+msgstr "History"
+
+msgid "common.me"
+msgstr "Me"
+
+msgid "common.new"
+msgstr "New"
+
+msgid "common.startDate"
+msgstr "Start Date"
+
+msgid "common.yetToBegin"
+msgstr "Yet to begin"
+
 msgid "common.navigation.sidebar"
 msgstr "Sidebar"
 
@@ -124,6 +148,9 @@ msgstr "Action"
 msgid "common.moreActions"
 msgstr "More Actions"
 
+msgid "common.months"
+msgstr "months"
+
 msgid "common.activate"
 msgstr "Activate"
 
@@ -158,7 +185,10 @@ msgid "common.editorialMasthead"
 msgstr "Editorial Masthead"
 
 msgid "common.editorialMasthead.peerReviewers"
-msgstr "Peer Reviewers"
+msgstr "Peer Reviewers in Previous Year"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Peer Reviewers in Past Years"
 
 msgid "common.editorialMasthead.peerReviewers.description"
 msgstr "The editors express their appreciation of the reviewers for {$year} listed below."
@@ -171,6 +201,9 @@ msgstr "Editorial History Page"
 
 msgid "common.editorialHistory.page.description"
 msgstr "This section lists past contributors."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "View {$name} ORCID profile"
 
 msgid "common.name"
 msgstr "Name"
@@ -213,6 +246,9 @@ msgstr "Assigned"
 msgid "common.assigned.date"
 msgstr "Assigned: {$dateAssigned}"
 
+msgid "common.assignments"
+msgstr "Assignments"
+
 msgid "common.available"
 msgstr "Available"
 
@@ -230,6 +266,9 @@ msgstr "Cancelled"
 
 msgid "common.warning"
 msgstr "Warning"
+
+msgid "common.weeks"
+msgstr "weeks"
 
 msgid "common.error"
 msgstr "Error"
@@ -274,6 +313,9 @@ msgstr ""
 msgid "common.changesSaved"
 msgstr "Your changes have been saved."
 
+msgid "common.changeLanguage"
+msgstr "Change Language"
+
 msgid "common.chooseOne"
 msgstr "Choose One"
 
@@ -309,6 +351,9 @@ msgstr "Contents"
 
 msgid "common.continue"
 msgstr "Continue"
+
+msgid "common.yesContinue"
+msgstr "Yes, Continue"
 
 msgid "common.copy"
 msgstr "Copy"
@@ -357,6 +402,9 @@ msgstr "Declined"
 
 msgid "common.delete"
 msgstr "Delete"
+
+msgid "common.deleteAll"
+msgstr "Delete All"
 
 msgid "common.deleting"
 msgstr "Deleting"
@@ -697,6 +745,12 @@ msgstr "or"
 msgid "common.other"
 msgstr "Other"
 
+msgid "common.oneWeek"
+msgstr "1 week"
+
+msgid "common.oneMonth"
+msgstr "1 month"
+
 msgid "common.overdue"
 msgstr "Overdue"
 
@@ -803,7 +857,7 @@ msgid "common.replaceFile"
 msgstr "Replace file"
 
 msgid "common.requiredField"
-msgstr "Required fields are marked with an asterisk: <abbr class="required" title="required">*</abbr>"
+msgstr "Required fields are marked with an asterisk: <abbr class=\"required\" title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Required"
@@ -1261,6 +1315,12 @@ msgstr "Please correct one error."
 msgid "form.errorMany"
 msgstr "Please correct {$count} errors."
 
+msgid "form.errorSummaryOne"
+msgstr "1 error detected! Please correct the error below before proceeding."
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} errors detected! Please correct the errors below before proceeding."
+
 msgid "form.errors"
 msgstr ""
 "The form was not saved because {$count} error(s) were encountered. Please "
@@ -1555,6 +1615,9 @@ msgstr "Search"
 msgid "navigation.settings"
 msgstr "Settings"
 
+msgid "navigation.content"
+msgstr "Content"
+
 msgid "navigation.setup"
 msgstr "Setup"
 
@@ -1583,13 +1646,14 @@ msgid "navigation.submissions"
 msgstr "Submissions"
 
 msgid "navigation.dashboards"
-msgstr "Dashboards"
+msgstr "Editor Dashboard"
+
 
 msgid "navigation.reviewAssignments"
-msgstr "Review Assignments"
+msgstr "My Assignments as Reviewer"
 
 msgid "navigation.mySubmissions"
-msgstr "My Submissions"
+msgstr "My Submissions as Author"
 
 msgid "navigation.system"
 msgstr "System"
@@ -1751,29 +1815,8 @@ msgstr "Disciplines"
 msgid "search.fullText"
 msgstr "Full Text"
 
-msgid "search.indexTerms"
-msgstr "Index terms"
-
-msgid "search.indexTermsLong"
-msgstr "All index term fields"
-
-msgid "search.matchAll"
-msgstr "Match all categories"
-
 msgid "search.noResults"
 msgstr "No Results"
-
-msgid "search.operator.and"
-msgstr "and"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Search for"
 
 msgid "search.searchResults"
 msgstr "Search Results"
@@ -1853,7 +1896,7 @@ msgstr ""
 "<li>Click Protect Document</li>\n"
 "<li>Select Remove personal information for this file on save</li>\n"
 "<li>Click OK and save the file</li></ul></li>\n"
-"<li>PDF:\n"
+"<li>Adobe Acrobat (PDF):\n"
 "<ul><li>Go to File</li>\n"
 "<li>Select Properties</li>\n"
 "<li>Remove any name in the author field</li>\n"
@@ -1969,6 +2012,9 @@ msgstr "Invalid review round."
 msgid "user.authorization.invalidQuery"
 msgstr "Invalid discussion."
 
+msgid "user.authorization.invalidTask"
+msgstr "Invalid task."
+
 msgid "user.authorization.unauthorizedNote"
 msgstr "You do not have access to this discussion message."
 
@@ -2009,32 +2055,32 @@ msgstr "Statistics report summary."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"This is a kind reminder for you to check your journal's health through the "
+"This is a kind reminder for you to check your publication's health through the "
 "editorial report."
 
 msgid "notification.type.editorialReminder"
 msgstr "Weekly email of outstanding tasks"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Navigation menu item was succesfully updated"
+msgstr "Navigation menu item was successfully updated"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Navigation menu item was succesfully removed"
+msgstr "Navigation menu item was successfully removed"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Navigation menu item was succesfully added"
+msgstr "Navigation menu item was successfully added"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Navigation menu was succesfully added"
+msgstr "Navigation menu was successfully added"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Navigation menu was succesfully updated"
+msgstr "Navigation menu was successfully updated"
 
 msgid "notification.removedNavigationMenu"
-msgstr "Navigation menu was succesfully removed"
+msgstr "Navigation menu was successfully removed"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "You have been unsubscribed"
@@ -2085,6 +2131,12 @@ msgstr "Expand all"
 
 msgid "list.collapseAll"
 msgstr "Collapse all"
+
+msgid "list.expand"
+msgstr "Expand"
+
+msgid "list.collapse"
+msgstr "Collapse"
 
 msgid "showAll"
 msgstr "Show All"
@@ -2307,6 +2359,9 @@ msgstr "No new line allowed."
 msgid "validator.allowable_title_html_tags"
 msgstr "Only [{$tags}] html tags are allowed."
 
+msgid "validator.multilingual"
+msgstr "Multilingual requirement does not fulfilled for this field."
+
 msgid "filter.input.error.notSupported"
 msgstr ""
 "Filter ({$displayName}) supports input {$inputTypeName} - {$typeofInput} "
@@ -2339,4 +2394,22 @@ msgid "common.sandbox"
 msgstr "Application running in sandbox mode."
 
 msgid "common.fromUntil"
-msgstr "{$from} - {$until}"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "No"
+
+msgid "common.refreshingData"
+msgstr "Refreshing data"
+
+msgid "common.viewMoreDetails"
+msgstr "View more details"
+
+msgid "workflow.userGroup.allowed"
+msgstr "Allowed User Groups"
+
+msgid "common.saveOrdering"
+msgstr "Save Order"
+
+msgid "common.order"
+msgstr "Order"

@@ -62,15 +62,6 @@ class Core
     }
 
     /**
-     * Return *nix timestamp with microseconds (in units of seconds).
-     */
-    public static function microtime(): float
-    {
-        [$usec, $sec] = explode(' ', microtime());
-        return (float)$sec + (float)$usec;
-    }
-
-    /**
      * Check if the server platform is Windows.
      */
     public static function isWindows(): bool
@@ -265,7 +256,7 @@ class Core
             // of contexts, eg.:
             // base_url[context1] = http://somesite.com/
             // base_url[context2] = http://somesite.com/context2
-            $sortedBaseUrls = array_combine($contextBaseUrls, array_map('strlen', $contextBaseUrls));
+            $sortedBaseUrls = array_combine($contextBaseUrls, array_map(strlen(...), $contextBaseUrls));
             arsort($sortedBaseUrls);
 
             foreach (array_keys($sortedBaseUrls) as $workingBaseUrl) {

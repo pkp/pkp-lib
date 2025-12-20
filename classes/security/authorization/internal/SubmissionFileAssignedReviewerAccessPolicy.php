@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileAssignedReviewerAccessPolicy.php
  *
@@ -33,7 +34,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 
@@ -84,8 +85,4 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
         // If a pass condition wasn't found above, deny access.
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileAssignedReviewerAccessPolicy', '\SubmissionFileAssignedReviewerAccessPolicy');
 }

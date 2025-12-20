@@ -1,11 +1,13 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2023.
+# Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "id/>\n"
 "Language: id\n"
@@ -13,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Tidak Ada Item"
@@ -94,7 +96,7 @@ msgid "grid.action.remove"
 msgstr "Hapus"
 
 msgid "grid.action.edit"
-msgstr "Edit"
+msgstr "Sunting"
 
 msgid "grid.action.approve"
 msgstr "Setujui"
@@ -362,7 +364,7 @@ msgid "grid.columns.url"
 msgstr "URL"
 
 msgid "grid.columns.auditor"
-msgstr "Auditor"
+msgstr "Pemeriksa"
 
 msgid "grid.columns.locale"
 msgstr "Bahasa"
@@ -511,10 +513,10 @@ msgid "grid.user.email"
 msgstr "Surel"
 
 msgid "grid.user.enable"
-msgstr "Aktifkan"
+msgstr "Aktifkan Pengguna"
 
 msgid "grid.user.disable"
-msgstr "Nonaktifkan"
+msgstr "Nonaktifkan Pengguna"
 
 msgid "grid.user.disableReason"
 msgstr "Alasan untuk menonaktifkan pengguna"
@@ -772,3 +774,34 @@ msgstr "Sunting Kontributor"
 
 #~ msgid "grid.chapters.title"
 #~ msgstr "Bab"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Menambahkan Saran Reviewer"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Menghapus Saran Reviewer"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Apakah anda yakin ingin menghapus saran ini? Kegiatan ini itidak dapat "
+"diulang."
+
+msgid "grid.user.logInAs"
+msgstr "Masuk Sebagai"
+
+msgid "grid.user.remove"
+msgstr "Menghapus Pengguna"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Saat pengguna diijinkan, mereka akan mendapatkan kembali akses pada situs "
+"ini, dan anda dapat mengundang mereka pada peran yang diinginkan."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Harap diperhatikan bahwa pada waktu seorang pengguna tidak di-nonaktifkan, "
+"anda tidak dapat menambahkan mereka pada peran manapun hingga pengguna "
+"diaktifkan kembali."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Tampil di Masthead"

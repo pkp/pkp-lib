@@ -27,9 +27,11 @@ use PKP\config\Config;
 use PKP\observers\events\MessageSendingFromContext;
 use PKP\observers\events\MessageSendingFromSite;
 use PKP\site\Site;
+use PKP\plugins\Hook;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Transport\TransportInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 
 class Mailer extends IlluminateMailer
@@ -76,7 +78,7 @@ class Mailer extends IlluminateMailer
         }
 
         if (!is_string($view)) {
-            throw new InvalidArgumentException('View must be instance of ' . Htmlable::class . ' or a string, ' . get_class($view) . ' is given');
+            throw new InvalidArgumentException('View must be instance of ' . Htmlable::class . ' or a string, ' . ($view === null ? 'null' : get_class($view)) . ' is given');
         }
 
         return $this->compileParams($view, $data);
@@ -115,7 +117,7 @@ class Mailer extends IlluminateMailer
     {
         if (is_a($view, Mailable::class)) {
             /** @var Mailable $view */
-            $view->setData();
+            $view->setData($view->getLocale());
         }
 
         // Application is set to sandbox mode and will send any emails to log
@@ -129,8 +131,8 @@ class Mailer extends IlluminateMailer
     /**
      * Overrides Illuminate Mailer method to provide additional parameters to the event
      *
-     * @param \Symfony\Component\Mime\Email  $message
-     * @param array $data
+     * @param \Symfony\Component\Mime\Email $message
+     * @param array                         $data
      *
      * @return bool
      */
@@ -156,8 +158,13 @@ class Mailer extends IlluminateMailer
      */
     protected function sendSymfonyMessage(Email $message)
     {
+        /* ---------- Key fix: Force rewrite From again before sending ---------- */
+        $this->setDmarcCompliantFrom($message);
+        /* -------------------------------------------------------------------- */
+
         $sentMessage = null;
         try {
+            Hook::call('Email::send::before', ['message' => $message, 'mailer' => $this]);
             $sentMessage = $this->transport->send($message, Envelope::create($message));
         } catch (TransportException $e) {
             error_log($e->getMessage());
@@ -211,9 +218,12 @@ class Mailer extends IlluminateMailer
 
     /**
      * Set DMARC compliant From header field body
+     *
+     * @param mixed $message Illuminate\Mail\Message | Symfony\Component\Mime\Email
      */
-    protected function setDmarcCompliantFrom(Message $message): void
+    protected function setDmarcCompliantFrom($message): void
     {
+        // (Keep if/early‑exit will skip in addContent stage, then forced by sendSymfonyMessage)
         if (empty($message->getFrom())) {
             return;
         }
@@ -230,32 +240,49 @@ class Mailer extends IlluminateMailer
     }
 
     /**
-     * If a DMARC compliant RFC5322.From was requested we need to promote the original RFC5322. From into a Reply-to header
-     * and then munge the RFC5322.From
+     * Promote original From into Reply‑To and rewrite From
+     *
+     * @param mixed $message Illuminate\Mail\Message | Symfony\Component\Mime\Email
      */
-    protected function promoteFromToReplyTo(Message $message): void
+    protected function promoteFromToReplyTo($message): void
     {
-        $replyToEmails = array_map(fn ($x) => $x->getAddress(), $message->getReplyTo());
-        $fromEmails = array_map(fn ($x) => $x->getAddress(), $message->getFrom());
+        /* --------- Uniformly extract existing addresses --------- */
+        $replyToEmails = array_map(fn($x) => $x->getAddress(), $message->getReplyTo());
+        $fromEmails    = array_map(fn($x) => $x->getAddress(), $message->getFrom());
         $alreadyExists = array_intersect($replyToEmails, $fromEmails);
+        /* ------------------------------------------------------- */
 
         foreach ($message->getFrom() as $address) {
             if (!in_array($address->getAddress(), $alreadyExists)) {
-                $message->addReplyTo($address);
+                if ($message instanceof Message) {
+                    $message->addReplyTo($address);
+                } else { // Symfony Email
+                    $current = $message->getReplyTo();
+                    $current[] = $address;
+                    $message->replyTo(...$current);
+                }
             }
         }
 
-        $site = Application::get()->getRequest()->getSite(); /** @var Site $site **/
+        /** @var Site $site */
+        $site = Application::get()->getRequest()->getSite();
         $dmarcFromName = '';
         if (Config::getVar('email', 'dmarc_compliant_from_displayname')) {
-            $patterns = ['#%n#', '#%s#'];
+            $patterns     = ['#%n#', '#%s#'];
             $replacements = [
-                implode(',', array_map(fn ($x) => $x->getName(), $message->getFrom())),
+                implode(',', array_map(fn($x) => $x->getName(), $message->getFrom())),
                 $site->getLocalizedData('title'),
             ];
             $dmarcFromName = preg_replace($patterns, $replacements, Config::getVar('email', 'dmarc_compliant_from_displayname'));
         }
 
-        $message->from(Config::getVar('email', 'default_envelope_sender'), $dmarcFromName);
+        $defaultAddress = Config::getVar('email', 'default_envelope_sender');
+
+        if ($message instanceof Message) {
+            $message->from($defaultAddress, $dmarcFromName);
+        } else { // Symfony Email
+            $symAddress = new Address($defaultAddress, $dmarcFromName);
+            $message->from($symAddress);
+        }
     }
 }

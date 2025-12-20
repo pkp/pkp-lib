@@ -1,0 +1,715 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/th/>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "grid.action.collapse"
+msgstr "ย่อ"
+
+msgid "grid.userGroup.removed"
+msgstr "บทบาท {$userGroupName} ถูกลบแล้ว"
+
+msgid "grid.noItems"
+msgstr "ไม่มีรายการ"
+
+msgid "grid.settings"
+msgstr "การตั้งค่า"
+
+msgid "grid.noAuditors"
+msgstr "ไม่มีผู้ตรวจสอบบัญชี"
+
+msgid "grid.remotelyHostedItem"
+msgstr "รายการนี้โฮสต์อยู่ระยะไกล"
+
+msgid "grid.action.uninstall"
+msgstr "ถอนการติดตั้ง"
+
+msgid "grid.action.manageAccess"
+msgstr "จัดการการเข้าถึง"
+
+msgid "grid.action.sort"
+msgstr "เรียงลำดับ"
+
+msgid "grid.action.addItem"
+msgstr "เพิ่มรายการ"
+
+msgid "grid.action.addNote"
+msgstr "เพิ่มบันทึก"
+
+msgid "grid.action.addQuery"
+msgstr "เพิ่มการสนทนา"
+
+msgid "grid.action.readQuery"
+msgstr "อ่านการสนทนา"
+
+msgid "grid.action.deleteQuery"
+msgstr "ลบการสนทนา"
+
+msgid "grid.action.updateQuery"
+msgstr "อัปเดตการสนทนา"
+
+msgid "grid.action.addUser"
+msgstr "เพิ่มผู้ใช้"
+
+msgid "grid.action.unassignReviewer"
+msgstr "ยกเลิกการมอบหมายผู้รีวิวนี้"
+
+msgid "grid.action.approveCopyedit"
+msgstr "อนุมัติไฟล์ที่แก้ไขนี้เพื่อนำไปยังขั้นตอนถัดไป"
+
+msgid "grid.action.reload"
+msgstr "โหลดใหม่"
+
+msgid "grid.action.delete"
+msgstr "ลบ"
+
+msgid "grid.action.deleteFile"
+msgstr "ลบไฟล์"
+
+msgid "grid.action.deleteMedia"
+msgstr "ลบสื่อ"
+
+msgid "grid.action.editMedia"
+msgstr "แก้ไขสื่อ"
+
+msgid "grid.action.editSection"
+msgstr "แก้ไขส่วน"
+
+msgid "grid.action.export"
+msgstr "ส่งออก"
+
+msgid "grid.action.deleteSection"
+msgstr "ลบส่วน"
+
+msgid "grid.action.editorialHistory"
+msgstr "ประวัติการบรรณาธิการ"
+
+msgid "grid.action.remove"
+msgstr "นำออก"
+
+msgid "grid.action.edit"
+msgstr "แก้ไข"
+
+msgid "grid.action.approve"
+msgstr "อนุมัติ"
+
+msgid "grid.action.disapprove"
+msgstr "ไม่อนุมัติ"
+
+msgid "grid.action.setApproval"
+msgstr "ตั้งค่าการอนุมัติ"
+
+msgid "grid.action.moreInformation"
+msgstr "ข้อมูลเพิ่มเติม"
+
+msgid "grid.action.restoreDefaults"
+msgstr "คืนค่าตั้งต้น"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "คุณแน่ใจหรือว่าต้องการคืนค่าตั้งต้น?"
+
+msgid "grid.action.addAuthor"
+msgstr "เพิ่มผู้เขียน"
+
+msgid "grid.action.editAuthor"
+msgstr "แก้ไขผู้เขียน"
+
+msgid "grid.action.deleteAuthor"
+msgstr "ลบผู้เขียน"
+
+msgid "grid.action.addAuditor"
+msgstr "เพิ่มผู้ตรวจสอบบัญชี"
+
+msgid "grid.action.upgrade"
+msgstr "อัปเกรด"
+
+msgid "grid.action.order"
+msgstr "จัดลำดับ"
+
+msgid "grid.action.saveOrdering"
+msgstr "บันทึกการจัดลำดับ"
+
+msgid "grid.action.cancelOrdering"
+msgstr "ยกเลิกการจัดลำดับ"
+
+msgid "grid.action.extendAll"
+msgstr "ขยายทั้งหมด"
+
+msgid "grid.action.collapseAll"
+msgstr "ย่อทั้งหมด"
+
+msgid "grid.action.wizard"
+msgstr "วิซาร์ดการตั้งค่า"
+
+msgid "grid.action.moveItem"
+msgstr "ย้ายรายการ"
+
+msgid "grid.action.downloadAll"
+msgstr "ดาวน์โหลดไฟล์ทั้งหมดในรูปแบบไฟล์อาร์ไคฟ์"
+
+msgid "grid.action.readReview"
+msgstr "อ่านการทบทวนนี้"
+
+msgid "grid.action.email"
+msgstr "ส่งอีเมล"
+
+msgid "grid.action.addReviewer"
+msgstr "เพิ่มผู้รีวิว"
+
+msgid "grid.action.addFile"
+msgstr "เพิ่มไฟล์"
+
+msgid "grid.action.editFile"
+msgstr "แก้ไขไฟล์"
+
+msgid "grid.action.selectFiles"
+msgstr "เลือกไฟล์เพื่อจัดการ"
+
+msgid "grid.action.requestRevisions"
+msgstr "ขอการแก้ไขสำหรับการส่งนี้"
+
+msgid "grid.action.accept"
+msgstr "ยอมรับการส่งนี้"
+
+msgid "grid.action.decline"
+msgstr "ปฏิเสธการส่งนี้"
+
+msgid "grid.action.internalReview"
+msgstr "ส่งการส่งนี้ไปยังการทบทวนภายใน"
+
+msgid "grid.action.externalReview"
+msgstr "ส่งการส่งนี้ไปยังการทบทวนภายนอก"
+
+msgid "grid.action.sendToProduction"
+msgstr "ส่งการส่งนี้ไปยังขั้นตอนการผลิต"
+
+msgid "grid.action.settings"
+msgstr "การตั้งค่า"
+
+msgid "grid.action.importexport"
+msgstr "นำเข้าและส่งออกเนื้อหาหรือข้อมูลเว็บไซต์"
+
+msgid "grid.action.orderItems"
+msgstr "เปิดใช้งานโหมดการจัดลำดับ"
+
+msgid "grid.action.resetAll"
+msgstr "รีเซ็ตทุกรายการกลับสู่ค่าตั้งต้น"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "เพิ่มแม่แบบอีเมลใหม่"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "แก้ไขแม่แบบอีเมลนี้"
+
+msgid "grid.action.disableEmail"
+msgstr "ปิดการใช้งานแม่แบบอีเมลนี้"
+
+msgid "grid.action.resetEmail"
+msgstr "รีเซ็ตแม่แบบอีเมลนี้เป็นค่าตั้งต้น"
+
+msgid "grid.action.expandAll"
+msgstr "ขยายทั้งหมด"
+
+msgid "grid.action.requestAccount"
+msgstr "เพิ่มผู้เข้าร่วม"
+
+msgid "grid.action.expand"
+msgstr "ขยาย"
+
+msgid "grid.action.notify"
+msgstr "แจ้งเตือนผู้ใช้นี้"
+
+msgid "grid.action.addUserGroup"
+msgstr "เพิ่มกลุ่มผู้ใช้ใหม่"
+
+msgid "grid.action.editUserGroup"
+msgstr "แก้ไขกลุ่มผู้ใช้นี้"
+
+msgid "grid.action.removeUserGroup"
+msgstr "ลบกลุ่มผู้ใช้นี้"
+
+msgid "grid.action.disable"
+msgstr "ปิดใช้งาน"
+
+msgid "grid.action.details"
+msgstr "ดูรายการนี้"
+
+msgid "grid.action.enrolExisting"
+msgstr "ลงทะเบียนผู้ใช้ที่มีอยู่แล้วเป็นผู้รีวิว"
+
+msgid "grid.action.selectCreate"
+msgstr "สร้างผู้รีวิวใหม่"
+
+msgid "grid.action.search"
+msgstr "ค้นหา"
+
+msgid "grid.action.advancedSearch"
+msgstr "การค้นหาขั้นสูง"
+
+msgid "grid.action.viewLibrary"
+msgstr "ดูห้องสมุดเอกสาร"
+
+msgid "grid.action.viewMetadata"
+msgstr "ดูข้อมูลเมตาของการส่งนี้"
+
+msgid "grid.action.sendReminder"
+msgstr "ส่งการเตือนงานไปยังผู้ใช้นี้"
+
+msgid "grid.action.newRound"
+msgstr "สร้างรอบใหม่"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "ดูแนวทางการทบทวน"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "ดูนโยบายแนวทางผลประโยชน์ที่ขัดแย้งกัน"
+
+msgid "grid.action.thankReviewer"
+msgstr "ส่งข้อความขอบคุณผู้รีวิวนี้"
+
+msgid "grid.action.uploadFile"
+msgstr "อัปโหลดไฟล์"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "เพิ่มประเภทประกาศ"
+
+msgid "grid.action.addAnnouncement"
+msgstr "เพิ่มประกาศ"
+
+msgid "grid.action.addInstitution"
+msgstr "เพิ่มสถาบัน"
+
+msgid "grid.action.mergeUser"
+msgstr "รวมผู้ใช้"
+
+msgid "grid.action.unassignUser"
+msgstr "ยกเลิกการมอบหมายผู้ใช้"
+
+msgid "grid.action.history"
+msgstr "ดูประวัติ"
+
+msgid "grid.action.unconsiderReview"
+msgstr "การทบทวนนี้เสร็จสมบูรณ์แล้ว แต่คุณสามารถยกเลิกการพิจารณาได้"
+
+msgid "grid.action.enable"
+msgstr "เปิดใช้งาน"
+
+msgid "grid.action.bookInfo"
+msgstr "ข้อมูลการส่ง"
+
+msgid "grid.action.logInAs"
+msgstr "เข้าสู่ระบบในฐานะ"
+
+msgid "grid.action.exportAllUsers"
+msgstr "ส่งออกผู้ใช้ทั้งหมด"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "คุณแน่ใจหรือว่าต้องการส่งออกผู้ใช้ทั้งหมด?"
+
+msgid "grid.action.activate"
+msgstr "เปิดใช้งาน"
+
+msgid "grid.action.deactivate"
+msgstr "ปิดใช้งาน"
+
+msgid "grid.action.copy"
+msgstr "คัดลอก"
+
+msgid "grid.action.preview"
+msgstr "ดูตัวอย่าง"
+
+msgid "grid.action.install"
+msgstr "ติดตั้ง"
+
+msgid "grid.action.moreItems"
+msgstr "โหลดเพิ่มเติม"
+
+msgid "grid.action.users"
+msgstr "ดู/เลือกผู้ใช้"
+
+msgid "grid.task.status.completed"
+msgstr "งานนี้เสร็จสิ้นแล้ว"
+
+msgid "grid.task.status.new"
+msgstr "เลือกเมื่อพิจารณาแล้ว"
+
+msgid "grid.task.status.uploaded"
+msgstr "หัวข้อคอลัมน์ระบุว่าใครเป็นผู้ที่อัปโหลดไฟล์นี้"
+
+msgid "grid.task.status.unfinished"
+msgstr "งานยังไม่เสร็จสิ้น"
+
+msgid "grid.task.status.reviewReady"
+msgstr "การทบทวนนี้พร้อมแล้ว คลิกที่ไอคอนบันทึกทางซ้ายเพื่ออ่าน"
+
+msgid "grid.columns.actions"
+msgstr "การกระทำ"
+
+msgid "grid.columns.institution"
+msgstr "สถาบัน"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "ผู้ตรวจสอบบัญชี"
+
+msgid "grid.columns.locale"
+msgstr "ภาษาท้องถิ่น"
+
+msgid "grid.columns.locale.code"
+msgstr "รหัส"
+
+msgid "grid.sponsor.title"
+msgstr "องค์กรผู้สนับสนุน"
+
+msgid "grid.action.addSponsor"
+msgstr "เพิ่มผู้สนับสนุน"
+
+msgid "grid.action.deleteSponsor"
+msgstr "ลบผู้สนับสนุน"
+
+msgid "grid.action.editSponsor"
+msgstr "แก้ไขผู้สนับสนุน"
+
+msgid "grid.action.addSeries"
+msgstr "เพิ่มซีรีส์"
+
+msgid "grid.action.editSeries"
+msgstr "แก้ไขซีรีส์"
+
+msgid "grid.action.deleteSeries"
+msgstr "ลบซีรีส์"
+
+msgid "grid.action.addCategory"
+msgstr "เพิ่มหมวดหมู่"
+
+msgid "grid.action.editCategory"
+msgstr "แก้ไขหมวดหมู่"
+
+msgid "grid.action.deleteCategory"
+msgstr "ลบหมวดหมู่"
+
+msgid "grid.contributor.title"
+msgstr "แหล่งสนับสนุน"
+
+msgid "grid.action.addContributor"
+msgstr "เพิ่มผู้สนับสนุน"
+
+msgid "grid.action.deleteContributor"
+msgstr "ลบผู้สนับสนุน"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"คุณแน่ใจหรือว่าต้องการลบ {$name} ออกจากผู้สนับสนุน? "
+"การกระทำนี้ไม่สามารถย้อนกลับได้"
+
+msgid "grid.action.newVersion"
+msgstr "สร้างเวอร์ชันใหม่"
+
+msgid "grid.reviewForm.title"
+msgstr "แบบฟอร์มการทบทวน"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "ตัวเลือกการตอบกลับ"
+
+msgid "grid.noFiles"
+msgstr "ไม่มีไฟล์"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "ไฟล์"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "ห้องสมุดการส่งงาน"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "ห้องสมุดการบรรณาธิการ"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "ห้องสมุดการทบทวน"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "ห้องสมุดการผลิต"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "ห้องสมุดเทมเพลตการผลิต"
+
+msgid "grid.submissionChecklist.title"
+msgstr "รายการตรวจสอบการส่งงาน"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "รายการตรวจสอบ"
+
+msgid "author.users.contributor.principalContact"
+msgstr "ผู้ติดต่อหลัก"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "ตั้งเป็นผู้ติดต่อหลัก"
+
+msgid "contributor.listPanel.preview"
+msgstr "ดูตัวอย่าง"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "ผู้สนับสนุนในการตีพิมพ์นี้จะแสดงในรูปแบบต่อไปนี้"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "รูปแบบ"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "การแสดงผล"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "แบบย่อ"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "รายการการตีพิมพ์"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "แบบเต็ม"
+
+msgid "grid.roles.currentRoles"
+msgstr "บทบาทปัจจุบัน"
+
+msgid "grid.roles.add"
+msgstr "สร้างบทบาทใหม่"
+
+msgid "grid.roles.stageAssignment"
+msgstr "การมอบหมายขั้นตอน"
+
+msgid "grid.user.currentUsers"
+msgstr "ผู้ใช้ปัจจุบัน"
+
+msgid "grid.user.currentEnrollment"
+msgstr "การลงทะเบียนปัจจุบัน"
+
+msgid "grid.user.allRoles"
+msgstr "ทุกบทบาท"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "ทุกระดับการอนุญาต"
+
+msgid "grid.user.add"
+msgstr "เพิ่มผู้ใช้"
+
+msgid "grid.user.enroll"
+msgstr "ลงทะเบียนผู้ใช้"
+
+msgid "grid.user.edit"
+msgstr "แก้ไขผู้ใช้"
+
+msgid "grid.user.email"
+msgstr "อีเมล"
+
+msgid "grid.user.enable"
+msgstr "เปิดใช้งาน"
+
+msgid "grid.user.disable"
+msgstr "ปิดใช้งาน"
+
+msgid "grid.user.disableReason"
+msgstr "เหตุผลในการปิดใช้งานผู้ใช้"
+
+msgid "grid.user.enableReason"
+msgstr "เหตุผลในการเปิดใช้งานผู้ใช้"
+
+msgid "grid.user.error"
+msgstr "พบข้อผิดพลาดในการจัดการผู้ใช้นี้ กรุณาลองอีกครั้ง"
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"พบข้อผิดพลาดในการส่งอีเมล "
+"โปรดตรวจสอบการตั้งค่าเซิร์ฟเวอร์อีเมลของคุณและ/หรือติดต่อผู้ดูแลระบบของคุณ"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"คุณไม่มีสิทธิ์เพียงพอในการจัดการผู้ใช้นี้ เพื่อที่จะจัดการผู้ใช้ "
+"คุณต้องเป็นผู้ดูแลระบบของเว็บไซต์หรือจัดการทุกบริบทที่ผู้ใช้นี้ลงทะเบียนอยู่"
+
+msgid "grid.user.mustProvideName"
+msgstr "โปรดระบุอย่างน้อยนามสกุลของผู้ใช้ก่อน"
+
+msgid "grid.user.generatePassword"
+msgstr "สร้างรหัสผ่าน"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "สร้างรหัสผ่านสุ่มสำหรับผู้ใช้นี้"
+
+msgid "grid.user.notifyUser"
+msgstr "แจ้งผู้ใช้"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "ส่งอีเมลต้อนรับให้กับผู้ใช้"
+
+msgid "grid.user.mustChangePassword"
+msgstr "เปลี่ยนรหัสผ่าน"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "ผู้ใช้ต้องเปลี่ยนรหัสผ่านในครั้งถัดไปที่เข้าสู่ระบบ"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "ต้องการให้ผู้ใช้เปลี่ยนรหัสผ่านในการเข้าสู่ระบบครั้งถัดไป"
+
+msgid "grid.user.moreDetails"
+msgstr "รายละเอียดเพิ่มเติมของผู้ใช้"
+
+msgid "grid.user.lessDetails"
+msgstr "รายละเอียดน้อยลงของผู้ใช้"
+
+msgid "grid.user.userDetails"
+msgstr "รายละเอียดผู้ใช้"
+
+msgid "grid.user.userRoles"
+msgstr "บทบาทของผู้ใช้"
+
+msgid "grid.user.userNoRoles"
+msgstr "ผู้ใช้นี้ไม่มีบทบาทใด ๆ"
+
+msgid "grid.user.step1"
+msgstr "ขั้นตอนที่ #1: กรอกรายละเอียดของผู้ใช้"
+
+msgid "grid.user.step2"
+msgstr "ขั้นตอนที่ #2: เพิ่มบทบาทให้กับ {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "เพิ่มบทบาท"
+
+msgid "grid.user.addRole"
+msgstr "เพิ่มบทบาท"
+
+msgid "grid.user.selectUser"
+msgstr "เลือกผู้ใช้"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "โปรดเลือกผู้ใช้"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"เข้าสู่ระบบในฐานะผู้ใช้นี้หรือไม่? "
+"การกระทำทั้งหมดที่คุณดำเนินการจะถูกอ้างอิงกับผู้ใช้นี้"
+
+msgid "grid.user.mergeUsers"
+msgstr "รวมผู้ใช้"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "รวมผู้ใช้"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "รวมเข้ากับผู้ใช้นี้"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "ผู้ใช้ทั้งหมดที่ลงทะเบียน"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการรวมบัญชีที่มีชื่อผู้ใช้ \"{$oldUsername}\" "
+"เข้ากับบัญชีที่มีชื่อผู้ใช้ \"{$newUsername}\"? บัญชีที่มีชื่อผู้ใช้ \""
+"{$oldUsername}\" จะไม่อยู่หลังจากนี้ การกระทำนี้ไม่สามารถย้อนกลับได้"
+
+msgid "grid.preparedEmails.title"
+msgstr "แม่แบบอีเมลที่เตรียมไว้"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "รายการปัจจุบัน"
+
+msgid "grid.plugin.allCategories"
+msgstr "ทุกหมวดหมู่"
+
+msgid "grid.plugin.disable"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการปิดการใช้งานปลั๊กอินนี้?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "ทำการแก้ไขการพิสูจน์อักษรแล้ว คุณสามารถยกเลิกงานนี้ได้"
+
+msgid "grid.artworkFile.caption"
+msgstr "คำบรรยาย"
+
+msgid "grid.artworkFile.credit"
+msgstr "เครดิต"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "เจ้าของลิขสิทธิ์"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "ข้อมูลติดต่อ (หากไม่ใช่ผู้แต่ง/สำนักพิมพ์)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "เงื่อนไขการอนุญาต"
+
+msgid "grid.artworkFile.placement"
+msgstr "การวางตำแหน่งในงานส่ง"
+
+msgid "grid.userGroup.assignStage"
+msgstr "มอบหมายขั้นตอน"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "ยกเลิกมอบหมายขั้นตอน"
+
+msgid "grid.userGroup.allStages"
+msgstr "ทุกขั้นตอนของเวิร์กโฟลว์"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "รายการบทบาทที่มอบหมายให้"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "ที่กำหนดระดับสิทธิ์เป็น"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "บทบาท {$userGroupName} เป็นบทบาทเริ่มต้นและไม่สามารถลบได้"
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"ไม่สามารถลบบทบาท {$userGroupName} ขณะนี้มีผู้ใช้ {$usersCount} "
+"คนที่ได้รับมอบหมายบทบาทนี้"
+
+msgid "grid.userGroup.assignedStage"
+msgstr "บทบาท {$userGroupName} ถูกมอบหมายให้กับขั้นตอน {$stageName}"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "บทบาท {$userGroupName} ถูกยกเลิกมอบหมายจากขั้นตอน {$stageName}"
+
+msgid "grid.submission.itemTitle"
+msgstr "ผู้แต่ง; ชื่อเรื่อง"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "รวมงานที่ยังไม่เสร็จสมบูรณ์ที่ไม่ได้ส่งโดยผู้เขียน"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "เพิ่มเมนู"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "เพิ่มรายการ"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "ไม่มีรายการเมนูการนำทาง"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "ไม่มีเมนูการนำทาง"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "เลือกประเภท..."
+
+msgid "grid.action.view"
+msgstr "ดู"
+
+msgid "author.users.contributor.name"
+msgstr "ชื่อ"
+
+msgid "author.users.contributor.email"
+msgstr "อีเมล"
+
+msgid "author.users.contributor.role"
+msgstr "บทบาท"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "แสดงในรายการการเรียกดู"
+
+msgid "grid.action.editContributor"
+msgstr "แก้ไขผู้ร่วมเขียน"

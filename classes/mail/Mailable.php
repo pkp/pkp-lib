@@ -67,6 +67,8 @@ use ReflectionUnionType;
 
 class Mailable extends IlluminateMailable
 {
+    public const EMAIL_TEMPLATE_STYLE_PROPERTY = 'emailTemplateStyle';
+
     /** Used internally by Illuminate Mailer. Do not touch. */
     public const DATA_KEY_MESSAGE = 'message';
 
@@ -89,6 +91,9 @@ class Mailable extends IlluminateMailable
     public const ATTACHMENT_TEMPORARY_FILE = 'temporaryFileId';
     public const ATTACHMENT_SUBMISSION_FILE = 'submissionFileId';
     public const ATTACHMENT_LIBRARY_FILE = 'libraryFileId';
+
+    /** @var string|null The specific locale to send the mail of this Mailable */
+    protected ?string $mailableLocale = null;
 
     /** @var string|null Locale key for the name of this Mailable */
     protected static ?string $name = null;
@@ -225,7 +230,7 @@ class Mailable extends IlluminateMailable
     public function setData(?string $locale = null): void
     {
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
         foreach ($this->variables as $variable) {
             $this->viewData = array_merge(
@@ -235,6 +240,24 @@ class Mailable extends IlluminateMailable
         }
 
         $this->addFooter($locale); // set the locale for the email footer
+    }
+
+    /**
+     * Set the mailable locale
+     */
+    public function setLocale(string $locale): static
+    {
+        $this->mailableLocale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Get the mailable locale
+     */
+    public function getLocale(): ?string
+    {
+        return $this->mailableLocale;
     }
 
     /**

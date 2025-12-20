@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/SubmissionFileAccessPolicy.php
  *
@@ -265,10 +266,4 @@ class SubmissionFileAccessPolicy extends ContextPolicy
 
         return $fileAccessPolicy;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\SubmissionFileAccessPolicy', '\SubmissionFileAccessPolicy');
-    define('SUBMISSION_FILE_ACCESS_READ', SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ);
-    define('SUBMISSION_FILE_ACCESS_MODIFY', SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY);
 }

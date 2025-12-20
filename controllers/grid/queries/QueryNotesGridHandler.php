@@ -30,11 +30,11 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\query\Query;
-use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
@@ -75,7 +75,7 @@ class QueryNotesGridHandler extends GridHandler
      * Get the query.
      *
      */
-    public function getQuery(): ?Query
+    public function getQuery(): ?EditorialTask
     {
         return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
     }
@@ -168,7 +168,7 @@ class QueryNotesGridHandler extends GridHandler
         return [
             'submissionId' => $this->getSubmission()->getId(),
             'stageId' => $this->getStageId(),
-            'queryId' => $this->getQuery()->getId(),
+            'queryId' => $this->getQuery()->id,
         ];
     }
 
@@ -185,7 +185,7 @@ class QueryNotesGridHandler extends GridHandler
      */
     public function loadData($request, $filter = null)
     {
-        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getQuery()->getId())
+        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getQuery()->id)
             ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
             ->lazy()
             ->filter(function (Note $note) use ($request) {
@@ -222,7 +222,7 @@ class QueryNotesGridHandler extends GridHandler
         if ($queryNoteForm->validate()) {
             $note = $queryNoteForm->execute();
             $this->insertedNoteNotify($note);
-            return DAO::getDataChangedEvent($this->getQuery()->getId());
+            return DAO::getDataChangedEvent($this->getQuery()->id);
         } else {
             return new JSONMessage(true, $queryNoteForm->fetch($request));
         }
@@ -258,7 +258,7 @@ class QueryNotesGridHandler extends GridHandler
         $query = $this->getQuery();
         $note = Note::find((int) $request->getUserVar('noteId'));
 
-        if (!$request->checkCSRF() || $note?->assocType != Application::ASSOC_TYPE_QUERY || $note?->assocId != $query->getId()) {
+        if (!$request->checkCSRF() || $note?->assocType != Application::ASSOC_TYPE_QUERY || $note?->assocId != $query->id) {
             // The note didn't exist or has the wrong assoc info.
             return new JSONMessage(false);
         }
@@ -278,13 +278,12 @@ class QueryNotesGridHandler extends GridHandler
     protected function insertedNoteNotify(Note $note): void
     {
         $notificationManager = new NotificationManager();
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($note->assocId);
+        $query = EditorialTask::find($note->assocId);
         $sender = $note->user;
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $submission = $this->getSubmission();
-        $title = $query->getHeadNote()->title;
+        $title = Repo::note()->getHeadNote($query->id)->title;
 
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
@@ -297,10 +296,12 @@ class QueryNotesGridHandler extends GridHandler
                 [$note->id]
             )->filterBySubmissionIds([$submission->getId()])
             ->getMany();
-
-        foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
+        $participantIds = Participant::withTaskIds([$query->id])
+            ->pluck('user_id')
+            ->all();
+        foreach ($participantIds as $userId) {
             // Delete any prior notifications of the same type (e.g. prior "new" comments)
-            Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getId())
+            Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)
                 ->withUserId($userId)
                 ->withType(Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY)
                 ->withContextId($context->getId())
@@ -318,12 +319,11 @@ class QueryNotesGridHandler extends GridHandler
 
             // Notify the user of a new query.
             $notification = $notificationManager->createNotification(
-                $request,
                 $userId,
                 Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 $request->getContext()->getId(),
                 PKPApplication::ASSOC_TYPE_QUERY,
-                $query->getId(),
+                $query->id,
                 Notification::NOTIFICATION_LEVEL_TASK
             );
 

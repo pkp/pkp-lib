@@ -86,6 +86,22 @@ class ReviewRound extends \PKP\core\DataObject
     }
 
     /**
+     * Get publication ID
+     */
+    public function getPublicationId(): int
+    {
+        return (int) $this->getData('publicationId');
+    }
+
+    /**
+     * Set publication ID
+     */
+    public function setPublicationId(int $publicationId): void
+    {
+        $this->setData('publicationId', $publicationId);
+    }
+
+    /**
      * Get review stage id (internal or external review).
      *
      * @return int
@@ -159,7 +175,8 @@ class ReviewRound extends \PKP\core\DataObject
         // submitted
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
             // get editor decisions
-            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), Decision::PENDING_REVISIONS);
+            $decisionToCheck = $this->getStageId() === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::PENDING_REVISIONS : Decision::PENDING_REVISIONS_INTERNAL;
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), $decisionToCheck);
 
             if ($pendingRevisionDecision) {
                 if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {
@@ -173,7 +190,9 @@ class ReviewRound extends \PKP\core\DataObject
         // submitted
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
             // get editor decisions
-            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), Decision::RESUBMIT);
+            $decisionToCheck = $this->getStageId() === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::RESUBMIT : Decision::RESUBMIT_INTERNAL;
+
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), $decisionToCheck);
 
             if ($pendingRevisionDecision) {
                 if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {
@@ -256,11 +275,13 @@ class ReviewRound extends \PKP\core\DataObject
                     break;
 
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND:
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
                     $anyIncompletedReview = true;
                     break;
 
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_VIEWED:
                     $anyUnreadReview = true;
                     break;
             }
@@ -333,28 +354,5 @@ class ReviewRound extends \PKP\core\DataObject
                 return 'editor.submission.roundStatus.returnedToReview';
             default: return null;
         }
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewRound\ReviewRound', '\ReviewRound');
-    foreach ([
-        'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED',
-        'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW',
-        'REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL',
-        'REVIEW_ROUND_STATUS_ACCEPTED',
-        'REVIEW_ROUND_STATUS_DECLINED',
-        'REVIEW_ROUND_STATUS_PENDING_REVIEWERS',
-        'REVIEW_ROUND_STATUS_PENDING_REVIEWS',
-        'REVIEW_ROUND_STATUS_REVIEWS_READY',
-        'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED',
-        'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE',
-        'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED',
-        'REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS',
-        'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY',
-        'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED',
-        'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED',
-    ] as $constantName) {
-        define($constantName, constant('\ReviewRound::' . $constantName));
     }
 }

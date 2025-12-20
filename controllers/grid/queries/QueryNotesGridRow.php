@@ -16,17 +16,18 @@
 
 namespace PKP\controllers\grid\queries;
 
+use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
+use PKP\editorialTask\EditorialTask;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\query\Query;
 
 class QueryNotesGridRow extends GridRow
 {
     /** @var array */
     public $_actionArgs;
 
-    /** @var Query */
+    /** @var EditorialTask */
     public $_query;
 
     /** @var QueryNotesGridHandler */
@@ -36,7 +37,7 @@ class QueryNotesGridRow extends GridRow
      * Constructor
      *
      * @param array $actionArgs Action arguments
-     * @param Query $query
+     * @param EditorialTask $query
      * @param QueryNotesGridHandler $queryNotesGrid The notes grid containing this row
      */
     public function __construct($actionArgs, $query, $queryNotesGrid)
@@ -63,7 +64,7 @@ class QueryNotesGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $rowId = abs($this->getId());
-        $headNote = $this->getQuery()->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($this->getQuery()->id);
         if ($rowId > 0 && $headNote?->id != $rowId) {
             // Only add row actions if this is an existing row
             $router = $request->getRouter();
@@ -82,7 +83,7 @@ class QueryNotesGridRow extends GridRow
                             __('common.confirmDelete'),
                             __('grid.action.delete'),
                             $router->url($request, null, null, 'deleteNote', null, $actionArgs),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.delete'),
                         'delete'
@@ -95,7 +96,7 @@ class QueryNotesGridRow extends GridRow
     /**
      * Get the query
      *
-     * @return Query
+     * @return EditorialTask
      */
     public function getQuery()
     {

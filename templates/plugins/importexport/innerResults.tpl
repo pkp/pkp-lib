@@ -7,6 +7,7 @@
  *
  * Result of operations this plugin performed
  *}
+<div class="semantic-defaults">
 {if $key == 'warnings'}
 	{assign var=translateTitleKey value="plugins.importexport.common.warningsEncountered"}
 {elseif $key == 'errors'}
@@ -30,3 +31,4 @@
 		{/foreach}
 	{/foreach}
 {/if}
+</div>

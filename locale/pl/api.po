@@ -114,11 +114,6 @@ msgstr "Do żądania dołączono co najmniej jeden niepoprawny obiekt publikacji
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Nie możesz nagrać decyzji ani zarekomendować decyzji dla tego zgłoszenia, "
-"ponieważ zostało ono już opublikowane."
-
 msgid "api.emails.400.missingBody"
 msgstr "Treść jest wymagana aby wysłać wiadomość."
 

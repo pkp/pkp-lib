@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/RoleBasedHandlerOperationPolicy.php
  *
@@ -64,7 +65,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Check whether the user has one of the allowed roles
         // assigned. If that's the case we'll permit access.
@@ -81,8 +82,8 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // If the reqeust run through laravel route,
-        // we need to have controller based chcking.
+        // If the request run through laravel route,
+        // we need to have controller based checking.
         if ($routeController = PKPBaseController::getRouteController()) {
 
             $routeController->markRoleAssignmentsChecked();
@@ -139,8 +140,4 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
             return false;
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\RoleBasedHandlerOperationPolicy', '\RoleBasedHandlerOperationPolicy');
 }

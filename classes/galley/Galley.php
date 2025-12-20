@@ -18,7 +18,6 @@ namespace PKP\galley;
 
 use APP\facades\Repo;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;
@@ -212,6 +211,5 @@ class Galley extends Representation
 }
 
 if (!PKP_STRICT_MODE) {
-    // Required for import/export toolset
     class_alias('\PKP\galley\Galley', '\Galley');
 }

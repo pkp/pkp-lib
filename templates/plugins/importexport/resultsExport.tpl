@@ -34,6 +34,7 @@
 {include file='core:plugins/importexport/innerResults.tpl' key='warnings' errorsAndWarnings=$errorsAndWarnings}
 {include file='core:plugins/importexport/innerResults.tpl' key='errors' errorsAndWarnings=$errorsAndWarnings}
 
+<div class="semantic-defaults">
 {if $validationErrors}
 	<h2>{translate key="plugins.importexport.common.validationErrors"}</h2>
 	<ul>
@@ -42,3 +43,4 @@
 		{/foreach}
 	</ul>
 {/if}
+</div>

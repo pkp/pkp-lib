@@ -27,7 +27,6 @@
 
 	<tabs :track-history="true">
 		<tab id="appearance" label="{translate key="manager.website.appearance"}">
-			{help file="settings/website-settings" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
@@ -57,7 +56,6 @@
 			</tabs>
 		</tab>
 		<tab id="setup" label="{translate key="navigation.setup"}">
-			{help file="settings/website-settings" section="setup" class="pkp_help_tab"}
 			<tabs :is-side-tabs="true" :track-history="true">
 				{if $includeInformationForm}
 					<tab id="information" label="{translate key="manager.website.information"}">
@@ -113,7 +111,6 @@
 			</tabs>
 		</tab>
 		<tab id="plugins" label="{translate key="common.plugins"}">
-			{help file="settings/website-settings" section="plugins" class="pkp_help_tab"}
 			<tabs :track-history="true">
 				<tab id="installedPlugins" label="{translate key="manager.plugins.installed"}">
 					{capture assign=pluginGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
@@ -124,6 +121,17 @@
 					{load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}
 				</tab>
 				{call_hook name="Template::Settings::website::plugins"}
+			</tabs>
+		</tab>
+		<tab id="content" label="{translate key="navigation.content"}">
+			<tabs :is-side-tabs="true" :track-history="true">
+				<tab id="publicComments" label="{translate key="manager.userComment.comments"}">
+					<pkp-form
+						v-bind="components.{PKP\components\forms\context\ContentCommentsForm::FORM_CONTENT_COMMENT}"
+						@set="set"
+					/>
+				</tab>
+				{call_hook name="Template::Settings::website::content"}
 			</tabs>
 		</tab>
 		{call_hook name="Template::Settings::website"}

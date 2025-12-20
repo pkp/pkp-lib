@@ -1,4 +1,4 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:25+0000\n"
+"PO-Revision-Date: 2025-08-17 00:26+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr/>\n"
@@ -646,7 +646,7 @@ msgid "common.options"
 msgstr "Seçenekler"
 
 msgid "common.order"
-msgstr "Sipariş"
+msgstr "Sırala"
 
 msgid "common.orderUp"
 msgstr "{$itemTitle} konumunu artırın"
@@ -1694,29 +1694,8 @@ msgstr "Bilim dal(lar)ı"
 msgid "search.fullText"
 msgstr "Tam Metin"
 
-msgid "search.indexTerms"
-msgstr "İndeks terimleri"
-
-msgid "search.indexTermsLong"
-msgstr "Tüm indeks terim alanları"
-
-msgid "search.matchAll"
-msgstr "Tüm kategorileri eşle"
-
 msgid "search.noResults"
 msgstr "Sonuç bulunamadı"
-
-msgid "search.operator.and"
-msgstr "ve"
-
-msgid "search.operator.not"
-msgstr "değil"
-
-msgid "search.operator.or"
-msgstr "veya"
-
-msgid "search.SearchFor"
-msgstr "için Ara"
 
 msgid "search.searchResults"
 msgstr "Arama Sonuçları"
@@ -1944,6 +1923,7 @@ msgstr "{$round} Tur Durumu"
 msgid "notification.type.editorialReport"
 msgstr "İstatistik rapor özeti."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Bu, editoryal rapor aracılığıyla derginizin sağlığını kontrol etmeniz için "
@@ -2308,3 +2288,99 @@ msgstr "Vurgular"
 
 msgid "common.sandbox"
 msgstr "Deneme alanı modunda çalışan uygulama."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "<a href=\"{$url}\">Editöryal Geçmişi</a> Görüntüle"
+
+msgid "navigation.reviewAssignments"
+msgstr "Hakemliklerim"
+
+msgid "common.filtersClear"
+msgstr "Filtreleri temizle"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} hata algılandı! Lütfen devam etmeden önce aşağıdaki hataları "
+"düzeltin."
+
+msgid "navigation.mySubmissions"
+msgstr "Yazarlıklarım"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Değerlendirme Yapıldı"
+
+msgid "common.numero"
+msgstr "No"
+
+msgid "common.refreshingData"
+msgstr "Veriyi güncelle"
+
+msgid "common.viewMoreDetails"
+msgstr "Daha fazla detay görüntüle"
+
+msgid "common.moreActions"
+msgstr "Diğer İşlemler"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Editörler, aşağıdaki listelenen hakemlere {$yıl} yılında yaptıkları "
+"hakemlikler için teşekkürlerini sunar."
+
+msgid "common.showingXofX"
+msgstr ""
+"<strong>{$start} ile {$finish} arasındaki</strong> toplamda {$total} "
+"gösteriliyor"
+
+msgid "common.editorialMasthead"
+msgstr "Editörler Kurulu"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Geçtiğimiz Yıl Değerlendirme Yapan Hakemler"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Geçmiş Yıllarda Değerlendirme Yapan Hakemler"
+
+msgid "common.editorialHistory"
+msgstr "Editöryal Geçmiş"
+
+msgid "common.editorialHistory.page"
+msgstr "Editöryal Geçmiş Sayfası"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Bu bölümde geçmişte katkıda bulunan yazarlar listelenmektedir."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "{$name}: ORCID profilini görüntüle"
+
+msgid "common.yesContinue"
+msgstr "Evet, devam"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Yüklendi"
+
+msgid "form.errorSummaryOne"
+msgstr "1 hata algılandı! Lütfen devam etmeden önce aşağıdaki hatayı düzeltin."
+
+msgid "navigation.dashboards"
+msgstr "Editör Paneli"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Değerlendirme Kabul Edildi"
+
+msgid "validator.date.comparison"
+msgstr "Karşılaştırma için geçersiz tarihler seçildi."
+
+msgid "validator.multilingual"
+msgstr "Bu alan için çok dil şartı aranmamaktadır."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.assignments"
+msgstr "Atamalar"
+
+msgid "common.changeLanguage"
+msgstr "Dil Değiştir"

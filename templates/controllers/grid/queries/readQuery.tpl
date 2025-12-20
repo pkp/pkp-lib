@@ -13,8 +13,8 @@
 		$('#readQueryContainer').pkpHandler(
 			'$.pkp.controllers.grid.queries.ReadQueryHandler',
 			{ldelim}
-				fetchNoteFormUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component=$queryNotesGridHandlerName op="addNote" params=$requestArgs queryId=$query->getId() escape=false},
-				fetchParticipantsListUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" params=$requestArgs queryId=$query->getId() escape=false}
+				fetchNoteFormUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component=$queryNotesGridHandlerName op="addNote" params=$requestArgs queryId=$query->id escape=false},
+				fetchParticipantsListUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="participants" params=$requestArgs queryId=$query->id escape=false}
 			{rdelim}
 		);
 	{rdelim});
@@ -29,7 +29,7 @@
     </h4>
     <ul id="participantsListPlaceholder" class="participants"></ul>
 
-	{capture assign=queryNotesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->getId() escape=false}{/capture}
+	{capture assign=queryNotesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component=$queryNotesGridHandlerName op="fetchGrid" params=$requestArgs queryId=$query->id escape=false}{/capture}
 	{load_url_in_div id="queryNotesGrid" url=$queryNotesGridUrl}
 
 	<div class="queryEditButtons">

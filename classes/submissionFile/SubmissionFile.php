@@ -3,8 +3,8 @@
 /**
  * @file classes/submissionFile/SubmissionFile.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFile
@@ -18,7 +18,6 @@ namespace PKP\submissionFile;
 
 use APP\facades\Repo;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -42,6 +41,7 @@ class SubmissionFile extends \PKP\core\DataObject
     public const SUBMISSION_FILE_INTERNAL_REVIEW_FILE = 19;
     public const SUBMISSION_FILE_INTERNAL_REVIEW_REVISION = 20;
     public const SUBMISSION_FILE_JATS = 21;
+    public const SUBMISSION_FILE_BODY_TEXT = 22;
 
     public const INTERNAL_REVIEW_STAGES = [
         SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
@@ -55,40 +55,11 @@ class SubmissionFile extends \PKP\core\DataObject
 
     /**
      * Get the default/fall back locale the values should exist for
+     * (see LocalizedData trait)
      */
     public function getDefaultLocale(): ?string
     {
-        return $this->getData('locale');
-    }
-
-    /**
-     * Get the locale of the submission.
-     * This is not properly a property of the submission file
-     * (e.g. it won't be persisted to the DB with the update function)
-     * It helps solve submission locale requirement for file's multilingual metadata
-     *
-     * @deprecated 3.3.0.0
-     *
-     * @return string
-     */
-    public function getSubmissionLocale()
-    {
-        return $this->getData('locale');
-    }
-
-    /**
-     * Set the locale of the submission.
-     * This is not properly a property of the submission file
-     * (e.g. it won't be persisted to the DB with the update function)
-     * It helps solve submission locale requirement for file's multilingual metadata
-     *
-     * @deprecated 3.3.0.0
-     *
-     * @param string $submissionLocale
-     */
-    public function setSubmissionLocale($submissionLocale)
-    {
-        $this->setData('locale', $submissionLocale);
+        return $this->getData('submissionLocale');
     }
 
     /**
@@ -401,7 +372,7 @@ class SubmissionFile extends \PKP\core\DataObject
     {
         $props = app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE);
         $locales = array_map(fn (string $prop): array => array_keys($this->getData($prop) ?? []), $props);
-        return collect([$this->getData('locale')])
+        return collect([$this->getData('submissionLocale')])
             ->concat($locales)
             ->flatten()
             ->filter()
@@ -413,22 +384,4 @@ class SubmissionFile extends \PKP\core\DataObject
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submissionFile\SubmissionFile', '\SubmissionFile');
-    foreach ([
-        'SUBMISSION_FILE_SUBMISSION',
-        'SUBMISSION_FILE_NOTE',
-        'SUBMISSION_FILE_REVIEW_FILE',
-        'SUBMISSION_FILE_REVIEW_ATTACHMENT',
-        'SUBMISSION_FILE_FINAL',
-        'SUBMISSION_FILE_COPYEDIT',
-        'SUBMISSION_FILE_PROOF',
-        'SUBMISSION_FILE_PRODUCTION_READY',
-        'SUBMISSION_FILE_ATTACHMENT',
-        'SUBMISSION_FILE_REVIEW_REVISION',
-        'SUBMISSION_FILE_DEPENDENT',
-        'SUBMISSION_FILE_QUERY',
-        'SUBMISSION_FILE_INTERNAL_REVIEW_FILE',
-        'SUBMISSION_FILE_INTERNAL_REVIEW_REVISION',
-    ] as $constantName) {
-        define($constantName, constant('\SubmissionFile::' . $constantName));
-    }
 }

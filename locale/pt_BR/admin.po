@@ -1,12 +1,13 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024, 2025.
 # cicilia conceiçao de maria <ccmaria@uem.br>, 2022, 2023.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
+# Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2024-03-16 10:39+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -559,9 +560,9 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 "Envie os jobs disponíveis para a fila. se você quiser despachar um job para "
-"uma fila específica, passe o parâmetro --queue=QUEUE_NAME. Também pode "
-"passar --test para executar o job de teste e --once para executar um job de "
-"cada vez"
+"uma fila específica, use o parâmetro --queue=QUEUE_NAME. Também pode passar "
+"--test para executar o job de teste e --once para executar um job de cada "
+"vez."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr "Completou a execução de {$jobCount} jobs na fila chamada {$queueName}."
@@ -981,3 +982,119 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr "Reinicie os daemons de trabalho da fila após a tarefa atual."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Exibir os parâmetros de uso do AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Valide a chave do app key atual se alguma for encontrada no arquivo de "
+"configuração"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Você quis dizer uma das seguintes opções?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "App Key gerada: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Nenhuma variável de chave chamada `app_key` definida na seção `general` do "
+"arquivo de configuração. Atualize a seção geral do arquivo de configuração e "
+"adicione a linha `app_key = ` ou execute o comando `php lib/pkp/tools/"
+"appKey.php configure` para defini-la."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Nenhuma app key definida no arquivo de configuração."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Conjunto de app key inválido, cifra não suportada ou comprimento de chave "
+"incorreto. As cifras suportadas são: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Uma APP Key válida já definida no arquivo de configuração. Para "
+"sobrescrever, passe a flag --force com o comando."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App key definida com sucesso no arquivo de configuração."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Não é possível definir a variável `app_key` no arquivo de configuração. "
+"Atualize a seção geral do arquivo de configuração e adicione a linha `"
+"app_key = `."
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Execute o agendador."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Liste todas as tarefas agendadas."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Iniciar o executor de tarefas."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Exibir os parâmetros de uso do Agendador."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Não é possível executar tarefas agendadas porque o modo de manutenção do "
+"sistema está habilitado."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Você quis dizer uma das seguintes opções?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Não é possível executar tarefas agendadas porque o modo sandbox do "
+"aplicativo está habilitado."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Não foi encontrada nenhuma tarefa agendada correspondente."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Qual comando você gostaria de executar?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Executando tarefas agendadas a cada minuto."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Enviar um job para remover convites expirados automaticamente"
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Execute uma tarefa agendada específica da lista ou use --name para executar "
+"uma específica. Defina a flag --no-scroll para visualizar a lista completa "
+"sem rolar."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Nenhuma tarefa agendada foi registrada."
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Adicione a variável de configuração app_key no arquivo config.inc.php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Gere uma nova app key e substitua no arquivo de configuração. Passe com o "
+"flag --show para visualizar apenas e --force para sobrescrever uma app key "
+"válida existente."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"A variável `app_key` já existe na seção `general` no arquivo de "
+"configuração. Execute o comando `php lib/pkp/tools/appKey.php generate` para "
+"definir uma nova app key."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Variável app key definida com sucesso no arquivo de configuração. Execute o "
+"comando `php lib/pkp/tools/appKey.php generate` para definir uma nova app "
+"key."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Um app key válida definida no arquivo de configuração"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Atualizar cache do conjunto de dados do registro ROR"

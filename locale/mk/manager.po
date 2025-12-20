@@ -1,8 +1,8 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024, 2025.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-27 16:39+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -1186,8 +1186,8 @@ msgstr "Фирмати за дата и за време"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Избери посакуван формат за дати и за времиња. Избраниот формат може да се "
-"внесе со користење на специјален <a href='http://php.net/manual/en/function."
-"strftime.php#refsect1-function.strftime-parameters'>формат на карактери</a>."
+"внесе со користење на специјален <a href='http://php.net/manual/en/datetime."
+"format.php#refsect1-datetime.format-parameters'>формат на карактери</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Дата"
@@ -1713,9 +1713,6 @@ msgstr "Валута"
 
 msgid "settings.roles.roleOptions"
 msgstr "Опции за улога"
-
-msgid "settings.roles.showTitles"
-msgstr "Покажете наслов на улога во списокот на соработници"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Дозволи корисниците самии да се регистрираат"
@@ -3721,3 +3718,206 @@ msgstr "Мајстор"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Потврдете го XML пред извозот и регистрацијата."
+
+msgid "manager.statistics.counterR5"
+msgstr "Бројач R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Бројач R5 Извештаи"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Датотеката за поднесување {$id} беше прескокната бидејќи нема валидна фаза "
+"на датотека."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Погледнете <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/"
+"index.html\" target=\"_new\">COUNTER 5.0.3 документација</a> за повеќе "
+"информации за секоја извештај."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Датумот треба да биде во формат ГГГГ-ММ-ДД или ГГГГ-ММ. Последниот можен "
+"датум е {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Список или опсег на години на објавување што треба да се врати како одговор "
+"во формат yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Инсталирана верзија: {$version}"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Сè уште нема достапни статистики за користење на COUNTER R5."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Извештај за поставки"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Датум на започнување"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Датумот треба да биде во формат ГГГГ-ММ-ДД или ГГГГ-ММ. Најраниот можен "
+"датум е {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Форматот на датумот не е валиден."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ИД на клиент"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Метрички тип"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Атрибути за прикажување"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Година на објавување"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Форматот YOP не е валиден."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ИД за поднесување"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ИД за поднесување не постои."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Вклучете ги деталите за родител"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Исклучи месечни детали"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Датум на комплетирање"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Јазици за поднесување"
+
+msgid "manager.language.submission.form.description"
+msgstr "Изберете јазици за поднесување и метаподатоци."
+
+msgid "manager.language.submission.from.error"
+msgstr "Треба да се избере најмалку една локација."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Поставете потсетници за рецензија"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Испратете потсетник по е-пошта пред или потоа за одговор на барањето за "
+"рецензија (ако рецензентот сè уште не одговорил на барањето за рецензија) "
+"или поднесување за рецензија (ако рецензентот сè уште не поднел рецензија)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Одговор на барање рецензија - пред датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Одговор на барањето рецензија - по датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Поднесување рецензија - пред датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Поднесување рецензија - по датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} дена пред датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} дена по датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ниедно"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Нема поставено потсетник"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Предлог на рецензент при поднесување"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Дозволете им на авторите да предложат потенцијални рецензенти при процесот "
+"на поднесување"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Поставката за јазикот не може да се зачува. Сите опции треба да бидат "
+"овозможени."
+
+msgid "notification.submissionLocales"
+msgstr "Локалните места за поднесување се ажурирани."
+
+msgid "settings.roles.masthead"
+msgstr "Размислете за улогата во листата на мастглави"
+
+msgid "settings.roles.permitSettings"
+msgstr "Дозволете промени во Поставки"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Авторот може да предложи неколку потенцијални рецензенти пред да го заврши "
+"поднесувањето, што може да го рационализира процесот на рецензирање и да "
+"обезбеди вреден придонес за уредничкиот тим."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Следното им се прикажува на авторите за време на чекорот за предлози на "
+"рецензентот. Обезбедете кратко објаснување за тоа кои информации авторот "
+"треба да ги даде за себе, коавторите и сите други соработници."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Авторот {$authorName} нема име на припадност на јазикот на поднесокот, "
+"{$localeName}. Поднесокот не може да се увезе без оваа информација."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Јазици на веб-страниците"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Насловот на ставката од менито е задолжителен."
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Додај/отстрани јазици"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Дефинирајте го редоследот на улогите на јарболот за јавно прикажување."
+
+msgid "manager.language.submissionMetadata"
+msgstr "Метаподатоци"
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Рецензентите ќе бидат прикажани во стандардизиран формат за да се одржи "
+"униформноста и да се обезбеди лесно откривање во овој дел."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Дефинирајте го редоследот на улогите на уредувачките глави за јавно "
+"прикажување."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Врска до страница на која се прикажуваат сите активни уредувачки услуги за "
+"мастглави."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Ве молиме наведете ја уредувачката историја, вклучувајќи го целосното име, "
+"припадноста и датумите на почеток и крај на секој уредник."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Променете ја поканата за е-пошта"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Потребни се минимум потврдени рецензии"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Минимален број на потврдени рецензии потребен за поднесување"

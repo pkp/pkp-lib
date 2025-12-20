@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/PluginLevelRequiredPolicy.php
  *
@@ -43,7 +44,7 @@ class PluginLevelRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Get the plugin.
         $plugin = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PLUGIN);
@@ -56,8 +57,4 @@ class PluginLevelRequiredPolicy extends AuthorizationPolicy
         }
         return $plugin->isSitePlugin() ? AuthorizationPolicy::AUTHORIZATION_DENY : AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\PluginLevelRequiredPolicy', '\PluginLevelRequiredPolicy');
 }

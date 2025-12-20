@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/services/PKPSchemaService.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSchemaService
@@ -20,6 +21,7 @@ use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
 use PKP\core\DataObject;
+use PKP\core\maps\Schema;
 use PKP\plugins\Hook;
 
 /**
@@ -27,10 +29,13 @@ use PKP\plugins\Hook;
  */
 class PKPSchemaService
 {
+    public const SCHEMA_AFFILIATION = 'affiliation';
     public const SCHEMA_ANNOUNCEMENT = 'announcement';
     public const SCHEMA_AUTHOR = 'author';
     public const SCHEMA_CATEGORY = 'category';
+    public const SCHEMA_CITATION = 'citation';
     public const SCHEMA_CONTEXT = 'context';
+    public const SCHEMA_CONTRIBUTOR_ROLE = 'contributorRole';
     public const SCHEMA_DOI = 'doi';
     public const SCHEMA_DECISION = 'decision';
     public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';
@@ -41,6 +46,7 @@ class PKPSchemaService
     public const SCHEMA_PUBLICATION = 'publication';
     public const SCHEMA_REVIEW_ASSIGNMENT = 'reviewAssignment';
     public const SCHEMA_REVIEW_ROUND = 'reviewRound';
+    public const SCHEMA_ROR = 'ror';
     public const SCHEMA_SECTION = 'section';
     public const SCHEMA_SITE = 'site';
     public const SCHEMA_SUBMISSION = 'submission';
@@ -48,6 +54,7 @@ class PKPSchemaService
     public const SCHEMA_USER = 'user';
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
+    public const SCHEMA_EMAIL_LOG = 'emailLog';
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];
@@ -67,11 +74,15 @@ class PKPSchemaService
      *
      * @hook Schema::get::(schemaName) [[schema]]
      * @hook Schema::get::
+     * @hook Schema::get::before::
+     * @hook Schema::get::before::
+     * @hook Schema::get::before::
+     * @hook Schema::get::before::
      */
     public function get($schemaName, $forceReload = false)
     {
         Hook::run('Schema::get::before::' . $schemaName, [&$forceReload]);
-        
+
         if (!$forceReload && array_key_exists($schemaName, $this->_schemas)) {
             return $this->_schemas[$schemaName];
         }
@@ -232,6 +243,65 @@ class PKPSchemaService
     }
 
     /**
+     * Retrieves properties of the schema of certain origin
+     *
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param string $attributeOrigin one of the Schema::ATTRIBUTE_ORIGIN_* constants
+     *
+     * @return array List of property names
+     */
+    public function getPropsByAttributeOrigin(string $schemaName, string $attributeOrigin): array
+    {
+        $schema = $this->get($schemaName);
+
+        $propsByOrigin = [];
+        foreach ($schema->properies as $propName => $propSchema) {
+            if (!empty($propSchema->origin) && $propSchema->origin == $attributeOrigin) {
+                $propsByOrigin[] = $propName;
+            }
+        }
+
+        return $propsByOrigin;
+    }
+
+    /**
+     * Groups properties by their origin, see Schema::ATTRIBUTE_ORIGIN_* constants
+     *
+     * @return array<string, array<string>>, e.g. ['primary' => ['assocId', 'assocType']]
+     */
+    public function groupPropsByOrigin(string $schemaName, bool $excludeReadOnly = false): array
+    {
+        $schema = $this->get($schemaName);
+        $propsByOrigin = [];
+        foreach ($schema->properties as $propName => $propSchema) {
+            if (empty($propSchema->origin)) {
+                continue;
+            }
+
+            // Exclude readonly if specified
+            if ($excludeReadOnly && !empty($propSchema->readOnly) && $propSchema->readOnly) {
+                continue;
+            }
+
+            switch ($propSchema->origin) {
+                case Schema::ATTRIBUTE_ORIGIN_SETTINGS:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_SETTINGS][] = $propName;
+                    break;
+                case Schema::ATTRIBUTE_ORIGIN_COMPOSED:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_COMPOSED][] = $propName;
+                    break;
+                case Schema::ATTRIBUTE_ORIGIN_MAIN:
+                default:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_MAIN][] = $propName;
+                    break;
+            }
+        }
+
+        return $propsByOrigin;
+    }
+
+
+    /**
      * Sanitize properties according to a schema
      *
      * This method coerces properties to their appropriate type, and strips out
@@ -313,6 +383,11 @@ class PKPSchemaService
                 return $newArray;
             case 'object':
                 $newObject = []; // we handle JSON objects as assoc arrays in PHP
+
+                if (isValidJson($value)) {
+                    $value = json_decode($value, true);
+                }
+
                 foreach ($schema->properties as $propName => $propSchema) {
                     if (!isset($value[$propName]) || !empty($propSchema->readOnly)) {
                         continue;
@@ -589,7 +664,6 @@ class PKPSchemaService
     {
         $schema = $this->get($schemaName);
         $multilingualProps = $this->getMultilingualProps($schemaName);
-
         foreach ($values as $key => $value) {
             if (!in_array($key, $multilingualProps)) {
                 continue;
@@ -612,30 +686,5 @@ class PKPSchemaService
         }
 
         return $values;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\services\PKPSchemaService', '\PKPSchemaService');
-    foreach ([
-        'SCHEMA_ANNOUNCEMENT',
-        'SCHEMA_AUTHOR',
-        'SCHEMA_CONTEXT',
-        'SCHEMA_EMAIL_TEMPLATE',
-        'SCHEMA_GALLEY',
-        'SCHEMA_ISSUE',
-        'SCHEMA_PUBLICATION',
-        'SCHEMA_REVIEW_ASSIGNMENT',
-        'SCHEMA_REVIEW_ROUND',
-        'SCHEMA_SECTION',
-        'SCHEMA_SITE',
-        'SCHEMA_SUBMISSION',
-        'SCHEMA_SUBMISSION_FILE',
-        'SCHEMA_USER',
-        'SCHEMA_USER_GROUP',
-    ] as $constantName) {
-        if (!defined($constantName)) {
-            define($constantName, constant('PKPSchemaService::' . $constantName));
-        }
     }
 }

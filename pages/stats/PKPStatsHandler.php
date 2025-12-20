@@ -27,6 +27,7 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
+use PKP\sushi\CounterR5Report;
 
 class PKPStatsHandler extends Handler
 {
@@ -41,7 +42,7 @@ class PKPStatsHandler extends Handler
         parent::__construct();
         $this->addRoleAssignment(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-            ['editorial', 'publications', 'context', 'users', 'reports']
+            ['editorial', 'publications', 'context', 'users', 'reports', 'counterR5']
         );
     }
 
@@ -74,7 +75,7 @@ class PKPStatsHandler extends Handler
         $context = $request->getContext();
 
         if (!$context) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $templateMgr = TemplateManager::getManager($request);
@@ -232,7 +233,7 @@ class PKPStatsHandler extends Handler
         $context = $request->getContext();
 
         if (!$context) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $templateMgr = TemplateManager::getManager($request);
@@ -362,7 +363,7 @@ class PKPStatsHandler extends Handler
         $context = $request->getContext();
 
         if (!$context) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $templateMgr = TemplateManager::getManager($request);
@@ -431,6 +432,48 @@ class PKPStatsHandler extends Handler
     }
 
     /**
+     * Display list of available COUNTER R5 reports
+     */
+    public function counterR5(array $args, Request $request): void
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+
+        $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'stats/sushi');
+
+        $context = $request->getContext();
+        $locales = $context->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+
+        $counterReportForm = new \APP\components\forms\counter\CounterReportForm($apiUrl, $locales);
+
+        $counterReportsListPanel = new \PKP\components\listPanels\PKPCounterReportsListPanel(
+            'counterReportsListPanel',
+            __('manager.statistics.counterR5Reports'),
+            [
+                'apiUrl' => $apiUrl,
+                'form' => $counterReportForm,
+            ]
+        );
+
+        $earliestDate = CounterR5Report::getEarliestDate();
+        $lastDate = CounterR5Report::getLastDate();
+
+        $templateMgr->setState([
+            'pageInitConfig' => [
+                $counterReportsListPanel->id => $counterReportsListPanel->getConfig(),
+                'usageNotPossible' => $lastDate <= $earliestDate,
+            ],
+        ]);
+        $templateMgr->assign([
+            'pageComponent' => 'Page',
+            'pageTitle' => __('manager.statistics.counterR5Reports'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+        ]);
+        $templateMgr->display('stats/counterReports.tpl');
+    }
+
+    /**
      * Display users stats
      *
      */
@@ -440,7 +483,7 @@ class PKPStatsHandler extends Handler
         $context = $request->getContext();
 
         if (!$context) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         // The POST handler is here merely to serve a redirection URL to the Vue component
@@ -508,7 +551,7 @@ class PKPStatsHandler extends Handler
         $context = $request->getContext();
 
         if (!$context) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $templateMgr = TemplateManager::getManager($request);
@@ -538,7 +581,7 @@ class PKPStatsHandler extends Handler
         $reportPlugins = PluginRegistry::loadCategory('reports');
 
         if ($pluginName == '' || !isset($reportPlugins[$pluginName])) {
-            $request->redirect(null, null, 'stats', 'reports');
+            $request->redirect(null, null, 'stats', ['reports']);
         }
 
         $plugin = $reportPlugins[$pluginName];

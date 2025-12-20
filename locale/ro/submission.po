@@ -28,6 +28,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Au fost trimise recenzii noi și sunt luate în considerare de editor."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Unul sau mai mulți recenzori au depășit termenul alocat. Echipa de redacție "
@@ -1314,9 +1315,11 @@ msgstr "Au fost solicitate revizuiri."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Reviziile au fost încărcate."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Manuscrisul va trebui redepus pentru o altă rundă de revizie."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Manuscrisul a fost redepus pentru o nouă rundă de revizie."
 
@@ -1338,6 +1341,7 @@ msgstr "Așteptați răspunsuri din partea recenzorilor."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Au fost trimise recenzii noi."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Toți recenzorii au răspuns și este necesară o decizie."
 
@@ -1928,7 +1932,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editorul {$userName} a confirmat o revizie pentru runda {$round} pentru "
+"Editorul {$editorName} a confirmat o revizie pentru runda {$round} pentru "
 "manuscrisul {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2460,7 +2464,7 @@ msgstr "Toate versiunile"
 msgid "publication.version.confirm"
 msgstr "Ești sigur că vrei să creezi o nouă versiune?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Rezumatul este prea lung. Ar trebui să fie {$limit} cuvinte sau mai puțin. "
 "În prezent sunt {$count} cuvinte lungi."

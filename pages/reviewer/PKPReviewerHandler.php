@@ -23,10 +23,13 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Facades\Mail;
+use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\facades\Locale;
 use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -62,6 +65,7 @@ class PKPReviewerHandler extends Handler
             throw new Exception('Invalid step!');
         }
 
+        /** @var \PKP\submission\reviewRound\ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         $submissionId = $reviewSubmission->getId();
         $lastRoundId = $reviewRoundDao->getLastReviewRoundBySubmissionId($submissionId)->getId();
@@ -86,6 +90,15 @@ class PKPReviewerHandler extends Handler
                 ];
             }
         }
+
+        $templateMgr->setConstants([
+            // Editorial Tasks
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+            'EDITORIAL_TASK_STATUS_PENDING' => EditorialTaskStatus::PENDING->value,
+            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => EditorialTaskStatus::IN_PROGRESS->value,
+            'EDITORIAL_TASK_STATUS_CLOSED' => EditorialTaskStatus::CLOSED->value,
+        ]);
 
         $templateMgr->assign([
             'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewSubmission->getCurrentPublication()->getLocalizedTitle(),
@@ -128,12 +141,18 @@ class PKPReviewerHandler extends Handler
             throw new \Exception('Invalid step!');
         }
 
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'featureFlags' => [
+                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions')
+            ]
+        ]);
+
         if ($step < 4) {
             $reviewerForm = $this->getReviewForm($step, $request, $reviewSubmission, $reviewAssignment);
             $reviewerForm->initData();
             return new JSONMessage(true, $reviewerForm->fetch($request));
         } else {
-            $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign([
                 'submission' => $reviewSubmission,
                 'step' => 4,
@@ -239,7 +258,7 @@ class PKPReviewerHandler extends Handler
         PKPRequest $request,
         Submission $reviewSubmission,
         ReviewAssignment $reviewAssignment
-    ): ReviewerReviewForm {
+    ): ?ReviewerReviewForm {
         switch ($step) {
             case 1:
                 return new \PKP\submission\reviewer\form\PKPReviewerReviewStep1Form($request, $reviewSubmission, $reviewAssignment);

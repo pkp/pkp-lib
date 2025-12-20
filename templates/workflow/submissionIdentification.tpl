@@ -26,6 +26,6 @@
 
 <span 
 	class="pkpWorkflow__identificationTitle" 
-	v-html="localizeSubmission(currentPublication.fullTitle, currentPublication.locale)"
+	v-strip-unsafe-html="localizeSubmission(currentPublication.fullTitle, currentPublication.locale)"
 >
 </span>

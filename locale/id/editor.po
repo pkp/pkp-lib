@@ -1,19 +1,21 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
+# Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2021-07-14 11:03+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"editor/id_ID/>\n"
-"Language: id_ID\n"
+"editor/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Anda yakin ingin menghapus naskah ini secara permanen?"
@@ -49,40 +51,51 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Ubah keputusan"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "Anda tidak memiliki ijin untuk mencatat keputusan pada pengiriman ini."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Editor tidak dikenal dan tidak memiliki ijin untuk mencatat keputusan pada "
+"pengiriman ini."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Anda tidak dapat mengirimkan email ke penerima berikut: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Putaran review tidak dapat ditemukan."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Putaran review tersedia tetapi keputusan tidak diambil selama tahap review."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Putaran review bukan merupakan bagian dari pengiriman ini."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Pengiriman tidak ada dalam tahapan yang benar dari alur kerja untuk "
+"mengambil keputusan."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Anda harus ditugaskan pada pengiriman ini untuk mencatat keputusan editorial."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr ""
+msgstr "ID Putaran review harus disediakan untuk mengambil keputusan ini."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Rekomendasi tidak dapat dibuat kecuali jika editor ditugaskan pada tahapan "
+"ini untuk mengambil keputusan final."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Keputusan tidak dapat diambil pada pengiriman ini. ID pengiriman hilang dan "
+"tidak cocok dengan pengiriman yang diminta."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Keputusan tidak dapat ditemukan. Harap sediakan tipe keputusan yang dikenal."
 
 msgid "editor.review.notInitiated"
 msgstr "Proses review belum dimulai."
@@ -155,7 +168,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Kembalikan Peninjau"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Mengirimkan kembali Permintaan Review"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Tipe Review"
@@ -209,10 +222,10 @@ msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Revisi akan dimasukkan ke putaran baru ulasan sejawat."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "Revisi tidak menjadi subyek untuk putaran baru dari peer review."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "Revisi harus menjadi subyek untuk putaran baru dari review."
 
 msgid "editor.review.dateAccepted"
 msgstr "Tanggal Penerimaan Review"
@@ -290,7 +303,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Peninjau Sudah Diucapkan Terima Kasih"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Permintaan Dikirim Kembali"
 
 msgid "editor.review.reviewerComments"
 msgstr "Tanggapan Peninjau"
@@ -320,6 +333,8 @@ msgstr "Terjadi kesalahan saat mengembalikan peninjau.  Mohon coba lagi."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Terdapat error pada permintaan ke reviewer untuk mempertimbangkan kembali "
+"permintaan review. Silakan dicoba kembali."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Daftarkan pengguna ke dalam grup peninjau ini"
@@ -397,7 +412,7 @@ msgstr ""
 "File."
 
 msgid "editor.review"
-msgstr "Review"
+msgstr "Tinjauan"
 
 msgid "editor.review.reviewDetails"
 msgstr "Rincian Review"
@@ -513,7 +528,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Review aktif yang sedang ditugaskan"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Reviewer ini telah melengkapi review pada putaran terakhir."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Review rampung"
@@ -546,17 +561,16 @@ msgid "reviewer.list.reassign"
 msgstr "Tugaskan ulang"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Penugasan kembali {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Mitra bestari ini telah ditugaskan mereview naskah ini."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
-"Mitra bestari ini dikunci karena telah diberi peran yang memungkinkannya "
+"Reviewer ini tidak aktif karena telah diberi peran yang memungkinkannya "
 "untuk melihat identitas penulis. Blind peer review tidak terjamin. Apakah "
-"Anda ingin membuka akses mitra bestari ini?"
+"Anda ingin membuka akses reviewer ini?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Buka"
@@ -571,28 +585,91 @@ msgid "reviewer.list.empty"
 msgstr "Tidak ada mitra bestari"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Ditugaskah pada Putaran Awal"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Membatalkan Keputusan"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Apakah anda yakin untuk membatalkan keputusan ini?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Melengkapi langkah-langkah berikut untuk mengambil keputusan"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Jangan lewati email ini"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Langkah ini telah dilewati dan tidak ada email yang akan dikirim."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Catat Keputusan"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Lewati email ini"
 
 msgid "editor.decision.stepError"
+msgstr "Terdapat masalah pada langkah {$stepName}."
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Pilih Reviewer dari Pilihan Reviewer"
+
+msgid "editor.review.reviewViewed"
+msgstr "Review Dilihat"
+
+msgid "editor.submission.search"
+msgstr "Mencari naskah, ID, penulis, kata kunci, dll."
+
+msgid "editor.submission.days"
+msgstr "Hari"
+
+msgid "editor.submission.daysInStage"
+msgstr "Hari dalam Tahapan"
+
+msgid "editor.submission.viewSummary"
+msgstr "Kesimpulan"
+
+msgid "editor.review.logResponse.for"
+msgstr "Respon Log untuk"
+
+msgid "editor.review.logResponse"
+msgstr "Respon Log"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Respon harus dipilih"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Reviewer telah menerima permintaan untuk melakukan review"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Reviewer telah menolak permintaan untuk melakukan review"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Mencatat respon atas nama reviewer"
+
+msgid "editor.review.download"
+msgstr "Mengunduh Formulir Reviewer"
+
+msgid "editor.review.authorOnly"
+msgstr "Bagian Khusus Penulis Ditampilkan"
+
+msgid "editor.review.logResponse.form.subDetail"
 msgstr ""
+"Jika reviewer menghubungi anda melalui email atau yang lain, anda dapat "
+"mencatat respon untuk mereka"
+
+msgid "editor.review.allSections"
+msgstr "Formuliar Editor Menunjukkan Semua Bagian Review"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Institusi yang sama dengan penulis"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Tanggal jatuh tempo peninjauan harus lebih besar atau sama dengan tanggal "
+"jatuh tempo respons."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Terjadi galat saat menambahkan peninjau karena tanggal jatuh tempo "
+"peninjauan harus sama atau lebih besar dari tanggal jatuh tempo respons."

@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\languages;
 
 use APP\core\Application;
 use APP\core\Request;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -88,18 +89,19 @@ class LanguageGridHandler extends GridHandler
         $availableLocales = $this->getGridDataElements($request);
         $context = $request->getContext();
 
-        $contextService = app()->get('context');
+        $contextService = app()->get('context'); /** @var \APP\services\ContextService $contextService */
 
         $permittedSettings = ['supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales', 'supportedSubmissionMetadataLocales'];
         if (in_array($settingName, $permittedSettings) && $locale) {
             $currentSettingValue = (array) $context->getData($settingName);
-            $isValidLocale = in_array($settingName, array_slice($permittedSettings, 0, 2)) ? Locale::isLocaleValid($locale) : Locale::isSubmissionLocaleValid($locale);
+            $isValidLocale = Locale::isLocaleValid($locale);
             if ($isValidLocale && array_key_exists($locale, $availableLocales)) {
                 if ($settingValue) {
                     (array_push($currentSettingValue, $locale) && sort($currentSettingValue));
                     if ($settingName == 'supportedFormLocales') {
                         // reload localized default context settings
                         $contextService->restoreLocaleDefaults($context, $request, $locale);
+                        Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd($context, $locale);
                     } elseif ($settingName == 'supportedSubmissionLocales') {
                         // if a submission locale is enabled, and this locale is not in the metadata locales, add it
                         $supportedSubmissionMetadataLocales = (array) $context->getSupportedSubmissionMetadataLocales();
@@ -173,13 +175,16 @@ class LanguageGridHandler extends GridHandler
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
+        
         $locale = (string) $request->getUserVar('rowId');
         $context = $request->getContext();
         $availableLocales = $this->getGridDataElements($request);
+        $currentPrimaryLocale = $context->getPrimaryLocale();
+        $contextService = app()->get('context'); /** @var \APP\services\ContextService $contextService */
 
         if (Locale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
             // Make sure at least the primary locale is chosen as available
-            $context = app()->get('context')->edit(
+            $context = $contextService->edit(
                 $context,
                 collect(['supportedLocales', 'supportedFormLocales'])
                     ->mapWithKeys(fn ($name) => [$name => collect($context->getData($name))->push($locale)->unique()->sort()->values()])
@@ -190,6 +195,12 @@ class LanguageGridHandler extends GridHandler
             $context->setPrimaryLocale($locale);
             $contextDao = Application::getContextDAO();
             $contextDao->updateObject($context);
+            
+            Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd(
+                $context,
+                $locale,
+                $currentPrimaryLocale
+            );
 
             $notificationManager = new NotificationManager();
             $user = $request->getUser();
@@ -214,10 +225,11 @@ class LanguageGridHandler extends GridHandler
         $locale = (string) $request->getUserVar('rowId');
         $context = $request->getContext();
         $availableLocales = $this->getGridDataElements($request);
+        $contextService = app()->get('context'); /** @var \APP\services\ContextService $contextService */
 
-        if (Locale::isSubmissionLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
+        if (Locale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
             // Make sure at least the primary locale is chosen as available
-            app()->get('context')->edit(
+            $contextService->edit(
                 $context,
                 [
                     'supportedDefaultSubmissionLocale' => $locale,

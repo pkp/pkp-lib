@@ -1,10 +1,11 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
+# "Dr. Uğur Koçak" <ugurkocak@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-06-03 05:04+0000\n"
+"PO-Revision-Date: 2025-10-11 01:22+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
@@ -212,6 +213,11 @@ msgstr "Tüm DOI'leri ata"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Tüm bekleyen DOI meta veri kayıtlarını {$registrationAgency} ile birlikte "
+"atanması için planlamak üzeresiniz. Yalnızca DOI kaydı bulunan yayınlanmış "
+"ögeler gönderilecektir. Her ögenin durumu, yanıt alındığında "
+"güncellenecektir. Bu ögelerin tümü için DOI atamayı planlamak istediğinizden "
+"emin misiniz?"
 
 msgid "manager.dois.actions.description"
 msgstr "{$count} adet seçili öge için işlem yapın."
@@ -297,10 +303,13 @@ msgstr ""
 "ögeler."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Kayıt sürecinde bir hatayla karşılaşan tüm ögeler."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Kayıt kurumuna son kez teslim edildikten sonra yeniden yayınlanan tüm "
+"öğeler. Meta veri kayıtlarını güncellemek için kayıt kurumuna yeniden "
+"gönderilmeleri gerekir."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI Güncellemeleri Başarısız"
@@ -341,6 +350,8 @@ msgstr ""
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"DOI oluşturmaya çalıştım, ancak DOI oluşturmak için bağlamda bir DOI öneki "
+"gerekiyor."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -890,6 +901,8 @@ msgstr "Özel DOI Son Ek Şablonu"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Yapılandırılan DOI kayıt kuruluşu için bir veya daha fazla seçili DOI türüne "
+"izin verilmiyor."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -924,19 +937,19 @@ msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Hiçbiri"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI Versiyonlama"
 
 msgid "doi.authorization.enabledRequired"
 msgstr "DOI'ler etkinleştirilmeden bu işlemi gerçekleştiremezsiniz."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "{$count} sürüm mevcut."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Tümünü Görüntüle"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "Tüm versiyonlar için DOI'ler"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "DOI geçersiz karakterler içeriyor."
@@ -1153,7 +1166,7 @@ msgstr "Tarih ve Saat Formatı"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Tercih ettiğiniz tarih ve saat biçimini seçin. <a href='http://php.net/"
-"manual/en/function.strftime.php#refsect1-function.strftime-parameters'>Özel "
+"manual/tr/datetime.format.php#refsect1-datetime.format-parameters'>Özel "
 "bir tarih ve saat formatı</a> için özel bir format girebilirsiniz."
 
 msgid "manager.setup.dateTime.longDate"
@@ -1258,15 +1271,26 @@ msgstr "Seçtiğiniz tema yüklü veya etkin değil."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Aşağıdakiler, aday makale gönderimine başlamadan önce yazara gösterilir. "
+"Yazardan beklenenleri anlayabilmesi için gönderim süreci hakkında kısa bir "
+"açıklama yapın."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Dosya yükleme adımı sırasında yazara aşağıdakiler gösterilir. Yazarlardan "
+"aday makale gönderimi ile birlikte hangi dosyaları göndermeleri gerektiğine "
+"dair kısa bir açıklama yapın."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Aşağıdakiler, yazar ekleme ekranında gönderici yazara gösterilir. Yazarın "
+"kendisi ve diğer yazarlar hakkında hangi bilgileri sağlaması gerektiğine "
+"dair kısa bir açıklama yazın."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Aşağıdaki bilgiler, yazarların ayrıntılar adımında, aday makale ile ilgili "
+"başlık, özet ve diğer önemli bilgileri girmeleri istendiğinde gösterilir."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
@@ -1275,11 +1299,10 @@ msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Yazar Rehberi"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Gönderi Hazırlık Kontrol Listesi"
+msgstr "Makale Gönderim Kontrol Listesi"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
@@ -1302,13 +1325,13 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Bu bölümü etkinleştirmek istediğinizden emin misiniz?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Editör Atamaları"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "{$name} için {$role} olarak atayın"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
@@ -1657,9 +1680,6 @@ msgstr "Para birimi"
 
 msgid "settings.roles.roleOptions"
 msgstr "Rol Seçenekleri"
-
-msgid "settings.roles.showTitles"
-msgstr "Katkıda bulunanlar listesinde rol başlığını göster"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Kullanıcıların kendi kaydına izin ver"
@@ -3315,6 +3335,8 @@ msgstr ""
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p>Sistem tarafından gönderilen tüm epostaları <a href=\"{$url}\">düzenleyin "
+"yahut yenilerini ekleyin</a>.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
@@ -3570,3 +3592,183 @@ msgstr ""
 
 msgid "plugins.importexport.common.validation"
 msgstr "İhraç ve kayıt işleminden önce XML'i doğrulayın."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Bitiş Tarihi"
+
+msgid "manager.highlights.image"
+msgstr "Resim"
+
+msgid "manager.highlights.url.description"
+msgstr "Vurgudaki buton için https:// dahil tam URL."
+
+msgid "manager.image"
+msgstr "Resim"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Tarih, YYYY-MM-DD veya YYYY-MM biçiminde olmalıdır. Olası son tarih "
+"{$lastDate}'dir."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Yanıt olarak yyyy|yyyy|yyyy-yyyy biçiminde döndürülecek yayın yıllarının bir "
+"listesi veya aralığı."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "E-postalar en kısa sürede başarı ile gönderilmek üzere sıraya alınır."
+
+msgid "manager.highlights.urlText"
+msgstr "Buton Etiketi"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Vurgudaki buton için Daha Fazla Oku gibi bir etiket."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Henüz SAYAÇ R5 kullanım istatistikleri mevcut değil."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Raporlama Ayarları"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Başlangıç Tarihi"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Tarih, YYYY-MM-DD veya YYYY-MM biçiminde olmalıdır. Mümkün olan en geçmiş "
+"tarih {$earliestDate}'dir."
+
+msgid "manager.statistics.counterR5"
+msgstr "Sayaç R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Sayaç R5 Raporları"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Her bir rapor hakkında daha fazla bilgi için <a href=\"https://cop5."
+"projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_blank\">SAYAÇ "
+"5.0.3 dokümantasyon</a> bölümüne bakınız."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Tarih formatı geçerli değil."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Müşteri ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metrik Türü"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Gösterilecek Nitelikler"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Yayın Yılı"
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Makale ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Makale ID mevcut değil."
+
+msgid "manager.highlights.add"
+msgstr "Slide Ekle"
+
+msgid "manager.highlights.delete"
+msgstr "Slide Sil"
+
+msgid "manager.highlights.edit"
+msgstr "Slide Düzenle"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Gerekli Minimum Onaylanmış Değerlendirme Sayısı"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Bir gönderim için gerekli olan minimum onaylanmış değerlendirme sayısı"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Websitesi Dilleri"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Makale Gönderim Dilleri"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Dil Ekle/Sil"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Üstveri"
+
+msgid "manager.language.submission.form.description"
+msgstr "Makale gönderim ve üstveri dillerini seçin."
+
+msgid "manager.language.submission.from.error"
+msgstr "En az bir dil ayarı seçilmelidir."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Ebeveyn Bilgilerini Dahil Et"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Aylık Ayrıntıları Hariç Tut"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Değerlendirme için Hatırlatıcıları Ayarla"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Değerlendirme Talebi Yanıtı - Son Tarih Öncesi"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Değerlendirme Talebi Yanıtı - Son Tarih Sonrası"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Değerlendirme Gönderimi - Son Tarih Öncesi"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Değerlendirme Gönderimi - Son Tarih Sonrası"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "Son değerlendirme tarihinden {$value} gün önce"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "Son değerlendirme tarihinden {$value} gün sonra"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Hiçbiri"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Hatırlatma ayarlanmadı"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Aday makale gönderimi sırasında Hakem Önerisi"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Yazarların, aday makale gönderim sürecinde potansiyel hakem önermelerine "
+"izin verin."
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"{$title} ögesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP biçimi geçersiz."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Değerlendirme davetine yanıt (değerlendirme talebine henüz yanıt vermemişse) "
+"veya değerlendirmeyi henüz tamamlamadıysa öncesinde veya sonrasında bir e-"
+"posta hatırlatıcısı gönderin."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Yazar, gönderimi tamamlamadan önce birkaç potansiyel hakem önerebilir. Bu, "
+"değerlendirme sürecini kolaylaştırır ve editör ekibine alternatif potansiyel "
+"hakemler sağlar."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Aşağıdaki bilgiler, hakem önerme aşamasında yazarlara gösterilir. Yazarın "
+"kendisi, ortak yazarlar ve diğer katkıda bulunanlar hakkında hangi bilgileri "
+"sağlaması gerektiğine dair kısa bir açıklama yapın."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Davet E-posta Adresini Değiştir"

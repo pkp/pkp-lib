@@ -1,5 +1,5 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2024-01-30 11:07+0000\n"
+"PO-Revision-Date: 2025-12-10 22:39+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da/>\n"
@@ -926,9 +926,7 @@ msgstr ""
 "registreringsbureau."
 
 msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Et DOI-suffiks kan antage en hvilken som helst form, men det skal være unikt "
-"for hvert enkelt udgivet element med samme tildelte DOI-præfiks:"
+msgstr "Vælg det format, der skal anvendes, når der genereres en DOI."
 
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Standard"
@@ -1001,17 +999,22 @@ msgstr "Oplysninger om copyright"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""
-"Kræv, at forfattere accepterer \"Oplysninger om copyright\" som en del af "
-"indsendelsesprocessen."
+"Den følgende tekst optræder på <a href=\"{$url}\">Indsendelser</a> siden, "
+"hvor forfattere kan læse om krav for at indsende et manuskript. Forfattere "
+"vil blive bedt om at acceptere 'Oplysninger om copyright' før de kan "
+"færdiggøre deres indsendelse."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Retningslinjer for forfattere"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
-"Anbefalede retningslinjer inkluderer bibliografiske standarder og "
-"formateringsstandarder sammen med eksempler på almindelige "
-"citationsformater, der skal bruges i indsendelser."
+"Den følgende tekst optræder på <a href=\"{$url}\">Indsendelser</a> siden, "
+"hvor forfattere kan finde information om, hvordan de skal forberede deres "
+"manuskript til indsendelse. Sørg for at give al den information, de har brug "
+"for, fx om bibliografiske standarder og formateringsstandarder samt "
+"eksempler på almindelige citationsformater, der skal anvendes. Du kan også "
+"angive detaljer om det foretrukne format og emne af indsendelserne."
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Deaktiver indsendelser"
@@ -1197,7 +1200,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Vælg det foretrukne format til datoer og klokkeslæt. Et brugerdefineret "
 "format kan indtastes ved hjælp af de specielle <a href=\"https://www.php.net/"
-"manual/en/function.strftime.php#refsect1-function.strftime-parameters"
+"manual/en/datetime.format.php#refsect1-datetime.format-parameters"
 "\">formatskrifttyper</a>."
 
 msgid "manager.setup.dateTime.longDate"
@@ -1229,7 +1232,7 @@ msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
 msgstr "Standard svarfrist"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Standardfrist for afsluttet færdiggørelse"
+msgstr "Standardfrist for færdiggørelse"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Antal uger inden en accept eller et afslag skal foreligge."
@@ -1722,9 +1725,6 @@ msgstr "Valuta"
 msgid "settings.roles.roleOptions"
 msgstr "Rolleoptioner"
 
-msgid "settings.roles.showTitles"
-msgstr "Vis rolletitel i listen over bidragydere"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Tillad brugeren selv at foretage registrering"
 
@@ -2023,7 +2023,7 @@ msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Radioknapper (du kan kun vælge én)"
 
 msgid "manager.reviewFormElements.required"
-msgstr "Bedømmere påkrævet for at afslutte emne"
+msgstr "Det er påkrævet for bedømmere at udfylde dette emne"
 
 msgid "manager.reviewFormElements.included"
 msgstr "Inkluderet i besked til forfatter"
@@ -2949,11 +2949,10 @@ msgstr "Filer uploadet af bedømmeren"
 msgid "emailTemplate.variable.review.name"
 msgstr "Navnet på bedømmeren"
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "En beskrivelse af standard bedømmelsesmetoden, som fx dobbelt anonym eller "
-"åben."
+"åben"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
@@ -3819,3 +3818,139 @@ msgstr "Kolofon"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Godkend XML før eksport og registrering."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Installeret version: {$version}"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Link til siden der viser alle aktive redaktionel kolofon services."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Angiv venligst redaktionens historik, inklusive fulde navne, tilknytning og "
+"start- og slutdatoer for hver redaktør."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Ændr e-mail-adresseinvitation"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Hjemmesidesprog"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Indsendelsessprog"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Indsendelse af bedømmelse - Efter deadline"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Sprogindstillingen kunne ikke gemmes. Alle muligheder skal aktiveres."
+
+msgid "notification.submissionLocales"
+msgstr "Indsendelsessprog er opdateret."
+
+msgid "settings.roles.masthead"
+msgstr "Overvej rolle i kolofonoversigten"
+
+msgid "settings.roles.permitSettings"
+msgstr "Tillad ændringer i indstillinger"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Definer rækkefølgen af roller i redaktionel kolofon til offentlig "
+"fremvisning."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Forfatteren {$authorName} har ikke angivet navnet på tilknytning på "
+"indsendelsens sprog, {$localeName}. Indsendelsen kan ikke importeres uden "
+"disse oplysninger."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Menupunktets titel er påkrævet."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Definer rækkefølgen af roller i kolofon til offentlig fremvisning."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Bedømmere bliver fremvist i et standardiseret format for at bevare "
+"ensartethed og sikre nem opdagelse i denne sektion."
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Tilføj/fjern sprog"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadata"
+
+msgid "manager.language.submission.form.description"
+msgstr "Vælg indsendelses- og metadatasprog."
+
+msgid "manager.language.submission.from.error"
+msgstr "Du skal vælge mindst ét sprog."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Indstil påmindelser om bedømmelse"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Send en e-mail påmindelse før eller efter for at få svar på anmodningen om "
+"bedømmelse (hvis bedømmeren ikke har svaret på anmodningen endnu) eller "
+"indsendelse af bedømmelse (hvis bedømmeren ikke har indsendt bedømmelse "
+"endnu)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Svar på anmodning om bedømmelse - Før deadline"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Svar på anmodning om bedømmelse - Efter deadline"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Indsendelse af bedømmelse - Før deadline"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dage før deadline"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dage efter deadline"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ingen"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Ingen påmindelse indstillet"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Foreslå bedømmere ved indsendelse"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Forfatteren kan foreslå flere potentielle bedømmere før færdiggørelsen af "
+"indsendelsen, hvilket kan strømline bedømmelsesprocessen og give værdifuldt "
+"input til redaktionen."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Tillad forfattere at foreslå potentielle bedømmere i indsendelsesprocessen"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Følgende vises til forfattere, når de skal foreslå bedømmere. Giv en kort "
+"forklaring på, hvilke oplysninger forfatteren skal give om sig selv, "
+"medforfattere og eventuelle andre bidragydere."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minimum bekræftede bedømmelser påkrævet"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimum antal af bekræftede bedømmelser påkrævet for en indsendelse"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Kategorien findes ikke eller hører til en anden kontekst. Kontroller "
+"venligst at du arbejder i den rigtige kontekst og forsøg igen."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Forsidebilledet og thumbnail filerne kunne ikke findes. De er muligvis "
+"allerede blevet slettet. Prøv at genindlæse siden."

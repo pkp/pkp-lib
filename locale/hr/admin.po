@@ -1,22 +1,24 @@
 # Maria Češnik <mariaces237@gmail.com>, 2022.
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
 # Tadej Grlić <tadejgrlic@gmail.com>, 2023.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-03-03 16:17+0000\n"
-"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Naziv postavke"
@@ -525,8 +527,9 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
-"Popis svih poslova u čekanju. Ako želite paginirati rezultate, koristite "
-"parametre --page= i --perPage="
+"Popis svih poslova u čekanju. Ako želite rezultate rasporediti po "
+"stranicama, koristite parametre --page= i --perPage=. Dodajte zastavicu --"
+"failed za prikaz neuspjelih zadataka."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -548,13 +551,16 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Prikaži sve neuspjele zadatke. Postavite parametar --queue=QUEUE_NAME and --"
+"connection=CONNECTION_NAME za filtriranje popisa. Također upotrijebite "
+"parametar/zastavicu --redispatch i --clear za ponovno slanje u red čekanja "
+"ili za brisanje svih/pojedinih neuspjelih zadataka."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Otpremanje dostupnih poslova u red čekanja. ako želite poslati posao u "
-"određeni red čekanja, proslijedite parametar --queue=QUEUE_NAME. Također "
-"može samo proći --test za pokretanje testnog posla i --once za pokretanje "
-"jednog po jednog posla"
+"Pošalji dostupne zadatke u red čekanja. Za slanje zadatka u određeni red "
+"upotrijebite parametar --queue=QUEUE_NAME. Upotrijebite --test za pokretanje "
+"testnog zadatka i --once zaustavljanje nakon jednog zadatka."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
@@ -564,7 +570,9 @@ msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr "Nema dostupnih poslova za pokretanje u redu pod nazivom {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Prikažite količinu poslova u čekanju"
+msgstr ""
+"Prikaži ukupan broj zadataka u redu čekanja. Dodajte zastavicu --failed za "
+"prikaz ukupnog broja neuspjelih zadataka."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Prikaži korištenje naredbe Poslovi"
@@ -606,7 +614,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Stvoreno u"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Neuspjelo u"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
 msgstr "Iznimka"
@@ -661,10 +669,10 @@ msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr "{$jobsCount} neuspješnih zadataka uklonjenu s popisa."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} zadataka uspješno je ponovno poslano u red čekanja."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Imamo {$total} neuspjelih zadataka"
 
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr "Imamo {$total} poslova na čekanju"
@@ -679,7 +687,7 @@ msgid "admin.jobs.totalCount"
 msgstr "U redu čekanja nalazi se ukupno <strong>{$total}</strong> poslova"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Ukupan broj neuspjelih poslova: <strong>{$total}</strong>"
 
 msgid "admin.jobs.viewQueuedJobs"
 msgstr "Pregledajte poslove na čekanju"
@@ -688,10 +696,10 @@ msgid "navigation.tools.jobs"
 msgstr "Poslovi"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Neuspjeli zadaci"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Podaci o neuspjelom zadatku"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
@@ -701,10 +709,10 @@ msgid "navigation.tools.jobs.view"
 msgstr "Pogledajte poslove"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Pogledajte neuspjele poslove"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Prikaz podataka o neuspjelom zadatku: {$id}"
 
 msgid "admin.job.failed.list.attribute"
 msgstr "Atribut"
@@ -731,10 +739,10 @@ msgid "admin.jobs.list.createdAt"
 msgstr "Stvoreno u"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Vrijeme neuspjelog posla"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Sadržaj"
 
 msgid "admin.jobs.list.exception"
 msgstr "Iznimka"
@@ -752,7 +760,7 @@ msgid "admin.jobs.failed.action.redispatch"
 msgstr "Pokušaj ponovo"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Vrati sve neuspjele zadatke u red čekanja"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
@@ -922,3 +930,155 @@ msgstr "Pokrenite radni deamon za testni red"
 
 #~ msgid "admin.jobs.list.queueName"
 #~ msgstr "Red"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"U instalaciji s više konteksta, statistika recenzenata, poput broja predanih "
+"recenzija, može se prikazivati pojedinačno za svaki kontekst ili objedinjeno."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Onemogući objedinjenu statistiku recenzenata"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statistika recenzenata"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Ažuriraj predmemoriju podataka ROR registra"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Datoteka {$filename} je premještena u mapu za slanje."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Nije moguće izvršiti zadatke u redu čekanja jer je onemogućen sandbox način "
+"rada."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Radni procesi će se uredno zaustaviti nakon dovršetka trenutačnog zadatka."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Dokument {$file} ne postoji."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Prikaži parametre korištenja AppKey-a"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Dodajte konfiguracijsku varijablu app_key u datoteku config.inc.php."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Jeste li mislili na nešto od sljedećeg?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Generirani AppKey: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "U konfiguracijskoj datoteci nije postavljen AppKey."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "AppKey je uspješno postavljen u konfiguracijskoj datoteci."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "U konfiguracijskoj datoteci postavljen je valjani AppKey"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Pokreni planer zadataka."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Prikaži sve planirane zadatke."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Pokreni radni proces planera zadataka."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Prikaži parametre korištenja planera zadataka."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Planirani zadaci se ne mogu pokrenuti jer je aplikacija u načinu održavanja."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Jeste li mislili na nešto od sljedećeg?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Planirani zadaci se ne mogu pokrenuti jer je aplikacija u sandbox načinu "
+"rada."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Pokretanje planiranih zadataka svake minute."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Nema registriranih planiranih zadataka."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Nije pronađen odgovarajući planirani zadatak."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Koju naredbu želite pokrenuti?"
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Ponovno pokreni radne procese na redu čekanja nakon dovršetka trenutačnog "
+"zadatka."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Pokretanje zadataka za automatsko uklanjanje pozivnica koje su istekle"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Provjeri trenutačni AppKey (ako postoji u konfiguracijskoj datoteci)"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Generirajte novi AppKey i zamijenite ga u konfiguracijskoj datoteci. Dodajte "
+"zastavicu --show za samo prikaz, a --force za prepisivanje postojećeg "
+"valjanog AppKey-a."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"U odjeljku general konfiguracijske datoteke nije definirana varijabla ključa "
+"app_key. Ažurirajte odjeljak general konfiguracijske datoteke i dodajte "
+"redak app_key = ili pokrenite naredbu php lib/pkp/tools/appKey.php configure "
+"za postavljanje."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Varijabla app_key već postoji u odjeljku 'general' konfiguracijske datoteke. "
+"Pokrenite naredbu 'php lib/pkp/tools/appKey.php generate za postavljanje' "
+"novog AppKey-a."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Postavljen je neispravan AppKey: nepodržana šifra ili netočna duljina "
+"ključa. Podržane šifre su: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Valjani AppKey već je postavljen u konfiguracijskoj datoteci. Za "
+"prepisivanje dodajte zastavicu --force uz naredbu."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Varijabla AppKey uspješno je postavljena u konfiguracijskoj datoteci. "
+"Pokrenite naredbu 'php lib/pkp/tools/appKey.php generate' za postavljanje "
+"novog AppKey-a."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Nije moguće postaviti varijablu 'app_key' u konfiguracijskoj datoteci. "
+"Ažurirajte odjeljak general konfiguracijske datoteke i dodajte redak "
+"'app_key = '."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Pokreni određeni planirani zadatak s popisa ili upotrijebi --name za "
+"pokretanje točno određenog zadatka. Postavi zastavicu --no-scroll za prikaz "
+"cijelog popisa bez pomicanja."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Datoteku {$file} nije bilo moguće premjestiti iz {$dispatchFilePath} "
+"u{$archivedFilePath}."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Koristi ovu stranicu kao platformu za sve časopise."

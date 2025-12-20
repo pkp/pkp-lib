@@ -3,8 +3,8 @@
 /**
  * @file pages/catalog/PKPCatalogHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPCatalogHandler
@@ -17,14 +17,13 @@
 namespace PKP\pages\catalog;
 
 use APP\facades\Repo;
+use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
-use PKP\db\DAO;
-use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 
@@ -47,8 +46,8 @@ class PKPCatalogHandler extends Handler
      *
      * @param array $args [
      *
-     *		@option string Category path
-     *		@option int Page number if available
+     *        @option string Category path
+     *        @option int Page number if available
      * ]
      *
      * @param PKPRequest $request
@@ -67,11 +66,11 @@ class PKPCatalogHandler extends Handler
             ->first();
 
         if (!$category) {
-            $this->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $this->setupTemplate($request);
-        $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . DAO::SORT_DIRECTION_DESC;
+        $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . Collector::ORDER_DIR_DESC;
         [$orderBy, $orderDir] = explode('-', $orderOption);
 
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
@@ -82,7 +81,7 @@ class PKPCatalogHandler extends Handler
             ->filterByContextIds([$context->getId()])
             ->filterByCategoryIds([$category->getId()])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
-            ->orderBy($orderBy, $orderDir === DAO::SORT_DIRECTION_ASC ? Collector::ORDER_DIR_ASC : Collector::ORDER_DIR_DESC);
+            ->orderBy($orderBy, $orderDir);
 
         // Featured items are only in OMP at this time
         if (method_exists($collector, 'orderByFeatured')) {
@@ -105,9 +104,6 @@ class PKPCatalogHandler extends Handler
             'parentCategory' => $parentCategory,
             'subcategories' => iterator_to_array($subcategories),
             'publishedSubmissions' => $submissions->toArray(),
-            'authorUserGroups' => Repo::userGroup()->getCollector()
-                ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-                ->filterByContextIds([$context->getId()])->getMany()->remember(),
         ]);
 
         return $templateMgr->display('frontend/pages/catalogCategory.tpl');
@@ -126,11 +122,11 @@ class PKPCatalogHandler extends Handler
                 $context = $request->getContext();
                 $category = Repo::category()->get((int) $request->getUserVar('id'));
                 if (!$category || $category->getContextId() != $context->getId()) {
-                    $this->getDispatcher()->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
                 $imageInfo = $category->getImage();
-                $contextFileManager = new ContextFileManager($context->getId());
-                $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['name'], null, true);
+                $publicFileManager = new PublicFileManager();
+                $publicFileManager->downloadByPath($publicFileManager->getContextFilesPath($category->getContextId()) . '/' . $imageInfo['uploadName'], null, true);
                 break;
             default:
                 throw new \Exception('invalid type specified');
@@ -150,11 +146,11 @@ class PKPCatalogHandler extends Handler
                 $context = $request->getContext();
                 $category = Repo::category()->get((int) $request->getUserVar('id'));
                 if (!$category || $category->getContextId() != $context->getId()) {
-                    $this->getDispatcher()->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
                 $imageInfo = $category->getImage();
-                $contextFileManager = new ContextFileManager($context->getId());
-                $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['thumbnailName'], null, true);
+                $publicFileManager = new PublicFileManager();
+                $publicFileManager->downloadByPath($publicFileManager->getContextFilesPath($category->getContextId()) . '/' . $imageInfo['thumbnailName'], null, true);
                 break;
             default:
                 throw new \Exception('invalid type specified');

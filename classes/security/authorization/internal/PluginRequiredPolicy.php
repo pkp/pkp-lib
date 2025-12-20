@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/PluginRequiredPolicy.php
  *
@@ -45,7 +46,7 @@ class PluginRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Get the plugin request data.
         $category = $this->_request->getUserVar('category');
@@ -68,8 +69,4 @@ class PluginRequiredPolicy extends AuthorizationPolicy
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_PLUGIN, $foundPlugin);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\PluginRequiredPolicy', '\PluginRequiredPolicy');
 }

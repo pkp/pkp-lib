@@ -11,6 +11,7 @@
  * @uses string $inLocale The locale key to show. Only include this for localized data
  * @uses string $name The user-facing name of this property, eg "Keywords"
  * @uses string $type The type of the value. Accepts `string`, `array`, `html`
+ * @uses string $dataField The name of the field to display when `$type` is 'array' and the publication property contains an array of objects.
  *}
 
 {if $inLocale}
@@ -26,7 +27,7 @@
             :key="i"
             type="warning"
         >
-            <icon icon="exclamation-triangle"></icon>
+            <icon icon="Error" class="h-5 w-5"></icon>
             {{ error }}
         </notification>
     </template>
@@ -34,27 +35,33 @@
         {$name}
     </h4>
     <div
-        class="submissionWizard__reviewPanel__item__value"
+        class="submissionWizard__reviewPanel__item__value semantic-defaults"
         {if $type === 'html'}
-            v-html="publication.{$localizedProp|escape}
+            v-strip-unsafe-html="publication.{$localizedProp|escape}
                 ? publication.{$localizedProp|escape}
                 : '{translate key="common.noneProvided"}'"
         {/if}
     >
         {if $type === 'array'}
             <template v-if="publication.{$localizedProp|escape} && publication.{$localizedProp|escape}.length">
-                {{
-                    publication.{$localizedProp|escape}
-                        .join(
-                            t('common.commaListSeparator')
-                        )
-                }}
+                {if $dataField}
+                    {{
+                        publication.{$localizedProp|escape}
+                            .map(item => item['{$dataField}'])
+                            .join(t('common.commaListSeparator'))
+                    }}
+               {else}
+                   {{
+                       publication.{$localizedProp|escape}
+                           .join(t('common.commaListSeparator'))
+                   }}
+               {/if}
             </template>
             <template v-else>
                 {translate key="common.noneProvided"}
             </template>
         {elseif $type === 'html'}
-            {* empty. see v-html above *}
+            {* empty. see v-strip-unsafe-html above *}
         {else}
             <template v-if="publication.{$localizedProp|escape}">
                 {{ publication.{$localizedProp|escape} }}

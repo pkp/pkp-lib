@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/context/PKPReviewSetupForm.php
  *
@@ -17,11 +18,11 @@
 namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldHTML;
-use PKP\context\Context;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSlider;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\context\Context;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class PKPReviewSetupForm extends FormComponent
@@ -50,7 +51,8 @@ class PKPReviewSetupForm extends FormComponent
 
         $this
             ->addDefaultFields($context)
-            ->addReminderFields($context);
+            ->addReminderFields($context)
+            ->addReviewSuggestionControl($context);
     }
 
     /**
@@ -70,6 +72,16 @@ class PKPReviewSetupForm extends FormComponent
                     ['value' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS, 'label' => __('editor.submissionReview.doubleAnonymous')],
                     ['value' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, 'label' => __('editor.submissionReview.anonymous')],
                     ['value' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN, 'label' => __('editor.submissionReview.open')],
+                ],
+                'groupId' => self::REVIEW_SETTINGS_GROUP,
+            ]))
+            ->addField(new FieldOptions('enablePublicPeerReviews', [
+                'label' => __('manager.setup.reviewOptions.publicReviewerComments.show'),
+                'description' => __('manager.setup.reviewOptions.publicReviewerComments.description'),
+                'type' => 'checkbox',
+                'value' => $context->arePeersReviewPublic(),
+                'options' => [
+                    ['value' => false, 'label' => __('manager.setup.reviewOptions.publicReviewerComments.label')],
                 ],
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]))
@@ -106,10 +118,10 @@ class PKPReviewSetupForm extends FormComponent
                 'size' => 'small',
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]))
-            ->addField(new FieldText('numReviewersPerSubmission', [
-                'label' => __('manager.setup.reviewOptions.numReviewersPerSubmission'),
-                'description' => __('manager.setup.reviewOptions.numReviewersPerSubmission.description'),
-                'value' => $context->getData('numReviewersPerSubmission'),
+            ->addField(new FieldText('numReviewsPerSubmission', [
+                'label' => __('manager.setup.reviewOptions.numReviewsPerSubmission'),
+                'description' => __('manager.setup.reviewOptions.numReviewsPerSubmission.description'),
+                'value' => $context->getNumReviewsPerSubmission(),
                 'size' => 'small',
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]));
@@ -171,7 +183,35 @@ class PKPReviewSetupForm extends FormComponent
                 'valueLabelMin' => __('manager.setup.reviewOptions.reminders.disbale.label'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]));
-        
+
+        return $this;
+    }
+
+    /**
+     * Add review suggestion control field
+     */
+    protected function addReviewSuggestionControl(Context $context): static
+    {
+        $schema = app()->get('schema'); /** @var \PKP\services\PKPSchemaService $schema */
+
+        if (!collect($schema->get('context')->properties)->has('reviewerSuggestionEnabled')) {
+            return $this;
+        }
+
+        $this->addField(
+            new FieldOptions('reviewerSuggestionEnabled', [
+                'label' => __('manager.setup.reviewOptions.reviewerSuggestionEnabled'),
+                'description' => __('manager.setup.reviewOptions.reviewerSuggestionEnabled.description'),
+                'type' => 'checkbox',
+                'value' => $context->getData('reviewerSuggestionEnabled'),
+                'options' => [
+                    ['value' => true, 'label' => __('manager.setup.reviewOptions.reviewerSuggestionEnabled.label')],
+                ],
+                'groupId' => self::REVIEW_SETTINGS_GROUP,
+            ]),
+            [FIELD_POSITION_AFTER, 'reviewerAccessKeysEnabled']
+        );
+
         return $this;
     }
 }

@@ -24,29 +24,34 @@ use PKP\submission\reviewAssignment\Collector as ReviewAssignmentCollector;
 
 class DashboardView
 {
-    const TYPE_ASSIGNED = 'assigned-to-me';
-    const TYPE_ACTIVE = 'active';
-    const TYPE_NEEDS_EDITOR = 'needs-editor';
-    const TYPE_SUBMISSION = 'initial-review';
-    const TYPE_REVIEW_EXTERNAL = 'external-review';
-    const TYPE_REVIEW_INTERNAL = 'internal-review';
-    const TYPE_NEEDS_REVIEWERS = 'needs-reviewers';
-    const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
-    const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';
-    const TYPE_COPYEDITING = 'copyediting';
-    const TYPE_PRODUCTION = 'production';
-    const TYPE_SCHEDULED = 'scheduled';
-    const TYPE_PUBLISHED = 'published';
-    const TYPE_DECLINED = 'declined';
-    const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
-    const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
-    const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
-    const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';
-    const TYPE_REVIEWER_ASSIGNMENTS_PENDING = 'reviewer-assignments-pending';
-    const TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED = 'reviewer-assignments-archived';
+    public const TYPE_ASSIGNED = 'assigned-to-me';
+    public const TYPE_ACTIVE = 'active';
+    public const TYPE_NEEDS_EDITOR = 'needs-editor';
+    public const TYPE_SUBMISSION = 'initial-review';
+    public const TYPE_NEEDS_REVIEWS = 'needs-reviews';
+    public const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
+    public const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';
+    public const TYPE_REVIEWS_OVERDUE = 'reviews-overdue';
+    public const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
+    public const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
+    public const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
+    public const TYPE_REVIEW_EXTERNAL = 'external-review';
+    public const TYPE_REVIEW_ALL = 'review-all'; // OMP only
+    public const TYPE_COPYEDITING = 'copyediting';
+    public const TYPE_PRODUCTION = 'production';
+    public const TYPE_SCHEDULED = 'scheduled';
+    public const TYPE_PUBLISHED = 'published';
+    public const TYPE_DECLINED = 'declined';
+
+    public const TYPE_REVIEWER_ACTION_REQUIRED = 'reviewer-action-required';
+    public const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';
+    public const TYPE_REVIEWER_ASSIGNMENTS_COMPLETED = 'reviewer-assignments-completed';
+    public const TYPE_REVIEWER_ASSIGNMENTS_DECLINED = 'reviewer-assignments-declined';
+    public const TYPE_REVIEWER_ASSIGNMENTS_PUBLISHED = 'reviewer-assignments-published';
+    public const TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED = 'reviewer-assignments-archived';
 
     // The number of submissions in the view
-    protected int $count;
+    protected int $count = 0;
 
     public function __construct(
         protected string $type, // View type, used also as the unique ID of the view's front-end part
@@ -55,8 +60,7 @@ class DashboardView
         protected SubmissionCollector|ReviewAssignmentCollector $submissionCollector, // Collector with correspondent filters applied
         protected ?string $op = null, // Dashboard handler operation to retrieve filtered submissions
         protected ?array $queryParams = null // Optional query parameters
-    )
-    {
+    ) {
 
     }
 

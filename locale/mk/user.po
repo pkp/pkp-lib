@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-01 08:58+0000\n"
+"PO-Revision-Date: 2025-10-23 06:51+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "mk/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Информации за профилот"
@@ -774,3 +774,165 @@ msgstr "Откриени се дупликати од ORCiD членовите."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Откриени се неавториѕирани ORCiD учесници."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Пристапот до работниот тек за нецелосно поднесување е ограничен."
+
+msgid "user.affiliations.institution"
+msgstr "Институција"
+
+msgid "user.affiliations.translation"
+msgstr "Повеќе информации"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Уредете го името на институцијата"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Отстранете ја институцијата"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Кликнете за да уредите или избришете"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Сите преводи се достапни"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Внесете го името на институтот на {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Дали си сигурен?"
+
+msgid "orcid.manager.context.enabled"
+msgstr "Овозможете ја ORCID функционалноста"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Ве молиме додадете припадност на јазикот на поднесување."
+
+msgid "user.role.ended"
+msgstr "Улогата заврши"
+
+msgid "orcid.unauthenticated"
+msgstr "(неидентификуван)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Сега автоматски ќе бидете насочени назад кон {$contextName}."
+
+msgid "orcid.field.verification.request"
+msgstr "Побарајте верификација"
+
+msgid "orcid.field.verification.requested"
+msgstr "Побарана е потврда на ORCID!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Повторно испратете е-пошта за потврда"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Побарајте верификација на ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Дали сакате да испратите е-пошта до овој автор со барање да го потврди "
+"нивниот ORCID?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Избришете го ORCID"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Дали сте сигурни дека сакате трајно да ја отстраните оваа улога? Ова дејство "
+"ќе го отповика пристапот на корисникот до сите информации и дозволи поврзани "
+"со оваа улога."
+
+msgid "user.futureRole.notification.message"
+msgstr "Вашата улога е закажана да започне на {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Дотогаш, можете да го прегледате и ажурирате вашиот профил. Ако мислите дека "
+"ова е грешка, ве молиме контактирајте го администраторот."
+
+msgid "user.disabledModal.description"
+msgstr "Тековни улоги: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Оневозможи {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Овозможи {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Био изјава"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Внесете го целосното име на институцијата подолу, избегнувајќи какви било "
+"акроними. Изберете го името од паѓачкото мени и кликнете „Додај“ за да ја "
+"вклучите припадноста во вашиот профил. (на пр. „Универзитет Сајмон Фрејзер“)"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "Завршени се {$count} од {$total} јазици"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Име на институтот на {$language}"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Припадноста <strong>{$affiliation}</strong> ќе биде избришана."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Внесете го името на институтот на {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Вашата фраза за пребарување не може да се најде"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Потребен е примарен јазик {$primaryLocale}"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Додавањето, ажурирањето или бришењето на предлогот на рецензентот за "
+"завршено поднесување е ограничено."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Корисникот треба да биде анонимен. Во моментов сте најавени."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Претпочитани иницијали на аватар"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Внесете ги двете букви што сакате да ги користите како ваш аватар. Овие "
+"иницијали ќе бидат прикажани за да ве претставуваат."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Побаравте промена на вашата е-пошта во „{$pendingEmail}“. Веќе ви испративме "
+"е-пошта со упатства како да ја потврдите променетата е-пошта."
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Овозможи ORCID функционалност на целата локација"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID функционалноста може опционално да се овозможи и конфигурира на ниво "
+"на локација за сите списанија/преси/сервери. Ако е овозможено, ова ќе ги "
+"отфрли сите ингеренции на ниво на контекст и ќе ги примени следните "
+"акредитиви на сите списанија/преси/сервери на оваа инсталација."
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Дали сте сигурни дека сакате да го отстраните овој ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Овој ORCID не е потврден. Отстранете ја оваа непроверена ORCID и побарајте "
+"потврда директно од корисникот/авторот."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Не можете да ја отстраните улогата. На корисникот мора да му се додели "
+"најмалку една улога."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Е-поштата ќе биде испратена откако ќе биде креиран авторот."
+
+msgid "user.login.activate.description"
+msgstr "Потврдете ја и активирајте ја вашата сметка"

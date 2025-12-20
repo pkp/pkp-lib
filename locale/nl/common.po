@@ -1,11 +1,14 @@
-# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023.
+# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023, 2024.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
-"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
 "Language: nl\n"
@@ -13,10 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
+msgstr "Openbaar Kennisproject"
 
 msgid "common.currentStyleSheet"
 msgstr "Huidige stylesheet"
@@ -220,29 +223,33 @@ msgstr ""
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
+"\n"
+"\t\t<br /><br />\n"
 "\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
-"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
 "\t\t Dit werk wordt gepubliceerd onder een <a rel=\"license\" target=\"_blank"
 "\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
-"Attribution 3.0  licentie</a>."
+"Attribution 3.0  licentie</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
 "\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
-"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tDit werk wordt gepubliceerd onder een <a rel=\"license\" href=\"https://"
-"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"\t\tDit werk wordt gepubliceerd onder een <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
 "Attribution 3.0 licentie</a>.\n"
-"\t</div>"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Uw wijzigingen zijn opgeslagen."
@@ -353,7 +360,7 @@ msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; @ {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixels"
+msgstr "{$width}&times;{$height} Pixels"
 
 msgid "common.discardChanges"
 msgstr "Nee, verwijder onopgeslagen wijzigingen"
@@ -368,7 +375,7 @@ msgid "common.disabled"
 msgstr "Uitgeschakeld"
 
 msgid "common.discipline"
-msgstr "Discipline"
+msgstr "Vakgebied"
 
 msgid "common.done"
 msgstr "Voltooid"
@@ -689,7 +696,7 @@ msgid "common.pageNumber"
 msgstr "Pagina {$pageNumber}"
 
 msgid "common.percentage"
-msgstr "{$percentage}%"
+msgstr "{$percentage} %"
 
 msgid "common.plugin"
 msgstr "Plugin"
@@ -773,7 +780,8 @@ msgid "common.replaceFile"
 msgstr "Vervang bestand"
 
 msgid "common.requiredField"
-msgstr "* Betekent verplicht veld"
+msgstr ""
+"<abbr class=\"required\" title=\"required\">*</abbr> Betekent verplicht veld"
 
 msgid "common.required"
 msgstr "Verplicht"
@@ -857,7 +865,7 @@ msgid "common.subjects"
 msgstr "Onderwerpen"
 
 msgid "common.submenu"
-msgstr "Submenu"
+msgstr "submenu"
 
 msgid "common.subtitle"
 msgstr "Ondertitel"
@@ -964,7 +972,7 @@ msgid "common.user"
 msgstr "Gebruiker"
 
 msgid "common.user.nonexistent"
-msgstr "[Nonexistent user]"
+msgstr "[Niet-bestaande gebruiker]"
 
 msgid "common.view"
 msgstr "Bekijk"
@@ -994,7 +1002,7 @@ msgid "common.yes"
 msgstr "Ja"
 
 msgid "common.loading"
-msgstr "Laden..."
+msgstr "Laden"
 
 msgid "common.plugins"
 msgstr "Plugins"
@@ -1012,7 +1020,7 @@ msgid "debug.executionTime"
 msgstr "Pagina aangemaakt in"
 
 msgid "debug.memoryUsage"
-msgstr "Geheugengebruik:"
+msgstr "Geheugengebruik"
 
 msgid "debug.notes.localeListLoad"
 msgstr "Talenlijst \"{$localeList}\" uit XML geladen"
@@ -1150,10 +1158,10 @@ msgid "email.subject"
 msgstr "Onderwerp"
 
 msgid "email.subjectRequired"
-msgstr "Geef een onderwerp voor de e-mail"
+msgstr "Geef een onderwerp voor de e-mail."
 
 msgid "email.bodyRequired"
-msgstr "Geef de tekst voor de e-mail"
+msgstr "Geef de tekst voor de e-mail."
 
 msgid "email.to"
 msgstr "Aan"
@@ -1202,7 +1210,7 @@ msgid "form.dropzone.dictCancelUpload"
 msgstr "Annuleer opladen"
 
 msgid "form.dropzone.dictUploadCanceled"
-msgstr "Opladen is geannuleerd."
+msgstr "Uploaden geannuleerd"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
 msgstr "Weet u zeker dat u het opladen van dit bestand wilt annuleren?"
@@ -1321,7 +1329,7 @@ msgid "icon.edit.alt"
 msgstr "Bewerk"
 
 msgid "icon.folder.alt"
-msgstr "Folder"
+msgstr "Map"
 
 msgid "icon.font_large.alt"
 msgstr "Groot"
@@ -1387,7 +1395,7 @@ msgid "stageParticipants.notify.startDiscussion"
 msgstr "Start discussie"
 
 msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Begin discussie tussen uzelf en {$userFullName}"
+msgstr "Begin discussie tussen uzelf en {$userFullName}."
 
 msgid "stageParticipants.notify.chooseMessage"
 msgstr "Kies een voorbereid ontwerp, of vul onderstaand formulier in."
@@ -1522,7 +1530,7 @@ msgid "navigation.setup"
 msgstr "Instellen"
 
 msgid "navigation.sitemap"
-msgstr "Site Map"
+msgstr "Sitemap"
 
 msgid "navigation.skip.description"
 msgstr "Ga naar inhoudsopgave"
@@ -1679,7 +1687,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "Fout bij herindexering"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} artikels geïndexeerd"
+msgstr "{$numIndexed} artikelen ingepland voor indexatie"
 
 msgid "search.coverage"
 msgstr "Dekking"
@@ -1702,29 +1710,8 @@ msgstr "Discipline(s)"
 msgid "search.fullText"
 msgstr "Volledige tekst"
 
-msgid "search.indexTerms"
-msgstr "Geïndexeerde termen"
-
-msgid "search.indexTermsLong"
-msgstr "Alle indextermen"
-
-msgid "search.matchAll"
-msgstr "Vergelijk alle categorieën"
-
 msgid "search.noResults"
 msgstr "Geen resultaten"
-
-msgid "search.operator.and"
-msgstr "en"
-
-msgid "search.operator.not"
-msgstr "niet"
-
-msgid "search.operator.or"
-msgstr "of"
-
-msgid "search.SearchFor"
-msgstr "Zoek naar"
 
 msgid "search.searchResults"
 msgstr "Zoekresultaten"
@@ -1754,7 +1741,7 @@ msgid "context.path"
 msgstr "Pad"
 
 msgid "review.ensuringAnonymousReview"
-msgstr "Verzeker een blinde review"
+msgstr "Zeker weten dat alle bestanden geanonimiseerd zijn"
 
 msgid "grid.action.showReviewPolicy"
 msgstr "Lees het huidige review beleid"
@@ -1777,6 +1764,7 @@ msgstr "Mijn wachtlijst"
 msgid "review.anonymousPeerReview.title"
 msgstr "Hoe kan ik ervoor zorgen dat alle bestanden anoniem zijn"
 
+#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Om de integriteit van het anonieme peer-review proces te garanderen voor "
@@ -1880,7 +1868,7 @@ msgid "timeZone"
 msgstr "Tijdzone"
 
 msgid "user.email"
-msgstr "E-mailadres"
+msgstr "e-mailadres"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1941,6 +1929,7 @@ msgstr "Ronde {$round} status"
 msgid "notification.type.editorialReport"
 msgstr "Samenvatting statistisch rapport."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Dit is een vriendelijke herinnering om de gezondheid van uw tijdschrift te "
@@ -1950,7 +1939,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Wekelijkse e-mail van openstaande taken"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigatiemenu bijgewerkt"
@@ -2008,10 +1997,10 @@ msgid "list.viewLess"
 msgstr "Verberg details over {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Alles uitklappen"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Alles samenvouwen"
 
 msgid "validation.invalidOption"
 msgstr "Dit is geen geldige keuze."
@@ -2033,6 +2022,7 @@ msgstr "Dit mag uitsluitend letters, cijfers en liggende streepjes bevatten."
 
 msgid "validator.alpha_dash_period"
 msgstr ""
+"Dit mag alleen letters, cijfers, streepjes, underscores en punten bevatten."
 
 msgid "validator.alpha_num"
 msgstr "Dit mag uitsluitend letters en cijfers bevatten."
@@ -2063,10 +2053,13 @@ msgstr ""
 "De bevestiging voor dit veld komt niet overeen met de waarde voor het veld."
 
 msgid "validator.country"
-msgstr ""
+msgstr "Dit is geen geldig land."
 
 msgid "validator.country.regex"
 msgstr ""
+"Dit is geen geldig land. Het land moet een van de internationale 2-"
+"lettercodes zijn. Bekijk alle codes op https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Dit is geen geldige munteenheid."
@@ -2205,7 +2198,7 @@ msgid "validator.size.array"
 msgstr "Dit moet {$size} items bevatten."
 
 msgid "validator.string"
-msgstr "Dit is geen geldige string"
+msgstr "Dit is geen geldige string."
 
 msgid "validator.timezone"
 msgstr "Dit is geen geldige tijdzone."
@@ -2217,22 +2210,26 @@ msgid "validator.url"
 msgstr "Dit is geen geldige URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Geen nieuwe regel toegestaan."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Alleen [{$tags}] html tags zijn toegestaan."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
+"Filter ({$displayName}) ondersteunt invoer {$inputTypeName} - {$typeofInput} "
+"gegeven"
 
 msgid "filter.error.missingRequirements"
 msgstr ""
+"U probeert een transformatie uit te voeren die niet wordt ondersteund in uw "
+"installatieomgeving."
 
 msgid "filter.import.error.couldNotImportNode"
-msgstr ""
+msgstr "Kon XML-node niet importeren"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Onbekend commando {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2266,3 +2263,113 @@ msgstr "Auteur bijgewerkt."
 
 #~ msgid "common.captchaField"
 #~ msgstr "Validatie"
+
+msgid "showLess"
+msgstr "Toon minder"
+
+msgid "common.highlight"
+msgstr "Markering"
+
+msgid "common.highlights"
+msgstr "Markeringen"
+
+msgid "showAll"
+msgstr "Toon alles"
+
+msgid "common.sandbox"
+msgstr "Applicatie draait in sandboxmodus."
+
+msgid "common.moreActions"
+msgstr "Meer handelingen"
+
+msgid "common.editorialMasthead"
+msgstr "Redactioneel colofon"
+
+msgid "common.changeLanguage"
+msgstr "Taal wijzigen"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.yesContinue"
+msgstr "Ja, doorgaan"
+
+msgid "common.filtersClear"
+msgstr "Filters wissen"
+
+msgid "common.loaded"
+msgstr "Geladen"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"1 fout gedetecteerd! Corrigeer de onderstaande fout voordat u verdergaat."
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Review geaccepteerd op"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Bekijk <a href=\"{$url}\">Redactionele geschiedenis</a>"
+
+msgid "common.editorialHistory"
+msgstr "Redactionele geschiedenis"
+
+msgid "common.editorialHistory.page"
+msgstr "Redactionele geschiedenis pagina"
+
+msgid "common.editorialHistory.page.description"
+msgstr "In dit gedeelte staan de vroegere bijdragers vermeld."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Bekijk het ORCID-profiel van {$name}"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Peer reviewers in het voorgaande jaar"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Peer reviewers in voorgaande jaren"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"De redactie spreekt haar waardering uit voor de reviewers van {$jaar} die "
+"hieronder worden vermeld."
+
+msgid "navigation.mySubmissions"
+msgstr "Mijn inzendingen als auteur"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mijn taken als reviewer"
+
+msgid "navigation.dashboards"
+msgstr "Redactiedashboard"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Review ingediend op"
+
+msgid "common.assignments"
+msgstr "Opdrachten"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Nee"
+
+msgid "common.refreshingData"
+msgstr "Gegevens vernieuwen"
+
+msgid "common.viewMoreDetails"
+msgstr "Meer details bekijken"
+
+msgid "common.showingXofX"
+msgstr "Weergave van <strong>{$start} tot {$finish}</strong> van {$total}"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} fouten gedetecteerd! Corrigeer de onderstaande fouten voordat u "
+"verdergaat."
+
+msgid "validator.date.comparison"
+msgstr "Ongeldige datums opgegeven voor vergelijking."
+
+msgid "validator.multilingual"
+msgstr "De vereiste voor meertaligheid is niet vervuld voor dit veld."

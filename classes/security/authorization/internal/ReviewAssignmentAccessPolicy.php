@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/ReviewAssignmentAccessPolicy.php
  *
@@ -52,7 +53,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Get the user
         $user = $this->_request->getUser();
@@ -68,8 +69,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
 
         $reviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
-            ->filterByReviewerIds([$user->getId()])
-            ->filterByLastReviewRound(true)
+            ->filterByReviewerIds([$user->getId()], true)
             ->getMany()
             ->first();
 
@@ -92,8 +92,4 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\ReviewAssignmentAccessPolicy', '\ReviewAssignmentAccessPolicy');
 }

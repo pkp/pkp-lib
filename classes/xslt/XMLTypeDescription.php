@@ -69,7 +69,7 @@ class XMLTypeDescription extends TypeDescription
     /**
      * @copydoc TypeDescription::parseTypeName()
      */
-    public function parseTypeName($typeName)
+    public function parseTypeName(string $typeName): bool
     {
         // We expect a validation strategy and an optional validation argument
         $typeNameParts = explode('(', $typeName);
@@ -107,7 +107,7 @@ class XMLTypeDescription extends TypeDescription
     /**
      * @copydoc TypeDescription::checkType()
      */
-    public function checkType($object)
+    public function checkType($object): bool
     {
         // We only accept DOMDocument objects and source strings.
         if (!$object instanceof DOMDocument && !is_string($object)) {
@@ -161,7 +161,4 @@ class XMLTypeDescription extends TypeDescription
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\xslt\XMLTypeDescription', '\XMLTypeDescription');
-    foreach (['XML_TYPE_DESCRIPTION_VALIDATE_NONE', 'XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA', 'XML_TYPE_DESCRIPTION_VALIDATE_DTD', 'XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG'] as $constantName) {
-        define($constantName, constant('\XMLTypeDescription::' . $constantName));
-    }
 }

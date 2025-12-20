@@ -1,8 +1,8 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024.
+# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024, 2025.
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-23 16:53+0000\n"
+"PO-Revision-Date: 2025-11-05 13:52+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -1201,7 +1201,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Изберете предпочитания формат за дати и часове. Персонализиран формат може "
 "да бъде въведен с помощта на специалните <a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters'>символи за "
+"datetime.format.php#refsect1-datetime.format-parameters'>символи за "
 "формат</a>."
 
 msgid "manager.setup.dateTime.longDate"
@@ -1404,7 +1404,7 @@ msgstr "Добавки (плъгини) за метаданни"
 
 msgid "plugins.categories.metadata.description"
 msgstr ""
-"Добавкиje (плъгини) за метаданни прилагат допълнителни стандарти за "
+"Добавкитe (плъгини) за метаданни прилагат допълнителни стандарти за "
 "метаданни."
 
 msgid "plugins.categories.auth"
@@ -1751,9 +1751,6 @@ msgstr "Валута"
 msgid "settings.roles.roleOptions"
 msgstr "Параметри на роля"
 
-msgid "settings.roles.showTitles"
-msgstr "Показване на заглавието на ролята в списъка на сътрудниците"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Разрешаване на потребителска саморегистрация"
 
@@ -1949,7 +1946,7 @@ msgid "manager.reviewForms.confirmCopy"
 msgstr "Наистина ли искате да създадете копие на този формуляр за рецензия?"
 
 msgid "manager.reviewForms.completed"
-msgstr "Завършено"
+msgstr "Завършени"
 
 msgid "manager.reviewForms.confirmDelete"
 msgstr "Наистина ли искате да изтриете този формуляр за рецензия?"
@@ -3887,3 +3884,150 @@ msgstr "Входни данни"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Проверете XML преди експортирането и регистрацията."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Инсталирана версия: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Езици на уебсайта"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Езици за изпращаните материали"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Добавяне/премахване на езици"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Метаданни"
+
+msgid "manager.language.submission.form.description"
+msgstr "Изберете езици за изпращане на материали и метаданни."
+
+msgid "manager.language.submission.from.error"
+msgstr "Трябва да бъде избран поне един език."
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Отговор на молбата за рецензия - преди дата на падежа"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Отговор на молбата за рецензия - след дата на падежа"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Изпратена рецензия - преди дата на падежа"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Изпратена рецензия - след дата на падежа"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} дни преди дата на падежа"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} дни след дата на падежа"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Няма"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
+msgstr "Препоръчителен брой рецензенти"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Предложение на рецензент за подадени материали"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Позволете на авторите да предложат потенциални рецензенти в процеса на "
+"изпращане"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Връзка към страница, показваща всички активни сътрудници в редакционното "
+"каре."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Определете реда на ролите в главния банер за публично показване."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Рецензентите ще бъдат показани в стандартизиран формат, за да се поддържа "
+"еднаквост и да се гарантира лесна откриваемост в този раздел."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Моля, предоставете редакционната история, включително пълното име, "
+"институционална принадлежност и начална и крайна дата на всеки редактор."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Задаване на напомняния за рецензия"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Изпратете напомняне по имейл преди или след за отговор на молба за "
+"рецензиране (ако рецензентът все още не е отговорил на молба за рецензия) "
+"или изпращане на рецензия (ако рецензентът все още не е изпратил рецензия)"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Няма зададено напомняне"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr ""
+"Необходим е достатъчен брой рецензенти за всяко изпращане на материали, "
+"които да направят препоръка, преди да се вземе решение"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Авторът може да предложи няколко потенциални рецензенти, преди да завърши "
+"подаването на материали, което може да рационализира процеса на рецензиране "
+"и да предостави ценна информация за редакционния екип."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Следното се показва на авторите по време на стъпката с предложения за "
+"рецензент. Дайте кратко обяснение каква информация трябва да предостави "
+"авторът за себе си, съавторите и всички други сътрудници."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Авторът {$authorName} няма отбелязана институционална принадлежност на езика "
+"на изпратените материали, {$localeName}. Подаването не може да бъде "
+"импортирано без тази информация."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Езиковата настройка не можа да бъде запазена. Всички опции трябва да са "
+"активирани."
+
+msgid "notification.submissionLocales"
+msgstr "Езиците на подадените материали са актуализирани."
+
+msgid "settings.roles.masthead"
+msgstr "Каре на ролите в заглавния списък"
+
+msgid "settings.roles.permitSettings"
+msgstr "Разрешаване на промени в настройките"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Определете реда на ролите на редакторското каре за публично показване."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Промяна на покана за имейл адрес"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Минимално количество потвърдени рецензии за подадения материал"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Изисква се минимално количество потвърдени рецензии"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Изисква се заглавие на менюто."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Категорията не съществува или принадлежи към различно издание. Моля, уверете "
+"се, че работите с правилното издание и опитайте отново."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Файловете с изображението на корицата и миниатюрите не можаха да бъдат "
+"намерени. Възможно е вече да са били изтрити. Опитайте да презаредите "
+"страницата."

@@ -1,11 +1,12 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
+# "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2025-04-10 07:01+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "da/>\n"
@@ -626,3 +627,62 @@ msgstr "Der var et problem med trinnet {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Samme institution som forfatter"
+
+msgid "editor.review.reviewViewed"
+msgstr "Bedømmelse set"
+
+msgid "editor.submission.days"
+msgstr "Dage"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dage på trin"
+
+msgid "editor.submission.viewSummary"
+msgstr "Resumé"
+
+msgid "editor.review.logResponse"
+msgstr "Log svar"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Der skal vælges et svar"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Bedømmeren har afvist invitationen til at bedømme"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registrér svaret på vegne af bedømmeren"
+
+msgid "editor.review.download"
+msgstr "Download bedømmelsesformular"
+
+msgid "editor.review.authorOnly"
+msgstr "Sektioner kun for forfattere vises"
+
+msgid "editor.review.allSections"
+msgstr "Redaktørformular viser alle bedømmelsessektioner"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Vælg en bedømmer fra de foreslåede bedømmere"
+
+msgid "editor.submission.search"
+msgstr "Søg i indsendelser, ID, forfattere, nøgleord, osv."
+
+msgid "editor.review.logResponse.for"
+msgstr "Log svar for"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Bedømmeren har accepteret invitationen til at bedømme"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Hvis bedømmeren kontakter dig gennem e-mail eller på anden vis, kan du "
+"registrere deres svar for dem"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Bedømmelsens forfaldsdato skal være lig med eller senere end svardatoen."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Der opstod en fejl under tilføjelse af bedømmeren, da fristen for bedømmelse "
+"skal være lig med eller senere end svardatoen."

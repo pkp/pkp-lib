@@ -18,7 +18,7 @@
 namespace PKP\mail\traits;
 
 use PKP\context\Context;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 trait OneClickReviewerAccess
@@ -32,10 +32,17 @@ trait OneClickReviewerAccess
         $reviewInvitation = new ReviewerAccessInvite();
         $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
 
-        $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
-        $reviewInvitation->updatePayload();
+        $reviewInvitation->getPayload()->reviewAssignmentId = $reviewAssignment->getId();
 
-        $reviewInvitation->invite();
-        $reviewInvitation->updateMailableWithUrl($this);
+        $inviteResult = false;
+        $updateResult = $reviewInvitation->updatePayload();
+        if ($updateResult) {
+            $inviteResult = $reviewInvitation->invite();
+            $reviewInvitation->updateMailableWithUrl($this);
+        }
+
+        if (!$inviteResult) {
+            throw new \Exception('Invitation could be send');
+        }
     }
 }

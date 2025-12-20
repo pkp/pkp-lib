@@ -18,6 +18,7 @@ namespace PKP\navigationMenu;
 
 use APP\core\Application;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\site\SiteDAO;
@@ -248,8 +249,4 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
         return true;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\navigationMenu\NavigationMenuDAO', '\NavigationMenuDAO');
 }

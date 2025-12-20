@@ -1,12 +1,13 @@
 # rl <biuro@fimagis.pl>, 2022, 2024.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
+# Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2024-05-17 23:27+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"PO-Revision-Date: 2025-10-30 12:42+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
 "Language: pl\n"
@@ -35,10 +36,10 @@ msgstr "Nowe recenzje zostały przesłane i są rozpatrywane przez redaktora."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Recenzent (ci) nie przesłał (li) recenzji w ustalonym terminie. Redaktorzy "
-"zostali o tym poinformowani i spróbują sprawę przyspieszyć. Nie musisz "
-"podejmować żadnych działań. Powiadomienie o decyzji względem tekstu zostanie "
-"przesłane osobnym mailem."
+"Jeden lub więcej recenzentów nie dotrzymało terminu. Zespół redakcyjny jest "
+"tego świadomy i dopilnuje, aby recenzje zostały ukończone. Nie musisz teraz "
+"podejmować żadnych działań. Zostaniesz powiadomiony, gdy tylko zostanie "
+"podjęta decyzja."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Zgłoś jako"
@@ -1312,9 +1313,11 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr ""
 "Poprawki zostały przesłane. Wymagana decyzja o dalszym toku postępowania."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Tekst musi zostać ponownie przesłany do kolejnej rundy recenzji."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Tekst został ponownie przesłany do kolejnej rudny recenzji."
 
@@ -1336,6 +1339,7 @@ msgstr "Oczekiwanie na odpowiedzi recenzentów."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nowe recenzje zostały przesłane."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Wszyscy recenzenci odpowiedzieli. Wymagana decyzja redaktora."
 
@@ -2567,7 +2571,7 @@ msgstr "Wszystkie wersje"
 msgid "publication.version.confirm"
 msgstr "Czy na pewno chcesz stworzyć nową wersje metadanych?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstrakt jest zbyt długi. Limit wynosi {$limit} słów lub mniej. W tej chwili "
 "jest o {$count} słów za długi."
@@ -2774,3 +2778,210 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Plik z tekstem"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktywne zgłoszenia"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Wymagające edytora"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Wymagające recenzji"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Wszystkie na etapie składania"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "W oczekiwaniu na recenzje"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Nadesłane recenzje"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Rozpocznij nowe zgłoszenie"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Zaległe recenzje"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Przesłane poprawki autora"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Wszystkie na etapie przeglądu"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Wszystkie na etapie edycji"
+
+msgid "submission.dashboard.view.production"
+msgstr "Wszystkie w fazie produkcji"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Planowane do publikacji"
+
+msgid "submission.dashboard.view.published"
+msgstr "Opublikowane"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Odrzucone"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Wymagające zmian"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Niekompletne zgłoszenia"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Wszystkie zadania"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Odrzucone"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Wymagające działania"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Zakończone"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Opublikowane"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Zarchiwizowane"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Przypisane do mnie"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Aktualny język zgłoszenia:"
+
+msgid "workflow.stageNotStarted"
+msgstr "Etap {$stage} nie został jeszcze zainicjowany."
+
+msgid "submission.list.completeSubmission"
+msgstr "Kompletowanie zgłoszenia"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Nie możesz uzyskać dostępu do tego zgłoszenia jako menedżer czasopisma, "
+"ponieważ jesteś jego autorem. Aby je wyświetlić, przejdź do sekcji \"Moje "
+"zgłoszenia\"."
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Odrzucono podczas etapu {$stageName}."
+
+msgid "submission.stage.published"
+msgstr "Opublikowano"
+
+msgid "dashboard.applyFilters"
+msgstr "Zastosuj filtry"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Usuwanie niekompletnych zgłoszeń"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recenzja przesłana w dniu {$date}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Pliki przesłane w momencie zgłoszenia"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Potwierdź usunięcie JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "Chcesz usunąć istniejący plik JATS XML z tej publikacji. Czy na pewno?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Usuń plik JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Plik JATS jest generowany automatycznie na podstawie przesłanych danych"
+
+msgid "publication.jats.lastModified"
+msgstr "Ostatnia modyfikacja w dniu {$modificationDate} przez {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Wystąpił błąd podczas próby utworzenia domyślnej zawartości JATS. Upewnij "
+"się, że wtyczka JatsTemplate jest zainstalowana."
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Zmień język zgłoszenia dla"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Jest to główny język zgłoszenia. Zmiana tego ustawienia będzie miała wpływ "
+"na zgłoszenie i wprowadzone metadane"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Zmiana"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Recenzja (Runda {$round})"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Poprawki wymagane od autora"
+
+msgid "workflow.reviewRoundN"
+msgstr "Runda recenzji {$number}"
+
+msgid "author.authorNotFound"
+msgstr "Nie udało się znaleźć autora tej afiliacji."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Zgłoszenie anulowane"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Anuluj zgłoszenie"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Zgłoszenie zostało anulowane, a wszystkie powiązane dane zostały usunięte."
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Czy na pewno chcesz anulować to zgłoszenie? Spowoduje to usunięcie "
+"zgłoszenia i wszystkich powiązanych danych. Tego działania nie można cofnąć."
+
+msgid "dashboard.submitRevisions"
+msgstr "Prześlij poprawki"
+
+msgid "dashboard.revisionRequested"
+msgstr "Wymagana poprawa"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Przesłane pliki po korekcie: {$count}"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Pliki z etapu recenzji, które mają zostać poddane redakcji"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Pliki po redakcji"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Pliki poddane edycji, które zostaną przekazane do etapu produkcji"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Wprowadzone poprawki"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Pliki te zostały przesłane przez autora po zgłoszeniu prośby o wprowadzenie "
+"poprawek"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Pliki te zostaną przesłane recenzentom do oceny"
+
+msgid "fileManager.filesForReview"
+msgstr "Pliki do recenzji"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status recenzenta"
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Zgłoszenie zostało przekazane do kolejnej rundy oceny"
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Zgłoszenie znajduje się obecnie na etapie {$stage}."

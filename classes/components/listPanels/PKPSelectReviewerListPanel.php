@@ -15,8 +15,13 @@
 
 namespace PKP\components\listPanels;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\security\Validation;
+use Illuminate\Request;
 use PKP\user\Collector;
 
 class PKPSelectReviewerListPanel extends ListPanel
@@ -48,6 +53,9 @@ class PKPSelectReviewerListPanel extends ListPanel
     /** @var Enumerable List of users who completed a review in the last round */
     public Enumerable $lastRoundReviewers;
 
+    /** @var Submission The associated submission  */
+    public Submission $submission;
+
     /**
      * @copydoc ListPanel::set()
      */
@@ -63,6 +71,7 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getConfig()
     {
+        $context = Application::get()->getRequest()->getContext();
         $config = parent::getConfig();
         $config['apiUrl'] = $this->apiUrl;
         $config['authorAffiliations'] = $this->authorAffiliations;
@@ -157,6 +166,12 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');
         $config['warnOnAssignmentUnlockLabel'] = __('reviewer.list.warnOnAssignUnlock');
 
+        if ($context->getData('reviewerSuggestionEnabled')) {
+            $config['suggestionTitle'] = __('editor.submission.findAndSelectReviewerFromSuggestions');
+            $config['suggestions'] = $this->getReviewerSuggestions();
+            $config['reviewerSuggestionsApiUrl'] = $this->getReviewerSuggestionsApiUrl();
+        }
+        
         return $config;
     }
 
@@ -170,13 +185,13 @@ class PKPSelectReviewerListPanel extends ListPanel
     public function getItems($request)
     {
         $reviewers = $this->_getCollector()->getMany();
-        $items = [];
         $map = Repo::user()->getSchemaMap();
-        foreach ($reviewers as $reviewer) {
-            $items[] = $map->summarizeReviewer($reviewer);
-        }
-
-        return $items;
+        $currentUser = $request->getUser();
+        $options = [
+            'currentUserId' => $currentUser ? (int)$currentUser->getId() : null,
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+        ];
+        return $map->summarizeManyReviewers($reviewers, $options)->values()->all();
     }
 
     /**
@@ -186,7 +201,8 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        return $this->_getCollector()->getCount();
+        $collector = $this->_getCollector();
+        return $collector->limit(null)->offset(null)->getCount();
     }
 
     /**
@@ -196,10 +212,39 @@ class PKPSelectReviewerListPanel extends ListPanel
     {
         return Repo::user()->getCollector()
             ->filterByContextIds([$this->getParams['contextId']])
-            ->filterByWorkflowStageIds([$this->getParams['reviewStage']])
             ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
             ->includeReviewerData()
             ->offset(null)
             ->limit($this->count);
+    }
+
+    /**
+     * Get the API url prefix of reviewer sugeestion's operation
+     */
+    protected function getReviewerSuggestionsApiUrl(): string
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+
+        return $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getPath(),
+            "submissions/{$this->submission->getId()}/reviewers/suggestions"
+        );
+    }
+
+    /**
+     * Get the reviewer suggestions submission
+     */
+    protected function getReviewerSuggestions(): array
+    {
+        $map = Repo::submission()->getSchemaMap();
+        $suggestions = ReviewerSuggestion::query()
+            ->withSubmissionIds($this->submission->getId())
+            ->withApproved(false)
+            ->get();
+
+        return $map->summarizeReviewerSuggestion($suggestions);
     }
 }

@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/PKPAuthorNativeXmlFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorNativeXmlFilter
@@ -19,6 +19,7 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
+use PKP\author\contributorRole\ContributorType;
 use PKP\filter\FilterGroup;
 
 class PKPAuthorNativeXmlFilter extends NativeExportFilter
@@ -79,6 +80,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
     {
         $deployment = $this->getDeployment();
         $context = $deployment->getContext();
+        $submission = $deployment->getSubmission();
 
         // Create the author node
         $authorNode = $doc->createElementNS($deployment->getNamespace(), 'author');
@@ -90,31 +92,55 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
             $authorNode->setAttribute('include_in_browse', 'true');
         }
 
-        $userGroup = Repo::userGroup()->get($author->getUserGroupId());
-        assert(isset($userGroup));
-
-        if (!$userGroup) {
-            $deployment->addError(Application::ASSOC_TYPE_AUTHOR, $author->getId(), __('plugins.importexport.common.error.userGroupMissing', ['param' => $author->getFullName()]));
-            throw new Exception(__('plugins.importexport.author.exportFailed'));
-        }
-
-        $authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
         $authorNode->setAttribute('seq', $author->getSequence());
 
         $authorNode->setAttribute('id', $author->getId());
 
         // Add metadata
-        $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
-        $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
+        $contributorType = $author->getData('contributorType');
+        $authorNode->setAttribute('contributor_type', $contributorType);
 
-        $this->createLocalizedNodes($doc, $authorNode, 'affiliation', $author->getAffiliation(null));
+        if ($contributorType === ContributorType::PERSON->getName()) {
+            $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
+            $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
+        } else if ($contributorType === ContributorType::ORGANIZATION->getName()) {
+            $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getOrganizationName(null));
+        } else if ($contributorType === ContributorType::ANONYMOUS->getName()) {
+            $this->createLocalizedNodes($doc, $authorNode, 'givenname', [$context->getPrimaryLocale() => ContributorType::ANONYMOUS->getName()]);
+        }
+
+        foreach ($author->getAffiliations() as $affiliation) {
+            if ($affiliation->getRorObject()) {
+                $rorAffiliationNode = $doc->createElementNS($deployment->getNamespace(), 'rorAffiliation');
+                $rorAffiliationRor = $doc->createElementNS($deployment->getNamespace(), 'ror', $affiliation->getRor());
+                $rorAffiliationNode->appendChild($rorAffiliationRor);
+                // The rorAffiliation->name element is only read only ie. it will not be considered at import.
+                // Export the ror names mapped to all allowed submission locales
+                // Eventually to export only the ror name mapped to the submission primary locale ?
+                // Or the ror names as they are, with the ror locales ?
+                $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
+                $this->createLocalizedNodes($doc, $rorAffiliationNode, 'name', $affiliation->getAffiliationName(null, $allowedLocales));
+                $authorNode->appendChild($rorAffiliationNode);
+            } elseif (!empty($affiliation->getName())) {
+                $affiliationNode = $doc->createElementNS($deployment->getNamespace(), 'affiliation');
+                $this->createLocalizedNodes($doc, $affiliationNode, 'name', $affiliation->getName());
+                $authorNode->appendChild($affiliationNode);
+            }
+        }
 
         $this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
-        $authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));
+        $this->createOptionalNode($doc, $authorNode, 'email', htmlspecialchars($author->getEmail() ?? '') ?: null);
         $this->createOptionalNode($doc, $authorNode, 'url', $author->getUrl());
         $this->createOptionalNode($doc, $authorNode, 'orcid', $author->getOrcid());
 
         $this->createLocalizedNodes($doc, $authorNode, 'biography', $author->getBiography(null));
+
+        // Contributor roles
+        $contributorRoleNode = $doc->createElementNS($deployment->getNamespace(), 'contributor_roles');
+        foreach ($author->getContributorRoleIds() as $contributorRoleIds) {
+            $contributorRoleNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'contributor_role_id', $contributorRoleIds));
+        }
+        $authorNode->appendChild($contributorRoleNode);
 
         return $authorNode;
     }

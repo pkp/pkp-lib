@@ -33,6 +33,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Новые рецензии были отправлены рецензентами и рассмотрены редактором."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Один или несколько рецензентов пропустили сроки отправки. Редакция была "
@@ -1319,9 +1320,11 @@ msgstr "Новые версии были запрошены."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Новые версии были отправлены, нужно принять решение."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Материал нужно повторно отправить на рецензирование."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Материал был повторно отправлен на рецензирование."
 
@@ -1343,6 +1346,7 @@ msgstr "Ожидает ответа от рецензентов."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Новые рецензии были отправлены."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Все рецензенты прислали свои рецензии, нужно принять решение."
 
@@ -2062,7 +2066,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Редактор {$userName} подтвердил рецензию на раунде {$round} рецензирования "
+"Редактор {$editorName} подтвердил рецензию на раунде {$round} рецензирования "
 "для материала «{$submissionId}»."
 
 msgid "log.review.reviewReady"
@@ -2626,7 +2630,7 @@ msgstr "Все версии"
 msgid "publication.version.confirm"
 msgstr "Вы уверены, что хотите создать новую версию?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В "
 "данный момент её длина {$count} слов."

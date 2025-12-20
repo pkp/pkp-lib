@@ -16,17 +16,13 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use APP\core\Application;
+use APP\facades\Repo;
+use PKP\context\Context;
 use PKP\core\Core;
 
 class ReviewAssignment extends \PKP\core\DataObject
 {
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT = 1;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS = 2;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE = 3;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE = 4;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE = 5;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS = 6;
-
     public const SUBMISSION_REVIEWER_RATING_VERY_GOOD = 5;
     public const SUBMISSION_REVIEWER_RATING_GOOD = 4;
     public const SUBMISSION_REVIEWER_RATING_AVERAGE = 3;
@@ -41,6 +37,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const REVIEW_ASSIGNMENT_CONSIDERED = 3; // Has been marked considered by an editor
     public const REVIEW_ASSIGNMENT_UNCONSIDERED = 1; // Considered status has been revoked by an editor and is awaiting re-confirmation by an editor
     public const REVIEW_ASSIGNMENT_RECONSIDERED = 2; // Considered status has been granted again by an editor
+    public const REVIEW_ASSIGNMENT_VIEWED = 4; // Editor opened a review assignment but hasn't marked it as considered yet
 
     public const REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE = 0; // request has been sent but reviewer has not responded
     public const REVIEW_ASSIGNMENT_STATUS_DECLINED = 1; // reviewer declined review request
@@ -52,6 +49,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const REVIEW_ASSIGNMENT_STATUS_THANKED = 9; // reviewer has been thanked
     public const REVIEW_ASSIGNMENT_STATUS_CANCELLED = 10; // reviewer cancelled review request
     public const REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND = 11; // request resent to reviewer after they declined
+    public const REVIEW_ASSIGNMENT_STATUS_VIEWED = 12; // editor has viewed the review assignment, intermediate status between received and complete
 
     /**
      * All review assignment statuses that indicate a
@@ -63,6 +61,7 @@ class ReviewAssignment extends \PKP\core\DataObject
         self::REVIEW_ASSIGNMENT_STATUS_RECEIVED,
         self::REVIEW_ASSIGNMENT_STATUS_COMPLETE,
         self::REVIEW_ASSIGNMENT_STATUS_THANKED,
+        self::REVIEW_ASSIGNMENT_STATUS_VIEWED,
     ];
 
     //
@@ -230,23 +229,19 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get reviewer recommendation.
-     *
-     * @return string
+     * Get reviewer recommendation id
      */
-    public function getRecommendation()
+    public function getReviewerRecommendationId(): ?int
     {
-        return $this->getData('recommendation');
+        return $this->getData('reviewerRecommendationId');
     }
 
     /**
-     * Set reviewer recommendation.
-     *
-     * @param string $recommendation
+     * Set reviewer recommendation id
      */
-    public function setRecommendation($recommendation)
+    public function setReviewerRecommendationId(int $reviewerRecommendationId)
     {
-        $this->setData('recommendation', $recommendation);
+        $this->setData('reviewerRecommendationId', $reviewerRecommendationId);
     }
 
     /**
@@ -267,6 +262,24 @@ class ReviewAssignment extends \PKP\core\DataObject
     public function setConsidered($considered)
     {
         $this->setData('considered', $considered);
+    }
+
+    /**
+     * Get the date the editor confirmed.
+     *
+     */
+    public function getDateConsidered(): ?string
+    {
+        return $this->getData('dateConsidered');
+    }
+
+    /**
+     * Set the date the editor confirmed.
+     *
+     */
+    public function setDateConsidered(?string $dateConsidered): void
+    {
+        $this->setData('dateConsidered', $dateConsidered);
     }
 
     /**
@@ -682,12 +695,18 @@ class ReviewAssignment extends \PKP\core\DataObject
             }
         } elseif ($this->getDateAcknowledged()) { // reviewer thanked...
             if ($this->getConsidered() == self::REVIEW_ASSIGNMENT_UNCONSIDERED) { // ...but review later unconsidered
-                return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
+                return self::REVIEW_ASSIGNMENT_STATUS_VIEWED;
             }
             return self::REVIEW_ASSIGNMENT_STATUS_THANKED;
         } elseif ($this->getDateCompleted()) { // review submitted...
-            if ($this->getConsidered() != self::REVIEW_ASSIGNMENT_UNCONSIDERED && $this->isRead()) { // ...and confirmed by an editor
-                return self::REVIEW_ASSIGNMENT_STATUS_COMPLETE;
+            if ($this->getConsidered() != self::REVIEW_ASSIGNMENT_UNCONSIDERED) {
+                // if it was read and confirmed by the editor
+                if ($this->isRead()) {
+                    return self::REVIEW_ASSIGNMENT_STATUS_COMPLETE;
+                    // If it was viewed by the editor but not confirmed
+                } elseif ($this->getConsidered() == self::REVIEW_ASSIGNMENT_VIEWED) {
+                    return self::REVIEW_ASSIGNMENT_STATUS_VIEWED;
+                }
             }
             return self::REVIEW_ASSIGNMENT_STATUS_RECEIVED;
         }
@@ -738,6 +757,8 @@ class ReviewAssignment extends \PKP\core\DataObject
                 return 'submission.review.status.accepted';
             case self::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
                 return 'submission.review.status.received';
+            case self::REVIEW_ASSIGNMENT_STATUS_VIEWED:
+                return 'submission.review.status.viewed';
             case self::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
                 return 'submission.review.status.complete';
             case self::REVIEW_ASSIGNMENT_STATUS_THANKED:
@@ -798,36 +819,17 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get an associative array matching reviewer recommendation codes with locale strings.
-     * (Includes default '' => "Choose One" string.)
-     *
-     * @return array recommendation => localeString
-     */
-    public static function getReviewerRecommendationOptions()
-    {
-        static $reviewerRecommendationOptions = [
-            '' => 'common.chooseOne',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
-        ];
-        return $reviewerRecommendationOptions;
-    }
-
-    /**
      * Return a localized string representing the reviewer recommendation.
      */
-    public function getLocalizedRecommendation()
+    public function getLocalizedRecommendation(?Context $context = null): string
     {
-        $options = self::getReviewerRecommendationOptions();
-        if (array_key_exists($this->getRecommendation(), $options)) {
-            return __($options[$this->getRecommendation()]);
-        } else {
-            return '';
-        }
+        $options = Repo::reviewerRecommendation()->getRecommendationOptions(
+            context: $context ?? Application::getContextDAO()->getById(
+                Repo::submission()->get($this->getData('submissionId'))->getData('contextId')
+            )
+        );
+
+        return $options[$this->getReviewerRecommendationId()] ?? '';
     }
 
     /**
@@ -844,39 +846,5 @@ class ReviewAssignment extends \PKP\core\DataObject
         }
 
         return true;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewAssignment\ReviewAssignment', '\ReviewAssignment');
-    foreach ([
-        'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS',
-        'SUBMISSION_REVIEWER_RATING_VERY_GOOD',
-        'SUBMISSION_REVIEWER_RATING_GOOD',
-        'SUBMISSION_REVIEWER_RATING_AVERAGE',
-        'SUBMISSION_REVIEWER_RATING_POOR',
-        'SUBMISSION_REVIEWER_RATING_VERY_POOR',
-        'SUBMISSION_REVIEW_METHOD_ANONYMOUS',
-        'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS',
-        'SUBMISSION_REVIEW_METHOD_OPEN',
-        'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE',
-        'REVIEW_ASSIGNMENT_STATUS_DECLINED',
-        'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE',
-        'REVIEW_ASSIGNMENT_STATUS_ACCEPTED',
-        'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE',
-        'REVIEW_ASSIGNMENT_STATUS_RECEIVED',
-        'REVIEW_ASSIGNMENT_STATUS_COMPLETE',
-        'REVIEW_ASSIGNMENT_STATUS_THANKED',
-        'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
-        'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND',
-    ] as $constantName) {
-        if (!defined($constantName)) {
-            define($constantName, constant('\PKP\submission\reviewAssignment\ReviewAssignment::' . $constantName));
-        }
     }
 }

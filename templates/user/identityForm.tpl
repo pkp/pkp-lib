@@ -22,13 +22,17 @@
 				$('#removeOrcidId').remove();
 			}
 		});
+
+		$(function() {ldelim}
+			$('input[name="preferredAvatarInitials"]').on('keyup', function() {
+				const capitalizedValue = $(this).val().toUpperCase().trim();
+				$(this).val(capitalizedValue);
+			});
+			{rdelim});
 	{rdelim});
 </script>
 
 <form class="pkp_form" id="identityForm" method="post" action="{url op="saveIdentity"}" enctype="multipart/form-data">
-	{* Help Link *}
-	{help file="user-profile" class="pkp_help_tab"}
-
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="identityFormNotification"}
@@ -42,7 +46,7 @@
 	{fbvFormArea id="userFormCompactLeft"}
 		{fbvFormSection title="user.name"}
 			{fbvElement type="text" label="user.givenName" multilingual="true" required="true" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" label="user.familyName" multilingual="true" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.familyName" multilingual="true" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM  onkeyup="this.value = this.value.toUpperCase();"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
@@ -50,17 +54,30 @@
 		{fbvElement type="text" label="user.preferredPublicName" multilingual="true" name="preferredPublicName" id="preferredPublicName" value=$preferredPublicName size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
-	{if $orcidEnabled}
-		{* FIXME: The form element is still required for "connect ORCID" functionality to work. *}
-		{fbvFormSection}
-			{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="46"}
 
-			{include file="form/orcidProfile.tpl"}
-			{if $orcid && $orcidAuthenticated}
-				{include file="linkAction/buttonConfirmationLinkAction.tpl" titleIcon="modal_delete" buttonSelector="#deleteOrcidButton" dialogText="orcid.field.deleteOrcidModal.message"}
-				{fbvElement type="button" id="deleteOrcidButton" label="common.delete" class="pkp_button pkp_button_offset"}
-			{/if}
+	{fbvFormSection for="preferredAvatarInitials" description="user.preferredAvatarInitials.description"}
+		{fbvElement type="text" label="user.preferredAvatarInitials" name="preferredAvatarInitials" maxlength="2" id="preferredAvatarInitials" value=$preferredAvatarInitials size=$fbvStyles.size.SMALL}
+	{/fbvFormSection}
+
+	{if $orcidEnabled}
+
+	<div class="orcid_container">
+		{* FIXME: The form element is still required for "connect ORCID" functionality to work. *}
+		{fbvFormSection }
+		{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="46"}
+
+		{include file="form/orcidProfile.tpl"}
+		{if $orcid && $orcidAuthenticated}
+			{include file="linkAction/buttonConfirmationLinkAction.tpl" modalStyle="negative" buttonSelector="#deleteOrcidButton" dialogText="orcid.field.deleteOrcidModal.message"}
+			<button id="deleteOrcidButton" type="button"  class="pkp_button pkp_button_offset" style="margin-left: 1rem">{translate key='common.delete'}</button>
+		{/if}
 		{/fbvFormSection}
+	</div>
+		<style>
+			.orcid_container> .section {
+				display:flex;
+			}
+		</style>
 	{/if}
 
 	<p>

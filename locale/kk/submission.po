@@ -28,6 +28,7 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Рецензенттер жаңа рецензияларды жіберді, олар редактордың тексеруінен өтті."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Бір немесе бірнеше рецензент жіберу мерзімін өткізіп алды. Бұл туралы "
@@ -1308,9 +1309,11 @@ msgstr "Жаңа нұсқалар сұралды."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Жаңа нұсқалар жіберілді."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Материалды қайта қарауға жіберу керек."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Материал қайта қарауға жіберілді."
 
@@ -1332,6 +1335,7 @@ msgstr "Рецензенттерден жауап күту."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Жаңа пікірлер жіберілді."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Барлық рецензенттер өз пікірлерін жіберді, шешім қабылдау керек."
 
@@ -1995,7 +1999,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} редакторы \"{$submissionId}\" материалы үшін {$round} шолу "
+"{$editorName} редакторы \"{$submissionId}\" материалы үшін {$round} шолу "
 "кезеңінде шолуды мақұлдады."
 
 msgid "log.review.reviewReady"
@@ -2534,7 +2538,7 @@ msgstr "Барлық нұсқалар"
 msgid "publication.version.confirm"
 msgstr "Жаңа нұсқаны шынымен жасағыңыз келе ме?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Аннотация тым ұзын. Ол {$limit} сөзден аспауы керек. Қазіргі уақытта ол "
 "{$count} сөзден тұрады."

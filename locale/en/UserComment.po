@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"en/>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "userComment.discussionClosed"
+msgstr "Discussion is closed on this version, please comment on the latest version above."
+
+msgid "userComment.awaitingApprovalNotice"
+msgstr "Your comment will be visible when the editor approves it"
+
+msgid "userComment.report.reason"
+msgstr "Please tell us why you want to report this comment"
+
+msgid "userComment.reportCommentBy"
+msgstr "Report the following comment by {$userName}"
+
+msgid "userComment.reportCommentByUserWithAffiliation"
+msgstr "Report the following comment by {$userName} ({$affiliation})"
+
+msgid "userComment.report"
+msgstr "Report"
+
+msgid "userComment.showMore"
+msgstr "Show more ({$count})"
+
+msgid "userComment.login"
+msgstr "Log in to comment"
+
+msgid "userComment.commentsOnThisPublication"
+msgstr "Comments on this publication"
+
+msgid "userComment.allComments"
+msgstr "All Comments ({$commentCount})"
+
+msgid "userComment.versionWithCount"
+msgstr "{$versionLabel} ({$versionCommentsCount})"
+
+msgid "userComment.deleteComment"
+msgstr "Delete Comment"
+
+msgid "userComment.deleteCommentConfirmation"
+msgstr "Are you sure you want to delete the following comment? <br/><br/> <strong>{$comment}</strong>"
+
+msgid "userComment.comments"
+msgstr "Comments"
+
+msgid "userComment.reportComment"
+msgstr "Report Comment"
+
+msgid "userComment.addYourComment"
+msgstr "What do you think about this publication? Type your comments here."

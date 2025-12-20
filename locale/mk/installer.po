@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-01 08:58+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/mk/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Додатна локализација"
@@ -154,11 +154,10 @@ msgstr ""
 "Грешка при анализирање на датотеката за конфигурација на филтерот <tt>{$file}"
 "</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Ажурирајте го неподдржано. Погледнете ги документите / UPGRADE-UNSUPPORTED "
-"за детали."
+"Надградбата не е поддржана. Погледнете го Водичот за надградба (https://docs."
+"pkp.sfu.ca/dev/upgrade-guide) за детали."
 
 msgid "installer.timezoneInstructions"
 msgstr "Временската зона што треба да се користи за овој систем."
@@ -249,3 +248,45 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Мешани подесувања"
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Додајте ја променливата за конфигурација со име „app_key“ во делот „општо“ "
+"рачно или извршете ја командата „php lib/pkp/tools/appKey.php configure“ за "
+"да ја поставите од CLI."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Променливата за конфигурација со име „app_key“ не е дефинирана во делот "
+"„општо“. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Не може да се прочита конфигурациската датотека или датотеката не постои на "
+"очекуваната патека. "
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Неподдржана шифра или неточна должина на клучот. Поддржани шифри се: "
+"{$ciphers}."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Поставете ја вредноста на „app_key“ во делот „општо“ во датотеката „config."
+"inc.php“ на {$key}."
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Променливата за конфигурација со име „app_key“ веќе е дефинирана во делот "
+"„општо“. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Не може да се анализира конфигурациската датотека."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr ""
+"Не може да се напише променливата на клучот за апликација во "
+"конфигурациската датотека."
+
+msgid "installer.appKey.write.error"
+msgstr "Не може да се напише клучот за апликација во конфигурациската датотека."

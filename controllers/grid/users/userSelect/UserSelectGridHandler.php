@@ -66,26 +66,27 @@ class UserSelectGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
 
+        $contextId = $request->getContext()->getId();
         $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $userGroups = Repo::userGroup()->getUserGroupsByStage(
-            $request->getContext()->getId(),
+            $contextId,
             $stageId
         );
 
         $this->_userGroupOptions = [];
         foreach ($userGroups as $userGroup) {
             // Exclude reviewers.
-            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
+            if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            $this->_userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+            $this->_userGroupOptions[$userGroup->id] = $userGroup->getLocalizedData('name');
         }
 
         $this->setTitle('editor.submission.findAndSelectUser');
 
         // Columns
-        $cellProvider = new UserSelectGridCellProvider();
+        $cellProvider = new UserSelectGridCellProvider($contextId);
         $this->addColumn(
             new GridColumn(
                 'select',
@@ -103,13 +104,40 @@ class UserSelectGridHandler extends GridHandler
                 null,
                 null,
                 $cellProvider,
-                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
-                    'width' => 30
-                ]
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 30]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'assignments',
+                'common.assignments',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 5]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'affiliation',
+                'user.affiliation',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 25]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'interests',
+                'user.interests',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 35]
             )
         );
     }
-
 
     //
     // Overridden methods from GridHandler

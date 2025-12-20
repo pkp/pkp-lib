@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/publication/ForTheEditors.php
  *
@@ -20,7 +21,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldAutosuggestPreset;
-use PKP\components\forms\FieldOptions;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\context\Context;
 
@@ -86,7 +86,13 @@ class ForTheEditors extends PKPMetadataForm
     protected function setRequiredMetadata(): void
     {
         foreach ($this->fields as $field) {
-            $field->isRequired = $this->context->getData($field->name) === Context::METADATA_REQUIRE;
+            $contextName = $field->name;
+            // Context name for "supportingAgencies" is "agencies"
+            if ($contextName === 'supportingAgencies') {
+                $contextName = 'agencies';
+            }
+
+            $field->isRequired = $this->context->getData($contextName) === Context::METADATA_REQUIRE;
         }
     }
 
@@ -95,8 +101,6 @@ class ForTheEditors extends PKPMetadataForm
         if (!$context->getData('submitWithCategories') || !$categories->count()) {
             return;
         }
-
-        $categoryOptions = [];
 
         $categoryOptions = Repo::category()
             ->getBreadcrumbs($categories)
@@ -108,21 +112,22 @@ class ForTheEditors extends PKPMetadataForm
             ->all();
 
         $categoryValues = (array) $this->publication->getData('categoryIds');
+        // Check if all categories have a breadcrumb; categories with circular references are filtered out
+        $hasAllBreadcrumbs = $categories->count() === count($categoryOptions);
 
-        if (count($categoryOptions) > self::MAX_CATEGORY_LIST_SIZE) {
-            $this->addField(new FieldAutosuggestPreset('categoryIds', [
-                'label' => __('submission.submit.placement.categories'),
-                'description' => __('submission.wizard.categories.description'),
-                'value' => $categoryValues,
-                'options' => $categoryOptions
-            ]));
-        } else {
-            $this->addField(new FieldOptions('categoryIds', [
-                'label' => __('submission.submit.placement.categories'),
-                'description' => __('submission.wizard.categories.description'),
-                'value' => $categoryValues,
-                'options' => $categoryOptions,
-            ]));
-        }
+        $vocabulary = Repo::category()->getCategoryVocabularyStructure($categories);
+        $this->addField(new FieldAutosuggestPreset('categoryIds', [
+            'label' => __('submission.submit.placement.categories'),
+            'description' => $hasAllBreadcrumbs ? __('submission.wizard.categories.description') : __('submission.wizard.categories.descriptionWithCircularReferenceWarning'),
+            'value' => $categoryValues,
+            'options' => $categoryOptions,
+            'vocabularies' => [
+                [
+                    'addButtonLabel' => __('manager.selectCategories'),
+                    'modalTitleLabel' => __('manager.selectCategories'),
+                    'items' => $vocabulary
+                ]
+            ]
+        ]));
     }
 }

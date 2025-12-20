@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/PublicationAccessPolicy.php
  *
@@ -42,8 +43,4 @@ class PublicationAccessPolicy extends ContextPolicy
         // Is the publication attached to the correct submission?
         $this->addPolicy(new PublicationIsSubmissionPolicy(__('api.publications.403.submissionsDidNotMatch')));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\PublicationAccessPolicy', '\PublicationAccessPolicy');
 }

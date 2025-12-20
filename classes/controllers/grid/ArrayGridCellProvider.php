@@ -45,7 +45,3 @@ class ArrayGridCellProvider extends GridCellProvider
         };
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\ArrayGridCellProvider', '\ArrayGridCellProvider');
-}

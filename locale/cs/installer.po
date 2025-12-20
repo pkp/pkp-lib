@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2024-02-22 11:01+0000\n"
+"PO-Revision-Date: 2025-03-02 09:11+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
 "cs/>\n"
@@ -244,3 +244,41 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Různá nastavení"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Konfigurační proměnná s názvem \"app_key\" není definována v sekci \"general"
+"\". "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Konfigurační proměnná \"app_key\" je již definována v sekci \"general\". "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Nelze načíst konfigurační soubor nebo soubor neexistuje na očekávané cestě. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Nelze analyzovat konfigurační soubor."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Nepodporovaná šifra nebo nesprávná délka klíče. Podporované šifry jsou: "
+"{$ciphers}."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Přidejte prosím konfigurační proměnnou \"app_key\" do sekce \"general\" "
+"ručně nebo ji nastavte pomocí příkazu `php lib/pkp/tools/appKey.php "
+"configure` z CLI."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Nelze zapsat proměnnou app key do konfiguračního souboru."
+
+msgid "installer.appKey.write.error"
+msgstr "Nelze zapsat app key do konfiguračního souboru."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Nastavte hodnotu \"app_key\" v sekci \"general\" v souboru \"config.inc.php\""
+" na {$key} ."

@@ -16,18 +16,19 @@
 
 namespace PKP\plugins;
 
-use Illuminate\Support\Facades\Cache;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPSessionGuard;
+use PKP\core\traits\LocalizedData;
 use PKP\db\DAORegistry;
 
 define('LESS_FILENAME_SUFFIX', '.less');
@@ -35,6 +36,8 @@ define('THEME_OPTION_PREFIX', 'themeOption_');
 
 abstract class ThemePlugin extends LazyLoadPlugin
 {
+    use LocalizedData;
+
     /**
      * Collection of styles
      *
@@ -85,6 +88,18 @@ abstract class ThemePlugin extends LazyLoadPlugin
     protected $_optionValues = null;
 
     /**
+     * Track whether vue.js is required
+     *
+     * @var ThemePlugin $parent
+     */
+    public bool $isVueRuntimeRequired = false;
+
+    /**
+     * Track whether rendering via blade view
+     */
+    public bool $isRenderingViaBladeView = false;
+
+    /**
      * @copydoc Plugin::register
      *
      * @param null|mixed $mainContextId
@@ -107,9 +122,28 @@ abstract class ThemePlugin extends LazyLoadPlugin
         Hook::add('PluginRegistry::categoryLoaded::themes', $this->initAfter(...));
 
         // Allow themes to override plugin template files
+        Hook::add('TemplateManager::display', $this->loadBladeView(...));
         Hook::add('TemplateResource::getFilename', $this->_overridePluginTemplates(...));
 
         return true;
+    }
+
+    /**
+     * Register the blade view path by replacing the smarty template path in the TemplateManager
+     * only if the blade view exists
+     */
+    public function loadBladeView(string $hookName, array $params): bool
+    {
+        $templateManager =& $params[0]; /** @var TemplateManager $templateManager */
+		$templatePath =& $params[1]; /** @var string $templatePath */
+
+        $bladeViewPath = $this->resolveBladeViewPath($templatePath);
+        if (view()->exists($bladeViewPath)) {
+            $this->isRenderingViaBladeView = true;
+            $templatePath = $bladeViewPath;
+        }
+        
+        return Hook::CONTINUE;
     }
 
     /**
@@ -144,7 +178,16 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function initAfter()
     {
+
         $this->_registerTemplates();
+
+        if ($this->isVueRuntimeRequired) {
+
+            $request = Application::get()->getRequest();
+            $templateManager = TemplateManager::getManager($request);
+            $templateManager->requiresVueRuntime();
+        }
+
         $this->_registerStyles();
         $this->_registerScripts();
     }
@@ -491,6 +534,14 @@ abstract class ThemePlugin extends LazyLoadPlugin
     }
 
     /**
+     * Get the localized value of an option
+     */
+    public function getLocalizedOption(string $name, ?string $preferredLocale = null, ?string &$selectedLocale = null): mixed
+    {
+        return $this->getBestLocalizedData($this->getOption($name), $preferredLocale, $selectedLocale);
+    }
+
+    /**
      * Get an option's configuration settings
      *
      * This retrieves option settings for any option attached to this theme or
@@ -651,7 +702,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
         if (is_null($contextId)) {
             $context = Application::get()->getRequest()->getContext();
-            $contextId = $context->getId();
+            if ($context) {
+                $contextId = $context->getId();
+            }
         }
 
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
@@ -1020,8 +1073,12 @@ abstract class ThemePlugin extends LazyLoadPlugin
             return 'frontend-preprint-view';
         }
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\ThemePlugin', '\ThemePlugin');
+    /**
+     * Require vue runtime
+     */
+    protected function requiresVueRuntime()
+    {
+        $this->isVueRuntimeRequired = true;
+    }
 }

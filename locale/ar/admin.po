@@ -1,8 +1,8 @@
 # M. Ali <vorteem@gmail.com>, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-26 18:03+0000\n"
+"PO-Revision-Date: 2025-03-16 20:28+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -886,3 +886,108 @@ msgstr "إعادة تشغيل برامج تنفيذ الطابور بعد مهم
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "برامج تنفيذ مهام الطابور ستنهي عملها بهدوء بعد إكمالها تنفيذ المهمة الحالية."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "تحديث خبء بيانات تسجيل المؤسسة البحثية"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "بعث المهمة لإزالة الدعوات المنتهية صلاحيتها تلقائيًا"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "عرض عوامل استعمال مفتاح التطبيق"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "التحقق من المفتاح الحالي للتطبيق إذا وُجد في ملف التهيئة"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "هل تقصد واحدًا مما يأتي؟"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "توليد مفتاح التطبيق: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"لا يوجد متغير مفتاح باسم`app_key` معرف في المقطع `general` من الملف config "
+"file. يرجى تحديث المقطع العام من ملف التهيئة وإضافة السطر `app_key = ` أو "
+"تنفيذ الأمر `php lib/pkp/tools/appKey.php configure` لضبطه."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"إن المتغير `app_key` موجود سلفًا ضمن المقطع `general` في ملف التهيئة. قم "
+"بتنفيذ الأمر `php lib/pkp/tools/appKey.php generate` لوضع مفتاح تطبيق جديد."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "لم يتم وضع أي مفتاح تطبيق في ملف التهيئة."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"تم وضع مفتاح تطبيق خاطئ، تشفير غير مدعوم أو طول خاطئ للمفتاح. التشفيرات "
+"المدعومة هي: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"مفتاح تطبيق صالح موجود مسبقًا في ملف التهيئة. لتخطيه، مرر العامل --force مع "
+"الأمر."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "تم ضبط مفتاح التطبيق بنجاح في ملف التهيئة."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"تم ضبط مفتاح التطبيق بنجاح في ملف التهيئة. قم بتنفيذ الأمر `php lib/pkp/"
+"tools/appKey.php generate` لوضع مفتاح تطبيق جديد."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"تعذر وضع المتغير `app_key` في ملف التهيئة. يرجى تحديث المقطع العام في ملف "
+"التهيئة وإضافة السطر `app_key = `."
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "تشغيل المجدول."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "إدراج كل المهام المجدولة."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "بدء عامل الجدولة."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "عرض عوامل استعمال المجدول."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr "يتعذر تشغيل المهام المجدولة لأن وضع صيانة التطبيق قد تم تمكينه."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "هل تعني واحدًا مما يأتي؟"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr "يتعذر تشغيل المهام المجدولة لأن وضع صندوق الرمل للتطبيق قد تم تمكينه."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "تشغيل المهام المجدول كل دقيقة."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "لم يتم تسجيل أي مهام مجدولة."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "لم يتم العثور على أي مهام مجدولة مطابقة."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "أي أمر تود تشغيله؟"
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"تشغيل مهمة مجدول معينة من القائمة أو استعمل العامل --name لتشغيل واحدة معينة "
+"باسمها. ضع العامل --no-scroll لمعاينة القائمة الكاملة بدون الحاجة إلى "
+"تمريرها."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "تم وضع مفتاح تطبيق صالح في ملف التهيئة"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "إضافة متغير التهيئة app_key في الملف config.inc.php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"توليد مفتاح تطبيق جديد واستبداله ضمن ملف التهيئة. مرره مع العامل --show "
+"للمعاينة فقط ومع العامل --force للكتاب على مفتاح التطبيق الموجود الصالح."

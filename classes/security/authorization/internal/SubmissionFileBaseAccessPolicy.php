@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileBaseAccessPolicy.php
  *
@@ -92,8 +93,4 @@ class SubmissionFileBaseAccessPolicy extends AuthorizationPolicy
     {
         return $this->_request;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileBaseAccessPolicy', '\SubmissionFileBaseAccessPolicy');
 }

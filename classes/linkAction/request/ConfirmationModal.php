@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/ConfirmationModal.php
  *
@@ -41,8 +42,7 @@ class ConfirmationModal extends Modal
      * @param string $dialogText The localized text to appear
      *  in the dialog modal.
      * @param string $title (optional) The localized modal title.
-     * @param string $titleIcon (optional) The icon to be used
-     *  in the modal title bar.
+     * @param string $modalStyle (optional) The modal state/style to be used. (default is 'basic')
      * @param string $okButton (optional) The localized text to
      *  appear on the confirmation button.
      * @param string $cancelButton (optional) The localized text to
@@ -50,10 +50,10 @@ class ConfirmationModal extends Modal
      * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
-    public function __construct($dialogText, $title = null, $titleIcon = 'modal_confirm', $okButton = null, $cancelButton = null, $canClose = true)
+    public function __construct($dialogText, $title = null, $modalStyle = 'basic', $okButton = null, $cancelButton = null, $canClose = true)
     {
         $title = (is_null($title) ? __('common.confirm') : $title);
-        parent::__construct($title, $titleIcon, $canClose);
+        parent::__construct($title, $modalStyle, $canClose);
 
         $this->_okButton = (is_null($okButton) ? __('common.ok') : $okButton);
         $this->_cancelButton = (is_null($cancelButton) ? __('common.cancel') : $cancelButton);
@@ -112,8 +112,4 @@ class ConfirmationModal extends Modal
             'cancelButton' => $this->getCancelButton(),
             'dialogText' => $this->getDialogText()]);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\ConfirmationModal', '\ConfirmationModal');
 }

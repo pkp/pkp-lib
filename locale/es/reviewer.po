@@ -1,11 +1,11 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2024, 2025.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-05-02 14:38+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/es/>\n"
@@ -143,3 +143,67 @@ msgid "user.authorization.submissionReviewer"
 msgstr ""
 "El usuario/a actual no está asignado como revisor/a para el documento "
 "solicitado."
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Ronda {$round} Revisión enviada por ti para"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Comentarios del revisor/a"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Para editores/as y autores/as"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Solo para editores/as"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Comentario {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr ""
+"No se ha dado ningún motivo para el rechazo de la invitación de revisión."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Fecha de rechazo"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Metadatos del artículo"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tipo"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Resumen"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Palabras clave"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Información general"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Estos son los archivos que ha adjuntado junto con la revisión"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Archivos para revisar"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Le han enviado estos archivos para que los revise"
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Revisiones previas"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Ronda {$round} Revisión enviada a {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Revisión de lectura ronda {$round}"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Motivo del rechazo enviado por correo electrónico"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Archivos adjuntos"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "No se ha completado la revisión."

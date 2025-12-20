@@ -118,10 +118,9 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED:
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_VIEWED:
                     $user = $request->getUser();
                     return [new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'grid.users.reviewer.AuthorReviewerGridHandler', true)];
-                default:
-                    return null;
             }
         }
         return parent::getCellActions($request, $row, $column, $position);
@@ -154,6 +153,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
             case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED:
                 return '<span class="state cancelled">' . __('common.cancelled') . '</span>';
             case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED:
                 return  $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
             default:
                 return '';
@@ -172,7 +172,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function _getStatusWithRecommendation($statusKey, $reviewAssignment)
     {
-        if (!$reviewAssignment->getRecommendation()) {
+        if (!$reviewAssignment->getReviewerRecommendationId()) {
             return __($statusKey);
         }
 

@@ -1,8 +1,8 @@
 {**
  * lib/pkp/templates/layouts/backend.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Common site header.
@@ -18,6 +18,9 @@
 	{load_header context="backend"}
 	{load_stylesheet context="backend"}
 	{load_script context="backend"}
+	{* FIXME: Remove external Google Fonts dependency - icons will be embedded to the sciflow editor in near future *}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0" />
+
 	<style type="text/css">
 		/* Prevent flash of unstyled content in some browsers */
 		[v-cloak] { display: none; }
@@ -35,15 +38,17 @@
 				{rdelim});
 		{rdelim});
 	</script>
-	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
+	<div id="app" class="app" v-cloak>
+		<pkp-spinner-full-screen></pkp-spinner-full-screen>
 		<vue-announcer class="sr-only"></vue-announcer>
 		<pkp-announcer class="sr-only"></pkp-announcer>
 		<modal-manager></modal-manager>
 		<header class="app__header" role="banner">
+			<pkp-skip-link></pkp-skip-link>
 			{if $availableContexts}
 				<dropdown class="app__headerAction app__contexts">
 					<template #button>
-						<icon icon="sitemap"></icon>
+						<icon icon="Sitemap" class="h-7 w-7"></icon>
 						<span class="-screenReader">{translate key="context.contexts"}</span>
 					</template>
 					<ul>
@@ -73,87 +78,19 @@
 				</div>
 			{/if}
 			{if $currentUser}
-				<div class="app__headerActions">
-					{call_hook name="Template::Layout::Backend::HeaderActions"}
-					<div class="app__headerAction app__tasks">
-						<button ref="tasksButton" @click="openTasks">
-							<icon icon="bell-o"></icon>
-							<span class="-screenReader">{translate key="common.tasks"}</span>
-							<span v-if="unreadTasksCount" class="app__tasksCount">{{ unreadTasksCount }}</span>
-						</button>
-					</div>
-					<dropdown class="app__headerAction app__userNav">
-						<template #button>
-							<icon icon="user-circle-o"></icon>
-							{if $isUserLoggedInAs}
-								<icon icon="user-circle" class="app__userNav__isLoggedInAsWarning"></icon>
-							{/if}
-							<span class="-screenReader">{$currentUser->getData('userName')}</span>
-						</template>
-						<nav aria-label="{translate key="common.navigation.user"}">
-							{if $supportedLocales|@count > 1}
-								<div class="pkpDropdown__section">
-									<div class="app__userNav__changeLocale">Change Language</div>
-									<ul>
-										{foreach from=$supportedLocales item="locale" key="localeKey"}
-											<li>
-												<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
-													{if $localeKey == $currentLocale}
-														<icon icon="check" :inline="true"></icon>
-													{/if}
-													{$locale|escape}
-												</a>
-											</li>
-										{/foreach}
-									</ul>
-								</div>
-							{/if}
-							{if $isUserLoggedInAs}
-								<div class="pkpDropdown__section">
-									<div class="app__userNav__loggedInAs">
-										{translate key="manager.people.signedInAs" username=$currentUser->getData('userName')}
-										<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('userName')}</a>.
-									</div>
-								</div>
-							{/if}
-							<div class="pkpDropdown__section">
-								<ul>
-									<li v-if="backToDashboardLink">
-										<a :href="backToDashboardLink.url" class="pkpDropdown__action">
-											{{ backToDashboardLink.name }}
-										</a>
-									</li>
-									<li>
-										<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
-											{translate key="user.profile.editProfile"}
-										</a>
-									</li>
-									<li>
-										{if $isUserLoggedInAs}
-											<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
-												{translate key="user.logOutAs" username=$currentUser->getData('userName')}
-											</a>
-										{else}
-											<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">
-												{translate key="user.logOut"}
-											</a>
-										{/if}
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</dropdown>
-				</div>
+				{call_hook name="Template::Layout::Backend::HeaderActions"}
+				<top-nav-actions></top-nav-actions>
 			{/if}
 		</header>
 
 		<div class="app__body">
 			{block name="menu"}
-				<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
-				</pkp-side-nav>
+				{if isset($currentContext) && isset($currentUser) && $currentUser->getRoles($currentContext->getId())|count > 0}
+					<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
+					</pkp-side-nav>
+				{/if}
 			{/block}
-
-			<main class="app__main">
+			<main id="app-main" class="app__main">
 				<div class="app__page width{if $pageWidth} width--{$pageWidth}{/if}">
 					{block name="breadcrumbs"}
 						{if $breadcrumbs}
@@ -221,42 +158,5 @@
 	<script type="text/javascript">
 		pkp.registry.init('app', {$pageComponent|json_encode}, {$state|json_encode});
 	</script>
-
-	<script type="text/javascript">
-		// Initialize JS handler
-		$(function() {ldelim}
-			$('#pkpHelpPanel').pkpHandler(
-				'$.pkp.controllers.HelpPanelHandler',
-				{ldelim}
-					helpUrl: {url|json_encode page="help" escape=false},
-					helpLocale: '{$currentLocale|substr:0:2}',
-				{rdelim}
-			);
-		{rdelim});
-	</script>
-	<div id="pkpHelpPanel" class="pkp_help_panel" tabindex="-1">
-		<div class="panel">
-			<div class="header">
-				<a href="#" class="pkpHomeHelpPanel home">
-					{translate key="help.toc"}
-				</a>
-				<a href="#" class="pkpCloseHelpPanel close">
-					{translate key="common.close"}
-				</a>
-			</div>
-			<div class="content">
-				{include file="common/loadingContainer.tpl"}
-			</div>
-			<div class="footer">
-				<a href="#" class="pkpPreviousHelpPanel previous">
-					{translate key="help.previous"}
-				</a>
-				<a href="#" class="pkpNextHelpPanel next">
-					{translate key="help.next"}
-				</a>
-			</div>
-		</div>
-	</div>
-
 </body>
 </html>

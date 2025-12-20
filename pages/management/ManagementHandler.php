@@ -22,13 +22,15 @@ use APP\components\forms\context\DoiSetupSettingsForm;
 use APP\components\forms\context\LicenseForm;
 use APP\components\forms\context\MastheadForm;
 use APP\core\Application;
-
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\announcement\Announcement;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
+use PKP\components\forms\context\CategoryForm;
+use PKP\components\forms\context\ContentCommentsForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPAppearanceMastheadForm;
 use PKP\components\forms\context\PKPContactForm;
@@ -55,7 +57,10 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\invitation\core\Invitation;
 use PKP\mail\Mailable;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -70,10 +75,12 @@ class ManagementHandler extends Handler
     //
     /**
      * @see PKPHandler::initialize()
+     *
+     * @param null|mixed $args
      */
-    public function initialize($request)
+    public function initialize($request, $args = null)
     {
-        parent::initialize($request);
+        parent::initialize($request, $args);
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('pageComponent', 'SettingsPage');
@@ -89,6 +96,11 @@ class ManagementHandler extends Handler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        // The "settings" operation is off limits to managers who don't have access to settings,
+        // EXCEPT for the "announcements" area, which was moved out of settings without changing its URL.
+        if ($request->getRequestedOp() == 'settings' && $request->getRequestedArgs() != ['announcements']) {
+            $this->addPolicy(new CanAccessSettingsPolicy());
+        }
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -128,9 +140,14 @@ class ManagementHandler extends Handler
             case 'institutions':
                 $this->institutions($args, $request);
                 break;
+            case 'user':
+                $this->editUser($args, $request);
+                break;
+            case 'userComments':
+                $this->userComments($args, $request);
+                break;
             default:
-                assert(false);
-                $request->getDispatcher()->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
     }
 
@@ -155,10 +172,25 @@ class ManagementHandler extends Handler
         $contactForm = new PKPContactForm($apiUrl, $locales, $context);
         $mastheadForm = new MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
 
+        $publicFileManager = new PublicFileManager();
+        $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
+        $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $context->getPath(), 'temporaryFiles');
+
+        $categoriesApiUrl = Application::get()->getRequest()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_API,
+            $context->getPath(),
+            'categories'
+        );
+        $categoryForm = new CategoryForm($categoriesApiUrl, $locales, $baseUrl, $temporaryFileApiUrl);
+
         $templateMgr->setState([
             'components' => [
                 PKPContactForm::FORM_CONTACT => $contactForm->getConfig(),
                 MastheadForm::FORM_MASTHEAD => $mastheadForm->getConfig(),
+            ],
+            'pageInitConfig' => [
+                'categoryForm' => $categoryForm->getConfig(),
             ],
         ]);
 
@@ -174,14 +206,11 @@ class ManagementHandler extends Handler
                 'latestVersion' => $latestVersion,
             ]);
 
-            // Get contact information for site administrator
-            $userGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
-            $adminUserGroup = $userGroups->first();
+            $siteAdmins = Repo::user()->getCollector()
+                ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN])
+                ->getMany();
 
-            $siteAdmin = Repo::user()->getCollector()
-                ->filterByUserGroupIds([$adminUserGroup->getId()])
-                ->getMany()
-                ->first();
+            $siteAdmin = $siteAdmins->first();
             $templateMgr->assign('siteAdmin', $siteAdmin);
         }
 
@@ -192,6 +221,7 @@ class ManagementHandler extends Handler
 
         $templateMgr->display('management/context.tpl');
     }
+
 
     /**
      * Display website settings
@@ -226,11 +256,13 @@ class ManagementHandler extends Handler
         $privacyForm = new PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
         $themeForm = new PKPThemeForm($themeApiUrl, $locales, $context);
         $dateTimeForm = new PKPDateTimeForm($contextApiUrl, $locales, $context);
+        $contentCommentSettingsForm = new ContentCommentsForm($contextApiUrl, $locales, $context);
 
         $highlightsListPanel = $this->getHighlightsListPanel();
 
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
+            'FORM_CONTENT_COMMENT' => $contentCommentSettingsForm::FORM_CONTENT_COMMENT,
         ]);
 
         $components = [
@@ -243,6 +275,7 @@ class ManagementHandler extends Handler
             $themeForm::FORM_THEME => $themeForm->getConfig(),
             $dateTimeForm::FORM_DATE_TIME => $dateTimeForm->getConfig(),
             $highlightsListPanel->id => $highlightsListPanel->getConfig(),
+            $contentCommentSettingsForm::FORM_CONTENT_COMMENT => $contentCommentSettingsForm->getConfig(),
         ];
 
         if ($informationForm) {
@@ -259,7 +292,6 @@ class ManagementHandler extends Handler
                 'icon' => 'Announcements',
             ],
         ]);
-
         $templateMgr->assign([
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
@@ -269,6 +301,7 @@ class ManagementHandler extends Handler
         $templateMgr->registerClass($appearanceAdvancedForm::class, $appearanceAdvancedForm::class);
         $templateMgr->registerClass($appearanceSetupForm::class, $appearanceSetupForm::class);
         $templateMgr->registerClass($appearanceMastheadForm::class, $appearanceMastheadForm::class);
+        $templateMgr->registerClass($contentCommentSettingsForm::class, $contentCommentSettingsForm::class);
         $templateMgr->registerClass($listsForm::class, $listsForm::class);
         $templateMgr->registerClass($privacyForm::class, $privacyForm::class);
         $templateMgr->registerClass($themeForm::class, $themeForm::class);
@@ -298,6 +331,11 @@ class ManagementHandler extends Handler
         $emailSetupForm = $this->getEmailSetupForm($contextApiUrl, $locales, $context);
         $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
         $submissionGuidanceSettingsForm = new SubmissionGuidanceSettings($contextApiUrl, $locales, $context);
+
+        $templateMgr->setConstants([
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+        ]);
 
         $templateMgr->setState([
             'components' => [
@@ -384,9 +422,11 @@ class ManagementHandler extends Handler
     {
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
-
-        $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
         $context = $request->getContext();
+        $dispatcher = $request->getDispatcher();
+        $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
+
+        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'announcements');
 
         $locales = $this->getSupportedFormLocales($context);
 
@@ -395,16 +435,15 @@ class ManagementHandler extends Handler
             $locales,
             Repo::announcement()->getFileUploadBaseUrl($context),
             $this->getTemporaryFileApiUrl($context),
-            $request->getContext()
+            $publicFileApiUrl,
+            $context
         );
 
-        $collector = Repo::announcement()
-            ->getCollector()
-            ->filterByContextIds([$request->getContext()->getId()]);
+        $announcements = Announcement::withContextIds([$context->getId()]);
 
-        $itemsMax = $collector->getCount();
+        $itemsMax = $announcements->count();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
-            $collector->limit(30)->getMany()
+            $announcements->limit(30)->orderBy(Announcement::CREATED_AT, 'desc')->get()
         );
 
         $announcementsListPanel = new \PKP\components\listPanels\PKPAnnouncementsListPanel(
@@ -414,7 +453,7 @@ class ManagementHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $announcementForm,
                 'getParams' => [
-                    'contextIds' => [$request->getContext()->getId()],
+                    'contextIds' => [$context->getId()],
                     'count' => 30,
                 ],
                 'items' => $items->values(),
@@ -575,6 +614,46 @@ class ManagementHandler extends Handler
         $templateMgr->display('management/manageEmails.tpl');
     }
 
+    /**
+     * Display the page to manage/moderate user comments
+     *
+     * @throws \Exception
+     */
+    public function userComments(array $args, Request $request): void
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->assign([
+            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+        ]);
+
+        $templateMgr->setState([
+            'pageInitConfig' => [
+                'itemsPerPage' => Repo::userComment()->getPerPage(),
+            ],
+        ]);
+
+        $templateMgr->display('management/userComments.tpl');
+    }
+
+    /**
+     * Edit or view user using user access table action
+     *
+     * @throws \Exception
+     */
+    public function editUser(array $args, $request): void
+    {
+        $this->setupTemplate($request);
+        $userId = $args[0];
+        if (empty($userId)) {
+            $request->getDispatcher()->handle404();
+        }
+
+        $invitation = app(Invitation::class)->createNew('userRoleAssignment');
+        $invitationHandler = $invitation->getInvitationUIActionRedirectController();
+        $invitationHandler->createHandle($request, $userId);
+    }
     protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm
     {
         $locales = $context->getSupportedFormLocaleNames();
@@ -680,6 +759,7 @@ class ManagementHandler extends Handler
         $components = $templateMgr->getState('components');
         $components[$reviewGuidanceForm->id] = $reviewGuidanceForm->getConfig();
         $components[$reviewSetupForm->id] = $reviewSetupForm->getConfig();
+
         $templateMgr->setState(['components' => $components]);
     }
 

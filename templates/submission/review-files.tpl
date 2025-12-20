@@ -32,7 +32,7 @@
             type="warning"
             class="submissionWizard__reviewEmptyWarning"
         >
-            <icon icon="exclamation-triangle" :inline="true"></icon>
+            <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
             {{ error }}
         </notification>
         <ul class="submissionWizard__reviewPanel__list">

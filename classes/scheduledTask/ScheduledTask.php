@@ -16,7 +16,6 @@
 namespace PKP\scheduledTask;
 
 use PKP\config\Config;
-use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\core\Core;
 use PKP\file\PrivateFileManager;
 
@@ -32,14 +31,14 @@ abstract class ScheduledTask
      */
     private string $executionLogFile;
 
-    /** 
+    /**
      * The schedule task helper
      */
     private ScheduledTaskHelper $helper;
 
     /**
      * Constructor.
-     * 
+     *
      * @param array $args The task arguments
      */
     public function __construct(private array $args = [])
@@ -51,12 +50,12 @@ abstract class ScheduledTask
 
         $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
         $classNameParts = explode('\\', $this::class); // Separate namespace info from class name
-        
+
         $this->executionLogFile = "{$scheduledTaskFilesPath}/"
             . end($classNameParts)
             . '-'
             . $this->getProcessId()
-            . '-' 
+            . '-'
             . date('Ymd')
             . '.log';
 
@@ -65,7 +64,7 @@ abstract class ScheduledTask
             if (!$success) {
                 // files directory wrong configuration?
                 assert(false);
-                $this->executionLogFile = null;
+                $this->executionLogFile = '';
             }
         }
     }
@@ -84,9 +83,9 @@ abstract class ScheduledTask
     public function getHelper(): ScheduledTaskHelper
     {
         if (!isset($this->helper)) {
-            $this->helper = new ScheduledTaskHelper;
+            $this->helper = new ScheduledTaskHelper();
         }
-        
+
         return $this->helper;
     }
 
@@ -157,8 +156,4 @@ abstract class ScheduledTask
 
         return $result;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\scheduledTask\ScheduledTask', '\ScheduledTask');
 }

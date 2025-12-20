@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2024-04-20 00:03+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"PO-Revision-Date: 2025-07-29 06:45+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "pl/>\n"
 "Language: pl\n"
@@ -38,6 +38,8 @@ msgstr ""
 
 msgid "emails.submissionAck.description"
 msgstr ""
+"Ten e-mail jest automatycznie wysyłany do autora po przesłaniu przez niego "
+"zgłoszenia."
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -54,20 +56,19 @@ msgstr ""
 "Z wyrazami szacunku."
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Dziękujemy za recenzję"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Aktualizacja dotycząca Twojego zgłoszenia"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Decyzja redakcji"
+msgstr "Twoje zgłoszenie zostało przesłane do  recenzji"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -81,9 +82,8 @@ msgstr ""
 "<br />\n"
 "WWW tekstu: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "Decyzja redakcji"
+msgstr "Kolejne kroki związane z publikacją zgłoszenia"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
@@ -395,3 +395,9 @@ msgstr ""
 "W razie dodatkowych pytań proszę o kontakt:<br/>\n"
 "<br/>\n"
 "{$principalContactSignature}\n"
+
+msgid "mailable.userRoleEndNotify.name"
+msgstr "Powiadomienie o zakończeniu roli użytkownika"
+
+msgid "mailable.userRoleEndNotify.description"
+msgstr "Powiadomienie e-mail wysyłane do użytkownika po usunięciu go z roli."

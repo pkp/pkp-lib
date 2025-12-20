@@ -21,11 +21,13 @@ use Illuminate\Validation\Validator;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\EmailData;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Validation;
 use PKP\user\User;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 trait NotifyReviewers
 {
@@ -55,11 +57,30 @@ trait NotifyReviewers
                     ->getMany()
                     ->first();
                 if ($reviewAssignment) {
-                    Repo::reviewAssignment()->edit($reviewAssignment, [
-                        'dateAcknowledged' => Core::getCurrentDate(),
-                    ]);
+                    $updateData = [];
+                    if(!$reviewAssignment->getDateAcknowledged()) {
+                        $updateData['dateAcknowledged'] = Core::getCurrentDate();
+                    }
+                    if (!in_array($reviewAssignment->getConsidered(), [ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED])) {
+                        $updateData['considered'] = ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW ||
+                                                $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED)
+                            ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
+                            : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
+                    }
+
+                    if(!$reviewAssignment->getDateConsidered()) {
+                        // set the date when the editor confirms the review
+                        $updateData['dateConsidered'] = Core::getCurrentDate();
+                    }
+
+                    if(!empty($updateData)) {
+                        Repo::reviewAssignment()->edit($reviewAssignment, $updateData);
+                    }
+
                 }
             }
+
+            Repo::emailLogEntry()->logMailable(is_a($mailable, DecisionNotifyReviewer::class) ? SubmissionEmailLogEventType::REVIEW_NOTIFY_REVIEWER : SubmissionEmailLogEventType::REVIEW_EDIT_NOTIFY_REVIEWER, $mailable, $submission, $editor);
         }
 
         $eventLog = Repo::eventLog()->newDataObject([

@@ -17,6 +17,7 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Cache;
 use PKP\core\PKPApplication;
@@ -300,14 +301,11 @@ class PKPNavigationMenuService
                     break;
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID)) {
-                        $navigationMenuItem->setUrl($dispatcher->url(
-                            $request,
-                            PKPApplication::ROUTE_PAGE,
-                            null,
-                            'submissions',
-                            null,
-                            null
-                        ));
+                        $pkpPageRouter = $request->getRouter();  /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
+
+                        if ($pkpPageRouter instanceof PageRouter) {
+                            $navigationMenuItem->setUrl($pkpPageRouter->getHomeUrl($request));
+                        }
                     } else {
                         $navigationMenuItem->setUrl($dispatcher->url(
                             $request,
@@ -430,8 +428,7 @@ class PKPNavigationMenuService
             }
         }
         /** @var NavigationMenuDAO */
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        Cache::put("navigationMenu-{$navigationMenu->getId()}", 60 * 24 * 24, json_encode($navigationMenu));
+        Cache::put($cacheId = "navigationMenu-{$navigationMenu->getId()}", json_encode($navigationMenu), 60 * 60 * 24);
     }
 
     /**
@@ -520,7 +517,7 @@ class PKPNavigationMenuService
      */
     public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem)
     {
-        $this->setNMITitleLocalized($navigationMenuItem);
+        $this->setAllNMILocalizedTitles($navigationMenuItem);
 
         $title = $navigationMenuItem->getLocalizedTitle();
         $prefix = '{$';
@@ -625,6 +622,8 @@ class PKPNavigationMenuService
             foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
                 if ($localizedTitle = $nmi->getTitle($supportedFormLocale)) {
                     $nmi->setTitle($localizedTitle, $supportedFormLocale);
+                } elseif ($nmi->getTitleLocaleKey() === '{$loggedInUsername}') {
+                    $nmi->setTitle($nmi->getTitleLocaleKey(), Locale::getLocale());
                 } else {
                     $nmi->setTitle(__($nmi->getTitleLocaleKey(), [], $supportedFormLocale), $supportedFormLocale);
                 }

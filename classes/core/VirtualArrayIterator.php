@@ -49,13 +49,13 @@ class VirtualArrayIterator extends ItemIterator
         parent::__construct();
         if ($page >= 1 && $itemsPerPage >= 1) {
             $this->page = $page;
+            $this->itemsPerPage = $itemsPerPage;
         } else {
             $this->page = 1;
-            $this->itemsPerPage = max(count($this->theArray), 1);
+            $this->itemsPerPage = max(count($theArray), 1);
         }
         $this->theArray = $theArray;
         $this->count = $totalItems;
-        $this->itemsPerPage = $itemsPerPage;
         $this->wasEmpty = count($this->theArray) == 0;
         reset($this->theArray);
     }
@@ -166,8 +166,4 @@ class VirtualArrayIterator extends ItemIterator
         }
         return $this->theArray;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\VirtualArrayIterator', '\VirtualArrayIterator');
 }

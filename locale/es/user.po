@@ -1,12 +1,13 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # pep sanso <pep.sanso@uab.cat>, 2023.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-04-26 18:03+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-06-29 11:04+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/es/"
 ">\n"
 "Language: es\n"
@@ -186,7 +187,7 @@ msgstr ""
 "Ahora puede iniciar sesión con la nueva contraseña."
 
 msgid "user.login.registeredEmail"
-msgstr "Correo electronico de usuarios registrados"
+msgstr "Correo electrónico de usuarios/as registrados"
 
 msgid "user.login.registrationComplete"
 msgstr "Registro completo"
@@ -303,7 +304,7 @@ msgid "user.profile.form.usergroupRequired"
 msgstr "Introduzca un grupo de usuarios/as."
 
 msgid "user.profile.form.usernameRequired"
-msgstr "Es necesario el nombre de usuario."
+msgstr "Es necesario el nombre de usuario/a."
 
 msgid "user.profile.form.privacyConsentRequired"
 msgstr "Debe aceptar los términos de la declaración de privacidad."
@@ -346,7 +347,7 @@ msgstr "Sí, deseo que me notifiquen acerca de nuevas publicaciones y avisos."
 msgid "user.register.form.emailExists"
 msgstr ""
 "La dirección de correo electrónico seleccionada ya está siendo utilizada por "
-"otro usuario."
+"otro usuario/a."
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Las contraseñas no coinciden."
@@ -356,7 +357,7 @@ msgstr "Los campos de correo electrónico no coinciden."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"El nombre de usuario sólo puede contener caracteres alfanuméricos en "
+"El nombre de usuario/a sólo puede contener caracteres alfanuméricos en "
 "minúsculas, subrayados y guiones, y debe comenzar y finalizar con un "
 "carácter alfanumérico."
 
@@ -365,7 +366,8 @@ msgstr "Debe seleccionar un rol como mínimo."
 
 msgid "user.register.form.usernameExists"
 msgstr ""
-"El nombre de usuario seleccionado ya está siendo utilizado por otro usuario."
+"El nombre de usuario/a seleccionado ya está siendo utilizado por otro "
+"usuario/a."
 
 msgid "user.register.form.passwordLengthRestriction"
 msgstr "La contraseña debe tener como mínimo {$length} caracteres."
@@ -384,7 +386,7 @@ msgstr ""
 msgid "user.register.registrationCompleted"
 msgstr ""
 "Se ha registrado correctamente. <a href=\"{$profileUrl}\">Haga clic aquí</a> "
-"para completar su perfil de usuario."
+"para completar su perfil de usuario/a."
 
 msgid "user.role.assistant"
 msgstr "Ayudante de producción"
@@ -464,7 +466,7 @@ msgid "user.userHome"
 msgstr "Inicio"
 
 msgid "user.username"
-msgstr "Nombre usuario"
+msgstr "Nombre usuario/a"
 
 msgid "user.workingLanguages"
 msgstr "Idiomas de trabajo"
@@ -769,8 +771,8 @@ msgstr ""
 
 msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
 msgstr ""
-"Enviar correo electrónico para solicitar autorización ORCID de los autores "
-"cuando un artículo sea aceptado, es decir, enviado a corrección"
+"Enviar correo electrónico para solicitar autorización ORCID de los autores/"
+"as cuando un artículo sea aceptado, es decir, enviado a corrección"
 
 msgid "orcid.about.howAndWhyMemberAPI"
 msgstr ""
@@ -831,3 +833,166 @@ msgstr "Se han detectado ORCID duplicados en los colaboradores/as."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Se han detectado ORCID no autentificados en los colaboradores/as."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr ""
+"El acceso al flujo de trabajo para los envíos incompletos está restringido."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Iniciales del avatar preferidas"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Introduzca las dos letras que le gustaría utilizar como avatar. Estas "
+"iniciales se mostrarán para representarle."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Añada una afiliación en el idioma del envío."
+
+msgid "user.role.ended"
+msgstr "Rol terminado"
+
+msgid "orcid.unauthenticated"
+msgstr "(no autenticado)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Ahora será redirigido automáticamente a {$contextName}."
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Habilitar la funcionalidad ORCID en todo el sitio"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "El usuario/a debería ser anónimo. Actualmente tiene la sesión iniciada."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Ha solicitado un cambio de su correo electrónico a \"{$pendingEmail}\". Le "
+"hemos enviado un correo electrónico con instrucciones para validar su nueva "
+"dirección."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Habilitar la funcionalidad ORCID"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Introduzca el nombre completo de la institución a continuación, evitando "
+"acrónimos. Seleccione el nombre desde el desplegable y haga clic en 'Añadir' "
+"para incluir la afiliación en su perfil. (p. ej.: \"Simon Fraser University\""
+")"
+
+msgid "user.affiliations.institution"
+msgstr "Institución"
+
+msgid "user.affiliations.translation"
+msgstr "Más información"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Editar el nombre de la institución"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Eliminar la institución"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Haga clic para editar o eliminar"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Todas las traducciones disponibles"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} de {$total} idiomas completados"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Escriba el nombre de la institución en {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Nombre de la institución en {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "¿Está seguro?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Se eliminará la afiliación <strong>{$affiliation}</strong>."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Escriba el nombre de la institución en {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "No se ha encontrado su frase de búsqueda"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "El idioma principal {$primaryLocale} es obligatorio"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Añadir, actualizar o eliminar sugerencias de revisor/a para envíos "
+"finalizados está restringido."
+
+msgid "orcid.field.verification.request"
+msgstr "Solicitar verificación"
+
+msgid "orcid.field.verification.requested"
+msgstr "Se ha solicitado la verificación de ORCID."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Reenviar el correo electrónico de verificación"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Eliminar ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "¿Seguro que desea eliminar este ORCID?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Su rol está programado para empezar el {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Hasta entonces puede revisar y actualizar su perfil. Si cree que esto es un "
+"error, contacte con el administrador/a."
+
+msgid "user.disabledModal.description"
+msgstr "Roles actuales: {$roles}"
+
+msgid "user.removeRole.message"
+msgstr ""
+"¿Seguro que desea eliminar permanentemente este rol? Esta acción revocará el "
+"acceso del usuario/a a toda la información y permisos asociados con este rol."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"No puede eliminar el rol. El usuario/a debe tener como mínimo un rol "
+"asignado."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"La funcionalidad ORCID puede activarse opcionalmente y configurarse a nivel "
+"de sitio para todas las revistas/publicaciones/servidores. Si se activa, "
+"esto anulará todas las credenciales de nivel de contexto y aplicará las "
+"siguientes credenciales a todas las revistas/publicaciones/servidores de "
+"esta instalación."
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Solicitar la verificación de ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Desea enviar un correo electrónico a este autor/a para solicitarle que "
+"verifique su ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Este ORCID no se ha verificado. Elimínelo y solicite la verificación "
+"directamente al usuario/a o al autor/a."
+
+msgid "user.disabledModal.title"
+msgstr "Deshabilitar {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Habilitar {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografía"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr ""
+"El correo electrónico se enviará una vez que el autor/a haya sido creado."

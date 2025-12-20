@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/services/PKPFileService.php
  *
@@ -15,7 +16,6 @@
 
 namespace PKP\services;
 
-use APP\core\Application;
 use Exception;
 use finfo;
 use Illuminate\Support\Facades\DB;
@@ -119,6 +119,25 @@ class PKPFileService
     }
 
     /**
+     * Add a file from string content
+     *
+     * @param string $content The content to write
+     * @param string $to Relative path in file dir
+     * @param string $mimetype The mime type of the content
+     *
+     * @return int file id
+     */
+    public function addFromString(string $content, string $to, string $mimetype = 'application/octet-stream'): int
+    {
+        $this->fs->write($to, $content);
+
+        return DB::table('files')->insertGetId([
+            'path' => $to,
+            'mimetype' => $mimetype,
+        ], 'file_id');
+    }
+
+    /**
      * Delete an uploaded file
      *
      * @param int $id
@@ -157,14 +176,13 @@ class PKPFileService
     public function download($fileId, $filename, $inline = false)
     {
         $file = $this->get($fileId);
-        $dispatcher = Application::get()->getRequest()->getDispatcher();
         if (!$file) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $path = $file->path;
         if (!$this->fs->has($path)) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         if (Hook::call('File::download', [$file, &$filename, $inline])) {

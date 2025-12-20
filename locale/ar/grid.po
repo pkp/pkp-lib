@@ -1,11 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
+# "M. Ali" <vorteem@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2025-05-06 10:38+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/ar/>"
 "\n"
 "Language: ar\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "لا فقرات"
@@ -511,10 +512,10 @@ msgid "grid.user.email"
 msgstr "مراسلة المستخدم"
 
 msgid "grid.user.enable"
-msgstr "تمكين"
+msgstr "تمكين المستخدم"
 
 msgid "grid.user.disable"
-msgstr "تعطيل"
+msgstr "تعطيل المستخدم"
 
 msgid "grid.user.disableReason"
 msgstr "سبب تعطيل المستخدم"
@@ -716,3 +717,32 @@ msgstr "ضمن قوائم التصفح"
 
 msgid "grid.action.editContributor"
 msgstr "تعديل المساهم"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "إضافة محكم مقترح"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "حذف محكم مقترح"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"هل أنت متأكد من رغبتك في إزالة هذا الاقتراح؟ هذاالإجراء لا يمكن التراجع عنه."
+
+msgid "grid.user.logInAs"
+msgstr "تسجيل الدخول بصفته"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"يرجى ملاحظة أنه بمجرد تعطيل المستخدم، لن تتمكن من إضافته إلى أي دور حتى يتم "
+"تمكينه مجددًا."
+
+msgid "grid.user.remove"
+msgstr "إزالة المستخدم"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"بمجرد تمكين المستخدم، سيكون لديه إمكانية الوصول إلى الموقع، وستتمكن من دعوته "
+"إلى أي أدوار حسب الحاجة."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "يظهر في طاقم القيادة"

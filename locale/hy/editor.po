@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2025-04-11 17:19+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy/>\n"
@@ -619,3 +619,62 @@ msgstr "{$stepName} քայլի հետ կապված խնդիր առաջացավ:"
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Նույն հաստատությունը որպես հեղինակ"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Գրախոսի առաջարկներից ընտրեք գրախոս"
+
+msgid "editor.review.reviewViewed"
+msgstr "Գրախոսությունը դիտված է"
+
+msgid "editor.submission.search"
+msgstr "Որոնեք ներկայացումներ, ID, հեղինակներ, հիմնաբառեր և այլն:"
+
+msgid "editor.submission.days"
+msgstr "Օրեր"
+
+msgid "editor.submission.daysInStage"
+msgstr "Օրերը փուլավորման մեջ"
+
+msgid "editor.submission.viewSummary"
+msgstr "Ամփոփում"
+
+msgid "editor.review.logResponse.for"
+msgstr "Մուտքի արձագանքը սրա համար"
+
+msgid "editor.review.logResponse"
+msgstr "Մուտքի արձագանքը"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Պետք է ընտրվի պատասխանը"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Գրախոսն ընդունել է վերանայման հրավերը"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Գրախոսը մերժել է վերանայման հրավերը"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Գրանցեք պատասխանը գրախոսի անունից"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Եթե գրախոսը կապվում է ձեզ հետ էլեկտրոնային փոստի կամ այլ միջոցների միջոցով, "
+"դուք կարող եք ձայնագրել նրանց պատասխանը իրենց համար"
+
+msgid "editor.review.download"
+msgstr "Ներբեռնեք գրախոսման ձևը"
+
+msgid "editor.review.authorOnly"
+msgstr "Ցուցադրվում են միայն հեղինակների բաժինները"
+
+msgid "editor.review.allSections"
+msgstr "Խմբագրի ձևը ցույց է տալիս բոլոր գրախոսման բաժինները"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Գրախոսման վերջնաժամկետը պետք է ավելի մեծ կամ հավասար լինի պատասխանի ժամկետին:"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Գրախոսին ավելացնելիս սխալ տեղի ունեցավ, քանի որ վերանայման վերջնաժամկետը "
+"պետք է հավասար կամ ավելի մեծ լինի, քան պատասխանի վերջնաժամկետը:"

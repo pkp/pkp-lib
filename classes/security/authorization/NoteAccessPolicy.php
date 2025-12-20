@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/security/authorization/NoteAccessPolicy.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NoteAccessPolicy
@@ -21,7 +22,6 @@ namespace PKP\security\authorization;
 use APP\core\Application;
 use APP\core\Request;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\note\Note;
 
 class NoteAccessPolicy extends AuthorizationPolicy
@@ -59,7 +59,7 @@ class NoteAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         if (!$this->_noteId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
@@ -80,12 +80,12 @@ class NoteAccessPolicy extends AuthorizationPolicy
         }
 
         // Note, query, submission and assigned stages must match
-        if ($note->assocId != $query->getId()
+        if ($note->assocId != $query->id
                 || $note->assocType != Application::ASSOC_TYPE_QUERY
-                || $query->getAssocId() != $submission->getId()
-                || $query->getAssocType() != Application::ASSOC_TYPE_SUBMISSION
-                || !array_key_exists($query->getStageId(), $assignedStages)
-                || empty($assignedStages[$query->getStageId()])) {
+                || $query->assocId != $submission->getId()
+                || $query->assocType != Application::ASSOC_TYPE_SUBMISSION
+                || !array_key_exists($query->stageId, $assignedStages)
+                || empty($assignedStages[$query->stageId])) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

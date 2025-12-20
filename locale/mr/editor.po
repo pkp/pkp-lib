@@ -1,0 +1,664 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-03-17 20:02+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "editor.activityLog"
+msgstr "कार्य नोंद (अ‍ॅक्टिव्हिटी लॉग)"
+
+msgid "editor.submissionLibrary"
+msgstr "सादरीकरणांचा संग्रह (लायब्ररी)"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "निर्णय नोंदवला"
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "सादरीकरण स्वीकारले."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "सादरीकरणाचे प्रकाशन झाले आहे."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "प्रकाशनासाठी पाठवले आहे."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "समीक्षणासाठी सादरीकरण स्वीकारले आहे."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "निर्णय बदला"
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "तुम्ही खालील इच्छुक व्यक्तींना ई-मेल पाठवू शकत नाही: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "ही समीक्षण फेरी सापडली नाही."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"समीक्षण फेरी प्रदान केली गेली होती परंतु समीक्षणादरम्यान हा निर्णय घेतला गेला"
+" नाही."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"हा निर्णय घेण्यासाठी सादरीकरण कार्यप्रवाहाच्या (वर्कफ्लो) योग्य टप्प्यावर "
+"नाही."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"या सादरीकरणावर निर्णय घेता आलेला नाही. सादरीकरण आयडी गहाळ झाला आहे किंवा "
+"शोधलेल्या सादरीकरणाशी तो जुळत नाही."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"हा निर्णय जुळत नाही (not found). कृपया मान्यताप्राप्त प्रकारातून निर्णय द्या."
+
+msgid "editor.review.notInitiated"
+msgstr "समीक्षण प्रक्रिया अद्याप सुरू झालेली नाही."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "समीक्षण टप्प्यावर पाठवण्यासाठी खालील फाईल्समधून निवड करा."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "तुम्ही वैयक्तिक संदेशाचा समावेश केलाच पाहिजे."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "ऑडिटरला ई-मेल पाठवू नका"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "फाईल्सची निवड करा/अपलोड करा"
+
+msgid "editor.submission.selectFiles"
+msgstr "फाईल्सची निवड करा"
+
+msgid "editor.submission.revisions"
+msgstr "सुधारित संस्करणे"
+
+msgid "editor.submission.addReviewer"
+msgstr "समीक्षकाला सहभागी करून घ्या"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "समीक्षक शोधा"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "वापरकर्ता शोधा"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "सर्व कार्यप्रवाहाच्या (वर्कफ्लो) दृष्य टप्प्यांमधील फाईल्स दाखवा."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "{$round} फेरीसाठी सध्याच्या चालू समीक्षणाच्या फाईल्स"
+
+msgid "editor.submission.backToSearch"
+msgstr "पुन्हा शोधा"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "विद्यमान वापरकर्त्याची नोंदणी करा"
+
+msgid "editor.review.unassignReviewer"
+msgstr "समीक्षकाला निलंबित करा"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "समीक्षकाला पुनर्स्थापित करा"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "समीक्षणासाठी पुन्हा विनंती करा"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "संपादकांना ई-मेल सूचना पाठवा: {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "ई-मेल सूचना पाठवू नका"
+
+msgid "editor.submissionReview.open"
+msgstr "अनावृत करा"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "अनामिक समीक्षक/अनामिक लेखक"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "समीक्षण करायच्या फाईल्स"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "फाईल्सची निवड थांबवा"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "अनामिक समीक्षक"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "समीक्षकाला ई-मेल पाठवायचा आहे"
+
+msgid "editor.review.importantDates"
+msgstr "महत्त्वाच्या तारखा"
+
+msgid "editor.review.newReviewRound"
+msgstr "नव्याने समीक्षण फेरीची आवश्यकता आहे"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "नव्याने समीक्षण फेरीदरम्यान सुधारलेल्या आवृत्तीचा अंतर्भाव असावा."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "नव्याने समीक्षण फेरीदरम्यान सुधारलेल्या आवृत्तीचा अंतर्भाव असायला हवाच."
+
+msgid "editor.review.reviewsAdded"
+msgstr "मजकूर लिहायच्या भागात (message body) समीक्षण अभिप्रायाची नोंद केली आहे."
+
+msgid "editor.review.reminder"
+msgstr "समीक्षण पूर्ण करण्यासाठी स्मरणपत्र"
+
+msgid "editor.review.thankReviewer"
+msgstr "समीक्षकाचे आभार माना"
+
+msgid "editor.review.thankReviewerError"
+msgstr "समीक्षकाचे आभार मानताना त्रुटी आल्या"
+
+msgid "editor.review.sendReminder"
+msgstr "स्मरणपत्र पाठवा"
+
+msgid "editor.review.readReview"
+msgstr "समीक्षण वाचा"
+
+msgid "editor.review.readNewReview"
+msgstr "नवे समीक्षण वाचा"
+
+msgid "editor.review.responseDue"
+msgstr "प्रतिसादाची अपेक्षित तारीख : {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "विनंती केली"
+
+msgid "editor.review.requestDeclined"
+msgstr "विनंती नाकारली"
+
+msgid "editor.review.requestCancelled"
+msgstr "विनंती रद्द केली"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "समीक्षकाने या समीक्षणाची विनंती नाकारली."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "संपादकाने या समीक्षणाची विनंती रद्द केली."
+
+msgid "editor.review.revertDecision"
+msgstr "निर्णय मागे घ्या"
+
+msgid "editor.review.reviewDue"
+msgstr "या तारखेपावेतो समीक्षण अपेक्षित : {$date}"
+
+msgid "editor.review.reviewCompleted"
+msgstr "समीक्षण पूर्ण झाले"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "समीक्षणाची खात्री केली"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "समीक्षण सादर केले"
+
+msgid "editor.review.reviewerThanked"
+msgstr "समीक्षकाचे आभार मानले"
+
+msgid "editor.review.reviewerComments"
+msgstr "समीक्षकाच्या टिप्पण्या"
+
+msgid "editor.review.rateReviewer"
+msgstr "समीक्षकाचे मूल्यमापन (रेटिंग)"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "मूल्यमापन (रेटिंग) नाही"
+
+msgid "editor.review.mustSelect"
+msgstr "तुम्ही समीक्षक निवडणे आवश्यक आहे"
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "समीक्षक हटवताना एक त्रुटी आली. कृपया पुन्हा प्रयत्न करा."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"समीक्षकाला समीक्षणाच्या आमंत्रणाचा पुनर्विचार करण्याची विनंती करताना एक "
+"त्रुटी आली. कृपया पुन्हा प्रयत्न करा."
+
+msgid "editor.review.userGroupSelect"
+msgstr "या वापरकर्त्याची समीक्षकांच्या गटात नोंद करा"
+
+msgid "editor.review.unconsiderReview"
+msgstr "हे समीक्षण अग्राह्य करा"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "निवडलेल्या सहभागीची नेमणूक या टप्प्यावर करता येत नाही."
+
+msgid "editor.submission.schedulePublication"
+msgstr "प्रकाशनाचे वेळापत्रक"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "लेखनातील अचूकता तपासण्याच्या (Copyediting) फाईल्स"
+
+msgid "editor.submission.selectReviewer"
+msgstr "समीक्षकाची निवड करा"
+
+msgid "editor.submission.taskSchedule"
+msgstr "कामाचे वेळापत्रक"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "या फाईलसाठी ऑडिटची विनंती केलेली नाही"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "वापरकर्त्याला ई-मेल पाठवायचा आहे"
+
+msgid "editor.submission.proof.reminder"
+msgstr "मुद्रितशोधनासाठी आठवण"
+
+msgid "editor.submission.addAuditor"
+msgstr "ऑडिटर नियुक्त करा"
+
+msgid "editor.review"
+msgstr "समीक्षण"
+
+msgid "editor.review.reviewDetails"
+msgstr "समीक्षणाचा तपशील"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "कोणत्याही फाईल्स संक्रमित (अपलोड) केलेल्या नाहीत"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "तुम्ही समीक्षणाच्या कुठल्याही फाईल्स संक्रमित (अपलोड) केलेल्या नाहीत."
+
+msgid "editor.review.emailReviewer"
+msgstr "समीक्षकाला ई-मेल पाठवा"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "प्रकाशनासाठी तयार असलेल्या फाईल्स"
+
+msgid "editor.submission.newRound"
+msgstr "नवीन समीक्षण फेरी"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "संपादकीय निर्णय नोंदवा"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "संपादकीय शिफारस नोंदवा"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "संपादकांना ई-मेल पाठवू नका."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "या शिफारसीवर समीक्षण चर्चा आयोजित करा."
+
+msgid "editor.submission.createNewRound"
+msgstr "नवी समीक्षण फेरी निर्माण करा"
+
+msgid "editor.article.reviewForms"
+msgstr "समीक्षणासाठी फॉर्म्स"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "कोणत्याही फाईल्स निवडलेल्या नाहीत"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr ""
+"समीक्षकातर्फे समीक्षण करवण्यासाठी तुम्ही कोणत्याही फाईल्सची निवड केलेली नाही."
+
+msgid "submission.queries.subjectRequired"
+msgstr "चर्चेचा विषय आवश्यक आहे."
+
+msgid "submission.queries.messageRequired"
+msgstr "चर्चासाठी संदेश आवश्यक आहे."
+
+msgid "grid.action.editQuery"
+msgstr "चर्चा संपादित करा"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "निवडलेला समीक्षक"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "तपासलेल्या मुद्रित लेखनाला (Proof) मान्यता द्या"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "तपासलेल्या मुद्रित लेखनाला (Proof) दिलेली मान्यता रद्द करा"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "{$publicIdentifier}' हा पब्लिक आयडेंटिफायर आकड्यांनी बनलेला नसावा."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "पब्लिक आयडेंटिफायरसाठी {$pattern} या पॅटर्नला परवानगी नाही."
+
+msgid "reviewer.list.filterRating"
+msgstr "इतपत मूल्यमापन झालेले"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} सक्रिय"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "या समीक्षकाने मागील फेरीत समीक्षण पूर्ण केले."
+
+msgid "reviewer.list.completedReviews"
+msgstr "समीक्षणांचे कार्य पूर्ण झाले"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "समीक्षणासाठी केलेल्या विनंत्या रद्द केल्या"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "समीक्षकाचे मूल्यमापन : {$rating}"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "काल"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "दिवसांपूर्वी शेवटची समीक्षण नियुक्ती"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "लेखक या नात्याने संस्था"
+
+msgid "reviewer.list.reassign"
+msgstr "पुन्हा नियुक्त करा"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "अनलॉक"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "समीक्षणासाठी आवडीचे विषय"
+
+msgid "reviewer.list.biography"
+msgstr "चरित्र"
+
+msgid "reviewer.list.empty"
+msgstr "समीक्षक आढळले नाहीत"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "मागील फेरीदरम्यान नियुक्त केलेले"
+
+msgid "editor.decision.cancelDecision"
+msgstr "निर्णय रद्द करा"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "तुम्ही खात्रीने हा निर्णय रद्द करू इच्छिता ना?"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "हा ई-मेल वगळू नका"
+
+msgid "editor.decision.emailSkipped"
+msgstr "ही पायरी वगळण्यात आली आहे आणि ई-मेल पाठवला जाणार नाही."
+
+msgid "editor.decision.recordDecision"
+msgstr "निर्णय नोंदवा"
+
+msgid "editor.decision.skipEmail"
+msgstr "हा ई-मेल वगळा"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "सादरीकरण नाकारले."
+
+msgid "editor.review.createReviewer"
+msgstr "नव्या समीक्षकाचे खाते निर्माण करा"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "वापरकर्त्याला संदेश"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "{$name} पुन्हा नियुक्त करा"
+
+msgid "editor.review.cancelReviewer"
+msgstr "समीक्षकाची नियुक्ती रद्द करा"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "समीक्षणाचा प्रकार"
+
+msgid "editor.submissionReview.editReview"
+msgstr "समीक्षणाचे संपादन करा"
+
+msgid "editor.submission.taskDueDate"
+msgstr "काम पूर्ण करण्याची अपेक्षित तारीख"
+
+msgid "editor.review.skipEmail"
+msgstr "समीक्षकाला ई-मेल पाठवू नका."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "संपादकांना सूचित करा"
+
+msgid "editor.review.requestAccepted"
+msgstr "विनंती स्वीकारली"
+
+msgid "editor.article.selectReviewForm"
+msgstr "समीक्षणासाठी फॉर्मची निवड करा"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "कधीही नियुक्त केलेले नाही"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "पुन्हा विनंती केली"
+
+msgid "submission.queries.attachedFiles"
+msgstr "संलग्न फाईल्स"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "या सादरीकरणावर हा निर्णय नोंदवण्याची तुम्हाला परवानगी नाही."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "समीक्षक सहभागी करून घेताना एक त्रुटी आली. कृपया पुन्हा प्रयत्न करा."
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "तुम्ही खात्रीने हे सादरीकरण कायमचे हटवू इच्छिता का?"
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "समीक्षणाच्या नव्या फेरीसाठी पाठवले आहे."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"संपादकाने मान्य केलेले नसल्याने कदाचित या सादरीकरणावर निर्णय नोंदवण्याची "
+"परवानगी नसेल."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "ही समीक्षण फेरी या सादरीकरणाचा भाग नाही."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"संपादकीय निर्णय नोंदवण्यासाठी तुम्हाला या सादरीकरणासाठी नियुक्त केले गेले "
+"पाहिजे."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "हा निर्णय घेण्यासाठी समीक्षणफेरीचा आयडी प्रदान करणे आवश्यक आहे."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"या टप्प्यावर अंतिम निर्णय घेऊ शकणाऱ्या संपादकाची नियुक्ती केल्याशिवाय शिफारस "
+"करता येणार नाही."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr ""
+"वापरकर्त्याला पाहाण्यासाठी (असाइन) तुम्ही किमान एक फाईल तरी निवडली पाहिजे."
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "तुम्ही नियुक्ती (असाइन) करण्यापूर्वी वापरकर्त्याची निवड आवश्यक आहे."
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"<em>+Add Reviewer (समीक्षकाला सहभागी करून घ्या)</em> वापरुन सादरीकरणाच्या "
+"फाईल्सचे समीक्षण करण्यासाठी वाचकांना आमंत्रित करा. नोटबुक चिन्ह (आयकॉन) सूचि"
+"त करतो की समीक्षण सादर केले गेले आहे, जे नंतर <em>पोच दिल्यावर "
+"(Acknowledged)</em> विचारपूर्वक तपासले जाते. जेव्हा समीक्षणासाठी दिलेली अंति"
+"म तारीख उलटून जाते तेव्हा समीक्षकांना आठवण करून देण्यासाठी लाल लिफाफा चिन्ह "
+"(आयकॉन) दिसते."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "लेखकाला/लेखकांना ई-मेल सूचना पाठवा: {$authorName}"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "अनामिक समीक्षक/नाव जाहीर केलेला लेखक"
+
+msgid "editor.review.uploadRevision"
+msgstr "सुधारलेली आवृत्ती संक्रमित (अपलोड) करा"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "नव्याने समीक्षण फेरीदरम्यान सुधारलेल्या आवृत्तीचा अंतर्भाव नसावा."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+"नव्याने समीक्षण फेरीदरम्यान सुधारलेल्या आवृत्तीचा अंतर्भाव असता कामा नये."
+
+msgid "editor.review.dateAccepted"
+msgstr "समीक्षणकार्याची स्वीकृती केल्याची तारीख"
+
+msgid "editor.review.noReviews"
+msgstr "दाखल करून घेण्यासाठी (import) तज्ज्ञ समीक्षण अभिप्राय नाहीत"
+
+msgid "editor.review.reminderError"
+msgstr "समीक्षण पूर्ण करण्यासाठी स्मरणपत्र पाठविताना त्रुटी आल्या"
+
+msgid "editor.review.reviewDueDate"
+msgstr "समीक्षण पूर्ण करण्याची अपेक्षित तारीख"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"सादर केलेल्या समीक्षणाच्या गुणवत्तेचे मूल्यमापन करा. हे मूल्यमापन समीक्षकासो"
+"बत शेअर केलेले नाही."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "समीक्षक पुनःस्थापित करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा."
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"तुम्हाला या समीक्षणाला विचारात घेतले नाही म्हणून चिन्हांकित करायचे आहे का? या"
+" बदलाची माहिती जतन केली जाईल."
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"एकदा हे समीक्षण वाचल्यानंतर, समीक्षण प्रक्रियेचे पुढचे पाऊल उचलण्यासाठी \"ख"
+"ात्री केली (Confirm)\" हे बटण दाबा. जर समीक्षकाने त्याचे समीक्षण इतरत्र सादर "
+"केले असेल, तर ती फाईल तुम्ही खालील ठिकाणी संक्रमित (अपलोड) करू शकता आणि नंतर "
+"पुढे जाण्यासाठी \"खात्री केली (Confirm)\" हे बटण दाबा."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"निवडक सहभागींसोबत चर्चा करता येणार नाही कारण त्याचा समीक्षण प्रक्रियेच्या "
+"अनामिकतेवर परिणाम होईल."
+
+msgid "editor.review.enrollReviewer"
+msgstr "विद्यमान वापरकर्त्याची समीक्षक या नात्याने नोंद करा"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"कॉपीएडिट केलेली फाईल प्रकाशन टप्प्यात पाठवण्यापूर्वी ती संमत करणे (approve) "
+"आवश्यक आहे. तुम्हाला ही फाईल संमत करायची आहे का?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"कॉपीएडिट केलेली फाईल असंमत केल्यास (disapprove) ती प्रकाशन टप्प्यात पाठवता "
+"येणार नाही. तुम्हाला ही फाईल असंमत करायची आहे का?"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"सादरीकरणाच्या टप्प्यावर संक्रमीत (अपलोड) केलेल्या कोणत्याही फाईल्स "
+"कॉपीएडिटसाठी खालील ठिकाणी \"समाविष्ट करा (Include)\" या चेकबॉक्सवर क्लिक करू"
+"न पाठवल्या जाऊ शकतात. \"शोधा :\" क्लिक केल्यास सर्व उपलब्ध फाईल्सची यादी सा"
+"दर केली जाईल आणि त्यातून समाविष्ट करण्यासाठी निवड केली जाऊ शकते. पूर्वी "
+"संक्रमित (अपलोड) न केलेल्या अतिरिक्त फाईल्सही या पायरीवर \"अपलोड फाईल\" लिं"
+"कवर क्लिक करून सूचीमध्ये जोडल्या जाऊ शकतात."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "समीक्षण चर्चा आयोजित करू नका."
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"तुम्ही या सादरीकरणासाठी एक नवी समीक्षण फेरी निर्माण करणार आहात. इतर समीक्षण "
+"फेर्‍यांमध्ये न वापरल्या गेलेल्या फाईल्सची यादी खालीलप्रमाणे आहे."
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"सूचना : समीक्षणाचा फॉर्म बदलल्यास समीक्षकांनी या फॉर्मचा वापर करून दिलेल्या "
+"प्रतिसादांशी मेळ जुळवणे कठीण होईल. तुम्हाला खात्रीने हा निर्णय घेत आहात ना?"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "खालील यादीतून या चर्चेसाठी उपयुक्त अशा फाईल्स जोडल्या जाऊ शकतात."
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} दिवसांपूर्वी"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"मुद्रित लेखनाची तपासणी (proofreading) पूर्ण होऊन फाईल प्रकाशनासाठी तयार आहे "
+"हे दर्शविण्यासाठी या तपासणीला मंजूरी द्या."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"मुद्रित लेखनाची तपासणी (proofreading) अपूर्ण असल्यामुळे फाईल प्रकाशनासाठी तया"
+"र नाही हे दर्शविण्यासाठी या तपासणीची मान्यता रद्द करा."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "तुम्ही खात्रीने हे सादरीकरण नाकारण्याचा निर्णय उलट फिरवू इच्छिता ना?"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "समीक्षकांकडे सोपवलेली कार्यरत समीक्षणे"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "समीक्षणासाठी केलेल्या विनंत्या नाकारल्या"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "समीक्षणकार्य पूर्ण करण्यासाठी लागलेले सरासरी दिवस"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"या समीक्षकाला लॉक केले आहे कारण त्यांना लेखकाची ओळख पटवण्याच्या भूमिकेसाठी "
+"नियुक्त केले आहे. अनामिक समीक्षणाची खात्री देता येत नाही. तरीही तुम्हाला हा "
+"समीक्षक अनलॉक करायचा आहे का?"
+
+msgid "editor.decision.completeSteps"
+msgstr "हा निर्णय घेण्यासाठी खालील पायऱ्या पूर्ण करा"
+
+msgid "editor.decision.stepError"
+msgstr "{$stepName} या पायरीदरम्यान अडचण आली."
+
+msgid "editor.submission.viewSummary"
+msgstr "गोषवारा"
+
+msgid "editor.review.reviewViewed"
+msgstr "समीक्षणाचे अवलोकन केले"
+
+msgid "editor.submission.search"
+msgstr "सादरीकरण, ID, लेखक, शोध-शब्द (की-वर्ड) इत्यादि शोधा."
+
+msgid "editor.submission.days"
+msgstr "दिवस"
+
+msgid "editor.submission.daysInStage"
+msgstr "टप्प्यासाठी (Stage) लागलेले दिवस"
+
+msgid "editor.review.logResponse.for"
+msgstr "लॉग प्रतिसादासाठी"
+
+msgid "editor.review.logResponse"
+msgstr "लॉग प्रतिसाद"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "एका प्रतिसादाची निवड आवश्यक आहे"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "समीक्षकाने समीक्षणाचे आमंत्रण स्वीकारले आहे"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "समीक्षकाने समीक्षणाचे आमंत्रण नाकारले आहे"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "समीक्षकाच्या वतीने प्रतिसाद नोंदवा"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"समीक्षकाने ई-मेल किंवा इतर कोणत्याही माध्यमातून तुमच्याशी प्रतिसाद पाठवला असे"
+"ल तर तुम्ही त्यांच्यावतीने त्यांचा प्रतिसाद नोंदवू शकता"
+
+msgid "editor.review.download"
+msgstr "समीक्षणाचा फॉर्म डाउनलोड करा"
+
+msgid "editor.review.authorOnly"
+msgstr "केवळ लेखकांसाठी (Author-Only) विभाग प्रदर्शित केले आहेत"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "सुचवलेल्या समीक्षकांमधून एक समीक्षक निवडा"
+
+msgid "editor.review.allSections"
+msgstr "संपादकाचा फॉर्म सगळे समीक्षणासाठी आवश्यक विभाग दर्शवितो"

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/notification/managerDelegate/AnnouncementNotificationManager.php
  *
@@ -15,7 +16,6 @@
 
 namespace PKP\notification\managerDelegate;
 
-use APP\core\Application;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -26,8 +26,8 @@ use PKP\user\User;
 
 class AnnouncementNotificationManager extends NotificationManagerDelegate
 {
-    /** @var Announcement The announcement to send a notification about */
-    public $_announcement;
+    /** The announcement to send a notification about */
+    public Announcement $_announcement;
 
     /**
      * Initializes the class.
@@ -66,7 +66,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
             $request->getContext()->getData('urlPath'),
             'announcement',
             'view',
-            $this->_announcement->getId()
+            $this->_announcement->getAttribute('announcementId')
         );
     }
 
@@ -96,18 +96,13 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     public function notify(User $user): ?Notification
     {
         return parent::createNotification(
-            Application::get()->getRequest(),
             $user->getId(),
             Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
-            $this->_announcement->getAssocId(),
+            $this->_announcement->getAttribute('assocId'),
             null,
             null,
             Notification::NOTIFICATION_LEVEL_NORMAL,
-            ['contents' => $this->_announcement->getLocalizedTitle()]
+            ['contents' => $this->_announcement->getLocalizedData('title')]
         );
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\AnnouncementNotificationManager', '\AnnouncementNotificationManager');
 }

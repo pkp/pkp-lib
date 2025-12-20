@@ -28,6 +28,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Ulasan baharu telah diserahkan dan sedang dipertimbangkan oleh editor."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Satu atau lebih pengulas terlepas tarikh akhir mereka. Pasukan editorial "
@@ -1301,9 +1302,11 @@ msgstr "Semakan telah diminta."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Semakan telah dihantar."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Penyerahan mesti diserahkan semula untuk pusingan ulasan yang lain."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Penyerahan telah diserahkan semula untuk pusingan ulasan yang lain."
 
@@ -1325,6 +1328,7 @@ msgstr "Menunggu respon daripada pengulas."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ulasan baharu telah diserahkan."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Semua pengulas telah memberi maklum balas dan keputusan diperlukan."
 
@@ -1916,7 +1920,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editor {$userName} telah mengesahkan ulasan untuk ulasan pusingan {$round} "
+"Editor {$editorName} telah mengesahkan ulasan untuk ulasan pusingan {$round} "
 "untuk penyerahan {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2438,7 +2442,7 @@ msgstr "Semua Versi"
 msgid "publication.version.confirm"
 msgstr "Adakah anda pasti mahu mencipta versi baharu?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstrak terlalu panjang. Ia sepatutnya {$limit} perkataan atau kurang. Pada "
 "masa ini panjangnya {$count} perkataan."

@@ -1,11 +1,13 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023.
+# ojs <joglobalise@gmail.com>, 2025.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2023-04-12 00:18+0000\n"
-"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
+"PO-Revision-Date: 2025-08-02 13:51+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "nl/>\n"
 "Language: nl\n"
@@ -13,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Verzoek"
@@ -134,3 +136,66 @@ msgid "user.authorization.submissionReviewer"
 msgstr ""
 "De huidige gebruiker is niet toegekend als reviewer voor het opgevraagde "
 "document."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Eerdere reviews"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Enkel voor redacteuren"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Voor de redacteur en auteur"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Samenvatting"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Deze bestanden zijn aan u verzonden voor review"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Opmerking [$index}: "
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Opmerkingen van de Reviewer"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Lees de review ronde"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Reviewronde ingediend op {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "De reden voor de afwijzing van de reviewuitnodiging ontbreekt."
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Wijs de reden af die per E-mail is verzonden"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Datum van afwijzing"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Review {$round} ronde door u ingediend voor"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikel Metadata"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Trefwoorden"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Algemene informatie"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Bijlagen"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Dit zijn de bestanden die u bij uw review voegde"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Reviewbestanden"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "De review is niet volledig."

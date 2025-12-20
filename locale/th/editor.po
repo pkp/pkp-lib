@@ -1,0 +1,597 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/th/>"
+"\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "ปลดล็อค"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "ความสนใจในการทบทวน"
+
+msgid "reviewer.list.biography"
+msgstr "ประวัติ"
+
+msgid "reviewer.list.empty"
+msgstr "ไม่พบผู้รีวิว"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "มอบหมายในรอบก่อนหน้า"
+
+msgid "editor.decision.cancelDecision"
+msgstr "ยกเลิกการตัดสินใจ"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "คุณแน่ใจหรือว่าต้องการลบบทความนี้อย่างถาวร?"
+
+msgid "editor.activityLog"
+msgstr "บันทึกกิจกรรม"
+
+msgid "editor.submissionLibrary"
+msgstr "ห้องสมุด"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "การตัดสินใจถูกบันทึกแล้ว"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "การส่งงานถูกปฏิเสธ"
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "การส่งงานได้รับการยอมรับ"
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "การส่งงานถูกตีพิมพ์แล้ว"
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "ส่งไปยังรอบการทบทวนใหม่"
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "ส่งไปยังการผลิต"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "การส่งงานได้รับการยอมรับสำหรับการทบทวน"
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "เปลี่ยนการตัดสินใจ"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "คุณไม่มีสิทธิ์ในการบันทึกการตัดสินใจนี้กับการส่งงานนี้"
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"ไม่สามารถรับรู้บรรณาธิการ และอาจไม่มีสิทธิ์บันทึกการตัดสินใจในการส่งงานนี้"
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "ไม่สามารถส่งอีเมลถึงผู้รับต่อไปนี้ได้: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "ไม่พบรอบการทบทวนนี้"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr "รอบการทบทวนถูกระบุ แต่การตัดสินใจนี้ไม่ได้เกิดขึ้นในขั้นตอนการทบทวน"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "รอบการทบทวนนี้ไม่ได้เป็นส่วนหนึ่งของการส่งงานนี้"
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"การส่งงานนี้ไม่ได้อยู่ในขั้นตอนที่เหมาะสมของเวิร์กโฟลว์เพื่อทำการตัดสินใจนี้"
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr "คุณต้องได้รับมอบหมายการส่งงานนี้เพื่อบันทึกการตัดสินใจทางบรรณาธิการ"
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "ต้องระบุไอดีของรอบการทบทวนเพื่อทำการตัดสินใจนี้"
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"ไม่สามารถให้คำแนะนำได้ "
+"เว้นแต่จะมีบรรณาธิการที่ได้รับมอบหมายให้ตัดสินใจขั้นสุดท้ายในขั้นตอนนี้"
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"ไม่สามารถตัดสินใจเกี่ยวกับการส่งงานนี้ได้ "
+"ไอดีการส่งงานหายไปหรือไม่ตรงกับการส่งงานที่ร้องขอ"
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "ไม่พบการตัดสินใจนี้ กรุณาระบุประเภทการตัดสินใจที่เป็นที่รู้จัก"
+
+msgid "editor.review.notInitiated"
+msgstr "กระบวนการทบทวนยังไม่ได้เริ่มต้น"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "ข้อความถึงผู้ใช้"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "เลือกไฟล์ด้านล่างเพื่อส่งไปยังขั้นตอนการทบทวน"
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "คุณต้องเลือกไฟล์อย่างน้อยหนึ่งไฟล์เพื่อมอบหมายให้กับผู้ใช้"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "คุณต้องรวมข้อความส่วนตัว"
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "ไม่ต้องส่งอีเมลไปยังผู้ตรวจสอบ"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "คุณต้องเลือกผู้ใช้เพื่อมอบหมาย"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "อัปโหลด/เลือกไฟล์"
+
+msgid "editor.submission.revisions"
+msgstr "การแก้ไข"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"ใช้ <em>+เพิ่มผู้รีวิว</em> เพื่อเชิญผู้อ่านมาทบทวนไฟล์การส่งงาน "
+"ไอคอนโน้ตบุ๊กแสดงว่ามีการส่งการทบทวนแล้ว ซึ่งจะถูกทำเครื่องหมาย <em>รับทราบ</"
+"em> หลังจากที่มีการตรวจสอบแล้ว เมื่อการทบทวนเกินกำหนด "
+"ไอคอนซองจดหมายสีแดงจะปรากฏขึ้นเพื่อเตือนผู้รีวิว"
+
+msgid "editor.submission.addReviewer"
+msgstr "เพิ่มผู้รีวิว"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "ค้นหาและเลือกผู้รีวิว"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "ค้นหาและเลือกผู้ใช้"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "แสดงไฟล์จากทุกขั้นตอนของเวิร์กโฟลว์ที่สามารถเข้าถึงได้"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "ไฟล์ทบทวนปัจจุบันสำหรับรอบที่ {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "กลับไปยังการค้นหา"
+
+msgid "editor.review.createReviewer"
+msgstr "สร้างผู้รีวิวใหม่"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "ลงทะเบียนผู้ใช้ที่มีอยู่"
+
+msgid "editor.review.unassignReviewer"
+msgstr "ยกเลิกการมอบหมายผู้รีวิว"
+
+msgid "editor.review.cancelReviewer"
+msgstr "ยกเลิกผู้รีวิว"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "คืนสถานะผู้รีวิว"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "ส่งคำขอทบทวนอีกครั้ง"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "ประเภทการทบทวน"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "ส่งอีเมลแจ้งเตือนถึงผู้เขียน: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "ส่งอีเมลแจ้งเตือนถึงบรรณาธิการ: {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "ไม่ต้องส่งอีเมลแจ้งเตือน"
+
+msgid "editor.submissionReview.open"
+msgstr "เปิด"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "ผู้รีวิวไม่ระบุตัวตน/ผู้เขียนที่เปิดเผยชื่อ"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "ผู้รีวิวไม่ระบุตัวตน/ผู้เขียนไม่ระบุตัวตน"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "ไฟล์ที่ต้องทบทวน"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "ปิดการเลือกไฟล์"
+
+msgid "editor.submissionReview.editReview"
+msgstr "แก้ไขการทบทวน"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "ผู้รีวิวไม่ระบุตัวตน"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "อีเมลที่จะส่งถึงผู้รีวิว"
+
+msgid "editor.review.importantDates"
+msgstr "วันที่สำคัญ"
+
+msgid "editor.review.uploadRevision"
+msgstr "อัปโหลดการแก้ไข"
+
+msgid "editor.review.newReviewRound"
+msgstr "ต้องการรอบการทบทวนใหม่"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "การแก้ไขจะไม่ต้องผ่านรอบการทบทวนเพื่อนใหม่"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "การแก้ไขจะต้องผ่านรอบการทบทวนเพื่อนใหม่"
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "การแก้ไขไม่ควรต้องผ่านรอบการทบทวนเพื่อนใหม่"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "การแก้ไขควรต้องผ่านรอบการทบทวนเพื่อนใหม่"
+
+msgid "editor.review.dateAccepted"
+msgstr "วันที่ยอมรับการทบทวน"
+
+msgid "editor.review.reviewsAdded"
+msgstr "การทบทวนถูกเพิ่มลงในเนื้อหาข้อความแล้ว"
+
+msgid "editor.review.noReviews"
+msgstr "ไม่มีการทบทวนจากเพื่อนให้เลือกนำเข้า"
+
+msgid "editor.review.reminder"
+msgstr "การแจ้งเตือนการทบทวน"
+
+msgid "editor.review.thankReviewer"
+msgstr "ขอบคุณผู้รีวิว"
+
+msgid "editor.review.reminderError"
+msgstr "เกิดข้อผิดพลาดในการส่งการแจ้งเตือนการทบทวน"
+
+msgid "editor.review.thankReviewerError"
+msgstr "เกิดข้อผิดพลาดในการส่งข้อความขอบคุณถึงผู้รีวิว"
+
+msgid "editor.review.skipEmail"
+msgstr "ไม่ต้องส่งอีเมลถึงผู้รีวิว"
+
+msgid "editor.review.sendReminder"
+msgstr "ส่งการแจ้งเตือน"
+
+msgid "editor.review.readReview"
+msgstr "อ่านการทบทวน"
+
+msgid "editor.review.readNewReview"
+msgstr "อ่านการทบทวนใหม่"
+
+msgid "editor.review.responseDue"
+msgstr "กำหนดการตอบกลับ: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "คำขอถูกส่งแล้ว"
+
+msgid "editor.review.requestAccepted"
+msgstr "คำขอถูกยอมรับแล้ว"
+
+msgid "editor.review.requestDeclined"
+msgstr "คำขอถูกปฏิเสธ"
+
+msgid "editor.review.requestCancelled"
+msgstr "คำขอถูกยกเลิกแล้ว"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "ผู้รีวิวปฏิเสธคำขอทบทวนนี้"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "บรรณาธิการยกเลิกคำขอทบทวนนี้"
+
+msgid "editor.review.reviewDue"
+msgstr "กำหนดการทบทวน: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "วันที่ครบกำหนดการทบทวน"
+
+msgid "editor.review.reviewCompleted"
+msgstr "การทบทวนเสร็จสมบูรณ์แล้ว"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "การทบทวนถูกยืนยันแล้ว"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "การทบทวนถูกส่งแล้ว"
+
+msgid "editor.review.reviewerThanked"
+msgstr "ขอบคุณผู้รีวิวแล้ว"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "คำขอถูกส่งซ้ำแล้ว"
+
+msgid "editor.review.reviewerComments"
+msgstr "ความคิดเห็นของผู้รีวิว"
+
+msgid "editor.review.rateReviewer"
+msgstr "ให้คะแนนผู้รีวิว"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "ให้คะแนนคุณภาพของการทบทวนที่ได้รับ คะแนนนี้จะไม่ถูกแชร์กับผู้รีวิว"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "ไม่มีการให้คะแนน"
+
+msgid "editor.review.mustSelect"
+msgstr "คุณต้องเลือกผู้รีวิว"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "เกิดข้อผิดพลาดในการเพิ่มผู้รีวิว กรุณาลองใหม่อีกครั้ง"
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "เกิดข้อผิดพลาดในการลบผู้รีวิว กรุณาลองใหม่อีกครั้ง"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "เกิดข้อผิดพลาดในการคืนสถานะผู้รีวิว กรุณาลองใหม่อีกครั้ง"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"เกิดข้อผิดพลาดในการขอให้ผู้รีวิวพิจารณาคำเชิญทบทวนใหม่ กรุณาลองใหม่อีกครั้ง"
+
+msgid "editor.review.userGroupSelect"
+msgstr "ลงทะเบียนผู้ใช้ในกลุ่มผู้รีวิวนี้"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"คุณต้องการทำเครื่องหมายการทบทวนนี้ว่าไม่พิจารณาแล้วหรือไม่? "
+"ประวัติการทบทวนจะถูกเก็บรักษาไว้"
+
+msgid "editor.review.unconsiderReview"
+msgstr "ยกเลิกการพิจารณาการทบทวนนี้"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"เมื่อการทบทวนนี้ถูกอ่านแล้ว กรุณากด \"ยืนยัน\" "
+"เพื่อแสดงว่ากระบวนการทบทวนสามารถดำเนินต่อได้ หากผู้รีวิวส่งการทบทวนที่อื่น "
+"คุณสามารถอัปโหลดไฟล์ด้านล่างและกด \"ยืนยัน\" เพื่อดำเนินการต่อ"
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"ไม่สามารถสร้างการอภิปรายกับผู้เข้าร่วมที่เลือกได้เนื่องจากจะส่งผลต่อการไม่ระบ"
+"ุตัวตนของกระบวนการรีวิว"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "ผู้เข้าร่วมที่เลือกไม่ได้ถูกกำหนดให้กับขั้นตอนนี้"
+
+msgid "editor.submission.schedulePublication"
+msgstr "กำหนดเวลาสำหรับการตีพิมพ์"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "ไฟล์การแก้ไขสำเนา"
+
+msgid "editor.submission.selectReviewer"
+msgstr "เลือกผู้รีวิว"
+
+msgid "editor.submission.taskDueDate"
+msgstr "กำหนดส่งงาน"
+
+msgid "editor.submission.taskSchedule"
+msgstr "กำหนดการงาน"
+
+msgid "editor.review.enrollReviewer"
+msgstr "ลงทะเบียนผู้ใช้ที่มีอยู่เป็นผู้รีวิว"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "ไม่มีการร้องขอการตรวจสอบสำหรับไฟล์นี้"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "อีเมลที่จะส่งให้ผู้ใช้"
+
+msgid "editor.submission.proof.reminder"
+msgstr "การเตือนการตรวจสอบสำเนา"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"ไฟล์ที่แก้ไขสำเนาต้องได้รับการอนุมัติก่อนที่จะส่งไปยังขั้นตอนการผลิต "
+"คุณต้องการอนุมัติไฟล์นี้หรือไม่?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"การไม่อนุมัติไฟล์ที่แก้ไขสำเนานี้จะทำให้ไม่สามารถส่งไปยังขั้นตอนการผลิตได้ "
+"คุณต้องการไม่อนุมัติไฟล์นี้หรือไม่?"
+
+msgid "editor.submission.addAuditor"
+msgstr "มอบหมายผู้ตรวจสอบบัญชี"
+
+msgid "editor.submission.selectFiles"
+msgstr "เลือกไฟล์"
+
+msgid "editor.review.revertDecision"
+msgstr "ย้อนกลับการตัดสินใจ"
+
+msgid "editor.review"
+msgstr "การทบทวน"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"ไฟล์ใด ๆ ที่อัปโหลดแล้วในขั้นตอนการส่งใด ๆ "
+"สามารถเพิ่มในรายการไฟล์การแก้ไขสำเนาได้โดยการเลือกกล่อง 'Include' "
+"ด้านล่างและคลิกค้นหา: ไฟล์ที่มีอยู่ทั้งหมดจะถูกแสดงและสามารถเลือกเพื่อรวมได้ "
+"ไฟล์เพิ่มเติมที่ยังไม่ได้อัปโหลดไปยังขั้นตอนใด ๆ "
+"สามารถเพิ่มได้โดยการคลิกลิงก์อัปโหลดไฟล์"
+
+msgid "editor.review.reviewDetails"
+msgstr "รายละเอียดการทบทวน"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "ไม่มีไฟล์ที่อัปโหลด"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "คุณยังไม่ได้อัปโหลดไฟล์การทบทวนใด ๆ"
+
+msgid "editor.review.emailReviewer"
+msgstr "ส่งอีเมลไปยังผู้รีวิว"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "ไฟล์ที่พร้อมสำหรับการผลิต"
+
+msgid "editor.submission.newRound"
+msgstr "รอบการทบทวนใหม่"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "บันทึกการตัดสินใจทางบรรณาธิการ"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "บันทึกคำแนะนำทางบรรณาธิการ"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "แจ้งบรรณาธิการ"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "ไม่ต้องส่งอีเมลถึงบรรณาธิการ"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "สร้างการอภิปรายเกี่ยวกับคำแนะนำนี้"
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "ไม่ต้องสร้างการอภิปราย"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"คุณกำลังจะสร้างรอบการทบทวนใหม่สำหรับบทความนี้ "
+"ไฟล์ที่ไม่ได้ใช้ในรอบการทบทวนอื่นจะแสดงอยู่ด้านล่าง"
+
+msgid "editor.submission.createNewRound"
+msgstr "สร้างรอบการทบทวนใหม่"
+
+msgid "editor.article.reviewForms"
+msgstr "แบบฟอร์มการทบทวน"
+
+msgid "editor.article.selectReviewForm"
+msgstr "เลือกแบบฟอร์มการทบทวน"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"คำเตือน: การเปลี่ยนแบบฟอร์มการทบทวนจะส่งผลต่อคำตอบใด ๆ "
+"ที่ผู้รีวิวได้กรอกไว้ในแบบฟอร์มนี้ คุณแน่ใจหรือว่าต้องการดำเนินการต่อ?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "ไม่มีไฟล์ที่เลือก"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "คุณยังไม่ได้เลือกไฟล์ใด ๆ ให้ผู้รีวิวทบทวน"
+
+msgid "submission.queries.subjectRequired"
+msgstr "จำเป็นต้องมีหัวข้อการอภิปราย"
+
+msgid "submission.queries.messageRequired"
+msgstr "จำเป็นต้องมีข้อความอภิปราย"
+
+msgid "submission.queries.attachedFiles"
+msgstr "ไฟล์ที่แนบมา"
+
+msgid "grid.action.editQuery"
+msgstr "แก้ไขการอภิปราย"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "ไฟล์สามารถแนบเพื่อรวมในการอภิปรายนี้ได้จากรายการด้านล่าง"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "ผู้รีวิวที่เลือก"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "อนุมัติการตรวจสอบสำเนา"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "ยกเลิกการอนุมัติการตรวจสอบสำเนา"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"อนุมัติการตรวจสอบสำเนานี้เพื่อบ่งบอกว่าการตรวจสอบเสร็จสมบูรณ์และไฟล์พร้อมที่จ"
+"ะตีพิมพ์แล้ว"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"ยกเลิกการอนุมัติการตรวจสอบสำเนาเพื่อบ่งบอกว่าการตรวจสอบไม่เสร็จสมบูรณ์และไฟล์"
+"ยังไม่พร้อมที่จะตีพิมพ์"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการย้อนกลับการตัดสินใจที่จะปฏิเสธบทความนี้?"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "ตัวระบุสาธารณะ '{$publicIdentifier}' ต้องไม่เป็นตัวเลข"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "รูปแบบ {$pattern} ไม่ได้รับอนุญาตสำหรับตัวระบุสาธารณะ"
+
+msgid "reviewer.list.filterRating"
+msgstr "คะแนนอย่างน้อย"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} กำลังดำเนินการ"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "การทบทวนที่กำลังดำเนินการที่ได้รับมอบหมายอยู่ในปัจจุบัน"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "ผู้รีวิวนี้ได้ทำการทบทวนในรอบก่อนหน้าแล้ว"
+
+msgid "reviewer.list.completedReviews"
+msgstr "การทบทวนที่เสร็จสมบูรณ์"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "คำขอทบทวนที่ถูกปฏิเสธ"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "คำขอทบทวนที่ถูกยกเลิก"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "คะแนนของผู้รีวิว: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} วันที่ผ่านมา"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "เมื่อวานนี้"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "จำนวนวันที่ผ่านมาแล้วตั้งแต่การมอบหมายการทบทวนครั้งล่าสุด"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "เฉลี่ยจำนวนวันที่ใช้ในการทบทวนให้เสร็จสมบูรณ์"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "ไม่เคยได้รับมอบหมาย"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "สถาบันเดียวกับผู้เขียน"
+
+msgid "reviewer.list.reassign"
+msgstr "มอบหมายใหม่"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "มอบหมายใหม่ให้กับ {$name}"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"ผู้รีวิวนี้ถูกล็อคเนื่องจากได้รับมอบหมายบทบาทที่สามารถมองเห็นตัวตนของผู้เขียน"
+"ได้ การทบทวนโดยไม่ระบุตัวตนจึงไม่สามารถรับประกันได้ "
+"คุณต้องการปลดล็อคผู้รีวิวนี้หรือไม่?"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการตัดสินใจนี้?"
+
+msgid "editor.decision.completeSteps"
+msgstr "ดำเนินการตามขั้นตอนต่อไปนี้เพื่อทำการตัดสินใจนี้"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "อย่าข้ามอีเมลนี้"
+
+msgid "editor.decision.emailSkipped"
+msgstr "ขั้นตอนนี้ถูกข้ามและจะไม่มีการส่งอีเมล"
+
+msgid "editor.decision.recordDecision"
+msgstr "บันทึกการตัดสินใจ"
+
+msgid "editor.decision.skipEmail"
+msgstr "ข้ามอีเมลนี้"
+
+msgid "editor.decision.stepError"
+msgstr "มีปัญหาเกิดขึ้นในขั้นตอน {$stepName}"

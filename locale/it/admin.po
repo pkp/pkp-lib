@@ -1,13 +1,13 @@
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022, 2023.
-# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2023.
+# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2023, 2025.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2024-08-23 14:45+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"PO-Revision-Date: 2025-12-01 12:13+0000\n"
+"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "it/>\n"
 "Language: it\n"
@@ -560,7 +560,7 @@ msgstr ""
 "{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Nessun job disponibile da eseguire nella coda denominata {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "Visualizzare la quantità di lavori in coda"
@@ -575,7 +575,7 @@ msgid "admin.cli.tool.jobs.empty.option"
 msgstr "L'opzione non può essere vuota! Controllare il metodo di utilizzo."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Job in coda non riusciti"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Lavori in coda"
@@ -587,7 +587,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "Coda"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Connessione"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Nome visualizzato del lavoro"
@@ -605,10 +605,10 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Creato per"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Fallito a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Messaggio di eccezione"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Impaginazione"
@@ -629,12 +629,17 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Job di test inviato che è destinato a fallire nella coda denominata "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Job di test inviato con esito positivo nella coda denominata {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Opzione di job di test non valida. L'opzione “--only=” può assumere solo i "
+"valori ‘failed’ o “success”."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "ID lavoro non valido"
@@ -643,7 +648,7 @@ msgid "admin.cli.tool.jobs.purge.successful"
 msgstr "Il lavoro è stato cancellato!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Nessun job trovato da eliminare."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
 msgstr "È stato impossibile eliminare tutti i lavori."
@@ -653,12 +658,14 @@ msgstr "Cancellati tutti i lavori!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} job non riusciti rimossi con successo dall'elenco dei job non "
+"riusciti."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} jobs reindirizzati con successo alla coda."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Abbiamo {$total} job non riusciti"
 
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr "Ci sono {$total} lavori in coda"
@@ -673,7 +680,7 @@ msgid "admin.jobs.totalCount"
 msgstr "C'è un totale di <strong>{$total}</strong> lavori nella coda"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Ci sono in totale <strong>{$total}</strong> job non riusciti."
 
 msgid "admin.jobs.viewQueuedJobs"
 msgstr "Visualizza i lavori in coda"
@@ -682,10 +689,10 @@ msgid "navigation.tools.jobs"
 msgstr "Lavori"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Job falliti"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Dettagli dei job falliti"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
@@ -696,16 +703,16 @@ msgid "navigation.tools.jobs.view"
 msgstr "Vedi i lavori"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Vedi i job falliti"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Visualizza i dettagli del job non riuscito:{$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Attributo"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Valore dell'attributo"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -717,7 +724,7 @@ msgid "admin.jobs.list.queue"
 msgstr "Coda"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Connessione"
 
 msgid "admin.jobs.list.attempts"
 msgstr "Tentativi"
@@ -726,28 +733,28 @@ msgid "admin.jobs.list.createdAt"
 msgstr "Creato per"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Fallito a"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Payload"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Eccezione"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Azioni"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Creato a {$failedAt}"
 
 msgid "admin.jobs.createdAt"
 msgstr "Creato per {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Prova ancora"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Rimetti in coda tutti i job falliti"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
@@ -848,55 +855,68 @@ msgstr ""
 "piattaforma SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "opzioni dei comandi di lavoro"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "utilizzo: [--opzioni1 --opzioni2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Opzioni disponibili per il comando di lavoro"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Il nome della connessione della coda al lavoro [default: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
 msgstr ""
+"Il nome della coda su cui lavorare [impostazione predefinita: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Il nome dell'istanza di applicazione [predefinito: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Il numero di secondi da attendere prima di riprovare un job che ha "
+"riscontrato un'eccezione non gestita [impostazione predefinita: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Limite di memoria in megabyte [default: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Il numero di secondi durante i quali un processo figlio può essere eseguito "
+"[default: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Numero di secondi di inattività quando non sono disponibili job [default: "
+"‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Numero di tentativi di esecuzione di un processo prima di registrarlo come "
+"fallito [impostazione predefinita: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Forza l'esecuzione del worker anche in modalità manutenzione [default: "
+"{$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Interrompi quando la coda è vuota [default: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
+msgstr "Numero di job da elaborare prima dell'arresto [default: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Il numero massimo di secondi durante i quali il worker deve essere in "
+"esecuzione [default: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Numero di secondi di pausa tra un job e l'altro [default: ‘{$default}’]"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Esegui il demone worker per la coda di test"
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Disabilita le statistiche aggregate dei recensori"
@@ -909,3 +929,146 @@ msgstr ""
 "In un'installazione multi contesto, le statistiche dei recensori, come il "
 "numero di recensioni inviate, possono essere visualizzate singolarmente per "
 "ogni contesto o aggregate collettivamente."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Aggiorna la cache dei dati del dataset del Ror registry"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Il file {$filename} è stato spostato nella cartella di invio."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Il file {$file} non esiste."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Impossibile spostare il file {$file} da {$dispatchFilePath} a "
+"{$archivedFilePath}."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Riavvia la coda dei demoni dopo il loro job in corso."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Le istanze di applicazione cesseranno dopo aver completato l'esecuzione del "
+"job corrente."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Impossibile eseguire i job in coda perché è abilitata la modalità sandbox "
+"dell'applicazione."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Nessuna variabile chiave denominata `app_key` definita nella sezione "
+"`general` del file di configurazione. Aggiornare la sezione general del file "
+"di configurazione e aggiungere la riga `app_key = ` oppure eseguire il "
+"comando `php lib/pkp/tools/appKey.php configure` per impostarla."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Variabile dell'app key impostata correttamente nel file di configurazione. "
+"Eseguire il comando `php lib/pkp/tools/appKey.php generate` per impostare "
+"una nuova chiave dell'applicazione."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Esegui una determinata attività pianificata dall'elenco oppure utilizza il "
+"parametro --name per eseguire un'attività specifica. Imposta il flag --no-"
+"scroll per visualizzare l'elenco completo senza scorrere."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Avvia un job per rimuovere automaticamente gli inviti scaduti"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Visualizza i parametri di utilizzo dell'AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Convalida la chiave corrente dell'app se presente nel file di configurazione"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr ""
+"Aggiungi la variabile di configurazione app_key nel file config.inc.php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Genera una nuova chiave dell'app e sostituiscila nel file di configurazione. "
+"Passala con il flag --show per la sola visualizzazione e --force per "
+"sovrascrivere una chiave dell'app valida esistente."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Intendevi forse una delle seguenti opzioni?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Chiave app generata: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"La variabile `app_key` esiste già nella sezione `general` del file di "
+"configurazione. Esegui il comando `php lib/pkp/tools/appKey.php generate` "
+"per impostare una nuova chiave dell'applicazione."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Nessuna chiave app impostata nel file di configurazione."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"App key impostata non valida, cifratura non supportata o lunghezza della "
+"chiave errata. Le cifrature supportate sono: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Una APP key valida è stata già impostata nel file di configurazione. Per "
+"sovrascrivere, passare il flag --force con il comando."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App key impostata correttamente nel file di configurazione."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Impossibile impostare la variabile `app_key` nel file di configurazione. "
+"Aggiornare la sezione generale del file di configurazione e aggiungere la "
+"riga `app_key = `."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "App key valida impostata nel file di configurazione"
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Elenca tutte le attività pianificate."
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Eseguire il pianificatore di attività."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Avvia il worker di pianificazione."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Visualizza i parametri di utilizzo del pianificatore."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Impossibile eseguire le attività pianificate perché è attivata la modalità "
+"di manutenzione dell'applicazione."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Intendevi forse una delle seguenti opzioni?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Impossibile eseguire le attività pianificate perché è abilitata la modalità "
+"sandbox dell'applicazione."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Esecuzione di attività pianificate ogni minuto."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Non sono state registrate attività pianificate."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Nessuna attività pianificata corrispondente trovata."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Quale comando desideri eseguire?"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Utilizza il sito come piattaforma per tutte le riviste."

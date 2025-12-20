@@ -32,12 +32,6 @@ abstract class Field
     /** @var string Field tooltip */
     public $tooltip;
 
-    /** @var string Field help topic. Refers to the /dev/docs file name without .md */
-    public $helpTopic;
-
-    /** @var string Field help section. An optional anchor link to open to when loading the helpTopic. */
-    public $helpSection;
-
     /** @var string Which group should this field be placed in? */
     public $groupId;
 
@@ -112,12 +106,6 @@ abstract class Field
         }
         if (isset($this->tooltip)) {
             $config['tooltip'] = $this->tooltip;
-        }
-        if (isset($this->helpTopic)) {
-            $config['helpTopic'] = $this->helpTopic;
-            if ($this->helpSection) {
-                $config['helpSection'] = $this->helpSection;
-            }
         }
         if (isset($this->groupId)) {
             $config['groupId'] = $this->groupId;

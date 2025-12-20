@@ -1,0 +1,281 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Reikia pateikti duomenų bazės pavadinimą."
+
+msgid "installer.form.emailRequired"
+msgstr ""
+"Reikia pateikti tinkamą administratoriaus (-ės) elektroninio pašto adresą."
+
+msgid "installer.localeSettings"
+msgstr "Lokalės nustatymai"
+
+msgid "installer.miscSettings"
+msgstr "Įvairūs nustatymai"
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Nepavyko įrašyti programos rakto kintamojo į konfigūracijos failą."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Nepalaikomas šifras arba neteisingas rakto ilgis. Palaikomi šifrai: "
+"{$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "Nepavyko įrašyti programos rakto į konfigūracijos failą."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Failo `config.inc.php` skiltyje `bendroji` nustatykite `app_key` reikšmę į "
+"{$key} ."
+
+msgid "installer.additionalLocales"
+msgstr "Papildomos lokalės"
+
+msgid "installer.administratorAccount"
+msgstr "Administratoriaus (-ės) paskyra"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Šis vartotojas bus paskirtas svetainės administratoriumi ir jam bus suteikta "
+"prieiga prie sistemos be apribojimų. Papildomos naudotojų paskyros gali būti "
+"sukurtos įdiegus."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NE</span>"
+
+msgid "installer.checkYes"
+msgstr "Taip"
+
+msgid "installer.configFileError"
+msgstr ""
+"Konfigūracijos failo <tt>config.inc.php</tt> nėra arba jo negalima "
+"perskaityti."
+
+msgid "installer.connectionCharset"
+msgstr "Ryšio simbolių koduotė"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Konfigūracijos failo turinys"
+
+msgid "installer.databaseDriver"
+msgstr "Duomenų bazės tvarkyklė"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Sistema šiuo metu palaiko MySQL ir PostgreSQL; jei negalite "
+"pasirinkti vieno iš žemiau pateiktų variantų, susisiekite su savo sistemos "
+"administratoriumi, kad įsitikintumėte, jog jūsų serveryje yra reikalingi PHP "
+"plėtiniai.</strong>"
+
+msgid "installer.databaseHost"
+msgstr "Host"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Palikite hosto lauką tuščią, kad prisijungtumėte naudodami domeno (Unix) "
+"soketus vietoje TCP/IP. Su MySQL to daryti nėra būtina — jis automatiškai "
+"naudos soketus, jei įrašysite „localhost“, tačiau kai kuriems kitiems "
+"duomenų bazių serveriams, pavyzdžiui, PostgreSQL, tai yra būtina."
+
+msgid "installer.databaseName"
+msgstr "Duomenų bazės pavadinimas"
+
+msgid "installer.databasePassword"
+msgstr "Slaptažodis"
+
+msgid "installer.databaseSettings"
+msgstr "Duomenų bazės nustatymai"
+
+msgid "installer.databaseUsername"
+msgstr "Vartotojo vardas"
+
+msgid "installer.filesDir"
+msgstr "Katalogas įkeliamiems failams"
+
+msgid "installer.fileSettings"
+msgstr "Failo nustatymai"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Reikia nurodyti kliento simbolių koduotę."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Reikia nurodyti duomenų bazės tvarkyklę."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Reikia nurodyti katalogą įkeliamiems failams."
+
+msgid "installer.form.localeRequired"
+msgstr "Reikia nurodyti lokalę."
+
+msgid "installer.form.passwordRequired"
+msgstr "Reikia pateikti administratoriaus slaptažodį."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Administratoriaus (-ės) slaptažodžiai nesutampa."
+
+msgid "installer.form.separateMultiple"
+msgstr "Atskirti reikšmes kableliais"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Administratoriaus (-ės) vartotojo vardas gali būti sudarytas tik iš raidžių, "
+"skaitmenų, apatinių brūkšnių ir brūkšnelių, taip pat turi prasidėti ir "
+"baigtis raide arba skaičiumi."
+
+msgid "installer.form.usernameRequired"
+msgstr "Reikia pateikti administratoriaus (-ės) vartotojo vardą."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Reikia pasirinkti laiko juostą."
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>ĮSPĖJIMAS: Dabartinė PHP versija neatitinka įdiegimui keliamų "
+"minimalių reikalavimų. Rekomenduojama atnaujinti PHP versiją.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Įvyko klaidų diegiant"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL užklausos diegimui"
+
+msgid "installer.installFileError"
+msgstr ""
+"Įdiegimo failo <tt>dbscripts/xml/install.xml</tt> nėra arba jo negalima "
+"perskaityti."
+
+msgid "installer.installFilesDirError"
+msgstr "Katalogo įkeliamiems failams nėra arba negalima į jį rašyti."
+
+msgid "installer.installParseDBFileError"
+msgstr "Įvyko klaida skaitant duomenų bazės įdiegimo failą <tt>{$file}</tt>."
+
+msgid "installer.installMigrationError"
+msgstr ""
+"Vykdant migracijos klasę <tt>{$class}</tt> įvyko išimtis. Išimtis: "
+"{$message}."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr ""
+"Įvyko klaida skaitant elektroninių laiškų šablonų failą <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Įvyko klaida skaitant filtrų konfigūracijos failą <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Naujovinimas nepalaikomas. Žr. docs/UPGRADE-UNSUPPORTED."
+
+msgid "installer.timezoneInstructions"
+msgstr "Laiko juosta, kurią reikia naudoti šioje sistemoje."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Pasirinkite bet kokias papildomas kalbas, kurias norite palaikyti šioje "
+"sistemoje. Papildomas kalbas taip pat galima bet kada įdiegti svetainės "
+"administravimo sąsajoje.<br>* = Žymi kalbas, kurios nėra visiškai išverstos ("
+"> 90 % terminų išversta)"
+
+msgid "installer.locale"
+msgstr "Lokalė"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Pažymėtos lokalės gali būti neužbaigtos."
+
+msgid "installer.oaiSettings"
+msgstr "OAI nustatymai"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Unikalus identifikatorius, naudojamas identifikuoti iš šios svetainės "
+"indeksuotus metaduomenų įrašus, naudojant <a href=\"https://www.openarchives."
+"org/\" target=\"_blank\">Open Archives Initiative</a> protokolą metaduomenų "
+"rinkimui."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Repositorijos identifikatorius"
+
+msgid "installer.publicFilesDirError"
+msgstr "Viešų failų katalogo nėra arba negalima į jį rašyti."
+
+msgid "installer.releaseNotes"
+msgstr "Laidos informacija"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Prieš diegiant reikia atlikti"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Šiems failams ir katalogams (bei jų turiniui) turi būti suteiktos "
+"rašymo teisės:</p>\n"
+"<ul>\n"
+"\t<li><tt>config.inc.php</tt> rašymo teisė (neprivaloma): "
+"{$writable_config}</li>\n"
+"\t<li><tt>public/</tt> rašymo teisė: {$writable_public}</li>\n"
+"\t<li><tt>cache/</tt> rašymo teisė: {$writable_cache}</li>\n"
+"\t<li><tt>cache/t_cache/</tt> rašymo teisė: {$writable_templates_cache}</li>"
+"\n"
+"\t<li><tt>cache/t_compile/</tt> rašymo teisė: "
+"{$writable_templates_compile}</li>\n"
+"\t<li><tt>cache/_db</tt> rašymo teisė: {$writable_db_cache}</li>\n"
+"</ul>\n"
+"\n"
+"<p>2. Būtina sukurti katalogą įkeltų failų saugojimui ir suteikti jam rašymo "
+"teises (žr. žemiau skyrių „Failų nustatymai“).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>Jūsų PHP diegime nėra įjungtas XSL modulis. Įjunkite jį arba "
+"sukonfigūruokite xslt_command parametrą savo config.inc.php faile.</p>"
+
+msgid "installer.beacon"
+msgstr "Švyturys"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Pateikite unikalų tinkalio identifikatorių ir nuorodą į OAI. Jie bus "
+"naudojami tik PKP statistikai ir saugos pranešimams."
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Jūsų serverio PHP versijos ši sistema nepalaiko. Dar kartą patikrinkite "
+"reikalavimus diegimui faile docs/README."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Konfigūracijos kintamąjį pavadinimu „app_key“ rankiniu būdu pridėkite "
+"skiltyje „bendroji“ arba vykdykite komandą „php lib/pkp/tools/appKey.php "
+"configure`, kad jį nustatytumėte iš CLI."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Konfigūracijos kintamasis pavadinimu „app_key“ neapibrėžtas skiltyje "
+"„bendroji“. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Konfigūracijos kintamasis pavadinimu „app_key“ jau apibrėžtas skyriuje "
+"„bendroji“. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Nepavyko nuskaityti konfigūracijos failo arba failo nėra numatytame kelyje. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Nepavyko išanalizuoti konfigūracijos failo."

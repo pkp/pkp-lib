@@ -1,13 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2024.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2025.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2024-05-17 23:27+0000\n"
-"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2025-10-31 20:16+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -574,10 +575,10 @@ msgid "reviewer.list.completedReviews"
 msgstr "Évaluation(s) complétée(s)"
 
 msgid "reviewer.list.declinedReviews"
-msgstr "Demande(s) d'évaluation refusée(s)"
+msgstr "Demandes d'évaluation refusées"
 
 msgid "reviewer.list.cancelledReviews"
-msgstr "Demande(s) d'évaluation annulée(s)"
+msgstr "Demandes d'évaluation annulées"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Évaluation de l'évaluateur-trice : {$rating}"
@@ -653,3 +654,46 @@ msgstr "Passer outre ce courriel"
 
 msgid "editor.decision.stepError"
 msgstr "Un problème est survenu avec l'étape {$stepName}."
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Même affiliation que l'auteur-e"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr ""
+"Sélectionner un-e évaluateur-trice parmi les évaluateurs-trices suggérés-ées"
+
+#, fuzzy
+msgid "editor.review.reviewViewed"
+msgstr "Évaluation consultée"
+
+msgid "editor.submission.days"
+msgstr "Jours"
+
+#, fuzzy
+msgid "editor.submission.daysInStage"
+msgstr "Jours dans cette étape"
+
+#, fuzzy
+msgid "editor.submission.viewSummary"
+msgstr "Résumé"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Une réponse doit être sélectionnée"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "L'évaluateur-trice a accepté l'invitation à évaluer"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "L'évaluateur-trice a refusé l'invitation à évaluer"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Enregistrer la réponse pour le compte de l'évaluateur"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Si l'évaluateur-trice vous a contacté par courriel ou tout autre moyen, vous "
+"pouvez enregistrer la réponse en son nom."
+
+#, fuzzy
+msgid "editor.review.authorOnly"
+msgstr "Sections réservées uniquement à l'auteur-e"

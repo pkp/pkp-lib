@@ -71,7 +71,6 @@ class BaseAddFileLinkAction extends LinkAction
                 $actionArgs
             ),
             $wizardTitle,
-            'modal_add_file'
         );
 
         // Configure the link action.

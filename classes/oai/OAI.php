@@ -888,9 +888,3 @@ abstract class OAI
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\OAI', '\OAI');
-    define('OAIRECORD_STATUS_DELETED', OAI::OAIRECORD_STATUS_DELETED);
-    define('OAIRECORD_STATUS_ALIVE', OAI::OAIRECORD_STATUS_ALIVE);
-}

@@ -61,7 +61,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('', $this->getMany(...))
+        Route::get('', $this->get(...))
             ->name('stats.editorial.getEditorialStat');
 
         Route::get('averages', $this->getAverages(...))
@@ -124,7 +124,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
                     } elseif (!is_array($value)) {
                         $value = [$value];
                     }
-                    $params[$param] = array_map('intval', $value);
+                    $params[$param] = array_map(intval(...), $value);
                     break;
             }
         }
@@ -178,7 +178,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
                     } elseif (!is_array($value)) {
                         $value = [$value];
                     }
-                    $params[$param] = array_map('intval', $value);
+                    $params[$param] = array_map(intval(...), $value);
                     break;
             }
         }

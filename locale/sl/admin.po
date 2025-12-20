@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2024-02-26 14:18+0000\n"
+"PO-Revision-Date: 2025-04-04 13:21+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl/>\n"
@@ -151,8 +151,8 @@ msgstr "Deponiraj DOIje pri nastavljeni registracijski agenciji"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
-"Izvršila se je avtomatska namestitev programske opreme {$softwareName}. "
-"Zapis v \"log\" datoteki lahko preneste tukaj: {$url}"
+"Vaša {$softwareName} namestitev je avtomatsko izvršila in končala to "
+"opravilo. Zapis v \"log\" datoteki lahko preneste tukaj: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr "Pošlji email vsakemu uredniku z opomnikom o njihovih odprtih nalogah"
@@ -228,7 +228,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
 "Datoteka z dnevniškimi zapisi {$file} je bila preskočena, ker so bile "
-"statistike za tisti mesec že izračunane. Za ponoven izrčun statistik za "
+"statistike za tisti mesec že izračunane. Za ponoven izračun statistik za "
 "pretekli mesec, morate obnoviti vse datoteke z dnevniškimi zapisi za tisti "
 "mesec in uporabiti CLI orodje za ponoven izračun statistik."
 
@@ -422,7 +422,7 @@ msgstr ""
 "{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
-msgstr "Datoteka {$filename} je bial obdelana in arhivirana."
+msgstr "Datoteka {$filename} je bila obdelana in arhivirana."
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "Nalagalnik datotek"
@@ -955,3 +955,120 @@ msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr ""
 "Ponovno zaženi procese obdelovanja opravilnih vrst, ko se trenutno opravilo "
 "konča."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Posodobi podatkovni register za Ror"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Prikaži parametre uporabe za AppKey"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Dodaj app_key nastavitveno spremenljivko v datoteko config.inc.php."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Ste mislili eno od spodnjega?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Ustvarjen aplikacijksi ključ: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Spremenljivka `app_key` že obstaja v razdelku `general` nastavitvene "
+"datoteke. Zaženite ukaz`php lib/pkp/tools/appKey.php generate` za nastavitev "
+"novega aplikacijskega ključa."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Veljaven aplikacijski ključ je že nastavljen v nastavitveni datoteki. Da ga "
+"prepišete, uporabite ukaz skupaj z opcijo --force."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Aplikacijski ključ je bil uspešno nastavljen v nastavitveni datoteki."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "V nastavitveni datoteki je veljaven aplikacijski ključ"
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Zaženi obdelavo opravil."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Pošljite opravilo za samodejno odstranjevanje povabil, ki jim je potekel rok "
+"trajanja"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Ustvari nov aplikacijski ključ in ga zamenjaj v nastavitveni datoteki. "
+"Dodajte opcijo --show da samo vidite in --force da prepišete obtoječ "
+"veljaven aplikacijski ključ."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Aplikacijski ključ je bil uspešno nastavljen v nastavitveni datoteki. "
+"Zaženite ukaz `php lib/pkp/tools/appKey.php generate` za nastavitev novega "
+"aplikacijskega ključa."
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Potrdi trenutni ključ aplikacije, če je bil najden v nastavitveni datoteki"
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Nastavitev spremenljivke `app_key`v nastavitveni datoteki ni bila mogoča. "
+"Prosimo posodobite razdelek 'general' nastavitvene datoteke in dodajte "
+"vrstico `app_key = `."
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Zagon razporejevalnika."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Spremenljivka z imenom `app_key` ni definirana v razdelku `general` v "
+"nastavitveni datoteki. Prosimo posodobite razdelku `general` v nastavitveni "
+"datoteki in dodajte vrstico line `app_key = ` ali zaženite ukaz `php lib/pkp/"
+"tools/appKey.php configure` za nastavitev."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Seznam vseh načrtovanih opravil."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Aplikacijski ključ ni nastavljen v nastavitveni datoteki."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Nastavljen je neveljaven aplikacijski ključ, nepodprta šifra ali napačna "
+"dolžina ključa. Podprte šifre so: {$ciphers}."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Prikaz parametrov uporabe razporejevalnika."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Ali ste imeli v mislih eno od naslednjih možnosti?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Izvajanje načrtovanih opravil vsako minuto."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Registrirana niso bila nobena načrtovana opravila."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Zaženite izbrano opravilo iz načrtovanega seznama ali uporabite opcijo --"
+"name da zaženete izbrano opravilo. Izberite opcijo --no-scroll, da vidite "
+"celotno listo brez pomikanja."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Načrtovanih opravil ni mogoče zagnati, ker je aplikacija v načinu "
+"vzdrževanja."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Načrtovanih opravil ni mogoče zagnati, ker aplikacija deluje v načinu "
+"peskovnika."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Ustreznega načrtovanega opravila ni bilo mogoče najti."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Kateri ukaz želite zagnati?"

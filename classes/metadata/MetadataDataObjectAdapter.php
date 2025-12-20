@@ -75,8 +75,8 @@ class MetadataDataObjectAdapter extends PersistableFilter
         // extracting meta-data.
         $metadataTypeDescription = null; /** @var MetadataTypeDescription $metadataTypeDescription */
         $dataObjectTypeDescription = null; /** @var ClassTypeDescription $dataObjectTypeDescription */
-        $inputType = & $this->getInputType();
-        $outputType = & $this->getOutputType();
+        $inputType = $this->getInputType();
+        $outputType = $this->getOutputType();
         if (is_null($mode)) {
             if ($inputType instanceof \PKP\metadata\MetadataTypeDescription) {
                 $mode = self::METADATA_DOA_INJECTION_MODE;
@@ -483,10 +483,4 @@ class MetadataDataObjectAdapter extends PersistableFilter
             }
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\metadata\MetadataDataObjectAdapter', '\MetadataDataObjectAdapter');
-    define('METADATA_DOA_INJECTION_MODE', MetadataDataObjectAdapter::METADATA_DOA_INJECTION_MODE);
-    define('METADATA_DOA_EXTRACTION_MODE', MetadataDataObjectAdapter::METADATA_DOA_EXTRACTION_MODE);
 }

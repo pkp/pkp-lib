@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/author/Collector.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Collector
@@ -48,9 +49,6 @@ class Collector implements CollectorInterface
 
     /** Get authors with a specified country code */
     protected ?string $country = null;
-
-    /** Get authors with a specified affiliation */
-    protected ?string $affiliation = null;
 
     public ?int $count = null;
 
@@ -147,16 +145,6 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Filter by the specified affiliation code
-     *
-     * */
-    public function filterByAffiliation(?string $affiliation): self
-    {
-        $this->affiliation = $affiliation;
-        return $this;
-    }
-
-    /**
      * Limit the number of objects retrieved
      */
     public function limit(?int $count): self
@@ -219,15 +207,6 @@ class Collector implements CollectorInterface
                     ->from($this->dao->settingsTable)
                     ->where('setting_name', '=', 'country')
                     ->where('setting_value', $this->country);
-            });
-        });
-
-        $q->when($this->affiliation !== null, function (Builder $q) {
-            $q->whereIn('a.author_id', function (Builder $q) {
-                $q->select('author_id')
-                    ->from($this->dao->settingsTable)
-                    ->where('setting_name', '=', 'affiliation')
-                    ->where('setting_value', $this->affiliation);
             });
         });
 

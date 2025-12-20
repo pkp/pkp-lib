@@ -1,0 +1,286 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-03-23 22:30+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "installer.additionalLocales"
+msgstr "अतिरिक्त लोकॅल्स"
+
+msgid "installer.administratorAccount"
+msgstr "प्रशासकाचे खाते"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">नाही</span>"
+
+msgid "installer.checkYes"
+msgstr "होय"
+
+msgid "installer.configFileError"
+msgstr ""
+"कॉन्फिगरेशन फाईल <tt>config.inc.php</tt> अस्तित्वात नाही किंवा वाचण्यायोग्य "
+"नाही."
+
+msgid "installer.connectionCharset"
+msgstr "कनेक्शन कॅरेक्टर सेट"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "configuration file मधील मजकूर"
+
+msgid "installer.databaseDriver"
+msgstr "डेटाबेस ड्रायव्हर"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>ही प्रणाली सध्या MySQL आणि PostgreSQL चा आधार घेते, जर तुम्ही "
+"खालीलपैकी एक पर्याय निवडू शकत नसाल तर तुमच्या सर्व्हरमध्ये आवश्यक PHP "
+"extensions आहेत याची खात्री करण्यासाठी तुमच्या प्रणालीच्या व्यवस्थापकाशी ("
+"system administrator) संपर्क साधा.</strong>"
+
+msgid "installer.databaseHost"
+msgstr "(डाटाबेसचा) होस्ट"
+
+msgid "installer.databaseName"
+msgstr "डेटाबेसचे नाव"
+
+msgid "installer.databasePassword"
+msgstr "पासवर्ड"
+
+msgid "installer.databaseSettings"
+msgstr "डेटाबेसचे सेटिंग्ज"
+
+msgid "installer.databaseUsername"
+msgstr "वापरकर्तानाव"
+
+msgid "installer.filesDir"
+msgstr "संक्रमणासाठी (अपलोड) Directory"
+
+msgid "installer.fileSettings"
+msgstr "फाईल सेटिंग्ज"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "client character set ची निवड आवश्यक आहे."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "डेटाबेस ड्रायव्हरची निवड आवश्यक आहे."
+
+msgid "installer.form.emailRequired"
+msgstr "प्रशासकाच्या खात्यासाठी एक वैध ई-मेल पत्ता आवश्यक आहे."
+
+msgid "installer.form.localeRequired"
+msgstr "लोकॅल निवडणे आवश्यक आहे."
+
+msgid "installer.form.passwordRequired"
+msgstr "प्रशासकाच्या खात्यासाठी पासवर्ड आवश्यक आहे."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "प्रशासकाचे पासवर्ड जुळत नाहीत."
+
+msgid "installer.form.usernameRequired"
+msgstr "प्रशासकाच्या खात्यासाठी वापरकर्तानाव आवश्यक आहे."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "काल विभागाची (time zone) निवड आवश्यक आहे."
+
+msgid "installer.installErrorsOccurred"
+msgstr "प्रणालीच्या मांडणी (installation) दरम्यान त्रुटी आल्या"
+
+msgid "installer.installerSQLStatements"
+msgstr "प्रणालीच्या मांडणी (installation) साठी SQL statements"
+
+msgid "installer.installFileError"
+msgstr ""
+"मांडणीची (installation) फाईल <tt>dbscripts/xml/install.xml</tt> अस्तित्वात "
+"नाही किंवा वाचता येत नाही."
+
+msgid "installer.installParseDBFileError"
+msgstr ""
+"डेटाबेस मांडणीची (installation) फाईल <tt>{$file}</tt> parse करताना त्रुटी."
+
+msgid "installer.installMigrationError"
+msgstr ""
+"migration class <tt>{$class}</tt> कार्यान्वित करताना एक अपवाद (exception) "
+"टाकण्यात आला. अपवाद (exception) {$message} होता."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "ई-मेल मजकूराची (template) फाईल <tt>{$file}</tt> parse करताना त्रुटी."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "filter configuration file <tt>{$file}</tt> parse करताना त्रुटी."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Upgrade निराधार (unsupported). तपशीलांसाठी Upgrade Guide (https://docs.pkp."
+"sfu.ca/dev/upgrade-guide) पहा."
+
+msgid "installer.timezoneInstructions"
+msgstr "या प्रणालीच्या वापरासाठी काल विभाग (time zone)."
+
+msgid "installer.locale"
+msgstr "लोकॅल"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "चिन्हांकित लोकॅल्स अपूर्ण असू शकतात."
+
+msgid "installer.localeSettings"
+msgstr "लोकॅल सेटिंग्ज"
+
+msgid "installer.oaiSettings"
+msgstr "OAI सेटिंग्ज"
+
+msgid "installer.oaiRepositoryId"
+msgstr "मध्यवर्ती संग्रहासाठी (Repository) वापरलेला identifier"
+
+msgid "installer.publicFilesDirError"
+msgstr ""
+"सार्वजनिक फाईल्ससाठी directory अस्तित्वात नाही किंवा लिहिण्यायोग्य नाही."
+
+msgid "installer.releaseNotes"
+msgstr "विमोचनाची टिपणे (Release Notes)"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "मांडणी-पूर्व (Pre-Installation) पायर्‍या"
+
+msgid "installer.beacon"
+msgstr "बीकन (Beacon)"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"फक्त सांख्यिकी आणि सुरक्षा सतर्कतेसाठी (security alert) PKP ला एक एकमेव "
+"संकेतस्थळ ID आणि OAI base URL प्रदान करा."
+
+msgid "installer.miscSettings"
+msgstr "इतर लहानसहान सेटिंग्ज (Miscellaneous Settings)"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"'app_key' नावाचा Config variable 'general' section मध्ये परिभाषित (define) "
+"केलेला नाही. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "config file parse करण्यात असमर्थ."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "config file मध्ये app key variable लिहिण्यास असमर्थ."
+
+msgid "installer.appKey.write.error"
+msgstr "config file मध्ये app key लिहिण्यास असमर्थ."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"config.inc.php` फाईलमधील 'general' section मध्ये 'app_key' ची value {$key} से"
+"ट करा."
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>१. खालील फाईल्स आणि directories (आणि त्यातील मजकूर/सामग्री) "
+"लिहिण्यायोग्य (writable) बनवल्या पाहिजेत :</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> लिहिण्यायोग्य आहे (optional): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> लिहिण्यायोग्य आहे : {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> लिहिण्यायोग्य आहे : {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> लिहिण्यायोग्य आहे : "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> लिहिण्यायोग्य आहे : "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> लिहिण्यायोग्य आहे : {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>२. संक्रमित (अपलोड) केलेल्या फाईल्स साठवण्यासाठी एक directory तयार "
+"करणे आणि लिहिण्यायोग्य (writable) बनवणे आवश्यक आहे (खाली \"फाईल सेटिंग्ज\" "
+"पहा).</p>\n"
+"\t"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"हे वापरकर्ता खाते संकेतस्थळाचा प्रशासक बनवेल आणि त्याला संपूर्ण प्रणालीमध्ये "
+"कुठेही शिरकाव (access) करता येईल. प्रणालीच्या उभारणी (installation) नंतर "
+"अतिरिक्त वापरकर्ता खाती तयार केली जाऊ शकतात."
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"TCP/IP ऐवजी domain sockets वापरून जोडण्यासाठी hostname रिक्त (blank) ठेवा. "
+"MySQL साठी हे आवश्यक नाही, ज्यात \"localhost\" नोंदवल्यास आपोआप सॉकेट्स "
+"वापरली जातील, परंतु PostgreSQL सारख्या काही इतर डेटाबेस सर्व्हरसाठी आवश्यक "
+"आहे."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "डेटाबेसचे नाव आवश्यक आहे."
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+"संक्रमित (अपलोड) केलेल्या फाईल्स संग्रहित करण्यासाठी वापरल्या जाणाऱ्या "
+"directory ची आवश्यकता आहे."
+
+msgid "installer.form.separateMultiple"
+msgstr "स्वल्पविरामांनी (comma) बहुविध मूल्ये (multiple values) अलग करा"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"प्रशासकाचे वापरकर्तानाव फक्त अक्षरे, अंक, अंडरस्कोअर आणि हायफन यांनीच बनलेले "
+"असते शिवाय त्याची सुरूवात आणि शेवट फक्त अक्षराने किंवा अंकानेच होणे आवश्यक "
+"आहे."
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>इशारा : तुमच्या PHP ची सध्याची आवृत्ती प्रणालीच्या मांडणीच्या "
+"(installation) किमान गरजा पूर्ण करत नाही. PHP ची अलीकडील आवृत्ती (release) "
+"वापरून upgrade करण्याची शिफारस केली जाते.</strong>"
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"संक्रमित (अपलोड) केलेल्या फाईल्ससाठी निर्दिष्ट केलेली directory अस्तित्वात "
+"नाही किंवा ती लिहिण्यायोग्य नाही."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"या प्रणालीमध्ये वापरण्यासाठी अतिरिक्त भाषांची निवड करा. site administration "
+"interface मधून कधीही अतिरिक्त भाषा निवडल्या जाऊ शकतात.<br>* = पूर्णपणे "
+"भाषांतरित नसलेल्या भाषांना नामांकित करते (> 90% शब्द अनुवादित असलेल्या)"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Metadata Harvesting साठी <a href=\"https://www.openarchives.org/\" target="
+"\"_blank\">Open Archives Initiative</a> प्रोटोकॉल वापरून या संकेतस्थळावरून "
+"सूचिबद्ध केलेला मेटाडेटा रेकॉर्ड ओळखण्यासाठी वापरला जाणारा unique identifier."
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>तुमच्या PHP मांडणीमध्ये (installation) XSL module कार्यान्वित (enable) "
+"केलेला नाही. तो कार्यान्वित (enable) करा किंवा तुमच्या config.inc.php "
+"फाईलमध्ये xslt_command पॅरामीटर कॉन्फिगर करा.</p>"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"तुमच्या सर्व्हरची PHP आवृत्ती या सॉफ्टवेअरला आधार देत नाही. docs/README मध्ये"
+" मांडणीच्या आवश्यकता (installation) पुन्हा तपासा."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"कृपया 'general' section खाली 'app_key' नावाचा कॉन्फिगरेशन व्हेरिएबल manually "
+"समाविष्ट करा किंवा CLI मधून सेट करण्यासाठी 'php lib/pkp/tools/appKey.php "
+"configure' ही command वापरा."
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"'app_key' नावाचा Config variable 'general' section मध्ये पूर्वीच परिभाषित "
+"(define) केलेला आहे. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"config file वाचता येत नाही किंवा ती फाईल अपेक्षित path वर अस्तित्वात नाही. "
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"विनाधार सायफर (Unsupported cipher) किंवा चुकीची key length. आधार असलेले सा"
+"यफर : {$ciphers}."

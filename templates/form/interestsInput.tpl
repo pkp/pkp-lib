@@ -15,13 +15,15 @@
 			autocomplete: {ldelim}
 				source: function(request, response) {ldelim}
 					$.ajax({ldelim}
-						url: {url|json_encode router=PKP\core\PKPApplication::ROUTE_PAGE page='user' op='getInterests' escape=false},
+						url: {url|json_encode router=PKP\core\PKPApplication::ROUTE_API endpoint='vocabs/interests' escape=false},
 						data: {ldelim}'term': request.term{rdelim},
 						dataType: 'json',
 						success: function(jsonData) {ldelim}
-							if (jsonData.status == true) {ldelim}
-								response(jsonData.content);
-							{rdelim}
+							// Extract interest names from the API response
+							var interests = jsonData.map(function(item) {ldelim}
+								return item.name;
+							{rdelim});
+							response(interests);
 						{rdelim}
 					{rdelim});
 				{rdelim}

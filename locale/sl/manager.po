@@ -1,12 +1,12 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Matevž Rudolf <matevz.rudolf@uni-lj.si>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2024-02-14 20:14+0000\n"
-"Last-Translator: Matevž Rudolf <matevz.rudolf@uni-lj.si>\n"
+"PO-Revision-Date: 2025-11-11 14:35+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
 "Language: sl\n"
@@ -1170,8 +1170,8 @@ msgstr "Formati datuma in časa"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Izberite željeni format datuma in časa. Format po meri lahko definirate z "
-"uporabo posebnih <a href=\"https://www.php.net/manual/en/function.strftime."
-"php#refsect1-function.strftime-parameters\">znakov za format</a>."
+"uporabo posebnih <a href=\"https://www.php.net/manual/en/datetime.format."
+"php#refsect1-datetime.format-parameters\">znakov za format</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Datum"
@@ -1691,9 +1691,6 @@ msgstr "Valuta"
 
 msgid "settings.roles.roleOptions"
 msgstr "Možnosti vloge"
-
-msgid "settings.roles.showTitles"
-msgstr "Prikaži naslov vloge na seznamu sodelavcev"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Dovoli uporabnikom, da se sami registrirajo"
@@ -3789,3 +3786,145 @@ msgstr "Kolofon"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Preveri XML datoteko pred izvozom in registracijo."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Nameščena verzija: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Jeziki spletne strani"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metapodatki"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Določite opomnike za recenzijo"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Jeziki prispevka"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Dodaj/odstrani jezike"
+
+msgid "manager.language.submission.form.description"
+msgstr "Izberite jezik prispevka in metapodatkov."
+
+msgid "manager.language.submission.from.error"
+msgstr "Vsaj en jezik mora biti izbran."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Pošljite email opomnik pred ali po prošnji za odziv na recenzijo (če se "
+"recenzent še ni odzval na prošnjo za recenzijo) ali opomnik za recenzijo "
+"prispevka (če recenzent še ni oddal recenznetskega mnenja)"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odziv na prošnjo za recenzijo - po datumu zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Recenzija prispevka - pred datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Recenzija prispevka - po datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dni pred datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dni po datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Noben opomnik ni nastavljen"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
+msgstr "Priporočeno število recenzentov"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr ""
+"Zahtevano je zadostno število opravljenih recenzij za sprejem odločitve o "
+"prispevku"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odziv na prošnjo za recenzijo - pred datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Nobenega"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Predlogi recenzentov ob oddaji prispevka"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Dovoli avtorjem, da predlagajo potencialne recenzente med oddajo prispevka"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Spodnje je prikazano avtorjem med oddajo prispevka. Zapišite kratko razlago "
+"katere informacije naj avtor predloži o sebi, so avtrojih in ostalih "
+"sodelavcih."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Avtor lahko predlaga potencialne recenzente pred zaključkom oddaje "
+"prispevka, kar lahko poenostavi recenzentski postopek in pomaga uredništvu "
+"pri uredniškem postopku."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Nastavitev jezika ni bilo mogoče shraniti. Omogočene morajo biti vse opcije."
+
+msgid "settings.roles.masthead"
+msgstr "Razmislite o vlogi v kolofonu"
+
+msgid "settings.roles.permitSettings"
+msgstr "Dovoli spremembe v nastavitvah"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Določite javni vrstni red vlog v kolofonu uredništva."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Avtor {$authorName} nima vpisane biografije v jeziku prispevka, {$localeName}"
+". Prispevek ne more biti uvožen brez te informacije."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Povezava do strani, ki prikazuje vse aktivne vloge v kolofonu uredništva."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Določite vrstni red vlog v kolofonu."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzenti bodo prikazani v standardni obliki, da se ohranit enotnost in "
+"zagotovit enostavno iskanje v tem oddelku."
+
+msgid "notification.submissionLocales"
+msgstr "Jeziki prispevka so posodobljeni."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Prosimo vnesite uredniško zgodovino, ki vključuje polno ime, biografijo, "
+"začetni in končni datum, za vsakega urednika posebej."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Povabilo za spremembo email-a"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Naslov postavke menija je obvezen."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimalno število opravljenih recenzij za prispevek"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Zahtevano minimalno število opravljenih recenzij"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Ta kategorija ne obstaja ali pripada drugemu kontekstu. Prosimo preverite, "
+"da delate v pravem kontekstu in ponovno poskusite."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Datoteke za naslovnico in ikono ni bilo mogoče najti. Lahko sta bili "
+"izbrisani. Poskusite ponovno naložiti stran."

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/AjaxModal.php
  *
@@ -81,8 +82,4 @@ class VueModal extends Modal
             ]
         );
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\VueModal', '\VueModal');
 }

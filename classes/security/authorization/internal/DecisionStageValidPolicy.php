@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/DecisionStageValidPolicy.php
  *
@@ -33,7 +34,7 @@ class DecisionStageValidPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE);
@@ -44,8 +45,4 @@ class DecisionStageValidPolicy extends AuthorizationPolicy
 
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\DecisionStageValidPolicy', '\DecisionStageValidPolicy');
 }

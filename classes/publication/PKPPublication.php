@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/PKPPublication.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2016-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublication
@@ -20,15 +20,31 @@ namespace PKP\publication;
 
 use APP\author\Author;
 use APP\facades\Repo;
+use APP\publication\enums\VersionStage;
+use PKP\author\contributorRole\ContributorType;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
+use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
 
 class PKPPublication extends \PKP\core\DataObject
 {
+    // publication status constants
+    public const STATUS_QUEUED = 1;
+    public const STATUS_PUBLISHED = 3;
+    public const STATUS_DECLINED = 4;
+    public const STATUS_SCHEDULED = 5;
+
+    /**
+     * Get the valid pre-publish statuses if available
+     */
+    public static function getPrePublishStatuses(): array
+    {
+        return [];
+    }
+
     /**
      * Get the default/fall back locale the values should exist for
      */
@@ -176,12 +192,11 @@ class PKPPublication extends \PKP\core\DataObject
      *
      * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)
      *
-     * @param \Traversable<UserGroup> $userGroups List of UserGroup objects
      * @param bool $includeInBrowseOnly true if only the includeInBrowse Authors will be contained
      *
      * @return string
      */
-    public function getAuthorString(\Traversable $userGroups, $includeInBrowseOnly = false)
+    public function getAuthorString($includeInBrowseOnly = false)
     {
         $authors = $this->getData('authors');
 
@@ -190,46 +205,18 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         if ($includeInBrowseOnly) {
-            $authors = $authors->filter(function ($author, $key) {
-                return $author->getData('includeInBrowse');
-            });
+            $authors = $authors->filter(fn ($author) => $author->getData('includeInBrowse'));
         }
 
-        $str = '';
-        $lastUserGroupId = null;
-        foreach ($authors as $author) {
-            if (!empty($str)) {
-                if ($lastUserGroupId != $author->getData('userGroupId')) {
-                    foreach ($userGroups as $userGroup) {
-                        if ($lastUserGroupId === $userGroup->getId()) {
-                            if ($userGroup->getData('showTitle')) {
-                                $str .= ' (' . $userGroup->getLocalizedData('name') . ')';
-                            }
-                            break;
-                        }
-                    }
-                    $str .= __('common.semicolonListSeparator');
-                } else {
-                    $str .= __('common.commaListSeparator');
-                }
-            }
-            $str .= $author->getFullName();
-            $lastUserGroupId = $author->getUserGroupId();
-        }
-
-        // If there needs to be a trailing user group title, add it
-        if (isset($author)) {
-            foreach ($userGroups as $userGroup) {
-                if ($author->getData('userGroupId') === $userGroup->getId()) {
-                    if ($userGroup->getData('showTitle')) {
-                        $str .= ' (' . $userGroup->getLocalizedData('name') . ')';
-                    }
-                    break;
-                }
-            }
-        }
-
-        return $str;
+        return collect($authors)
+            ->map(fn (Author $author): string => 
+                $author->getFullName()
+                . " ("
+                . collect($author->getLocalizedContributorRoleNames())
+                    ->implode(__('common.commaListSeparator'))
+                . ")"
+            )
+            ->implode(__('common.semicolonListSeparator'));
     }
 
     /**
@@ -250,11 +237,12 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         $firstAuthor = $authors->first();
-
-        $str = $firstAuthor->getLocalizedData('familyName', $defaultLocale);
-        if (!$str) {
-            $str = $firstAuthor->getLocalizedData('givenName', $defaultLocale);
-        }
+        $str = match ($firstAuthor->getData('contributorType')) {
+            // Person
+            ContributorType::PERSON->getName() => $firstAuthor->getLocalizedData('familyName', $defaultLocale) ?: $firstAuthor->getLocalizedData('givenName', $defaultLocale),
+            // Organization, anonymous
+            default => $firstAuthor->getFullName(preferredLocale: $defaultLocale),
+        };
 
         if ($authors->count() > 1) {
             return __('submission.shortAuthor', ['author' => $str], $defaultLocale);
@@ -286,6 +274,17 @@ class PKPPublication extends \PKP\core\DataObject
     public function stampModified()
     {
         return $this->setData('lastModified', Core::getCurrentDate());
+    }
+
+    /**
+     * Stamp the date of the last modification to the current time.
+     */
+    public function stampCreated()
+    {
+        $dateTime = Core::getCurrentDate();
+
+        $this->setData('createdAt', $dateTime);
+        $this->setData('lastModified', $dateTime);
     }
 
     /**
@@ -359,19 +358,17 @@ class PKPPublication extends \PKP\core\DataObject
         $pageArray = [];
         foreach ($ranges as $range) {
             // hyphens (or double-hyphens) indicate range spans
-            $pageArray[] = array_map('trim', explode('-', str_replace(['--', '–'], '-', $range), 2));
+            $pageArray[] = array_map(trim(...), explode('-', str_replace(['--', '–'], '-', $range), 2));
         }
         return $pageArray;
     }
 
     /**
      * Is the license for copyright on this publication a Creative Commons license?
-     *
-     * @return bool
      */
-    public function isCCLicense()
+    public function isCCLicense(): bool
     {
-        return preg_match('/creativecommons\.org/i', $this->getData('licenseUrl'));
+        return $this->getData('licenseUrl') ? preg_match('/creativecommons\.org/i', $this->getData('licenseUrl')) : false;
     }
 
     /**
@@ -446,7 +443,7 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Get languages from locale, metadata, and authors' props.
      * Include optional additional languages.
-     * 
+     *
      * Publication: locale, multilingual metadata props
      * Authors: multilingual props
      */
@@ -470,7 +467,42 @@ class PKPPublication extends \PKP\core\DataObject
             ->values()
             ->toArray();
     }
-}
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\publication\PKPPublication', '\PKPPublication');
+
+    /**
+     * Get the publication's current version data
+     */
+    public function getVersion(): ?PublicationVersionInfo
+    {
+        $versionStageStr = $this->getData('versionStage');
+        if (!isset($versionStageStr)) {
+            return null;
+        }
+
+        $versionInfo = new PublicationVersionInfo(
+            VersionStage::from($versionStageStr),
+            $this->getData('versionMajor'),
+            $this->getData('versionMinor')
+        );
+
+        return $versionInfo;
+    }
+
+    /**
+     * Set the current version of the publication
+     * given a PublicationVersionInfo object
+     */
+    public function setVersion(PublicationVersionInfo $versionInfo): void
+    {
+        $this->setData('versionStage', $versionInfo->stage->value);
+        $this->setData('versionMajor', $versionInfo->majorNumbering);
+        $this->setData('versionMinor', $versionInfo->minorNumbering);
+    }
+
+    /**
+     * @copydoc \PKP\core\DataObject::getDAO()
+     */
+    public function getDAO(): DAO
+    {
+        return Repo::publication()->dao;
+    }
 }

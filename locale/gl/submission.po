@@ -26,6 +26,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Enviáronse novas revisións que o editor/a está a considerar."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Un ou máis revisores/a sobrepasaron o seu prazo. O equipo editorial recibiu "
@@ -1302,9 +1303,11 @@ msgstr "Revisións solicitadas."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisións enviadas."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "O envío debe enviarse de novo para outra rolda de revisión."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "O envío volveuse a enviar para outra rolda de revisión."
 
@@ -1326,6 +1329,7 @@ msgstr "Agardando respostas dos revisores/as."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Enviáronse novas revisións."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Todos os revisores responderon e é necesaria unha decisión."
 
@@ -1911,7 +1915,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"O editor/a {$userName} confirmou unha revisión da rolda de revisión {$round} "
+"O editor/a {$editorName} confirmou unha revisión da rolda de revisión {$round} "
 "do envío {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2433,7 +2437,7 @@ msgstr "Todas as versións"
 msgid "publication.version.confirm"
 msgstr "Seguro/a que queres crear unha nova versión?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "O resumo é demasiado longo. Debería ter {$limit} palabras ou menos. "
 "Actualmente ten {$count} palabras."

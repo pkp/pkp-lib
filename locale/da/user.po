@@ -1,11 +1,12 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
+# "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2024-06-06 18:05+0000\n"
+"PO-Revision-Date: 2025-10-23 06:51+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/da/>"
 "\n"
@@ -795,3 +796,161 @@ msgstr "Der er detekteret dubletter blandt de angivne ORCiD's for bidragyderne."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Der blev detekteret ikke-godkendte ORCiDs for nogle bidragydere."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Tilføjelse, opdatering eller sletning af forslag af bedømmere for en "
+"færdiggjort indsendelse er begrænset."
+
+msgid "orcid.unauthenticated"
+msgstr "(uautoriseret)"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Foretrukne initialer for avatar"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Du vil nu automatisk blive sendt tilbage til {$contextName}."
+
+msgid "orcid.field.verification.request"
+msgstr "Anmod om verifikation"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Udfyld de to bogstaver, som du vil anvende som din avatar. Disse initialer "
+"vil blive vist for at repræsentere dig."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Aktiver ORCID funktionalitet"
+
+msgid "orcid.field.verification.requested"
+msgstr "Der er blevet anmodet om ORCID verifikation!"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Tilføj venligst et tilhørsforhold på indsendelsens sprog."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID funktionalitet kan valgfrit aktiveres og konfigureres for hele siden "
+"for alle tidsskrifter/udgivere/servere. Hvis aktiveret, vil dette overskrive "
+"alle akkreditiver på kontekst-niveau og anvende de følgende akkreditiver for "
+"alle tidsskrifter/udgivere/servere på denne installation."
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Er du sikker på, at du vil fjerne dette ORCID?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Din rolle er planlagt til at begynde d. {$roleStartDate}"
+
+msgid "user.role.ended"
+msgstr "Rolle afsluttet"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Du har anmodet om at ændre din e-mail til \"{$pendingEmail}\". Vi har "
+"allerede sendt dig en e-mail med information om hvordan du validerer den "
+"ændrede e-mail."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Udfyld det fulde navn på institutionen nedenfor og undgå brug af akronymer. "
+"Vælg navnet fra dropdown listen og klik 'Tilføj' for at inkludere "
+"tilhørsforholdet i din profil (fx \"Simon Fraser Universitet\")."
+
+msgid "user.affiliations.institution"
+msgstr "Institution"
+
+msgid "user.affiliations.translation"
+msgstr "Mere information"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Rediger institutionsnavn"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Fjern institution"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klik for at redigere eller slette"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Alle tilgængelige oversættelser"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} af {$total} sprog afsluttet"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Skriv instituttets navn på {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Institutnavn på {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Er du sikker?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Tilhørsforholdet <strong>{$affiliation}</strong> vil blive slettet."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Skriv instituttets navn på {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Din søgning gav ingen resultater"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Primærsproget {$primaryLocale} er påkrævet"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Aktiver ORCID funktionalitet for hele siden"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Gensend verifikations-e-mail"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Anmod om ORCID verifikation"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Vil du sende en e-mail til denne forfatter med en anmodning om at verificere "
+"deres ORCID?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Slet ORCID"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Denne ORCID er ikke blevet verificeret. Fjern venligst den uverificerede "
+"ORCID og anmod om verifikation direkte fra brugeren/forfatteren."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Er du sikker på, at du vil fjerne denne rolle permanent? Denne handling vil "
+"fjerne brugerens adgang til alt information og tilladelser forbundet med "
+"denne rolle."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Indtil da kan du gennemgå og opdatere din profil. Hvis du mener, at dette er "
+"en fejl, bedes du kontakte administratoren."
+
+msgid "user.disabledModal.description"
+msgstr "Nuværende roller: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Deaktiver {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Aktiver {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografi"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Brugeren bør være anonym. Du er pt. logget ind."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "Du kan ikke fjerne denne rolle. Brugeren skal have mindst én rolle."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "E-mailen vil blive sendt når forfatteren er blevet oprettet."
+
+msgid "user.login.activate.description"
+msgstr "Bekræft og aktiver din brugerkonto"

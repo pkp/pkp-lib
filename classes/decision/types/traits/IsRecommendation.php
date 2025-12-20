@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/decision/types/traits/IsRecommendation.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -25,13 +26,13 @@ use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
+use PKP\editorialTask\EditorialTask;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\RecommendationNotifyEditors;
 use PKP\note\Note;
-use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRound;
@@ -132,9 +133,7 @@ trait IsRecommendation
             }
         }
 
-        /** @var QueryDAO $queryDao */
-        $queryDao = DAORegistry::getDAO('QueryDAO');
-        $queryId = $queryDao->addQuery(
+        $queryId = Repo::editorialTask()->addQuery(
             $submission->getId(),
             $this->getStageId(),
             $email->subject,
@@ -145,8 +144,8 @@ trait IsRecommendation
             false
         );
 
-        $query = $queryDao->getById($queryId);
-        $note = $query->getHeadNote();
+        $query = EditorialTask::find($queryId);
+        $note = Repo::note()->getHeadNote($query->id);
         $mailable = new Mailable();
         foreach ($email->attachments as $attachment) {
             if (isset($attachment[Mailable::ATTACHMENT_TEMPORARY_FILE])) {

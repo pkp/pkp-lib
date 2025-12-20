@@ -33,7 +33,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Get user ID of user that initiated the event.
      */
-    public function getUserId(): int
+    public function getUserId(): ?int
     {
         return $this->getData('userId');
     }
@@ -41,7 +41,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set user ID of user that initiated the event.
      */
-    public function setUserId(int $userId): void
+    public function setUserId(?int $userId): void
     {
         $this->setData('userId', $userId);
     }
@@ -240,10 +240,4 @@ class EventLogEntry extends \PKP\core\DataObject
 
         return $userEmail ?: '';
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\event\EventLogEntry', '\EventLogEntry');
-    define('SUBMISSION_LOG_NOTE_POSTED', EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
-    define('SUBMISSION_LOG_MESSAGE_SENT', EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
 }

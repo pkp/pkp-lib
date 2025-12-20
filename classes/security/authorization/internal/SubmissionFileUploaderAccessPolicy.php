@@ -27,7 +27,7 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 
@@ -50,8 +50,4 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy', '\SubmissionFileUploaderAccessPolicy');
 }

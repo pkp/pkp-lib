@@ -35,10 +35,28 @@
 	{fbvFormSection}
 		{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
 	{/fbvFormSection}
+
 	{fbvFormSection}
 		{capture assign=autocompleteUrl}{url op="getUsersNotAssignedAsReviewers" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
-		{fbvElement type="autocomplete" disableSync="true" required="true" autocompleteUrl=$autocompleteUrl id="userId" label="manager.reviewerSearch.searchByName.short"}
+		{fbvElement
+			type="autocomplete"
+			disableSync="true"
+			required="true"
+			autocompleteUrl=$autocompleteUrl
+			id="userId"
+			value="{$selectedUser|default:''|escape}"
+			autocompleteValue="{$userId|default:''}"
+			label="manager.reviewerSearch.searchByName.short"
+		}
 	{/fbvFormSection}
+
+	{fbvFormSection title="manager.setup.masthead" list=true}
+		{fbvElement type="checkbox" id="masthead" checked=true label="invitation.masthead.show" translate="true" disabled="true"}
+	{/fbvFormSection}
+
+	{if $reviewerSuggestionId}
+		{fbvElement type="hidden" id="reviewerSuggestionId" name="reviewerSuggestionId" value=$reviewerSuggestionId}
+	{/if}
 
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 

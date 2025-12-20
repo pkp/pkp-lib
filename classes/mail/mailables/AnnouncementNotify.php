@@ -73,7 +73,7 @@ class AnnouncementNotify extends Mailable
     {
         parent::setData($locale);
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
 
         $request = Application::get()->getRequest();
@@ -81,15 +81,15 @@ class AnnouncementNotify extends Mailable
         $this->viewData = array_merge(
             $this->viewData,
             [
-                static::$announcementTitle => $this->announcement->getData('title', $locale),
-                static::$announcementSummary => $this->announcement->getData('descriptionShort', $locale),
+                static::$announcementTitle => $this->announcement->getLocalizedData('title', $locale),
+                static::$announcementSummary => $this->announcement->getLocalizedData('descriptionShort', $locale),
                 static::$announcementUrl => $dispatcher->url(
                     $request,
                     PKPApplication::ROUTE_PAGE,
                     $this->context->getData('urlPath'),
                     'announcement',
                     'view',
-                    $this->announcement->getId()
+                    [$this->announcement->getAttribute('announcementId')]
                 ),
             ]
         );

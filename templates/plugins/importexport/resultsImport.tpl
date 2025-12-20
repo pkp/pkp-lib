@@ -7,6 +7,8 @@
  *
  * Result of operations this plugin performed
  *}
+<div class="semantic-defaults">
+
 {if $errorsFound}
 	{translate key="plugins.importexport.native.processFailed"}
 {else}
@@ -36,3 +38,4 @@
 		{/foreach}
 	</ul>
 {/if}
+</div>

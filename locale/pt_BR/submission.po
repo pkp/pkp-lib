@@ -1,15 +1,17 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 # Téssio Fechine <tessiof@gmail.com>, 2024.
+# Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
+# Andre Moura Melgarejo <melgarejo.andre@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2024-07-30 20:00+0000\n"
-"Last-Translator: Téssio Fechine <tessiof@gmail.com>\n"
+"PO-Revision-Date: 2025-07-03 23:19+0000\n"
+"Last-Translator: Andre Moura Melgarejo <melgarejo.andre@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -37,7 +39,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Um ou mais avaliadores perderam o prazo. A equipe editorial foi notificada e "
-"tomará as ações necessárias para garantir que os pareceres sejam enviados. "
+"tomará as ações necessárias para garantir que os pareceres sejam concluídas. "
 "Você não precisa fazer nenhuma ação neste momento. Você será notificado "
 "quando uma decisão for tomada."
 
@@ -425,7 +427,7 @@ msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
 
 msgid "submission.shortAuthor"
-msgstr "{$author} et al."
+msgstr "{$author}, et al."
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} de {$title}"
@@ -980,10 +982,10 @@ msgid "submission.reviewMetadata"
 msgstr "Avaliar metadados"
 
 msgid "submission.review"
-msgstr "Avaliação"
+msgstr "Revisar"
 
 msgid "submission.reviewAndSubmit"
-msgstr "Revise e submete"
+msgstr "Revise e submeta"
 
 msgid "submission.reviewed"
 msgstr "Avaliado"
@@ -1321,10 +1323,12 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "As revisões foram enviadas e uma decisão é necessária."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "A submissão deve ser ressubmetida para outra rodada de avaliação."
+msgstr ""
+"Revisões solicitadas ao autor serão encaminhadas para uma nova rodada de "
+"avaliação."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "A submissão foi ressubmetida para outra rodada de avaliação."
+msgstr "Revisões enviadas. Uma nova rodada de avaliação precisa ser criada."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Enviada para avaliação externa."
@@ -1345,7 +1349,7 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Novas avaliações estão prontas."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Avaliações completadas."
+msgstr "Todas as avaliações foram confirmadas e uma decisão é necessária."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Uma avaliação está atrasada."
@@ -2059,7 +2063,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editor(a) {$userName} confirmou uma avaliação para a rodada {$round} de "
+"Editor(a) {$editorName} confirmou uma avaliação para a rodada {$round} de "
 "avaliação para a submissão {$submissionId}."
 
 msgid "log.review.reviewReady"
@@ -2171,7 +2175,7 @@ msgid "submission.copyrightYear"
 msgstr "Ano do Copyright"
 
 msgid "submission.copyrightStatement"
-msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+msgstr "Direitos autorais (c) {$copyrightYear} {$copyrightHolder}"
 
 msgid "submission.licenseURLValid"
 msgstr "Fornaça uma URL válida (iniciando em http://)."
@@ -2180,22 +2184,22 @@ msgid "submission.licenseURL"
 msgstr "URL da licença"
 
 msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+msgstr "CC Atribuição-NãoComercial-SemDerivações 4.0"
 
 msgid "submission.license.cc.by-nc4"
-msgstr "CC Attribution-NonCommercial 4.0"
+msgstr "CC Atribuição-NãoComercial 4.0"
 
 msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+msgstr "CC Atribuição-NãoComercial-CompartilhaIgual 4.0"
 
 msgid "submission.license.cc.by-nd4"
-msgstr "CC Attribution-NoDerivatives 4.0"
+msgstr "CC Atribuição-SemDerivações 4.0"
 
 msgid "submission.license.cc.by4"
 msgstr "CC Attribution 4.0"
 
 msgid "submission.license.cc.by-sa4"
-msgstr "CC Attribution-ShareAlike 4.0"
+msgstr "CC Atribuição-CompartilhaIgual 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr ""
@@ -2226,30 +2230,28 @@ msgstr ""
 
 msgid "submission.license.cc.by-nd4.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
-"\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i."
-"creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><br />Este trabalho está "
-"licenciado sob uma licença <a rel=\"license\" href=\"https://creativecommons."
-"org/licenses/by-nd/4.0/\">Creative Commons Attribution-NoDerivatives 4.0 "
-"International License</a>."
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>Este trabalho está licenciado sob uma licença <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+">Creative Commons Attribution-NoDerivatives 4.0 International "
+"License</a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
-"\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i."
-"creativecommons.org/l/by/4.0/88x31.png\" /></a><br />Este trabalho está "
-"licenciado sob uma licença <a rel=\"license\" href=\"https://creativecommons."
-"org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International "
-"License</a>."
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Este trabalho está licenciado sob uma licença <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative "
+"Commons Attribution 4.0 International License</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
-"\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i."
-"creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><br />Este trabalho está "
-"licenciado sob uma licença <a rel=\"license\" href=\"https://creativecommons."
-"org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 "
-"International License</a>."
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>Este trabalho está licenciado sob uma licença <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>"
 
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
@@ -2287,11 +2289,11 @@ msgstr ""
 
 msgid "submission.license.cc.by3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\"><img "
-"alt=\"Licença Creative Commons\" style=\"border-width:0\" src=\"https://i."
-"creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Esta obra está licenciado "
-"com uma Licença <a rel=\"license\" href=\"http://creativecommons.org/"
-"licenses/by/3.0/\">Creative Commons Attribution 3.0 Unported License</a>.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>Esta obra está licenciado com uma Licença <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 Unported License</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
@@ -2602,7 +2604,7 @@ msgstr "Todas as Versões"
 msgid "publication.version.confirm"
 msgstr "Tem certeza de que deseja criar uma nova versão?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "O resumo é muito longo. Deve ter {$limit} palavras ou menos. Atualmente o "
 "resumo possui {$count} palavras."
@@ -3127,3 +3129,508 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Por favor, divulgue quaisquer interesses conflitantes que este autor possa "
 "ter com o assunto da pesquisa."
+
+msgid "author.authorNotFound"
+msgstr "O autor desta afiliação não pôde ser encontrado."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Forneça uma afiliação ROR ou pelo menos um nome de afiliação."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Forneça o nome da afiliação no idioma principal da submissão."
+
+msgid "ror.nameRequired"
+msgstr "Um nome ROR é obrigatório."
+
+msgid "ror.displayLocaleRequired"
+msgstr "O idioma de exibição do ROR é obrigatório."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Submissão cancelada"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Cancelar submissão"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "A submissão foi cancelada e todos os dados associados foram excluídos."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Para sugestão do avaliador"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Idioma da submissão atual:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Mudar"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Alterar idioma de submissão para"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Este é o idioma principal da submissão. Alterar isso terá efeitos na "
+"submissão e nos metadados inseridos"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Antes de alterar o idioma de submissão, certifique-se de ter "
+"preenchido os seguintes campos de metadados para manter a integridade do "
+"sistema. Além disso, observe que as informações do colaborador e os nomes "
+"dos arquivos serão copiados das informações inseridas anteriormente.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Insira o título da submissão aqui em {$language}. Você pode formatar seu "
+"título conforme necessário"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Recomenda-se incluir o resumo em {$language}. Isso ajuda a garantir que o "
+"conteúdo seja acessível"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Ver resumo da submissão"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Designado para mim"
+
+msgid "submission.dashboard.view.active"
+msgstr "Submissões ativas"
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "Tudo em avaliação preliminar"
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "Precisa de avaliadores"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Aguardando avaliações"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Avaliações atrasadas"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Tudo em edição de texto"
+
+msgid "submission.dashboard.view.production"
+msgstr "Tudo em editoração"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Agendado para publicação"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publicado"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Recusado"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Revisões solicitadas"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Revisões submetidas"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Todas as atribuições"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Pendente"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Concluído / Recusado"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Todas as atribuições"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Ação exigida por mim"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arquivada"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Recusada"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Concluída"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publicada"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Avaliação (Rodada {$round})"
+
+msgid "submission.stage.published"
+msgstr "Publicada"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Confirmar exclusão do JATS XML"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Excluir arquivo JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Este arquivo JATS é gerado automaticamente pelos metadados da submissão"
+
+msgid "publication.jats.lastModified"
+msgstr "Última modificação em {$modificationDate} por {$username}"
+
+msgid "submission.files.content.error"
+msgstr ""
+"O conteúdo do arquivo de submissão '{$fileName}' não pôde ser recuperado."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Motivos para sugerir avaliador"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Avaliadores designados"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Atualização da avaliação {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Aplicar filtros"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Iniciar uma nova submissão"
+
+msgid "dashboard.assignReviewers"
+msgstr "Atribuir avaliadores"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Revisões solicitadas ao autor"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Revisões solicitadas ao autor para serem levadas a uma nova rodada de "
+"avaliação"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Nova rodada de avaliação a ser criada"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "A ser publicada na edição {$issue}"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Avaliação atrasada por {$days} dias"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Este avaliador não concluiu sua avaliação. A resposta estava prevista para "
+"<b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Avaliação concluída em {$date}"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "O avaliador cancelou a solicitação de avaliação"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "O avaliador cancelou a solicitação de avaliação em <b>{$date}</b>."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Sugestões do Avaliador"
+
+msgid "submission.list.completeSubmission"
+msgstr "Submissão completa"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Avaliações enviadas"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Este avaliador aceitou a solicitação de avaliação. A avaliação deve ser "
+"feita em <b>{$days} dias em {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"A avaliação foi concluída em {$date} com a seguinte recomendação: "
+"<b>{$recommendation}</b>"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Tem certeza de que deseja cancelar esta submissão? Isso excluirá a submissão "
+"e todos os dados associados. Esta ação não pode ser desfeita."
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Submissões incompletas"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "A avaliação foi confirmada pelo editor"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Nenhum avaliador foi designado para esta submissão."
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Agendado para Publicação"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Por favor, compartilhe o motivo pelo qual você está recomendando este "
+"avaliador e mencione se há algum potencial conflito de interesses."
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "A avaliação foi aceita pelo editor em <b>{$date}</b>."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"O nome da afiliação está faltando em {$language} para uma ou mais afiliações "
+"de um ou mais contribuidores."
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Você está prestes a remover o arquivo JATS XML existente desta publicação. "
+"Tem certeza?"
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"O idioma da submissão ({$language}) não é um dos idiomas de submissão "
+"suportados. Você ainda pode editar os detalhes da submissão, mas novas "
+"submissões não são aceitas atualmente com este idioma."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Você fez uma recomendação."
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Precisa de editor"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Ocorreu um erro ao tentar criar o conteúdo JATS padrão. Certifique-se de que "
+"o plugin JatsTemplate esteja instalado."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Avaliadores sugeridos pelo autor"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Tudo em avaliação por pares"
+
+msgid "submission.review.status.viewed"
+msgstr "O editor visualizou a avaliação."
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Arquivos editados enviados: {$count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revisão solicitada"
+
+msgid "dashboard.submitRevisions"
+msgstr "Enviar revisões"
+
+msgid "workflow.uploadRevisions"
+msgstr "Carregar revisões"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Responder a solicitação"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Concluir revisão"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Por favor, aceite ou recuse esta solicitação até {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Solicitação recusada em {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Avaliação enviada em {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"O prazo para responder a esta solicitação já passou. Por favor, aceite ou "
+"recuse esta solicitação o mais breve possível."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Por favor, conclua esta avaliação até {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"O prazo para concluir esta avaliação já passou. Por favor, conclua a "
+"avaliação o mais breve possível."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Aguardando resposta do avaliador"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"A solicitação de avaliação foi compartilhada com o avaliador. Aguardando "
+"resposta em <b>{$days} dias em {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Solicitação de avaliação recusada em {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "O avaliador recusou a solicitação de avaliação em <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Solicitação de avaliação atrasada por {$days} dias"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Este avaliador não respondeu à solicitação de avaliação. A resposta era "
+"esperada até <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Avaliação em andamento - solicitação aceita"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Aguardando resposta do avaliador"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"A solicitação de avaliação foi reenviada ao avaliador. Aguardando resposta "
+"em {$days} dias, até {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Ver detalhes"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Reenviar solicitação de avaliação"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Cancelar Avaliador"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Cancelar atribuição"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Editar data de prazo"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Ver recomendação"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Ver recomendação não lida"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Enviar avaliação para ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Enviar esta avaliação para o ORCID do avaliador?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Recusado durante o estágio {$stageName}."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Os editores recomendantes têm a responsabilidade de sugerir os próximos "
+"passos para esta submissão"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Uma recomendação editorial foi recebida"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Todas as recomendações editoriais foram recebidas, e uma decisão precisa ser "
+"tomada."
+
+msgid "workflow.reviewRoundN"
+msgstr "Rodada de Avaliação {$number}"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Selecione as submissões incompletas para serem excluídas."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Excluir submissões incompletas"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Permitido apenas recomendar uma decisão editorial"
+
+msgid "workflow.stageNotStarted"
+msgstr "O estágio {$stage} ainda não foi iniciado."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "A submissão está atualmente no estágio de {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"A submissão avançou para a próxima rodada de avaliação, foi aceita e está "
+"atualmente na fase {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "A submissão avançou para a próxima rodada de avaliação"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirmar exclusão de submissões incompletas"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Arquivos enviados no momento da submissão"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisões carregadas"
+
+msgid "fileManager.filesForReview"
+msgstr "Arquivos para avaliação"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Esses arquivos serão enviados aos avaliadores para avaliação"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Arquivos editados"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Esses são arquivos editados que serão levados para a fase de editoração"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Estes são os arquivos que serão enviados para publicação"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Você não pode acessar esta submissão como um Gerente da Revista, pois você é "
+"o autor. Para visualizá-la, vá para \"Minhas Submissões\""
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Esses arquivos foram enviados pelo autor após revisões terem sido solicitadas"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Você não pode acessar esta submissão como um Gerente da Revista, pois você é "
+"o revisor. Para visualizá-la, vá para \"Avaliações Atribuídas\""
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Estes são arquivos do estágio de avaliação que serão editados"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status do avaliador"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Tem certeza de que deseja excluir os itens selecionados? Esta ação não pode "
+"ser desfeita. Por favor, confirme para prosseguir."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Número mínimo de avaliações confirmadas: {$number}."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Número mínimo de avaliações confirmadas exigidas foi atingido. A decisão "
+"está pendente."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Seguir sem o número mínimo de avaliações confirmadas?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"O número mínimo de avaliações confirmadas exigidas não foi cumprido. "
+"Gostaria de seguir com essa decisão editorial?"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Avaliações pendentes"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Tudo no estágio de submissão"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Tudo no estágio de avaliação"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Aviso: Esta versão já foi publicada. Editá-la pode afetar o conteúdo "
+"publicado."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "A avaliação foi concluída em {$date}"

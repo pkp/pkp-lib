@@ -10,7 +10,11 @@
  *
  * @brief Registry and initialization class for Vue.js handlers
  */
+
+import { getComponentStoreByName } from "@/utils/defineComponentStore";
+
 export default {
+	_piniaInstance: null,
 	/**
 	 * Registry of all active vue instances
 	 */
@@ -20,6 +24,11 @@ export default {
 	 * Registry of all global components
 	 */
 	_globalComponents: {},
+
+	/**
+	 * Registry of all global directives
+	 */
+	_globalDirectives: {},
 
 	/**
 	 * Initialize a Vue controller
@@ -51,9 +60,9 @@ export default {
 
 		pkp.registry._instances[id] = pkp.pkpCreateVueApp(args);
 
-		pkp.registry._instances[id].mount(`#${id}`);
+		const rootComponent = pkp.registry._instances[id].mount(`#${id}`);
 
-		pkp.eventBus.$emit('root:mounted', id, pkp.registry._instances[id]);
+		pkp.eventBus.$emit('root:mounted', id, rootComponent);
 
 		// Register with a parent handler from the legacy JS framework, so that
 		// those componments can destroy a Vue instance when removing HTML code
@@ -66,6 +75,34 @@ export default {
 				return false; // only attach to the closest parent handler
 			}
 		});
+	},
+
+	initVueFromAttributes() {
+		// Select all elements with the data-vue-root attribute
+		document.querySelectorAll('[data-vue-root]').forEach((element) => {
+			// Get the value of the data-vue-root attribute
+			const attrValue = element.getAttribute('data-vue-root');
+			
+			// Check if the value is present (not null or empty string)
+			let rootProps = {};
+			if (attrValue && attrValue.trim() !== '') {
+				try {
+					// Parse the attribute value as JSON to get Vue options
+					rootProps = JSON.parse(attrValue);
+					
+					// Initialize Vue app with the parsed options and mount to the element
+				} catch (error) {
+					// Log error if JSON parsing fails
+					console.error('Failed to parse data-vue-root as JSON for element:', element, error);
+				}
+			}
+			pkp.pkpCreateVueApp({}, rootProps).mount(element);
+
+		});
+	},
+
+	attachPiniaInstance(piniaInstance) {
+		this._piniaInstance = piniaInstance;
 	},
 
 	/**
@@ -101,4 +138,75 @@ export default {
 	getAllComponents() {
 		return this._globalComponents;
 	},
+
+	/**
+	 * Register a global Vue directive
+	 * @param {string} directiveName - The directive name
+	 * @param {object} directive - The directive object
+	 */
+	registerDirective(directiveName, directive) {
+		this._globalDirectives[directiveName] = directive;
+	},
+
+	/**
+	 * Retrieve all registered directives
+	 */
+	getAllDirectives() {
+		return this._globalDirectives;
+	},
+
+	/** Get pinia store by name */
+	getPiniaStore(storeName) {
+		return getComponentStoreByName(storeName);
+	},
+
+	storeExtend(storeName, extenderFn) {
+		this._piniaInstance.use((context) => {
+
+			if (context.store.$id === storeName) {
+				extenderFn(context);
+			}
+
+		})
+
+	},
+
+	storeExtendFn(storeName, fnName, extenderFn) {
+		this._piniaInstance.use((context) => {
+
+			if (context.store.$id === storeName) {
+				context.store.extender.extendFn(fnName, extenderFn)
+			}
+
+		})
+		
+	},
+
+	getPiniaInstance() {
+		this._piniaInstance;
+	},
+
+	storeAddFn(storeName, fnName, fn) {
+		this._piniaInstance.use((context) => {
+
+			if (context.store.$id === storeName) {
+				context.store[fnName] = fn;
+			}
+		})
+	},
+
+	storeListExtendableFns(storeName) {
+		if(!storeName) {
+			throw new Error('missing storeName')
+		}
+		const store = getComponentStoreByName(storeName);
+
+		if(store.extender) {
+			return store.extender.listExtendableFns()
+		}
+		return false;
+
+	}
+
+
 };

@@ -1,10 +1,11 @@
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-10-29 13:17+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
 "Language: eu\n"
@@ -12,22 +13,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr ""
+msgstr "Ezarpenaren izena"
 
 msgid "admin.systemInfo.settingValue"
-msgstr ""
+msgstr "Ezarpenaren balioa"
 
 msgid "admin.adminFunctions"
 msgstr "Funtzio administratiboak"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Ezabatu katxea"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Ezabatu cache fitxategiak sistematik. Hori garapen-inguruneetan bakarrik "
+"egin behar da."
 
 msgid "admin.clearDataCache"
 msgstr "Garbitu datu-cacheak"
@@ -55,6 +58,8 @@ msgstr "Konfigurazio-fitxategiaren edukia"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""
+"Ziur zaude {$contextName} eta haren eduki guztia betiko ezabatu nahi "
+"dituzula?"
 
 msgid "admin.currentVersion"
 msgstr "Uneko bertsioa"
@@ -76,12 +81,19 @@ msgstr "Iraungi erabiltzaileen saioak"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Erabiltzaile guztiei berehala saioa itxiko zaie aplikazioan, zu barne, eta "
+"berriro saioa hasi beharko dute."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
+"Eskualdeko ezarpen hau guneko hizkuntza nagusia da. Ezin duzu desgaitu beste "
+"hizkuntza nagusi bat aukeratu arte."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
+"Ziur zaude gunearen eskualde ezarpen nagusia aldatu nahi duzula? "
+"Erabiltzaileen izenak, guneko eskualde nagusian beharrezkoak direnak, falta "
+"direnean hizkuntza nagusitik kopiatuko dira."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -96,10 +108,10 @@ msgid "admin.languages.installLanguages"
 msgstr "Kudeatu localeak"
 
 msgid "admin.languages.availableLocales"
-msgstr ""
+msgstr "Erabilgarri dauden hizkuntzak"
 
 msgid "admin.languages.installLocale"
-msgstr ""
+msgstr "Instalatu hizkuntza"
 
 msgid "admin.languages.installLocales"
 msgstr "Instalatu"
@@ -123,121 +135,147 @@ msgid "admin.phpInfo"
 msgstr "PHP informazio xehea"
 
 msgid "admin.scheduledTask"
-msgstr ""
+msgstr "Programatutako zeregina"
 
 msgid "admin.scheduledTask.startTime"
-msgstr ""
+msgstr "Zereginaren prozesua hasi da."
 
 msgid "admin.scheduledTask.stopTime"
-msgstr ""
+msgstr "Zereginaren prozesua gelditu da."
 
 msgid "admin.scheduledTask.noLog"
-msgstr ""
+msgstr "Zereginak ez du erregistrorik sortu."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Gordailutu DOIak konfiguratutako erregistro-agentzian"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
+"Zure {$softwareName} instalazioa automatikoki exekutatu da eta amaitu du "
+"zeregin hau, eta erregistro-fitxategia hemen deskarga dezakezu: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Bidali mezu elektroniko bat editore bakoitzari bere zeregin nabarmenak "
+"gogoraraziz"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Editoreak identifikatzea testuinguruan gogorarazteko {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"{$count} lan bidali dira {$userIds} erabiltzaileei {$contextId} "
+"testuinguruan mezu elektroniko bidezko gogorarazleak bidaltzeko"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
+"Ziur zaude programatutako zereginen exekuzio-erregistro guztiak ezabatu nahi "
+"dituzula?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr ""
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Ezabatu exekutatu diren zeregin programatuen erregistro (log) guztiak."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Ezabatu zereginen erregistroak"
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr ""
+msgstr "Argitaratu argitaratzeko programatutako bidalketak"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr ""
+msgstr "Berrikuspenaren gogorarazlea"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Argitalpen-txostenaren jakinarazpena"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr ""
+msgstr "Harpidetza iraungitze abisua"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Ezabatu iraungitako erabiltzaile baliozkotu gabeak"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Ezabatu huts egindako lan zaharragoak huts egindako lanen zerrendatik."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Prozesatu zain dauden ilarako lanak"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Eguneratu DB-IP city lite datu-basea"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"DB-IP city lite datu-basearen {$sourceFilename} fitxategia {$targetFilename} "
+"izenarekin berrizendatzeak huts egin du."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "Erabilera-estatistiken fitxategia kargatzeko zeregina"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"{$directory} direktorioa ez dago hutsik. Horrek aldez aurretik huts egindako "
+"prozesu bat adieraz lezake, edo aldi berean exekutatzen ari den prozesu bat. "
+"Fitxategi hau automatikoki berriro prozesatuko da."
 
 msgid "admin.job.processLogFile.openFileFailed"
-msgstr ""
+msgstr "Ezin izan da {$file} fitxategia ireki eta baztertu egin da."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"{$file} fitxategia prozesatu ezin den erregistro-fitxategi formatu zaharrean "
+"dago eta, beraz, prestaketa direktoriora ('stage directory') eramango da "
+"berriro."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"{$file} erregistro-fitxategia saltatu da, hilabete horretako estatistikak "
+"dagoeneko kalkulatu direlako. Aurreko hilabete bateko estatistikak "
+"birkalkulatzeko, hilabete horretako erregistro-fitxategi guztiak leheneratu "
+"behar dituzu, eta CLI tresna erabili estatistikak birprozesatzeko."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"{$file} erregistro-fitxategiko {$lineNumber} lerroa formatu okerrean dago "
+"eta, beraz, saltatu egingo da."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Erregistro-sarrera baliogabea {$file} erregistro-fitxategiko {$lineNumber} "
+"lerroan: {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "Ordua ez da baliozko data."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Testuinguruaren IDa ez da zenbaki osoa."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Bidalketaren IDa ez da zenbaki osoa."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Irudikapenaren IDa (Representation ID) ez da zenbaki osoa."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assoc mota (Assoc type) ez da onartzen."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Fitxategi-mota ez da onartzen."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "Herrialdea ez da bi karaktere alfabetiko dituen katea."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "Eskualdea ez da gehienez hiru karaktere alfanumeriko dituen kate luzea."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Erakundeen IDak ez dira array bat."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Errore bat gertatu da {$file} erregistro-fitxategia prozesatzean, "
+"{$lineNumber} lerroan: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -267,28 +305,28 @@ msgid "admin.settings.about"
 msgstr "Guneari buruz"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "Mezu elektroniko masiboak"
 
 msgid "admin.settings.contactEmail"
-msgstr "Kontaktu nagusiaren helb. el."
+msgstr "Kontaktu nagusiaren helbide elektronikoa"
 
 msgid "admin.settings.contactName"
 msgstr "Kontaktu nagusiaren izena"
 
 msgid "admin.settings.introduction"
-msgstr "Aurkezpenaa"
+msgstr "Sarrera"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Pasahitzaren gutxieneko luzera"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "Mugatu mezu elektroniko masiboak"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Desgaitu rolak"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Administratzaile batek bakarrik alda dezake ezarpen hori."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Gunearen hizkuntza"
@@ -302,7 +340,7 @@ msgid "admin.settings.siteStyleSheet"
 msgstr "Gunearen estilo-orria"
 
 msgid "admin.settings.siteLogo"
-msgstr ""
+msgstr "Gunearen logoa"
 
 msgid "admin.settings.siteTitle"
 msgstr "Gunearen titulua"
@@ -332,9 +370,11 @@ msgstr "Sistema-informazioa"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Ikusi aplikazioaren eta zerbitzariaren bertsioaren eta konfigurazio-"
+"ezarpenei buruzko informazioa."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Ikusi sistema-informazioa"
 
 msgid "admin.versionBuild"
 msgstr "Konpilazio-bertsioa"
@@ -377,399 +417,510 @@ msgstr "Bertsioa"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr ""
+"{$path} oinarrizko helbideak fitxategi publikoen direktorioaren barruan egon "
+"behar du."
 
 msgid "admin.fileLoader.pathNotAccessible"
-msgstr ""
+msgstr "{$path} karpeta ez da direktorio bat edo ezin da irakurri."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
+"Ezin izan da {$filename} fitxategia {$currentFilePath}(e)tik "
+"{$destinationPath}(e)ra mugitu"
 
 msgid "admin.fileLoader.fileProcessed"
-msgstr ""
+msgstr "{$filename} fitxategia prozesatu eta artxibatu da."
 
 msgid "admin.fileLoader.emailSubject"
-msgstr ""
+msgstr "Fitxategi-kargatzailea"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} gz-file "
+"iturburua gzopen-ekin ireki."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} helburu-"
+"fitxategia fopen-ekin ireki."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$file} gz-file "
+"iturburua gzread-ekin irakurri."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} helburu-"
+"fitxategia fwrite-rekin idatzi."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} irekitako "
+"helburu-fitxategia fclose-rekin itxi."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} irekitako gz-"
+"file iturburua gzclose-rekin itxi."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} "
+"deskonprimitutako gz-file iturburua unlink-ekin ezabatu."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} gz-file "
+"helburu-fitxategia gzopen-ekin ireki."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} iturburu-"
+"fitxategia fopen-ekin ireki."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} iturburu-"
+"fitxategia fread-ekin irakurri."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} gz-file helburu-"
+"fitxategia gzwrite-rekin idatzi."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} irekitako "
+"iturburu-fitxategia fclose-rekin itxi."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} irekitako gz-"
+"file helburu-fitxategia gzclose-rekin itxi."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} konprimitutako "
+"iturburu-fitxategia unlink-ekin ezabatu."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr ""
+msgstr "Ez dago deskargatzeko itzulpenik eskuragarri."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Erabilera:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "komandoa [parametroak]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "`{$namespace}` izen-eremurako eskuragarri dauden komandoak:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Ezin dira ilara-lanak exekutatu, aplikazioaren mantentze-lanen modua gaituta "
+"dagoelako."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Zerrendatu ilaran dauden lan guztiak. Emaitzak orrikatu nahi badituzu, "
+"erabili --page= eta --perPage= parametroak. Erabili --failed parametroa huts "
+"egindako lanak zerrendatzeko."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Garbitu ilaran dagoen lan espezifiko bat bere Id-an oinarrituta. Guztiak "
+"garbitu nahi badituzu, pasatu --all parametroa. Ilara espezifiko bateko dena "
+"garbitu nahi baduzu, pasa --queue= parametroa"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Gehitu probarako lan bat proba-ilaran. Erabili --only= aukerako parametroa "
+"eta zehaztu 'failed' edo 'success' huts egin duten edo arrakasta izan duten "
+"lanak bidaltzeko."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Exekutatu daemon langile prozesu infinitu bat, lanak prozesatzen jarraituko "
+"duena. Erabili --help parametroa komando honekin erlazionatutako aukerak "
+"ikusteko."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Zerrendatu huts egin duten lan guztiak. Ezarri --queue=QUEUE_NAME eta --"
+"connection=CONNECTION_NAME parametroak zerrenda iragazteko. Era berean, pasa "
+"--redispatch eta --clear parametroak berriz ere ilaran jartzeko edo huts "
+"egin duten lan guztiak/batzuk garbitzeko."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Bidali eskuragarri dauden lanak ilarara. Lan bat ilara jakin batera "
+"bidaltzeko, pasa --queue=QUEUE_NAME parametroa. Erabili --test probako lan "
+"bat exekutatzeko eta --once lan bakar baten ondoren gelditzeko."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "{$jobCount} lan exekutatu dira, {$queueName} izeneko ilaran."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Ez dago exekutatzeko lanik eskuragarri {$queueName} izeneko ilaran."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Bistaratu ilaran dauden lan guztiak. Pasa --failed parametroa huts egindako "
+"lan guztiak ikusteko."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Erakutsi Jobs komandoaren erabilera"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Bistaratu lanen (Jobs) erabilera-parametroak"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Aukera ezin da hutsik egon! Egiaztatu erabilera-metodoa."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Ilaran dauden huts egindako lanak"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Ilaran dauden lanak"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Ilara"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Konexioa"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Lanaren bistaratzeko izena"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Saiakerak"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Norentzat erreserbatua"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Eskuragarri hemen"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Noiz sortua"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Noiz huts egin"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Salbuespen mezua"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Orrikatzea"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Unekoa"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Aurrekoa"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Komando hau erabiltzeko, gutxienez, lanaren IDa, '--all' edo '--queue=' pasa "
+"beharko zenuke"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Probako lana bidali da eta huts egingo duela aurreikusten da {$queueName} "
+"izeneko ilaran"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"{$queueName} izeneko ilaran arrakasta izateko konpromisoa duen probako lana "
+"bidali da"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Probako lan-aukera baliogabea. '--only=' aukerak 'failed' edo 'success' "
+"bakarrik onar dezake."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Lanaren ID baliogabea"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Lana ezabatu da!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Ez da ezabatzeko lanik aurkitu."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Ezinezkoa izan da lan guztiak ezabatzea."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Lan guztiak ezabatuta!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} huts egindako lan behar bezala ezabatu dira huts egindakoen "
+"zerrendatik."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} lan berriro ilarara bidali dira."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Huts egindako {$total} lan ditugu"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Ilaran {$total} lan ditugu"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "{$option} aukera ez da existitzen."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Honako hauetakoren bat esan nahi zenuen?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Guztira <strong>{$total}</strong> lan daude ilaran"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Guztira <strong>{$total}</strong> huts egindako lan daude."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Ikusi ilaran dauden lanak"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Lanak"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Huts egindako lanak"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Huts egindako lanaren xehetasunak"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Ikusi sisteman ilaran dauden lan guztiak eta jarraitu huts egindako "
+"saiakerak."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Ikusi lanak"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Ikusi huts egindako lanak"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Ikusi huts egindako lana: {$id} xehetasunak"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atributua"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Atributuaren balioa"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Lana"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Ilara"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Konexioa"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Saiakerak"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Noiz sortua"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Noiz huts egin"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Karga erabilgarria"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Salbuespena"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Ekintzak"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "{$failedAt}-an huts egin"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "{$createdAt}-an sortua"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Saiatu berriz"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Berriro ilaran jarri huts egindako lan guztiak"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"{$file} fitxategitik erabilera-estatistikak kargatzen dituen lanak huts egin "
+"du, eta fitxategia ezin izan da {$archivedFilePath}(e)tik {$stagingPath}(e)"
+"ra mugitu."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"{$file} fitxategitik erabilera-estatistikak kargatzen dituen lanak huts egin "
+"du. Fitxategia stage direktoriora mugitu da."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Datu-bilketa"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Konfiguratu zer-nolako erabilera-estatistikak bildu behar diren."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Datuen biltegiratzea"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Konfiguratu zer erabilera-estatistika gorde behar diren zerbitzarian."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushi protokoloa"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Konfiguratu <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> protokoloa, erabilera-estatistikak banatzeko industrian "
+"aitortutako formatua."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Hileko edo eguneko estatistikak"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Eguneko edo hileko erabilera-estatistiken jarraipena egin edo ez. Eguneko "
+"estatistiken jarraipenak zure datu-basearen tamaina nabarmen handitu dezake."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Jarrai itzazu eguneko eta hileko estatistikak"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Jarraitu soilik hilekok estatistikak"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Konprimitu erregistroak (logs)"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Estatistikak sarbide-erregistroen fitxategietatik sortzen dira, eta "
+"prozesatu ondoren <code>{$path}</code>(e)ra eramaten dira. Erregistro-"
+"fitxategiak <code>.gz</code> fitxategietan konprimitu behar al dira "
+"prozesatu ondoren? Erregistro-fitxategiak konprimituz gero, zerbitzarian "
+"disko-espazioa aurreztu daiteke."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Utzi erregistro-fitxategiak bere lekuan"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Konprimitu erregistro-fitxategiak (logs)"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Mugatu COUNTER SUSHI estatistiken APIrako sarbidea kudeatzaileei eta "
+"administratzaileei"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"COUNTER SUSHI protokoloaren arabera, estatistika-txosten orok estatistikak "
+"ematen dituen \"plataforma\" identifikatu behar du. Lehenespenez, aldizkaria "
+"izendatuko da estatistika guztien plataforma gisa. Hala ere, gune honetako "
+"aldizkari guztiak hornitzaile beraren jabetzakoak edo ustiapenekoak badira, "
+"agian gunea plataforma gisa izendatu nahi izango duzu."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Plataformaren IDa"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Nola identifikatu plataforma hau COUNTER SUSHI txostenetan. Plataformaren "
+"IDak 17 karaktere edo gutxiago izan behar ditu, eta letrak (a–z, A–Z), "
+"digituak (0–9), azpimarrak (_), puntuak (.) eta barrak (/) izan ditzake. "
+"Plataformaren IDa hainbat zutabetan erabiltzen da, eta ahalik eta laburrena "
+"izan behar du, ezagutzeko moduan dagoen bitartean. Plataformaren IDa "
+"normalean argitaratzaile edo plataforma baten izenean, domeinu-izen batean "
+"edo laburdura ezagun eta bakar batean oinarritzen da."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Plataformaren ID bat beharrezkoa da gunea SUSHI plataforma gisa "
+"identifikatzen denean."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "lanen komandoen aukerak"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "erabilera: [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Lanaren komandoarentzat erabilgarri dauden aukerak"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Lan egiteko ilararen konexioaren izena[lehenetsia : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Lan egiteko ilararen izena[lehenetsia : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Langilearen (worker) izena[lehenetsia : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Harrapatu gabeko salbuespen bat aurkitu duen lan bat berriro saiatu aurretik "
+"itxaron beharreko segundo kopurua [lehenetsia : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Memoriaren muga megabytetan[lehenetsia : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Azpiprozesu bat exekutatu daitekeen segundo kopurua[lehenetsia : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Lanik eskuragarri ez dagoenean lo egiteko segundo kopurua[lehenetsia: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Lan bat huts eginda bezala erregistratu aurretik egin beharreko saiakera-"
+"kopurua [lehenetsia: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Behartu langilea exekutatzera mantentze-moduan egonik ere [lehenetsia : "
+"{$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Gelditu ilara hutsik dagoenean[lehenetsia: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Gelditu aurretik prozesatu beharreko lan-kopurua[lehenetsia: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Langilea gehienez exekutatu behar den segundo kopurua[lehenetsia: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Lanen artean atseden hartzeko segundo kopurua[lehenetsia: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Exekutatu deabrua langilea proben ilararentzat"
 
 #~ msgid "admin.serverInformationDescription"
 #~ msgstr ""
@@ -779,3 +930,156 @@ msgstr ""
 
 #~ msgid "admin.settings.passwordCharacters"
 #~ msgstr "karaktere"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Desgaitu ebaluatzailearen estatistika multzokatuak"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Ebaluatzailearen estatistikak"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Testuinguru anitzeko instalazio batean, ebaluatzaileen estatistikak, hala "
+"nola bidalitako berrikuspenen kopurua, testuinguru bakoitzerako banan-banan "
+"edo taldean multzokatuta bistara daitezke."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Eguneratu ROR erregistroko datu-multzoen katxea"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "{$filename} fitxategia bidalketa-karpetara mugitu da."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Ezin dira ilara-lanak exekutatu, aplikazioaren sandbox modua gaituta "
+"dagoelako."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Berrabiarazi 'daemos' langileen ilara uneko zereginaren ondoren."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr "Langileek adeitasunez utziko dute lana uneko zeregina amaitu ondoren."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Ezin izan da eraman {$file} fitxategia {$dispatchFilePath}(e)tik "
+"{$archFilePath}(e)ra."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "{$file} fitxategia ez da existitzen."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Bidali lan bat iraungitako gonbidapenak automatikoki ezabatzeko"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Erabili gune hau aldizkari guztien plataforma gisa."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Bistaratu AppKey-ren erabilera-parametroak"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Baliozkotu uneko aplikazioaren gakoa, konfigurazio-fitxategian baten bat "
+"aurkitzen bada"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Gehitu app_key konfigurazio aldagaia config.inc.php fitxategian."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Sortu aplikazio-gako berri bat eta ordeztu konfigurazio-fitxategian. Pasa --"
+"show parametroa soilik ikusteko eta --force lehendik dagoen baliozko "
+"aplikazio-gako bat gainidazteko."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Honako hauetakoren bat esan nahi zenuen?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Sortutako aplikazio-gakoa: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Ez da `app_key` izeneko gako-aldagairik definitu konfigurazio-fitxategiko "
+"`general` atalean. Mesedez, eguneratu konfigurazio-fitxategiaren atal "
+"orokorra eta gehitu `app_key = ` lerroa edo exekutatu `php lib/pkp/tools/"
+"appKey.php configure` komandoa hura ezartzeko."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Ez da aplikazioaren gakorik ezarri konfigurazio-fitxategian."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"`app_key` aldagaia existitzen da dagoeneko konfigurazio-fitxategiko `general`"
+" atalean. Exekutatu `php lib/pkp/tools/appKey.php generate` komandoa "
+"aplikazioaren gako berri bat ezartzeko."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Aplikazioren gako baliogabea, zifratze bateraezina edo gakoaren luzera "
+"okerra. Zifratze bateragarriak hauek dira: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Baliozko APP gako bat dagoeneko konfigurazio-fitxategian ezarrita dago. "
+"Gainidazteko, pasa --force parametroa komandoarekin batera."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Aplikazioaren gakoa behar bezala ezarri da konfigurazio-fitxategian."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Konfigurazio-fitxategian ezarritako aplikazioaren gako baliozkoa"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Exekutatu zereginen programatzailea."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Zerrendatu programatutako zeregin guztiak."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Abiarazi programatutako langilea."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Bistaratu zeregin-programatzailearen erabilera-parametroak."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Ezin dira programatutako lanak exekutatu, aplikazioaren mantentze-lanen "
+"modua gaituta dagoelako."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Honako hauetakoren bat esan nahi zenuen?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Ezin dira programatutako lanak exekutatu, aplikazioaren sandbox modua "
+"gaituta dagoelako."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Minuturo programatutako zereginak exekutatzen."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Ez da programatutako zereginik erregistratu."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Ez da aurkitu bat datorren programatutako zereginik."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Zein komando exekutatu nahiko zenuke?"
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Aplikazioaren gakoa aldagaia behar bezala ezarri da konfigurazio-"
+"fitxategian. Exekutatu `php lib/pkp/tools/appKey.php generate` komandoa "
+"aplikazioaren gako berri bat ezartzeko."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Ezin da `app_key` aldagaia konfigurazio-fitxategian ezarri. Mesedez, "
+"eguneratu konfigurazio-fitxategiaren atal orokorra eta gehitu `app_key = ` "
+"lerroa."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Exekutatu zerrendatik programatutako zeregin jakin bat edo erabili --name "
+"zeregin zehatz bat exekutatzeko. Ezarri --no-scroll parametroa zerrenda osoa "
+"ikusteko scrollik gabe."

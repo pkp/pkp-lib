@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionAuthorPolicy.php
  *
@@ -49,7 +50,7 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Get the user
         $user = $this->_request->getUser();
@@ -86,8 +87,4 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
 
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionAuthorPolicy', '\SubmissionAuthorPolicy');
 }

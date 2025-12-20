@@ -1,11 +1,12 @@
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
+# Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:25+00:00\n"
-"PO-Revision-Date: 2023-04-17 11:10+0000\n"
-"Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
+"PO-Revision-Date: 2025-01-17 19:07+0000\n"
+"Last-Translator: Kamil Janeda <kamil.janeda@ue.wroc.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/pl/"
 ">\n"
 "Language: pl\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nazwa"
@@ -940,3 +941,28 @@ msgstr "Uruchom demona procesu roboczego dla kolejki testowej"
 
 #~ msgid "admin.settings.homeHeaderImageInvalid"
 #~ msgstr "Niepoprawny format pliku. Akceptowane formaty to GIF, JPG, lub PNG."
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statystyki recenzentów"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"W instalacjach z wieloma czasopismami, statystyki recenzentów, takie jak "
+"liczba przesłanych recenzji, mogą być wyświetlone osobno dla każdego "
+"czasopisma lub łącznie dla wszystkich."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Wyłącz łączone statystyki recenzentów"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Użyj witryny jako platformy dla wszystkich czasopism."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Uruchom demony kolejki ponownie po skończeniu zadań."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Nie można uruchomić zadań w kolejce, ponieważ tryb piaskownicy jest włączony."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Plik {$file} nie istnieje."

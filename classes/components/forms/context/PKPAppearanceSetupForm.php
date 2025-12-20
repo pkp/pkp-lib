@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/context/PKPAppearanceSetupForm.php
  *
@@ -43,32 +44,17 @@ class PKPAppearanceSetupForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
         $sidebarOptions = [];
-        $enabledOptions = [];
-        $disabledOptions = [];
 
         $currentBlocks = (array) $context->getData('sidebar');
 
         $plugins = PluginRegistry::loadCategory('blocks', true);
 
-        foreach ($currentBlocks as $plugin) {
-            if (isset($plugins[$plugin])) {
-                $enabledOptions[] = [
-                    'value' => $plugin,
-                    'label' => htmlspecialchars($plugins[$plugin]->getDisplayName()),
-                ];
-            }
-        }
-
         foreach ($plugins as $pluginName => $plugin) {
-            if (!in_array($pluginName, $currentBlocks)) {
-                $disabledOptions[] = [
-                    'value' => $pluginName,
-                    'label' => htmlspecialchars($plugin->getDisplayName()),
-                ];
-            }
+            $sidebarOptions[] = [
+                'value' => $pluginName,
+                'label' => htmlspecialchars($plugin->getDisplayName()),
+            ];
         }
-
-        $sidebarOptions = array_merge($enabledOptions, $disabledOptions);
 
         $this->addField(new FieldUploadImage('pageHeaderLogoImage', [
             'label' => __('manager.setup.logo'),
@@ -95,7 +81,7 @@ class PKPAppearanceSetupForm extends FormComponent
                 'isMultilingual' => true,
                 'value' => $context->getData('pageFooter'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,lists,image,code',
+                'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
             ]))
             ->addField(new FieldOptions('sidebar', [

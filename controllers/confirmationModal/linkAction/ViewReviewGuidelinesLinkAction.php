@@ -46,7 +46,7 @@ class ViewReviewGuidelinesLinkAction extends LinkAction
         $viewGuidelinesModal = new ConfirmationModal(
             $this->getGuidelines(),
             __('reviewer.submission.guidelines'),
-            null,
+            'primary',
             null,
             false
         );

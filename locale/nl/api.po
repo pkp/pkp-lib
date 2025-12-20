@@ -1,0 +1,463 @@
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "U moet het onderwerp en tekstbericht aan de e-mail toevoegen."
+
+msgid "api.404.resourceNotFound"
+msgstr "De verzochte bron werd niet gevonden."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"De API-token kan niet worden gebruikt om toegang te verkrijgen tot deze "
+"website, omdat de beheerder geen geheime sleutel heeft geconfigureerd."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Ongepubliceerde items kunnen niet worden geëxporteerd/opgeslagen. U wordt "
+"vriendelijk verzocht om de ongepubliceerde items uit de selectie te "
+"verwijderen en het opnieuw te proberen."
+
+msgid "api.404.endpointNotFound"
+msgstr "De verzochte URL werd niet herkend."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Er was een foutmelding bij het uploaden van deze afbeelding."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Ongeschikt om dit API verzoek te verwerken."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Ongeschikt om enig verwachte reactie te ontvangen."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Ongeldig auteursvriendelijke parameter."
+
+msgid "api.400.routeNotDefined"
+msgstr "Er was niet voorzien in een API-route."
+
+msgid "api.400.paramNotSupported"
+msgstr "De {$param} wordt niet ondersteund."
+
+msgid "api.400.propReadOnly"
+msgstr "De {$prop}-eigendom kan niet worden gewijzigd."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"De API-token kan niet worden gevalideerd. Dit kan duiden op een foutmelding "
+"in de API-token of betekenen dat de API-token niet langer geldig is."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
+"De API-token kan niet worden gedecodeerd vanwege de volgende foutmelding: "
+"{$error}"
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Het is niet mogelijk om de gecreëerde tijd te wijzigen."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Een DOI -voorvoegsel wordt vereist voor het genereren van DOI's."
+
+msgid "api.403.unauthorized"
+msgstr ""
+"U bent niet geautoriseerd om toegang tot de verzochte bron te verkrijgen."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "De aankondiging waar u om verzocht werd niet gevonden."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Het instituut waar u om verzocht werd niet gevonden."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+"De volgende taal- of regio-instellingen worden niet ondersteund: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "U kunt geen DOI-items bewerken, die niet in deze omgeving voorkomen."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Een DOI kan niet aan dit item worden toegewezen."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Het publicatietype werd niet herkend."
+
+#, fuzzy
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Deze eindpuntapparatuur/URL/adres is niet beschikbaar vanaf de website-"
+"omvattende naamruimte, dit moet worden verzocht met betrekking tot een "
+"bestaande omgeving."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "De DOI waar u om verzocht werd niet gevonden."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Het gepubliceerde onderwerp waar u om verzocht werd niet gevonden."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "De inzending waar u om verzocht werd niet gevonden."
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+"Er deed zich een foutmelding voor en het DOI-object kan niet worden "
+"aangemaakt."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Er deed zich een foutmelding voor bij de XML-validering en de XML kan niet "
+"worden geëxporteerd."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Er deed zich een foutmelding voor en een aantal ingezonden items zijn niet "
+"gespecificeerd geregistreerd."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Een aantal items werd niet succesvol opgeslagen. U wordt vriendelijk "
+"verzocht de afzonderlijke items voor de specifieke foutmeldingen te "
+"controleren."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Bij het verzoek waren geen geldige publicatie-onderwerpen gevoegd."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Bij het verzoek waren een of meer ongeldige publicatie-onderwerpen gevoegd."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"U bent niet bevoegd een e-mail te versturen aan gebruikers in een of meer "
+"van de geselecteeerde rollen."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"U gaf een ongeldige \"eventType\",{$eventType} e-mailberichten voor auteurs."
+
+msgid "api.files.400.config"
+msgstr ""
+"Het bestand kan niet worden geüpload wegens een configuratiefoutmelding van "
+"de server. U wordt vriendelijk gevraagd contact op te nemen met de "
+"systeembeheerder."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "De verzochte auteur werd niet gevonden"
+
+#, fuzzy
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Dit eindapparaat is niet beschikbaar vanaf de website-omvattende naamruimte "
+"en moet worden verzocht voor een bekende omgeving."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "De publicatie die u wilt verspreiden is reeds gepubliceerd."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "De publicatie die u wilt depubliceren is niet gepubliceerd."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "U kunt deze publicatie niet bewerken omdat deze al is verspreid."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"U kunt de status niet direct via de API wijzigen. In de plaats hiervan, "
+"volgt u het (de)publicatieproces."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "U moet eerst de publicatie depubliceren, voordat u het verwijdert."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"De lopende geconfigureerde softwarecomponent moet een registratiekantoor "
+"zijn."
+
+msgid "api.emails.400.missingBody"
+msgstr "U moet een te versturen e-mail insluiten."
+
+msgid "api.emails.400.missingSubject"
+msgstr "U moet een onderwerp voor de e-mail toevoegen."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"U moet de gebruikersrollen aangeven die deze e-mail behoren te ontvangen."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Dit is niet de goede standaardmail voor een bekende e-mail."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Dit is geen geldige omgeving."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "De standaard e-mail, waar u om verzocht werd niet gevonden."
+
+msgid "api.files.400.noUpload"
+msgstr "Bij het verzoek kon geen te uploaden bestand worden gevonden."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Een of meer bestanden konden niet worden geüpload."
+
+msgid "api.files.400.fileSize"
+msgstr "Bestanden groter dan {$maxSize} kunnen niet worden geüpload."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"De markeringsopdracht kan niet worden bewaard, omdat geen opdrachtinformatie "
+"werd gevonden."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"De markeringsopdracht kon niet worden bewaard, omdat een of meer van de "
+"markeringen niet konden worden gevonden."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "De markering waar u om verzocht werd niet gevonden."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"U kunt deze verrichtingen niet uitvoeren met een uitgeschakelde ORCID-"
+"functionaliteit."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"U kunt geen wijzigingen aanbrengen bij auteurs, van wie de inzendingen niet "
+"aan u zijn toegekend."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Uw verzoek was niet geldig. De ordermap moet 'desc' of 'asc' zijn."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een ander "
+"inzendingsbestand."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een "
+"recensietoewijzing."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Het bestand dat u aanleverde is niet geldig in deze fase."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Uw verzoek was niet geldig. De tijdlijninterval moet 'dag' of 'maand' zijn."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Er konden geen wijzigingen worden gevonden bij het verzoek om dit bestand te "
+"bewerken."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"U moet een beoordelingsronde aanleveren wanneer u een bestand naar dit "
+"moment in het dossier wilt verplaatsen."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+"U bent niet gemachtigd om deze bestanden toe te voegen en deze te bewerken."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "U verzoek kan niet worden vervuld omdat vereiste informatie ontbreekt."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "U kunt enkel de volgende bestandtypes laden: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "De afbeelding die u uploadde is niet geldig."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Het bestand dat u uploadde paste niet met de bestandsextensie. Dat kan "
+"gebeuren wanneer een bestand is hernoemd naar een onverenigbaar type, "
+"bijvoorbeeld wijziging 'foto.png' naar 'foto.jpg'."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "U bent niet gemachtigd om bestanden te laden."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"U hebt onvoldoende ruimte in uw gebruikersmap. Het bestand dat u aan het "
+"laden bent is {$fileUploadSize}kb en u hebt nog ruimte voor {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"De voor ieder toegankelijke bestandsmappen werd niet gevonden, dan wel "
+"bestanden kunnen hier niet worden bewaard. U wordt vriendelijk verzocht om "
+"uw beheerder te benaderen om dit issue te verhelpen."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "De datum moet in de volgende vorm: JJJJ-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "De begindatum kan niet later dan de einddatum zijn."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "De begindatum kan niet vroeger dan 2001-01-01 zijn."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "De einddatum kan niet later dan gisteren zijn."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Uw verzoek was niet geldig. De tijdlijninterval moet 'dag' of 'maand' zijn."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"U kunt niet de bestandskoppeling niet aanpassen zonder langs assocType en "
+"associd te gaan."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een "
+"discussiememo."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een "
+"recensieronde."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"U moet een beoordelingsronde vastleggen, wanneer u tijdens deze fase om "
+"bestanden verzoekt."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "U moet tijdens deze fse een bestand aanleveren."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"De beoordelingsronde die u aanleverde maakt geen deel uit van deze inzending."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "U bent niet gemachtigd om toegang tot deze bestanden verkrijgen."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+"U bent niet gemachtigd om in deze beoordelingsronde toegang te verkrijgen "
+"tot bestanden."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "De verzochte aflevering, nummer of jaar is niet geldig."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "U bent niet gemachtigd in te dienen in deze gebruikersrol."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Uw verzoek werd afgewezen. Dit kan vanwege het verlopen van uw "
+"logingegevens. Probeert u de pagina opnieuw te laden en nogmaals in te "
+"loggen."
+
+#, fuzzy
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Dit eindapparaat is niet beschikbaar vanaf de omgeving. Dit moet via de "
+"websitebrede naamruimte worden bereikt."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+"De foutieve verwerking waardoor de essentiële inhoud opnieuw moet worden "
+"aangemaakt."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+"De foutieve verwerking werd niet teruggevonden in de desbetreffende lijst."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"U kunt een inzending niet vernietigen die niet in deze omgeving is "
+"toegewezen."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"U kunt enkel ongepubliceerde inzendingen inzien, die aan u zijn toegewezen."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"U kunt niet de taal van deze inzending wisselen, omdat er reeds meer dan één "
+"publicatie(versie) bestaat."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "U hebt geen toestemming deze inzending te vernietigen."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "U bent niet gemachtigd deze publicatie te bewerken."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Dit actieve thema {$themePluginPath} is niet ingeschakeld en kan niet worden "
+"geïnstalleerd."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "De {$locale}-locatie wordt niet ondersteund."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "De e-mail waar u om verzocht werd niet gevonden."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Er werden geen foutieve verwerkingen gevonden in de lijst."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Niet in staat om een foutieve verwerking opnieuw te verwerken."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "De eerdere foutieve verwerking is nu succesvol verwerkt."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Alle opnieuw verwerkte foutieve verwerkingen met geldige essentiële "
+"informatie, zijn succesvol in de wachtrij geplaatst."
+
+msgid "api.409.resourceActionConflict"
+msgstr ""
+"Niet in staat de voorgenomen handeling te voltooien met de inzetbare "
+"middelen."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
+"De foutieve verwerking is succesvol verwijderd van de betreffende lijst."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+"Niet in staat om een foutieve verwerking van de betreffende lijst te "
+"verwijderen."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "De inzending voor deze recensietoewijzing kan niet worden gevonden."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "De recensent voor deze toewijzing kan niet worden gevonden"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Enkel 'aanvaarding' en 'afwijzing' zijn geldige waarden"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "De aangeleverde sectie bestaat niet."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Bij het verzoek ontbreekt de vereiste zoekparameter 'ids'. U wordt "
+"vriendelijk verzocht de 'ids' van de inzending die u wilt verwijderen aan te "
+"leveren."
+
+msgid "api.submission.400.invalidId"
+msgstr "Ongeldig ID: {$id}\" beschikbaar gesteld."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Het publicatie-identiersformulier is niet beschikbaaar omdat er geen "
+"beschikbare authenticatiemiddelen zijn."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "De ror waar u om verzocht werd niet gevonden."

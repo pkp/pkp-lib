@@ -8,8 +8,8 @@
 /**
  * @file classes/identity/Identity.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Identity
@@ -22,6 +22,7 @@
 namespace PKP\identity;
 
 use APP\core\Application;
+use Illuminate\Support\Str;
 use PKP\facades\Locale;
 use PKP\orcid\traits\HasOrcid;
 
@@ -201,53 +202,35 @@ class Identity extends \PKP\core\DataObject
         $this->setData('preferredPublicName', $preferredPublicName, $locale);
     }
 
+
     /**
-     * Get affiliation (position, institution, etc.).
-     *
-     * @param string $locale
-     *
-     * @return string|array
+     * Set preferred avatar initials.
      */
-    public function getAffiliation($locale)
+    public function setPreferredAvatarInitials(string $preferredAvatarInitials, ?string $locale): void
     {
-        return $this->getData('affiliation', $locale);
+        $this->setData('preferredAvatarInitials', $preferredAvatarInitials, $locale);
     }
 
     /**
-     * Set affiliation.
-     *
-     * @param string $affiliation
-     * @param string $locale
+     * Get preferred avatar initials.
      */
-    public function setAffiliation($affiliation, $locale)
+    public function getPreferredAvatarInitials(?string $locale): ?string
     {
-        $this->setData('affiliation', $affiliation, $locale);
-    }
-
-    /**
-     * Get the localized affiliation
-     */
-    public function getLocalizedAffiliation()
-    {
-        return $this->getLocalizedData('affiliation');
+        return $this->getData('preferredAvatarInitials', $locale);
     }
 
     /**
      * Get email address.
-     *
-     * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->getData('email');
     }
 
     /**
      * Set email address.
-     *
-     * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail(?string $email): void
     {
         $this->setData('email', $email);
     }
@@ -260,6 +243,19 @@ class Identity extends \PKP\core\DataObject
     public function getOrcid()
     {
         return $this->getData('orcid');
+    }
+
+    /**
+     * Return the string that should be displayed when showing a user's ORCiD
+     *
+     */
+    public function getOrcidDisplayValue(): ?string
+    {
+        if (!$this->getOrcid()) {
+            return null;
+        }
+
+        return $this->hasVerifiedOrcid() ? $this->getOrcid() : $this->getOrcid() . ' ' . __('orcid.unauthenticated');
     }
 
     /**
@@ -359,11 +355,29 @@ class Identity extends \PKP\core\DataObject
     {
         $this->setData('biography', $biography, $locale);
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\identity\Identity', '\Identity');
-    foreach (['IDENTITY_SETTING_GIVENNAME', 'IDENTITY_SETTING_FAMILYNAME'] as $constantName) {
-        define($constantName, constant('\Identity::' . $constantName));
+    /***
+     * Get the initials that should be displayed when representing the user.
+     */
+    public function getDisplayInitials(): string
+    {
+        $initials = $this->getPreferredAvatarInitials(null);
+
+        if (!$initials) {
+            foreach ([$this->getLocalizedGivenName(), $this->getLocalizedFamilyName()] as $word) {
+                if (!$word) {
+                    continue;
+                }
+
+                // Get first character
+                $first = Str::substr($word, 0, 1);
+                $initials .= $first;
+            }
+
+            // If no names were found to generate initials from, fallback to using email address
+            !$initials = $initials ?: Str::substr($this->getEmail(), 0, 1);
+        }
+
+        return Str::upper($initials);
     }
 }

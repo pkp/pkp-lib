@@ -32,7 +32,6 @@ use APP\submission\DAO;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 
 /**
  * @extends \PKP\core\DataObject<DAO>
@@ -288,17 +287,5 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     public function getUIDisplayString()
     {
         return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getCurrentPublication()->getLocalizedTitle()]);
-    }
-}
-
-// Expose global constants unless operating in strict mode.
-if (!PKP_STRICT_MODE) {
-    foreach ([
-        'STATUS_QUEUED', 'STATUS_PUBLISHED', 'STATUS_DECLINED', 'STATUS_SCHEDULED',
-        'PERMISSIONS_FIELD_LICENSE_URL', 'PERMISSIONS_FIELD_COPYRIGHT_HOLDER', 'PERMISSIONS_FIELD_COPYRIGHT_YEAR'
-    ] as $constantName) {
-        if (!defined($constantName)) {
-            define($constantName, constant('\PKP\submission\PKPSubmission::' . $constantName));
-        }
     }
 }

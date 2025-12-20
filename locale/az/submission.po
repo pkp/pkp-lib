@@ -1622,7 +1622,7 @@ msgstr "URL-də kimlik yerinə istifadə ediləcək istəyə bağlı bir yol."
 msgid "publication.urlPath.numberInvalid"
 msgstr "URL yolu bir say ola bilməz."
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Xülasə çox uzundur. {$limit} kəlimə veya daha az olmalıdır. Hazırda {$count} "
 "kəlimə qədərdir."
@@ -1797,9 +1797,11 @@ msgstr "Düzəlişlər tələb edildi"
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Düzəlişlər göndərildi"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Məqalə başqa bir dəyərləndirmə turu üçün təkrar göndərilməlidir."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Məqalə başqa bir incələmə turu üçün təkrar göndərildi."
 
@@ -2101,7 +2103,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} adlı redaktor {$submissionId} nömrəli üçün {$round}. tur "
+"{$editorName} adlı redaktor {$submissionId} nömrəli üçün {$round}. tur "
 "incələməsi üçün bir dəyərləndirmə təsdiqləndi için bir değerlendirme "
 "doğruladı."
 
@@ -2260,6 +2262,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Yeni dəyərləndirmələr göndərilib və redaktor tərəfindən incələnir."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Bir və ya daha çox rəyçi dəyərləndirmə üçün verilən sonra tarixdə geridönüş "
@@ -2511,6 +2514,7 @@ msgstr "Hazırda nəzərdən keçirə biləcəyiniz bir fayl yoxdur."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Yeni dəyərləndirmə göndərildi."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Bütün dəyərləndirmələr gözləyir və bir qərar tələb olunur."
 

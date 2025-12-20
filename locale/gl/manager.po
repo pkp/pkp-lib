@@ -1113,8 +1113,8 @@ msgstr "Formatos de data e hora"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Escolla o formato preferido para datas e horas. Pódese introducir un formato "
-"personalizado empregando os <a href='http://php.net/manual/en/function."
-"strftime.php#refsect1-function.strftime-parameters'>caracteres especiais do "
+"personalizado empregando os <a href='http://php.net/manual/en/datetime."
+"format.php#refsect1-datetime.format-parameters'>caracteres especiais do "
 "formato</a>."
 
 msgid "manager.setup.dateTime.longDate"
@@ -1639,9 +1639,6 @@ msgstr "Moeda"
 
 msgid "settings.roles.roleOptions"
 msgstr "Opcións de rol"
-
-msgid "settings.roles.showTitles"
-msgstr "Mostrar o título do rol na lista de colaboradores"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Permitir o autorrexistro do usuario/a"

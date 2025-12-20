@@ -66,7 +66,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set url for this navigation menu item.
      */
-    public function setUrl(string $url): void
+    public function setUrl(?string $url): void
     {
         $this->setData('url', $url);
     }
@@ -74,7 +74,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get url for this navigation menu item.
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->getData('url');
     }
@@ -249,29 +249,5 @@ class NavigationMenuItem extends \PKP\core\DataObject
     public function setRemoteUrl(array|string $url, ?string $locale): void
     {
         $this->setData('remoteUrl', $url, $locale);
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\navigationMenu\NavigationMenuItem', '\NavigationMenuItem');
-    foreach ([
-        'NMI_TYPE_ABOUT',
-        'NMI_TYPE_SUBMISSIONS',
-        'NMI_TYPE_MASTHEAD',
-        'NMI_TYPE_CONTACT',
-        'NMI_TYPE_ANNOUNCEMENTS',
-        'NMI_TYPE_CUSTOM',
-        'NMI_TYPE_REMOTE_URL',
-        'NMI_TYPE_USER_LOGOUT',
-        'NMI_TYPE_USER_LOGOUT_AS',
-        'NMI_TYPE_USER_PROFILE',
-        'NMI_TYPE_ADMINISTRATION',
-        'NMI_TYPE_USER_DASHBOARD',
-        'NMI_TYPE_USER_REGISTER',
-        'NMI_TYPE_USER_LOGIN',
-        'NMI_TYPE_SEARCH',
-        'NMI_TYPE_PRIVACY',
-    ] as $constantName) {
-        define($constantName, constant('\NavigationMenuItem::' . $constantName));
     }
 }

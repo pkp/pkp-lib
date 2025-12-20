@@ -1,11 +1,11 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2024-04-23 04:49+0000\n"
+"PO-Revision-Date: 2025-03-11 15:16+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "ar/>\n"
@@ -188,3 +188,20 @@ msgstr ""
 "المعلومات المعروضة هنا عبر النقر على زر التحرير في أعلى كل مقطع.</p><p>بمجرد "
 "إكمالك لطلب تقديمك، سيتم تعيين عضو من فريقنا من المحررين لمراجعته. يرجى "
 "التأكد بأن المعلومات التي تعطيها هنا دقيقة قدر الإمكان.</p>"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "ع ه ت"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>عند تسليم طلب التقديم، يكون لديك خيار اقتراح عدد من المحكمين. هذا من شأنه "
+"المساعدة في تحسين انسيابية عملية التحكيم وتوفير معلومات قيمة إلى فريق هيئة "
+"التحرير. يرجى أن تختار المحكمين الذين يتمتعون بالخبرة في مجال إختصاصك من "
+"الذين ليس لديهم تضارب مصالح مع عملك. هذه الميزة تهدف إلى تحسين عملية التحكيم "
+"وتدعم تجويد الخبرات لدى كل من المؤلفين وفريق التحرير.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "عضو هيئة التحرير"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "أعضاء هيئة التحرير"

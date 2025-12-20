@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file api/v1/contexts/PKPContextController.php
  *
@@ -30,6 +31,7 @@ use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -81,7 +83,7 @@ class PKPContextController extends PKPBaseController
                 ->whereNumber('contextId');
 
             Route::get('{contextId}/theme', $this->getTheme(...))
-                ->name('context.getContext')
+                ->name('context.getTheme')
                 ->whereNumber('contextId');
 
             Route::put('{contextId}', $this->edit(...))
@@ -116,6 +118,7 @@ class PKPContextController extends PKPBaseController
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 

@@ -18,6 +18,7 @@ namespace PKP\jobs\orcid;
 
 use APP\author\Author;
 use APP\facades\Repo;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\jobs\BaseJob;
@@ -25,7 +26,7 @@ use PKP\mail\mailables\OrcidCollectAuthorId;
 use PKP\mail\mailables\OrcidRequestAuthorAuthorization;
 use PKP\orcid\OrcidManager;
 
-class SendAuthorMail extends BaseJob
+class SendAuthorMail extends BaseJob implements ShouldBeUnique
 {
     public function __construct(
         private Author $author,
@@ -44,6 +45,10 @@ class SendAuthorMail extends BaseJob
             throw new \Exception('Author ORCID emails should only be sent from a Context, never site-wide');
         }
 
+        if (!OrcidManager::isEnabled($this->context)) {
+            return;
+        }
+
         $contextId = $this->context->getId();
         $publicationId = $this->author->getData('publicationId');
         $publication = Repo::publication()->get($publicationId);
@@ -51,7 +56,11 @@ class SendAuthorMail extends BaseJob
 
         $emailToken = md5(microtime() . $this->author->getEmail());
         $this->author->setData('orcidEmailToken', $emailToken);
-        $oauthUrl = OrcidManager::buildOAuthUrl('verify', ['token' => $emailToken, 'state' => $publicationId]);
+        $oauthUrl = OrcidManager::buildOAuthUrl(
+            'verify',
+            ['token' => $emailToken, 'state' => $publicationId, 'author_id' => $this->author->getId()],
+            $this->context
+        );
 
         if (OrcidManager::isMemberApiEnabled($this->context)) {
             $mailable = new OrcidRequestAuthorAuthorization($this->context, $submission, $oauthUrl);
@@ -73,5 +82,10 @@ class SendAuthorMail extends BaseJob
         if ($this->updateAuthor) {
             Repo::author()->dao->update($this->author);
         }
+    }
+
+    public function uniqueId(): string
+    {
+        return $this->author->getId();
     }
 }

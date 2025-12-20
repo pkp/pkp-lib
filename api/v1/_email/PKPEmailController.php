@@ -106,7 +106,7 @@ class PKPEmailController extends PKPBaseController
                             ? explode(',', $val)
                             : [];
                     }
-                    $params[$param] = array_map('intval', $val);
+                    $params[$param] = array_map(intval(...), $val);
                     break;
                 case 'body':
                 case 'subject':

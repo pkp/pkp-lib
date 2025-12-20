@@ -95,24 +95,24 @@ class DecisionHandler extends Handler
 
         // Don't allow a decision unless the submission is at the correct stage
         if ($this->submission->getData('stageId') !== $this->decisionType->getStageId()) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         // Don't allow a decision in a review stage unless there is a valid review round
         if (in_array($this->decisionType->getStageId(), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
             if (!$reviewRoundId) {
-                $request->getDispatcher()->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $this->reviewRound = $reviewRoundDao->getById($reviewRoundId);
             if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== $this->submission->getId()) {
-                $request->getDispatcher()->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
         }
 
         // For a retractable decision, don't allow if it can not be retracted
         if ($this->decisionType instanceof DecisionRetractable && !$this->decisionType->canRetract($this->submission, $reviewRoundId)) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         // Don't allow a recommendation unless at least one deciding editor exists
@@ -123,11 +123,11 @@ class DecisionHandler extends Handler
                 ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                 ->withRecommendOnly(false)
                 ->get()
-                ->pluck('userId')
+                ->pluck('user_id')
                 ->all();
 
             if (!$assignedEditorIds) {
-                $request->getDispatcher()->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
         }
 
@@ -162,9 +162,10 @@ class DecisionHandler extends Handler
                 $request,
                 Application::ROUTE_PAGE,
                 $context->getData('urlPath'),
-                'workflow',
-                'access',
-                [$this->submission->getId()]
+                'dashboard',
+                'editorial',
+                null,
+                ['workflowSubmissionId' => $this->submission->getId()]
             ),
             'submissionApiUrl' => $dispatcher->url(
                 $request,
@@ -176,7 +177,7 @@ class DecisionHandler extends Handler
                 $request,
                 Application::ROUTE_PAGE,
                 $context->getData('urlPath'),
-                'submissions',
+                'dashboard',
             ),
             'viewAllSubmissionsLabel' => __('submission.list.viewAllSubmissions'),
             'viewSubmissionLabel' => __('submission.list.viewSubmission'),
@@ -220,13 +221,13 @@ class DecisionHandler extends Handler
 
         return [
             [
-                'id' => 'submissions',
-                'name' => __('navigation.submissions'),
+                'id' => 'dashboard',
+                'name' => __('navigation.dashboard'),
                 'url' => $dispatcher->url(
                     $request,
                     Application::ROUTE_PAGE,
                     $context->getData('urlPath'),
-                    'submissions'
+                    'dashboard'
                 ),
             ],
             [
@@ -237,9 +238,10 @@ class DecisionHandler extends Handler
                     $request,
                     Application::ROUTE_PAGE,
                     $context->getData('urlPath'),
-                    'workflow',
-                    'access',
-                    [$submission->getId()]
+                    'dashboard',
+                    'editorial',
+                    null,
+                    ['workflowSubmissionId' => $submission->getId()]
                 ),
             ],
             [

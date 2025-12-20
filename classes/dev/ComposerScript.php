@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/dev/ComposerScript.php
  *
@@ -40,24 +41,29 @@ class ComposerScript
     public static function weblateFilesDownload(): void
     {
         try {
-            $dirPath = dirname(__FILE__, 3) . "/lib/weblateLanguages";
-            $langFilePath = "$dirPath/languages.json";
+            $dirPath = dirname(__FILE__, 3) . '/lib/weblateLanguages';
+            $langFilePath = "{$dirPath}/languages.json";
             $urlCsv = 'https://raw.githubusercontent.com/WeblateOrg/language-data/main/languages.csv';
 
             if (!is_dir($dirPath)) {
                 mkdir($dirPath);
             }
 
-            $streamContext = stream_context_create(['http' => ['method' => 'HEAD']]);
-            $languagesCsv = !preg_match('/200 OK/', get_headers($urlCsv, false, $streamContext)[0] ?? "") ?: file($urlCsv, FILE_SKIP_EMPTY_LINES);
-            if (!is_array($languagesCsv) || !$languagesCsv) {
-                throw new Exception(__METHOD__ . " : The Weblate file 'languages.csv' cannot be downloaded !");
+            // Download languages.csv using curl (proxy picked up from environment)
+            $ch = curl_init($urlCsv);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_FAILONERROR, true);
+            $languagesCsvRaw = curl_exec($ch);
+            if ($languagesCsvRaw === false) {
+                throw new Exception(__METHOD__ . " : The Weblate file 'languages.csv' cannot be downloaded! Curl error: " . curl_error($ch));
             }
+            curl_close($ch);
+            $languagesCsv = explode("\n", $languagesCsvRaw);
 
             array_shift($languagesCsv);
             $languages = [];
-            foreach($languagesCsv as $languageCsv) {
-                $localeAndName = str_getcsv($languageCsv, ",");
+            foreach ($languagesCsv as $languageCsv) {
+                $localeAndName = str_getcsv($languageCsv, ',', escape: '\\');
                 if (isset($localeAndName[0], $localeAndName[1]) && preg_match('/^[\w@-]{2,50}$/', $localeAndName[0])) {
                     $displayName = locale_get_display_name($localeAndName[0], 'en');
                     $languages[$localeAndName[0]] = (($displayName && $displayName !== $localeAndName[0]) ? $displayName : $localeAndName[1]);
@@ -66,7 +72,7 @@ class ComposerScript
 
             $languagesJson = json_encode($languages, JSON_THROW_ON_ERROR);
             if (!$languagesJson || !file_put_contents($langFilePath, $languagesJson)) {
-                throw new Exception(__METHOD__ . " : Json file empty, or save unsuccessful: $langFilePath !");
+                throw new Exception(__METHOD__ . " : Json file empty, or save unsuccessful: {$langFilePath} !");
             }
         } catch (Exception $e) {
             error_log($e->getMessage());

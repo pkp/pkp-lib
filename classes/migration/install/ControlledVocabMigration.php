@@ -30,7 +30,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
             $table->bigInteger('controlled_vocab_id')->autoIncrement();
             $table->string('symbolic', 64);
             $table->bigInteger('assoc_type')->default(0);
-            $table->bigInteger('assoc_id')->default(0);
+            $table->bigInteger('assoc_id')->nullable();
             $table->unique(['symbolic', 'assoc_type', 'assoc_id'], 'controlled_vocab_symbolic');
         });
 
@@ -58,7 +58,6 @@ class ControlledVocabMigration extends \PKP\migration\Migration
             $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6);
             $table->unique(['controlled_vocab_entry_id', 'locale', 'setting_name'], 'c_v_e_s_pkey');
         });
 

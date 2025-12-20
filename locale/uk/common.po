@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-12-01 12:13+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -77,7 +77,7 @@ msgid "announcement.postedOn"
 msgstr "Опубліковано {$postDate}"
 
 msgid "announcement.view"
-msgstr "Дивитися оголошення"
+msgstr "Переглянути оголошення"
 
 msgid "common.allDownloads"
 msgstr "Усі завантаження"
@@ -107,13 +107,13 @@ msgid "common.confirmDelete"
 msgstr "Ви впевнені, що бажаєте це видалити? Цю дію неможливо відмінити."
 
 msgid "common.abstract"
-msgstr "Анотація (двома мовами)"
+msgstr "Анотація"
 
 msgid "common.accepted"
-msgstr "Підтверджений"
+msgstr "Прийнято"
 
 msgid "common.acknowledged"
-msgstr "Відомості"
+msgstr "Визнано"
 
 msgid "common.action"
 msgstr "Дія"
@@ -682,10 +682,10 @@ msgid "common.pagination.goToPage"
 msgstr "Перейти до {$page}"
 
 msgid "common.pagination.next"
-msgstr "Наступна сторінка"
+msgstr "Наступна"
 
 msgid "common.pagination.previous"
-msgstr "Попередня сторінка"
+msgstr "Попередня"
 
 msgid "common.pageNumber"
 msgstr "Сторінка {$pageNumber}"
@@ -1703,29 +1703,8 @@ msgstr "Дисципліни"
 msgid "search.fullText"
 msgstr "Повний текст"
 
-msgid "search.indexTerms"
-msgstr "Терміни для індексування"
-
-msgid "search.indexTermsLong"
-msgstr "Всі поля термінів для індексування"
-
-msgid "search.matchAll"
-msgstr "За всіма полями"
-
 msgid "search.noResults"
 msgstr "Немає результатів"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.SearchFor"
-msgstr "Шукати"
 
 msgid "search.searchResults"
 msgstr "Результати пошуку"
@@ -1806,7 +1785,7 @@ msgstr ""
 "<li>Оберіть \"Видалити персональну інформацію при збереженні цього файлу\""
 "</li>\n"
 "<li>Клікніть \"OK\" і збережіть файл</li></ul></li>\n"
-"<li>PDF:\n"
+"<li>Adobe Acrobat (PDF):\n"
 "<ul><li>Натисніть \"Файл\"</li>\n"
 "<li>Оберіть вкладку \"Налаштування\"</li>\n"
 "<li>Видаліть будь-яке ім'я в полі автора</li>\n"
@@ -1957,20 +1936,20 @@ msgstr "Підсумковий звіт статистики."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Це нагадування про необхідность перевірки стану вашого Журналу, "
-"використовуючи редакційний звіт."
+"Це люб'язне нагадування про необхідність перевірити стан вашої публікації за "
+"допомогою редакційного звіту."
 
 msgid "notification.type.editorialReminder"
 msgstr "Щотижнева електронна пошта з невиконаними завданнями"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Елемент навігації був успішно оновлений"
+msgstr "Елемент навігації було успішно оновлено"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Елемент навігації був успішно видалений"
+msgstr "Елемент навігації було успішно видалено"
 
 msgid "notification.addedNavigationMenuItem"
 msgstr "Елемент навігації було успішно додано"
@@ -2320,3 +2299,99 @@ msgstr "Показати менше"
 
 msgid "common.sandbox"
 msgstr "Програма працює в режимі пісочниці."
+
+msgid "common.moreActions"
+msgstr "Більше дій"
+
+msgid "common.editorialMasthead"
+msgstr "Редакційний банер"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Рецензенти в попередньому році"
+
+msgid "common.editorialHistory"
+msgstr "Редакційна історія"
+
+msgid "common.editorialHistory.page.description"
+msgstr "У цьому розділі перераховано колишніх учасників."
+
+msgid "common.loaded"
+msgstr "Завантажено"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Переглянути <a href=\"{$url}\">історію редагування</a>"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Рецензенти за минулі роки"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Редактори висловлюють свою вдячність указаним нижче рецензентам за {$year} "
+"рік."
+
+msgid "common.editorialHistory.page"
+msgstr "Сторінка редакційної історії"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Переглянути профіль ORCID {$name}"
+
+msgid "common.assignments"
+msgstr "Призначення"
+
+msgid "common.filtersClear"
+msgstr "Очистити фільтри"
+
+msgid "common.showingXofX"
+msgstr "Показано з <strong>{$start} до {$finish}</strong> із {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Виявлено 1 помилку! Перш ніж продовжити, виправте, будь ласка, наведену "
+"нижче помилку."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Виявлено {$count} помилок! Перш ніж продовжити, виправте, будь ласка, "
+"наведені нижче помилки."
+
+msgid "navigation.dashboards"
+msgstr "Панель інструментів редактора"
+
+msgid "navigation.reviewAssignments"
+msgstr "Мої призначення як рецензенту"
+
+msgid "navigation.mySubmissions"
+msgstr "Мої подання як автора"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Рецензію прийнято - Увімкнено"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Рецензію прийнято - Вимкнено"
+
+msgid "validator.date.comparison"
+msgstr "Неправильні дати для порівняння."
+
+msgid "validator.multilingual"
+msgstr "Для цього поля не виконується вимога щодо багатомовності."
+
+msgid "common.numero"
+msgstr "Ні"
+
+msgid "common.refreshingData"
+msgstr "Оновлення даних"
+
+msgid "common.viewMoreDetails"
+msgstr "Переглянути більше деталей"
+
+msgid "common.yesContinue"
+msgstr "Так, продовжити"
+
+msgid "common.changeLanguage"
+msgstr "Змінити мову"

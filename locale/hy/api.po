@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-08-23 14:45+0000\n"
+"PO-Revision-Date: 2025-12-15 00:22+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hy/"
 ">\n"
@@ -109,11 +109,6 @@ msgstr "Հրապարակման մեկ կամ մի քանի անվավեր օբյ
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "Ներկայումս կազմաձևված փլագինը պետք է լինի գրանցման գործակալության պլագին:"
-
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Դուք չեք կարող որևէ որոշում գրանցել կամ առաջարկել որոշում այս ներկայացման "
-"համար, քանի որ այն արդեն հրապարակվել է:"
 
 msgid "api.emails.400.missingBody"
 msgstr "Դուք պետք է գրեք նամակի բովանդակությունը, որպեսզի այն ուղարկվի։"
@@ -371,3 +366,80 @@ msgstr "Ձեր հայցած կարևոր կետը չի գտնվել:"
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Այս նյութին հնարավոր չէ DOI նշանակել:"
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Հնարավոր չէ ստանալ որևէ ակնկալվող պատասխան:"
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Անվավեր հեղինակի համար հարմար պարամետր:"
+
+msgid "api.400.routeNotDefined"
+msgstr "API-ի երթուղի չի տրամադրվել:"
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Հնարավոր չէ մշակել API հարցումը:"
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Դուք չեք կարող կատարել այս գործողությունը, եթե ORCID գործառույթն անջատված է:"
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Դուք տրամադրել եք անվավեր \"eventType\",{$eventType} Հեղինակի նամակների "
+"համար:"
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Այս վերջնակետը հասանելի չէ կայքի ամբողջ անվանատարածքից և պետք է պահանջվի "
+"տվյալ համատեքստի համար:"
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Հարցվող հեղինակը չի գտնվել"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Դուք չեք կարող փոփոխություններ կատարել հեղինակների մեջ այն փաստաթղթերում, "
+"որոնց նշանակված չեք:"
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Դուք չեք կարող փոխել այս ներկայացման լեզուն, քանի որ այն արդեն ունի մեկից "
+"ավելի հրապարակման տարբերակներ կամ հրապարակված հրապարակումներ:"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Վավեր արժեքներ են միայն «ընդունել» և «մերժել»"
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Հարցման մեջ բացակայում է հարցման պահանջվող «ids» պարամետրը: Խնդրում ենք "
+"տրամադրել այն ներկայացումների «id»-ները, որոնք ցանկանում եք ջնջել:"
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Այս վերանայման առաջադրանքի ներկայացումը չհաջողվեց գտնել:"
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Այս առաջադրանքի գրախոսին չհաջողվեց գտնել"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Տրամադրված բաժինը գոյություն չունի:"
+
+msgid "api.submission.400.invalidId"
+msgstr "Անվավեր ID՝ \"{$id}\" -ը տրամադրված է:"
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Հրապարակման նույնացուցիչների ձևն անհասանելի է, քանի որ միացված "
+"նույնացուցիչներ չկան:"
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Ձեր հայցած ror -ը չի գտնվել:"
+
+msgid "api.409.resourceActionConflict"
+msgstr "Հնարավոր չէ ռեսուրսի վրա կատարել նախատեսված գործողությունը:"
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Հեղինակի ORCiD ID-ն «Խմբագրել/Ավելացնել հեղինակ» վերջնակետերի միջոցով "
+"վերագրելը թույլատրելի չէ: Հեղինակից իր ORCID iD-ն թարմացնելու խնդրանքով "
+"դիմելու համար, խնդրում ենք օգտագործել \"orcid/requestAuthorVerification/"
+"{authorId}\" վերջնակետը:"

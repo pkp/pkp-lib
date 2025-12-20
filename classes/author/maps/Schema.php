@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/author/maps/Schema.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Schema
@@ -15,27 +16,24 @@ namespace PKP\author\maps;
 
 use APP\author\Author;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
-use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\userGroup\UserGroup;
 use stdClass;
 
 class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
 
+    public Submission $submission;
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
-    protected LazyCollection $authorUserGroups;
-
-    public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
-        parent::__construct($request, $context, $schemaService);
+        $this->submission = $submission;
 
-        $this->authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $this->context->getId());
+        parent::__construct($request, $context, $schemaService);
     }
 
     /**
@@ -67,7 +65,7 @@ class Schema extends \PKP\core\maps\Schema
     {
         $this->collection = $collection;
         return $collection->map(function ($item) {
-            return $this->map($item);
+            return $this->map($item, $this->submission);
         });
     }
 
@@ -92,16 +90,27 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
-                case 'userGroupName':
-                    /** @var UserGroup $userGroup */
-                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $item->getData('userGroupId'));
-                    $output[$prop] = $userGroup ? $userGroup->getName(null) : new stdClass();
-                    break;
                 case 'fullName':
                     $output[$prop] = $item->getFullName();
                     break;
                 case 'hasVerifiedOrcid':
                     $output[$prop] = $item->hasVerifiedOrcid();
+                    break;
+                case 'contributorRoles':
+                    $output[$prop] = Repo::contributorRole()->getSchemaMap()->summarizeMany(collect($item->getData('contributorRoles')))->values();
+                    break;
+                case 'creditRoles':
+                    $output[$prop] = $item->getCreditRoles();
+                    break;
+                case 'orcidDisplayValue':
+                    $output[$prop] = $item->getOrcidDisplayValue();
+                    break;
+                case 'affiliations':
+                    $data = [];
+                    foreach ($item->getAffiliations() as $affiliation) {
+                        $data[] = Repo::affiliation()->getSchemaMap($this->submission)->map($affiliation);
+                    }
+                    $output[$prop] = $data;
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);
@@ -109,7 +118,7 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        $locales = Repo::submission()->get(Repo::publication()->get($item->getData('publicationId'))->getData('submissionId'))->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
+        $locales = $this->submission->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
 
         $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $locales);
 

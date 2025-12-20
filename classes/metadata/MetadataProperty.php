@@ -34,8 +34,8 @@
 namespace PKP\metadata;
 
 use InvalidArgumentException;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\core\PKPString;
-use PKP\db\DAORegistry;
 use PKP\validation\ValidatorControlledVocab;
 use PKP\validation\ValidatorFactory;
 
@@ -423,8 +423,16 @@ class MetadataProperty
 
                             if (is_string($value)) {
                                 // Try to translate the string value into a controlled vocab entry
-                                $controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO'); /** @var ControlledVocabEntryDAO $controlledVocabEntryDao */
-                                if (!is_null($controlledVocabEntryDao->getBySetting($value, $symbolic, $assocType, $assocId, 'name', $locale))) {
+                                $entry = ControlledVocabEntry::query()
+                                    ->whereHas(
+                                        'controlledVocab',
+                                        fn ($query) => $query->withSymbolics([$symbolic])->withAssoc($assocType, $assocId)
+                                    )
+                                    ->withLocales([$locale])
+                                    ->withSetting('name', $value)
+                                    ->first();
+
+                                if (!is_null($entry)) {
                                     // The string was successfully translated so mark it as "valid".
                                     return [self::METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam];
                                 }
@@ -536,21 +544,5 @@ class MetadataProperty
             self::METADATA_PROPERTY_CARDINALITY_MANY
         ];
         return $_supportedCardinalities;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\metadata\MetadataProperty', '\MetadataProperty');
-    foreach ([
-        'METADATA_PROPERTY_TYPE_STRING',
-        'METADATA_PROPERTY_TYPE_DATE',
-        'METADATA_PROPERTY_TYPE_INTEGER',
-        'METADATA_PROPERTY_TYPE_VOCABULARY',
-        'METADATA_PROPERTY_TYPE_URI',
-        'METADATA_PROPERTY_TYPE_COMPOSITE',
-        'METADATA_PROPERTY_CARDINALITY_ONE',
-        'METADATA_PROPERTY_CARDINALITY_MANY',
-    ] as $constantName) {
-        define($constantName, constant('\MetadataProperty::' . $constantName));
     }
 }

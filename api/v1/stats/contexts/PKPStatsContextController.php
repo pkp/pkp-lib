@@ -54,6 +54,7 @@ class PKPStatsContextController extends PKPBaseController
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
             ]),
         ];
     }
@@ -415,7 +416,7 @@ class PKPStatsContextController extends PKPBaseController
                     } elseif (!is_array($value)) {
                         $value = [$value];
                     }
-                    $returnParams[$requestParam] = array_map('intval', $value);
+                    $returnParams[$requestParam] = array_map(intval(...), $value);
                     break;
             }
         }

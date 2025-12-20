@@ -23,6 +23,9 @@ msgstr "Unable to process API request."
 msgid "api.417.routeResponseIsNull"
 msgstr "Unable to receive any expected response."
 
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Invalid author-friendly parameter."
+
 msgid "api.400.routeNotDefined"
 msgstr "No API route was provided."
 
@@ -113,9 +116,6 @@ msgstr "One or more invalid publication objects were included with the request."
 msgid "api.dois.400.invalidPluginType"
 msgstr "The currently configured plugin must be a registration agency plugin."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr "You can not record a decision or recommend a decision for this submission because it has already been published."
-
 msgid "api.emails.400.missingBody"
 msgstr "You must include an email to be sent."
 
@@ -136,6 +136,9 @@ msgstr "This is not a valid context."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "You provided an invalid  \"eventType\",{$eventType}, for Author emails."
 
 msgid "api.files.400.noUpload"
 msgstr "No file to be uploaded could be found with the request."
@@ -160,6 +163,9 @@ msgstr "The highlight you requested was not found."
 
 msgid "api.orcid.403.orcidNotEnabled"
 msgstr "You cannot perform this operation with ORCID functionality disabled."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr "Assigning an author's ORCiD ID via the Edit/Add Author endpoints is not permitted. To request that an author update their ORCID iD, please use the \"orcid/requestAuthorVerification/{authorId}\" endpoint."
 
 msgid "api.orcid.404.authorNotFound"
 msgstr "The author requested was not found"
@@ -275,6 +281,9 @@ msgstr "The requested volume, number or year is not valid."
 msgid "api.submissions.400.invalidSubmitAs"
 msgstr "You are not allowed to submit in this user role."
 
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr "You can not change language of this submission because it already has more than one publication version or a published publication."
+
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Your request was denied. This may be because your login has expired. Try reloading the page and trying again."
 
@@ -332,8 +341,83 @@ msgstr "The submission for this review assignment could not be found."
 msgid "api.reviews.assignments.invalidReviewer"
 msgstr "The reviewer for the assignment could not be found"
 
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Only 'accept' and 'decline' are valid values"
+
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "The provided section does not exist."
 
+msgid "api.submission.400.missingQueryParam"
+msgstr "The request is missing the required query parameter `ids`. Please provide the `ids` of the submissions you wish to delete."
+
+msgid "api.submission.400.invalidId"
+msgstr "Invalid ID: \"{$id}\" provided."
+
 msgid "api.publications.403.noEnabledIdentifiers"
 msgstr "Publication identifiers form is unavailable as there are no enabled Identifiers."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "The ror you requested was not found."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Unable to complete the intended action on resource."
+
+msgid "api.emailTemplates.404.userGroupIds"
+msgstr "One or more of the provided user groups does not exist."
+
+msgid "api.categories.400.invalidContext"
+msgstr "Cannot create or update categories in the context provided."
+
+msgid "api.categories.400.circularParentReference"
+msgstr "A category cannot be its own parent or create a circular reference with another category."
+
+msgid "api.categories.409.circularReference"
+msgstr "A circular reference was detected while building the category tree."
+
+msgid "api.userComments.400.cannotCommentOnPublicationVersion"
+msgstr "You are only allowed to comment on the most recently published publication."
+
+msgid "api.userComments.400.missingPublicationParam"
+msgstr "The request is missing the required `publicationIds` query parameter."
+
+msgid "api.userComments.400.invalidPublicationId"
+msgstr "An invalid publication ID was provided: `{$publicationId}`."
+
+msgid "api.userComments.400.invalidUserId"
+msgstr "An invalid user ID was provided: `{$userId}`."
+
+msgid "api.userComments.form.400.required.commentText"
+msgstr "The `commentText` field is required."
+
+msgid "api.userComments.form.400.required.publicationId"
+msgstr "The `publicationId` field is required."
+
+msgid "api.userComments.form.400.required.note"
+msgstr "The `note` field is required."
+
+msgid "api.userComments.400.invalidIsApproved"
+msgstr "An invalid value was provided for `isApproved`: `{$isApproved}`."
+
+msgid "api.userComments.400.invalidIsReported"
+msgstr "An invalid value was provided for `isReported`: `{$isReported}`."
+
+msgid "api.citations.404.citationNotFound"
+msgstr "The citation you requested was not found."
+
+msgid "api.publication.400.invalidPublicationId"
+msgstr "An invalid publication ID was provided: `{$publicationId}`."
+
+msgid "api.contributorRole.404.roleNotFound"
+msgstr "The role requested was not found."
+
+msgid "api.contributorRole.400.contextsNotMatched"
+msgstr "The contributor role you requested is not part of this journal."
+
+msgid "api.contributorRole.400.errorSavingRole"
+msgstr "There was an error saving this role."
+
+msgid "api.contributorRole.400.errorDeletingAuthorRole"
+msgstr "Last AUTHOR role cannot be deleted."
+
+msgid "api.submission.400.emptyContributorRoles"
+msgstr "There have to be at least one assigned contributor role."

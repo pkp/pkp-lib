@@ -1701,29 +1701,8 @@ msgstr "Discipline"
 msgid "search.fullText"
 msgstr "Text complet"
 
-msgid "search.indexTerms"
-msgstr "Termenii indexului"
-
-msgid "search.indexTermsLong"
-msgstr "Toate câmpurile indexului de termeni"
-
-msgid "search.matchAll"
-msgstr "Potriviți toate categoriile"
-
 msgid "search.noResults"
 msgstr "Fără rezultate"
-
-msgid "search.operator.and"
-msgstr "și"
-
-msgid "search.operator.not"
-msgstr "nu"
-
-msgid "search.operator.or"
-msgstr "ori"
-
-msgid "search.SearchFor"
-msgstr "Caută pentru"
 
 msgid "search.searchResults"
 msgstr "Rezultatele căutării"
@@ -1957,6 +1936,7 @@ msgstr "Status Runda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Rezumatul raportului statistic."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Acesta este o reamintire pentru a verifica starea de sănătate a jurnalului "

@@ -1,0 +1,866 @@
+# Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-06-04 18:37+0000\n"
+"Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
+"Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"an/>\n"
+"Language: an\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Faiga clic pa editar u eliminar"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Totas las traduccions disponibles"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} de {$total} idiomas completaus"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Escriba lo nombre d'a institución en {$language}"
+
+msgid "user.authorization.submissionQuery"
+msgstr "No tiene permiso pa acceder a esta discusión."
+
+msgid "user.biography"
+msgstr "Resumen biografico"
+
+msgid "user.logOut"
+msgstr "Salir"
+
+msgid "user.role.author"
+msgstr "Autor/a"
+
+msgid "user.role.author_s"
+msgstr "Autor/a(ye/as)"
+
+msgid "user.roles"
+msgstr "Rols"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Rechistro de solicituz de ORCID"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Errors"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Tot"
+
+msgid "orcid.manager.settings.city"
+msgstr "Ciudat"
+
+msgid "orcid.author.accessDenied"
+msgstr "L'acceso ORCID estió denegau en"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"S'atorgó acceso a lo rechistro ORCID con aconsiga {$orcidAccessScope}, "
+"valido dica"
+
+msgid "user.futureRole.notification.message"
+msgstr "Lo suyo rol ye programau pa empecipiar lo {$roleStartDate}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Nombre d'a institución en {$language}"
+
+msgid "user.accountInformation"
+msgstr "Información d'a cuenta"
+
+msgid "user.affiliation"
+msgstr "Afiliación"
+
+msgid "user.affiliation.description"
+msgstr "(La tuya institución, p. eix. \"Universidat Simon Fraser\")"
+
+msgid "user.affiliations"
+msgstr "Afiliacions"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Introduzca lo nombre completo d'a institución contino, privando acronimos. "
+"Tríe lo nombre dende lo desplegable y faiga clic en 'Anyadir' pa incluyir "
+"l'afiliación en o suyo perfil. (p. eix.: \"Simon Fraser University\")"
+
+msgid "user.affiliations.institution"
+msgstr "Institución"
+
+msgid "user.affiliations.translation"
+msgstr "Mas información"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Editar lo nombre d'a institución"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Eliminar la institución"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Ye seguro?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "S'eliminará l'afiliación <strong>{$affiliation}</strong>."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Escriba lo nombre d'a institución en {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "No s'ha trobau la suya frase de busqueda"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "L'idioma principal {$primaryLocale} ye obligatorio"
+
+msgid "user.authorization.accessDenied"
+msgstr "Acceso denegau."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "No s'ha trobau la clau d'o proceso d'autenticación u esta no ye valida."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"No se puede executar esta operación sin un contexto (prensa, revista, "
+"conferencia, etc.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Ye necesario iniciar sesión."
+
+msgid "user.authorization.privateOperation"
+msgstr "La operación a la cuala intenta acceder ye privada u no existe."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Se le ha denegau l'acceso. En estes momentos l'acceso a este puesto ye "
+"restrinchiu."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Lo rol actual no tiene acceso a esta operación."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Lo rol que tiene asignau pa este ninvio no le permite acceder a esta "
+"operación."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Ha d'asignar un grupo d'usuarios/as valido pa tener acceso a la operación."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"S'ha d'asignar a un usuario/a con o rol de chestor/a (p. eix. chefe/a de "
+"producción) a la fase pa poder continar."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Actualment no tiene acceso a esta fase d'o proceso de treballo."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "No s'ha especificau garra fase d'o proceso de treballo."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr ""
+"L'acceso a lo fluxo de treballo pa los ninvios incompletos ye restrinchiu."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Anyadir, actualizar u eliminar sucherencias de revisor/a pa ninvios "
+"finalizaus ye restrinchiu."
+
+msgid "user.changePassword"
+msgstr "Cambiar clau"
+
+msgid "user.dateLastLogin"
+msgstr "Zaguer acceso"
+
+msgid "user.authorization.pluginRequired"
+msgstr "Ye obligatorio especificar un modulo."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "No tiene permiso pa acceder a esta asignación de revisión."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr ""
+"L'usuario/a habría d'estar anonimo. Actualment tiene la sesión iniciada."
+
+msgid "user.changeMyPassword"
+msgstr "Cambiar la mía clau"
+
+msgid "user.dateRegistered"
+msgstr "Calendata de rechistro"
+
+msgid "user.editMyProfile"
+msgstr "Editar lo mío perfil"
+
+msgid "user.email"
+msgstr "Correu electronico"
+
+msgid "user.givenName"
+msgstr "Nombre"
+
+msgid "user.interests"
+msgstr "Intereses de revisión"
+
+msgid "user.gossip"
+msgstr "Notas privadas"
+
+msgid "user.gossip.description"
+msgstr ""
+"Rechistre las notas sobre este revisor/a que quiere que sían visibles pa "
+"atros administradors/as, chestors/as y editors/as. Ditas notas serán "
+"disponibles pa futuras asignacions de revisión."
+
+msgid "user.group"
+msgstr "Grupo d'usuarios/as"
+
+msgid "user.familyName"
+msgstr "Apellius"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"La imachen d'o perfil no tiene un formato valido u ye masiau gran. Se "
+"acceptan los siguients formatos: .gif, .jpg y .png. Amás, la imachen no "
+"puede exceder los 150x150 píxels."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "S'ha deshabilitau la suya cuenta per lo siguient motivo: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"S'ha deshabilitau la suya cuenta. Contacte con l'administrador pa obtener "
+"mas información."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Le hemos ninviau un correu electronico de confirmación a {$email}. Siga las "
+"instruccions d'ixe correu electronico pa activar la suya nueva cuenta. Si no "
+"lo recibe, comprebe si ye en a suya carpeta de correu no deseyau."
+
+msgid "user.login.activate"
+msgstr "Activar cuenta"
+
+msgid "user.login.activated"
+msgstr ""
+"Gracias per activar la suya cuenta. Agora puede iniciar sesión con as "
+"credencials que proporcionó en crear la cuenta."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Ha de triar una nueva clau pa poder iniciar sesión en este puesto.<br /><br /"
+">Escriba contino lo suyo nombre d'usuario/a y la clau actual y la nueva pa "
+"cambiar la clau d'a suya cuenta."
+
+msgid "user.login.forgotPassword"
+msgstr "Has oblidau la tuya clau?"
+
+msgid "user.login.loginError"
+msgstr ""
+"Lo nombre d'usuario/a, lo correu u la clau no son validos. L'intente de "
+"nuevo."
+
+msgid "user.login"
+msgstr "Dentrar"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Si se troba una cuenta coincident se le ninviará la confirmación a la suya "
+"adreza de correu electronico. Siga las instruccions d'o correu electronico "
+"pa restablir la suya clau."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Lo vinclo ha caducau u no ye valido. Intente restablir la suya clau de nuevo."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Se le ha ninviau una nueva clau a la suya adreza de correu electronico. "
+"Agora puede iniciar sesión con a nueva clau."
+
+msgid "user.login.registeredEmail"
+msgstr "Correu electronico d'usuarios rechistraus"
+
+msgid "user.login.registrationComplete"
+msgstr "Rechistro completo"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Gracias per rechistrar-te! Qué le fería goyo fer dimpués?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Veyer ninvios"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Realizar un nuevo ninvio"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continar navegando"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Rechistro pendient de verificación"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Mantener-me connectau"
+
+msgid "user.login.resetPassword"
+msgstr "Restaurar clau"
+
+msgid "user.logOutAs"
+msgstr "Zarrar sesión como {$username}"
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Ye necesario un nombre."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Ha anyadiu un apellido pa un idioma en o cual falta lo nombre. Per favor, "
+"anyada un nombre en ixe idioma."
+
+msgid "user.hello"
+msgstr "Ola: "
+
+msgid "user.mailingAddress"
+msgstr "Adreza postal"
+
+msgid "user.myAccount"
+msgstr "La mía cuenta"
+
+msgid "user.name"
+msgstr "Nombre"
+
+msgid "user.password"
+msgstr "Clau"
+
+msgid "user.repeatPassword"
+msgstr "Repita la clau"
+
+msgid "user.phone"
+msgstr "Telefono"
+
+msgid "user.preferredPublicName"
+msgstr "Nombre publico preferiu"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Proporcione lo nombre completo de l'autor/a tal como habría d'identificar-se "
+"en la obra publicada. Per eixemplo: Dr. Alan P. Mwandenga"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Inicials d'o avatar preferidas"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Introduzca las dos letras que le fería goyo utilizar como avatar. Estas "
+"inicials s'amostrarán pa representar-le."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Introduzca la tuya clau actual y la nueva pa cambiar la clau d'a tuya cuenta."
+
+msgid "user.profile.editProfile"
+msgstr "Editar perfil"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Escriba un país."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Ye necesaria una adreza de correu-e valida."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Anyada una afiliación en l'idioma d'o ninvio."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Introduzca una adreza postal."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Has d'escribir la tuya nueva clau."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "La clau actual que has escrito no ye correcta."
+
+msgid "user.profile.publicProfile"
+msgstr "Perfil d'usuario/a"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Repita la nueva clau"
+
+msgid "user.login.registerNewAccount"
+msgstr "Rechistrar-se"
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Notificacions per correu electronico d'un nuevo numero d'acceso libre"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Ye necesaria la clau."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "La suya nueva clau coincide con l'anterior."
+
+msgid "user.profile.form.profileImage"
+msgstr "Imachen de Perfil"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Notificacions per correu electronico d'un nuevo numero publicau"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"La URL especificada no ye valida. Comprebe la URL y lo intente de nuevo. "
+"(Sucherencia: anyada http:// a lo prencipio d'a URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Introduzca un grupo d'usuarios/as."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Ye necesario lo nombre d'usuario."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Ha d'acceptar los termins d'a declaración de privacidat."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Deixe lo campo de clau en blanco pa mantener la clau actual."
+
+msgid "user.profile.newPassword"
+msgstr "Nueva clau"
+
+msgid "user.profile.oldPassword"
+msgstr "Clau actual"
+
+msgid "user.profile"
+msgstr "Perfil"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Escriba la suya adreza de correu electronico contino y recibirá un correu "
+"con as instruccions pa tornar a establir la suya clau."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Sí, consiento que los míos datos se recopilen y s'almagacenen d'alcuerdo con "
+"a <a href=\"{$privacyUrl}\" target=\"_blank\">declaración de privacidat</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Sí, deseyo que me notifiquen sobre nuevas publicacions y avisos."
+
+msgid "user.register.form.emailExists"
+msgstr ""
+"L'adreza de correu electronico triada ya ye estando utilizada per unatro "
+"usuario."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Las claus no coinciden."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Los campos de correu electronico no coinciden."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Lo nombre d'usuario nomás puede contener carácters alfanumericos en "
+"minusclas, subrayaus y guións, y ha de prencipiar y finalizar con un "
+"carácter alfanumerico."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Ha de triar un rol como minimo."
+
+msgid "user.register.form.usernameExists"
+msgstr "Lo nombre d'usuario triau ya ye estando utilizau per unatro usuario."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "La clau ha de tener como minimo {$length} carácters."
+
+msgid "user.register.registerAs"
+msgstr "Rechistrar-se en {$contextName} como..."
+
+msgid "user.register"
+msgstr "Rechistrar-se"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Lo nombre d'usuario/a nomás ha de contener letras en minuscla, numers, y "
+"guións u guións baixos."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"S'ha rechistrau correctament. <a href=\"{$profileUrl}\">Faiga clic aquí</a> "
+"pa completar lo suyo perfil d'usuario."
+
+msgid "user.role.assistant"
+msgstr "Aduyant de producción"
+
+msgid "user.role.authors"
+msgstr "Autors/as"
+
+msgid "user.role.editor"
+msgstr "Editor/a"
+
+msgid "user.role.editors"
+msgstr "Editors/as"
+
+msgid "user.role.reader"
+msgstr "Lector/a"
+
+msgid "user.role.readers"
+msgstr "Lectors/as"
+
+msgid "user.role.reviewer"
+msgstr "Revisor/a"
+
+msgid "user.role.reviewers"
+msgstr "Revisors/as"
+
+msgid "user.role.siteAdmin"
+msgstr "Administrador/a"
+
+msgid "user.role.siteAdmins"
+msgstr "Administradoras/ye"
+
+msgid "user.role.copyeditor"
+msgstr "Corrector/a d'estilo"
+
+msgid "user.role.copyeditors"
+msgstr "Correctors/as d'estilo"
+
+msgid "user.role.proofreader"
+msgstr "Corrector/a de prebas"
+
+msgid "user.role.proofreaders"
+msgstr "Correctors/as de prebas"
+
+msgid "user.role.layoutEditor"
+msgstr "Maquetador/a"
+
+msgid "user.role.layoutEditors"
+msgstr "Maquetadors/as"
+
+msgid "user.role.ended"
+msgstr "Rol rematau"
+
+msgid "user.sendPassword"
+msgstr "Confirmación"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Ninviar un mensache de confirmación que incluiga lo mío nombre d'usuario/a y "
+"clau"
+
+msgid "user.signature"
+msgstr "Sinyadura"
+
+msgid "user.title"
+msgstr "Títol"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Lo ORCID que ha especificau no ye valido. Incluiga la URL completa (p. eix.: "
+"\"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identidat"
+
+msgid "user.profile.contact"
+msgstr "Contacto"
+
+msgid "user.profile.public"
+msgstr "Publico"
+
+msgid "user.apiKey"
+msgstr "Clau API"
+
+msgid "user.apiKeyEnabled"
+msgstr "Permitir l'acceso a esta cuenta a aplicacions externas con a clau API"
+
+msgid "user.apiKey.generate"
+msgstr "Chenerar una nueva clau API"
+
+msgid "user.apiKey.remove"
+msgstr "Borrar"
+
+msgid "user.url"
+msgstr "URL"
+
+msgid "user.userHome"
+msgstr "Inicio"
+
+msgid "user.username"
+msgstr "Nombre usuario"
+
+msgid "user.usernameOrEmail"
+msgstr "Nombre d'usuario/a u correu electronico"
+
+msgid "user.workingLanguages"
+msgstr "Idiomas de treballo"
+
+msgid "user.orcid"
+msgstr "Identificador ORCID"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Chenerar una clau API nueva invalidará cualsequier clau existent d'este "
+"usuario/a."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Eliminar una clau revocará l'acceso a cualsequier aplicación que la utilice."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Seguro que quiere eliminar esta clau API?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Antes de chenerar una clau API, l'administrador/a d'o puesto web ha de "
+"definir un secreto en o fichero de configuración (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr ""
+"Los suyos datos s'han almagacenau d'alcuerdo con a nuestra <a href=\""
+"{$privacyUrl}\" target=\"_blank\">declaración de privacidat</a>."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "No s'ha puesto completar la restauración d'a clau a causa de {$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Introducir la clau nueva pa actualizar l'inicio de sesión."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "La clau s'ha actualizau con exito. Inicie la sesión con a nueva clau."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Ha solicitau un cambio d'o suyo correu electronico a \"{$pendingEmail}\". Le "
+"hemos ninviau un correu electronico con instruccions pa validar la suya "
+"nueva adreza."
+
+msgid "orcid.displayName"
+msgstr "Modulo de perfil ORCID"
+
+msgid "orcid.description"
+msgstr "Permite la importación d'o perfil d'usuario/a dende ORCID."
+
+msgid "orcid.instructions"
+msgstr ""
+"Puede replenar este formulario con información procedent d'un perfil ORCID. "
+"Introduzca lo correu electronico u l'identificador ORCID asociau con o "
+"perfil ORCID y dimpués prete \"Ninviar\"."
+
+msgid "orcid.noData"
+msgstr "No se troboron datos de ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Correu electronico u identificador ORCID:"
+
+msgid "orcid.manager.settings.title"
+msgstr "Configuración d'a API de ORCID"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "amagau"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Configure la API de ORCID pa importar información d'o perfil ORCID en os "
+"perfils d'usuario/a y autor/a y pa actualizar los rechistros ORCID "
+"connectaus con as nuevas publicacions (nomás pa miembros ORCID)."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "API ORCID"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Publico"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Sandbox publico"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Miembro"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Sandbox de l'usuario/a"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Id. d'o client"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Clau d'o client"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Aconsiga d'acceso d'o perfil"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Achustes de correu electronico"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Configuración alzada"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Ninviar correu electronico pa solicitar autorización ORCID d'os autors cuan "
+"un articlo siga acceptau, ye decir, cuan siga ninviau a corrección"
+
+msgid "orcid.author.requestAuthorization"
+msgstr ""
+"Ninviar correu electronico pa solicitar autorización ORCID d'o colaborador"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Eliminar identificador ORCID y credencials d'acceso!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Veyer contino pa solicitar un Id de ORCID autenticau"
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"L'identificador ORCID no autenticau! Solicite autenticación d'o colaborador."
+
+msgid "orcid.unauthenticated"
+msgstr "(no autenticau)"
+
+msgid "orcid.verify.title"
+msgstr "Autorización ORCID"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Lo ninvio ha estau incorporau a lo suyo rechistro ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Lo ninvio no s'ha puesto incorporar a lo suyo rechistro ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr ""
+"Lo ninvio será incorporau a lo suyo rechistro ORCID entre la publicación."
+
+msgid "orcid.verify.success"
+msgstr ""
+"Lo suyo Id ORCID ha estau verificau y asociau satisfactoriament con o ninvio."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Agora será reendrezau automaticament a {$contextName}."
+
+msgid "orcid.verify.failure"
+msgstr ""
+"Lo suyo identificador ORCID no ha puesto estar verificau. Lo vinclo ya no ye "
+"valido."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Un Id ORCID ya estió almagacenau pa este ninvio."
+
+msgid "orcid.verify.denied"
+msgstr "Ha denegau l'acceso a lo suyo rechistro ORCID."
+
+msgid "orcid.authFailure"
+msgstr ""
+"Lo vinclo d'autorización de ORCID ya ha estau utilizau anteriorment u no ye "
+"valido."
+
+msgid "orcid.invalidClient"
+msgstr "Credencials de client invalidas"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Contacte con l'administrador/a d'a revista indicando lo suyo nombre, Id "
+"ORCID y los detalles d'o suyo ninvio."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Creye u connecte lo suyo identificador ORCID"
+
+msgid "orcid.authorise"
+msgstr "Autorice y connecte lo suyo identificador ORCID"
+
+msgid "orcid.about.title"
+msgstr "Qué ye ORCID?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Cómo y per qué replegamos los ID ORCID?"
+
+msgid "orcid.about.display.title"
+msgstr "Án s'amuestran los ID ORCID?"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "ID de client invalida"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Clau de client invalida"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Configurau per lo que fa a la revista"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "L'identificador de client ye valido"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "L'identificador d'o client ye invalido, comprebe los datos introducius"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Client Secret ye valido"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Client Secret ye invalido, comprebe las suyas credencials"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "S'han detectau ORCID duplicaus en os colaboradors/as."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "S'han detectau ORCID no autentificaus en os colaboradors/as."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Habilitar la funcionalidat ORCID"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Habilitar la funcionalidat ORCID en tot lo puesto"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"La funcionalidat ORCID puede activar-se opcionalment y configurar-se a nivel "
+"de puesto pa totas las revistas/publicacions/servidors. Si s'activa, esto "
+"anulará totas las credencials de libel de contexto y aplicará las siguients "
+"credencials a totas las revistas/publicacions/servidors de esta instalación."
+
+msgid "orcid.field.verification.request"
+msgstr "Solicitar verificación"
+
+msgid "orcid.field.verification.requested"
+msgstr "S'ha solicitau la verificación de ORCID."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Reninviar lo correu electronico de verificación"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Solicitar la verificación de ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Deseya ninviar un correu electronico a este autor/a pa solicitar-le que "
+"verifique lo suyo ORCID?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Eliminar ORCID"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Este ORCID no s'ha verificau. L'elimine y solicite la verificación "
+"dreitament a l'usuario/a u a l'autor/a."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Seguro que deseya eliminar permanentment este rol? Esta acción revocará lo "
+"acceso de l'usuario/a a tota la información y permisos asociaus con este rol."
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Seguro que quiere eliminar este ORCID?"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Dica alavez puede revisar y actualizar lo suyo perfil. Si creye que esto ye "
+"una error, contacte con l'administrador/a."
+
+msgid "user.disabledModal.description"
+msgstr "Rols actuals: {$rols}"
+
+msgid "user.disabledModal.title"
+msgstr "Deshabilitar {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Habilitar {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografía"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"No puede eliminar lo rol. L'usuario/a ha de tener como minimo un rol asignau."

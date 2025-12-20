@@ -35,6 +35,7 @@ abstract class PKPStatisticsHelper
     public const STATISTICS_DIMENSION_FILE_TYPE = 'file_type';
     public const STATISTICS_DIMENSION_SUBMISSION_FILE_ID = 'submission_file_id';
     public const STATISTICS_DIMENSION_REPRESENTATION_ID = 'representation_id';
+    public const STATISTICS_DIMENSION_INSTITUTION_ID = 'institution_id';
 
     // 2) time dimension:
     public const STATISTICS_DIMENSION_YEAR = 'year';
@@ -74,8 +75,8 @@ abstract class PKPStatisticsHelper
     public const STATISTICS_SETTING_REGION = 'country+region';
     public const STATISTICS_SETTING_CITY = 'country+region+city';
 
-    public array $geoDataCache;
-    public array $institutionDataCache;
+    public array $geoDataCache = [];
+    public array $institutionDataCache = [];
 
     /**
      * Get the usage stats directory path.
@@ -202,7 +203,7 @@ abstract class PKPStatisticsHelper
             $this->geoDataCache = [];
         }
 
-        $cachedGeoData &= $this->geoDataCache;
+        $cachedGeoData = & $this->geoDataCache;
         if (array_key_exists($hashedIp, $cachedGeoData)) {
             return $cachedGeoData[$hashedIp];
         }
@@ -287,35 +288,5 @@ abstract class PKPStatisticsHelper
 
         $cachedInstitutionData[$hashedIp][$contextId] = $institutionIds;
         return $cachedInstitutionData[$hashedIp][$contextId];
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\statistics\PKPStatisticsHelper', '\PKPStatisticsHelper');
-    foreach ([
-        'STATISTICS_DIMENSION_CONTEXT_ID',
-        'STATISTICS_DIMENSION_SUBMISSION_ID',
-        'STATISTICS_DIMENSION_REPRESENTATION_ID',
-        'STATISTICS_DIMENSION_ASSOC_TYPE',
-        'STATISTICS_DIMENSION_FILE_TYPE',
-        'STATISTICS_DIMENSION_YEAR',
-        'STATISTICS_DIMENSION_MONTH',
-        'STATISTICS_DIMENSION_DAY',
-        'STATISTICS_DIMENSION_DATE',
-        'STATISTICS_DIMENSION_COUNTRY',
-        'STATISTICS_DIMENSION_REGION',
-        'STATISTICS_DIMENSION_CITY',
-        'STATISTICS_METRIC',
-        'STATISTICS_METRIC_UNIQUE',
-        'STATISTICS_ORDER_ASC',
-        'STATISTICS_ORDER_DESC',
-        'STATISTICS_FILE_TYPE_HTML',
-        'STATISTICS_FILE_TYPE_PDF',
-        'STATISTICS_FILE_TYPE_OTHER',
-        'STATISTICS_FILE_TYPE_DOC',
-        'STATISTICS_EARLIEST_DATE',
-        'COUNTER_DOUBLE_CLICK_TIME_FILTER_SECONDS',
-    ] as $constantName) {
-        define($constantName, constant('\PKPStatisticsHelper::' . $constantName));
     }
 }

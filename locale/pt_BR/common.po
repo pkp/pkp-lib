@@ -1,15 +1,17 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>, 2024.
+# Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
+# rafael de andrade pereira <rafaelpontoandrade@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2024-03-22 22:39+0000\n"
-"Last-Translator: Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>\n"
+"PO-Revision-Date: 2025-09-26 01:23+0000\n"
+"Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -191,6 +193,9 @@ msgstr "Designado"
 
 msgid "common.assigned.date"
 msgstr "Designado em: {$dateAssigned}"
+
+msgid "common.assignments"
+msgstr "Designações"
 
 msgid "common.available"
 msgstr "Disponível"
@@ -684,10 +689,10 @@ msgid "common.pagination.goToPage"
 msgstr "Ir para {$page}"
 
 msgid "common.pagination.next"
-msgstr "Próxima página"
+msgstr "Próxima"
 
 msgid "common.pagination.previous"
-msgstr "Página anterior"
+msgstr "Anterior"
 
 msgid "common.pageNumber"
 msgstr "Página {$pageNumber}"
@@ -723,7 +728,7 @@ msgid "common.queue.long.active"
 msgstr "Ativos"
 
 msgid "common.range"
-msgstr "{$min}-{$max}"
+msgstr "{$min}–{$max}"
 
 msgid "common.re"
 msgstr "Re:"
@@ -774,7 +779,9 @@ msgid "common.replaceFile"
 msgstr "Substituir documento"
 
 msgid "common.requiredField"
-msgstr "* Indica campo obrigatório"
+msgstr ""
+"Os campos obrigatórios são marcados com um asterisco: <abbr class=\"required"
+"\" title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Obrigatório"
@@ -1507,7 +1514,7 @@ msgid "navigation.previousPage"
 msgstr "&lt;&lt;"
 
 msgid "navigation.previousStep"
-msgstr "Voltar"
+msgstr "Voltar ao passo anterior"
 
 msgid "navigation.publicMenu"
 msgstr "Menu Público"
@@ -1706,29 +1713,8 @@ msgstr "Área do Conhecimento"
 msgid "search.fullText"
 msgstr "Texto Completo"
 
-msgid "search.indexTerms"
-msgstr "Termos indexados"
-
-msgid "search.indexTermsLong"
-msgstr "Todos os campos de índices"
-
-msgid "search.matchAll"
-msgstr "Encontrar em todas as categorias"
-
 msgid "search.noResults"
 msgstr "Nenhum resultado encontrado"
-
-msgid "search.operator.and"
-msgstr "e"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Buscar por"
 
 msgid "search.searchResults"
 msgstr "Resultado da pesquisa"
@@ -1785,51 +1771,37 @@ msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Para garantir a integridade da avaliação por pares anônima, todo esforço "
 "deve ser feito para evitar que as identidades dos autores e avaliadores "
-"sejam reveladas um ao outro. Isto envolve os autores , editores e "
-"avaliadores (que carregam documentos no sistema como parte de sua avaliação) "
+"sejam reveladas um ao outro. Isto envolve os autores, editores e avaliadores "
+"(que carregam documentos no sistema como parte de sua avaliação) "
 "certificando-se que as seguintes medidas foram tomadas em relação ao texto e "
 "às propriedades do arquivo :</p>\n"
 "<ul><li>Os autores do documento devem excluir seus nomes do texto, com o "
 "literal \"Autor\" e ano usada nas referências e notas de rodapé, em vez do "
 "nome dos autores, título do artigo, etc.</li>\n"
-"<li>Em documentos do Microsoft Office , a identificação do autor deve "
-"igualmente ser removidos das propriedades do arquivo (ver no menu Arquivo no "
-"Word), clicando sobre o seguinte, começando com Arquivo no menu principal do "
-"aplicativo da Microsoft: Arquivo> Salvar como > Ferramentas (ou Opções no "
-"Mac ) > Segurança> Remover informações pessoais das propriedades do arquivo "
-"ao salvar > Salvar.</li>\n"
-"<ul> <li> Os autores do documento devem excluir seus nomes do texto, com o "
-"literal \"Autor\" e o ano usado nas referências e notas de rodapé, em vez do "
-"nome dos autores, título do artigo etc. </li>\n"
-"<li> Os autores do documento devem remover as informações pessoais das "
-"propriedades do arquivo, executando as seguintes etapas:\n"
-"<ul> <li> Microsoft Word (versão 365) para Windows:\n"
-"<ul> <li> Vá para o arquivo </li>\n"
-"<li> Selecionar informações </li>\n"
-"<li> Clique em Verificar se Há problemas </li>\n"
-"<li> Clique em Inspecionar documento</li>\n"
-"<li> Na caixa de diálogo Inspetor de documentos, marque as caixas de seleção "
-"para escolher o tipo de conteúdo oculto que você deseja que seja "
-"inspecionado. </li>\n"
-"<li> Clique em Inspecionar </li>\n"
-"<li>Em Propriedades do Documento e Informações pessoais Clique em Remover "
-"tudo </li>\n"
-"<li> Clique em Fechar </li>\n"
-"<li> Salve o documento </li> </ul>\n"
-"<li> Microsoft Word para MacOS:\n"
-"<ul> <li> Vá para Ferramentas </li>\n"
-"<li> Clique em Proteger documento </li>\n"
-"<li> Selecione Remover informações pessoais deste arquivo ao salvar </li>\n"
-"<li> Clique em OK e salve o arquivo </li> </ul> </li>\n"
-"<li> PDF:\n"
-"<li>Com PDFs, os nomes dos autores também devem ser removidos das "
-"Propriedades do Documento, encontradas na opção Arquivo no menu principal do "
-"Adobe Acrobat.</li>\n"
-"<ul> <li> Vá para o arquivo </li>\n"
-"<li> Selecionar propriedades </li>\n"
-"<li> Remova qualquer nome no campo do autor </li>\n"
-"<li> Clique em OK </li>\n"
-"<li> Salve o documento </li> </ul> </li> </ul>\n"
+"<li>Os autores do documento removeram informações pessoais das propriedades "
+"do arquivo seguindo as seguintes etapas:\n"
+"<ul><li>Microsoft Word para Windows:\n"
+"<ul><li>Vá em \"Arquivo\"</li>\n"
+"<li>Selecione \"Informações\"</li>\n"
+"<li>Clique em \"Verificar se há problemas\"</li>\n"
+"<li>Clique em \"Inspecionar documento\"</li>\n"
+"<li>Na caixa de diálogo do Inspetor de Documento, selecione as opções dos "
+"tipos de conteúdo oculto que você gostaria de inspecionar.</li>\n"
+"<li>Clique em \"Remover tudo\"</li>\n"
+"<li>Clique em \"Fechar\"</li>\n"
+"<li>Salve o documento</li></ul>\n"
+"<li>Microsoft Word para MacOS:\n"
+"<ul><li>Vá em \"Ferramentas\"</li>\n"
+"<li>Clique em \"Proteger documento\"</li>\n"
+"<li>Selecione \"Remover informações pessoais deste arquivo ao salvar \"</li>"
+"\n"
+"<li>Clique em \"OK\" e salve o arquivo</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Vá em \"Arquivo\"</li>\n"
+"<li>Selecione \"Propriedades\"</li>\n"
+"<li>Remova qualquer nome no campo do autor</li>\n"
+"<li>Clique em \"OK\"</li>\n"
+"<li>Salve o documento</li></ul></li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Agenda de avaliação"
@@ -1911,7 +1883,7 @@ msgid "timeZone"
 msgstr "Fuso horário"
 
 msgid "user.email"
-msgstr "Endereço de e-mail"
+msgstr "Endereço de email"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1971,6 +1943,7 @@ msgstr "Situação da rodada {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumo do relatório de estatísticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Este é um lembrete para você verificar a situação do seu periódico por meio "
@@ -1980,7 +1953,7 @@ msgid "notification.type.editorialReminder"
 msgstr "E-mail semanal de tarefas pendentes"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Item do menu de navegação foi alterado com sucesso"
@@ -2348,3 +2321,92 @@ msgstr "Destaques"
 
 msgid "common.sandbox"
 msgstr "Aplicação em execução no modo sandbox."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ver <a href=\"{$url}\">Histórico Editorial</a>"
+
+msgid "common.moreActions"
+msgstr "Mais Ações"
+
+msgid "common.editorialMasthead"
+msgstr "Equipe Editorial"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Avaliadores por pares no ano anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Avaliadores por pares em anos anteriores"
+
+msgid "common.editorialHistory"
+msgstr "Histórico Editorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Página de histórico editorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Esta seção lista os contribuidores anteriores."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ver perfil ORCID de {$name}"
+
+msgid "common.showingXofX"
+msgstr "Exibindo <strong>{$start} a {$finish}</strong> de {$total}"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Os editores expressam seu agradecimento aos avaliadores de {$year} listados "
+"abaixo."
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Carregado"
+
+msgid "common.filtersClear"
+msgstr "Limpar filtros"
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} erros detectados! Corrija os erros abaixo antes de prosseguir."
+
+msgid "navigation.mySubmissions"
+msgstr "Minhas submissões"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Avaliação aceita em"
+
+msgid "common.numero"
+msgstr "Nº"
+
+msgid "common.refreshingData"
+msgstr "Atualizando dados"
+
+msgid "form.errorSummaryOne"
+msgstr "1 erro detectado! Corrija o erro abaixo antes de prosseguir."
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Avaliação enviada em"
+
+msgid "validator.date.comparison"
+msgstr "Datas inválidas fornecidas para comparação."
+
+msgid "navigation.dashboards"
+msgstr "Painel do editor"
+
+msgid "validator.multilingual"
+msgstr "O requisito multilíngue não é atendido para este campo."
+
+msgid "navigation.reviewAssignments"
+msgstr "Avaliações designadas"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.viewMoreDetails"
+msgstr "Ver mais detalhes"
+
+msgid "common.yesContinue"
+msgstr "Sim, continuar"
+
+msgid "common.changeLanguage"
+msgstr "Alterar Idioma"

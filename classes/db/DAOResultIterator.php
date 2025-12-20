@@ -103,7 +103,3 @@ class DAOResultIterator implements \Iterator, \Countable
         return $this->_resultFactory->getCount();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\db\DAOResultIterator', '\DAOResultIterator');
-}

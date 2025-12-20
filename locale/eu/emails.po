@@ -3,46 +3,39 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2019-12-02T16:17:17-08:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: eu_ES\n"
+"PO-Revision-Date: 2025-11-27 18:57+0000\n"
+"Last-Translator: HIZBEA Euskaltzaindia <hizbea@euskaltzaindia.eus>\n"
+"Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
+"eu/>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "emails.submissionAck.subject"
-msgstr "Bidalketaren hartu-agiria"
+msgstr "Eskerrik asko {$contextName}-ra bidaltzeagatik"
 
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Eskerrik asko {$submissionTitle} eskuizkribua {$contextName} aldizkarira "
-"bidaltzeagatik. Aldizkaria Interneten kudeatzeko erabiltzen dugun sistemari "
-"esker, prozesu editorialean zehar egiten duen ibilbidea jarraitu ahal izango "
-"duzu, aldizkariaren webgunean sartuta:<br />\n"
-"<br />\n"
-"Eskuizkribuaren URLa: {$submissionUrl}<br />\n"
-"Erabiltzaile-izena: {$recipientUsername}<br />\n"
-"<br />\n"
-"Galderaren bat baduzu, jar zaitez harremanetan nirekin. Eskerrik asko zure "
-"lana bidaltzeko aldizkari hau aintzakotzat hartzeagatik.<br />\n"
-"<br />\n"
-"{$contextSignature}"
+"<p>{$recipientName} estimatua:</p><p>Eskerrik asko {$submissionTitle} "
+"bidalketa {$contextName} aldizkarira bidaltzeagatik. Aldizkaria Interneten "
+"kudeatzeko erabiltzen dugun sistemari esker, prozesu editorialean zehar "
+"egiten duen ibilbidea jarraitu ahal izango duzu, aldizkariaren webgunean "
+"sartuta:</p><p>Bidalketaren URLa: {$authorSubmissionUrl}</p><p>Erabiltzaile-"
+"izena: {$recipientUsername}</p><p>Galderaren bat baduzu, jar zaitez "
+"harremanetan nirekin <a href=\"{$authorSubmissionUrl}\">bidalketa-"
+"paneletik</a>.</p><p> Eskerrik asko zure lana bidaltzeko {$contextName} "
+"aldizkaria aintzakotzat hartzeagatik.</p>{$contextSignature}"
 
-#, fuzzy
 msgid "emails.submissionAck.description"
 msgstr ""
-"Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira "
-"eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena "
-"egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana "
-"bidaltzeagatik."
+"Mezu hau automatikoki bidaltzen zaio egileari, bidalketa bat burutzen "
+"duenean."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Artikuluaren ebaluazioaren hartu-agiria"
+msgstr "Eskerrik asko zure berrikuspenagatik"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -54,32 +47,71 @@ msgstr ""
 "ditugun lanen kalitatea hobetzeko egiten diguzun ekarpena."
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Eskerrik asko zure berrikuspenagatik"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""
+"<p>{$recipientName} agurgarria:</p>\n"
+"<p>Eskerrik asko bidalketa, \"{$submissionTitle}\", ebaluatzeagatik "
+"{$contextName}-(r)entzat. Biziki estimatzen dizugu argitaratzen ditugun "
+"lanen kalitatea hobetze aldera eskaini duzun denbora eta eskarmentua. "
+"Egileei zure iruzkinak helarazi dizkiegu jada, bai eta gure gainerako "
+"ebaluatzaileen oharrak eta editorearen erabakia ere.</p>\n"
+"<p>Jasotako ohar guztietan oinarrituta, honako hau jakinarazi diegu "
+"egileei:</p>\n"
+"<p>{$decisionDescription}</p>\n"
+"<p>Erabakia hartu baino lehen, zure gomendioa eta gainerako ebaluatzaileena "
+"kontuan hartu dugu. Ohikoa ez bada ere, baliteke editorearen erabakia eta "
+"ebaluatzaile batek edo batzuek gomendatutakoa bat ez etortzea. Editoreak "
+"faktore asko aztertzen ditu eta ez ditu erabakiak nolanahi hartzen. Zinez "
+"eskertzen ditugu gure ebaluatzaileen eskarmentua eta iradokizunak.</p>\n"
+"<p>Plazera izan da {$contextName}-(r)en ebaluatzaileen artean edukitzea, eta "
+"etorkizunean ere zurekin lan egiteko aukera izango dugula espero dugu.</p>\n"
+"<p>Adeitasunez,</p>\n"
+"<p>{$signature}</p>"
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Zure bidalketari buruzko eguneratzea"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
+"<p>Mezu hau {$submittingAuthorName}-(r)i bidali zaio {$contextName}-(e)tik \""
+"{$submissionTitle}\" dela eta.</p>\n"
+"<p>Jakinarazpen honen kopia bat jaso duzu, bidalketaren egile gisa "
+"identifikatuta zaudelako. Ondorengo mezuan jasotzen diren jarraibide guztiak "
+"{$submittingAuthorName} bidalketaren egile nagusiarentzat dira. Hortaz, une "
+"honetan, ez duzu ezer egin beharrik.</p>\n"
+"\n"
+"{$messageToSubmittingAuthor}"
 
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr ""
+msgstr "Zure bidalketa berrikustera bidali da"
 
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
+"<p>{$recipientName} agurgarria:</p><p>Plazera da niretzat jakinaraztea "
+"editore batek zure bidalketa, \"{$submissionTitle}\", berrikusi duela eta "
+"itsu bikoitzeko ebaluaziora igortzea erabaki duela. Editore batek "
+"ebaluatzaile kualifikatuak identifikatuko ditu, eta zure bidalketaren "
+"gaineko oharrak egingo dituzte.</p><p>{$reviewTypeDescription} Zurekin "
+"harremanetan jarriko gara ebaluatzaileen oharrak eta eman beharreko hurrengo "
+"urratsen gaineko informazioaren berri emateko.</p><p>Mesedez, izan gogoan "
+"bidalketa itsu bikoitzeko ebaluaziora igortzeak ez duela argitaratuko denik "
+"bermatzen. Bidalketa argitaratzeko onartu baino lehen, ebaluatzaileen "
+"gomendioak kontuan hartuko ditugu. Azken erabakia hartu baino lehen, "
+"baliteke zenbait zuzenketa egitea eta ebaluatzaileen oharrei erantzutea "
+"eskatzea.</p>Zalantzarik izanez gero, mesedez, jarri nirekin harremanetan "
+"zure bidalketaren panelaren bitartez.</p><p>{$signature}</p>"
 
 msgid "emails.editorDecisionSendToProduction.subject"
-msgstr ""
+msgstr "Zure bidalketa argitaratzeko hurrengo urratsak"
 
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "Editorearen erabakia"
+msgstr ""
+"Zure bidalketa berrikusi da eta berrikuspenak aurkeztera animatzen zaitugu"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -91,9 +123,8 @@ msgstr ""
 "<br />\n"
 "Gure erabakia:"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
-msgstr "Editorearen erabakia"
+msgstr "Zure bidalketa berrikusi da - mesedez, berrikusi eta berriro bidali"
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
@@ -105,9 +136,8 @@ msgstr ""
 "<br />\n"
 "Gure erabakia:"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
-msgstr "Editorearen erabakia"
+msgstr "Zure bidalketa ukatu egin da"
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
@@ -120,14 +150,13 @@ msgstr ""
 "Gure erabakia:"
 
 msgid "emails.editorRecommendation.subject"
-msgstr ""
+msgstr "Editorearen gomendioa"
 
 msgid "emails.editorRecommendation.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
-msgstr "Zuzenketa egiteko eskaera"
+msgstr "{$submissionId} bidalketa {$contextAcronym}-erako zuzentzeko prest dago"
 
 #, fuzzy
 msgid "emails.copyeditRequest.body"
@@ -151,101 +180,130 @@ msgstr ""
 "Erabiltzaile-izena: {$recipientUsername}"
 
 msgid "emails.editorDecisionNewReviewRound.subject"
-msgstr ""
+msgstr "Zure bidalketa beste berrikuspen-erronda batera bidali da"
 
 msgid "emails.editorDecisionNewReviewRound.body"
 msgstr ""
 
 msgid "emails.editorDecisionRevertDecline.subject"
-msgstr ""
+msgstr "Zure bidalketa baztertzeko erabakia bertan behera utzi dugu"
 
 msgid "emails.editorDecisionRevertDecline.body"
 msgstr ""
+"<p>{$recipientName} agurgarria:</p>\n"
+"<p>Zure bidalketa, \"{$submissionTitle}\", bazter uzteko erabakia bertan "
+"behera gelditu da. \n"
+"Editore batek ebaluazio-txanda osatuko du. Erabaki bat hartzen denean, \n"
+"jakinaraziko zaizu.</p>\n"
+"<p>Ohikoa ez bada ere, batzuetan bidalketak bazter uzteko erabakiak nahi "
+"gabe erregistratzen dira \n"
+"gure sisteman eta bazter utzi behar dira. Barkamena eskatzen dizugu "
+"eragindako anabasarengatik.</p>\n"
+"<p>Zurekin harremanetan jarriko gara laguntza gehiagorik behar badugu.</p>\n"
+"<p>Zalantzarik izanez gero, mesedez, jarri nirekin harremanetan <a href=\""
+"{$authorSubmissionUrl}\">bidalketen kontrol-panela</a> baliatuta.</p>\n"
+"<p>Adeitasunez,</p>\n"
+"<p>{$signature}</p>\n"
 
 msgid "emails.editorDecisionRevertInitialDecline.subject"
-msgstr ""
+msgstr "Zure bidalketa baztertzeko erabakia bertan behera utzi dugu"
 
 msgid "emails.editorDecisionRevertInitialDecline.body"
 msgstr ""
 
 msgid "emails.editorDecisionInitialDecline.subject"
-msgstr ""
+msgstr "Zure bidalketa ukatu egin da"
 
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 
 msgid "emails.editorialReminder.subject"
-msgstr ""
+msgstr "{$contextName}(e)rako edizio-lan nabarmenak"
 
 msgid "emails.editorialReminder.body"
 msgstr ""
 
 msgid "discussion.notification.description"
 msgstr ""
+"Mezu elektroniko hau erabiltzaile batek eztabaida berri bat sortzen duenean "
+"edo lehendik dagoen eztabaida bati erantzuten dionean bidaltzen da"
 
 msgid "emails.editorDecisionBackFromProduction.subject"
-msgstr ""
+msgstr "Zure bidalketa edizio-fasera itzuli da"
 
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 
 msgid "emails.editorDecisionBackFromCopyediting.subject"
-msgstr ""
+msgstr "Zure bidalketa berrikuspen-fasera itzuli da"
 
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 
 msgid "emails.editorDecisionCancelReviewRound.subject"
-msgstr ""
+msgstr "Zure bidalketaren berrikuspen-erronda bat bertan behera utzi da"
 
 msgid "emails.editorDecisionCancelReviewRound.body"
 msgstr ""
 
 msgid "emails.reviewResendRequest.subject"
-msgstr ""
+msgstr "{$contextName}-ri buruzko berrikuspena berriro eskatzen"
 
 msgid "emails.reviewResendRequest.body"
 msgstr ""
 
 msgid "emails.footer.unsubscribe"
 msgstr ""
+"<br><br>—<br><a href=\"{$unsubscribeUrl}\">Kendu harpidetza</a> <a href=\""
+"{$contextUrl}\">{$contextName}</a>-k bidalitako mezu elektronikoetatik."
 
 msgid "emails.footer.unsubscribe.discussion"
 msgstr ""
+"<br><br>—<br>Erantzun iruzkin honi <a href=\"{$submissionUrl}\""
+">#{$submissionId} {$authorsShort}</a>(e)n edo <a href=\"{$unsubscribeUrl}\""
+">kendu harpidetza</a> <a href=\"{$contextUrl}\">{$contextName}</a>(e)k "
+"bidalitako mezu elektronikoetatik."
 
 msgid "emails.footer.unsubscribe.automated"
 msgstr ""
+"<br><br>—<br>Hau <a href=\"{$contextUrl}\">{$contextName}</a>ren mezu "
+"automatiko bat da . Edozein unetan <a href=\"{$unsubscribeUrl}\">harpidetza "
+"kendu</a> dezakezu mezu elektroniko honetatik."
 
 msgid "emailTemplate.variable.unsubscribe"
-msgstr ""
+msgstr "Mezu elektroniko honetatik harpidetza kentzeko esteka."
 
 msgid "emails.discussion.subject"
-msgstr ""
+msgstr "{$contextName}ri buruzko mezua"
 
 msgid "emails.discussion.body"
-msgstr ""
+msgstr "Mesedez, idatzi zure mezua."
 
 msgid "emails.versionCreated.subject"
-msgstr ""
+msgstr "Bertsio berri bat sortu da \"{$submissionTitle}\"(e)rako"
 
 msgid "emails.versionCreated.body"
 msgstr ""
 
 msgid "emails.reviewComplete.subject"
 msgstr ""
+"Berrikuspena osatuta: {$reviewerName}(e)k {$reviewRecommendation} "
+"gomendatzen du #{$submissionId} {$authorsShort}-rentzat — \""
+"{$submissionTitle}\""
 
 msgid "emails.reviewComplete.body"
 msgstr ""
 
 msgid "emails.reviewEdit.subject"
-msgstr ""
+msgstr "Zure berrikuspen-esleipena aldatu egin da {$contextName}-rentzat"
 
 msgid "emails.reviewEdit.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.reviewConfirm.subject"
-msgstr "Ebaluazioa egiteko prest"
+msgstr ""
+"Berrikuspena onartuta: {$reviewer Name}(e)k berrikuspen-esleipena onartu du "
+"lan honetarako: #{$submissionId} {$authorsShort} — \"{$submissionTitle}\""
 
 #, fuzzy
 msgid "emails.reviewConfirm.body"
@@ -260,22 +318,25 @@ msgstr ""
 "{$senderName}"
 
 msgid "emails.submissionSavedForLater.subject"
-msgstr ""
+msgstr "Jarraitu {$contextName}-era egindako zure bidalketarekin"
 
 msgid "emails.submissionSavedForLater.body"
 msgstr ""
 
 msgid "emails.submissionNeedsEditor.subject"
 msgstr ""
+"Bidalketa berri batek editore bat esleitzea behar du: \"{$submissionTitle}\""
 
 msgid "emails.submissionNeedsEditor.body"
 msgstr ""
 
 msgid "emails.submissionAckNotUser.description"
 msgstr ""
+"Mezu elektroniko hau automatikoki bidaltzen zaie bidalketa berri batean "
+"izendatutako egileei, egile bidaltzaile ez badira."
 
 msgid "emails.submissionAckNotAuthor.subject"
-msgstr ""
+msgstr "Bidalketaren baieztapena"
 
 msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
@@ -1170,3 +1231,58 @@ msgstr ""
 #~ "Mezu hau Ataleko editoreak Zuzentzaileari bidaltzen dio, artikuluaren "
 #~ "zuzenketa-prozesua egin dezala eskatzeko. Artikuluari buruzko informazioa "
 #~ "eta fitxategia hartzeko datuak ematen ditu."
+
+msgid "emails.changeProfileEmailInvitationNotify.subject"
+msgstr ""
+"Berretsi kontuaren harremanetarako helbide elektronikoa aldatzeko eskaera"
+
+msgid "emails.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"Mezu elektroniko hau euren helbide elektronikoa aldatzeko eskatzen duten "
+"erabiltzaileei bidaltzen zaie."
+
+msgid "emails.orcidCollectAuthorId.subject"
+msgstr "Bidalketaren ORCIDa"
+
+msgid "emails.orcidCollectAuthorId.description"
+msgstr ""
+"Mezu elektroniko hau egileen ORCID identifikatzaileak jasotzeko bidaltzen da."
+
+msgid "emails.orcidRequestAuthorAuthorization.subject"
+msgstr "ORCID erregistroetara sarbidea eskatzea"
+
+msgid "emails.orcidRequestAuthorAuthorization.description"
+msgstr ""
+"Mezu elektroniko hau egileei ORCID erregistroetara sarbidea eskatzeko "
+"bidaltzen da."
+
+#, fuzzy
+msgid "emails.orcidRequestUpdateScope.description"
+msgstr ""
+"Mezu elektroniko hau ORCIDerako API OAuth irismena eskatzeko bidaltzen da."
+
+msgid "emails.orcidRequestUpdateScope.subject"
+msgstr "Eguneratutako ORCID erregistroetara sarbidea eskatzea"
+
+msgid "emailTemplate.variable.authorOrcidUrl"
+msgstr "ORCID OAuth baimenaren esteka"
+
+msgid "emailTemplate.variable.orcidAboutUrl"
+msgstr "ORCIDi buruzko orriaren URLa"
+
+msgid "orcid.orcidRequestUpdateScope.name"
+msgstr "orcidRequestUpdateScope"
+
+msgid "mailable.userRoleEndNotify.name"
+msgstr "Erabiltzailearen rolaren amaiera-jakinarazpena"
+
+msgid "mailable.userRoleEndNotify.description"
+msgstr ""
+"Erabiltzaile bati rol batetik kentzean bidaltzen zaion posta elektroniko "
+"bidezko jakinarazpena."
+
+msgid "emails.userRoleEndNotify.subject"
+msgstr "Rol batetik kendu zaituzte"
+
+msgid "emailTemplate.variable.userRoleEnd.roleRemoved"
+msgstr "Hau da ezabatu den erabiltzaile-rolaren izena"

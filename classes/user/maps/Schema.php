@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/user/maps/Schema.php
  *
@@ -14,11 +15,13 @@
 namespace PKP\user\maps;
 
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\user\User;
+
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -27,13 +30,13 @@ class Schema extends \PKP\core\maps\Schema
     public string $schema = PKPSchemaService::SCHEMA_USER;
 
     /**
-     * Map a publication
+     * Map a user
      *
      * Includes all properties in the user schema.
      */
-    public function map(User $item): array
+    public function map(User $item, array $auxiliaryData = []): array
     {
-        return $this->mapByProperties($this->getProps(), $item);
+        return $this->mapByProperties($this->getProps(), $item, $auxiliaryData);
     }
 
     /**
@@ -41,9 +44,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the user schema.
      */
-    public function summarize(User $item): array
+    public function summarize(User $item, array $auxiliaryData = []): array
     {
-        return $this->mapByProperties($this->getSummaryProps(), $item);
+        return $this->mapByProperties($this->getSummaryProps(), $item, $auxiliaryData);
     }
 
     /**
@@ -51,9 +54,18 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the user schema.
      */
-    public function summarizeReviewer(User $item): array
+    public function summarizeReviewer(User $item, array $auxiliaryData = []): array
     {
-        return $this->mapByProperties(array_merge($this->getSummaryProps(), ['reviewsActive', 'reviewsCompleted', 'reviewsDeclined', 'reviewsCancelled', 'averageReviewCompletionDays', 'dateLastReviewAssignment', 'reviewerRating']), $item);
+        return $this->mapByProperties($this->getReviewerSummaryProps(), $item, $auxiliaryData);
+    }
+
+    /**
+     * Map a collection of users with optional context
+     * @see self::map
+     */
+    public function mapManyWithOptions(Enumerable $collection, array $options = []): Enumerable
+    {
+        return $this->mapUsersWithPermissions($collection, $this->getProps(), $options);
     }
 
     /**
@@ -63,10 +75,18 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function mapMany(Enumerable $collection): Enumerable
     {
-        $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->map($item);
-        });
+        return $this->mapUsersWithPermissions($collection, $this->getProps(), []);
+    }
+
+    /**
+     * Get the list of properties used for reviewer summaries
+     */
+    private function getReviewerSummaryProps(): array
+    {
+        return array_merge($this->getSummaryProps(), [
+            'reviewsActive','reviewsCompleted','reviewsDeclined','reviewsCancelled',
+            'averageReviewCompletionDays','dateLastReviewAssignment','reviewerRating',
+        ]);
     }
 
     /**
@@ -74,12 +94,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      */
-    public function summarizeMany(Enumerable $collection): Enumerable
+    public function summarizeMany(Enumerable $collection, array $options = []): Enumerable
     {
-        $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarize($item);
-        });
+        return $this->mapUsersWithPermissions($collection, $this->getSummaryProps(), $options);
     }
 
     /**
@@ -87,20 +104,74 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarizeReviewer
      */
-    public function summarizeManyReviewers(Enumerable $collection): Enumerable
+    public function summarizeManyReviewers(Enumerable $collection, array $options = []): Enumerable
     {
-        $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarizeReviewer($item);
-        });
+        return $this->mapUsersWithPermissions($collection, $this->getReviewerSummaryProps(), $options);
+    }
+
+    /**
+     * Shared implementation for mapping/summarizing collections
+     */
+    private function mapUsersWithPermissions(Enumerable $collection, array $props, array $options): Enumerable
+    {
+        // handles lazy collection
+        $users = collect($collection->all());
+
+        $this->collection = $users;
+
+        $userIds = $users
+            ->map(fn (User $u) => (int) $u->getId())
+            ->unique()
+            ->values()
+            ->all();
+
+        $currentUserId = $options['currentUserId'] ?? null;
+        $isSiteAdmin   = (bool)($options['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        $options['isSiteAdmin'] = $isSiteAdmin;
+
+        if (empty($userIds)) {
+            $options['permissionMap'] = [];
+        } elseif ($isSiteAdmin) {
+            $options['permissionMap'] = array_fill_keys($userIds, true);
+        } elseif ($currentUserId !== null) {
+            $options['permissionMap'] = Repo::user()->permissionMapForManager((int)$currentUserId, $userIds);
+        } else {
+            $options['permissionMap'] = array_fill_keys($userIds, false);
+        }
+        $contextId = $this->context ? (int) $this->context->getId() : 0;
+        $options['canSeeGossip'] = $currentUserId ? Repo::user()->canSeeGossip((int)$currentUserId, $contextId) : false;
+
+        // batch preload
+        $options['groupsByUser'] = (!empty($userIds) && $contextId) ? Repo::user()->preloadGroups($userIds, $contextId) : [];
+        $options['interestsByUser'] = !empty($userIds) ? Repo::user()->preloadInterests($userIds) : [];
+
+        // batch preload stage assignments, if submission+stage are provided
+        if (!empty($userIds)
+            && isset($options['submission'], $options['stageId'])
+            && $options['submission'] instanceof Submission
+            && is_numeric($options['stageId'])
+        ) {
+            $options['stageAssignmentsByUser'] = Repo::user()->stageAssignmentsForUsers(
+                $userIds,
+                (int)$options['submission']->getId(),
+                (int)$options['stageId'],
+                $contextId
+            );
+        } else {
+            $options['stageAssignmentsByUser'] = [];
+        }
+
+        return $users->map(fn (User $u) => $this->mapByProperties($props, $u, $options));
     }
 
     /**
      * Map schema properties of a user to an assoc array
      *
+     * @param array $auxiliaryData - Associative array used to provide supplementary data needed to populate properties on the response.
+     *
      * @hook UserSchema::getProperties::values [[$this, &$output, $user, $props]]
      */
-    protected function mapByProperties(array $props, User $user): array
+    protected function mapByProperties(array $props, User $user, array $auxiliaryData = []): array
     {
         $output = [];
 
@@ -113,9 +184,15 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $user->getFullName();
                     break;
                 case 'gossip':
-                    if (Repo::user()->canCurrentUserGossip($user->getId())) {
+                    if (!empty($auxiliaryData['canSeeGossip'])) {
                         $output[$prop] = $user->getGossip();
                     }
+                    break;
+                case 'canLoginAs':
+                    $output[$prop] = $this->getPropertyCanLoginAs($user, $auxiliaryData);
+                    break;
+                case 'canMergeUsers':
+                    $output[$prop] = $this->getPropertyCanMergeUsers($user, $auxiliaryData);
                     break;
                 case 'reviewsActive':
                     $output[$prop] = $user->getData('incompleteCount');
@@ -145,54 +222,91 @@ class Schema extends \PKP\core\maps\Schema
                     );
                     break;
                 case 'groups':
-                    $output[$prop] = null;
-                    if ($this->context) {
-                        $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $this->context->getId());
-                        $output[$prop] = [];
-                        foreach ($userGroups as $userGroup) {
-                            $output[$prop][] = [
-                                'id' => (int) $userGroup->getId(),
-                                'name' => $userGroup->getName(null),
-                                'abbrev' => $userGroup->getAbbrev(null),
-                                'roleId' => (int) $userGroup->getRoleId(),
-                                'showTitle' => (bool) $userGroup->getShowTitle(),
-                                'permitSelfRegistration' => (bool) $userGroup->getPermitSelfRegistration(),
-                                'permitMetadataEdit' => (bool) $userGroup->getPermitMetadataEdit(),
-                                'recommendOnly' => (bool) $userGroup->getRecommendOnly(),
-                            ];
-                        }
-                    }
+                    $groupsByUser = $auxiliaryData['groupsByUser'] ?? [];
+                    $output[$prop] = $groupsByUser[(int)$user->getId()] ?? [];
                     break;
                 case 'interests':
-                    $output[$prop] = [];
-                    if ($this->context) {
-                        $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var \PKP\user\InterestDAO $interestDao */
-                        $interestEntryIds = $interestDao->getUserInterestIds($user->getId());
-                        if (!empty($interestEntryIds)) {
-                            $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var \PKP\user\InterestEntryDAO $interestEntryDao */
-                            $results = $interestEntryDao->getByIds($interestEntryIds);
-                            $output[$prop] = [];
-                            while ($interest = $results->next()) {
-                                $output[$prop][] = [
-                                    'id' => (int) $interest->getId(),
-                                    'interest' => $interest->getInterest(),
-                                ];
-                            }
-                        }
+                    $interestsByUser = $auxiliaryData['interestsByUser'] ?? [];
+                    $output[$prop] = array_values($interestsByUser[(int)$user->getId()] ?? []);
+                    break;
+                case 'stageAssignments':
+                    $submission = $auxiliaryData['submission'] ?? null;
+                    $stageId = $auxiliaryData['stageId'] ?? null;
+                    $byUser = $auxiliaryData['stageAssignmentsByUser'] ?? [];
+
+                    if (!($submission instanceof Submission) || !is_numeric($stageId)) {
+                        $output['stageAssignments'] = [];
+                        break;
                     }
+
+                    // use preloaded map no per-user queries
+                    $output['stageAssignments'] = $byUser[(int)$user->getId()] ?? [];
+                    break;
+                case 'displayInitials':
+                    $output['displayInitials'] = $user->getDisplayInitials();
+                    break;
+                case 'orcidDisplayValue':
+                    $output[$prop] = $user->getOrcidDisplayValue();
                     break;
                 default:
                     $output[$prop] = $user->getData($prop);
                     break;
             }
-
-            $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());
-
-            Hook::call('UserSchema::getProperties::values', [$this, &$output, $user, $props]);
-
-            ksort($output);
         }
+        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());
+
+        Hook::call('UserSchema::getProperties::values', [$this, &$output, $user, $props]);
+
+        ksort($output);
 
         return $output;
     }
+
+    /**
+     * Decide if the current user can "log in as" the target user
+     */
+    protected function getPropertyCanLoginAs(User $userToLoginAs, array $auxiliaryData = []): bool
+    {
+        $currentUserId = $auxiliaryData['currentUserId'] ?? null;
+        if ($currentUserId === null || $currentUserId === (int) $userToLoginAs->getId()) {
+            return false;
+        }
+
+        $isSiteAdmin = (bool) ($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        if ($isSiteAdmin) {
+            return true;
+        }
+
+        // use only the batched map
+        $permissionMap = $auxiliaryData['permissionMap'] ?? null;
+        if ($permissionMap === null) {
+            return false;
+        }
+
+        return (bool) ($permissionMap[(int) $userToLoginAs->getId()] ?? false);
+    }
+
+    /**
+     * Determine if the current user can merge the target user
+     */
+    protected function getPropertyCanMergeUsers(User $userToMerge, array $auxiliaryData = []): bool
+    {
+        $currentUserId = $auxiliaryData['currentUserId'] ?? null;
+        if ($currentUserId === null || $currentUserId === (int) $userToMerge->getId()) {
+            return false;
+        }
+
+        $isSiteAdmin = (bool) ($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        if ($isSiteAdmin) {
+            return true;
+        }
+
+        // use only the batched map
+        $permissionMap = $auxiliaryData['permissionMap'] ?? null;
+        if ($permissionMap === null) {
+            return false;
+        }
+        return (bool) ($permissionMap[(int) $userToMerge->getId()] ?? false);
+    }
 }
+

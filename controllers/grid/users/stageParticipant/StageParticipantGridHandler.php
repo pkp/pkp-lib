@@ -147,9 +147,10 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 $request,
                 PKPApplication::ROUTE_PAGE,
                 null,
-                'workflow',
-                'access',
-                [$submissionId]
+                'dashboard',
+                'editorial',
+                null,
+                ['workflowSubmissionId' => $submissionId]
             );
             $this->addAction(
                 new LinkAction(
@@ -174,7 +175,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
                         __('editor.submission.addStageParticipant'),
-                        'modal_add_user'
                     ),
                     __('common.assign'),
                     'add_user'
@@ -203,7 +203,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withStageIds([$stageId])
-            ->withUserGroupId($userGroup->getId())
+            ->withUserGroupId($userGroup->id)
             ->get();
 
         return $stageAssignments->mapWithKeys(function ($stageAssignment) {
@@ -279,13 +279,13 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $this->getStageId()
         );
         foreach ($userGroups as $userGroup) {
-            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
+            if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            if (!in_array($userGroup->getId(), $userGroupIds)) {
+            if (!in_array($userGroup->id, $userGroupIds)) {
                 continue;
             }
-            $result[$userGroup->getId()] = $userGroup;
+            $result[$userGroup->id] = $userGroup;
         }
         return $result;
     }
@@ -342,7 +342,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
             // Check user group role id.
             $userGroup = Repo::userGroup()->get($userGroupId);
-            if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER) {
+            if ($userGroup->roleId == Role::ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(
                     $request,
                     $notificationMgr->getDecisionStageNotifications(),
@@ -389,7 +389,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 'dateLogged' => Core::getCurrentDate(),
                 'userFullName' => $assignedUser->getFullName(),
                 'username' => $assignedUser->getUsername(),
-                'userGroupName' => $userGroup->getData('name')
+                'userGroupName' => $userGroup->name,
             ]);
             Repo::eventLog()->add($eventLog);
 
@@ -463,7 +463,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             'dateLogged' => Core::getCurrentDate(),
             'userFullName' => $assignedUser->getFullName(),
             'username' => $assignedUser->getUsername(),
-            'userGroupName' => $userGroup->getData('name')
+            'userGroupName' => $userGroup->name,
         ]);
         Repo::eventLog()->add($eventLog);
 
@@ -491,7 +491,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $users = $collector->getMany();
 
         $userGroup = Repo::userGroup()->get($userGroupId);
-        $roleId = $userGroup->getRoleId();
+        $roleId = $userGroup->roleId;
 
         $sectionId = $submission->getSectionId();
         $contextId = $submission->getData('contextId');
@@ -583,7 +583,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $templateKey = $request->getUserVar('template');
         $context = $request->getContext();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
-        if ($template) {
+        if ($template && Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
             $submission = $this->getSubmission();
             $mailable = $this->getStageMailable($context, $submission);
             $mailable->sender($request->getUser());

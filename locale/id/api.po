@@ -1,8 +1,9 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021, 2023.
+# Maria Lamury <marialamury@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-04-01 15:36+0000\n"
+"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "id/>\n"
 "Language: id\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Parameter {$param} tidak didukung."
@@ -107,11 +108,6 @@ msgstr ""
 
 msgid "api.dois.400.invalidPluginType"
 msgstr "Plugin yang diatur saat ini harus berupa plugin agen pendaftaran."
-
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Anda tidak dapat merekam keputusan atau merekomendasikan keputusan untuk "
-"naskah ini karena telah diterbutkan."
 
 msgid "api.emails.400.missingBody"
 msgstr "Anda harus mencantumkan surel yang akan dikirimi."
@@ -344,3 +340,94 @@ msgstr "Tugas gagal berhasil duhapusdar daftar."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Kosa kata {$vocab} belum didukung."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Terjadi error ketika menggunggah gambar ini."
+
+msgid "api.400.routeNotDefined"
+msgstr "Tidak ada API route yang disediakan."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "DOI tidak dapat ditetapkan untuk item ini."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Anda tidak dapat melakukan kegiatan ini dengan fungsional ORCID yang di-"
+"nonaktifkan."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Anda tidak dapat melakukan perubahan pada penulis naskah yang tidak "
+"ditugaskan kepada anda."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Anda tidak dapat mengubah bahasa dari pengiriman naskah ini karena telah "
+"memiliki lebih dari satu versi terbitan atau publikasi yang sudah "
+"diterbitkan."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Formulir identifier publikasi tidak tersedia karena identifier tidak "
+"diaktifkan."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Tidak dapat memproses permintaan API."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Tidak dapat menerima respon yang diharapkan."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Penulis yang dicari tidak ditemukan"
+
+msgid "api.409.resourceActionConflict"
+msgstr "Tidak dapat menyelesaikan kegiatan yang dimaksud pada sumber."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "ROR yang anda cari tidak ditemukan."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID yang diberikan tidak valid: \"{$id}\"."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Bagian yang disediakan tidak ada."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Pesanan highlight tidak dapat disimpan karena tidak ada informasi pesanan "
+"ditemukan."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Pesanan highlight tidak dapat disimpan karena satu highlight atau lebih "
+"tidak dapat itemukan."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Parameter penulis-friendly tidakk valid."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Anda menyediakan   \"eventType\",{$eventType}, yang tidak valid, untuk email "
+"Penulis."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Highlight yang anda minta tidak dapat ditemukan."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Endpoint ini tidak tersedia dari namespace site-wide, dan harus diminta "
+"untuk konteks yang diberikan."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Naskah dari penugasan review ini tidak dapat ditemukan."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Reviewer untuk penugasan ini tidak dapat ditemukan"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Hanya 'terima' dan 'tolak' yang merupakan nilai yang valid"
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Permintaan ini tidak dapat menemukan parameter kueri `ids` yang diminta. "
+"Mohon sediakan `ids`dari naskah yang anda ingin hapus."

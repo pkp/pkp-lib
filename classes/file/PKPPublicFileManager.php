@@ -94,7 +94,7 @@ abstract class PKPPublicFileManager extends FileManager
     }
 
     /**
-     * Copy a file to a site's public directory.
+     * Copy a file to a context's public directory.
      *
      * @param int $contextId Context ID
      * @param string $sourceFile the source of the file to copy
@@ -131,8 +131,4 @@ abstract class PKPPublicFileManager extends FileManager
     {
         return $this->deleteByPath($this->getSiteFilesPath() . '/' . $fileName);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\PKPPublicFileManager', '\PKPPublicFileManager');
 }

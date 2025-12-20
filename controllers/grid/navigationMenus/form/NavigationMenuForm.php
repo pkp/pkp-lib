@@ -29,23 +29,11 @@ use PKP\plugins\PluginRegistry;
 
 class NavigationMenuForm extends Form
 {
-    /** @var int Context ID */
-    public $_contextId;
-
-    /** @var int $_navigationMenuId The menu id being edited */
-    public $_navigationMenuId;
-
     /**
      * Constructor
-     *
-     * @param int $contextId Context ID
-     * @param int $navigationMenuId NavigationMenu Id
      */
-    public function __construct(int $contextId, $navigationMenuId = null)
+    public function __construct(public ?int $_contextId, public ?int $_navigationMenuId = null)
     {
-        $this->_navigationMenuId = !empty($navigationMenuId) ? (int) $navigationMenuId : null;
-        $this->_contextId = $contextId;
-
         parent::__construct('controllers/grid/navigationMenus/form/navigationMenuForm.tpl');
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'title', 'required', 'manager.navigationMenus.form.titleRequired'));

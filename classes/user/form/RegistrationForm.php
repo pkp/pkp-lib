@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup user_form User Forms
  */
@@ -33,8 +34,8 @@ use PKP\orcid\OrcidManager;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\Site;
-use PKP\user\InterestManager;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class RegistrationForm extends Form
 {
@@ -214,19 +215,22 @@ class RegistrationForm extends Form
         if (!$request->getContext()) {
             if ($request->getSite()->getData('privacyStatement')) {
                 $privacyConsent = $this->getData('privacyConsent');
-                if (!is_array($privacyConsent) || !array_key_exists(Application::SITE_CONTEXT_ID, $privacyConsent)) {
-                    $this->addError('privacyConsent[' . Application::SITE_CONTEXT_ID . ']', __('user.register.form.missingSiteConsent'));
+                if (!is_array($privacyConsent) || !array_key_exists(intval(Application::SITE_CONTEXT_ID), $privacyConsent)) {
+                    $this->addError('privacyConsent[' . intval(Application::SITE_CONTEXT_ID) . ']', __('user.register.form.missingSiteConsent'));
                 }
             }
 
             if (!Config::getVar('general', 'sitewide_privacy_statement')) {
-                $contextIds = [];
-                foreach ($this->getData('userGroupIds') as $userGroupId) {
-                    $userGroup = Repo::userGroup()->get($userGroupId);
-                    $contextIds[] = $userGroup->getContextId();
-                }
+                $userGroupIds = $this->getData('userGroupIds');
 
-                $contextIds = array_unique($contextIds);
+                // Fetch all user groups in a single query
+                $userGroups = UserGroup::query()->withUserGroupIds($userGroupIds)->get();
+
+                // Collect context IDs using the 'map' method
+                $contextIds = $userGroups->map(function ($userGroup) {
+                    return $userGroup->contextId;
+                })->unique()->toArray();
+
                 if (!empty($contextIds)) {
                     $contextDao = Application::getContextDao();
                     $privacyConsent = (array) $this->getData('privacyConsent');
@@ -310,7 +314,7 @@ class RegistrationForm extends Form
         if ($request->getContext() && !$this->getData('reviewerGroup')) {
             $defaultReaderGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_READER], $request->getContext()->getId(), true)->first();
             if ($defaultReaderGroup) {
-                Repo::userGroup()->assignUserToGroup($user->getId(), $defaultReaderGroup->getId());
+                Repo::userGroup()->assignUserToGroup($user->getId(), $defaultReaderGroup->id);
             }
         } else {
             $userFormHelper = new UserFormHelper();
@@ -339,13 +343,8 @@ class RegistrationForm extends Form
         }
 
         // Insert the user interests
-        $interestManager = new InterestManager();
-        $interestManager->setInterestsForUser($user, $this->getData('interests'));
+        Repo::userInterest()->setInterestsForUser($user, $this->getData('interests'));
 
         return $userId;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\form\RegistrationForm', '\RegistrationForm');
 }

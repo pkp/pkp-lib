@@ -22,6 +22,7 @@ namespace PKP\payment;
 use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
+use PKP\notification\Notification;
 
 class QueuedPaymentDAO extends \PKP\db\DAO
 {
@@ -115,8 +116,4 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     {
         $this->update('DELETE FROM queued_payments WHERE expiry_date < now()');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\payment\QueuedPaymentDAO', '\QueuedPaymentDAO');
 }

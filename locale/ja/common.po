@@ -1698,29 +1698,8 @@ msgstr "分野"
 msgid "search.fullText"
 msgstr "フルテキスト"
 
-msgid "search.indexTerms"
-msgstr "インデックス検索"
-
-msgid "search.indexTermsLong"
-msgstr "インデックス用語フィールドの全て"
-
-msgid "search.matchAll"
-msgstr "すべてのカテゴリーにマッチ"
-
 msgid "search.noResults"
 msgstr "該当なし"
-
-msgid "search.operator.and"
-msgstr "and"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "を検索する"
 
 msgid "search.searchResults"
 msgstr "検索結果"
@@ -1947,6 +1926,7 @@ msgstr "ラウンド {$round} 現況"
 msgid "notification.type.editorialReport"
 msgstr "統計レポートの要約。"
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "雑誌の健康を編集のレポートによって点検するための親切なリマインドです。"
 

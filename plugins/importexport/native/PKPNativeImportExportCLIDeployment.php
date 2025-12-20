@@ -58,7 +58,7 @@ class PKPNativeImportExportCLIDeployment
      */
     public function parseCLI()
     {
-        $this->opts = $this->parseOpts($this->args, ['no-embed', 'use-file-urls']);
+        $this->opts = $this->parseOpts($this->args, ['no-embed', 'use-file-urls', 'citation-metadata-lookup']);
         $this->command = array_shift($this->args);
         $this->xmlFile = array_shift($this->args);
         $this->contextPath = array_shift($this->args);
@@ -109,6 +109,10 @@ class PKPNativeImportExportCLIDeployment
             }
         }
         $args = $newArgs;
+        // Default value for citation-metadata-lookup is false
+        if (!array_key_exists('citation-metadata-lookup', $opts)) {
+            $opts['citation-metadata-lookup'] = false;
+        }
         return $opts;
     }
 }

@@ -1,11 +1,11 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2024-03-16 10:39+0000\n"
+"PO-Revision-Date: 2025-05-06 10:38+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ar/>\n"
@@ -601,3 +601,63 @@ msgstr "هناك مشكلة في الخطوة {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "نفس مؤسسة المؤلف"
+
+msgid "editor.submission.search"
+msgstr "البحث في طلبات التقديم، المُعرفات، المؤلفين، الكلمات المفتاحية، إلخ."
+
+msgid "editor.submission.days"
+msgstr "أيام"
+
+msgid "editor.submission.daysInStage"
+msgstr "أيام في المرحلة"
+
+msgid "editor.submission.viewSummary"
+msgstr "الموجز"
+
+msgid "editor.review.logResponse"
+msgstr "توثيق الاستجابة"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "ينبغي إختيار الاستجابة"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "المحكم قد رفض دعوة التحكيم"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "سجّل الاستجابة بالنيابة عن المحكم"
+
+msgid "editor.review.download"
+msgstr "تنزيل نموذج التحكيم"
+
+msgid "editor.review.authorOnly"
+msgstr "تُعرض فقط المقاطع الخاصة بالمؤلف"
+
+msgid "editor.review.allSections"
+msgstr "نموذج المحرر يُظهر كل مقاطع التحكيم"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "إختر محكمًا من بين المحكمين المقترحين"
+
+msgid "editor.review.logResponse.for"
+msgstr "توثيق الاستجابة لـ"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"إذا تواصل معك المحكم عبر البريد الالكتروني أو بأية وسيلة أخرى، يمكنك تسجيل "
+"الاستجابة لهم"
+
+msgid "editor.review.reviewViewed"
+msgstr "التحكيم تمت معاينته"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "المحكم قد قبِل دعوة التحكيم"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"تاريخ استيجاب التحكيم ينبغي أن يكون بعد تاريخ استيجاب الإجابة أو مساوٍ له "
+"على الأقل."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"وقع خطأ عند إضافة المحكم نظرًا لكون تاريخ استيجاب التحكيم ينبغي أن يكون بعد "
+"تاريخ استيجاب الإجابة أو مساوٍ له على الأقل."

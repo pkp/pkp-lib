@@ -1,0 +1,810 @@
+# Stefan Schneider <mail@stefan-schneider.at>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
+"PO-Revision-Date: 2025-08-14 15:07+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr ""
+"Êtes-vous certain de vouloir supprimer définitivement cette soumission ?"
+
+msgid "editor.activityLog"
+msgstr "Journal d'activité"
+
+msgid "editor.submissionLibrary"
+msgstr "Bibliothèque de soumission"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Décision enregistrée"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Soumission refusée."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Soumission acceptée."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Soumission publiée."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Envoyer pour un nouveau cycle d'évaluation."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Envoyer en production."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Soumission acceptée pour évaluation."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Changer la décision"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+"Vous n’avez pas l’autorisation d’enregistrer cette décision sur cette "
+"soumission."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"L'éditeur/trice n'a pas été reconnu.e et n'a peut-être pas l'autorisation "
+"d'enregistrer une décision sur cette soumission."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr ""
+"Vous ne pouvez pas envoyer de courriel aux destinataires suivants : {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Ce cycle d'évaluation n'a pas pu être trouvé."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Un cycle d’évaluation a été prévu, mais cette décision n’est pas prise au "
+"cours d’une phase d’évaluation."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Ce cycle de révision ne fait pas partie de cette soumission."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"La soumission n’est pas à l’étape appropriée du flux de travail pour prendre "
+"cette décision."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Vous devez être assigné.e à cette soumission afin d'enregistrer une décision "
+"éditoriale."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Un numéro d'identification du cycle d'évaluation doit être fourni afin de "
+"prendre cette décision."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Une recommandation ne peut être faite que si un.e éditeur/trice qui peut "
+"prendre la décision finale est assigné.e à cette phase."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Aucune décision n’a pu être prise concernant cette soumission. L’identifiant "
+"de la soumission est manquant ou ne correspond pas à la soumission demandée."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Cette décision n’a pas été trouvée. Veuillez indiquer un type de décision "
+"reconnu."
+
+msgid "editor.review.notInitiated"
+msgstr "Le processus d'évaluation n'a pas encore débuté."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Message à l'utilisateur"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr ""
+"Vous entamez le processus d'évaluation externe de cette soumission. La liste "
+"des fichiers faisant partie de cette soumission est affichée ci-dessous. Ils "
+"peuvent être sélectionnés pour être révisés."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr ""
+"Vous devez choisir au moins un fichier qui sera assigné à l'utilisateur."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Vous devez ajouter un message personnalisé."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Ne pas envoyer de courriel au vérificateur"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Vous devez choisir un utilisateur à qui l'ouvrage sera attribué."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Transférer/Sélectionner les fichiers"
+
+msgid "editor.submission.selectFiles"
+msgstr "Sélectionner les fichiers"
+
+msgid "editor.submission.revisions"
+msgstr "Révisions"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Utilisez <em>Ajouter un rapporteur</em> pour inviter des lecteurs à examiner "
+"les fichiers soumis. L'icône en forme de carnet indique qu'on a soumis un "
+"fichier pour l'évaluation. Celui-ci indiquera <em>Considéré</em> lorsqu'il "
+"aura été consulté. Si les évaluations sont en retard, l'icône d'une "
+"enveloppe rouge s'affichera à titre de rappel pour les rapporteurs."
+
+msgid "editor.submission.addReviewer"
+msgstr "Ajouter un rapporteur"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Trouver un rapporteur"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Trouver un utilisateur"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr ""
+"Inclure tous les fichiers de toutes les étapes de production accessibles."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Fichiers d'évaluation en cours pour le cycle {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "Revenir en mode de recherche simple"
+
+msgid "editor.review.createReviewer"
+msgstr "Créer un nouveau rapporteur"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Enregistrer un rapporteur actuel"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Retirer ce rapporteur"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Annuler l'évaluateur·rice"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Réintégrer l'évaluateur·rice"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Envoyer à nouveau la demande d’évaluation"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Type d'évaluation"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Envoyer un mail aux auteurs : {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Envoyer un mail aux rédacteurs : {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Ne pas envoyer un courriel à l'auteur"
+
+msgid "editor.submissionReview.open"
+msgstr "Évaluation ouverte"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Évaluateur·rice anonyme/ Identité de l'auteur·e divulguée"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Évaluateur·rice anonyme / auteur·e anonyme"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Fichiers devant être évalués"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Fermer la sélection"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Modifier l'évaluation"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Rapporteur anonyme"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Envoyer un courriel au rapporteur"
+
+msgid "editor.review.importantDates"
+msgstr "Dates importantes"
+
+msgid "editor.review.uploadRevision"
+msgstr "Téléverser la révision"
+
+msgid "editor.review.newReviewRound"
+msgstr "Nécessite un nouveau cycle d'évaluation"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr ""
+"Les révisions ne seront pas soumises à un nouveau cycle d'évaluation par les "
+"pairs."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr ""
+"Les révisions seront soumises à un nouveau cycle d'évaluation par les pairs."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+"Les évaluations ne devraient pas faire l’objet d’un nouveau cycle d’"
+"évaluation par les pairs."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
+"Les évaluations devraient faire l’objet d’un nouveau cycle d’évaluation par "
+"les pairs."
+
+msgid "editor.review.dateAccepted"
+msgstr "Date d'acceptation de l'évaluation"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Les rapports ont été ajoutés au corps du message."
+
+msgid "editor.review.noReviews"
+msgstr "Aucune évaluation des pairs à importer"
+
+msgid "editor.review.reminder"
+msgstr "Rappel d'examen de la soumission"
+
+msgid "editor.review.thankReviewer"
+msgstr "Remercier le rapporteur"
+
+msgid "editor.review.reminderError"
+msgstr "Erreur d'envoi du rappel d'évaluation"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Erreur d'envoi du remerciement au rapporteur"
+
+msgid "editor.review.skipEmail"
+msgstr "Ne pas envoyer un courriel au rapporteur."
+
+msgid "editor.review.sendReminder"
+msgstr "Envoyer un rappel"
+
+msgid "editor.review.readReview"
+msgstr "Lire l'évaluation"
+
+msgid "editor.review.readNewReview"
+msgstr "Lire la nouvelle évaluation"
+
+msgid "editor.review.responseDue"
+msgstr "Réponse due pour le {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Demande envoyée"
+
+msgid "editor.review.requestAccepted"
+msgstr "Demande acceptée"
+
+msgid "editor.review.requestDeclined"
+msgstr "Demande refusée"
+
+msgid "editor.review.requestCancelled"
+msgstr "Demande annulée"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "L'évaluateur·rice a refusé cette demande d'évaluation."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Le rédacteur ou la rédactrice a annulé cette demande d'évaluation."
+
+msgid "editor.review.revertDecision"
+msgstr "Renverser la décision"
+
+msgid "editor.review.reviewDue"
+msgstr "Évaluation due pour le : {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Date d'échéance de l'évaluation"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Évaluation terminée"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Évaluation confirmée"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Évaluation soumise"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Évaluateur·rice remercié·e"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Demande envoyée à nouveau"
+
+msgid "editor.review.reviewerComments"
+msgstr "Commentaires du rapporteur"
+
+msgid "editor.review.rateReviewer"
+msgstr "Notation du rapporteur"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Noter la qualité du rapport. Cette note n'est pas accessible par le "
+"rapporteur."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Pas de notation"
+
+msgid "editor.review.mustSelect"
+msgstr "Vous devez sélectionner un rapporteur"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr ""
+"Il y a eu une erreur au moment d'ajouter le rapporteur. Essayez de nouveau."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr ""
+"Il y a eu une erreur au moment de supprimer le rapporteur. Essayez de "
+"nouveau."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Il y a eu une erreur au moment de rétablir l'évaluateur·rice. Veuillez "
+"réessayer."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Une erreur s’est produite lors de la demande de réexamen de l’invitation par "
+"l’évaluateur·rice.  Veuillez réessayer."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Ajouter l'utilisateur à ce groupe de rapporteurs"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Vous souhaitez indiquer que cet examen n'a pas été considéré ? L'historique "
+"des évaluations sera conservé."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Ne pas considérer cet examen"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Une fois l'évaluation consultée, cliquer sur « Confirmer » pour indiquer que "
+"le processus d'évaluation peut se poursuivre. Si l'évaluateur·rice a soumis "
+"son évaluation ailleurs, vous pouvez téléverser le fichier ci-dessous puis "
+"cliquer sur « Confirmer » pour poursuivre."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Une discussion ne peut pas être crée avec les personnes sélectionnées car "
+"cela affecterait l'anonymat du processus d'évaluation."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Une personne sélectionnée n'est pas assignée à cette étape."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Calendrier de publication"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Fichiers de travail éditorial"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Choisir un rapporteur"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Date d'échéance de la tâche"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Calendrier de la tâche"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Enregistrer un utilisateur actuel à titre de rapporteur"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Aucune demande de vérification n'a été faite pour ce fichier"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Un courriel sera envoyé à l'utilisateur"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Rappel d'épreuve"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Le fichier révisé doit être approuvé avant de passer à l'étape de "
+"publication. Souhaitez-vous approuver ce fichier ?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Si ce fichier n'est pas approuvé, il ne pourra pas passer à l'étape de "
+"publication. Souhaitez-vous désapprouver ce fichier ?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Ajout d'un vérificateur"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Tous les fichiers qui ont déjà été téléchargés dans une étape de soumission "
+"peuvent être ajoutés à la liste des fichiers de copie en cochant la case "
+"Inclure ci-dessous et en cliquant sur « Rechercher ». Tous les fichiers "
+"disponibles seront répertoriés et peuvent être choisis pour inclusion. Les "
+"fichiers supplémentaires qui ne sont pas déjà chargés sur une étape peuvent "
+"être ajoutés à la liste en cliquant sur le lien « Télécharger un fichier »."
+
+msgid "editor.review"
+msgstr "Évaluation"
+
+msgid "editor.review.reviewDetails"
+msgstr "Détails de l'évaluation"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Aucun fichier transféré"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Vous n'avez transféré aucun fichier d'évaluation."
+
+msgid "editor.review.emailReviewer"
+msgstr "Envoyer un courriel"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Fichiers publiables"
+
+msgid "editor.submission.newRound"
+msgstr "Nouveau cycle d'évaluation"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Enregistrement des décisions éditoriales"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Enregistrement de la recommandation éditoriale"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notifier les rédacteurs"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Ne pas envoyer de mail aux rédacteurs."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Créer une discussion sur cette recommandation."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Ne pas créer une discussion sur cette recommandation."
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Vous êtes sur le point de créer un nouveau cycle d'évaluation pour cette "
+"soumission. Les fichiers qui n'ont pas été utilisés dans un cycle précédent "
+"sont indiqués ci-dessous."
+
+msgid "editor.submission.createNewRound"
+msgstr "Créer un nouveau cycle d'évaluation"
+
+msgid "editor.article.reviewForms"
+msgstr "Formulaires d'évaluation"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Sélectionner un formulaire d'évaluation"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Avertissement : La modification du formulaire d'évaluation aura une "
+"incidence sur les réponses que les rapporteurs auront faites en utilisant ce "
+"formulaire. Êtes-vous sûr de vouloir continuer ?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Aucun fichier sélectionné"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr ""
+"Vous n'avez pas sélectionné de fichiers pour que le rapporteur puisse les "
+"examiner."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Un sujet de discussion est requis."
+
+msgid "submission.queries.messageRequired"
+msgstr "Un message de discussion est requis."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Fichiers attachés"
+
+msgid "grid.action.editQuery"
+msgstr "Éditer la discussion"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Les fichiers peuvent être inclus dans cette discussion à partir de la liste "
+"ci-dessous."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Rapporteur sélectionné"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Approuver la preuve"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Retirer l’approbation de la preuve"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Accepter la preuve pour indiquer que le document est prêt à être publié."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Retirer l'approbation de la preuve et indiquer que ce document n'est pas "
+"prêt pour la publication."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Voulez-vous vraiment annuler la décision de refuser cette soumission ?"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr ""
+"Le public identifié comme '{$publicIdentifier}' ne peut être un numéro."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Le modèle {$pattern} ne peut pas être utilisé comme public identifié."
+
+msgid "reviewer.list.filterRating"
+msgstr "Noté le moins bien"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} en cours"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Evaluations actuellement assignées"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr ""
+"Cet·te évaluateur·rice a effectué·e une évaluation lors du dernier cycle."
+
+msgid "reviewer.list.completedReviews"
+msgstr "Evaluations finies"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Demandes d'évaluation refusées"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Demandes d'évaluation annulées"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Notation du rapporteur : {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "il y a {$days} jours"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Hier"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Nombre de jours depuis la dernière évaluation"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Temps moyen pour faire une évaluation"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Jamais assigné"
+
+msgid "reviewer.list.reassign"
+msgstr "Réassigner"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Réassigner {$name}"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Ce rapporteur évalue déjà cette soumission."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Ce rapporteur est bloqué car il a un rôle qui lui permet de voir l'identité "
+"de l'auteur/trice. Une évaluation en double-aveugle n'est donc pas garantie. "
+"Voulez-vous quand même faire la demande d'évaluation ?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Débloquer"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Thèmes de prédilection"
+
+msgid "reviewer.list.biography"
+msgstr "Biographie"
+
+msgid "reviewer.list.empty"
+msgstr "Aucun évaluateur ou évaluatrice trouvé"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Assigné.e à un cycle précédent"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Annuler la décision"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Êtes-vous sûr.e de vouloir annuler cette décision ?"
+
+msgid "editor.decision.completeSteps"
+msgstr "Compléter les étapes suivantes pour prendre cette décision"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Ne sautez pas ce courriel"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Cette étape a été sautée et aucun courriel ne sera envoyé."
+
+msgid "editor.decision.recordDecision"
+msgstr "Enregistrer la décision"
+
+msgid "editor.decision.skipEmail"
+msgstr "Sauter ce courriel"
+
+msgid "editor.decision.stepError"
+msgstr "L’étape {$stepName} a posé un problème."
+
+#~ msgid "editor.submissionLibrary.description"
+#~ msgstr ""
+#~ "Télécharger les documents qui concernent la révision et la publication de "
+#~ "cette soumission. Des modèles ont été créés pour plusieurs de ces "
+#~ "documents. Il suffit de cliquer sur <em>Visionner la bibliothèque de "
+#~ "documents</em>."
+
+#~ msgid "editor.submission.review.reviewFilesDescription"
+#~ msgstr ""
+#~ "Voici les fichiers qui peuvent être sélectionnés pour l'évaluation, "
+#~ "lorsque vous ajoutez des rapporteurs dans la section <span class="
+#~ "\"pkp_help_title\">Rapporteurs</span>."
+
+#~ msgid "editor.submission.revisionsDescription"
+#~ msgstr ""
+#~ "Les fichiers révisés de la soumission sont affichés ici. L'icône Ouvrir "
+#~ "le dossier indique qui a téléchargé le fichier."
+
+#~ msgid "editor.submission.editorial.introduction"
+#~ msgstr ""
+#~ "Dans la section Rédaction, le réviseur de textes examine les épreuves "
+#~ "finales avant de les télécharger dans la rubrique <span class="
+#~ "\"pkp_help_title\">Révision</span>. L'auteur et d'autres personnes ont "
+#~ "accès aux fichiers dans <span class=\"pkp_help_title\">Révision</span> "
+#~ "afin que l'on puisse éventuellement préparer et télécharger les copies au "
+#~ "net de la soumission. Elles seront ensuite <em>Approuvées</em> par un "
+#~ "rédacteur en chef, et passeront à l'étape de publication."
+
+#~ msgid "editor.submission.editorial.approveCopyeditFile"
+#~ msgstr "Approuver le fichier révisé"
+
+#~ msgid "editor.submission.editorial.copyeditingDescription"
+#~ msgstr ""
+#~ "Assigner les fichiers révisés à leurs auteurs (et à d'autres personnes, "
+#~ "le cas échéant) afin qu'ils examinent les modifications et répondent aux "
+#~ "questions. Leurs réponses et fichiers téléchargés s'afficheront dans "
+#~ "l'icône Carnet. Ils seront identifiés <em>Considéré</em> par le réviseur, "
+#~ "qui préparera ensuite une copie au net finale qui pourra être téléchargée "
+#~ "dans <span class=\"pkp_help_title\">Révision</span>. Le rédacteur en chef "
+#~ "vérifiera cette copie et l'approuvera, puis elle passera à l'étape de "
+#~ "publication."
+
+#~ msgid "editor.submission.final.manageFinalDraftFilesDescription"
+#~ msgstr ""
+#~ "Un fichier qui a été téléchargé à une étape du processus de soumission, "
+#~ "peu importe laquelle, peut être ajouté à la liste des fichiers d'épreuves "
+#~ "finales. Il suffit de cocher la case Ajouter ci-dessous, puis de cliquer "
+#~ "Recherche: tous les fichiers disponibles seront affichés et peuvent être "
+#~ "choisis pour être ajoutés. Les autres fichiers qui n'ont pas déjà été "
+#~ "téléchargés à une certaine étape du processus peuvent être ajoutés à "
+#~ "cette liste en cliquant sur le lien Télécharger une épreuve finale."
+
+#~ msgid "editor.signoff.approved"
+#~ msgstr "Approuvé"
+
+#~ msgid "editor.submission.selectAttachments"
+#~ msgstr "Choisir les fichiers d'évaluation que l'auteur pourra consulter"
+
+#~ msgid "editor.submission.selectFairCopy"
+#~ msgstr ""
+#~ "Choisir les fichiers de révision approuvés qui seront envoyés pour la "
+#~ "publication."
+
+#~ msgid "editor.submission.review.manageReviewFilesDescription"
+#~ msgstr ""
+#~ "Tous les fichiers qui ont déjà été téléchargés à une étape du processus "
+#~ "de soumission (même à une étape d'édition ou de publication) peuvent être "
+#~ "choisis pour révision. Il suffit de cocher la case Ajouter ci-dessous, "
+#~ "puis de cliquer Recherche: tous les fichiers disponibles seront affichés "
+#~ "et peuvent être choisis pour être ajoutés. Les autres fichiers qui n'ont "
+#~ "pas déjà été téléchargés à une certaine étape du processus peuvent être "
+#~ "ajoutés à cette liste en cliquant sur le lien Télécharger le fichier "
+#~ "d'évaluation."
+
+#~ msgid "editor.submission.selectPromoteRevisions"
+#~ msgstr "Choisir les révisions qui seront utilisées à la prochaine étape"
+
+#~ msgid "editor.submissionReview.restrictFiles.gridDescription"
+#~ msgstr ""
+#~ "Si ce rapporteur ne devrait pas avoir le droit de réviser tous les "
+#~ "fichiers apparaissant dans cette liste, assurez-vous de cocher uniquement "
+#~ "les fichiers pertinents."
+
+#~ msgid "editor.review.NotifyAuthorAccept"
+#~ msgstr "Avertir l'auteur de l'acceptation:"
+
+#~ msgid "editor.review.NotifyAuthorDecline"
+#~ msgstr "Avertir l'auteur que sa soumission a été refusée:"
+
+#~ msgid "editor.review.NotifyAuthorExternal"
+#~ msgstr "Avertir l'auteur que l'on a décidé de mener un examen externe"
+
+#~ msgid "editor.review.personalMessageToAuthor"
+#~ msgstr "Envoyer un courriel à l'auteur"
+
+#~ msgid "editor.publicIdentificationExistsForTheSameType"
+#~ msgstr ""
+#~ "Le public identifié comme '{$publicIdentifier}' existe déjà pour un autre "
+#~ "objet de même type. Veuillez indiquer un public unique pour l'objet de "
+#~ "même type à l'intérieur de votre revue."
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Même institution de rattachement que l'auteur·e"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Sélectionner un rapporteur parmi les suggestions"
+
+msgid "editor.review.reviewViewed"
+msgstr "Évaluation vue"
+
+msgid "editor.review.logResponse.for"
+msgstr "Enregistrer la réponse pour"
+
+msgid "editor.review.logResponse"
+msgstr "Enregistrer la réponse"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Le délai de relecture doit être égal ou plus grand que le délai de réponse."
+
+msgid "editor.submission.days"
+msgstr "Jours"
+
+msgid "editor.submission.viewSummary"
+msgstr "Résumé"
+
+msgid "editor.submission.daysInStage"
+msgstr "Jours dans cette étape"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Un rapporteur à refuser l'invitation à relire un article"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Enregistrer la réponse au nom du rapporteur"
+
+msgid "editor.review.download"
+msgstr "Télécharger le formulaire d'évaluation"
+
+msgid "editor.review.authorOnly"
+msgstr "Affichage des sections destinées aux auteurs seuls"
+
+msgid "editor.review.allSections"
+msgstr "Editor Form Voir toutes les sections"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Une erreur est survenue lors de l'ajout du rapporteur parce que la date de "
+"retour de l'évaluation doit être plus grande ou égale que le délai de "
+"réponse."
+
+msgid "editor.submission.search"
+msgstr "Chercher des soumissions, ID, auteurs, mots-clés, etc."
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Une réponse doit être sélectionnée"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Un rapporteur a accepté l'invitation à relire un article"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Si un rapporteur vous contacte par email ou par un autre moyen, vous pouvez "
+"enregistrer sa réponse en son nom"

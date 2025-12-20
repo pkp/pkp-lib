@@ -51,7 +51,7 @@ class ContextGridRow extends GridRow
                 new AjaxModal(
                     $router->url($request, null, null, 'editContext', null, ['rowId' => $rowId]),
                     __('grid.action.edit'),
-                    'modal_edit',
+                    null,
                     true,
                     'context',
                     ['editContext']
@@ -67,7 +67,8 @@ class ContextGridRow extends GridRow
                     $request->getSession(),
                     __('admin.contexts.confirmDelete', ['contextName' => $element->getLocalizedName()]),
                     null,
-                    $router->url($request, null, null, 'deleteContext', null, ['rowId' => $rowId])
+                    $router->url($request, null, null, 'deleteContext', null, ['rowId' => $rowId]),
+                    'negative'
                 ),
                 __('grid.action.remove'),
                 'delete'
@@ -80,19 +81,6 @@ class ContextGridRow extends GridRow
                 new RedirectAction($dispatcher->url($request, PKPApplication::ROUTE_PAGE, Application::SITE_CONTEXT_PATH, 'admin', 'wizard', [$element->getId()])),
                 __('grid.action.wizard'),
                 'wrench'
-            )
-        );
-        $this->addAction(
-            new LinkAction(
-                'users',
-                new AjaxModal(
-                    $router->url($request, $element->getPath(), null, 'users', null),
-                    __('manager.users'),
-                    'modal_edit',
-                    true
-                ),
-                __('manager.users'),
-                'users'
             )
         );
     }

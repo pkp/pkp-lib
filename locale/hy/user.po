@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-06 18:05+0000\n"
+"PO-Revision-Date: 2025-10-24 04:30+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -777,3 +777,160 @@ msgstr "Հայտնաբերվել են կրկնօրինակ ORCID-ներ աջակ
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Հայտնաբերվել են չվավերացված ORCiD-ներ աջակիցների համար:"
+
+msgid "user.affiliations.institution"
+msgstr "Հաստատություն"
+
+msgid "user.affiliations.translation"
+msgstr "Ավելի տեղեկություններ"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Խմբագրել հաստատության անունը"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Հեռացնել հաստատությունը"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Սեղմեք՝ խմբագրելու կամ ջնջելու համար"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Բոլոր թարգմանությունները մատչելի են"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "Ավարտված է {$count}-ը {$total} լեզուներից"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Մուտքագրեք ինստիտուտի անունը {$language} -ում"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Ստորև մուտքագրեք հաստատության լրիվ անվանումը՝ խուսափելով որևէ հապավումից: "
+"Ընտրեք անունը բացվող ցանկից և սեղմեք «Ավելացնել»՝ պատկանելությունը ձեր "
+"պրոֆիլում ներառելու համար, (օրինակ՝ \"Simon Fraser University\")"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Հաստատության անունը {$language} -ում"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "<strong>{$affiliation}</strong> պատկանելությունը կջնջվի:"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Մուտքագրեք հաստատության անունը {$language} -ով"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Որոնման ձեր արտահայտությունը չհաջողվեց գտնել"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Հիմնական լեզուն {$primaryLocale} պարտադիր է"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Վստա՞հ ես։"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Ավարտված ներկայացման համար գրախոսի առաջարկի ավելացումը, թարմացումը կամ "
+"ջնջումը սահմանափակված է:"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Նախընտրելի Ավատարի սկզբնատառերը"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Մուտքագրեք երկու տառերը, որոնք ցանկանում եք օգտագործել որպես ձեր avatar: Այս "
+"սկզբնատառերը կցուցադրվեն ձեզ ներկայացնելու համար:"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Ցանկանու՞մ եքէլ․ նամակ ուղարկել այս հեղինակին՝ խնդրելով հաստատել իրենց "
+"ORCID-ը:"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Ջնջել ORCID-ը"
+
+msgid "user.futureRole.notification.message"
+msgstr "Ձեր դերը նախատեսվում է սկսել {$roleStartDate}-ին"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Մինչ այդ, դուք կարող եք վերանայել և թարմացնել ձեր պրոֆիլը: Եթե կարծում եք, "
+"որ սա սխալ է, դիմեք ադմինիստրատորին:"
+
+msgid "user.disabledModal.description"
+msgstr "Ընթացիկ դերեր: {$roles}"
+
+msgid "user.enabledModal.title"
+msgstr "Միացնել {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Bio հայտարարություն"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Դուք խնդրել եք փոխել ձեր էլ․ հասցեն «{$pendingEmail}»: Մենք արդեն ձեզ նամակ "
+"ենք ուղարկել՝ հրահանգներով, թե ինչպես վավերացնել փոխված էլ. հասցեն։"
+
+msgid "orcid.unauthenticated"
+msgstr "(չնույնականացված)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Այժմ դուք ինքնաշխատ կերպով կուղղորդվեք դեպի {$contextName}:"
+
+msgid "orcid.manager.context.enabled"
+msgstr "Միացնել ORCID ֆունկցիոնալությունը"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID ֆունկցիոնալությունը կարող է կամայականորեն միացվել և կազմաձևվել կայքի "
+"մակարդակով բոլոր ամսագրերի/մամուլի/սերվերների համար: Եթե միացված է, սա "
+"կվերացնի համատեքստի մակարդակի բոլոր հավատարմագրերը և կկիրառի հետևյալ "
+"հավատարմագրերը այս տեղադրման բոլոր ամսագրերի/մամուլի/սերվերների վրա:"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Կրկին ուղարկել վավերականացման էլ․ նամակը"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Հայցել ORCID վավերականացում"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Խնդրում ենք ավելացնել պատկանելիությունը ներկայացման լեզվով:"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Իսկապե՞ս ուզում եք հեռացնել այս ORCID-ը:"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Այս ORCID-ը չի հաստատվել: Խնդրում ենք հեռացնել այս չստուգված ORCID-ը և "
+"հաստատել վեվերականությունը ուղղակիորեն օգտատիրոջից/հեղինակից:"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Իսկապե՞ս ուզում եք ընդմիշտ հեռացնել այս դերը: Այս գործողությունը կչեղարկի "
+"օգտատիրոջ մուտքը այս դերի հետ կապված բոլոր տեղեկություններին և "
+"թույլտվություններին:"
+
+msgid "user.disabledModal.title"
+msgstr "Անջատել {$fullName}"
+
+msgid "user.role.ended"
+msgstr "Դերն ավարտված է"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Միացնել ORCID ֆունկցիոնալությունը ամբողջ կայքի համար"
+
+msgid "orcid.field.verification.request"
+msgstr "Վավերականության հարցում"
+
+msgid "orcid.field.verification.requested"
+msgstr "Հայցվել է ORCID վավերականացում:"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Օգտագործողը պետք է անանուն լինի: Դուք ներկայումս մուտք եք գործել:"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "Դուք չեք կարող հեռացնել դերը: Օգտվողին պետք է հատկացվի առնվազն մեկ դեր:"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Էլ․ նամակ կուղարկվի հենց հեղինակը ստեղծվի։"
+
+msgid "user.login.activate.description"
+msgstr "Հաստատեք և ակտիվացրեք ձեր հաշիվը"

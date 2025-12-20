@@ -14,7 +14,7 @@
  * @brief Job to revoke a user's ORCID access token for the application.
  */
 
-namespace pkp\jobs\orcid;
+namespace PKP\jobs\orcid;
 
 use APP\core\Application;
 use GuzzleHttp\Exception\ClientException;
@@ -38,6 +38,10 @@ class RevokeOrcidToken extends BaseJob
      */
     public function handle(): void
     {
+        if (!OrcidManager::isEnabled($this->context)) {
+            return;
+        }
+
         $token = $this->identity->getData('orcidAccessToken');
         $httpClient = Application::get()->getHttpClient();
         $headers = ['Accept' => 'application/json'];
@@ -51,7 +55,7 @@ class RevokeOrcidToken extends BaseJob
         try {
             $httpClient->request(
                 'POST',
-                OrcidManager::getTokenRevocationUrl(),
+                OrcidManager::getTokenRevocationUrl($this->context),
                 [
                     'headers' => $headers,
                     'form_params' => $postData,

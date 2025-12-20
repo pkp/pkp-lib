@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2025-04-09 19:41+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/cs/"
 ">\n"
@@ -616,3 +616,63 @@ msgstr "V kroku {$stepName} došlo k problému."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Stejná instituce jako u autora"
+
+msgid "editor.review.reviewViewed"
+msgstr "Zobrazená recenze"
+
+msgid "editor.submission.search"
+msgstr "Vyhledávání příspěvků, ID, autorů, klíčových slov atd."
+
+msgid "editor.submission.days"
+msgstr "Dny"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dnů v této fázi"
+
+msgid "editor.submission.viewSummary"
+msgstr "Souhrn"
+
+msgid "editor.review.logResponse"
+msgstr "Reakce protokolu"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Je třeba vybrat odpověď"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzent přijal pozvání k recenzi"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Zaznamenání odpovědi jménem recenzenta"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Pokud vás recenzent kontaktuje e-mailem nebo jiným způsobem, můžete pro něj "
+"zaznamenat jeho odpověď"
+
+msgid "editor.review.download"
+msgstr "Stáhnout formulář pro recenzi"
+
+msgid "editor.review.authorOnly"
+msgstr "Zobrazené sekce pouze pro autory"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Výběr recenzenta z návrhů recenzentů"
+
+msgid "editor.review.logResponse.for"
+msgstr "Reakce protokolu pro"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzent odmítl pozvání k recenzi"
+
+msgid "editor.review.allSections"
+msgstr "Formulář editoru zobrazuje všechny sekce recenzí"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Došlo k chybě při přidávání recenzenta, protože datum odevzdání recenze musí "
+"být stejné nebo pozdější, než datum reakce na požadavek recenze."
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Termín recenze musí být pozdější nebo stejný jako termín reakce na požadavek "
+"recenze."

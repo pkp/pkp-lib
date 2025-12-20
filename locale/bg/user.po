@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-25 07:25+0000\n"
+"PO-Revision-Date: 2025-10-27 07:51+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg/>\n"
@@ -19,7 +19,7 @@ msgid "user.affiliation"
 msgstr "Организация"
 
 msgid "user.affiliation.description"
-msgstr "(Вашата институция, напр. „Софийски университет“)"
+msgstr "(Вашата институция, напр. „Университет Саймън Фрейзър“)"
 
 msgid "user.affiliations"
 msgstr "Организации"
@@ -760,3 +760,168 @@ msgstr "Открити са неавтентифицирани ORCiD за сът
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Достъпът до работния процес за непълно подадени материали е ограничен."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Въведете пълното име на институцията по-долу, като избягвате всякакви "
+"съкращения. Изберете името от падащото меню и щракнете върху „Добавяне“, за "
+"да включите принадлежността към вашия профил. (напр. „Университет Саймън "
+"Фрейзър“)"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Кликнете, за да редактирате или изтриете"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Въведете името на институцията на {$language}"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr ""
+"Институционалната принадлежност <strong>{$affiliation}</strong> ще бъде "
+"изтрита."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Добавянето, актуализирането или изтриването на предложение за рецензент за "
+"завършено изпращане на материали е ограничено."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Предпочитани инициали на аватара"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Въведете двете букви, които искате да използвате като свой аватар. Тези "
+"инициали ще бъдат показани, за да ви представят."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr ""
+"Моля, добавете институционална принадлежност на езика на подадените на "
+"материали."
+
+msgid "user.role.ended"
+msgstr "Прекратени роли"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Вие поискахте промяна на вашия имейл на „{$pendingEmail}“. Вече ви "
+"изпратихме имейл с указания как да потвърдите променения имейл."
+
+msgid "orcid.unauthenticated"
+msgstr "(неудостоверен)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Ще бъдете автоматично насочени обратно към {$contextName}."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Активиране на ORCID функционалността"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Активиране на ORCID функционалността за сайта"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID функционалността може по желание да бъде активирана и конфигурирана на "
+"ниво сайт за всички списания/издателства/сървъри. Ако е разрешено, това ще "
+"замени всички идентификационни данни на ниво контекст и ще приложи следните "
+"идентификационни данни към всички списания/издателства/сървъри на тази "
+"инсталация."
+
+msgid "orcid.field.verification.requested"
+msgstr "Поискана е верификация на ORCID!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Повторно изпращане на имейл за верификация"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Искате ли да изпратите имейл до този автор с молба да потвърди своя ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Този ORCID не е проверен. Моля, премахнете този непроверен ORCID и поискайте "
+"потвърждение директно от потребителя/автора."
+
+msgid "user.affiliations.institution"
+msgstr "Институция"
+
+msgid "user.affiliations.translation"
+msgstr "Повече информация"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Редактиране на името на институцията"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Премахване на институцията"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Всички налични преводи"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "Завършени са {$count} от {$total} езика"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Въведете името на институцията на {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Вашата фраза за търсене не можа да бъде намерена"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Изисква се исписване на основния език - {$primaryLocale}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Име на институцията на {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Сигурни ли сте?"
+
+msgid "orcid.field.verification.request"
+msgstr "Искане за верификация"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Искане за ORCID верификация"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Изтриване на ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Сигурни ли сте, че искате да премахнете този ORCID?"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Наистина ли искате да премахнете тази роля за постоянно? Това действие ще "
+"отмени достъпа на потребителя до цялата информация и разрешения, свързани с "
+"тази роля."
+
+msgid "user.futureRole.notification.message"
+msgstr "Вашата роля е планирана да започне на {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Дотогава можете да прегледате и актуализирате своя профил. Ако смятате, че "
+"това е грешка, моля свържете се с администратора."
+
+msgid "user.disabledModal.description"
+msgstr "Текущи роли: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Деактивиране на {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Активиране на {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Биографични данни"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr ""
+"Потребителят трябва да е анонимен. В момента сте влезли с потребителско име."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Не можете да премахнете ролята. Поне една роля трябва да бъде присвоена на "
+"потребителя."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Имейлът ще бъде изпратен след като авторът бъде посочен."
+
+msgid "user.login.activate.description"
+msgstr "Потвърждаване и активация на вашия акаунт"

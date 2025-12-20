@@ -18,6 +18,7 @@ namespace PKP\middleware;
 
 use APP\core\Application;
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\RouteCollection;
@@ -25,7 +26,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PKP\core\PKPBaseController;
 use PKP\core\Registry;
+use PKP\plugins\interfaces\HasAuthorizationPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\AuthorizationPolicy;
 use ReflectionFunction;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Throwable;
 
 class PolicyAuthorizer
 {
@@ -41,7 +47,7 @@ class PolicyAuthorizer
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
 
         $routeController = PKPBaseController::getRouteController($request);
-
+        $currentRoute = PKPBaseController::getRequestedRoute($request);
         $pkpRequest = Application::get()->getRequest();
 
         if (!$pkpRequest->getUser()) {
@@ -52,11 +58,39 @@ class PolicyAuthorizer
         $args = [$request];
         $roleAssignments = $this->getRoleAssignmentMap($router->getRoutes());
 
-        $hasAuthorized = $routeController->authorize(
-            $pkpRequest,
-            $args,
-            $roleAssignments->toArray()
-        );
+        // if route has extra policy authorizer from plugin, add those to current policy stack
+        $pluginPolicyAuthorizer = $currentRoute->getAction('pluginPolicyAuthorizer');
+        if ($pluginPolicyAuthorizer instanceof HasAuthorizationPolicy) {
+            $policies = $pluginPolicyAuthorizer->getPolicies($pkpRequest, $args, $roleAssignments->toArray());
+            foreach ($policies as $policy) {
+                if (!($policy instanceof AuthorizationPolicy || $policy instanceof PolicySet)) {
+                    throw new Exception(
+                        sprintf(
+                            'Invalid authorization policy given for route: %s, must be an instance of %s or %s',
+                            $currentRoute->uri(),
+                            AuthorizationPolicy::class,
+                            PolicySet::class
+                        )
+                    );
+                }
+                $routeController->addPolicy($policy);
+            }
+        }
+
+        $hasAuthorized = false;
+        $exceptionStatusCode = null;
+
+        try {
+            $hasAuthorized = $routeController->authorize(
+                $pkpRequest,
+                $args,
+                $roleAssignments->toArray()
+            );
+        } catch (Throwable $e) {
+            $exceptionStatusCode = $e instanceof HttpExceptionInterface
+                ? $e->getStatusCode()
+                : $e->getCode();
+        }
 
         if (!$hasAuthorized) {
 
@@ -65,7 +99,13 @@ class PolicyAuthorizer
             return response()->json([
                 'error' => empty($authorizationMessage) ? __('api.403.unauthorized') : $authorizationMessage,
                 'errorMessage' => empty($authorizationMessage) ? '' : __($authorizationMessage),
-            ], Response::HTTP_UNAUTHORIZED);
+            ], $exceptionStatusCode
+                ? (in_array($exceptionStatusCode, array_keys(Response::$statusTexts))
+                    ? $exceptionStatusCode
+                    : Response::HTTP_INTERNAL_SERVER_ERROR
+                )
+                : Response::HTTP_UNAUTHORIZED
+            );
         }
 
         return $next($request);

@@ -5,7 +5,6 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  */
-
 describe('Multilingual configurations', function() {
 	it('Tests when locale is active for Forms and Submissions but not UI', function() {
 		cy.login('dbarnes');
@@ -22,11 +21,12 @@ describe('Multilingual configurations', function() {
 		cy.get('#masthead [role="status"]').contains('Saved');
 
 		cy.visit('index.php/publicknowledge/workflow/access/1');
-		cy.get('#publication-button').click();
+		// latest publication is opened by default on a submission, click its Title & Abstract link
+		cy.get('[data-cy="active-modal"] nav a:contains("Title & Abstract")').last().click();
 		cy.get('button.pkpFormLocales__locale').eq(0).contains('French').click();
 		cy.get('#titleAbstract-title-control-fr_CA').type("L'influence de la lactation sur la quantité et la qualité de la production de cachemire", {force: true});
-		cy.get('#titleAbstract button').contains('Save').click();
-		cy.get('#titleAbstract [role="status"]').contains('Saved');
+		cy.get('button').contains('Save').click();
+		cy.get('[role="status"]').contains('Saved');
 
 		// Re-enable French in UI
 		cy.visit('index.php/publicknowledge/management/settings/website');

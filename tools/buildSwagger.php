@@ -212,7 +212,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                     if (substr($rule, 0, 3) === 'in:') {
                         $enum = explode(',', substr($rule, 3));
                         if ($schema->type === 'integer') {
-                            $enum = array_map('intval', $enum);
+                            $enum = array_map(intval(...), $enum);
                         }
                         $definition['properties'][$propName]->enum = $enum;
                     }

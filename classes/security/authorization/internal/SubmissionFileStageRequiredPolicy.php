@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileStageRequiredPolicy.php
  *
@@ -53,7 +54,7 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 
@@ -85,8 +86,4 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
         // Made it through -- permit access.
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileStageRequiredPolicy', '\SubmissionFileStageRequiredPolicy');
 }

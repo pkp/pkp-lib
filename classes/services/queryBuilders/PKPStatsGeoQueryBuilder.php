@@ -18,6 +18,7 @@
 namespace PKP\services\queryBuilders;
 
 use APP\core\Application;
+use APP\publication\Publication;
 use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
 use Exception;
@@ -196,7 +197,7 @@ abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
             $sectionColumn = 'p.' . $this->getSectionColumn();
             $sectionSubmissionIds = DB::table('publications as p')->select('p.submission_id')->distinct()
                 ->from('publications as p')
-                ->where('p.status', Submission::STATUS_PUBLISHED)
+                ->where('p.status', Publication::STATUS_PUBLISHED)
                 ->whereIn($sectionColumn, $this->pkpSectionIds);
             $q->joinSub($sectionSubmissionIds, 'ss', function ($join) {
                 $join->on('metrics_submission_geo_monthly.' . StatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, '=', 'ss.submission_id');

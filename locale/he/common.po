@@ -1,0 +1,2303 @@
+# Emma U <emmaupkp@gmail.com>, 2025.
+# 全名 <ytissona@bgu.ac.il>, 2025.
+# Michal Pinkas <pinkasm@bgu.ac.il>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-11-18 00:33+0000\n"
+"Last-Translator: 全名 <ytissona@bgu.ac.il>\n"
+"Language-Team: Hebrew <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"he/>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "about.siteMap"
+msgstr "מפת האתר"
+
+msgid "announcement.announcements"
+msgstr "הודעות"
+
+msgid "announcement.announcementsHome"
+msgstr "הודעות"
+
+msgid "announcement.moreAnnouncements"
+msgstr "הודעות נוספות"
+
+msgid "announcement.noneExist"
+msgstr "אין הודעות."
+
+msgid "common.allDownloads"
+msgstr "כל ההורדות"
+
+msgid "common.navigation.site"
+msgstr "סרגל ניווט"
+
+msgid "common.tasks"
+msgstr "משימות"
+
+msgid "common.list"
+msgstr "רשימה"
+
+msgid "common.abstract"
+msgstr "תקציר"
+
+msgid "common.accepted"
+msgstr "התקבל"
+
+msgid "common.addFiles"
+msgstr "הוסף קבצים"
+
+msgid "common.name"
+msgstr "שם"
+
+msgid "common.yesContinue"
+msgstr "עותק"
+
+msgid "common.deactivate"
+msgstr "לבטל"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.record"
+msgstr "רשומה"
+
+msgid "common.save"
+msgstr "שמר"
+
+msgid "common.user"
+msgstr "משתמש"
+
+msgid "common.user.nonexistent"
+msgstr "[משתמש לא קיים]"
+
+msgid "common.weeks"
+msgstr "שבועות"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "מפתח אזור חסר \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "הערות:"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "הדפדפן שלך אינו תומך בהעלאת קבצים באמצעות \"גרור ושחרר\"."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "אנא השתמש בטופס הבסיסי למטה כדי להעלות את הקבצים שלך."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} ב- {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} שפות שהושלמו"
+
+msgid "navigation.admin"
+msgstr "ניהול"
+
+msgid "navigation.archives"
+msgstr "גיליונות קודמים"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "הנך נמצא כאן:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "כלים"
+
+msgid "navigation.tools.importExport"
+msgstr "ייבוא/ייצוא"
+
+msgid "navigation.register"
+msgstr "הירשם"
+
+msgid "navigation.settings"
+msgstr "הגדרות"
+
+msgid "navigation.setup"
+msgstr "התקנה"
+
+msgid "notification.editedAnnouncementType"
+msgstr "סוג ההודעה נערך."
+
+msgid "notification.addedNote"
+msgstr "הערה פורסמה."
+
+msgid "search.searchResults"
+msgstr "תוצאות חיפוש"
+
+msgid "search.title"
+msgstr "כותר"
+
+msgid "search.typeMethodApproach"
+msgstr "סוג (שיטה/גישה)"
+
+msgid "grid.action.downloadFile"
+msgstr "הורד קובץ זה"
+
+msgid "context.path"
+msgstr "נתיב"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "לוח זמנים לסקירה"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "בקשת העורך"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "תאריך יעד לתגובה"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "הסקירה התקבלה בתאריך"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "הסקירה הוגשה בתאריך"
+
+msgid "navigation.goBack"
+msgstr "חזור"
+
+msgid "notification.editStageParticipant"
+msgstr "מטלת השלב השתנתה."
+
+msgid "notification.type.newAnnouncement"
+msgstr "הודעה חדשה"
+
+msgid "notification.type.reviewerComment"
+msgstr "סוקר העיר על \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "הקובץ נלקח בחשבון."
+
+msgid "list.expandAll"
+msgstr "הרחב הכול"
+
+msgid "list.collapseAll"
+msgstr "כווץ הכול"
+
+msgid "validator.alpha_num"
+msgstr "זה יכול להכיל רק אותיות ומספרים."
+
+msgid "validator.required_if"
+msgstr "זהו שדה חובה כאשר {$other} הוא {$value}."
+
+msgid "common.confirmDelete"
+msgstr "האם אתה בטוח שברצונך למחוק פריט זה? לא ניתן לבטל פעולה זו."
+
+msgid "common.acknowledged"
+msgstr "הוזכר"
+
+msgid "common.editorialHistory.page.description"
+msgstr "חלק זה מפרט את הכותבים בעבר."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "לצפייה בפרופיל {$name} ORCID"
+
+msgid "common.alphaList"
+msgstr "א ב ג ד ה ו ז ח ט י כ ל מ נ ס ע פ צ ק ר ש ת"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"של ה ו ו או לא אבל הוא אם אז אחרת כאשר ב מ על ידי כבוי עבור פנימה החוצה לתוך "
+"עם"
+
+msgid "common.altText"
+msgstr "טקסט חלופי"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"תאר תמונה זו למבקרים הצופים באתר בדפדפן טקסט בלבד או באמצעות מכשירי עזר. "
+"דוגמה: \"העורך שלנו מדבר בכנס PKP.\""
+
+msgid "common.and"
+msgstr "ו"
+
+msgid "common.applyAction"
+msgstr "פעולת החלה"
+
+msgid "common.assign"
+msgstr "להקצות"
+
+msgid "common.assigned"
+msgstr "שהוקצו"
+
+msgid "common.assigned.date"
+msgstr "מוקצה: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "זמין"
+
+msgid "common.back"
+msgstr "חזור"
+
+msgid "common.between"
+msgstr "בין"
+
+msgid "common.cancel"
+msgstr "ביטל"
+
+msgid "common.cancelled"
+msgstr "מבוטל"
+
+msgid "common.warning"
+msgstr "אזהרה"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "עליך להשלים את בדיקת האימות המשמשת למניעת שליחת דואר זבל."
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tיצירה זו מורשית תחת רישיון <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">רישיון Creative Commons "
+"Attribution 3.0</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tיצירה זו מורשית תחת רישיון <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">רישיון Creative "
+"Commons Attribution 3.0</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.chooseOne"
+msgstr "בחר אחד"
+
+msgid "common.close"
+msgstr "סגור"
+
+msgid "common.closePanel"
+msgstr "סגירת חלונית"
+
+msgid "common.closeWindow"
+msgstr "סגירת חלון"
+
+msgid "common.complete"
+msgstr "השלם"
+
+msgid "common.completed"
+msgstr "הושלם"
+
+msgid "common.completed.date"
+msgstr "הושלם: {$dateCompleted}"
+
+msgid "common.confirmed.date"
+msgstr "אושר: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "תוכן"
+
+msgid "common.contents"
+msgstr "תוכן"
+
+msgid "common.continue"
+msgstr "המשך"
+
+msgid "common.copy"
+msgstr "עותק"
+
+msgid "common.country"
+msgstr "מדינה"
+
+msgid "common.create"
+msgstr "תאריך סיום"
+
+msgid "common.dateCompleted"
+msgstr "התאריך נקבע"
+
+msgid "common.dateDecided"
+msgstr "תאריך"
+
+msgid "common.date"
+msgstr "תאריך שונה"
+
+msgid "common.dateModified"
+msgstr "התאריך המבוקש"
+
+msgid "common.dateRequested"
+msgstr "תאריך הגשה"
+
+msgid "common.dateSubmitted"
+msgstr "תאריך העלאה"
+
+msgid "common.dateUploaded"
+msgstr "לוח שנה היג'רי"
+
+msgid "common.day"
+msgstr "יום"
+
+msgid "common.default"
+msgstr "ברירת מחדל"
+
+msgid "common.declined"
+msgstr "נדחה"
+
+msgid "common.delete"
+msgstr "למחוק"
+
+msgid "common.deleting"
+msgstr "מחיקת"
+
+msgid "common.deleteSelection"
+msgstr "בחירת מחיקה"
+
+msgid "common.dateHijri"
+msgstr "הלוח המוסלמי"
+
+msgid "common.error.framesRequired"
+msgstr "דף זה דורש מסגרות. <a href=\"{$url}\">לחץ כאן</a> לגרסה שאינה מסגרות."
+
+msgid "common.fileType"
+msgstr "סוג קובץ"
+
+msgid "common.filtersClear"
+msgstr "נקה מסננים"
+
+msgid "common.findTemplate"
+msgstr "חיפוש תבנית"
+
+msgid "common.formatting"
+msgstr "עיצוב"
+
+msgid "common.geographic"
+msgstr "גיאוגרפי"
+
+msgid "common.go"
+msgstr "הלך"
+
+msgid "common.height"
+msgstr "גובה"
+
+msgid "common.highlight"
+msgstr "להדגיש"
+
+msgid "common.highlights"
+msgstr "מדגיש"
+
+msgid "common.homepageNavigationLabel"
+msgstr "בית"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "לוגו כותרת עמוד הבית"
+
+msgid "common.hour"
+msgstr "שעה"
+
+msgid "common.id"
+msgstr "מזהה"
+
+msgid "common.lastActivity"
+msgstr "פעילות אחרונה שתועדה ב- {$date}."
+
+msgid "common.lessThan"
+msgstr "{$value} או פחות"
+
+msgid "common.lessThanOnly"
+msgstr "פחות מ-"
+
+msgid "common.keepWorking"
+msgstr "המשיכו לעבוד"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.manage"
+msgstr "לנהל"
+
+msgid "common.mailingAddress"
+msgstr "כתובת למשלוח דואר"
+
+msgid "common.billingAddress"
+msgstr "כתובת לחיוב (אם שונה)"
+
+msgid "common.minute"
+msgstr "דקות"
+
+msgid "common.modify"
+msgstr "לשנות"
+
+msgid "common.month"
+msgstr "חודש"
+
+msgid "common.more"
+msgstr "עוד"
+
+msgid "common.moreThan"
+msgstr "{$value} או יותר"
+
+msgid "common.moreThanOnly"
+msgstr "יותר"
+
+msgid "common.noneAssigned"
+msgstr "אף אחד לא הוקצה"
+
+msgid "common.none"
+msgstr "ללא"
+
+msgid "common.noneSelected"
+msgstr "לא נבחר"
+
+msgid "common.no"
+msgstr "לא"
+
+msgid "common.noItemsFound"
+msgstr "לא נמצאו פריטים."
+
+msgid "common.noComments"
+msgstr "אין תגובות"
+
+msgid "common.notApplicable"
+msgstr "לא ישים"
+
+msgid "common.notApplicableShort"
+msgstr "לא ישים"
+
+msgid "common.notAvailable"
+msgstr "לא זמין"
+
+msgid "common.note"
+msgstr "הערה"
+
+msgid "common.noTemporaryFile"
+msgstr "לא היתה אפשרות למצוא את הקובץ שהעלית. נסה להעלות אותו שוב."
+
+msgid "common.notes"
+msgstr "הערות"
+
+msgid "common.notes.tooltip"
+msgstr "הערות (צהוב: כולל תווים חדשים; כחול: צפה בהערות; אפור: ללא תווים)"
+
+msgid "common.notified"
+msgstr "הודעה"
+
+msgid "common.notified.date"
+msgstr "הודעה: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "אין התאמות"
+
+msgid "common.numberedMore"
+msgstr "{$number} עוד"
+
+msgid "common.off"
+msgstr "סגור"
+
+msgid "common.on"
+msgstr "פתוח"
+
+msgid "common.ok"
+msgstr "אוקיי"
+
+msgid "common.options"
+msgstr "אפשרויות"
+
+msgid "common.order"
+msgstr "הזמנה"
+
+msgid "common.orderUp"
+msgstr "הרחבת המיקום של {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "הקטנת המקיום של {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "שם קובץ מקורי"
+
+msgid "common.or"
+msgstr "או"
+
+msgid "common.other"
+msgstr "אחר"
+
+msgid "common.overdue"
+msgstr "תאריך היעד חלף"
+
+msgid "common.override"
+msgstr "לעקוף"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} מתוך {$total}"
+
+msgid "common.pagination.label"
+msgstr "הצגת דפים נוספים"
+
+msgid "common.pagination.goToPage"
+msgstr "עבור אל {$page}"
+
+msgid "common.pagination.next"
+msgstr "הבא"
+
+msgid "common.pageNumber"
+msgstr "עמוד {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "תוסף"
+
+msgid "common.pluginEnabled"
+msgstr "התוסף \"{$pluginName}\" הופעל."
+
+msgid "common.pluginDisabled"
+msgstr "התוסף \"{$pluginName}\" הושבת."
+
+msgid "common.prefix"
+msgstr "קידומת"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "דוגמאות: A, ה"
+
+msgid "common.preview"
+msgstr "תצוגה מקדימה"
+
+msgid "common.publisher"
+msgstr "מוציא לאור"
+
+msgid "common.quality"
+msgstr "איכות"
+
+msgid "common.queue.long.active"
+msgstr "הכל פעיל"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "מחדש:"
+
+msgid "common.readMore"
+msgstr "קרא עוד"
+
+msgid "common.readMoreWithTitle"
+msgstr "קרא עוד על {$title}"
+
+msgid "common.reconnecting"
+msgstr "מתחבר מחדש"
+
+msgid "common.refresh"
+msgstr "לרענן"
+
+msgid "common.related"
+msgstr "הקשורים"
+
+msgid "common.reminder"
+msgstr "תזכורת"
+
+msgid "common.reminded.date"
+msgstr "תזכורת: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "מרוחק"
+
+msgid "common.remoteURL"
+msgstr "כתובת URL מרוחקת"
+
+msgid "common.remove"
+msgstr "להסיר"
+
+msgid "common.removeItem"
+msgstr "הסרת {$item}"
+
+msgid "common.removeSelection"
+msgstr "הסרת בחירה"
+
+msgid "common.replaced"
+msgstr "להחליף"
+
+msgid "common.replaceFile"
+msgstr "החלף קובץ"
+
+msgid "common.requiredField"
+msgstr ""
+"שדות חובה מסומנים בכוכבית: <abbr class=\"required\" title=\"required\""
+">*</abbr>"
+
+msgid "common.required"
+msgstr "חובה"
+
+msgid "common.reviewRoundNumber"
+msgstr "עגול {$round}"
+
+msgid "common.role"
+msgstr "תפקיד"
+
+msgid "common.saveAndContinue"
+msgstr "שמירה והמשך"
+
+msgid "common.saveAndEmail"
+msgstr "שמירה ושלח"
+
+msgid "common.saving"
+msgstr "שמירה"
+
+msgid "common.search"
+msgstr "חיפוש"
+
+msgid "common.searchPhrase"
+msgstr "ביטוי חיפוש"
+
+msgid "common.searching"
+msgstr "חיפוש"
+
+msgid "common.searchQuery"
+msgstr "שאילתת חיפוש"
+
+msgid "common.clearSearch"
+msgstr "ניקוי ביטוי חיפוש"
+
+msgid "common.second"
+msgstr "שניות"
+
+msgid "common.selectAll"
+msgstr "בחר הכל"
+
+msgid "common.selectedPrefix"
+msgstr "שנבחרו:"
+
+msgid "common.selectNone"
+msgstr "בחר ללא"
+
+msgid "common.select"
+msgstr "בחר"
+
+msgid "common.size"
+msgstr "גודל"
+
+msgid "common.source"
+msgstr "מקור"
+
+msgid "common.status"
+msgstr "מצב"
+
+msgid "common.subject"
+msgstr "נושא"
+
+msgid "common.subjects"
+msgstr "נושאים"
+
+msgid "common.submenu"
+msgstr "תפריט משנה"
+
+msgid "common.subtitle"
+msgstr "כתובית"
+
+msgid "common.suggest"
+msgstr "מציע"
+
+msgid "common.switchTo"
+msgstr "עבור אל"
+
+msgid "common.switchToNamedItem"
+msgstr "מעבר ל- {$name}"
+
+msgid "common.title"
+msgstr "כותר"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "למעלה"
+
+msgid "common.true"
+msgstr "נכון"
+
+msgid "common.type"
+msgstr "סוג"
+
+msgid "common.uploadedBy"
+msgstr "הועלה על ידי {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "הועלה על ידי {$name} ב-{$date}"
+
+msgid "common.component"
+msgstr "רכיב"
+
+msgid "common.untitled"
+msgstr "ללא כותרת"
+
+msgid "common.updated"
+msgstr "מעודכן"
+
+msgid "common.uploadedDate"
+msgstr "תאריך העלאה"
+
+msgid "common.upload"
+msgstr "העלאה"
+
+msgid "common.uploadFailed"
+msgstr "לא היתה אפשרות להעלות או לשנות את הקובץ."
+
+msgid "common.addFile"
+msgstr "הוסף קובץ"
+
+msgid "common.upload.addFile"
+msgstr "העלה קובץ"
+
+msgid "common.upload.addFile.description"
+msgstr "העלה קובץ מהמחשב שלך."
+
+msgid "common.upload.restore"
+msgstr "שחזור המקור"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "תצוגה מקדימה של התמונה הנוכחית שנבחרה."
+
+msgid "common.upload.changeFile"
+msgstr "שנה קובץ"
+
+msgid "common.upload.dragFile"
+msgstr "גרור ושחרר קובץ לכאן כדי להתחיל בהעלאה"
+
+msgid "common.url"
+msgstr "כתובת URL"
+
+msgid "common.view"
+msgstr "צפה"
+
+msgid "common.viewError"
+msgstr "שגיאת צפייה"
+
+msgid "common.viewWithName"
+msgstr "הצג {$name}"
+
+msgid "common.viewProfile"
+msgstr "צפה בפרופיל"
+
+msgid "common.width"
+msgstr "רוחב"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "שנה"
+
+msgid "common.yes"
+msgstr "כן"
+
+msgid "common.loading"
+msgstr "טעינת"
+
+msgid "common.loaded"
+msgstr "טעון"
+
+msgid "common.plugins"
+msgstr "תוספים"
+
+msgid "common.count"
+msgstr "מנה"
+
+msgid "common.publicAccess"
+msgstr "גישה ציבורית"
+
+msgid "debug.databaseQueries"
+msgstr "מספר שאילתות במסד נתונים"
+
+msgid "debug.executionTime"
+msgstr "דף שנוצר ב-"
+
+msgid "debug.memoryUsage"
+msgstr "שימוש בזיכרון"
+
+msgid "debug.notes.localeListLoad"
+msgstr "רשימת האזורים שנטענה \"{$localeList}\" מ-XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "קובץ האזור שנטען \"{$localeFile}\" מ-XML"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "צירוף קבצי הגשה"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "קבצי ספרייה"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "צירוף קבצי ספרייה"
+
+msgid "email.attachments"
+msgstr "קבצים מצורפים"
+
+msgid "email.attachmentNotFound"
+msgstr "לא הייתה אפשרות לצרף את הקובץ {$fileName}."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "להודעה שאתה מנסה לשלוח יש נמענים רבים מדי."
+
+msgid "email.email"
+msgstr "דוא\"ל"
+
+msgid "email.from"
+msgstr "מאת"
+
+msgid "email.invalid"
+msgstr "כתובת הדוא\"ל {$email} אינה תקפה."
+
+msgid "email.multipart"
+msgstr "זוהי הודעה מרובת חלקים בתבנית MIME."
+
+msgid "email.recipient"
+msgstr "נמען"
+
+msgid "email.senderEmail"
+msgstr "דוא\"ל השולח"
+
+msgid "email.send"
+msgstr "שלח"
+
+msgid "email.skip"
+msgstr "דלג על דוא\"ל"
+
+msgid "email.subject"
+msgstr "נושא"
+
+msgid "email.subjectRequired"
+msgstr "אנא הוסף נושא דוא\"ל."
+
+msgid "email.bodyRequired"
+msgstr "אנא הוסף את גוף הטקסט של הדוא\"ל."
+
+msgid "email.to"
+msgstr "אל"
+
+msgid "form.url.invalid"
+msgstr "כתובת ה-URL שצוינה אינה תקפה. אנא בדוק זאת ונסה שוב."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "שחרר כאן קבצים להעלאה."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "בטל העלאה"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "ההעלאה בוטלה"
+
+msgid "form.errorOne"
+msgstr "נא לתקן שגיאה אחת."
+
+msgid "form.errorMany"
+msgstr "נא לתקן שגיאות {$count}."
+
+msgid "form.formLanguage"
+msgstr "שפת הטופס"
+
+msgid "form.startsWith"
+msgstr "מתחיל ב-"
+
+msgid "form.postRequired"
+msgstr "הטופס לא הוגש כהלכה."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"לא הייתה אפשרות להגיש את הטופס. ייתכן שהתנתקת. אנא טען מחדש את הדף ונסה שוב."
+
+msgid "form.resubmit"
+msgstr "הגש מחדש"
+
+msgid "form.saved"
+msgstr "נשמר"
+
+msgid "form.saveToUpload"
+msgstr "השתמש בשמירה כדי להעלות קובץ."
+
+msgid "form.send"
+msgstr "שלח"
+
+msgid "form.submit"
+msgstr "הגש"
+
+msgid "form.invalidImage"
+msgstr "הועלתה תמונה לא תקפה. התבניות המקובלות הן .png, .gif או .jpg."
+
+msgid "help.help"
+msgstr "עזרה"
+
+msgid "help.toc"
+msgstr "תוכן עניינים"
+
+msgid "help.previous"
+msgstr "הקודם"
+
+msgid "help.next"
+msgstr "הבא"
+
+msgid "help.upALevel"
+msgstr "לעלות רמה"
+
+msgid "icon.checked.alt"
+msgstr "נבדק"
+
+msgid "icon.comment.alt"
+msgstr "הגב"
+
+msgid "icon.font_small.alt"
+msgstr "קטן"
+
+msgid "informationCenter.pastNotes"
+msgstr "הערות עדכון מוקדמות יותר"
+
+msgid "informationCenter.history.noItems"
+msgstr "לא תועדו אירועים."
+
+msgid "stageParticipants.notify.warning"
+msgstr "אנא ודא שמילאת את שדה ההודעה וכללת מישהו אחר מלבדך בדיון."
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"משתתף זה רשאי להמליץ רק על החלטת עריכה וידרוש מעורך מוסמך לתעד את החלטות "
+"העריכה."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"אפשר לאדם זה לבצע שינויים בפרסום, כגון הכותרת, התקציר, המטא-נתונים ופרטי "
+"פרסום אחרים. ייתכן שתרצה לבטל הרשאה זו אם ההגשה נבדקה סופית והיא מוכנה "
+"לפרסום."
+
+msgid "locale.primary"
+msgstr "אזור ראשי"
+
+msgid "locale.supported"
+msgstr "אזורים נתמכים"
+
+msgid "navigation.access"
+msgstr "משתמשים ותפקידים"
+
+msgid "navigation.about"
+msgstr "על אודות"
+
+msgid "navigation.tools.statistics"
+msgstr "סטטיסטיקה"
+
+msgid "navigation.home"
+msgstr "דף הבית"
+
+msgid "navigation.infoForReaders"
+msgstr "לקוראים"
+
+msgid "navigation.infoForReaders.long"
+msgstr "מידע לקוראים"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} מתוך {$total} פריטים"
+
+msgid "navigation.login"
+msgstr "כניסה"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "השלב הבא"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "שלב קודם"
+
+msgid "navigation.publicMenu"
+msgstr "תפריט ציבורי"
+
+msgid "navigation.search"
+msgstr "חיפוש"
+
+msgid "navigation.sitemap"
+msgstr "מפת האתר"
+
+msgid "navigation.skip.description"
+msgstr "דלג לקישורי תוכן"
+
+msgid "navigation.skip.announcements"
+msgstr "דלג להודעות"
+
+msgid "navigation.submissions"
+msgstr "הגשות"
+
+msgid "navigation.dashboards"
+msgstr "לוחות מחוונים"
+
+msgid "navigation.reviewAssignments"
+msgstr "סקור מטלות"
+
+msgid "navigation.mySubmissions"
+msgstr "ההגשות שלי"
+
+msgid "navigation.userHome"
+msgstr "דף הבית של המשתמש"
+
+msgid "navigation.user"
+msgstr "משתמש"
+
+msgid "navigation.userManagement"
+msgstr "ניהול משתמשים"
+
+msgid "navigation.viewFrontend"
+msgstr "צפה באתר"
+
+msgid "institution.institutions"
+msgstr "מוסדות"
+
+msgid "notification.addedAuditor"
+msgstr "נוסף מבקר"
+
+msgid "notification.removedAuditor"
+msgstr "הוסר מבקר"
+
+msgid "notification.addedQuery"
+msgstr "נוסף דיון"
+
+msgid "notification.reviewAcknowledged"
+msgstr "סקירה סומנה כמאושרת. לא נשלח דוא\"ל."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "תודה. דוא\"ל נשלח לסוקר."
+
+msgid "notification.updatedReviewFiles"
+msgstr "קובצי סקירה עודכנו."
+
+msgid "notification.allow"
+msgstr "אפשר התראות כאלה."
+
+msgid "notification.addedAnnouncementType"
+msgstr "נוסף סוג הודעה."
+
+msgid "notification.email"
+msgstr "אל תשלח לי דוא\"ל עבור התראות מסוג זה."
+
+msgid "notification.noneExist"
+msgstr "אין לך התראות בשלב זה."
+
+msgid "notification.removedNote"
+msgstr "הערה נמחקה."
+
+msgid "notification.removedFile"
+msgstr "קובץ שהוסר"
+
+msgid "notification.removedSubmission"
+msgstr "הגשה שהוסרה"
+
+msgid "notification.notification"
+msgstr "התראה"
+
+msgid "notification.notifications"
+msgstr "התראות"
+
+msgid "notification.sentNotification"
+msgstr "נשלחה התראה."
+
+msgid "notification.settings"
+msgstr "הגדרות התראות"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"בחר את אירועי המערכת שברצונך לקבל עליהם התראה. אי בדיקה של פריט תמנע גם את "
+"הצגת ההתראות על האירוע במערכת וגם את שליחתן אליך בדוא\"ל. אירועים שנבדקו "
+"יוצגו במערכת ויתאפשר לך גם לקבל או לא לקבל את אותה התראה בדוא\"ל."
+
+msgid "notification.reminderSent"
+msgstr "הסיסמה החדשה שלך נשלחה לכתובת הדוא\"ל שסופקה."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "המטא-נתונים של ההגשה נשמרו."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "שלח דוא\"ל על כך לכל המשתמשים הרשומים."
+
+msgid "search.author"
+msgstr "לפי מחבר"
+
+msgid "search.abstract"
+msgstr "תקציר"
+
+msgid "search.advancedFilters"
+msgstr "מסננים מתקדמים"
+
+msgid "search.advancedSearchMore"
+msgstr "אפשרויות חיפוש נוספות"
+
+msgid "search.advancedSearchLess"
+msgstr "הסתר אפשרויות חיפוש נוספות"
+
+msgid "search.searchAgain"
+msgstr "חפש שוב"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "ניקוי אינדקס"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "הושלם"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "שגיאה"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} מאמרים שמיועדים למדידה"
+
+msgid "search.coverage"
+msgstr "כיסוי"
+
+msgid "search.date"
+msgstr "תאריך פרסום"
+
+msgid "search.dateFrom"
+msgstr "פורסם לאחר"
+
+msgid "search.dateTo"
+msgstr "פורסם לפני"
+
+msgid "search.deleteFilter"
+msgstr "מחק"
+
+msgid "search.discipline"
+msgstr "דיסציפלינות"
+
+msgid "search.fullText"
+msgstr "טקסט מלא"
+
+msgid "search.noResults"
+msgstr "אין תוצאות"
+
+msgid "search.searchResults.foundSingle"
+msgstr "נמצא פריט אחד."
+
+msgid "search.searchResults.foundPlural"
+msgstr "נמצאו {$count} פריטים."
+
+msgid "search.subject"
+msgstr "מילות מפתח"
+
+msgid "search.titleIndex"
+msgstr "דפדף במפתח הכותרים"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "כיצד לוודא שכל הקבצים אנונימיים"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "קרא את מדיניות הסקירה הנוכחית"
+
+msgid "grid.action.deleteNotification"
+msgstr "מחק משימה"
+
+msgid "grid.action.markNew"
+msgstr "סמן כחדש"
+
+msgid "grid.action.markRead"
+msgstr "סמן כנקרא"
+
+msgid "dashboard.tasks"
+msgstr "משימות"
+
+msgid "dashboard.myQueue"
+msgstr "התור שלי"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "כיצד לוודא שכל הקבצים אנונימיים"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>כדי להבטיח את יושרת ביקורת העמיתים האנונימית, יש לעשות כל מאמץ כדי למנוע "
+"את זהויות המחברים והסוקרים מלהיות ידועות זו לזו. זה כולל את המחברים, העורכים "
+"והסוקרים (שמעלים מסמכים כחלק מהסקירה שלהם) כשהם בודקים אם ננקטו הצעדים הבאים "
+"ביחס לטקסט ולמאפייני הקובץ:</p>\n"
+"<ul><li>מחברי המסמך מחקו את שמותיהם מהטקסט, עם \"מחבר\" ושנה בהפניות ובהערות "
+"שוליים, במקום שם המחבר, כותרת המאמר וכו'.</li>\n"
+"<li>מחברי המסמך הסירו מידע אישי ממאפייני הקובץ על-ידי ביצוע הצעדים הבאים:\n"
+"<ul><li>Microsoft Word עבור Windows:\n"
+"<ul><li>עבור אל קובץ</li>\n"
+"<li>בחר באפשרות מידע</li>\n"
+"<li>לחץ על בדיקת בעיות</li>\n"
+"<li>לחץ על בדוק מסמך</li>\n"
+"<li>בתיבת הדו-שיח של בוחן המסמכים, בחר בתיבות הסימון כדי לבחור את סוג התוכן "
+"המוסתר שברצונך לבדוק.</li>\n"
+"<li>לחץ על הסר הכל</li>\n"
+"<li>לחץ על סגור</li>\n"
+"<li>שמור את המסמך</li></ul>\n"
+"<li>Microsoft Word עבור MacOS:\n"
+"<ul><li>עבור אל כלים</li>\n"
+"<li>לחץ על הגן על מסמך</li>\n"
+"<li>בחר הסר מידע אישי עבור קובץ זה בעת שמירה</li>\n"
+"<li>לחץ על אישור ושמור את הקובץ</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>עבור אל קובץ</li>\n"
+"<li>בחר מאפיינים</li>\n"
+"<li>הסרת שם כלשהו בשדה המחבר/ת</li>\n"
+"<li>לחץ על אישור</li>\n"
+"<li>שמירת המסמך</li></ul></li></ul>\n"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "תאריך יעד לסקירה"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} מונה לסקור את ההגשה הזו ונשלחה לו התראה בהודעת דוא\"ל."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} מונה לסקור את ההגשה הזו ולא נשלחה לו התראה בהודעת דוא\"ל."
+
+msgid "notification.addedStageParticipant"
+msgstr "המשתמש נוסף כמשתתף בשלב."
+
+msgid "notification.type.reviewAssignment"
+msgstr "סקירה בהמתנה"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "מטלת הסקירה עודכנה."
+
+msgid "notification.type.auditorRequest"
+msgstr "בקשת ביקורת עבור \"{$file}\""
+
+msgid "notification.type.allRevisionsIn"
+msgstr "קובץ מתוקן הועלה לשיקולי עריכתך ב-{$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "תיקונים שהוגשו ל-{$stage}."
+
+msgid "timeZone"
+msgstr "אזור זמן"
+
+msgid "user.email"
+msgstr "כתובת דוא\"ל"
+
+msgid "user.authorization.submissionFile"
+msgstr "המשתמש הנוכחי אינו מורשה לגשת לקובץ ההגשה שצוין."
+
+msgid "notification.type.queryActivity"
+msgstr "פעילות דיון"
+
+msgid "notification.type.queryAdded"
+msgstr "נוסף דיון"
+
+msgid "notification.type.assignCopyeditors"
+msgstr "הקצה עורך לשון באמצעות שימוש בקישור \"הקצה\" ברשימת המשתתפים."
+
+#, fuzzy
+msgid "notification.type.editorialReport.contents"
+msgstr "זוהי תזכורת עבורך לבדוק את תקינות כתב העת שלך באמצעות דוח המערכת."
+
+msgid "notification.type.editorialReminder"
+msgstr "דוא\"ל שבועי של משימות שעדין לא טופלו"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "פריט תפריט הניווט עודכן בהצלחה"
+
+msgid "notification.removedNavigationMenu"
+msgstr "תפריט הניווט הוסר בהצלחה"
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"כתובת הדוא\"ל {$email} בוטלה בהצלחה. אנחנו לא נשלח לך עוד את המיילים האלה. "
+"אתה יכול להירשם מחדש להתראות דוא\"ל בכל עת מפרופיל המשתמש שלך <a href=\""
+"{$profileNotificationUrl}\"></a>user."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"אירעה שגיאה בלתי צפויה ולא הצלחנו לבטל את המנוי לכתובת הדוא\"ל {$email}. "
+"באפשרותך לבטל את ההרשמה לכל התראות הדוא\"ל בפרופיל המשתמש שלך <a href=\""
+"{$profileNotificationUrl}\"></a> או ליצור איתנו קשר ישירות לקבלת עזרה."
+
+msgid "list.viewMore"
+msgstr "הצג פרטים נוספים על {$name}"
+
+msgid "list.viewLess"
+msgstr "הסתרת פרטים מורחבים על {$name}"
+
+msgid "validation.invalidOption"
+msgstr "זו אינה אפשרות תקפה."
+
+msgid "validator.active_url"
+msgstr "זו אינה כתובת URL תקפה."
+
+msgid "validator.after"
+msgstr "תאריך זה חייב להיות אחרי {$date}."
+
+msgid "validator.alpha"
+msgstr "זה יכול להכיל רק אותיות."
+
+msgid "validator.alpha_dash"
+msgstr "זה יכול להכיל רק אותיות, מספרים, מקפים וקווים תחתונים."
+
+msgid "validator.alpha_dash_period"
+msgstr "זה יכול להכיל רק אותיות, מספרים, מקפים, קווים תחתונים ונקודות."
+
+msgid "validator.array"
+msgstr "זה אינו מערך תקף."
+
+msgid "validator.country.regex"
+msgstr ""
+"זו אינה מדינה תקפה. המדינה חייבת להיות מסומנת באחד מהקודים הבינלאומיים בני "
+"שתי האותיות. ראה את כל הקודים ב-https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "validator.currency"
+msgstr "זה אינו מטבע תקף."
+
+msgid "validator.digits"
+msgstr "זה חייב להיות באורך של {$digits} ספרות."
+
+msgid "validator.exists"
+msgstr "{$attribute} שנבחר אינו תקף."
+
+msgid "validator.filled"
+msgstr "זהו שדה חובה"
+
+msgid "validator.in"
+msgstr "{$attribute} שנבחר אינו תקף."
+
+msgid "validator.integer"
+msgstr "זה אינו מספר שלם תקף."
+
+msgid "validator.ip"
+msgstr "זו אינה כתובת IP תקפה."
+
+msgid "validator.issn"
+msgstr "זה אינו ISSN תקף."
+
+msgid "validator.json"
+msgstr "זו אינה מחרוזת JSON תקפה."
+
+msgid "validator.localeExpected"
+msgstr "שדה זה הוא רב לשוני. יש לספק ערכים נפרדים עבור כל שפה נתמכת."
+
+msgid "validator.localeKey"
+msgstr "יש לציין שפות באמצעות קוד האזור. דוגמאות: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "זה אינו יכול להיות גדול מ- {$max}."
+
+msgid "validator.max.file"
+msgstr "זה אינו יכול להיות גדול מ-{$max} קילובייטים."
+
+msgid "validator.max.string"
+msgstr "זה אינו יכול להיות גדול מ-{$max} תווים."
+
+msgid "validator.max.array"
+msgstr "זה אינו יכול לכלול יותר מ-{$max} פריטים."
+
+msgid "validator.mimes"
+msgstr "קובץ זה חייב להיות מסוג {$values}."
+
+msgid "validator.min.numeric"
+msgstr "זה חייב להיות לפחות {$min}."
+
+msgid "validator.not_in"
+msgstr "{$attribute} שנבחר אינו תקף."
+
+msgid "validator.numeric"
+msgstr "זה אינו מספר תקף."
+
+msgid "validator.orcid"
+msgstr "זה אינו ORCID תקף."
+
+msgid "validator.present"
+msgstr "השדה {$attribute} חייב להיות קיים."
+
+msgid "validator.regex"
+msgstr "זה אינו מאורגן כהלכה."
+
+msgid "validator.required"
+msgstr "זהו שדה חובה"
+
+msgid "validator.required_with"
+msgstr "זהו שדה חובה כאשר {$values} קיים."
+
+msgid "validator.required_with_all"
+msgstr "זהו שדה חובה כאשר {$values} קיים."
+
+msgid "validator.required_without"
+msgstr "זהו שדה חובה כאשר {$values} אינו קיים."
+
+msgid "validator.required_without_all"
+msgstr "זהו שדה חובה כאשר אף אחד מ- {$values} אינו קיים."
+
+msgid "validator.size.numeric"
+msgstr "זה חייב להיות {$size}."
+
+msgid "validator.size.file"
+msgstr "זה חייב להיות {$size} קילובייטים."
+
+msgid "validator.size.string"
+msgstr "זה חייב להיות {$size} תווים."
+
+msgid "validator.size.array"
+msgstr "זה חייב להכיל {$size} פריטים."
+
+msgid "validator.string"
+msgstr "זו אינה מחרוזת תקפה."
+
+msgid "validator.timezone"
+msgstr "זהו אינו אזור זמן תקף."
+
+msgid "validator.unique"
+msgstr "ה-{$attribute} כבר נלקח."
+
+msgid "validator.url"
+msgstr "זו אינה כתובת URL תקפה."
+
+msgid "validator.no_new_line"
+msgstr "אין אפשרות לשורה חדשה."
+
+msgid "validator.multilingual"
+msgstr "הדרישה הרב-לשונית אינה מתקיימת עבור שדה זה."
+
+msgid "filter.input.error.notSupported"
+msgstr "מסנן ({$displayName}) תומך בקלט {$inputTypeName} - {$typeofInput} נתון"
+
+msgid "filter.error.missingRequirements"
+msgstr "מנסה להפעיל טרנספורמציה שאינה נתמכת בסביבת ההתקנה שלך."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "לא הייתה אפשרות לייבא צומת XML"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "פקודה לא ידועה {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "common.numero"
+msgstr "לא"
+
+msgid "common.refreshingData"
+msgstr "מרענן נתונים"
+
+msgid "common.viewMoreDetails"
+msgstr "ראה פרטים נוספים"
+
+msgid "common.noneProvided"
+msgstr "אף אחד לא סופק."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "הצג <a href=\"{$url}\">היסטוריית עריכה</a>"
+
+msgid "about.other"
+msgstr "אחר"
+
+msgid "about.people"
+msgstr "אנשים"
+
+msgid "about.policies"
+msgstr "מדיניות"
+
+msgid "announcement.posted"
+msgstr "פורסם"
+
+msgid "announcement.postedOn"
+msgstr "פורסם ב {$postDate}"
+
+msgid "announcement.view"
+msgstr "הצג הודעה"
+
+msgid "common.navigation.sidebar"
+msgstr "הסרגל הצידי"
+
+msgid "common.navigation.siteContext"
+msgstr "ניווט בהקשר האתר"
+
+msgid "common.navigation.user"
+msgstr "ניווט למשתמש"
+
+msgid "common.grid"
+msgstr "רשת"
+
+msgid "common.action"
+msgstr "פעולה"
+
+msgid "common.moreActions"
+msgstr "פעולות נוספות"
+
+msgid "common.activate"
+msgstr "להפעיל"
+
+msgid "common.active"
+msgstr "פעיל"
+
+msgid "common.inactive"
+msgstr "אינו פעיל"
+
+msgid "common.add"
+msgstr "הוסף"
+
+msgid "common.addCCBCC"
+msgstr "הוספת עותק/עותק מוסתר"
+
+msgid "common.addSelf"
+msgstr "הוסף עצמי"
+
+msgid "common.attachedFiles"
+msgstr "קבצים מצורפים"
+
+msgid "common.attachFiles"
+msgstr "צרף קבצים"
+
+msgid "common.attachSelected"
+msgstr "צרף נבחר"
+
+msgid "common.editorialMasthead"
+msgstr "מערכת"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "סוקרים בשנה הקודמת"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "סוקרים בשנים האחרונות"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "העורכים מביעים את הערכתם לסוקרים על {$year} המפורטים להלן."
+
+msgid "common.editorialHistory"
+msgstr "היסטוריית עריכה"
+
+msgid "common.editorialHistory.page"
+msgstr "עמוד היסטוריית המערכת"
+
+msgid "common.all"
+msgstr "כל"
+
+msgid "common.assignments"
+msgstr "מטלות"
+
+msgid "common.error"
+msgstr "שגיאה"
+
+msgid "common.notice"
+msgstr "הודעה"
+
+msgid "common.changesSaved"
+msgstr "השינויים שלך נשמרו."
+
+msgid "common.confirm"
+msgstr "לאשר"
+
+msgid "common.deselect"
+msgstr "בטל את הבחירה"
+
+msgid "common.designation"
+msgstr "ייעוד"
+
+msgid "common.description"
+msgstr "תיאור"
+
+msgid "common.details"
+msgstr "פרטים"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}\"×{$height}\" ב- {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}×{$height} פיקסלים"
+
+msgid "common.discardChanges"
+msgstr "לא, מחק שינויים שלא נשמרו"
+
+msgid "common.disconnected"
+msgstr "מנותק"
+
+msgid "common.disable"
+msgstr "בטל"
+
+msgid "common.disabled"
+msgstr "מושבת"
+
+msgid "common.discipline"
+msgstr "תחום"
+
+msgid "common.done"
+msgstr "סיום"
+
+msgid "common.download"
+msgstr "הורדה"
+
+msgid "common.downloadPdf"
+msgstr "הורד PDF"
+
+msgid "common.downloadReport"
+msgstr "להורדת הדוח"
+
+msgid "common.dragAndDropHere"
+msgstr "גרור והעלה קבצים כאן."
+
+msgid "common.orUploadFile"
+msgstr "או העלה קובץ"
+
+msgid "common.edit"
+msgstr "עריכה"
+
+msgid "common.editItem"
+msgstr "ערוך {$name}"
+
+msgid "common.emailTemplates"
+msgstr "תבניות דוא\"ל"
+
+msgid "common.enable"
+msgstr "לאפשר"
+
+msgid "common.enabled"
+msgstr "מופעלת"
+
+msgid "common.error.databaseError"
+msgstr "אירעה שגיאת מסד נתונים: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "אירעה שגיאה לא ידועה בחיבור מסד נתונים."
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.event"
+msgstr "אירוע"
+
+msgid "common.export"
+msgstr "ייצא"
+
+msgid "common.finish"
+msgstr "סיום"
+
+msgid "common.fullscreen"
+msgstr "מסך מלא"
+
+msgid "common.fullscreenOff"
+msgstr "מסך מלא כבוי"
+
+msgid "common.false"
+msgstr "לא נכון"
+
+msgid "common.file"
+msgstr "קובץ"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "שם קובץ"
+
+msgid "common.fileSize"
+msgstr "גודל קובץ"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"מעלה קבצי המערכת נטען. אם הוא לא מופיע, סביר להניח שאף אחד מזמני הריצה שלו "
+"אינו נתמך על ידי דפדפן זה. אנא צור קשר לקבלת תמיכה."
+
+msgid "common.filter"
+msgstr "מסננים"
+
+msgid "common.filterAdd"
+msgstr "הוספת מסנן: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "נקה מסנן: {$filterTitle}"
+
+msgid "common.import"
+msgstr "ייבוא"
+
+msgid "common.initiate"
+msgstr "ליזום"
+
+msgid "common.inProgress"
+msgstr "בביצוע"
+
+msgid "common.insert"
+msgstr "להוסיף"
+
+msgid "common.insertContent"
+msgstr "הוספת תוכן"
+
+msgid "common.insertContentSearch"
+msgstr "חיפוש תוכן להוספה"
+
+msgid "common.itemsPerPage"
+msgstr "פריטים בעמוד"
+
+msgid "common.keywords"
+msgstr "מילות מפתח"
+
+msgid "common.label"
+msgstr "תווית"
+
+msgid "common.language"
+msgstr "שפה"
+
+msgid "common.languages"
+msgstr "שפות"
+
+msgid "common.lastSaved"
+msgstr "נשמר לאחרונה {$when}"
+
+msgid "common.less"
+msgstr "פחות"
+
+msgid "common.pagination.previous"
+msgstr "הקודם"
+
+msgid "common.reset"
+msgstr "איפוס"
+
+msgid "common.selectWithName"
+msgstr "בחר {$name}"
+
+msgid "common.sendEmail"
+msgstr "שלח דוא\"ל"
+
+msgid "common.showAllSteps"
+msgstr "הצג את כל השלבים"
+
+msgid "common.showingSteps"
+msgstr "שלבים של {$current}/{$total}"
+
+msgid "common.showingXofX"
+msgstr "מציג <strong>{$start} עד {$finish}</strong> מתוך {$total}"
+
+msgid "common.uninitiated"
+msgstr "לא יזום"
+
+msgid "common.unknownError"
+msgstr "אירעה שגיאה בלתי צפויה. אנא טען מחדש את הדף ונסה שוב."
+
+msgid "common.unread"
+msgstr "שלא נקראו"
+
+msgid "common.unsavedChanges"
+msgstr "שינויים שלא נשמרו"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"מצאנו שינויים שלא נשמרו מ- {$when}. זה יכול לקרות אם אתה מאבד את החיבור לשרת "
+"בזמן העבודה. שחזור שינויים אלה עשוי להחליף את כל השינויים שביצעת מאז. האם "
+"תרצה לשחזר את השינויים הללו כעת?"
+
+msgid "defaultMetric.title"
+msgstr "מדד ברירת מחדל"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "העלה קובץ ביקורת"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "העלה קובץ"
+
+msgid "email.addAttachment"
+msgstr "הוסף קובץ מצורף"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "צרף קבצים שהועלו על ידי המחבר בשלב ההגשה."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr "צרף קבצים שהועלו במהלך תהליך ההגשה, כגון גירסאות קודמות."
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "צרף קבצים מתהליכי ההגשה והמוציא לאור."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "צרף קבצי סקירה"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "צרף קבצים שהועלו על ידי סוקרים"
+
+msgid "email.addCcRecipient"
+msgstr "הוסף עותק"
+
+msgid "email.addToRecipient"
+msgstr "הוסף נמען"
+
+msgid "email.body"
+msgstr "גוף"
+
+msgid "email.cc"
+msgstr "עותק"
+
+msgid "email.bcc"
+msgstr "עותק מוסתר"
+
+msgid "email.bccSender"
+msgstr "שלח עותק של הודעה זו לכתובת שלי ({$address})"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"האם אתה בטוח שברצונך לשנות למינוח מקומי כדי לחבר הודעת דוא\"ל זו? כל שינוי "
+"שיבוצע בנושא ובגוף ההודעה יאבד."
+
+msgid "email.compose"
+msgstr "שלח דוא\"ל"
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"אתה מנסה לשלוח הודעה מוקדם מידי לאחר שליחת ההודעה האחרונה. אנא המתן לפני "
+"שליחת הודעה נוספת."
+
+msgid "email.compose.error"
+msgstr ""
+"אירעה בעיה בשליחת הודעת דוא\"ל. נסה שוב מאוחר יותר, או פנה למנהל המערכת."
+
+msgid "email.recipients"
+msgstr "נמענים"
+
+msgid "email.sender"
+msgstr "השולח"
+
+msgid "email.senderName"
+msgstr "שם השולח"
+
+msgid "form.confirmSubmit"
+msgstr "האם אתה בטוח שברצונך לשלוח טופס זה?"
+
+msgid "form.confirmSubmit.title"
+msgstr "אשר"
+
+msgid "form.dataHasChanged"
+msgstr "הנתונים בטופס זה שונו. האם אתה רוצה להמשיך בלי לשמור?"
+
+msgid "form.disallowedLocales"
+msgstr "מותרות רק השפות הבאות: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "המאפיין הזה אינו אפשרי."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"הקובץ גדול מדי ({{filesize}}mb). לא ניתן להעלות קבצים גדולים "
+"מ-{{maxFilesize}}mb."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "לא ניתן להעלות קבצים מסוג זה."
+
+msgid "form.dropzone.dictResponseError"
+msgstr "השרת הגיב עם קוד {{statusCode}}. אנא פנה למנהל המערכת אם בעיה זו נמשכת."
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "האם אתה בטוח שאתה רוצה לבטל את ההעלאה הזו?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "הסר קובץ"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "לא ניתן להעלות קבצים נוספים."
+
+msgid "form.errorA11y"
+msgstr "עבור אל {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "דלג לשגיאה הבאה"
+
+msgid "form.errorSummaryOne"
+msgstr "זוהתה שגיאה אחת! אנא תקן את השגיאה שלהלן לפני שתמשיך."
+
+msgid "form.errorSummaryMany"
+msgstr "זוהו שגיאות {$count}! אנא תקן את השגיאות שלהלן לפני שתמשיך."
+
+msgid "form.errors"
+msgstr ""
+"הטופס לא נשמר מכיוון שזוהו שגיאות {$count}. אנא תקן שגיאות אלה ונסה שוב."
+
+msgid "form.errorsOccurred"
+msgstr "אירעו שגיאות בעיבוד טופס זה"
+
+msgid "form.formLanguage.description"
+msgstr "כדי להזין את המידע שלהלן בשפות נוספות, בחר תחילה את השפה."
+
+msgid "form.fileRequired"
+msgstr "נדרשת העלאת קובץ."
+
+msgid "form.required"
+msgstr "(* חובה)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "עליך למלא שדה זה ב- {$language}."
+
+msgid "form.requireId"
+msgstr "עליך לספק תעודה מזהה תקפה."
+
+msgid "icon.delete.alt"
+msgstr "מחק"
+
+msgid "icon.edit.alt"
+msgstr "ערוך"
+
+msgid "icon.folder.alt"
+msgstr "תיקייה"
+
+msgid "icon.font_large.alt"
+msgstr "גדול"
+
+msgid "icon.font_medium.alt"
+msgstr "בינוני"
+
+msgid "icon.info.alt"
+msgstr "מידע"
+
+msgid "icon.letter.alt"
+msgstr "מכתב"
+
+msgid "icon.mail.alt"
+msgstr "דואר"
+
+msgid "icon.unchecked.alt"
+msgstr "לא נבדק"
+
+msgid "icon.view.alt"
+msgstr "ראה"
+
+msgid "informationCenter.informationCenter"
+msgstr "מרכז מידע"
+
+msgid "informationCenter.editorialHistory"
+msgstr "היסטוריית העריכה"
+
+msgid "informationCenter.addNote"
+msgstr "הוסף הערה"
+
+msgid "informationCenter.noNotes"
+msgstr "אין הערות להצגה."
+
+msgid "informationCenter.deleteConfirm"
+msgstr "האם אתה בטוח שברצונך למחוק הערה זו?"
+
+msgid "informationCenter.currentHistory"
+msgstr "עדכון נוכחי"
+
+msgid "informationCenter.pastHistory"
+msgstr "עדכונים קודמים"
+
+msgid "informationCenter.history.notePosted"
+msgstr "פורסמה הערה חדשה."
+
+msgid "informationCenter.history.messageSent"
+msgstr "התראה נשלחה למשתמשים."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "התראה נשלחה למשתמשים."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "התחל דיון"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "התחל דיון בינך ובין {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "בחר הודעה מוגדרת מראש לשימוש, או מלא את הטופס למטה."
+
+msgid "stageParticipants.notify.message"
+msgstr "הודעה"
+
+msgid "stageParticipants.options"
+msgstr "הרשאות מטלה"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "הרשאות"
+
+msgid "stageParticipants.selectedUser"
+msgstr "משתתף"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "לא ניתן לבצע שינויים עבור משתתף זה"
+
+msgid "navigation.browse"
+msgstr "דפדף"
+
+msgid "navigation.backTo"
+msgstr "⟵ חזרה אל {$page}"
+
+msgid "navigation.browseByAuthor"
+msgstr "לפי מחבר"
+
+msgid "navigation.browseByTitle"
+msgstr "לפי כותרת"
+
+msgid "navigation.dashboard"
+msgstr "לוח מחוונים"
+
+msgid "navigation.data"
+msgstr "נתונים"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} מתוך {$total} פריטים"
+
+msgid "navigation.skip.main"
+msgstr "דלג לתוכן העיקרי"
+
+msgid "navigation.skip.nav"
+msgstr "דלג לתפריט הניווט הראשי"
+
+msgid "navigation.skip.footer"
+msgstr "דלג לכותרת התחתונה של האתר"
+
+msgid "navigation.stepNumber"
+msgstr "שלב {$step}"
+
+msgid "notification.removedAnnouncementType"
+msgstr "סוג ההודעה הוסר."
+
+msgid "notification.removedAnnouncement"
+msgstr "ההודעה הוסרה."
+
+msgid "notification.confirmError"
+msgstr "אירעה שגיאה באישור המנוי שלך."
+
+msgid "notification.confirmSuccess"
+msgstr "נרשמת בהצלחה."
+
+msgid "notification.reminderError"
+msgstr ""
+"אירעה שגיאה בשליחת הסיסמה שלך. אנא ודא שהזנת את כתובת הדוא\"ל שלך כהלכה."
+
+msgid "submission.task.responseDueDate"
+msgstr "תאריך יעד לתגובה"
+
+msgid "notification.removedReviewer"
+msgstr "הסוקר הוסר."
+
+msgid "notification.cancelledReviewer"
+msgstr "הסוקר ביטל."
+
+msgid "notification.reinstatedReviewer"
+msgstr "הסוקר הושב לתפקידו."
+
+msgid "notification.reviewerResendRequest"
+msgstr "נשלחה בקשה לשקול מחדש את מטלת הסקירה."
+
+msgid "notification.type.allReviewsIn"
+msgstr "כל הסוקרים הגיבו ונדרשת החלטה ב{$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "תיקונים שיש לקחת בחשבון ב- {$stage}."
+
+msgid "user.authorization.invalidPublication"
+msgstr "פרסום לא תקף"
+
+msgid "user.authorization.invalidSubmission"
+msgstr "הגשה לא תקפה"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "ייצוג לא תקף"
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "סבב סקירה לא תקף"
+
+msgid "user.authorization.invalidQuery"
+msgstr "דיון לא תקף"
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "אין לך גישה להודעת דיון זו."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "אין לך גישה למטלת סקירה זו."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"בשלב זה אין לך הרשאות מספיקות כדי להציג את ההגשה. אנא ערוך את הפרופיל שלך "
+"כדי לוודא שהוענקו לך התפקידים המתאימים תחת \"הירשם כ-\"."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"המשתמש הנוכחי אינו המחבר של ההגשה המבוקשת. אנא ודא שאתה מחובר עם חשבון "
+"המשתמש הנכון."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "אפשרויות פרטיות"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "ממתין לעריכת לשון"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "עיגול {$round} סטטוס"
+
+msgid "notification.type.editorialReport"
+msgstr "סיכום דוח סטטיסטיקה"
+
+msgid "semicolon"
+msgstr "{$label}: "
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "פריט תפריט הניווט הוסר בהצלחה"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "פריט תפריט הניווט נוסף בהצלחה"
+
+msgid "notification.addedNavigationMenu"
+msgstr "תפריט הניווט נוסף בהצלחה"
+
+msgid "notification.editedNavigationMenu"
+msgstr "תפריט הניווט עודכן בהצלחה"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "המנוי שלך בוטל"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "לא הצלחנו לבטל את המנוי שלך"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"בחר את הודעות הדוא\"ל שאינך מעוניין עוד לקבל בכתובת {$email} מתוך "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"אתה יכול להירשם מחדש להתראות דוא\"ל בכל עת מפרופיל המשתמש שלך <a href=\""
+"{$profileNotificationUrl}\"></a>user."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "בטל את המנוי"
+
+msgid "showAll"
+msgstr "הצג הכול"
+
+msgid "showLess"
+msgstr "הצג פחות"
+
+msgid "validator.accepted"
+msgstr "אנא קבל פריט זה."
+
+msgid "validator.before"
+msgstr "תאריך זה חייב להיות לפני {$date}."
+
+msgid "validator.between.numeric"
+msgstr "זה חייב להיות בין {$min} ל-{$max}."
+
+msgid "validator.between.file"
+msgstr "זה חייב להיות בין {$min} ל- {$max} קילובייטים."
+
+msgid "validator.between.string"
+msgstr "זה חייב להיות בין {$min} ל-{$max} תווים."
+
+msgid "validator.between.array"
+msgstr "זה חייב לכלול בין {$min} ל-{$max} פריטים."
+
+msgid "validator.boolean"
+msgstr "שדה זה חייב להיות נכון או לא נכון."
+
+msgid "validator.confirmed"
+msgstr "האישור עבור שדה זה אינו תואם."
+
+msgid "validator.country"
+msgstr "זו אינה מדינה תקפה."
+
+msgid "validator.date"
+msgstr "זה אינו תאריך תקף."
+
+msgid "validator.date.comparison"
+msgstr "תאריכים לא תקפים ניתנו להשוואה."
+
+msgid "validator.date_format"
+msgstr "זה אינו תואם את הפורמט {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} ו- {$other} חייבים להיות שונים."
+
+msgid "validator.digits_between"
+msgstr "זה חייב להיות בין {$min} ל-{$max} ספרות."
+
+msgid "validator.email"
+msgstr "זו אינה כתובת דוא\"ל תקפה."
+
+msgid "validator.image"
+msgstr "זו חייבת להיות תמונה."
+
+msgid "validator.locale"
+msgstr "שפה זו אינה קבילה."
+
+msgid "validator.min.file"
+msgstr "זה חייב להיות לפחות {$min} קילובייטים."
+
+msgid "validator.min.string"
+msgstr "זה חייב להיות לפחות {$min} תווים."
+
+msgid "validator.min.array"
+msgstr "זה חייב לכלול לפחות {$min} פריטים."
+
+msgid "validator.required_unless"
+msgstr "זהו שדה חובה אלא אם {$other} נמצא ב- {$values}."
+
+msgid "validator.same"
+msgstr "{$attribute} ו- {$other} חייבים להתאים."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "רק תגי html [{$tags}] מותרים."
+
+msgid "notification.addedAuthor"
+msgstr "המחבר הוסיף."
+
+msgid "notification.editedAuthor"
+msgstr "המחבר ערך."
+
+msgid "common.sandbox"
+msgstr "אפליקציה פועלת במצב ארגז חול."
+
+msgid "common.fromUntil"
+msgstr "{$from} – {$until}"
+
+msgid "common.publicKnowledgeProject"
+msgstr "פרויקט PKP"
+
+msgid "common.currentStyleSheet"
+msgstr "גליון סגנונות נוכחי"
+
+msgid "about.description"
+msgstr "תיאור"
+
+msgid "about.guidelines"
+msgstr "מדריכים"
+
+msgid "about.aboutSite"
+msgstr "על אודות האתר"
+
+msgid "about.contact"
+msgstr "איש קשר"
+
+msgid "about.contact.email"
+msgstr "דואר אלקטרוני"
+
+msgid "about.contact.phone"
+msgstr "טלפון"
+
+msgid "about.contact.principalContact"
+msgstr "איש קשר ראשי"
+
+msgid "about.contact.supportContact"
+msgstr "צור קשר עם התמיכה"
+
+msgid "form.contains"
+msgstr "מכיל"
+
+msgid "common.alreadyAssigned"
+msgstr "הוקצה"
+
+msgid "common.up"
+msgstr "למעלה"
+
+msgid "email.addBccRecipient"
+msgstr "הוסף עותק מוסתר"
+
+msgid "form.is"
+msgstr "הוא"
+
+msgid "navigation.system"
+msgstr "מערכת"
+
+msgid "common.changeLanguage"
+msgstr "החלף שפה"

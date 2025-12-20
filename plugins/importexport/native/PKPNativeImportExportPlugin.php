@@ -227,8 +227,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                 $downloadSuccess = $this->downloadExportedFile($exportedFileContentNamePart, $exportedFileDatePart, $this->getDeployment());
 
                 if (!$downloadSuccess) {
-                    $dispatcher = $request->getDispatcher();
-                    $dispatcher->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
 
                 $this->isResultManaged = true;
@@ -328,6 +327,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                 $deployment = $this->getDeployment(); /** @var PKPNativeImportExportDeployment $deployment */
                 $deployment->setUser($user);
                 $deployment->setImportPath(dirname($xmlFile));
+                $deployment->setOpts($cliDeployment->opts);
 
                 $deployment->import($filter, $xmlString);
 

@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-02-22 11:01+0000\n"
+"PO-Revision-Date: 2025-11-29 13:00+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/cs/"
 ">\n"
@@ -70,7 +70,7 @@ msgid "announcement.noneExist"
 msgstr "Nebyla vydána žádná oznámení."
 
 msgid "announcement.posted"
-msgstr "Publikováno"
+msgstr "Odesláno"
 
 msgid "announcement.postedOn"
 msgstr "Odesláno dne {$postDate}"
@@ -685,10 +685,10 @@ msgid "common.pagination.goToPage"
 msgstr "Jít na {$page}"
 
 msgid "common.pagination.next"
-msgstr "Další strana"
+msgstr "Další"
 
 msgid "common.pagination.previous"
-msgstr "Předchozí strana"
+msgstr "Předchozí"
 
 msgid "common.pageNumber"
 msgstr "Strana {$pageNumber}"
@@ -1707,29 +1707,8 @@ msgstr "Disciplína(y)"
 msgid "search.fullText"
 msgstr "Plný text"
 
-msgid "search.indexTerms"
-msgstr "Výrazy indexu"
-
-msgid "search.indexTermsLong"
-msgstr "Všechna pole indexu"
-
-msgid "search.matchAll"
-msgstr "Zahrnout všechny kategorie"
-
 msgid "search.noResults"
 msgstr "Žádné výsledky"
-
-msgid "search.operator.and"
-msgstr "a"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Hledat"
 
 msgid "search.searchResults"
 msgstr "Výsledky hledání"
@@ -1808,10 +1787,10 @@ msgstr ""
 "<li> Microsoft Word pro MacOS:\n"
 "<ul> <li> Přejít na Nástroje </li>\n"
 "<li> Klikněte na Chránit dokument </li>\n"
-"<li> Vyberte možnost Odebrat osobní informace pro tento soubor při uložení </"
-"li>\n"
+"<li> Vyberte možnost Odebrat osobní informace pro tento soubor při uložení "
+"</li>\n"
 "<li> Klikněte na OK a uložte soubor </li> </ul> </li>\n"
-"<li> PDF:\n"
+"<li>Adobe Acrobat (PDF):\n"
 "<ul> <li> Přejít do souboru </li>\n"
 "<li> Vyberte Vlastnosti </li>\n"
 "<li> Odstraňte z pole autora jakékoli jméno </li>\n"
@@ -1959,14 +1938,14 @@ msgstr "Shrnutí statistické zprávy."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Toto je laskavé připomenutí, abyste si prostřednictvím redakční zprávy mohli "
-"zkontrolovat stav svého časopisu."
+"Toto je přátelské připomenutí, abyste zkontrolovali stav své publikace "
+"prostřednictvím redakční zprávy."
 
 msgid "notification.type.editorialReminder"
 msgstr "Týdenní zasílání nevyřízených úkolů e-mailem"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigační menu bylo úspěšně aktualizováno"
@@ -2313,3 +2292,96 @@ msgstr "Ukázat vše"
 
 msgid "common.sandbox"
 msgstr "Aplikace spuštěná v režimu sandbox (pískoviště)."
+
+msgid "common.assignments"
+msgstr "Úkoly"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Zobrazit <a href=\"{$url}\">redakční historii</a>"
+
+msgid "common.moreActions"
+msgstr "Další akce"
+
+msgid "common.editorialMasthead"
+msgstr "Redakční hlavička"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Odborní recenzenti v předchozím roce"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Odborní recenzenti v minulých letech"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Redakce vyjadřuje poděkování níže uvedeným recenzentům za {$year}."
+
+msgid "common.editorialHistory"
+msgstr "Redakční historie"
+
+msgid "common.editorialHistory.page"
+msgstr "Stránka Historie redakce"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Tato část obsahuje seznam dřívějších přispěvatelů."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Zobrazit {$name} profil ORCID"
+
+msgid "common.filtersClear"
+msgstr "Vymazat filtry"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Načteno"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Zjištěno {$count} chyb! Než budete pokračovat, opravte prosím níže uvedené "
+"chyby."
+
+msgid "navigation.mySubmissions"
+msgstr "Má podání v roli autora"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Recenze předložena na"
+
+msgid "validator.multilingual"
+msgstr "Požadavek na vícejazyčnost není pro toto pole splněn."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Ne"
+
+msgid "common.refreshingData"
+msgstr "Obnovení dat"
+
+msgid "common.viewMoreDetails"
+msgstr "Zobrazit více podrobností"
+
+msgid "common.showingXofX"
+msgstr "Zobrazení <strong>{$start} do {$finish}</strong> z {$total}"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Zjištěna 1 chyba! Než budete pokračovat, opravte prosím níže uvedenou chybu."
+
+msgid "navigation.dashboards"
+msgstr "Ovládací panel redaktora"
+
+msgid "navigation.reviewAssignments"
+msgstr "Přehled mých úkolů jako recenzenta"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Přijata recenze na"
+
+msgid "validator.date.comparison"
+msgstr "Neplatná data uvedená pro srovnání."
+
+msgid "common.yesContinue"
+msgstr "Ano, pokračovat"
+
+msgid "common.changeLanguage"
+msgstr "Změna jazyka"

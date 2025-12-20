@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/Modal.php
  *
@@ -25,7 +26,7 @@ class Modal extends LinkActionRequest
     public $_title;
 
     /** @var string The icon to be displayed in the title bar. */
-    public $_titleIcon;
+    public $_modalStyle;
 
     /** @var bool Whether the modal has a close icon in the title bar. */
     public $_canClose;
@@ -43,7 +44,7 @@ class Modal extends LinkActionRequest
      * Constructor
      *
      * @param string $title (optional) The localized modal title.
-     * @param string $titleIcon (optional) The icon to be used in the modal title bar.
+     * @param string $modalStyle (optional) The modal state/style to be used. (default is 'basic')
      * @param bool $canClose (optional) Whether the modal will have a close button.
      * @param string $closeOnFormSuccessId (optional) Close the modal when the
      *  form with this id fires a formSuccess event.
@@ -52,14 +53,14 @@ class Modal extends LinkActionRequest
      */
     public function __construct(
         $title = null,
-        $titleIcon = null,
+        $modalStyle = 'basic',
         $canClose = true,
         $closeOnFormSuccessId = null,
         $closeCleanVueInstances = []
     ) {
         parent::__construct();
         $this->_title = $title;
-        $this->_titleIcon = $titleIcon;
+        $this->_modalStyle = $modalStyle;
         $this->_canClose = $canClose;
         $this->_closeOnFormSuccessId = $closeOnFormSuccessId;
         $this->_closeCleanVueInstances = $closeCleanVueInstances;
@@ -82,13 +83,13 @@ class Modal extends LinkActionRequest
     }
 
     /**
-     * Get the title bar icon.
+     * Get the modal style.
      *
      * @return string
      */
-    public function getTitleIcon()
+    public function getModalStyle()
     {
-        return $this->_titleIcon;
+        return $this->_modalStyle;
     }
 
     /**
@@ -128,15 +129,11 @@ class Modal extends LinkActionRequest
     {
         return [
             'title' => $this->getTitle(),
-            'titleIcon' => $this->getTitleIcon(),
+            'modalStyle' => $this->getModalStyle(),
             'canClose' => ($this->getCanClose() ? '1' : '0'),
             'closeOnFormSuccessId' => $this->_closeOnFormSuccessId,
             'closeCleanVueInstances' => $this->_closeCleanVueInstances,
             'closeButtonText' => $this->getCloseButtonText(),
         ];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\Modal', '\Modal');
 }

@@ -59,7 +59,3 @@ interface PKPPubIdPluginDAO
      */
     public function deleteAllPubIds(int $contextId, string $pubIdType): int;
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PKPPubIdPluginDAO', '\PKPPubIdPluginDAO');
-}

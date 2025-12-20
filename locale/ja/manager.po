@@ -1092,8 +1092,8 @@ msgstr "日付と時間フォーマット"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "日付と時刻のフォーマットを選択してください。カスタムフォーマットの入力には、"
-"特殊な<a href='http://php.net/manual/en/function.strftime.php#refsect1-"
-"function.strftime-parameters'>フォーマット文字</a>が使えます。"
+"特殊な<a href='http://php.net/manual/ja/datetime.format.php#refsect1-"
+"datetime.format-parameters'>フォーマット文字</a>が使えます。"
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "日付"
@@ -1593,9 +1593,6 @@ msgstr "通過"
 
 msgid "settings.roles.roleOptions"
 msgstr "役割オプション"
-
-msgid "settings.roles.showTitles"
-msgstr "投稿者リストに役割名を表示"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "ユーザーの自己登録が可能"

@@ -99,6 +99,8 @@ class Notification extends Model
 
     protected $table = 'notifications';
     protected $primaryKey = 'notification_id';
+    public const CREATED_AT = 'date_created';
+    public const UPDATED_AT = null;
     public $timestamps = false;
 
     protected $fillable = [
@@ -113,6 +115,7 @@ class Notification extends Model
             'dateRead' => 'datetime',
             'assocType' => 'int',
             'assocId' => 'int',
+            'type' => 'int',
         ];
     }
 
@@ -198,5 +201,20 @@ class Notification extends Model
             fn ($q) => $q->whereNotNull('date_read'),
             fn ($q) => $q->whereNull('date_read')
         );
+    }
+
+    public static function getUnreadNotificationsCount(?int $userId): int
+    {
+        if (!$userId) {
+            return 0;
+        }
+
+        // Count the number of unread notifications for the user
+        $notificationsCount = static::withRead(false)
+            ->withUserId($userId)
+            ->withLevel(static::NOTIFICATION_LEVEL_TASK)
+            ->count();
+
+            return $notificationsCount;
     }
 }

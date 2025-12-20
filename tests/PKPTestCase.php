@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup tests Tests
  * Tests and test framework for unit and integration tests.
@@ -7,13 +8,11 @@
 /**
  * @file tests/PKPTestCase.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTestCase
- *
- * @ingroup tests
  *
  * @brief Class that implements functionality common to all PKP unit test cases.
  */
@@ -23,16 +22,23 @@ namespace PKP\tests;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
+use Illuminate\Support\Facades\Mail;
 use Mockery;
+use Mockery\LegacyMockInterface;
+use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\Dispatcher;
+use PKP\core\PKPContainer;
+use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 
 abstract class PKPTestCase extends TestCase
 {
+    public const MOCKED_GUZZLE_CLIENT_NAME = 'GuzzleClient';
+
     private array $daoBackup = [];
     private array $registryBackup = [];
     private array $containerBackup = [];
@@ -78,6 +84,9 @@ abstract class PKPTestCase extends TestCase
     {
         parent::setUp();
         $this->setBackupGlobals(true);
+
+        // Set application running unit test
+        PKPContainer::getInstance()->setRunningUnitTests();
 
         // Rather than using "include_once()", ADOdb uses
         // a global variable to maintain the information
@@ -127,8 +136,15 @@ abstract class PKPTestCase extends TestCase
             DAORegistry::registerDAO($mockedDao, $this->daoBackup[$mockedDao]);
         }
 
-        Mockery::close();
+        // Delete the mocked guzzle client from registry
+        Registry::delete(self::MOCKED_GUZZLE_CLIENT_NAME);
+
+        // Unset application running unit test
+        PKPContainer::getInstance()->unsetRunningUnitTests();
+
         parent::tearDown();
+
+        Mockery::close();
     }
 
     /**
@@ -150,7 +166,7 @@ abstract class PKPTestCase extends TestCase
      * @param string $config the id of the configuration to use
      * @param string $configPath (optional) where to find the config file, default: 'config'
      */
-    protected function setTestConfiguration($config, $configPath = 'config')
+    protected function setTestConfiguration(string $config, string $configPath = 'config'): void
     {
         // Get the configuration file belonging to
         // this test configuration.
@@ -176,12 +192,10 @@ abstract class PKPTestCase extends TestCase
      * And make sure that you merge any additional mocked
      * registry keys with the ones returned from this class.
      *
-     * @param string $path
-     * @param int $userId
      *
      * @return Request
      */
-    protected function mockRequest(string $path = 'index/test-page/test-op', int $userId = 0)
+    protected function mockRequest(string $path = 'index/test-page/test-op', int $userId = 0): PKPRequest
     {
         // Back up the default request.
         if (!isset($this->registryBackup['request'])) {
@@ -200,6 +214,7 @@ abstract class PKPTestCase extends TestCase
         $router = new PageRouter();
         $router->setApplication($application);
         $dispatcher = new Dispatcher();
+        $dispatcher->addRouterName('\APP\core\PageRouter', Application::ROUTE_PAGE);
         $dispatcher->setApplication($application);
         $router->setDispatcher($dispatcher);
         $request->setRouter($router);
@@ -218,11 +233,10 @@ abstract class PKPTestCase extends TestCase
      * Resolves the configuration id to a configuration
      * file
      *
-     * @param string $config
      *
      * @return string the resolved configuration file name
      */
-    private function getConfigFile($config, $configPath = 'config')
+    private function getConfigFile(string $config, string $configPath = 'config'): string
     {
         // Build the config file name.
         return './lib/pkp/tests/' . $configPath . '/config.' . $config . '.inc.php';
@@ -238,8 +252,49 @@ abstract class PKPTestCase extends TestCase
         $escapedPieces = array_map(fn ($piece) => preg_quote($piece, '/'), $pieces);
         return '/^' . implode('.*?', $escapedPieces) . '$/u';
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias(PKPTestCase::class, 'PKPTestCase');
+    /**
+     * Mock the mail facade
+     *
+     * @see https://laravel.com/docs/11.x/mocking
+     */
+    protected function mockMail(): void
+    {
+        /**
+         * @disregard P1013 PHP Intelephense error suppression
+         *
+         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
+         */
+        Mail::shouldReceive('send')
+            ->withAnyArgs()
+            ->andReturn(null)
+            ->shouldReceive('compileParams')
+            ->withAnyArgs()
+            ->andReturn('');
+    }
+
+    /**
+     * Create mockable guzzle client
+     *
+     * @see https://docs.guzzlephp.org/en/stable/testing.html
+     *
+     * @param bool $setToRegistry   Should store it in app registry to be used by call
+     *                              as `Application::get()->getHttpClient()`
+     *
+     */
+    protected function mockGuzzleClient(bool $setToRegistry = true): MockInterface|LegacyMockInterface
+    {
+        $guzzleClientMock = Mockery::mock(\GuzzleHttp\Client::class)
+            ->makePartial()
+            ->shouldReceive('request')
+            ->withAnyArgs()
+            ->andReturn(new \GuzzleHttp\Psr7\Response())
+            ->getMock();
+
+        if ($setToRegistry) {
+            Registry::set(self::MOCKED_GUZZLE_CLIENT_NAME, $guzzleClientMock);
+        }
+
+        return $guzzleClientMock;
+    }
 }

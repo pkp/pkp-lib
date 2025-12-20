@@ -1,12 +1,14 @@
 # rl <biuro@fimagis.pl>, 2022, 2023.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
+# Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
+# Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2023-05-04 22:49+0000\n"
-"Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
+"PO-Revision-Date: 2025-11-17 07:31+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
 "Language: pl\n"
@@ -15,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informacja"
@@ -1175,7 +1177,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Wybierz preferowany format dat i godzin. Niestandardowy format można "
 "wprowadzić za pomocą specjalnych <a href=\"https://www.php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters\">znaków "
+"datetime.format.php#refsect1-datetime.format-parameters\">znaków "
 "formatu</a>."
 
 msgid "manager.setup.dateTime.longDate"
@@ -1695,9 +1697,6 @@ msgstr "Waluta"
 
 msgid "settings.roles.roleOptions"
 msgstr "Ustawienia roli"
-
-msgid "settings.roles.showTitles"
-msgstr "Wyświetl nazwy ról na liście współpracowników"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Pozwól na samorejestrację użytkowników"
@@ -2648,7 +2647,7 @@ msgid "stats.descriptionForStat"
 msgstr "Opis {$stat}"
 
 msgid "stats.editorialActivity"
-msgstr "Statystyki redakcyjne"
+msgstr "Działalność redakcyjna"
 
 msgid "stats.file.type.primaryFile"
 msgstr "Plik główny"
@@ -3452,7 +3451,7 @@ msgstr ""
 "cofnięciu zgłoszenia do etapu kompletacji."
 
 msgid "manager.manageEmails"
-msgstr "Zarządcze wiadomości e-mail"
+msgstr "Zarządzaj wiadomościami e-mail"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
@@ -3743,3 +3742,114 @@ msgstr "Stopka redakcyjna"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Sprawdź XML przed eksportem i rejestracją."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Zdefiniuj kolejność ról do publicznego wyświetlania."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzenci będą wyświetlani w standardowym formacie, aby zachować "
+"jednolitość i zapewnić łatwość wyszukiwania w tej sekcji."
+
+msgid "manager.highlights.add"
+msgstr "Dodaj wydarzenie"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Języki strony internetowej"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Języki zgłoszeń"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Dodaj/Usuń języki"
+
+msgid "manager.language.submission.form.description"
+msgstr "Wybierz języki zgłoszeń i metadanych."
+
+msgid "settings.roles.permitSettings"
+msgstr "Zezwalaj na zmiany w ustawieniach"
+
+msgid "settings.roles.masthead"
+msgstr "Consider role in masthead list"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Raporty Conters R5"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Statystyki COUNTER R5 nie są jeszcze dostępne."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Więcej informacji na temat każdego raportu można znaleźć na <a href=\"https"
+"://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\""
+">COUNTER 5.0.3 documentation</a>."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Prosimy o podanie historii redakcji, w tym pełnego imienia i nazwiska, "
+"afiliacji oraz daty rozpoczęcia i zakończenia pracy każdego redaktora."
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadane"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odpowiedź na wniosek o recenzję - po terminie"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Przegląd zgłoszenia - przed upływem terminu"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Ustaw przypomnienia o recenzji"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odpowiedź na wniosek o recenzję - przed upływem terminu"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Przegląd zgłoszenia - po terminie"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dni przed terminem płatności"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dni po terminie płatności"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Brak"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Nie ustawiono przypomnienia"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Wyślij przypomnienie e-mail przed lub po odpowiedzi na prośbę o recenzję ("
+"jeśli recenzent nie odpowiedział jeszcze na prośbę o recenzję) lub "
+"przesłaniu recenzji (jeśli recenzent nie przesłał jeszcze recenzji)"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Wymagane minimalne potwierdzone recenzje"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimalna liczba potwierdzonych recenzji wymaganych do zgłoszenia"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Sugestia recenzenta przy zgłoszeniu"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Autor może zaproponować kilku potencjalnych recenzentów przed zakończeniem "
+"procesu składania artykułu, co może usprawnić proces recenzji i dostarczyć "
+"cennych informacji zespołowi redakcyjnemu."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Pozwól autorom sugerować potencjalnych recenzentów podczas procesu składania "
+"artykułów"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Link to a page displaying all active editorial masthead services."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Zainstalowana wersja: {$version}"

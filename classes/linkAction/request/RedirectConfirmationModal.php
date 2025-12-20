@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/RedirectConfirmationModal.php
  *
@@ -28,8 +29,7 @@ class RedirectConfirmationModal extends ConfirmationModal
      * @param string $title (optional) The localized modal title.
      * @param string $remoteUrl (optional) A URL to be
      *  redirected to when the confirmation button is clicked.
-     * @param string $titleIcon (optional) The icon to be used
-     *  in the modal title bar.
+     * @param string $modalStyle (optional) The modal state/style to be used. (default is 'basic')
      * @param string $okButton (optional) The localized text to
      *  appear on the confirmation button.
      * @param string $cancelButton (optional) The localized text to
@@ -37,9 +37,9 @@ class RedirectConfirmationModal extends ConfirmationModal
      * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
-    public function __construct($dialogText, $title = null, $remoteUrl = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true)
+    public function __construct($dialogText, $title = null, $remoteUrl = null, $modalStyle = 'basic', $okButton = null, $cancelButton = null, $canClose = true)
     {
-        parent::__construct($dialogText, $title, $titleIcon, $okButton, $cancelButton, $canClose);
+        parent::__construct($dialogText, $title, $modalStyle, $okButton, $cancelButton, $canClose);
 
         $this->_remoteUrl = $remoteUrl;
     }
@@ -72,8 +72,4 @@ class RedirectConfirmationModal extends ConfirmationModal
         $parentLocalizedOptions['remoteUrl'] = $this->getRemoteUrl();
         return $parentLocalizedOptions;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\RedirectConfirmationModal', '\RedirectConfirmationModal');
 }

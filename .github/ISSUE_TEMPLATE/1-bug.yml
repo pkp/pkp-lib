@@ -1,0 +1,92 @@
+name: "Bug Report"
+description: File a bug report in OJS, OMP, or OPS. Try our [Software Support] forum if you cannot provide reproducible steps and technical specifications.
+
+title: "[Main Feature] | Workflow Section - Page, Description of bug"
+type: "Bug"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please update the title to describe your issue.
+  
+  - type: checkboxes
+    id: valid-title
+    attributes:
+      label: "Valid Title"
+      options:
+        - label: I have updated the title to accurately reflect the bug description
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Include a detailed explanation of the bug with any unusual behaviour or unique details."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Clear step-by-step instructions on how to trigger the bug."
+      value: |
+        1. Login with User/Role '...'
+        2. Navigate to '...'
+        3. Click on '...'
+        4. Scroll down to '...'
+        5. Select submit button
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: "Expected Result"
+      description: "Describe what the system should do under normal conditions."
+      placeholder: "What should the system do?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: "Actual Result"
+      description: "Describe what the system actually does (the problematic behaviour)."
+      placeholder: "What is seen after the final step?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment-details
+    attributes:
+      label: "Environment Details"
+      description: "If known, include details such as server OS, PHP version, and database type, as well as client browser configuration and device."
+    validations:
+      required: false
+
+  - type: input
+    id: application-version
+    attributes:
+      label: Application Version
+      placeholder: "OJS, OMP or OPS version X.X.X-X"
+      description: "What application and version are you using? [How to determine application version](https://forum.pkp.sfu.ca/t/how-do-i-determine-my-pkp-softwares-version/28534)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs"
+      description: "If you have access to the PHP server logs, you can show them here. Be careful not to divulge sensitive information. [How to find my PHP error logs](https://forum.pkp.sfu.ca/t/how-do-i-find-my-php-error-log/29374)"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: "Additional Information"
+      description: "Please add any screenshots, videos, or other information we can use to investigate this bug report."
+    validations:
+      required: false

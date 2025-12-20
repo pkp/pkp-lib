@@ -37,7 +37,6 @@ class EmailLinkAction extends LinkAction
         $ajaxModal = new AjaxModal(
             $router->url($request, null, null, 'viewEmail', null, $actionArgs),
             $modalTitle,
-            'modal_email'
         );
 
         // Configure the link action.

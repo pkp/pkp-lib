@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -28,6 +29,7 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupForm extends Form
@@ -100,7 +102,7 @@ class UserGroupForm extends Form
      */
     public function initData()
     {
-        $userGroup = Repo::userGroup()->get($this->getUserGroupId());
+        $userGroup = UserGroup::findById($this->getUserGroupId(), $this->getContextId());
         $stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
         $this->setData('stages', $stages);
         $this->setData('assignedStages', []); // sensible default
@@ -111,19 +113,32 @@ class UserGroupForm extends Form
         $this->setData('roleForbiddenStagesJSON', $jsonMessage->getString());
 
         if ($userGroup) {
-            $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($this->getContextId(), $userGroup->getId())->toArray();
+            $assignedStages = $userGroup->getAssignedStageIds()->toArray();
+            // Get a list of all settings-accessible user groups for the current user in
+            // order to prevent them from locking themselves out by disabling the only one.
+            $mySettingsAccessUserGroupIds = UserGroup::withContextIds([$this->getContextId()])
+                ->whereHas(
+                    'userUserGroups',
+                    fn (EloquentBuilder $q) =>
+                    $q->withActive()->withUserId(Application::get()->getRequest()->getUser()->getId())
+                )
+                ->get()
+                ->filter(fn ($userGroup) => $userGroup->permitSettings)
+                ->map(fn ($userGroup) => $userGroup->id)
+                ->all();
 
             $data = [
-                'userGroupId' => $userGroup->getId(),
-                'roleId' => $userGroup->getRoleId(),
-                'name' => $userGroup->getName(null), //Localized
-                'abbrev' => $userGroup->getAbbrev(null), //Localized
+                'userGroupId' => $userGroup->id,
+                'roleId' => $userGroup->roleId,
+                'name' => $userGroup->name, // Localized array
+                'abbrev' => $userGroup->abbrev, // Localized array
                 'assignedStages' => $assignedStages,
-                'showTitle' => $userGroup->getShowTitle(),
-                'permitSelfRegistration' => $userGroup->getPermitSelfRegistration(),
-                'permitMetadataEdit' => $userGroup->getPermitMetadataEdit(),
-                'recommendOnly' => $userGroup->getRecommendOnly(),
-                'masthead' => $userGroup->getMasthead(),
+                'mySettingsAccessUserGroupIds' => array_values($mySettingsAccessUserGroupIds),
+                'permitSelfRegistration' => $userGroup->permitSelfRegistration,
+                'permitMetadataEdit' => $userGroup->permitMetadataEdit,
+                'permitSettings' => $userGroup->permitSettings,
+                'recommendOnly' => $userGroup->recommendOnly,
+                'masthead' => $userGroup->masthead,
             ];
 
             foreach ($data as $field => $value) {
@@ -137,7 +152,7 @@ class UserGroupForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit', 'masthead']);
+        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit', 'permitSettings', 'masthead']);
     }
 
     /**
@@ -157,28 +172,33 @@ class UserGroupForm extends Form
         $disableRoleSelect = ($this->getUserGroupId() > 0) ? true : false;
         $templateMgr->assign('disableRoleSelect', $disableRoleSelect);
         $templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
+        $templateMgr->assign('permitSettingsRoleIds', $this->getPermitSettingsRoles());
         $templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
-        $templateMgr->assign('notChangeMetadataEditPermissionRoles', Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES);
-
+        $repository = Repo::userGroup();
+        $templateMgr->assign('notChangeMetadataEditPermissionRoles', $repository::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES);
         return parent::fetch($request, $template, $display);
     }
 
     /**
      * Get a list of roles optionally permitting user self-registration.
-     *
-     * @return array
      */
-    public function getPermitSelfRegistrationRoles()
+    public function getPermitSelfRegistrationRoles(): array
     {
         return [Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_READER];
     }
 
     /**
-     * Get a list of roles optionally permitting recommendOnly option.
-     *
-     * @return array
+     * Get a list of roles optionally permitting settings access.
      */
-    public function getRecommendOnlyRoles()
+    public function getPermitSettingsRoles(): array
+    {
+        return [Role::ROLE_ID_MANAGER];
+    }
+
+    /**
+     * Get a list of roles optionally permitting recommendOnly option.
+     */
+    public function getRecommendOnlyRoles(): array
     {
         return [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     }
@@ -192,61 +212,81 @@ class UserGroupForm extends Form
 
         $request = Application::get()->getRequest();
         $userGroupId = $this->getUserGroupId();
-
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+
+        $repository = Repo::userGroup();
 
         // Check if we are editing an existing user group or creating another one.
         if ($userGroupId == null) {
-            $userGroup = Repo::userGroup()->newDataObject();
+            // creating a new UserGroup
+            $userGroup = new UserGroup();
 
             $roleId = $this->getData('roleId');
             if ($roleId == Role::ROLE_ID_SITE_ADMIN) {
                 throw new \Exception('Site administrator roles cannot be created here.');
             }
-            $userGroup->setRoleId($roleId);
+            $userGroup->roleId = $roleId;
 
-            $userGroup->setContextId($this->getContextId());
-            $userGroup->setDefault(false);
-            $userGroup->setShowTitle(is_null($this->getData('showTitle')) ? false : $this->getData('showTitle'));
-            $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
-            $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
-            if (in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
-                $userGroup->setPermitMetadataEdit(true);
+            $userGroup->contextId = $this->getContextId();
+            $userGroup->isDefault = false;
+            $userGroup->permitSelfRegistration = $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
+            $userGroup->permitSettings = $this->getData('permitSettings') && $userGroup->roleId == Role::ROLE_ID_MANAGER;
+
+            if (in_array($userGroup->roleId, Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
+                $userGroup->permitMetadataEdit = true;
+            } else {
+                $userGroup->permitMetadataEdit = (bool) $this->getData('permitMetadataEdit');
             }
 
-            $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
-            $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-            $userGroup->setMasthead($this->getData('masthead') ?? false);
-            $userGroupId = Repo::userGroup()->add($userGroup);
-        } else {
-            $userGroup = Repo::userGroup()->get($userGroupId);
-            $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-            $userGroup->setShowTitle(is_null($this->getData('showTitle')) ? false : $this->getData('showTitle'));
-            $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
-            $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
-            if (in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
-                $userGroup->setPermitMetadataEdit(true);
-            } else {
-                $permitMetadataEdit = $userGroup->getPermitMetadataEdit();
+            $userGroup->recommendOnly = $this->getData('recommendOnly') && in_array($userGroup->roleId, $this->getRecommendOnlyRoles());
+            $userGroup->masthead = (bool) $this->getData('masthead');
 
-                $stageAssignments = StageAssignment::withUserGroupId($userGroupId)
+            // set localized fields
+            $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
+
+            // save the user group
+            $userGroup->save();
+            $userGroupId = $userGroup->id;
+        } else {
+            // editing an existing UserGroup
+            $userGroup = UserGroup::findById($userGroupId, $this->getContextId());
+
+            // update localized fields
+            $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
+            $userGroup->permitSettings = $this->getData('permitSettings') && $userGroup->roleId == Role::ROLE_ID_MANAGER;
+            $userGroup->permitSelfRegistration = $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
+
+            $previousPermitMetadataEdit = $userGroup->permitMetadataEdit;
+
+            if (in_array($userGroup->roleId, $repository::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
+                $userGroup->permitMetadataEdit = true;
+            } else {
+                $userGroup->permitMetadataEdit = (bool) $this->getData('permitMetadataEdit');
+            }
+
+            // if permitMetadataEdit has changed, update StageAssignments
+            if ($userGroup->permitMetadataEdit !== $previousPermitMetadataEdit) {
+                $stageAssignments = StageAssignment::query()
+                    ->withUserGroupId($userGroupId)
                     ->withContextId($this->getContextId())
                     ->get();
 
                 foreach ($stageAssignments as $stageAssignment) {
-                    $stageAssignment->update(['canChangeMetadata' => $permitMetadataEdit]);
+                    $stageAssignment->canChangeMetadata = $userGroup->permitMetadataEdit;
+                    $stageAssignment->save();
                 }
             }
 
-            $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
-            $userGroup->setMasthead($this->getData('masthead') ?? false);
-            Repo::userGroup()->edit($userGroup, []);
+            $userGroup->recommendOnly = $this->getData('recommendOnly') && in_array($userGroup->roleId, $this->getRecommendOnlyRoles());
+            $userGroup->masthead = (bool) $this->getData('masthead');
+            $userGroup->save();
         }
 
         // After we have created/edited the user group, we assign/update its stages.
         $assignedStages = $this->getData('assignedStages');
+
         // Always set all stages active for some permission levels.
-        if (in_array($userGroup->getRoleId(), $roleDao->getAlwaysActiveStages())) {
+        if (in_array($userGroup->roleId, $roleDao->getAlwaysActiveStages())) {
             $assignedStages = array_keys(WorkflowStageDAO::getWorkflowStageTranslationKeys());
         }
         if ($assignedStages) {
@@ -267,30 +307,33 @@ class UserGroupForm extends Form
     public function _assignStagesToUserGroup($userGroupId, $userAssignedStages)
     {
         $contextId = $this->getContextId();
+        $roleId = $this->getData('roleId');
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+
 
         // Current existing workflow stages.
         $stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
 
-        foreach (array_keys($stages) as $stageId) {
-            Repo::userGroup()->removeGroupFromStage($contextId, $userGroupId, $stageId);
-        }
+        // Remove all existing stage assignments for this user group
+        UserGroupStage::query()
+            ->withContextId($contextId)
+            ->withUserGroupId($userGroupId)
+            ->delete();
 
+        // Assign new stages
         foreach ($userAssignedStages as $stageId) {
-            // Make sure we don't assign forbidden stages based on
-            // user groups role id. Override in case of some permission levels.
-            $roleId = $this->getData('roleId');
-            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+            // Make sure we don't assign forbidden stages based on user group role id
             $forbiddenStages = $roleDao->getForbiddenStages($roleId);
             if (in_array($stageId, $forbiddenStages) && !in_array($roleId, $roleDao->getAlwaysActiveStages())) {
                 continue;
             }
 
-            // Check if is a valid stage.
-            if (in_array($stageId, array_keys($stages))) {
+            // Check if it's a valid stage.
+            if (array_key_exists($stageId, $stages)) {
                 UserGroupStage::create([
                     'contextId' => $contextId,
                     'userGroupId' => $userGroupId,
-                    'stageId' => $stageId
+                    'stageId' => $stageId,
                 ]);
             } else {
                 throw new \Exception('Invalid stage id');
@@ -309,24 +352,29 @@ class UserGroupForm extends Form
     {
         $router = $request->getRouter();
         $context = $router->getContext($request);
-        $supportedLocales = $context->getSupportedLocaleNames();
+        $supportedLocales = $context->getSupportedLocales();
+        $name = $this->getData('name');
+        $abbrev = $this->getData('abbrev');
+        $userGroupNames = $userGroup->name;
+        $userGroupAbbrevs = $userGroup->abbrev;
 
         if (!empty($supportedLocales)) {
-            foreach ($context->getSupportedLocaleNames() as $localeKey => $localeName) {
-                $name = $this->getData('name');
-                $abbrev = $this->getData('abbrev');
+            foreach ($supportedLocales as $localeKey) {
                 if (isset($name[$localeKey])) {
-                    $userGroup->setName($name[$localeKey], $localeKey);
+                    $userGroupNames[$localeKey] = $name[$localeKey];
                 }
                 if (isset($abbrev[$localeKey])) {
-                    $userGroup->setAbbrev($abbrev[$localeKey], $localeKey);
+                    $userGroupAbbrevs[$localeKey] = $abbrev[$localeKey];
                 }
             }
         } else {
             $localeKey = Locale::getLocale();
-            $userGroup->setName($this->getData('name'), $localeKey);
-            $userGroup->setAbbrev($this->getData('abbrev'), $localeKey);
+            $userGroupNames[$localeKey] = $name[$localeKey] ?? '';
+            $userGroupAbbrevs[$localeKey] = $abbrev[$localeKey] ?? '';
         }
+
+        $userGroup->name = $userGroupNames;
+        $userGroup->abbrev = $userGroupAbbrevs;
 
         return $userGroup;
     }

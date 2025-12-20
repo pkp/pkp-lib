@@ -112,7 +112,7 @@ class LibraryFileDAO extends \PKP\db\DAO
      */
     public function getLocaleFieldNames(): array
     {
-        return ['name'];
+        return ['name', 'description'];
     }
 
     /**
@@ -269,8 +269,4 @@ class LibraryFileDAO extends \PKP\db\DAO
         $row = $result->current();
         return $row ? (bool) $row->row_count : false;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\context\LibraryFileDAO', '\LibraryFileDAO');
 }

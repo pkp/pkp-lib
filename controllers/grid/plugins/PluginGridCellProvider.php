@@ -82,7 +82,8 @@ class PluginGridCellProvider extends GridCellProvider
                                 $request->getSession(),
                                 __('grid.plugin.disable'),
                                 __('common.disable'),
-                                $request->url(null, null, 'disable', null, $requestArgs)
+                                $request->url(null, null, 'disable', null, $requestArgs),
+                                'negative'
                             ),
                             __('manager.plugins.disable'),
                             null

@@ -19,7 +19,8 @@
 			.then((thisWindow) => {
 
 				// Grab the CSRF token
-				cy.get('a:contains("Assign")').click();
+				cy.openWorkflowMenu('Production')
+				cy.get('button:contains("Assign")').click();
 				cy.get('input[name="csrfToken"]').then(($el) => {
 					var csrfToken = $el.val();
 

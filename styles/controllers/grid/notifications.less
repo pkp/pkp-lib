@@ -10,8 +10,7 @@
  * @brief Classes for notification grid structure
  */
 
-#notificationsGrid {
-
+[id*='component-grid-notifications-tasknotificationsgrid'] {
 	table {
 		// Prevents table from overflowing parent div
 		table-layout: fixed;
@@ -39,7 +38,9 @@
 	}
 
 	.gridRow td:nth-child(2) {
-		transform: translateX(1rem); // prevent column from overlapping clickable area of checkbox
+		transform: translateX(
+			1rem
+		); // prevent column from overlapping clickable area of checkbox
 		padding-left: 0;
 		padding-right: 0;
 	}
@@ -69,7 +70,6 @@
 	}
 
 	.task {
-
 		.message {
 			display: block;
 			line-height: 20px;
@@ -103,7 +103,6 @@
 		}
 
 		&.unread {
-
 			.message {
 				font-weight: @bold;
 			}

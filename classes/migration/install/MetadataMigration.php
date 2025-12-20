@@ -51,7 +51,6 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6);
 
             $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_unique');
         });

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/reviewAssignment/DAO.php
  *
@@ -42,7 +43,7 @@ class DAO extends EntityDAO
         'submissionId' => 'submission_id',
         'reviewerId' => 'reviewer_id',
         'competingInterests' => 'competing_interests',
-        'recommendation' => 'recommendation',
+        'reviewerRecommendationId' => 'reviewer_recommendation_id',
         'dateAssigned' => 'date_assigned',
         'dateNotified' => 'date_notified',
         'dateConfirmed' => 'date_confirmed',
@@ -65,9 +66,12 @@ class DAO extends EntityDAO
         'step' => 'step',
         'reviewFormId' => 'review_form_id',
         'considered' => 'considered',
+        'dateConsidered' => 'date_considered',
         'requestResent' => 'request_resent',
     ];
 
+    /** @copydoc EntityDAO::$settingsTable */
+    public $settingsTable = 'review_assignment_settings';
     /**
      * Instantiate a new DataObject
      */
@@ -130,11 +134,11 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
 
-        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->review_id => $this->fromRow($row);
             }
@@ -147,9 +151,14 @@ class DAO extends EntityDAO
     public function fromRow(object $row): ReviewAssignment
     {
         $reviewAssignment = parent::fromRow($row);
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
         $reviewAssignment->setData(
             'reviewerFullName',
-            Repo::user()->get($reviewAssignment->getReviewerId())->getFullName()
+            $reviewer->getFullName()
+        );
+        $reviewAssignment->setData(
+            'reviewerUserName',
+            $reviewer->getUserName()
         );
 
         return $reviewAssignment;

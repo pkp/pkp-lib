@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/RepresentationRequiredPolicy.php
  *
@@ -73,8 +74,4 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION, $representation);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\RepresentationRequiredPolicy', '\RepresentationRequiredPolicy');
 }

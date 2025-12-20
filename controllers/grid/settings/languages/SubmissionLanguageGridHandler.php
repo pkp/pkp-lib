@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\settings\languages;
 
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\GridRow;
 use PKP\controllers\grid\languages\form\AddLanguageForm;
 use PKP\controllers\grid\languages\LanguageGridHandler;
 use PKP\core\JSONMessage;
@@ -25,6 +26,7 @@ use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 
@@ -52,6 +54,7 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $this->addPolicy(new CanAccessSettingsPolicy());
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -77,6 +80,14 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
 
         $data = $this->addLocaleSettingData($request, $data, ['supportedSubmissionLocales', 'supportedSubmissionMetadataLocales']);
         return $data;
+    }
+
+    /**
+     * @copydoc GridHandler::getRowInstance()
+     */
+    protected function getRowInstance()
+    {
+        return new GridRow();
     }
 
     //

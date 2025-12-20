@@ -1,12 +1,15 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021, 2023.
 # Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
+# Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
+# Muhammad Fauzi <fauzi.padlaw@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-08-26 06:07+0000\n"
+"Last-Translator: Muhammad Fauzi <fauzi.padlaw@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/id/>\n"
 "Language: id\n"
@@ -14,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -770,7 +773,9 @@ msgid "common.replaceFile"
 msgstr "Ganti file"
 
 msgid "common.requiredField"
-msgstr "* Harus Diisi"
+msgstr ""
+"Kolom yang wajib diisi ditandai dengan tanda bintang: <abbr class=\"required"
+"\" title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Dibutuhkan"
@@ -1696,29 +1701,8 @@ msgstr "Disiplin Ilmu"
 msgid "search.fullText"
 msgstr "Teks Lengkap"
 
-msgid "search.indexTerms"
-msgstr "Indeks peristilahan"
-
-msgid "search.indexTermsLong"
-msgstr "Semua kolom istilah indeks"
-
-msgid "search.matchAll"
-msgstr "Cocok dengan semua kategori"
-
 msgid "search.noResults"
 msgstr "Tidak ada hasil"
-
-msgid "search.operator.and"
-msgstr "dan"
-
-msgid "search.operator.not"
-msgstr "bukan"
-
-msgid "search.operator.or"
-msgstr "atau"
-
-msgid "search.SearchFor"
-msgstr "Cari ini"
 
 msgid "search.searchResults"
 msgstr "Hasil Pencarian"
@@ -1949,6 +1933,7 @@ msgstr "Status Ronde{$round}"
 msgid "notification.type.editorialReport"
 msgstr "Rangkuman laporan statistik."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ini adalah semacam pengingat bagi Anda untuk memeriksa kondisi jurnal Anda "
@@ -1958,22 +1943,22 @@ msgid "notification.type.editorialReminder"
 msgstr "Email mingguan berisi tugas-tugas yang belum selesai"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Menu navigasi berhasil diperbaharui"
+msgstr "Item menu navigasi berhasil diperbarui"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Menu navigasi berhasil dihapus"
+msgstr "Item menu navigasi berhasil dihapus"
 
 msgid "notification.addedNavigationMenuItem"
 msgstr "Item menu navigasi berhasil ditambahkan"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Menu navigasi berhasil ditambah"
+msgstr "Menu navigasi berhasil ditambahkan"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Menu navigasi berhasil diperbaharui"
+msgstr "Menu navigasi berhasil diperbarui"
 
 msgid "notification.removedNavigationMenu"
 msgstr "Menu navigasi berhasil dihapus"
@@ -2335,3 +2320,109 @@ msgstr "Penulis telah diubah."
 #~ msgstr ""
 #~ "Validasi captcha website belum diatur dengan benar. Secret key-nya belum "
 #~ "ada."
+
+msgid "navigation.reviewAssignments"
+msgstr "Tugas Saya sebagai Reviewer"
+
+msgid "navigation.dashboards"
+msgstr "Dasbor Editor"
+
+msgid "showLess"
+msgstr "Tampilkan Lebih Sedikit"
+
+msgid "common.numero"
+msgstr "Tidak"
+
+msgid "common.refreshingData"
+msgstr "Memperbaharui data"
+
+msgid "common.viewMoreDetails"
+msgstr "Lihat detail selengkapnya"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Lihat <a href=\"{$url}\">Sejarah Editorial</a>"
+
+msgid "common.moreActions"
+msgstr "Kegiatan Lebih Lanjut"
+
+msgid "common.editorialMasthead"
+msgstr "Masthead Editorial"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Reviewer pada Tahun Lalu"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Reviewer pada Tahun-tahun Sebelumnya"
+
+msgid "common.editorialHistory"
+msgstr "Sejarah Editorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Bagian ini memberikan daftar kontributor sebelumnya."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Lihat profil ORCID {$name}"
+
+msgid "common.assignments"
+msgstr "Penugasan"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Review Diterima Pada"
+
+msgid "common.yesContinue"
+msgstr "Ya, Lanjutkan"
+
+msgid "common.filtersClear"
+msgstr "Membersihkan Filter"
+
+msgid "common.highlights"
+msgstr "Highlight"
+
+msgid "common.showingXofX"
+msgstr "Menampilkan <strong>{$start} untuk {$finish}</strong> dari {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryOne"
+msgstr "1 eror terdeteksi. Mohon koreksi eror berikut sebelum melanjutkan."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} eror terdeteksi! Silakan koreksi eror berikut sebelum melanjutkan."
+
+msgid "navigation.mySubmissions"
+msgstr "Pengiriman naskah saya sebagai Penulis"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Review Dikirimkan Pada"
+
+msgid "showAll"
+msgstr "Tampilkan Semua"
+
+msgid "validator.date.comparison"
+msgstr "Tanggal tidak valid disediakan untuk perbandingan."
+
+msgid "validator.multilingual"
+msgstr "Pernyaratan multibahasa tidak dapat dipenuhi pada bagian ini."
+
+msgid "common.sandbox"
+msgstr "Aplikasi dijalankan pada mode sandbox."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Editor memberikan apresiasi kepada reviewer pada {$year} di bawah ini."
+
+msgid "common.editorialHistory.page"
+msgstr "Halaman Sejarah Editorial"
+
+msgid "common.highlight"
+msgstr "Highlight"
+
+msgid "common.loaded"
+msgstr "Dimuat"
+
+msgid "common.changeLanguage"
+msgstr "Ubah Bahasa"

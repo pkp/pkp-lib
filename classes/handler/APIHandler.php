@@ -17,9 +17,10 @@ namespace PKP\handler;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Pipeline;
 use PKP\core\PKPBaseController;
-use PKP\core\PKPContainer;
 use PKP\core\PKPRoutingProvider;
+use PKP\middleware\HasRoles;
 use PKP\plugins\Hook;
+use PKP\plugins\interfaces\HasAuthorizationPolicy;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -35,17 +36,17 @@ class APIHandler extends PKPHandler
      */
     protected ?string $_handlerPath = null;
 
-    /** 
+    /**
      * Define if all the path building for admin api
      */
     protected bool $_apiForAdmin = false;
 
-    /** 
+    /**
      * The API routing controller class
      */
     protected PKPBaseController $apiController;
 
-    /** 
+    /**
      * List of route details that has been added via hook
      */
     protected array $routesFromHook = [];
@@ -59,7 +60,7 @@ class APIHandler extends PKPHandler
 
         $router = $controller->getRequest()->getRouter(); /** @var \PKP\core\APIRouter $router */
 
-        Hook::run("APIHandler::endpoints::{$router->getEntity()}", [&$controller, $this]);
+        Hook::run("APIHandler::endpoints::{$router->getEntity()}", [$controller, $this]);
 
         $this->apiController = $controller;
 
@@ -83,12 +84,12 @@ class APIHandler extends PKPHandler
         return $this->apiController;
     }
 
-    /** 
+    /**
      * Run the API routes
      */
     public function runRoutes(): mixed
-    {   
-        if(app('router')->getRoutes()->count() === 0) {
+    {
+        if (app('router')->getRoutes()->count() === 0) {
             return response()->json([
                 'error' => __('api.400.routeNotDefined')
             ], Response::HTTP_BAD_REQUEST)->send();
@@ -103,17 +104,17 @@ class APIHandler extends PKPHandler
                     return app('router')->dispatch($request);
                 });
 
-            if($response instanceof Throwable) {
+            if ($response instanceof Throwable) {
                 throw $response;
             }
 
-            if($response === null) {
+            if ($response === null) {
                 return response()->json([
                     'error' => __('api.417.routeResponseIsNull')
                 ], Response::HTTP_EXPECTATION_FAILED)->send();
             }
 
-            if(is_object($response) && method_exists($response, 'send')) {
+            if (is_object($response) && method_exists($response, 'send')) {
                 return $response->send();
             }
 
@@ -164,21 +165,30 @@ class APIHandler extends PKPHandler
     /**
      * Add a new route details pushed from the `APIHandler::endpoints::ENTITY_NAME` hook
      * for the current running API Controller
-     * 
-     * @param string    $method     The route HTTP request method e.g. `GET`,`POST`,...
-     * @param string    $uri        The route uri segment
-     * @param callable  $callback   The callback handling to execute actions when route got hit
-     * @param string    $name       The name of route
-     * @param array     $roles      The route accessable role from `Role::ROLE_ID_*`
+     *
+     * @param string $method The route HTTP request method e.g. `GET`,`POST`,...
+     * @param string $uri The route uri segment
+     * @param callable $callback The callback handling to execute actions when route got hit
+     * @param string $name The name of route
+     * @param array $roles The route accessable role from `Role::ROLE_ID_*`
+     * @param HasAuthorizationPolicy|null $pluginPolicyAuthorizer Instance to get an array of authorization policies
      */
-    public function addRoute(string $method, string $uri, callable $callback, string $name, array $roles): void
+    public function addRoute(
+        string $method,
+        string $uri,
+        callable $callback,
+        string $name,
+        array $roles,
+        ?HasAuthorizationPolicy $pluginPolicyAuthorizer = null,
+    ): void
     {
         array_push($this->routesFromHook, [
             'method' => $method,
             'uri' => $uri,
             'callback' => $callback,
             'name' => $name,
-            'roles' => $roles
+            'roles' => $roles,
+            'pluginPolicyAuthorizer' => $pluginPolicyAuthorizer,
         ]);
     }
 
@@ -190,18 +200,39 @@ class APIHandler extends PKPHandler
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
 
         foreach ($this->routesFromHook as $routeParams) {
-            $router
-                ->addRoute(
-                    $routeParams['method'],
-                    $this->getEndpointPattern() . '/' . $routeParams['uri'],
-                    $routeParams['callback']
-                )
+            $route = $router->addRoute(
+                $routeParams['method'],
+                $this->getEndpointPattern() . '/' . $routeParams['uri'],
+                $routeParams['callback']
+            );
+
+            $route
                 ->name($routeParams['name'])
                 ->middleware($this->apiController->roleAuthorizer($routeParams['roles']));
+
+            foreach ($this->apiController->getRouteGroupMiddleware() as $middleware) {
+
+                // As roles are already supplied for routes directly injecting in the router
+                // we do not want to add any other roles middleware form controller if defined
+                if (strstr($middleware, 'has.roles') !== false || strstr($middleware, HasRoles::class) !== false) {
+                    continue;
+                }
+
+                // We don't want to set any middleware to the route which is already set
+                if (in_array($middleware, $route->middleware())) {
+                    continue;
+                }
+
+                $route->middleware($middleware);
+            }
+
+            // If route has extra policy authorizer from plugin, add those to route's action stack with custom key
+            // which will be later added in the route controller's authorization stack via `PolicyAuthorizer` global middleware
+            if ($routeParams['pluginPolicyAuthorizer'] && $routeParams['pluginPolicyAuthorizer'] instanceof HasAuthorizationPolicy) {
+                $route->setAction(array_merge($route->getAction(), [
+                    'pluginPolicyAuthorizer' => $routeParams['pluginPolicyAuthorizer']
+                ]));
+            }
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\handler\APIHandler', '\APIHandler');
 }

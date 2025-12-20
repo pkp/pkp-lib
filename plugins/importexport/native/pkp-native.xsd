@@ -3,8 +3,8 @@
 <!--
   * plugins/importexport/native/pkp-native.xsd
   *
-  * Copyright (c) 2014-2021 Simon Fraser University
-  * Copyright (c) 2003-2021 John Willinsky
+  * Copyright (c) 2014-2025 Simon Fraser University
+  * Copyright (c) 2003-2025 John Willinsky
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Schema describing native XML import/export elements shared across PKP applications
@@ -159,12 +159,12 @@
 			<element name="role_id" type="int" />
 			<element name="context_id" type="int" />
 			<element name="is_default" type="boolean" />
-			<element name="show_title" type="boolean" />
 			<element name="permit_self_registration" type="boolean" />
 			<element name="permit_metadata_edit" type="boolean" />
 			<element name="name" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="abbrev" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="stage_assignments" type="string" minOccurs="1" maxOccurs="1" />
+			<element name="masthead" type="boolean" minOccurs="1" maxOccurs="1" />
 		</sequence>
 	</complexType>
 
@@ -186,9 +186,25 @@
 		<sequence>
 			<element name="givenname" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="familyname" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-			<element name="affiliation" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<element name="affiliation" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="rorAffiliation" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="ror" type="string" minOccurs="1" maxOccurs="unbounded" />
+							<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+						</sequence>
+					</complexType>
+				</element>
+			</choice>
 			<element name="country" type="string" minOccurs="0" maxOccurs="1" />
-			<element name="email" type="string" />
+			<element name="email" type="string" minOccurs="0" maxOccurs="1" />
 			<element name="url" type="anyURI" minOccurs="0" maxOccurs="1" />
 			<element name="orcid" type="anyURI" minOccurs="0" maxOccurs="1" />
 			<element name="biography" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
@@ -198,11 +214,20 @@
 	<complexType name="author">
 		<complexContent>
 			<extension base="pkp:identity">
+				<sequence>
+					<element name="contributor_roles">
+						<complexType>
+							<sequence>
+								<element name="contributor_role_id" type="int" minOccurs="1" maxOccurs="unbounded" />
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
 				<attribute name="primary_contact" type="boolean" default="false" />
-				<attribute name="user_group_ref" type="pkp:user_group_ref" use="required" />
 				<attribute name="include_in_browse" type="boolean" default="true" />
 				<attribute name="seq" type="int" use="required" />
 				<attribute name="id" type="int" use="required" />
+				<attribute name="contributor_type" type="string" use="required" />
 			</extension>
 		</complexContent>
 	</complexType>
@@ -267,10 +292,14 @@
 		</sequence>
 		<attribute name="date_submitted" type="date" use="optional" />
 		<attribute name="date_published" type="date" use="optional" />
-		<attribute name="version" type="int" use="optional" />
 		<attribute name="status" type="int" use="optional" />
 		<attribute name="primary_contact_id" type="int" use="optional" />
 		<attribute name="url_path" type="string" use="optional" />
+		<attribute name="version_stage" type="string" use="optional" />
+		<attribute name="version_minor" type="int" use="optional" />
+		<attribute name="version_major" type="int" use="optional" />
+		<attribute name="source_publication_id" type="int" use="optional" />
+		<attribute name="id" type="int" use="required" />
 	</complexType>
 
 	<!-- ************

@@ -14,10 +14,11 @@
 
 namespace PKP\userGroup\relationships;
 
-use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use PKP\userGroup\UserGroup;
+
 
 class UserGroupStage extends \Illuminate\Database\Eloquent\Model
 {
@@ -35,17 +36,20 @@ class UserGroupStage extends \Illuminate\Database\Eloquent\Model
      */
     protected $table = 'user_group_stage';
 
-    public function userGroup(): Attribute
+
+    public function userGroup(): BelongsTo
     {
-        return Attribute::make(
-            get: fn ($value, $attributes) => Repo::userGroup()->get($attributes['user_group_id']),
-            set: fn ($value) => $value->getId()
-        );
+        return $this->belongsTo(UserGroup::class, 'user_group_id', 'user_group_id');
     }
 
     public function scopeWithStageId(Builder $query, int $stageId): Builder
     {
         return $query->where('stage_id', $stageId);
+    }
+
+    public function scopeWithStageIds(Builder $query, array $stageIds): Builder
+    {
+        return $query->whereIn('stage_id', $stageIds);
     }
 
     public function scopeWithUserGroupId(Builder $query, int $userGroupId): Builder

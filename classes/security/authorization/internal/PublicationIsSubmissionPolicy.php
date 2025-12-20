@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/PublicationIsSubmissionPolicy.php
  *
@@ -24,7 +25,7 @@ class PublicationIsSubmissionPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
@@ -35,8 +36,4 @@ class PublicationIsSubmissionPolicy extends AuthorizationPolicy
 
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\PublicationIsSubmissionPolicy', '\PublicationIsSubmissionPolicy');
 }

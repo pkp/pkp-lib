@@ -1,0 +1,1054 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-03-16 20:28+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "admin.settings.statistics.sushi"
+msgstr "सुशी प्रोटोकॉल"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "नवे कॉन्फिगरेशन प्रदर्शित करा"
+
+msgid "admin.settings.siteLogo"
+msgstr "संकेतस्थळाचे परिचय चिन्ह (लोगो)"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "कामाची प्रक्रिया थांबली."
+
+msgid "admin.siteSettings"
+msgstr "संकेतस्थळाची मांडणी (सेटिंग्ज)"
+
+msgid "admin.version.latest"
+msgstr "नवीनतम आवृत्ती (version)"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "वापर :"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "आदेश (कमांड) [मुद्दा (अर्ग्यूमेंट)]"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"प्रत्येक संपादकाला त्यांच्या शिल्लक कामांची आठवण करून देणारा ई-मेल पाठवा"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "सेटिंगचे मूल्य (व्हॅल्यू)"
+
+msgid "admin.deleteCache"
+msgstr "चोरकप्प्यातली (Cache) माहिती वगळा"
+
+msgid "admin.confirmClearTemplateCache"
+msgstr ""
+"संकलीत केलेल्या टेंपलेटची चोरकप्प्यातली (cache) माहिती वगळायची हे खात्रीपूर्"
+"वक सांगता ना?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "कॉन्फिगरेशन फाईलमधील मजकूर"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"तुम्हाला खात्रीने {$contextName} त्यातील माहितीसकट कायमस्वरूपी हटवायचे आहे "
+"ना?"
+
+msgid "admin.currentVersion"
+msgstr "सध्याचे स्वरूप (व्हर्शन)"
+
+msgid "admin.dateInstalled"
+msgstr "प्रतिष्ठापनेची (इन्स्टॉलेशनची) तारीख"
+
+msgid "admin.expireSessions"
+msgstr "वापरकर्त्यांचे सत्र संपुष्टात आणा"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"हे लोकॅल खात्रीने पुनर्स्थापित करायचे ना? चालू लोकॅलशी संबंधीत अशी अस्तित्वा"
+"त असलेली, खास बनवलेले ई-मेल टेंपलेट्स सारखी, माहिती पुसून टाकली जाईल."
+
+msgid "admin.languages.installedLocales"
+msgstr "स्थापित केलेले लोकॅल्स"
+
+msgid "admin.languages.installLanguages"
+msgstr "लोकॅल्सचे व्यवस्थापन करा"
+
+msgid "admin.languages.availableLocales"
+msgstr "उपलब्ध लोकॅल्स"
+
+msgid "admin.languages.installLocales"
+msgstr "स्थापित करा (इंस्टॉल)"
+
+msgid "admin.languages.installLocale"
+msgstr "लोकॅल्स स्थापित (इंस्टॉल) करा"
+
+msgid "admin.languages.installNewLocales"
+msgstr "नवे लोकॅल्स स्थापित (इंस्टॉल) करा"
+
+msgid "admin.languages.languageSettings"
+msgstr "भाषेचे योजन (सेटिंग्स)"
+
+msgid "admin.languages.reload"
+msgstr "लोकॅल पुनर्स्थापित (रिलोड) करा"
+
+msgid "admin.languages.uninstall"
+msgstr "लोकॅल विस्थापित करा (अनइनस्टॉल)"
+
+msgid "admin.phpInfo"
+msgstr "पीएचपीची विस्तारित माहिती"
+
+msgid "admin.scheduledTask"
+msgstr "निर्धारित कार्य"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "कामाची प्रक्रिया सुरू झाली."
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "योजलेल्या कार्याच्या पूर्ततेनंतर अंमलबजावणीबाबतच्या नोंदी (लॉग्स) हटवा."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "कामाबाबतच्या नोंदी (टास्क लॉग) हटवा"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "स्मरणपत्राचे पुनरावलोकन"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "संपादकीय अहवाल अधिसूचना"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "सदस्यता मुदत समाप्तीसंबंधी स्मरणपत्र"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr "यादीतल्या न झालेल्या पण खूप जुन्या कामांना वगळा."
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "यादीतली प्रलंबित कार्ये करा"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "वापराच्या आकडेवारीची फाईल लोड करण्याचे काम"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "प्रतीक्षायादी"
+
+msgid "admin.systemInfo.settingName"
+msgstr "सेटिंगचे नाव"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "येथे उपलब्ध"
+
+msgid "admin.adminFunctions"
+msgstr "प्रशासकीय कार्ये"
+
+msgid "admin.server.dbDriver"
+msgstr "डेटाबेस ड्रायव्हर"
+
+msgid "admin.settings"
+msgstr "सेटिंग्ज"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "येथे निर्मित"
+
+msgid "admin.jobs.failedAt"
+msgstr "{$failedAt} येथे निर्मित"
+
+msgid "admin.settings.statistics.collection"
+msgstr "डेटा संकलन"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "सगळी कामं वगळली!"
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "{$jobsCount} कार्ये यशस्वीरित्या प्रतीक्षायादीत परत पाठवली."
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "अद्याप {$total} अयशस्वी ठरलेली कामं आहेत"
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "अद्याप {$total} कामं प्रतीक्षायादीत आहेत"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "{$option} हा पर्याय अस्तित्वात नाही."
+
+msgid "admin.jobs.totalCount"
+msgstr "प्रतीक्षायादीत एकूण <strong>{$total}</strong> कामं शिल्लक आहेत"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "प्रतीक्षायादीतली कामं पहा"
+
+msgid "navigation.tools.jobs"
+msgstr "कामं"
+
+msgid "navigation.tools.jobs.failed"
+msgstr "अयशस्वी कामं"
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr "अयशस्वी कामांचा तपशील"
+
+msgid "navigation.tools.jobs.view"
+msgstr "कामं पहा"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "अयशस्वी कामं पहा"
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr "अयशस्वी कामं पहा :{$id} तपशील"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "गुणधर्म (Attribute)"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "गुणधर्म मूल्य (Attribute Value)"
+
+msgid "admin.jobs.list.id"
+msgstr "आयडी (ID)"
+
+msgid "admin.jobs.list.displayName"
+msgstr "कार्य"
+
+msgid "admin.jobs.list.queue"
+msgstr "प्रतिक्षा यादी"
+
+msgid "admin.jobs.list.connection"
+msgstr "संबंध"
+
+msgid "admin.jobs.list.attempts"
+msgstr "प्रयत्न"
+
+msgid "admin.jobs.list.failedAt"
+msgstr "येथे अयशस्वी"
+
+msgid "admin.jobs.list.payload"
+msgstr "अभिभार (Payload)"
+
+msgid "admin.jobs.list.exception"
+msgstr "अपवाद"
+
+msgid "admin.jobs.list.actions"
+msgstr "कृती"
+
+msgid "admin.jobs.createdAt"
+msgstr "{$createdAt} येथे निर्मित"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "पुन्हा प्रयत्न करा"
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"{$file} ही फाईल {$dispatchFilePath} वरून {$archivedFilePath} वर हलवता आली "
+"नाही."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "{$file} ही फाईल अस्तित्वात नाही."
+
+msgid "admin.settings.statistics.storage"
+msgstr "डेटा साठवण (स्टोरेज)"
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "मासिक किंवा दैनिक आकडेवारी"
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "दैनिक आणि मासिक आकडेवारीचा मागोवा घ्या"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "फक्त मासिक आकडेवारीचा मागोवा घ्या"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "नोंदींचे (लॉग) आकुंचन (कॉम्प्रेस) करा"
+
+msgid "admin.siteSetup"
+msgstr "संकेतस्थळाची रचना (सेटअप)"
+
+msgid "admin.systemInformation"
+msgstr "संगणकाच्या घटकांबाबत (सिस्टम) माहिती"
+
+msgid "admin.systemInformation.view"
+msgstr "संगणकाच्या घटकांबाबत (सिस्टम) माहिती पहा"
+
+msgid "admin.versionBuild"
+msgstr "आकार व प्रमाण (बिल्ड)"
+
+msgid "admin.version.checkForUpdates"
+msgstr "सुधारित आवृत्तीची (अपडेट्स) पडताळणी करा"
+
+msgid "admin.version.downloadPackage"
+msgstr "उतरवून (डाउनलोड) घ्या"
+
+msgid "admin.version.downloadPatch"
+msgstr "पॅच उतरवून (डाउनलोड) घ्या"
+
+msgid "admin.versionHistory"
+msgstr "आवृत्ती (version) चा पूर्वेतिहास"
+
+msgid "admin.versionMajor"
+msgstr "लक्षणीय बदल (मेजर)"
+
+msgid "admin.versionMinor"
+msgstr "किरकोळ बदल (मायनर)"
+
+msgid "admin.version.moreInfo"
+msgstr "अधिक माहिती"
+
+msgid "admin.versionRevision"
+msgstr "सुधारलेली आवृत्ती"
+
+msgid "admin.version.upToDate"
+msgstr "तुमच्या संगणकाचे घटक (सिस्टम) अद्ययावत आहेत"
+
+msgid "admin.version"
+msgstr "आवृत्ती (version)"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "फोल्डर {$path} डिरेक्टरी नाहीये किंवा वाचता येत नाही."
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "फाईल {$filename} प्रक्रिया करून संग्रहित केली गेली."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "फाईल {$filename} डिस्पॅच फोल्डरमध्ये हलवली गेली."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "फाईल लोडर"
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"फाईल विस्तृत (डीकंप्रेस) करता आली नाही. gz फॉर्मेटमध्ये असलेली स्रोत (सोर्स) "
+"फाईल {$file} gzread वापरून वाचता आली नाही."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"फाईल विस्तृत (डीकंप्रेस) करता आली नाही. मुक्कामाच्या ठिकाणावरील (डेस्टिनेशन) "
+"उघडलेली फाईल {$filePath} fclose वापरून बंद करता आली नाही."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"फाईल आकुंचित (कॉम्प्रेस) करता आली नाही. gz फॉर्मेटमध्ये असलेली मुक्कामाच्या "
+"ठिकाणावरील (डेस्टिनेशन) फाईल {$filePath} gzopen वापरून उघडता आली नाही."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"फाईल आकुंचित (कॉम्प्रेस) करता आली नाही. स्रोत (सोर्स) फाईल {$filePath} fopen "
+"वापरून उघडता आली नाही."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"फाईल आकुंचित (कॉम्प्रेस) करता आली नाही. उघडलेली स्रोत (सोर्स) फाईल "
+"{$filePath} fclose वापरून बंद करता आली नाही."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"फाईल आकुंचित (कॉम्प्रेस) करता आली नाही. आकुंचित (कॉम्प्रेस) केलेली स्रोत "
+"(सोर्स) फाईल {$filePath} अनलिंक वापरून काढून टाकता आली नाही."
+
+msgid "admin.cli.tool.available.commands"
+msgstr "{$namespace}' नेमस्पेससाठी उपलब्ध आदेश (कमांड) :"
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"{$file} या फाईलमधून वापराची आकडेवारी पुरवण्याचे काम अयशस्वी झाले. फाईल स्टेज "
+"डायरेक्टरीमध्ये हलवण्यात आली आहे."
+
+msgid "admin.job.processLogFile.wrongLoglineFormat"
+msgstr ""
+"लॉग फाईल {$file} मधील {$line Number} ही ओळ चुकीच्या स्वरूपात आहे आणि त्यामुळे"
+" ती वगळली जाईल."
+
+msgid "admin.job.processLogFile.invalidLogEntry.time"
+msgstr "वेळ ही वैध तारीख नाही."
+
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
+msgstr "Context ID हा पूर्णांक नाही."
+
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
+msgstr "Submission ID हा पूर्णांक नाही."
+
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
+msgstr "Representation ID हा पूर्णांक नाही."
+
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
+msgstr "फाईल प्रकार अग्राह्य आहे."
+
+msgid "admin.job.processLogFile.invalidLogEntry.country"
+msgstr "देश दोन अक्षरांच्या सूत्रात नाही."
+
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
+msgstr "Institution IDs हा घटकांचा अनुक्रम (अ‍ॅरे) नाही."
+
+msgid "admin.job.processLogFile.insertError"
+msgstr ""
+"लॉग फाईल {$file} मधील {$lineNumber} ओळीवर प्रक्रिया करताना त्रुटी दिसून आली :"
+" {$msg}"
+
+msgid "admin.server.apacheVersion"
+msgstr "अपाचेची आवृत्ती (version)"
+
+msgid "admin.server.dbVersion"
+msgstr "डेटाबेस सर्व्हर आवृत्ती (version)"
+
+msgid "admin.serverInformation"
+msgstr "सर्व्हरची माहिती"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP आवृत्ती (version)"
+
+msgid "admin.server.platform"
+msgstr "OS प्लॅटफॉर्म"
+
+msgid "admin.settings.about"
+msgstr "संकेतस्थळाबद्दल"
+
+msgid "admin.settings.contactEmail"
+msgstr "प्रमुख संपर्काधिकार्‍याचा ई-मेल"
+
+msgid "admin.settings.contactName"
+msgstr "प्रमुख संपर्काधिकार्‍याचे नाव"
+
+msgid "admin.settings.introduction"
+msgstr "परिचय"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "समीक्षकांसंबंधीची आकडेवारी"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "समीक्षकांची एकत्रित आकडेवारी पुरवण्याची सोय अकार्यान्वित (disable) करा"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "एकाच वेळी अनेकांना पाठवायच्या एकाच मजकूराच्या ई-मेल्सवर मर्यादा घाला"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "भूमिका अकार्यान्वित (disable) करा"
+
+msgid "admin.settings.siteLanguage"
+msgstr "संकेतस्थळाची भाषा"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "अवैध साइट स्टाईल शीट फॉरमॅट. स्वीकृत फॉरमॅट .css आहे."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "संकेतस्थळाची स्टाईल शीट"
+
+msgid "admin.settings.siteTitle"
+msgstr "संकेतस्थळाचे नाव"
+
+msgid "admin.settings.siteTheme"
+msgstr "संकेतस्थळाचा मुख्य विषय (थीम)"
+
+msgid "admin.siteManagement"
+msgstr "संकेतस्थळाचे व्यवस्थापन (मॅनेजमेंट)"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"एक डेमन वर्कर प्रक्रिया (daemon worker process) चालू ठेवा जी अनंत कालाकरता "
+"कामांवर प्रक्रिया करत राहील. या कमांडशी संबंधित उपलब्ध पर्याय पाहण्यासाठी --"
+"help फ्लॅग वापरा."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "त्यांच्या सध्याच्या कामानंतर queue worker daemons पुन्हा सुरू करा."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"सध्याच्या कामाची अंमलबजावणी पूर्ण केल्यानंतर कामाला सहज पूर्णविराम मिळेल."
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+"{$queueName} नावाच्या प्रतीक्षा यादीतल्या {$jobCount} कामांची अंमलबजावणी पूर्"
+"ण झाली."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "{$queueName} नावाच्या प्रतीक्षा यादीत आता कुठलीही कामं शिल्लक नाहीत."
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+"प्रतीक्षा यादीत असलेल्या एकूण कामांची संख्या दाखवा. अयशस्वी झालेल्या कामांची "
+"संख्या दाखवण्यासाठी --failed पॅरामीटरचा वापर करा."
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Jobs command usage प्रदर्शित करा"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Jobs usage parameters प्रदर्शित करा"
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "प्रतीक्षेत असलेल्या कामांपैकी अयशस्वी ठरलेली कामे"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "प्रतीक्षेत असलेली कामं"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ओळख (ID)"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "संबंध (कनेक्शन)"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "कामाचे प्रदर्शित नाव"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "प्रयत्न"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "येथे राखीव"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "येथे तयार केले"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "येथे अयशस्वी"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "अपवाद संदेश"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "पृष्ठांकन"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "आत्ताचा"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "पूर्वीचा"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "पुढील"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"{$queueName} नावाच्या प्रतिक्षायादीत चाचणीकरता पाठवलेले काम सफल होणार आहे"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "चुकीचा कामाचा आयडी"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "हे काम वगळले होते!"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "नोंदींच्या (लॉग) फाईल्स आहेत तेथेच असू द्या"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "नोंदींच्या (लॉग) फाईल्सचे आकुंचन (कॉम्प्रेस) करा"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"COUNTER SUSHI statistics API ची उपलब्धता व्यवस्थापक आणि प्रशासकांपुरतीच "
+"मर्यादित करा"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "प्लॅटफॉर्म"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "\"स्थान\" (प्लॅटफॉर्म) आयडी (ID)"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"जेव्हा संकेतस्थळाला SUSHI \"स्थान\" (प्लॅटफॉर्म) म्हणून ठरवले जाईल तेव्हा \"स"
+"्थान\" (प्लॅटफॉर्म) आयडी असणे आवश्यक असते."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "work command पर्याय"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "वापर: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "work command साठी उपलब्ध पर्याय"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "कामाला जोडलेल्या प्रतीक्षायादीचे नाव[सर्वसाधारणपणे : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "कामाच्या प्रतीक्षायादीचे नाव[सर्वसाधारणपणे : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "कार्यकर्त्याचे नाव[सर्वसाधारणपणे : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"अपवादात्मक परिस्थितीत सापडलेल्या कामाचा पुन्हा प्रयत्न करण्यापूर्वी किती सेकं"
+"द वाट पहावी[सर्वसाधारणपणे : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "मेमरी मर्यादा (मेगाबाइट्स)[सर्वसाधारणपणे : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "child process किती सेकंद चालवू शकते[सर्वसाधारणपणे : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"काम अयशस्वी झाल्याचे नमूद करण्यापूर्वी किती वेळा प्रयत्न करावेत[सर्वसाधारणपणे"
+" : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+"थांबण्यापूर्वी प्रक्रिया करायच्या कामांची संख्या[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "कामांमध्ये विश्रांती (सेकंदात)[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "चाचणी प्रतीक्षायादीसाठी worker deamon वापरा"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "संकेतस्थळाचा वापर सर्व नियतकालिकांसाठी स्थान (प्लॅटफॉर्म) म्हणून करा."
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"तुमच्या अपडेट केलेल्या कॉन्फिगरेशनमध्ये खालीलप्रमाणे मजकूर आहे. हे बदल अमलात "
+"आणण्याकरता योग्य अशा टेक्स्ट एडिटरमध्ये <tt>config.inc.php</tt> फाईल उघडून "
+"त्यातील मजकूराऐवजी खालील टेक्स्ट फिल्डमधील मजकूर लिहा."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"या संकेतस्थळाची प्राथमिक भाषा या लोकॅलप्रमाणे आहे. दुसर्‍या लोकॅलची निवड "
+"केल्याशिवाय ती तुम्हाला अकार्यान्वित (disable) करता येणार नाही."
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"हा आदेश (कमांड) वापरण्यासाठी तुम्हाला '--all' किंवा '--queue=' हा जॉब आयडी पा"
+"स करावा लागेल"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"तुमची कॉन्फिगरेशन फाईल यशस्वीरित्या अपडेट केली गेली आहे. जर तुमचे संकेतस्थळ "
+"व्यवस्थितरित्या कार्य करीत नसेल तर तुम्हाला स्वतःला प्रत्यक्षात कॉन्फिगरेशन "
+"फाईल <tt>config.inc.php</tt> एडिट करून इच्छित बदल करावे लागतील याची नोंद "
+"घ्या."
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"सगळ्या वापरकर्त्यांचे सत्र खात्रीने संपुष्टात आणायचे का? असे केले तर सध्या "
+"तुमच्यासकट लॉग-इन असलेल्या सगळ्या वापरकर्त्यांना पुन्हा लॉग-इन करावे लागेल."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"तुमच्यासकट सगळेच वापरकर्ते लगेच लॉग-आऊट होतील आणि पुन्हा लॉग-इन करावे लागेल."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"फाईल विस्तृत (डीकंप्रेस) करता आली नाही. gz फॉर्मेटमध्ये असलेली उघडलेली स्रोत "
+"(सोर्स) फाईल {$filePath} gzclose वापरून बंद करता आली नाही."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"चोरकप्प्यातल्या (cache) फाईल्स वगळा. हे फक्त विकसन क्रियेदरम्यान करायचे असते."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"या संकेतस्थळाचे प्राथमिक लोकॅल खात्रीने बदलायचे ना? संकेतस्थळाच्या प्राथमिक "
+"लोकॅलसाठी लागणाऱ्या पण अस्तित्वात नसलेल्या वापरकर्त्यांची नावे, सध्या वापरात "
+"असलेल्या प्राथमिक लोकॅलमधून उतरवून घेतली जातील."
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "याव्यतिरिक्त स्थापित (इंस्टॉल) करायला पर्यायी लोकॅल्स उपलब्ध नाहीत."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "कार्याची कोणतीही नोंद (लॉग) तयार झाली नाही."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "कॉन्फिगर केलेल्या नोंदणी एजन्सीकडे DOI जमा करा"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"तुमच्या {$softwareName} इंस्टॉलेशनने हे काम आपोआप पूर्णत्वास नेले. आता तुम्ही"
+" नोंदीची (लॉग) फाईल येथे उतरवून घेऊ (डाउनलोड) शकता : {$url}"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+"{$contextId} या संदर्भात आठवण करून देण्यासाठी संपादकांचा शोध घेतला जात आहे"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"{$contextId} संदर्भात {$userIds} या वापरकर्त्यांना संपादकीय ई-मेल स्मरणपत्रे "
+"पाठवण्यासाठी {$count} कामं (जॉब्स) पाठवली"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"तुम्ही खात्रीने सर्व योजलेल्या कार्याच्या अंमलबजावणीबाबतच्या नोंदी (लॉग्स) "
+"हटवू इच्छिता ना?"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "प्रकाशनासाठी अनुसूचित (शेड्यूल) केलेली सादरीकरणे प्रकाशित करा"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "सदस्यता संपलेले अप्रमाणित वापरकर्ते वगळा"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "डीबी-आयपी सिटी लाइट डेटाबेस अपडेट करा"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"{$sourceFilename} या DB-IP सिटी लाइट डेटाबेस फाईलचे नाव {$targetFilename} असे"
+" बदलणे शक्य झालेले नाही."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"{$directory} ही डिरेक्टरी रिक्त नाही. कारण या पूर्वी करावयाच्या प्रक्रिया "
+"अयशस्वी झाल्यामुळे किंवा सध्या प्रक्रिया चालू असण्यामुळे असे होऊ शकते. ही फा"
+"ईल आपोआप पुनर्प्रक्रियेसाठी घेतली जाईल."
+
+msgid "admin.job.processLogFile.openFileFailed"
+msgstr "{$file} ही फाईल उघडता आली नाही आणि म्हणून ती फेटाळली गेली."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"जुन्या लॉग फाईल स्वरूपात असलेली {$file} ही फाईल असल्यामुळे यावर प्रक्रिया "
+"करणे अशक्य आहे आणि त्यामुळे ती पुन्हा स्टेज निर्देशिकेत (डिरेक्टरीत) हलवली "
+"जाईल."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"फाईल विस्तृत (डीकंप्रेस) करता आली नाही. विस्तृत (डीकंप्रेस) केलेली स्रोत "
+"(सोर्स) फाईल {$filePath} unlink वापरून काढून टाकता आली नाही."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"त्या महिन्यातील आकडेवारी पूर्वीच मोजली गेली असल्याने लॉग फाईल {$file} वगळली "
+"गेली आहे. मागील महिन्यातील आकडेवारी पुन्हा मोजण्यासाठी, तुम्हाला त्या "
+"महिन्यातील सर्व लॉग फाईल्स पुनर्स्थापित करून त्यावर CLI टूल वापरून आकडेवारी "
+"निर्माण करावी लागेल."
+
+msgid "admin.job.processLogFile.invalidLogEntry"
+msgstr ""
+"लॉग फाईल {$file} मधील {$line Number} या ओळीवर अशी अवैध लॉग नोंद आहे : "
+"{$error}"
+
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
+msgstr "असोसिएशन प्रकार अग्राह्य आहे."
+
+msgid "admin.job.processLogFile.invalidLogEntry.region"
+msgstr "प्रदेश केवळ तीन अक्षरांकयुक्त वर्णांनी बनलेले सूत्र नाही."
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "एकाच वेळी अनेकांना पाठवायच्या एकाच मजकूराच्या ई-मेल्स"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "पासवर्डची किमान लांबी (वर्णसंख्येत)"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"बहुआयामी (multi-context) मांडणीदरम्यान, समीक्षणांबाबतच्या आकडेवारीत समीक्षण "
+"केलेल्या लेखांची संख्या समीक्षकानुसार वैयक्तिकरित्या किंवा एकत्रितरित्या "
+"प्रदर्शित केली जाऊ शकते."
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "केवळ व्यवस्थापकालाच (administrator) हे सेटिंग बदलायची परवानगी आहे."
+
+msgid "admin.siteAdmin"
+msgstr "संकेतस्थळाचे प्रशासन (अ‍ॅडमिनिस्ट्रेशन)"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"<tt>config.inc.php</tt> ही कॉन्फिगरेशन फाईल अस्तित्वात नाही, वाचता येत नाही "
+"किंवा ती अवैध आहे."
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"सर्व्हर आणि अ‍ॅप्लिकेशनच्या आवृत्ती (version) आणि कॉन्फिगरेशन सेटिंग्ज बद्दल "
+"माहिती पहा."
+
+msgid "admin.version.updateAvailable"
+msgstr "सुधारित (अपडेटेड) आवृत्ती (version) उपलब्ध आहे"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "बेस पाथ {$path} हा पब्लिक फाईल्स डायरेक्टरीमध्ये असणे आवश्यक आहे."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"फाईल {$filename} {$currentFilePath} वरून {$destinationPath} वर हलवता आलेली "
+"नाही"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"फाईल विस्तृत (डीकंप्रेस) करता आली नाही. gz फॉर्मेटमध्ये असलेली स्रोत (सोर्स) "
+"फाईल {$filePath} gzopen वापरून उघडता आली नाही."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"फाईल विस्तृत (डीकंप्रेस) करता आली नाही. मुक्कामाच्या ठिकाणावरील (डेस्टिनेशन) "
+"फाईल {$filePath} fopen वापरून उघडता आली नाही."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"फाईल विस्तृत (डीकंप्रेस) करता आली नाही. मुक्कामाच्या ठिकाणावरील (डेस्टिनेशन) "
+"फाईल {$filePath} fwrite वापरून लिहिता आली नाही."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"फाईल आकुंचित (कॉम्प्रेस) करता आली नाही. स्रोत (सोर्स) फाईल {$filePath} fread "
+"वापरून वाचता आली नाही."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"फाईल आकुंचित (कॉम्प्रेस) करता आली नाही. gz फॉर्मेटमध्ये असलेली मुक्कामाच्या "
+"ठिकाणावरील (डेस्टिनेशन) फाईल {$filePath} gzwrite वापरून लिहिता आली नाही."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"फाईल आकुंचित (कॉम्प्रेस) करता आली नाही. gz फॉर्मेटमध्ये असलेली मुक्कामाच्या "
+"ठिकाणावरची (डेस्टिनेशन) उघडलेली फाईल {$filePath} gzclose वापरून बंद करता आली "
+"नाही."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "उतरवून घेण्यासाठी (डाउनलोड) कोणतेही लोकॅल उपलब्ध नाहीत."
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"अ‍ॅप्लिकेशनच्या देखभाल कार्यान्वित असल्याने प्रतीक्षेत असलेली कार्ये करता "
+"येणे शक्य नाही."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"अ‍ॅप्लिकेशन सुरक्षा (सँडबॉक्स मोड) कार्यान्वित असल्याने प्रतीक्षेत असलेली "
+"कार्ये करता येणे शक्य नाही."
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"प्रतीक्षेत असलेल्या कार्यांची यादी करा. जर तुम्हाला यादीला पान क्रमांक "
+"द्यायचे असतील तर --page= आणि --perPage= पॅरामीटर्स वापरा. तसेच न झालेल्या "
+"कामांच्या यादीसाठी Pass flag --failed वापरा."
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"प्रतीक्षेत असलेल्या कामांपैकी विशिष्ट काम वगळायचे असल्यास त्याचा आयडी वापरा. "
+"जर तुम्हाला प्रतीक्षेतली सगळीच कामं वगळायची असतील, तर --all पॅरामीटरचा वापर "
+"करा. जर तुम्हाला विशिष्ट प्रतीक्षा यादीतील कामं वगळायची असतील, तर --queue= "
+"पॅरामीटरचा वापर करा"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"टेस्ट प्रतीक्षा यादीत एखादे चाचणी घेण्यासाठी काम घाला. पर्यायी पॅरामीटर्स --"
+"only= वापरा आणि अयशस्वी किंवा यशस्वी कामाची माहिती घेण्यासाठी 'failed' किंवा "
+"'success' पॅरामीटरचा वापर करा."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"सर्व अयशस्वी झालेल्या कामांची यादी करा. यादीला चाळणी (फिल्टर) लावण्यासाठी --"
+"queue=QUEUE_NAME आणि --connection=CONNECTION_NAME पॅरामीटर सेट करा. तसेच "
+"पुन्हा प्रतीक्षा यादीत त्यांना घालण्यासाठी --redispatch पॅरामीटरचा वापर करा, "
+"तर --clear चा वापर सगळ्या अथवा विशिष्ट कामाला वगळण्याकरता वापरा."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"उपलब्ध कामांना प्रतीक्षा यादीमध्ये पाठवा. विशिष्ट यादीमध्ये काम पाठवण्यासाठी"
+", --queue=QUEUE_NAME पॅरामीटरचा वापर करा. परीक्षा घेण्यासाठी चाचणी काम घालून "
+"--test चा वापर करा आणि एका कामानंतर थांबण्यासाठी --once वापरा."
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "हा पर्याय न देऊन चालणार नाही! वापर पद्धत तपासा."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"{$queueName} नावाच्या प्रतिक्षायादीत चाचणीकरता पाठवलेले काम विफल ठरणार आहे"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"चाचणी कामाचा अग्राह्य पर्याय. '--only=' या पर्यायातून फक्त 'अयशस्वी' किंवा "
+"'यशस्वी' याचीच निवड होऊ शकते."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "कुठलीही कामं वगळण्यासाठी उपलब्ध नाहीत."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "सगळी कामं वगळणे अशक्य होते."
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+"अयशस्वी कामांच्या यादीतून {$jobsCount} अयशस्वी ठरलेली कामं यशस्वीरित्या काढू"
+"न टाकली गेली."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "तुमचा खालीलपैकी एक हेतू होता का?"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr "एकूण <strong>{$total}</strong> कामं असफल ठरली आहेत."
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"प्रणाली (सिस्टम) मधील प्रतीक्षायादीतली सर्व कामं पहा आणि अयशस्वी प्रयत्नांचा "
+"मागोवा घ्या."
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "सर्व अयशस्वी कामे पुन्हा प्रतीक्षायादीत घाला"
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"{$file} या फाईलमधून वापराची आकडेवारी पुरवण्याचे काम अयशस्वी झाले आणि फाईल "
+"{$archivedFilePath} वरून {$stagingPath} वर हलवता आली नाही."
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "कोणत्या प्रकारच्या वापराची आकडेवारी गोळा करावी हे कॉन्फिगर करा."
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+"सर्व्हरवर कोणत्या प्रकारच्या वापराची आकडेवारी संग्रहित करावी हे कॉन्फिगर करा."
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"वापराची आकडेवारी वितरित करण्यासाठी व्यवसाय-मान्यताप्राप्त प्रारूप, <a href="
+"\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 SUSHI</a> "
+"प्रोटोकॉल कॉन्फिगर करा."
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"दैनिक किंवा मासिक वापराच्या आकडेवारीचा मागोवा घ्यायचा की नाही हे ठरवा. दैनिक "
+"आकडेवारीचा मागोवा घेतल्याने तुमचा डेटाबेस आकार लक्षणीयरीत्या वाढू शकतो."
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"आकडेवारी तयार करण्याची प्रक्रिया झाल्यानंतर नोंदींच्या (लॉग) फाईल्स "
+"<code>{$path}</code> मध्ये स्थानांतरित केल्या जातात. प्रक्रिया झाल्यानंतर "
+"नोंदींच्या फाईल्सचे आकुंचन (कॉम्प्रेस) <code>.gz</code> फॉर्मेटमध्ये करायला "
+"हवे का? लॉग फाईल्सचे आकुंचन (कॉम्प्रेस) केल्याने सर्व्हरवरील डिस्क स्पेस वाचू"
+" शकते."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"COUNTER SUSHI प्रोटोकॉलनुसार, प्रत्येक सांख्यिकी अहवालासाठी आकडेवारी प्रदान "
+"करणारे \"स्थान\" (प्लॅटफॉर्म) ठरवले पाहिजे. सर्वसाधारणपणे (डीफॉल्ट), "
+"नियतकालिकाचा \"स्थान\" (प्लॅटफॉर्म) या उद्देशाने वापर केला जातो. तथापि, जर या"
+" संकेतस्थळावरील सगळी नियतकालिके एकाच प्रकाशकाची, मालकीची किंवा एकाच "
+"पुरवठादाराने कार्यरत केली असतील तर तुम्ही संकेतस्थळालाच \"स्थान\" "
+"(प्लॅटफॉर्म) या अर्थाने वापर करू शकता."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"COUNTER SUSHI अहवालांमध्ये हे स्थान (प्लॅटफॉर्म) कसे ओळखायचे. स्थान "
+"(प्लॅटफॉर्म) आयडी 17 किंवा त्यापेक्षा कमी वर्णांचा असावा आणि त्यात अक्षरे (a–"
+"z, A–Z), अंक (0–9), अंडरस्कोअर (_), ठिपके (.) आणि फॉरवर्ड स्लॅश (/) चा वापर "
+"करता येऊ शकतो. स्थान (प्लॅटफॉर्म) आयडी अनेक स्तंभांमध्ये वापरला जातो आणि शक्"
+"य तितका लहान पण एकमेव असावा. स्थान (प्लॅटफॉर्म) आयडी सहसा प्रकाशक किंवा "
+"स्थानाचे (प्लॅटफॉर्म) नाव, डोमेन नाव किंवा सुप्रसिद्ध, अनन्य असा संक्षेप "
+"वापरून तयार केला जातो."
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"कोणतेही काम उपलब्ध नसताना निष्क्रिय रूपात जाण्यासाठी किती सेकंद वाट "
+"पहावी[सर्वसाधारणपणे : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "प्रतीक्षायादी शिल्लक नसताना थांबा[default : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr "Worker ने किती वेळ (कमाल) काम करावे (सेकंदात)[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"देखभालीत मग्न (मोड) असतानाही worker ला काम करण्यास भाग पाडा[default : "
+"{$default}]"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+"संशोधन संस्था नोंदणी (Research Organization Registry) डेटासेट कॅश अपडेट करा"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"कालबाह्य झालेली आमंत्रणे आपोआप काढून टाकण्याचे कार्य निश्चित करा (Dispatch a "
+"job)"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "AppKey च्या वापराबाबतची पॅरामीटर्स प्रदर्शित करा"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "config फाईलमध्ये सध्याची AppKey आढळल्यास ती विधीग्राह्य (Validate) करा"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "config.inc.php फाईलमध्ये app_key config variable चा समावेश करा."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"एक नवी AppKey तयार करून config फाईलमधील बदला. --show फक्त पाहण्यासाठी आणि --"
+"force अस्तित्वात असलेली वैध app key बदलण्यासाठी फ्लॅगसह पास करा."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "तुम्हाला खालीलपैकी एक म्हणायचे आहे का?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "निर्माण केलेली App Key: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"config फाईलच्या \"सामान्य\" विभागात \"app_key\" नावाचा कोणताही key variable "
+"परिभाषित केलेला नाही. कृपया config फाईलचा सामान्य विभाग अपडेट करून \"app_key "
+"= \" या ओळीचा समावेश करा किंवा ती स्थापित (set) करण्यासाठी \"php lib/pkp/"
+"tools/appKey.php configure\" ही आज्ञा द्या."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"config फाईलमधील \"सामान्य\" विभागाखाली \"app_key\" variable आधीच अस्तित्वात "
+"आहे. नवी app key स्थापित (set) करण्यासाठी \"php lib/pkp/tools/appKey.php "
+"generate\" ही आज्ञा द्या."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "config फाईलमध्ये app key स्थापित (set) केलेली नाही."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"अग्राह्य app key set, विनाधार cipher किंवा key ची चुकीची लांबी. हे पुरस्कृत "
+"(Supported) ciphers आहेत : {$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "config फाईलमध्ये App key यशस्वीरित्या स्थापित (set) झाली."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"config फाईलमध्ये \"app_key\" variable स्थापित (set) करता आला नाही. कृपया "
+"config फाईलचा सामान्य विभाग अपडेट करा आणि \"app_key = \" ओळीचा समावेश करा."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "config फाईलमध्ये एक वैध app_key स्थापित (set) झाली"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "scheduler run करा."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "अनुसूचीत केलेल्या सगळ्या कामांची यादी करा."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "schedule worker सुरू करा."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"यादीतले अनुसूचीत केलेले विशिष्ट काम run करा किंवा विशिष्ट काम run करण्यासाठी "
+"--name वापरा. scroll न करता संपूर्ण यादी पाहण्यासाठी --no-scroll flag स्थापि"
+"त (set) करा."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Scheduler usage parameters दाखवा."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "तुम्हाला खालीलपैकी एक म्हणायचे होते का?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"application sandbox mode कार्यान्वित (enabled) असल्यामुळे अनुसूचीत केलेली "
+"कामं run करणे अशक्य आहे."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "कोणतेही नियोजित कामे नोंदवलेली नाहीत."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "जुळणारे नियोजित काम सापडले नाही."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "तुम्हाला कोणती command run करायची आहे?"
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"config फाईलमध्ये आधीच स्थापित (set) केलेली वैध APP Key आहे. ती बदलण्यासाठी, "
+"--force फ्लॅगसह पास करा."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"application maintenance mode कार्यान्वित (enabled) असल्यामुळे अनुसूचीत केलेली"
+" कामं run करणे अशक्य आहे."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"config फाईलमध्ये App key variable यशस्वीरित्या स्थापित (set) झाले. नवीन अ‍ॅप "
+"की सेट करण्यासाठी \"php lib/pkp/tools/appKey.php generate\" कमांड चालवा."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "दर मिनिटागणिक नियोजित कामे run करणे."

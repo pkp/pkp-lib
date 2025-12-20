@@ -68,9 +68,9 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * @copydoc InformationCenterHandler::initialize
      */
-    public function initialize($request)
+    public function initialize($request, $args = null)
     {
-        parent::initialize($request);
+        parent::initialize($request, $args);
 
         $this->_stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $this->submissionFile = Repo::submissionFile()->get($request->getUserVar('submissionFileId'));
@@ -264,7 +264,8 @@ class FileInformationCenterHandler extends InformationCenterHandler
             $templateMgr->assign('lastEvent', $lastEvent);
 
             // Get the user who created the last event.
-            $user = Repo::user()->get($lastEvent->getUserId(), true);
+	    $userId = $lastEvent->getUserId();
+            $user = $userId ? Repo::user()->get($userId, true) : null;
             $templateMgr->assign('lastEventUser', $user);
         }
 

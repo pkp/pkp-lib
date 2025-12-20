@@ -111,7 +111,3 @@ class DBResultRange
         $this->offset = $offset;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\db\DBResultRange', '\DBResultRange');
-}

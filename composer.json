@@ -1,6 +1,12 @@
 {
 	"require": {
 		"php": "^8.2",
+		"ext-bcmath": "*",
+		"ext-gd": "*",
+		"ext-intl": "*",
+		"ext-mbstring": "*",
+		"ext-xml": "*",
+		"ext-zip": "*",
 		"altcha-org/altcha": "^0.1.2",
 		"composer/semver": "^3.4",
 		"cweagans/composer-patches": "^1.7",
@@ -20,14 +26,18 @@
 		"league/flysystem-sftp-v3": "^3.0",
 		"michelf/php-markdown": "2.*",
 		"moxiecode/plupload": "2.*",
+		"mpdf/mpdf": "^8.2",
+		"opensearch-project/opensearch-php": "^2.4",
 		"phpmailer/phpmailer": "6.*",
 		"ralouphie/getallheaders": "*",
+		"sentry/sentry": "^4.16",
 		"smarty/smarty": "4.*",
 		"sokil/php-isocodes": "^4.1",
 		"sokil/php-isocodes-db-i18n": "^4.0",
 		"symfony/mailer": "^7.0",
-		"tinymce/tinymce": "^5.7",
-		"wikimedia/less.php": "3.*"
+		"tinymce/tinymce": "^7.6",
+		"wikimedia/less.php": "3.*",
+		"zing/laravel-scout-opensearch": "^3.4"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~11",
@@ -40,12 +50,14 @@
 	"config": {
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor",
+		"platform-check": true,
 		"platform": {
 			"php": "8.2.0"
 		},
 		"allow-plugins": {
 			"cweagans/composer-patches": true,
-			"captainhook/plugin-composer": true
+			"captainhook/plugin-composer": true,
+			"php-http/discovery": true
 		},
 		"sort-packages": true
 	},

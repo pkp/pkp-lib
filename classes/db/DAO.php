@@ -174,36 +174,11 @@ class DAO
     }
 
     /**
-     * Insert a row in a table, replacing an existing row if necessary.
-     *
-     * @param $arrFields Associative array of colName => value
-     * @param $keyCols Array of column names that are keys
-     *
-     * @deprecated 3.4
-     */
-    public function replace(string $table, array $arrFields, array $keyCols): void
-    {
-        $matchValues = array_filter($arrFields, fn ($key) => in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
-        $additionalValues = array_filter($arrFields, fn ($key) => !in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
-        DB::table($table)->updateOrInsert($matchValues, $additionalValues);
-    }
-
-    /**
      * Return the last ID inserted in an autonumbered field.
      */
     protected function getInsertId(): int
     {
         return DB::getPdo()->lastInsertId();
-    }
-
-    /**
-     * Return the last ID inserted in an autonumbered field.
-     *
-     * @deprecated 3.4
-     */
-    public function _getInsertId(): int
-    {
-        return $this->getInsertId();
     }
 
     /**
@@ -371,16 +346,6 @@ class DAO
     }
 
     /**
-     * Cast the given parameter to an int, or leave it null.
-     *
-     * @deprecated 3.4
-     */
-    public function nullOrInt(mixed $value): ?int
-    {
-        return (empty($value) ? null : (int) $value);
-    }
-
-    /**
      * Get a list of additional field names to store in this DAO.
      * This can be used to extend the table with virtual "columns",
      * typically using the ..._settings table.
@@ -489,7 +454,10 @@ class DAO
                             $updateArray['setting_type'] = null;
                             // Convert the data value and implicitly set the setting type.
                             $updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
-                            $this->replace($tableName, $updateArray, $idFields);
+
+                            $matchValues = array_filter($updateArray, fn ($key) => in_array($key, $idFields), ARRAY_FILTER_USE_KEY);
+                            $additionalValues = array_filter($updateArray, fn ($key) => !in_array($key, $idFields), ARRAY_FILTER_USE_KEY);
+                            DB::table($tableName)->updateOrInsert($matchValues, $additionalValues);
                         }
                     } else {
                         // Data is maintained "sparsely". Only set fields will be
@@ -552,20 +520,6 @@ class DAO
     }
 
     /**
-     * Get the direction specifier for sorting from a SORT_DIRECTION_... constant.
-     *
-     * @deprecated 3.4
-     */
-    public function getDirectionMapping(int $direction): string
-    {
-        return match($direction) {
-            self::SORT_DIRECTION_ASC => 'ASC',
-            self::SORT_DIRECTION_DESC => 'DESC',
-            default => 'ASC'
-        };
-    }
-
-    /**
      * Generate a JSON message with an event that can be sent
      * to the client to refresh itself according to changes
      * in the DB.
@@ -597,45 +551,5 @@ class DAO
         $json = new JSONMessage(true, $content);
         $json->setEvent('dataChanged', $eventData);
         return $json;
-    }
-
-    /**
-     * Format a passed date (in English textual datetime)
-     * to Y-m-d H:i:s format, used in database.
-     *
-     * @param string $date Any English textual datetime.
-     * @param int $defaultNumWeeks If passed and date is null,
-     * used to calculate a data in future from today.
-     * @param bool $acceptPastDate Will not accept past dates,
-     * returning today if false and the passed date
-     * is in the past.
-     *
-     * @deprecated 3.4
-     */
-    protected function formatDateToDB(string $date, ?int $defaultNumWeeks = null, bool $acceptPastDate = true): ?string
-    {
-        $today = getDate();
-        $todayTimestamp = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);
-        if ($date != null) {
-            $dateParts = explode('-', $date);
-
-            // If we don't accept past dates...
-            if (!$acceptPastDate && $todayTimestamp > strtotime($date)) {
-                // ... return today.
-                return date('Y-m-d H:i:s', $todayTimestamp);
-            } else {
-                // Return the passed date.
-                return date('Y-m-d H:i:s', mktime(0, 0, 0, $dateParts[1], $dateParts[2], $dateParts[0]));
-            }
-        } elseif (isset($defaultNumWeeks)) {
-            // Add the equivalent of $numWeeks weeks, measured in seconds, to $todaysTimestamp.
-            $numWeeks = max((int) $defaultNumWeeks, 2);
-            $newDueDateTimestamp = $todayTimestamp + ($numWeeks * 7 * 24 * 60 * 60);
-            return date('Y-m-d H:i:s', $newDueDateTimestamp);
-        } else {
-            // Either the date or the defaultNumWeeks must be set
-            assert(false);
-            return null;
-        }
     }
 }

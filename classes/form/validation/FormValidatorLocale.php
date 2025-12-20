@@ -78,7 +78,3 @@ class FormValidatorLocale extends FormValidator
         return $fieldValue;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorLocale', '\FormValidatorLocale');
-}

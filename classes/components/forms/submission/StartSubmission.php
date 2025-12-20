@@ -23,6 +23,7 @@ use PKP\components\forms\FieldRichText;
 use PKP\components\forms\FormComponent;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\facades\Repo;
 use PKP\security\Role;
 use PKP\userGroup\UserGroup;
 
@@ -152,17 +153,26 @@ class StartSubmission extends FormComponent
      */
     protected function addUserGroups(Enumerable $userGroups): void
     {
+        $groupsWithAccessToSubmissionStage = Repo::userGroup()->getUserGroupsByStage($this->context->getId(), WORKFLOW_STAGE_ID_SUBMISSION)
+            ->pluck('user_group_id')
+            ->toArray();
+
+        // There isn't a submission stage in OPS, so $groupsWithAccessToSubmissionStage will be empty there.
+        // For other apps, filter $userGroups to be only those with access to submission stage
+        if (!empty($groupsWithAccessToSubmissionStage)) {
+            $userGroups = $userGroups->filter(fn (UserGroup $userGroup) => in_array($userGroup->id, $groupsWithAccessToSubmissionStage));
+        }
         if ($userGroups->count() < 2) {
             return;
         }
 
         $options = $userGroups->map(fn (UserGroup $userGroup) => [
-            'value' => $userGroup->getId(),
-            'label' => $userGroup->getLocalizedName(),
+            'value' => $userGroup->id,
+            'label' => $userGroup->getLocalizedData('name'),
         ]);
 
         $hasEditorialRole = $userGroups->contains(
-            fn (UserGroup $userGroup) => in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
+            fn (UserGroup $userGroup) => in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
         );
 
         $description = __('submission.submit.availableUserGroupsDescription');

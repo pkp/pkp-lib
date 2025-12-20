@@ -3,8 +3,8 @@
 /**
  * @file classes/facades/Repo.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repo
@@ -24,27 +24,44 @@
 
 namespace PKP\facades;
 
+use PKP\affiliation\Repository as AffiliationRepository;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
+use PKP\author\contributorRole\Repository as ContributorRoleRepository;
+use PKP\author\creditContributorRole\Repository as CreditContributorRoleRepository;
+use PKP\author\creditRole\Repository as CreditRoleRepository;
 use PKP\category\Repository as CategoryRepository;
+use PKP\citation\Repository as CitationRepository;
+use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\decision\Repository as DecisionRepository;
+use PKP\editorialTask\Repository as EditorialTaskRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\highlight\Repository as HighlightRepository;
 use PKP\institution\Repository as InstitutionRepository;
 use PKP\invitation\repositories\Repository as InvitationRepository;
 use PKP\jats\Repository as JatsRepository;
+use PKP\bodyText\Repository as BodyTextRepository;
 use PKP\job\repositories\FailedJob as FailedJobRepository;
 use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
 use PKP\log\Repository as EmailLogEntryRepository;
 use PKP\note\Repository as NoteRepository;
-use PKP\notification\Notification as NotificationRepository;
+use PKP\notification\Repository as NotificationRepository;
+use PKP\ror\Repository as RorRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
+use PKP\submission\reviewer\recommendation\Repository as ReviewerRecommendationRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
+use PKP\user\interest\Repository as UserInterestRepository;
+use PKP\userComment\Repository as UserCommentRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
 
 class Repo
 {
+    public static function affiliation(): AffiliationRepository
+    {
+        return app(AffiliationRepository::class);
+    }
+
     public static function announcement(): AnnouncementRepository
     {
         return app(AnnouncementRepository::class);
@@ -53,6 +70,26 @@ class Repo
     public static function author(): AuthorRepository
     {
         return app(AuthorRepository::class);
+    }
+
+    public static function citation(): CitationRepository
+    {
+        return app(CitationRepository::class);
+    }
+
+    public static function contributorRole(): ContributorRoleRepository
+    {
+        return app(ContributorRoleRepository::class);
+    }
+
+    public static function creditContributorRole(): CreditContributorRoleRepository
+    {
+        return app(CreditContributorRoleRepository::class);
+    }
+
+    public static function creditRole(): CreditRoleRepository
+    {
+        return app(CreditRoleRepository::class);
     }
 
     public static function decision(): DecisionRepository
@@ -115,6 +152,16 @@ class Repo
         return app(JatsRepository::class);
     }
 
+    public static function bodyText(): BodyTextRepository
+    {
+        return app(BodyTextRepository::class);
+    }
+
+    public static function ror(): RorRepository
+    {
+        return app(RorRepository::class);
+    }
+
     public static function stageAssignment(): StageAssignmentRepository
     {
         return app(StageAssignmentRepository::class);
@@ -133,5 +180,30 @@ class Repo
     public static function note(): NoteRepository
     {
         return app(NoteRepository::class);
+    }
+
+    public static function editorialTask(): EditorialTaskRepository
+    {
+        return app(EditorialTaskRepository::class);
+    }
+
+    public static function controlledVocab(): ControlledVocabRepository
+    {
+        return app(ControlledVocabRepository::class);
+    }
+
+    public static function userInterest(): UserInterestRepository
+    {
+        return app(UserInterestRepository::class);
+    }
+
+    public static function reviewerRecommendation(): ReviewerRecommendationRepository
+    {
+        return app(ReviewerRecommendationRepository::class);
+    }
+
+    public static function userComment(): UserCommentRepository
+    {
+        return app(UserCommentRepository::class);
     }
 }

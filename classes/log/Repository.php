@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/log/Repository.php
  *
@@ -18,16 +19,21 @@ namespace PKP\log;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\log\core\EmailLogEventType;
+use PKP\log\core\maps\Schema;
 use PKP\mail\Mailable;
 use PKP\user\User;
-use Illuminate\Support\Facades\DB;
 
 class Repository
 {
+    // The name of the class to map this entity to its schema
+    public string $schemaMap = Schema::class;
+
     public function __construct(private EmailLogEntry $model)
     {
     }
@@ -53,7 +59,7 @@ class Repository
     /**
      * Stores the correspondent user ids of the all recipient emails.
      */
-    private function insertLogUserIds(EmailLogEntry $entry):void
+    private function insertLogUserIds(EmailLogEntry $entry): void
     {
         $recipients = $entry->recipients;
 
@@ -78,6 +84,7 @@ class Repository
 
     /**
      * Delete all log entries for an object.
+     *
      * @return int The number of affected rows.
      */
     public function deleteByAssoc(int $assocType, int $assocId): int
@@ -102,21 +109,27 @@ class Repository
 
             DB::table('email_log_users')
                 ->where('user_id', $oldUserId)
-                ->whereNotIn('email_log_id', function ($query) use ($newUserId, $oldUserId) {
+                ->whereNotIn('email_log_id', function (Builder $query) use ($oldUserId, $newUserId) {
                     $query->select('t1.email_log_id')
-                        ->from(DB::table('email_log_users')->as('t1'))
-                        ->join(DB::table('email_log_users')->as('t2'), 't1.email_log_id', '=', 't2.email_log_id')
-                        ->where('t1.user_id', $newUserId)
-                        ->where('t2.user_id', $oldUserId);
-                })->update(['user_id' => $newUserId])
+                        ->from(DB::raw('(SELECT email_log_id FROM email_log_users WHERE user_id = ?) as t1'))
+                        ->join(
+                            DB::raw('(SELECT email_log_id FROM email_log_users WHERE user_id = ?) as t2'),
+                            't1.email_log_id',
+                            '=',
+                            't2.email_log_id'
+                        )
+                        ->setBindings([$newUserId, $oldUserId]);
+                })
+                ->update(['user_id' => $newUserId])
         ];
     }
 
     /**
      * Create a log entry for a submission from data in a Mailable class
+     *
      * @return int The new log entry id
      */
-    function logMailable(EmailLogEventType $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
+    public function logMailable(EmailLogEventType $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
     {
         $clonedMailable = clone $mailable;
         $clonedMailable->removeFooter();
@@ -133,7 +146,7 @@ class Repository
         $this->model->assocType = Application::ASSOC_TYPE_SUBMISSION;
         $this->model->subject = Mail::compileParams(
             $clonedMailable->subject,
-            $clonedMailable->getData(Locale::getLocale())
+            $clonedMailable->viewData
         );
 
         $this->model->save();
@@ -144,9 +157,10 @@ class Repository
 
     /**
      * Get email log entries by assoc ID, event type and assoc type
+     *
      * @param ?int $userId optional Return only emails sent to this user.
      */
-    function getByEventType(int $assocId, EmailLogEventType $eventType, int $assocType, ?int $userId = null)
+    public function getByEventType(int $assocId, EmailLogEventType $eventType, int $assocType, ?int $userId = null)
     {
         $query = $this->model->newQuery();
 
@@ -163,5 +177,24 @@ class Repository
             })->select('email_log.*');
 
         return $query->get(); // Counted in submissionEmails.tpl
+    }
+
+    /***
+     * Checks if a user is a recipient of a given email
+     */
+    public function isUserEmailRecipient(int $emailId, int $recipientId): bool
+    {
+        $query = $this->model->newQuery();
+        $query->where('log_id', $emailId)->withRecipientId($recipientId);
+
+        return !empty($query->first());
+    }
+
+    /**
+     * Get an instance of the map class for mapping log entries to their schema
+     */
+    public function getSchemaMap(): Schema
+    {
+        return app('maps')->withExtensions($this->schemaMap);
     }
 }

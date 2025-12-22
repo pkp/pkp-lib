@@ -243,12 +243,13 @@ class PKPTemplateManager extends Smarty
             $activeTheme = null;
             $contextOrSite = $currentContext ? $currentContext : $request->getSite();
             $allThemes = PluginRegistry::getPlugins('themes');
-            foreach ($allThemes as $theme) {
+            foreach ($allThemes as $theme) { /** @var \PKP\plugins\Plugin|\PKP\plugins\ThemePlugin $theme */
                 if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
                     $activeTheme = $theme;
                     break;
                 }
             }
+
             $this->assign(['activeTheme' => $activeTheme]);
         }
 

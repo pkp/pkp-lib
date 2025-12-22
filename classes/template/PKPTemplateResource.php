@@ -169,8 +169,8 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
             return $cache[$path];
         }
 
-        // OPTIMIZATION: Skip view()->exists() for obvious Smarty paths
         // 1. Paths ending with .tpl are Smarty templates
+        //    e.g. Skip view()->exists() for obvious Smarty paths
         if (str_ends_with($path, '.tpl')) {
             $cache[$path] = false;
             return false;
@@ -248,7 +248,7 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
 
         $bladeName = str_replace('/', '.', $bladeName);
 
-        // Register the mapping so callComposer() can do reverse lookup
+        // Register the mapping so callComposer()/callCreator() can do reverse lookup
         $finder->addViewOverride($bladeName, $bladeNamespace);
     }
 }

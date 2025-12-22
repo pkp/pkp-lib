@@ -684,9 +684,6 @@ abstract class Plugin
             . str_replace('.tpl', '.blade', $fullPath);
 
         if ($this->cachedFileExists($bladeViewFilePath)) {
-            // Alternatively we can return view namespaced path as pluginViewNamespace::path.to.blade.template via
-            // `$this->resolveBladeViewPath(str_replace('templates/', '', $path))` but will cause double hook call
-            // return $bladeViewFilePath;
             return $this->resolveBladeViewPath(str_replace('templates/', '', $path));
         }
 

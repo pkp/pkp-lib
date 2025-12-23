@@ -872,7 +872,16 @@ class Schema extends \PKP\core\maps\Schema
 
             $userGroup = $stageAssignment->userGroup; /** @var UserGroup $userGroup */
 
-            foreach ($userGroup->userGroupStages as $groupStage) { /** @var UserGroupStage $groupStage */
+            $userGroupStages =  $userGroup->userGroupStages;
+            // Enforce ROLE_ID_MANAGER being assigned to all stages
+            if($userGroup->roleId === Role::ROLE_ID_MANAGER) {
+                $workflowStages = Application::getApplicationStages();
+                $userGroupStages = array_map(function($stageId) {
+                    return (object)['stageId' => $stageId];
+                }, $workflowStages);
+
+            }
+            foreach ($userGroupStages as $groupStage) { /** @var UserGroupStage $groupStage */
                 // Identify the first user with the editor
                 if (
                     !$stages[$groupStage->stageId]['editorAssigned'] &&

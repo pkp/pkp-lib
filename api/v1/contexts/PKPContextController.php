@@ -604,7 +604,7 @@ class PKPContextController extends PKPBaseController
         // Get the appropriate agency plugin
         $plugins = PluginRegistry::loadCategory('generic', true);
         $selectedPlugin = null;
-        foreach ($plugins as $plugin) {
+        foreach ($plugins as $plugin) { /** @var \PKP\plugins\Plugin $plugin */
             if (
                 $contextParams[Context::SETTING_CONFIGURED_REGISTRATION_AGENCY] === $plugin->getName()
             ) {

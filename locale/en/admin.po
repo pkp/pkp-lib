@@ -972,6 +972,9 @@ msgstr "Invalid app key set, unsupported cipher or incorrect key length. Support
 msgid "admin.cli.tool.appKey.warning.replaceValidKey"
 msgstr "A valid APP Key already set in the config file. To overwrite, pass the flag --force with the command."
 
+msgid "admin.cli.tool.appKey.warning.replaceValidKey.caution"
+msgstr "CAUTION: REPLACING THE EXISTING VALID APP KEY WILL CAUSE ALL ENCRYPTED SETTING DATA UNABLE TO DECRYPT AND REQUIRE MANUAL UPDATE TO REUSE"
+
 msgid "admin.cli.tool.appKey.success.writtenToConfig"
 msgstr "App key set successfully in the config file."
 
@@ -983,6 +986,12 @@ msgstr "Unable to set the `app_key` variable in the config file. Please update t
 
 msgid "admin.cli.tool.appKey.success.valid"
 msgstr "A valid app key set in the config file"
+
+msgid "admin.cli.tool.appKey.confirm.prompt"
+msgstr "Type YES to confirm you want to replace the existing app key: "
+
+msgid "admin.cli.tool.appKey.confirm.cancelled"
+msgstr "App key generation cancelled."
 
 msgid "admin.cli.tool.scheduler.options.run.description"
 msgstr "Run the scheduler."

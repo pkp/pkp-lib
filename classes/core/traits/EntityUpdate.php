@@ -96,7 +96,11 @@ trait EntityUpdate
                                 ],
                                 [
                                     'setting_value' => method_exists($this, 'convertToDB')
-                                        ? $this->convertToDB($localeValue, $schema->properties->{$propName}->type)
+                                        ? $this->convertToDB(
+                                            value: $localeValue,
+                                            type: $schema->properties->{$propName}->type,
+                                            encrypt: $schema->properties->{$propName}->encrypt ?? false
+                                        )
                                         : $localeValue
                                 ]
                             );
@@ -112,7 +116,11 @@ trait EntityUpdate
                         ],
                         [
                             'setting_value' => method_exists($this, 'convertToDB')
-                                ? $this->convertToDB($props[$propName], $schema->properties->{$propName}->type)
+                                ? $this->convertToDB(
+                                    value: $props[$propName],
+                                    type: $schema->properties->{$propName}->type,
+                                    encrypt: $schema->properties->{$propName}->encrypt ?? false
+                                )
                                 : $props[$propName]
                         ]
                     );

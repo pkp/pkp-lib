@@ -109,7 +109,12 @@ abstract class EntityDAO
             if (property_exists($row, $column)) {
                 $object->setData(
                     $propName,
-                    $this->convertFromDB($row->{$column}, $schema->properties->{$propName}->type, true)
+                    $this->convertFromDB(
+                        value: $row->{$column},
+                        type: $schema->properties->{$propName}->type,
+                        nullable: true,
+                        encrypt: $schema->properties->{$propName}->encrypt ?? false
+                    )
                 );
             }
         }
@@ -124,8 +129,9 @@ abstract class EntityDAO
                     $object->setData(
                         $row->setting_name,
                         $this->convertFromDB(
-                            $row->setting_value,
-                            $schema->properties->{$row->setting_name}->type
+                            value: $row->setting_value,
+                            type: $schema->properties->{$row->setting_name}->type,
+                            encrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
                         ),
                         empty($row->locale) ? null : $row->locale
                     );
@@ -170,14 +176,22 @@ abstract class EntityDAO
                             $this->primaryKeyColumn => $object->getId(),
                             'locale' => $localeKey,
                             'setting_name' => $propName,
-                            'setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type),
+                            'setting_value' => $this->convertToDB(
+                                value: $localeValue,
+                                type: $schema->properties->{$propName}->type,
+                                encrypt: $schema->properties->{$propName}->encrypt ?? false
+                            ),
                         ]);
                     }
                 } else {
                     DB::table($this->settingsTable)->insert([
                         $this->primaryKeyColumn => $object->getId(),
                         'setting_name' => $propName,
-                        'setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
+                        'setting_value' => $this->convertToDB(
+                            value: $sanitizedProps[$propName],
+                            type: $schema->properties->{$propName}->type,
+                            encrypt: $schema->properties->{$propName}->encrypt ?? false
+                        ),
                     ]);
                 }
             }
@@ -251,7 +265,12 @@ abstract class EntityDAO
         $primaryDbProps = [];
         foreach ($this->primaryTableColumns as $propName => $columnName) {
             if ($propName !== 'id' && array_key_exists($propName, $sanitizedProps)) {
-                $primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName] ?? null, $schema->properties->{$propName}->type, true);
+                $primaryDbProps[$columnName] = $this->convertToDB(
+                    value: $sanitizedProps[$propName] ?? null,
+                    type: $schema->properties->{$propName}->type,
+                    nullable: true,
+                    encrypt: $schema->properties->{$propName}->encrypt ?? false
+                );
                 // Convert empty string values for DATETIME columns into null values
                 // because an empty string can not be saved to a DATETIME column
                 if ($primaryDbProps[$columnName] === ''
@@ -272,17 +291,17 @@ abstract class EntityDAO
     /**
      * @copydoc DAO::convertFromDB()
      */
-    protected function convertFromDB($value, string $type, bool $nullable = false)
+    protected function convertFromDB($value, string $type, bool $nullable = false, bool $encrypt = false)
     {
-        return $this->deprecatedDao->convertFromDB($value, $type, $nullable);
+        return $this->deprecatedDao->convertFromDB($value, $type, $nullable, $encrypt);
     }
 
     /**
      * @copydoc DAO::convertToDB()
      */
-    protected function convertToDB($value, string $type, bool $nullable = false)
+    protected function convertToDB($value, string $type, bool $nullable = false, bool $encrypt = false)
     {
-        return $this->deprecatedDao->convertToDB($value, $type, $nullable);
+        return $this->deprecatedDao->convertToDB($value, $type, $nullable, $encrypt);
     }
 
     public function getSettingsTable(): ?string

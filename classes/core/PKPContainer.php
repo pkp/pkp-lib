@@ -19,6 +19,7 @@ use APP\core\AppServiceProvider;
 use Exception;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
@@ -730,5 +731,27 @@ class PKPContainer extends Container
                 define($constant, constant($classNamespacePath . '::' . $constant));
             }
         }
+    }
+
+    /**
+     * Encrypt the given value using app key
+     */
+    public function encrypt(mixed $value): string
+    {
+        return Crypt::encrypt($value);
+    }
+
+    /**
+     * Decrypt the given encrypted value using app key
+     */
+    public function decrypt(string $value): mixed
+    {
+        try {
+            return Crypt::decrypt($value);
+        } catch (Throwable $e) {
+            error_log("Unable to decrypt the {$value} with exception : {$e->__toString()}");
+        }
+
+        return null;
     }
 }

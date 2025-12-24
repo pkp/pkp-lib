@@ -2,7 +2,9 @@
 
 namespace PKP\mail\mailables;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use Carbon\Carbon;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\facades\Locale;
@@ -44,6 +46,8 @@ class ReviewerAccessInvitationNotify extends Mailable
     protected static string $contextName = 'contextName';
     protected static string $acceptUrl = 'acceptUrl';
     protected static string $declineUrl = 'declineUrl';
+    protected static string $expireDate = 'expireDate';
+    protected static string $privacyUrl = 'privacyUrl';
 
     private ReviewerAccessInvite $invitation;
 
@@ -66,6 +70,8 @@ class ReviewerAccessInvitationNotify extends Mailable
         $variables[static::$submissionTitle] = __('emailTemplate.variable.reviewerInvitation.submissionTitle');
         $variables[static::$submissionAbstract] = __('emailTemplate.variable.reviewerInvitation.submissionAbstract');
         $variables[static::$reviewDueDate] = __('emailTemplate.variable.reviewerInvitation.reviewDueDate');
+        $variables[static::$expireDate] = __('emailTemplate.variable.reviewerInvitation.expireDate');
+        $variables[static::$privacyUrl] = __('emailTemplate.variable.reviewerInvitation.privacyUrl');
         $variables[static::$acceptUrl] = __('emailTemplate.variable.invitation.acceptUrl');
         $variables[static::$declineUrl] = __('emailTemplate.variable.invitation.declineUrl');
 
@@ -104,6 +110,16 @@ class ReviewerAccessInvitationNotify extends Mailable
         $emailTemplateStyle = file_get_contents($targetPath);
 
         $recipientName = !empty($sendIdentity->getFullName()) ? $sendIdentity->getFullName() : $sendIdentity->getEmail();
+        $privacyUrl = Application::get()
+            ->getRequest()
+            ->getDispatcher()
+            ->url(
+                Application::get()->getRequest(),
+                Application::ROUTE_PAGE,
+                null,
+                'about',
+                'privacy'
+            );
 
         // Set view data for the template
         $this->viewData = array_merge(
@@ -113,10 +129,16 @@ class ReviewerAccessInvitationNotify extends Mailable
                 static::$inviterName => $inviter->getFullName(),
                 static::$submissionTitle => $publication->getData('title', $locale),
                 static::$submissionAbstract => $publication->getData('abstract', $locale),
-                static::$reviewDueDate => $this->invitation->getPayload()->reviewDueDate,
+                static::$reviewDueDate => Carbon::parse(
+                    $this->invitation->getPayload()->reviewDueDate
+                )->format('jS \\of F Y'),
+                static::$expireDate => Carbon::parse(
+                    $this->invitation->invitationModel->expiry_date
+                )->format('jS \\of F Y'),
                 static::$contextName => $context->getLocalizedName(),
                 static::$acceptUrl => $this->invitation->getActionURL(InvitationAction::ACCEPT),
                 static::$declineUrl => $this->invitation->getActionURL(InvitationAction::DECLINE),
+                static::$privacyUrl => $privacyUrl,
                 static::EMAIL_TEMPLATE_STYLE_PROPERTY => $emailTemplateStyle,
             ]
         );

@@ -15,10 +15,10 @@
 namespace PKP\core;
 
 use Exception;
+use Illuminate\Encryption\Encrypter;
+use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\config\ConfigParser;
-use Illuminate\Support\Str;
-use Illuminate\Encryption\Encrypter;
 
 class PKPAppKey
 {
@@ -94,7 +94,7 @@ class PKPAppKey
 
         if (!in_array($cipher, array_keys(self::SUPPORTED_CIPHERS))) {
             $ciphers = implode(', ', array_keys(self::SUPPORTED_CIPHERS));
-            
+
             throw new Exception(
                 sprintf(
                     'Invalid cipher %s provided, must be among [%s]',
@@ -127,7 +127,7 @@ class PKPAppKey
     {
         $config = app('config')->get('app');
 
-        return 'base64:'.base64_encode(
+        return 'base64:' . base64_encode(
             Encrypter::generateKey(static::validateCipher($cipher ?? $config['cipher']))
         );
     }
@@ -159,13 +159,13 @@ class PKPAppKey
         }
 
         $configContent = $splits[0] . "[general]\n\n" . self::APP_KEY_VARIABLE_CONTENT . "\n" . $splits[1];
-        $configParser = (new ConfigParser)->setFileContent($configContent);
+        $configParser = (new ConfigParser())->setFileContent($configContent);
 
         if (!$configParser->writeConfig(Config::getConfigFileName())) {
             throw new Exception(__('installer.appKey.keyVariable.configFile.write.error') . $instruction);
         }
 
-        // Need to reset the config data in registry 
+        // Need to reset the config data in registry
         // This is to make sure this change is available on running request lift cycle
         Config::setConfigFileName(CONFIG_FILE);
 
@@ -174,21 +174,21 @@ class PKPAppKey
 
     /**
      * Write the given app key in the config file
-     * 
+     *
      * @throws \Exception
      */
     public static function writeAppKeyToConfig(string $key): bool
     {
         if (!static::validate($key)) {
             $ciphers = implode(', ', array_keys(self::SUPPORTED_CIPHERS));
-            
+
             // Error invalid app key
             throw new Exception(__('installer.appKey.validate.error', [
                 'ciphers' => $ciphers
             ]));
         }
 
-        $configParser = new ConfigParser;
+        $configParser = new ConfigParser();
         $configParams = [
             'general' => [
                 'app_key' => $key,
@@ -220,6 +220,9 @@ class PKPAppKey
             );
         }
 
+        // Refresh the container's encrypter with the new key
+        // static::refreshEncrypter();
+
         return true;
     }
 
@@ -233,5 +236,27 @@ class PKPAppKey
         }
 
         return $key;
+    }
+
+    /**
+     * Refresh the Laravel container's config and encrypter after key change
+     *
+     * This is critical when generating a new key in CLI tools that may run
+     * migrations afterward. Without this, the Encrypter singleton retains
+     * the old key and encrypts data incorrectly.
+     */
+    public static function refreshEncrypter(): void
+    {
+        $app = app();
+
+        // Reset config to re-read from config.inc.php
+        Config::setConfigFileName(CONFIG_FILE);
+
+        // Update the app config with new key
+        $config = $app->get('config');
+        $config->set('app.key', static::getKey());
+
+        // Force re-creation of encrypter singleton with new key
+        $app->forgetInstance('encrypter');
     }
 }

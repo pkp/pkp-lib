@@ -26,6 +26,8 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\facades\Locale;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
@@ -36,6 +38,7 @@ use PKP\security\Validation;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewerAction
@@ -55,11 +58,10 @@ class ReviewerAction
         bool $decline,
         ?string $emailText = null
     ): void {
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
-        if (!isset($reviewer)) {
-            return;
-        }
 
+        $reviewer = $reviewAssignment->getReviewerId()
+            ? Repo::user()->get($reviewAssignment->getReviewerId(), true)
+            : $this->fakeReviewer($reviewAssignment);
         // Only confirm the review for the reviewer if
         // he has not previously done so.
         if ($reviewAssignment->getDateConfirmed() == null) {
@@ -92,6 +94,11 @@ class ReviewerAction
                 'declined' => $decline,
                 'dateConfirmed' => Core::getCurrentDate(),
             ]);
+            if($decline){
+                // update related invitation
+                $invitation = Repo::invitation()->getInvitationByReviewerAssignmentId($reviewAssignment->getId());
+                $invitation?->updateStatus(InvitationStatus::DECLINED);
+            }
 
             // Add log
             $eventLog = Repo::eventLog()->newDataObject([
@@ -103,7 +110,7 @@ class ReviewerAction
                 'isTranslate' => 0,
                 'dateLogged' => Core::getCurrentDate(),
                 'reviewAssignmentId' => $reviewAssignment->getId(),
-                'reviewerName' => $reviewer->getFullName(),
+                'reviewerName' => $reviewer->getPreferredPublicName(null),
                 'submissionId' => $reviewAssignment->getSubmissionId(),
                 'round' => $reviewAssignment->getRound()
             ]);
@@ -126,8 +133,10 @@ class ReviewerAction
             new ReviewDecline($submission, $reviewAssignment, $context) :
             new ReviewConfirm($submission, $reviewAssignment, $context);
 
-        // Get reviewer
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        // add temporary user because there will no user account until user accept the invitation
+        $reviewer = $reviewAssignment->getReviewerId()
+            ? Repo::user()->get($reviewAssignment->getReviewerId(), true)
+            : $this->fakeReviewer($reviewAssignment);
         $mailable->sender($reviewer);
         $mailable->replyTo($reviewer->getEmail(), $reviewer->getFullName());
 
@@ -166,4 +175,18 @@ class ReviewerAction
 
         return $mailable;
     }
+
+    /**
+     * create a fake reviewer for invitations that not accepted yet
+     * @param $reviewAssignment
+     * @return User
+     */
+    private function fakeReviewer($reviewAssignment):User{
+        $email = $reviewAssignment->getData('email');
+        $tempUser = Repo::user()->newDataObject();
+        $tempUser->setEmail($email);
+        $tempUser->setPreferredPublicName($email, Locale::getLocale()); //set email as preferred name for temporary user
+        return $tempUser;
+    }
+
 }

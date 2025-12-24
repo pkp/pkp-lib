@@ -296,7 +296,8 @@ class PKPReviewController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        $reviewer = $reviewAssignment->getReviewerId() ?
+            Repo::user()->get($reviewAssignment->getReviewerId()) : $reviewAssignment->getData('email');
 
         if (!isset($reviewer)) {
             return response()->json([

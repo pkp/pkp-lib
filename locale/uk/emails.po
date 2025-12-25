@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
-"PO-Revision-Date: 2025-03-22 20:08+0000\n"
+"PO-Revision-Date: 2025-12-26 03:39+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/uk/>\n"
@@ -650,3 +650,86 @@ msgstr ""
 "виконували раніше, все ще активні.</p> <p>З будь-якими запитаннями щодо "
 "процесу не соромтеся звертатися до мене.</p> <p>З повагою,</p> "
 "<p>{$contextName}</p> </div></div><style>{$emailTemplateStyle}</style>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Дата закінчення {$dateEnd}"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr ""
+"Ваше ім'я відображатиметься в заголовку \"{$contextName}\" як {$sectionName}."
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Це – роль відправника запрошення"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Цей електронний лист надсилається користувачам, яких запрошено на отримання "
+"певних ролей"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSection"
+msgstr ""
+"<div class='section'>    <div class='section-number'>{$sectionNumber}.</"
+"div>    <div class='section-content'>        <h2>{$sectionName}</h2>        "
+"<p>Дата початку {$dateStart}</p>        <p>{$sectionEndingDate}</p>        "
+"<p>{$sectionMastheadAppear}</p>    </div></div>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr ""
+"Ваше ім'я не відображатиметься в заголовку \"{$contextName}\" як "
+"{$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Новопризначені ролі</h2></p>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Уже призначені ролі</h2></p>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Це – ім'я одержувача запрошення"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Це – ім'я відправника запрошення"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"У цьому розділі описано ролі, які будуть додані користувачеві після "
+"прийняття запрошення"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "У цьому розділі описано ролі, які користувач уже має"
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Це URL-адреса для прийняття запрошення"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Це URL-адреса для відхилення запрошення"
+
+msgid "orcid.orcidRequestAuthorAuthorization.name"
+msgstr "orcidRequestAuthorAuthorization"
+
+msgid "orcid.orcidCollectAuthorId.name"
+msgstr "orcidCollectAuthorId"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Сповіщення про запрошення користувача на роль"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Вас запрошують на нові ролі"
+
+msgid "emails.userRoleAssignmentInvitationNotify.body"
+msgstr ""
+"<div class='email-container'> <div class='email-header'> <h2>Запрошення на "
+"нову роль</h2> </div> <div class='email-content'> <p>Шановний (-на) "
+"{$recipientName},</p> <p>З огляду на Ваш досвід {$inviterName} запросив Вас "
+"обійняти нові ролі в \"{$contextName}\".</p> <p>У \"{$contextName}\" ми "
+"цінуємо Вашу конфіденційність. Тому ми вжили заходів для забезпечення повної "
+"відповідності вимогам GDPR. Ці кроки включають Вашу відповідальність за "
+"введення власних даних та вибір того, хто яку інформацію може бачити. Щоб "
+"отримати додаткову інформацію про те, як ми обробляли ваші дані, зверніться "
+"до нашої Політики конфіденційності.</p> <div>{$existingRoles}</div> "
+"<div>{$rolesAdded}</div> <p>Після прийняття запрошення Вас буде "
+"перенаправлено на сторінку \"{$contextName}\".</p> <p>З будь-якими питаннями "
+"щодо цього процесу звертайтеся до мене.</p>        <p><a href='{$acceptUrl}' "
+"class='btn btn-accept'>Прийняти запрошення</a></p> <p><a href='{$declineUrl}"
+"' class='btn btn-decline'>Відхилити запрошення</a></p> <p>З повагою,</p> <p>"
+"\"{$contextName}\"</p> </div></div><style>{$emailTemplateStyle}<style>"

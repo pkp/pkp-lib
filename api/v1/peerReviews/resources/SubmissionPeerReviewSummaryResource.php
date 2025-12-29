@@ -20,9 +20,12 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class SubmissionPeerReviewSummaryResource extends BasePeerReviewResource
+class SubmissionPeerReviewSummaryResource extends JsonResource
 {
+    use ReviewerRecommendationSummary;
+
     public function toArray(Request $request)
     {
         /** @var Submission $submission */
@@ -34,12 +37,13 @@ class SubmissionPeerReviewSummaryResource extends BasePeerReviewResource
         $contextDao = Application::getContextDAO();
         /** @var Context $context */
         $context = $contextDao->getById($submission->getData('contextId'));
-
         $currentPublication = $submission->getCurrentPublication();
+
         return [
             'submissionId' => $submission->getId(),
             'reviewerRecommendations' => $this->getReviewerRecommendationsSummary($reviewAssignments, $context),
             'submissionPublishedVersionsCount' => count($submission->getPublishedPublications()),
+            'reviewerCount' => $this->getReviewerCount($reviewAssignments),
             'submissionCurrentVersion' => $currentPublication ? [
                 'title' => $currentPublication->getLocalizedTitle(),
                 'datePublished' => $currentPublication->getData('datePublished'),

@@ -1,29 +1,28 @@
 <?php
 
 /**
- * @file api/v1/peerReviews/resources/BasePeerReviewResource.php
+ * @file api/v1/peerReviews/resources/ReviewerRecommendationSummary.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING
  *
- * @class BasePeerReviewResource
+ * @class ReviewerRecommendationSummary
  *
  * @ingroup api_v1_peerReviews
  *
- * @brief A base class for API resource classes related to public peer reviews
+ * @brief Trait for summarizing reviewer recommendations.
  */
 
 namespace PKP\API\v1\peerReviews\resources;
 
 use APP\facades\Repo;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
-class BasePeerReviewResource extends JsonResource
+trait ReviewerRecommendationSummary
 {
     /**
      * Aggregates reviewer recommendations into summary counts.
@@ -32,13 +31,12 @@ class BasePeerReviewResource extends JsonResource
      *
      * @param Enumerable $reviewAssignments The Review Assignments to create summary from.
      */
-    public function getReviewerRecommendationsSummary(Enumerable $reviewAssignments, Context $context): array
+    private function getReviewerRecommendationsSummary(Enumerable $reviewAssignments, Context $context): array
     {
         $reviewAssignmentsGroupedByRoundId = $reviewAssignments
             ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
             ->map(
-                fn ($assignments) =>
-                $assignments->filter(fn (ReviewAssignment $ra) => !!$ra->getDateCompleted())
+                fn ($assignments) => $assignments->filter(fn (ReviewAssignment $ra) => !!$ra->getDateCompleted())
             )
             ->sortKeys();
 
@@ -87,5 +85,20 @@ class BasePeerReviewResource extends JsonResource
             ];
         }
         return $summary;
+    }
+
+    /**
+     * Get count of reviewers who have contributed to reviews.
+     *
+     * @param Enumerable $reviewAssignments - List of review assignments to generate count from.
+     */
+    private function getReviewerCount(Enumerable $reviewAssignments)
+    {
+        $reviewerIds = $reviewAssignments
+            ->filter(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateCompleted() !== null)
+            ->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewerId())
+            ->all();
+
+        return count(array_unique($reviewerIds));
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/peerReviews/peerReviewController.php
+ * @file api/v1/peerReviews/PeerReviewController.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class peerReviewController
+ * @class PeerReviewController
  *
  * @ingroup api_v1_peerReviews
  *
@@ -29,7 +29,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\PublicReviewsEnabledPolicy;
 
-class peerReviewController extends PKPBaseController
+class PeerReviewController extends PKPBaseController
 {
     /**
      * @copyDoc

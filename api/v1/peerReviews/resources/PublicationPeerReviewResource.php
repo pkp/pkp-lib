@@ -19,6 +19,7 @@ namespace PKP\API\v1\peerReviews\resources;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -31,8 +32,9 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
 
-class PublicationPeerReviewResource extends BasePeerReviewResource
+class PublicationPeerReviewResource extends JsonResource
 {
+    use ReviewerRecommendationSummary;
     public function toArray(?\Illuminate\Http\Request $request = null)
     {
         /** @var Publication $publication */

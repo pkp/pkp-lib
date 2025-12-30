@@ -221,7 +221,7 @@ class PKPAppKey
         }
 
         // Refresh the container's encrypter with the new key
-        // static::refreshEncrypter();
+        static::refreshEncrypter();
 
         return true;
     }
@@ -242,8 +242,8 @@ class PKPAppKey
      * Refresh the Laravel container's config and encrypter after key change
      *
      * This is critical when generating a new key in CLI tools that may run
-     * migrations afterward. Without this, the Encrypter singleton retains
-     * the old key and encrypts data incorrectly.
+     * migrations afterward in single CLI request lift cycpe. Without this, the
+     * Encrypter singleton retains the old key and encrypts data incorrectly.
      */
     public static function refreshEncrypter(): void
     {

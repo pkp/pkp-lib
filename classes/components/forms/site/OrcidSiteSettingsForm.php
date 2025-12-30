@@ -76,6 +76,7 @@ class OrcidSiteSettingsForm extends FormComponent
                 'groupId' => self::SETTINGS_GROUP,
                 'isRequired' => true,
                 'value' => $site->getData(OrcidManager::CLIENT_SECRET) ?? '',
+                'inputType' => 'password',
             ]));
     }
 }

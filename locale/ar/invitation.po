@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-28 06:51+0000\n"
+"PO-Revision-Date: 2025-12-30 09:08+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/ar/>\n"
@@ -189,3 +189,86 @@ msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProper
 msgstr ""
 "تم العثور على خصائص غير متوقعة في العنصر ذي الفهرس {$attribute}: "
 "{$properties}."
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - تعديل البريد الالكتروني المشارك مع المستخدم"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"إذا كنت تعرف اسم عائلة المستخدم، يمكنك إدخال تلك المعلومة. مع ذلك، هذه "
+"المعلومة قابلة للتعديل من قبل المستخدم."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "تحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - تحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "حفظ ومتابعة"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "حفظ ومتابعة"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "يرجى تزويدنا بالتفاصيل الآتية لمساعدتنا في إدارة حسابك"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "هذه هي المؤسسة التي تنتسب إليها"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "لا بد من إعطاء قيمة لـ '{$primaryLocale}'"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"إذا لم يكن المستخدم موجودًا، يمكنك دعواه لتولي الأدوار. إذا كان المستخدم "
+"موجود مسبقًا في النظام، يمكنك معاينة بياناته ودعوته لتولي أدوار إضافية."
+
+msgid "userInvitation.searchField.description"
+msgstr "مثلاً ali@example.com أو ali or 0000-0002-1825-0097"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"عند قبول الدعوة، ستتم إعادة توجيه المستخدم إلى ORCID للتحقق من حسابه، إن رغب "
+"بذلك."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"إذا كنت تعرف الاسم المعطى للمستخدم، يمكنك إدخال تلك المعلومة. مع ذلك، هذه "
+"المعلومة قابلة للتعديل من قبل المستخدم."
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "حفظ ومتابعة"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "أدخل التفاصيل"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - أدخل التفاصيل"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "نموذج تفاصيل قبول دعوة المستخدم"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "مراجعة الحساب وإنشائه"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - مراجعة الحساب وإنشائه"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "تخطى التحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "تحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "بيان الخصوصية"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "بلد الانتساب"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "تفاصيل الحساب"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "تفاصيل المستخدم"

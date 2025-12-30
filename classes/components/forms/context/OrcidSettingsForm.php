@@ -87,10 +87,11 @@ class OrcidSettingsForm extends FormComponent
                     'label' => __('orcid.manager.settings.orcidClientId'),
                     'description' => $site->getData(OrcidManager::CLIENT_ID),
                 ]))
-                ->addField(new FieldHTML(OrcidManager::CLIENT_SECRET, [
+                ->addField(new FieldText(OrcidManager::CLIENT_SECRET, [
                     'groupId' => self::SETTINGS_GROUP,
                     'label' => __('orcid.manager.settings.orcidClientSecret'),
                     'description' => $site->getData(OrcidManager::CLIENT_SECRET),
+                    'inputType' => 'password',
                 ]));
 
         } else {
@@ -117,6 +118,7 @@ class OrcidSettingsForm extends FormComponent
                     'groupId' => self::SETTINGS_GROUP,
                     'isRequired' => true,
                     'value' => $context->getData(OrcidManager::CLIENT_SECRET) ?? '',
+                    'inputType' => 'password',
                 ]));
         }
 

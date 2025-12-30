@@ -1,11 +1,11 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023, 2025.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2025-12-31 07:26+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/de/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Weitere Regionaleinstellungen"
@@ -169,9 +169,10 @@ msgstr ""
 "Parsing-Fehler bei der Verarbeitung der Filterkonfigurationsdatei <tt>{$file}"
 "</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
-msgstr "Upgrade nicht unterstützt. Siehe docs/UPGRADE-UNSUPPORTED für Details."
+msgstr ""
+"Upgrade nicht unterstützt. Siehe Upgrade Guide (https://docs.pkp.sfu.ca/dev/"
+"upgrade-guide) für Details."
 
 msgid "installer.timezoneInstructions"
 msgstr "Die Zeitzone, die für dieses System verwendet werden soll."
@@ -262,3 +263,44 @@ msgstr ""
 
 #~ msgid "installer.clientCharsetInstructions"
 #~ msgstr "Codierung für Daten, die vom oder zum Browser geschickt werden."
+
+msgid "installer.miscSettings"
+msgstr "Sonstige Einstellungen"
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr ""
+"Die app key-Variable konnte nicht in die config-Datei geschrieben werden."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Nicht unterstützte Verschlüsselung oder falsche Schlüssellänge. Unterstützte "
+"Verschlüsselungen sind: {$ciphers}."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Bitte fügen Sie die config Variable `app_key` unter der `general`Sektion "
+"manuell hinzu oder führen Sie den Befehl `php lib/pkp/tools/appKey.php "
+"configure`aus."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr "Config Variable `app_key` nicht in der `general` Sektion definiert. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Config Variable `app_key` ist bereits in der `general` Sektion definiert. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Die config Datei konnte nicht gelesen werden oder existiert nicht am "
+"erwarteten Pfad. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Die config-Datei konnte nicht geparst werden."
+
+msgid "installer.appKey.write.error"
+msgstr "Der app key konnte nicht in die config-Datei geschrieben werden."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Den Wert von `app_key` in der `general` Sektion in der `config.inc.php`-"
+"Datei zu {$key} setzen."

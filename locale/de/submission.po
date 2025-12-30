@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-10-27 14:24+0000\n"
+"PO-Revision-Date: 2025-12-31 07:26+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
@@ -2789,7 +2789,7 @@ msgid "workflow.submissionInFutureStage"
 msgstr "Die Einreichung befindet sich derzeit in der {$stage}-Phase."
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
-msgstr "Die Überprüfung wurde am {$date} abgeschlossen"
+msgstr "Das Gutachten wurde am {$date} abgeschlossen"
 
 msgid "dashboard.reviewAssignment.statusComplete.title"
 msgstr "Die Rezension wurde vom Herausgeber bestätigt"
@@ -2798,7 +2798,7 @@ msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Die Rezension wurde vom Herausgeber am <b>{$date}</b> angenommen."
 
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Gutachter stornierte Überprüfungsanfrage"
+msgstr "Gutachter/in hat die Gutachtenanfrage storniert"
 
 msgid "dashboard.reviewAssignment.action.viewDetails"
 msgstr "Details anzeigen"
@@ -2821,8 +2821,8 @@ msgstr "Die Phase {$stage} wurde noch nicht eingeleitet."
 
 msgid "workflow.submissionNextReviewRoundInFutureStage"
 msgstr ""
-"Die Einreichung gelangte in die nächste Überprüfungsrunde, wurde angenommen "
-"und befindet sich derzeit in der {$stage}-Phase."
+"Die Einreichung gelangte in die nächste Gutachtenrunde, wurde angenommen und "
+"befindet sich derzeit in der {$stage}-Phase."
 
 msgid "fileManager.filesForReview"
 msgstr "Dateien zur Überprüfung"
@@ -2867,7 +2867,7 @@ msgid "workflow.reviewRoundN"
 msgstr "Rezensionsrunde {$number}"
 
 msgid "dashboard.reviewAssignment.statusDeclined.description"
-msgstr "Der Rezensent lehnte die Überprüfungsanfrage unter <b>{$date}</b> ab"
+msgstr "Der/die Gutachter/in lehnte die Gutachtenanfrage am <b>{$date}</b> ab"
 
 msgid "fileManager.draftFilesDescription"
 msgstr ""
@@ -2988,11 +2988,10 @@ msgstr ""
 "werden die Einreichung und alle damit verbundenen Daten gelöscht. Diese "
 "Aktion kann nicht rückgängig gemacht werden."
 
-#, fuzzy
 msgid "submission.wizard.missingContributorAffiliationLanguage"
 msgstr ""
-"Der Name der Zugehörigkeit fehlt in {$language} für eine oder mehrere "
-"Zugehörigkeiten für einen oder mehrere der Mitwirkenden."
+"Der Name der Affiliation fehlt in {$language} für eine oder mehrere "
+"Affiliationen für einen oder mehrere der Mitwirkenden."
 
 msgid "submission.dashboard.view.assigned"
 msgstr "Mir zugeteilt"
@@ -3108,14 +3107,14 @@ msgstr "Vom Autor angeforderte Überarbeitungen"
 
 msgid "dashboard.revisionsRequestedFromAuthorNextRound"
 msgstr ""
-"Vom Autor geforderte Überarbeitungen sollen in eine neue Überprüfungsrunde "
-"aufgenommen werden"
+"Von dem/der Autor/in geforderte Überarbeitungen sollen in eine neue "
+"Gutachtenrunde aufgenommen werden"
 
 msgid "dashboard.actions.respondToRequest"
 msgstr "Auf Anfrage antworten"
 
 msgid "dashboard.actions.finishReview"
-msgstr "Überprüfung beenden"
+msgstr "Gutachten beenden"
 
 msgid "dashboard.reviewAssignment.declined"
 msgstr "Anfrage abgelehnt am {$date}"
@@ -3133,7 +3132,7 @@ msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Warten auf Antwort des Rezensenten"
 
 msgid "dashboard.reviewAssignment.action.resendReviewRequest"
-msgstr "Überprüfungsanfrage erneut senden"
+msgstr "Gutachtenanfrage erneut senden"
 
 msgid "dashboard.reviewAssignment.action.editDueDate"
 msgstr "Fälligkeitsdatum bearbeiten"
@@ -3156,7 +3155,7 @@ msgstr ""
 "der Rezensent sind. Um es anzuzeigen, gehen Sie zu \"Bewertung von Aufgaben\""
 
 msgid "workflow.submissionInNextReviewRound"
-msgstr "Die Einreichung wurde in die nächste Überprüfungsrunde verschoben"
+msgstr "Die Einreichung wurde in die nächste Gutachtenrunde verschoben"
 
 msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
 msgstr "Bestätigen Sie das Löschen unvollständiger Einreichungen"
@@ -3169,15 +3168,15 @@ msgstr "Einreichung abgebrochen"
 
 msgid "dashboard.reviewAssignment.statusAccepted.description"
 msgstr ""
-"Dieser Gutachter hat den Überprüfungsantrag angenommen. Ihre Überprüfung ist "
-"in <b>{$days} Tagen am {$date}.</b> fällig"
+"Diese/r Gutachter/in hat den Gutachtenantrag angenommen. Das Gutachten ist "
+"in <b>{$days} Tagen am {$date}</b> fällig."
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
-msgstr "Überprüfung ist {$days} Tage überfällig"
+msgstr "Gutachten ist {$days} Tage überfällig"
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Dieser Gutachter hat seine Überprüfung noch nicht abgeschlossen. Eine "
+"Diese/r Gutachter/in hat das Gutachten noch nicht abgeschlossen. Eine "
 "Antwort war fällig am <b>{$date}.</b>"
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
@@ -3185,8 +3184,8 @@ msgstr "Bewertung abgeschlossen am {$date}"
 
 msgid "dashboard.reviewAssignment.statusReceived.description"
 msgstr ""
-"Die Überprüfung wurde am {$date} mit der folgenden Empfehlung abgeschlossen: "
-"<b>{$empfehlung}</b>"
+"Das Gutachten wurde am {$date} mit der folgenden Empfehlung abgeschlossen: "
+"<b>{$recommendation}</b>"
 
 msgid "submission.list.changeSubmissionLanguage.metadataDescription"
 msgstr ""
@@ -3198,12 +3197,12 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
 msgstr ""
-"Die Überprüfungsanfrage wurde an den Gutachter weitergeleitet. Warten auf "
-"Antwort in <b>{$days} Tagen am {$date}</b>"
+"Die Gutachtenanfrage wurde an den/die Gutachter/in weitergeleitet. Antwort "
+"wird in <b>{$days} Tagen am {$date}</b> erwartet"
 
 msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
 msgstr ""
-"Dieser Gutachter hat nicht auf die Überprüfungsanfrage geantwortet. Eine "
+"Diese/r Gutachter/in hat nicht auf die Gutachtenanfrage geantwortet. Eine "
 "Antwort war fällig am <b>{$date}</b>"
 
 msgid "dashboard.recommendOnly.recommendationsCompleted"
@@ -3213,7 +3212,7 @@ msgstr ""
 
 msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
 msgstr ""
-"Die erforderliche Mindestanzahl an Überprüfungen wurde bestätigt. Es bedarf "
+"Die erforderliche Mindestanzahl an Gutachten wurde bestätigt. Es bedarf "
 "einer Entscheidung."
 
 msgid "dashboard.submissions.incomplete.bulkDelete.body"
@@ -3237,3 +3236,65 @@ msgstr ""
 
 msgid "ror.nameRequired"
 msgstr "Ein ROR-Name ist erforderlich."
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Ein/e Redakteur/in wird benötigt"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Lektorierte Dateien hochgeladen: {$count}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Gutachtenanfrage abgelehnt am {$date}"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Darf eine redaktionelle Entscheidung nur empfehlen"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Gutachtenanfrage ist {$days} Tage überfällig"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Gutachter/in streichen"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Empfehlende Redakteur/innen haben die Aufgabe, bei den nächsten Schritten "
+"dieser Einreichung zu beraten"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Diese Dateien wurden von dem/der Autor/in eingereicht, nachdem Revisionen "
+"angefragt wurden"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Die Frist für die Beantwortung dieser Anfrage ist abgelaufen. Bitte nehmen "
+"Sie die Anfrage so bald wie möglich an oder lehnen Sie sie ab."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Die Frist für den Abschluss dieses Gutachtens ist abgelaufen. Bitte "
+"vervollständigen Sie das Gutachten so früh wie möglich."
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Benötigt Gutachten"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Gutachten Update {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Neue Gutachtenrunde wird erstellt"
+
+msgid "dashboard.assignReviewers"
+msgstr "Gutachter/innen zuweisen"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Gutachtenanfrage wurde erneut mit dem/der Gutachter/in geteilt. Antwort wird "
+"in {$days} Tagen am {$date} erwartet"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"Dies sind bearbeitete Dateien, die in die Produktionsphase gebracht werden"
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR display Sprache ist erforderlich."

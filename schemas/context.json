@@ -632,6 +632,7 @@
 		"orcidClientSecret": {
 			"type": "string",
 			"default": "",
+			"encrypt": true,
 			"validation": [
 				"nullable"
 			]

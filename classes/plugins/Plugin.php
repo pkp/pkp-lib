@@ -592,6 +592,15 @@ abstract class Plugin
     }
 
     /**
+     * Contains and return the list of plugin setting name which should be encrypted/decrypted
+     * at the time to DB store/retrive.
+     */
+    public function getEncryptedSettingFieldNames(): array
+    {
+        return [];
+    }
+
+    /**
      * Retrieve a plugin setting within the given context
      *
      * @param ?int $contextId Context ID
@@ -604,7 +613,13 @@ abstract class Plugin
         }
 
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-        return $pluginSettingsDao->getSetting($contextId, $this->getName(), $name);
+        $value = $pluginSettingsDao->getSetting($contextId, $this->getName(), $name);
+
+        if (in_array($name, $this->getEncryptedSettingFieldNames()) && !empty($value) && !is_null($value)) {
+            return app()->decrypt($value);
+        }
+
+        return $value;
     }
 
     /**
@@ -618,6 +633,11 @@ abstract class Plugin
     public function updateSetting($contextId, $name, $value, $type = null)
     {
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
+
+        if (in_array($name, $this->getEncryptedSettingFieldNames()) && !empty($value) && !is_null($value)) {
+            $value = app()->encrypt($value);
+        }
+
         $pluginSettingsDao->updateSetting($contextId, $this->getName(), $name, $value, $type);
 
         event(new PluginSettingChanged($this, $name, $value, $contextId));

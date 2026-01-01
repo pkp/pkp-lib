@@ -273,6 +273,10 @@ class EditorialTaskController extends PKPBaseController
             ->getMany() :
             collect()->lazy();
 
+        $submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $taskIds)
+            ->getMany();
+
         return response()->json([
             'items' => TaskResource::collection(resource: $tasks, data: [
                 'submission' => $submission,
@@ -280,6 +284,7 @@ class EditorialTaskController extends PKPBaseController
                 'users' => $users,
                 'userGroups' => $userGroups,
                 'reviewAssignments' => $reviewAssignments,
+                'submissionFiles' => $submissionFiles,
             ]),
             'itemMax' => $tasks->count(),
         ], Response::HTTP_OK);
@@ -496,12 +501,17 @@ class EditorialTaskController extends PKPBaseController
             ->getMany() :
             collect()->lazy();
 
+        $submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, [$editTask->id])
+            ->getMany();
+
         return [
             'submission' => $submission,
             'stageAssignments' => $stageAssignments,
             'users' => $users,
             'userGroups' => $userGroups,
             'reviewAssignments' => $reviewAssignments,
+            'submissionFiles' => $submissionFiles,
         ];
     }
 

@@ -29,6 +29,9 @@ class Collector implements CollectorInterface
     /** @var DAO */
     public $dao;
 
+    /** @var null|array limit results by submission file IDs */
+    public ?array $submissionFileIds = null;
+
     /** @var null|array get submission files for one or more file stages */
     protected $fileStages = null;
 
@@ -94,6 +97,17 @@ class Collector implements CollectorInterface
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);
+    }
+
+    /**
+     * Limit results to only submission files with the specified IDs
+     *
+     * @param ?int[] $submissionFileIds Submission IDs
+     */
+    public function filterBySubmissionFileIds(?array $submissionFileIds): static
+    {
+        $this->submissionFileIds = $submissionFileIds;
+        return $this;
     }
 
     /**
@@ -232,6 +246,10 @@ class Collector implements CollectorInterface
             ->join('submissions as s', 's.submission_id', '=', 'sf.submission_id')
             ->join('files as f', 'f.file_id', '=', 'sf.file_id')
             ->select(['sf.*', 'f.*', 's.locale as submission_locale']);
+
+        if (isset($this->submissionFileIds)) {
+            $qb->whereIn('sf.' . $this->dao->primaryKeyColumn, array_map(intval(...), $this->submissionFileIds));
+        }
 
         if ($this->submissionIds !== null) {
             $qb->whereIn('sf.submission_id', $this->submissionIds);

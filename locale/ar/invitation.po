@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-30 09:08+0000\n"
+"PO-Revision-Date: 2026-01-01 16:29+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/ar/>\n"
@@ -272,3 +272,111 @@ msgstr "تفاصيل الحساب"
 
 msgid "acceptInvitation.review.userDetails"
 msgstr "تفاصيل المستخدم"
+
+msgid "invitation.step"
+msgstr "الخطوة"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "قد تكون تشكيلة من الحروف الكبيرة والصغيرة والأرقام"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"ينبغي أن لا تقل عن 6 محارف من تشكيلة من الحروف الكبيرة والصغيرة والأرقام"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "نعم، أوافق على جمع بياناتي وحفظها وفقًا لـ {$url}"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "يُعرف أيضًا بالاسم الأول، وهو جزء من الاسم الشخصي الذي يُعرِّف صاحبه."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"اسم الشهرة، اسم العائلة، أو الاسم الأخير هو غالبًا الاسم الموروث للشخص الذي "
+"يُعرَّف عائلته."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "هذا هو البلد الذي تقع فيه المؤسسة التي تنتسب إليها"
+
+msgid "acceptInvitation.modal.button"
+msgstr "معاينة كل طلبات التقديم"
+
+msgid "invitation.masthead.show"
+msgstr "يظهر في طاقم المجلة"
+
+msgid "invitation.masthead.hidden"
+msgstr "لا يظهر في طاقم المجلة"
+
+msgid "userInvitation.edit.title"
+msgstr "تحرير الدعوة"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "يرجى تأكيد قراءتك لبيان الخصوصية وموافقتك عليه"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "أتريد إلغاء عملية الدعوة إلى الدور؟"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "إلغاء عملية الدعوة"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "لم يتم قبول الدعوة. أنت مسجل دخولك بمثابة مستخدم آخر."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "المستخدم معطل حاليًا"
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "الموافقة على الخصوصية"
+
+msgid "invitation.tableHeader.name"
+msgstr "الاسم"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "أعط معيار بحث واحد على الأقل."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "أنت تعاين تفاصيل المستخدم {$name}"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "إلغاء الدعوة"
+
+msgid "invitation.cancelInvite.title"
+msgstr "إلغاء الدعوة"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"إلغاء الدعوة المرسلة إلى  {$givenName} {$familyName} سيؤدي إلى تعطيل رابط "
+"القبول المرسل عبر البريد الالكتروني. إليك تفاصيل الدعوة: "
+
+msgid "invitation.role.modifyRole.button"
+msgstr "تعديل الدور"
+
+msgid "invitation.management.options"
+msgstr "خيارات إدارة الدعوة"
+
+msgid "userInvitation.cancel.message"
+msgstr "هل أنت متأكد من رغبتك في إلغاء هذه الدعوة؟"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "رجوع"
+
+msgid "userInvitation.status.invited"
+msgstr "مدعو {$date}"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"إذا قمت بتحرير الدعوة الحالية أو أضفت دورًا جديدًا، سيتم إلغاء الدعوة "
+"الحالية مع إرسال دعوة جديدة. هل أنت متأكد من رغبتك في المتابعة؟"
+
+msgid "validation.after_or_equal"
+msgstr "تاريخ البدء ينبغي أن يكون أكبر من أو مساويًا لتاريخ اليوم"
+
+msgid "invitation.removeRoles"
+msgstr "تمت إزالة المستخدم من الدور"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"هل أنت متأكد من رغبتك في الإلغاء؟ الإلغاء الآن سيوقف عملية قبول الدور، "
+"وينبغي عليك إعادة البدء من خطوة رسالة الدعوة إلى الدور للموافقة على الدور من "
+"جديد. إذا كان لديك حساب مستخدم مسبقًا، سيتم توجيهك إلى دفة القيادة. إن لم "
+"تكن، سيكون عليك الوصول إلى رسالة الدعوة المرسلة عبر البريد الالكتروني للبدء "
+"بالعملية مرة أخرى."

@@ -29,6 +29,14 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
+use PKP\form\validation\FormValidatorReCaptcha;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\form\validation\FormValidatorEmail;
+use PKP\form\validation\FormValidatorUsername;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorAltcha;
 use PKP\orcid\OrcidManager;
 use PKP\security\Role;
@@ -57,40 +65,39 @@ class RegistrationForm extends Form
 
         // Validation checks for this form
         $form = $this;
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user(), 'getByUsername'], [true], true));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', fn ($password) => $password == $form->getData('password2')));
+        $this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user(), 'getByUsername'], [true], true));
+        $this->addCheck(new FormValidator($this, 'username', 'required', 'user.profile.form.usernameRequired'));
+        $this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
 
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'givenName', 'required', 'user.profile.form.givenNameRequired'));
+        $this->addCheck(new FormValidatorPassword($this, 'password', 'required', '', 'password2'));
 
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
+        $this->addCheck(new FormValidator($this, 'givenName', 'required', 'user.profile.form.givenNameRequired'));
+
+        $this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
 
         // Email checks
-        $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [Repo::user(), 'getByEmail'], [true], true));
+        $this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
+        $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [Repo::user(), 'getByEmail'], [true], true));
 
         $this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
         if ($this->captchaEnabled) {
             $request = Application::get()->getRequest();
-            $this->addCheck(new \PKP\form\validation\FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
+            $this->addCheck(new FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
         }
 
         $this->altchaEnabled = Config::getVar('captcha', 'altcha') && Config::getVar('captcha', 'altcha_on_register');
         if ($this->altchaEnabled) {
             $request = Application::get()->getRequest();
-            $this->addCheck(new \PKP\form\validation\FormValidatorAltcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response'));
+            $this->addCheck(new FormValidatorAltcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response'));
         }
 
         $context = Application::get()->getRequest()->getContext();
         if ($context && $context->getData('privacyStatement')) {
-            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
+            $this->addCheck(new FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
         }
 
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     /**

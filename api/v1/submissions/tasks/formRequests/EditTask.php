@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Closure;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
@@ -212,6 +213,41 @@ class EditTask extends FormRequest
                 Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
                 Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),
             ],
+            'temporaryFileIds' => ['sometimes', 'array', 'nullable'],
+            'temporaryFileIds.*' => [
+                'numeric',
+                Rule::exists('temporary_files', 'file_id')->where(function (Builder $query) {
+                    $query->where('user_id', Application::get()->getRequest()?->getUser()?->getId());
+                })
+            ],
+            // The attachment of submission files to the task/discussion is allowed for managers and assigned editors/assistants only
+            'submissionFileIds' => [
+                'sometimes',
+                'array',
+                'nullable',
+                Rule::prohibitedIf(function () {
+                    $currentUser = Application::get()->getRequest()?->getUser();
+                    if ($currentUser && $currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->submission->getData('contextId'))) {
+                        return false;
+                    }
+
+                    $isAssignedEditor = false;
+                    foreach ($this->stageAssignments as $stageAssignment) {
+                        if ($stageAssignment->userId == $currentUser->getId() && in_array($stageAssignment->userGroup->roleId, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR])) {
+                            $isAssignedEditor = true;
+                            break;
+                        }
+                    }
+
+                    return !$isAssignedEditor;
+                })
+            ],
+            'submissionFileIds.*' => [
+                'numeric',
+                Rule::exists('submission_files', 'submission_file_id')->where(function (Builder $query) {
+                    $query->where('submission_id', $this->submission->getId());
+                })
+            ]
         ];
     }
 

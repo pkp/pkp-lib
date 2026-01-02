@@ -181,7 +181,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
-                error_log('Shutdown function started at: ' . microtime(true));
+                // error_log('Shutdown function started at: ' . microtime(true));
 
                 $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
                 $jobRunner
@@ -192,7 +192,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     ->withEstimatedTimeToProcessNextJobConstrain()
                     ->processJobs();
 
-                error_log('Shutdown function ended at: ' . microtime(true));
+                // error_log('Shutdown function ended at: ' . microtime(true));
             });
         }
 
@@ -235,33 +235,20 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 }
 
                 $contextId = null;
+                $jobInstance = $payload['data']['command']; /** @var \Illuminate\Contracts\Queue\ShouldQueue $jobInstance */
 
-                $jobClass = $payload['data']['commandName']; /** @var \PKP\jobs\BaseJob $jobClass */
-                $jobInstance = $payload['data']['command'];
+                if ($jobInstance instanceof \PKP\queue\ContextAwareJob) {
+                    $contextId = $jobInstance->getContextId();
 
-                // will not try to set context id if the job is not context aware
-                if (!$jobClass::contextAware()) {
-                    return [];
-                }
-
-                // will only try to deduce context id if the job explicitly defines it
-                if ($jobClass::shouldTryToDeduceContextFromArgs()
-                    && $jobInstance instanceof \Illuminate\Contracts\Queue\ShouldQueue
-                ) {
-                    try {
-                        $contextId = $jobClass::deduceContextIdFromJobArgs($jobInstance);
-                    } catch (Throwable $e) {
-                        error_log(
-                            sprintf(
-                                'failed to deduce context ID for job class %s exception %s',
-                                $jobClass,
-                                $e->__toString()
-                            )
-                        );
+                    // Specifically log the case when a context aware job return null context id
+                    if ($contextId === null) {
+                        error_log("Context aware job calss {$payload['displayName']} returned null contextId");
                     }
                 }
                 
                 // Fallback to determine the context id from app reqeust or CLI context if available
+                // This is a placeholder solution of until all the needed job implements the ContextAwareJob
+                // interface and strictly return the context id as required
                 if (!$contextId) {
                     // This try/catch block is to facilitate the case when the application
                     // running in CLI mode and a job get dispatched in CLI where it trying to

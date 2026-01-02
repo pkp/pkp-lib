@@ -257,6 +257,9 @@ class JobRunner
         return $this;
     }
 
+    /**
+     * Set the current context id
+     */
     public function setCurrentContextId(?int $contextId): self
     {
         $this->currentContextId = $contextId;
@@ -264,6 +267,9 @@ class JobRunner
         return $this;
     }
 
+    /**
+     * Get the current context id
+     */
     public function getCurrentContextId(): ?int
     {
         return $this->currentContextId;
@@ -459,7 +465,6 @@ class JobRunner
 
     /**
      * Check if memory consumed since job processing started has exceed defined max memory
-     *
      */
     protected function exceededMemoryLimit(): bool
     {
@@ -475,7 +480,6 @@ class JobRunner
      *
      * @param int $jobProcessedCount        The number of jobs that has processed so far
      * @param int $jobProcessingStartTime   The start time since job processing has started in seconds
-     *
      */
     protected function mayExceedMemoryLimitAtNextJob(int $jobProcessedCount, int $jobProcessingStartTime): bool
     {
@@ -505,7 +509,6 @@ class JobRunner
      *
      * It will consider both what defined in the ini file and application config file
      * and will take a minimum one based on those two values
-     *
      */
     protected function deduceSafeMaxExecutionTime(): int
     {
@@ -530,7 +533,6 @@ class JobRunner
      *
      *      If defined as STRING (e.g 128M), it will try to calculate it as memory defined in megabytes
      *      but if failed, will try to cast to INT to apply percentage rule
-     *
      */
     protected function deduceSafeMaxAllowedMemory(): int
     {

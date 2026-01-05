@@ -53,6 +53,7 @@ use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\components\forms\highlight\HighlightForm;
 use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\components\listPanels\HighlightsListPanel;
+use PKP\components\listPanels\NavigationMenuEditorListPanel;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
@@ -259,6 +260,7 @@ class ManagementHandler extends Handler
         $contentCommentSettingsForm = new ContentCommentsForm($contextApiUrl, $locales, $context);
 
         $highlightsListPanel = $this->getHighlightsListPanel();
+        $navigationMenuEditorPanel = $this->getNavigationMenuEditorListPanel();
 
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
@@ -276,6 +278,7 @@ class ManagementHandler extends Handler
             $dateTimeForm::FORM_DATE_TIME => $dateTimeForm->getConfig(),
             $highlightsListPanel->id => $highlightsListPanel->getConfig(),
             $contentCommentSettingsForm::FORM_CONTENT_COMMENT => $contentCommentSettingsForm->getConfig(),
+            $navigationMenuEditorPanel->id => $navigationMenuEditorPanel->getConfig(),
         ];
 
         if ($informationForm) {
@@ -800,6 +803,30 @@ class ManagementHandler extends Handler
                     ->summarizeMany($items)
                     ->values(),
                 'itemsMax' => $items->count(),
+            ]
+        );
+    }
+
+    /**
+     * Get the NavigationMenuEditorListPanel
+     */
+    protected function getNavigationMenuEditorListPanel(): NavigationMenuEditorListPanel
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $apiUrl = $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getPath(),
+            'navigationMenus'
+        );
+
+        return new NavigationMenuEditorListPanel(
+            'navigationMenuEditor',
+            __('manager.navigationMenus'),
+            [
+                'apiUrl' => $apiUrl,
+                'maxDepth' => 3,
             ]
         );
     }

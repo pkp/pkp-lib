@@ -994,6 +994,14 @@
 				"in:0,enable,request,require"
 			]
 		},
+		"fundingStatement": {
+			"type": "string",
+			"description": "Whether to not request, request or require a Funding Statement from the authors.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
 		"plainLanguageSummary": {
 			"type": "string",
 			"description": "Enable plain language summary metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",

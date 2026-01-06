@@ -138,6 +138,15 @@ class PKPMetadataForm extends FormComponent
             ]));
         }
 
+        if ($this->enabled('fundingStatement')) {
+            $this->addField(new FieldRichTextarea('fundingStatement', [
+                'label' => __('submission.fundingStatement'),
+                'tooltip' => __('manager.setup.metadata.fundingStatement.description'),
+                'isMultilingual' => true,
+                'value' => $publication->getData('fundingStatement'),
+            ]));
+        }
+
         if ($this->enabled('pub-id::publisher-id')) {
             $this->addField(new FieldText('pub-id::publisher-id', [
                 'label' => __('submission.publisherId'),

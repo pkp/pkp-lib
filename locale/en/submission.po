@@ -3385,3 +3385,12 @@ msgstr "Organization or group"
 
 msgid "submission.submit.contributorType.anonymous"
 msgstr "Anonymous"
+
+msgid "submission.fundingStatement"
+msgstr "Funding Statement"
+
+msgid "submission.fundingStatement.tip"
+msgstr "Statement that describes the funding for the research on which this work was based."
+
+msgid "submission.submit.form.fundingStatementRequired"
+msgstr "Please enter the Funding Statement."

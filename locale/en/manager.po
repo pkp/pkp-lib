@@ -2383,6 +2383,23 @@ msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
 "Require the author to provide a data availability statement before accepting their submission."
 
+msgid "manager.setup.metadata.fundingStatement.description"
+msgstr ""
+"A short statement describing funding details."
+
+msgid "manager.setup.metadata.fundingStatement.enable"
+msgstr "Enable funding statement metadata"
+
+msgid "manager.setup.metadata.fundingStatement.noRequest"
+msgstr "Do not request a funding statement from the author during submission."
+
+msgid "manager.setup.metadata.fundingStatement.request"
+msgstr "Ask the author to provide a funding statement during submission."
+
+msgid "manager.setup.metadata.fundingStatement.require"
+msgstr ""
+"Require the author to provide a funding statement before accepting their submission."
+
 msgid "manager.setup.metadata.plainLanguageSummary"
 msgstr "Plain language summary"
 

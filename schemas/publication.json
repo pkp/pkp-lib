@@ -201,6 +201,14 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"fundingStatement": {
+			"type": "string",
+			"description": "Optional metadata that describes funding details for this publication.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"id": {
 			"type": "integer",
 			"readOnly": true,

@@ -13,7 +13,7 @@
  *
  * Intercepts nested template includes and resolves them through Laravel's
  * FileViewFinder, enabling:
- * - Plugin template overrides via View::alias hook
+ * - Plugin template overrides via View::resolveName hook
  * - Blade templates to be included from Smarty templates
  * - Unified template resolution for both engines
  */
@@ -57,9 +57,9 @@ class SmartyTemplate extends Smarty_Internal_Template
         // Convert Smarty path to Laravel view name
         $viewName = \APP\template\TemplateManager::getManager()->smartyPathToViewName($template);
 
-        // Fire View::alias hook for plugin overrides
+        // Fire View::resolveName hook for plugin overrides
         $aliased = null;
-        Hook::call('View::alias', [&$aliased, $viewName]);
+        Hook::call('View::resolveName', [&$aliased, $viewName]);
         if ($aliased !== null) {
             $viewName = $aliased;
         }

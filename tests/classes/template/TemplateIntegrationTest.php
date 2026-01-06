@@ -16,7 +16,7 @@
  * 2. Create test-specific templates with unique names to avoid conflicts
  * 3. Test all rendering paths: Smarty-only, Blade-only, and mixed
  * 4. Test variable passing between template engines
- * 5. Test View::alias hook for template overrides
+ * 5. Test View::resolveName hook for template overrides
  */
 
 namespace PKP\tests\classes\template;
@@ -73,7 +73,7 @@ class TemplateIntegrationTest extends PKPTestCase
     protected function tearDown(): void
     {
         // Remove any hooks we registered
-        Hook::clear('View::alias');
+        Hook::clear('View::resolveName');
 
         // Clear singleton
         Registry::delete('templateManager');
@@ -377,7 +377,7 @@ class TemplateIntegrationTest extends PKPTestCase
     }
 
     // =========================================================================
-    // SECTION 5: Template Overriding via View::alias Hook
+    // SECTION 5: Template Overriding via View::resolveName Hook
     // =========================================================================
 
     public function testAliasOverridesSmartyWithSmarty(): void
@@ -385,7 +385,7 @@ class TemplateIntegrationTest extends PKPTestCase
         $this->createTemplate('alias_original.tpl', 'Original Content');
         $this->createTemplate('alias_override.tpl', 'Override Content');
 
-        Hook::add('View::alias', function ($hookName, $args) {
+        Hook::add('View::resolveName', function ($hookName, $args) {
             $aliasedViewName = &$args[0];
             $viewName = $args[1];
             if ($viewName === 'test::alias_original') {
@@ -404,7 +404,7 @@ class TemplateIntegrationTest extends PKPTestCase
         $this->createTemplate('swap_original.tpl', 'Smarty: {$var}');
         $this->createTemplate('swap_override.blade', 'Blade: {{ $var }}');
 
-        Hook::add('View::alias', function ($hookName, $args) {
+        Hook::add('View::resolveName', function ($hookName, $args) {
             $aliasedViewName = &$args[0];
             $viewName = $args[1];
             if ($viewName === 'test::swap_original') {
@@ -472,7 +472,7 @@ class TemplateIntegrationTest extends PKPTestCase
     }
 
     // =========================================================================
-    // SECTION 8: Theme Override of Plugin Templates via View::alias (_overridePluginTemplates)
+    // SECTION 8: Theme Override of Plugin Templates via View::resolveName (_overridePluginTemplates)
     // =========================================================================
 
     /**
@@ -502,7 +502,7 @@ class TemplateIntegrationTest extends PKPTestCase
 
         // Register the theme's override hook
         $mockTheme = $this->createMockTheme($themeRelativePath, 'mytheme');
-        Hook::add('View::alias', [$mockTheme, '_overridePluginTemplates']);
+        Hook::add('View::resolveName', [$mockTheme, '_overridePluginTemplates']);
 
         $tm = $this->getTemplateManager();
         $tm->assign('funder', 'Test Funder');
@@ -546,7 +546,7 @@ class TemplateIntegrationTest extends PKPTestCase
 
         // Register the theme's override hook
         $mockTheme = $this->createMockTheme($themeRelativePath, 'bladetheme');
-        Hook::add('View::alias', [$mockTheme, '_overridePluginTemplates']);
+        Hook::add('View::resolveName', [$mockTheme, '_overridePluginTemplates']);
 
         $tm = $this->getTemplateManager();
         $tm->assign('orcid', '0000-0001-2345-6789');
@@ -568,7 +568,7 @@ class TemplateIntegrationTest extends PKPTestCase
      * Verifies both $viewNamespace and assigned variables are available in the nested Blade template
      *
      * Flow: Smarty parent → {include "nested/widget.tpl"} → SmartyTemplate converts to
-     * "nested.widget" → View::alias hook redirects to "test::nested.widget_override" (Blade)
+     * "nested.widget" → View::resolveName hook redirects to "test::nested.widget_override" (Blade)
      */
     public function testAliasNestedSmartyIncludeOverriddenWithBlade(): void
     {
@@ -587,7 +587,7 @@ class TemplateIntegrationTest extends PKPTestCase
 
         // Register hook to alias the nested template to the Blade override
         // Note: smartyPathToViewName converts "nested/widget.tpl" to "nested.widget" (no namespace)
-        Hook::add('View::alias', function ($hookName, $args) {
+        Hook::add('View::resolveName', function ($hookName, $args) {
             $aliasedViewName = &$args[0];
             $viewName = $args[1];
             if ($viewName === 'nested.widget') {
@@ -627,7 +627,7 @@ class TemplateIntegrationTest extends PKPTestCase
         view()->addNamespace('emptytheme', $themeDir);
 
         $mockTheme = $this->createMockTheme(self::$testTemplateDir . '/emptytheme', 'emptytheme');
-        Hook::add('View::alias', [$mockTheme, '_overridePluginTemplates']);
+        Hook::add('View::resolveName', [$mockTheme, '_overridePluginTemplates']);
 
         $tm = $this->getTemplateManager();
         $tm->assign('citation', 'Test Citation');
@@ -665,7 +665,7 @@ class TemplateIntegrationTest extends PKPTestCase
         $activeTheme = 'A';
 
         // Register dynamic alias hook (like theme switching between journals)
-        Hook::add('View::alias', function ($hookName, $args) use (&$activeTheme) {
+        Hook::add('View::resolveName', function ($hookName, $args) use (&$activeTheme) {
             $aliasedViewName = &$args[0];
             $viewName = $args[1];
             if ($viewName === 'test::cacheable') {
@@ -711,7 +711,7 @@ class TemplateIntegrationTest extends PKPTestCase
 
         $activeOverride = 'X';
 
-        Hook::add('View::alias', function ($hookName, $args) use (&$activeOverride) {
+        Hook::add('View::resolveName', function ($hookName, $args) use (&$activeOverride) {
             $aliasedViewName = &$args[0];
             $viewName = $args[1];
             // Nested includes go through smartyPathToViewName which strips namespace

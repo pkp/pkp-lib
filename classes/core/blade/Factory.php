@@ -60,7 +60,7 @@ class Factory extends \Illuminate\View\Factory
 
         // Hook: allow plugins to alias this view name
         $aliased = null;
-        Hook::call('View::alias', [&$aliased, $original]);
+        Hook::call('View::resolveName', [&$aliased, $original]);
 
         if ($aliased !== null && $aliased !== $original) {
             $this->aliases[$original] = $aliased;

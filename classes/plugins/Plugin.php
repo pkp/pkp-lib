@@ -492,7 +492,7 @@ abstract class Plugin
      * This matches the PKP documentation for template override structure:
      * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>
      *
-     * @param string $hookName View::alias
+     * @param string $hookName View::resolveName
      * @param array $args [&$aliasedViewName, $viewName]
      *   - $aliasedViewName: Set to namespaced view name to override (e.g., 'pluginName::frontend.pages.article')
      *   - $viewName: Original view name (dot notation or namespaced)

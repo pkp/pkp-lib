@@ -1336,7 +1336,7 @@ class PKPTemplateManager extends Smarty
      * Fetch and render a template
      *
      * Routes all template rendering through Laravel's view system for unified
-     * template resolution. This ensures the View::alias hook fires consistently
+     * template resolution. This ensures the View::resolveName hook fires consistently
      * for all templates, enabling plugin overrides.
      *
      * @param null|mixed $template Template path, view name, or View instance
@@ -1363,7 +1363,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Convert Smarty path to Laravel view name and render through Laravel
-        // View::alias hook is fired in Factory::make() for plugin overrides
+        // View::resolveName hook is fired in Factory::make() for plugin overrides
         $viewName = $this->smartyPathToViewName($template);
         return view($viewName)->render();
     }

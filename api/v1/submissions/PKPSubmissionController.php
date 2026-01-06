@@ -1642,6 +1642,15 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (
+            !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)
+            && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+        ) {
+            return response()->json([
+                'error' => __('api.submissions.403.userCantEdit'),
+            ], Response::HTTP_FORBIDDEN);
+        }
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $submissionContext = $request->getContext();
         // Remove extra data that is irrelevant to the selected contributor type
@@ -1666,20 +1675,10 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
-            $roleIds = array_values(array_filter(array_map(function ($r) {
-                if (is_int($r) || ctype_digit((string) $r)) {
-                    return (int) $r;
-                }
-                if (is_array($r)) {
-                    if (isset($r['id']) && ctype_digit((string) $r['id'])) {
-                        return (int) $r['id'];
-                    }
-                    if (isset($r['roleId']) && ctype_digit((string) $r['roleId'])) {
-                        return (int) $r['roleId'];
-                    }
-                }
-                return null;
-            }, $params['contributorRoles']), fn ($v) => $v !== null));
+            $roleIds = array_values(array_unique(array_filter(
+                array_map('intval', $params['contributorRoles']),
+                static fn (int $id) => $id > 0
+            )));
 
             $params['contributorRoles'] = $this->contributorRolesToParams($roleIds, $submissionContext->getId());
         }
@@ -1833,20 +1832,10 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
-            $roleIds = array_values(array_filter(array_map(function ($r) {
-                if (is_int($r) || ctype_digit((string) $r)) {
-                    return (int) $r;
-                }
-                if (is_array($r)) {
-                    if (isset($r['id']) && ctype_digit((string) $r['id'])) {
-                        return (int) $r['id'];
-                    }
-                    if (isset($r['roleId']) && ctype_digit((string) $r['roleId'])) {
-                        return (int) $r['roleId'];
-                    }
-                }
-                return null;
-            }, $params['contributorRoles']), fn ($v) => $v !== null));
+            $roleIds = array_values(array_unique(array_filter(
+                array_map('intval', $params['contributorRoles']),
+                static fn (int $id) => $id > 0
+            )));
 
             $params['contributorRoles'] = $this->contributorRolesToParams($roleIds, $submissionContext->getId());
         }
@@ -2484,10 +2473,13 @@ class PKPSubmissionController extends PKPBaseController
 
     /**
      * Get contributor role objects from ids and context id
+     *
+     * @param int[] $roleIds
+     * @return ContributorRole[]
      */
     protected function contributorRolesToParams(array $roleIds, int $contextId): array
     {
-        $roleIds = array_values(array_unique(array_filter($roleIds, fn ($id) => is_int($id) && $id > 0)));
+        $roleIds = array_values(array_unique(array_filter(array_map('intval', $roleIds), static fn (int $id) => $id > 0)));
 
         if (empty($roleIds)) {
             return [];

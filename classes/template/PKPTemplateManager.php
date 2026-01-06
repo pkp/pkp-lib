@@ -1354,21 +1354,17 @@ class PKPTemplateManager extends Smarty
             return $result;
         }
 
+        // Share all assigned vars globally so Blade templates can access them
+        $this->shareTemplateVariables($this->getTemplateVars());
+
         // Handle View instances directly
         if ($template instanceof View) {
-            $this->shareTemplateVariables($this->getTemplateVars());
             return $template->render();
         }
 
-        // Convert Smarty path to Laravel view name and route through Laravel
+        // Convert Smarty path to Laravel view name and render through Laravel
         $viewName = $this->smartyPathToViewName($template);
-
-        // Share template variables with Laravel views
-        $this->shareTemplateVariables($this->getTemplateVars());
-
-        // Route through Laravel's view system
-        // FileViewFinder will resolve the path and fire the hook
-        return view($viewName, $this->getTemplateVars())->render();
+        return view($viewName)->render();
     }
 
     /**

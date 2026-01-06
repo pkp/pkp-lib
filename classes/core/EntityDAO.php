@@ -113,7 +113,7 @@ abstract class EntityDAO
                         value: $row->{$column},
                         type: $schema->properties->{$propName}->type,
                         nullable: true,
-                        encrypt: $schema->properties->{$propName}->encrypt ?? false
+                        decrypt: $schema->properties->{$propName}->encrypt ?? false
                     )
                 );
             }
@@ -131,7 +131,7 @@ abstract class EntityDAO
                         $this->convertFromDB(
                             value: $row->setting_value,
                             type: $schema->properties->{$row->setting_name}->type,
-                            encrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
+                            decrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
                         ),
                         empty($row->locale) ? null : $row->locale
                     );
@@ -291,9 +291,9 @@ abstract class EntityDAO
     /**
      * @copydoc DAO::convertFromDB()
      */
-    protected function convertFromDB($value, string $type, bool $nullable = false, bool $encrypt = false)
+    protected function convertFromDB($value, string $type, bool $nullable = false, bool $decrypt = false)
     {
-        return $this->deprecatedDao->convertFromDB($value, $type, $nullable, $encrypt);
+        return $this->deprecatedDao->convertFromDB($value, $type, $nullable, $decrypt);
     }
 
     /**

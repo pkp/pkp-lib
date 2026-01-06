@@ -15,10 +15,8 @@
 namespace PKP\migration\upgrade\v3_6_0;
 
 use APP\core\Application;
-use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
-use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
 class I12074_EncryptCredentials extends Migration
@@ -46,17 +44,11 @@ class I12074_EncryptCredentials extends Migration
 
     /**
      * @inheritDoc
-     *
-     * @throws DowngradeNotSupportedException
      */
     public function down(): void
     {
-        try {
-            $this->decryptContextSettings();
-            $this->decryptPluginSettings();
-        } catch (DecryptException $e) {
-            throw new DowngradeNotSupportedException($e->getMessage());
-        }
+        $this->decryptContextSettings();
+        $this->decryptPluginSettings();
     }
 
     /**
@@ -127,11 +119,6 @@ class I12074_EncryptCredentials extends Migration
             ->get([$primaryKey, 'setting_value']);
 
         foreach ($rows as $row) {
-            // Skip if already encrypted (starts with eyJ which is base64 for {"iv":)
-            // if (str_starts_with($row->setting_value, 'eyJ')) {
-            //     continue;
-            // }
-
             DB::table($tableName)
                 ->where($primaryKey, $row->{$primaryKey})
                 ->where('setting_name', $settingName)
@@ -151,11 +138,6 @@ class I12074_EncryptCredentials extends Migration
             ->get([$primaryKey, 'setting_value']);
 
         foreach ($rows as $row) {
-            // Skip if not encrypted (doesn't start with eyJ)
-            if (!str_starts_with($row->setting_value, 'eyJ')) {
-                continue;
-            }
-
             DB::table($tableName)
                 ->where($primaryKey, $row->{$primaryKey})
                 ->where('setting_name', $settingName)
@@ -176,11 +158,6 @@ class I12074_EncryptCredentials extends Migration
             ->get(['context_id', 'setting_name', 'setting_value']);
 
         foreach ($rows as $row) {
-            // Skip if already encrypted (starts with eyJ which is base64 for {"iv":)
-            // if (str_starts_with($row->setting_value, 'eyJ')) {
-            //     continue;
-            // }
-
             DB::table('plugin_settings')
                 ->where('plugin_name', $pluginName)
                 ->where('context_id', $row->context_id)
@@ -202,11 +179,6 @@ class I12074_EncryptCredentials extends Migration
             ->get(['context_id', 'setting_name', 'setting_value']);
 
         foreach ($rows as $row) {
-            // Skip if not encrypted (doesn't start with eyJ)
-            if (!str_starts_with($row->setting_value, 'eyJ')) {
-                continue;
-            }
-
             DB::table('plugin_settings')
                 ->where('plugin_name', $pluginName)
                 ->where('context_id', $row->context_id)

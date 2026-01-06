@@ -595,7 +595,7 @@ abstract class Plugin
      * Contains and return the list of plugin setting name which should be encrypted/decrypted
      * at the time to DB store/retrive.
      */
-    public function getEncryptedSettingFieldNames(): array
+    public function getEncryptedSettingFields(): array
     {
         return [];
     }
@@ -615,7 +615,7 @@ abstract class Plugin
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
         $value = $pluginSettingsDao->getSetting($contextId, $this->getName(), $name);
 
-        if (in_array($name, $this->getEncryptedSettingFieldNames()) && !empty($value) && !is_null($value)) {
+        if (in_array($name, $this->getEncryptedSettingFields()) && !empty($value) && !is_null($value)) {
             return app()->decrypt($value);
         }
 
@@ -634,7 +634,7 @@ abstract class Plugin
     {
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
 
-        if (in_array($name, $this->getEncryptedSettingFieldNames()) && !empty($value) && !is_null($value)) {
+        if (in_array($name, $this->getEncryptedSettingFields()) && !empty($value) && !is_null($value)) {
             $value = app()->encrypt($value);
         }
 

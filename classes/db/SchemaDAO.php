@@ -255,7 +255,7 @@ abstract class SchemaDAO extends DAO
                     $this->convertFromDb(
                         value: $primaryRow[$column],
                         type: $schema->properties->{$propName}->type,
-                        encrypt: $schema->properties->{$propName}->encrypt ?? false
+                        decrypt: $schema->properties->{$propName}->encrypt ?? false
                     )
                 );
             }
@@ -274,7 +274,7 @@ abstract class SchemaDAO extends DAO
                     $this->convertFromDB(
                         value: $settingRow['setting_value'],
                         type: $schema->properties->{$settingRow['setting_name']}->type,
-                        encrypt: $schema->properties->{$settingRow['setting_name']}->encrypt ?? false
+                        decrypt: $schema->properties->{$settingRow['setting_name']}->encrypt ?? false
                     ),
                     empty($settingRow['locale']) ? null : $settingRow['locale']
                 );

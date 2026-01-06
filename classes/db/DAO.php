@@ -243,9 +243,9 @@ class DAO
      * @param $value Value from the database
      * @param $type Type from the database, eg `string`
      * @param $nullable True iff the value is allowed to be null
-     * @param $encrypt True if the value is in encrypted format need decryption at pulling from DB
+     * @param $decrypt True if the value is in encrypted format need decryption at pulling from DB
      */
-    public function convertFromDB(mixed $value, ?string $type, bool $nullable = false, bool $encrypt = false): mixed
+    public function convertFromDB(mixed $value, ?string $type, bool $nullable = false, bool $decrypt = false): mixed
     {
         if ($nullable && $value === null) {
             return null;
@@ -271,7 +271,7 @@ class DAO
                 break;
         }
 
-        if ($encrypt && !empty($value) && !is_null($value)) {
+        if ($decrypt && !empty($value) && !is_null($value)) {
             return app()->decrypt($value);
         }
 

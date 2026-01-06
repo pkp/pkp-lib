@@ -14,7 +14,9 @@
 
 namespace PKP\editorialTask;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -22,11 +24,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use PKP\file\TemporaryFile;
+use PKP\file\TemporaryFileDAO;
 use PKP\note\Note;
 use PKP\notification\Notification;
+use PKP\submissionFile\SubmissionFile;
 
 class EditorialTask extends Model
 {
@@ -37,6 +45,10 @@ class EditorialTask extends Model
 
     // Allow filling the headnote together with the task through the 'description' Model attribute
     public const ATTRIBUTE_HEADNOTE = 'description';
+
+    // Allow filling temporary and submission file IDs to upload them and associate with the task
+    public const ATTRIBUTE_TEMPORARY_FILE_IDS = 'temporaryFileIds';
+    public const ATTRIBUTE_SUBMISSION_FILE_IDS = 'submissionFileIds';
 
     // Order directions
     public const ORDER_DIR_ASC = 'asc';
@@ -56,6 +68,16 @@ class EditorialTask extends Model
      * @var Note|null The note associated with the task, used as a headnote/description
      */
     protected ?Note $headnote = null;
+
+    /**
+     * @var ?array<TemporaryFile> Temporary files ID to be uploaded and associated with the task
+     */
+    protected ?array $temporaryFiles = null;
+
+    /**
+     * @var ?array<SubmissionFile> Submission file IDs to be associated with the task
+     */
+    protected ?array $submissionFiles = null;
 
     protected $table = 'edit_tasks';
     protected $primaryKey = 'edit_task_id';
@@ -90,6 +112,9 @@ class EditorialTask extends Model
         static::deleted(function (EditorialTask $task) {
             Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)->delete();
             Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)->delete();
+            DB::table(Repo::submissionFile()->dao->table)->where('assoc_type', '=', PKPApplication::ASSOC_TYPE_QUERY)
+                ->where('assoc_id', '=', $task->id)
+                ->delete();
         });
     }
 
@@ -122,6 +147,14 @@ class EditorialTask extends Model
             $attributes = $this->fillParticipants($attributes);
         }
 
+        if (isset($attributes[self::ATTRIBUTE_TEMPORARY_FILE_IDS])) {
+            $attributes = $this->fillTemporaryFiles($attributes);
+        }
+
+        if (isset($attributes[self::ATTRIBUTE_SUBMISSION_FILE_IDS])) {
+            $attributes = $this->fillSubmissionFiles($attributes);
+        }
+
         return parent::fill($attributes);
     }
 
@@ -139,6 +172,29 @@ class EditorialTask extends Model
 
         $this->saveParticipants($exists);
         $this->saveHeadnote();
+
+        // If attributes representing associated files weren't passed, don't do anything
+        if (!is_array($this->temporaryFiles) && !is_array($this->submissionFiles)) {
+            return $success;
+        }
+
+        // Current associated submission file IDs
+        $existingFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, [$this->id])
+            ->getMany()
+            ->toArray();
+
+        $this->saveTemporaryFiles();
+        $attachedFileIds = $this->attachSubmissionFiles($existingFiles);
+
+        // Remove previously associated submission files, including situation when any of temporary or submission files attribute was passed as empty array
+        foreach ($existingFiles as $existingFile) {
+            if (in_array($existingFile->getId(), $attachedFileIds)) {
+                continue;
+            }
+            // Using Repo method to ensure related files are also removed
+            Repo::submissionFile()->delete($existingFile);
+        }
 
         return $success;
     }
@@ -326,6 +382,35 @@ class EditorialTask extends Model
         return $attributes;
     }
 
+    /**
+     * Fill temporary files by their IDs when corresponding attribute is passed to the model
+     */
+    protected function fillTemporaryFiles(array $attributes): array
+    {
+        $temporaryFileIds = $attributes[self::ATTRIBUTE_TEMPORARY_FILE_IDS];
+        $dao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $dao */
+        $this->temporaryFiles = $dao->getTemporaryFiles($temporaryFileIds)->toArray();
+        unset($attributes[self::ATTRIBUTE_TEMPORARY_FILE_IDS]);
+
+        return $attributes;
+    }
+
+    /**
+     * Fill submission files by their IDs when corresponding attribute is passed to the model
+     */
+    protected function fillSubmissionFiles(array $attributes): array
+    {
+        $submissionFileIds = $attributes[self::ATTRIBUTE_SUBMISSION_FILE_IDS];
+        $this->submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc($this->assocType, $this->assocId)
+            ->filterBySubmissionFileIds($submissionFileIds)
+            ->getMany()
+            ->toArray();
+        unset($attributes[self::ATTRIBUTE_SUBMISSION_FILE_IDS]);
+
+        return $attributes;
+    }
+
 
     /**
      * Save participants into a separate table.
@@ -401,5 +486,99 @@ class EditorialTask extends Model
             'contents' => $this->headnote->contents,
             'dateModified' => now(),
         ]);
+    }
+
+    /**
+     * Handle temporary files associated with the task.
+     */
+    protected function saveTemporaryFiles(): void
+    {
+        if (empty($this->temporaryFiles)) {
+            return;
+        }
+
+        if ($this->assocType != PKPApplication::ASSOC_TYPE_SUBMISSION) {
+            return;
+        }
+
+        $submission = Repo::submission()->get((int) $this->assocId);
+
+        foreach ($this->temporaryFiles as $temporaryFile) {
+
+            // Save to files
+            $extension = pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION);
+            $submissionDir = Repo::submissionFile()->getSubmissionDir($submission->getData('contextId'), $submission->getId());
+            $fileId = app()->get('file')->add(
+                $temporaryFile->getFilePath(),
+                $submissionDir . '/' . uniqid() . '.' . $extension
+            );
+            if (!$fileId) {
+                throw new Exception('Failed to save file from temporary file ID ' . $temporaryFile->getId());
+            }
+
+            // Save to submission files
+            $submissionFile = Repo::submissionFile()->newDataObject([
+                'fileId' => $fileId,
+                'name' => [
+                    Locale::getLocale() => $temporaryFile->getData('originalFileName') ?? $temporaryFile->getData('fileName'),
+                ],
+                'fileStage' => SubmissionFile::SUBMISSION_FILE_QUERY,
+                'submissionId' => $submission->getId(),
+                'uploaderUserId' => $temporaryFile->getUserId(),
+                'assocType' => Application::ASSOC_TYPE_QUERY,
+                'assocId' => $this->id,
+            ]);
+
+            $submissionFileId = Repo::submissionFile()->add($submissionFile);
+            if (!$submissionFileId) {
+                throw new Exception('Failed to save submission file from temporary file ID ' . $temporaryFile->getId());
+            }
+
+            $removed = unlink($temporaryFile->getFilePath());
+
+            // Delete temporary file
+            if ($removed) {
+                DB::table('temporary_files')
+                    ->where('file_id', '=', $temporaryFile->getId())
+                    ->delete();
+                continue;
+            }
+
+            trigger_error('Failed to remove temporary file with ID ' . $temporaryFile->getId() . ' from a server', E_USER_WARNING);
+        }
+    }
+
+    /**
+     * Attach existing submission files to the task.
+     *
+     * @param array<SubmissionFile> $existingFiles
+     *
+     * @return array<int> IDs of attached submission files
+     */
+    protected function attachSubmissionFiles(array $existingFiles): array
+    {
+        if (empty($this->submissionFiles)) {
+            return [];
+        }
+
+        $attachedFileIds = [];
+
+        foreach ($this->submissionFiles as $submissionFile) { /** @var SubmissionFile $submissionFile */
+            // If the submission file is already attached, skip it
+            if (Arr::first($existingFiles, fn (SubmissionFile $file, int $key) => $file->getId() == $submissionFile->getId())) {
+                $attachedFileIds[] = $submissionFile->getId();
+                continue;
+            }
+
+            $newSubmissionFile = Repo::submissionFile()->newDataObject(array_merge($submissionFile->getAllData(), [
+                'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+                'assocId' => $this->id,
+                'sourceSubmissionFileId' => $submissionFile->getId(),
+            ]));
+
+            Repo::submissionFile()->add($newSubmissionFile);
+        }
+
+        return $attachedFileIds;
     }
 }

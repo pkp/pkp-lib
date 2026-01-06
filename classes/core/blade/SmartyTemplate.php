@@ -26,6 +26,46 @@ use Smarty_Internal_Template;
 class SmartyTemplate extends Smarty_Internal_Template
 {
     /**
+     * Override fetch to route through Laravel's view system
+     *
+     * This handles cases where Smarty plugins call $smarty->fetch() directly
+     * (e.g., FormBuilderVocabulary::_smartyFBVSelect calling $smarty->fetch('form/select.tpl'))
+     *
+     * Unlike routing through TemplateManager, this preserves variables assigned
+     * to this template instance (e.g., $smarty->assign('var', $value))
+     */
+    public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
+    {
+        // If no template specified, use parent behavior (fetches current template)
+        if ($template === null) {
+            return parent::fetch($template, $cache_id, $compile_id, $parent);
+        }
+
+        // Convert Smarty path to Laravel view name
+        $viewName = \APP\template\TemplateManager::getManager()->smartyPathToViewName($template);
+
+        // Fire View::resolveName hook for plugin overrides
+        $aliased = null;
+        Hook::call('View::resolveName', [&$aliased, $viewName]);
+        if ($aliased !== null) {
+            $viewName = $aliased;
+        }
+
+        // Resolve file path through Laravel
+        $filePath = app('view.finder')->find($viewName);
+
+        // Render based on resolved file type
+        if (str_ends_with($filePath, '.blade')) {
+            // Blade template - render with current template variables
+            return view($viewName, $this->getTemplateVars())->render();
+        } else {
+            // Smarty template - create child template with current variables as parent
+            // This preserves variable scope from $smarty->assign() calls
+            return parent::fetch($filePath, $cache_id, $compile_id, $parent);
+        }
+    }
+
+    /**
      * Override sub-template rendering to route through Laravel's view system
      */
     public function _subTemplateRender(

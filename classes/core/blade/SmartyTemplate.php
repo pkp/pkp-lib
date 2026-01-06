@@ -40,13 +40,18 @@ class SmartyTemplate extends Smarty_Internal_Template
         $uid = null,
         $content_func = null
     ): void {
-        // Smarty built-in resources (file:, string:, eval:) bypass Laravel
-        if (preg_match('/^(file|string|eval):/', $template)) {
+        // string: and eval: resources bypass Laravel (dynamic content)
+        if (preg_match('/^(string|eval):/', $template)) {
             parent::_subTemplateRender(
                 $template, $cache_id, $compile_id, $caching,
                 $cache_lifetime, $data, $scope, $forceTplCache, $uid, $content_func
             );
             return;
+        }
+
+        // Strip file: prefix if present (Smarty adds this during compilation)
+        if (str_starts_with($template, 'file:')) {
+            $template = substr($template, 5);
         }
 
         // Convert Smarty path to Laravel view name
@@ -62,13 +67,13 @@ class SmartyTemplate extends Smarty_Internal_Template
         // Resolve file path through Laravel
         $filePath = app('view.finder')->find($viewName);
 
-        // Route based on resolved file type
+        // Render based on resolved file type
         if (str_ends_with($filePath, '.blade')) {
-            // Blade: render via Laravel and output
+            // Blade template - render via Laravel
             $templateVars = array_merge($this->getTemplateVars(), $data ?? []);
             echo view($viewName, $templateVars)->render();
         } else {
-            // Smarty: use file: prefix with resolved path
+            // Smarty template - use file: prefix with resolved path
             parent::_subTemplateRender(
                 'file:' . $filePath, $cache_id, $compile_id, $caching,
                 $cache_lifetime, $data, $scope, $forceTplCache, $uid, $content_func

@@ -1363,6 +1363,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Convert Smarty path to Laravel view name and render through Laravel
+        // View::alias hook is fired in Factory::make() for plugin overrides
         $viewName = $this->smartyPathToViewName($template);
         return view($viewName)->render();
     }
@@ -1413,8 +1414,8 @@ class PKPTemplateManager extends Smarty
         // Remove "templates/" prefix if present
         $template = preg_replace('/^templates\//', '', $template);
 
-        // Remove .tpl extension
-        $template = preg_replace('/\.tpl$/', '', $template);
+        // Remove template extension (.tpl or .blade)
+        $template = preg_replace('/\.(tpl|blade)$/', '', $template);
 
         // Convert slashes to dots
         $viewName = str_replace(['/', '\\'], '.', $template);

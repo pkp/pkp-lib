@@ -151,6 +151,14 @@ class PKPTemplateManager extends Smarty
         $this->config_dir = "{$cachePath}/t_config";
         $this->cache_dir = "{$cachePath}/t_cache";
 
+        // Register Smarty resources for core: and app: prefixes.
+        // IMPORTANT: These are required for COMPILATION - Smarty needs to read template
+        // source files when compiling {include file="core:..."} directives.
+        // Runtime resolution and plugin overrides happen in SmartyTemplate via View::resolveName hook.
+        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib/pkp/templates'));
+        $this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
+        $this->default_resource_type = 'app';
+
         $this->error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING;
 
         // Use custom SmartyTemplate class to intercept nested includes

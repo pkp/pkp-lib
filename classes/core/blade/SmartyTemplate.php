@@ -36,33 +36,26 @@ class SmartyTemplate extends Smarty_Internal_Template
      */
     public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
-        // If no template specified, use parent behavior (fetches current template)
-        if ($template === null) {
+        // Delegate to parent: null, string:, eval:, file: (already resolved)
+        if ($template === null || preg_match('/^(string|eval|file):/', $template)) {
             return parent::fetch($template, $cache_id, $compile_id, $parent);
         }
 
-        // Convert Smarty path to Laravel view name
+        // Route through Laravel for View::resolveName hook (handles core:, app:, relative paths)
         $viewName = \APP\template\TemplateManager::getManager()->smartyPathToViewName($template);
 
-        // Fire View::resolveName hook for plugin overrides
         $aliased = null;
         Hook::call('View::resolveName', [&$aliased, $viewName]);
         if ($aliased !== null) {
             $viewName = $aliased;
         }
 
-        // Resolve file path through Laravel
         $filePath = app('view.finder')->find($viewName);
 
-        // Render based on resolved file type
         if (str_ends_with($filePath, '.blade')) {
-            // Blade template - render with current template variables
             return view($viewName, $this->getTemplateVars())->render();
-        } else {
-            // Smarty template - create child template with current variables as parent
-            // This preserves variable scope from $smarty->assign() calls
-            return parent::fetch($filePath, $cache_id, $compile_id, $parent);
         }
+        return parent::fetch('file:' . $filePath, $cache_id, $compile_id, $parent);
     }
 
     /**
@@ -80,8 +73,8 @@ class SmartyTemplate extends Smarty_Internal_Template
         $uid = null,
         $content_func = null
     ): void {
-        // string: and eval: resources bypass Laravel (dynamic content)
-        if (preg_match('/^(string|eval):/', $template)) {
+        // Delegate to parent: string:, eval:, file: (already resolved)
+        if (preg_match('/^(string|eval|file):/', $template)) {
             parent::_subTemplateRender(
                 $template, $cache_id, $compile_id, $caching,
                 $cache_lifetime, $data, $scope, $forceTplCache, $uid, $content_func
@@ -89,31 +82,21 @@ class SmartyTemplate extends Smarty_Internal_Template
             return;
         }
 
-        // Strip file: prefix if present (Smarty adds this during compilation)
-        if (str_starts_with($template, 'file:')) {
-            $template = substr($template, 5);
-        }
-
-        // Convert Smarty path to Laravel view name
+        // Route through Laravel for View::resolveName hook (handles core:, app:, relative paths)
         $viewName = \APP\template\TemplateManager::getManager()->smartyPathToViewName($template);
 
-        // Fire View::resolveName hook for plugin overrides
         $aliased = null;
         Hook::call('View::resolveName', [&$aliased, $viewName]);
         if ($aliased !== null) {
             $viewName = $aliased;
         }
 
-        // Resolve file path through Laravel
         $filePath = app('view.finder')->find($viewName);
 
-        // Render based on resolved file type
         if (str_ends_with($filePath, '.blade')) {
-            // Blade template - render via Laravel
             $templateVars = array_merge($this->getTemplateVars(), $data ?? []);
             echo view($viewName, $templateVars)->render();
         } else {
-            // Smarty template - use file: prefix with resolved path
             parent::_subTemplateRender(
                 'file:' . $filePath, $cache_id, $compile_id, $caching,
                 $cache_lifetime, $data, $scope, $forceTplCache, $uid, $content_func

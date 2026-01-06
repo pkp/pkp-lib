@@ -424,7 +424,6 @@ class DataObject
             // Get the meta-data adapter that supports the
             // given meta-data description's schema.
             $metadataAdapter = $extractionAdapters[$metadataSchemaName];
-
             // Use adapter filter to convert from a data object
             // to a meta-data description.
             $metadataDescription = $metadataAdapter->execute($this);

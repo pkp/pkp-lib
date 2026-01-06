@@ -100,7 +100,3 @@ class PrimitiveTypeDescription extends TypeDescription
         return $supportedPrimitiveTypes;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\PrimitiveTypeDescription', '\PrimitiveTypeDescription');
-}

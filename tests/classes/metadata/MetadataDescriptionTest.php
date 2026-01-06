@@ -19,6 +19,7 @@
 namespace PKP\tests\classes\metadata;
 
 use APP\core\Application;
+use PKP\tests\classes\metadata\TestSchema;
 use PKP\metadata\MetadataDescription;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversMethod;
@@ -67,7 +68,7 @@ class MetadataDescriptionTest extends PKPTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', Application::ASSOC_TYPE_CITATION);
+        $this->metadataDescription = new MetadataDescription(TestSchema::class, Application::ASSOC_TYPE_CITATION);
     }
 
     public function testAddStatement()

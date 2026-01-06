@@ -93,11 +93,13 @@ abstract class Filter extends \PKP\core\DataObject
 
     public $_output;
 
-    /** @var A list of errors occurred while filtering */
+    /** 
+     * A list of errors occurred while filtering
+     */
     public array $_errors = [];
 
     /**
-     * @var The installation requirements required to run this filter instance
+     * The installation requirements required to run this filter instance
      */
     public ?RuntimeEnvironment $_runtimeEnvironment = null;
 
@@ -457,7 +459,6 @@ abstract class Filter extends \PKP\core\DataObject
 
         // Process the filter
         $preliminaryOutput = &$this->process($input);
-
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
         Hook::call(strtolower(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
 

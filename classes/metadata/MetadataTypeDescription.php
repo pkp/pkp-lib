@@ -83,7 +83,6 @@ class MetadataTypeDescription extends ClassTypeDescription
     {
         // Configure the parent class type description
         // with the expected meta-data class.
-        // parent::parseTypeName('lib.pkp.classes.metadata.MetadataDescription');
         parent::parseTypeName(MetadataDescription::class);
 
         // Split the type name into class name and assoc type.

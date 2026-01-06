@@ -176,10 +176,8 @@ class MetadataDataObjectAdapter extends PersistableFilter
 
     /**
      * Get the supported application entity (class) name
-     *
-     * @return string
      */
-    public function getDataObjectName()
+    public function getDataObjectName(): string
     {
         return $this->_dataObjectName;
     }
@@ -194,7 +192,6 @@ class MetadataDataObjectAdapter extends PersistableFilter
     {
         if (is_null($this->_dataObjectClass)) {
             $dataObjectName = $this->getDataObjectName();
-            assert(!is_null($dataObjectName));
             $dataObjectNameParts = explode('\\', $dataObjectName);
             $this->_dataObjectClass = array_pop($dataObjectNameParts);
         }
@@ -340,7 +337,6 @@ class MetadataDataObjectAdapter extends PersistableFilter
     public function &instantiateDataObject()
     {
         $dataObjectName = $this->getDataObjectName();
-        assert(!is_null($dataObjectName));
         $dataObject = new $dataObjectName;
         return $dataObject;
     }

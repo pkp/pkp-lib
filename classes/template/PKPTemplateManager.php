@@ -1381,11 +1381,10 @@ class PKPTemplateManager extends Smarty
      *
      * Handles various input formats:
      * - "frontend/pages/article.tpl" → "frontend.pages.article"
-     * - "app:frontend/pages/article.tpl" → "app::frontend.pages.article"
+     * - "app:frontend/pages/article.tpl" → "frontend.pages.article" (app is default namespace)
      * - "core:frontend/pages/article.tpl" → "pkp::frontend.pages.article"
      * - "frontend.pages.article" (already dot notation) → "frontend.pages.article"
      * - "mytheme::frontend.pages.article" (namespaced) → "mytheme::frontend.pages.article"
-     * - "plugins-1-0-...-funding:listFunders.tpl" → "funding::listFunders" (plugin resource notation)
      *
      * @param string $template Smarty template path or Laravel view name
      * @return string Laravel view name in dot notation (possibly with namespace)
@@ -1396,12 +1395,6 @@ class PKPTemplateManager extends Smarty
         // These are already in the correct format: "namespace::view.name"
         if (str_contains($template, '::')) {
             return $template;
-        }
-
-        // Handle plugin resource notation: "plugins-1-contextId-path-category-pluginName:template.tpl"
-        // Convert to Laravel namespace format: "pluginName::template"
-        if (str_starts_with($template, 'plugins-') && str_contains($template, ':')) {
-            return $this->pluginResourceToViewName($template);
         }
 
         // If already in dot notation (no slashes, no .tpl), return as-is
@@ -1441,43 +1434,6 @@ class PKPTemplateManager extends Smarty
         }
 
         return $viewName;
-    }
-
-    /**
-     * Convert plugin resource notation to Laravel view namespace
-     *
-     * Plugin resource format: "plugins-{contextId}-{pluginPath}-{category}-{pluginName}:{templatePath}"
-     * Example: "plugins-0-plugins-generic-funding-generic-funding:listFunders.tpl"
-     *
-     * Converts to Laravel namespace format: "pluginName::templatePath"
-     * Result: "funding::listFunders"
-     *
-     * This matches how plugins register their view namespace via _registerTemplateViewNamespace(),
-     * ensuring Laravel can find templates in the plugin's templates/ directory.
-     *
-     * @param string $resource Plugin resource notation
-     * @return string Laravel view name with namespace (e.g., "funding::listFunders")
-     */
-    protected function pluginResourceToViewName(string $resource): string
-    {
-        // Split on colon to get resource prefix and template path
-        $parts = explode(':', $resource, 2);
-        $resourcePrefix = $parts[0];  // "plugins-0-plugins-generic-funding-generic-funding"
-        $templatePath = $parts[1] ?? '';  // "listFunders.tpl"
-
-        // Remove .tpl extension and convert slashes to dots
-        $templatePath = preg_replace('/\.tpl$/', '', $templatePath);
-        $templatePath = str_replace(['/', '\\'], '.', $templatePath);
-
-        // Parse the resource prefix to extract plugin name
-        // Format: plugins-{contextId}-{pluginPath with / as -}-{category}-{pluginName}
-        // Example: plugins-0-plugins-generic-funding-generic-funding
-        // The last segment is the plugin name (used as Laravel namespace)
-        $segments = explode('-', $resourcePrefix);
-        $pluginName = array_pop($segments);  // Last segment is plugin name
-
-        // Return Laravel namespaced view: "funding::listFunders"
-        return "{$pluginName}::{$templatePath}";
     }
 
     /**

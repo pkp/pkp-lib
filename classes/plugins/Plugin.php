@@ -63,13 +63,11 @@ use PKP\install\Installer;
 use PKP\observers\events\PluginSettingChanged;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
-use PKP\template\PKPTemplateResource;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
-define('PLUGIN_TEMPLATE_RESOURCE_PREFIX', 'plugins');
 
 abstract class Plugin
 {
@@ -357,34 +355,17 @@ abstract class Plugin
      */
     public function getTemplateResource($template = null, $inCore = false)
     {
-        // When template is specified, return Laravel namespace format
-        // This works with PKPTemplateManager::fetch() which routes through Laravel's view system
-        if ($template !== null) {
-            // Remove .tpl extension and convert slashes to dots
-            $viewPath = preg_replace('/\.tpl$/', '', $template);
-            $viewPath = str_replace(['/', '\\'], '.', $viewPath);
+        $namespace = $this->getTemplateViewNamespace();
 
-            return $this->getTemplateViewNamespace() . '::' . $viewPath;
+        if ($template === null) {
+            return $namespace;
         }
 
-        // When no template specified, return Smarty resource name for _registerTemplateResource()
-        $pluginPath = $this->getPluginPath();
-        if ($inCore) {
-            $pluginPath = PKP_LIB_PATH . "/{$pluginPath}";
-        }
-        $plugin = basename($pluginPath);
-        $category = basename(dirname($pluginPath));
+        // Remove .tpl extension and convert slashes to dots
+        $viewPath = preg_replace('/\.tpl$/', '', $template);
+        $viewPath = str_replace(['/', '\\'], '.', $viewPath);
 
-        $contextId = PKPApplication::SITE_CONTEXT_ID;
-        if (Application::isInstalled()) {
-            $context = Application::get()->getRequest()->getContext();
-            if ($context instanceof \PKP\context\Context) {
-                $contextId = $context->getId();
-            }
-        }
-
-        // Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
-        return strtr(join('/', [PLUGIN_TEMPLATE_RESOURCE_PREFIX, $contextId, $pluginPath, $category, $plugin]), '/', '-');
+        return "{$namespace}::{$viewPath}";
     }
 
     /**
@@ -457,10 +438,6 @@ abstract class Plugin
     protected function _registerTemplateResource($inCore = false)
     {
         if ($templatePath = $this->getTemplatePath($inCore)) {
-            $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
-            $pluginTemplateResource = new PKPTemplateResource($templatePath);
-            $templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
-
             // Register the plugin's template path to render blade views and components
             $fileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $fileViewFinder */
             $fileViewFinder->addLocation(app()->basePath($templatePath));

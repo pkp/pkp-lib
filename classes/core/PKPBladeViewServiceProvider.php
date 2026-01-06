@@ -131,13 +131,6 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
 
         // Create a global alias so ViewHelper can be used without full namespace in templates
         AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);
-
-        // FIXME : probably dont need it anymore 
-        // Register theme view paths after PKPRequest is resolved
-        // This allows plugin Blade templates to override core Blade templates
-        $this->callAfterResolving(PKPRequest::class, function (PKPRequest $request) {
-            self::registerThemeViewPaths($request);
-        });
     }
 
     /**

@@ -268,6 +268,87 @@ class TemplateIntegrationTest extends PKPTestCase
         $this->assertStringContainsString('Smarty: fromBlade', $result);
     }
 
+    /**
+     * Test that local variables passed via Smarty {include} are available in Blade
+     *
+     * Smarty syntax: {include file="template.blade" localVar="value"}
+     */
+    public function testDirectNestingSmartyPassesLocalVarsToBlade(): void
+    {
+        $this->createTemplate(
+            'smarty_with_local.tpl',
+            'Parent: {include file="nested/blade_receives_local.blade" localVar="passedValue" anotherVar="secondValue"}'
+        );
+        $this->createTemplate(
+            'nested/blade_receives_local.blade',
+            'Blade received: {{ $localVar }} and {{ $anotherVar }}'
+        );
+
+        $result = $this->renderView('smarty_with_local');
+
+        $this->assertStringContainsString('Blade received: passedValue and secondValue', $result);
+    }
+
+    /**
+     * Test deep nesting: Smarty → Blade → Smarty (3 levels)
+     *
+     * Verifies that variables flow correctly through the entire chain
+     */
+    public function testDirectNestingDeepChainSmartyBladeSmary(): void
+    {
+        // Level 1: Smarty parent
+        $this->createTemplate(
+            'deep_level1.tpl',
+            'L1({$rootVar}): {include file="nested/deep_level2.blade"}'
+        );
+        // Level 2: Blade middle
+        $this->createTemplate(
+            'nested/deep_level2.blade',
+            'L2({{ $rootVar }}): @include("test::nested.deep_level3")'
+        );
+        // Level 3: Smarty child
+        $this->createTemplate(
+            'nested/deep_level3.tpl',
+            'L3({$rootVar})'
+        );
+
+        $result = $this->renderView('deep_level1', ['rootVar' => 'inherited']);
+
+        $this->assertStringContainsString('L1(inherited):', $result);
+        $this->assertStringContainsString('L2(inherited):', $result);
+        $this->assertStringContainsString('L3(inherited)', $result);
+    }
+
+    /**
+     * Test deep nesting: Blade → Smarty → Blade (3 levels)
+     *
+     * Verifies the reverse chain also works
+     */
+    public function testDirectNestingDeepChainBladeSmartyBlade(): void
+    {
+        // Level 1: Blade parent
+        $this->createTemplate(
+            'deep_blade_l1.blade',
+            'L1({{ $rootVar }}): @include("test::nested.deep_smarty_l2")'
+        );
+        // Level 2: Smarty middle
+        $this->createTemplate(
+            'nested/deep_smarty_l2.tpl',
+            'L2({$rootVar}): {include file="nested/deep_blade_l3.blade"}'
+        );
+        // Level 3: Blade child
+        $this->createTemplate(
+            'nested/deep_blade_l3.blade',
+            'L3({{ $rootVar }})'
+        );
+
+        $result = $this->renderView('deep_blade_l1', ['rootVar' => 'flows']);
+
+        $this->assertStringContainsString('L1(flows):', $result);
+        $this->assertStringContainsString('L2(flows):', $result);
+        $this->assertStringContainsString('L3(flows)', $result);
+    }
+
     // =========================================================================
     // SECTION 4: Variable Passing
     // =========================================================================
@@ -555,6 +636,101 @@ class TemplateIntegrationTest extends PKPTestCase
 
         // Should use original plugin template since no override exists
         $this->assertStringContainsString('Original Citation: Test Citation', $result);
+    }
+
+    // =========================================================================
+    // SECTION 9: Caching Behavior - Verify file path based caching (pkp/pkp-lib#5592)
+    // =========================================================================
+
+    /**
+     * Test that Smarty caching uses resolved file path, not original view name
+     *
+     * This verifies the fix for pkp/pkp-lib#5592 where cached templates from one
+     * context (journal/theme) were incorrectly served to another context.
+     *
+     * The scenario: Same original template name, but alias resolves to different
+     * files depending on context (e.g., different themes). Each should render
+     * correctly without cache interference.
+     */
+    public function testAliasCachingUsesResolvedFilePath(): void
+    {
+        // Create original template
+        $this->createTemplate('cacheable.tpl', 'Original: {$value}');
+
+        // Create two different override templates (simulating different themes)
+        $this->createTemplate('override_theme_a.tpl', 'Theme A Override: {$value}');
+        $this->createTemplate('override_theme_b.tpl', 'Theme B Override: {$value}');
+
+        // Variable to control which override is active (simulating context switch)
+        $activeTheme = 'A';
+
+        // Register dynamic alias hook (like theme switching between journals)
+        Hook::add('View::alias', function ($hookName, $args) use (&$activeTheme) {
+            $aliasedViewName = &$args[0];
+            $viewName = $args[1];
+            if ($viewName === 'test::cacheable') {
+                $aliasedViewName = $activeTheme === 'A'
+                    ? 'test::override_theme_a'
+                    : 'test::override_theme_b';
+            }
+            return Hook::CONTINUE;
+        });
+
+        // First render with "Theme A" context
+        $result1 = $this->renderView('cacheable', ['value' => 'first']);
+        $this->assertStringContainsString('Theme A Override: first', $result1);
+
+        // Switch context to "Theme B" (simulating different journal with different theme)
+        $activeTheme = 'B';
+
+        // Second render should get Theme B's template, NOT cached Theme A
+        $result2 = $this->renderView('cacheable', ['value' => 'second']);
+        $this->assertStringContainsString('Theme B Override: second', $result2);
+
+        // Switch back to Theme A to verify it still works
+        $activeTheme = 'A';
+        $result3 = $this->renderView('cacheable', ['value' => 'third']);
+        $this->assertStringContainsString('Theme A Override: third', $result3);
+    }
+
+    /**
+     * Test that nested Smarty includes also use file path caching correctly
+     *
+     * Verifies that when a parent template includes a child that gets aliased,
+     * changing the alias target produces different output (no stale cache).
+     */
+    public function testAliasNestedIncludeCachingUsesResolvedFilePath(): void
+    {
+        // Parent template includes a widget
+        $this->createTemplate('parent_cached.tpl', 'Parent: {include file="nested/widget_cached.tpl"}');
+
+        // Original widget and two overrides
+        $this->createTemplate('nested/widget_cached.tpl', 'Original Widget');
+        $this->createTemplate('nested/widget_override_x.tpl', 'Widget X: {$data}');
+        $this->createTemplate('nested/widget_override_y.tpl', 'Widget Y: {$data}');
+
+        $activeOverride = 'X';
+
+        Hook::add('View::alias', function ($hookName, $args) use (&$activeOverride) {
+            $aliasedViewName = &$args[0];
+            $viewName = $args[1];
+            // Nested includes go through smartyPathToViewName which strips namespace
+            if ($viewName === 'nested.widget_cached') {
+                $aliasedViewName = $activeOverride === 'X'
+                    ? 'test::nested.widget_override_x'
+                    : 'test::nested.widget_override_y';
+            }
+            return Hook::CONTINUE;
+        });
+
+        // Render with override X
+        $result1 = $this->renderView('parent_cached', ['data' => 'val1']);
+        $this->assertStringContainsString('Widget X: val1', $result1);
+
+        // Switch to override Y
+        $activeOverride = 'Y';
+        $result2 = $this->renderView('parent_cached', ['data' => 'val2']);
+        $this->assertStringContainsString('Widget Y: val2', $result2);
     }
 
     /**

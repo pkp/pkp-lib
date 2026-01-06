@@ -1418,8 +1418,9 @@ class PKPTemplateManager extends Smarty
             $template = $matches[2];
 
             // Map Smarty prefix to Laravel namespace
+            // Note: 'app' maps to null - it's the default namespace, no prefix needed
             $namespace = match ($prefix) {
-                'app' => 'app',
+                'app' => null,
                 'core' => 'pkp',
                 default => null,
             };

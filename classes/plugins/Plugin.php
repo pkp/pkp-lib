@@ -517,19 +517,19 @@ abstract class Plugin
      * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>
      *
      * @param string $hookName TemplateResource::getFilename
-     * @param array $args [&$overridePath, $viewName]
-     *   - $overridePath: Set to file path to override
-     *   - $viewName: View name (dot notation or namespaced)
+     * @param array $args [&$aliasedViewName, $viewName]
+     *   - $aliasedViewName: Set to namespaced view name to override (e.g., 'pluginName::frontend.pages.article')
+     *   - $viewName: Original view name (dot notation or namespaced)
      *
      * @return int Hook::CONTINUE
      */
     public function _overridePluginTemplates($hookName, $args)
     {
-        $overridePath = &$args[0];
+        $aliasedViewName = &$args[0];
         $viewName = $args[1];
 
-        // Template name to use for path resolution (may be updated for namespaced views)
-        $templateForPath = $viewName;
+        // Template name to use for override check (may be updated for namespaced views)
+        $templateForOverride = $viewName;
 
         // Handle namespaced views (e.g., "FundingPlugin::listFunders", "app::frontend.pages.article")
         if (str_contains($viewName, '::')) {
@@ -544,7 +544,7 @@ abstract class Plugin
             // For app:: namespace (from app: prefix or default_resource_type), allow theme override
             // Fall through to standard dot notation handling below
             if ($namespace === 'app') {
-                $templateForPath = $templateName;
+                $templateForOverride = $templateName;
             } else {
                 // For plugin namespaces with registered hints, use full override path structure
                 // This handles theme overrides for plugin templates (e.g., theme overriding FundingPlugin's template)
@@ -577,7 +577,10 @@ abstract class Plugin
                         $templatePath = str_replace('.', '/', $templateName);
                         $overrideBasePath = $this->getPluginPath() . '/templates/' . $originalTemplatePath . '/' . $templatePath;
 
-                        return $this->_checkOverrideExists($overridePath, $overrideBasePath, $hookName, $args);
+                        // For plugin namespace overrides, the aliased view name includes the full path structure
+                        // e.g., "defaultmanuscripttheme::plugins.generic.funding.templates.listFunders"
+                        $aliasedTemplateName = str_replace('/', '.', $originalTemplatePath) . '.' . $templateName;
+                        return $this->_checkOverrideExists($aliasedViewName, $overrideBasePath, $aliasedTemplateName, $hookName, $args);
                     }
                 }
 
@@ -588,32 +591,34 @@ abstract class Plugin
 
         // Handle dot notation views (e.g., "frontend.pages.article")
         // Also handles fallback for namespaced views with unknown/empty namespace
-        $templatePath = str_replace('.', '/', $templateForPath);
+        $templatePath = str_replace('.', '/', $templateForOverride);
         $basePath = $this->getPluginPath() . '/templates/' . $templatePath;
 
-        return $this->_checkOverrideExists($overridePath, $basePath, $hookName, $args);
+        return $this->_checkOverrideExists($aliasedViewName, $basePath, $templateForOverride, $hookName, $args);
     }
 
     /**
-     * Check if override file exists and set the path
+     * Check if override file exists and set the aliased view name
      *
-     * @param string|null &$overridePath Reference to set if override found
-     * @param string $basePath Base path to check (without extension)
+     * @param string|null &$aliasedViewName Reference to set if override found (namespaced view name)
+     * @param string $basePath Base file path to check (without extension)
+     * @param string $templateName Template name in dot notation for the aliased view
      * @param string $hookName Hook name for parent delegation
      * @param array $args Hook args for parent delegation
      * @return int Hook::CONTINUE
      */
-    protected function _checkOverrideExists(&$overridePath, string $basePath, string $hookName, array $args): int
+    protected function _checkOverrideExists(&$aliasedViewName, string $basePath, string $templateName, string $hookName, array $args): int
     {
-        // Check for Blade override
+        // Check for Blade override (.blade)
         if (file_exists($basePath . '.blade')) {
-            $overridePath = $basePath . '.blade';
+            $aliasedViewName = $this->getName() . '::' . $templateName;
             return Hook::CONTINUE;
         }
 
-        // Check for Smarty override
+        // Check for Smarty override (.tpl)
+        // Note: Laravel can resolve .tpl files via namespaces since we registered the extension
         if (file_exists($basePath . '.tpl')) {
-            $overridePath = $basePath . '.tpl';
+            $aliasedViewName = $this->getName() . '::' . $templateName;
             return Hook::CONTINUE;
         }
 

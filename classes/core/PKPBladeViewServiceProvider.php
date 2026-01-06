@@ -4,6 +4,7 @@ namespace PKP\core;
 
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
+use PKP\core\blade\Factory;
 use PKP\core\blade\FileViewFinder;
 use PKP\core\blade\SmartyTemplatingEngine;
 use Illuminate\Support\Facades\View;
@@ -11,8 +12,10 @@ use PKP\core\blade\DynamicComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\ViewServiceProvider;
+use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Factory as ViewFactory;
+use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
@@ -288,6 +291,21 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         );
 
         return $factory;
+    }
+
+    /**
+     * Create the view factory instance.
+     *
+     * Override parent to return our custom Factory with view name aliasing support.
+     *
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\ViewFinderInterface  $finder
+     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @return \PKP\core\blade\Factory
+     */
+    protected function createFactory($resolver, $finder, $events)
+    {
+        return new Factory($resolver, $finder, $events);
     }
 
 }

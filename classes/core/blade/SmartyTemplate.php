@@ -12,10 +12,10 @@
  * @brief Custom Smarty template class that routes ALL template includes through Laravel's view system
  *
  * This class extends Smarty_Internal_Template to intercept nested template includes
- * ({include file="..."}) and route them through Laravel's FileViewFinder. This enables:
+ * ({include file="..."}) and route them through Laravel's view system. This enables:
  *
  * 1. UNIFIED RESOLUTION: All templates resolve through Laravel's FileViewFinder,
- *    which fires the TemplateResource::getFilename hook. This ensures plugins can
+ *    with view name aliasing via the View::alias hook. This ensures plugins can
  *    override any template, regardless of nesting depth or resource prefix.
  *
  * 2. SINGLE CODE PATH: By routing app:, core:, and plain templates all through
@@ -46,8 +46,9 @@
  * 1. _subTemplateRender() is called
  * 2. isSmartyBuiltinResource() returns false (core: is not file:/string:/eval:)
  * 3. smartyPathToViewName() converts to "pkp::frontend.pages.submissions"
- * 4. FileViewFinder resolves it (hook fires, overrides possible)
- * 5. Based on resolved path: Blade renders directly, Smarty gets file: prefix
+ * 4. View::alias hook fires, allowing plugins to alias to namespaced view
+ * 5. FileViewFinder resolves the (possibly aliased) view name
+ * 6. Based on resolved path: Blade renders directly, Smarty gets file: prefix
  *
  * @see PKP\core\blade\SmartyTemplatingEngine
  * @see PKP\core\blade\FileViewFinder
@@ -55,6 +56,7 @@
 
 namespace PKP\core\blade;
 
+use PKP\plugins\Hook;
 use Smarty_Internal_Template;
 
 class SmartyTemplate extends Smarty_Internal_Template
@@ -212,6 +214,9 @@ class SmartyTemplate extends Smarty_Internal_Template
     /**
      * Convert Smarty template name to Laravel view name and resolve through FileViewFinder
      *
+     * Fires the View::alias hook to allow plugins to override the view name,
+     * mirroring the behavior in Factory::make().
+     *
      * @param string $template Smarty template name (e.g., "frontend/pages/article.tpl")
      * @return string|null Resolved absolute file path, or null if not found
      */
@@ -222,10 +227,18 @@ class SmartyTemplate extends Smarty_Internal_Template
             // "frontend/pages/article.tpl" → "frontend.pages.article"
             $viewName = $this->templateToViewName($template);
 
+            // Fire alias hook (same as Factory::make does) to allow plugins to override
+            $aliased = null;
+            Hook::call('View::alias', [&$aliased, $viewName]);
+
+            if ($aliased !== null && $aliased !== $viewName) {
+                $viewName = $aliased;
+            }
+
             // Get Laravel's view finder
             $finder = app('view.finder');
 
-            // Resolve through FileViewFinder (this fires the hook!)
+            // Resolve through FileViewFinder using standard Laravel resolution
             return $finder->find($viewName);
         } catch (\InvalidArgumentException $e) {
             // View not found in Laravel's paths, fall back to Smarty's resolution

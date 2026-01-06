@@ -151,11 +151,6 @@ class PKPTemplateManager extends Smarty
         $this->config_dir = "{$cachePath}/t_config";
         $this->cache_dir = "{$cachePath}/t_cache";
 
-        // Register the template resources.
-        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib/pkp/templates'));
-        $this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
-        $this->default_resource_type = 'app';
-
         $this->error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING;
 
         // Use custom SmartyTemplate class to intercept nested includes
@@ -1341,8 +1336,8 @@ class PKPTemplateManager extends Smarty
      * Fetch and render a template
      *
      * Routes all template rendering through Laravel's view system for unified
-     * template resolution. This ensures the TemplateResource::getFilename hook
-     * fires consistently for all templates, enabling plugin overrides.
+     * template resolution. This ensures the View::alias hook fires consistently
+     * for all templates, enabling plugin overrides.
      *
      * @param null|mixed $template Template path, view name, or View instance
      * @param null|mixed $cache_id Smarty cache ID (unused in unified architecture)

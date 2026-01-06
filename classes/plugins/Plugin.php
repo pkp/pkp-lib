@@ -418,9 +418,8 @@ abstract class Plugin
      */
     public function resolveBladeViewPath(string $templatePath): string
     {
-        // This is to accommodate the case if template files path beign set as similar
-        // to the smarty templates e.g. `some-path/some-template.blade.php`
-        // as blade view needed to in just `some-path.some-template`
+        // Convert template file path to Laravel view name
+        // e.g. `some-path/some-template.blade` → `some-path.some-template`
         $bladeTemplatePath = str_replace(
             ['/', '.blade', '.tpl'],
             ['.', '', ''],
@@ -493,7 +492,7 @@ abstract class Plugin
      * This matches the PKP documentation for template override structure:
      * <overridingPlugin>/templates/plugins/<category>/<originalPlugin>/templates/<path>
      *
-     * @param string $hookName TemplateResource::getFilename
+     * @param string $hookName View::alias
      * @param array $args [&$aliasedViewName, $viewName]
      *   - $aliasedViewName: Set to namespaced view name to override (e.g., 'pluginName::frontend.pages.article')
      *   - $viewName: Original view name (dot notation or namespaced)

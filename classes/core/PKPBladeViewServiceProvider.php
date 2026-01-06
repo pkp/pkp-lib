@@ -5,8 +5,8 @@ namespace PKP\core;
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
 use PKP\core\blade\Factory;
-use PKP\core\blade\FileViewFinder;
 use PKP\core\blade\SmartyTemplatingEngine;
+use Illuminate\View\FileViewFinder;
 use Illuminate\Support\Facades\View;
 use PKP\core\blade\DynamicComponent;
 use Illuminate\Support\Facades\Blade;
@@ -29,8 +29,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
      */
     public function boot()
     {
-        // Allow to render blade files as .blade e.g. with the .php extension
-        // but still allow to render views as .blade.php to accommodate default behavior.
+        // Register .blade extension for Blade templates
         View::addExtension('blade', 'blade');
 
         // Register .tpl extension for Smarty templates

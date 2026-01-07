@@ -20,6 +20,10 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Auth;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\form\validation\FormValidatorPassword;
 use PKP\form\Form;
 use PKP\security\Validation;
 use PKP\site\Site;
@@ -47,21 +51,19 @@ class ChangePasswordForm extends Form
         $this->_site = $site;
 
         // Validation checks for this form
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'oldPassword', 'required', 'user.profile.form.oldPasswordInvalid', function ($password) use ($user) {
+        $this->addCheck(new FormValidatorCustom($this, 'oldPassword', 'required', 'user.profile.form.oldPasswordInvalid', function ($password) use ($user) {
             return Validation::checkCredentials($user->getUsername(), $password);
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.newPasswordRequired'));
+
         $form = $this;
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
-            return $password == $form->getData('password2');
-        }));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.profile.form.passwordSameAsOld', function ($password) use ($form) {
+        $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.profile.form.passwordSameAsOld', function ($password) use ($form) {
             return $password != $form->getData('oldPassword');
         }));
 
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidatorPassword($this, 'password', 'required', '', 'password2'));
+
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     /**

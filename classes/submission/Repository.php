@@ -47,6 +47,7 @@ use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
 use PKP\submission\traits\HasWordCountValidation;
+use PKP\editorialTask\services\AutoCreateTasksFromTemplates;
 
 abstract class Repository
 {
@@ -621,6 +622,10 @@ abstract class Repository
         }
         $submissionId = $this->dao->insert($submission);
         $submission = Repo::submission()->get($submissionId);
+        $stageId = (int) $submission->getData('stageId');
+        if ($stageId > 0) {
+            (new AutoCreateTasksFromTemplates())->handleStageEntered($submission, $stageId);
+        }
 
         $publication->setData('submissionId', $submission->getId());
 

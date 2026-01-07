@@ -69,8 +69,11 @@ describe('ORCID tests', function() {
 
 	  // Populate remaining fields and submit registration form
 	  cy.get('#username').type('johndoe');
-	  cy.get('#password').type('superSecretPassword');
-	  cy.get('#password2').type('superSecretPassword');
+	  
+	  // Need to provide a hard password so that uncompromised validation does not trigger 
+	  cy.get('#password').type('C0mm0n<>?');
+	  cy.get('#password2').type('C0mm0n<>?');
+
 	  cy.get('input[name="privacyConsent"]').check();
 
 	  cy.get('button[type="submit"]').click();

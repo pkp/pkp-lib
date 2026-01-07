@@ -147,16 +147,19 @@ class Template extends Model
     /**
      * Creates a new task from a template
      */
-    public function promote(Submission $submission): Task
+    public function promote(Submission $submission, bool $includeParticipants = true): Task
     {
-        $userGroupIds = $this->userGroups()->pluck('user_groups.user_group_id')->toArray();
-        $stageAssignments = StageAssignment::where('submission_id', $submission->getId())->whereHas('userGroupStages', fn (Builder $query) => $query->where('stage_id', $this->stage_id))
-            ->whereHas('userGroup', fn (Builder $query) => $query->whereIn('user_group_id', $userGroupIds))
-            ->get();
+        $participantIds = collect();
+        if ($includeParticipants) {
+            $userGroupIds = $this->userGroups()->pluck('user_groups.user_group_id')->toArray();
+            $stageAssignments = StageAssignment::where('submission_id', $submission->getId())->whereHas('userGroupStages', fn (Builder $query) => $query->where('stage_id', $this->stageId))
+                ->whereHas('userGroup', fn (Builder $query) => $query->whereIn('user_group_id', $userGroupIds))
+                ->get();
 
-        $participantIds = $stageAssignments->pluck('user_id')->unique()->map(function (int $userId) {
-            return ['userId' => $userId, 'isResponsible' => false];
-        });
+            $participantIds = $stageAssignments->pluck('user_id')->unique()->map(function (int $userId) {
+                return ['userId' => $userId, 'isResponsible' => false];
+            })->values();
+        }
 
         return new Task([
             'type' => $this->type,

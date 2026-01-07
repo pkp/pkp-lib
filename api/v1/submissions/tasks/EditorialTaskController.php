@@ -200,6 +200,10 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        if ($response = $this->forbidIfUnassignedAndNotManager($submission, $editTask)) {
+            return $response;
+        }
+
         return response()->json(
             (new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask))),
             Response::HTTP_OK
@@ -314,6 +318,9 @@ class EditorialTaskController extends PKPBaseController
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
         }
+        if ($response = $this->forbidIfUnassignedAndNotManager($submission, $editTask)) {
+            return $response;
+        }
 
         $validated = $illuminateRequest->validated();
 
@@ -334,12 +341,15 @@ class EditorialTaskController extends PKPBaseController
      */
     public function deleteTask(Request $illuminateRequest): JsonResponse
     {
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
 
         if (!$editTask) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound'),
-            ], Response::HTTP_NOT_FOUND);
+            return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($response = $this->forbidIfUnassignedAndNotManager($submission, $editTask)) {
+            return $response;
         }
 
         $editTask->delete();
@@ -359,6 +369,9 @@ class EditorialTaskController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
+        }
+        if ($response = $this->forbidIfUnassignedAndNotManager($submission, $editTask)) {
+            return $response;
         }
 
         if ($editTask->dateClosed) {
@@ -387,6 +400,9 @@ class EditorialTaskController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
+        }
+        if ($response = $this->forbidIfUnassignedAndNotManager($submission, $editTask)) {
+            return $response;
         }
 
         if (!$editTask->dateClosed) {
@@ -494,13 +510,21 @@ class EditorialTaskController extends PKPBaseController
             ->withStageIds([$editTask->stageId])
             ->get();
 
-        $participantIds = $editTask->participants()->get()->pluck('userId')->unique()->toArray();
-        $creatorId = $editTask->createdBy;
-        if (!in_array($creatorId, $participantIds)) {
+        $participantIds = $editTask->participants
+            ->map(fn (Participant $participant) => $participant->userId)
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+
+        $creatorId = (int) ($editTask->createdBy ?? 0);
+        if ($creatorId > 0 && !in_array($creatorId, $participantIds, true)) {
             $participantIds[] = $creatorId;
         }
 
-        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+        $users = !empty($participantIds)
+            ? Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany()
+            : collect();
         $userGroups = UserGroup::with('userUserGroups')
             ->withContextIds($submission->getData('contextId'))
             ->withUserIds($participantIds)
@@ -531,11 +555,41 @@ class EditorialTaskController extends PKPBaseController
         ];
     }
 
+    private function forbidIfUnassignedAndNotManager(Submission $submission, EditorialTask $task): ?JsonResponse
+    {
+        $user = $this->getRequest()->getUser();
+        $contextId = (int) $submission->getData('contextId');
+
+        $isManager = $user && $user->hasRole(
+            [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER],
+            $contextId
+        );
+
+        if ($isManager) {
+            return null;
+        }
+        if (!$task->participants()->exists()) {
+            return response()->json(['error' => __('api.403.forbidden')], Response::HTTP_FORBIDDEN);
+        }
+
+        return null;
+    }
+
     /**
      * Add a reply to a task or discussion, excluding the headnote
      */
     public function addNote(AddNote $illuminateRequest): JsonResponse
     {
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $task = EditorialTask::find((int) $illuminateRequest->route('taskId')); /** @var EditorialTask $task */
+
+        if (!$task) {
+            return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($response = $this->forbidIfUnassignedAndNotManager($submission, $task)) {
+            return $response;
+        }
         $validated = $illuminateRequest->validated();
 
         $note = new Note($validated);
@@ -576,6 +630,12 @@ class EditorialTaskController extends PKPBaseController
      */
     public function deleteNote(Request $illuminateRequest): JsonResponse
     {
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION);
+        $task = EditorialTask::find((int) $illuminateRequest->route('taskId'));
+
+        if ($task && ($response = $this->forbidIfUnassignedAndNotManager($submission, $task))) {
+            return $response;
+        }
         $note = Note::find($illuminateRequest->route('noteId'));
 
         if (!$note) {
@@ -591,10 +651,10 @@ class EditorialTaskController extends PKPBaseController
         }
 
         $user = $this->getRequest()->getUser();
-        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
 
         // Allow removing the note for its creator or a manager/admin
-        if ($note->userId !== $user->getId() || !$user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'))) {
+        $canDelete = $note->userId === $user->getId() || $user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'));
+        if (!$canDelete) {
             return response()->json([
                 'error' => __('api.403.forbidden'),
             ], Response::HTTP_FORBIDDEN);

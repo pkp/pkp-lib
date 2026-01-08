@@ -119,7 +119,7 @@ class GenreGridHandler extends SetupGridHandler
     {
         // Elements to be displayed in the grid
         $context = $request->getContext();
-        return Repo::genre()->getEnabledByContextId($context->getId());
+        return Genre::withEnabled()->withContext($context->getId())->get();
     }
 
     //

@@ -414,9 +414,7 @@ abstract class Repository
             }
         }
 
-
-        $genres = Repo::genre()->getEnabledByContextId($context->getId());
-
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), null, $genres->all());

@@ -21,7 +21,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use PKP\core\traits\ModelWithSettings;
 use PKP\submissionFile\SubmissionFile;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use PKP\services\PKPSchemaService;
 use PKP\db\XMLDAO;
 
 class Genre extends Model
@@ -42,9 +41,19 @@ class Genre extends Model
         return 'genre_settings';
     }
 
+    public function getSettings(): array
+    {
+        return ['name'];
+    }
+
+    public function getMultilingualProps(): array
+    {
+        return ['name'];
+    }
+
     public static function getSchemaName(): ?string
     {
-        return PKPSchemaService::SCHEMA_GENRE;
+        return null;
     }
 
     public function submissionFiles(): HasMany
@@ -52,6 +61,28 @@ class Genre extends Model
         return $this->hasMany(SubmissionFile::class, 'genre_id', 'genre_id');
     }
 
+    public function getSequence(): int
+    {
+        return (int) $this->getAttribute('seq');
+    }
+
+    public function setSequence(int $seq): void
+    {
+        $this->setAttribute('seq', $seq);
+    }
+
+    /**
+     * Backwards compatible layer for DataObjectGridCellProvider, etc.
+     */
+    public function getData(string $key)
+    {
+        return $this->getAttribute($key);
+    }
+
+    public function setData(string $key, $value): void
+    {
+        $this->setAttribute($key, $value);
+    }
 
     // Accessors and Mutators
     protected function entryKey(): Attribute
@@ -61,40 +92,96 @@ class Genre extends Model
             set: fn($value) => strtolower($value)
         );
     }
+    
+    protected static function booted(): void
+    {
+        parent::booted();
+
+        // always order by seq
+        static::addGlobalScope('orderBySeq', function (EloquentBuilder $builder) {
+            $builder->orderBy('seq');
+        });
+
+        // ensure seq is set on insert
+        static::creating(function ($genre) {
+            if ($genre->getAttribute('seq') === null) {
+                $maxSeq = (int) self::where(
+                    'context_id',
+                    $genre->getAttribute('context_id')
+                )->max('seq');
+
+                $genre->setAttribute('seq', $maxSeq + 1);
+            }
+        });
+    }
 
     protected function enabled(): Attribute
     {
         return Attribute::make(
             get: fn($value) => (bool) $value,
-            set: fn($value) => (int) $value
+            set: fn($value) => !empty($value) ? 1 : 0,
+        );
+    }
+
+    protected function dependent(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => (bool) $value,
+            set: fn($value) => !empty($value) ? 1 : 0,
+        );
+    }
+
+    protected function supplementary(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => (bool) $value,
+            set: fn($value) => !empty($value) ? 1 : 0,
+        );
+    }
+
+    protected function required(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => (bool) $value,
+            set: fn($value) => !empty($value) ? 1 : 0,
         );
     }
 
     // Scopes
 
-    public function scopeEnabled(EloquentBuilder $query): EloquentBuilder
+    public function scopeWithEnabled(EloquentBuilder $query): EloquentBuilder
     {
         return $query->where('enabled', 1);
     }
 
-    public function scopeDependent(EloquentBuilder $query, bool $dependent = true): EloquentBuilder
+    public function scopeWithDependent(EloquentBuilder $query, bool $dependent = true): EloquentBuilder
     {
-        return $query->where('dependent', (int) $dependent);
+        return $query->where('dependent', $dependent);
     }
 
-    public function scopeSupplementary(EloquentBuilder $query, bool $supplementary = true): EloquentBuilder
+    public function scopeWithSupplementary(EloquentBuilder $query, bool $supplementary = true): EloquentBuilder
     {
-        return $query->where('supplementary', (int) $supplementary);
+        return $query->where('supplementary', $supplementary);
     }
 
-    public function scopeRequired(EloquentBuilder $query, bool $required = true): EloquentBuilder
+    public function scopeWithRequired(EloquentBuilder $query, bool $required = true): EloquentBuilder
     {
-        return $query->where('required', (int) $required);
+        return $query->where('required', $required);
     }
 
-    public function scopeInContext(EloquentBuilder $query, int $contextId): EloquentBuilder
+    public function scopeWithContext(EloquentBuilder $query, int $contextId): EloquentBuilder
     {
         return $query->where('context_id', $contextId);
+    }
+
+    public function scopeWithKey(EloquentBuilder $query, string $key): EloquentBuilder
+    {
+        return $query->where('entry_key', strtolower($key));
+    }
+
+    public function scopeWithoutIds(EloquentBuilder $query, array $excludeIds): EloquentBuilder
+    {
+        return $query->whereNotIn('genre_id', $excludeIds);
     }
 
     // Business Logic
@@ -106,7 +193,7 @@ class Genre extends Model
     {
         $query = self::where('genre_id', $id);
         if ($contextId !== null) {
-            $query->inContext($contextId);
+            $query->withContext($contextId);
         }
         return $query->first();
     }
@@ -119,7 +206,7 @@ class Genre extends Model
         $lowerKey = strtolower($key);
         $query = self::where('entry_key', $lowerKey);
         if ($contextId !== null) {
-            $query->inContext($contextId);
+            $query->withContext($contextId);
         }
         return $query->first();
     }

@@ -67,8 +67,8 @@ class GenreForm extends Form
         $form = $this;
         $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', function ($key) use ($context, $form) {
-            return $key == '' || !Repo::genre()->keyExists($key, $context->getId(), $form->getGenreId());
-        }));
+            return $key == '' || !Genre::withKey($key)->withContext($context->getId())->withoutIds([(int) $form->getGenreId()])->exists();
+            }));
         $this->addCheck(new \PKP\form\validation\FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
@@ -91,12 +91,12 @@ class GenreForm extends Form
         if (isset($genre)) {
             $this->_data = [
                 'genreId' => $this->getGenreId(),
-                'name' => [], // this would be replaced by the localized name retrieval logic.
+                'name' => $genre->name,
                 'category' => $genre->category,
                 'dependent' => $genre->dependent,
                 'supplementary' => $genre->supplementary,
                 'required' => $genre->required,
-                'key' => $genre->entry_key,
+                'key' => $genre->entryKey,
                 'keyReadOnly' => $genre->isDefault(),
             ];
         } else {
@@ -149,25 +149,25 @@ class GenreForm extends Form
         // Update or insert genre
         if (!$this->getGenreId()) {
             $genre = new Genre();
-            $genre->context_id = $context->getId();
+            $genre->contextId = $context->getId();
         } else {
-            $genre = Genre::findById((int) $this->getGenreId(),$context->getId());
+            $genre = Genre::findById((int) $this->getGenreId(), $context->getId());
         }
 
         $localizedNames = $this->getData('name');
-        $genre->fill([
-            'name' => $localizedNames
-        ]);
-
-        $genre->category = $this->getData('category');
-        $genre->dependent = $this->getData('dependent');
-        $genre->supplementary = $this->getData('supplementary');
-        $genre->required = (bool)$this->getData('required');
+        $attributes = [
+            'name' => $localizedNames,
+            'category' => $this->getData('category'),
+            'dependent' => $this->getData('dependent'),
+            'supplementary' => $this->getData('supplementary'),
+            'required' => (bool) $this->getData('required'),
+        ];
 
         if (!$genre->isDefault()) {
-            $genre->entry_key = $this->getData('key');
+            $attributes['entryKey'] = $this->getData('key');
         }
 
+        $genre->fill($attributes);
         $genre->save();
 
         // set genreId for newly created genre

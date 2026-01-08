@@ -252,7 +252,6 @@ class Schema extends BaseSchema
 
     protected function getGenre(SubmissionFile $submissionFile): ?Genre
     {
-<<<<<<< HEAD
         return $this->genres[$submissionFile->getData('genreId')] ?? null;
     }
 
@@ -264,13 +263,6 @@ class Schema extends BaseSchema
         $userIds = $collection->map(fn (SubmissionFile $submissionFile) => $submissionFile->getUploaderUserId())
             ->unique()->filter()->toArray();
         return $userIds ? Repo::user()->getCollector()->filterByUserIds($userIds)->getUsernames()->all() : [];
-=======
-        foreach ($this->genres as $genre) {
-            if ($genre->getKey() === $submissionFile->getData('genreId')) {
-                return $genre;
-            }
-        }
-        return null;
->>>>>>> 3b3b0a1e4a... pkp/pkp-lib#10133 Port Genre and GenreDAO to Eloquent with settings table support
     }
 }
+

@@ -88,7 +88,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         // Build a cached list of genres by context ID by name
         if ($genreName) {
             if (!isset($genresByContextId[$context->getId()])) {
-                $genres = Genre::where('context_id', $context->getId())->get();
+                $genres = Genre::withContext($context->getId())->get();
                 foreach ($genres as $genre) {
                     foreach ($genre->getLocalizedData('name') as $locale => $name) {
                        $genresByContextId[$context->getId()][$name] = $genre;

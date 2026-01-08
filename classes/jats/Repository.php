@@ -25,6 +25,7 @@ use PKP\file\FileManager;
 use PKP\jats\exceptions\UnableToCreateJATSContentException;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\genre\Genre;
 use Throwable;
 
 class Repository
@@ -139,8 +140,7 @@ class Repository
         $user = Application::get()->getRequest()->getUser();
 
         // If no genre has been set and there is only one genre possible, set it automatically
-        $genres = Repo::genre()->getEnabledByContextId($context->getId());
-
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         // Check if a JATS file already exists
         $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->all());

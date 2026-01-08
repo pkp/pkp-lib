@@ -36,6 +36,7 @@ use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\genre\Genre;
 
 class PKPSubmissionFileController extends PKPBaseController
 {
@@ -330,7 +331,7 @@ class PKPSubmissionFileController extends PKPBaseController
 
         // If no genre has been set and there is only one genre possible, set it automatically
         if (empty($params['genreId'])) {
-            $genres = Repo::genre()->getEnabledByContextId($request->getContext()->getId());
+        $genres = Genre::withEnabled()->withContext($request->getContext()->getId())->get();
 
             if ($genres->count() == 1) {
                 $params['genreId'] = $genres->first()->id;

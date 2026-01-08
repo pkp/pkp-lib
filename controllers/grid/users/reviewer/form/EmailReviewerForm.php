@@ -80,7 +80,8 @@ class EmailReviewerForm extends Form
     {
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'userFullName' => $this->_reviewAssignment->getReviewerFullName(),
+            'userFullName' => $this->_reviewAssignment->getReviewerFullName() ?
+                $this->_reviewAssignment->getReviewerFullName() : $this->_reviewAssignment->getData('email'),
             'requestArgs' => $requestArgs,
             'reviewAssignmentId' => $this->_reviewAssignment->getId(),
         ]);
@@ -93,12 +94,15 @@ class EmailReviewerForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $toUser = Repo::user()->get($this->_reviewAssignment->getReviewerId());
+        $toUser = null;
+        if($this->_reviewAssignment->getReviewerId()){
+            $toUser = Repo::user()->get($this->_reviewAssignment->getReviewerId());
+        }
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
         $mailable = new Mailable([$request->getContext(), $this->submission]);
-        $mailable->to($toUser->getEmail(), $toUser->getFullName());
+        $mailable->to($toUser?$toUser->getEmail():$this->_reviewAssignment->getData('email'), $toUser?->getFullName());
         $mailable->from($fromUser->getEmail(), $fromUser->getFullName());
         $mailable->replyTo($fromUser->getEmail(), $fromUser->getFullName());
         $mailable->subject($this->getData('subject'));

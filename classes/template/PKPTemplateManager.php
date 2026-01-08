@@ -151,13 +151,19 @@ class PKPTemplateManager extends Smarty
         $this->config_dir = "{$cachePath}/t_config";
         $this->cache_dir = "{$cachePath}/t_cache";
 
-        // Register Smarty resources for core: and app: prefixes.
+        // Register Smarty resources for template prefixes.
         // IMPORTANT: These are required for COMPILATION - Smarty needs to read template
         // source files when compiling {include file="core:..."} directives.
         // Runtime resolution and plugin overrides happen in SmartyTemplate via View::resolveName hook.
-        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib/pkp/templates'));
-        $this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
-        $this->default_resource_type = 'app';
+        $coreTemplateDir = 'lib/pkp/templates';
+        $appTemplateDirs = ['templates', $coreTemplateDir];
+        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir));
+        $this->registerResource('app', new PKPTemplateResource($appTemplateDirs));
+        // 'tpl' is used as default - allows us to distinguish implicit (no prefix) from explicit (app:)
+        // - {include file="template.tpl"} → tpl:template.tpl → allows theme override
+        // - {include file="app:template.tpl"} → app:template.tpl → explicit, skip override
+        $this->registerResource('tpl', new PKPTemplateResource($appTemplateDirs));
+        $this->default_resource_type = 'tpl';
 
         $this->error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING;
 
@@ -1380,11 +1386,11 @@ class PKPTemplateManager extends Smarty
      * Convert a Smarty template path to a Laravel view name
      *
      * Handles various input formats:
-     * - "frontend/pages/article.tpl" → "frontend.pages.article"
-     * - "app:frontend/pages/article.tpl" → "frontend.pages.article" (app is default namespace)
-     * - "core:frontend/pages/article.tpl" → "pkp::frontend.pages.article"
-     * - "frontend.pages.article" (already dot notation) → "frontend.pages.article"
-     * - "mytheme::frontend.pages.article" (namespaced) → "mytheme::frontend.pages.article"
+     * - "frontend/pages/article.tpl"      → "frontend.pages.article" (implicit, allows override)
+     * - "tpl:frontend/pages/article.tpl"  → "frontend.pages.article" (default prefix, allows override)
+     * - "app:frontend/pages/article.tpl"  → "app::frontend.pages.article" (explicit, skips override)
+     * - "core:frontend/pages/article.tpl" → "pkp::frontend.pages.article" (explicit, skips override)
+     * - "mytheme::frontend.pages.article" → "mytheme::frontend.pages.article" (passthrough)
      *
      * @param string $template Smarty template path or Laravel view name
      * @return string Laravel view name in dot notation (possibly with namespace)
@@ -1392,7 +1398,6 @@ class PKPTemplateManager extends Smarty
     public function smartyPathToViewName(string $template): string
     {
         // If it's a Laravel namespaced view (contains ::), pass through as-is
-        // These are already in the correct format: "namespace::view.name"
         if (str_contains($template, '::')) {
             return $template;
         }
@@ -1403,17 +1408,17 @@ class PKPTemplateManager extends Smarty
         }
 
         // Convert Smarty resource prefixes to Laravel namespaces
-        // - "app:template.tpl" → "app::template" (templates/)
-        // - "core:template.tpl" → "pkp::template" (lib/pkp/templates/)
+        // - "tpl:" is the default, strip it (allows theme override)
+        // - "app:" is explicit, map to app:: namespace (skips override)
+        // - "core:" is explicit, map to pkp:: namespace (skips override)
         $namespace = null;
-        if (preg_match('/^(app|core):(?!:)(.+)$/', $template, $matches)) {
+        if (preg_match('/^(tpl|app|core):(?!:)(.+)$/', $template, $matches)) {
             $prefix = $matches[1];
             $template = $matches[2];
 
-            // Map Smarty prefix to Laravel namespace
-            // Note: 'app' maps to null - it's the default namespace, no prefix needed
             $namespace = match ($prefix) {
-                'app' => null,
+                'tpl' => null,  // Default prefix - no namespace, allows override
+                'app' => 'app', // Explicit app - keeps namespace, skips override
                 'core' => 'pkp',
                 default => null,
             };

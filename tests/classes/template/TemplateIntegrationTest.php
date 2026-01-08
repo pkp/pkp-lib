@@ -386,10 +386,10 @@ class TemplateIntegrationTest extends PKPTestCase
         $this->createTemplate('alias_override.tpl', 'Override Content');
 
         Hook::add('View::resolveName', function ($hookName, $args) {
-            $aliasedViewName = &$args[0];
-            $viewName = $args[1];
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
             if ($viewName === 'test::alias_original') {
-                $aliasedViewName = 'test::alias_override';
+                $overrideViewName = 'test::alias_override';
             }
             return Hook::CONTINUE;
         });
@@ -405,10 +405,10 @@ class TemplateIntegrationTest extends PKPTestCase
         $this->createTemplate('swap_override.blade', 'Blade: {{ $var }}');
 
         Hook::add('View::resolveName', function ($hookName, $args) {
-            $aliasedViewName = &$args[0];
-            $viewName = $args[1];
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
             if ($viewName === 'test::swap_original') {
-                $aliasedViewName = 'test::swap_override';
+                $overrideViewName = 'test::swap_override';
             }
             return Hook::CONTINUE;
         });
@@ -588,11 +588,11 @@ class TemplateIntegrationTest extends PKPTestCase
         // Register hook to alias the nested template to the Blade override
         // Note: smartyPathToViewName converts "nested/widget.tpl" to "nested.widget" (no namespace)
         Hook::add('View::resolveName', function ($hookName, $args) {
-            $aliasedViewName = &$args[0];
-            $viewName = $args[1];
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
             if ($viewName === 'nested.widget') {
                 // Redirect to the namespaced Blade override
-                $aliasedViewName = 'test::nested.widget_override';
+                $overrideViewName = 'test::nested.widget_override';
             }
             return Hook::CONTINUE;
         });
@@ -666,10 +666,10 @@ class TemplateIntegrationTest extends PKPTestCase
 
         // Register dynamic alias hook (like theme switching between journals)
         Hook::add('View::resolveName', function ($hookName, $args) use (&$activeTheme) {
-            $aliasedViewName = &$args[0];
-            $viewName = $args[1];
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
             if ($viewName === 'test::cacheable') {
-                $aliasedViewName = $activeTheme === 'A'
+                $overrideViewName = $activeTheme === 'A'
                     ? 'test::override_theme_a'
                     : 'test::override_theme_b';
             }
@@ -715,11 +715,11 @@ class TemplateIntegrationTest extends PKPTestCase
         $activeOverride = 'X';
 
         Hook::add('View::resolveName', function ($hookName, $args) use (&$activeOverride) {
-            $aliasedViewName = &$args[0];
-            $viewName = $args[1];
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
             // Nested includes go through smartyPathToViewName which strips namespace
             if ($viewName === 'nested.widget_cached') {
-                $aliasedViewName = $activeOverride === 'X'
+                $overrideViewName = $activeOverride === 'X'
                     ? 'test::nested.widget_override_x'
                     : 'test::nested.widget_override_y';
             }
@@ -789,11 +789,11 @@ class TemplateIntegrationTest extends PKPTestCase
 
         // Register hook to override
         Hook::add('View::resolveName', function ($hookName, $args) {
-            $aliasedViewName = &$args[0];
-            $viewName = $args[1];
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
             // Implicit template comes through without namespace
             if ($viewName === 'test::implicit_test') {
-                $aliasedViewName = 'test::implicit_override';
+                $overrideViewName = 'test::implicit_override';
             }
             return Hook::CONTINUE;
         });
@@ -813,12 +813,12 @@ class TemplateIntegrationTest extends PKPTestCase
         // Register hook that would override if called
         $overrideCalled = false;
         Hook::add('View::resolveName', function ($hookName, $args) use (&$overrideCalled) {
-            $aliasedViewName = &$args[0];
-            $viewName = $args[1];
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
             // This should NOT match because app:: skips override in _viewNameToOverridePath
             if ($viewName === 'app::explicit_app_test' || $viewName === 'test::explicit_app_test') {
                 $overrideCalled = true;
-                $aliasedViewName = 'test::explicit_app_override';
+                $overrideViewName = 'test::explicit_app_override';
             }
             return Hook::CONTINUE;
         });

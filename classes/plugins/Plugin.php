@@ -468,14 +468,14 @@ abstract class Plugin
      *   Override at: templates/plugins/generic/funding/templates/listFunders.blade (or .tpl)
      *
      * @param string $hookName View::resolveName
-     * @param array $args [&$aliasedViewName, $viewName]
+     * @param array $args [$viewName, &$overrideViewName]
      *
      * @return int Hook::CONTINUE
      */
     public function _overridePluginTemplates($hookName, $args)
     {
-        $aliasedViewName = &$args[0];
-        $viewName = $args[1];
+        $viewName = $args[0];
+        $overrideViewName = &$args[1];
 
         // Convert view name to relative path for override check
         $checkPath = $this->_viewNameToOverridePath($viewName);
@@ -485,7 +485,7 @@ abstract class Plugin
 
         // Check if an overriding template exists
         if ($overriddenView = $this->_findOverriddenTemplate($checkPath)) {
-            $aliasedViewName = $overriddenView;
+            $overrideViewName = $overriddenView;
         }
 
         return Hook::CONTINUE;

@@ -52,12 +52,13 @@ class Factory extends \Illuminate\View\Factory
         }
 
         // Fire hook for plugin overrides
-        $aliased = null;
-        Hook::call('View::resolveName', [&$aliased, $original]);
+        // Args: $viewName (original), &$overrideViewName (set by plugins to redirect)
+        $overrideViewName = null;
+        Hook::call('View::resolveName', [$original, &$overrideViewName]);
 
-        if ($aliased !== null && $aliased !== $original) {
-            $this->aliases[$original] = $aliased;
-            $this->resolved[$original] = $aliased;
+        if ($overrideViewName !== null && $overrideViewName !== $original) {
+            $this->aliases[$original] = $overrideViewName;
+            $this->resolved[$original] = $overrideViewName;
         } else {
             $this->resolved[$original] = $original;
         }

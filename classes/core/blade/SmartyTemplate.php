@@ -11,11 +11,11 @@
  *
  * @brief Routes Smarty {include} directives through Laravel's view system.
  *
- * Intercepts nested template includes and routes them through Laravel's
- * view() function. This ensures:
- * - Single resolution point: View::resolveName hook fires once in Factory.make()
- * - Unified engine selection: Factory picks Blade or Smarty based on file extension
- * - Plugin overrides work consistently for all template types
+ * Intercepts nested template includes and resolves them through Laravel's
+ * FileViewFinder, enabling:
+ * - Plugin template overrides via View::resolveName hook (with caching)
+ * - Blade templates to be included from Smarty templates
+ * - Unified template resolution for both engines
  */
 
 namespace PKP\core\blade;
@@ -37,15 +37,21 @@ class SmartyTemplate extends Smarty_Internal_Template
             return parent::fetch($template, $cache_id, $compile_id, $parent);
         }
 
-        // Route through Laravel - hook fires once in Factory.make()
+        // Convert to view name and resolve (Factory caches, hook fires once)
         $viewName = \APP\template\TemplateManager::getManager()->smartyPathToViewName($template);
-        return view($viewName, $this->getTemplateVars())->render();
+        $resolvedName = app('view')->resolveViewName($viewName);
+        $filePath = app('view.finder')->find($resolvedName);
+
+        if (str_ends_with($filePath, '.blade')) {
+            return view($resolvedName, $this->getTemplateVars())->render();
+        }
+        return parent::fetch('file:' . $filePath, $cache_id, $compile_id, $parent);
     }
 
     /**
      * Override sub-template rendering to route through Laravel's view system.
      *
-     * Called when Smarty encounters {include file="..."} directives.
+     * Called when Smarty encounters {include file="..."} or {extends file="..."}.
      */
     public function _subTemplateRender(
         $template,
@@ -68,9 +74,19 @@ class SmartyTemplate extends Smarty_Internal_Template
             return;
         }
 
-        // Route through Laravel - hook fires once in Factory.make()
+        // Convert to view name and resolve (Factory caches, hook fires once)
         $viewName = \APP\template\TemplateManager::getManager()->smartyPathToViewName($template);
-        $templateVars = array_merge($this->getTemplateVars(), $data ?? []);
-        echo view($viewName, $templateVars)->render();
+        $resolvedName = app('view')->resolveViewName($viewName);
+        $filePath = app('view.finder')->find($resolvedName);
+
+        if (str_ends_with($filePath, '.blade')) {
+            $templateVars = array_merge($this->getTemplateVars(), $data ?? []);
+            echo view($resolvedName, $templateVars)->render();
+        } else {
+            parent::_subTemplateRender(
+                'file:' . $filePath, $cache_id, $compile_id, $caching,
+                $cache_lifetime, $data, $scope, $forceTplCache, $uid, $content_func
+            );
+        }
     }
 }

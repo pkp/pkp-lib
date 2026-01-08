@@ -4,26 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "295e2b65b538031cae663b5ee9d11c7c",
+    "content-hash": "eae24cc48432b040f3c5d60d385fbd5e",
     "packages": [
         {
             "name": "altcha-org/altcha",
-            "version": "v0.1.4",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/altcha-org/altcha-lib-php.git",
-                "reference": "0371b6bd6ac1e7e4b78e47a884e5fa3d062720e6"
+                "reference": "9e9e70c864a9db960d071c77c778be0c9ff1a4d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/altcha-org/altcha-lib-php/zipball/0371b6bd6ac1e7e4b78e47a884e5fa3d062720e6",
-                "reference": "0371b6bd6ac1e7e4b78e47a884e5fa3d062720e6",
+                "url": "https://api.github.com/repos/altcha-org/altcha-lib-php/zipball/9e9e70c864a9db960d071c77c778be0c9ff1a4d0",
+                "reference": "9e9e70c864a9db960d071c77c778be0c9ff1a4d0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4"
+                "ext-json": "*",
+                "php": ">=8.2"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.72",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "phpunit/phpunit": "^11.5"
             },
             "type": "library",
@@ -44,9 +49,9 @@
             ],
             "support": {
                 "issues": "https://github.com/altcha-org/altcha-lib-php/issues",
-                "source": "https://github.com/altcha-org/altcha-lib-php/tree/v0.1.4"
+                "source": "https://github.com/altcha-org/altcha-lib-php/tree/v1.3.1"
             },
-            "time": "2025-02-28T05:17:34+00:00"
+            "time": "2025-12-13T10:03:53+00:00"
         },
         {
             "name": "brick/math",

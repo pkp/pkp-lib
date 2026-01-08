@@ -42,6 +42,7 @@ use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\genre\Genre;
 use PKP\workflow\WorkflowStageDAO;
 
 abstract class PKPAuthorDashboardHandler extends Handler
@@ -168,7 +169,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         }
 
         $contextUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
-        $contextGenres = Repo::genre()->getEnabledByContextId($submission->getData('contextId'));
+        $contextGenres = Genre::withEnabled()->withContext((int) $submission->getData('contextId'))->get();
 
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
@@ -262,7 +263,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         })->values();
 
         // Get full details of the working publication and the current publication
-        $mapper = Repo::publication()->getSchemaMap($submission, $contextUserGroups, $contextGenres->all());
+        $mapper = Repo::publication()->getSchemaMap($submission, $contextGenres->all());
         $workingPublicationProps = $mapper->map($submission->getLatestPublication());
         $currentPublicationProps = $submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()
             ? $workingPublicationProps

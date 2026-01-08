@@ -137,7 +137,7 @@ class PKPBackendDoiController extends PKPBaseController
 
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }

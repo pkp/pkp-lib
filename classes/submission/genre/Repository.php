@@ -18,47 +18,6 @@ use Illuminate\Support\Facades\DB;
 
 class Repository
 {
-    /**
-     * Retrieve a Genre by its ID (and optionally by context).
-     */
-    public function get(int $genreId, ?int $contextId = null): ?Genre
-    {
-        return Genre::findById($genreId, $contextId);
-    }
-
-    /**
-     * Retrieve a Genre by its entry_key (and optionally by context) using the model’s own finder.
-     */
-    public function getByKey(string $key, ?int $contextId = null): ?Genre
-    {
-        return Genre::findByKey($key, $contextId);
-    }
-
-    /**
-     * Does a Genre with this key already exist? Exclude one ID if needed.
-     */
-    public function keyExists(string $key, int $contextId, ?int $excludeGenreId = null): bool
-    {
-        $query = Genre::where('entry_key', strtolower($key))
-                      ->where('context_id', $contextId);
-
-        if ($excludeGenreId !== null) {
-            $query->where('genre_id', '<>', $excludeGenreId);
-        }
-        return $query->exists();
-    }
-
-    /**
-     * Get all enabled genres in a given context, ordered by seq.
-     */
-    public function getEnabledByContextId(int $contextId): Collection
-    {
-        return Genre::query()
-                    ->enabled()
-                    ->inContext($contextId)
-                    ->orderBy('seq')
-                    ->get();
-    }
 
     /**
      * Get genres by dependent flag in a context, ordered by seq.
@@ -66,10 +25,9 @@ class Repository
     public function getByDependenceAndContextId(bool $dependentFilesOnly, int $contextId): Collection
     {
         return Genre::query()
-                    ->enabled()
-                    ->inContext($contextId)
-                    ->dependent($dependentFilesOnly)
-                    ->orderBy('seq')
+                    ->withEnabled()
+                    ->withContext($contextId)
+                    ->withDependent($dependentFilesOnly)
                     ->get();
     }
 
@@ -79,10 +37,9 @@ class Repository
     public function getBySupplementaryAndContextId(bool $supplementaryFilesOnly, int $contextId): Collection
     {
         return Genre::query()
-                    ->enabled()
-                    ->inContext($contextId)
-                    ->supplementary($supplementaryFilesOnly)
-                    ->orderBy('seq')
+                    ->withEnabled()
+                    ->withContext($contextId)
+                    ->withSupplementary($supplementaryFilesOnly)
                     ->get();
     }
 
@@ -92,11 +49,10 @@ class Repository
     public function getPrimaryByContextId(int $contextId): Collection
     {
         return Genre::query()
-                    ->enabled()
-                    ->inContext($contextId)
+                    ->withEnabled()
+                    ->withContext($contextId)
                     ->where('dependent', 0)
                     ->where('supplementary', 0)
-                    ->orderBy('seq')
                     ->get();
     }
 
@@ -105,9 +61,7 @@ class Repository
      */
     public function getByContextId(int $contextId): Collection
     {
-        return Genre::inContext($contextId)
-                    ->orderBy('seq')
-                    ->get();
+        return Genre::withContext($contextId)->get();
     }
 
     /**
@@ -119,11 +73,10 @@ class Repository
     public function getPrimaryIdsByContextId(int $contextId): array
     {
         return Genre::query()
-                    ->enabled()
-                    ->inContext($contextId)
+                    ->withEnabled()
+                    ->withContext($contextId)
                     ->where('dependent', 0)
                     ->where('supplementary', 0)
-                    ->orderBy('seq')
                     ->pluck('genre_id')
                     ->toArray();
     }
@@ -137,10 +90,9 @@ class Repository
     public function getSupplementaryIdsByContextId(int $contextId): array
     {
         return Genre::query()
-                    ->enabled()
-                    ->inContext($contextId)
-                    ->supplementary(true)
-                    ->orderBy('seq')
+                    ->withEnabled()
+                    ->withContext($contextId)
+                    ->withSupplementary(true)
                     ->pluck('genre_id')
                     ->toArray();
     }
@@ -151,21 +103,10 @@ class Repository
     public function getRequiredToSubmit(int $contextId): Collection
     {
         return Genre::query()
-                    ->enabled()
-                    ->inContext($contextId)
-                    ->required(true)
+                    ->withEnabled()
+                    ->withContext($contextId)
+                    ->withRequired(true)
                     ->get();
-    }
-
-    /**
-     * Soft‐delete a genre: set enabled = 0.
-     */
-    public function deleteById(int $genreId): bool
-    {
-        $affected = Genre::where('genre_id', $genreId)
-                         ->update(['enabled' => 0]);
-
-        return ($affected > 0);
     }
 
     /**
@@ -174,16 +115,10 @@ class Repository
      */
     public function deleteByContextId(int $contextId): void
     {
-        // First, remove all locale‐specific rows from genre_settings:
-        $all = Genre::inContext($contextId)->get();
-        foreach ($all as $genre) {
-            DB::table('genre_settings')
-              ->where('genre_id', $genre->genre_id)
-              ->delete();
+        $genres = Genre::withContext($contextId)->get();
+        foreach ($genres as $genre) {
+            $genre->delete();
         }
-
-        // Then delete the genre records themselves:
-        Genre::where('context_id', $contextId)->delete();
     }
 
     /**
@@ -196,51 +131,50 @@ class Repository
     public function installDefaults(int $contextId, array $locales): void
     {
         $xmlDao = new \PKP\db\XMLDAO();
-        $data   = $xmlDao->parseStruct('registry/genres.xml', ['genre']);
+        $data = $xmlDao->parseStruct('registry/genres.xml', ['genre']);
         if (empty($data['genre'])) {
             return;
         }
 
+        $rows = [];
         $seq = 0;
         foreach ($data['genre'] as $entry) {
             $attrs = $entry['attributes'];
 
-            // Try to find an existing Genre by (entry_key, context_id):
-            $existing = Genre::findByKey($attrs['key'], $contextId);
+            $rows[] = [
+                'entry_key' => $attrs['key'],
+                'seq' => $seq,
+                'context_id' => $contextId,
+                'category' => (int) $attrs['category'],
+                'dependent' => $attrs['dependent'],
+                'supplementary' => $attrs['supplementary'],
+                'required' => $attrs['required'] ?? false,
+                'enabled' => 1,
+            ];
 
-            if (! $existing) {
-                // Create a brand‐new Genre model (ModelWithSettings will insert into genre_settings automatically)
-                $genre = new Genre([
-                    'entry_key'     => $attrs['key'],
-                    'seq'           => $seq,
-                    'context_id'    => $contextId,
-                    'category'      => (int) $attrs['category'],
-                    'dependent'     => (bool) $attrs['dependent'],
-                    'supplementary' => (bool) $attrs['supplementary'],
-                    'required'      => (bool) ($attrs['required'] ?? false),
-                    'enabled'       => 1,
-                ]);
-                $genre->save();
-            } else {
-                // Already exists: re‐enable and update any changed flags (keep the same ID):
-                $existing->enabled       = 1;
-                $existing->category      = (int) $attrs['category'];
-                $existing->dependent     = (bool) $attrs['dependent'];
-                $existing->supplementary = (bool) $attrs['supplementary'];
-                $existing->required      = (bool) ($attrs['required'] ?? false);
-                $existing->seq           = $seq;
-                $existing->save();
-                $genre = $existing;
+            $seq++;
+        }
+
+        Genre::upsert(
+            $rows,
+            ['context_id', 'entry_key'],
+            ['seq', 'category', 'dependent', 'supplementary', 'required', 'enabled']
+        );
+
+        foreach ($data['genre'] as $entry) {
+            $attrs = $entry['attributes'];
+
+            $genre = Genre::findByKey($attrs['key'], $contextId);
+            if (! $genre) {
+                continue;
             }
-            // collect all localized names first, then fill/save once
+
             $allNames = [];
             foreach ($locales as $locale) {
                 $allNames[$locale] = __($attrs['localeKey'], [], $locale);
             }
-            $genre->fill([ 'name' => $allNames ]);
+            $genre->fill(['name' => $allNames]);
             $genre->save();
-
-            $seq++;
         }
     }
 

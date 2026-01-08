@@ -35,6 +35,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\genre\Genre;
 
 class PKPJatsController extends PKPBaseController
 {
@@ -129,7 +130,7 @@ class PKPJatsController extends PKPBaseController
         }
 
         $context = Application::get()->getRequest()->getContext();
-        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
@@ -171,7 +172,7 @@ class PKPJatsController extends PKPBaseController
             );
 
         $context = Application::get()->getRequest()->getContext();
-        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
@@ -191,7 +192,7 @@ class PKPJatsController extends PKPBaseController
 
         $context = Application::get()->getRequest()->getContext();
 
-        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
 
         $jatsFile = Repo::jats()

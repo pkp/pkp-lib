@@ -55,7 +55,6 @@ class PKPSchemaService
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
     public const SCHEMA_EMAIL_LOG = 'emailLog';
-    public const SCHEMA_GENRE = 'genre';
     
 
     /** @var array cache of schemas that have been loaded */
@@ -691,28 +690,3 @@ class PKPSchemaService
     }
 }
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\services\PKPSchemaService', '\PKPSchemaService');
-    foreach ([
-        'SCHEMA_ANNOUNCEMENT',
-        'SCHEMA_AUTHOR',
-        'SCHEMA_CONTEXT',
-        'SCHEMA_EMAIL_TEMPLATE',
-        'SCHEMA_GALLEY',
-        'SCHEMA_ISSUE',
-        'SCHEMA_PUBLICATION',
-        'SCHEMA_REVIEW_ASSIGNMENT',
-        'SCHEMA_REVIEW_ROUND',
-        'SCHEMA_SECTION',
-        'SCHEMA_SITE',
-        'SCHEMA_SUBMISSION',
-        'SCHEMA_SUBMISSION_FILE',
-        'SCHEMA_USER',
-        'SCHEMA_USER_GROUP',
-        'SCHEMA_GENRE',
-    ] as $constantName) {
-        if (!defined($constantName)) {
-            define($constantName, constant('PKPSchemaService::' . $constantName));
-        }
-    }
-}

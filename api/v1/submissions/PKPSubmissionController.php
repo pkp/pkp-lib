@@ -1173,7 +1173,7 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->summarizeMany($publications, $anonymize)->values(),
+            'items' => Repo::publication()->getSchemaMap($submission, $genres->all())->summarizeMany($publications, $anonymize)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -1198,12 +1198,10 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->get();
-
         $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1233,13 +1231,10 @@ class PKPSubmissionController extends PKPBaseController
         $publication = Repo::publication()->newDataObject($params);
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
-
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
         $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1276,7 +1271,7 @@ class PKPSubmissionController extends PKPBaseController
         $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1365,7 +1360,7 @@ class PKPSubmissionController extends PKPBaseController
 
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1443,7 +1438,7 @@ class PKPSubmissionController extends PKPBaseController
                     ->getByContextId($submission->getData('contextId'));
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1484,7 +1479,7 @@ class PKPSubmissionController extends PKPBaseController
         $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1524,7 +1519,7 @@ class PKPSubmissionController extends PKPBaseController
         $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
 
 
-        $output = Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication);
+        $output = Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication);
 
         Repo::publication()->delete($publication);
 

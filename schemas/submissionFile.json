@@ -127,7 +127,7 @@
 			"apiSummary": true
 		},
 		"genreName": {
-			"type": "object",
+			"type": "string",
 			"description": "The genre name of this file, suc as Article Text or Data Set.",
 			"isMultilingual": true,
 			"apiSummary": true,

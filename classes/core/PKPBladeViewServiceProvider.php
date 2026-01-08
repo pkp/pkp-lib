@@ -174,8 +174,9 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $this->app->singleton(
             'view.finder',
             fn (PKPContainer $app) => new FileViewFinder(
-                $app->get('files'), 
-                array_values($app->get('config')->get('view.paths'))
+                $app->get('files'),
+                // Flatten paths since 'app' namespace may contain multiple directories
+                collect($app->get('config')->get('view.paths'))->flatten()->unique()->values()->toArray()
             )
         );
     }

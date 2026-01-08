@@ -514,7 +514,7 @@ class PKPContainer extends Container
             'compiled' => Str::of(
                 Config::getVar('cache', 'compiled', Core::getBaseDir() . '/cache/opcache')
             )->beforeLast('/')->append('/t_compile')->value(),
-            'cache' => false, // FIXME: Must be true in production, should it be a control config ?
+            'cache' => true,
             'compiled_extension' => 'php',
             'relative_hash' => false,
             'paths' => [

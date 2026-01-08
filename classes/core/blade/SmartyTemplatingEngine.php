@@ -41,7 +41,9 @@ class SmartyTemplatingEngine implements Engine
             $templateManager->getCompileId($path)
         );
 
-        // Merge TemplateManager vars with Laravel view data ($data takes precedence)
+        // Ensure TemplateManager's assigned vars are available to Smarty templates.
+        // For top-level fetch(): $data is empty (View::share only helps Blade, not Smarty)
+        // For nested includes: $data already has vars, but merge is harmless
         $template->assign(array_merge($templateManager->getTemplateVars(), $data));
 
         return $template->fetch();

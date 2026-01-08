@@ -339,21 +339,18 @@ abstract class Plugin
     }
 
     /**
-     * Return the Resource Name for templates in this plugin, or if specified, the full resource locator
-     * for a specific template.
+     * Return the Laravel view path for a template in this plugin.
      *
      * When a template is specified, returns a Laravel view namespace (e.g., "funding::listFunders").
      * Laravel's view system resolves the actual file (Blade or Smarty) automatically.
      *
-     * When no template is specified, returns the Smarty resource name for backward compatibility
-     * with Smarty resource registration.
+     * When no template is specified, returns just the view namespace (e.g., "funding").
      *
      * @param string $template path/filename, if desired
-     * @param bool $inCore True if a "core" template should be used.
      *
      * @return string
      */
-    public function getTemplateResource($template = null, $inCore = false)
+    public function getTemplateResource($template = null)
     {
         $namespace = $this->getTemplateViewNamespace();
 

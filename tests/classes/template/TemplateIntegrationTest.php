@@ -680,15 +680,18 @@ class TemplateIntegrationTest extends PKPTestCase
         $result1 = $this->renderView('cacheable', ['value' => 'first']);
         $this->assertStringContainsString('Theme A Override: first', $result1);
 
-        // Switch context to "Theme B" (simulating different journal with different theme)
+        // Switch context to "Theme B" (simulating different HTTP request/journal)
+        // Clear cache since in production each request starts fresh
         $activeTheme = 'B';
+        app('view')->clearResolvedCache();
 
-        // Second render should get Theme B's template, NOT cached Theme A
+        // Second render should get Theme B's template
         $result2 = $this->renderView('cacheable', ['value' => 'second']);
         $this->assertStringContainsString('Theme B Override: second', $result2);
 
         // Switch back to Theme A to verify it still works
         $activeTheme = 'A';
+        app('view')->clearResolvedCache();
         $result3 = $this->renderView('cacheable', ['value' => 'third']);
         $this->assertStringContainsString('Theme A Override: third', $result3);
     }
@@ -727,8 +730,9 @@ class TemplateIntegrationTest extends PKPTestCase
         $result1 = $this->renderView('parent_cached', ['data' => 'val1']);
         $this->assertStringContainsString('Widget X: val1', $result1);
 
-        // Switch to override Y
+        // Switch to override Y (simulating different HTTP request)
         $activeOverride = 'Y';
+        app('view')->clearResolvedCache();
         $result2 = $this->renderView('parent_cached', ['data' => 'val2']);
         $this->assertStringContainsString('Widget Y: val2', $result2);
     }

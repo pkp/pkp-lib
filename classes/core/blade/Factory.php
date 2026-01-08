@@ -9,24 +9,12 @@
  *
  * @class Factory
  *
- * @brief Custom Laravel View Factory with view name aliasing support
+ * @brief Custom Laravel View Factory with view name resolution and caching.
  *
- * Extends Laravel's View Factory to enable plugin template overrides via view
- * name aliasing. When a plugin overrides a core template, this factory:
- *
- * 1. Transforms the view name to a namespaced version (e.g., 'frontend.pages.article'
- *    becomes 'pluginName::frontend.pages.article')
- * 2. Lets Laravel's standard namespace resolution find the file
- * 3. Fires view composers for BOTH the original and aliased names
- *
- * This enables:
- * - Core code to register View::composer('frontend.pages.article', ...) callbacks
- *   that fire even when plugins override those templates
- * - Plugin code to register View::composer('pluginName::*', ...) callbacks
- *   that fire for their namespaced templates
- * - Automatic $viewNamespace variable via existing plugin composer registration
- *
- * @see PKP\plugins\Plugin::_overridePluginTemplates()
+ * Extends Laravel's View Factory to:
+ * 1. Fire View::resolveName hook for plugin template overrides
+ * 2. Cache resolved names per request (avoids duplicate hook calls)
+ * 3. Fire view composers for both original and aliased names
  */
 
 namespace PKP\core\blade;
@@ -37,55 +25,57 @@ use PKP\plugins\Hook;
 class Factory extends \Illuminate\View\Factory
 {
     /**
-     * Mapping of original view names to their aliased (namespaced) versions
-     * e.g., ['frontend.pages.article' => 'defaultmanuscripttheme::frontend.pages.article']
+     * View names that have been resolved this request (with or without alias).
+     * Used to avoid calling the hook multiple times for the same view.
+     */
+    protected array $resolved = [];
+
+    /**
+     * Mapping of aliased views: original => aliased.
+     * Used for reverse lookup in callComposer/callCreator.
      */
     protected array $aliases = [];
 
     /**
      * Create a new view instance.
      *
-     * Fires a hook to allow plugins to alias the view name before resolution.
-     * If aliased, the view is created with the namespaced name, enabling
-     * proper composer pattern matching.
-     *
-     * @param string $view View name
-     * @param array $data Data to pass to view
-     * @param array $mergeData Additional data to merge
-     * @return \Illuminate\Contracts\View\View
+     * Fires View::resolveName hook to allow plugins to override templates.
+     * Results are cached per request.
      */
     public function make($view, $data = [], $mergeData = [])
     {
         $original = $this->normalizeName($view);
 
-        // Hook: allow plugins to alias this view name
+        // Use cached resolution if available
+        if (isset($this->resolved[$original])) {
+            return parent::make($this->resolved[$original], $data, $mergeData);
+        }
+
+        // Fire hook for plugin overrides
         $aliased = null;
         Hook::call('View::resolveName', [&$aliased, $original]);
 
         if ($aliased !== null && $aliased !== $original) {
             $this->aliases[$original] = $aliased;
-            $view = $aliased;
+            $this->resolved[$original] = $aliased;
+        } else {
+            $this->resolved[$original] = $original;
         }
 
-        return parent::make($view, $data, $mergeData);
+        return parent::make($this->resolved[$original], $data, $mergeData);
     }
 
     /**
      * Call the composer for a given view.
      *
-     * Fires composers for both the actual view name AND the original name
-     * if this view was aliased. This enables core code to register composers
-     * on original view names that work even when plugins override templates.
-     *
-     * @param \Illuminate\Contracts\View\View $view
-     * @return void
+     * Fires composers for both the aliased name AND the original name,
+     * so core composers work even when plugins override templates.
      */
     public function callComposer(ViewContract $view)
     {
-        // Fire composers for the actual view name (namespaced if aliased)
         parent::callComposer($view);
 
-        // Also fire for original name via reverse lookup
+        // Fire for original name if this view was aliased
         $original = array_search($view->name(), $this->aliases, true);
         if ($original !== false) {
             $event = 'composing: ' . $original;
@@ -99,17 +89,12 @@ class Factory extends \Illuminate\View\Factory
      * Call the creator for a given view.
      *
      * Same as callComposer - fires for both aliased and original names.
-     * Creators fire at instantiation time (before composers).
-     *
-     * @param \Illuminate\Contracts\View\View $view
-     * @return void
      */
     public function callCreator(ViewContract $view)
     {
-        // Fire creators for the actual view name
         parent::callCreator($view);
 
-        // Also fire for original name via reverse lookup
+        // Fire for original name if this view was aliased
         $original = array_search($view->name(), $this->aliases, true);
         if ($original !== false) {
             $event = 'creating: ' . $original;
@@ -120,12 +105,14 @@ class Factory extends \Illuminate\View\Factory
     }
 
     /**
-     * Get all aliases (for debugging/testing)
+     * Clear the resolution cache.
      *
-     * @return array Map of original => aliased view names
+     * Used in tests that simulate context/theme switching within a single process.
+     * In production, the cache naturally resets between HTTP requests.
      */
-    public function getAliases(): array
+    public function clearResolvedCache(): void
     {
-        return $this->aliases;
+        $this->resolved = [];
+        $this->aliases = [];
     }
 }

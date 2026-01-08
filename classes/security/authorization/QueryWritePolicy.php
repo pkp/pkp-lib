@@ -19,6 +19,8 @@ namespace PKP\security\authorization;
 use APP\core\Application;
 use APP\submission\Submission;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\editorialTask\Participant;
 use PKP\security\Role;
 
 class QueryWritePolicy extends AuthorizationPolicy
@@ -65,18 +67,16 @@ class QueryWritePolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Submission editors can edit or delete any task within submissions they are assigned to.
-        if (in_array(Role::ROLE_ID_SUB_EDITOR, $roles)) {
-            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
-        }
-
-        // Authors and assistants can edit or delete task created by them.
-        if (array_intersect([Role::ROLE_ID_AUTHOR, Role::ROLE_ID_ASSISTANT], $roles)) {
-            if ($editTask->createdBy === $user->getId()) {
+        // If this is a task and person is assigned as responsible, allow changing it.
+        if ($editTask->type == EditorialTaskType::TASK->value) {
+            $editTask->loadMissing('participants');
+            $currentUser = $editTask->participants->first(fn (Participant $participant) => $participant->userId == $user->getId());
+            if ($currentUser && $currentUser->isResponsible) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
 
-        return parent::effect();
+        // Otherwise disallow by default
+        return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
 }

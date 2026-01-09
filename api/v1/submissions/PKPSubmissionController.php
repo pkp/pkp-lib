@@ -1642,10 +1642,13 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (
+            !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)
+            && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+        ) {
             return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
+                'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);
         }
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
@@ -1672,7 +1675,12 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
-            $params['contributorRoles'] = $this->contributorRolesToParams($params['contributorRoles'], $submissionContext->getId());
+            $roleIds = array_values(array_unique(array_filter(
+                array_map('intval', $params['contributorRoles']),
+                static fn (int $id) => $id > 0
+            )));
+
+            $params['contributorRoles'] = $this->contributorRolesToParams($roleIds, $submissionContext->getId());
         }
 
         $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
@@ -1824,7 +1832,12 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
-            $params['contributorRoles'] = $this->contributorRolesToParams($params['contributorRoles'], $submissionContext->getId());
+            $roleIds = array_values(array_unique(array_filter(
+                array_map('intval', $params['contributorRoles']),
+                static fn (int $id) => $id > 0
+            )));
+
+            $params['contributorRoles'] = $this->contributorRolesToParams($roleIds, $submissionContext->getId());
         }
 
         $errors = Repo::author()->validate($author, $params, $submission, $submissionContext);
@@ -2460,17 +2473,22 @@ class PKPSubmissionController extends PKPBaseController
 
     /**
      * Get contributor role objects from ids and context id
+     *
+     * @param int[] $roleIds
+     * @return ContributorRole[]
      */
     protected function contributorRolesToParams(array $roleIds, int $contextId): array
     {
-        try {
-            return ContributorRole::withContextId($contextId)
-                ->withRoleIds($roleIds)
-                ->get()
-                ->all();
-        } catch (\Exception $e) {
+        $roleIds = array_values(array_unique(array_filter(array_map('intval', $roleIds), static fn (int $id) => $id > 0)));
+
+        if (empty($roleIds)) {
             return [];
         }
+
+        return ContributorRole::withContextId($contextId)
+            ->withRoleIds($roleIds)
+            ->get()
+            ->all();
     }
 
     /**

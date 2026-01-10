@@ -38,6 +38,7 @@ use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
+use PKP\editorialTask\Template;
 use PKP\validation\ValidatorFactory;
 
 abstract class DecisionType
@@ -203,9 +204,10 @@ abstract class DecisionType
             Repo::submission()->updateStatus($submission, $this->getNewStatus());
         }
 
-        $newStageId = $this->getNewStageId($submission, (int)$decision->getData('reviewRoundId'));
+        $oldStageId = (int) $submission->getData('stageId');
+        $newStageId = $this->getNewStageId($submission, (int) $decision->getData('reviewRoundId'));
 
-        if ($newStageId) {
+        if ($newStageId && $newStageId !== $oldStageId) {
             $submission->setData('stageId', $newStageId);
             Repo::submission()->dao->update($submission);
 
@@ -224,6 +226,7 @@ abstract class DecisionType
                     $reviewRoundDao->updateStatus($reviewRound, null);
                 }
             }
+            $this->createTasksFromTemplatesForStage($submission, (int) $newStageId, $editor, $context);
         }
 
         // Change review round status when a decision is taken in a review stage
@@ -240,6 +243,26 @@ abstract class DecisionType
                 }
                 $reviewRoundDao->updateStatus($reviewRound, $this->getNewReviewRoundStatus());
             }
+        }
+    }
+
+    private function createTasksFromTemplatesForStage(
+        Submission $submission,
+        int $stageId,
+        User $editor,
+        Context $context
+    ): void {
+
+        $templates = Template::query()
+            ->where('context_id', $context->getId())
+            ->where('stage_id', $stageId)
+            ->get();
+
+        foreach ($templates as $template) {
+            /** @var Template $template */
+            $task = $template->promote($submission);
+            $task->fill(['createdBy' => $editor->getId()]);
+            $task->save();
         }
     }
 

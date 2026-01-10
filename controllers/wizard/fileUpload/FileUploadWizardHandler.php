@@ -37,7 +37,7 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
@@ -461,13 +461,11 @@ class FileUploadWizardHandler extends Handler
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+        $fileGenres = Repo::genre()->getByContextId($context->getId());
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap($this->getSubmission(), $fileGenres)
-            ->map($submissionFile);
+            ->getSchemaMap()
+            ->map($submissionFile, $fileGenres->all());
 
         $json = new JSONMessage(true, $form->fetch($request));
         $json->setGlobalEvent('submissionFile:added', $fileData);
@@ -499,13 +497,12 @@ class FileUploadWizardHandler extends Handler
             $templateMgr->assign('fileStage', $submissionFile->getData('fileStage'));
         }
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toAssociativeArray();
+        $contextId = $request->getContext()->getId();
+        $fileGenres = Repo::genre()->getByContextId($contextId);
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap($submission, $fileGenres)
-            ->map($submissionFile);
+            ->getSchemaMap()
+            ->map($submissionFile, $fileGenres->all());
 
         $json = $templateMgr->fetchJson('controllers/wizard/fileUpload/form/fileSubmissionComplete.tpl');
         $json->setGlobalEvent('submissionFile:edited', $fileData);

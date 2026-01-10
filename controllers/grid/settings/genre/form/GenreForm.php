@@ -18,11 +18,11 @@ namespace PKP\controllers\grid\settings\genre\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\security\Validation;
-use PKP\submission\Genre;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 
 class GenreForm extends Form
 {
@@ -59,22 +59,21 @@ class GenreForm extends Form
     {
         $this->setGenreId($genreId);
         parent::__construct('controllers/grid/settings/genre/form/genreForm.tpl');
-
+    
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-
+    
         // Validation checks for this form
         $form = $this;
         $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'name', 'required', 'manager.setup.form.genre.nameRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'key', 'optional', 'manager.setup.genres.key.exists', function ($key) use ($context, $form) {
-            $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-            return $key == '' || !$genreDao->keyExists($key, $context->getId(), $form->getGenreId());
-        }));
+            return $key == '' || !Genre::withKey($key)->withContext($context->getId())->withoutIds([(int) $form->getGenreId()])->exists();
+            }));
         $this->addCheck(new \PKP\form\validation\FormValidatorRegExp($this, 'key', 'optional', 'manager.setup.genres.key.alphaNumeric', '/^[a-z0-9]+([\-_][a-z0-9]+)*$/i'));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
-
+    
     /**
      * Initialize form data from current settings.
      *
@@ -85,21 +84,19 @@ class GenreForm extends Form
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-
         if ($this->getGenreId()) {
-            $genre = $genreDao->getById($this->getGenreId(), $context->getId());
+            $genre = Genre::findById((int) $this->getGenreId(),$context->getId());
         }
 
         if (isset($genre)) {
             $this->_data = [
                 'genreId' => $this->getGenreId(),
-                'name' => $genre->getName(null),
-                'category' => $genre->getCategory(),
-                'dependent' => $genre->getDependent(),
-                'supplementary' => $genre->getSupplementary(),
-                'required' => $genre->getRequired(),
-                'key' => $genre->getKey(),
+                'name' => $genre->name,
+                'category' => $genre->category,
+                'dependent' => $genre->dependent,
+                'supplementary' => $genre->supplementary,
+                'required' => $genre->required,
+                'key' => $genre->entryKey,
                 'keyReadOnly' => $genre->isDefault(),
             ];
         } else {
@@ -146,33 +143,38 @@ class GenreForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
         // Update or insert genre
         if (!$this->getGenreId()) {
-            $genre = $genreDao->newDataObject();
-            $genre->setContextId($context->getId());
+            $genre = new Genre();
+            $genre->contextId = $context->getId();
         } else {
-            $genre = $genreDao->getById($this->getGenreId(), $context->getId());
+            $genre = Genre::findById((int) $this->getGenreId(), $context->getId());
         }
 
-        $genre->setData('name', $this->getData('name'), null); // Localized
-        $genre->setCategory($this->getData('category'));
-        $genre->setDependent($this->getData('dependent'));
-        $genre->setSupplementary($this->getData('supplementary'));
-        $genre->setRequired((bool) $this->getData('required'));
+        $localizedNames = $this->getData('name');
+        $attributes = [
+            'name' => $localizedNames,
+            'category' => $this->getData('category'),
+            'dependent' => $this->getData('dependent'),
+            'supplementary' => $this->getData('supplementary'),
+            'required' => (bool) $this->getData('required'),
+        ];
 
         if (!$genre->isDefault()) {
-            $genre->setKey($this->getData('key'));
+            $attributes['entryKey'] = $this->getData('key');
         }
 
+        $genre->fill($attributes);
+        $genre->save();
+
+        // set genreId for newly created genre
         if (!$this->getGenreId()) {
-            $this->setGenreId($genreDao->insertObject($genre));
-        } else {
-            $genreDao->updateObject($genre);
+            $this->setGenreId($genre->getKey());
         }
+
         parent::execute(...$functionArgs);
         return true;
     }

@@ -35,10 +35,9 @@ use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\Genre;
-use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\genre\Genre;
 
 class DecisionHandler extends Handler
 {
@@ -255,15 +254,14 @@ class DecisionHandler extends Handler
     {
         $fileGenres = [];
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genreResults = $genreDao->getEnabledByContextId($context->getId());
+        $genreResults = Genre::withEnabled()->withContext($context->getId())->get();
+
         /** @var Genre $genre */
-        while ($genre = $genreResults->next()) {
+        foreach ($genreResults as $genre) {
             $fileGenres[] = [
-                'id' => $genre->getId(),
-                'name' => $genre->getLocalizedName(),
-                'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
+                'id' => $genre->getKey(),
+                'name' => $genre->getLocalizedData('name'),
+                'isPrimary' => !$genre->supplementary && !$genre->dependent,
             ];
         }
 

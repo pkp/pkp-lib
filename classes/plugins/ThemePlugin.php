@@ -95,11 +95,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public bool $isVueRuntimeRequired = false;
 
     /**
-     * Track whether rendering via blade view
-     */
-    public bool $isRenderingViaBladeView = false;
-
-    /**
      * @copydoc Plugin::register
      *
      * @param null|mixed $mainContextId
@@ -122,28 +117,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
         Hook::add('PluginRegistry::categoryLoaded::themes', $this->initAfter(...));
 
         // Allow themes to override plugin template files
-        Hook::add('TemplateManager::display', $this->loadBladeView(...));
         Hook::add('TemplateResource::getFilename', $this->_overridePluginTemplates(...));
 
         return true;
-    }
-
-    /**
-     * Register the blade view path by replacing the smarty template path in the TemplateManager
-     * only if the blade view exists
-     */
-    public function loadBladeView(string $hookName, array $params): bool
-    {
-        $templateManager =& $params[0]; /** @var TemplateManager $templateManager */
-		$templatePath =& $params[1]; /** @var string $templatePath */
-
-        $bladeViewPath = $this->resolveBladeViewPath($templatePath);
-        if (view()->exists($bladeViewPath)) {
-            $this->isRenderingViaBladeView = true;
-            $templatePath = $bladeViewPath;
-        }
-        
-        return Hook::CONTINUE;
     }
 
     /**
@@ -784,19 +760,32 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
     /**
      * Register directories to search for template files
-     *
      */
     private function _registerTemplates()
     {
-        // Register parent theme template directory
-        if (isset($this->parent) && $this->parent instanceof self) {
-            $this->parent->_registerTemplates();
+        // Template paths are now computed on demand in getTemplatePaths()
+    }
+
+    /**
+     * Get template paths for this theme including parent themes.
+     * Overrides Plugin::getTemplatePaths() to include theme hierarchy.
+     *
+     * @return array Array of template directory paths (child to parent order)
+     */
+    protected function getTemplatePaths(): array
+    {
+        $paths = [];
+        $theme = $this;
+
+        while ($theme) {
+            $themePath = $theme->getPluginPath() . '/templates';
+            if (is_dir($themePath)) {
+                $paths[] = $themePath;
+            }
+            $theme = $theme->parent ?? null;
         }
 
-        // Register this theme's template directory
-        $request = Application::get()->getRequest();
-        $templateManager = TemplateManager::getManager($request);
-        $templateManager->addTemplateDir($this->_getBaseDir('templates'));
+        return $paths;
     }
 
     /**
@@ -1065,13 +1054,11 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     protected function getSubmissionViewContext(): string
     {
-        if (Application::get()->getName() == 'ojs2') {
-            return 'frontend-article-view';
-        } elseif (Application::get()->getName() == 'omp') {
-            return 'frontend-catalog-book';
-        } elseif (Application::get()->getName() == 'ops') {
-            return 'frontend-preprint-view';
-        }
+        return match (Application::get()->getName()) {
+            'ojs2' => 'frontend-article-view',
+            'omp' => 'frontend-catalog-book',
+            'ops' => 'frontend-preprint-view',
+        };
     }
 
     /**

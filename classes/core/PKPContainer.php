@@ -510,16 +510,18 @@ class PKPContainer extends Container
             'driver' => Config::getVar('search', 'driver', 'database'),
         ];
 
-        // Blade view settings
+        // Blade/Smarty view settings
+        // Resolution happens in Factory.make() via View::resolveName hook
         $items['view'] = [
             'compiled' => Str::of(
                 Config::getVar('cache', 'compiled', Core::getBaseDir() . '/cache/opcache')
             )->beforeLast('/')->append('/t_compile')->value(),
-            'cache' => false, // FIXME: Must be true in production, should it be a control config ?
+            'cache' => true, // Cache compiled templates (set false only for debugging)
             'compiled_extension' => 'php',
             'relative_hash' => false,
             'paths' => [
-                'app' => $this->basePath('templates'),
+                // 'app' namespace includes both directories to match Smarty's app: resource
+                'app' => [$this->basePath('templates'), $this->basePath('lib/pkp/templates')],
                 'pkp' => $this->basePath('lib/pkp/templates'),
             ],
             'components' =>  [

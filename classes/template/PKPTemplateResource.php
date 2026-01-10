@@ -11,82 +11,55 @@
  *
  * @ingroup template
  *
- * @brief Representation for a PKP template resource (template directory).
+ * @brief Smarty resource handler for core: and app: template prefixes.
+ *
+ * IMPORTANT: This class is required for Smarty COMPILATION phase.
+ * When Smarty compiles {include file="core:template.tpl"}, it needs to read
+ * the source file - this class provides that capability.
+ *
+ * Runtime template resolution (including plugin overrides) happens separately
+ * in SmartyTemplate via the View::resolveName hook.
+ *
+ * Do not remove this class - without it, templates using core: or app: prefixes
+ * will fail with "Unknown resource type" errors during compilation.
  */
 
 namespace PKP\template;
 
-use PKP\plugins\Hook;
-
 class PKPTemplateResource extends \Smarty_Resource_Custom
 {
-    /** @var array|string Template path or list of paths */
-    protected $_templateDir;
+    protected array $templateDirs;
 
-    /**
-     * Constructor
-     *
-     * @param string|array $templateDir Template directory
-     */
-    public function __construct($templateDir)
+    public function __construct(string|array $templateDir)
     {
-        if (is_string($templateDir)) {
-            $this->_templateDir = [$templateDir];
-        } else {
-            $this->_templateDir = $templateDir;
-        }
+        $this->templateDirs = (array) $templateDir;
     }
 
-    /**
-     * Resource function to get a template.
-     *
-     * @param string $name Template name
-     * @param string $source Reference to variable receiving fetched Smarty source
-     * @param int|bool $mtime Modification time
-     *
-     * @return bool
-     */
-    public function fetch($name, &$source, &$mtime)
+    public function fetch($name, &$source, &$mtime): bool
     {
-        $filename = $this->_getFilename($name);
-        $mtime = filemtime($filename);
-        if ($mtime === false) {
+        $filename = $this->findTemplate($name);
+        if (!$filename) {
             return false;
         }
-
+        $mtime = filemtime($filename);
         $source = file_get_contents($filename);
-        return ($source !== false);
+        return $source !== false;
     }
 
-    /**
-     * Get the timestamp for the specified template.
-     *
-     * @param string $name Template name
-     *
-     * @return int|boolean
-     */
-    protected function fetchTimestamp($name)
+    protected function fetchTimestamp($name): int|false
     {
-        return filemtime($this->_getFilename($name));
+        $filename = $this->findTemplate($name);
+        return $filename ? filemtime($filename) : false;
     }
 
-    /**
-     * Get the complete template path and filename.
-     *
-     * @return string|null
-     *
-     * @hook TemplateResource::getFilename [[&$filePath, $template]]
-     */
-    protected function _getFilename($template)
+    protected function findTemplate(string $template): ?string
     {
-        $filePath = null;
-        foreach ($this->_templateDir as $path) {
-            $filePath = "{$path}/{$template}";
-            if (file_exists($filePath)) {
-                break;
+        foreach ($this->templateDirs as $dir) {
+            $path = "{$dir}/{$template}";
+            if (file_exists($path)) {
+                return $path;
             }
         }
-        Hook::call('TemplateResource::getFilename', [&$filePath, $template]);
-        return $filePath;
+        return null;
     }
 }

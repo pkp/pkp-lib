@@ -26,7 +26,7 @@ class BladeCompiler extends IlluminateBladeCompiler
      */
     protected function compileComponentTags($value)
     {
-        if (! $this->compilesComponentTags) {
+        if (!$this->compilesComponentTags) {
             return $value;
         }
 

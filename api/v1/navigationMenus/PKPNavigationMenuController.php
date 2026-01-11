@@ -68,6 +68,10 @@ class PKPNavigationMenuController extends PKPBaseController
         Route::get('', $this->getMany(...))
             ->name('navigationMenu.getMany');
 
+        // Get all available menu items (for new menu creation)
+        Route::get('items', $this->getAllItems(...))
+            ->name('navigationMenu.getAllItems');
+
         Route::get('{navigationMenuId}', $this->get(...))
             ->name('navigationMenu.get')
             ->whereNumber('navigationMenuId');
@@ -120,6 +124,56 @@ class PKPNavigationMenuController extends PKPBaseController
         return response()->json([
             'items' => $items,
             'itemsMax' => count($items),
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Get all available menu items for new menu creation
+     * Returns empty assigned items and all context items as unassigned
+     */
+    public function getAllItems(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+
+        /** @var NavigationMenuItemDAO $menuItemDao */
+        $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+
+        // Get all items for this context
+        $allItems = $menuItemDao->getByContextId($contextId);
+        $navigationMenuService = app(PKPNavigationMenuService::class);
+        $unassignedItems = [];
+
+        while ($item = $allItems->next()) {
+            // Get conditional display info (for crossed-out eye icon)
+            $conditionalInfo = $this->getItemConditionalInfo($item, $navigationMenuService);
+
+            $unassignedItems[] = [
+                'id' => $item->getId(),
+                'menuItemId' => $item->getId(),
+                'title' => $this->getMenuItemTitle($item),
+                'localizedTitle' => $item->getTitle(null) ?? [],
+                'type' => $item->getType(),
+                'path' => $item->getPath(),
+                'url' => $item->getUrl(),
+                'isVisible' => !$conditionalInfo['hasConditionalDisplay'],
+                'hasWarning' => false,
+                'warningMessage' => null,
+                'conditionalWarning' => $conditionalInfo['conditionalWarning'],
+                'parentId' => null,
+                'children' => [],
+            ];
+        }
+
+        // Get item types for reference
+        $itemTypes = $navigationMenuService->getMenuItemTypes();
+
+        return response()->json([
+            'assigned' => [],
+            'unassigned' => $unassignedItems,
+            'itemTypes' => $itemTypes,
+            'maxDepth' => 3,
         ], Response::HTTP_OK);
     }
 

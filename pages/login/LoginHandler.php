@@ -30,6 +30,7 @@ use PKP\form\validation\FormValidatorAltcha;
 use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\RateLimitingService;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\Site;
@@ -129,6 +130,30 @@ class LoginHandler extends Handler
             $request->redirectSSL();
         }
 
+        // BEGIN: Rate Limiting - Check if login is rate limited
+        $username = $request->getUserVar('username');
+        $ip = $request->getRemoteAddr();
+        $rateLimiter = app()->get(RateLimitingService::class);
+
+        if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isLoginLimited($username ?? '', $ip)) {
+            // Apply artificial delay to prevent timing attacks
+            $rateLimiter->applyRateLimitDelay();
+
+            // Show generic error (don't reveal rate limiting)
+            $templateMgr->assign([
+                'username' => $username,
+                'remember' => $request->getUserVar('remember'),
+                'source' => $request->getUserVar('source'),
+                'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
+                'error' => 'user.login.loginError',
+                'reason' => null,
+            ]);
+            $this->_generateAltchaComponent('altcha_on_login', $templateMgr);
+            $templateMgr->display('frontend/pages/userLogin.tpl');
+            return;
+        }
+        // END: Rate Limiting - Check if login is rate limited
+
         $error = null;
         $isCaptchaEnabled = Config::getVar('captcha', 'captcha_on_login') && Config::getVar('captcha', 'recaptcha');
         if ($isCaptchaEnabled) {
@@ -147,12 +172,17 @@ class LoginHandler extends Handler
             }
         }
 
-        $username = $request->getUserVar('username');
         $reason = null;
         $user = $error || !strlen($username ?? '')
             ? null
             : Validation::login($username, $request->getUserVar('password'), $reason, !!$request->getUserVar('remember'));
         if ($user) {
+            // BEGIN: Rate Limiting - Clear rate limit on successful login
+            if ($rateLimiter->isRateLimitEnabled()) {
+                $rateLimiter->clearLoginLimit($username, $ip);
+            }
+            // END: Rate Limiting - Clear rate limit on successful login
+
             if ($user->getMustChangePassword()) {
                 // User must change their password in order to log in
                 Validation::logout();
@@ -168,6 +198,12 @@ class LoginHandler extends Handler
             }
             $this->_redirectAfterLogin($request);
         }
+
+        // BEGIN: Rate Limiting - Record failed login attempt
+        if ($rateLimiter->isRateLimitEnabled() && strlen($username ?? '') > 0) {
+            $rateLimiter->recordLoginAttempt($username, $ip);
+        }
+        // END: Rate Limiting - Record failed login attempt
 
         if ($reason) {
             $error = 'user.login.accountDisabledWithReason';
@@ -230,6 +266,30 @@ class LoginHandler extends Handler
     {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
+
+        // BEGIN: Rate Limiting - Check if password reset is rate limited
+        $ip = $request->getRemoteAddr();
+        $rateLimiter = app()->get(RateLimitingService::class);
+
+        if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isPasswordResetLimited($ip)) {
+            // Apply artificial delay to prevent timing attacks
+            $rateLimiter->applyRateLimitDelay();
+
+            // Show generic success message (don't reveal rate limiting)
+            $templateMgr->assign([
+                'pageTitle' => 'user.login.resetPassword',
+                'message' => 'user.login.lostPassword.confirmationSent',
+                'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
+                'backLinkLabel' => 'user.login',
+            ])->display('frontend/pages/message.tpl');
+            return;
+        }
+
+        // Record attempt BEFORE checking email (prevents enumeration)
+        if ($rateLimiter->isRateLimitEnabled()) {
+            $rateLimiter->recordPasswordResetAttempt($ip);
+        }
+        // END: Rate Limiting - Check if password reset is rate limited
 
         $altchaHasError = $this->_validateAltchasResponse($request, 'altcha_on_lost_password');
 
@@ -348,6 +408,16 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
+        // BEGIN: Rate Limiting - Check if password reset is rate limited
+        $ip = $request->getRemoteAddr();
+        $rateLimiter = app()->get(RateLimitingService::class);
+
+        if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isPasswordResetLimited($ip)) {
+            $rateLimiter->applyRateLimitDelay();
+            return $request->redirect(null, null, 'lostPassword');
+        }
+        // END: Rate Limiting - Check if password reset is rate limited
+
         $username = $request->getUserVar('username');
         $confirmHash = $request->getUserVar('hash');
 
@@ -364,6 +434,12 @@ class LoginHandler extends Handler
 
         if ($passwordResetForm->validate()) {
             if ($passwordResetForm->execute()) {
+                // BEGIN: Rate Limiting - Clear rate limit on successful password reset
+                if ($rateLimiter->isRateLimitEnabled()) {
+                    $rateLimiter->clearPasswordResetLimit($ip);
+                }
+                // END: Rate Limiting - Clear rate limit on successful password reset
+
                 $templateMgr->assign([
                     'pageTitle' => 'user.login.resetPassword',
                     'message' => 'user.login.resetPassword.passwordUpdated',

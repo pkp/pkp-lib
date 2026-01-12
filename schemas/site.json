@@ -112,6 +112,31 @@
 				"min:4"
 			]
 		},
+		"rateLimitEnabled": {
+			"type": "boolean",
+			"default": false,
+			"description": "Enable rate limiting for login and password reset"
+		},
+		"rateLimitMaxAttempts": {
+			"type": "integer",
+			"default": 5,
+			"description": "Maximum attempts before rate limiting is triggered",
+			"validation": [
+				"nullable",
+				"min:1",
+				"max:100"
+			]
+		},
+		"rateLimitDecaySeconds": {
+			"type": "integer",
+			"default": 300,
+			"description": "Seconds until rate limit resets",
+			"validation": [
+				"nullable",
+				"min:60",
+				"max:86400"
+			]
+		},
 		"disableSharedReviewerStatistics": {
 			"type": "boolean",
 			"description": "Specify whether reviewer statistics can be shared with other contexts of the installation.",

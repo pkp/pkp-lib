@@ -156,10 +156,6 @@ msgstr "Сіз жариялағыңыз келетін жарияланым қа
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Сіз жойғыңыз келетін жарияланым жарияланбаған."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Сіз бұл жарияланымды өңдей алмайсыз, өйткені ол қазірдің өзінде жарияланған."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Күйді тікелей API арқылы өзгерту мүмкін емес. Оның орнына /publish және /"

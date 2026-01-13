@@ -154,10 +154,6 @@ msgstr "Հոդվածը, որը Դուք ցանկանում եք հրապարակ
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Հրապարակումը, ոը չեք ցանկանում հրապարակել, հրապարակված չէ:"
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Դուք չեք կարող խմբագրել այս հրապարակումը, քանի որ դա արդեն հրապարակված է:"
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Դուք կարող եք ձևափոխել կարգավիճակը API-ի միջոցով: Փոխարենը, օգտագործեք /"

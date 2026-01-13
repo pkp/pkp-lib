@@ -166,10 +166,6 @@ msgstr "La publication que vous souhaitez publier est déjà publiée."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "La publication que vous souhaitez dépublier n'est pas publiée."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Vous ne pouvez pas modifier cette publication car elle a déjà été publiée."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Vous ne pouvez pas modifier le statut directement via l'API. Au lieu de "

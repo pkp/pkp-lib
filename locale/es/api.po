@@ -161,8 +161,6 @@ msgstr "La publicación que quiere publicar ya está publicada."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "La publicación que quiere retirar no ha sido publicada."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "No puede editar esta publicación porque ya ha sido publicada."
 
 msgid "api.publication.403.cantEditStatus"
 msgstr ""

@@ -182,9 +182,6 @@ msgstr "The publication you want to publish is already published."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "The publication you want to unpublish is not published."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "You can not edit this publication because it has already been published."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr "You can not modify the status directly through the API. Instead, use the /publish and /unpublish endpoints."
 

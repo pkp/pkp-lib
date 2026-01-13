@@ -150,9 +150,6 @@ msgstr "Yayımlamak istediğiniz yayın zaten yayımlanmış."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Yayından kaldırmak istediğiniz yayın yayımlanmamış."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Bu yayın yayımlanmış olduğu için düzenleme yapamazsınız."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Durumu doğrudan API aracılığıyla değiştiremezsiniz. Bunun yerine /publish "

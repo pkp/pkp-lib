@@ -166,9 +166,6 @@ msgstr "De publicatie die u wilt verspreiden is reeds gepubliceerd."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "De publicatie die u wilt depubliceren is niet gepubliceerd."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "U kunt deze publicatie niet bewerken omdat deze al is verspreid."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "U kunt de status niet direct via de API wijzigen. In de plaats hiervan, "

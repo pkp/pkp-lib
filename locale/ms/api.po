@@ -143,10 +143,6 @@ msgstr "Penerbitan yang anda ingin terbitkan telah pun diterbitkan."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Penerbitan yang anda ingin nyahterbitkan tidak diterbitkan."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Anda tidak boleh menyunting penerbitan ini kerana ia telah pun diterbitkan."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Anda tidak boleh mengubah suai status secara langsung melalui API. "

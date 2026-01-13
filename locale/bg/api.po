@@ -156,10 +156,6 @@ msgid "api.publication.403.alreadyUnpublished"
 msgstr ""
 "Публикацията, която искате да свалите от публикуване, не е публикувана."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Не можете да редактирате тази публикация, защото тя вече е публикувана."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Не можете да променяте състоянието директно чрез API. Вместо това "

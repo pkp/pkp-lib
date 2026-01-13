@@ -157,9 +157,6 @@ msgstr "Publikacija koju želite objaviti već je objavljena."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Publikacija koju želite poništiti nije objavljena."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Ne možete uređivati ovu publikaciju jer je već objavljena."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Ne možete mijenjati status izravno putem API-ja. Umjesto toga koristite "

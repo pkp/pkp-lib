@@ -135,9 +135,6 @@ msgstr "Articolul pe care doriți să îl publicați este deja publicat."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Articolul pe care doriți să îl publicați nu este publicat."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Nu puteți edita acest articol deoarece a fost deja publicat."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Nu puteți modifica starea direct prin API. În schimb, utilizați punctele "

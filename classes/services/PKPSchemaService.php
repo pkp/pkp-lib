@@ -377,6 +377,10 @@ class PKPSchemaService
                     foreach ($value as $i => $v) {
                         $newArray[$i] = $this->coerce($v, $schema->items->type, $schema->items);
                     }
+                } elseif (isValidJson($value)) {
+                    // Value is already a JSON-encoded string (e.g., from Eloquent cast)
+                    // Return as-is to prevent double-encoding(e.g. serialized format)
+                    return $value;
                 } else {
                     $newArray[] = serialize($value);
                 }

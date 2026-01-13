@@ -166,7 +166,19 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
             for ($nc = $n->firstChild; $nc !== null; $nc = $nc->nextSibling) {
                 if ($nc instanceof \DOMElement) {
-                    $controlledVocabulary[] = $nc->textContent;
+                    $item = ['name' => $nc->getElementsByTagName('name')->item(0)->textContent];
+
+                    $identifierNode = $nc->getElementsByTagName('identifier')->item(0);
+                    if ($identifierNode) {
+                        $item['identifier'] = $identifierNode->textContent;
+                    }
+
+                    $sourceNode = $nc->getElementsByTagName('source')->item(0);
+                    if ($sourceNode) {
+                        $item['source'] = $sourceNode->textContent;
+                    }
+
+                    $controlledVocabulary[] = $item;
                 }
             }
 

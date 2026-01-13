@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2026-01-12 15:55+0000\n"
+"PO-Revision-Date: 2026-01-13 09:32+0000\n"
 "Last-Translator: HIZBEA Euskaltzaindia <hizbea@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "eu/>\n"
@@ -123,8 +123,7 @@ msgstr ""
 "}\">bidalketa-panela</a> baliatuta.</p><p>Adeitasunez,</p>{$signature}"
 
 msgid "emails.editorDecisionRevisions.subject"
-msgstr ""
-"Zure bidalketa berrikusi da eta berrikuspenak aurkeztera animatzen zaitugu"
+msgstr "Zure bidalketa berrikusi da eta zuzenketak aurkeztera animatzen zaitugu"
 
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -1409,10 +1408,8 @@ msgstr ""
 "Mezu elektroniko hau egileei ORCID erregistroetara sarbidea eskatzeko "
 "bidaltzen da."
 
-#, fuzzy
 msgid "emails.orcidRequestUpdateScope.description"
-msgstr ""
-"Mezu elektroniko hau ORCIDerako API OAuth irismena eskatzeko bidaltzen da."
+msgstr "Mezu elektroniko hau ORCIDerako API OAuth sarbidea eskatzeko bidali da."
 
 msgid "emails.orcidRequestUpdateScope.subject"
 msgstr "Eguneratutako ORCID erregistroetara sarbidea eskatzea"
@@ -1634,3 +1631,15 @@ msgstr ""
 "zalantzarik baduzu, jarri nirekin harremanetan.</p>        <p>Adeitasunez,</"
 "p>        <p>{$contextName}</p>    "
 "</div></div><style>{$emailTemplateStyle}</style>"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr ""
+"Aurrerantzean ez zara {$contextName} aldizkariaren goiburuan {$sectionName} "
+"gisa agertuko."
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr ""
+"Aurrerantzean zure izena {$contextName} aldizkariaren goiburuan "
+"{$sectionName} gisa agertuko da."

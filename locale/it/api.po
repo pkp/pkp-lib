@@ -169,10 +169,6 @@ msgstr "L'uscita che vuoi pubblicare è già stata pubblicata."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "L'uscita di cui vuoi terminare la pubblicazione non è pubblicata."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Non è possibile modificare questo articolo perché è già stato pubblicato."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Non è possibile modificare lo status direttamente attraverso l'API. "

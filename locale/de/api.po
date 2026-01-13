@@ -167,10 +167,6 @@ msgstr ""
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Der Beitrag, den Sie zurückziehen wollen, ist nicht veröffentlicht."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Sie können diesen Beitrag nicht ändern, denn er wurde bereits veröffentlicht."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Der Stats kann nicht direkt durch die API geändert werden. Bitte nutzen Sie "

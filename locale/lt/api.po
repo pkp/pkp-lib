@@ -219,9 +219,6 @@ msgstr "Leidinys, kurį norite publikuoti, jau yra publikuotas."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Leidinys, kurio publikavimą norite atšaukti, nėra publikuotas."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Šio leidinio redaguoti negalima, nes jis jau publikuotas."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Negalite modifikuoti būsenos tiesiogiai per API. Vietoj to naudokite "

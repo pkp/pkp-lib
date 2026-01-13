@@ -143,9 +143,6 @@ msgstr "A publicación que quere publicar xa está publicada."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "A publicación que quere retirar aínda non foi publicada."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Non pode editar esta publicación porque xa foi publicada."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Non pode modificar o estado directamente a través da API. En vez diso, "

@@ -163,9 +163,6 @@ msgstr "Den publikation, du vil udgive, er allerede publiceret."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Den publikation som du ønsker at trække tilbage er ikke publiceret."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Du kan ikke redigere denne publikation, da den allerede er publiceret."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Du kan ikke ændre status direkte via API'en. I stedet skal du bruge / "

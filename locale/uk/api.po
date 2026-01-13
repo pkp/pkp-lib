@@ -84,10 +84,6 @@ msgstr "За запитом не вдалося знайти жодного фа
 msgid "api.files.400.uploadFailed"
 msgstr "Один або кілька файлів завантажити не вдалося."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Ви не можете відредагувати цю публікацію, оскільки її вже було опубліковано."
-
 msgid "api.publication.403.cantDeletePublished"
 msgstr "Вам потрібно скасувати цю публікацію, перш ніж її можна буде видалити."
 

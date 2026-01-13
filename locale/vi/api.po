@@ -150,9 +150,6 @@ msgstr "Ấn phẩm bạn muốn xuất bản đã được xuất bản."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Ấn phẩm bạn muốn hủy xuất bản chưa được xuất bản."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Bạn không thể chỉnh sửa ấn phẩm này vì nó đã được xuất bản."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Bạn không thể sửa đổi trạng thái trực tiếp thông qua API. Thay vào đó, sử "

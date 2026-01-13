@@ -152,10 +152,6 @@ msgstr "პუბლიკაცია, რომლის გამოქვე
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "პუბლიკაცია, რომლის გამოქვეყნებაც გსურთ, არ გამოქვეყნებულა."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"თქვენ არ შეგიძლიათ შეცვალოთ ეს გამოცემა, რადგან ის უკვე გამოქვეყნებულია."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "თქვენ არ შეგიძლიათ შეცვალოთ სტატუსი პირდაპირ API-ს საშუალებით. ამის ნაცვლად, "

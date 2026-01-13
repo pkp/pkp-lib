@@ -141,9 +141,6 @@ msgstr "発行しようとした出版物は既に発行されています。"
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "未公開しようとした出版物は発行されていません。"
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "この出版物は既に公開されているため、編集できません。"
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "API を使用してステータスを直接変更することはできません。 代わりに、 /publish "

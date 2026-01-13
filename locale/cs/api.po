@@ -151,9 +151,6 @@ msgstr "Publikace, kterou chcete publikovat již byla publikována."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Tuto publikaci nejde editovat, protože již byla publikována."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Status nejde změni přímo pomocí API. Místo toho použijte funkce /publish a /"

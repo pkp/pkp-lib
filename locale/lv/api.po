@@ -169,9 +169,6 @@ msgstr ""
 "Notika kļūda, un daži no iesniegtajiem vienumiem netika atzīmēti kā "
 "reģistrēti."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Šo publikāciju nevar rediģēt, jo tā jau ir publicēta."
-
 msgid "api.dois.400.depositFailed"
 msgstr ""
 "Dažus vienumus neizdevās veiksmīgi deponēt. Lūdzu, pārbaudiet atsevišķus "

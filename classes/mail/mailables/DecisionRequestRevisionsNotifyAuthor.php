@@ -19,6 +19,7 @@ use APP\decision\Decision;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
+use PKP\mail\traits\AuthorReviewResponseVariables;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\ReviewerComments;
@@ -32,6 +33,7 @@ class DecisionRequestRevisionsNotifyAuthor extends Mailable
     use Recipient;
     use ReviewerComments;
     use Sender;
+    use AuthorReviewResponseVariables;
 
     protected static ?string $name = 'mailable.decision.requestRevisions.notifyAuthor.name';
     protected static ?string $description = 'mailable.decision.requestRevisions.notifyAuthor.description';
@@ -40,7 +42,6 @@ class DecisionRequestRevisionsNotifyAuthor extends Mailable
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
-
     /**
      * @param array<ReviewAssignment> $reviewAssignments
      */
@@ -48,11 +49,15 @@ class DecisionRequestRevisionsNotifyAuthor extends Mailable
     {
         parent::__construct(array_slice(func_get_args(), 0, -1));
         $this->setupReviewerCommentsVariable($reviewAssignments, $submission);
+        $this->setupAuthorReviewResponseVariables($submission, $decision->getData('reviewRoundId'), $decision->getData('stageId'), $context);
     }
 
     public static function getDataDescriptions(): array
     {
         $variables = parent::getDataDescriptions();
-        return self::addReviewerCommentsDescription($variables);
+        $variables = self::addReviewerCommentsDescription($variables);
+        $variables = self::addAuthorReviewResponseDataDescriptions($variables);
+
+        return $variables;
     }
 }

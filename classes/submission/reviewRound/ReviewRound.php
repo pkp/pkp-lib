@@ -139,6 +139,12 @@ class ReviewRound extends \PKP\core\DataObject
         $this->setData('round', $round);
     }
 
+
+    public function getIsAuthorResponseRequested()
+    {
+        return $this->getData('isAuthorResponseRequested');
+    }
+
     /**
      * Get current round status
      *

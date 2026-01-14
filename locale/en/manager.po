@@ -3015,6 +3015,10 @@ msgstr ""
 "All comments from completed reviews. Reviewer names are hidden for anonymous "
 "reviews"
 
+msgid "emailTemplate.variable.authorReviewResponseUrl"
+msgstr ""
+"The URL to the page where the author can submit their response to reviewer comments"
+
 msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr "The names and affiliations of the submission's authors."
 

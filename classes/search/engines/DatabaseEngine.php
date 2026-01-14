@@ -98,6 +98,7 @@ class DatabaseEngine extends ScoutEngine
         return DB::table('submissions_fulltext AS ft')
             ->join('submissions AS s', 'ft.submission_id', 's.submission_id')
             ->when($contextId, fn (DatabaseBuilder $q) => $q->where('context_id', $contextId))
+            ->whereIn('s.submission_id', DB::table('publications')->where('status', PKPPublication::STATUS_PUBLISHED)->select('submission_id'))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords) || is_array($subjects), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
@@ -159,7 +160,7 @@ class DatabaseEngine extends ScoutEngine
             ->groupBy('s.submission_id');
     }
 
-    public function search(SearchBuilder $builder): Collection
+    public function search(SearchBuilder $builder): array
     {
         $query = $this->buildQuery($builder);
         $results = $query->pluck('s.submission_id');

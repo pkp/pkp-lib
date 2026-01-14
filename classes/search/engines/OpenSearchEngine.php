@@ -271,7 +271,7 @@ class OpenSearchEngine extends ScoutEngine
         return $query;
     }
 
-    public function search(Builder $builder)
+    public function search(Builder $builder): array
     {
         $client = $this->getClient();
         $results = $client->search($this->buildQuery($builder));

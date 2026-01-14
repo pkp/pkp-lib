@@ -344,7 +344,7 @@ class OpenSearchEngine extends ScoutEngine
             ],
         ];
 
-        $this->getClient()->indices()->create([
+        $mapping = [
             'index' => $this->getIndexName(),
             'body' => [
                 'mappings' => [
@@ -368,7 +368,11 @@ class OpenSearchEngine extends ScoutEngine
                     ],
                 ],
             ],
-        ]);
+        ];
+
+        if (Hook::run('OpenSearchEngine::createIndex', ['mapping' => &$mapping]) !== Hook::ABORT) {
+            $this->getClient()->indices()->create($mapping);
+        }
     }
 
     public function deleteIndex($name)

@@ -33,6 +33,7 @@ use PKP\API\v1\submissions\tasks\resources\TaskResource;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\db\DAORegistry;
 use PKP\editorialTask\EditorialTask;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
@@ -46,6 +47,7 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
@@ -273,9 +275,17 @@ class EditorialTaskController extends PKPBaseController
             ->getMany() :
             collect()->lazy();
 
+        $noteIds = Note::withAssocIds(PKPApplication::ASSOC_TYPE_QUERY, $tasks->pluck('id')->toArray())
+            ->pluck((new Note())->getKeyName())
+            ->toArray();
+
         $submissionFiles = Repo::submissionFile()->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $taskIds)
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, $noteIds)
             ->getMany();
+
+        $context = $this->getRequest()->getContext();
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'items' => TaskResource::collection(resource: $tasks, data: [
@@ -285,6 +295,7 @@ class EditorialTaskController extends PKPBaseController
                 'userGroups' => $userGroups,
                 'reviewAssignments' => $reviewAssignments,
                 'submissionFiles' => $submissionFiles,
+                'fileGenres' => $fileGenres,
             ]),
             'itemMax' => $tasks->count(),
         ], Response::HTTP_OK);
@@ -502,8 +513,12 @@ class EditorialTaskController extends PKPBaseController
             collect()->lazy();
 
         $submissionFiles = Repo::submissionFile()->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, [$editTask->id])
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, $editTask->notes()->pluck((new Note())->getKeyName())->toArray())
             ->getMany();
+
+        $context = $this->getRequest()->getContext();
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return [
             'submission' => $submission,
@@ -512,6 +527,7 @@ class EditorialTaskController extends PKPBaseController
             'userGroups' => $userGroups,
             'reviewAssignments' => $reviewAssignments,
             'submissionFiles' => $submissionFiles,
+            'fileGenres' => $fileGenres,
         ];
     }
 
@@ -527,11 +543,29 @@ class EditorialTaskController extends PKPBaseController
         $note->refresh();
         $task = $note->assoc; /** @var EditorialTask $task */
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
+            ->getMany();
+
+        $stageId = (int) $illuminateRequest->route('stageId');
+        $stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageId])
+            ->get();
+
+
+        $context = $this->getRequest()->getContext();
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json(
             new NoteResource(resource: $note, data: [
                 'users' => collect([$this->getRequest()->getUser()]),
                 'parentResource' => new TaskResource($task, $this->getTaskData($submission, $task)),
+                'submissionFiles' => $submissionFiles,
+                'stageAssignments' => $stageAssignments,
+                'submission' => $submission,
+                'fileGenres' => $fileGenres,
             ]),
             Response::HTTP_OK
         );

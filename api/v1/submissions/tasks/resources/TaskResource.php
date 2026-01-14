@@ -21,6 +21,7 @@ use PKP\core\PKPApplication;
 use PKP\core\traits\ResourceWithData;
 use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\note\Note;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
@@ -30,14 +31,29 @@ class TaskResource extends JsonResource
 
     public function toArray(Request $request)
     {
-        [$users, $submissionFiles] = $this->getData('users', 'submissionFiles');
+        [$users, $submissionFiles, $stageAssignments, $submission, $fileGenres] = $this->getData('users', 'submissionFiles', 'stageAssignments', 'submission', 'fileGenres');
 
         $createdBy = $users->first(fn (User $user) => $user->getId() === $this->createdBy); /** @var User $createdBy */
         $startedBy = $users->first(fn (User $user) => $user->getId() === $this->startedBy); /** @var User $startedBy */
+
+        $notes = $this->notes->sortBy('dateCreated');
+
         $submissionFiles = $submissionFiles->collect()->filter(
-            fn (SubmissionFile $submissionFile) =>
-             $submissionFile->getAssocType() == PKPApplication::ASSOC_TYPE_QUERY && (int) $submissionFile->getData('assocId') == $this->id
+            fn (SubmissionFile $submissionFile) => $submissionFile->getAssocType() == PKPApplication::ASSOC_TYPE_NOTE &&
+                in_array(
+                    (int) $submissionFile->getData('assocId'),
+                    $notes->pluck((new Note())->getKeyName())->toArray()
+                )
         );
+
+        $notesCollection = NoteResource::collection(resource: $notes, data: array_merge($this->data, [
+            'parentResource' => $this,
+            'submissionFiles' => $submissionFiles,
+            'users' => $users,
+            'stageAssignments' => $stageAssignments,
+            'submission' => $submission,
+            'fileGenres' => $fileGenres,
+        ]));
 
         return [
             'id' => $this->id,
@@ -56,12 +72,7 @@ class TaskResource extends JsonResource
             'dateClosed' => $this->dateClosed?->format('Y-m-d'),
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
-            'notes' => NoteResource::collection(resource: $this->notes->sortBy('dateCreated'), data: array_merge($this->data, [
-                'parentResource' => $this,
-            ])),
-            'submissionFileIds' => $submissionFiles->isNotEmpty() ?
-                $submissionFiles->map(fn (SubmissionFile $submissionFile) => $submissionFile->getId())->toArray() :
-                null
+            'notes' => $notesCollection,
         ];
     }
 
@@ -76,7 +87,8 @@ class TaskResource extends JsonResource
             'userGroups',
             'stageAssignments',
             'reviewAssignments',
-            'submissionFiles'
+            'submissionFiles',
+            'fileGenres',
         ];
     }
 

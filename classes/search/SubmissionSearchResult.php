@@ -47,6 +47,10 @@ class SubmissionSearchResult
             ->whereIn('keywords', $request->getUserVar('keywords'))
             ->whereIn('subjects', $request->getUserVar('subjects'));
 
+        if ($orderBy = $request->getUserVar('orderBy')) {
+            $builder->orderBy($orderBy, $request->getUserVar('orderDir') == 'asc' ? 'asc' : 'desc');
+        }
+
         // Allow hook registrants to adjust the builder before querying
         Hook::run('SubmissionSearchResult::builderFromRequest', ['builder' => $builder, 'request' => $request]);
 

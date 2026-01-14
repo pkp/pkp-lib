@@ -62,6 +62,8 @@ class SearchHandler extends Handler
             'searchContext' => $context?->getId(),
             'yearStart' => $yearStart,
             'yearEnd' => $yearEnd,
+            'orderBy' => $request->getUserVar('orderBy'),
+            'orderDir' => $request->getUserVar('orderDir'),
         ]);
 
         if (!$context) {

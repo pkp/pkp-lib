@@ -166,6 +166,7 @@ class OpenSearchEngine extends ScoutEngine
         $builder = clone $builder;
 
         $filter = [];
+        $sort = [];
         $query = [
             'index' => $this->getIndexName(),
             'body' => [
@@ -180,6 +181,7 @@ class OpenSearchEngine extends ScoutEngine
                         'filter' => &$filter,
                     ],
                 ],
+                'sort' => &$sort,
             ],
         ];
 
@@ -229,8 +231,28 @@ class OpenSearchEngine extends ScoutEngine
             unset($builder->whereIns[$field]);
         };
 
+        // Handle ordering
+        foreach ($builder->orders as $index => $order) {
+            switch ($order['column']) {
+                case 'datePublished':
+                    $sort[] = (object) [
+                        $order['column'] => (object) ['order' => $order['direction']]
+                    ];
+                    unset($builder->orders[$index]);
+                    break;
+                case 'title':
+                    $sort[] = (object) [
+                        'titles.' . Locale::getLocale() => (object) [
+                            'order' => $order['direction'],
+                        ]
+                    ];
+                    unset($builder->orders[$index]);
+                    break;
+            }
+        }
+
         // Allow hook registrants to process and consume additional query builder elements
-        Hook::run('OpenSearchEngine::buildQuery', ['query' => &$query, 'filter' => &$filter, 'builder' => $builder, 'originalBuilder' => $originalBuilder]);
+        Hook::run('OpenSearchEngine::buildQuery', ['query' => &$query, 'filter' => &$filter, 'sort' => &$sort, 'builder' => $builder, 'originalBuilder' => $originalBuilder]);
 
         // Ensure that the query builder was completely consumed (there were no unsupported details provided)
         if (!empty($builder->whereIns)) {
@@ -241,6 +263,9 @@ class OpenSearchEngine extends ScoutEngine
         }
         if (!empty($builder->options)) {
             throw new \Exception('Unsupported option: ' . json_encode($builder->options));
+        }
+        if (!empty($builder->orders)) {
+            throw new \Exception('Unsupported order-by: ' . json_encode($builder->orders));
         }
 
         return $query;
@@ -297,22 +322,70 @@ class OpenSearchEngine extends ScoutEngine
 
     public function createIndex($name, array $options = [])
     {
+        // Determine all metadata locales supported by the site
+        $metadataLocales = [];
+        $contexts = Application::get()->getContextDAO()->getAll();
+        while ($context = $contexts->next()) {
+            $metadataLocales = [...$metadataLocales, ...$context->getSupportedSubmissionMetadataLocales()];
+        }
+        $metadataLocales = array_unique($metadataLocales);
+
+        $typicalKeywordClause = fn ($fielddata = false) => [
+            'properties' => [
+                ...array_map(fn ($e) => [
+                    'type' => 'text',
+                    'fielddata' => $fielddata,
+                    'fields' => [
+                        'keyword' => [
+                            'type' => 'keyword',
+                        ],
+                    ],
+                ], array_flip($metadataLocales)),
+            ],
+        ];
+
+        $this->getClient()->indices()->create([
+            'index' => $this->getIndexName(),
+            'body' => [
+                'mappings' => [
+                    'properties' => [
+                        'abstracts' => $typicalKeywordClause(),
+                        'titles' => $typicalKeywordClause(true),
+                        'authors' => $typicalKeywordClause(),
+                        'categoryId' => ['type' => 'long'],
+                        'contexetId' => ['type' => 'long'],
+                        'datePublished' => ['type' => 'date'],
+                        'keyword' => [
+                            'type' => 'text',
+                            'fields' => [
+                                'keyword' => [
+                                    'type' => 'keyword',
+                                    'ignore_above' => 256,
+                                ],
+                            ],
+                        ],
+                        'sectionId' => ['type' => 'long'],
+                    ],
+                ],
+            ],
+        ]);
     }
 
     public function deleteIndex($name)
     {
         $client = $this->getClient();
         $client->indices()->delete([
-            'index' => $name,
+            'index' => $this->getIndexName(),
         ]);
     }
 
     public function flush($model)
     {
+        $client = $this->getClient();
         try {
-            $this->deleteIndex($this->getIndexName());
-        } catch (\OpenSearch\Common\Exceptions\Missing404Exception $e) {
-            // Don't worry about missing indexes.
+            $client->indices()->flush(['index' => $this->getIndexName()]);
+        } catch (\Throwable $t) {
+            // Ignore errors
         }
     }
 }

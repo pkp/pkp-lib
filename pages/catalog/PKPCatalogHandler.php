@@ -97,6 +97,10 @@ class PKPCatalogHandler extends Handler
             'parentCategory' => $parentCategory,
             'subcategories' => iterator_to_array($subcategories),
             'results' => $results,
+            'query' => $builder->query,
+            'searchContext' => $context?->getId(),
+            'orderBy' => $request->getUserVar('orderBy'),
+            'orderDir' => $request->getUserVar('orderDir'),
         ]);
 
         return $templateMgr->display('frontend/pages/catalogCategory.tpl');

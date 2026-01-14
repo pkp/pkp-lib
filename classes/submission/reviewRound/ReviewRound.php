@@ -138,7 +138,6 @@ class ReviewRound extends \PKP\core\DataObject
     {
         $this->setData('round', $round);
     }
-
     /**
      * Get current round status
      *

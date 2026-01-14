@@ -17,6 +17,10 @@
 		},
 		"statusId": {
 			"type": "integer"
+		},
+		"authorReviewResponse": {
+			"type": "object",
+			"validation": ["nullable"]
 		}
 	}
 }

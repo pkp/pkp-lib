@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/mailable/Repository.php
  *
@@ -20,6 +21,7 @@ use Illuminate\Support\Str;
 use PKP\context\Context;
 use PKP\mail\mailables\DecisionNotifyOtherAuthors;
 use PKP\mail\mailables\EditReviewNotify;
+use PKP\mail\mailables\RequestReviewAuthorResponse;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\mail\mailables\SubmissionAcknowledgement;
@@ -276,6 +278,7 @@ class Repository
             mailables\UserRoleEndNotify::class,
             mailables\ValidateEmailContext::class,
             mailables\ValidateEmailSite::class,
+            RequestReviewAuthorResponse::class,
         ]);
     }
 }

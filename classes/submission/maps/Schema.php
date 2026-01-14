@@ -22,6 +22,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
+use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
@@ -32,6 +33,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\submission\reviewRound\ReviewAuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -735,13 +737,19 @@ class Schema extends \PKP\core\maps\Schema
     protected function getPropertyReviewRounds(Collection $reviewRounds): array
     {
         $rounds = [];
+        $roundIds = $reviewRounds->map(fn (ReviewRound $r) => $r->getId())->all();
+        $roundResponses = ReviewAuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
+
         foreach ($reviewRounds as $reviewRound) {
+            $currentRoundResponse = $roundResponses->get($reviewRound->getId())?->first();
             $rounds[] = [
                 'id' => $reviewRound->getId(),
                 'round' => $reviewRound->getRound(),
                 'stageId' => $reviewRound->getStageId(),
                 'statusId' => $reviewRound->determineStatus(),
                 'status' => __($reviewRound->getStatusKey()),
+                'isAuthorResponseRequested' => $reviewRound->getData('isAuthorResponseRequested'),
+                'authorReviewResponse' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
             ];
         }
 

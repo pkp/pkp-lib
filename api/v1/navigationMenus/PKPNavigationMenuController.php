@@ -16,7 +16,6 @@
 
 namespace PKP\API\v1\navigationMenus;
 
-use APP\core\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -35,6 +34,7 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPNavigationMenuService;
+use PKP\services\PKPSchemaService;
 
 class PKPNavigationMenuController extends PKPBaseController
 {
@@ -65,23 +65,23 @@ class PKPNavigationMenuController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('', $this->getMany(...))
-            ->name('navigationMenu.getMany');
-
         // Get all available menu items (for new menu creation)
         Route::get('items', $this->getAllItems(...))
             ->name('navigationMenu.getAllItems');
 
-        Route::get('{navigationMenuId}', $this->get(...))
-            ->name('navigationMenu.get')
-            ->whereNumber('navigationMenuId');
+        // Get navigation menu areas for the active theme
+        Route::get('areas', $this->getAreas(...))
+            ->name('navigationMenu.getAreas');
 
         Route::get('{navigationMenuId}/items', $this->getItems(...))
             ->name('navigationMenu.getItems')
             ->whereNumber('navigationMenuId');
 
-        Route::put('{navigationMenuId}/items', $this->saveItems(...))
-            ->name('navigationMenu.saveItems')
+        Route::post('', $this->add(...))
+            ->name('navigationMenu.add');
+
+        Route::put('{navigationMenuId}', $this->edit(...))
+            ->name('navigationMenu.edit')
             ->whereNumber('navigationMenuId');
     }
 
@@ -101,30 +101,6 @@ class PKPNavigationMenuController extends PKPBaseController
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
-    }
-
-    /**
-     * Get all navigation menus for the current context
-     */
-    public function getMany(Request $illuminateRequest): JsonResponse
-    {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
-
-        /** @var NavigationMenuDAO $navigationMenuDao */
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        $navigationMenus = $navigationMenuDao->getByContextId($contextId);
-
-        $items = [];
-        while ($menu = $navigationMenus->next()) {
-            $items[] = $this->mapNavigationMenu($menu);
-        }
-
-        return response()->json([
-            'items' => $items,
-            'itemsMax' => count($items),
-        ], Response::HTTP_OK);
     }
 
     /**
@@ -178,30 +154,6 @@ class PKPNavigationMenuController extends PKPBaseController
     }
 
     /**
-     * Get a single navigation menu
-     */
-    public function get(Request $illuminateRequest): JsonResponse
-    {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
-
-        $navigationMenuId = (int) $illuminateRequest->route('navigationMenuId');
-
-        /** @var NavigationMenuDAO $navigationMenuDao */
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        $navigationMenu = $navigationMenuDao->getById($navigationMenuId, $contextId);
-
-        if (!$navigationMenu) {
-            return response()->json([
-                'error' => __('api.navigationMenus.404.navigationMenuNotFound')
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        return response()->json($this->mapNavigationMenu($navigationMenu), Response::HTTP_OK);
-    }
-
-    /**
      * Get navigation menu items (assigned and unassigned) for a specific menu
      */
     public function getItems(Request $illuminateRequest): JsonResponse
@@ -238,80 +190,6 @@ class PKPNavigationMenuController extends PKPBaseController
             'itemTypes' => $itemTypes,
             'maxDepth' => 3,
         ], Response::HTTP_OK);
-    }
-
-    /**
-     * Save navigation menu items (update assignments)
-     */
-    public function saveItems(Request $illuminateRequest): JsonResponse
-    {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
-
-        $navigationMenuId = (int) $illuminateRequest->route('navigationMenuId');
-
-        /** @var NavigationMenuDAO $navigationMenuDao */
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        $navigationMenu = $navigationMenuDao->getById($navigationMenuId, $contextId);
-
-        if (!$navigationMenu) {
-            return response()->json([
-                'error' => __('api.navigationMenus.404.navigationMenuNotFound')
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        $assignedItems = $illuminateRequest->input('assigned', []);
-
-        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
-        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-
-        // Delete all existing assignments for this menu
-        $assignmentDao->deleteByMenuId($navigationMenuId);
-
-        // Create new assignments from the provided structure
-        $this->saveAssignmentsRecursively($assignedItems, $navigationMenuId, null, 0);
-
-        // Return updated items
-        $updatedAssigned = $this->getAssignedItemsTree($navigationMenuId, $navigationMenu);
-        $updatedUnassigned = $this->getUnassignedItems($contextId, $navigationMenuId, $navigationMenu);
-
-        return response()->json([
-            'assigned' => $updatedAssigned,
-            'unassigned' => $updatedUnassigned,
-        ], Response::HTTP_OK);
-    }
-
-    /**
-     * Recursively save menu item assignments
-     */
-    protected function saveAssignmentsRecursively(array $items, int $menuId, ?int $parentAssignmentId, int $startSeq): void
-    {
-        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
-        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-
-        $seq = $startSeq;
-        foreach ($items as $item) {
-            $assignment = $assignmentDao->newDataObject();
-            $assignment->setMenuId($menuId);
-            $assignment->setMenuItemId($item['menuItemId']);
-            $assignment->setParentId($parentAssignmentId);
-            $assignment->setSequence($seq);
-
-            // Set custom title if provided
-            if (!empty($item['localizedTitle'])) {
-                $assignment->setTitle($item['localizedTitle'], null);
-            }
-
-            $assignmentId = $assignmentDao->insertObject($assignment);
-
-            // Recursively save children
-            if (!empty($item['children'])) {
-                $this->saveAssignmentsRecursively($item['children'], $menuId, $assignmentId, 0);
-            }
-
-            $seq++;
-        }
     }
 
     /**
@@ -566,6 +444,223 @@ class PKPNavigationMenuController extends PKPBaseController
         }
 
         return $type ?? '';
+    }
+
+    /**
+     * Get navigation menu areas for the active theme
+     */
+    public function getAreas(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+
+        $areas = [];
+
+        if ($context) {
+            $themePlugins = \PKP\plugins\PluginRegistry::loadCategory('themes', true);
+            $activeThemeNavigationAreas = [];
+
+            foreach ($themePlugins as $themePlugin) {
+                if ($themePlugin->isActive()) {
+                    $themeAreas = $themePlugin->getMenuAreas();
+                    foreach ($themeAreas as $area) {
+                        // Use the area name directly as the label (matches old form behavior)
+                        $activeThemeNavigationAreas[$area] = $area;
+                    }
+                    break;
+                }
+            }
+
+            $areas = $activeThemeNavigationAreas;
+        }
+
+        return response()->json([
+            'areas' => $areas,
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Create a new navigation menu
+     */
+    public function add(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+
+        // Convert input to schema types
+        $params = $this->convertStringsToSchema(
+            PKPSchemaService::SCHEMA_NAVIGATION_MENU,
+            $illuminateRequest->input()
+        );
+
+        // Validate required fields
+        $errors = $this->validateNavigationMenu($params);
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        /** @var NavigationMenuDAO $navigationMenuDao */
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+
+        // Create new navigation menu
+        $navigationMenu = $navigationMenuDao->newDataObject();
+        $navigationMenu->setTitle($params['title']);
+        $navigationMenu->setAreaName($params['areaName'] ?? '');
+        $navigationMenu->setContextId($contextId);
+
+        $navigationMenuId = $navigationMenuDao->insertObject($navigationMenu);
+
+        // Save menu tree assignments if provided
+        if (!empty($params['menuTree'])) {
+            $this->saveMenuTreeAssignments($navigationMenuId, $params['menuTree']);
+        }
+
+        return response()->json(
+            $this->mapNavigationMenu($navigationMenuDao->getById($navigationMenuId)),
+            Response::HTTP_CREATED
+        );
+    }
+
+    /**
+     * Update an existing navigation menu
+     */
+    public function edit(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+
+        $navigationMenuId = (int) $illuminateRequest->route('navigationMenuId');
+
+        /** @var NavigationMenuDAO $navigationMenuDao */
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenu = $navigationMenuDao->getById($navigationMenuId, $contextId);
+
+        if (!$navigationMenu) {
+            return response()->json([
+                'error' => __('api.navigationMenus.404.navigationMenuNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Convert input to schema types
+        $params = $this->convertStringsToSchema(
+            PKPSchemaService::SCHEMA_NAVIGATION_MENU,
+            $illuminateRequest->input()
+        );
+
+        // Validate - title is required only if provided (for partial updates)
+        $errors = $this->validateNavigationMenu($params, false);
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        // Update fields if provided
+        if (isset($params['title'])) {
+            $navigationMenu->setTitle($params['title']);
+        }
+        if (array_key_exists('areaName', $params)) {
+            $navigationMenu->setAreaName($params['areaName'] ?? '');
+        }
+
+        $navigationMenuDao->updateObject($navigationMenu);
+
+        // Save menu tree assignments if provided
+        if (isset($params['menuTree'])) {
+            $this->saveMenuTreeAssignments($navigationMenuId, $params['menuTree']);
+        }
+
+        return response()->json(
+            $this->mapNavigationMenu($navigationMenuDao->getById($navigationMenuId)),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Save menu tree assignments from the flat menuTree format
+     * Format: menuTree[menuItemId] = { seq: number, parentId: number|null }
+     */
+    protected function saveMenuTreeAssignments(int $navigationMenuId, array $menuTree): void
+    {
+        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
+        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+
+        // Delete all existing assignments for this menu
+        $assignmentDao->deleteByMenuId($navigationMenuId);
+
+        if (empty($menuTree)) {
+            return;
+        }
+
+        // Sort by seq within each parent group
+        $itemsByParent = [];
+        foreach ($menuTree as $menuItemId => $data) {
+            $parentId = $data['parentId'] ?? null;
+            $key = $parentId ?? 'root';
+            if (!isset($itemsByParent[$key])) {
+                $itemsByParent[$key] = [];
+            }
+            $itemsByParent[$key][$menuItemId] = $data;
+        }
+
+        // Sort each group by seq
+        foreach ($itemsByParent as $key => $items) {
+            uasort($items, fn($a, $b) => ($a['seq'] ?? 0) - ($b['seq'] ?? 0));
+            $itemsByParent[$key] = $items;
+        }
+
+        // Create root level assignments first
+        if (isset($itemsByParent['root'])) {
+            foreach ($itemsByParent['root'] as $menuItemId => $data) {
+                $assignment = $assignmentDao->newDataObject();
+                $assignment->setMenuId($navigationMenuId);
+                $assignment->setMenuItemId((int) $menuItemId);
+                $assignment->setParentId(null);
+                $assignment->setSequence((int) ($data['seq'] ?? 0));
+
+                $assignmentDao->insertObject($assignment);
+            }
+        }
+
+        // Create child assignments - parent_id references the parent's menu item ID
+        foreach ($itemsByParent as $parentKey => $items) {
+            if ($parentKey === 'root') {
+                continue;
+            }
+
+            foreach ($items as $menuItemId => $data) {
+                $parentMenuItemId = $data['parentId'];
+
+                $assignment = $assignmentDao->newDataObject();
+                $assignment->setMenuId($navigationMenuId);
+                $assignment->setMenuItemId((int) $menuItemId);
+                $assignment->setParentId((int) $parentMenuItemId);
+                $assignment->setSequence((int) ($data['seq'] ?? 0));
+
+                $assignmentDao->insertObject($assignment);
+            }
+        }
+    }
+
+    /**
+     * Validate navigation menu parameters
+     *
+     * @param array $params The parameters to validate
+     * @param bool $requireTitle Whether title is required (true for create, false for update)
+     * @return array Validation errors, empty if valid
+     */
+    protected function validateNavigationMenu(array $params, bool $requireTitle = true): array
+    {
+        $errors = [];
+
+        // Title validation
+        if ($requireTitle && empty($params['title'])) {
+            $errors['title'] = [__('manager.navigationMenus.form.titleRequired')];
+        } elseif (isset($params['title']) && empty($params['title'])) {
+            $errors['title'] = [__('manager.navigationMenus.form.titleRequired')];
+        }
+
+        return $errors;
     }
 
     /**

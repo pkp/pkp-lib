@@ -17,6 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Queue\Events\Looping;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Debug\ExceptionHandler;
@@ -43,6 +44,11 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      * Specific queue to target to run the associated jobs
      */
     protected ?string $queue = null;
+
+    /**
+     * Whether the site is a multi-context site
+     */
+    protected bool $isMultiContextSite = false;
 
     /**
      * Set a specific queue to target to run the associated jobs
@@ -150,6 +156,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function boot()
     {
+        if (Application::isInstalled() && !Application::isUpgrading()) {
+            $this->isMultiContextSite = app()->get("context")->getCount() > 1;
+        }
+
         if (Config::getVar('queues', 'job_runner', true)) {
             $currentWorkingDir = getcwd();
             register_shutdown_function(function () use ($currentWorkingDir) {
@@ -295,7 +305,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     }
 
                     Application::get()->setCliContext($context);
-                    
+
                     // Initialize the locale and load generic plugins.
                     \PKP\plugins\PluginRegistry::loadCategory('generic', false, $contextId);
                 }
@@ -308,6 +318,53 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
                 Application::get()->clearCliContext();
             }
+        });
+
+        $this->app['events']->listen(Looping::class, function (Looping $event) {
+
+            if (!app()->runningInConsole() || app()->runningUnitTests()) {
+                return true;
+            }
+
+            if (!$this->isMultiContextSite) {
+                return true;
+            }
+
+            static $lockedContextId = null;
+        
+            // Peek at next job WITHOUT popping (no lock, no reserve, no attempt increment)
+            $nextJob = DB::table('jobs')
+                ->where('queue', $event->queue)
+                ->where(fn($q) => $q->whereNull('reserved_at')
+                    ->orWhere('reserved_at', '<=', now()->subSeconds(90)))
+                ->orderBy('id', 'asc')
+                ->first();
+        
+            if (!$nextJob) {
+                return true; // No jobs available, continue looping
+            }
+        
+            $payload = json_decode($nextJob->payload, true);
+            $nextContextId = $payload['context_id'] ?? null;
+        
+            // Non-context-aware jobs don't affect locking
+            if ($nextContextId === null) {
+                return true;
+            }
+        
+            // First context-aware job sets the locked context
+            if ($lockedContextId === null) {
+                $lockedContextId = $nextContextId;
+                return true;
+            }
+        
+            // Different context detected - quit BEFORE popping
+            if ($nextContextId !== $lockedContextId) {
+                app('queue.worker')->shouldQuit = true;
+                return false; // Skip this iteration, pauseWorker() will check shouldQuit and exit
+            }
+        
+            return true;
         });
     }
 

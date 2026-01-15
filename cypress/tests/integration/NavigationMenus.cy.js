@@ -18,9 +18,9 @@ describe('Navigation Menu Management', function() {
 	 */
 	function visitNavigationMenus() {
 		cy.visit('index.php/publicknowledge/management/settings/website#setup');
-		cy.get('#setup-button').click();
-		cy.get('#navigationMenus-button').click();
-		cy.get('#navigationMenuGridContainer a.pkp_linkaction_addNavigationMenu').should('be.visible');
+		cy.contains('button', 'Setup').click();
+		cy.contains('button', 'Navigation').click();
+		cy.contains('Add Menu').should('be.visible');
 	}
 
 	/**
@@ -36,8 +36,18 @@ describe('Navigation Menu Management', function() {
 	 * Close the Vue modal by clicking the Cancel button
 	 */
 	function closeModal() {
-		cy.get('[data-cy="active-modal"]').contains('button', 'Cancel').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Cancel').click();
+		});
 		cy.get('[data-cy="active-modal"]').should('not.exist');
+	}
+
+	/**
+	 * Expand the row actions for a grid row containing the specified text
+	 * Clicks the chevron/arrow to show row controls (uses class since there's no text)
+	 */
+	function expandRowActions(gridSelector, rowText) {
+		cy.get(gridSelector).contains(rowText).parents('tr').find('a.show_extras').click();
 	}
 
 	it('Creates a menu with assigned items', function() {
@@ -45,7 +55,7 @@ describe('Navigation Menu Management', function() {
 		visitNavigationMenus();
 
 		// Create a new menu
-		cy.get('#navigationMenuGridContainer a.pkp_linkaction_addNavigationMenu').click();
+		cy.contains('Add Menu').click();
 		cy.get('[data-cy="active-modal"]').should('be.visible');
 
 		// Verify editor loads with both panels
@@ -55,9 +65,11 @@ describe('Navigation Menu Management', function() {
 		cy.get('[data-cy="panel-content-assigned"] [data-menu-item-title]').should('not.exist');
 		cy.get('[data-cy="panel-content-unassigned"] [data-menu-item-title]').should('have.length.greaterThan', 4);
 
-		// Fill title and save (in Vue modal, the form uses drag-drop for item assignment, so we just create the menu)
-		cy.get('[data-cy="active-modal"]').find('input[name="title"]').type(menuName, {delay: 0});
-		cy.get('[data-cy="active-modal"]').contains('button', 'Save').click();
+		// Fill title and save
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.get('input[name="title"]').type(menuName, {delay: 0});
+			cy.contains('button', 'Save').click();
+		});
 		cy.get('[data-cy="active-modal"]').should('not.exist');
 
 		// Verify created
@@ -70,10 +82,10 @@ describe('Navigation Menu Management', function() {
 
 		closeModal();
 
-		// Delete the menu - click caret to expand row_controls, then click Remove
-		cy.get('#navigationMenuGridContainer').contains(menuName).parents('tr').find('a.show_extras').click();
+		// Delete the menu - expand row actions, then click Remove
+		expandRowActions('#navigationMenuGridContainer', menuName);
 		cy.get('#navigationMenuGridContainer .row_controls:visible').contains('Remove').click();
-		cy.get('button').contains('OK').click();
+		cy.contains('button', 'OK').click();
 		cy.get('#navigationMenuGridContainer').contains(menuName).should('not.exist');
 
 		cy.logout();
@@ -84,37 +96,39 @@ describe('Navigation Menu Management', function() {
 		visitNavigationMenus();
 
 		// Create a new custom menu item (uses legacy AjaxModal)
-		cy.get('#navigationMenuItemsGridContainer a.pkp_linkaction_addNavigationMenuItem').click();
+		cy.contains('Add item').click();
 		cy.get('form#navigationMenuItemsForm').should('be.visible');
 
-		cy.get('select[name="menuItemType"]').select('NMI_TYPE_CUSTOM');
-		cy.get('input[name="title[en]"]').type(itemTitle, {delay: 0});
-		cy.get('input[name="path"]').type(itemPath, {delay: 0});
-
-		cy.get('form#navigationMenuItemsForm').contains('button', 'Save').click();
+		cy.get('form#navigationMenuItemsForm').within(() => {
+			cy.get('select[name="menuItemType"]').select('NMI_TYPE_CUSTOM');
+			cy.get('input[name="title[en]"]').type(itemTitle, {delay: 0});
+			cy.get('input[name="path"]').type(itemPath, {delay: 0});
+			cy.contains('button', 'Save').click();
+		});
 		cy.get('form#navigationMenuItemsForm').should('not.exist');
 
 		// Verify created
 		cy.get('#navigationMenuItemsGridContainer').contains(itemTitle).should('exist');
 
-		// Edit the item - click caret to expand row_controls, then click Edit
-		cy.get('#navigationMenuItemsGridContainer').contains(itemTitle).parents('tr').find('a.show_extras').click();
+		// Edit the item - expand row actions, then click Edit
+		expandRowActions('#navigationMenuItemsGridContainer', itemTitle);
 		cy.get('#navigationMenuItemsGridContainer .row_controls:visible').contains('Edit').click();
 		cy.get('form#navigationMenuItemsForm').should('be.visible');
 
 		const updatedTitle = itemTitle + ' Updated';
-		cy.get('input[name="title[en]"]').clear().type(updatedTitle, {delay: 0});
-
-		cy.get('form#navigationMenuItemsForm').contains('button', 'Save').click();
+		cy.get('form#navigationMenuItemsForm').within(() => {
+			cy.get('input[name="title[en]"]').clear().type(updatedTitle, {delay: 0});
+			cy.contains('button', 'Save').click();
+		});
 		cy.get('form#navigationMenuItemsForm').should('not.exist');
 
 		// Verify updated
 		cy.get('#navigationMenuItemsGridContainer').contains(updatedTitle).should('exist');
 
-		// Delete the item - click caret to expand row_controls, then click Remove
-		cy.get('#navigationMenuItemsGridContainer').contains(updatedTitle).parents('tr').find('a.show_extras').click();
+		// Delete the item - expand row actions, then click Remove
+		expandRowActions('#navigationMenuItemsGridContainer', updatedTitle);
 		cy.get('#navigationMenuItemsGridContainer .row_controls:visible').contains('Remove').click();
-		cy.get('button').contains('OK').click();
+		cy.contains('button', 'OK').click();
 		cy.get('#navigationMenuItemsGridContainer').contains(updatedTitle).should('not.exist');
 
 		cy.logout();

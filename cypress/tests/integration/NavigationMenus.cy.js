@@ -50,7 +50,7 @@ describe('Navigation Menu Management', function() {
 		cy.get(gridSelector).contains(rowText).parents('tr').find('a.show_extras').click();
 	}
 
-	it('Creates a menu with assigned items', function() {
+	it('Creates a navigation menu and verifies editor functionality', function() {
 		cy.login('dbarnes');
 		visitNavigationMenus();
 
@@ -62,17 +62,26 @@ describe('Navigation Menu Management', function() {
 		waitForEditorToLoad();
 
 		// For new menu: assigned should be empty, unassigned should have items
-		cy.get('[data-cy="panel-content-assigned"] [data-menu-item-title]').should('not.exist');
-		cy.get('[data-cy="panel-content-unassigned"] [data-menu-item-title]').should('have.length.greaterThan', 4);
+		cy.get('[data-cy="assigned-panel"] [data-menu-item-title]').should('not.exist');
+		cy.get('[data-cy="unassigned-panel"] [data-menu-item-title]').should('have.length.greaterThan', 4);
 
-		// Fill title and save
+		// Verify specific menu items exist in unassigned panel
+		cy.get('[data-cy="unassigned-panel"]').contains('Current').should('exist');
+		cy.get('[data-cy="unassigned-panel"]').contains('Archives').should('exist');
+		cy.get('[data-cy="unassigned-panel"]').contains('About').should('exist');
+
+		// NOTE: Drag and drop cannot be tested with Cypress because pragmatic-drag-and-drop
+		// uses pointer events that Cypress cannot properly simulate.
+		// DND functionality should be tested manually or with Playwright.
+
+		// Fill title and save (menu without assigned items)
 		cy.get('[data-cy="active-modal"]').within(() => {
 			cy.get('input[name="title"]').type(menuName, {delay: 0});
 			cy.contains('button', 'Save').click();
 		});
 		cy.get('[data-cy="active-modal"]').should('not.exist');
 
-		// Verify created
+		// Verify menu was created in the grid
 		cy.get('#navigationMenuGridContainer').contains(menuName).should('exist');
 
 		// Re-open menu to verify it can be edited
@@ -80,9 +89,14 @@ describe('Navigation Menu Management', function() {
 		cy.get('[data-cy="active-modal"]').should('be.visible');
 		waitForEditorToLoad();
 
+		// Verify title field has the saved value
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.get('input[name="title"]').should('have.value', menuName);
+		});
+
 		closeModal();
 
-		// Delete the menu - expand row actions, then click Remove
+		// Delete the menu
 		expandRowActions('#navigationMenuGridContainer', menuName);
 		cy.get('#navigationMenuGridContainer .row_controls:visible').contains('Remove').click();
 		cy.contains('button', 'OK').click();

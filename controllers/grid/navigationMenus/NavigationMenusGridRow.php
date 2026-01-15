@@ -16,10 +16,11 @@
 
 namespace PKP\controllers\grid\navigationMenus;
 
+use APP\core\Application;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\linkAction\request\VueModal;
 
 class NavigationMenusGridRow extends GridRow
 {
@@ -44,17 +45,32 @@ class NavigationMenusGridRow extends GridRow
         if (!empty($rowId) && is_numeric($rowId)) {
             // Only add row actions if this is an existing row
             $router = $request->getRouter();
-            $actionArgs = [
-                'navigationMenuId' => $rowId
+            $context = $request->getContext();
+
+            // Generate API URL for the Vue modal
+            $apiUrl = $request->getDispatcher()->url(
+                $request,
+                Application::ROUTE_API,
+                $context ? $context->getPath() : 'index',
+                'navigationMenus'
+            );
+
+            // Prepare navigation menu data for the Vue modal
+            $navigationMenuData = [
+                'id' => $element->getId(),
+                'title' => $element->getTitle(),
+                'areaName' => $element->getAreaName(),
             ];
+
             $this->addAction(
                 new LinkAction(
                     'edit',
-                    new AjaxModal(
-                        $router->url($request, null, null, 'editNavigationMenu', null, $actionArgs),
-                        __('grid.action.edit'),
-                        null,
-                        true
+                    new VueModal(
+                        'NavigationMenuFormModal',
+                        [
+                            'navigationMenu' => $navigationMenuData,
+                            'apiUrl' => $apiUrl,
+                        ]
                     ),
                     __('grid.action.edit'),
                     'edit'
@@ -68,7 +84,7 @@ class NavigationMenusGridRow extends GridRow
                         $request->getSession(),
                         __('common.confirmDelete'),
                         __('common.remove'),
-                        $router->url($request, null, null, 'deleteNavigationMenu', null, $actionArgs),
+                        $router->url($request, null, null, 'deleteNavigationMenu', null, ['navigationMenuId' => $rowId]),
                         'negative'
                     ),
                     __('grid.action.remove'),

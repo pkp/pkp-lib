@@ -284,6 +284,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 if ($contextId !== null) {
                     $contextDao = Application::getContextDAO();
                     $context = $contextDao->getById($contextId);
+
                     if (!$context) {
                         $jobName = $event->job->payload()['displayName'] ?? 'Unknown';
                         error_log("Job '{$jobName}' failed: Invalid context_id {$contextId} - context does not exist");
@@ -293,9 +294,12 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                             "Job execution failed: Invalid context_id {$contextId}. The context does not exist in the database."
                         );
                     }
-                }
 
-                Application::get()->setCliContext($contextId);
+                    Application::get()->setCliContext($context);
+
+                    // Initialize the locale and load generic plugins.
+                    \PKP\plugins\PluginRegistry::loadCategory('generic', false, $contextId);
+                }
             }
         });
 

@@ -111,9 +111,9 @@ class commandJobs extends CommandLineTool
     /**
      * Constructor
      */
-    public function __construct($argv = [])
+    public function __construct($argv = [], $loadPlugins = true)
     {
-        parent::__construct($argv);
+        parent::__construct($argv, $loadPlugins);
 
         array_shift($argv);
 
@@ -697,7 +697,7 @@ class commandJobs extends CommandLineTool
 }
 
 try {
-    $tool = new commandJobs($argv ?? []);
+    $tool = new commandJobs($argv ?? [], false);
     $tool->execute();
 } catch (Throwable $e) {
     $output = new commandInterface();

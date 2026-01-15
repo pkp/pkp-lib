@@ -1,0 +1,92 @@
+{
+	"title": "Navigation Menu Item",
+	"description": "A navigation menu item that can be assigned to navigation menus.",
+	"required": [
+		"type"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"description": "The unique ID of the navigation menu item.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"contextId": {
+			"type": "integer",
+			"description": "The journal, press or preprint server ID. Use 0 for site-level items.",
+			"apiSummary": true,
+			"writeDisabledInApi": true
+		},
+		"type": {
+			"type": "string",
+			"description": "The type of navigation menu item (e.g., NMI_TYPE_CUSTOM, NMI_TYPE_ABOUT).",
+			"apiSummary": true,
+			"validation": [
+				"required"
+			]
+		},
+		"title": {
+			"type": "string",
+			"description": "The title of the navigation menu item.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"localizedTitle": {
+			"type": "string",
+			"description": "The localized title of the navigation menu item.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"content": {
+			"type": "string",
+			"description": "The content/body of the navigation menu item (for custom page items).",
+			"multilingual": true,
+			"apiSummary": false,
+			"validation": [
+				"nullable"
+			]
+		},
+		"path": {
+			"type": "string",
+			"description": "The URL path for custom navigation menu items.",
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"regex:/^[a-zA-Z0-9\\/._-]+$/"
+			]
+		},
+		"url": {
+			"type": "string",
+			"description": "The computed URL for this navigation menu item.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"remoteUrl": {
+			"type": "string",
+			"description": "The remote URL for external link items.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
+		"seq": {
+			"type": "integer",
+			"description": "The sequence order of the navigation menu item.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"titleLocaleKey": {
+			"type": "string",
+			"description": "The locale key for the default title (used for system-defined items).",
+			"apiSummary": false,
+			"readOnly": true
+		}
+	}
+}

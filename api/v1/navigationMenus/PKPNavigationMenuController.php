@@ -118,31 +118,14 @@ class PKPNavigationMenuController extends PKPBaseController
 
         // Get all items for this context
         $allItems = $menuItemDao->getByContextId($contextId);
-        $navigationMenuService = app(PKPNavigationMenuService::class);
         $unassignedItems = [];
 
         while ($item = $allItems->next()) {
-            // Get conditional display info (for crossed-out eye icon)
-            $conditionalInfo = $this->getItemConditionalInfo($item, $navigationMenuService);
-
-            $unassignedItems[] = [
-                'id' => $item->getId(),
-                'menuItemId' => $item->getId(),
-                'title' => $this->getMenuItemTitle($item),
-                'localizedTitle' => $item->getTitle(null) ?? [],
-                'type' => $item->getType(),
-                'path' => $item->getPath(),
-                'url' => $item->getUrl(),
-                'isVisible' => !$conditionalInfo['hasConditionalDisplay'],
-                'hasWarning' => false,
-                'warningMessage' => null,
-                'conditionalWarning' => $conditionalInfo['conditionalWarning'],
-                'parentId' => null,
-                'children' => [],
-            ];
+            $unassignedItems[] = $this->mapMenuItem($item);
         }
 
         // Get item types for reference
+        $navigationMenuService = app(PKPNavigationMenuService::class);
         $itemTypes = $navigationMenuService->getMenuItemTypes();
 
         return response()->json([
@@ -241,42 +224,17 @@ class PKPNavigationMenuController extends PKPBaseController
             return $result;
         }
 
-        $navigationMenuService = app(PKPNavigationMenuService::class);
-
         foreach ($byParentId[$parentId] as $assignment) {
             $menuItem = $menuItemDao->getById($assignment->getMenuItemId());
             if (!$menuItem) {
                 continue;
             }
 
-            // Build children first so we can check if there are any
+            // Build children first so we can pass them to mapMenuItem
             // Note: parent_id in the database stores the MENU ITEM ID of the parent, not the assignment ID
             $children = $this->buildAssignmentTree($byParentId, $menuItem->getId(), $navigationMenu, $menuItemDao);
 
-            // Get conditional display info (for crossed-out eye icon)
-            $conditionalInfo = $this->getItemConditionalInfo($menuItem, $navigationMenuService);
-
-            // hasWarning = true when item has children (submenu warning)
-            // isVisible = false when item has conditional display (crossed-out eye)
-            $item = [
-                'id' => $assignment->getId(),
-                'menuItemId' => $menuItem->getId(),
-                'assignmentId' => $assignment->getId(),
-                'title' => $this->getItemTitle($assignment, $menuItem),
-                'localizedTitle' => $assignment->getTitle(null) ?? $menuItem->getTitle(null) ?? [],
-                'type' => $menuItem->getType(),
-                'path' => $menuItem->getPath(),
-                'url' => $menuItem->getUrl(),
-                'isVisible' => !$conditionalInfo['hasConditionalDisplay'],
-                'hasWarning' => count($children) > 0,
-                'warningMessage' => count($children) > 0 ? __('manager.navigationMenus.form.submenuWarning') : null,
-                'conditionalWarning' => $conditionalInfo['conditionalWarning'],
-                'parentId' => $assignment->getParentId(),
-                'sequence' => $assignment->getSequence(),
-                'children' => $children,
-            ];
-
-            $result[] = $item;
+            $result[] = $this->mapMenuItem($menuItem, $assignment, $children);
         }
 
         return $result;
@@ -308,34 +266,66 @@ class PKPNavigationMenuController extends PKPBaseController
         }
 
         // Filter to unassigned items
-        $navigationMenuService = app(PKPNavigationMenuService::class);
         $unassignedItems = [];
 
         foreach ($allItemsList as $itemId => $menuItem) {
             if (!isset($assignedItemIds[$itemId])) {
-                // Get conditional display info (for crossed-out eye icon)
-                $conditionalInfo = $this->getItemConditionalInfo($menuItem, $navigationMenuService);
-
-                // Unassigned items can't have children, so hasWarning is always false
-                $unassignedItems[] = [
-                    'id' => $menuItem->getId(),
-                    'menuItemId' => $menuItem->getId(),
-                    'title' => $this->getMenuItemTitle($menuItem),
-                    'localizedTitle' => $menuItem->getTitle(null) ?? [],
-                    'type' => $menuItem->getType(),
-                    'path' => $menuItem->getPath(),
-                    'url' => $menuItem->getUrl(),
-                    'isVisible' => !$conditionalInfo['hasConditionalDisplay'],
-                    'hasWarning' => false,
-                    'warningMessage' => null,
-                    'conditionalWarning' => $conditionalInfo['conditionalWarning'],
-                    'parentId' => null,
-                    'children' => [],
-                ];
+                $unassignedItems[] = $this->mapMenuItem($menuItem);
             }
         }
 
         return $unassignedItems;
+    }
+
+    /**
+     * Map a menu item to API response format
+     *
+     * This is the single source of truth for menu item serialization.
+     * Used by getAllItems, getItems (assigned), and getItems (unassigned).
+     *
+     * @param NavigationMenuItem $menuItem The menu item
+     * @param NavigationMenuItemAssignment|null $assignment The assignment (null for unassigned items)
+     * @param array $children Pre-built children array for assigned items
+     * @return array Mapped item data
+     */
+    protected function mapMenuItem(
+        NavigationMenuItem $menuItem,
+        ?NavigationMenuItemAssignment $assignment = null,
+        array $children = []
+    ): array {
+        $navigationMenuService = app(PKPNavigationMenuService::class);
+        $conditionalInfo = $this->getItemConditionalInfo($menuItem, $navigationMenuService);
+
+        // For assigned items, use assignment ID; for unassigned, use menu item ID
+        $id = $assignment ? $assignment->getId() : $menuItem->getId();
+
+        // Get appropriate title based on whether this is an assignment or standalone item
+        $title = $assignment
+            ? $this->getItemTitle($assignment, $menuItem)
+            : $this->getMenuItemTitle($menuItem);
+
+        // Get localized title - assignment title takes precedence
+        $localizedTitle = $assignment
+            ? ($assignment->getTitle(null) ?? $menuItem->getTitle(null) ?? [])
+            : ($menuItem->getTitle(null) ?? []);
+
+        return [
+            'id' => $id,
+            'menuItemId' => $menuItem->getId(),
+            'assignmentId' => $assignment?->getId(),
+            'title' => $title,
+            'localizedTitle' => $localizedTitle,
+            'type' => $menuItem->getType(),
+            'path' => $menuItem->getPath(),
+            'url' => $menuItem->getUrl(),
+            'isVisible' => !$conditionalInfo['hasConditionalDisplay'],
+            'hasWarning' => count($children) > 0,
+            'warningMessage' => count($children) > 0 ? __('manager.navigationMenus.form.submenuWarning') : null,
+            'conditionalWarning' => $conditionalInfo['conditionalWarning'],
+            'parentId' => $assignment?->getParentId(),
+            'sequence' => $assignment?->getSequence(),
+            'children' => $children,
+        ];
     }
 
     /**

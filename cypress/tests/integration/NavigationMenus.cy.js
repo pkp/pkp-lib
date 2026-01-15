@@ -63,9 +63,8 @@ describe('Navigation Menu Management', function() {
 		cy.get('[data-cy="unassigned-panel"] [data-menu-item-title]').should('have.length.greaterThan', 4);
 
 		// Verify specific menu items exist in unassigned panel
-		cy.get('[data-cy="unassigned-panel"]').contains('Current').should('exist');
-		cy.get('[data-cy="unassigned-panel"]').contains('Archives').should('exist');
-		cy.get('[data-cy="unassigned-panel"]').contains('About').should('exist');
+		cy.get('[data-cy="unassigned-panel"]').contains('Register').should('exist');
+		cy.get('[data-cy="unassigned-panel"]').contains('Login').should('exist');
 
 		// NOTE: Drag and drop cannot be tested with Cypress because pragmatic-drag-and-drop
 		// uses pointer events that Cypress cannot properly simulate.

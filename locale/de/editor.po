@@ -1,4 +1,4 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023, 2025.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Emma U <emmaupkp@gmail.com>, 2024.
 msgid ""
@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2024-06-25 20:10+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-12-24 14:21+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "de/>\n"
 "Language: de\n"
@@ -659,3 +659,64 @@ msgstr "Es gab ein Problem im Schritt {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Gleiche Einrichtung wie Autor/-in"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Wählen Sie eine/n Gutachter/in aus den Gutachter/innen-Vorschlägen"
+
+msgid "editor.review.logResponse.for"
+msgstr "Antwort loggen für"
+
+msgid "editor.review.reviewViewed"
+msgstr "Gutachten betrachtet"
+
+msgid "editor.submission.daysInStage"
+msgstr "Tage in Status"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Gutachter/in hat die Einladung für das Gutachten angenommen"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Beim Hinzufügen des/der Gutachter/in ist ein Fehler aufgetreten, da das "
+"Fälligkeitsdatum des Gutachtens später oder gleich zum Fälligkeitsdatum der "
+"Antwort sein muss."
+
+msgid "editor.submission.search"
+msgstr "Einreichungen, ID, Autor/innen, Schlagwörter, etc. durchsuchen"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Falls der/die Gutachter/in Sie via E-Mail oder über andere Wege kontaktiert, "
+"können Sie die Antwort hier für die Person festhalten"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Fälligkeitsdatum des Gutachtens muss später oder gleich zum Fälligkeitsdatum "
+"der Antwort sein."
+
+msgid "editor.submission.viewSummary"
+msgstr "Zusammenfassung"
+
+msgid "editor.submission.days"
+msgstr "Tage"
+
+msgid "editor.review.logResponse"
+msgstr "Antwort loggen"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Eine Antwort muss ausgewählt werden"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Gutachter/in hat die Einladung für das Gutachten abgelehnt"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Die Antwort für den/die Gutachter/in festhalten"
+
+msgid "editor.review.download"
+msgstr "Gutachten-Formular herunterladen"
+
+msgid "editor.review.authorOnly"
+msgstr "Author-Only Abschnitte Angezeigt"
+
+msgid "editor.review.allSections"
+msgstr "Redakteur/innen-Formular zeigt alle Gutachten-Abschnitte"

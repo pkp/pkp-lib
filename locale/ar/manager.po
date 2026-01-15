@@ -1,12 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2022.
-# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2025-03-18 14:49+0000\n"
+"PO-Revision-Date: 2026-01-01 16:29+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar/>\n"
@@ -3765,3 +3765,13 @@ msgstr "أقل عدد مطلوب من التحكيمات المؤكدة"
 
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
 msgstr "أقل عدد من التحكيمات المؤكدة المطلوبة لطلب التقديم"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"التصنيف غير موجود أو هو ينتمي إلى سياق مختلف. يرجى التأكد من أنك تعمل ضمن "
+"السياق الصحيح ثم حاول مجددًا."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"تعذر العثور على ملفي صورة الغلاف وصورته المصغرة. قد يكونان محذوفين سلفًا. "
+"حاول إعادة تحميل الصفحة."

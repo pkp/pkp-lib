@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-10-27 14:24+0000\n"
+"PO-Revision-Date: 2025-12-24 14:21+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/de/>"
 "\n"
@@ -392,3 +392,84 @@ msgstr "Ungültige author-friendly Parameter."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Diesem Element kann keine DOI zugewiesen werden."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Sie können keine Änderungen an Autor/innen von Einreichungen, denen Sie "
+"nicht zugewiesen sind, vornehmen."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Dieser Endpoint ist nicht für den site-weiten Namespace verfügbar und muss "
+"für einen bestimmten Kontext angefordert werden."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Sie können die Sprache dieser Einreichnung nicht ändern, da es bereits mehr "
+"als eine Publikationsversion oder eine veröffentlichte Publikation gibt."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr ""
+"Die Einreichung für diese Gutachten-Zuweisung konnte nicht gefunden werden."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Die angegebene Rubrik existiert nicht."
+
+msgid "api.409.resourceActionConflict"
+msgstr ""
+"Die gewünschte Aktion konnte nicht für diese Ressource ausgeführt werden."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Das angeforderte Highlight konnte nicht gefunden werden."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Highlight-Sortierung konnte nicht gespeichert werden, da ein oder mehrere "
+"Highlights nicht gefunden werden konnten."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Das Zuweisen einer ORCiD ID zu einem/einer Autor/in via dem Bearbeiten/"
+"Hinzufügen Autor/in Endpoint ist nicht gestattet. Um von einem/einer Autor/"
+"in die Aktualisierung der ORCiD ID anzufordern, verwenden Sie bitte den "
+"\"orcid/requestAuthorVerification/{authorId}\" Endpoint."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Der/die Gutachter/in von dieser Zuweisung konnte nicht gefunden werden"
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Das Formular für Publikations-Identifier ist nicht verfügbar, da es keine "
+"aktivierten Identifier gibt."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Nur 'Annehmen' und 'Ablehnen' sind valide Werte"
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Die von Ihnen angeforderte ROR konnte nicht gefunden werden."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"In der Anfrage fehlt der erforderliche Query-Parameter 'ids'. Bitte geben "
+"Sie die 'ids' der Einreichungen an, die Sie löschen möchten."
+
+msgid "api.submission.400.invalidId"
+msgstr "Invalide ID: \"{$id}\" angegeben."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Sie haben einen invaliden \"eventType\",{$eventType} für Autor/innen E-Mails "
+"angegeben."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Highlight-Sortierung konnte nicht gespeichert werden, da keine "
+"Sortierungsinformationen gefunden wurden."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Diese Aktion kann mit ausgeschalteter ORCID-Funktionalität nicht ausgeführt "
+"werden."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Der/die angeforderte Autor/in konnte nicht gefunden werden"

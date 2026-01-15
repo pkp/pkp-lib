@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2025-03-30 02:50+0000\n"
+"PO-Revision-Date: 2025-12-28 06:51+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "ar/>\n"
@@ -606,3 +606,75 @@ msgstr ""
 "سابقًا فيها لا تزال فعالة أيضًا.</p>        <p>لا تتردد في مراسلتي بشأن أي "
 "أسئلة عن هذه العملية.</p>        <p>أطيب التحايا،</p>        "
 "<p>{$contextName}</p>    </div></div><style>{$emailTemplateStyle}</style>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "إنتهاءًا في {$dateEnd}"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr "اسمك لن يظهر في طاقم {$contextName} بمثابة {$sectionName}."
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "هذا هو اسم متلقي الدعوة"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "هذا هو دور مرسل الدعوة"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "هذا رابط رفض الدعوة"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr "اسمك سيظهر في طاقم {$contextName} بمثابة {$sectionName}."
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "هذا المقطع يصف الأدوار التي يمتلكها المستخدم سابقًا."
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>الأدوار المعينة الجديدة</h2></p>"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr "هذا المقطع يصف الأدوار التي ستتم إضافتها إلى المستخدم عند قبوله للدعوة."
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>الأدوار المعينة سابقًا</h2></p>"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "هذا هو اسم مرسل الدعوة"
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "هذا رابط قبول الدعوة"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل إلى المستخدمين الذين تمت دعوتهم للحصول على أدوار "
+"معينة"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "إشعار دعوة المستخدم إلى الدور"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "أنت مدعو إلى أدوار جديدة"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSection"
+msgstr ""
+"<div class='section'>    <div class='section-number'>{$sectionNumber}.</"
+"div>    <div class='section-content'>        <h2>{$sectionName}</h2>        "
+"<p>بدءًا من {$dateStart}</p>        <p>{$sectionEndingDate}</p>        "
+"<p>{$sectionMastheadAppear}</p>    </div></div>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.body"
+msgstr ""
+"<div class='email-container'>    <div class='email-header'>        <h2>دعوة "
+"إلى دور جديد</h2>    </div>    <div class='email-content'>        <p>عزيزي "
+"{$recipientName}،</p>        <p>في ضوء خبرتكم، قد تمت دعوتك من قبل "
+"{$inviterName} لتولي أدوار جديدة في {$contextName}</p>        <p>في "
+"{$contextName}، نحن نقدر خصوصيتك. لذلك اتخذنا الخطوات التي تضمن إمتثالنا "
+"للائحة أمن البيانات GDPR. تلك الخطوات تتضمن كونك مسؤول عن إدخال بياناتك "
+"ومختار لمن يمكنه معاينة تلك المعلومات. للمزيد من المعلومات عن كيفية معالجتنا "
+"لبياناتك، يرجى الرجوع إلى سياسة الخصوصية العائدة لنا.</p>        "
+"<div>{$existingRoles}</div>        <div>{$rolesAdded}</div>        <p>عند "
+"قبولك للدعوة، ستتم إعادة توجيهك إلى {$contextName}.</p>        <p>Fلا تتردد "
+"في مراسلتي بشأن أي أسئلة قد تطرأ عندك بشأن هذه العملية.</p>        <p><a "
+"href='{$acceptUrl}' class='btn btn-accept'>قبول الدعوة</a></p>        <p><a "
+"href='{$declineUrl}' class='btn btn-decline'>رفض الدعوة</a></p>        "
+"<p>أطيب التحايا،</p>        <p>{$contextName}</p>    "
+"</div></div><style>{$emailTemplateStyle}</style>"

@@ -2,7 +2,7 @@
 # "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-16 20:28+0000\n"
+"PO-Revision-Date: 2025-12-28 06:51+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -991,3 +991,12 @@ msgid "admin.cli.tool.appKey.options.generate.description"
 msgstr ""
 "توليد مفتاح تطبيق جديد واستبداله ضمن ملف التهيئة. مرره مع العامل --show "
 "للمعاينة فقط ومع العامل --force للكتاب على مفتاح التطبيق الموجود الصالح."
+
+msgid "admin.clearDataCache"
+msgstr "حذف خبء البيانات"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "تطهير سجلات المهام المجدولة"
+
+msgid "admin.clearTemplateCache"
+msgstr "حذف خبء القوالب"

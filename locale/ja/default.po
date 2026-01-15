@@ -1,7 +1,7 @@
-# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-13 04:43+0000\n"
+"PO-Revision-Date: 2026-01-09 01:22+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/ja/>\n"
@@ -183,3 +183,11 @@ msgstr ""
 "る編集ボタンをクリックすると、ここに表示されている詳細を変更することができま"
 "す。</p><p>投稿が完了しますと、編集チームのメンバーがレビューを担当します。こ"
 "こに入力した詳細が可能な限り正確であることをご確認ください。</p>"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>ご投稿の際、複数名の査読候補者を提案することができます。これは査読プロセス"
+"の円滑化につながり、編集委員会にとっても有益な情報となります。候補者は、ご自"
+"身の研究分野に精通しており、かつ本研究との間に利益相反のない研究者をお選びく"
+"ださい。本機能は、査読の質と効率を高め、著者および編集委員会の双方にとって、"
+"より円滑な査読プロセスを実現することを目的としています。</p>"

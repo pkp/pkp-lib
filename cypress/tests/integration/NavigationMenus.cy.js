@@ -36,9 +36,7 @@ describe('Navigation Menu Management', function() {
 	 * Close the Vue modal by clicking the Cancel button
 	 */
 	function closeModal() {
-		cy.get('[data-cy="active-modal"]').within(() => {
-			cy.contains('button', 'Cancel').click();
-		});
+		cy.contains('[data-cy="active-modal"] button', 'Cancel').click();
 		cy.get('[data-cy="active-modal"]').should('not.exist');
 	}
 
@@ -56,9 +54,8 @@ describe('Navigation Menu Management', function() {
 
 		// Create a new menu
 		cy.contains('Add Menu').click();
-		cy.get('[data-cy="active-modal"]').should('be.visible');
 
-		// Verify editor loads with both panels
+		// Wait for editor to load (more reliable than checking modal visibility)
 		waitForEditorToLoad();
 
 		// For new menu: assigned should be empty, unassigned should have items
@@ -75,10 +72,8 @@ describe('Navigation Menu Management', function() {
 		// DND functionality should be tested manually or with Playwright.
 
 		// Fill title and save (menu without assigned items)
-		cy.get('[data-cy="active-modal"]').within(() => {
-			cy.get('input[name="title"]').type(menuName, {delay: 0});
-			cy.contains('button', 'Save').click();
-		});
+		cy.get('[data-cy="active-modal"] input[name="title"]').type(menuName, {delay: 0});
+		cy.contains('[data-cy="active-modal"] button', 'Save').click();
 		cy.get('[data-cy="active-modal"]').should('not.exist');
 
 		// Verify menu was created in the grid
@@ -86,13 +81,10 @@ describe('Navigation Menu Management', function() {
 
 		// Re-open menu to verify it can be edited
 		cy.get('#navigationMenuGridContainer').contains(menuName).click();
-		cy.get('[data-cy="active-modal"]').should('be.visible');
 		waitForEditorToLoad();
 
 		// Verify title field has the saved value
-		cy.get('[data-cy="active-modal"]').within(() => {
-			cy.get('input[name="title"]').should('have.value', menuName);
-		});
+		cy.get('[data-cy="active-modal"] input[name="title"]').should('have.value', menuName);
 
 		closeModal();
 

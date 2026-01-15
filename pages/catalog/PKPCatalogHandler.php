@@ -16,11 +16,11 @@
 
 namespace PKP\pages\catalog;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\submission\Collector;
-use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\PKPRequest;
 use PKP\search\SubmissionSearchResult;
@@ -75,16 +75,11 @@ class PKPCatalogHandler extends Handler
         $rangeInfo = $this->getRangeInfo($request, 'category');
         $builder = (new SubmissionSearchResult())->builderFromRequest($request, $rangeInfo);
         $builder->whereIn('categoryIds', [$category->getId()]);
+        if (Application::get()->getName() == 'omp') {
+            // Featured items are only in OMP at this time
+            $builder->orderBy('featured');
+        }
         $results = $builder->paginate($rangeInfo->getCount(), 'submissions', $rangeInfo->getPage());
-
-        /*        $collector = Repo::submission() // FIXME FIXME FIXME
-                    ->orderBy($orderBy, $orderDir);
-
-                // Featured items are only in OMP at this time
-                if (method_exists($collector, 'orderByFeatured')) {
-                    $collector->orderByFeatured(true);
-                }
-        */
 
         // Provide the parent category and a list of subcategories
         $parentCategory = $category->getParentId() ? Repo::category()->get($category->getParentId()) : null;

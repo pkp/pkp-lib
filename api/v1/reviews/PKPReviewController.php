@@ -26,9 +26,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Route;
 use Mpdf\Mpdf;
+use PKP\API\v1\reviews\formRequests\AddResponse;
+use PKP\API\v1\reviews\formRequests\EditResponse;
+use PKP\API\v1\reviews\formRequests\RequestAuthorResponse;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
@@ -46,7 +48,6 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\ReviewAuthorResponse;
 use PKP\submission\reviewRound\ReviewAuthorResponseManager;
@@ -54,7 +55,6 @@ use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\submissionFile\SubmissionFile;
-use PKP\user\User;
 
 class PKPReviewController extends PKPBaseController
 {
@@ -189,19 +189,7 @@ class PKPReviewController extends PKPBaseController
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-
-        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
-        $actionName = static::getRouteActionName($illuminateRequest);
-
-        if (!in_array($actionName, [
-            //            'submitAuthorResponse'
-
-            //            'requestAuthorResponse',
-            //            'editAuthorResponse',
-            //            'deleteAuthorResponse'
-        ])) {
-            $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', true));
-        }
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', true));
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -841,170 +829,59 @@ class PKPReviewController extends PKPBaseController
     /**
      * Submit review response.
      */
-    public function submitAuthorResponse(Request $illuminateRequest): JsonResponse
+    public function submitAuthorResponse(AddResponse $illuminateRequest): JsonResponse
     {
-        $validated = $this->authorResponseCommonValidations($illuminateRequest);
+        $validated = $illuminateRequest->validated();
         $request = $this->getRequest();
         $user = $request->getUser();
 
-        if ($validated->has('error')) {
-            $error = $validated->get('error');
-
-            return response()->json(
-                [
-                    'error' => $error->get('message')
-                ],
-                $error->get('code')
-            );
-        }
-
-        $data = $validated->get('data');
-
         /** @var ReviewRound $reviewRound */
-        $reviewRound = $data->get('reviewRound');
+        $reviewRound = $validated['reviewRound'];
 
-        /** @var User $assignedAuthor */
-        $isAssignedAuthor = StageAssignment::withSubmissionIds([$reviewRound->getSubmissionId()])
-            ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageIds([$reviewRound->getStageId()])
-            ->withUserId($user->getId())
-            ->exists();
-
-        if (!$isAssignedAuthor) {
-            return response()->json(
-                [
-                    'error' => __('api.403.unauthorized')
-                ],
-                Response::HTTP_UNAUTHORIZED
-            );
-        }
-
-        $hasExistingResponse = ReviewAuthorResponse::withReviewRoundIds([$reviewRound->getId()])->exists();
-
-        // Only one response can be submitted for the review round
-        if ($hasExistingResponse) {
-            return response()->json(
-                [
-                    'error' => __('api.409.resourceActionConflict')
-                ],
-                Response::HTTP_CONFLICT
-            );
-        }
-
-        // check that review round is in state where author response is applicable(revisions required, submission accepted), or that review response response was requested
-        if (
-            !in_array($reviewRound->getStatus(), [ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED, ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED])
-            && !$reviewRound->getData('isAuthorResponseRequested')
-        ) {
-            return response()->json(
-                [
-                    'error' => __('api.403.unauthorized')
-                ],
-                Response::HTTP_FORBIDDEN
-            );
-        }
 
         $reviewResponse = ReviewAuthorResponse::create([
             'reviewRoundId' => $reviewRound->getId(),
-            'authorReviewResponse' => $data->get('responseText'),
+            'authorReviewResponse' => $validated['authorReviewResponse'],
             'userId' => $user->getId(),
         ]);
 
-        $associatedAuthorIds = $data->get('associatedAuthorIds');
+        $associatedAuthorIds = $validated['associatedAuthorIds'];
         $reviewResponse->associateAuthorsToResponse($associatedAuthorIds);
 
         return response()->json(new ReviewRoundAuthorResponseResource($reviewResponse), Response::HTTP_OK);
     }
 
-    public function editAuthorResponse(Request $illuminateRequest): JsonResponse
+    public function editAuthorResponse(EditResponse $illuminateRequest): JsonResponse
     {
-        $validated = $this->authorResponseCommonValidations($illuminateRequest);
-        $responseId = (int)$illuminateRequest->route('responseId');
-        $user = $this->getRequest()->getUser();
+        $validated = $illuminateRequest->validated();
+        /** @var ReviewAuthorResponse $existingResponse */
+        $existingResponse = $validated['existingResponse'];
 
-        if ($validated->has('error')) {
-            $error = $validated->get('error');
+        $existingResponse->update([
+            'authorReviewResponse' => $validated['authorReviewResponse']
+        ]);
 
-            return response()->json(
-                [
-                    'error' => $error->get('message')
-                ],
-                $error->get('code')
-            );
-        }
-
-        $data = $validated->get('data');
-        /** @var ReviewRound $reviewRound */
-        $reviewRound = $data->get('reviewRound');
-
-        $existingResponse = ReviewAuthorResponse::withReviewRoundIds([$reviewRound->getId()])
-            ->where('response_id', $responseId)
-            ->first();
-
-        if (!$existingResponse) {
-            return response()->json(
-                [
-                    'error' => __('api.404.resourceNotFound')
-                ],
-                Response::HTTP_NOT_FOUND
-            );
-        }
-
-        $isEditor = StageAssignment::withSubmissionIds([$reviewRound->getSubmissionId()])
-            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->withStageIds([$reviewRound->getStageId()])
-            ->withUserId($user->getId())
-            ->exists();
-
-        // Only assigned editors, managers, or admins are allowed to edit author responses.
-        $canEdit = $isEditor ||
-            $user->hasRole([Role::ROLE_ID_MANAGER], $this->getRequest()->getContext()->getId()) ||
-            $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
-
-
-        if (!$canEdit) {
-            return response()->json(
-                [
-                    'error' => __('api.403.unauthorized')
-                ],
-                Response::HTTP_UNAUTHORIZED
-            );
-        }
-
-        $existingResponse->update(['authorReviewResponse' => $validated->get('data')->get('responseText')]);
-        $associatedAuthorIds = $data->get('associatedAuthorIds');
+        $associatedAuthorIds = $validated['associatedAuthorIds'];
         $existingResponse->associateAuthorsToResponse($associatedAuthorIds);
 
         return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
     }
+
     /**
      * Send request to assigned authors
      */
-    public function requestAuthorResponse(Request $illuminateRequest): JsonResponse
+    public function requestAuthorResponse(RequestAuthorResponse $illuminateRequest): JsonResponse
     {
+        $validated = $illuminateRequest->validated();
         $request = $this->getRequest();
         $context = $request->getContext();
         $payload = $illuminateRequest->all();
-        $reviewRoundId = (int)$illuminateRequest->route('reviewRoundId');
 
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRound = $reviewRoundDao->getById($reviewRoundId);
-
-        if (!$reviewRound) {
-            return response()->json(
-                [
-                    'error' => __('api.404.resourceNotFound')
-                ],
-                Response::HTTP_NOT_FOUND
-            );
-        }
-
-        $submission = Repo::submission()->get($reviewRound->getSubmissionId());
-
+        /** @var ReviewRound $reviewRound */
+        $reviewRound = $validated['reviewRound'];
         $reviewAuthorResponseManager = new ReviewAuthorResponseManager(
             reviewRound: $reviewRound,
-            submission: $submission,
+            submission: $validated['submission'],
             context: $context,
             request: $request
         );
@@ -1025,6 +902,7 @@ class PKPReviewController extends PKPBaseController
     public function deleteAuthorResponse(Request $illuminateRequest): JsonResponse
     {
         $reviewRoundId = (int)$illuminateRequest->route('reviewRoundId');
+        $responseId = (int)$illuminateRequest->route('responseId');
 
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
@@ -1039,60 +917,10 @@ class PKPReviewController extends PKPBaseController
             );
         }
 
-        ReviewAuthorResponse::withReviewRoundIds([$reviewRoundId])->delete();
+        ReviewAuthorResponse::withReviewRoundIds([$reviewRoundId])
+            ->where('response_id', '=', $responseId)
+            ->delete();
 
         return response()->json([], Response::HTTP_OK);
-    }
-
-    private function authorResponseCommonValidations(Request $illuminateRequest): Enumerable
-    {
-        $error = collect();
-        $reviewRoundId = (int)$illuminateRequest->route('reviewRoundId');
-        $authorResponse = $illuminateRequest->input('authorReviewResponse');
-        $associatedAuthorIds = paramToArray($illuminateRequest->input('associatedAuthorIds'));
-
-        if (!$authorResponse) {
-            $error->put('code', Response::HTTP_BAD_REQUEST);
-            $error->put('message', __('api.reviewRound.authorResponse.400.missingAuthorReviewResponse'));
-            return collect(['error' => $error]);
-        }
-
-
-        if (empty($associatedAuthorIds)) {
-            $error->put('code', Response::HTTP_BAD_REQUEST);
-            $error->put('message', __('api.reviewRound.authorResponse.400.missingAuthorIds'));
-            return collect(['error' => $error]);
-        }
-
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRound = $reviewRoundDao->getById($reviewRoundId);
-
-        if (!$reviewRound) {
-            $error->put('code', Response::HTTP_NOT_FOUND);
-            $error->put('message', __('api.404.resourceNotFound'));
-            return collect(['error' => $error]);
-        }
-
-
-        $publication = Repo::publication()->get($reviewRound->getPublicationId());
-        $allAuthors = $publication->getData('authors');
-
-        foreach ($associatedAuthorIds as $authorId) {
-            if (!$allAuthors->get($authorId)) {
-                $error->put('code', Response::HTTP_NOT_FOUND);
-                $error->put('message', __('api.404.resourceNotFound'));
-
-                return collect(['error' => $error]);
-            }
-        }
-
-        return collect([
-            'data' => collect([
-                'reviewRound' => $reviewRound,
-                'responseText' => $authorResponse,
-                'associatedAuthorIds' => $associatedAuthorIds
-            ])
-        ]);
-
     }
 }

@@ -89,6 +89,13 @@ class DatabaseEngine extends ScoutEngine
                         $orderBy = $order['column'];
                         $orderDirection = $order['direction'];
                         break;
+                    case 'featured': // OMP only
+                        if ($applicationName = Application::get()->getName() != 'omp') {
+                            throw new \Exception("Features not supported in {$applicationName}!");
+                        }
+                        $orderBy = 'feature';
+                        $orderDirection = $order['direction'];
+                        break;
                     default: throw new \Exception('Order-by "' . $order['column'] . '" not supported by DatabaseEngine!');
                 }
                 break;
@@ -145,6 +152,10 @@ class DatabaseEngine extends ScoutEngine
             ->when($orderBy == 'datePublished', function ($q) use ($orderBy, $orderDirection) {
                 $q->leftJoin('publications AS cp', 's.current_publication_id', 'cp.publication_id')
                     ->orderBy('cp.date_published', $orderDirection);
+            })
+            ->when($orderBy == 'feature', function ($q) {
+                $q->leftJoin('features as f', 's.submission_id', 'f.submission_id')
+                    ->orderByRaw('COALESCE(MAX(f.seq), 999999)'); // MySQL and PostgreSQL don't agree on ORDER BY with NULLs
             })
             ->when($orderBy == 'title', function ($q) use ($orderBy, $orderDirection) {
                 $q->leftJoin(

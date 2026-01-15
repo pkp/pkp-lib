@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2025-03-21 09:13+0000\n"
+"PO-Revision-Date: 2025-12-28 06:51+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ar/>"
 "\n"
@@ -406,3 +406,9 @@ msgstr "تسجيل المؤسسة البحثية الذي طلبته غير مو
 
 msgid "api.409.resourceActionConflict"
 msgstr "تعذر إكمال الإجراء المزمع تنفيذه في المورد."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"لا يُسمح بتعيين مُعرَّف ORCiD للمؤلف من خلال تحرير/إضافة النقاط الطرفية. "
+"لمطالبة المؤلف بتحديث مُعرَّفه في ORCID، يرجى استعمال النقطة الطرفية \"orcid/"
+"requestAuthorVerification/{authorId}\"."

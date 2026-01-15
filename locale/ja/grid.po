@@ -1,8 +1,8 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
-# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 18:13+0000\n"
+"PO-Revision-Date: 2026-01-09 01:22+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ja/>\n"
@@ -716,3 +716,12 @@ msgstr "リストで表示"
 
 msgid "grid.action.editContributor"
 msgstr "寄稿者を編集"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr "この候補を削除してもよろしいですか。この操作は取り消せません。"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "査読者候補を追加"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "査読者候補を削除"

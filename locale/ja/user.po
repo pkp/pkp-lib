@@ -1,8 +1,8 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
-# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-17 05:35+0000\n"
+"PO-Revision-Date: 2026-01-09 01:22+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ja/>\n"
@@ -737,3 +737,6 @@ msgstr "クライアントIDは無効：入力を確認してください"
 
 msgid "orcid.verify.duplicateOrcidAuthor"
 msgstr "投稿者のORCiDの重複が検出されました。"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr "完了した投稿に対する査読者候補の追加・更新・削除は制限されています。"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-10-27 14:24+0000\n"
+"PO-Revision-Date: 2025-12-24 14:21+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
@@ -1965,17 +1965,16 @@ msgstr "Durchgang {$round} Status"
 msgid "notification.type.editorialReport"
 msgstr "Zusammenfassung des Statistikberichts."
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Dies ist eine freundliche Erinnerung daran, die Gesundheit der Zeitschrift "
-"anhand des Redaktionsberichts zu überprüfen."
+"Dies ist eine freundliche Erinnerung daran, die Gesundheit Ihrer "
+"Publikationen anhand des Redaktionsberichts zu überprüfen."
 
 msgid "notification.type.editorialReminder"
 msgstr "Wöchentliche E-Mail mit ausstehenden Aufgaben"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Eintrag im Navigationsmenü erfolgreich aktualisiert"
@@ -2409,6 +2408,8 @@ msgstr "Ungültige Daten zum Vergleich vorgesehen."
 msgid "validator.multilingual"
 msgstr "Mehrsprachige Anforderung für dieses Feld nicht erfüllt."
 
-#, fuzzy
 msgid "common.editorialMasthead"
 msgstr "Redaktion"
+
+msgid "common.changeLanguage"
+msgstr "Sprache ändern"

@@ -1,0 +1,401 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-10 10:51+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
+"Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/ar/>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "لا يمكنك إعطاء كلاً من عنوان البريد الالكتروني ومُعرَّف المستخدم."
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "ينبغي تعريف مجموعة مستخدمين واحدة على الأقل لإزالتها"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "ينبغي إعطاء كلمة المرور"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "ينبغي إعطاء الانتماء"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "ينبغي إعطاء البلد"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "ينبغي إعطاء الاسم"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "بالنسبة إلى مجموعات المستخدمين المضافة، ينبغي إعطاء مُعرَّف المجموعة"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "بالنسبة إلى مجموعات المستخدمين المضافة، ينبغي إعطاء البيانات الإدارية"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "ليس لنوع الدعوة هذا عنوان مراسلة معروف"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "عملية الدعوة هذه قد فشلت"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "إن المُعرَّف {reviewAssignmentId} لا يرتبط بمهمة تحكيم صحيحة"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "لا يمكن إلغاء هذه الدعوة"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "لا يمكن السماح بالوصول إلى السمة للمستخدمين الموجودين"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "لا يمكن السماح بالوصول إلى السمة للمستخدمين غير الموجودين"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "ينبغي أن تكون للسمة قيمة مساوية لليوم أو ما بعده"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "إن حقل السمة :attribute محظور"
+
+msgid "invitation.header"
+msgstr "الدعوات"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "الدعوة إلى دور"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "دعوة المستخدم لتولي دور"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "أدخل التفاصيل"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "المراجعة والدعوة إلى الأدوار"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - البحث في المستخدمين"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "أدخل التفاصيل"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "حفظ ومتابعة"
+
+msgid "invitation.role.selectRole"
+msgstr "إختر دورًا جديدًا"
+
+msgid "invitation.role.dateStart"
+msgstr "تاريخ البدء"
+
+msgid "invitation.role.dateEnd"
+msgstr "تاريخ الانتهاء"
+
+msgid "invitation.role.addRole.button"
+msgstr "إضافة دور جديد"
+
+msgid "userInvitation.roleTable.role"
+msgstr "الدور"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "تاريخ البدء"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "تاريخ الانتهاء"
+
+msgid "invitation.role.removeRole.button"
+msgstr "إزالة الدور"
+
+msgid "invitation.decline.confirm"
+msgstr "تأكيد رفض الدعوة"
+
+msgid "invitation.decline.confirm.title"
+msgstr "رفض الدعوة"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"هل أنت متأكد من رفضك لهذه الدعوة؟ أكد رفضك من خلال النقر على الزر أدناه."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "ينبغي تعريف مجموعة مستخدمين واحدة على الأقل لإضافتها"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "مجموعة المستخدمين معينة إلى المستخدم المدعو"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "لا يمكن تعريف إزالة أدوار المستخدمين لمستخدم غير موجود."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr "لا يمكن إرسال الدعوة لأنك لم تحدد أي تغييرات في مجموعة المستخدمين"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "مجموعات المستخدمين المعطاة تتضمن إدخالات مكررة."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "يوجد مسبقًا من يمتلك اسم المستخدم {$username}. حاول مع اسم آخر."
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "البحث في المستخدمين"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "البحث في المستخدمين"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - أدخل التفاصيل وأدع إلى الأدوار"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "المراجعة والدعوة إلى الأدوار"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "دعوة المستخدم إلى الدور"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"عندما يكون مُعرَّف المستخدم ({$userId}) معينًا في الدعوة، ينبغي أن يكون "
+"المستخدم المقصود موجودًا."
+
+msgid "userInvitation.modal.title"
+msgstr "تم إرسال الدعوة"
+
+msgid "userInvitation.modal.button"
+msgstr "معاينة كل المستخدمين"
+
+msgid "invitation.email.description"
+msgstr "مثلاً ali@example.com"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"عندما يكون عنوان البريد الالكتروني ({$email}) معينًا في الدعوة، ينبغي أن لا "
+"يكون ذلك العنوان مستعملاً من قبل مستخدم آخر."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "ينبغي إعطاء اسم المستخدم"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "ينبغي إعطاء اسم العائلة"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "بالنسبة إلى مجموعات المستخدمين المضافة، ينبغي إعطاء تاريخ البدء"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "مجموعة المستخدمين المعطاة {$userGroupId} غير موجودة"
+
+msgid "invitation.validation.required"
+msgstr "إن الحقل {$attribute} مطلوب."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"تم العثور على خصائص غير متوقعة في العنصر ذي الفهرس {$attribute}: "
+"{$properties}."
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - تعديل البريد الالكتروني المشارك مع المستخدم"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"إذا كنت تعرف اسم عائلة المستخدم، يمكنك إدخال تلك المعلومة. مع ذلك، هذه "
+"المعلومة قابلة للتعديل من قبل المستخدم."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "تحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - تحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "حفظ ومتابعة"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "حفظ ومتابعة"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "يرجى تزويدنا بالتفاصيل الآتية لمساعدتنا في إدارة حسابك"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "هذه هي المؤسسة التي تنتسب إليها"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "لا بد من إعطاء قيمة لـ '{$primaryLocale}'"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"إذا لم يكن المستخدم موجودًا، يمكنك دعواه لتولي الأدوار. إذا كان المستخدم "
+"موجود مسبقًا في النظام، يمكنك معاينة بياناته ودعوته لتولي أدوار إضافية."
+
+msgid "userInvitation.searchField.description"
+msgstr "مثلاً ali@example.com أو ali or 0000-0002-1825-0097"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"عند قبول الدعوة، ستتم إعادة توجيه المستخدم إلى ORCID للتحقق من حسابه، إن رغب "
+"بذلك."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"إذا كنت تعرف الاسم المعطى للمستخدم، يمكنك إدخال تلك المعلومة. مع ذلك، هذه "
+"المعلومة قابلة للتعديل من قبل المستخدم."
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "حفظ ومتابعة"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "أدخل التفاصيل"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - أدخل التفاصيل"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "نموذج تفاصيل قبول دعوة المستخدم"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "مراجعة الحساب وإنشائه"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - مراجعة الحساب وإنشائه"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "تخطى التحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "تحقق من مُعرَّف ORCID"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "بيان الخصوصية"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "بلد الانتساب"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "تفاصيل الحساب"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "تفاصيل المستخدم"
+
+msgid "invitation.step"
+msgstr "الخطوة"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "قد تكون تشكيلة من الحروف الكبيرة والصغيرة والأرقام"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"ينبغي أن لا تقل عن 6 محارف من تشكيلة من الحروف الكبيرة والصغيرة والأرقام"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "نعم، أوافق على جمع بياناتي وحفظها وفقًا لـ {$url}"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "يُعرف أيضًا بالاسم الأول، وهو جزء من الاسم الشخصي الذي يُعرِّف صاحبه."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"اسم الشهرة، اسم العائلة، أو الاسم الأخير هو غالبًا الاسم الموروث للشخص الذي "
+"يُعرَّف عائلته."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "هذا هو البلد الذي تقع فيه المؤسسة التي تنتسب إليها"
+
+msgid "acceptInvitation.modal.button"
+msgstr "معاينة كل طلبات التقديم"
+
+msgid "invitation.masthead.show"
+msgstr "يظهر في طاقم المجلة"
+
+msgid "invitation.masthead.hidden"
+msgstr "لا يظهر في طاقم المجلة"
+
+msgid "userInvitation.edit.title"
+msgstr "تحرير الدعوة"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "يرجى تأكيد قراءتك لبيان الخصوصية وموافقتك عليه"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "أتريد إلغاء عملية الدعوة إلى الدور؟"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "إلغاء عملية الدعوة"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "لم يتم قبول الدعوة. أنت مسجل دخولك بمثابة مستخدم آخر."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "المستخدم معطل حاليًا"
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "الموافقة على الخصوصية"
+
+msgid "invitation.tableHeader.name"
+msgstr "الاسم"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "أعط معيار بحث واحد على الأقل."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "أنت تعاين تفاصيل المستخدم {$name}"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "إلغاء الدعوة"
+
+msgid "invitation.cancelInvite.title"
+msgstr "إلغاء الدعوة"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"إلغاء الدعوة المرسلة إلى  {$givenName} {$familyName} سيؤدي إلى تعطيل رابط "
+"القبول المرسل عبر البريد الالكتروني. إليك تفاصيل الدعوة: "
+
+msgid "invitation.role.modifyRole.button"
+msgstr "تعديل الدور"
+
+msgid "invitation.management.options"
+msgstr "خيارات إدارة الدعوة"
+
+msgid "userInvitation.cancel.message"
+msgstr "هل أنت متأكد من رغبتك في إلغاء هذه الدعوة؟"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "رجوع"
+
+msgid "userInvitation.status.invited"
+msgstr "مدعو {$date}"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"إذا قمت بتحرير الدعوة الحالية أو أضفت دورًا جديدًا، سيتم إلغاء الدعوة "
+"الحالية مع إرسال دعوة جديدة. هل أنت متأكد من رغبتك في المتابعة؟"
+
+msgid "validation.after_or_equal"
+msgstr "تاريخ البدء ينبغي أن يكون أكبر من أو مساويًا لتاريخ اليوم"
+
+msgid "invitation.removeRoles"
+msgstr "تمت إزالة المستخدم من الدور"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"هل أنت متأكد من رغبتك في الإلغاء؟ الإلغاء الآن سيوقف عملية قبول الدور، "
+"وينبغي عليك إعادة البدء من خطوة رسالة الدعوة إلى الدور للموافقة على الدور من "
+"جديد. إذا كان لديك حساب مستخدم مسبقًا، سيتم توجيهك إلى دفة القيادة. إن لم "
+"تكن، سيكون عليك الوصول إلى رسالة الدعوة المرسلة عبر البريد الالكتروني للبدء "
+"بالعملية مرة أخرى."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"أدخل تفاصيل بياناتك، مثل البريد الالكتروني، الانتساب، إلخ. وفقًا للائحة "
+"العامة لحماية البيانات GDPR، يمكن فقط من خلالك تغيير هذه البيانات. يمكنك أن "
+"تختار أيضًا ما إذا كانت تلك البيانات متاحة للمحرر في ملفك الشخصي."
+
+msgid "acceptInvitation.authorization.message"
+msgstr "يرجى تسجيل خروجك ثم معاودة الدخول بالحساب الصحيح لقبول هذه الدعوة."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"البحث عن المستخدم حسب البريد الالكتروني، اسم المستخدم، أو مُعرَّف ORCID. "
+"أدخل واحدًا منها فقط للبدء!"
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"المستخدم مُعطل. لا يمكنك تعيين الأدوار لمستخدم معطل. يرجى تمكين حساب "
+"المستخدم أولاً لتتسنى لك دعوته إلى الدور."

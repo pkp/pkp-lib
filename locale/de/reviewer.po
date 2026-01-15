@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-10-27 14:24+0000\n"
+"PO-Revision-Date: 2025-12-31 07:26+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "de/>\n"
@@ -150,3 +150,57 @@ msgstr "Vorherige Gutachten"
 
 msgid "reviewer.submission.reviewRound.info.read"
 msgstr "Runde {$round} Gutachten ansehen"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Dies sind Dateien, die Sie an Ihr Gutachten angehangen haben"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Das Gutachten wurde nicht abgeschlossen."
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Runde {$round} Gutachten von Ihnen eingereicht für"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Gutachter/innen-Kommentare"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Für Redakteur/innen und Autor/innen"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Nur für Redakteur/innen"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Kommentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Grund der Ablehnung via E-Mail geschickt"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Kein Grund für die Ablehnung der Gutachteneinladung gegeben."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Ablehnungsdatum"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikel-Metadaten"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Typ"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Abstract"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Schlagwörter"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Allgemeine Informationen"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Anhänge"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Dateien für das Gutachten"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Diese Dateien wurden Ihnen für das Gutachten geschickt"

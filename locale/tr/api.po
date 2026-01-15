@@ -1,7 +1,7 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-17 00:25+0000\n"
+"PO-Revision-Date: 2025-12-23 09:27+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -62,7 +62,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "Bu bağlamda olmayan bir öğenin DOI'sini düzenleyemezsiniz."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "Yayın türü tanınmadı"
+msgstr "Yayın türü tanımlanamadı."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
@@ -110,7 +110,7 @@ msgstr ""
 "Halihazırda yapılandırılan eklenti, bir kayıt ajansı eklentisi olmalıdır."
 
 msgid "api.emails.400.missingBody"
-msgstr "Gönderilecek bir e-posta eklemelisiniz."
+msgstr "Bir e-posta adresi eklemelisiniz."
 
 msgid "api.emails.400.missingSubject"
 msgstr "E-posta için bir konu eklemelisiniz."
@@ -360,7 +360,7 @@ msgid "api.422.routeRequestUnableToProcess"
 msgstr "API isteği işlenemiyor."
 
 msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
-msgstr "Yazarlar için geçersiz bir etkinlik türü {$eventType}"
+msgstr "Yazarlar için geçersiz bir {$eventType} türü"
 
 msgid "api.orcid.403.orcidNotEnabled"
 msgstr "ORCID işlevi devre dışıyken bu işlemi gerçekleştiremezsiniz."
@@ -414,3 +414,9 @@ msgid "api.submission.400.missingQueryParam"
 msgstr ""
 "İstek, gerekli sorgu parametresi `id`'yi içermiyor. Silinmesini istediğiniz "
 "gönderilerin `id`'lerini girin."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Bir yazara ORCiD atanması Yazar Düzenle/Ekle işlemleriyle yapılamaz. Yazarın "
+"ORCiD bilgisini güncellemesini talep etmek için orcid/"
+"requestAuthorVerification/{authorId} yolunu kullanınız."

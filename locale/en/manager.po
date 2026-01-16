@@ -3041,7 +3041,7 @@ msgstr ""
 "All comments from completed reviews. Reviewer names are hidden for anonymous "
 "reviews"
 
-msgid "emailTemplate.variable.reviewAuthorResponseUrl"
+msgid "emailTemplate.variable.reviewRoundAuthorResponseUrl"
 msgstr ""
 "The URL to the page where the author can submit their response to reviewer comments"
 

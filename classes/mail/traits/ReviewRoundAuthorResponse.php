@@ -8,7 +8,7 @@ use PKP\core\PKPApplication;
 
 trait ReviewRoundAuthorResponse
 {
-    protected static string $reviewAuthorResponseUrl = 'reviewAuthorResponseUrl';
+    protected static string $reviewRoundAuthorResponseUrl = 'reviewRoundAuthorResponseUrl';
 
     protected function setupReviewAuthorResponseVariables(Submission $submission, int $reviewRoundId, int $stageId, Context $context): void
     {
@@ -28,7 +28,7 @@ trait ReviewRoundAuthorResponse
                 'reviewResponseAction' => 'respond'
             ]
         );
-        $this->addData([static::$reviewAuthorResponseUrl => $url]);
+        $this->addData([static::$reviewRoundAuthorResponseUrl => $url]);
     }
 
     /**
@@ -36,7 +36,7 @@ trait ReviewRoundAuthorResponse
      */
     protected static function addReviewAuthorResponseDataDescriptions(array $variables): array
     {
-        $variables[static::$reviewAuthorResponseUrl] = __('emailTemplate.variable.authorReviewResponseUrl');
+        $variables[static::$reviewRoundAuthorResponseUrl] = __('emailTemplate.variable.reviewRoundAuthorResponseUrl');
         return $variables;
     }
 }

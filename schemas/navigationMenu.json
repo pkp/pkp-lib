@@ -34,13 +34,17 @@
 			]
 		},
 		"menuTree": {
-			"type": "object",
-			"description": "The menu tree structure for assigned items. Format: menuTree[menuItemId] = {seq: number, parentId: number|null}.",
+			"type": "array",
+			"description": "The menu tree structure for assigned items.",
 			"writeOnly": true,
 			"apiSummary": false,
-			"additionalProperties": {
+			"items": {
 				"type": "object",
 				"properties": {
+					"menuItemId": {
+						"type": "integer",
+						"description": "The menu item ID."
+					},
 					"seq": {
 						"type": "integer",
 						"description": "The sequence order of the item."

@@ -1,4 +1,4 @@
 {extends file="layouts/backend.tpl"}
 {block name="page"}
-<request-author-review-response v-bind="pageInitConfig"></request-author-review-response>
+	<request-review-round-author-response v-bind="pageInitConfig"></request-review-round-author-response>
 {/block}

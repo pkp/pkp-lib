@@ -43,8 +43,9 @@ class NavigationMenusGridHandler extends GridHandler
         $this->addRoleAssignment(
             Role::ROLE_ID_MANAGER,
             $ops = [
-                'fetchGrid', 'fetchRow',
-                'deleteNavigationMenu'
+                'fetchGrid',
+                'fetchRow',
+                'deleteNavigationMenu',
             ]
         );
         $this->addRoleAssignment(Role::ROLE_ID_SITE_ADMIN, $ops);

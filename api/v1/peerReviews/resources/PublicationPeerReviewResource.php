@@ -28,6 +28,7 @@ use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
@@ -35,6 +36,8 @@ use PKP\submission\SubmissionCommentDAO;
 class PublicationPeerReviewResource extends JsonResource
 {
     use ReviewerRecommendationSummary;
+
+    private ?Enumerable $availableReviewerRecommendations = null;
     public function toArray(?\Illuminate\Http\Request $request = null)
     {
         /** @var Publication $publication */
@@ -115,7 +118,10 @@ class PublicationPeerReviewResource extends JsonResource
      */
     private function getReviewAssignmentPeerReviews(Enumerable $assignments, Context $context): Enumerable
     {
-        return $assignments->map(function (ReviewAssignment $assignment) use ($context) {
+        $this->availableReviewerRecommendations = $this->availableReviewerRecommendations ?: ReviewerRecommendation::withContextId($context->getId())->get();
+        $recommendationTypesTypeLabels = Repo::reviewerRecommendation()->getRecommendationTypeLabels();
+
+        return $assignments->map(function (ReviewAssignment $assignment) use ($recommendationTypesTypeLabels, $context) {
             $ReviewForm = null;
             $reviewerComments = null;
 
@@ -135,6 +141,8 @@ class PublicationPeerReviewResource extends JsonResource
             }
 
             $isReviewOpen = $assignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
+            $recommendation = $this->availableReviewerRecommendations->get($assignment->getReviewerRecommendationId());
+
             return [
                 'id' => $assignment->getData('id'),
                 'reviewerId' => $isReviewOpen ? $assignment->getReviewerId() : null,
@@ -148,6 +156,9 @@ class PublicationPeerReviewResource extends JsonResource
                 // Localized text description of the reviewer recommendation(Accept Submission, Decline Submission, etc)
                 'reviewerRecommendationDisplayText' => $assignment->getLocalizedRecommendation(),
                 'reviewerRecommendationId' => $assignment->getReviewerRecommendationId(),
+                // Machine readable type of the reviewer recommendation(Approved, Not Approved, Revisions Requested, etc)
+                'reviewerRecommendationTypeId' => $recommendation?->type,
+                'reviewerRecommendationTypeLabel' => $recommendation ? $recommendationTypesTypeLabels[$recommendation->type] : null,
                 'reviewForm' => $ReviewForm,
                 'reviewerComments' => $reviewerComments,
             ];

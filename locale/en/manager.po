@@ -2563,7 +2563,7 @@ msgid "manager.navigationMenus.unassignedMenuItems"
 msgstr "Unassigned Menu Items"
 
 msgid "manager.navigationMenu.noAssignedItems"
-msgstr "No items assigned to this menu. Drag items from the right panel."
+msgstr "No items assigned to this menu. Drag items from Unassigned Menu Items."
 
 msgid "manager.navigationMenu.noUnassignedItems"
 msgstr "All items have been assigned."

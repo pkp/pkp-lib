@@ -33,7 +33,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
-use PKP\submission\reviewRound\ReviewAuthorResponse;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -738,7 +738,7 @@ class Schema extends \PKP\core\maps\Schema
     {
         $rounds = [];
         $roundIds = $reviewRounds->map(fn (ReviewRound $r) => $r->getId())->all();
-        $roundResponses = ReviewAuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
+        $roundResponses = AuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
 
         foreach ($reviewRounds as $reviewRound) {
             $currentRoundResponse = $roundResponses->get($reviewRound->getId())?->first();
@@ -749,7 +749,7 @@ class Schema extends \PKP\core\maps\Schema
                 'statusId' => $reviewRound->determineStatus(),
                 'status' => __($reviewRound->getStatusKey()),
                 'isAuthorResponseRequested' => $reviewRound->getData('isAuthorResponseRequested'),
-                'authorReviewResponse' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
+                'authorResponse' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
             ];
         }
 

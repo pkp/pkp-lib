@@ -3422,6 +3422,9 @@ msgstr "Response Status"
 msgid "submission.reviewRound.authorReviewResponse.submit"
 msgstr "Submit Response"
 
+msgid "submission.reviewRound.associatedAuthors.description"
+msgstr "Author contributors who this response is being submitted on behalf of."
+
 msgid "editor.submission.reviewRound.authorReviewResponseRequestSent"
 msgstr "Request for review response sent"
 

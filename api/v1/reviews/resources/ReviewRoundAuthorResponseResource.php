@@ -9,7 +9,7 @@
  *
  * @class ReviewRoundAuthorResponseResource
  *
- * @brief API resource class that maps a ReviewAuthorResponse JSON.
+ * @brief API resource class that maps a ReviewRoundAuthorResponse JSON.
  *
  */
 
@@ -18,14 +18,14 @@ namespace PKP\API\v1\reviews\resources;
 use APP\author\Author;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use PKP\submission\reviewRound\ReviewAuthorResponse;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\user\User;
 
 class ReviewRoundAuthorResponseResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
-        /** @var ReviewAuthorResponse $reponse */
+        /** @var AuthorResponse $reponse */
         $response = $this;
 
         /** @var User $user */
@@ -34,7 +34,7 @@ class ReviewRoundAuthorResponseResource extends JsonResource
         $associatedAuthors = $response->associatedAuthors;
         return [
             'reviewRoundId' => $response->reviewRoundId,
-            'response' => $response->authorReviewResponse,
+            'response' => $response->authorResponse,
             'id' => $response->id,
             'submittedByUser' => [
                 'id' => $user->getId(),

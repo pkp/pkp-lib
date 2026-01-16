@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/mail/mailables/RequestReviewAuthorResponse.php
+ * @file classes/mail/mailables/RequestReviewRoundAuthorResponse.php
  *
  * Copyright (c) 2026 Simon Fraser University
  * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class RequestReviewAuthorResponse
+ * @class RequestReviewRoundAuthorResponse
  *
  * @brief Email sent to the author(s) when requesting an author response to reviewers' comments. Uses the same email template as the DecisionRequestRevisionsNotifyAuthor mailable, but specifically for
  * sending the email template outside of the context of a decision, and without having to create/have a Decision object, which is required when using DecisionRequestRevisionsNotifyAuthor mailable.
@@ -20,20 +20,20 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
-use PKP\mail\traits\ReviewAuthorResponse;
 use PKP\mail\traits\ReviewerComments;
+use PKP\mail\traits\ReviewRoundAuthorResponse;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 
-class RequestReviewAuthorResponse extends Mailable
+class RequestReviewRoundAuthorResponse extends Mailable
 {
     use Configurable;
     use Recipient;
     use ReviewerComments;
     use Sender;
-    use ReviewAuthorResponse;
+    use ReviewRoundAuthorResponse;
 
     protected static ?string $name = 'mailable.reviewRound.requestAuthorResponse.name';
     protected static ?string $description = 'mailable.reviewRound.requestAuthorResponse.description';

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\Rule;
 use PKP\db\DAORegistry;
 
-trait ReviewResponseCommonValidation
+trait ReviewRoundAuthorResponseValidator
 {
     /*
      * Common validation rules for adding and editing review responses
@@ -28,7 +28,7 @@ trait ReviewResponseCommonValidation
                 'integer',
                 Rule::exists('submissions', 'submission_id'),
             ],
-            'authorReviewResponse' => [
+            'authorResponse' => [
                 'required',
             ],
             'associatedAuthorIds' => [
@@ -104,7 +104,7 @@ trait ReviewResponseCommonValidation
         $request = $this->validator->validated();
         $request['associatedAuthorIds'] = $this->input('associatedAuthorIds');
         $request['reviewRound'] = $this->reviewRound;
-        $request['authorReviewResponse'] = $this->input('authorReviewResponse');
+        $request['authorResponse'] = $this->input('authorResponse');
 
         return $request;
     }

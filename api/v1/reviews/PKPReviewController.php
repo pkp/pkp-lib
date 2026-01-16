@@ -49,8 +49,8 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewer\ReviewerAction;
-use PKP\submission\reviewRound\ReviewAuthorResponse;
-use PKP\submission\reviewRound\ReviewAuthorResponseManager;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
+use PKP\submission\reviewRound\authorResponse\AuthorResponseManager;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
@@ -839,9 +839,9 @@ class PKPReviewController extends PKPBaseController
         $reviewRound = $validated['reviewRound'];
 
 
-        $reviewResponse = ReviewAuthorResponse::create([
+        $reviewResponse = AuthorResponse::create([
             'reviewRoundId' => $reviewRound->getId(),
-            'authorReviewResponse' => $validated['authorReviewResponse'],
+            'authorResponse' => $validated['authorResponse'],
             'userId' => $user->getId(),
         ]);
 
@@ -854,11 +854,11 @@ class PKPReviewController extends PKPBaseController
     public function editAuthorResponse(EditResponse $illuminateRequest): JsonResponse
     {
         $validated = $illuminateRequest->validated();
-        /** @var ReviewAuthorResponse $existingResponse */
+        /** @var AuthorResponse $existingResponse */
         $existingResponse = $validated['existingResponse'];
 
         $existingResponse->update([
-            'authorReviewResponse' => $validated['authorReviewResponse']
+            'authorResponse' => $validated['authorResponse']
         ]);
 
         $associatedAuthorIds = $validated['associatedAuthorIds'];
@@ -879,7 +879,7 @@ class PKPReviewController extends PKPBaseController
 
         /** @var ReviewRound $reviewRound */
         $reviewRound = $validated['reviewRound'];
-        $reviewAuthorResponseManager = new ReviewAuthorResponseManager(
+        $reviewAuthorResponseManager = new AuthorResponseManager(
             reviewRound: $reviewRound,
             submission: $validated['submission'],
             context: $context,
@@ -917,7 +917,7 @@ class PKPReviewController extends PKPBaseController
             );
         }
 
-        ReviewAuthorResponse::withReviewRoundIds([$reviewRoundId])
+        AuthorResponse::withReviewRoundIds([$reviewRoundId])
             ->where('response_id', '=', $responseId)
             ->delete();
 

@@ -21,8 +21,8 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
-use PKP\mail\traits\ReviewAuthorResponse;
 use PKP\mail\traits\ReviewerComments;
+use PKP\mail\traits\ReviewRoundAuthorResponse;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -33,7 +33,7 @@ class DecisionRequestRevisionsNotifyAuthor extends Mailable
     use Recipient;
     use ReviewerComments;
     use Sender;
-    use ReviewAuthorResponse;
+    use ReviewRoundAuthorResponse;
 
     protected static ?string $name = 'mailable.decision.requestRevisions.notifyAuthor.name';
     protected static ?string $description = 'mailable.decision.requestRevisions.notifyAuthor.description';

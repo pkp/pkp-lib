@@ -16,11 +16,11 @@ use PKP\context\Context;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\mail\Mailable;
-use PKP\mail\mailables\RequestReviewAuthorResponse;
+use PKP\mail\mailables\RequestReviewRoundAuthorResponse;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewRound\ReviewAuthorResponseManager;
+use PKP\submission\reviewRound\authorResponse\AuthorResponseManager;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
@@ -96,7 +96,7 @@ class RequestReviewAuthorResponsePage
     public function getConfig(): array
     {
         $request = Application::get()->getRequest();
-        $reviewAuthorResponseManager = new ReviewAuthorResponseManager(
+        $reviewAuthorResponseManager = new AuthorResponseManager(
             reviewRound: $this->reviewRound,
             submission: $this->submission,
             context: $this->context,
@@ -114,7 +114,7 @@ class RequestReviewAuthorResponsePage
             'stageId' => $this->stageId,
             'emailTemplatesApiUrl' => $this->getEmailTemplatesApiUrl(),
             'canChangeRecipients' => false,
-            'initialTemplateKey' => RequestReviewAuthorResponse::getEmailTemplateKey(),
+            'initialTemplateKey' => RequestReviewRoundAuthorResponse::getEmailTemplateKey(),
             'locale' => $this->context->getPrimaryLocale(),
             'locales' => $this->getLocales(),
             'emailTemplates' => $this->getEmailTemplates($mailable),
@@ -302,7 +302,7 @@ class RequestReviewAuthorResponsePage
                 ),
             ],
             [
-                'id' => 'requestAuthorReviewResponse',
+                'id' => 'requestReviewRoundAuthorResponse',
                 'name' => __('editor.submission.reviewRound.requestAuthorResponse'),
             ]
         ];

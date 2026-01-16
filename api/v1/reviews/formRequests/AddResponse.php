@@ -8,12 +8,12 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\reviewRound\ReviewAuthorResponse;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
 
 class AddResponse extends FormRequest
 {
-    use ReviewResponseCommonValidation;
+    use ReviewRoundAuthorResponseValidator;
 
     protected ReviewRound $reviewRound;
 
@@ -50,7 +50,7 @@ class AddResponse extends FormRequest
             ], Response::HTTP_FORBIDDEN));
         }
 
-        $hasExistingResponse = ReviewAuthorResponse::withReviewRoundIds([$this->reviewRound->getId()])->exists();
+        $hasExistingResponse = AuthorResponse::withReviewRoundIds([$this->reviewRound->getId()])->exists();
         if ($hasExistingResponse) {
             throw new HttpResponseException(response()->json([
                 'error' => __('api.409.resourceActionConflict'),

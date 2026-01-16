@@ -8,18 +8,18 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\reviewRound\ReviewAuthorResponse;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
 
 class EditResponse extends FormRequest
 {
-    use ReviewResponseCommonValidation;
+    use ReviewRoundAuthorResponseValidator;
 
     protected ReviewRound $reviewRound;
-    protected ?ReviewAuthorResponse $existingResponse = null;
+    protected ?AuthorResponse $existingResponse = null;
     public function rules(): array
     {
-        $this->existingResponse = ReviewAuthorResponse::withReviewRoundIds([$this->route('reviewRoundId')])
+        $this->existingResponse = AuthorResponse::withReviewRoundIds([$this->route('reviewRoundId')])
             ->where('response_id', $this->route('responseId'))
             ->first();
 

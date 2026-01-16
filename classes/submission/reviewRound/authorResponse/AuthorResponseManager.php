@@ -1,6 +1,6 @@
 <?php
 
-namespace PKP\submission\reviewRound;
+namespace PKP\submission\reviewRound\authorResponse;
 
 use APP\core\Request;
 use APP\facades\Repo;
@@ -9,12 +9,13 @@ use PKP\context\Context;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
-use PKP\mail\mailables\RequestReviewAuthorResponse;
+use PKP\mail\mailables\RequestReviewRoundAuthorResponse;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\user\User;
 
-class ReviewAuthorResponseManager
+class AuthorResponseManager
 {
     use NotifyAuthors;
 
@@ -50,7 +51,7 @@ class ReviewAuthorResponseManager
 
     public function getMailable(): Mailable
     {
-        return new RequestReviewAuthorResponse(
+        return new RequestReviewRoundAuthorResponse(
             $this->context,
             $this->submission,
             $this->getCompletedReviewAssignments(),

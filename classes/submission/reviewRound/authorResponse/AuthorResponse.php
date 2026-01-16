@@ -1,6 +1,6 @@
 <?php
 
-namespace PKP\submission\reviewRound;
+namespace PKP\submission\reviewRound\authorResponse;
 
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
@@ -9,20 +9,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use PKP\core\traits\ModelWithSettings;
 use PKP\db\DAORegistry;
-use PKP\user\User;
 
-class ReviewAuthorResponse extends Model
+class AuthorResponse extends Model
 {
     use ModelWithSettings;
 
-    protected $table = 'review_author_responses';
+    protected $table = 'review_round_author_responses';
     protected $primaryKey = 'response_id';
-    protected string $settingsTable = 'review_author_response_settings';
+    protected string $settingsTable = 'review_round_author_response_settings';
 
     protected $fillable = [
         'reviewRoundId',
         'userId',
-        'authorReviewResponse'
+        'authorResponse'
     ];
 
     /**
@@ -39,7 +38,7 @@ class ReviewAuthorResponse extends Model
     public function getSettings(): array
     {
         return [
-            'authorReviewResponse',
+            'authorResponse',
         ];
     }
     /**
@@ -48,7 +47,7 @@ class ReviewAuthorResponse extends Model
     public function getMultilingualProps(): array
     {
         return [
-            'authorReviewResponse',
+            'authorResponse',
         ];
     }
     /**
@@ -91,7 +90,7 @@ class ReviewAuthorResponse extends Model
     {
         return Attribute::make(
             get: function () {
-                $authorIds = DB::table('review_author_response_authors')
+                $authorIds = DB::table('review_round_author_response_authors')
                     ->where('response_id', $this->id)
                     ->pluck('author_id')
                     ->all();
@@ -114,7 +113,7 @@ class ReviewAuthorResponse extends Model
     public function associateAuthorsToResponse(array $authorIds): bool
     {
         // First delete any existing associations
-        DB::table('review_author_response_authors')
+        DB::table('review_round_author_response_authors')
             ->where('response_id', $this->id)
             ->delete();
 
@@ -126,6 +125,6 @@ class ReviewAuthorResponse extends Model
             ];
         }, $authorIds);
 
-        return DB::table('review_author_response_authors')->insert($rows);
+        return DB::table('review_round_author_response_authors')->insert($rows);
     }
 }

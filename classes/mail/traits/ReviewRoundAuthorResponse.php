@@ -6,7 +6,7 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 
-trait ReviewAuthorResponse
+trait ReviewRoundAuthorResponse
 {
     protected static string $reviewAuthorResponseUrl = 'reviewAuthorResponseUrl';
 

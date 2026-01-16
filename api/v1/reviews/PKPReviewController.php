@@ -85,7 +85,7 @@ class PKPReviewController extends PKPBaseController
     public function getGroupRoutes(): void
     {
         Route::post('{submissionId}/{reviewRoundId}/authorResponse/requestResponse', $this->requestAuthorResponse(...))
-            ->name('review.authorResponse.requestResponse')
+            ->name('review.authorResponse.requestAuthorResponse')
             ->whereNumber(['submissionId', 'reviewRoundId'])
             ->middleware([
                 self::roleAuthorizer([
@@ -96,7 +96,7 @@ class PKPReviewController extends PKPBaseController
             ]);
 
         Route::post('{submissionId}/{reviewRoundId}/authorResponse/', $this->submitAuthorResponse(...))
-            ->name('review.authorResponse.submitResponse')
+            ->name('review.authorResponse.submitAuthorResponse')
             ->whereNumber(['submissionId', 'reviewRoundId'])
             ->middleware([
                 self::roleAuthorizer([
@@ -105,7 +105,7 @@ class PKPReviewController extends PKPBaseController
             ]);
 
         Route::put('{submissionId}/{reviewRoundId}/authorResponse/{responseId}', $this->editAuthorResponse(...))
-            ->name('review.authorResponse.submitResponse')
+            ->name('review.authorResponse.editAuthorResponse')
             ->whereNumber(['submissionId', 'reviewRoundId', 'responseId'])
             ->middleware([
                 self::roleAuthorizer([
@@ -117,7 +117,7 @@ class PKPReviewController extends PKPBaseController
 
 
         Route::delete('{submissionId}/{reviewRoundId}/authorResponse/{responseId}', $this->deleteAuthorResponse(...))
-            ->name('review.authorResponse.delete')
+            ->name('review.authorResponse.deleteAuthorResponse')
             ->whereNumber(['submissionId', 'reviewRoundId', 'responseId'])
             ->middleware([
                 self::roleAuthorizer([
@@ -126,6 +126,7 @@ class PKPReviewController extends PKPBaseController
                     Role::ROLE_ID_SUB_EDITOR,
                 ])
             ]);
+
 
         Route::get('history/{submissionId}/{reviewRoundId}', $this->getHistory(...))
             ->name('review.get.submission.round.history')
@@ -838,7 +839,6 @@ class PKPReviewController extends PKPBaseController
         /** @var ReviewRound $reviewRound */
         $reviewRound = $validated['reviewRound'];
 
-
         $reviewResponse = AuthorResponse::create([
             'reviewRoundId' => $reviewRound->getId(),
             'authorResponse' => $validated['authorResponse'],
@@ -851,6 +851,9 @@ class PKPReviewController extends PKPBaseController
         return response()->json(new ReviewRoundAuthorResponseResource($reviewResponse), Response::HTTP_OK);
     }
 
+    /**
+     * Edit review response.
+     */
     public function editAuthorResponse(EditResponse $illuminateRequest): JsonResponse
     {
         $validated = $illuminateRequest->validated();
@@ -886,7 +889,7 @@ class PKPReviewController extends PKPBaseController
             request: $request
         );
 
-        $reviewAuthorResponseManager->sendMail(new EmailData($payload), $request->getUser());
+        $reviewAuthorResponseManager->sendAuthorRequest(new EmailData($payload), $request->getUser());
 
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');

@@ -38,7 +38,7 @@ class RequestReviewRoundAuthorResponse extends Mailable
     protected static ?string $name = 'mailable.reviewRound.requestAuthorResponse.name';
     protected static ?string $description = 'mailable.reviewRound.requestAuthorResponse.description';
     protected static ?string $emailTemplateKey = 'EDITOR_DECISION_REVISIONS';
-    protected static bool $supportsTemplates = false;
+    protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
@@ -50,14 +50,14 @@ class RequestReviewRoundAuthorResponse extends Mailable
     {
         parent::__construct(array_slice(func_get_args(), 0, -2));
         $this->setupReviewerCommentsVariable($reviewAssignments, $submission);
-        $this->setupReviewAuthorResponseVariables($submission, $reviewRound->getId(), $reviewRound->getStageId(), $context);
+        $this->setupReviewAuthorResponseVariable($submission, $reviewRound->getId(), $reviewRound->getStageId(), $context);
     }
 
     public static function getDataDescriptions(): array
     {
         $variables = parent::getDataDescriptions();
         $variables = self::addReviewerCommentsDescription($variables);
-        $variables = self::addReviewAuthorResponseDataDescriptions($variables);
+        $variables = self::addReviewAuthorResponseDataDescription($variables);
 
         return $variables;
     }

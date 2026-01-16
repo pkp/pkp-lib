@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * @file classes/submission/reviewRound/authorResponse/AuthorResponse.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class AuthorResponse
+ *
+ * @ingroup submission_reviewRound_authorResponse
+ *
+ * @brief Model class describing author response to reviewers' comments in a review round.
+ */
+
 namespace PKP\submission\reviewRound\authorResponse;
 
 use APP\facades\Repo;
@@ -10,6 +24,10 @@ use Illuminate\Support\Facades\DB;
 use PKP\core\traits\ModelWithSettings;
 use PKP\db\DAORegistry;
 
+/**
+ * @method static Builder withReviewRoundIds(array $reviewRoundIds) Filter responses by review round IDs.
+ * @method static Builder withUserId(int $userId) Filter responses by user ID.
+ */
 class AuthorResponse extends Model
 {
     use ModelWithSettings;
@@ -21,7 +39,7 @@ class AuthorResponse extends Model
     protected $fillable = [
         'reviewRoundId',
         'userId',
-        'authorResponse'
+        'authorResponse',
     ];
 
     /**
@@ -84,7 +102,7 @@ class AuthorResponse extends Model
     }
 
     /**
-     * Authors associated with this response (via review_author_response_authors table).
+     * Authors associated with this response.
      */
     protected function associatedAuthors(): Attribute
     {

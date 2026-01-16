@@ -1,12 +1,26 @@
 <?php
 
+/**
+ * @file pages/reviewResponse/ReviewResponseHandler.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewResponseHandler
+ *
+ * @ingroup pages_reviewResponse
+ *
+ * @brief Handles page requests to review response page
+ */
+
 namespace PKP\pages\reviewResponse;
 
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\components\RequestReviewAuthorResponsePage;
+use PKP\components\RequestReviewResponsePage;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
@@ -18,6 +32,7 @@ class ReviewResponseHandler extends Handler
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
 
+
     public function __construct()
     {
         $this->addRoleAssignment(
@@ -26,9 +41,9 @@ class ReviewResponseHandler extends Handler
         );
 
         parent::__construct();
-
     }
 
+    /** @inheritDoc */
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId'));
@@ -54,16 +69,15 @@ class ReviewResponseHandler extends Handler
 
         /**
          * Ensure the review round belongs to the current context.
-         * */
+         */
         $submission = Repo::submission()->get($reviewRound->getSubmissionId());
         $context = $request->getContext();
-        $submissionContextId = $submission->getData('contextId');
 
-        if ($context->getId() != $submissionContextId) {
+        if (!$submission || $context->getId() !== $submission->getData('contextId')) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
-        $requestReviewAuthorResponsePage = new RequestReviewAuthorResponsePage(
+        $requestReviewAuthorResponsePage = new RequestReviewResponsePage(
             reviewRound: $reviewRound,
             submission: $submission,
             stageId: $stageId,

@@ -3,13 +3,13 @@
 /**
  * @file api/v1/reviews/resources/ReviewRoundAuthorResponseResource.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewRoundAuthorResponseResource
  *
- * @brief API resource class that maps a ReviewRoundAuthorResponse JSON.
+ * @brief API resource class that maps a ReviewRoundAuthorResponse to API response.
  *
  */
 
@@ -40,11 +40,10 @@ class ReviewRoundAuthorResponseResource extends JsonResource
                 'id' => $user->getId(),
                 'fullName' => $user->getFullName(),
             ],
-            'associatedAuthors' => array_map(fn (Author $author) =>
-                 [
-                     'id' => $author->getId(),
-                     'fullName' => $author->getFullName(),
-                 ], $associatedAuthors),
+            'associatedAuthors' => array_map(fn (Author $author) => [
+                'id' => $author->getId(),
+                'fullName' => $author->getFullName(),
+            ], $associatedAuthors),
         ];
     }
 }

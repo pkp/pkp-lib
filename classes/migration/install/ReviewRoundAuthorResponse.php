@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/migration/install/ReviewFormsMigration.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewRoundAuthorResponse
+ *
+ * @brief Add database tables related to author review responses.
+ */
+
 namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +28,7 @@ class ReviewRoundAuthorResponse extends \PKP\migration\Migration
             $table->string('locale')->nullable();
             $table->string('setting_name');
             $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
+            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)'); // ReviewRoundDAO extends \PKP\db\DAO which requires setting type
 
             $table->foreign('review_round_id')
                 ->references('review_round_id')
@@ -26,7 +38,6 @@ class ReviewRoundAuthorResponse extends \PKP\migration\Migration
 
             $table->index(['review_round_id'], 'review_round_settings_review_round_id');
         });
-
 
         Schema::create('review_round_author_responses', function (Blueprint $table) {
             $table->bigInteger('response_id')->autoIncrement()->comment('Primary key.');

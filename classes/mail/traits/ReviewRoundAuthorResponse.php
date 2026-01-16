@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * @file classes/mail/traits/ReviewRoundAuthorResponse.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewRoundAuthorResponse
+ *
+ * @ingroup mail_traits
+ *
+ * @brief Mailable trait to review round author response variables to a mailable.
+ */
+
 namespace PKP\mail\traits;
 
 use APP\submission\Submission;
@@ -10,7 +24,10 @@ trait ReviewRoundAuthorResponse
 {
     protected static string $reviewRoundAuthorResponseUrl = 'reviewRoundAuthorResponseUrl';
 
-    protected function setupReviewAuthorResponseVariables(Submission $submission, int $reviewRoundId, int $stageId, Context $context): void
+    /**
+     * Set up the review round author response URL variable.
+     */
+    protected function setupReviewAuthorResponseVariable(Submission $submission, int $reviewRoundId, int $stageId, Context $context): void
     {
         $request = PKPApplication::get()->getRequest();
         $url = $request->getDispatcher()->url(
@@ -32,9 +49,9 @@ trait ReviewRoundAuthorResponse
     }
 
     /**
-     * Add the author review response variables to the list of registered variables.
+     * Add the review round author response request variable description.
      */
-    protected static function addReviewAuthorResponseDataDescriptions(array $variables): array
+    protected static function addReviewAuthorResponseDataDescription(array $variables): array
     {
         $variables[static::$reviewRoundAuthorResponseUrl] = __('emailTemplate.variable.reviewRoundAuthorResponseUrl');
         return $variables;

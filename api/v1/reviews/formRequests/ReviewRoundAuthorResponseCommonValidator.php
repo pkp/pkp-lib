@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file api/v1/reviews/formRequests/ReviewRoundAuthorResponseCommonValidator.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @trait  ReviewRoundAuthorResponseCommonValidator
+ *
+ * @brief Trait to handle common validation when creating/editing review round responses.
+ *
+ */
+
 namespace PKP\API\v1\reviews\formRequests;
 
 use APP\facades\Repo;
@@ -7,7 +20,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\Rule;
 use PKP\db\DAORegistry;
 
-trait ReviewRoundAuthorResponseValidator
+trait ReviewRoundAuthorResponseCommonValidator
 {
     /*
      * Common validation rules for adding and editing review responses
@@ -21,7 +34,11 @@ trait ReviewRoundAuthorResponseValidator
             'reviewRoundId' => [
                 'required',
                 'integer',
-                Rule::exists('review_rounds', 'review_round_id'),
+                function (string $attribute, mixed $value, \Closure $fail) {
+                    if (!$this->reviewRound || (int) $this->reviewRound->getId() !== (int) $value) {
+                        $fail(__('api.404.resourceNotFound'));
+                    }
+                },
             ],
             'submissionId' => [
                 'required',
@@ -29,6 +46,7 @@ trait ReviewRoundAuthorResponseValidator
                 Rule::exists('submissions', 'submission_id'),
             ],
             'authorResponse' => [
+                'array',
                 'required',
             ],
             'associatedAuthorIds' => [
@@ -39,7 +57,7 @@ trait ReviewRoundAuthorResponseValidator
     }
 
     /**
-     * Perform additional form field specific validations after initial check was passed.
+     * Perform additional form specific validations after initial check was passed.
      */
     protected function commonAfter(): array
     {
@@ -78,7 +96,6 @@ trait ReviewRoundAuthorResponseValidator
             ]);
         }
     }
-
 
     /**
      * Validation rules and their messages

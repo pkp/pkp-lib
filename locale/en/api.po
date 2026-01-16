@@ -426,7 +426,7 @@ msgid "api.submission.400.emptyContributorRoles"
 msgstr "There have to be at least one assigned contributor role."
 
 msgid "api.reviewRound.authorResponse.400.missingAuthorIds"
-msgstr "The request is missing a value for `associatedAuthorIds`"
+msgstr "The request is missing a value for `associatedAuthorIds`."
 
 msgid "api.reviewRound.authorResponse.400.missingAuthorReviewResponse"
-msgstr "The request is missing a value for `authorReviewResponse`"
+msgstr "The request is missing a value for `authorReviewResponse`."

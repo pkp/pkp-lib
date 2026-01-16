@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file api/v1/reviews/formRequests/AddResponse.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class AddResponse
+ *
+ * @brief Handle API requests validation for adding review round responses.
+ *
+ */
+
 namespace PKP\API\v1\reviews\formRequests;
 
 use APP\core\Application;
@@ -13,7 +26,7 @@ use PKP\submission\reviewRound\ReviewRound;
 
 class AddResponse extends FormRequest
 {
-    use ReviewRoundAuthorResponseValidator;
+    use ReviewRoundAuthorResponseCommonValidator;
 
     protected ReviewRound $reviewRound;
 
@@ -23,13 +36,12 @@ class AddResponse extends FormRequest
     }
 
     /**
-     * Perform additional form field specific validations after initial check was passed.
+     * Perform additional form specific validations after initial check was passed.
      */
     public function after(): array
     {
         return $this->commonAfter();
     }
-
 
     /**
      * Further validations not tied to the form data
@@ -68,6 +80,7 @@ class AddResponse extends FormRequest
         }
     }
 
+    /** @inheritdoc  */
     public function validated($key = null, $default = null)
     {
         return $this->commonValidated();

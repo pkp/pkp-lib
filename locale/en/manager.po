@@ -3043,7 +3043,7 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewRoundAuthorResponseUrl"
 msgstr ""
-"The URL to the page where the author can submit their response to reviewer comments"
+"The URL to the page where the author can submit their response to reviewers' comments."
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr "The names and affiliations of the submission's authors."
@@ -3971,4 +3971,4 @@ msgid "mailable.reviewRound.requestAuthorResponse.name"
 msgstr "Request Author Review Response"
 
 msgid "mailable.reviewRound.requestAuthorResponse.description"
-msgstr "This email requests the author to submit a response to reviewers' comments."
+msgstr "This email notifies the author to submit a response to reviewers' comments."

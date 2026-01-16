@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file api/v1/reviews/formRequests/EditResponse.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class EditResponse
+ *
+ * @brief Handle API requests validation for editing review round responses.
+ *
+ */
+
 namespace PKP\API\v1\reviews\formRequests;
 
 use APP\core\Application;
@@ -13,9 +26,9 @@ use PKP\submission\reviewRound\ReviewRound;
 
 class EditResponse extends FormRequest
 {
-    use ReviewRoundAuthorResponseValidator;
+    use ReviewRoundAuthorResponseCommonValidator;
 
-    protected ReviewRound $reviewRound;
+    protected ?ReviewRound $reviewRound = null;
     protected ?AuthorResponse $existingResponse = null;
     public function rules(): array
     {
@@ -39,13 +52,16 @@ class EditResponse extends FormRequest
         );
     }
 
+    /**
+     * Perform additional form specific validations after initial check was passed.
+     */
     public function after(): array
     {
         return $this->commonAfter();
     }
 
     /**
-     * Further validations not tied to the form data
+     * Further validations not tied to the form data.
      */
     protected function passedValidation()
     {
@@ -71,7 +87,7 @@ class EditResponse extends FormRequest
         }
     }
 
-
+    /** @inheritdoc  */
     public function validated($key = null, $default = null)
     {
         $request = $this->commonValidated();

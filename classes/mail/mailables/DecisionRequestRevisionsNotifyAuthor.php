@@ -49,14 +49,14 @@ class DecisionRequestRevisionsNotifyAuthor extends Mailable
     {
         parent::__construct(array_slice(func_get_args(), 0, -1));
         $this->setupReviewerCommentsVariable($reviewAssignments, $submission);
-        $this->setupReviewAuthorResponseVariables($submission, $decision->getData('reviewRoundId'), $decision->getData('stageId'), $context);
+        $this->setupReviewAuthorResponseVariable($submission, $decision->getData('reviewRoundId'), $decision->getData('stageId'), $context);
     }
 
     public static function getDataDescriptions(): array
     {
         $variables = parent::getDataDescriptions();
         $variables = self::addReviewerCommentsDescription($variables);
-        $variables = self::addReviewAuthorResponseDataDescriptions($variables);
+        $variables = self::addReviewAuthorResponseDataDescription($variables);
 
         return $variables;
     }

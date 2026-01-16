@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/submission/reviewRound/authorResponse/AuthorResponseManager.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class AuthorResponseManager
+ *
+ * @brief class with methods to manage author responses to review rounds
+ */
+
 namespace PKP\submission\reviewRound\authorResponse;
 
 use APP\core\Request;
@@ -34,11 +46,13 @@ class AuthorResponseManager
         $this->request = $request;
     }
 
+    /** @inheritDoc */
     public function getStageId(): int
     {
         return $this->reviewRound->getStageId();
     }
 
+    /** @inheritDoc */
     public function getAssignedAuthorIds(Submission $submission): array
     {
         return StageAssignment::withSubmissionIds([$submission->getId()])
@@ -49,6 +63,9 @@ class AuthorResponseManager
             ->all();
     }
 
+    /**
+     * Get the mailable to use.
+     */
     public function getMailable(): Mailable
     {
         return new RequestReviewRoundAuthorResponse(
@@ -59,6 +76,9 @@ class AuthorResponseManager
         );
     }
 
+    /**
+     * Get completed review assignments.
+     */
     private function getCompletedReviewAssignments(): array
     {
         return Repo::reviewAssignment()->getCollector()
@@ -70,12 +90,19 @@ class AuthorResponseManager
             ->toArray();
     }
 
-    public function sendMail(EmailData $emailData, User $sender): void
+
+    /**
+     * Send author request email.
+     */
+    public function sendAuthorRequest(EmailData $emailData, User $sender): void
     {
         $mailable = $this->getMailable();
         $this->sendAuthorEmail($mailable, $emailData, $sender, $this->submission, $this->context);
     }
 
+    /**
+     * Populate mailable with email data.
+     */
     protected function addEmailDataToMailable(Mailable $mailable, User $sender, EmailData $email): Mailable
     {
         $mailable

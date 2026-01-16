@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * @file components/RequestReviewResponsePage.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class RequestReviewResponsePage
+ *
+ * @ingroup classes_components
+ *
+ * @brief A class to prepare the data object for the Request Review Round Author Response page
+ */
+
 namespace PKP\components;
 
 use APP\core\Application;
@@ -24,7 +38,7 @@ use PKP\submission\reviewRound\authorResponse\AuthorResponseManager;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
-class RequestReviewAuthorResponsePage
+class RequestReviewResponsePage
 {
     private ReviewRound $reviewRound;
     private Submission $submission;
@@ -41,6 +55,9 @@ class RequestReviewAuthorResponsePage
         $this->context = $context;
     }
 
+    /*
+     * Get the file attachers that can be used in the email composer.
+     */
     protected function getFileAttachers(Submission $submission, Context $context): array
     {
         $attachers = [
@@ -93,6 +110,9 @@ class RequestReviewAuthorResponsePage
 
         return array_map(fn ($attacher) => $attacher->getState(), $attachers);
     }
+    /*
+     * Get page config.
+     */
     public function getConfig(): array
     {
         $request = Application::get()->getRequest();
@@ -134,6 +154,9 @@ class RequestReviewAuthorResponsePage
         ];
     }
 
+    /**
+     * Get the email templates to use.
+     */
     public function getEmailTemplates(Mailable $mailable): array
     {
         $emailTemplates = collect();
@@ -182,12 +205,15 @@ class RequestReviewAuthorResponsePage
     {
         $variables = [];
         foreach ($this->locales as $locale) {
-            $variables[$locale] = $this->getVariables($mailable, $locale);
+            $variables[$locale] = $this->getFormattedVariables($mailable, $locale);
         }
         return $variables;
     }
 
-    private function getVariables($mailable, string $locale): array
+    /**
+     * Get variables formatted for use in email composer
+     */
+    private function getFormattedVariables($mailable, string $locale): array
     {
         $data = $mailable->getData($locale);
         $descriptions = $mailable::getDataDescriptions();

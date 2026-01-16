@@ -3407,6 +3407,9 @@ msgstr "Review Response"
 msgid "submission.reviewRound.respondToReviews"
 msgstr "Respond to Reviews"
 
+msgid "submission.reviewRound.authorResponse"
+msgstr "Author Response"
+
 msgid "editor.submission.reviewRound.requestAuthorResponse"
 msgstr "Request Author Response"
 
@@ -3422,7 +3425,7 @@ msgstr "Response Status"
 msgid "submission.reviewRound.authorReviewResponse.submit"
 msgstr "Submit Response"
 
-msgid "submission.reviewRound.authorReviewResponse.submitRequest"
+msgid "editor.submission.reviewRound.authorReviewResponse.submitRequest"
 msgstr "Submit Request"
 
 msgid "submission.reviewRound.associatedAuthors.description"
@@ -3443,12 +3446,12 @@ msgstr "Ready to invite author"
 msgid "editor.submission.reviewRound.authorResponse.editorCanRequest"
 msgstr "Editor can now request the author's response."
 
-msgid "editor.submission.reviewRound.authorResponse.note"
+msgid "submission.reviewRound.authorResponse.note"
 msgstr ""
 "All reviews for your submission have been completed. Please review the comments and provide a written response to the reviewers."
 "You can address their suggestions, clarify any points, and indicate any revisions you plan to make. Your response will be shared with the editorial team and may be sent back to reviewers if needed."
 
-msgid "editor.submission.reviewRound.submitYourResponse"
+msgid "submission.reviewRound.submitYourResponse"
 msgstr "Submit Your Response to Reviewer Feedback"
 
 msgid "editor.submission.reviewRound.responseWasSubmitted"

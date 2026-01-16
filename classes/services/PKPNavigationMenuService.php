@@ -29,6 +29,7 @@ use PKP\navigationMenu\NavigationMenuItem;
 use PKP\navigationMenu\NavigationMenuItemAssignment;
 use PKP\navigationMenu\NavigationMenuItemAssignmentDAO;
 use PKP\navigationMenu\NavigationMenuItemDAO;
+use PKP\navigationMenu\resources\NavigationMenuItemResource;
 use PKP\pages\navigationMenu\NavigationMenuItemHandler;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -675,5 +676,224 @@ class PKPNavigationMenuService
         }
 
         return false;
+    }
+
+    /**
+     * Get assigned items as a hierarchical tree for API responses
+     *
+     * @param int $navigationMenuId The navigation menu ID
+     * @param NavigationMenu $navigationMenu The navigation menu object
+     * @return array Hierarchical tree of assigned items
+     */
+    public function getAssignedItemsTree(int $navigationMenuId, NavigationMenu $navigationMenu): array
+    {
+        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
+        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+
+        /** @var NavigationMenuItemDAO $menuItemDao */
+        $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+
+        // Get all assignments for this menu
+        $assignmentList = $assignmentDao->getByMenuId($navigationMenuId)->toArray();
+
+        // Build a map of assignments by parent ID
+        $byParentId = [];
+        foreach ($assignmentList as $assignment) {
+            $parentId = $assignment->getParentId() ?? 0;
+            if (!isset($byParentId[$parentId])) {
+                $byParentId[$parentId] = [];
+            }
+            $byParentId[$parentId][] = $assignment;
+        }
+
+        // Sort each group by sequence
+        foreach ($byParentId as $parentId => $children) {
+            usort($children, fn($a, $b) => $a->getSequence() - $b->getSequence());
+            $byParentId[$parentId] = $children;
+        }
+
+        // Build tree starting from root (parent_id = 0)
+        return $this->buildAssignmentTree($byParentId, 0, $navigationMenu, $menuItemDao);
+    }
+
+    /**
+     * Recursively build the assignment tree
+     *
+     * @param array $byParentId Assignments grouped by parent ID
+     * @param int $parentId Current parent ID to process
+     * @param NavigationMenu $navigationMenu The navigation menu object
+     * @param NavigationMenuItemDAO $menuItemDao The menu item DAO
+     * @return array Tree of menu items
+     */
+    protected function buildAssignmentTree(array $byParentId, int $parentId, NavigationMenu $navigationMenu, NavigationMenuItemDAO $menuItemDao): array
+    {
+        $result = [];
+
+        if (!isset($byParentId[$parentId])) {
+            return $result;
+        }
+
+        foreach ($byParentId[$parentId] as $assignment) {
+            $menuItem = $menuItemDao->getById($assignment->getMenuItemId());
+            if (!$menuItem) {
+                continue;
+            }
+
+            // Build children first so we can pass them to mapMenuItem
+            // Note: parent_id in the database stores the MENU ITEM ID of the parent, not the assignment ID
+            $children = $this->buildAssignmentTree($byParentId, $menuItem->getId(), $navigationMenu, $menuItemDao);
+
+            $result[] = $this->mapMenuItem($menuItem, $assignment, $children);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Get unassigned items for the context
+     *
+     * @param int $contextId The context ID
+     * @param int $navigationMenuId The navigation menu ID
+     * @param NavigationMenu $navigationMenu The navigation menu object
+     * @return array List of unassigned menu items
+     */
+    public function getUnassignedItems(int $contextId, int $navigationMenuId, NavigationMenu $navigationMenu): array
+    {
+        /** @var NavigationMenuItemDAO $menuItemDao */
+        $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+
+        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
+        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+
+        // Get all items for this context, indexed by ID
+        $allItemsList = [];
+        foreach ($menuItemDao->getByContextId($contextId)->toArray() as $item) {
+            $allItemsList[$item->getId()] = $item;
+        }
+
+        // Get assigned item IDs for this menu
+        $assignedItemIds = [];
+        foreach ($assignmentDao->getByMenuId($navigationMenuId)->toArray() as $assignment) {
+            $assignedItemIds[$assignment->getMenuItemId()] = true;
+        }
+
+        // Filter to unassigned items
+        $unassignedItems = [];
+
+        foreach ($allItemsList as $itemId => $menuItem) {
+            if (!isset($assignedItemIds[$itemId])) {
+                $unassignedItems[] = $this->mapMenuItem($menuItem);
+            }
+        }
+
+        return $unassignedItems;
+    }
+
+    /**
+     * Get all menu items for a context (for new menu creation)
+     *
+     * @param int $contextId The context ID
+     * @return array List of all menu items mapped for API response
+     */
+    public function getAllMenuItems(int $contextId): array
+    {
+        /** @var NavigationMenuItemDAO $menuItemDao */
+        $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
+
+        $allItems = $menuItemDao->getByContextId($contextId)->toArray();
+        return array_map(
+            fn($item) => $this->mapMenuItem($item),
+            $allItems
+        );
+    }
+
+    /**
+     * Map a menu item to API response format
+     *
+     * This is the single source of truth for menu item serialization.
+     * Used by getAllItems, getItems (assigned), and getItems (unassigned).
+     *
+     * @param NavigationMenuItem $menuItem The menu item
+     * @param NavigationMenuItemAssignment|null $assignment The assignment (null for unassigned items)
+     * @param array $children Pre-built children array for assigned items
+     * @return array Mapped item data
+     */
+    public function mapMenuItem(
+        NavigationMenuItem $menuItem,
+        ?NavigationMenuItemAssignment $assignment = null,
+        array $children = []
+    ): array {
+        $resource = new NavigationMenuItemResource($menuItem, $assignment, $children);
+        return $resource->toArray(null);
+    }
+
+    /**
+     * Save menu tree assignments from the menuTree array format
+     *
+     * @param int $navigationMenuId The navigation menu ID
+     * @param array $menuTree Array of items with menuItemId, seq, and parentId
+     */
+    public function saveMenuTreeAssignments(int $navigationMenuId, array $menuTree): void
+    {
+        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
+        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+
+        // Delete all existing assignments for this menu
+        $assignmentDao->deleteByMenuId($navigationMenuId);
+
+        if (empty($menuTree)) {
+            return;
+        }
+
+        // Group items by parent
+        $itemsByParent = [];
+        foreach ($menuTree as $item) {
+            $menuItemId = $item['menuItemId'] ?? null;
+            if ($menuItemId === null) {
+                continue;
+            }
+            $parentId = $item['parentId'] ?? null;
+            $key = $parentId ?? 'root';
+            if (!isset($itemsByParent[$key])) {
+                $itemsByParent[$key] = [];
+            }
+            $itemsByParent[$key][] = $item;
+        }
+
+        // Sort each group by seq
+        foreach ($itemsByParent as $key => $items) {
+            usort($items, fn($a, $b) => ($a['seq'] ?? 0) - ($b['seq'] ?? 0));
+            $itemsByParent[$key] = $items;
+        }
+
+        // Create root level assignments first
+        if (isset($itemsByParent['root'])) {
+            foreach ($itemsByParent['root'] as $item) {
+                $assignment = $assignmentDao->newDataObject();
+                $assignment->setMenuId($navigationMenuId);
+                $assignment->setMenuItemId((int) $item['menuItemId']);
+                $assignment->setParentId(null);
+                $assignment->setSequence((int) ($item['seq'] ?? 0));
+
+                $assignmentDao->insertObject($assignment);
+            }
+        }
+
+        // Create child assignments
+        foreach ($itemsByParent as $parentKey => $items) {
+            if ($parentKey === 'root') {
+                continue;
+            }
+
+            foreach ($items as $item) {
+                $assignment = $assignmentDao->newDataObject();
+                $assignment->setMenuId($navigationMenuId);
+                $assignment->setMenuItemId((int) $item['menuItemId']);
+                $assignment->setParentId((int) $item['parentId']);
+                $assignment->setSequence((int) ($item['seq'] ?? 0));
+
+                $assignmentDao->insertObject($assignment);
+            }
+        }
     }
 }

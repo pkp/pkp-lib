@@ -20,15 +20,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\navigationMenu\NavigationMenu;
 use PKP\navigationMenu\NavigationMenuDAO;
-use PKP\navigationMenu\NavigationMenuItem;
-use PKP\navigationMenu\NavigationMenuItemAssignment;
-use PKP\navigationMenu\NavigationMenuItemAssignmentDAO;
-use PKP\navigationMenu\NavigationMenuItemDAO;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -38,6 +36,8 @@ use PKP\services\PKPSchemaService;
 
 class PKPNavigationMenuController extends PKPBaseController
 {
+    /** @var int Maximum nesting depth for navigation menu items */
+    public const MAX_DEPTH = 3;
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
@@ -111,28 +111,15 @@ class PKPNavigationMenuController extends PKPBaseController
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        $contextId = $context?->getId() ?? PKPApplication::SITE_CONTEXT_ID;
 
-        /** @var NavigationMenuItemDAO $menuItemDao */
-        $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-
-        // Get all items for this context
-        $allItems = $menuItemDao->getByContextId($contextId);
-        $unassignedItems = [];
-
-        while ($item = $allItems->next()) {
-            $unassignedItems[] = $this->mapMenuItem($item);
-        }
-
-        // Get item types for reference
         $navigationMenuService = app(PKPNavigationMenuService::class);
-        $itemTypes = $navigationMenuService->getMenuItemTypes();
 
         return response()->json([
             'assigned' => [],
-            'unassigned' => $unassignedItems,
-            'itemTypes' => $itemTypes,
-            'maxDepth' => 3,
+            'unassigned' => $navigationMenuService->getAllMenuItems($contextId),
+            'itemTypes' => $navigationMenuService->getMenuItemTypes(),
+            'maxDepth' => self::MAX_DEPTH,
         ], Response::HTTP_OK);
     }
 
@@ -143,7 +130,7 @@ class PKPNavigationMenuController extends PKPBaseController
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        $contextId = $context?->getId() ?? PKPApplication::SITE_CONTEXT_ID;
 
         $navigationMenuId = (int) $illuminateRequest->route('navigationMenuId');
 
@@ -157,283 +144,14 @@ class PKPNavigationMenuController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Get assigned items (hierarchical)
-        $assignedItems = $this->getAssignedItemsTree($navigationMenuId, $navigationMenu);
-
-        // Get unassigned items (flat list)
-        $unassignedItems = $this->getUnassignedItems($contextId, $navigationMenuId, $navigationMenu);
-
-        // Get item types for reference
         $navigationMenuService = app(PKPNavigationMenuService::class);
-        $itemTypes = $navigationMenuService->getMenuItemTypes();
 
         return response()->json([
-            'assigned' => $assignedItems,
-            'unassigned' => $unassignedItems,
-            'itemTypes' => $itemTypes,
-            'maxDepth' => 3,
+            'assigned' => $navigationMenuService->getAssignedItemsTree($navigationMenuId, $navigationMenu),
+            'unassigned' => $navigationMenuService->getUnassignedItems($contextId, $navigationMenuId, $navigationMenu),
+            'itemTypes' => $navigationMenuService->getMenuItemTypes(),
+            'maxDepth' => self::MAX_DEPTH,
         ], Response::HTTP_OK);
-    }
-
-    /**
-     * Get assigned items as a hierarchical tree
-     */
-    protected function getAssignedItemsTree(int $navigationMenuId, NavigationMenu $navigationMenu): array
-    {
-        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
-        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-
-        /** @var NavigationMenuItemDAO $menuItemDao */
-        $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-
-        // Get all assignments for this menu
-        $assignments = $assignmentDao->getByMenuId($navigationMenuId);
-        $assignmentList = [];
-        while ($assignment = $assignments->next()) {
-            $assignmentList[] = $assignment;
-        }
-
-        // Build a map of assignments by parent ID
-        $byParentId = [];
-        foreach ($assignmentList as $assignment) {
-            $parentId = $assignment->getParentId() ?? 0;
-            if (!isset($byParentId[$parentId])) {
-                $byParentId[$parentId] = [];
-            }
-            $byParentId[$parentId][] = $assignment;
-        }
-
-        // Sort each group by sequence
-        foreach ($byParentId as $parentId => $children) {
-            usort($children, fn($a, $b) => $a->getSequence() - $b->getSequence());
-            $byParentId[$parentId] = $children;
-        }
-
-        // Build tree starting from root (parent_id = 0)
-        return $this->buildAssignmentTree($byParentId, 0, $navigationMenu, $menuItemDao);
-    }
-
-    /**
-     * Recursively build the assignment tree
-     */
-    protected function buildAssignmentTree(array $byParentId, int $parentId, NavigationMenu $navigationMenu, NavigationMenuItemDAO $menuItemDao): array
-    {
-        $result = [];
-
-        if (!isset($byParentId[$parentId])) {
-            return $result;
-        }
-
-        foreach ($byParentId[$parentId] as $assignment) {
-            $menuItem = $menuItemDao->getById($assignment->getMenuItemId());
-            if (!$menuItem) {
-                continue;
-            }
-
-            // Build children first so we can pass them to mapMenuItem
-            // Note: parent_id in the database stores the MENU ITEM ID of the parent, not the assignment ID
-            $children = $this->buildAssignmentTree($byParentId, $menuItem->getId(), $navigationMenu, $menuItemDao);
-
-            $result[] = $this->mapMenuItem($menuItem, $assignment, $children);
-        }
-
-        return $result;
-    }
-
-    /**
-     * Get unassigned items for the context
-     */
-    protected function getUnassignedItems(int $contextId, int $navigationMenuId, NavigationMenu $navigationMenu): array
-    {
-        /** @var NavigationMenuItemDAO $menuItemDao */
-        $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
-
-        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
-        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-
-        // Get all items for this context
-        $allItems = $menuItemDao->getByContextId($contextId);
-        $allItemsList = [];
-        while ($item = $allItems->next()) {
-            $allItemsList[$item->getId()] = $item;
-        }
-
-        // Get assigned item IDs for this menu
-        $assignments = $assignmentDao->getByMenuId($navigationMenuId);
-        $assignedItemIds = [];
-        while ($assignment = $assignments->next()) {
-            $assignedItemIds[$assignment->getMenuItemId()] = true;
-        }
-
-        // Filter to unassigned items
-        $unassignedItems = [];
-
-        foreach ($allItemsList as $itemId => $menuItem) {
-            if (!isset($assignedItemIds[$itemId])) {
-                $unassignedItems[] = $this->mapMenuItem($menuItem);
-            }
-        }
-
-        return $unassignedItems;
-    }
-
-    /**
-     * Map a menu item to API response format
-     *
-     * This is the single source of truth for menu item serialization.
-     * Used by getAllItems, getItems (assigned), and getItems (unassigned).
-     *
-     * @param NavigationMenuItem $menuItem The menu item
-     * @param NavigationMenuItemAssignment|null $assignment The assignment (null for unassigned items)
-     * @param array $children Pre-built children array for assigned items
-     * @return array Mapped item data
-     */
-    protected function mapMenuItem(
-        NavigationMenuItem $menuItem,
-        ?NavigationMenuItemAssignment $assignment = null,
-        array $children = []
-    ): array {
-        $navigationMenuService = app(PKPNavigationMenuService::class);
-        $conditionalInfo = $this->getItemConditionalInfo($menuItem, $navigationMenuService);
-
-        // For assigned items, use assignment ID; for unassigned, use menu item ID
-        $id = $assignment ? $assignment->getId() : $menuItem->getId();
-
-        // Get appropriate title based on whether this is an assignment or standalone item
-        $title = $assignment
-            ? $this->getItemTitle($assignment, $menuItem)
-            : $this->getMenuItemTitle($menuItem);
-
-        // Get localized title - assignment title takes precedence
-        $localizedTitle = $assignment
-            ? ($assignment->getTitle(null) ?? $menuItem->getTitle(null) ?? [])
-            : ($menuItem->getTitle(null) ?? []);
-
-        return [
-            'id' => $id,
-            'menuItemId' => $menuItem->getId(),
-            'assignmentId' => $assignment?->getId(),
-            'title' => $title,
-            'localizedTitle' => $localizedTitle,
-            'type' => $menuItem->getType(),
-            'path' => $menuItem->getPath(),
-            'url' => $menuItem->getUrl(),
-            'isVisible' => !$conditionalInfo['hasConditionalDisplay'],
-            'hasWarning' => count($children) > 0,
-            'warningMessage' => count($children) > 0 ? __('manager.navigationMenus.form.submenuWarning') : null,
-            'conditionalWarning' => $conditionalInfo['conditionalWarning'],
-            'parentId' => $assignment?->getParentId(),
-            'sequence' => $assignment?->getSequence(),
-            'children' => $children,
-        ];
-    }
-
-    /**
-     * Get conditional display info for a menu item based on its type
-     * Items with conditional display show a crossed-out eye icon
-     */
-    protected function getItemConditionalInfo(NavigationMenuItem $menuItem, PKPNavigationMenuService $service): array
-    {
-        $itemTypes = $service->getMenuItemTypes();
-        $type = $menuItem->getType();
-
-        $hasConditionalDisplay = false;
-        $conditionalWarning = null;
-
-        if (isset($itemTypes[$type]['conditionalWarning'])) {
-            $hasConditionalDisplay = true;
-            $conditionalWarning = $itemTypes[$type]['conditionalWarning'];
-        }
-
-        return [
-            'hasConditionalDisplay' => $hasConditionalDisplay,
-            'conditionalWarning' => $conditionalWarning,
-        ];
-    }
-
-    /**
-     * Get the display title for an assignment
-     */
-    protected function getItemTitle(NavigationMenuItemAssignment $assignment, NavigationMenuItem $menuItem): string
-    {
-        // First, ensure the menu item has its localized titles set
-        $navigationMenuService = app(PKPNavigationMenuService::class);
-        $navigationMenuService->setAllNMILocalizedTitles($menuItem);
-
-        // Try assignment-specific title first (custom override)
-        $assignmentTitles = $assignment->getTitle(null);
-        if (is_array($assignmentTitles) && !empty($assignmentTitles)) {
-            $locale = \PKP\facades\Locale::getLocale();
-            if (isset($assignmentTitles[$locale]) && !empty($assignmentTitles[$locale])) {
-                return $this->transformTitleVariables($assignmentTitles[$locale]);
-            }
-            // Fall back to first available assignment title
-            $firstTitle = reset($assignmentTitles);
-            if (!empty($firstTitle)) {
-                return $this->transformTitleVariables($firstTitle);
-            }
-        } elseif (is_string($assignmentTitles) && !empty($assignmentTitles)) {
-            return $this->transformTitleVariables($assignmentTitles);
-        }
-
-        // Fall back to menu item's localized title
-        $title = $menuItem->getLocalizedTitle();
-        if (!empty($title)) {
-            return $this->transformTitleVariables($title);
-        }
-
-        // Final fallback to type-based title
-        $itemTypes = $navigationMenuService->getMenuItemTypes();
-        $type = $menuItem->getType();
-
-        if (isset($itemTypes[$type]['title'])) {
-            return $itemTypes[$type]['title'];
-        }
-
-        return $type ?? '';
-    }
-
-    /**
-     * Transform template variables in title (e.g., {$loggedInUsername} -> actual username)
-     */
-    protected function transformTitleVariables(string $title): string
-    {
-        // Check for {$loggedInUsername} pattern
-        if (strpos($title, '{$loggedInUsername}') !== false) {
-            $request = $this->getRequest();
-            $user = $request->getUser();
-            if ($user) {
-                $title = str_replace('{$loggedInUsername}', $user->getUsername(), $title);
-            }
-        }
-
-        return $title;
-    }
-
-    /**
-     * Get the display title for a menu item
-     */
-    protected function getMenuItemTitle(NavigationMenuItem $menuItem): string
-    {
-        // First, set all localized titles (translates titleLocaleKey if no explicit title)
-        $navigationMenuService = app(PKPNavigationMenuService::class);
-        $navigationMenuService->setAllNMILocalizedTitles($menuItem);
-
-        // Now get the localized title
-        $title = $menuItem->getLocalizedTitle();
-        if (!empty($title)) {
-            return $this->transformTitleVariables($title);
-        }
-
-        // Fall back to type-based title from the type definition
-        $itemTypes = $navigationMenuService->getMenuItemTypes();
-        $type = $menuItem->getType();
-
-        if (isset($itemTypes[$type]['title'])) {
-            return $itemTypes[$type]['title'];
-        }
-
-        return $type ?? '';
     }
 
     /**
@@ -447,21 +165,17 @@ class PKPNavigationMenuController extends PKPBaseController
         $areas = [];
 
         if ($context) {
-            $themePlugins = \PKP\plugins\PluginRegistry::loadCategory('themes', true);
-            $activeThemeNavigationAreas = [];
+            $themePlugins = PluginRegistry::loadCategory('themes', true);
 
             foreach ($themePlugins as $themePlugin) {
                 if ($themePlugin->isActive()) {
                     $themeAreas = $themePlugin->getMenuAreas();
                     foreach ($themeAreas as $area) {
-                        // Use the area name directly as the label (matches old form behavior)
-                        $activeThemeNavigationAreas[$area] = $area;
+                        $areas[$area] = $area;
                     }
                     break;
                 }
             }
-
-            $areas = $activeThemeNavigationAreas;
         }
 
         return response()->json([
@@ -476,7 +190,7 @@ class PKPNavigationMenuController extends PKPBaseController
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        $contextId = $context?->getId() ?? PKPApplication::SITE_CONTEXT_ID;
 
         // Convert input to schema types
         $params = $this->convertStringsToSchema(
@@ -503,7 +217,8 @@ class PKPNavigationMenuController extends PKPBaseController
 
         // Save menu tree assignments if provided
         if (!empty($params['menuTree'])) {
-            $this->saveMenuTreeAssignments($navigationMenuId, $params['menuTree']);
+            $navigationMenuService = app(PKPNavigationMenuService::class);
+            $navigationMenuService->saveMenuTreeAssignments($navigationMenuId, $params['menuTree']);
         }
 
         return response()->json(
@@ -519,7 +234,7 @@ class PKPNavigationMenuController extends PKPBaseController
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $contextId = $context?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        $contextId = $context?->getId() ?? PKPApplication::SITE_CONTEXT_ID;
 
         $navigationMenuId = (int) $illuminateRequest->route('navigationMenuId');
 
@@ -557,79 +272,14 @@ class PKPNavigationMenuController extends PKPBaseController
 
         // Save menu tree assignments if provided
         if (isset($params['menuTree'])) {
-            $this->saveMenuTreeAssignments($navigationMenuId, $params['menuTree']);
+            $navigationMenuService = app(PKPNavigationMenuService::class);
+            $navigationMenuService->saveMenuTreeAssignments($navigationMenuId, $params['menuTree']);
         }
 
         return response()->json(
             $this->mapNavigationMenu($navigationMenuDao->getById($navigationMenuId)),
             Response::HTTP_OK
         );
-    }
-
-    /**
-     * Save menu tree assignments from the flat menuTree format
-     * Format: menuTree[menuItemId] = { seq: number, parentId: number|null }
-     */
-    protected function saveMenuTreeAssignments(int $navigationMenuId, array $menuTree): void
-    {
-        /** @var NavigationMenuItemAssignmentDAO $assignmentDao */
-        $assignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
-
-        // Delete all existing assignments for this menu
-        $assignmentDao->deleteByMenuId($navigationMenuId);
-
-        if (empty($menuTree)) {
-            return;
-        }
-
-        // Sort by seq within each parent group
-        $itemsByParent = [];
-        foreach ($menuTree as $menuItemId => $data) {
-            $parentId = $data['parentId'] ?? null;
-            $key = $parentId ?? 'root';
-            if (!isset($itemsByParent[$key])) {
-                $itemsByParent[$key] = [];
-            }
-            $itemsByParent[$key][$menuItemId] = $data;
-        }
-
-        // Sort each group by seq
-        foreach ($itemsByParent as $key => $items) {
-            uasort($items, fn($a, $b) => ($a['seq'] ?? 0) - ($b['seq'] ?? 0));
-            $itemsByParent[$key] = $items;
-        }
-
-        // Create root level assignments first
-        if (isset($itemsByParent['root'])) {
-            foreach ($itemsByParent['root'] as $menuItemId => $data) {
-                $assignment = $assignmentDao->newDataObject();
-                $assignment->setMenuId($navigationMenuId);
-                $assignment->setMenuItemId((int) $menuItemId);
-                $assignment->setParentId(null);
-                $assignment->setSequence((int) ($data['seq'] ?? 0));
-
-                $assignmentDao->insertObject($assignment);
-            }
-        }
-
-        // Create child assignments - parent_id references the parent's menu item ID
-        foreach ($itemsByParent as $parentKey => $items) {
-            if ($parentKey === 'root') {
-                continue;
-            }
-
-            foreach ($items as $menuItemId => $data) {
-                $parentMenuItemId = $data['parentId'];
-
-                $assignment = $assignmentDao->newDataObject();
-                $assignment->setMenuId($navigationMenuId);
-                $assignment->setMenuItemId((int) $menuItemId);
-                $assignment->setParentId((int) $parentMenuItemId);
-                $assignment->setSequence((int) ($data['seq'] ?? 0));
-
-                $assignmentDao->insertObject($assignment);
-            }
-        }
     }
 
     /**

@@ -28,6 +28,7 @@ use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\announcement\Announcement;
+use PKP\API\v1\navigationMenus\PKPNavigationMenuController;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\CategoryForm;
 use PKP\components\forms\context\ContentCommentsForm;
@@ -53,7 +54,6 @@ use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\components\forms\highlight\HighlightForm;
 use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\components\listPanels\HighlightsListPanel;
-use PKP\components\listPanels\NavigationMenuEditorListPanel;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
@@ -260,7 +260,7 @@ class ManagementHandler extends Handler
         $contentCommentSettingsForm = new ContentCommentsForm($contextApiUrl, $locales, $context);
 
         $highlightsListPanel = $this->getHighlightsListPanel();
-        $navigationMenuEditorPanel = $this->getNavigationMenuEditorListPanel();
+        $navigationMenuEditorConfig = $this->getNavigationMenuEditorConfig();
 
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
@@ -278,7 +278,7 @@ class ManagementHandler extends Handler
             $dateTimeForm::FORM_DATE_TIME => $dateTimeForm->getConfig(),
             $highlightsListPanel->id => $highlightsListPanel->getConfig(),
             $contentCommentSettingsForm::FORM_CONTENT_COMMENT => $contentCommentSettingsForm->getConfig(),
-            $navigationMenuEditorPanel->id => $navigationMenuEditorPanel->getConfig(),
+            'navigationMenuEditor' => $navigationMenuEditorConfig,
         ];
 
         if ($informationForm) {
@@ -808,9 +808,9 @@ class ManagementHandler extends Handler
     }
 
     /**
-     * Get the NavigationMenuEditorListPanel
+     * Get the navigation menu editor configuration
      */
-    protected function getNavigationMenuEditorListPanel(): NavigationMenuEditorListPanel
+    protected function getNavigationMenuEditorConfig(): array
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -821,14 +821,10 @@ class ManagementHandler extends Handler
             'navigationMenus'
         );
 
-        return new NavigationMenuEditorListPanel(
-            'navigationMenuEditor',
-            __('manager.navigationMenus'),
-            [
-                'apiUrl' => $apiUrl,
-                'maxDepth' => 3,
-            ]
-        );
+        return [
+            'apiUrl' => $apiUrl,
+            'maxDepth' => PKPNavigationMenuController::MAX_DEPTH,
+        ];
     }
 
     /**

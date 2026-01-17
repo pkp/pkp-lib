@@ -26,7 +26,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\navigationMenu\NavigationMenu;
 use PKP\navigationMenu\NavigationMenuDAO;
-use PKP\plugins\PluginRegistry;
+use PKP\navigationMenu\resources\NavigationMenuResource;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -162,24 +162,10 @@ class PKPNavigationMenuController extends PKPBaseController
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        $areas = [];
-
-        if ($context) {
-            $themePlugins = PluginRegistry::loadCategory('themes', true);
-
-            foreach ($themePlugins as $themePlugin) {
-                if ($themePlugin->isActive()) {
-                    $themeAreas = $themePlugin->getMenuAreas();
-                    foreach ($themeAreas as $area) {
-                        $areas[$area] = $area;
-                    }
-                    break;
-                }
-            }
-        }
+        $navigationMenuService = app(PKPNavigationMenuService::class);
 
         return response()->json([
-            'areas' => $areas,
+            'areas' => $navigationMenuService->getNavigationAreas($context),
         ], Response::HTTP_OK);
     }
 
@@ -222,7 +208,7 @@ class PKPNavigationMenuController extends PKPBaseController
         }
 
         return response()->json(
-            $this->mapNavigationMenu($navigationMenuDao->getById($navigationMenuId)),
+            (new NavigationMenuResource($navigationMenuDao->getById($navigationMenuId)))->toArray(null),
             Response::HTTP_CREATED
         );
     }
@@ -277,7 +263,7 @@ class PKPNavigationMenuController extends PKPBaseController
         }
 
         return response()->json(
-            $this->mapNavigationMenu($navigationMenuDao->getById($navigationMenuId)),
+            (new NavigationMenuResource($navigationMenuDao->getById($navigationMenuId)))->toArray(null),
             Response::HTTP_OK
         );
     }
@@ -301,18 +287,5 @@ class PKPNavigationMenuController extends PKPBaseController
         }
 
         return $errors;
-    }
-
-    /**
-     * Map a NavigationMenu to array format
-     */
-    protected function mapNavigationMenu(NavigationMenu $menu): array
-    {
-        return [
-            'id' => $menu->getId(),
-            'title' => $menu->getTitle(),
-            'areaName' => $menu->getAreaName(),
-            'contextId' => $menu->getContextId(),
-        ];
     }
 }

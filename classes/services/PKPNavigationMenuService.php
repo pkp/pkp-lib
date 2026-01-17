@@ -32,6 +32,7 @@ use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\navigationMenu\resources\NavigationMenuItemResource;
 use PKP\pages\navigationMenu\NavigationMenuItemHandler;
 use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\security\Validation;
 
@@ -739,11 +740,11 @@ class PKPNavigationMenuService
                 continue;
             }
 
-            // Build children first so we can pass them to mapMenuItem
+            // Build children first so we can pass them to the resource
             // Note: parent_id in the database stores the MENU ITEM ID of the parent, not the assignment ID
             $children = $this->buildAssignmentTree($byParentId, $menuItem->getId(), $navigationMenu, $menuItemDao);
 
-            $result[] = $this->mapMenuItem($menuItem, $assignment, $children);
+            $result[] = (new NavigationMenuItemResource($menuItem, $assignment, $children))->toArray(null);
         }
 
         return $result;
@@ -782,7 +783,7 @@ class PKPNavigationMenuService
 
         foreach ($allItemsList as $itemId => $menuItem) {
             if (!isset($assignedItemIds[$itemId])) {
-                $unassignedItems[] = $this->mapMenuItem($menuItem);
+                $unassignedItems[] = (new NavigationMenuItemResource($menuItem))->toArray(null);
             }
         }
 
@@ -802,29 +803,36 @@ class PKPNavigationMenuService
 
         $allItems = $menuItemDao->getByContextId($contextId)->toArray();
         return array_map(
-            fn($item) => $this->mapMenuItem($item),
+            fn($item) => (new NavigationMenuItemResource($item))->toArray(null),
             $allItems
         );
     }
 
     /**
-     * Map a menu item to API response format
+     * Get navigation menu areas for the active theme
      *
-     * This is the single source of truth for menu item serialization.
-     * Used by getAllItems, getItems (assigned), and getItems (unassigned).
-     *
-     * @param NavigationMenuItem $menuItem The menu item
-     * @param NavigationMenuItemAssignment|null $assignment The assignment (null for unassigned items)
-     * @param array $children Pre-built children array for assigned items
-     * @return array Mapped item data
+     * @param \PKP\context\Context|null $context The context (null for site-level)
+     * @return array Key-value pairs of area names
      */
-    public function mapMenuItem(
-        NavigationMenuItem $menuItem,
-        ?NavigationMenuItemAssignment $assignment = null,
-        array $children = []
-    ): array {
-        $resource = new NavigationMenuItemResource($menuItem, $assignment, $children);
-        return $resource->toArray(null);
+    public function getNavigationAreas($context): array
+    {
+        $areas = [];
+
+        if ($context) {
+            $themePlugins = PluginRegistry::loadCategory('themes', true);
+
+            foreach ($themePlugins as $themePlugin) {
+                if ($themePlugin->isActive()) {
+                    $themeAreas = $themePlugin->getMenuAreas();
+                    foreach ($themeAreas as $area) {
+                        $areas[$area] = $area;
+                    }
+                    break;
+                }
+            }
+        }
+
+        return $areas;
     }
 
     /**

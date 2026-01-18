@@ -91,7 +91,6 @@ trait SaveNoteWithFiles
     {
         $submissionFileIds = $attributes[self::ATTRIBUTE_SUBMISSION_FILE_IDS];
         $this->submissionFiles = Repo::submissionFile()->getCollector()
-            ->filterByAssoc($this->assocType, $this->assocId)
             ->filterBySubmissionFileIds($submissionFileIds)
             ->getMany()
             ->toArray();

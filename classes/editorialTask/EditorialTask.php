@@ -155,7 +155,12 @@ class EditorialTask extends Model
             return $success;
         }
 
-        // Current associated submission file IDs
+        // Check if there is a current or existing headnote to manage files for
+        $headnote = $headnote ?? $this->notes()->where('is_headnote', true)->first();
+        if (!$headnote) {
+            return $success;
+        }
+
         $this->manageFiles($headnote);
 
         return $success;

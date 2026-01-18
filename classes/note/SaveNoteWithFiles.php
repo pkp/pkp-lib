@@ -104,7 +104,7 @@ trait SaveNoteWithFiles
      *
      * @return array<int> IDs of created submission files
      */
-    protected function saveTemporaryFiles(Note $note = null): array
+    protected function saveTemporaryFiles(?Note $note = null): array
     {
         if (empty($this->temporaryFiles)) {
             return [];

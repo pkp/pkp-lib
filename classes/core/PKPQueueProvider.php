@@ -158,7 +158,9 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     public function boot()
     {
         if (Application::isInstalled() && !Application::isUpgrading()) {
-            $this->isMultiContextSite = \APP\core\Services::get('context')->getCount() > 1;
+            $this->isMultiContextSite = DB::table(Application::getContextDAO()->tableName)
+                ->where('enabled', true)
+                ->count() > 1;
         }
 
         if (Config::getVar('queues', 'job_runner', true)) {

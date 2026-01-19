@@ -145,7 +145,7 @@ abstract class PKPWorkflowHandler extends Handler {
 		$currentStageId = $submission->getStageId();
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		$canAccessPublication = false; // View title, metadata, etc.
-		$canEditPublication = Services::get('submission')->canEditPublication($submission->getId(), $request->getUser()->getId());
+		$canEditPublication = Services::get('submission')->canEditPublication($submission, $request->getUser()->getId());
 		$canAccessProduction = false; // Access to galleys and issue entry
 		$canPublish = false; // Ability to publish, unpublish and create versions
 		$canAccessEditorialHistory = false; // Access to activity log

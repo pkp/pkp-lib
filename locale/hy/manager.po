@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-22 09:22+0000\n"
+"PO-Revision-Date: 2025-12-12 14:02+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -1000,17 +1000,22 @@ msgstr "Հեղինակային իրավունքի ծանուցում"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""
-"Հեղինակներից պահանջեք համաձայնել հեղինակային իրավունքի հետևյալ ծանուցմանը` "
-"որպես ներկայացման գործընթացի մաս:"
+"Հետևյալը կհայտնվի <a href=\"{$url}\">ներկայացումների</a> էջում, որտեղ "
+"հեղինակները կծանոթանան ներկայացման պահանջներին: Հեղինակները պետք է հաստատեն, "
+"որ համաձայն են հեղինակային իրավունքի ծանուցման հետ, նախքան իրենց "
+"ներկայացումն ավարտվի:"
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Հեղինակի համար ուղեցույցներ"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
-"Առաջարկվող ուղեցույցները ներառում են մատենագիտական և ձևաչափման ստանդարտներ, "
-"ինչպես նաև մեջբերումների ընդհանուր ձևաչափերի օրինակներ, որոնք պետք է "
-"օգտագործվեն ներկայացումներում:"
+"Հետևյալը կհայտնվի <a href=\"{$url}\">ներկայացված աշխատանքներ</a> էջում, "
+"որտեղ հեղինակները կիմանան, թե ինչ պետք է անեն իրենց աշխատանքը ներկայացման "
+"նախապատրաստելու համար: Տրամադրեք ուղեցույց այն ամենի վերաբերյալ, ինչ նրանք "
+"կարող են իմանալ, ինչպիսիք են մատենագիտական և ձևաչափման ստանդարտները, ինչպես "
+"նաև օգտագործվող ընդհանուր մեջբերումների ձևաչափերի օրինակներ: Կարող եք նաև "
+"մանրամասներ տրամադրել ներկայացման նախընտրելի ձևաչափի և թեմայի վերաբերյալ:"
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Անջատել ներկայացումները"
@@ -1723,9 +1728,6 @@ msgstr "Արտարժույթ"
 
 msgid "settings.roles.roleOptions"
 msgstr "Դերի ընտրանքներ"
-
-msgid "settings.roles.showTitles"
-msgstr "Ցույց տալ դերի անվանումը աջակիցների ցանկում"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Թույլատրել օգտվողի ինքնագրանցումը"
@@ -2939,10 +2941,9 @@ msgstr "Գրախոսի կողմից վերբեռնված նիշքերը"
 msgid "emailTemplate.variable.review.name"
 msgstr "Գրախոսի անունը"
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
-"Կանխադրված գրախոսման մեթոդի նկարագրությունը, օրինակ՝ կրկնակի անանուն կամ բաց:"
+"Կանխադրված գրախոսման մեթոդի նկարագրությունը, օրինակ՝ կրկնակի անանուն կամ բաց"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
@@ -3944,3 +3945,13 @@ msgstr "Պահանջվում է նվազագույն քանակի հաստատվ
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
 msgstr ""
 "Ներկայացման համար անհրաժեշտ հաստատված գրախոսությունների նվազագույն քանակը"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Դասը գոյություն չունի կամ պատկանում է այլ համատեքստի: Համոզվեք, որ աշխատում "
+"եք ճիշտ համատեքստի հետ և կրկին փորձեք:"
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Շապիկի պատկերի և մանրապատկերի նիշքերը չգտնվեցին։ Հնարավոր է՝ դրանք արդեն "
+"ջնջված լինեն։ Փորձեք վերաբեռնել էջը։"

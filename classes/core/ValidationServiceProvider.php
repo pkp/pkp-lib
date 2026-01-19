@@ -168,6 +168,15 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                     if (is_null($this->resolver)) {
                         return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator
                         {
+                            /*
+                             * Rehydrate the validation error messages with predefined translated 
+                             * messages mapped to validation rules
+                             */
+                            protected function rehydrateValidationErrorMessages(): void
+                            {
+                                $this->customMessages = \PKP\validation\ValidatorFactory::getMessages($this->customMessages);
+                            }
+
                             /**
                              * This override the core Validator's message construction system
                              * that allows multilingual support for validation error message
@@ -176,6 +185,8 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                              */
                             protected function getMessage($attribute, $rule)
                             {
+                                $this->rehydrateValidationErrorMessages();
+                                
                                 $attributeWithPlaceholders = $attribute;
                                 
                                 $attribute = $this->replacePlaceholderInString($attribute);

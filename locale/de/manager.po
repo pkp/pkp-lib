@@ -1771,9 +1771,6 @@ msgstr "Währung"
 msgid "settings.roles.roleOptions"
 msgstr "Rollen-Einstellungen"
 
-msgid "settings.roles.showTitles"
-msgstr "Zeige Name der Rolle in Beiträger/innen-Liste an"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Erlaube Selbstregistrierung von Benutzer/innen"
 

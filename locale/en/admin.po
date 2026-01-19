@@ -32,11 +32,9 @@ msgstr ""
 "Delete cache files from the system. This should only be done in development "
 "environments."
 
-#, fuzzy
 msgid "admin.clearDataCache"
 msgstr "Delete Data Caches"
 
-#, fuzzy
 msgid "admin.clearTemplateCache"
 msgstr "Delete Template Cache"
 
@@ -170,7 +168,6 @@ msgstr ""
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Are you sure you want to delete all scheduled task execution logs?"
 
-#, fuzzy
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Clear Scheduled Task Logs"
 
@@ -280,7 +277,6 @@ msgstr ""
 msgid "admin.citation.reprocess"
 msgstr "Reprocess"
 
-#,fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
 "The background jobs that will process the log files and store the "
@@ -976,6 +972,9 @@ msgstr "Invalid app key set, unsupported cipher or incorrect key length. Support
 msgid "admin.cli.tool.appKey.warning.replaceValidKey"
 msgstr "A valid APP Key already set in the config file. To overwrite, pass the flag --force with the command."
 
+msgid "admin.cli.tool.appKey.warning.replaceValidKey.caution"
+msgstr "CAUTION: REPLACING THE EXISTING VALID APP KEY WILL CAUSE ALL ENCRYPTED SETTING DATA UNABLE TO DECRYPT AND REQUIRE MANUAL UPDATE TO REUSE"
+
 msgid "admin.cli.tool.appKey.success.writtenToConfig"
 msgstr "App key set successfully in the config file."
 
@@ -987,6 +986,12 @@ msgstr "Unable to set the `app_key` variable in the config file. Please update t
 
 msgid "admin.cli.tool.appKey.success.valid"
 msgstr "A valid app key set in the config file"
+
+msgid "admin.cli.tool.appKey.confirm.prompt"
+msgstr "Type YES to confirm you want to replace the existing app key: "
+
+msgid "admin.cli.tool.appKey.confirm.cancelled"
+msgstr "App key generation cancelled."
 
 msgid "admin.cli.tool.scheduler.options.run.description"
 msgstr "Run the scheduler."
@@ -1025,10 +1030,13 @@ msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Which command would you like to run?"
 
 msgid "admin.workflow.email.userGroup.limitAccess"
-msgstr "Limit Access to Specific User Groups"
+msgstr "Limit access to specific roles"
+
+msgid "admin.workflow.email.userGroup.limitAccess.template.note"
+msgstr "Select the roles that can access this template."
 
 msgid "admin.workflow.email.userGroup.assign.unrestricted"
 msgstr "Mark as unrestricted"
 
 msgid "admin.workflow.email.userGroup.unrestricted.template.note"
-msgstr "Unrestricted templates will be accessible to all user groups."
+msgstr "Unrestricted templates will be accessible to all roles."

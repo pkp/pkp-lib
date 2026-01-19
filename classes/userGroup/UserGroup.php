@@ -197,14 +197,6 @@ class UserGroup extends Model
     }
 
     /**
-     * Scope a query to filter by show_title.
-     */
-    protected function scopeShowTitle(EloquentBuilder $builder, bool $showTitle): EloquentBuilder
-    {
-        return $builder->where('show_title', $showTitle);
-    }
-
-    /**
      * Scope a query to filter by permit_self_registration.
      */
     protected function scopePermitSelfRegistration(EloquentBuilder $builder, bool $permitSelfRegistration): EloquentBuilder
@@ -244,33 +236,6 @@ class UserGroup extends Model
     protected function scopeIsRecommendOnly(EloquentBuilder $builder, bool $isRecommendOnly): EloquentBuilder
     {
         return $builder->where('recommendOnly', $isRecommendOnly);
-    }
-
-    /**
-     * Scope a query to filter by UserUserGroupStatus.
-     */
-    protected function scopeWithUserUserGroupStatus(EloquentBuilder $builder, string $status): EloquentBuilder
-    {
-        $currentDateTime = now();
-
-        if ($status === 'active') {
-            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
-                $q->where(function (EloquentBuilder $q) use ($currentDateTime) {
-                    $q->where('date_start', '<=', $currentDateTime)
-                        ->orWhereNull('date_start');
-                })->where(function (EloquentBuilder $q) use ($currentDateTime) {
-                    $q->where('date_end', '>', $currentDateTime)
-                        ->orWhereNull('date_end');
-                });
-            });
-        } elseif ($status === 'ended') {
-            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
-                $q->whereNotNull('date_end')
-                    ->where('date_end', '<=', $currentDateTime);
-            });
-        }
-        // Implement other statuses if needed
-        return $builder;
     }
 
     /**

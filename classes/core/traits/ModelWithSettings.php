@@ -190,9 +190,20 @@ trait ModelWithSettings
 
         foreach ($schema->properties as $propName => $propSchema) {
 
-            $propCast[$propName] = isset($propSchema->multilingual) && $propSchema->multilingual == true
-                ? MultilingualSettingAttribute::class
-                : $propSchema->type;
+            if (isset($propSchema->multilingual) && $propSchema->multilingual == true) {
+                $propCast[$propName] = MultilingualSettingAttribute::class;
+            } else {
+                if (($propSchema->encrypt ?? false) === true) {
+                    $propCast[$propName] = match ($propSchema->type) {
+                        'string' => 'encrypted',
+                        'array' => 'encrypted:array',
+                        'object' => 'encrypted:object',
+                        default => $propSchema->type,
+                    };
+                } else {
+                    $propCast[$propName] = $propSchema->type;
+                }
+            }
         }
 
         $this->generateAttributeCast($propCast);

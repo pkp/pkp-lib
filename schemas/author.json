@@ -2,10 +2,9 @@
 	"title": "Author",
 	"description": "An author of a publication.",
 	"required": [
-		"email",
-		"givenName",
 		"publicationId",
-		"userGroupId"
+		"contributorRoles",
+		"contributorType"
 	],
 	"properties": {
 		"affiliations": {
@@ -14,6 +13,7 @@
 			"apiSummary": true,
 			"readOnly": true,
 			"items": {
+				"type": "object",
 				"$ref": "#/definitions/Affiliation"
 			}
 		},
@@ -43,6 +43,28 @@
 				"regex:/^[A-Z]{2}$/"
 			]
 		},
+		"contributorRoles": {
+			"type": "array",
+			"description": "The names of this contributor's roles in the publication, such as 'Author' or 'Translator', and the translations",
+			"apiSummary": true,
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/ContributorRole"
+			},
+			"validation": [
+				"min:1",
+				"nullable"
+			]
+		},
+		"contributorType": {
+			"type": "string",
+			"description": "The name of this contributor's type.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"creditRoles": {
 			"type": "array",
 			"description": "CRediT Roles",
@@ -70,7 +92,8 @@
 			"type": "string",
 			"apiSummary": true,
 			"validation": [
-				"email_or_localhost"
+				"email_or_localhost",
+				"nullable"
 			]
 		},
 		"familyName": {
@@ -83,7 +106,7 @@
 		},
 		"fullName": {
 			"type": "string",
-			"description": "The full name of the author. This will be the preferredPublicName or, if that is not available, a string containing the givenName and familyName.",
+			"description": "The full name of the author. This will be the preferredPublicName or, if that is not available, a string containing the givenName and familyName, or organization name, or anonymous",
 			"apiSummary": true,
 			"readOnly": true
 		},
@@ -120,6 +143,14 @@
 				"orcid"
 			]
 		},
+		"organizationName": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"preferredPublicName": {
 			"type": "string",
 			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
@@ -145,17 +176,6 @@
 				"url",
 				"nullable"
 			]
-		},
-		"userGroupId": {
-			"type": "integer",
-			"description": "The ID of this contributor's assigned user group. See userGroupName.",
-			"apiSummary": true
-		},
-		"userGroupName": {
-			"type": "string",
-			"description": "The name of this contributor's role in the publication, such as 'Author' or 'Translator'.",
-			"apiSummary": true,
-			"readOnly": true
 		},
 		"orcidSandbox": {
 			"type": "string",

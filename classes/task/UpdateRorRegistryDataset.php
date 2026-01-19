@@ -84,7 +84,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
     private string $urlVersions = 'https://zenodo.org/api/communities/ror-data/records?q=&sort=newest';
 
     /** @var string The file contains the following text in the name. */
-    private string $csvNameContains = 'ror-data_schema_v2.csv';
+    private string $csvNameContains = 'ror-data.csv';
 
     /** @var string The prefix used for the temporary zip file and the extracted directory. */
     private string $prefix = 'TemporaryRorRegistryCache';
@@ -135,7 +135,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
             }
 
             $pathCsv = $this->getPathCsv($pathZipDir);
-            if (empty($pathCsv || !$this->fileManager->fileExists($pathCsv))) {
+            if (empty($pathCsv) || !$this->fileManager->fileExists($pathCsv)) {
                 return false;
             }
 
@@ -175,7 +175,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
             }
 
             return '';
-        } catch (GuzzleException|Exception $e) {
+        } catch (GuzzleException | Exception $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -210,7 +210,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
             }
 
             return true;
-        } catch (GuzzleException|Exception $e) {
+        } catch (GuzzleException | Exception $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR

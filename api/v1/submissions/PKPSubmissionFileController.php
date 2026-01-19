@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionFileController.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2023-2025 Simon Fraser University
+ * Copyright (c) 2023-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFileController
@@ -191,6 +191,7 @@ class PKPSubmissionFileController extends PKPBaseController
             SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
             SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
             SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_BODY_TEXT
         ];
 
         // Managers can access files for submissions they are not assigned to

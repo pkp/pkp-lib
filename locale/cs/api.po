@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-01 15:14+0000\n"
+"PO-Revision-Date: 2025-12-13 08:58+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
 "Language: cs\n"
@@ -150,9 +150,6 @@ msgstr "Publikace, kterou chcete publikovat již byla publikována."
 
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
-
-msgid "api.publication.403.cantEditPublished"
-msgstr "Tuto publikaci nejde editovat, protože již byla publikována."
 
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
@@ -438,3 +435,9 @@ msgstr "Požadovaný ror nebyl nalezen."
 
 msgid "api.409.resourceActionConflict"
 msgstr "Nelze dokončit zamýšlenou akci na prostředku."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Přiřazení ORCiD ID autora prostřednictvím koncových bodů Editovat/Přidat "
+"autora není povoleno. Chcete-li požádat autora o aktualizaci jeho ORCID iD, "
+"použijte koncový bod „orcid/requestAuthorVerification/{authorId}“."

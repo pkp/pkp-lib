@@ -1740,9 +1740,6 @@ msgstr "Валюта"
 msgid "settings.roles.roleOptions"
 msgstr "Параметры роли"
 
-msgid "settings.roles.showTitles"
-msgstr "Показать название роли в списке участников"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Разрешить самостоятельную регистрацию пользователя"
 

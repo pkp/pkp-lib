@@ -26,9 +26,10 @@ namespace PKP\facades;
 
 use PKP\affiliation\Repository as AffiliationRepository;
 use PKP\announcement\Repository as AnnouncementRepository;
+use PKP\author\Repository as AuthorRepository;
+use PKP\author\contributorRole\Repository as ContributorRoleRepository;
 use PKP\author\creditContributorRole\Repository as CreditContributorRoleRepository;
 use PKP\author\creditRole\Repository as CreditRoleRepository;
-use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\citation\Repository as CitationRepository;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
@@ -39,6 +40,7 @@ use PKP\highlight\Repository as HighlightRepository;
 use PKP\institution\Repository as InstitutionRepository;
 use PKP\invitation\repositories\Repository as InvitationRepository;
 use PKP\jats\Repository as JatsRepository;
+use PKP\bodyText\Repository as BodyTextRepository;
 use PKP\job\repositories\FailedJob as FailedJobRepository;
 use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
@@ -73,6 +75,11 @@ class Repo
     public static function citation(): CitationRepository
     {
         return app(CitationRepository::class);
+    }
+
+    public static function contributorRole(): ContributorRoleRepository
+    {
+        return app(ContributorRoleRepository::class);
     }
 
     public static function creditContributorRole(): CreditContributorRoleRepository
@@ -143,6 +150,11 @@ class Repo
     public static function jats(): JatsRepository
     {
         return app(JatsRepository::class);
+    }
+
+    public static function bodyText(): BodyTextRepository
+    {
+        return app(BodyTextRepository::class);
     }
 
     public static function ror(): RorRepository

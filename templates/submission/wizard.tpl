@@ -106,6 +106,8 @@
                             {foreach from=$reviewSteps item=$step}
                                 {if $step.reviewTemplate}
                                     {include file=$step.reviewTemplate}
+                                {elseif $step.component}
+                                    <component :is="'{$step.component}'" v-bind='{$step.props|json_encode_html_attribute}'></component>
                                 {/if}
                                 {call_hook name="Template::SubmissionWizard::Section::Review" submission=$submission step=$step.id}
                             {/foreach}
@@ -120,6 +122,7 @@
                                 </span>
                             </transition>
                         </template>
+                        <component v-else-if="section.component" :is="section.component" v-bind="section?.props || {}"></component>
                         <pkp-form
                             v-if="section.type === 'confirm'"
                             v-bind="section.form"

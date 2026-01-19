@@ -1578,9 +1578,6 @@ msgstr "Валута"
 msgid "settings.roles.roleOptions"
 msgstr "Опције улоге"
 
-msgid "settings.roles.showTitles"
-msgstr "Прикажи назив улоге у листи сарадника"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Дозволи самосталну регистрацију корисника"
 

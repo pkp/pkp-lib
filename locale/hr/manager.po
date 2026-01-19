@@ -1693,9 +1693,6 @@ msgstr "Valuta"
 msgid "settings.roles.roleOptions"
 msgstr "Opcije uloge"
 
-msgid "settings.roles.showTitles"
-msgstr "Prikaži naslov uloge na popisu suradnika"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Dopusti samoregistraciju korisnika"
 

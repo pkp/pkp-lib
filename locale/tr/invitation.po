@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-11 01:22+0000\n"
+"PO-Revision-Date: 2025-12-23 09:27+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/tr/>\n"
@@ -400,3 +400,14 @@ msgstr ""
 "{$givenName} {$familyName} için gönderilen daveti iptal etmek, e-posta "
 "yoluyla gönderilen davet bağlantısını devre dışı bırakacaktır. Davet "
 "ayrıntıları aşağıdadır: "
+
+msgid "invitation.decline.confirm"
+msgstr "Daveti İptal Etmeyi Onayla"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Daveti İptal Et"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Bu daveti iptal etmek istediğine emin misin? Aşağıdaki butona basarak "
+"onaylayın."

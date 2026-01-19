@@ -19,10 +19,11 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use Exception;
+use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
+use PKP\author\contributorRole\ContributorType;
 use PKP\facades\Locale;
 use PKP\filter\FilterGroup;
-use PKP\userGroup\UserGroup;
 
 class NativeXmlPKPAuthorFilter extends NativeImportFilter
 {
@@ -89,25 +90,48 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
             $author->setSequence($node->getAttribute('seq'));
         }
 
+        $author->setData('contributorType', $node->getAttribute('contributor_type') ?? ContributorType::PERSON->getName());
+        if (!$node->getAttribute('contributor_type')) {
+            $deployment->addError(
+                Application::ASSOC_TYPE_SUBMISSION,
+                $publication->getId(),
+                __('plugins.importexport.common.error.missingContributorType')
+            );
+        }
+
         // Handle metadata in subelements
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
                     case 'givenname':
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
+
                         $locale = $n->getAttribute('locale');
                         if (empty($locale)) {
                             $locale = $publication->getData('locale');
                         }
-                        $author->setGivenName($n->textContent, $locale);
+                        if ($author->getData('contributorType') === ContributorType::PERSON->getName()) {
+                            $author->setGivenName($n->textContent, $locale);
+                        } elseif ($author->getData('contributorType') === ContributorType::ORGANIZATION->getName()) {
+                            $author->setOrganizationName($n->textContent, $locale);
+                        }
                         break;
                     case 'familyname':
-                        $locale = $n->getAttribute('locale');
-                        if (empty($locale)) {
-                            $locale = $publication->getData('locale');
+                        if ($author->getData('contributorType') === ContributorType::PERSON->getName()) {
+                            $locale = $n->getAttribute('locale');
+                            if (empty($locale)) {
+                                $locale = $publication->getData('locale');
+                            }
+                            $author->setFamilyName($n->textContent, $locale);
                         }
-                        $author->setFamilyName($n->textContent, $locale);
                         break;
                     case 'affiliation':
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
+
                         $affiliation = Repo::affiliation()->newDataObject();
                         for ($affiliationChildNode = $n->firstChild; $affiliationChildNode !== null; $affiliationChildNode = $affiliationChildNode->nextSibling) {
                             if ($affiliationChildNode instanceof \DOMElement) {
@@ -118,7 +142,6 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                                         if ($ror) {
                                             $affiliation->setRor($ror->getRor());
                                             $affiliation->setName(null);
-                                            break;
                                             break;
                                         }
                                         $locale = $affiliationChildNode->getAttribute('locale');
@@ -133,6 +156,10 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         $author->addAffiliation($affiliation);
                         break;
                     case 'rorAffiliation':
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
+
                         for ($rorAffiliationChildNode = $n->firstChild; $rorAffiliationChildNode !== null; $rorAffiliationChildNode = $rorAffiliationChildNode->nextSibling) {
                             if ($rorAffiliationChildNode instanceof \DOMElement) {
                                 switch ($rorAffiliationChildNode->tagName) {
@@ -149,28 +176,57 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         break;
                     case 'email': $author->setEmail($n->textContent);
                         break;
-                    case 'url': $author->setUrl($n->textContent);
+                    case 'url':
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
+                        $author->setUrl($n->textContent);
                         break;
-                    case 'orcid': $author->setOrcid($n->textContent);
+                    case 'orcid':
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
+                        $author->setOrcid($n->textContent);
                         break;
                     case 'biography':
+                        if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
+                            break;
+                        }
+
                         $locale = $n->getAttribute('locale');
                         if (empty($locale)) {
                             $locale = $publication->getData('locale');
                         }
                         $author->setBiography($n->textContent, $locale);
                         break;
+                    case 'contributor_roles':
+                        $contributorRoleIds = [];
+                        for ($contributorRoleChildNode = $n->firstChild; $contributorRoleChildNode !== null; $contributorRoleChildNode = $contributorRoleChildNode->nextSibling) {
+                            if ($contributorRoleChildNode instanceof \DOMElement) {
+                                $contributorRoleIds[] = (int) $contributorRoleChildNode->textContent;
+                            }
+                        }
+                        $author->setContributorRoles(
+                            ContributorRole::withContextId($context->getId())
+                                ->withRoleIds($contributorRoleIds)
+                                ->get()
+                                ->all()
+                        );
+                        break;
                 }
             }
         }
 
-        $authorGivenName = $author->getFullName(true, false, $publication->getData('locale'));
-        if (empty($authorGivenName)) {
+        $importAuthorId = $node->getAttribute('id');
+        $authorName = $author->getLocalizedGivenName() ?? $author->getLocalizedOrganizationName() ?? $importAuthorId ?? '';
+
+        $authorFullName = $author->getFullName(true, false, $publication->getData('locale'));
+        if ($author->getData('contributorType') !== ContributorType::ANONYMOUS->getName() && empty($authorFullName)) {
             $deployment->addError(
                 Application::ASSOC_TYPE_SUBMISSION,
                 $publication->getId(),
                 __('plugins.importexport.common.error.missingGivenName', [
-                    'authorName' => $author->getLocalizedGivenName(),
+                    'authorName' => $authorName,
                     'localeName' => Locale::getMetadata($publication->getData('locale'))->getDisplayName()
                 ])
             );
@@ -183,36 +239,55 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                     Application::ASSOC_TYPE_SUBMISSION,
                     $publication->getId(),
                     __('plugins.importexport.common.error.missingAffiliationName', [
-                        'authorName' => $author->getLocalizedGivenName(),
+                        'authorName' => $authorName,
                         'localeName' => Locale::getMetadata($publication->getData('locale'))->getDisplayName()
                     ])
                 );
             }
         }
 
-        // Identify the user group by name
-        $userGroupName = $node->getAttribute('user_group_ref');
-
-        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
-
-        foreach ($userGroups as $userGroup) {
-            if (in_array($userGroupName, $userGroup->name)) {
-                // Found a candidate; stash it.
-                $author->setUserGroupId($userGroup->id);
-                break;
-            }
+        if ($author->getData('contributorType') !== ContributorType::ANONYMOUS->getName() && !$author->getData('email')) {
+            $deployment->addError(
+                Application::ASSOC_TYPE_SUBMISSION,
+                $publication->getId(),
+                __('plugins.importexport.common.error.missingEmail', [
+                    'authorName' => $authorName,
+                ])
+            );
         }
 
-        if (!$author->getUserGroupId()) {
-            $authorFullName = $author->getFullName(true, false, $publication->getData('locale'));
-            $deployment->addError(Application::ASSOC_TYPE_AUTHOR, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', ['authorName' => $authorFullName, 'userGroupName' => $userGroupName]));
-            throw new Exception(__('plugins.importexport.author.exportFailed'));
+        if ($author->getData('contributorType') !== ContributorType::ANONYMOUS->getName() && !$author->getData('country')) {
+            $deployment->addError(
+                Application::ASSOC_TYPE_SUBMISSION,
+                $publication->getId(),
+                __('plugins.importexport.common.error.missingCountry', [
+                    'authorName' => $authorName,
+                ])
+            );
+        }
+
+        if (!$author->getContributorRoles()) {
+            $deployment->addError(
+                Application::ASSOC_TYPE_AUTHOR,
+                $publication->getId(),
+                __('plugins.importexport.common.error.noContributorRole', [
+                    'authorName' => $authorName
+                ])
+            );
+            // Set first author role
+            $author->setContributorRoles(
+                ContributorRole::query()
+                    ->withContextId($context->getId())
+                    ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
+                    ->limit(1)
+                    ->get()
+                    ->all()
+            );
         }
 
         $authorId = Repo::author()->add($author);
         $author->setId($authorId);
 
-        $importAuthorId = $node->getAttribute('id');
         $deployment->setAuthorDBId($importAuthorId, $authorId);
 
         if ($node->getAttribute('id') == $publication->getData('primaryContactId')) {

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2025-10-21 09:07+0000\n"
+"PO-Revision-Date: 2025-11-17 07:31+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -1697,9 +1697,6 @@ msgstr "Waluta"
 
 msgid "settings.roles.roleOptions"
 msgstr "Ustawienia roli"
-
-msgid "settings.roles.showTitles"
-msgstr "Wyświetl nazwy ról na liście współpracowników"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Pozwól na samorejestrację użytkowników"
@@ -3850,3 +3847,9 @@ msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
 msgstr ""
 "Pozwól autorom sugerować potencjalnych recenzentów podczas procesu składania "
 "artykułów"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Link to a page displaying all active editorial masthead services."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Zainstalowana wersja: {$version}"

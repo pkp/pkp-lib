@@ -64,7 +64,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
      * should be deleted.
      * Every user that have access to the stage should see the notification.
      */
-    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
+    public function updateNotification(PKPRequest $request, ?array $userIds, ?int $assocType, ?int $assocId): void
     {
         $context = $request->getContext();
         if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {

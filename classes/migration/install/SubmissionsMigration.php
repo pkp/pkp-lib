@@ -19,6 +19,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
+use PKP\author\contributorRole\ContributorType;
+use PKP\author\creditRole\CreditRoleDegree;
 use PKP\core\Core;
 use PKP\editorialTask\enums\EditorialTaskDueInterval;
 use PKP\editorialTask\enums\EditorialTaskType;
@@ -104,7 +107,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->comment('The authors of a publication.');
             $table->bigInteger('author_id')->autoIncrement();
-            $table->string('email', 90);
+            $table->string('email', 90)->nullable();
             $table->smallInteger('include_in_browse')->default(1);
 
             // The foreign key relationship on this table is defined with the publications table.
@@ -112,9 +115,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->float('seq')->default(0);
 
-            $table->bigInteger('user_group_id')->nullable();
-            $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
-            $table->index(['user_group_id'], 'authors_user_group_id');
+            $table->enum('contributor_type', ContributorType::getTypes())->default(ContributorType::PERSON->getName());
         });
 
         // Language dependent author metadata.
@@ -149,20 +150,37 @@ class SubmissionsMigration extends \PKP\migration\Migration
         DB::table('credit_roles')
             ->insert($creditRolesData);
 
+        // Contributor roles
+        Schema::create('contributor_roles', function (Blueprint $table) {
+            $table->comment('The list of the contributor roles');
+            $table->bigInteger('contributor_role_id')->autoIncrement();
+            $table->bigInteger('context_id');
+            $table->enum('contributor_role_identifier', ContributorRoleIdentifier::getRoles());
+        });
+
+        // Contributor role settings
+        Schema::create('contributor_role_settings', function (Blueprint $table) {
+            $table->comment('Contributor role settings');
+            $table->bigInteger('contributor_role_setting_id')->autoIncrement();
+            $table->bigInteger('contributor_role_id');
+            $table->string('setting_name', 255);
+            $table->string('setting_value', 255)->nullable();
+            $table->string('locale', 28);
+            $table->unique(['contributor_role_id', 'setting_name', 'locale'], 'contributor_role_id_setting_name_locale_unique');
+            $table->foreign('contributor_role_id', 'contributor_role_id_settings_foreign')->references('contributor_role_id')->on('contributor_roles')->onDelete('cascade');
+        });
+
         // Credit and contributor roles
         Schema::create('credit_contributor_roles', function (Blueprint $table) {
             $table->comment('The CRediT Roles and the degrees of contributors, and contributor roles');
             $table->bigInteger('credit_contributor_role_id')->autoIncrement();
             $table->bigInteger('contributor_id');
             $table->bigInteger('credit_role_id')->nullable();
-            $table->enum('credit_degree', [
-                'LEAD',
-                'EQUAL',
-                'SUPPORTING',
-            ])->nullable();
+            $table->enum('credit_degree', CreditRoleDegree::getDegrees())->nullable();
             $table->bigInteger('contributor_role_id')->nullable();
             $table->foreign('contributor_id', 'contributor_id_author_id_foreign')->references('author_id')->on('authors')->onDelete('cascade');
             $table->foreign('credit_role_id', 'credit_role_id_foreign')->references('credit_role_id')->on('credit_roles')->onDelete('cascade');
+            $table->foreign('contributor_role_id', 'contributor_role_id_foreign')->references('contributor_role_id')->on('contributor_roles')->onDelete('cascade');
             $table->unique(['contributor_id', 'credit_role_id'], 'contributor_id_credit_role_id_unique');
             $table->unique(['contributor_id', 'contributor_role_id'], 'contributor_id_contributor_role_id_unique');
         });
@@ -182,6 +200,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('submission_id');
             $table->foreign('submission_id', 'edit_decisions_submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'edit_decisions_submission_id');
+
+            $table->bigInteger('publication_id');
 
             // Foreign key constraint is declared with review_rounds
             $table->bigInteger('review_round_id')->nullable();
@@ -323,6 +343,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
                 ->comment('Interval after which the task is due, from the time it is created.');
             $table->enum('type', array_column(EditorialTaskType::cases(), 'value'))->default(EditorialTaskType::DISCUSSION);
             $table->text('description')->nullable();
+            $table->boolean('restrict_to_user_groups')->default(false)
+                ->comment('Whether the template is restricted to user groups defined in the many to many relationship.');
 
             $table->timestamps();
         });

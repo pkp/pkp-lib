@@ -1947,6 +1947,7 @@ msgstr "Κατάσταση γύρου {$round}."
 msgid "notification.type.editorialReport"
 msgstr "Περίληψη αναφοράς στατιστικών."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Μια υπενθύμιση για να ελέγξετε την υγεία του περιοδικού σας μέσω της "

@@ -86,16 +86,13 @@ class FilterDAO extends \PKP\db\DAO
             return false;
         }
 
-        // Instantiate the filter.
-        if (preg_match('/^[a-zA-Z0-9_.]+$/', $filterClassName)) {
-            // DEPRECATED as of 3.4.0: Use old class.name.style and import() function (pre-PSR classloading) pkp/pkp-lib#8186
-            $filter = instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /** @var PersistableFilter $filter */
-        } elseif (class_exists($filterClassName)) {
+        if (class_exists($filterClassName)) {
             $filter = new $filterClassName($filterGroup);
         } else {
             // Could not find class
             return false;
         }
+
         if (!$filter) {
             return false;
         }
@@ -499,12 +496,10 @@ class FilterDAO extends \PKP\db\DAO
         }
 
         // Instantiate the filter
-        if (preg_match('/^[a-zA-Z0-9_.]+$/', $filterClassName)) {
-            // DEPRECATED as of 3.4.0: Use old class.name.style and import() function (pre-PSR classloading) pkp/pkp-lib#8186
-            $filter = instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /** @var PersistableFilter $filter */
-        } elseif (class_exists($filterClassName)) {
+        if (class_exists($filterClassName)) {
             $filter = new $filterClassName($filterGroup);
         }
+
         if (!is_object($filter)) {
             throw new Exception('Error while instantiating class "' . $filterClassName . '" as filter!');
         }

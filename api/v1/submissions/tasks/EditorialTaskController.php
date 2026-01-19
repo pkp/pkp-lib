@@ -21,16 +21,19 @@ use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use PKP\API\v1\submissions\tasks\formRequests\AddNote;
 use PKP\API\v1\submissions\tasks\formRequests\AddTask;
 use PKP\API\v1\submissions\tasks\formRequests\EditTask;
+use PKP\API\v1\submissions\tasks\resources\EditorialTaskParticipantResource;
 use PKP\API\v1\submissions\tasks\resources\NoteResource;
 use PKP\API\v1\submissions\tasks\resources\TaskResource;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\db\DAORegistry;
 use PKP\editorialTask\EditorialTask;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
@@ -44,6 +47,9 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\submission\GenreDAO;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
 class EditorialTaskController extends PKPBaseController
@@ -68,6 +74,7 @@ class EditorialTaskController extends PKPBaseController
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
                 Role::ROLE_ID_AUTHOR,
                 Role::ROLE_ID_REVIEWER,
             ]),
@@ -122,6 +129,10 @@ class EditorialTaskController extends PKPBaseController
         Route::delete('{submissionId}/tasks/{taskId}/notes/{noteId}', $this->deleteNote(...))
             ->name('submission.note.delete')
             ->whereNumber(['submissionId', 'taskId', 'noteId']);
+
+        Route::get('{submissionId}/stages/{stageId}/tasks/participants', $this->getParticipants(...))
+            ->name('submission.task.participants.get')
+            ->whereNumber(['submissionId', 'stageId']);
     }
 
     /**
@@ -139,19 +150,19 @@ class EditorialTaskController extends PKPBaseController
         // For operations to retrieve task(s), we just ensure that the user has access to it
         if (in_array($actionName, ['getTask', 'addNote', 'deleteNote'])) {
             $stageId = $request->getUserVar('stageId');
-            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
+            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int)$stageId : null, 'taskId'));
         }
 
         // To modify a task, need to check read and write access policies
         if (in_array($actionName, ['editTask', 'deleteTask', 'closeTask', 'openTask', 'startTask'])) {
             $stageId = $request->getUserVar('stageId');
-            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
+            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int)$stageId : null, 'taskId'));
             $this->addPolicy(new QueryWritePolicy($request));
         }
 
         // To create a task or get a list of tasks, check if the user has access to the workflow stage; note that controller must ensure to get a list of tasks where user is a participant
-        if (in_array($actionName, ['addTask', 'getTasks', 'fromTemplate'])) {
-            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, (int) $request->getUserVar('stageId')));
+        if (in_array($actionName, ['addTask', 'getTasks', 'fromTemplate', 'getParticipants'])) {
+            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, (int)$request->getUserVar('stageId')));
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -252,7 +263,6 @@ class EditorialTaskController extends PKPBaseController
             ->withStageIds([$stageId])
             ->get();
 
-
         $userGroups = UserGroup::with('userUserGroups')
             ->withContextIds($submission->getData('contextId'))
             ->withUserIds($participantIds)
@@ -265,6 +275,18 @@ class EditorialTaskController extends PKPBaseController
             ->getMany() :
             collect()->lazy();
 
+        $noteIds = Note::withAssocIds(PKPApplication::ASSOC_TYPE_QUERY, $tasks->pluck('id')->toArray())
+            ->pluck((new Note())->getKeyName())
+            ->toArray();
+
+        $submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, $noteIds)
+            ->getMany();
+
+        $context = $this->getRequest()->getContext();
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+
         return response()->json([
             'items' => TaskResource::collection(resource: $tasks, data: [
                 'submission' => $submission,
@@ -272,6 +294,8 @@ class EditorialTaskController extends PKPBaseController
                 'users' => $users,
                 'userGroups' => $userGroups,
                 'reviewAssignments' => $reviewAssignments,
+                'submissionFiles' => $submissionFiles,
+                'fileGenres' => $fileGenres,
             ]),
             'itemMax' => $tasks->count(),
         ], Response::HTTP_OK);
@@ -425,7 +449,7 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $stageId = (int) $illuminateRequest->route('stageId');
+        $stageId = (int)$illuminateRequest->route('stageId');
         if ($template->stageId != $stageId) {
             return response()->json([
                 'error' => __('api.409.resourceActionConflict'),
@@ -488,12 +512,22 @@ class EditorialTaskController extends PKPBaseController
             ->getMany() :
             collect()->lazy();
 
+        $submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, $editTask->notes()->pluck((new Note())->getKeyName())->toArray())
+            ->getMany();
+
+        $context = $this->getRequest()->getContext();
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+
         return [
             'submission' => $submission,
             'stageAssignments' => $stageAssignments,
             'users' => $users,
             'userGroups' => $userGroups,
             'reviewAssignments' => $reviewAssignments,
+            'submissionFiles' => $submissionFiles,
+            'fileGenres' => $fileGenres,
         ];
     }
 
@@ -507,9 +541,32 @@ class EditorialTaskController extends PKPBaseController
         $note = new Note($validated);
         $note->save();
         $note->refresh();
+        $task = $note->assoc; /** @var EditorialTask $task */
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
+            ->getMany();
+
+        $stageId = (int) $illuminateRequest->route('stageId');
+        $stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageId])
+            ->get();
+
+
+        $context = $this->getRequest()->getContext();
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json(
-            new NoteResource(resource: $note, data: ['users' => collect([$this->getRequest()->getUser()])]),
+            new NoteResource(resource: $note, data: [
+                'users' => collect([$this->getRequest()->getUser()]),
+                'parentResource' => new TaskResource($task, $this->getTaskData($submission, $task)),
+                'submissionFiles' => $submissionFiles,
+                'stageAssignments' => $stageAssignments,
+                'submission' => $submission,
+                'fileGenres' => $fileGenres,
+            ]),
             Response::HTTP_OK
         );
     }
@@ -546,5 +603,210 @@ class EditorialTaskController extends PKPBaseController
         $note->delete();
 
         return response()->json([], Response::HTTP_OK);
+    }
+
+    /**
+     * Get the list of users assigned to the submission for the task/discussion participant selection
+     * Depending on a user making the request, exclude anonymous participants, e.g., reviewers if requested by an author in case of blinded review
+     */
+    public function getParticipants(Request $illuminateRequest): JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $stageId = (int)$illuminateRequest->route('stageId');
+        $currentUser = $this->getRequest()->getUser();
+        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $currentRoles = array_unique($accessibleWorkflowStages[$stageId] ?? []);
+
+        // First, determine access based on roles in the current workflow stage
+        if (empty($currentRoles)) {
+            return response()->json([
+                'error' => __('api.403.forbidden'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $roleReviewer = Arr::first($currentRoles, fn (int $role) => $role == Role::ROLE_ID_REVIEWER);
+        $reviewerIsOnlyRole = $roleReviewer != false && count($currentRoles) == 1;
+        $isReviewStage = in_array($stageId, Application::get()->getReviewStages());
+
+        // If the user is a reviewer and has no other roles, restrict access to non-review stages
+        if (!$isReviewStage && $roleReviewer && $reviewerIsOnlyRole) {
+            return response()->json([
+                'error' => __('api.403.forbidden'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        // In a review stage, if the user is a reviewer and has no other roles, check if there is at least 1 accessible review assignment
+        if ($isReviewStage && $roleReviewer && $reviewerIsOnlyRole) {
+            $accessibleReviewAssignments = Repo::reviewAssignment()->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByStageId($stageId)
+                ->filterByReviewerIds([$currentUser->getId()])
+                ->filterByIsAccessibleByReviewer(true)
+                ->getMany();
+
+            // The reviewer has only review assignments that were declined or cancelled
+            if ($accessibleReviewAssignments->isEmpty()) {
+                return response()->json([
+                    'error' => __('api.403.forbidden'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+        }
+
+        $currentUserHasDoubleBlindReview = false;
+        $reviewUserGroup = UserGroup::with('userUserGroups')->where('role_id', Role::ROLE_ID_REVIEWER)
+            ->where('context_id', $submission->getData('contextId'))
+            ->first();
+        $userGroups = collect();
+        $reviewAssignments = collect();
+
+        if ($isReviewStage && $roleReviewer) {
+            // Check if user has assignment at the relevant review stage
+            $currentUserReviewAssignments = Repo::reviewAssignment()->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByStageId($stageId)
+                ->filterByReviewerIds([$currentUser->getId()])
+                ->getMany();
+
+            if ($currentUserReviewAssignments->isNotEmpty()) {
+                $currentUserHasDoubleBlindReview = (bool) $currentUserReviewAssignments->search(fn (ReviewAssignment $reviewAssignment) =>
+                    $reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS);
+
+                $userGroups->put($reviewUserGroup->id, $reviewUserGroup);
+                $reviewAssignments = $reviewAssignments->merge($currentUserReviewAssignments);
+            }
+        }
+
+        // Form the list of all user participants, stage assignments, review assignments and corresponding user groups for the Participant resource
+        $users = collect([$currentUser->getId() => $currentUser]);
+        $stageAssignments = StageAssignment::with(['userGroup', 'userGroup.userUserGroups'])
+            ->withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageId])
+            ->get();
+
+        foreach ($stageAssignments as $stageAssignment) {
+            if ($isReviewStage && $roleReviewer && $currentUserHasDoubleBlindReview) {
+                // Anonymize author if the current user is a reviewer with double-blind review
+                if ($stageAssignment->userGroup->roleId == Role::ROLE_ID_AUTHOR) {
+                    continue;
+                }
+            }
+
+            if (!$users->has($stageAssignment->userId)) {
+                $user = Repo::user()->get($stageAssignment->userId);
+                $users->put($stageAssignment->userId, $user);
+            }
+
+            if (!$userGroups->has($stageAssignment->userGroupId)) {
+                $userGroups->put($stageAssignment->userGroupId, $stageAssignment->userGroup);
+            }
+        }
+
+        /**
+         * If task/discussion is created for the review stage, we must also include reviewers
+         * include only reviewers with an active assignment - not declined, not cancelled and for submissions which aren't published
+         * get only the latest review round of the active review from every reviewer.
+         * Also, don't show reviewer participants if the current user has only reviewer role
+         */
+        if (in_array($stageId, Application::get()->getReviewStages()) && !($roleReviewer && $reviewerIsOnlyRole)) {
+            ['users' => $reviewers, 'reviewAssignments' => $associatedReviewAssignments] = $this->getReviewers($submission, $stageId, $currentRoles);
+            if ($reviewers->isNotEmpty()) {
+                $users = $users->merge($reviewers);
+                if (!$userGroups->has($reviewUserGroup->id)) {
+                    $userGroups->put($reviewUserGroup->id, $reviewUserGroup);
+                }
+            }
+
+            if ($associatedReviewAssignments->isNotEmpty()) {
+                $reviewAssignments = $reviewAssignments->merge($associatedReviewAssignments);
+            }
+        }
+
+        // Finally, if the user isn't included, check global roles, include them as potential participants
+        if (array_intersect($currentRoles, [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER])) {
+            $globalGroups = UserGroup::withContextIds([$submission->getData('contextId')])
+                ->withUserIds([$currentUser->getId()])
+                ->withRoleIds([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER])
+                ->get();
+            $userGroups = $userGroups->merge($globalGroups);
+        }
+
+        $resource = $users->map(fn (User $user) => new Participant([
+            'userId' => $user->getId(),
+            'isResponsible' => false,
+        ]));
+
+        return response()->json(
+            EditorialTaskParticipantResource::collection(
+                resource: $resource,
+                data: [
+                    'submission' => $submission,
+                    'stageAssignments' => $stageAssignments,
+                    'reviewAssignments' => $reviewAssignments,
+                    'users' => $users,
+                    'userGroups' => $userGroups,
+                ]
+            ),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * @return array['users' => Collection, 'reviewAssignments' => Collection] List of reviewers to include as participants and their review assignments
+     */
+    public function getReviewers(Submission $submission, int $stageId, array $currentRoles): array
+    {
+        $users = collect();
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByStageId($stageId)
+            ->filterByIsAccessibleByReviewer(true)
+            ->getMany();
+
+        // Filter review assignments by latest review round by reviewer
+        $filteredReviewAssignments = [];
+        foreach ($reviewAssignments as $reviewAssignment) { /** @var ReviewAssignment $reviewAssignment */
+            $reviewerId = $reviewAssignment->getReviewerId();
+
+            if (!array_key_exists($reviewerId, $filteredReviewAssignments)) {
+                $filteredReviewAssignments[$reviewerId] = $reviewAssignment;
+                continue;
+            }
+
+            // Compare review rounds, keep the latest one
+            if ($reviewAssignment->getReviewRoundId() > $filteredReviewAssignments[$reviewerId]->getReviewRoundId()) {
+                $filteredReviewAssignments[$reviewerId] = $reviewAssignment;
+            }
+        }
+
+        // Retrieve participants from review assignments
+        $includedReviewAssignments = collect();
+        foreach ($filteredReviewAssignments as $reviewAssignment) { /** @var ReviewAssignment $reviewAssignment */
+
+            // Check whether participant should be anonymized
+            $excludeParticipant = false;
+            if (in_array(Role::ROLE_ID_REVIEWER, $currentRoles)) {
+                if ($reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
+                    $excludeParticipant = true;
+                }
+            }
+
+            if (in_array(Role::ROLE_ID_AUTHOR, $currentRoles)) {
+                if (in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
+                    $excludeParticipant = true;
+                }
+            }
+
+            if ($excludeParticipant) {
+                continue;
+            }
+
+            $reviewerId = $reviewAssignment->getReviewerId();
+            if (!$users->has($reviewerId)) {
+                $users->put($reviewerId, Repo::user()->get($reviewerId));
+                $includedReviewAssignments->push($reviewAssignment);
+            }
+        }
+
+        return ['users' => $users, 'reviewAssignments' => $includedReviewAssignments];
     }
 }

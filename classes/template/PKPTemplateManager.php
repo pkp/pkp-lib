@@ -8,8 +8,8 @@
 /**
  * @file classes/template/PKPTemplateManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemplateManager
@@ -31,9 +31,10 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
-use Illuminate\View\View;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use Less_Parser;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -359,6 +360,8 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'count', count(...));
         $this->registerPlugin('modifier', 'intval', intval(...));
         $this->registerPlugin('modifier', 'json_encode', json_encode(...));
+        // Register the safe JSON modifier
+        $this->registerPlugin('modifier', 'json_encode_html_attribute', $this->smartyJsonEncodeHtmlAttribute(...));
         $this->registerPlugin('modifier', 'uniqid', uniqid(...));
         $this->registerPlugin('modifier', 'substr', substr(...));
         $this->registerPlugin('modifier', 'strstr', strstr(...));
@@ -1247,18 +1250,6 @@ class PKPTemplateManager extends Smarty
                                     ]
                                 ]
                             ];
-
-                            $menu['content'] = [
-                                'name' => __('navigation.content'),
-                                'icon' => 'Content',
-                                'submenu' => [
-                                    'userComments' => [
-                                        'name' => __('manager.userComment.comments'),
-                                        'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
-                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
-                                    ],
-                                ]
-                            ];
                         }
                     }
 
@@ -1365,8 +1356,8 @@ class PKPTemplateManager extends Smarty
 
         // If a blade view instance given or the template is a blade view
         // just return the rendered content
-        if ($template instanceof View 
-            || (!str_contains($template, ".tpl") && view()->exists($template))
+        if ($template instanceof View
+            || (!str_contains($template, '.tpl') && view()->exists($template))
         ) {
             $this->shareTemplateVariables($this->getTemplateVars());
 
@@ -1503,7 +1494,7 @@ class PKPTemplateManager extends Smarty
             'helpUrl' => Application::get()->getHelpUrl(),
             'timeZone' => Config::getVar('general', 'time_zone'),
             'featureFlags' => [
-                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions')
+                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions'),
             ]
         ];
 
@@ -1536,16 +1527,8 @@ class PKPTemplateManager extends Smarty
             if ($user) {
                 // Fetch user groups where the user is assigned
                 $userGroups = UserGroup::query()
-                    ->whereHas('userUserGroups', function ($query) use ($user) {
-                        $query->where('user_id', $user->getId())
-                            ->where(function ($q) {
-                                $q->whereNull('date_end')
-                                    ->orWhere('date_end', '>', now());
-                            })
-                            ->where(function ($q) {
-                                $q->whereNull('date_start')
-                                    ->orWhere('date_start', '<=', now());
-                            });
+                    ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($user) {
+                        $query->withUserId($user->getId())->withActive();
                     })
                     ->get();
 
@@ -1626,8 +1609,8 @@ class PKPTemplateManager extends Smarty
 
         // If a blade view instance given or the template is a blade view
         // just return the rendered content
-        if ($template instanceof View 
-            || (!str_contains($template, ".tpl") && view()->exists($template))
+        if ($template instanceof View
+            || (!str_contains($template, '.tpl') && view()->exists($template))
         ) {
             $this->shareTemplateVariables($this->getTemplateVars());
 
@@ -1636,7 +1619,7 @@ class PKPTemplateManager extends Smarty
                 : view($template)->render();
             return;
         }
-        
+
         // Actually display the template.
         parent::display($template, $cache_id, $compile_id, $parent);
     }
@@ -1805,6 +1788,26 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Smarty modifier: json_encode_html_attribute
+     * 
+     * Encodes a value to JSON with full HTML-attribute safety.
+     * Escapes ", ', <, >, & as \u0022, \u0027, \u003C, \u003E, \u0026
+     * so the output can be safely placed inside any HTML attribute
+     */
+    function smartyJsonEncodeHtmlAttribute($value)
+    {
+        return json_encode(
+            $value,
+            JSON_HEX_TAG          // < →
+            | JSON_HEX_AMP        // & →
+            | JSON_HEX_APOS       // ' →
+            | JSON_HEX_QUOT       // " →
+            | JSON_UNESCAPED_UNICODE
+            | JSON_UNESCAPED_SLASHES   // optional but highly recommended
+        );
+    }
+
+    /**
      * Smarty usage: {html_options_translate ...}
      * For parameter usage, see http://smarty.php.net/manual/en/language.function.html.options.php
      *
@@ -1942,6 +1945,8 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Call hooks from a template. (DEPRECATED: For new hooks, {run_hook} is preferred.
+     *
+     * @param null|mixed $smarty
      */
     public function smartyCallHook($params, $smarty = null)
     {
@@ -1974,6 +1979,7 @@ class PKPTemplateManager extends Smarty
      * - context
      * - page
      * - component
+     * - endpoint (for API routes)
      * - op
      * - path (array)
      * - anchor
@@ -1999,8 +2005,8 @@ class PKPTemplateManager extends Smarty
         // Extract the reserved variables named in $paramList, and remove them
         // from the parameters array. Variables remaining in parameters will be passed
         // along to Request::url as extra parameters.
-        $params = $router = $page = $component = $anchor = $escape = $op = $path = $urlLocaleForPage = null;
-        $paramList = ['params', 'router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape', 'urlLocaleForPage'];
+        $params = $router = $page = $component = $endpoint = $anchor = $escape = $op = $path = $urlLocaleForPage = null;
+        $paramList = ['params', 'router', 'context', 'page', 'component', 'endpoint', 'op', 'path', 'anchor', 'escape', 'urlLocaleForPage'];
         foreach ($paramList as $parameter) {
             if (isset($parameters[$parameter])) {
                 $$parameter = $parameters[$parameter];
@@ -2030,10 +2036,17 @@ class PKPTemplateManager extends Smarty
         $handler = match ($router) {
             PKPApplication::ROUTE_PAGE => $page,
             PKPApplication::ROUTE_COMPONENT => $component,
+            PKPApplication::ROUTE_API => $endpoint,
         };
 
         // Let the dispatcher create the url
         $dispatcher = Application::get()->getDispatcher();
+
+        // API routes require context as string path
+        if ($router === PKPApplication::ROUTE_API && !is_string($context)) {
+            $context = ($this->_request->getContext())?->getPath() ?? Application::SITE_CONTEXT_PATH;
+        }
+
         return $dispatcher->url($this->_request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape, $urlLocaleForPage);
     }
 

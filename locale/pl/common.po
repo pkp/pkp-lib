@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2025-10-30 12:46+0000\n"
+"PO-Revision-Date: 2025-11-04 08:26+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl/>\n"
@@ -1903,6 +1903,7 @@ msgstr "Status rundy {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Raport statystyk redakcyjnych."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "W ramach dbania o dobrą kondycję czasopisma przypominamy o przeglądzie "
@@ -2335,3 +2336,21 @@ msgstr "Numer"
 
 msgid "common.assignments"
 msgstr "Zadania"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Zobacz <a href=\"{$url}\">Historyczne dane edytorów</a>"
+
+msgid "common.editorialHistory.page.description"
+msgstr "W tej sekcji wymieniono dotychczasowych współpracowników."
+
+msgid "common.editorialHistory"
+msgstr "Historia redakcyjna"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Zobacz {$name} ORCID profile"
+
+msgid "common.editorialHistory.page"
+msgstr "Historyczne dane edytorów"

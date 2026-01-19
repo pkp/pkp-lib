@@ -1926,6 +1926,7 @@ msgstr "ラウンド {$round} 現況"
 msgid "notification.type.editorialReport"
 msgstr "統計レポートの要約。"
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "雑誌の健康を編集のレポートによって点検するための親切なリマインドです。"
 

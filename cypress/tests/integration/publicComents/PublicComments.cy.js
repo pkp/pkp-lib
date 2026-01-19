@@ -300,26 +300,35 @@ describe('Public Comments Tests', function() {
 
 		cy.visit('index.php/publicknowledge/en/management/settings/userComments#reported');
 
-		cy.get('table tbody tr').should('have.length.greaterThan', 0).each(($row) => {
-			cy.wrap($row).should('contain.text', 'Reported');
+		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
+		cy.get('table tbody tr')
+			.not(':contains("No Items")')
+			.should('have.length.greaterThan', 0).each(($row) => {
+				cy.wrap($row).should('contain.text', 'Reported');
 		});
 	});
 
 	it('should show only approved comments when moderator views comments under Approved tab', () => {
 		cy.login('rvaca');
 		cy.visit('index.php/publicknowledge/en/management/settings/userComments#approved');
-		cy.wait(500);
-		cy.get('table tbody tr').should('have.length.greaterThan', 0).each(($row) => {
-			cy.wrap($row).should('contain.text', 'Approved');
+		
+		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
+		cy.get('table tbody tr')
+			.not(':contains("No Items")')
+			.should('have.length.greaterThan', 0).each(($row) => {
+				cy.wrap($row).should('contain.text', 'Approved');
 		});
 	});
 
 	it('should show only unapproved comments when moderator views comments under Needs Approval tab', () => {
 		cy.login('rvaca');
 		cy.visit('index.php/publicknowledge/en/management/settings/userComments#needsApproval');
-		cy.wait(500);
-		cy.get('table tbody tr').should('have.length.greaterThan', 0).each(($row) => {
-			cy.wrap($row).should('contain.text', 'Hidden/Needs Approval');
+
+		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
+		cy.get('table tbody tr')
+			.not(':contains("No Items")')
+			.should('have.length.greaterThan', 0).each(($row) => {
+				cy.wrap($row).should('contain.text', 'Hidden/Needs Approval');
 		});
 	});
 

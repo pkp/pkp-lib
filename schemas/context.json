@@ -225,6 +225,12 @@
 				"in:1,2,3"
 			]
 		},
+		"enablePublicPeerReviews": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"defaultMetricType": {
 			"type": "string",
 			"validation": [
@@ -626,6 +632,7 @@
 		"orcidClientSecret": {
 			"type": "string",
 			"default": "",
+			"encrypt": true,
 			"validation": [
 				"nullable"
 			]
@@ -983,6 +990,14 @@
 		"dataAvailability": {
 			"type": "string",
 			"description": "Whether to not request, request or require a Data Availability Statement from the authors.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"fundingStatement": {
+			"type": "string",
+			"description": "Whether to not request, request or require a Funding Statement from the authors.",
 			"validation": [
 				"nullable",
 				"in:0,enable,request,require"

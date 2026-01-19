@@ -35,6 +35,7 @@ class PKPSchemaService
     public const SCHEMA_CATEGORY = 'category';
     public const SCHEMA_CITATION = 'citation';
     public const SCHEMA_CONTEXT = 'context';
+    public const SCHEMA_CONTRIBUTOR_ROLE = 'contributorRole';
     public const SCHEMA_DOI = 'doi';
     public const SCHEMA_DECISION = 'decision';
     public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';
@@ -376,6 +377,10 @@ class PKPSchemaService
                     foreach ($value as $i => $v) {
                         $newArray[$i] = $this->coerce($v, $schema->items->type, $schema->items);
                     }
+                } elseif (isValidJson($value)) {
+                    // Value is already a JSON-encoded string (e.g., from Eloquent cast)
+                    // Return as-is to prevent double-encoding(e.g. serialized format)
+                    return $value;
                 } else {
                     $newArray[] = serialize($value);
                 }

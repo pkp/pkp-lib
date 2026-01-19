@@ -18,6 +18,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use DateInterval;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
@@ -191,8 +192,11 @@ class Repository
     public function userUserGroups(int $userId, ?int $contextId = null, UserUserGroupStatus $status = UserUserGroupStatus::STATUS_ACTIVE): LazyCollection
     {
         $query = UserGroup::query()
-            ->withUserIds([$userId])
-            ->withUserUserGroupStatus($status->value);
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($userId, $status) {
+                $query->withUserId($userId)
+                    ->when($status == UserUserGroupStatus::STATUS_ACTIVE, fn (EloquentBuilder $query) => $query->withActive())
+                    ->when($status == UserUserGroupStatus::STATUS_ENDED, fn (EloquentBuilder $query) => $query->withEnded());
+            });
 
         if ($contextId !== null) {
             $query->withContextIds([$contextId]);
@@ -209,7 +213,6 @@ class Repository
     {
         return UserGroup::query()
             ->withUserIds([$userId])
-            ->withUserUserGroupStatus(UserUserGroupStatus::STATUS_ALL->value)
             ->masthead(true)
             ->pluck('context_id')
             ->unique();
@@ -469,7 +472,6 @@ class Repository
                 'permitSelfRegistration' => $permitSelfRegistration,
                 'permitMetadataEdit' => $permitMetadataEdit,
                 'isDefault' => true,
-                'showTitle' => true,
                 'masthead' => $masthead,
                 'permitSettings' => $permitSettings,
             ]);

@@ -1920,6 +1920,7 @@ msgstr "Status för omgång {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Sammanfattning av statistikrapporten."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Detta är en påminnelse att kontrollera tidskriftens interna statistik i "

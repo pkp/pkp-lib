@@ -166,7 +166,19 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
             for ($nc = $n->firstChild; $nc !== null; $nc = $nc->nextSibling) {
                 if ($nc instanceof \DOMElement) {
-                    $controlledVocabulary[] = $nc->textContent;
+                    $item = ['name' => $nc->getElementsByTagName('name')->item(0)->textContent];
+
+                    $identifierNode = $nc->getElementsByTagName('identifier')->item(0);
+                    if ($identifierNode) {
+                        $item['identifier'] = $identifierNode->textContent;
+                    }
+
+                    $sourceNode = $nc->getElementsByTagName('source')->item(0);
+                    if ($sourceNode) {
+                        $item['source'] = $sourceNode->textContent;
+                    }
+
+                    $controlledVocabulary[] = $item;
                 }
             }
 
@@ -298,7 +310,11 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      */
     public function parseCitations($n, $publication)
     {
-        $publicationId = $publication->getId();
+        $opts = $this->getDeployment()->getOpts();
+
+        // If the import is via CLI, consider citation-metadata-lookup option.
+        // Else, enable metadata lookup by default.
+        $metadataLookup = $opts['citation-metadata-lookup'] ?? true;
         $citationsRaw = '';
         foreach ($n->childNodes as $citNode) {
             $nodeText = trim($citNode->textContent);
@@ -307,8 +323,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             }
             $citationsRaw .= $nodeText . "\n";
         }
-
-        Repo::citation()->importCitations($publicationId, $citationsRaw);
+        Repo::citation()->importCitations($publication, $citationsRaw, $metadataLookup);
     }
 
     //

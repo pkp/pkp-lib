@@ -34,7 +34,6 @@ class ControlledVocab extends Model
     public const CONTROLLED_VOCAB_SUBMISSION_AGENCY = 'submissionAgency';
     public const CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE = 'submissionDiscipline';
     public const CONTROLLED_VOCAB_SUBMISSION_KEYWORD = 'submissionKeyword';
-    public const CONTROLLED_VOCAB_SUBMISSION_LANGUAGE = 'submissionLanguage';
     public const CONTROLLED_VOCAB_SUBMISSION_SUBJECT = 'submissionSubject';
 
     /**
@@ -91,7 +90,6 @@ class ControlledVocab extends Model
             static::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
             static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
             static::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-            static::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE,
             static::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
         ];
     }

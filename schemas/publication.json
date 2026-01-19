@@ -78,13 +78,6 @@
 				"nullable"
 			]
 		},
-		"citationsMetadataLookup": {
-			"type": "boolean",
-			"description": "Whether or not to use the metadata lookup for citations.",
-			"validation": [
-				"nullable"
-			]
-		},
 		"copyrightHolder": {
 			"type": "string",
 			"description": "The copyright statement for this publication.",
@@ -207,6 +200,14 @@
 			"multilingual": true,
 			"readOnly": true,
 			"apiSummary": true
+		},
+		"fundingStatement": {
+			"type": "string",
+			"description": "Optional metadata that describes funding details for this publication.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"id": {
 			"type": "integer",

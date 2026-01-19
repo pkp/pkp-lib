@@ -1,8 +1,8 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
-# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-25 07:25+0000\n"
+"PO-Revision-Date: 2026-01-09 01:22+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ja/>\n"
@@ -1593,9 +1593,6 @@ msgstr "通過"
 
 msgid "settings.roles.roleOptions"
 msgstr "役割オプション"
-
-msgid "settings.roles.showTitles"
-msgstr "投稿者リストに役割名を表示"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "ユーザーの自己登録が可能"
@@ -3371,3 +3368,19 @@ msgstr "マストヘッド"
 
 msgid "plugins.importexport.common.validation"
 msgstr "エクスポートや登録の前にXMLを検証します。"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "投稿時の査読者候補"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "投稿プロセスにおいて著者が査読者候補を提案できるようにする"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr "著者は投稿を完了する前に複数の査読者候補を提案することができ、これにより査読"
+"プロセスの効率化や編集部にとって有益な情報の提供につながります。"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"以下は、査読者候補の提案ステップにおいて著者に表示されます。著者自身、共著者"
+"、ならびにその他の貢献者について、どのような情報を提供すべきかを簡潔に説明し"
+"てください。"

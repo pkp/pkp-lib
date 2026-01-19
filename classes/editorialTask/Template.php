@@ -22,9 +22,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
 use PKP\editorialTask\EditorialTask as Task;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
 
@@ -37,6 +39,7 @@ class Template extends Model
 
     public $timestamps = true;
 
+
     // columns on edit_task_templates
     protected $fillable = [
         'stageId',
@@ -46,6 +49,7 @@ class Template extends Model
         'type',
         'dueInterval',
         'description',
+        'restrictToUserGroups'
     ];
 
     protected $casts = [
@@ -53,6 +57,8 @@ class Template extends Model
         'context_id' => 'int',
         'include' => 'bool',
         'title' => 'string',
+        'type' => 'int',
+        'restrictToUserGroups' => 'bool',
     ];
 
     /**
@@ -139,14 +145,6 @@ class Template extends Model
     }
 
     /**
-     * Scope: filter by email_template_key
-     */
-    public function scopeFilterByEmailTemplateKey(Builder $query, string $key): Builder
-    {
-        return $query->where('email_template_key', $key);
-    }
-
-    /**
      * Creates a new task from a template
      */
     public function promote(Submission $submission): Task
@@ -172,4 +170,109 @@ class Template extends Model
         ]);
     }
 
+    /**
+     * Scope: filter by  type
+     */
+    public function scopeFilterByType(Builder $q, int $type): Builder
+    {
+        return $q->where('type', $type);
+    }
+
+    /**
+     * Scope: filter by title LIKE
+     */
+    public function scopeFilterByTitleLike(Builder $query, string $title): Builder
+    {
+        $title = trim($title);
+        if ($title === '') {
+            return $query;
+        }
+
+        // escape LIKE wildcards in the user input, then wrap with %
+        $needle = '%' . addcslashes($title, '%_') . '%';
+
+        // use LOWER() on both sides so DB applies the same case-folding
+        return $query->whereRaw('LOWER(title) LIKE LOWER(?)', [$needle]);
+    }
+
+    /**
+     * Free-text / words search across:
+     * - title column
+     * - name, description (settings)
+     * Also supports "task" / "discussion" keyword to constrain by type.
+     */
+    public function scopeFilterBySearch(Builder $query, string $phrase): Builder
+    {
+        $phrase = trim($phrase);
+        if ($phrase === '') {
+            return $query;
+        }
+
+        $tokens = preg_split('/\s+/', $phrase) ?: [];
+        $tokens = array_values(array_filter($tokens, fn ($t) => $t !== ''));
+        if (!$tokens) {
+            return $query;
+        }
+
+        // map special keywords to type values
+        $typeMap = [
+            'task' => EditorialTaskType::TASK->value,
+            'tasks' => EditorialTaskType::TASK->value,
+            'discussion' => EditorialTaskType::DISCUSSION->value,
+            'discussions' => EditorialTaskType::DISCUSSION->value,
+        ];
+
+        $typeFilter = null;
+        $keywords = [];
+
+        foreach ($tokens as $tok) {
+            $lower = mb_strtolower($tok, 'UTF-8');
+
+            if (isset($typeMap[$lower])) {
+                $typeFilter = $typeMap[$lower];
+                continue;
+            }
+
+            $keywords[] = $tok;
+        }
+
+        if ($typeFilter !== null) {
+            $query->filterByType($typeFilter);
+        }
+
+        if ($keywords) {
+            $settingsTable = $this->getSettingsTable();
+            $pk = $this->getKeyName();
+            $selfTable = $this->getTable();
+
+            $query->where(function (Builder $outer) use ($keywords, $settingsTable, $pk, $selfTable) {
+                foreach ($keywords as $tok) {
+                    $like = '%' . addcslashes($tok, '%_') . '%';
+
+                    $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
+                        $q->whereRaw('LOWER(title) LIKE LOWER(?)', [$like])
+                            ->orWhereRaw('LOWER(description) LIKE LOWER(?)', [$like])
+                            ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
+                                $sub->select(DB::raw(1))
+                                    ->from($settingsTable . ' as ets')
+                                    ->whereColumn("ets.{$pk}", "{$selfTable}.{$pk}")
+                                    ->whereIn('ets.setting_name', ['name', 'description'])
+                                    ->whereRaw('LOWER(ets.setting_value) LIKE LOWER(?)', [$like]);
+                            });
+                    });
+                }
+            });
+        }
+        return $query;
+    }
+
+    /**
+     * Scope a query to filter by user group IDs.
+     */
+    protected function scopeWithUserGroupIds(Builder $builder, array $userGroupIds): Builder
+    {
+        $ug = (new UserGroup())->getTable();
+        return $builder->where('restrict_to_user_groups', false)
+            ->orWhereHas('userGroups', fn (Builder $query) => $query->whereIn($ug . '.user_group_id', $userGroupIds));
+    }
 }

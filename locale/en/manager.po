@@ -995,7 +995,6 @@ msgstr "Custom DOI Suffix Pattern"
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr "One or more selected DOI types are not allowed for the configured DOI registration agency."
 
-#, fuzzy
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr "Select the format to use when the application generates a DOI."
 
@@ -1034,6 +1033,9 @@ msgstr "DOI Versioning"
 msgid "doi.authorization.enabledRequired"
 msgstr "You cannot call this operation without DOIs enabled."
 
+msgid "publicPeerReviews.authorization.enabledRequired"
+msgstr "You cannot call this operation without Public Peer Reviews enabled."
+
 msgid "doi.manager.versions.countStatement"
 msgstr "There are {$count} versions."
 
@@ -1066,14 +1068,12 @@ msgstr "Advanced"
 msgid "manager.setup.copyrightNotice"
 msgstr "Copyright Notice"
 
-#, fuzzy
 msgid "manager.setup.copyrightNotice.description"
 msgstr "The following appears on the <a href=\"{$url}\">submissions</a> page where authors will learn about the requirements for submission. Authors will be required to confirm that they agree with the copyright notice before their submission is complete."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Author Guidelines"
 
-#, fuzzy
 msgid "manager.setup.authorGuidelines.description"
 msgstr "The following appears on the <a href=\"{$url}\">submissions</a> page where authors will learn about what they must do to prepare their work for submission. Provide guidance on anything they might need to know, such as bibliographic and formatting standards, alongside examples of common citation formats to be used. You may also wish to provide details about the preferred format and subject matter of submissions."
 
@@ -1332,6 +1332,15 @@ msgstr "No reminder set"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"
+
+msgid "manager.setup.reviewOptions.publicReviewerComments.show"
+msgstr "Publicly Show Reviewer Comments"
+
+msgid "manager.setup.reviewOptions.publicReviewerComments.label"
+msgstr "Make reviewer comments publicly visible with published content"
+
+msgid "manager.setup.reviewOptions.publicReviewerComments.description"
+msgstr "Enable this setting if you'd like the review process to be made publicly visible alongside published submissions. This supports transparent peer review practices and can help foster greater trust and accountability."
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
@@ -1855,9 +1864,6 @@ msgstr "Consider role in masthead list"
 msgid "settings.roles.roleOptions"
 msgstr "Role Options"
 
-msgid "settings.roles.showTitles"
-msgstr "Show role title in contributor list"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Allow user self-registration"
 
@@ -2358,7 +2364,7 @@ msgstr ""
 "Require the author to provide references before accepting their submission."
 
 msgid "manager.setup.metadata.citationsMetadataLookup.enable"
-msgstr "Enable references metadata lookup for new submissions"
+msgstr "Enable references structuring and metadata lookup"
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
@@ -2376,6 +2382,23 @@ msgstr "Ask the author to provide a data availability statement during submissio
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
 "Require the author to provide a data availability statement before accepting their submission."
+
+msgid "manager.setup.metadata.fundingStatement.description"
+msgstr ""
+"A short statement describing funding details."
+
+msgid "manager.setup.metadata.fundingStatement.enable"
+msgstr "Enable funding statement metadata"
+
+msgid "manager.setup.metadata.fundingStatement.noRequest"
+msgstr "Do not request a funding statement from the author during submission."
+
+msgid "manager.setup.metadata.fundingStatement.request"
+msgstr "Ask the author to provide a funding statement during submission."
+
+msgid "manager.setup.metadata.fundingStatement.require"
+msgstr ""
+"Require the author to provide a funding statement before accepting their submission."
 
 msgid "manager.setup.metadata.plainLanguageSummary"
 msgstr "Plain language summary"
@@ -2419,12 +2442,6 @@ msgstr "Unknown encoding {$param}"
 
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "The content is not encoded as {$param}"
-
-msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr ""
-"The import file includes an author '{$authorName}', with the user group "
-"'{$userGroupName}'. There is no user group defined in the destination "
-"installation with a user group with this name."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "UserGroup Missing for author name {$param}"
@@ -2563,7 +2580,6 @@ msgstr "A URL must be provided"
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Learn more about when this menu item will be displayed or hidden."
 
-#, fuzzy
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
 "When a menu item opens a submenu, it's link can not be followed on all "
@@ -2680,7 +2696,6 @@ msgstr ""
 "This link will only be displayed if you have entered a privacy statement "
 "under Settings > Workflow > Submissions."
 
-# fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "The menu item title is required."
 
@@ -3088,7 +3103,6 @@ msgstr "The files uploaded by the reviewer"
 msgid "emailTemplate.variable.review.name"
 msgstr "The name of the reviewer"
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "A description of the default review method, such as double anonymous or open"
@@ -3853,3 +3867,86 @@ msgstr "View Report"
 
 msgid "manager.userComment.enableComments"
 msgstr "Enable Public Comments"
+
+msgid "manager.contributorRoles.add"
+msgstr "Add Role"
+
+msgid "manager.contributorRoles.edit"
+msgstr "Edit Role"
+
+msgid "manager.contributorRoles.title"
+msgstr "Contributor Roles"
+
+msgid "manager.contributorRoles.identifier"
+msgstr "Role Identifier"
+
+msgid "manager.contributorRoles.name"
+msgstr "Role Name"
+
+msgid "manager.contributorRoles.name.description"
+msgstr "Fill name in all of the languages."
+
+msgid "manager.contributorRoles.saved"
+msgstr "Contributor role saved"
+
+msgid "manager.contributorRoles.error.nameRequired"
+msgstr "Role names required in all of the languages."
+
+msgid "manager.contributorRoles.error.delete.inUse"
+msgstr "One or more contributors are using this role. Change the role to another before delete."
+
+msgid "manager.contributorRoles.delete.role"
+msgstr "Delete Role"
+
+msgid "manager.contributorRoles.alert.delete.confirm"
+msgstr "I understand the consequences, delete this role"
+
+msgid "manager.contributorRoles.alert.delete.confirmationTitle"
+msgstr "Are you absolutely sure you want to delete \"{$contributorRoleIdentifier}\" role?"
+
+msgid "manager.contributorRoles.alert.delete.message.body"
+msgstr ""
+"<div class=\"text-secondary\">"
+"<p class=\"mt-6\">This action cannot be undone. Before deleting this role, check these:</p>"
+"<ul role=\"list\" class=\"list-disc ml-8\">"
+"<li>At least one AUTHOR role must exist</li>"
+"<li>Unassign this role from any contributor currently using it</li>"
+"</ul>"
+"</div>"
+"<p class=\"mt-4 text-primary text-lg-bold\">To confirm, please type \"{$contributorRoleIdentifier}\" below to proceed</p>"
+
+msgid "manager.contributorRoles.alert.deleted"
+msgstr "Role Deleted"
+
+msgid "manager.contributorRoles.alert.deleted.description"
+msgstr "<p>\"{$contributorRoleIdentifier}\" has been successfully deleted.</p>"
+
+msgid "manager.contributorRoles.backToRoles"
+msgstr "Back to Contributor Roles"
+
+msgid "plugins.importexport.common.error.missingContributorType"
+msgstr "Missing contributor type; defaults to person."
+
+msgid "plugins.importexport.common.error.missingEmail"
+msgstr "The author {$authorName} does not have an email."
+
+msgid "plugins.importexport.common.error.missingCountry"
+msgstr "The author {$authorName} does not have a country."
+
+msgid "plugins.importexport.common.error.noContributorRole"
+msgstr "The author '{$authorName}' does not have any contributor role. Defaults to AUTHOR."
+
+msgid "manager.reviewerRecommendations.type.approved"
+msgstr "Approved"
+
+msgid "manager.reviewerRecommendations.type.revisionsRequested"
+msgstr "Revisions requested"
+
+msgid "manager.reviewerRecommendations.type.withComments"
+msgstr "With Comments"
+
+msgid "manager.reviewerRecommendations.recommendationType"
+msgstr "Recommendation type"
+
+msgid "manager.reviewerRecommendations.type.notApproved"
+msgstr "Not Approved"

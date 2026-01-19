@@ -122,7 +122,12 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         });
 
         // Create a global alias so ViewHelper can be used without full namespace in templates
-        AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);    }
+        AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);
+
+        // Override Blade's default echo format to escape Vue.js template delimiters
+        // This prevents XSS via Vue template injection when user content contains {{ }}
+        Blade::setEchoFormat('\PKP\template\ViewHelper::vueEscape(%s)');
+    }
 
     /**
      * Register the service provider.

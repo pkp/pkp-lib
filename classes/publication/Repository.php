@@ -24,6 +24,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
+use PKP\API\v1\peerReviews\resources\PublicationPeerReviewResource;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -42,7 +43,6 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\traits\HasWordCountValidation;
-use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -100,16 +100,14 @@ abstract class Repository
      * Get an instance of the map class for mapping
      * publications to their schema
      *
-     * @param Enumerable<int,UserGroup> $userGroups
      * @param Genre[] $genres
      */
-    public function getSchemaMap(Submission $submission, Enumerable $userGroups, array $genres): maps\Schema
+    public function getSchemaMap(Submission $submission, array $genres): maps\Schema
     {
         return app('maps')->withExtensions(
             $this->schemaMap,
             [
                 'submission' => $submission,
-                'userGroups' => $userGroups,
                 'genres' => $genres,
             ]
         );
@@ -374,7 +372,16 @@ abstract class Repository
         if ($context->getData(Context::SETTING_DOI_VERSIONING) && !$isMinorVersion) {
             $newPublication->setData('doiId', null);
         }
+
+        $citations = $newPublication->getData('citations');
+        // remove citations from the new publication
+        // so that they are not re-processed when inserting the new publication
+        $newPublication->setData('citations', null);
+        $newPublication->setData('citationsRaw', null);
         $newId = $this->add($newPublication);
+        // insert citations as they are for the new publication
+        Repo::citation()->copyCitations($citations, $newId);
+
         $newPublication = Repo::publication()->get($newId);
 
         $authors = $publication->getData('authors');
@@ -390,11 +397,6 @@ abstract class Repository
                 }
             }
         }
-
-        Repo::citation()->importCitations(
-            $newPublication->getId(),
-            $newPublication->getData('citationsRaw')
-        );
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
@@ -447,7 +449,6 @@ abstract class Repository
             }
         }
 
-        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
         $newPublication = Repo::publication()->newDataObject(array_merge($publication->_data, $params));
         $newPublication->stampModified();
 
@@ -976,5 +977,42 @@ abstract class Repository
     public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
     {
         return $this->dao->getMinorVersionsSettingValues($submissionId, $versionStage, $versionMajor, $settingName);
+    }
+
+    /**
+     * @copydoc DAO::getExportableDOIsSubmissionIds()
+     */
+    public function getExportableDOIsSubmissionIds(int $contextId, bool $doiVersioning): array
+    {
+        return $this->dao->getExportableDOIsSubmissionIds($contextId, $doiVersioning);
+    }
+
+    /**
+     * Get public peer review data for publications.
+     *
+     * @param array $publications - The publications to get peer review data for.
+     */
+    public function getPeerReviews(array $publications): Enumerable
+    {
+        return collect($publications)
+            ->lazy()
+            ->map(function ($publication) {
+                // Call resolve to get the array representation of the data prepared by the resource.
+                // Thus allowing code outside of an API context (e.g, page handlers) to use this getPeerReviews method to get peer review data in a consistent shape.
+                return (new PublicationPeerReviewResource($publication))->resolve();
+            })->values();
+    }
+
+    /**
+     * Returns the provided publication ID as well as any other publications
+     * that reference this publication via the `source_publication_id`.
+     */
+    public function getWithSourcePublicationsIds(array $publicationIds): Collection
+    {
+        return $this->getCollector()
+            ->filterByPublicationIds($publicationIds)
+            ->filterWithSourcePublicationIds()
+            ->getIds();
+
     }
 }

@@ -1691,9 +1691,6 @@ msgstr "Valūta"
 msgid "settings.roles.roleOptions"
 msgstr "Lomas iestatījumi"
 
-msgid "settings.roles.showTitles"
-msgstr "Rādīt lomas nosaukumu līdzautoru sarakstā"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Atļaut lietotāja pašreģistrāciju"
 

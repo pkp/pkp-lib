@@ -24,7 +24,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\API\v1\contexts\resources\UserGroupResource;
 use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -40,7 +39,6 @@ use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPContextService;
 use PKP\services\PKPSchemaService;
-use PKP\userGroup\UserGroup;
 
 class PKPContextController extends PKPBaseController
 {
@@ -98,10 +96,6 @@ class PKPContextController extends PKPBaseController
 
             Route::put('{contextId}/registrationAgency', $this->editDoiRegistrationAgencyPlugin(...))
                 ->name('context.edit.doiRegistration')
-                ->whereNumber('contextId');
-
-            Route::get('{contextId}/userGroups', $this->getUserGroups(...))
-                ->name('context.getUserGroups')
                 ->whereNumber('contextId');
         });
 
@@ -610,7 +604,7 @@ class PKPContextController extends PKPBaseController
         // Get the appropriate agency plugin
         $plugins = PluginRegistry::loadCategory('generic', true);
         $selectedPlugin = null;
-        foreach ($plugins as $plugin) {
+        foreach ($plugins as $plugin) { /** @var \PKP\plugins\Plugin $plugin */
             if (
                 $contextParams[Context::SETTING_CONFIGURED_REGISTRATION_AGENCY] === $plugin->getName()
             ) {
@@ -708,46 +702,6 @@ class PKPContextController extends PKPBaseController
         $contextService->delete($context);
 
         return response()->json($contextProps, Response::HTTP_OK);
-    }
-
-    /**
-     * Get a list of available user groups
-     */
-    public function getUserGroups(Request $illuminateRequest): JsonResponse
-    {
-        $contextId = (int) $illuminateRequest->route('contextId');
-
-        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
-        $context = $contextService->get($contextId);
-
-        if (!$context) {
-            return response()->json([
-                'error' => __('api.contexts.404.contextNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        $collector = UserGroup::withContextIds([$context->getId()]);
-
-        foreach ($illuminateRequest->query() as $param => $val) {
-            switch ($param) {
-                case 'stageIds':
-                    $collector->withStageIds(array_map(intval(...), paramToArray($val)));
-                    break;
-                case 'roleIds':
-                    $collector->withRoleIds(array_map(intval(...), paramToArray($val)));
-                    break;
-            }
-        }
-
-        $userGroups = $collector->get();
-
-        return response()->json(
-            [
-                'itemsMax' => $userGroups->count(),
-                'items' => UserGroupResource::collection(resource: $userGroups)
-            ],
-            Response::HTTP_OK
-        );
     }
 
     /**

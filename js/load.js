@@ -42,6 +42,7 @@ import * as useLegacyGridUrl from '@/composables/useLegacyGridUrl.js';
 import * as useLocalize from '@/composables/useLocalize.js';
 import * as useModal from '@/composables/useModal.js';
 import * as useNotify from '@/composables/useNotify.js';
+import * as useOrdering from '@/composables/useOrdering.js';
 import * as useQueryParams from '@/composables/useQueryParams.js';
 import * as useSideMenu from '@/composables/useSideMenu.js';
 import * as useSorting from '@/composables/useSorting.js';
@@ -101,10 +102,12 @@ import SideModalBody from '@/components/Modal/SideModalBody.vue';
 import SideModalLayoutBasic from '@/components/Modal/SideModalLayoutBasic.vue';
 import SkipLink from '@/components/SkipLink/SkipLink.vue';
 import Table from '@/components/Table/Table.vue';
+import TableBody from '@/components/Table/TableBody.vue';
 import TableCell from '@/components/Table/TableCell.vue';
+import TableCellOrder from '@/components/Table/TableCellOrder.vue';
+import TableCellSelect from '@/components/Table/TableCellSelect.vue';
 import TableColumn from '@/components/Table/TableColumn.vue';
 import TableHeader from '@/components/Table/TableHeader.vue';
-import TableBody from '@/components/Table/TableBody.vue';
 import TableRow from '@/components/Table/TableRow.vue';
 import Tooltip from '@/components/Tooltip/Tooltip.vue';
 
@@ -116,6 +119,7 @@ import FieldBase from '@/components/Form/fields/FieldBase.vue';
 import FieldBaseAutosuggest from '@/components/Form/fields/FieldBaseAutosuggest.vue';
 import FieldColor from '@/components/Form/fields/FieldColor.vue';
 import FieldControlledVocab from '@/components/Form/fields/FieldControlledVocab.vue';
+import FieldDate from '@/components/Form/fields/FieldDate.vue';
 import FieldHtml from '@/components/Form/fields/FieldHtml.vue';
 import FieldMetadataSetting from '@/components/Form/fields/FieldMetadataSetting.vue';
 import FieldOptions from '@/components/Form/fields/FieldOptions.vue';
@@ -136,6 +140,7 @@ import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
 import FieldSlider from '@/components/Form/fields/FieldSlider.vue';
 import CategoryManager from '@/managers/CategoryManager/CategoryManager.vue';
+import ContributorRoleManager from '@/managers/ContributorRoleManager/ContributorRoleManager.vue';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
@@ -217,11 +222,14 @@ VueRegistry.registerComponent('PkpSkipLink', SkipLink);
 VueRegistry.registerComponent('PkpTable', Table);
 VueRegistry.registerComponent('PkpTableBody', TableBody);
 VueRegistry.registerComponent('PkpTableCell', TableCell);
+VueRegistry.registerComponent('PkpTableCellOrder', TableCellOrder);
+VueRegistry.registerComponent('PkpTableCellSelect', TableCellSelect);
 VueRegistry.registerComponent('PkpTableColumn', TableColumn);
 VueRegistry.registerComponent('PkpTableHeader', TableHeader);
 VueRegistry.registerComponent('PkpTableRow', TableRow);
 VueRegistry.registerComponent('PkpTooltip', Tooltip);
 VueRegistry.registerComponent('CategoryManager', CategoryManager);
+VueRegistry.registerComponent('ContributorRoleManager', ContributorRoleManager);
 
 // Register Form components
 VueRegistry.registerComponent('PkpForm', Form);
@@ -234,6 +242,7 @@ VueRegistry.registerComponent('PkpFieldBase', FieldBase);
 VueRegistry.registerComponent('PkpFieldBaseAutosuggest', FieldBaseAutosuggest);
 VueRegistry.registerComponent('PkpFieldColor', FieldColor);
 VueRegistry.registerComponent('PkpFieldControlledVocab', FieldControlledVocab);
+VueRegistry.registerComponent('PkpFieldDate', FieldDate);
 VueRegistry.registerComponent('PkpFieldHtml', FieldHtml);
 VueRegistry.registerComponent('PkpFieldOrcid', FieldOrcid);
 VueRegistry.registerComponent('PkpFieldMetadataSetting', FieldMetadataSetting);
@@ -345,6 +354,7 @@ export default {
 		useLocalize,
 		useModal,
 		useNotify,
+		useOrdering,
 		useQueryParams,
 		useSideMenu,
 		useSorting,

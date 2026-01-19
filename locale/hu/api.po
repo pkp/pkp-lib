@@ -147,9 +147,6 @@ msgid "api.publication.403.alreadyUnpublished"
 msgstr ""
 "A cikk aminek megjelentetését vissza szeretné vonni, még nem megjelentetett."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Nem szerkeszthető a cikk, mert már megjelentetett."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Az állapotot közvetlenül az API-n keresztül nem módosíthatja. Ehelyett "

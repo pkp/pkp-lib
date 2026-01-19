@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-18 14:49+0000\n"
+"PO-Revision-Date: 2025-11-05 13:52+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -1750,9 +1750,6 @@ msgstr "Валута"
 
 msgid "settings.roles.roleOptions"
 msgstr "Параметри на роля"
-
-msgid "settings.roles.showTitles"
-msgstr "Показване на заглавието на ролята в списъка на сътрудниците"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Разрешаване на потребителска саморегистрация"
@@ -4023,3 +4020,14 @@ msgstr "Изисква се минимално количество потвър
 # fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "Изисква се заглавие на менюто."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Категорията не съществува или принадлежи към различно издание. Моля, уверете "
+"се, че работите с правилното издание и опитайте отново."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Файловете с изображението на корицата и миниатюрите не можаха да бъдат "
+"намерени. Възможно е вече да са били изтрити. Опитайте да презаредите "
+"страницата."

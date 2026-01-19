@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2025-03-19 12:32+0000\n"
+"PO-Revision-Date: 2025-12-13 08:58+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/cs/"
 ">\n"
@@ -653,3 +653,78 @@ msgstr ""
 "aktivní.</p>        <p>Neváhejte mne kontaktovat v případě jakýchkoliv "
 "otázek o procesu.</p>        <p>S pozdravem,</p>        <p>{$contextName}</"
 "p>    </div></div><style>{$emailTemplateStyle}</style>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Již přidělené role</h2></p>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Toto je jméno příjemce pozvánky"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Oznámení o pozvání uživatele do role"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Jste zváni do nových rolí"
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Nově přidělené role</h2></p>"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Toto je jméno odesílatele pozvánky"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "To je role odesílatele pozvánky"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Tato část popisuje role, které budou uživateli přiděleny po přijetí pozvánky"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Tato část popisuje role, které uživatel již má."
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Toto je URL pro přijetí pozvánky"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Toto je URL adresa pro odmítnutí pozvánky"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Konec dne {$dateEnd}"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Tento e-mail je zasílán uživatelům, kteří jsou pozváni k získání určitých "
+"rolí"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr "Vaše jméno se neobjeví v záhlaví {$contextName} jako {$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr "Vaše jméno se objeví v záhlaví {$contextName} jako {$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSection"
+msgstr ""
+"<div class='section'>    <div class='section-number'>{$sectionNumber}.</"
+"div>    <div class='section-content'>        <h2>{$sectionName}</h2>        "
+"<p>Od {$dateStart}</p>        <p>{$sectionEndingDate}</p>        "
+"<p>{$sectionMastheadAppear}</p>    </div></div>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.body"
+msgstr ""
+"<div class='email-container'>    <div class='email-header'>        "
+"<h2>Pozvání do nové role</h2>    </div>    <div class='email-"
+"content'>        <p>Vážený/vážená {$recipientName},</p>        <p>Na základě "
+"vašich odborných zkušeností jste byl/a pozván/a redaktorem {$inviterName} do "
+"nové role {$contextName}</p>        <p>V {$contextName} respektujeme vaše "
+"soukromí. Proto jsme přijali opatření, která zajišťují plnou shodu s "
+"nařízením GDPR. Tato opatření zahrnují vaši odpovědnost za zadávání "
+"vlastních údajů a výběr osob, které mohou tyto informace vidět. Další "
+"informace o tom, jak nakládáme s vašimi údaji, naleznete v našich Zásadách "
+"ochrany osobních údajů.</p>        <div>{$existingRoles}</div>        "
+"<div>{$rolesAdded}</div>        <p>K přijetí této pozvánky budete přeměrován/"
+"a do {$contextName}.</p>        <p>Velmi rádi vám zodpovíme jakékoliv otázky "
+"kolem tohoto procesu.</p>        <p><a href='{$acceptUrl}' class='btn btn-"
+"accept'>Přijmout pozvání</a></p>        <p><a href='{$declineUrl}' "
+"class='btn btn-decline'>Odmítnout pozvání</a></p>        <p>S pozdravem</"
+"p>        <p>{$contextName}</p>    "
+"</div></div><style>{$emailTemplateStyle}</style>"

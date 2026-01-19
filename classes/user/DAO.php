@@ -126,9 +126,10 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $rows = $query->getQueryBuilder()->get();
+            if ($rows->isEmpty()) {
+                return;
+            }
 
             foreach ($rows as $row) {
                 yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);

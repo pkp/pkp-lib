@@ -17,6 +17,7 @@
 namespace PKP\citation\externalServices\openAlex;
 
 use PKP\citation\Citation;
+use PKP\citation\enum\CitationType;
 use PKP\citation\externalServices\ExternalServicesHelper;
 
 class Inbound
@@ -63,6 +64,16 @@ class Inbound
                         $newValue[] = $this->getAuthor($authorship);
                     }
                     break;
+                case 'sourceName':
+                    $newValue = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);
+                    if (empty($newValue)) {
+                        $newValue = ExternalServicesHelper::getValueFromArrayPath($response, ['locations', 0, 'raw_source_name']);
+                    }
+                    break;
+                case 'type':
+                    $foundType = !empty($response[$mappedKey]) ? $response[$mappedKey] : $response['type'];
+                    $newValue = $this->getTypeMapping($foundType);
+                    break;
                 default:
                     if (is_array($mappedKey)) {
                         $newValue = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);
@@ -97,6 +108,14 @@ class Inbound
             $displayName = $authorship['raw_author_name'];
         }
 
+
+        $firstNameFirst = explode(', ', trim($displayName));
+        if (count($firstNameFirst) > 1) {
+            $author['givenName'] = array_pop($firstNameFirst);
+            $author['familyName'] = trim($firstNameFirst[0]);
+            return $author;
+        }
+
         $authorDisplayNameParts = explode(' ', trim($displayName));
         if (count($authorDisplayNameParts) > 1) {
             $author['familyName'] = array_pop($authorDisplayNameParts);
@@ -104,5 +123,16 @@ class Inbound
         }
 
         return $author;
+    }
+
+    /**
+     * Get internal type from OpenAlex type
+     */
+    private function getTypeMapping(string $openAlexType): string
+    {
+        return match($openAlexType) {
+            'article' => CitationType::JOURNAL_ARTICLE->value,
+            default => $openAlexType,
+        };
     }
 }

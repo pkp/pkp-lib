@@ -19,6 +19,7 @@ namespace PKP\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
@@ -44,8 +45,7 @@ class RolesForm extends BaseProfileForm
         $templateMgr = TemplateManager::getManager($request);
 
         $userGroupIds = UserGroup::query()
-            ->withUserIds([$request->getUser()->getId()])
-            ->whereHas('userUserGroups', function ($query) use ($request) {
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($request) {
                 $query->withUserId($request->getUser()->getId())->withActive();
             })
             ->get()
@@ -53,6 +53,9 @@ class RolesForm extends BaseProfileForm
             ->toArray();
 
         $templateMgr->assign('userGroupIds', $userGroupIds);
+
+        // OPS does not have a reviewing system, so disable the interests section
+        $templateMgr->assign('disableInterestsSection', Application::get()->getName() === 'ops');
 
         $userFormHelper = new UserFormHelper();
         $userFormHelper->assignRoleContent($templateMgr, $request);

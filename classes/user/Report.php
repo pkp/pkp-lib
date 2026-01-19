@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup lib_pkp_classes_user
  */
@@ -19,6 +20,7 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\core\Request;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use PKP\facades\Locale;
 use PKP\userGroup\UserGroup;
@@ -79,8 +81,8 @@ class Report
             __('common.updated'),
             ...$this->
                 _getUserGroups()
-                ->map(fn (UserGroup $userGroup): string => $userGroup->getLocalizedData('name'))
-                ->toArray()
+                    ->map(fn (UserGroup $userGroup): string => $userGroup->getLocalizedData('name'))
+                    ->toArray()
         ];
     }
 
@@ -93,16 +95,8 @@ class Report
     {
         // fetch user groups where the user is assigned
         $userGroups = UserGroup::query()
-            ->whereHas('userUserGroups', function ($query) use ($user) {
-                $query->where('user_id', $user->getId())
-                    ->where(function ($q) {
-                        $q->whereNull('date_end')
-                            ->orWhere('date_end', '>', now());
-                    })
-                    ->where(function ($q) {
-                        $q->whereNull('date_start')
-                            ->orWhere('date_start', '<=', now());
-                    });
+            ->whereHas('userUserGroups', function (EloquentBuilder $query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
             })
             ->get();
 

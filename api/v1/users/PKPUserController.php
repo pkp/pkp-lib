@@ -36,6 +36,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\UserGroup;
+use PKP\security\Validation;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PKPUserController extends PKPBaseController
@@ -112,8 +113,15 @@ class PKPUserController extends PKPBaseController
                 'error' => __('api.404.resourceNotFound')
             ], Response::HTTP_NOT_FOUND);
         }
+        $map = Repo::user()->getSchemaMap();
+        $currentUser = Application::get()->getRequest()->getUser();
+        $options = [
+            'currentUserId' => $currentUser?->getId(),
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+        ];
 
-        return response()->json(Repo::user()->getSchemaMap()->map($user), Response::HTTP_OK);
+        $mapped = $map->mapManyWithOptions(collect([$user]), $options)->first();
+        return response()->json($mapped, Response::HTTP_OK);
     }
 
     /**
@@ -180,10 +188,12 @@ class PKPUserController extends PKPBaseController
         $users = $collector->getMany();
 
         $map = Repo::user()->getSchemaMap();
-        $items = [];
-        foreach ($users as $user) {
-            $items[] = $map->summarize($user);
-        }
+        $currentUser = Application::get()->getRequest()->getUser();
+        $options = [
+            'currentUserId' => $currentUser?->getId(),
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+        ];
+        $items = $map->summarizeMany($users, $options)->values()->all();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -233,12 +243,14 @@ class PKPUserController extends PKPBaseController
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null);
         $usersCollection = $collector->getMany();
-        $items = [];
         $map = Repo::user()->getSchemaMap();
-        foreach ($usersCollection as $user) {
-            $items[] = $map->summarizeReviewer($user);
-        }
+        $currentUser = Application::get()->getRequest()->getUser();
+        $options = [
+            'currentUserId' => $currentUser ? (int)$currentUser->getId() : null,
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+        ];
 
+        $items = $map->summarizeManyReviewers($usersCollection, $options)->values()->all();
         return response()->json([
             'itemsMax' => $collector->getCount(),
             'items' => $items,
@@ -332,7 +344,14 @@ class PKPUserController extends PKPBaseController
 
         // Return updated user model
         $user = Repo::user()->get($userId, true);
-        return response()->json(Repo::user()->getSchemaMap()->map($user), Response::HTTP_OK);
+                $map = Repo::user()->getSchemaMap();
+        $currentUser = Application::get()->getRequest()->getUser();
+        $options = [
+            'currentUserId' => $currentUser?->getId(),
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+        ];
+        $mapped = $map->mapManyWithOptions(collect([$user]), $options)->first();
+        return response()->json($mapped, Response::HTTP_OK);
     }
 
     /**
@@ -392,11 +411,12 @@ class PKPUserController extends PKPBaseController
                 case 'assignedToSubmission':
                 case 'reviewerRating':
                 case 'reviewStage':
-                case 'offset':
                 case 'searchPhrase':
                     $returnParams[$param] = trim($val);
                     break;
-
+                case 'offset':
+                    $returnParams[$param] = max(0, (int) $val);
+                    break;
                 case 'reviewsCompleted':
                 case 'reviewsActive':
                 case 'daysSinceLastAssignment':

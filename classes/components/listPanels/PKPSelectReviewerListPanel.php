@@ -20,6 +20,8 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\security\Validation;
+use Illuminate\Request;
 use PKP\user\Collector;
 
 class PKPSelectReviewerListPanel extends ListPanel
@@ -183,13 +185,13 @@ class PKPSelectReviewerListPanel extends ListPanel
     public function getItems($request)
     {
         $reviewers = $this->_getCollector()->getMany();
-        $items = [];
         $map = Repo::user()->getSchemaMap();
-        foreach ($reviewers as $reviewer) {
-            $items[] = $map->summarizeReviewer($reviewer);
-        }
-
-        return $items;
+        $currentUser = $request->getUser();
+        $options = [
+            'currentUserId' => $currentUser ? (int)$currentUser->getId() : null,
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+        ];
+        return $map->summarizeManyReviewers($reviewers, $options)->values()->all();
     }
 
     /**
@@ -199,7 +201,8 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        return $this->_getCollector()->getCount();
+        $collector = $this->_getCollector();
+        return $collector->limit(null)->offset(null)->getCount();
     }
 
     /**
@@ -209,7 +212,6 @@ class PKPSelectReviewerListPanel extends ListPanel
     {
         return Repo::user()->getCollector()
             ->filterByContextIds([$this->getParams['contextId']])
-            ->filterByWorkflowStageIds([$this->getParams['reviewStage']])
             ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
             ->includeReviewerData()
             ->offset(null)

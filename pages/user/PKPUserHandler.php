@@ -17,11 +17,8 @@
 namespace PKP\pages\user;
 
 use APP\core\Request;
-use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\core\JSONMessage;
-use PKP\core\PKPRequest;
 use PKP\security\Validation;
 
 class PKPUserHandler extends Handler
@@ -32,22 +29,6 @@ class PKPUserHandler extends Handler
     public function index($args, $request)
     {
         $request->redirect(null, null, 'profile');
-    }
-
-    /**
-     * Get interests for reviewer interests autocomplete.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
-     */
-    public function getInterests($args, $request)
-    {
-        return new JSONMessage(
-            true,
-            Repo::userInterest()->getAllInterests($request->getUserVar('term'))
-        );
     }
 
     /**

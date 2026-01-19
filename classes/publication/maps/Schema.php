@@ -37,17 +37,13 @@ class Schema extends \PKP\core\maps\Schema
     /** @var bool */
     public $anonymize;
 
-    /** @var Enumerable UserGroup The user groups for this context. */
-    public $userGroups;
-
     /** @var Genre[] The file genres for this context. */
     public array $genres;
 
-    public function __construct(Submission $submission, Enumerable $userGroups, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
         $this->submission = $submission;
-        $this->userGroups = $userGroups;
         $this->genres = $genres;
     }
 
@@ -102,7 +98,6 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function mapByProperties(array $props, Publication $publication, bool $anonymize): array
     {
-        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
         $this->anonymize = $anonymize;
 
         $output = [];
@@ -124,10 +119,10 @@ class Schema extends \PKP\core\maps\Schema
                     }
                     break;
                 case 'authorsString':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups);
+                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString();
                     break;
                 case 'authorsStringIncludeInBrowse':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups, true);
+                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString(true);
                     break;
                 case 'authorsStringShort':
                     $output[$prop] = $this->anonymize ? '' : $publication->getShortAuthorString();

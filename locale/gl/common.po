@@ -1924,6 +1924,7 @@ msgstr "Estado da rolda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumo do informe de estatísticas."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Este é un recordatorio para que poida comprobar a saúde da súa publicación a "

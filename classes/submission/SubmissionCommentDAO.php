@@ -78,7 +78,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     }
 
     /**
-     * Retrieve SubmissionComments made my reviewers on a submission
+     * Retrieve SubmissionComments made by reviewers on a submission
      *
      * @param int $submissionId The submission Id that was reviewered/commented on.
      * @param int $reviewerId The user id of the reviewer.

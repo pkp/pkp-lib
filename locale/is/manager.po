@@ -1606,9 +1606,6 @@ msgstr "Gjaldmiðill"
 msgid "settings.roles.roleOptions"
 msgstr "Hlutverk - valmöguleikar"
 
-msgid "settings.roles.showTitles"
-msgstr "Sýna fyrirsögn hlutverks á lista yfir framlagsaðila"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Leyfa notendum að skrá sig sjálfir"
 

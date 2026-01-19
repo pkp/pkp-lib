@@ -19,6 +19,8 @@
 namespace PKP\tests\classes\filter;
 
 use PKP\filter\Filter;
+use PKP\tests\classes\filter\TestClass2;
+use PKP\tests\classes\filter\TestClass1;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -49,15 +51,16 @@ class FilterTest extends PKPTestCase
         self::assertEquals([], $mockFilter->getErrors());
 
         // Test type validation.
-        $inputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass1';
-        $outputTypeDescription = 'class::lib.pkp.tests.classes.filter.TestClass2';
+        $inputTypeDescription = 'class::' . TestClass1::class;
+        $outputTypeDescription = 'class::' . TestClass2::class;
+        
         self::assertEquals($inputTypeDescription, $mockFilter->getInputType()->getTypeDescription());
         self::assertEquals($outputTypeDescription, $mockFilter->getOutputType()->getTypeDescription());
 
         // Test execution without runtime requirements
         $testInput = new TestClass1();
         $testInput->testField = 'some filter input';
-        self::assertInstanceOf('TestClass2', $testOutput = $mockFilter->execute($testInput));
+        self::assertInstanceOf(TestClass2::class, $testOutput = $mockFilter->execute($testInput));
 
         self::assertEquals($this->getTestOutput(), $testOutput);
         self::assertEquals($testInput, $mockFilter->getLastInput());
@@ -88,7 +91,7 @@ class FilterTest extends PKPTestCase
         self::assertNull($mockFilter->getLastOutput());
 
         // Test unsupported output
-        $mockFilter = $this->getFilterMock('class::lib.pkp.tests.classes.filter.TestClass1');
+        $mockFilter = $this->getFilterMock('class::' . TestClass1::class);
         self::assertNull($mockFilter->execute($testInput));
         self::assertEquals($testInput, $mockFilter->getLastInput());
         self::assertNull($mockFilter->getLastOutput());
@@ -134,12 +137,12 @@ class FilterTest extends PKPTestCase
      *
      * @return Filter
      */
-    private function getFilterMock($outputType = 'class::lib.pkp.tests.classes.filter.TestClass2')
+    private function getFilterMock($outputType = 'class::' . TestClass2::class)
     {
         // Mock the abstract filter class
         $mockFilter = $this->getMockBuilder(Filter::class)
             ->onlyMethods(['process'])
-            ->setConstructorArgs(['class::lib.pkp.tests.classes.filter.TestClass1', $outputType])
+            ->setConstructorArgs(['class::' . TestClass1::class, $outputType])
             ->getMock();
 
         // Set the filter processor.

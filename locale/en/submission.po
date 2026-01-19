@@ -39,6 +39,9 @@ msgstr "Please provide a ROR affiliation or at least one affiliation name."
 msgid "author.affiliationNamePrimaryLocaleMissing"
 msgstr "Please provide affiliation name in the submission primary locale."
 
+msgid "publication.editorEditWarning"
+msgstr "Warning: This version has been published. Editing it may impact the published content."
+
 msgid "ror.nameRequired"
 msgstr "A ROR name is required."
 
@@ -486,8 +489,8 @@ msgstr ""
 
 msgid "submission.citations.structured.citationsMetadataLookup.description"
 msgstr ""
-"This section helps you structure your references. "
-"Clicking \"Enable Metadata Lookup\" will allow the system to process your references and retrieve DOIs and other metadata from external sources. "
+"Structuring and Metadata Lookup is enabled for this Journal. "
+"The system will process your references and retrieve DOIs and other metadata from external sources. "
 "This may take some time, but you can continue working on your submission and return to this page later to view the updated structured citations. "
 
 msgid "submission.citations.structured.descriptionTable"
@@ -549,13 +552,22 @@ msgid "submission.citations.structured.deleteDialog.confirm"
 msgstr "This will remove this citation."
 
 msgid "submission.citations.structured.deleteAllLink"
-msgstr "Delete All Structured References"
+msgstr "Delete all references"
 
 msgid "submission.citations.structured.deleteAllDialog.title"
-msgstr "Delete all Structured Citations"
+msgstr "Delete all references"
 
 msgid "submission.citations.structured.deleteAllDialog.confirm"
 msgstr "This will remove all references currently listed. You'll need to re-enter and process your citations again if you continue."
+
+msgid "submission.citations.structured.reprocessAllCitations"
+msgstr "Reprocess all references"
+
+msgid "submission.citations.structured.reprocessAllCitations.title"
+msgstr "Reprocess all references"
+
+msgid "submission.citations.structured.reprocessAllCitations.confirm"
+msgstr "This will reprocess all references currently listed. You'll need to re-enter your manual changes again if you continue."
 
 msgid "submission.citations.structured.collapseAll"
 msgstr "Collapse All"
@@ -601,6 +613,9 @@ msgstr "Edit Raw Citation"
 
 msgid "submission.citations.structured.label.doi"
 msgstr "DOI"
+
+msgid "submission.citations.structured.description.doi"
+msgstr "e.g. 10.1000/182, doi:10.1000/182, https://doi.org/10.1000/182"
 
 msgid "submission.citations.structured.label.title"
 msgstr "Title"
@@ -650,8 +665,14 @@ msgstr "URN"
 msgid "submission.citations.structured.label.arxiv"
 msgstr "Arxiv"
 
+msgid "submission.citations.structured.description.arxiv"
+msgstr "e.g. 1234.123456v2, arxiv:1234.123456v2, https://arxiv.org/abs/1234.123456v2"
+
 msgid "submission.citations.structured.label.handle"
 msgstr "Handle"
+
+msgid "submission.citations.structured.description.handle"
+msgstr "e.g. 20.1000/100, handle:20.1000/100, https://hdl.handle.net/20.1000/100"
 
 msgid "submission.citations.structured.label.openAlex"
 msgstr "OpenAlex"
@@ -846,7 +867,7 @@ msgid "submission.event.reviewer.reviewerReminded"
 msgstr "{$senderName} sent a reminder to {$recipientName} regarding their review assignment"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
-msgstr "An automatic reminder email was sent to to {$recipientName} regarding their review assignment"
+msgstr "An automatic reminder email was sent to {$recipientName} regarding their review assignment"
 
 msgid "submission.event.subjectPrefix"
 msgstr "An email has been sent:"
@@ -1360,6 +1381,15 @@ msgstr "Name the file (e.g., Manuscript; Table 1)"
 
 msgid "submission.form.replaceExisting"
 msgstr "Replacing an Existing File?"
+
+msgid "workflow.attachUploadedFiles"
+msgstr "Attach files uploaded during the submission workflow, such as revisions or files to be reviewed."
+
+msgid "workflow.attachWorkflowFiles"
+msgstr "Attach Workflow Files"
+
+msgid "workflow.files"
+msgstr "Workflow Files"
 
 msgid "workflow.review.internalReview"
 msgstr "Internal Review"
@@ -2588,6 +2618,9 @@ msgstr "All Versions"
 msgid "publication.version.confirm"
 msgstr "Are you sure you want to create a new version?"
 
+msgid "publication.versionStringWithRound"
+msgstr "{$versionString} (Round {$round})"
+
 msgid "publication.abstract.wordCountLong"
 msgstr "The abstract is too long. It should be {$limit} words or less. It is currently {$count} words long."
 
@@ -2749,6 +2782,9 @@ msgstr "Published"
 
 msgid "publication.jats"
 msgstr "JATS XML"
+
+msgid "publication.bodyText"
+msgstr "Body Text"
 
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
@@ -3068,6 +3104,23 @@ msgstr ""
 "The publication must have a version stage assigned before it can "
 "be published."
 
+msgid "publication.publishReviewCurate.notice"
+msgstr "TBD"
+
+msgid "publication.publishReviewCurate.options.heading"
+msgstr "Publish-Review-Curate Options"
+
+msgid "publication.publishReviewCurate.options.description"
+msgstr ""
+"You are publishing this as a Published Manuscript Under Review. Would you like to to start the review process?<br>"
+"This will create a new review round and new unpublished Version of Record to be published upon review completion."
+
+msgid "publication.publishReviewCurate.options.label"
+msgstr "Create new review round and new unpublished Version of Record"
+
+msgid "publication.publishReviewCurate.errors.reviewCreationError"
+msgstr "Unable to create a new review round. Please do so manually."
+
 msgid "publication.required.versionStage.assignment"
 msgstr "The stage version that will be assigned to the publication is \"{$versionString}\""
 
@@ -3077,14 +3130,8 @@ msgstr "The publication version is \"{$versionString}\""
 msgid "publication.versionStage.authorOriginal"
 msgstr "Author Original"
 
-msgid "publication.versionStage.acceptedManuscript"
-msgstr "Accepted Manuscript"
-
-msgid "publication.versionStage.submittedManuscript"
-msgstr "Submitted Manuscript"
-
-msgid "publication.versionStage.proof"
-msgstr "Proof"
+msgid "publication.versionStage.publishedManuscriptUnderReview"
+msgstr "Published Manuscript Under Review"
 
 msgid "publication.versionStage.versionOfRecord"
 msgstr "Version of Record"
@@ -3278,6 +3325,9 @@ msgstr "Task and discussion template name"
 msgid "taskTemplates.templateAutoAdd"
 msgstr "Automatically add this task and discussion when a submission reaches a specific stage"
 
+msgid "taskTemplates.templateAutoAddAtStage"
+msgstr "Auto-add at stage"
+
 msgid "taskTemplates.templateAutoAddInStage"
 msgstr "Automatically add this task and/or discussion when a submission reaches the stage"
 
@@ -3304,3 +3354,43 @@ msgstr "Are you sure you want to stop automatically adding this task/discussion 
 
 msgid "taskTemplates.confirmEmailTemplate"
 msgstr "Applying this email template will replace the discussion text in the form. The changes will not be saved unless you choose to save. Do you want to continue?"
+
+msgid "submission.submit.contributor.organizationName"
+msgstr "Organization Name"
+
+msgid "submission.submit.contributor.rorId"
+msgstr "ROR ID"
+
+msgid "submission.submit.contributor.rorId.description"
+msgstr "Enter organization's ROR ID."
+
+msgid "submission.wizard.missingContributorLanguageOrganization"
+msgstr "The organization name is missing in {$language} for one or more of the contributors."
+
+msgid "submission.submit.contributorRoles.label"
+msgstr "Contributor Roles"
+
+msgid "submission.submit.contributorType.title"
+msgstr "Contributor Type"
+
+msgid "submission.submit.contributorType.description"
+msgstr "Selecting a contributor type will determine which fields you need to complete in this form."
+"Please note that if you change the contributor type after you've started filling out the form, any information you've already entered will not be saved."
+
+msgid "submission.submit.contributorType.person"
+msgstr "Person"
+
+msgid "submission.submit.contributorType.organization"
+msgstr "Organization or group"
+
+msgid "submission.submit.contributorType.anonymous"
+msgstr "Anonymous"
+
+msgid "submission.fundingStatement"
+msgstr "Funding Statement"
+
+msgid "submission.fundingStatement.tip"
+msgstr "Statement that describes the funding for the research on which this work was based."
+
+msgid "submission.submit.form.fundingStatementRequired"
+msgstr "Please enter the Funding Statement."

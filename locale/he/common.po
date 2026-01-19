@@ -1,9 +1,10 @@
 # Emma U <emmaupkp@gmail.com>, 2025.
 # 全名 <ytissona@bgu.ac.il>, 2025.
+# Michal Pinkas <pinkasm@bgu.ac.il>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-05 18:49+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-11-18 00:33+0000\n"
+"Last-Translator: 全名 <ytissona@bgu.ac.il>\n"
 "Language-Team: Hebrew <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "he/>\n"
 "Language: he\n"
@@ -99,7 +100,7 @@ msgid "navigation.admin"
 msgstr "ניהול"
 
 msgid "navigation.archives"
-msgstr "ארכיונים"
+msgstr "גיליונות קודמים"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "הנך נמצא כאן:"
@@ -232,7 +233,7 @@ msgid "common.available"
 msgstr "זמין"
 
 msgid "common.back"
-msgstr "גב"
+msgstr "חזור"
 
 msgid "common.between"
 msgstr "בין"
@@ -295,7 +296,7 @@ msgid "common.complete"
 msgstr "השלם"
 
 msgid "common.completed"
-msgstr "הושלמה"
+msgstr "הושלם"
 
 msgid "common.completed.date"
 msgstr "הושלם: {$dateCompleted}"
@@ -313,10 +314,10 @@ msgid "common.continue"
 msgstr "המשך"
 
 msgid "common.copy"
-msgstr "מדינה"
+msgstr "עותק"
 
 msgid "common.country"
-msgstr "צור"
+msgstr "מדינה"
 
 msgid "common.create"
 msgstr "תאריך סיום"
@@ -394,7 +395,7 @@ msgid "common.highlights"
 msgstr "מדגיש"
 
 msgid "common.homepageNavigationLabel"
-msgstr "הביתה"
+msgstr "בית"
 
 msgid "common.homePageHeaderLogo.altText"
 msgstr "לוגו כותרת עמוד הבית"
@@ -1294,6 +1295,7 @@ msgstr "נוסף דיון"
 msgid "notification.type.assignCopyeditors"
 msgstr "הקצה עורך לשון באמצעות שימוש בקישור \"הקצה\" ברשימת המשתתפים."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "זוהי תזכורת עבורך לבדוק את תקינות כתב העת שלך באמצעות דוח המערכת."
 
@@ -1559,7 +1561,7 @@ msgid "common.attachSelected"
 msgstr "צרף נבחר"
 
 msgid "common.editorialMasthead"
-msgstr "כותרת ראשית של המערכת"
+msgstr "מערכת"
 
 msgid "common.editorialMasthead.peerReviewers"
 msgstr "סוקרים בשנה הקודמת"
@@ -2250,7 +2252,7 @@ msgid "common.fromUntil"
 msgstr "{$from} – {$until}"
 
 msgid "common.publicKnowledgeProject"
-msgstr "פרויקט ידע ציבורי"
+msgstr "פרויקט PKP"
 
 msgid "common.currentStyleSheet"
 msgstr "גליון סגנונות נוכחי"
@@ -2296,3 +2298,6 @@ msgstr "הוא"
 
 msgid "navigation.system"
 msgstr "מערכת"
+
+msgid "common.changeLanguage"
+msgstr "החלף שפה"

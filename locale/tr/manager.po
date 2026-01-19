@@ -1681,9 +1681,6 @@ msgstr "Para birimi"
 msgid "settings.roles.roleOptions"
 msgstr "Rol Seçenekleri"
 
-msgid "settings.roles.showTitles"
-msgstr "Katkıda bulunanlar listesinde rol başlığını göster"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Kullanıcıların kendi kaydına izin ver"
 

@@ -17,6 +17,7 @@
 
 namespace PKP\filter;
 
+use Exception;
 abstract class CompositeFilter extends PersistableFilter
 {
     /** @var array An ordered array of sub-filters */
@@ -352,7 +353,7 @@ abstract class CompositeFilter extends PersistableFilter
      * they are identical and return only the first
      * one.
      *
-     * @return Composite setting name
+     * @return string|null setting name
      */
     public function _getCompositeSettingName(string $settingName): ?string
     {

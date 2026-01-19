@@ -101,7 +101,11 @@ abstract class SchemaDAO extends DAO
                             $object->getId(),
                             $localeKey,
                             $propName,
-                            $this->convertToDB($localeValue, $schema->properties->{$propName}->type),
+                            $this->convertToDB(
+                                value: $localeValue,
+                                type: $schema->properties->{$propName}->type,
+                                encrypt: $schema->properties->{$propName}->encrypt ?? false
+                            ),
                         ]);
                     }
                 } else {
@@ -109,7 +113,11 @@ abstract class SchemaDAO extends DAO
                         $object->getId(),
                         '',
                         $propName,
-                        $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
+                        $this->convertToDB(
+                            value: $sanitizedProps[$propName],
+                            type: $schema->properties->{$propName}->type,
+                            encrypt: $schema->properties->{$propName}->encrypt ?? false
+                        ),
                     ]);
                 }
             }
@@ -167,14 +175,26 @@ abstract class SchemaDAO extends DAO
                     } else {
                         DB::table($this->settingsTableName)->updateOrInsert(
                             [$this->primaryKeyColumn => $object->getId(), 'locale' => $localeKey, 'setting_name' => $propName],
-                            ['setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type)]
+                            [
+                                'setting_value' => $this->convertToDB(
+                                    value: $localeValue,
+                                    type: $schema->properties->{$propName}->type,
+                                    encrypt: $schema->properties->{$propName}->encrypt ?? false
+                                )
+                            ]
                         );
                     }
                 }
             } else {
                 DB::table($this->settingsTableName)->updateOrInsert(
                     [$this->primaryKeyColumn => $object->getId(), 'locale' => '', 'setting_name' => $propName],
-                    ['setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type)]
+                    [
+                        'setting_value' => $this->convertToDB(
+                            value: $sanitizedProps[$propName],
+                            type: $schema->properties->{$propName}->type,
+                            encrypt: $schema->properties->{$propName}->encrypt ?? false
+                        )
+                    ]
                 );
             }
         }
@@ -232,7 +252,11 @@ abstract class SchemaDAO extends DAO
             if (isset($primaryRow[$column])) {
                 $object->setData(
                     $propName,
-                    $this->convertFromDb($primaryRow[$column], $schema->properties->{$propName}->type)
+                    $this->convertFromDb(
+                        value: $primaryRow[$column],
+                        type: $schema->properties->{$propName}->type,
+                        decrypt: $schema->properties->{$propName}->encrypt ?? false
+                    )
                 );
             }
         }
@@ -248,8 +272,9 @@ abstract class SchemaDAO extends DAO
                 $object->setData(
                     $settingRow['setting_name'],
                     $this->convertFromDB(
-                        $settingRow['setting_value'],
-                        $schema->properties->{$settingRow['setting_name']}->type
+                        value: $settingRow['setting_value'],
+                        type: $schema->properties->{$settingRow['setting_name']}->type,
+                        decrypt: $schema->properties->{$settingRow['setting_name']}->encrypt ?? false
                     ),
                     empty($settingRow['locale']) ? null : $settingRow['locale']
                 );
@@ -292,7 +317,11 @@ abstract class SchemaDAO extends DAO
                 ) {
                     $primaryDbProps[$columnName] = null;
                 } else {
-                    $primaryDbProps[$columnName] = $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type);
+                    $primaryDbProps[$columnName] = $this->convertToDB(
+                        value: $sanitizedProps[$propName],
+                        type: $schema->properties->{$propName}->type,
+                        encrypt: $schema->properties->{$propName}->encrypt ?? false
+                    );
                 }
             }
         }

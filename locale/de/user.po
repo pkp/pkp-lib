@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-10-27 14:24+0000\n"
+"PO-Revision-Date: 2025-12-31 07:26+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/de/>"
 "\n"
@@ -854,3 +854,118 @@ msgstr "Ihre Suchphrase konnte nicht gefunden werden"
 
 msgid "user.affiliations.primaryLocaleRequired"
 msgstr "Die primäre Sprache {$primaryLocale} ist erforderlich"
+
+msgid "user.login.activate.description"
+msgstr "Bestätigen und aktivieren Sie Ihren Account"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Bevorzugte Avatar-Initialien"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Bitte fügen Sie eine Affiliation in der Sprache der Einreichung hinzu."
+
+msgid "user.role.ended"
+msgstr "Rolle beendet"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Der/die Benutzer/in sollte anonym sein. Sie sind derzeit eingeloggt."
+
+msgid "orcid.unauthenticated"
+msgstr "(nicht authentifiziert)"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "ORCID löschen"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Sind Sie sicher, dass Sie diese ORCID löschen möchten?"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID-Verifikation wurde angefordert!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Verifikations-E-Mail erneut senden"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "ORCID-Verifikation anfordern"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Möchten Sie eine E-Mail an diese/n Autor/in schicken, um die Verifikation "
+"der ORCID anzufordern?"
+
+msgid "orcid.manager.context.enabled"
+msgstr "ORCID-Funktionalitäten aktivieren"
+
+msgid "orcid.field.verification.request"
+msgstr "Verifikation anfordern"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Sind Sie sicher, dass Sie diese Rolle dauerhaft entfernen wollen? Diese "
+"Aktion wird den Zugriff des/der Benutzer/in auf alle Informationen und "
+"Berechtigungen, die zu dieser Rolle gehören, entfernen."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Bis dahin können Sie Ihr Profil betrachten und aktualisieren. Falls Sie "
+"glauben, dass dies ein Fehler ist, kontaktieren Sie bitte den/die "
+"Administrator/in."
+
+msgid "user.disabledModal.description"
+msgstr "Aktuelle Rollen : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "{$fullName} deaktivieren"
+
+msgid "user.bioStatement"
+msgstr "Biografie"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Hinzufügen, aktualisieren oder löschen von Gutachter/in-Empfehlungen für "
+"vollendete Einreichungen ist eingeschränkt."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Tragen Sie die zwei Buchstaben ein, die Sie als Ihren Avatar benutzen "
+"möchten. Diese Initialien werden angezeigt, um Sie zu repräsentieren."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Sie haben eine Änderung Ihrer E-Mail-Adresse zu \"{$pendingEmail}\" "
+"beantragt. Wir haben Ihnen bereits eine E-Mail mit Anweisungen zur "
+"Validierung der geänderten E-Mail Adresse zugeschickt."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Sie werden nun automatisch zurück zu {$contextName} geleitet."
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "ORCID-Funktionalitäten auf der ganzen Seite aktivieren"
+
+msgid "user.enabledModal.title"
+msgstr "{$fullName} aktivieren"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Sie können die Rolle nicht entfernen. Einem/Einer Benutzer/in muss "
+"mindestens eine Rolle zugewiesen sein."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID-Funktionalität kann optional auf Ebene der gesamten Seite für alle "
+"Zeitschriften/Verlage/Server aktiviert und konfiguriert werden. Falls dies "
+"aktiviert ist, wird es alle Zugangsdaten auf Kontextebene überschreiben und "
+"die folgenden Zugangsdaten auf alle Zeitschriften/Verlage/Server dieser "
+"Installation anwenden."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Diese E-Mail wird verschickt, sobald der/die Autor/in kreiert wurde."
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Diese ORCID wurde nicht verifiziert. Bitte entfernen Sie diese "
+"unverifizierte ORCID und fordern Sie eine Verifikation direkt von dem/der "
+"Benutzer/in oder Autor/in an."
+
+msgid "user.futureRole.notification.message"
+msgstr "Ihre Rolle wird am {$roleStartDate} starten"

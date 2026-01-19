@@ -1925,6 +1925,7 @@ msgstr "Status pusingan {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Ringkasan laporan statistik."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ini adalah peringatan untuk anda memeriksa kesihatan jurnal anda melalui "

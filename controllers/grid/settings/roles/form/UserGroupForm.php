@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -116,7 +117,11 @@ class UserGroupForm extends Form
             // Get a list of all settings-accessible user groups for the current user in
             // order to prevent them from locking themselves out by disabling the only one.
             $mySettingsAccessUserGroupIds = UserGroup::withContextIds([$this->getContextId()])
-                ->withUserIds([Application::get()->getRequest()->getUser()->getId()])
+                ->whereHas(
+                    'userUserGroups',
+                    fn (EloquentBuilder $q) =>
+                    $q->withActive()->withUserId(Application::get()->getRequest()->getUser()->getId())
+                )
                 ->get()
                 ->filter(fn ($userGroup) => $userGroup->permitSettings)
                 ->map(fn ($userGroup) => $userGroup->id)
@@ -128,7 +133,6 @@ class UserGroupForm extends Form
                 'name' => $userGroup->name, // Localized array
                 'abbrev' => $userGroup->abbrev, // Localized array
                 'assignedStages' => $assignedStages,
-                'showTitle' => $userGroup->showTitle,
                 'mySettingsAccessUserGroupIds' => array_values($mySettingsAccessUserGroupIds),
                 'permitSelfRegistration' => $userGroup->permitSelfRegistration,
                 'permitMetadataEdit' => $userGroup->permitMetadataEdit,
@@ -148,7 +152,7 @@ class UserGroupForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit', 'permitSettings', 'masthead']);
+        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit', 'permitSettings', 'masthead']);
     }
 
     /**
@@ -225,7 +229,6 @@ class UserGroupForm extends Form
 
             $userGroup->contextId = $this->getContextId();
             $userGroup->isDefault = false;
-            $userGroup->showTitle = (bool) $this->getData('showTitle');
             $userGroup->permitSelfRegistration = $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
             $userGroup->permitSettings = $this->getData('permitSettings') && $userGroup->roleId == Role::ROLE_ID_MANAGER;
 
@@ -251,7 +254,6 @@ class UserGroupForm extends Form
             // update localized fields
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
             $userGroup->permitSettings = $this->getData('permitSettings') && $userGroup->roleId == Role::ROLE_ID_MANAGER;
-            $userGroup->showTitle = (bool) $this->getData('showTitle');
             $userGroup->permitSelfRegistration = $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
 
             $previousPermitMetadataEdit = $userGroup->permitMetadataEdit;

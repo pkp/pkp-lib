@@ -31,10 +31,12 @@ class Collector implements CollectorInterface
     public \APP\publication\DAO $dao;
     public ?array $contextIds;
     public ?array $submissionIds;
+    public ?array $publicationIds;
     public ?array $doiIds = null;
     public ?string $versionStage = null;
     public ?int $versionMajor = null;
     public ?array $statuses = null;
+    public ?bool $shouldCheckForSourcePublicationIds = null;
     public bool $orderByVersion = false;
     public ?int $count;
     public ?int $offset;
@@ -86,6 +88,17 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    /**
+     * Filter by publication Ids
+     *
+     * @param ?int[] $publicationIDs Publication IDs
+     */
+    public function filterByPublicationIds(?array $publicationIds): self
+    {
+        $this->publicationIds = $publicationIds;
+        return $this;
+    }
+
     public function filterByDoiIds(?array $doiIds): self
     {
         $this->doiIds = $doiIds;
@@ -107,6 +120,18 @@ class Collector implements CollectorInterface
     public function filterByStatus(?array $statuses): self
     {
         $this->statuses = $statuses;
+        return $this;
+    }
+
+    /**
+     * Includes other publications referenced as the publication's source publication,
+     * e.g. as a parent-child relationship.
+     *
+     * NB: Must be used in conjunction with `filterByPublicationIds()`.
+     */
+    public function filterWithSourcePublicationIds(?bool $shouldCheckForSourcePublicationIds = true): self
+    {
+        $this->shouldCheckForSourcePublicationIds = $shouldCheckForSourcePublicationIds;
         return $this;
     }
 
@@ -153,6 +178,16 @@ class Collector implements CollectorInterface
         if (isset($this->submissionIds)) {
             $qb->whereIn('p.submission_id', $this->submissionIds);
         }
+        if (isset($this->publicationIds)) {
+            $qb->whereIn('p.publication_id', $this->publicationIds);
+            $qb->when($this->shouldCheckForSourcePublicationIds === true, function (Builder $qb) {
+                $qb->orWhereIn('p.publication_id', function (Builder $qb) {
+                    $qb->select('source_publication_id')
+                        ->from('publications')
+                        ->whereIn('publication_id', $this->publicationIds);
+                });
+            });
+        }
 
         $qb->when($this->doiIds !== null, function (Builder $qb) {
             $qb->whereIn('p.doi_id', $this->doiIds);
@@ -165,7 +200,7 @@ class Collector implements CollectorInterface
         $qb->when($this->versionMajor !== null, function (Builder $qb) {
             $qb->where('p.version_major', $this->versionMajor);
         });
-        
+
         if (isset($this->statuses)) {
             $qb->whereIn('p.status', $this->statuses);
         }

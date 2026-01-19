@@ -54,8 +54,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         }
         $context = $request->getRouter()->getContext($request);
 
-        $userGroups = UserGroup::withUserIds([$user->getId()])
-            ->withContextIds($context ? [$context->getId(), Application::SITE_CONTEXT_ID] : [Application::SITE_CONTEXT_ID])
+        $userGroups = UserGroup::withContextIds($context ? [$context->getId(), Application::SITE_CONTEXT_ID] : [Application::SITE_CONTEXT_ID])
             ->whereHas('userUserGroups', function ($query) use ($user) {
                 $query->withUserId($user->getId())->withActive();
             })

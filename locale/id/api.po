@@ -152,9 +152,6 @@ msgstr "Terbitan yang ingin Anda publikasi telah diterbitkan."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Publikasi yang ingin Anda batalkan belum dipublikasi."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Anda tidak boleh menyunting terbitan ini karena sudah terbit."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Anda tidak bisa mengubah status melalui API secara langsung. Gunakan titik "

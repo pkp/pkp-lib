@@ -1702,9 +1702,6 @@ msgstr "Mata Uang"
 msgid "settings.roles.roleOptions"
 msgstr "Pilihan Peran"
 
-msgid "settings.roles.showTitles"
-msgstr "Tampilkan judul peran dalam daftar kontributor"
-
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Ijinkan pendaftaran pengguna secara mandiri"
 

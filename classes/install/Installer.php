@@ -430,18 +430,9 @@ class Installer
             case 'migration':
                 assert(isset($action['attr']['class']));
                 $fullClassName = $action['attr']['class'];
-                if (strpos($fullClassName, '\\') !== false) {
-                    // Migration is specified fully-qualified PHP class name; allow autoloading
-                    $this->log(sprintf('migration: %s', $fullClassName));
-                    $migration = new $fullClassName($this, $action['attr']);
-                } else {
-                    // Migration is specified using old-style class.name.like.this
-                    // This behaviour is DEPRECATED as of 3.4.0
-                    import($fullClassName);
-                    $shortClassName = substr($fullClassName, strrpos($fullClassName, '.') + 1);
-                    $this->log(sprintf('migration: %s', $shortClassName));
-                    $migration = new $shortClassName($this, $action['attr']);
-                }
+                $this->log(sprintf('migration: %s', $fullClassName));
+                $migration = new $fullClassName($this, $action['attr']);
+
                 try {
                     $migration->up();
                     $this->migrations[] = $migration;

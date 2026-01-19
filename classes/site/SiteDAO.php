@@ -69,7 +69,11 @@ class SiteDAO extends \PKP\db\DAO
             if (isset($primaryRow[$column])) {
                 $site->setData(
                     $propName,
-                    $this->convertFromDb($primaryRow[$column], $schema->properties->{$propName}->type)
+                    $this->convertFromDb(
+                        value: $primaryRow[$column],
+                        type: $schema->properties->{$propName}->type,
+                        decrypt: $schema->properties->{$propName}->encrypt ?? false
+                    )
                 );
             }
         }
@@ -82,8 +86,9 @@ class SiteDAO extends \PKP\db\DAO
                 $site->setData(
                     $settingRow['setting_name'],
                     $this->convertFromDB(
-                        $settingRow['setting_value'],
-                        $schema->properties->{$settingRow['setting_name']}->type
+                        value: $settingRow['setting_value'],
+                        type: $schema->properties->{$settingRow['setting_name']}->type,
+                        decrypt: $schema->properties->{$settingRow['setting_name']}->encrypt ?? false
                     ),
                     empty($settingRow['locale']) ? null : $settingRow['locale']
                 );
@@ -127,7 +132,12 @@ class SiteDAO extends \PKP\db\DAO
         foreach ($this->primaryTableColumns as $propName => $column) {
             $set[] = $column . ' = ?';
             $property = $schema->properties->{$propName};
-            $params[] = $this->convertToDb($sanitizedProps[$propName], $property->type, in_array('nullable', $property->validation ?? []));
+            $params[] = $this->convertToDb(
+                value: $sanitizedProps[$propName], 
+                type: $property->type, 
+                nullable: in_array('nullable', $property->validation ?? []),
+                encrypt: $property->encrypt ?? false
+            );
         }
         $this->update('UPDATE site SET ' . join(',', $set), $params);
 
@@ -150,14 +160,26 @@ class SiteDAO extends \PKP\db\DAO
                     } else {
                         DB::table('site_settings')->updateOrInsert(
                             ['locale' => $localeKey, 'setting_name' => $propName],
-                            ['setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type)]
+                            [
+                                'setting_value' => $this->convertToDB(
+                                    value: $localeValue, 
+                                    type: $schema->properties->{$propName}->type,
+                                    encrypt: $schema->properties->{$propName}->encrypt ?? false
+                                )
+                            ]
                         );
                     }
                 }
             } else {
                 DB::table('site_settings')->updateOrInsert(
                     ['locale' => '', 'setting_name' => $propName],
-                    ['setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type)]
+                    [
+                        'setting_value' => $this->convertToDB(
+                            value: $sanitizedProps[$propName],
+                            type: $schema->properties->{$propName}->type,
+                            encrypt: $schema->properties->{$propName}->encrypt ?? false
+                        )
+                    ]
                 );
             }
         }

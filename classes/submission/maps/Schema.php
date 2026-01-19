@@ -502,7 +502,7 @@ class Schema extends \PKP\core\maps\Schema
                         ->toArray();
                     break;
                 case 'publications':
-                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
+                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->genres)
                         ->summarizeMany($submission->getData('publications'), $anonymize)->values();
                     break;
                 case 'recommendationsIn':
@@ -695,8 +695,8 @@ class Schema extends \PKP\core\maps\Schema
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
                 'canLoginAs' => $canLoginAs,
                 'canGossip' => $canGossip,
-                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId())->getDisplayInitials(),
-                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId())->getData('orcidIsVerified')
+                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId(), true)->getDisplayInitials(),
+                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId(), true)->getData('orcidIsVerified')
             ];
         }
 

@@ -27,6 +27,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -394,18 +395,26 @@ abstract class Repository
         }
 
         // Author names required in submission locale
+        $language = ['language' => Locale::getSubmissionLocaleDisplayNames([$locale])[$locale]];
+        $contribPers = ContributorType::PERSON->getName();
+        $contribOrga = ContributorType::ORGANIZATION->getName();
         foreach ($publication->getData('authors') as $author) {
             /** @var Author $author */
-            if (!$author->getGivenName($submission->getData('locale'))) {
+            $contributorType = $author->getData('contributorType');
+            if (($contributorType === $contribPers && !$author->getGivenName($locale)) ||
+                    ($contributorType === $contribOrga && !$author->getOrganizationName($locale))) {
                 if (!isset($errors['contributors'])) {
                     $errors['contributors'] = [];
                 }
-                $errors['contributors'][] = __('submission.wizard.missingContributorLanguage', ['language' => Locale::getSubmissionLocaleDisplayNames([$locale])[$locale]]);
+                $errors['contributors'][] = match ($contributorType) {
+                    $contribPers => __('submission.wizard.missingContributorLanguage', $language),
+                    $contribOrga => __('submission.wizard.missingContributorLanguageOrganization', $language),
+                };
                 break;
             }
             foreach ($author->getAffiliations() as $affiliation) {
                 if (!$affiliation->getRor()) {
-                    if (!$affiliation->getName($submission->getData('locale'))) {
+                    if (!$affiliation->getName($locale)) {
                         if (!isset($errors['contributors'])) {
                             $errors['contributors'] = [];
                         }
@@ -524,18 +533,39 @@ abstract class Repository
      */
     public function canEditPublication(int $submissionId, int $userId): bool
     {
-        // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignment::withSubmissionIds([$submissionId])
+        // block authors can never edit a published publication even if an editor granted them canChangeMetadata
+        $assignments = StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)
             ->get();
 
-        // Check for permission from stage assignments
-        if ($stageAssignments->contains(fn ($stageAssignment) => $stageAssignment->canChangeMetadata)) {
+        $submission = $this->get($submissionId);
+
+        // if user has no stage assigments, check if user can edit anyway ie. is manager
+        $context = Application::get()->getRequest()->getContext();
+        if ($this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+            return true;
+        }
+
+        // any published or scheduled then probe
+        $hasLockedPublication = $submission?->getData('publications')
+            ->contains(
+                fn (Publication $p) =>
+                    in_array(
+                        $p->getData('status'),
+                        [Submission::STATUS_PUBLISHED, Submission::STATUS_SCHEDULED]
+                    )
+            );
+
+        if ($hasLockedPublication && !$assignments->contains(fn (StageAssignment $sa) => $sa->userGroup && $sa->userGroup->roleId != Role::ROLE_ID_AUTHOR)) {
+            return false;
+        }
+
+        if ($assignments->contains(fn($sa) => $sa->canChangeMetadata)) {
             return true;
         }
         // If user has no stage assigments, check if user can edit anyway ie. is manager
         $context = Application::get()->getRequest()->getContext();
-        if ($stageAssignments->isEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+        if ($assignments->isEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
             return true;
         }
         // Else deny access

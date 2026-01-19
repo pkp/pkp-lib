@@ -15,8 +15,11 @@
 
 namespace PKP\API\v1\submissions\tasks\resources;
 
+use APP\facades\Repo;
 use Illuminate\Http\Resources\Json\JsonResource;
+use PKP\core\PKPApplication;
 use PKP\core\traits\ResourceWithData;
+use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
 class NoteResource extends JsonResource
@@ -25,12 +28,21 @@ class NoteResource extends JsonResource
 
     public function toArray($request)
     {
-        [$parentResource, $users] = $this->getData('parentResource', 'users');
+        [$parentResource, $users, $submissionFiles, $submission, $fileGenres] = $this->getData('parentResource', 'users', 'submissionFiles', 'submission', 'fileGenres');
         if (!$this->userId) {
             $user = $users->first(fn (User $user) => $user->getId() === $parentResource->createdBy); // fallback to the task creator
         } else {
             $user = $this->user;
         }
+
+        $submissionFiles = $submissionFiles->filter(
+            fn (SubmissionFile $submissionFile) =>
+                $submissionFile->getAssocType() == PKPApplication::ASSOC_TYPE_NOTE &&
+                in_array(
+                    (int) $submissionFile->getData('assocId'),
+                    [$this->id]
+                )
+        );
 
         return [
             'id' => $this->id,
@@ -41,6 +53,10 @@ class NoteResource extends JsonResource
             'createdByName' => $user->getFullName(),
             'createdByUsername' => $user->getUsername(),
             'createdByEmail' => $user->getEmail(),
+            'submissionFiles' => Repo::submissionFile()
+                ->getSchemaMap($submission, $fileGenres)
+                ->mapMany($submissionFiles)
+                ->toArray(),
         ];
     }
 
@@ -51,6 +67,11 @@ class NoteResource extends JsonResource
     {
         return [
             'users',
+            'parentResource',
+            'submissionFiles',
+            'stageAssignments',
+            'submission',
+            'fileGenres',
         ];
     }
 }

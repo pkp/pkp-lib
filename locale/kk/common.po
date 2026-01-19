@@ -1935,6 +1935,7 @@ msgstr "{$round} раунд жағдайы"
 msgid "notification.type.editorialReport"
 msgstr "Статистикалық мәліметтер бойынша жиынтық есеп."
 
+#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr "Журналыңыздың жай-күйін редакциялық есеппен тексеруді ескертеміз."
 

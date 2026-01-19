@@ -106,7 +106,3 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\ValidatorTypeDescription', '\ValidatorTypeDescription');
-}

@@ -376,6 +376,12 @@ msgstr "Schedule For Publication"
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Copyediting Files"
 
+msgid "editor.selectSubmissionFilesStage"
+msgstr "Select submission stage"
+
+msgid "editor.submission.productionFiles"
+msgstr "Production Files"
+
 msgid "editor.submission.selectReviewer"
 msgstr "Select Reviewer"
 
@@ -590,7 +596,6 @@ msgstr "Reassign"
 msgid "reviewer.list.reassign.withName"
 msgstr "Reassign {$name}"
 
-#, fuzzy
 msgid "reviewer.list.currentlyAssigned"
 msgstr "This reviewer has already been assigned to this review round."
 

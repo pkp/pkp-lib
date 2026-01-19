@@ -132,7 +132,7 @@ Cypress.Commands.add('install', function() {
 
 Cypress.Commands.add('login', (username, password, context) => {
 	context = context || 'index';
-	password = password || (username + username);
+	password = password || cy.getPassword(username);
 	cy.visit('index.php/' + context + '/en/login');
 	cy.get('input[id=username]').clear().type(username, {delay: 0});
 	cy.get('input[id=password]').clear().type(password, {delay: 0});
@@ -149,7 +149,7 @@ Cypress.Commands.add('setLocale', locale => {
 });
 
 Cypress.Commands.add('resetPassword', (username,oldPassword,newPassword) => {
-	oldPassword = oldPassword || (username + username);
+	oldPassword = oldPassword || cy.getPassword(username);
 	newPassword = newPassword || oldPassword;
 	cy.get('input[name=oldPassword]').type(oldPassword, {delay: 0});
 	cy.get('input[name=password]').type(newPassword, {delay: 0});
@@ -159,8 +159,8 @@ Cypress.Commands.add('resetPassword', (username,oldPassword,newPassword) => {
 
 Cypress.Commands.add('register', data => {
 	if (!('email' in data)) data.email = data.username + '@mailinator.com';
-	if (!('password' in data)) data.password = data.username + data.username;
-	if (!('password2' in data)) data.password2 = data.username + data.username;
+	if (!('password' in data)) data.password = cy.getPassword(data.username);
+	if (!('password2' in data)) data.password2 = cy.getPassword(data.username);
 
 	cy.visit('');
 	cy.get('a').contains('Register').click();
@@ -626,8 +626,8 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 
 Cypress.Commands.add('createUser', user => {
 	if (!('email' in user)) user.email = user.username + '@mailinator.com';
-	if (!('password' in user)) user.password = user.username + user.username;
-	if (!('password2' in user)) user.password2 = user.username + user.username;
+	if (!('password' in user)) user.password = cy.getPassword(user.username);
+	if (!('password2' in user)) user.password2 = cy.getPassword(user.username);
 	if (!('roles' in user)) user.roles = [];
 	cy.get('div[id=userGridContainer] a:contains("Add User")').click();
 	cy.wait(2000); // Avoid occasional glitches with given name field
@@ -966,7 +966,7 @@ Cypress.Commands.add('inviteUser', user => {
 
 Cypress.Commands.add('confirmationByUser', user => {
 	cy.get('#-username-control').type(user.username);
-	cy.get('#-password-control').type(user.username + user.username);
+	cy.get('#-password-control').type(cy.getPassword(user.username));
 	cy.get('.pkpFormField--options__input').click();
 	cy.contains('.pkpButton', 'Save and continue').click();
 	cy.get('#acceptUserDetails-givenName-control-en').type(user.givenName);
@@ -1060,4 +1060,19 @@ Cypress.Commands.add('toggleSubCategories', (hierarchy) => {
 			.find('button[data-cy="category-manager-toggle-sub-categories"]')
 			.click();
 	});
+});
+
+Cypress.Commands.addQuery('getPassword', function (username) {
+	if (username === undefined || username === null) {
+		throw new Error('must provide an username');
+	}
+
+	// for the admin user account, it will keep the password as it is
+	if (username === 'admin') {
+		return username;
+	}
+
+	const passwordPostfix = 'Az29!#';
+
+	return username + passwordPostfix;
 });

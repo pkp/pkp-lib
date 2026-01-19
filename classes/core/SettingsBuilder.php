@@ -316,33 +316,69 @@ class SettingsBuilder extends Builder
         // First, get all Model columns from the main table
         $primaryKey = $this->model->getKeyName();
 
-        $rows = $this->query->get()->keyBy($primaryKey);
-        if ($rows->isEmpty()) {
-            return $rows->all();
+        $collection = $this->query->get();
+        if ($collection->isEmpty()) {
+            return $collection->all();
         }
 
-        // Retrieve records from the settings table associated with the primary Model IDs
-        $ids = $rows->pluck($primaryKey)->toArray();
+        // Most queries return one row per model ID.
+        // Keeping the indexed path for that case and fall back when the result set contains duplicates.
+        $ids = $collection->pluck($primaryKey)->toArray();
+        $uniqueIds = array_values(array_unique($ids));
+
+        if (count($ids) === count($uniqueIds)) {
+            $rows = $collection->keyBy($primaryKey);
+
+            $settings = DB::table($this->model->getSettingsTable())
+                ->whereIn($primaryKey, $uniqueIds)
+                ->get();
+
+            $rows = $rows->all();
+
+            $settings->each(function (stdClass $setting) use (&$rows, $primaryKey) {
+                $settingModelId = $setting->{$primaryKey};
+
+                if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
+                    $rows[$settingModelId]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
+                } else {
+                    $rows[$settingModelId]->{$setting->setting_name} = $setting->setting_value;
+                }
+            });
+
+            foreach ($uniqueIds as $id) {
+                $this->filterRow($rows[$id], $columns);
+            }
+
+            return $rows;
+        }
+
+        // duplicate-safe path (needed for belongsToMany eager loads).
+        $rows = $collection->all();
+
+        $rowIndexesById = [];
+        foreach ($rows as $i => $row) {
+            $rowIndexesById[$row->{$primaryKey}][] = $i;
+        }
+
         $settings = DB::table($this->model->getSettingsTable())
-            ->whereIn($primaryKey, $ids)
+            ->whereIn($primaryKey, $uniqueIds)
             ->get();
 
-        $rows = $rows->all();
-
-        $settings->each(function (\stdClass $setting) use (&$rows, $primaryKey, $columns) {
+        $settings->each(function (stdClass $setting) use (&$rows, $rowIndexesById, $primaryKey, $columns) {
             $settingModelId = $setting->{$primaryKey};
 
-            // Even for empty('') locale, the multilingual props need to be an array
-            if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
-                $rows[$settingModelId]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
-            } else {
-                $rows[$settingModelId]->{$setting->setting_name} = $setting->setting_value;
+            foreach (($rowIndexesById[$settingModelId] ?? []) as $i) {
+                if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
+                    $rows[$i]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
+                } else {
+                    $rows[$i]->{$setting->setting_name} = $setting->setting_value;
+                }
             }
         });
 
-        // Include only specified columns
-        foreach ($ids as $id) {
-            $this->filterRow($rows[$id], $columns);
+        // Filter selected columns (no-op for ['*']).
+        foreach ($rows as $row) {
+            $this->filterRow($row, $columns);
         }
 
         return $rows;

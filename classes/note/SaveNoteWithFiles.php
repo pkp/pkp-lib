@@ -51,8 +51,10 @@ trait SaveNoteWithFiles
      */
     protected function manageFiles(?Note $headnote = null): array
     {
+        $noteId = $headnote?->id ?? $this->id;
+
         $existingFiles = Repo::submissionFile()->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, [$this->id])
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$noteId])
             ->getMany()
             ->toArray();
 

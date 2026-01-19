@@ -71,8 +71,8 @@ describe('ORCID tests', function() {
 	  cy.get('#username').type('johndoe');
 	  
 	  // Need to provide a hard password so that uncompromised validation does not trigger 
-	  cy.get('#password').type(cy.getPassword('johndoe'));
-	  cy.get('#password2').type(cy.getPassword('johndoe'));
+	  cy.get('#password').type(Cypress.getPassword('johndoe'));
+	  cy.get('#password2').type(Cypress.getPassword('johndoe'));
 
 	  cy.get('input[name="privacyConsent"]').check();
 

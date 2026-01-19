@@ -38,6 +38,9 @@ class SearchHandler extends Handler
     {
         $this->validate(null, $request);
 
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk = \APP\publication\Publication::STATUS_PUBLISHED;
+
         $rangeInfo = $this->getRangeInfo($request, 'search');
         $builder = (new SubmissionSearchResult())->builderFromRequest($request, $rangeInfo);
         $results = $builder->paginate($rangeInfo->getCount(), 'submissions', $rangeInfo->getPage());

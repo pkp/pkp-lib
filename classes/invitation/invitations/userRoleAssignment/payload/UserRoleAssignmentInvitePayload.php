@@ -15,6 +15,7 @@
 namespace PKP\invitation\invitations\userRoleAssignment\payload;
 
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use PKP\db\DAORegistry;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\InvitePayload;
@@ -59,7 +60,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
         $allowedLocales = $context->getSupportedFormLocales();
         $primaryLocale = $context->getPrimaryLocale();
 
-        $siteDao = DAORegistry::getDAO('SiteDAO');
+        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
         $site = $siteDao->getSite();
 
         $validationRules = [
@@ -142,7 +143,12 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 new NotNullIfPresent(),
                 'required_with:username',
                 'max:255',
-                'min:' . $site->getMinPasswordLength(),
+                Password::min($site->getMinPasswordLength())
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised()
             ],
             'userGroupsToAdd' => [
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE),
@@ -207,6 +213,18 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
 
     public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
-        return [];
+        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
+        $site = $siteDao->getSite();
+        
+        return [
+            'password.min' => __('user.register.form.passwordLengthRestriction', [
+                'length' => $site->getMinPasswordLength()
+            ]),
+            'password.letters' => __('validator.password'),
+            'password.mixed' => __('validator.password'),
+            'password.numbers' => __('validator.password'),
+            'password.symbols' => __('validator.password'),
+            'password.uncompromised' => __('validator.password.uncompromised'),
+        ];
     }
 }

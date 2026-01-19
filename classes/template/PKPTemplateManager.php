@@ -950,6 +950,7 @@ class PKPTemplateManager extends Smarty
     {
         $this->isBackendPage = true;
         $request = Application::get()->getRequest();
+        $site = $request->getSite();
         $dispatcher = $request->getDispatcher();
         /** @var PageRouter */
         $router = $request->getRouter();
@@ -959,6 +960,7 @@ class PKPTemplateManager extends Smarty
         }
 
         $this->setConstants([
+            'MIN_PASSWORD_LENGTH' => $site->getMinPasswordLength(),
             'REALLY_BIG_NUMBER' => REALLY_BIG_NUMBER,
             'UPLOAD_MAX_FILESIZE' => UPLOAD_MAX_FILESIZE,
             'WORKFLOW_STAGE_ID_PUBLISHED' => WORKFLOW_STAGE_ID_PUBLISHED,

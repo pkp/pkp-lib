@@ -25,7 +25,7 @@ function getPassword(username) {
 	if (username === 'admin') {
 		return username;
 	}
-	return username + 'Az29!#';
+	return username + '1#$';
 }
 
 // Export for use in commands and tests

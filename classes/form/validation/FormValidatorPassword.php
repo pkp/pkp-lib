@@ -64,7 +64,6 @@ class FormValidatorPassword extends FormValidator
                 "{$this->_field}.confirmed" => 'user.register.form.passwordsDoNotMatch',
                 "{$this->_field}.min" => 'user.register.form.passwordLengthRestriction',
                 "{$this->_field}.letters" => 'validator.password',
-                "{$this->_field}.mixed" => 'validator.password',
                 "{$this->_field}.numbers" => 'validator.password',
                 "{$this->_field}.symbols" => 'validator.password',
                 "{$this->_field}.uncompromised" => 'validator.password.uncompromised',
@@ -99,10 +98,9 @@ class FormValidatorPassword extends FormValidator
         }
 
         array_push(
-            $rules, 
+            $rules,
             Password::min($this->minPasswordLength)
                 ->letters()
-                ->mixedCase()
                 ->numbers()
                 ->symbols()
                 ->uncompromised()

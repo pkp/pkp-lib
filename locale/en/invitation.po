@@ -254,7 +254,7 @@ msgid "acceptInvitation.usernameField.description"
 msgstr "It could be a combination of uppercase letters, lowercase letters or numbers"
 
 msgid "acceptInvitation.passwordField.description"
-msgstr "It should be at least {$length} characters long and must contains one uppercase letter, one lowercase letter, one number and at least one one symbol like !, $, #, or %."
+msgstr "It should be at least {$length} characters long and must contain one letter, one number, and at least one symbol like !, $, #, or %."
 
 msgid "acceptInvitation.privacyStatement.label"
 msgstr "Yes, I agree to have my data collected and stored according to the {$url}"

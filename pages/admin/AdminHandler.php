@@ -271,7 +271,7 @@ class AdminHandler extends Handler
             'statistics' => true,
             'siteAppearance' => $isMultiContextSite,
             'sitePlugins' => $isMultiContextSite,
-            'siteConfig' => $isMultiContextSite,
+            'siteConfig' => true,
             'siteInfo' => $isMultiContextSite,
             'navigationMenus' => $isMultiContextSite,
             'highlights' => $isMultiContextSite,

@@ -45,7 +45,7 @@ abstract class Context extends \PKP\core\DataObject
     public const SETTING_DOI_CREATION_TIME = 'doiCreationTime';
     public const SETTING_DOI_AUTOMATIC_DEPOSIT = 'automaticDoiDeposit';
     public const SETTING_DOI_VERSIONING = 'doiVersioning';
-    public const SETTING_ENABLE_PUBLIC_PEER_REVIEWS = 'enablePublicPeerReviews';
+    public const SETTING_DEFAULT_REVIEW_PUBLIC_VISIBILITY = 'defaultReviewPublicVisibility';
 
     public const SUBMISSION_ACKNOWLEDGEMENT_OFF = null;
     public const SUBMISSION_ACKNOWLEDGEMENT_SUBMITTING_AUTHOR = 'submittingAuthor';
@@ -72,12 +72,11 @@ abstract class Context extends \PKP\core\DataObject
     }
 
     /**
-     * Whether peer reviews are publicly visible for this context
-     *
+     * Default value for the public visibility given to a review assignment.
      */
-    public function arePeerReviewsPublic(): bool
+    public function getDefaultReviewPublicVisibility(): bool
     {
-        return (bool) $this->getData(self::SETTING_ENABLE_PUBLIC_PEER_REVIEWS);
+        return (bool) $this->getData(self::SETTING_DEFAULT_REVIEW_PUBLIC_VISIBILITY);
     }
 
     /**

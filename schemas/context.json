@@ -225,7 +225,7 @@
 				"in:1,2,3"
 			]
 		},
-		"enablePublicPeerReviews": {
+		"defaultReviewPublicVisibility": {
 			"type": "boolean",
 			"validation": [
 				"nullable"

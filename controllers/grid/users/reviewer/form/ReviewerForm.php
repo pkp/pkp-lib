@@ -235,7 +235,7 @@ class ReviewerForm extends Form
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);
         // Set default visibility mode
-        $this->setData('isReviewPubliclyVisible', $context->arePeerReviewsPublic());
+        $this->setData('isReviewPubliclyVisible', $context->getDefaultReviewPublicVisibility());
     }
 
     /**

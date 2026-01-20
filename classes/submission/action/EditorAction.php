@@ -91,7 +91,7 @@ class EditorAction
             'stageId' => $stageId,
             'round' => $round,
             'reviewRoundId' => $reviewRound->getId(),
-            'isReviewPubliclyVisible' => $isReviewPubliclyVisible ?? $request->getContext()->arePeerReviewsPublic(),
+            'isReviewPubliclyVisible' => $isReviewPubliclyVisible ?? $request->getContext()->getDefaultReviewPublicVisibility(),
         ];
         if (isset($reviewMethod)) {
             $newData['reviewMethod'] = $reviewMethod;

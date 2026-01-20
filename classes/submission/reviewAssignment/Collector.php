@@ -59,6 +59,7 @@ class Collector implements CollectorInterface, ViewsCount
     public bool $orderBySubmissionId = false;
     public ?string $orderBySubmissionIdDirection = null;
     public ?array $publicationIds = null;
+    public ?bool $isPubliclyVisible = null;
 
     public function __construct(DAO $dao)
     {
@@ -156,6 +157,15 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByActive(bool $isActive): static
     {
         $this->isActive = $isActive;
+        return $this;
+    }
+
+    /**
+     * Filter review assignments based on their publicly visibility.
+     */
+    public function filterByIsPubliclyVisible(?bool $isPubliclyVisible): static
+    {
+        $this->isPubliclyVisible = $isPubliclyVisible;
         return $this;
     }
 
@@ -603,6 +613,12 @@ class Collector implements CollectorInterface, ViewsCount
                 'ra.submission_id',
                 $this->orderBySubmissionIdDirection
             )
+        );
+
+        $q->when(
+            isset($this->isPubliclyVisible),
+            fn (Builder $q) =>
+            $q->where('ra.is_review_publicly_visible', $this->isPubliclyVisible ? 1 : 0)
         );
 
         return $q;

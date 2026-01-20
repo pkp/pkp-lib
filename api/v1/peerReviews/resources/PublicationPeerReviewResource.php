@@ -80,6 +80,7 @@ class PublicationPeerReviewResource extends JsonResource
         $reviewAssignments = Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
+            ->filterByIsPubliclyVisible(true)
             ->getMany();
 
         $reviewsGroupedByRoundId = $reviewAssignments

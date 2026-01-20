@@ -228,6 +228,17 @@ class ReviewAssignment extends \PKP\core\DataObject
         $this->setData('reviewRoundId', $reviewRoundId);
     }
 
+    public function getIsReviewPubliclyVisible(): bool
+    {
+        return (bool)$this->getData('isReviewPubliclyVisible');
+    }
+
+
+    public function setIsReviewPubliclyVisible(bool $isReviewPubliclyVisible): void
+    {
+        $this->setData('isReviewPubliclyVisible', 'isReviewPubliclyVisible');
+    }
+
     /**
      * Get reviewer recommendation id
      */

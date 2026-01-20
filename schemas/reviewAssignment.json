@@ -281,6 +281,14 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"isReviewPubliclyVisible": {
+			"type": "boolean",
+			"description": "Whether the review is publicly visible.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

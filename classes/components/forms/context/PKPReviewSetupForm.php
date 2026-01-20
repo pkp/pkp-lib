@@ -79,7 +79,7 @@ class PKPReviewSetupForm extends FormComponent
                 'label' => __('manager.setup.reviewOptions.publicReviewerComments.show'),
                 'description' => __('manager.setup.reviewOptions.publicReviewerComments.description'),
                 'type' => 'checkbox',
-                'value' => $context->arePeersReviewPublic(),
+                'value' => $context->arePeerReviewsPublic(),
                 'options' => [
                     ['value' => false, 'label' => __('manager.setup.reviewOptions.publicReviewerComments.label')],
                 ],

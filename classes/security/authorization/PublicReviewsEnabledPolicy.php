@@ -31,7 +31,7 @@ class PublicReviewsEnabledPolicy extends AuthorizationPolicy
 
     public function effect(): int
     {
-        $arePeersReviewPublic = $this->context->arePeersReviewPublic();
+        $arePeersReviewPublic = $this->context->arePeerReviewsPublic();
 
         if ($arePeersReviewPublic) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;

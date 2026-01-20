@@ -75,7 +75,7 @@ abstract class Context extends \PKP\core\DataObject
      * Whether peer reviews are publicly visible for this context
      *
      */
-    public function arePeersReviewPublic(): bool
+    public function arePeerReviewsPublic(): bool
     {
         return (bool) $this->getData(self::SETTING_ENABLE_PUBLIC_PEER_REVIEWS);
     }

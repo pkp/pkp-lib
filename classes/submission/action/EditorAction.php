@@ -64,10 +64,11 @@ class EditorAction
      * @param string $reviewDueDate
      * @param string $responseDueDate
      * @param null|mixed $reviewMethod
+     * @param null|mixed $isReviewPubliclyVisible
      *
      * @hook EditorAction::addReviewer [[&$submission, $reviewerId]]
      */
-    public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null)
+    public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null, $isReviewPubliclyVisible = null)
     {
         $reviewer = Repo::user()->get($reviewerId);
 
@@ -91,6 +92,7 @@ class EditorAction
             'stageId' => $stageId,
             'round' => $round,
             'reviewRoundId' => $reviewRound->getId(),
+            'isReviewPubliclyVisible' => $isReviewPubliclyVisible ?? $request->getContext()->arePeerReviewsPublic(),
         ];
         if (isset($reviewMethod)) {
             $newData['reviewMethod'] = $reviewMethod;

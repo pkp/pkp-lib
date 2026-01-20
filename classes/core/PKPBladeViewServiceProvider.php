@@ -2,17 +2,19 @@
 
 namespace PKP\core;
 
-use Illuminate\View\FileViewFinder;
-use Illuminate\View\ViewServiceProvider;
-use Illuminate\View\Engines\CompilerEngine;
-use Illuminate\View\Factory as ViewFactory;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\View;
-use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
+use PKP\core\blade\FileViewFinder;
+use PKP\core\blade\SmartyTemplatingEngine;
+use Illuminate\Support\Facades\View;
 use PKP\core\blade\DynamicComponent;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\View\ViewServiceProvider;
+use Illuminate\View\Engines\CompilerEngine;
+use PKP\core\blade\Factory as ViewFactory;
+use Illuminate\View\Factory as IlluminateViewFactory;
+use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
@@ -90,7 +92,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // use as @callHook(['name' => 'Templates::Common::Footer::PageFooter'])
         Blade::directive('callHook', function ($parameters) {
             return "<?php
-                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyCallHook($parameters);
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyCallHook($parameters, \PKP\\template\\PKPTemplateManager::getManager());
             ?>";
         });
 
@@ -211,6 +213,25 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
     }
 
     /**
+     * Register the engine resolver instance and custom engines
+     *
+     * Overrides parent to add Smarty engine registration
+     *
+     * @return void
+     */
+    public function registerEngineResolver()
+    {
+        // Call parent to register standard engines (file, php, blade)
+        parent::registerEngineResolver();
+
+        // Register custom Smarty engine for .tpl files
+        $this->app->get('view.engine.resolver')->register(
+            'smarty',
+            fn () => new SmartyTemplatingEngine()
+        );
+    }
+
+    /**
      * Register the Blade engine implementation.
      *
      * @param  \Illuminate\View\Engines\EngineResolver  $resolver
@@ -221,7 +242,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $resolver->register(
             'blade',
             fn () => new CompilerEngine(
-                $this->app['blade.compiler'], 
+                $this->app['blade.compiler'],
                 $this->app['files']
             )
         );
@@ -231,7 +252,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
      * Configure the view factory with required bindings and setting the alias
      *
      * @param  \PKP\core\PKPContainer  $app
-     * @return \Illuminate\View\Factory
+     * @return ViewFactory
      */
     protected function configureViewFactoryWithBindings(PKPContainer $app): ViewFactory
     {
@@ -252,6 +273,10 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $factory->share('app', $app);
 
         $app->instance(\Illuminate\Contracts\View\Factory::class, $factory);
+
+        $app->instance(ViewFactory::class, $factory);
+        $app->instance(IlluminateViewFactory::class, $factory);
+
         $app->alias(
             \Illuminate\Contracts\View\Factory::class, 
             (new class extends View {
@@ -261,4 +286,18 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
 
         return $factory;
     }
+
+    /**
+     * Create a new Factory Instance.
+     *
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\ViewFinderInterface  $finder
+     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @return ViewFactory
+     */
+    protected function createFactory($resolver, $finder, $events)
+    {
+        return new ViewFactory($resolver, $finder, $events);
+    }
+
 }

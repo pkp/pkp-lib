@@ -41,6 +41,36 @@ class PluginHelper
     public const PLUGIN_INSTALL_FILE = 'install.xml';
     public const PLUGIN_UPGRADE_FILE = 'upgrade.xml';
 
+    public const PLUGIN_INSTALL_ON = 'on';
+    public const PLUGIN_INSTALL_GALLERY_ONLY = 'gallery_only';
+    public const PLUGIN_INSTALL_OFF = 'off';
+
+    public static function getInstallMode(): string
+    {
+        return (string) Config::getVar(
+            'security',
+            'allow_plugin_install',
+            self::PLUGIN_INSTALL_ON
+        );
+    }
+
+    public static function isUploadAllowed(): bool
+    {
+        return self::getInstallMode() === self::PLUGIN_INSTALL_ON;
+    }
+
+    public static function isGalleryAllowed(): bool
+    {
+        $mode = self::getInstallMode();
+        return $mode === self::PLUGIN_INSTALL_ON
+            || $mode === self::PLUGIN_INSTALL_GALLERY_ONLY;
+    }
+
+    public static function isPluginInstallDisabled(): bool
+    {
+        return self::getInstallMode() === self::PLUGIN_INSTALL_OFF;
+    }
+
     /**
      * Extract the plugin, executes the callback, then cleanup the files
      *
@@ -104,6 +134,10 @@ class PluginHelper
      */
     public function installPlugin(string $path, string $originalFileName): Version
     {
+        if (!self::isUploadAllowed()) {
+            throw new Exception(__('manager.plugins.uploadPluginsDisabled'));
+        }
+
         return $this->extractPlugin($path, $originalFileName, function (string $pluginFolder): Version {
             $fileManager = new FileManager();
             $versionFile = $pluginFolder . static::PLUGIN_VERSION_FILE;
@@ -177,6 +211,10 @@ class PluginHelper
      */
     public function upgradePlugin(string $category, string $plugin, string $path, string $originalFileName): Version
     {
+        if (!self::isUploadAllowed()) {
+            throw new Exception(__('manager.plugins.uploadDisabled'));
+        }
+
         return $this->extractPlugin($path, $originalFileName, function (string $pluginFolder) use ($category, $plugin): Version {
             $fileManager = new FileManager();
             $versionFile = $pluginFolder . static::PLUGIN_VERSION_FILE;

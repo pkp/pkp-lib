@@ -48,6 +48,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\highlight\Collector as HighlightCollector;
 use PKP\job\resources\HttpFailedJobResource;
+use PKP\plugins\PluginHelper;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
@@ -352,6 +353,8 @@ class AdminHandler extends Handler
             'bulkEmailsEnabled' => $bulkEmailsEnabled,
             'editContext' => $context,
             'pageTitle' => __('manager.settings.wizard'),
+            'canUploadPlugins' => PluginHelper::isUploadAllowed(),
+            'canUsePluginGallery' => PluginHelper::isGalleryAllowed(),
         ]);
 
         $templateMgr->registerClass(PKPSearchIndexingForm::class, PKPSearchIndexingForm::class); // FORM_SEARCH_INDEXING

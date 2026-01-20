@@ -283,6 +283,10 @@ class PluginGalleryGridHandler extends GridHandler
      */
     public function installPlugin(array $args, PKPRequest $request, bool $isUpgrade = false): JSONMessage
     {
+        if (!PluginHelper::isGalleryAllowed()) {
+            throw new Exception(__('manager.plugins.galleryInstallsDisabled'));
+        }
+
         if ($request->getContext()) {
             $redirectUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', ['website'], ['r' => uniqid()], 'plugins');
         } else {

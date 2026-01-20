@@ -1646,6 +1646,14 @@ msgstr ""
 msgid "manager.plugins.uploadFailed"
 msgstr "Please ensure a file was selected for upload."
 
+# fuzzy
+msgid "manager.plugins.galleryInstallsDisabled"
+msgstr "Plugin installation and upgrade through the gallery if disabled by the installation owner"
+
+# fuzzy
+msgid "manager.plugins.uploadPluginsDisabled"
+msgstr "Plugin installation and upgrade through file upload if disabled by the installation owner"
+
 msgid "manager.plugins.installed"
 msgstr "Installed Plugins"
 

@@ -22,6 +22,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\plugins\Plugin;
+use PKP\plugins\PluginHelper;
 use PKP\security\Role;
 
 class PluginGridRow extends GridRow
@@ -89,15 +90,17 @@ class PluginGridRow extends GridRow
                     'delete'
                 ));
 
-                $this->addAction(new LinkAction(
-                    'upgrade',
-                    new AjaxModal(
-                        $router->url($request, null, null, 'upgradePlugin', null, $actionArgs),
-                        __('manager.plugins.upgrade'),
-                    ),
-                    __('grid.action.upgrade'),
-                    'upgrade'
-                ));
+                if (PluginHelper::isUploadAllowed()) {
+                    $this->addAction(new LinkAction(
+                        'upgrade',
+                        new AjaxModal(
+                            $router->url($request, null, null, 'upgradePlugin', null, $actionArgs),
+                            __('manager.plugins.upgrade'),
+                        ),
+                        __('grid.action.upgrade'),
+                        'upgrade'
+                    ));
+                }
             }
         }
     }

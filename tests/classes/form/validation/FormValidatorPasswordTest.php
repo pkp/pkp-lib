@@ -67,8 +67,8 @@ class FormValidatorPasswordTest extends PKPTestCase
     {
         $form = new Form('some template');
 
-        // Password with: lowercase, uppercase, number, symbol, >= 8 chars
-        $form->setData('password', 'Test@1234');
+        // Password with: letter, number, symbol, >= 8 chars
+        $form->setData('password', 'test@1234');
         $validator = new FormValidatorPassword(
             $form,
             'password',
@@ -86,7 +86,7 @@ class FormValidatorPasswordTest extends PKPTestCase
     {
         $form = new Form('some template');
 
-        // Password missing: uppercase, symbols
+        // Password missing: symbols
         $form->setData('password', 'password123');
         $validator = new FormValidatorPassword(
             $form,
@@ -105,8 +105,8 @@ class FormValidatorPasswordTest extends PKPTestCase
     {
         $form = new Form('some template');
 
-        $form->setData('password', 'Test@1234');
-        $form->setData('password2', 'Different@1234');
+        $form->setData('password', 'test@1234');
+        $form->setData('password2', 'different@1234');
 
         $validator = new FormValidatorPassword(
             $form,
@@ -135,5 +135,103 @@ class FormValidatorPasswordTest extends PKPTestCase
         );
 
         self::assertTrue($validator->isValid());
+    }
+
+    /**
+     * Test that non-Latin passwords (Arabic) pass validation.
+     * Arabic script has no case distinction, so mixed case requirement would fail.
+     */
+    public function testNonLatinArabicPasswordPasses()
+    {
+        $form = new Form('some template');
+
+        // Arabic letters + Arabic-Indic numerals (١٢٣) + symbol
+        $form->setData('password', 'كلمةسرية١٢٣!');
+        $validator = new FormValidatorPassword(
+            $form,
+            'password',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key'
+        );
+
+        self::assertTrue($validator->isValid());
+    }
+
+    /**
+     * Test that non-Latin passwords (Chinese) pass validation.
+     * Chinese script has no case distinction.
+     */
+    public function testNonLatinChinesePasswordPasses()
+    {
+        $form = new Form('some template');
+
+        // Chinese characters + number + symbol
+        $form->setData('password', '密码安全测试123!');
+        $validator = new FormValidatorPassword(
+            $form,
+            'password',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key'
+        );
+
+        self::assertTrue($validator->isValid());
+    }
+
+    /**
+     * Test that non-Latin passwords (Cyrillic) pass validation.
+     * Cyrillic has case but we no longer require mixed case.
+     */
+    public function testNonLatinCyrillicPasswordPasses()
+    {
+        $form = new Form('some template');
+
+        // Cyrillic lowercase letters + number + symbol (no uppercase needed)
+        $form->setData('password', 'пароль123!');
+        $validator = new FormValidatorPassword(
+            $form,
+            'password',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key'
+        );
+
+        self::assertTrue($validator->isValid());
+    }
+
+    /**
+     * Test that non-Latin password without number fails validation.
+     */
+    public function testNonLatinPasswordWithoutNumberFails()
+    {
+        $form = new Form('some template');
+
+        // Arabic letters + symbol but NO number
+        $form->setData('password', 'كلمةسريةطويلة!');
+        $validator = new FormValidatorPassword(
+            $form,
+            'password',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key'
+        );
+
+        self::assertFalse($validator->isValid());
+    }
+
+    /**
+     * Test that non-Latin password without symbol fails validation.
+     */
+    public function testNonLatinPasswordWithoutSymbolFails()
+    {
+        $form = new Form('some template');
+
+        // Chinese characters + number but NO symbol
+        $form->setData('password', '密码安全测试12345');
+        $validator = new FormValidatorPassword(
+            $form,
+            'password',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key'
+        );
+
+        self::assertFalse($validator->isValid());
     }
 }

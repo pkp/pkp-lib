@@ -145,7 +145,6 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'max:255',
                 Password::min($site->getMinPasswordLength())
                     ->letters()
-                    ->mixedCase()
                     ->numbers()
                     ->symbols()
                     ->uncompromised()
@@ -221,7 +220,6 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'length' => $site->getMinPasswordLength()
             ]),
             'password.letters' => __('validator.password'),
-            'password.mixed' => __('validator.password'),
             'password.numbers' => __('validator.password'),
             'password.symbols' => __('validator.password'),
             'password.uncompromised' => __('validator.password.uncompromised'),

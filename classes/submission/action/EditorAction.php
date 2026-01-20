@@ -64,11 +64,10 @@ class EditorAction
      * @param string $reviewDueDate
      * @param string $responseDueDate
      * @param null|mixed $reviewMethod
-     * @param null|mixed $isReviewPubliclyVisible
      *
      * @hook EditorAction::addReviewer [[&$submission, $reviewerId]]
      */
-    public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null, $isReviewPubliclyVisible = null)
+    public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null, ?bool $isReviewPubliclyVisible = null)
     {
         $reviewer = Repo::user()->get($reviewerId);
 

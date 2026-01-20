@@ -68,7 +68,7 @@ class DAO extends EntityDAO
         'considered' => 'considered',
         'dateConsidered' => 'date_considered',
         'requestResent' => 'request_resent',
-        'isReviewPubliclyVisible' => 'is_review_publicly_visible'
+        'isReviewPubliclyVisible' => 'is_review_publicly_visible',
     ];
 
     /** @copydoc EntityDAO::$settingsTable */

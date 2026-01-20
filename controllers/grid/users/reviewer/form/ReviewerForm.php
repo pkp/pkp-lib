@@ -226,7 +226,6 @@ class ReviewerForm extends Form
         $selectionType = (int) $request->getUserVar('selectionType');
         $stageId = $reviewRound->getStageId();
 
-
         $this->setData('submissionId', $this->getSubmissionId());
         $this->setData('stageId', $stageId);
         $this->setData('reviewMethod', $reviewMethod);
@@ -345,7 +344,6 @@ class ReviewerForm extends Form
         }
 
         $reviewMethod = (int) $this->getData('reviewMethod');
-        $isReviewPubliclyVisible = (bool)$this->getData('isReviewPubliclyVisible');
         $editorAction = new EditorAction();
         $editorAction->addReviewer(
             $request,
@@ -355,7 +353,7 @@ class ReviewerForm extends Form
             $reviewDueDate,
             $responseDueDate,
             $reviewMethod,
-            $isReviewPubliclyVisible,
+            (bool)$this->getData('isReviewPubliclyVisible'),
         );
 
         // Get the reviewAssignment object now that it has been added.

@@ -3274,6 +3274,12 @@ msgstr "Submission Stage"
 msgid "stage.review"
 msgstr "Review Stage"
 
+msgid "stage.review.internal"
+msgstr "Internal Review Stage"
+
+msgid "stage.review.external"
+msgstr "External Review Stage"
+
 msgid "stage.copyediting"
 msgstr "Copyediting Stage"
 

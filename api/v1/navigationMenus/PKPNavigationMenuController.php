@@ -24,7 +24,6 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\navigationMenu\NavigationMenu;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\navigationMenu\resources\NavigationMenuResource;
 use PKP\security\authorization\PolicySet;

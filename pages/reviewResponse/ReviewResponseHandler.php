@@ -54,7 +54,10 @@ class ReviewResponseHandler extends Handler
     }
 
 
-    public function requestAuthorResponse(array $args, Request $request)
+    /**
+     * Returns page to request a review response from authors.
+     */
+    public function requestAuthorResponse(array $args, Request $request): void
     {
         $reviewRoundId = (int)$request->getUserVar('reviewRoundId');
         $stageId = (int)$request->getUserVar('stageId');

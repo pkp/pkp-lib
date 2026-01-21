@@ -21,7 +21,6 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Str;
 use PKP\components\fileAttachers\FileStage;
 use PKP\components\fileAttachers\Library;
 use PKP\components\fileAttachers\ReviewFiles;
@@ -46,7 +45,7 @@ class RequestReviewResponsePage
     private Context $context;
     private array $locales;
 
-    public function __construct(ReviewRound $reviewRound, Submission $submission, string $stageId, Context $context, array $locales)
+    public function __construct(ReviewRound $reviewRound, Submission $submission, int $stageId, Context $context, array $locales)
     {
         $this->reviewRound = $reviewRound;
         $this->submission = $submission;
@@ -290,17 +289,7 @@ class RequestReviewResponsePage
     {
         $currentPublication = $submission->getCurrentPublication();
         $dispatcher = $request->getDispatcher();
-        $submissionTitle = Str::of(
-            join(
-                __('common.commaListSeparator'),
-                [
-                    $currentPublication->getShortAuthorString(),
-                    $currentPublication->getLocalizedFullTitle(null, 'html'),
-                ]
-            )
-        );
-
-        $submissionTitle = $submissionTitle->limit(50, '...');
+        $submissionTitle = $currentPublication->getTruncatedTitle(null, 'html');
 
         return [
             [
@@ -315,7 +304,7 @@ class RequestReviewResponsePage
             ],
             [
                 'id' => 'submission',
-                'name' => (string) $submissionTitle,
+                'name' => $submissionTitle,
                 'format' => 'html',
                 'url' => $dispatcher->url(
                     $request,

@@ -111,12 +111,9 @@ trait ReviewRoundAuthorResponseCommonValidator
     }
 
     /**
-     * Data to be returned after validation
-     *
-     * @param null|mixed $key
-     * @param null|mixed $default
+     * Data to be returned after validation.
      */
-    protected function commonValidated($key = null, $default = null)
+    protected function commonValidated()
     {
         $request = $this->validator->validated();
         $request['associatedAuthorIds'] = $this->input('associatedAuthorIds');

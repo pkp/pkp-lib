@@ -69,7 +69,7 @@ class AddResponse extends FormRequest
             ], Response::HTTP_CONFLICT));
         }
 
-        // check that review round is in state where author response is applicable(revisions required, submission accepted), or that review response response was requested
+        // Check that review round is in state where author response is applicable(revisions required, submission accepted), or that review response response was requested
         if (
             !in_array($this->reviewRound->getStatus(), [ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED, ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED])
             && !$this->reviewRound->getData('isAuthorResponseRequested')

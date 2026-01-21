@@ -3425,11 +3425,17 @@ msgstr "Response Status"
 msgid "submission.reviewRound.authorReviewResponse.submit"
 msgstr "Submit Response"
 
+msgid "submission.reviewRound.authorReviewResponse.viewSubmittedResponse"
+msgstr "View Submitted Response"
+
 msgid "editor.submission.reviewRound.authorReviewResponse.submitRequest"
 msgstr "Submit Request"
 
 msgid "submission.reviewRound.associatedAuthors.description"
 msgstr "Author contributors who this response is being submitted on behalf of."
+
+msgid "submission.reviewRound.authorResponseToReviews"
+msgstr "Author Response to Reviews"
 
 msgid "editor.submission.reviewRound.authorReviewResponseRequestSent"
 msgstr "Request for review response sent"
@@ -3448,8 +3454,16 @@ msgstr "Editor can now request the author's response."
 
 msgid "submission.reviewRound.authorResponse.note"
 msgstr ""
-"All reviews for your submission have been completed. Please review the comments and provide a written response to the reviewers."
+"All reviews for your submission have been completed. Please review the comments and provide a written response to the reviewers. "
 "You can address their suggestions, clarify any points, and indicate any revisions you plan to make. Your response will be shared with the editorial team and may be sent back to reviewers if needed."
+
+msgid "submission.reviewRound.authorResponse.authorCannotEdit"
+msgstr ""
+"A review response has been submitted and is displayed below. This response cannot be edited by authors. "
+"If you would like any changes, please contact the assigned editor."
+
+msgid "submission.reviewRound.authorResponse.noteForEditor"
+msgstr "The following response was submitted by the author, {$userFullName}. Editors may review the response and make edits if necessary."
 
 msgid "submission.reviewRound.submitYourResponse"
 msgstr "Submit Your Response to Reviewer Feedback"

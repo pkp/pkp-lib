@@ -103,10 +103,10 @@ class AuthorResponseManager
     /**
      * Populate mailable with email data.
      */
-    protected function addEmailDataToMailable(Mailable $mailable, User $sender, EmailData $email): Mailable
+    protected function addEmailDataToMailable(Mailable $mailable, User $user, EmailData $email): Mailable
     {
         $mailable
-            ->sender($sender)
+            ->sender($user)
             ->bcc($email->bcc)
             ->cc($email->cc)
             ->subject($email->subject)
@@ -118,7 +118,7 @@ class AuthorResponseManager
                     $mailable->attachTemporaryFile(
                         $attachment[Mailable::ATTACHMENT_TEMPORARY_FILE],
                         $attachment['name'],
-                        $sender->getId()
+                        $user->getId()
                     );
                 } elseif (isset($attachment[Mailable::ATTACHMENT_SUBMISSION_FILE])) {
                     $mailable->attachSubmissionFile(

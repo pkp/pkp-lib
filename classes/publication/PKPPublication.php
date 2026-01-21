@@ -21,13 +21,13 @@ namespace PKP\publication;
 use APP\author\Author;
 use APP\facades\Repo;
 use APP\publication\enums\VersionStage;
+use Illuminate\Support\Str;
 use PKP\author\contributorRole\ContributorType;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\services\PKPSchemaService;
-use PKP\userGroup\UserGroup;
 
 class PKPPublication extends \PKP\core\DataObject
 {
@@ -71,6 +71,24 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         return $fullTitle;
+    }
+
+    /**
+     * Returns a truncated title composed of shortened author names and the full localized title.
+     *
+     * @param null|mixed $preferredLocale
+     */
+    public function getTruncatedTitle($preferredLocale = null, string $format = 'text', int $maxLength = 50): string
+    {
+        return Str::of(
+            join(
+                __('common.commaListSeparator'),
+                [
+                    $this->getShortAuthorString(),
+                    $this->getLocalizedFullTitle(null, $format),
+                ]
+            )
+        )->limit($maxLength);
     }
 
     /**
@@ -209,12 +227,13 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         return collect($authors)
-            ->map(fn (Author $author): string => 
+            ->map(
+                fn (Author $author): string =>
                 $author->getFullName()
-                . " ("
+                . ' ('
                 . collect($author->getLocalizedContributorRoleNames())
                     ->implode(__('common.commaListSeparator'))
-                . ")"
+                . ')'
             )
             ->implode(__('common.semicolonListSeparator'));
     }

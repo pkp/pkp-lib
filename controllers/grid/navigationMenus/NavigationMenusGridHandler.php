@@ -133,7 +133,7 @@ class NavigationMenusGridHandler extends GridHandler
             new LinkAction(
                 'addNavigationMenu',
                 new VueModal(
-                    'NavigationMenuFormModal',
+                    'NavigationMenuManagerFormModal',
                     [
                         'navigationMenu' => null,
                         'apiUrl' => $apiUrl,

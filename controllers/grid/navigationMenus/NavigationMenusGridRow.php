@@ -66,7 +66,7 @@ class NavigationMenusGridRow extends GridRow
                 new LinkAction(
                     'edit',
                     new VueModal(
-                        'NavigationMenuFormModal',
+                        'NavigationMenuManagerFormModal',
                         [
                             'navigationMenu' => $navigationMenuData,
                             'apiUrl' => $apiUrl,

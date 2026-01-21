@@ -141,7 +141,7 @@ import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
 import FieldSlider from '@/components/Form/fields/FieldSlider.vue';
 import CategoryManager from '@/managers/CategoryManager/CategoryManager.vue';
 import ContributorRoleManager from '@/managers/ContributorRoleManager/ContributorRoleManager.vue';
-import NavigationMenuFormModal from '@/managers/NavigationMenuEditor/NavigationMenuFormModal.vue';
+import NavigationMenuManagerFormModal from '@/managers/NavigationMenuManager/NavigationMenuManagerFormModal.vue';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
@@ -231,7 +231,7 @@ VueRegistry.registerComponent('PkpTableRow', TableRow);
 VueRegistry.registerComponent('PkpTooltip', Tooltip);
 VueRegistry.registerComponent('CategoryManager', CategoryManager);
 VueRegistry.registerComponent('ContributorRoleManager', ContributorRoleManager);
-VueRegistry.registerComponent('NavigationMenuFormModal', NavigationMenuFormModal);
+VueRegistry.registerComponent('NavigationMenuManagerFormModal', NavigationMenuManagerFormModal);
 
 // Register Form components
 VueRegistry.registerComponent('PkpForm', Form);

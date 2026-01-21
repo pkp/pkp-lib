@@ -56,7 +56,7 @@ class NavigationMenusGridCellProvider extends GridCellProvider
                 return [new LinkAction(
                     'edit',
                     new VueModal(
-                        'NavigationMenuFormModal',
+                        'NavigationMenuManagerFormModal',
                         [
                             'navigationMenu' => $navigationMenuData,
                             'apiUrl' => $apiUrl,

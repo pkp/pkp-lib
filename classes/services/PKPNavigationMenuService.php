@@ -812,7 +812,7 @@ class PKPNavigationMenuService
      * Get navigation menu areas for the active theme
      *
      * @param \PKP\context\Context|null $context The context (null for site-level)
-     * @return array Key-value pairs of area names
+     * @return array List of area names
      */
     public function getNavigationAreas($context): array
     {
@@ -823,10 +823,7 @@ class PKPNavigationMenuService
 
             foreach ($themePlugins as $themePlugin) {
                 if ($themePlugin->isActive()) {
-                    $themeAreas = $themePlugin->getMenuAreas();
-                    foreach ($themeAreas as $area) {
-                        $areas[$area] = $area;
-                    }
+                    $areas = $themePlugin->getMenuAreas();
                     break;
                 }
             }

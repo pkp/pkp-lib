@@ -57,9 +57,6 @@ class NavigationMenuItemResource extends JsonResource
 
         $conditionalInfo = $this->getItemConditionalInfo($menuItem);
 
-        // For assigned items, use assignment ID; for unassigned, use menu item ID
-        $id = $assignment ? $assignment->getId() : $menuItem->getId();
-
         // Get appropriate title based on whether this is an assignment or standalone item
         $title = $assignment
             ? $this->getItemTitle($assignment, $menuItem)
@@ -71,7 +68,7 @@ class NavigationMenuItemResource extends JsonResource
             : ($menuItem->getTitle(null) ?? []);
 
         return [
-            'id' => $id,
+            'id' => $menuItem->getId(),
             'menuItemId' => $menuItem->getId(),
             'assignmentId' => $assignment?->getId(),
             'title' => $title,
@@ -124,7 +121,7 @@ class NavigationMenuItemResource extends JsonResource
         $assignmentTitles = $assignment->getTitle(null);
         if (is_array($assignmentTitles) && !empty($assignmentTitles)) {
             $locale = Locale::getLocale();
-            if (isset($assignmentTitles[$locale]) && !empty($assignmentTitles[$locale])) {
+            if (!empty($assignmentTitles[$locale])) {
                 return $this->transformTitleVariables($assignmentTitles[$locale]);
             }
             $firstTitle = reset($assignmentTitles);
@@ -149,7 +146,7 @@ class NavigationMenuItemResource extends JsonResource
             return $itemTypes[$type]['title'];
         }
 
-        return $type ?? '';
+        return $type;
     }
 
     /**
@@ -172,7 +169,7 @@ class NavigationMenuItemResource extends JsonResource
             return $itemTypes[$type]['title'];
         }
 
-        return $type ?? '';
+        return $type;
     }
 
     /**
@@ -180,7 +177,7 @@ class NavigationMenuItemResource extends JsonResource
      */
     protected function transformTitleVariables(string $title): string
     {
-        if (strpos($title, '{$loggedInUsername}') !== false) {
+        if (str_contains($title, '{$loggedInUsername}')) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();
             if ($user) {

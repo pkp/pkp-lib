@@ -54,6 +54,7 @@ use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\i18n\LocaleConversion;
 use PKP\i18n\LocaleMetadata;
+use PKP\API\v1\navigationMenus\PKPNavigationMenuController;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
@@ -1567,7 +1568,8 @@ class PKPTemplateManager extends Smarty
             'timeZone' => Config::getVar('general', 'time_zone'),
             'featureFlags' => [
                 'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions'),
-            ]
+            ],
+            'navigationMenuMaxDepth' => (int) Config::getVar('general', 'navigation_menu_max_depth', PKPNavigationMenuController::DEFAULT_MAX_DEPTH),
         ];
 
         if ($context) {

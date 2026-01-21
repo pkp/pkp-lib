@@ -28,7 +28,6 @@ use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\announcement\Announcement;
-use PKP\API\v1\navigationMenus\PKPNavigationMenuController;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\CategoryForm;
 use PKP\components\forms\context\ContentCommentsForm;
@@ -823,7 +822,6 @@ class ManagementHandler extends Handler
 
         return [
             'apiUrl' => $apiUrl,
-            'maxDepth' => PKPNavigationMenuController::MAX_DEPTH,
         ];
     }
 

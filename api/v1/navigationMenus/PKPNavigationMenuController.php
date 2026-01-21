@@ -35,8 +35,8 @@ use PKP\services\PKPSchemaService;
 
 class PKPNavigationMenuController extends PKPBaseController
 {
-    /** @var int Maximum nesting depth for navigation menu items */
-    public const MAX_DEPTH = 3;
+    /** @var int Default maximum nesting depth for navigation menu items */
+    public const DEFAULT_MAX_DEPTH = 2;
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
@@ -118,7 +118,6 @@ class PKPNavigationMenuController extends PKPBaseController
             'assigned' => [],
             'unassigned' => $navigationMenuService->getAllMenuItems($contextId),
             'itemTypes' => $navigationMenuService->getMenuItemTypes(),
-            'maxDepth' => self::MAX_DEPTH,
         ], Response::HTTP_OK);
     }
 
@@ -149,7 +148,6 @@ class PKPNavigationMenuController extends PKPBaseController
             'assigned' => $navigationMenuService->getAssignedItemsTree($navigationMenuId, $navigationMenu),
             'unassigned' => $navigationMenuService->getUnassignedItems($contextId, $navigationMenuId, $navigationMenu),
             'itemTypes' => $navigationMenuService->getMenuItemTypes(),
-            'maxDepth' => self::MAX_DEPTH,
         ], Response::HTTP_OK);
     }
 

@@ -4,15 +4,18 @@ namespace PKP\core;
 
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
-use PKP\core\blade\FileViewFinder;
+use PKP\core\blade\Factory;
 use PKP\core\blade\SmartyTemplatingEngine;
+use Illuminate\View\FileViewFinder;
 use Illuminate\Support\Facades\View;
 use PKP\core\blade\DynamicComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\ViewServiceProvider;
+use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Factory as ViewFactory;
+use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
@@ -26,9 +29,13 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
      */
     public function boot()
     {
-        // Allow to render blade files as .blade e.g. with the .php extension
-        // but still allow to render views as .blade.php to accommodate default behavior.
+        // Register .blade extension for Blade templates
         View::addExtension('blade', 'blade');
+
+        // Register .tpl extension for Smarty templates
+        // This enables unified template resolution through Laravel's view system
+        // All Smarty templates (both top-level and nested) can be found by FileViewFinder
+        View::addExtension('tpl', 'smarty');
 
         AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
 
@@ -125,12 +132,10 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // Create a global alias so ViewHelper can be used without full namespace in templates
         AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);
 
-        // FIXME : probably dont need it anymore 
-        // Register theme view paths after PKPRequest is resolved
-        // This allows plugin Blade templates to override core Blade templates
-        $this->callAfterResolving(PKPRequest::class, function (PKPRequest $request) {
-            self::registerThemeViewPaths($request);
-        });
+        // Override Blade's default echo format to escape Vue.js template delimiters
+        // This prevents XSS via Vue template injection when user content contains {{ }}
+        Blade::setEchoFormat('\PKP\template\ViewHelper::vueEscape(%s)');
+
     }
 
     /**
@@ -174,8 +179,9 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $this->app->singleton(
             'view.finder',
             fn (PKPContainer $app) => new FileViewFinder(
-                $app->get('files'), 
-                array_values($app->get('config')->get('view.paths'))
+                $app->get('files'),
+                // Flatten paths since 'app' namespace may contain multiple directories
+                collect($app->get('config')->get('view.paths'))->flatten()->unique()->values()->toArray()
             )
         );
     }
@@ -283,6 +289,21 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         );
 
         return $factory;
+    }
+
+    /**
+     * Create the view factory instance.
+     *
+     * Override parent to return our custom Factory with view name aliasing support.
+     *
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\ViewFinderInterface  $finder
+     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @return \PKP\core\blade\Factory
+     */
+    protected function createFactory($resolver, $finder, $events)
+    {
+        return new Factory($resolver, $finder, $events);
     }
 
 }

@@ -151,12 +151,26 @@ class PKPTemplateManager extends Smarty
         $this->config_dir = "{$cachePath}/t_config";
         $this->cache_dir = "{$cachePath}/t_cache";
 
-        // Register the template resources.
-        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib/pkp/templates'));
-        $this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
-        $this->default_resource_type = 'app';
+        // Register Smarty resources for template prefixes.
+        // IMPORTANT: These are required for COMPILATION - Smarty needs to read template
+        // source files when compiling {include file="core:..."} directives.
+        // Runtime resolution and plugin overrides happen in SmartyTemplate via View::resolveName hook.
+        $coreTemplateDir = 'lib/pkp/templates';
+        $appTemplateDirs = ['templates', $coreTemplateDir];
+        $this->registerResource('core', new PKPTemplateResource($coreTemplateDir));
+        $this->registerResource('app', new PKPTemplateResource($appTemplateDirs));
+        // 'tpl' is used as default - allows us to distinguish implicit (no prefix) from explicit (app:)
+        // - {include file="template.tpl"} → tpl:template.tpl → allows theme override
+        // - {include file="app:template.tpl"} → app:template.tpl → explicit, skip override
+        $this->registerResource('tpl', new PKPTemplateResource($appTemplateDirs));
+        $this->default_resource_type = 'tpl';
 
         $this->error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING;
+
+        // Use custom SmartyTemplate class to intercept nested includes
+        // This routes {include} directives through Laravel's FileViewFinder
+        // for unified template resolution and hook firing
+        $this->template_class = \PKP\core\blade\SmartyTemplate::class;
     }
 
     /**
@@ -1333,41 +1347,98 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * @copydoc Smarty::fetch()
+     * Fetch and render a template
      *
-     * @param null|mixed $template
-     * @param null|mixed $cache_id
-     * @param null|mixed $compile_id
-     * @param null|mixed $parent
+     * Routes all template rendering through Laravel's view system for unified
+     * template resolution. This ensures the View::resolveName hook fires consistently
+     * for all templates, enabling plugin overrides.
+     *
+     * @param null|mixed $template Template path, view name, or View instance
+     * @param null|mixed $cache_id Smarty cache ID (unused in unified architecture)
+     * @param null|mixed $compile_id Smarty compile ID (unused in unified architecture)
+     * @param null|mixed $parent Smarty parent (unused in unified architecture)
      *
      * @hook TemplateManager::fetch [[$this, $template, $cache_id, $compile_id, &$result]]
      */
     public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
-        // If no compile ID was assigned, get one.
-        if (!$compile_id) {
-            $compile_id = $this->getCompileId($template);
-        }
-
         // Give hooks an opportunity to override
         $result = null;
         if (Hook::call('TemplateManager::fetch', [$this, $template, $cache_id, $compile_id, &$result])) {
             return $result;
         }
 
-        // If a blade view instance given or the template is a blade view
-        // just return the rendered content
-        if ($template instanceof View
-            || (!str_contains($template, '.tpl') && view()->exists($template))
-        ) {
-            $this->shareTemplateVariables($this->getTemplateVars());
+        // Share all assigned vars globally so Blade templates can access them
+        $this->shareTemplateVariables($this->getTemplateVars());
 
-            return $template instanceof View
-                ? $template->render()
-                : view($template)->render();
+        // Handle View instances directly
+        if ($template instanceof View) {
+            return $template->render();
         }
 
-        return parent::fetch($template, $cache_id, $compile_id, $parent);
+        // Convert Smarty path to Laravel view name and render through Laravel
+        // View::resolveName hook is fired in Factory::make() for plugin overrides
+        $viewName = $this->smartyPathToViewName($template);
+        return view($viewName)->render();
+    }
+
+    /**
+     * Convert a Smarty template path to a Laravel view name
+     *
+     * Handles various input formats:
+     * - "frontend/pages/article.tpl"      → "frontend.pages.article" (implicit, allows override)
+     * - "tpl:frontend/pages/article.tpl"  → "frontend.pages.article" (default prefix, allows override)
+     * - "app:frontend/pages/article.tpl"  → "app::frontend.pages.article" (explicit, skips override)
+     * - "core:frontend/pages/article.tpl" → "pkp::frontend.pages.article" (explicit, skips override)
+     * - "mytheme::frontend.pages.article" → "mytheme::frontend.pages.article" (passthrough)
+     *
+     * @param string $template Smarty template path or Laravel view name
+     * @return string Laravel view name in dot notation (possibly with namespace)
+     */
+    public function smartyPathToViewName(string $template): string
+    {
+        // If it's a Laravel namespaced view (contains ::), pass through as-is
+        if (str_contains($template, '::')) {
+            return $template;
+        }
+
+        // If already in dot notation (no slashes, no .tpl), return as-is
+        if (!str_contains($template, '/') && !str_contains($template, '\\') && !str_ends_with($template, '.tpl')) {
+            return $template;
+        }
+
+        // Convert Smarty resource prefixes to Laravel namespaces
+        // - "tpl:" is the default, strip it (allows theme override)
+        // - "app:" is explicit, map to app:: namespace (skips override)
+        // - "core:" is explicit, map to pkp:: namespace (skips override)
+        $namespace = null;
+        if (preg_match('/^(tpl|app|core):(?!:)(.+)$/', $template, $matches)) {
+            $prefix = $matches[1];
+            $template = $matches[2];
+
+            $namespace = match ($prefix) {
+                'tpl' => null,  // Default prefix - no namespace, allows override
+                'app' => 'app', // Explicit app - keeps namespace, skips override
+                'core' => 'pkp',
+                default => null,
+            };
+        }
+
+        // Remove "templates/" prefix if present
+        $template = preg_replace('/^templates\//', '', $template);
+
+        // Remove template extension (.tpl or .blade)
+        $template = preg_replace('/\.(tpl|blade)$/', '', $template);
+
+        // Convert slashes to dots
+        $viewName = str_replace(['/', '\\'], '.', $template);
+
+        // Add namespace if we have one
+        if ($namespace !== null) {
+            return $namespace . '::' . $viewName;
+        }
+
+        return $viewName;
     }
 
     /**
@@ -1603,26 +1674,8 @@ class PKPTemplateManager extends Smarty
         // sent out the cookie as header
         Application::get()->getRequest()->getSessionGuard()->sendCookies();
 
-        // If no compile ID was assigned, get one.
-        if (!$compile_id) {
-            $compile_id = $this->getCompileId($template);
-        }
-
-        // If a blade view instance given or the template is a blade view
-        // just return the rendered content
-        if ($template instanceof View
-            || (!str_contains($template, '.tpl') && view()->exists($template))
-        ) {
-            $this->shareTemplateVariables($this->getTemplateVars());
-
-            echo $template instanceof \Illuminate\View\View
-                ? $template->render()
-                : view($template)->render();
-            return;
-        }
-
-        // Actually display the template.
-        parent::display($template, $cache_id, $compile_id, $parent);
+        // Use fetch() for unified template rendering, then output
+        echo $this->fetch($template, $cache_id, $compile_id, $parent);
     }
 
     /**
@@ -1952,7 +2005,10 @@ class PKPTemplateManager extends Smarty
     public function smartyCallHook($params, $smarty = null)
     {
         $output = null;
-        Hook::call($params['name'], [&$params, $smarty, &$output]);
+        // Pass $this (TemplateManager) instead of $smarty (Smarty_Internal_Template)
+        // This ensures plugins calling fetch() go through our unified system
+        // which routes through Laravel's FileViewFinder for proper hook handling
+        Hook::call($params['name'], [&$params, $this, &$output]);
         return $output;
     }
 

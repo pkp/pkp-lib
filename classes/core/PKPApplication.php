@@ -114,6 +114,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
         Hook::addUnsupportedHooks('Announcement::delete::before', 'Announcement::delete', 'Announcement::Collector'); // pkp/pkp-lib#10328 Unavailable since stable-3_5_0, use Eloquent Model events instead
         Hook::addUnsupportedHooks('UserGroup::delete::before', 'UserGroup::delete'); // unavailable since stable-3_6_0, use Eloquent Model events instead
         Hook::addUnsupportedHooks('CitationDAO::afterImportCitations'); // pkp/pkp-lib#11238 Renamed since stable-3_5_0
+        Hook::addUnsupportedHooks('TemplateResource::getFilename'); // pkp/pkp-lib#12088 Replaced with View::resolveName
 
         // QueuedPayment instances may be serialized
         class_alias(\PKP\payment\QueuedPayment::class, '\QueuedPayment');

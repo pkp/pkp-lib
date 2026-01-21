@@ -9,53 +9,43 @@
  *
  * @class SmartyTemplatingEngine
  *
- * @brief Custom Laravel View Engine for rendering Smarty templates (.tpl files)
+ * @brief Laravel View Engine for rendering Smarty templates (.tpl files)
  *
- * This engine bridges Laravel's Blade view system with Smarty templates,
- * allowing plugins to override Blade templates with Smarty templates for
- * backward compatibility during the migration from Smarty to Blade.
- *
- * NON-BREAKING BACKWARD COMPATIBILITY:
- * This enables plugins to use .tpl files to override core Blade templates
- * when no corresponding .blade file exists in the plugin.
- *
- * Priority order: Plugin Blade > Plugin Smarty > Core Blade
- *
- * Usage:
- * When a .tpl file is returned by FileViewFinder, Laravel's view system
- * automatically uses this engine to render it via PKPTemplateManager.
+ * Integrates Smarty into Laravel's view system. When Laravel resolves a .tpl file,
+ * this engine renders it via Smarty. Nested {include}s are handled by SmartyTemplate.
  */
 
 namespace PKP\core\blade;
 
 use APP\template\TemplateManager;
-use Illuminate\View\Engines\Engine;
+use Illuminate\Contracts\View\Engine;
 
-class SmartyTemplatingEngine extends Engine implements \Illuminate\Contracts\View\Engine
+class SmartyTemplatingEngine implements Engine
 {
     /**
-     * Render a Smarty template file using PKPTemplateManager
+     * Render a Smarty template
      *
-     * @param string $path Smarty resource path (e.g., "plugins-...:frontend/pages/article.tpl")
-     *                     or relative template path for core templates
-     * @param array $data View data to pass to the template
-     *
-     * @return string Rendered template output
+     * @param string $path Absolute file path (already resolved by FileViewFinder)
+     * @param array $data View data from Laravel
      */
-    public function get($path, array $data = [])
+    public function get($path, array $data = []): string
     {
         $templateManager = TemplateManager::getManager();
 
-        // Transfer Blade view data to Smarty template manager
-        // This ensures variables passed to view() are available in Smarty
-        foreach ($data as $key => $value) {
-            $templateManager->assign($key, $value);
-        }
+        // Create template with file: prefix (bypasses Smarty resource resolution)
+        // compile_id ensures different themes get separate compiled versions
+        $template = $templateManager->createTemplate(
+            'file:' . $path,
+            $templateManager,
+            null, // cache_id - not using Smarty's output caching
+            $templateManager->getCompileId($path)
+        );
 
-        // Use PKPTemplateManager to render the Smarty template
-        // PKPTemplateManager::fetch() handles both:
-        // - Smarty resource notation (e.g., "plugins-...:template.tpl")
-        // - Relative paths (e.g., "templates/frontend/pages/article.tpl")
-        return $templateManager->fetch($path);
+        // Ensure TemplateManager's assigned vars are available to Smarty templates.
+        // For top-level fetch(): $data is empty (View::share only helps Blade, not Smarty)
+        // For nested includes: $data already has vars, but merge is harmless
+        $template->assign(array_merge($templateManager->getTemplateVars(), $data));
+
+        return $template->fetch();
     }
 }

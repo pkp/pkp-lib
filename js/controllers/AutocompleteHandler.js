@@ -34,6 +34,8 @@
 
 		this.disableSync_ = options.disableSync;
 
+		this.lastRequest_ = null;
+
 		// Create autocomplete settings.
 		opt = {};
 		opt.source = this.callbackWrapper(this.fetchAutocomplete);
@@ -182,10 +184,15 @@
 	$.pkp.controllers.AutocompleteHandler.prototype.fetchAutocomplete =
 			function(callingElement, request, response) {
 		var $textInput;
+		var self = this;
 
 		$textInput = this.textInput;
 		$textInput.addClass('spinner');
-		$.post(this.getAutocompleteUrl(), { term: request.term }, function(data) {
+		if (self.lastRequest_) {
+			self.lastRequest_.abort('Aborted due to new user request');
+		}
+		this.lastRequest_ = $.post(this.getAutocompleteUrl(), { term: request.term }, function(data) {
+			self.lastRequest_ = null;
 			$textInput.removeClass('spinner');
 			response(data.content);
 		}, 'json');

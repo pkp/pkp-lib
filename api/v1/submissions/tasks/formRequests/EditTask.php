@@ -133,7 +133,7 @@ class EditTask extends FormRequest
                     }
 
                     // Don't disclose anonymous reviewer to other reviewers
-                    if (count($blindedReviewerIds) > 1) {
+                    if (count($blindedReviewerIds) > 1 || !empty($nonBlindedReviewerIds)) {
                         return $fail(__('submission.task.validation.error.reviewer.anonymous'));
                     }
 

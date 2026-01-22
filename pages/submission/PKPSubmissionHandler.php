@@ -43,10 +43,11 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
+use PKP\submission\genre\Genre;
+
 
 abstract class PKPSubmissionHandler extends Handler
 {
@@ -207,9 +208,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->withContextIds([$context->getId()])
             ->get();
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toAssociativeArray();
+        $genres = Genre::withEnabled()->withContext($context->getId())->get()->all();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()
@@ -513,7 +512,9 @@ abstract class PKPSubmissionHandler extends Handler
             ->getMany();
 
         // Don't allow dependent files to be uploaded with the submission
-        $genres = array_filter($genres, fn ($genre) => !$genre->getDependent());
+        $genres = array_values(
+            array_filter($genres, fn ($genre) => !$genre->dependent)
+        );
 
         $form = new PKPSubmissionFileForm(
             $this->getSubmissionFilesApiUrl($request, $submission->getId()),
@@ -531,9 +532,9 @@ abstract class PKPSubmissionHandler extends Handler
             'form' => $form->getConfig(),
             'genres' => array_values(array_map(
                 fn ($genre) => [
-                    'id' => (int) $genre->getId(),
-                    'name' => $genre->getLocalizedName(),
-                    'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
+                    'id' => (int) $genre->getKey(),
+                    'name' => $genre->getLocalizedData('name'),
+                    'isPrimary' => !$genre->supplementary && !$genre->dependent,
                 ],
                 $genres
             )),

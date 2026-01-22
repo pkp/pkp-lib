@@ -35,6 +35,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\genre\Genre;
 
 class PKPJatsController extends PKPBaseController
 {
@@ -129,11 +130,10 @@ class PKPJatsController extends PKPBaseController
         }
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile, $submission);
@@ -172,11 +172,10 @@ class PKPJatsController extends PKPBaseController
             );
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile, $submission);
@@ -192,12 +191,13 @@ class PKPJatsController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
+
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
-
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
+        
         if (!$jatsFile->submissionFile) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
@@ -208,7 +208,7 @@ class PKPJatsController extends PKPBaseController
             ->delete($jatsFile->submissionFile);
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile, $submission);

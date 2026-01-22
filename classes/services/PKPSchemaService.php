@@ -55,6 +55,7 @@ class PKPSchemaService
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
     public const SCHEMA_EMAIL_LOG = 'emailLog';
+    
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];
@@ -692,3 +693,4 @@ class PKPSchemaService
         return $values;
     }
 }
+

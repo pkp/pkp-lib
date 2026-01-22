@@ -31,8 +31,8 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\submission\GenreDAO;
 use PKP\userGroup\UserGroup;
+use PKP\submission\genre\Genre;
 
 class PKPBackendDoiController extends PKPBaseController
 {
@@ -133,11 +133,11 @@ class PKPBackendDoiController extends PKPBaseController
         $contextId = $submission->getData('contextId');
 
 
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
+
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }

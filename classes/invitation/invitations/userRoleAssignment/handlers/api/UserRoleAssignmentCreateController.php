@@ -32,14 +32,14 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 
 class UserRoleAssignmentCreateController extends CreateInvitationController
 {
-    public function __construct(public UserRoleAssignmentInvite $invitation) 
+    public function __construct(public UserRoleAssignmentInvite $invitation)
     {
     }
 
     /**
      * @inheritDoc
      */
-    public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool 
+    public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->request = $request;
 
@@ -53,7 +53,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
     /**
      * @inheritDoc
      */
-    public function add(Request $illuminateRequest): JsonResponse 
+    public function add(Request $illuminateRequest): JsonResponse
     {
         if ($this->invitation->getEmail()) {
             $this->invitation->getPayload()->sendEmailAddress = $this->invitation->getEmail();
@@ -68,7 +68,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
     /**
      * @inheritDoc
      */
-    public function populate(Request $illuminateRequest): JsonResponse 
+    public function populate(Request $illuminateRequest): JsonResponse
     {
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
@@ -90,22 +90,22 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
             Response::HTTP_OK
         );
     }
-    
+
     /**
      * @inheritDoc
      */
-    public function get(Request $illuminateRequest): JsonResponse 
+    public function get(Request $illuminateRequest): JsonResponse
     {
         return response()->json(
             (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }
-    
+
     /**
      * @inheritDoc
      */
-    public function invite(Request $illuminateRequest): JsonResponse 
+    public function invite(Request $illuminateRequest): JsonResponse
     {
         $this->invitation->getPayload()->sendEmailAddress = $this->invitation->getEmail();
 
@@ -117,7 +117,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $this->invitation->getPayload()->inviteStagePayload = $this->invitation->getPayload()->toArray();
 
         $this->invitation->updatePayload();
-        
+
         if (!$this->invitation->validate([], ValidationContext::VALIDATION_CONTEXT_INVITE)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
@@ -133,7 +133,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         }
 
         return response()->json(
-            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 
+            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }
@@ -148,7 +148,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
             ->skip($offset)
             ->take($count)
             ->get();
-        
+
         $finalCollection = $invitations->map(function ($invitation) {
             $specificInvitation = Repo::invitation()->getById($invitation->id);
             return $specificInvitation;

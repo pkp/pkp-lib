@@ -281,6 +281,11 @@
 			"validation": [
 				"nullable"
 			]
-		}
+		},
+		"email": {
+		"type": "string",
+		"description": "Reviewer email address for new users",
+		"apiSummary": true
 	}
+}
 }

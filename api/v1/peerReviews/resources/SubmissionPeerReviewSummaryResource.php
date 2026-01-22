@@ -33,6 +33,7 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
         $submission = $this->resource;
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
+            ->filterByIsPubliclyVisible(true)
             ->getMany();
 
         $contextDao = Application::getContextDAO();

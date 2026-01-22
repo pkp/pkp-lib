@@ -29,10 +29,10 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
-use PKP\form\validation\FormValidatorCSRF;
-use PKP\form\validation\FormValidatorPost;
-use PKP\form\validation\FormValidatorDateCompare;
 use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorDateCompare;
+use PKP\form\validation\FormValidatorPost;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -70,9 +70,6 @@ class ReviewerForm extends Form
     /**
      * Constructor.
      *
-     * @param Submission $submission
-     * @param ReviewRound $reviewRound
-     * @param ReviewerSuggestion|null $reviewerSuggestion
      */
     public function __construct(Submission $submission, ReviewRound $reviewRound, ?ReviewerSuggestion $reviewerSuggestion = null)
     {
@@ -237,6 +234,8 @@ class ReviewerForm extends Form
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);
+        // Set default visibility mode
+        $this->setData('isReviewPubliclyVisible', $context->getDefaultReviewPublicVisibility());
     }
 
     /**
@@ -317,6 +316,7 @@ class ReviewerForm extends Form
             'stageId',
             'selectedFiles',
             'reviewFormId',
+            'isReviewPubliclyVisible',
         ]);
     }
 
@@ -344,9 +344,17 @@ class ReviewerForm extends Form
         }
 
         $reviewMethod = (int) $this->getData('reviewMethod');
-
         $editorAction = new EditorAction();
-        $editorAction->addReviewer($request, $submission, $reviewerId, $currentReviewRound, $reviewDueDate, $responseDueDate, $reviewMethod);
+        $editorAction->addReviewer(
+            $request,
+            $submission,
+            $reviewerId,
+            $currentReviewRound,
+            $reviewDueDate,
+            $responseDueDate,
+            $reviewMethod,
+            (bool)$this->getData('isReviewPubliclyVisible'),
+        );
 
         // Get the reviewAssignment object now that it has been added.
         $reviewAssignment = Repo::reviewAssignment()->getCollector()

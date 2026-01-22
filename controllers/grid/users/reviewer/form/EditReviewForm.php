@@ -88,6 +88,7 @@ class EditReviewForm extends Form
     {
         $this->setData('responseDueDate', $this->_reviewAssignment->getDateResponseDue());
         $this->setData('reviewDueDate', $this->_reviewAssignment->getDateDue());
+        $this->setData('isReviewPubliclyVisible', $this->_reviewAssignment->getIsReviewPubliclyVisible());
         return parent::initData();
     }
 
@@ -123,6 +124,7 @@ class EditReviewForm extends Form
             'reviewAssignmentId' => $this->_reviewAssignment->getId(),
             'reviewMethod' => $this->_reviewAssignment->getReviewMethod(),
             'reviewMethods' => Repo::reviewAssignment()->getReviewMethodsTranslationKeys(),
+            'isReviewPubliclyVisible' => $this->_reviewAssignment->getIsReviewPubliclyVisible(),
         ]);
         return parent::fetch($request, $template, $display);
     }
@@ -140,7 +142,7 @@ class EditReviewForm extends Form
             'reviewDueDate',
             'reviewMethod',
             'reviewFormId',
-
+            'isReviewPubliclyVisible',
         ]);
     }
 
@@ -234,6 +236,7 @@ class EditReviewForm extends Form
             'dateDue' => $this->getData('reviewDueDate'),
             'dateResponseDue' => $this->getData('responseDueDate'),
             'reviewMethod' => $this->getData('reviewMethod'),
+            'isReviewPubliclyVisible' => $this->getData('isReviewPubliclyVisible'),
         ];
 
         if (!$reviewAssignment->getDateCompleted()) {

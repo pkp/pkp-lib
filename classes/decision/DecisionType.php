@@ -226,7 +226,7 @@ abstract class DecisionType
                     $reviewRoundDao->updateStatus($reviewRound, null);
                 }
             }
-            $this->createTasksFromTemplatesForStage($submission, (int) $newStageId, $editor, $context);
+            Repo::editorialTask()->autoCreateFromTemplates($submission, (int) $newStageId);
         }
 
         // Change review round status when a decision is taken in a review stage
@@ -243,26 +243,6 @@ abstract class DecisionType
                 }
                 $reviewRoundDao->updateStatus($reviewRound, $this->getNewReviewRoundStatus());
             }
-        }
-    }
-
-    private function createTasksFromTemplatesForStage(
-        Submission $submission,
-        int $stageId,
-        User $editor,
-        Context $context
-    ): void {
-
-        $templates = Template::query()
-            ->where('context_id', $context->getId())
-            ->where('stage_id', $stageId)
-            ->get();
-
-        foreach ($templates as $template) {
-            /** @var Template $template */
-            $task = $template->promote($submission);
-            $task->fill(['createdBy' => $editor->getId()]);
-            $task->save();
         }
     }
 

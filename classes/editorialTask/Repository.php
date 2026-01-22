@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -191,6 +192,63 @@ class Repository
             $submission->getData('contextId')
         );
     }
+
+    public function autoCreateFromTemplates(Submission $submission, int $stageId): void
+    {
+        $contextId = (int) $submission->getData('contextId');
+
+        $templates = Template::query()
+            ->byContextId($contextId)
+            ->filterByStageId($stageId)
+            ->filterByInclude(true)
+            ->get();
+
+        $request = Application::get()->getRequest();
+        $user = $request ? $request->getUser() : null;
+
+        // allow null when created by system
+        $createdBy = $user ? $user->getId() : $submission->getData('userId');
+
+        foreach ($templates as $template) {
+            $templateId = (int) $template->id;
+
+            if ($this->taskAlreadyCreatedFromTemplate($submission->getId(), $templateId)) {
+                continue;
+            }
+
+            $task = $template->promote($submission, false); // no participants
+            $task->createdBy = $createdBy;                  // may be null
+
+            $maxSeq = (float) (EditorialTask::query()
+                ->where('assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
+                ->where('assoc_id', $submission->getId())
+                ->max('seq') ?? 0);
+
+            $task->seq = $maxSeq + 1;
+
+            $task->save();
+
+            $task->updateSettings(
+                [
+                    'templateId' => $templateId,
+                    'autoCreated' => true,
+                ],
+                (int) $task->id
+            );
+        }
+    }
+
+    private function taskAlreadyCreatedFromTemplate(int $submissionId, int $templateId): bool
+    {
+        return DB::table('edit_tasks as t')
+            ->join('edit_task_settings as s', 's.edit_task_id', '=', 't.edit_task_id')
+            ->where('t.assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
+            ->where('t.assoc_id', $submissionId)
+            ->where('s.setting_name', 'templateId')
+            ->where('s.setting_value', (string) $templateId)
+            ->exists();
+    }
+
 
     /**
      * Deletes all tasks, notes, and notifications associated with the given submission ID.

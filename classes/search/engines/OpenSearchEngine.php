@@ -208,10 +208,10 @@ class OpenSearchEngine extends ScoutEngine
                         $filter[] = ['terms' => ['categoryId' => $list]];
                         break;
                     case 'keywords':
-                        $filter[] = ['terms' => ['keyword.keyword' => $list]];
+                        $filter[] = ['terms' => ['keyword.' . Locale::getLocale() . '.keyword' => $list]];
                         break;
                     case 'subjects':
-                        $filter[] = ['terms' => ['subject.keyword' => $list]];
+                        $filter[] = ['terms' => ['subject.' . Locale::getLocale() . '.keyword' => $list]];
                         break;
                     default: continue 2;
                 }

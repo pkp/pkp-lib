@@ -119,7 +119,7 @@ class EditTask extends FormRequest
 
                         if (in_array(
                             $reviewAssignment->getReviewMethod(),
-                            [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS]
+                            [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]
                         )
                         ) {
                             $blindedReviewerIds[] = $reviewAssignment->getReviewerId();
@@ -133,7 +133,7 @@ class EditTask extends FormRequest
                     }
 
                     // Don't disclose anonymous reviewer to other reviewers
-                    if (count($blindedReviewerIds) > 1 && !empty($nonBlindedReviewerIds)) {
+                    if (count($blindedReviewerIds) > 1 || !empty($nonBlindedReviewerIds)) {
                         return $fail(__('submission.task.validation.error.reviewer.anonymous'));
                     }
 
@@ -142,7 +142,7 @@ class EditTask extends FormRequest
                             continue;
                         }
 
-                        if (!in_array(Role::ROLE_ID_AUTHOR, $stageAssignment->userGroup->role_id)) {
+                        if ($stageAssignment->userGroup->roleId != Role::ROLE_ID_AUTHOR) {
                             continue;
                         }
 

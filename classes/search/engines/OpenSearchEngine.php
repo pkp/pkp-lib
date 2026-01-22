@@ -21,7 +21,6 @@ use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
-use PKP\controlledVocab\ControlledVocab;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\search\parsers\SearchFileParser;
@@ -106,7 +105,6 @@ class OpenSearchEngine extends ScoutEngine
                     $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
                 }
             }
-
             $json = [
                 'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
@@ -119,22 +117,12 @@ class OpenSearchEngine extends ScoutEngine
                     'datePublished' => $publication->getData('datePublished'),
                     'sectionId' => $publication->getData('sectionId'),
                     'categoryId' => $publication->getData('categoryIds'),
-                    'keyword' => array_merge(...array_values(array_filter(
-                        Repo::controlledVocab()->getBySymbolic(
-                            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-                            Application::ASSOC_TYPE_PUBLICATION,
-                            $submission->getCurrentPublication()->getId(),
-                            [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
-                        )
-                    ))),
-                    'subject' => array_merge(...array_values(array_filter(
-                        Repo::controlledVocab()->getBySymbolic(
-                            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-                            Application::ASSOC_TYPE_PUBLICATION,
-                            $submission->getCurrentPublication()->getId(),
-                            [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
-                        )
-                    )))
+                    'keyword' => collect($publication->getData('keywords'))
+                        ->map(fn ($items) => collect($items)->pluck('name')->all())
+                        ->all(),
+                    'subject' => collect($publication->getData('subjects'))
+                        ->map(fn ($items) => collect($items)->pluck('name')->all())
+                        ->all(),
                 ]
             ];
             // Give hooks a chance to alter the record before indexing
@@ -355,15 +343,8 @@ class OpenSearchEngine extends ScoutEngine
                         'categoryId' => ['type' => 'long'],
                         'contexetId' => ['type' => 'long'],
                         'datePublished' => ['type' => 'date'],
-                        'keyword' => [
-                            'type' => 'text',
-                            'fields' => [
-                                'keyword' => [
-                                    'type' => 'keyword',
-                                    'ignore_above' => 256,
-                                ],
-                            ],
-                        ],
+                        'keyword' => $typicalKeywordClause(),
+                        'subject' => $typicalKeywordClause(),
                         'sectionId' => ['type' => 'long'],
                     ],
                 ],

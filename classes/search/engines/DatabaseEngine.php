@@ -18,14 +18,13 @@ use Illuminate\Database\Query\JoinClause;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Builder as SearchBuilder;
-use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\facades\Locale;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
-class DatabaseEngine extends ScoutEngine
+class DatabaseEngine extends PKPSearchEngine
 {
     public const MINIMUM_DATA_LENGTH = 4096;
 
@@ -179,6 +178,11 @@ class DatabaseEngine extends ScoutEngine
             'results' => $results,
             'total' => $results->count()
         ];
+    }
+
+    public function getFacets(int $contextId, string $field, ?string $filter, ?int $number = null): array
+    {
+        throw new \BadFunctionCallException('Faceting is not implemented in the database search engine.');
     }
 
     public function paginate(SearchBuilder $builder, $perPage, $page): LengthAwarePaginator

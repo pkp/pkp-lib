@@ -61,6 +61,20 @@ class UserCommentComponent
     }
 
     /**
+     * Get the SVG icons required by the pkpUserComment component.
+     */
+    public function getSvgIcons(): array
+    {
+        return [
+            'Error',
+            'Help',
+            'MoreOptions',
+            'Orcid',
+            'OrcidUnauthenticated',
+        ];
+    }
+
+    /**
      * Get the locale keys to expose in the pkpUserComment component.
      *
      */

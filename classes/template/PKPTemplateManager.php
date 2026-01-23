@@ -33,6 +33,7 @@ use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Less_Parser;
@@ -119,6 +120,8 @@ class PKPTemplateManager extends Smarty
     /** @var array State that can be expose via pinia store on frontend when vue is enabled */
     protected array $_piniaData = [];
 
+    /** @var array List of SVG icon names required by Vue components */
+    protected array $_svgIcons = [];
 
     /** @var string Type of cacheability (Cache-Control). */
     private string $_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
@@ -705,6 +708,36 @@ class PKPTemplateManager extends Smarty
                 $this->_localeKeys[$key] = __($key);
             }
         }
+    }
+
+    /**
+     * Register SVG icons needed by Vue components on this page.
+     *
+     * Icons registered here will be included in the SVG sprite sheet.
+     * Use this method in handlers to declare which icons Vue components need.
+     *
+     * Example:
+     *   $templateManager->addSvgIcons(['Add', 'Edit', 'Delete', 'ChevronDown']);
+     *
+     * @param array $icons Array of icon names (e.g., ['Add', 'Edit', 'Delete'])
+     */
+    public function addSvgIcons(array $icons): void
+    {
+        foreach ($icons as $icon) {
+            if (!in_array($icon, $this->_svgIcons, true)) {
+                $this->_svgIcons[] = $icon;
+            }
+        }
+    }
+
+    /**
+     * Get the list of SVG icons required by Vue components.
+     *
+     * @return array Array of icon names
+     */
+    public function getSvgIcons(): array
+    {
+        return $this->_svgIcons;
     }
 
     /**

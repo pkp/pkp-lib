@@ -16,15 +16,15 @@
 
 namespace PKP\controllers\grid\navigationMenus;
 
+use APP\core\Application;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
-use PKP\controllers\grid\navigationMenus\form\NavigationMenuForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\VueModal;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\Notification;
 use PKP\security\authorization\CanAccessSettingsPolicy;
@@ -43,10 +43,9 @@ class NavigationMenusGridHandler extends GridHandler
         $this->addRoleAssignment(
             Role::ROLE_ID_MANAGER,
             $ops = [
-                'fetchGrid', 'fetchRow',
-                'addNavigationMenu', 'editNavigationMenu',
-                'updateNavigationMenu',
-                'deleteNavigationMenu'
+                'fetchGrid',
+                'fetchRow',
+                'deleteNavigationMenu',
             ]
         );
         $this->addRoleAssignment(Role::ROLE_ID_SITE_ADMIN, $ops);
@@ -122,16 +121,23 @@ class NavigationMenusGridHandler extends GridHandler
         );
 
         // Add grid action.
-        $router = $request->getRouter();
+        $context = $request->getContext();
+        $apiUrl = $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context ? $context->getPath() : 'index',
+            'navigationMenus'
+        );
 
         $this->addAction(
             new LinkAction(
                 'addNavigationMenu',
-                new AjaxModal(
-                    $router->url($request, null, null, 'addNavigationMenu', null, null),
-                    __('grid.action.addNavigationMenu'),
-                    null,
-                    true
+                new VueModal(
+                    'NavigationMenuManagerFormModal',
+                    [
+                        'navigationMenu' => null,
+                        'apiUrl' => $apiUrl,
+                    ]
                 ),
                 __('grid.action.addNavigationMenu'),
                 'add_item'
@@ -166,87 +172,6 @@ class NavigationMenusGridHandler extends GridHandler
     //
     // Public grid actions.
     //
-    /**
-     * Display form to add NavigationMenus.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage
-     */
-    public function addNavigationMenu($args, $request)
-    {
-        return $this->editNavigationMenu($args, $request);
-    }
-
-    /**
-     * Display form to edit NavigationMenus.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
-     */
-    public function editNavigationMenu($args, $request)
-    {
-        $navigationMenuId = (int)$request->getUserVar('navigationMenuId');
-        $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
-        if ($context) {
-            $contextId = $context->getId();
-        }
-
-        $navigationMenuForm = new NavigationMenuForm($contextId, $navigationMenuId);
-        $navigationMenuForm->initData();
-
-        return new JSONMessage(true, $navigationMenuForm->fetch($request));
-    }
-
-    /**
-     * Save an edited/inserted NavigationMenus.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
-     */
-    public function updateNavigationMenu($args, $request)
-    {
-        // Identify the NavigationMenu id.
-        $navigationMenuId = $request->getUserVar('navigationMenuId');
-        $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
-        if ($context) {
-            $contextId = $context->getId();
-        }
-
-        // Form handling.
-        $navigationMenusForm = new NavigationMenuForm($contextId, $navigationMenuId);
-        $navigationMenusForm->readInputData();
-
-        if ($navigationMenusForm->validate()) {
-            $navigationMenusForm->execute();
-
-            if ($navigationMenuId) {
-                // Successful edit of an existing NavigationMenu.
-                $notificationLocaleKey = 'notification.editedNavigationMenu';
-            } else {
-                // Successful added a new NavigationMenu.
-                $notificationLocaleKey = 'notification.addedNavigationMenu';
-            }
-
-            // Record the notification to user.
-            $notificationManager = new NotificationManager();
-            $user = $request->getUser();
-            $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __($notificationLocaleKey)]);
-
-            // Prepare the grid row data.
-            return \PKP\db\DAO::getDataChangedEvent($navigationMenuId);
-        } else {
-            return new JSONMessage(false);
-        }
-    }
-
     /**
      * Delete a NavigationMenu.
      *

@@ -12,6 +12,9 @@
  */
 (function($) {
 
+	/** @type {Object} */
+	$.pkp.controllers.grid.navigationMenus =
+			$.pkp.controllers.grid.navigationMenus || {form: {}};
 
 	/**
 	 * @constructor

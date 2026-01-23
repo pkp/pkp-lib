@@ -2562,6 +2562,18 @@ msgstr "Assigned Menu Items"
 msgid "manager.navigationMenus.unassignedMenuItems"
 msgstr "Unassigned Menu Items"
 
+msgid "manager.navigationMenu.noAssignedItems"
+msgstr "No items assigned to this menu. Drag items from Unassigned Menu Items."
+
+msgid "manager.navigationMenu.noUnassignedItems"
+msgstr "All items have been assigned."
+
+msgid "manager.navigationMenu.assigned"
+msgstr "Assigned"
+
+msgid "manager.navigationMenu.unassigned"
+msgstr "Unassigned"
+
 msgid "manager.navigationMenus.form.navigationMenuArea"
 msgstr "Active Theme Navigation Areas"
 

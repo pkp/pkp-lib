@@ -68,6 +68,9 @@ msgstr "The announcement you requested was not found."
 msgid "api.institutions.404.institutionNotFound"
 msgstr "The institution you requested was not found."
 
+msgid "api.navigationMenus.404.navigationMenuNotFound"
+msgstr "The navigation menu you requested was not found."
+
 msgid "api.contexts.400.localesNotSupported"
 msgstr "The following locales are not supported: {$locales}."
 

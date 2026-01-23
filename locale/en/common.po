@@ -451,6 +451,9 @@ msgstr "Done"
 msgid "common.download"
 msgstr "Download"
 
+msgid "common.dragToReorder"
+msgstr "Drag to reorder"
+
 msgid "common.downloadPdf"
 msgstr "Download PDF"
 

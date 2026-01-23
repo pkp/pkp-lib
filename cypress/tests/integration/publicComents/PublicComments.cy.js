@@ -125,7 +125,7 @@ describe('Public Comments Tests', function() {
 
 		cy.get('div.pkpCommentReportDialog')
 			.parent()
-			.get('div.BaseDialogActionButtons')
+			.get('div.pkpDialog__action-buttons')
 			.contains('button', 'Submit').click();
 	});
 
@@ -184,9 +184,9 @@ describe('Public Comments Tests', function() {
 			.click();
 
 		cy.get('[role="menuitem"]:contains("Delete Comment")').click();
-		cy.contains('.BaseDialogBody', 'Are you sure you want to delete the following comment?').should('exist');
-		cy.contains('.BaseDialogBody', `${testCommentText} - 1`).should('exist');
-		cy.get('.BaseDialogActionButtons').contains('button', 'Delete').click();
+		cy.contains('.pkpDialog__body', 'Are you sure you want to delete the following comment?').should('exist');
+		cy.contains('.pkpDialog__body', `${testCommentText} - 1`).should('exist');
+		cy.get('.pkpDialog__action-buttons').contains('button', 'Delete').click();
 
 		cy.contains(`${testCommentText} - 1`).should('not.exist');
 	});
@@ -383,7 +383,7 @@ describe('Public Comments Tests', function() {
 
 		cy.get('div.pkpCommentReportDialog')
 			.parent()
-			.get('div.BaseDialogActionButtons')
+			.get('div.pkpDialog__action-buttons')
 			.contains('button', 'Submit').click();
 
 		cy.logout();

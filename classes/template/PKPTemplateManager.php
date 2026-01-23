@@ -1569,7 +1569,7 @@ class PKPTemplateManager extends Smarty
             'featureFlags' => [
                 'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions'),
             ],
-            'navigationMenuMaxDepth' => (int) Config::getVar('general', 'navigation_menu_max_depth', PKPNavigationMenuController::DEFAULT_MAX_DEPTH),
+            'navigationMenuMaxDepth' => (int) Config::getVar('interface', 'navigation_menu_max_depth', PKPNavigationMenuController::DEFAULT_MAX_DEPTH),
         ];
 
         if ($context) {

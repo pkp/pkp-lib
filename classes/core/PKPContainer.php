@@ -26,8 +26,8 @@ use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Response;
-use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
+use PKP\core\LogServiceProvider as PKPLogServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
@@ -101,6 +101,8 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
+        $this->instance('path.storage', BASE_SYS_DIR . DIRECTORY_SEPARATOR . 'storage');
+        $this->instance('path.public', $this->basePath . DIRECTORY_SEPARATOR . 'public');
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, function () {
             return new class () implements ExceptionHandler {
@@ -193,13 +195,13 @@ class PKPContainer extends Container
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new LaravelEventServiceProvider($this));
         $this->register(new EventServiceProvider($this));
-        $this->register(new LogServiceProvider($this));
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new PKPQueueProvider($this));
         $this->register(new MailServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
+        $this->register(new PKPLogServiceProvider($this));
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
@@ -387,11 +389,16 @@ class PKPContainer extends Container
         $_request = Application::get()->getRequest();
 
         // App
+        $baseUrl = $_request->getBaseUrl();
         $items['app'] = [
             'key' => PKPAppKey::getKey(),
             'cipher' => PKPAppKey::getCipher(),
             'timezone' => Config::getVar('general', 'timezone', 'UTC'),
             'env' => Config::getVar('general', 'app_env', 'production'),
+            'debug' => Config::getVar('debug', 'show_stacktrace', false),
+            'url' => $baseUrl,
+            // Asset URL points to the public directory for Laravel packages (e.g., Log Viewer)
+            'asset_url' => $baseUrl . '/public',
         ];
 
         // Database connection
@@ -462,9 +469,64 @@ class PKPContainer extends Container
         ];
 
         // Logging
-        $items['logging']['channels']['errorlog'] = [
-            'driver' => 'errorlog',
-            'level' => 'debug',
+        $logLevel = Config::getVar('logs', 'log_level', 'error');
+        $items['logging'] = [
+            'default' => Config::getVar('logs', 'log_channel', 'stack'),
+            'channels' => [
+                'stack' => [
+                    'driver' => 'stack',
+                    'channels' => ['single'],
+                    'ignore_exceptions' => false,
+                ],
+
+                'single' => [
+                    'driver' => 'single',
+                    'path' => storage_path('logs/laravel.log'),
+                    'level' => $logLevel,
+                    'replace_placeholders' => true,
+                ],
+
+                'daily' => [
+                    'driver' => 'daily',
+                    'path' => storage_path('logs/laravel.log'),
+                    'level' => $logLevel,
+                    'days' => 14,
+                    'replace_placeholders' => true,
+                ],
+
+                'stderr' => [
+                    'driver' => 'monolog',
+                    'level' => $logLevel,
+                    'handler' => \Monolog\Handler\StreamHandler::class,
+                    'formatter' => env('LOG_STDERR_FORMATTER'),
+                    'with' => [
+                        'stream' => 'php://stderr',
+                    ],
+                    'processors' => [\Monolog\Processor\PsrLogMessageProcessor::class],
+                ],
+
+                'syslog' => [
+                    'driver' => 'syslog',
+                    'level' => $logLevel,
+                    'facility' => LOG_USER,
+                    'replace_placeholders' => true,
+                ],
+
+                'errorlog' => [
+                    'driver' => 'errorlog',
+                    'level' => $logLevel,
+                    'replace_placeholders' => true,
+                ],
+
+                'null' => [
+                    'driver' => 'monolog',
+                    'handler' => \Monolog\Handler\NullHandler::class,
+                ],
+
+                'emergency' => [
+                    'path' => storage_path('logs/laravel.log'),
+                ],
+            ],
         ];
 
         // Mail Service
@@ -555,6 +617,46 @@ class PKPContainer extends Container
     public function path(string $path = ''): string
     {
         return $this->basePath($path);
+    }
+
+    /**
+     * Get the path to the storage directory
+     */
+    public function storagePath(string $path = ''): string
+    {
+        return $this->get('path.storage') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the public directory
+     */
+    public function publicPath(string $path = ''): string
+    {
+        return $this->basePath() . DIRECTORY_SEPARATOR . 'public' . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the config directory
+     */
+    public function configPath(string $path = ''): string
+    {
+        return $this->get('path.config') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the resource
+     */
+    public function resourcePath(string $path = ''): string
+    {
+        return $this->basePath() . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the current locale
+     */
+    public function getLocale(): string
+    {
+        return \PKP\facades\Locale::getLocale();
     }
 
     /**

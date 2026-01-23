@@ -1,0 +1,31 @@
+{{--
+    SVG Icon Sprite Component
+
+    Outputs the SVG sprite sheet containing icon symbols.
+    This combines:
+    1. Icons registered via addSvgIcons() (for Vue components)
+    2. Icons pushed to the 'svg-icons' stack (via <x-pkp::icon>)
+
+    Include from Smarty via:
+    {include file="frontend/components/svg-icon-sprite.blade"}
+--}}
+@php
+    $svgIcons = \PKP\template\PKPTemplateManager::getManager()->getSvgIcons();
+@endphp
+
+@foreach($svgIcons as $iconName)
+    @pushOnce('svg-icons', "icon-{$iconName}")
+    @php
+        $iconContent = trim(view("frontend.icons.{$iconName}")->render());
+        // Strip <svg> wrapper tags if present (performant single-pass regex)
+        $iconContent = preg_replace('/<\/?svg[^>]*>/i', '', $iconContent);
+    @endphp
+    <symbol id="icon-{{ $iconName }}" viewBox="0 0 24 24">
+    {!! $iconContent !!}
+    </symbol>
+    @endPushOnce
+@endforeach
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    @stack('svg-icons')
+</svg>

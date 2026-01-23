@@ -1,0 +1,11 @@
+{{-- SVG Icon Component --}}
+@props(['name', 'class' => 'w-5 h-5'])
+
+@php
+    // Register icon so svg-icon-sprite.blade will include it
+    \PKP\template\PKPTemplateManager::getManager()->addSvgIcons([$name]);
+@endphp
+
+<svg {{ $attributes->merge(['class' => $class]) }} aria-hidden="true">
+    <use href="#icon-{{ $name }}" />
+</svg>

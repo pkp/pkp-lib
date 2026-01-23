@@ -49,15 +49,15 @@ describe('Public Comments Tests', function() {
 
 			cy.contains('Version of Record 1.0')
 				.parent();
-			cy.get('.BaseCommentsNewInput').find('textarea')
+			cy.get('.pkpComments__new-input').find('textarea')
 				.should('be.visible').type(`${testCommentText} - ${index + 1}`);
-			cy.contains('button.BaseCommentsNewSubmit', 'Submit').click();
+			cy.contains('button.pkpComments__new-submit', 'Submit').click();
 
 			// Verify that the user's comment is displayed to them along with note that the comment needs approval
-			cy.get('.BaseCommentsNotificationMessageNeedsApproval')
+			cy.get('.pkpComments__notification-needs-approval')
 				.should('contain.text', 'Your comment will be visible when the editor approves it')
 				.parent()
-				.find('.BaseCommentsMessageBody')
+				.find('.pkpComments__message-body')
 				.should('contain.text', `${testCommentText} - ${index + 1}`);
 
 			cy.logout();
@@ -86,7 +86,7 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody').contains(`${testCommentText} - 3`)
+			.get('.pkpComments__message-body').contains(`${testCommentText} - 3`)
 			.should('be.visible');
 	});
 
@@ -96,7 +96,7 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody').contains(`${testCommentText} - 3`)
+			.get('.pkpComments__message-body').contains(`${testCommentText} - 3`)
 			.should('be.visible');
 	});
 
@@ -106,26 +106,26 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody').contains(`${testCommentText} - 3`)
+			.get('.pkpComments__message-body').contains(`${testCommentText} - 3`)
 			.parent()
-			.find('div.BaseCommentsMessageHeader button')
+			.find('div.pkpComments__message-header button')
 			.click();
 
 		cy.get('[role="menuitem"]:contains("Report")').click();
 
-		cy.get('.BaseCommentReportDialog')
+		cy.get('.pkpCommentReportDialog')
 			.should('contain.text', 'Report the following comment by Catherine Kwantes')
 			.and('contain.text', `${testCommentText} - 3`)
 			.and('contain.text', 'Please tell us why you want to report this comment');
 
-		cy.get('.BaseCommentReportDialog')
-			.find('.BaseCommentReportDialogReasonInput')
+		cy.get('.pkpCommentReportDialog')
+			.find('.pkpCommentReportDialog__reason-input')
 			.find('textarea')
 			.type(`${testReportText} - 1`);
 
-		cy.get('div.BaseCommentReportDialog')
+		cy.get('div.pkpCommentReportDialog')
 			.parent()
-			.get('div.BaseDialogActionButtons')
+			.get('div.pkpDialog__action-buttons')
 			.contains('button', 'Submit').click();
 	});
 
@@ -135,10 +135,10 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody')
+			.get('.pkpComments__message-body')
 			.contains(`${testCommentText} - 1`)
 			.parent()
-			.find('div.BaseCommentsMessageHeader button')
+			.find('div.pkpComments__message-header button')
 			.click();
 
 		cy.get('[role="menuitem"]:contains("Report")').should('not.exist');
@@ -149,11 +149,11 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody')
+			.get('.pkpComments__message-body')
 			.contains(`${testCommentText} - 3`)
 			.parent()
 			// Report and delete options should not exist
-			.find('div.BaseCommentsMessageHeader button').should('not.exist');
+			.find('div.pkpComments__message-header button').should('not.exist');
 	});
 
 	it('should not allow authenticated user to see delete option on comment they did not create', () => {
@@ -162,10 +162,10 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody')
+			.get('.pkpComments__message-body')
 			.contains(`${testCommentText} - 3`)
 			.parent()
-			.find('div.BaseCommentsMessageHeader button')
+			.find('div.pkpComments__message-header button')
 			.click();
 
 		cy.get('[role="menuitem"]:contains("Delete Comment")').should('not.exist');
@@ -177,16 +177,16 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody')
+			.get('.pkpComments__message-body')
 			.contains(`${testCommentText} - 1`)
 			.parent()
-			.find('div.BaseCommentsMessageHeader button')
+			.find('div.pkpComments__message-header button')
 			.click();
 
 		cy.get('[role="menuitem"]:contains("Delete Comment")').click();
-		cy.contains('.BaseDialogBody', 'Are you sure you want to delete the following comment?').should('exist');
-		cy.contains('.BaseDialogBody', `${testCommentText} - 1`).should('exist');
-		cy.get('.BaseDialogActionButtons').contains('button', 'Delete').click();
+		cy.contains('.pkpDialog__body', 'Are you sure you want to delete the following comment?').should('exist');
+		cy.contains('.pkpDialog__body', `${testCommentText} - 1`).should('exist');
+		cy.get('.pkpDialog__action-buttons').contains('button', 'Delete').click();
 
 		cy.contains(`${testCommentText} - 1`).should('not.exist');
 	});
@@ -228,15 +228,15 @@ describe('Public Comments Tests', function() {
 
 	it('should bring unauthenticated user through login flow before seeing comment form', () => {
 		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
-		cy.get('.BaseCommentsNewInput textarea').should('not.exist');
+		cy.get('.pkpComments__new-input textarea').should('not.exist');
 
-		cy.contains('.BaseScrollToCommentsLogInto', 'Log in to comment').click();
+		cy.contains('.pkpScrollToComments__log-into', 'Log in to comment').click();
 		cy.url().should('include', '/login');
 		cy.get('input[name="username"]').type('eostrom');
 		cy.get('input[name="password"]').type('eostromeostrom');
 		cy.get('button[type="submit"]').click();
 
-		cy.get('.BaseCommentsNewInput').find('textarea').should('exist');
+		cy.get('.pkpComments__new-input').find('textarea').should('exist');
 	});
 
 	it('should allow moderator to view a comment', () => {
@@ -369,21 +369,21 @@ describe('Public Comments Tests', function() {
 
 		cy.contains('Version of Record 1.0')
 			.parent()
-			.get('.BaseCommentsMessageBody')
+			.get('.pkpComments__message-body')
 			.contains(commentText)
 			.parent()
-			.find('div.BaseCommentsMessageHeader button')
+			.find('div.pkpComments__message-header button')
 			.click();
 
 		cy.get('[role="menuitem"]:contains("Report")').click();
 
-		cy.get('.BaseCommentReportDialogReasonInput')
+		cy.get('.pkpCommentReportDialog__reason-input')
 			.find('textarea')
 			.type(`${testReportText} - 2`);
 
-		cy.get('div.BaseCommentReportDialog')
+		cy.get('div.pkpCommentReportDialog')
 			.parent()
-			.get('div.BaseDialogActionButtons')
+			.get('div.pkpDialog__action-buttons')
 			.contains('button', 'Submit').click();
 
 		cy.logout();
@@ -506,7 +506,7 @@ describe('Public Comments Tests', function() {
 		// Check that discussion is closed on old version
 		cy.contains('Version of Record 1.0').click()
 			.parent()
-			.get('.BaseCommentsNotificationNotLatest')
+			.get('.pkpComments__notification-not-latest')
 			.contains('Discussion is closed on this version, please comment on the latest version above.')
 			.should('be.visible');
 
@@ -514,11 +514,11 @@ describe('Public Comments Tests', function() {
 		cy.contains('Version of Record 1.1')
 			.click()
 			.parent()
-			.get('.BaseCommentsNewInput').find('textarea')
+			.get('.pkpComments__new-input').find('textarea')
 			.should('be.visible');
 
 		// Check that publication versions are displayed in correct order (latest version first)
-		cy.get('span.BaseCommentsVersionHeaderLabel').then($els => {
+		cy.get('span.pkpComments__version-header-label').then($els => {
 			expect($els[0]).to.contain.text('Version of Record 1.1');
 			expect($els[1]).to.contain.text('Version of Record 1.0');
 		});

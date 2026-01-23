@@ -37,9 +37,6 @@ import PkpScrollToComments from '@/frontend/components/PkpComments/PkpScrollToCo
 import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
 import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpCommentReportDialog.vue';
 
-// Base Button Components
-import BaseButton from '@/frontend/components/PkpButton/BaseButton.vue';
-
 // Base Textarea Components
 import BaseTextarea from '@/frontend/components/PkpTextarea/BaseTextarea.vue';
 import BaseTextareaInput from '@/frontend/components/PkpTextarea/BaseTextareaInput.vue';
@@ -61,8 +58,6 @@ import BaseDropdownMenuItems from '@/frontend/components/PkpDropdownMenu/base/Ba
 import BaseDropdownMenuTrigger from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenuTrigger.vue';
 import BaseDropdownMenuTriggerIcon from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenuTriggerIcon.vue';
 
-// Base Icon Components
-import BaseIcon from '@/frontend/components/PkpIcon/BaseIcon.vue';
 
 // PkpTab Components
 import PkpTabRoot from '@/frontend/components/PkpTab/PkpTabRoot.vue';
@@ -70,11 +65,13 @@ import PkpTabList from '@/frontend/components/PkpTab/PkpTabList.vue';
 import PkpTabTrigger from '@/frontend/components/PkpTab/PkpTabTrigger.vue';
 import PkpTabContent from '@/frontend/components/PkpTab/PkpTabContent.vue';
 
-// Base Tab Components
-import BaseTabRoot from '@/frontend/components/PkpTab/base/BaseTabRoot.vue';
-import BaseTabList from '@/frontend/components/PkpTab/base/BaseTabList.vue';
-import BaseTabTrigger from '@/frontend/components/PkpTab/base/BaseTabTrigger.vue';
-import BaseTabContent from '@/frontend/components/PkpTab/base/BaseTabContent.vue';
+
+// PkpAccordion Components
+import PkpAccordionRoot from '@/frontend/components/PkpAccordion/PkpAccordionRoot.vue';
+import PkpAccordionItem from '@/frontend/components/PkpAccordion/PkpAccordionItem.vue';
+import PkpAccordionHeader from '@/frontend/components/PkpAccordion/PkpAccordionHeader.vue';
+import PkpAccordionTrigger from '@/frontend/components/PkpAccordion/PkpAccordionTrigger.vue';
+import PkpAccordionContent from '@/frontend/components/PkpAccordion/PkpAccordionContent.vue';
 
 // Base Comments Components
 import BaseComments from '@/frontend/components/PkpComments/base/BaseComments.vue';
@@ -123,9 +120,6 @@ VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
 VueRegistry.registerComponent('PkpComments', PkpComments);
 VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
 
-// Register Base Button Components
-VueRegistry.registerComponent('BaseButton', BaseButton);
-
 // Register Base Textarea Components
 VueRegistry.registerComponent('BaseTextarea', BaseTextarea);
 VueRegistry.registerComponent('BaseTextareaInput', BaseTextareaInput);
@@ -159,8 +153,6 @@ VueRegistry.registerComponent(
 	BaseDropdownMenuTriggerIcon,
 );
 
-// Register Base Icon Components
-VueRegistry.registerComponent('BaseIcon', BaseIcon);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);
@@ -168,11 +160,13 @@ VueRegistry.registerComponent('PkpTabList', PkpTabList);
 VueRegistry.registerComponent('PkpTabTrigger', PkpTabTrigger);
 VueRegistry.registerComponent('PkpTabContent', PkpTabContent);
 
-// Register Base Tab Components
-VueRegistry.registerComponent('BaseTabRoot', BaseTabRoot);
-VueRegistry.registerComponent('BaseTabList', BaseTabList);
-VueRegistry.registerComponent('BaseTabTrigger', BaseTabTrigger);
-VueRegistry.registerComponent('BaseTabContent', BaseTabContent);
+
+// Register PkpAccordion Components
+VueRegistry.registerComponent('PkpAccordionRoot', PkpAccordionRoot);
+VueRegistry.registerComponent('PkpAccordionItem', PkpAccordionItem);
+VueRegistry.registerComponent('PkpAccordionHeader', PkpAccordionHeader);
+VueRegistry.registerComponent('PkpAccordionTrigger', PkpAccordionTrigger);
+VueRegistry.registerComponent('PkpAccordionContent', PkpAccordionContent);
 
 // Register Base Comments Components
 VueRegistry.registerComponent('BaseComments', BaseComments);

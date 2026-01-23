@@ -721,6 +721,15 @@ msgstr "View Jobs"
 msgid "navigation.tools.jobs.failed.view"
 msgstr "View Failed Jobs"
 
+msgid "admin.logs"
+msgstr "Logs"
+
+msgid "admin.logs.description"
+msgstr "View application logs, PHP error logs, and server logs to help diagnose issues."
+
+msgid "admin.logs.view"
+msgstr "View Logs"
+
 msgid "navigation.tools.job.failed.details.view"
 msgstr "View Failed Job:{$id} Details"
 

@@ -3400,3 +3400,73 @@ msgstr "Statement that describes the funding for the research on which this work
 
 msgid "submission.submit.form.fundingStatementRequired"
 msgstr "Please enter the Funding Statement."
+
+msgid "submission.reviewRound.authorResponse"
+msgstr "Review Response"
+
+msgid "submission.reviewRound.respondToReviews"
+msgstr "Respond to Reviews"
+
+msgid "submission.reviewRound.authorResponse"
+msgstr "Author Response"
+
+msgid "editor.submission.reviewRound.requestAuthorResponse"
+msgstr "Request Author Response"
+
+msgid "editor.submission.reviewRound.RequestResponse"
+msgstr "Request Response"
+
+msgid "editor.submission.reviewRound.RequestAuthorResponse.description"
+msgstr "Invite the author to respond to reviewer feedback before moving forward"
+
+msgid "editor.submission.reviewRound.responseStatus"
+msgstr "Response Status"
+
+msgid "submission.reviewRound.authorReviewResponse.submit"
+msgstr "Submit Response"
+
+msgid "submission.reviewRound.authorReviewResponse.viewSubmittedResponse"
+msgstr "View Submitted Response"
+
+msgid "editor.submission.reviewRound.authorReviewResponse.submitRequest"
+msgstr "Submit Request"
+
+msgid "submission.reviewRound.associatedAuthors.description"
+msgstr "Author contributors who this response is being submitted on behalf of."
+
+msgid "submission.reviewRound.authorResponseToReviews"
+msgstr "Author Response to Reviews"
+
+msgid "editor.submission.reviewRound.authorReviewResponseRequestSent"
+msgstr "Request for review response sent"
+
+msgid "editor.submission.reviewRound.authorReviewResponseRequestSent.description"
+msgstr "The author of the submission, {$submissionTitle}, have been notified and asked to submit their response to the reviewers' comments."
+
+msgid "editor.submission.reviewRound.aboutToRequestAuthorReviewResponse"
+msgstr "You’re about to email the author to request a response to the completed reviews. Use the template below or customize your message as needed"
+
+msgid "editor.submission.reviewRound.authorResponse.readyToInvite"
+msgstr "Ready to invite author"
+
+msgid "editor.submission.reviewRound.authorResponse.editorCanRequest"
+msgstr "Editor can now request the author's response."
+
+msgid "submission.reviewRound.authorResponse.note"
+msgstr ""
+"All reviews for your submission have been completed. Please review the comments and provide a written response to the reviewers. "
+"You can address their suggestions, clarify any points, and indicate any revisions you plan to make. Your response will be shared with the editorial team and may be sent back to reviewers if needed."
+
+msgid "submission.reviewRound.authorResponse.authorCannotEdit"
+msgstr ""
+"A review response has been submitted and is displayed below. This response cannot be edited by authors. "
+"If you would like any changes, please contact the assigned editor."
+
+msgid "submission.reviewRound.authorResponse.noteForEditor"
+msgstr "The following response was submitted by the author, {$userFullName}. Editors may review the response and make edits if necessary."
+
+msgid "submission.reviewRound.submitYourResponse"
+msgstr "Submit Your Response to Reviewer Feedback"
+
+msgid "editor.submission.reviewRound.responseWasSubmitted"
+msgstr "A response was submitted by {$userFullName}"

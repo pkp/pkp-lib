@@ -17,6 +17,42 @@
 		},
 		"statusId": {
 			"type": "integer"
+		},
+		"authorResponse": {
+			"description": "The author response associated with this review round, if any.",
+			"type": "object",
+			"validation": ["nullable"],
+			"properties": {
+				"reviewRoundId": {
+					"type": "integer"
+				},
+				"response": {
+					"type": "string"
+				},
+				"submittedByUser": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer"
+						},
+						"fullName": {
+							"type": "string"
+						}
+					}
+				},
+				"associatedAuthors": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "integer"
+						},
+						"fullName": {
+							"type": "string"
+						}
+					}
+
+				}
+			}
 		}
 	}
 }

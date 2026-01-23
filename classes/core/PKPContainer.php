@@ -582,6 +582,10 @@ class PKPContainer extends Container
             'compiled_extension' => 'php',
             'relative_hash' => false,
             'paths' => [
+                'app' => $this->basePath('templates'),
+                'pkp' => $this->basePath('lib/pkp/templates'),
+            ],
+            'namespaces' => [
                 // 'app' namespace includes both directories to match Smarty's app: resource
                 'app' => [$this->basePath('templates'), $this->basePath('lib/pkp/templates')],
                 'pkp' => $this->basePath('lib/pkp/templates'),

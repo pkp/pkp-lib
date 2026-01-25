@@ -116,7 +116,7 @@
 					{capture assign=pluginGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
 				</tab>
-				{if $canUsePluginGallery}
+				{if $canSeePluginGallery}
 					<tab id="pluginGallery" label="{translate key="manager.plugins.pluginGallery"}">
 						{capture assign=pluginGalleryGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}{/capture}
 						{load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}

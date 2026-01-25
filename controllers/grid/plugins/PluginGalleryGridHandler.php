@@ -223,22 +223,32 @@ class PluginGalleryGridHandler extends GridHandler
                 $statusClass = 'newer';
                 break;
             case GalleryPlugin::PLUGIN_GALLERY_STATE_UPGRADABLE:
-                $statusKey = 'manager.plugins.installedVersionOlder';
                 $statusClass = 'older';
-                $installActionKey = 'grid.action.upgrade';
-                $installOp = 'upgradePlugin';
-                $installConfirmKey = 'manager.plugins.upgradeConfirm';
+                if (PluginHelper::isGalleryUpgradeAllowed()) {
+                    $statusKey = 'manager.plugins.installedVersionOlder';
+                    $installActionKey = 'grid.action.upgrade';
+                    $installOp = 'upgradePlugin';
+                    $installConfirmKey = 'manager.plugins.upgradeConfirm';
+                } else {
+                    $statusKey = 'manager.plugins.galleryUpgradesDisabled';
+                }
+                
                 break;
             case GalleryPlugin::PLUGIN_GALLERY_STATE_CURRENT:
                 $statusKey = 'manager.plugins.installedVersionNewest';
                 $statusClass = 'newest';
                 break;
             case GalleryPlugin::PLUGIN_GALLERY_STATE_AVAILABLE:
-                $statusKey = 'manager.plugins.noInstalledVersion';
                 $statusClass = 'notinstalled';
-                $installActionKey = 'grid.action.install';
-                $installOp = 'installPlugin';
-                $installConfirmKey = 'manager.plugins.installConfirm';
+                if (PluginHelper::isGalleryInstallAllowed()) {
+                    $statusKey = 'manager.plugins.noInstalledVersion';
+                    $installActionKey = 'grid.action.install';
+                    $installOp = 'installPlugin';
+                    $installConfirmKey = 'manager.plugins.installConfirm';
+                } else {
+                    $statusKey = 'manager.plugins.galleryInstallsDisabled';
+                }
+                
                 break;
             case GalleryPlugin::PLUGIN_GALLERY_STATE_INCOMPATIBLE:
                 $statusKey = 'manager.plugins.noCompatibleVersion';
@@ -283,8 +293,14 @@ class PluginGalleryGridHandler extends GridHandler
      */
     public function installPlugin(array $args, PKPRequest $request, bool $isUpgrade = false): JSONMessage
     {
-        if (!PluginHelper::isGalleryAllowed()) {
-            throw new Exception(__('manager.plugins.galleryInstallsDisabled'));
+        if ($isUpgrade) {
+            if (!PluginHelper::isGalleryUpgradeAllowed()) {
+                throw new Exception(__('manager.plugins.galleryUpgradesDisabled'));
+            }
+        } else {
+            if (!PluginHelper::isGalleryInstallAllowed()) {
+                throw new Exception(__('manager.plugins.galleryInstallsDisabled'));
+            }
         }
 
         if ($request->getContext()) {
@@ -328,8 +344,8 @@ class PluginGalleryGridHandler extends GridHandler
             // Install/upgrade the plugin
             $fileName = basename(parse_url($plugin->getReleasePackage(), PHP_URL_PATH));
             $pluginVersion = $isUpgrade
-                ? $pluginHelper->upgradePlugin($plugin->getCategory(), $plugin->getProduct(), $pluginFilePath, $fileName)
-                : $pluginHelper->installPlugin($pluginFilePath, $fileName);
+                ? $pluginHelper->upgradePlugin($plugin->getCategory(), $plugin->getProduct(), $pluginFilePath, $fileName, true)
+                : $pluginHelper->installPlugin($pluginFilePath, $fileName, true);
 
             // Success notification
             $version = $pluginVersion->getVersionString(false);

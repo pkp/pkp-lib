@@ -67,7 +67,7 @@
 					{capture assign=pluginGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
 				</tab>
-				{if $canUsePluginGallery}
+				{if $canSeePluginGallery}
 					<tab id="gallery" label="{translate key="manager.plugins.pluginGallery"}">
 						{capture assign=pluginGalleryGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT context=$editContext->getPath() component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}{/capture}
 						{load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}

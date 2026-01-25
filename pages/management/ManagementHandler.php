@@ -297,7 +297,7 @@ class ManagementHandler extends Handler
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
             'canUploadPlugins' => PluginHelper::isUploadAllowed(),
-            'canUsePluginGallery' => PluginHelper::isGalleryAllowed(),
+            'canSeePluginGallery' => PluginHelper::isGalleryAllowed(),
         ]);
 
         $templateMgr->registerClass($announcementSettingsForm::class, $announcementSettingsForm::class);

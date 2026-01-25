@@ -354,7 +354,7 @@ class AdminHandler extends Handler
             'editContext' => $context,
             'pageTitle' => __('manager.settings.wizard'),
             'canUploadPlugins' => PluginHelper::isUploadAllowed(),
-            'canUsePluginGallery' => PluginHelper::isGalleryAllowed(),
+            'canSeePluginGallery' => PluginHelper::isGalleryAllowed(),
         ]);
 
         $templateMgr->registerClass(PKPSearchIndexingForm::class, PKPSearchIndexingForm::class); // FORM_SEARCH_INDEXING

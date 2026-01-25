@@ -15,18 +15,11 @@
 namespace PKP\security;
 
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
-use Illuminate\Support\Facades\Cache;
 
 class LocalPasswordBlacklistVerifier implements UncompromisedVerifier
 {
-    /** @var string Cache key prefix */
-    protected const CACHE_KEY_PREFIX = 'password_blacklist';
-
     /** @var string Path to the blacklist file relative to BASE_SYS_DIR */
     protected const BLACKLIST_FILE_PATH = 'lib/pkp/registry/blacklistedPasswords.txt';
-
-    /** @var int Cache lifetime in seconds (24 hours) */
-    protected const CACHE_LIFETIME_SECONDS = 86400;
 
     /**
      * Verify that the given password has not been blacklisted.
@@ -44,8 +37,8 @@ class LocalPasswordBlacklistVerifier implements UncompromisedVerifier
 
         $blacklist = $this->getBlacklist();
 
-        // Check if password exists in blacklist (case-insensitive)
-        return !in_array(strtolower($password), $blacklist, true);
+        // Check if password exists in blacklist (case-insensitive, Unicode-aware)
+        return !in_array(mb_strtolower($password, 'UTF-8'), $blacklist, true);
     }
 
     /**
@@ -65,19 +58,7 @@ class LocalPasswordBlacklistVerifier implements UncompromisedVerifier
     }
 
     /**
-     * Clear the blacklist cache
-     */
-    public function clearCache(): void
-    {
-        $filePath = $this->getBlacklistFilePath();
-        if (file_exists($filePath)) {
-            $cacheKey = $this->getCacheKey($filePath);
-            Cache::forget($cacheKey);
-        }
-    }
-
-    /**
-     * Get the cached blacklist, loading from file if necessary
+     * Get the blacklist from file.
      *
      * @return array Array of blacklisted passwords (lowercase)
      */
@@ -89,49 +70,15 @@ class LocalPasswordBlacklistVerifier implements UncompromisedVerifier
             return [];
         }
 
-        $cacheKey = $this->getCacheKey($filePath);
-
-        return Cache::remember($cacheKey, static::CACHE_LIFETIME_SECONDS, function () use ($filePath) {
-            return $this->loadBlacklistFromFile($filePath);
-        });
-    }
-
-    /**
-     * Load blacklist from file
-     *
-     * @param string $filePath Path to the blacklist file
-     * @return array Array of blacklisted passwords (lowercase)
-     */
-    protected function loadBlacklistFromFile(string $filePath): array
-    {
         $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
         if ($lines === false) {
             return [];
         }
 
-        $blacklist = [];
-        foreach ($lines as $line) {
-            $line = trim($line);
-            // Skip comments (lines starting with #)
-            if (!empty($line) && $line[0] !== '#') {
-                $blacklist[] = strtolower($line);
-            }
-        }
-
-        return $blacklist;
-    }
-
-    /**
-     * Generate cache key incorporating file modification time for automatic invalidation
-     *
-     * @param string $filePath Path to the blacklist file
-     * @return string Cache key
-     */
-    protected function getCacheKey(string $filePath): string
-    {
-        $filemtime = filemtime($filePath) ?: 0;
-
-        return static::CACHE_KEY_PREFIX . '::' . md5($filePath . '::' . $filemtime);
+        return array_filter(
+            array_map(fn ($line) => mb_strtolower(trim($line), 'UTF-8'), $lines),
+            fn ($line) => !empty($line) && $line[0] !== '#'
+        );
     }
 }

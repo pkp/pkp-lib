@@ -296,7 +296,7 @@ class ManagementHandler extends Handler
         $templateMgr->assign([
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
-            'canUploadPlugins' => PluginHelper::isUploadAllowed(),
+
             'canSeePluginGallery' => PluginHelper::isGalleryAllowed(),
         ]);
 

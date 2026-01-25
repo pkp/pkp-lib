@@ -353,7 +353,7 @@ class AdminHandler extends Handler
             'bulkEmailsEnabled' => $bulkEmailsEnabled,
             'editContext' => $context,
             'pageTitle' => __('manager.settings.wizard'),
-            'canUploadPlugins' => PluginHelper::isUploadAllowed(),
+
             'canSeePluginGallery' => PluginHelper::isGalleryAllowed(),
         ]);
 

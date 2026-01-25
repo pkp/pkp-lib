@@ -16,8 +16,8 @@
 
 namespace PKP\security;
 
-use PKP\site\Site;
 use Illuminate\Support\Facades\RateLimiter;
+use PKP\site\Site;
 
 class RateLimitingService
 {
@@ -44,7 +44,9 @@ class RateLimitingService
     protected ?Site $site = null;
 
     // Private constructor to prevent direct instantiation
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
     /*
      * Get the singleton instance
@@ -82,7 +84,14 @@ class RateLimitingService
         $key = $this->getLoginRateLimitKey($username, $ip);
         $maxAttempts = $this->getMaxAttempts();
 
-        return RateLimiter::tooManyAttempts($key, $maxAttempts);
+        $isLimited = RateLimiter::tooManyAttempts($key, $maxAttempts);
+
+        // Log rate limit event for security monitoring
+        if ($isLimited) {
+            $this->logRateLimitEvent('login', $ip, $username ?: null);
+        }
+
+        return $isLimited;
     }
 
     /**
@@ -146,6 +155,7 @@ class RateLimitingService
      * Check if password reset requests are rate limited for the given IP.
      *
      * @param string $ip The IP address of the request
+     *
      * @return bool True if rate limited, false if requests are allowed
      */
     public function isPasswordResetLimited(string $ip): bool
@@ -153,7 +163,14 @@ class RateLimitingService
         $key = $this->getPasswordResetRateLimitKey($ip);
         $maxAttempts = $this->getMaxAttempts();
 
-        return RateLimiter::tooManyAttempts($key, $maxAttempts);
+        $isLimited = RateLimiter::tooManyAttempts($key, $maxAttempts);
+
+        // Log rate limit event for security monitoring
+        if ($isLimited) {
+            $this->logRateLimitEvent('password_reset', $ip);
+        }
+
+        return $isLimited;
     }
 
     /**
@@ -184,6 +201,7 @@ class RateLimitingService
      * Get the remaining seconds until the password reset rate limit resets.
      *
      * @param string $ip The IP address
+     *
      * @return int Seconds until rate limit resets
      */
     public function getPasswordResetAvailableIn(string $ip): int
@@ -210,9 +228,57 @@ class RateLimitingService
     }
 
     /**
+     * Normalize IP address for rate limiting.
+     *
+     * For IPv6, normalizes to /64 prefix to prevent rotation attacks
+     * using privacy extensions (RFC 4941). All addresses within the same
+     * /64 network will share a rate limit counter.
+     *
+     * @param string $ip The IP address
+     *
+     * @return string Normalized IP address
+     */
+    protected function normalizeIp(string $ip): string
+    {
+        // Check if IPv6
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+            $binary = inet_pton($ip);
+            if ($binary !== false) {
+                // Keep first 8 bytes (/64 prefix), zero out, e,g. remove the interface identifier which can be rotetable
+                $prefix = substr($binary, 0, 8) . str_repeat("\0", 8);
+                return inet_ntop($prefix);
+            }
+        }
+
+        return $ip;
+    }
+
+    /**
+     * Log a rate limit event for security monitoring.
+     *
+     * Uses PHP's error_log() since OJS doesn't yet have Laravel Log facade.
+     *
+     * @param string $type The type of rate limit ('login' or 'password_reset')
+     * @param string $ip The IP address (original, not normalized)
+     * @param string|null $username The username (for login attempts)
+     */
+    protected function logRateLimitEvent(string $type, string $ip, ?string $username = null): void
+    {
+        $message = sprintf(
+            '[RateLimit] %s triggered - IP: %s%s',
+            ucfirst($type),
+            $ip,
+            $username !== null ? ", Username: {$username}" : ''
+        );
+
+        error_log($message);
+    }
+
+    /**
      * Generate the rate limit key for login attempts.
      *
-     * Uses IP + lowercase username to prevent case-based bypasses.
+     * Uses normalized IP (IPv6 /64 prefix) + normalized username to prevent
+     * case-based and Unicode variant bypasses.
      * Falls back to IP-only key when the username is empty.
      *
      * @param string $username The username
@@ -222,25 +288,41 @@ class RateLimitingService
      */
     protected function getLoginRateLimitKey(string $username, string $ip): string
     {
+        // Normalize IP (IPv6 /64 prefix)
+        $normalizedIp = $this->normalizeIp($ip);
+
+        // Normalize username: trim, lowercase, and Unicode normalize to NFC
         $normalizedUsername = mb_strtolower(trim($username), 'UTF-8');
 
-        if (empty($normalizedUsername)) {
-            return 'login:' . $ip;
+        // Apply Unicode NFC normalization if Normalizer class is available
+        if (class_exists('Normalizer')) {
+            $normalized = \Normalizer::normalize($normalizedUsername, \Normalizer::FORM_C);
+            if ($normalized !== false) {
+                $normalizedUsername = $normalized;
+            }
         }
 
-        return 'login:' . $ip . ':' . $normalizedUsername;
+        if (empty($normalizedUsername)) {
+            return 'login:' . $normalizedIp;
+        }
+
+        return 'login:' . $normalizedIp . ':' . $normalizedUsername;
     }
 
     /**
      * Generate the rate limit key for password reset requests.
-     * Uses IP-only to prevent email enumeration attacks.
+     *
+     * Uses normalized IP (IPv6 /64 prefix) only to prevent email enumeration attacks.
      *
      * @param string $ip The IP address
+     *
      * @return string The rate limit key
      */
     protected function getPasswordResetRateLimitKey(string $ip): string
     {
-        return 'password_reset:' . $ip;
+        $normalizedIp = $this->normalizeIp($ip);
+
+        return 'password_reset:' . $normalizedIp;
     }
 
     /**

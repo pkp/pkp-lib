@@ -152,7 +152,7 @@ class RateLimitingServiceTest extends PKPTestCase
     /**
      * Test that username normalization works (case-insensitive).
      */
-    public function testUsernameNormalization()
+    public function testUsernameCaseNormalization()
     {
         $service = $this->createService(enabled: true, maxAttempts: 2);
 
@@ -162,5 +162,128 @@ class RateLimitingServiceTest extends PKPTestCase
 
         // Should be limited because both normalize to same key
         self::assertTrue($service->isLoginLimited('user@example.com', self::TEST_IP));
+    }
+
+    /**
+     * Test that username normalization handles whitespace.
+     */
+    public function testUsernameWhitespaceNormalization()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Record attempts with whitespace variations
+        $service->recordLoginAttempt('  admin  ', self::TEST_IP);
+        $service->recordLoginAttempt('admin', self::TEST_IP);
+
+        // Should be limited because whitespace is trimmed
+        self::assertTrue($service->isLoginLimited('admin', self::TEST_IP));
+    }
+
+    /**
+     * Test that Unicode NFC normalization works for usernames.
+     * Composed (é = U+00E9) and decomposed (e + ́ = U+0065 U+0301) should be treated as same.
+     */
+    public function testUsernameUnicodeNfcNormalization()
+    {
+        if (!class_exists('Normalizer')) {
+            $this->markTestSkipped('Normalizer class not available (intl extension required)');
+        }
+
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Precomposed: café with é as single character (U+00E9)
+        $precomposed = "caf\u{00E9}";
+
+        // Decomposed: café with e + combining acute accent (U+0065 U+0301)
+        $decomposed = "cafe\u{0301}";
+
+        // Record attempts with both forms
+        $service->recordLoginAttempt($precomposed, self::TEST_IP);
+        $service->recordLoginAttempt($decomposed, self::TEST_IP);
+
+        // Should be limited because NFC normalizes both to same form
+        self::assertTrue($service->isLoginLimited($precomposed, self::TEST_IP));
+        self::assertTrue($service->isLoginLimited($decomposed, self::TEST_IP));
+    }
+
+    /**
+     * Test that IPv6 addresses in the same /64 network share rate limit.
+     */
+    public function testIpv6NormalizationSameNetwork()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Two different IPv6 addresses in the same /64 network
+        $ipv6Address1 = '2001:db8:1234:5678::1';
+        $ipv6Address2 = '2001:db8:1234:5678:abcd:ef01:2345:6789';
+
+        // Record attempts from different addresses in same /64
+        $service->recordLoginAttempt(self::TEST_USERNAME, $ipv6Address1);
+        $service->recordLoginAttempt(self::TEST_USERNAME, $ipv6Address2);
+
+        // Should be limited because both normalize to same /64 prefix
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, $ipv6Address1));
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, $ipv6Address2));
+    }
+
+    /**
+     * Test that IPv6 addresses in different /64 networks have separate rate limits.
+     */
+    public function testIpv6NormalizationDifferentNetworks()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Two IPv6 addresses in different /64 networks
+        $ipv6Network1 = '2001:db8:1234:5678::1';
+        $ipv6Network2 = '2001:db8:1234:9999::1';  // Different /64 (5678 vs 9999)
+
+        // Record attempts only on network 1
+        $service->recordLoginAttempt(self::TEST_USERNAME, $ipv6Network1);
+        $service->recordLoginAttempt(self::TEST_USERNAME, $ipv6Network1);
+
+        // Network 1 should be limited
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, $ipv6Network1));
+
+        // Network 2 should NOT be limited (different /64)
+        self::assertFalse($service->isLoginLimited(self::TEST_USERNAME, $ipv6Network2));
+    }
+
+    /**
+     * Test that IPv4 addresses are not affected by IPv6 normalization.
+     */
+    public function testIpv4NotAffectedByNormalization()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        $ipv4Address1 = '192.168.1.100';
+        $ipv4Address2 = '192.168.1.101';
+
+        // Record attempts from one IPv4 address
+        $service->recordLoginAttempt(self::TEST_USERNAME, $ipv4Address1);
+        $service->recordLoginAttempt(self::TEST_USERNAME, $ipv4Address1);
+
+        // First address should be limited
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, $ipv4Address1));
+
+        // Second address should NOT be limited (different IP)
+        self::assertFalse($service->isLoginLimited(self::TEST_USERNAME, $ipv4Address2));
+    }
+
+    /**
+     * Test that different usernames from the same IP have separate rate limits.
+     */
+    public function testDifferentUsernamesSeparateLimits()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Record attempts for user1
+        $service->recordLoginAttempt('user1@example.com', self::TEST_IP);
+        $service->recordLoginAttempt('user1@example.com', self::TEST_IP);
+
+        // user1 should be limited
+        self::assertTrue($service->isLoginLimited('user1@example.com', self::TEST_IP));
+
+        // user2 should NOT be limited (different username)
+        self::assertFalse($service->isLoginLimited('user2@example.com', self::TEST_IP));
     }
 }

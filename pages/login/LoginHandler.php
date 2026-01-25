@@ -172,6 +172,10 @@ class LoginHandler extends Handler
             }
         }
 
+        // Track whether CAPTCHA passed (or was disabled) for rate limiting
+        // CAPTCHA failures should not count against the rate limit
+        $captchaPassed = ($error === null);
+
         $reason = null;
         $user = $error || !strlen($username ?? '')
             ? null
@@ -200,7 +204,9 @@ class LoginHandler extends Handler
         }
 
         // BEGIN: Rate Limiting - Record failed login attempt
-        if ($rateLimiter->isRateLimitEnabled() && strlen($username ?? '') > 0) {
+        // Only record if CAPTCHA passed (or was disabled) but login failed
+        // CAPTCHA failures should not count against the rate limit
+        if ($rateLimiter->isRateLimitEnabled() && strlen($username ?? '') > 0 && $captchaPassed) {
             $rateLimiter->recordLoginAttempt($username, $ip);
         }
         // END: Rate Limiting - Record failed login attempt

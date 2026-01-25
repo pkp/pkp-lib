@@ -14,7 +14,6 @@
 
 namespace PKP\tests\classes\security;
 
-use Illuminate\Support\Facades\Cache;
 use Mockery;
 use PKP\security\LocalPasswordBlacklistVerifier;
 use PKP\tests\PKPTestCase;
@@ -32,9 +31,6 @@ class LocalPasswordBlacklistVerifierTest extends PKPTestCase
     {
         parent::setUp();
 
-        // Clear cache before each test
-        Cache::flush();
-
         // Create a test blacklist file with common weak passwords
         $this->testBlacklistPath = sys_get_temp_dir() . '/test_blacklist_' . uniqid() . '.txt';
         file_put_contents($this->testBlacklistPath, implode("\n", [
@@ -43,6 +39,10 @@ class LocalPasswordBlacklistVerifierTest extends PKPTestCase
             'qwerty',
             'letmein',
             '123456',
+            // Unicode passwords for testing mb_strtolower
+            'über',          // German umlaut
+            'пароль',        // Cyrillic "password"
+            'contraseña',    // Spanish with ñ
         ]));
 
         // Create verifier with mocked path
@@ -102,5 +102,30 @@ class LocalPasswordBlacklistVerifierTest extends PKPTestCase
         self::assertFalse($this->verifier->verify(['value' => 'Password123']));
         self::assertFalse($this->verifier->verify(['value' => 'QWERTY']));
         self::assertFalse($this->verifier->verify(['value' => 'Qwerty']));
+    }
+
+    /**
+     * Test that Unicode passwords are handled correctly with mb_strtolower.
+     * This ensures non-Latin characters are properly lowercased for comparison.
+     */
+    public function testUnicodeCaseInsensitiveBlacklistCheck()
+    {
+        // German umlaut - ÜBER should match über in blacklist
+        self::assertFalse($this->verifier->verify(['value' => 'ÜBER']));
+        self::assertFalse($this->verifier->verify(['value' => 'Über']));
+        self::assertFalse($this->verifier->verify(['value' => 'über']));
+
+        // Cyrillic - ПАРОЛЬ should match пароль in blacklist
+        self::assertFalse($this->verifier->verify(['value' => 'ПАРОЛЬ']));
+        self::assertFalse($this->verifier->verify(['value' => 'Пароль']));
+        self::assertFalse($this->verifier->verify(['value' => 'пароль']));
+
+        // Spanish with ñ - CONTRASEÑA should match contraseña in blacklist
+        self::assertFalse($this->verifier->verify(['value' => 'CONTRASEÑA']));
+        self::assertFalse($this->verifier->verify(['value' => 'Contraseña']));
+        self::assertFalse($this->verifier->verify(['value' => 'contraseña']));
+
+        // Non-blacklisted Unicode password should pass
+        self::assertTrue($this->verifier->verify(['value' => 'SécürePäss123!']));
     }
 }

@@ -1458,6 +1458,9 @@ class PKPSubmissionController extends PKPBaseController
             } catch (\Exception $exception) {
                 return response()->json(['error' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
             }
+            // The submission should move into the review workflow queue
+            $submission->setData('stageId', \WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
+            Repo::submission()->updateStatus($submission, Submission::STATUS_QUEUED);
         }
 
         /** @var GenreDAO $genreDao */
@@ -2573,13 +2576,14 @@ class PKPSubmissionController extends PKPBaseController
         // Create review round associated with PMUR and forward link to new VoR
         $decisionType = new SendExternalReview();
 
-        $params = [];
-        $params['decision'] = Decision::EXTERNAL_REVIEW;
-        $params['submissionId'] = $submission->getId();
-        $params['publicationId'] = $publication->getId();
-        $params['dateDecided'] = Core::getCurrentDate();
-        $params['editorId'] = $request->getUser()->getId();
-        $params['stageId'] = $decisionType->getStageId();
+        $params = [
+            'decision' => Decision::EXTERNAL_REVIEW,
+            'submissionId' => $submission->getId(),
+            'publicationId' => $publication->getId(),
+            'dateDecided' => Core::getCurrentDate(),
+            'editorId' => $request->getUser()->getId(),
+            'stageId' => $decisionType->getStageId(),
+        ];
 
         $errors = Repo::decision()->validate($params, $decisionType, $submission, $context);
 

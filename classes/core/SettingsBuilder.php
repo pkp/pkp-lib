@@ -321,62 +321,36 @@ class SettingsBuilder extends Builder
             return $collection->all();
         }
 
-        // Most queries return one row per model ID.
-        // Keeping the indexed path for that case and fall back when the result set contains duplicates.
-        $ids = $collection->pluck($primaryKey)->toArray();
-        $uniqueIds = array_values(array_unique($ids));
-
-        if (count($ids) === count($uniqueIds)) {
-            $rows = $collection->keyBy($primaryKey);
-
-            $settings = DB::table($this->model->getSettingsTable())
-                ->whereIn($primaryKey, $uniqueIds)
-                ->get();
-
-            $rows = $rows->all();
-
-            $settings->each(function (stdClass $setting) use (&$rows, $primaryKey) {
-                $settingModelId = $setting->{$primaryKey};
-
-                if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
-                    $rows[$settingModelId]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
-                } else {
-                    $rows[$settingModelId]->{$setting->setting_name} = $setting->setting_value;
-                }
-            });
-
-            foreach ($uniqueIds as $id) {
-                $this->filterRow($rows[$id], $columns);
-            }
-
-            return $rows;
-        }
-
-        // duplicate-safe path (needed for belongsToMany eager loads).
         $rows = $collection->all();
 
+        // the main query may return multiple rows per primary key. map settings to all rows sharing the same primary key.
+        $ids = array_map(
+            fn ($row) => $row->{$primaryKey},
+            $rows
+        );
+        $uniqueIds = array_values(array_unique($ids));
+
         $rowIndexesById = [];
-        foreach ($rows as $i => $row) {
-            $rowIndexesById[$row->{$primaryKey}][] = $i;
+        foreach ($rows as $index => $row) {
+            $rowIndexesById[$row->{$primaryKey}][] = $index;
         }
 
         $settings = DB::table($this->model->getSettingsTable())
             ->whereIn($primaryKey, $uniqueIds)
             ->get();
 
-        $settings->each(function (stdClass $setting) use (&$rows, $rowIndexesById, $primaryKey, $columns) {
+        $settings->each(function (stdClass $setting) use (&$rows, $rowIndexesById, $primaryKey) {
             $settingModelId = $setting->{$primaryKey};
 
-            foreach (($rowIndexesById[$settingModelId] ?? []) as $i) {
+            foreach ($rowIndexesById[$settingModelId] ?? [] as $index) {
                 if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
-                    $rows[$i]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
+                    $rows[$index]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
                 } else {
-                    $rows[$i]->{$setting->setting_name} = $setting->setting_value;
+                    $rows[$index]->{$setting->setting_name} = $setting->setting_value;
                 }
             }
         });
 
-        // Filter selected columns (no-op for ['*']).
         foreach ($rows as $row) {
             $this->filterRow($row, $columns);
         }

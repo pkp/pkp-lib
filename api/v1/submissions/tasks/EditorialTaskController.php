@@ -17,6 +17,7 @@ namespace PKP\API\v1\submissions\tasks;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\log\event\SubmissionEventLogEntry;
 use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ use PKP\API\v1\submissions\tasks\formRequests\EditTask;
 use PKP\API\v1\submissions\tasks\resources\EditorialTaskParticipantResource;
 use PKP\API\v1\submissions\tasks\resources\NoteResource;
 use PKP\API\v1\submissions\tasks\resources\TaskResource;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -38,6 +40,7 @@ use PKP\editorialTask\EditorialTask;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
 use PKP\editorialTask\Template;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\note\Note;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\QueryAccessPolicy;
@@ -179,6 +182,23 @@ class EditorialTaskController extends PKPBaseController
         $editorialTask->save();
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $editorialTask->refresh();
+        $currentDate = Core::getCurrentDate();
+        $currentUser = $this->getRequest()->getUser();
+
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+            'assocId' => $editorialTask->id,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_CREATED,
+            'userId' => $currentUser->getId(),
+            'message' => 'submission.event.task.created',
+            'isTranslated' => false,
+            'dateLogged' => $currentDate,
+            'submissionId' => $submission->getId(),
+            'taskDateCreated' => $editorialTask->createdAt->format('Y-m-d H:i:s'),
+            'username' => $currentUser->getUsername(),
+            'taskType' => $editorialTask->type,
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         return response()->json(
             new TaskResource(resource: $editorialTask, data: $this->getTaskData($submission, $editorialTask)),
@@ -286,6 +306,9 @@ class EditorialTaskController extends PKPBaseController
         $context = $this->getRequest()->getContext();
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+        $activities = Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $taskIds)
+            ->getMany();
 
         return response()->json([
             'items' => TaskResource::collection(resource: $tasks, data: [
@@ -296,6 +319,7 @@ class EditorialTaskController extends PKPBaseController
                 'reviewAssignments' => $reviewAssignments,
                 'submissionFiles' => $submissionFiles,
                 'fileGenres' => $fileGenres,
+                'activities' => $activities,
             ]),
             'itemMax' => $tasks->count(),
         ], Response::HTTP_OK);
@@ -354,6 +378,7 @@ class EditorialTaskController extends PKPBaseController
     {
         $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $currentUser = $this->getRequest()->getUser();
 
         if (!$editTask) {
             return response()->json([
@@ -367,8 +392,25 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_CONFLICT);
         }
 
-        $editTask->fill(['dateClosed' => Carbon::now()])->save();
+        $dateClosed = Carbon::now();
+        $editTask->fill(['dateClosed' => $dateClosed])->save();
         $editTask->refresh();
+
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+            'assocId' => $editTask->id,
+            'eventType' => SubmissionEventLogEntry::SUBMISSION_LOG_TASK_CLOSED,
+            'userId' => $currentUser->getId(),
+            'message' => 'submission.event.task.closed',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'submissionId' => $submission->getId(),
+            'taskDateClosed' => $dateClosed->format('Y-m-d H:i:s'),
+            'username' => $currentUser->getUsername(),
+            'taskType' => $editTask->type,
+        ]);
+        Repo::eventLog()->add($eventLog);
+
         return response()->json(
             new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask)),
             Response::HTTP_OK
@@ -410,6 +452,7 @@ class EditorialTaskController extends PKPBaseController
     {
         $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $currentUser = $this->getRequest()->getUser();
 
         if (!$editTask) {
             return response()->json([
@@ -428,6 +471,22 @@ class EditorialTaskController extends PKPBaseController
             'startedBy' => $this->getRequest()->getUser()->getId(),
         ])->save();
         $editTask->refresh();
+
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+            'assocId' => $editTask->id,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_STARTED,
+            'userId' => $currentUser->getId(),
+            'message' => 'submission.event.task.started',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'submissionId' => $submission->getId(),
+            'taskDateStarted' => $editTask->dateStarted->format('Y-m-d H:i:s'),
+            'username' => $currentUser->getUsername(),
+            'taskType' => $editTask->type,
+        ]);
+        Repo::eventLog()->add($eventLog);
+
         return response()->json(
             new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask)),
             Response::HTTP_OK
@@ -519,6 +578,9 @@ class EditorialTaskController extends PKPBaseController
         $context = $this->getRequest()->getContext();
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+        $activities = Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, [$editTask->id])
+            ->getMany();
 
         return [
             'submission' => $submission,
@@ -528,6 +590,7 @@ class EditorialTaskController extends PKPBaseController
             'reviewAssignments' => $reviewAssignments,
             'submissionFiles' => $submissionFiles,
             'fileGenres' => $fileGenres,
+            'activities' => $activities
         ];
     }
 
@@ -543,6 +606,7 @@ class EditorialTaskController extends PKPBaseController
         $note->refresh();
         $task = $note->assoc; /** @var EditorialTask $task */
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $currentUser = $this->getRequest()->getUser();
         $submissionFiles = Repo::submissionFile()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
             ->getMany();
@@ -553,6 +617,19 @@ class EditorialTaskController extends PKPBaseController
             ->withStageIds([$stageId])
             ->get();
 
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_NOTE,
+            'assocId' => $task->id,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
+            'userId' => $currentUser->getId(),
+            'message' => 'submission.event.task.notePosted',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'submissionId' => $submission->getId(),
+            'taskDateReplied' => $note->dateCreated->format('Y-m-d H:i:s'),
+            'username' => $currentUser->getUsername(),
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         $context = $this->getRequest()->getContext();
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
@@ -560,7 +637,7 @@ class EditorialTaskController extends PKPBaseController
 
         return response()->json(
             new NoteResource(resource: $note, data: [
-                'users' => collect([$this->getRequest()->getUser()]),
+                'users' => collect([$currentUser]),
                 'parentResource' => new TaskResource($task, $this->getTaskData($submission, $task)),
                 'submissionFiles' => $submissionFiles,
                 'stageAssignments' => $stageAssignments,

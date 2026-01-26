@@ -23,6 +23,7 @@ use PKP\core\traits\ResourceWithData;
 use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\log\event\EventLogEntry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\note\Note;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
@@ -59,6 +60,19 @@ class TaskResource extends JsonResource
 
         $activities = $activities->filter(fn (EventLogEntry $activity) => $activity->getAssocId() == $this->id);
         $latestActivity = $activities->first(); /** @var ?EventLogEntry|null $latestActivity */
+        $latestActivities = [];
+        // always add an overdue at the start of the list
+        if ($dateDue = $this->dateDue) {
+            $overdue = Carbon::now()->gt($dateDue);
+            if ($overdue) {
+                $latestActivities[] = [
+                    'id' => 0, // Do not have
+                    'message' => __('submission.event.task.overdue'),
+                    'type' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_OVERDUE
+                ];
+            }
+        }
+
         if ($latestActivity) {
             $taskDateCreated = $latestActivity->getData('taskDateCreated');
             $taskDateStarted = $latestActivity->getData('taskDateStarted');
@@ -71,13 +85,11 @@ class TaskResource extends JsonResource
                 'taskDateClosed' => $taskDateClosed ? Carbon::parse($taskDateClosed)->format('Y-m-d') : null,
                 'taskDateReplied' => $notes->first()?->dateCreated?->format('Y-m-d'),
             ]);
-        }
-
-        if ($dateDue = $this->dateDue) {
-            $overdue = Carbon::now()->gt($dateDue);
-            if ($overdue) {
-                $activityMessage = __('submission.event.task.overdue');
-            }
+            $latestActivities[] = [
+                'id' => $latestActivity->getId(),
+                'message' => $activityMessage,
+                'type' => $latestActivity->getEventType()
+            ];
         }
 
         return [
@@ -98,7 +110,7 @@ class TaskResource extends JsonResource
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
             'notes' => $notesCollection,
-            'latestActivity' => $activityMessage ?? null,
+            'latestActivities' => $latestActivities,
         ];
     }
 

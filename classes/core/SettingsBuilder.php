@@ -342,7 +342,7 @@ class SettingsBuilder extends Builder
         $settings->each(function (stdClass $setting) use (&$rows, $rowIndexesById, $primaryKey) {
             $settingModelId = $setting->{$primaryKey};
 
-            foreach ($rowIndexesById[$settingModelId] ?? [] as $index) {
+            foreach ($rowIndexesById[$settingModelId] as $index) {
                 if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
                     $rows[$index]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
                 } else {

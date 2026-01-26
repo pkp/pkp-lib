@@ -156,12 +156,10 @@ class Template extends Model
                 ->whereHas('userGroup', fn (Builder $query) => $query->whereIn('user_group_id', $userGroupIds))
                 ->get();
 
-            $participantIds = $stageAssignments->pluck('user_id')->unique()->map(function (int $userId) {
-                return ['userId' => $userId, 'isResponsible' => false];
-            })->values();
+            $participantIds = $stageAssignments->pluck('user_id')->unique()->map(fn (int $userId) => ['userId' => $userId, 'isResponsible' => false])->values();
         }
 
-        return new Task([
+        $task = new Task([
             'type' => $this->type,
             'title' => $this->title,
             EditorialTask::ATTRIBUTE_HEADNOTE => $this->description,
@@ -171,6 +169,10 @@ class Template extends Model
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submission->getId(),
         ]);
+
+        $task->edit_task_template_id = $this->id;
+
+        return $task;
     }
 
     /**

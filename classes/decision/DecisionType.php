@@ -204,10 +204,9 @@ abstract class DecisionType
             Repo::submission()->updateStatus($submission, $this->getNewStatus());
         }
 
-        $oldStageId = (int) $submission->getData('stageId');
         $newStageId = $this->getNewStageId($submission, (int) $decision->getData('reviewRoundId'));
 
-        if ($newStageId && $newStageId !== $oldStageId) {
+        if ($newStageId) {
             $submission->setData('stageId', $newStageId);
             Repo::submission()->dao->update($submission);
 

@@ -240,12 +240,10 @@ class Repository
 
     private function taskAlreadyCreatedFromTemplate(int $submissionId, int $templateId): bool
     {
-        return DB::table('edit_tasks as t')
-            ->join('edit_task_settings as s', 's.edit_task_id', '=', 't.edit_task_id')
-            ->where('t.assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
-            ->where('t.assoc_id', $submissionId)
-            ->where('s.setting_name', 'templateId')
-            ->where('s.setting_value', (string) $templateId)
+        return DB::table('edit_tasks')
+            ->where('assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
+            ->where('assoc_id', $submissionId)
+            ->where('edit_task_template_id', $templateId)
             ->exists();
     }
 

@@ -148,13 +148,13 @@ class EditorialTaskController extends PKPBaseController
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
         // For operations to retrieve task(s), we just ensure that the user has access to it
-        if (in_array($actionName, ['getTask', 'addNote', 'deleteNote'])) {
+        if ($actionName === 'getTask') {
             $stageId = $request->getUserVar('stageId');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int)$stageId : null, 'taskId'));
         }
 
-        // To modify a task, need to check read and write access policies
-        if (in_array($actionName, ['editTask', 'deleteTask', 'closeTask', 'openTask', 'startTask'])) {
+        // To modify a task or its notes, need to check read and write access policies
+        if (in_array($actionName, ['addNote', 'deleteNote', 'editTask', 'deleteTask', 'closeTask', 'openTask', 'startTask'])) {
             $stageId = $request->getUserVar('stageId');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int)$stageId : null, 'taskId'));
             $this->addPolicy(new QueryWritePolicy($request));
@@ -588,8 +588,6 @@ class EditorialTaskController extends PKPBaseController
      */
     public function deleteNote(Request $illuminateRequest): JsonResponse
     {
-        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION);
-
         $note = Note::find($illuminateRequest->route('noteId'));
 
         if (!$note) {
@@ -599,16 +597,6 @@ class EditorialTaskController extends PKPBaseController
         }
 
         if ($note->isHeadnote) {
-            return response()->json([
-                'error' => __('api.403.forbidden'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        $user = $this->getRequest()->getUser();
-
-        // Allow removing the note for its creator or a manager/admin
-        $canDelete = $note->userId === $user->getId() || $user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'));
-        if (!$canDelete) {
             return response()->json([
                 'error' => __('api.403.forbidden'),
             ], Response::HTTP_FORBIDDEN);

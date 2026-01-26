@@ -18,6 +18,7 @@ use APP\core\Application;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use PKP\core\PKPApplication;
 use PKP\security\Role;
 
@@ -35,17 +36,22 @@ class SiteAdminAuthorizer
 
         // Check if user is logged in
         if (!$user) {
-            return $this->unauthorized($request, 'user.authorization.loginRequired', Response::HTTP_UNAUTHORIZED);
+            return $this->unauthorized(
+                $request,
+                'user.authorization.loginRequired',
+                Response::HTTP_UNAUTHORIZED
+            );
         }
 
         // Check if user has site admin role
-        $isSiteAdmin = $user->hasRole(
-            [Role::ROLE_ID_SITE_ADMIN],
-            PKPApplication::SITE_CONTEXT_ID
-        );
+        $isSiteAdmin = $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
 
         if (!$isSiteAdmin) {
-            return $this->unauthorized($request, 'user.authorization.siteAdminRequired', Response::HTTP_FORBIDDEN);
+            return $this->unauthorized(
+                $request,
+                'user.authorization.siteAdminRequired',
+                Response::HTTP_FORBIDDEN
+            );
         }
 
         return $next($request);
@@ -54,7 +60,7 @@ class SiteAdminAuthorizer
     /**
      * Return an unauthorized response
      */
-    protected function unauthorized(Request $request, string $messageKey, int $statusCode): Response
+    protected function unauthorized(Request $request, string $messageKey, int $statusCode): Response|JsonResponse
     {
         $message = __($messageKey);
 

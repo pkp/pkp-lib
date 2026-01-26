@@ -265,6 +265,7 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
         // Routes are registered lazily via LoadHandler hook
         $this->app->register(new PKPLogViewerServiceProvider($this->app));
 
+        // FIXME: do we need this as we have attached the middleware \PKP\middleware\SiteAdminAuthorizer
         // Configure authorization - only site admins can access
         LogViewer::auth(function ($request) {
             $pkpRequest = Application::get()->getRequest();

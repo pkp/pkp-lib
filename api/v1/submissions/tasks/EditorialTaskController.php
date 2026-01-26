@@ -45,6 +45,7 @@ use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\authorization\QueryWritePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\authorization\NoteAccessPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
@@ -147,20 +148,29 @@ class EditorialTaskController extends PKPBaseController
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
-        // For operations to retrieve task(s), we just ensure that the user has access to it
-        if ($actionName === 'getTask') {
+        // For operations to retrieve task or work with its notes, ensure that the user has access to the task itself
+        if (in_array($actionName, ['getTask', 'addNote', 'deleteNote'])) {
             $stageId = $request->getUserVar('stageId');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int)$stageId : null, 'taskId'));
         }
 
-        // To modify a task or its notes, need to check read and write access policies
-        if (in_array($actionName, ['addNote', 'deleteNote', 'editTask', 'deleteTask', 'closeTask', 'openTask', 'startTask'])) {
+        // deleting a note additionally requires write access to the note itself
+        if ($actionName === 'deleteNote') {
+            $this->addPolicy(new NoteAccessPolicy(
+                $request,
+                (int) $illuminateRequest->route('noteId'),
+                NoteAccessPolicy::NOTE_ACCESS_WRITE
+            ));
+        }
+
+        // To modify a task, need to check read and write access policies
+        if (in_array($actionName, ['editTask', 'deleteTask', 'closeTask', 'openTask', 'startTask'])) {
             $stageId = $request->getUserVar('stageId');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int)$stageId : null, 'taskId'));
             $this->addPolicy(new QueryWritePolicy($request));
         }
 
-        // To create a task or get a list of tasks, check if the user has access to the workflow stage; note that controller must ensure to get a list of tasks where user is a participant
+        // To create a task or get a list of tasks, check if the user has access to the workflow stage; note that controller still ensures that getTasks only returns tasks where user is a participant
         if (in_array($actionName, ['addTask', 'getTasks', 'fromTemplate', 'getParticipants'])) {
             $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, (int)$request->getUserVar('stageId')));
         }

@@ -228,13 +228,6 @@ class Repository
 
             $task->save();
 
-            $task->updateSettings(
-                [
-                    'templateId' => $templateId,
-                    'autoCreated' => true,
-                ],
-                (int) $task->id
-            );
         }
     }
 

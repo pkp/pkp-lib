@@ -18,4 +18,12 @@ enum EditorialTaskType: int
 {
     case DISCUSSION = 1;
     case TASK = 2;
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::DISCUSSION => __('submission.task.typeDiscussion'),
+            self::TASK => __('submission.task.typeTask'),
+        };
+    }
 }

@@ -17,10 +17,12 @@ namespace PKP\API\v1\submissions\tasks\resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ResourceWithData;
 use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
@@ -31,7 +33,7 @@ class TaskResource extends JsonResource
 
     public function toArray(Request $request)
     {
-        [$users, $submissionFiles, $stageAssignments, $submission, $fileGenres] = $this->getData('users', 'submissionFiles', 'stageAssignments', 'submission', 'fileGenres');
+        [$users, $submissionFiles, $stageAssignments, $submission, $fileGenres, $activities] = $this->getData('users', 'submissionFiles', 'stageAssignments', 'submission', 'fileGenres', 'activities');
 
         $createdBy = $users->first(fn (User $user) => $user->getId() === $this->createdBy); /** @var User $createdBy */
         $startedBy = $users->first(fn (User $user) => $user->getId() === $this->startedBy); /** @var User $startedBy */
@@ -55,6 +57,29 @@ class TaskResource extends JsonResource
             'fileGenres' => $fileGenres,
         ]));
 
+        $activities = $activities->filter(fn (EventLogEntry $activity) => $activity->getAssocId() == $this->id);
+        $latestActivity = $activities->first(); /** @var ?EventLogEntry|null $latestActivity */
+        if ($latestActivity) {
+            $taskDateCreated = $latestActivity->getData('taskDateCreated');
+            $taskDateStarted = $latestActivity->getData('taskDateStarted');
+            $taskDateClosed = $latestActivity->getData('taskDateClosed');
+            $activityMessage = __($latestActivity->getMessage(), [
+                'taskType' => EditorialTaskType::from($this->type)->label(),
+                'username' => $latestActivity->getData('username'),
+                'taskDateCreated' => $taskDateCreated ? Carbon::parse($taskDateCreated)->format('Y-m-d') : null,
+                'taskDateStarted' => $taskDateStarted ? Carbon::parse($taskDateStarted)->format('Y-m-d') : null,
+                'taskDateClosed' => $taskDateClosed ? Carbon::parse($taskDateClosed)->format('Y-m-d') : null,
+                'taskDateReplied' => $notes->first()?->dateCreated?->format('Y-m-d'),
+            ]);
+        }
+
+        if ($dateDue = $this->dateDue) {
+            $overdue = Carbon::now()->gt($dateDue);
+            if ($overdue) {
+                $activityMessage = __('submission.event.task.overdue');
+            }
+        }
+
         return [
             'id' => $this->id,
             'type' => $this->type,
@@ -73,6 +98,7 @@ class TaskResource extends JsonResource
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
             'notes' => $notesCollection,
+            'latestActivity' => $activityMessage ?? null,
         ];
     }
 
@@ -89,6 +115,7 @@ class TaskResource extends JsonResource
             'reviewAssignments',
             'submissionFiles',
             'fileGenres',
+            'activities',
         ];
     }
 

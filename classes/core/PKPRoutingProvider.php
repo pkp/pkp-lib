@@ -31,7 +31,6 @@ use PKP\middleware\HasRoles;
 use PKP\middleware\HasUser;
 use PKP\middleware\PolicyAuthorizer;
 use PKP\middleware\SetupContextBasedOnRequestUrl;
-use PKP\middleware\SiteAdminAuthorizer;
 use PKP\middleware\ValidateCsrfToken;
 
 class PKPRoutingProvider extends RoutingServiceProvider
@@ -71,7 +70,6 @@ class PKPRoutingProvider extends RoutingServiceProvider
      */
     protected static $webMiddleware = [
         SetupContextBasedOnRequestUrl::class,
-        SiteAdminAuthorizer::class,
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
@@ -161,9 +159,11 @@ class PKPRoutingProvider extends RoutingServiceProvider
     /**
      * Register request signature validation macros
      *
-     * These macros are normally registered by Laravel's FoundationServiceProvider
+     * NOTE: These macros are normally registered by Laravel's FoundationServiceProvider
      * but OJS doesn't use the full Laravel Foundation bootstrap. Required for
      * signed URL validation (e.g., Log Viewer file downloads).
+     * 
+     * FIXME: Remove this after the intregration of laravel core bootstrapping mechanims
      */
     protected function registerRequestSignatureMacros(): void
     {

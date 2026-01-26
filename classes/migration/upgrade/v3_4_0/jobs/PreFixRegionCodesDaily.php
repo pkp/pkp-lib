@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_4_0/jobs/PreFixRegionCodesDaily.php
  *
- * Copyright (c) 2022-2025 Simon Fraser University
- * Copyright (c) 2022-2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreFixRegionCodesDaily
@@ -16,24 +16,18 @@
 
 namespace PKP\migration\upgrade\v3_4_0\jobs;
 
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
-use PKP\config\Config;
 use PKP\jobs\BaseJob;
 
 class PreFixRegionCodesDaily extends BaseJob
 {
-    /** The range of metrics_submission_geo_daily_ids to consider for this update */
-    protected int $startId;
-    protected int $endId;
-
     /**
-     * Create a new job instance.
+     * Create a new job instance, using the range of metrics_submission_geo_daily_ids to consider for this update
      */
-    public function __construct(int $startId, int $endId)
+    public function __construct(private int $startId, private int $endId)
     {
         parent::__construct();
-        $this->startId = $startId;
-        $this->endId = $endId;
     }
 
     /**
@@ -41,25 +35,18 @@ class PreFixRegionCodesDaily extends BaseJob
      */
     public function handle(): void
     {
-        // Mark the region codes that needs to be fixed by inserting the prefix 'pkp-' for them
-        if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            DB::statement("
-                UPDATE metrics_submission_geo_daily AS gd
-                SET region = 'pkp-' || gd.region
-                FROM region_mapping_tmp AS rm
-                WHERE gd.country = rm.country AND
-                    gd.region = rm.fips AND
-                    gd.metrics_submission_geo_daily_id >= {$this->startId}
-                    gd.metrics_submission_geo_daily_id <= {$this->endId}
-            ");
+        // Mark the region codes that need to be fixed by inserting the prefix 'pkp-' for them
+        $query = DB::table('metrics_submission_geo_daily as gd')
+            ->join('region_mapping_tmp as rm', function ($join) {
+                $join->on('gd.country', '=', 'rm.country')
+                    ->on('gd.region', '=', 'rm.fips');
+            })
+            ->whereBetween('gd.metrics_submission_geo_daily_id', [$this->startId, $this->endId]);
+
+        if (DB::connection() instanceof PostgresConnection) {
+            $query->updateFrom(['gd.region' => DB::raw("CONCAT('pkp-', gd.region)")]);
         } else {
-            DB::statement("
-                UPDATE metrics_submission_geo_daily gd
-                INNER JOIN region_mapping_tmp rm ON (rm.country = gd.country AND rm.fips = gd.region)
-                SET gd.region = CONCAT('pkp-', gd.region)
-                WHERE gd.metrics_submission_geo_daily_id >= {$this->startId} AND
-                    gd.metrics_submission_geo_daily_id <= {$this->endId}
-            ");
+            $query->update(['gd.region' => DB::raw("CONCAT('pkp-', gd.region)")]);
         }
     }
 }

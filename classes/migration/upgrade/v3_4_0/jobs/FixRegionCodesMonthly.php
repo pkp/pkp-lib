@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_4_0/jobs/FixRegionCodesMonthly.php
  *
- * Copyright (c) 2022-2025 Simon Fraser University
- * Copyright (c) 2022-2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FixRegionCodesMonthly
@@ -16,24 +16,18 @@
 
 namespace PKP\migration\upgrade\v3_4_0\jobs;
 
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
-use PKP\config\Config;
 use PKP\jobs\BaseJob;
 
 class FixRegionCodesMonthly extends BaseJob
 {
-    /** The range of metrics_submission_geo_monthly_ids to consider for this update */
-    protected int $startId;
-    protected int $endId;
-
     /**
-     * Create a new job instance.
+     * Create a new job instance, using the range of metrics_submission_geo_monthly_ids to consider for this update
      */
-    public function __construct(int $startId, int $endId)
+    public function __construct(private int $startId, private int $endId)
     {
         parent::__construct();
-        $this->startId = $startId;
-        $this->endId = $endId;
     }
 
     /**
@@ -41,27 +35,18 @@ class FixRegionCodesMonthly extends BaseJob
      */
     public function handle(): void
     {
-        // update region code from FIPS to ISP, according to the entries in the table region_mapping_tmp
-        // Laravel join+update does not work well with PostgreSQL, so use the direct SQLs
-        // daily
-        if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            DB::statement("
-                UPDATE metrics_submission_geo_monthly AS gm
-                SET region = rm.iso
-                FROM region_mapping_tmp AS rm
-                WHERE gm.country = rm.country AND
-					gm.region = 'pkp-' || rm.fips AND
-					gm.metrics_submission_geo_monthly_id >= {$this->startId} AND
-					gm.metrics_submission_geo_monthly_id <= {$this->endId}
-            ");
+        // update region code from FIPS to ISO, according to the entries in the table region_mapping_tmp
+        $query = DB::table('metrics_submission_geo_monthly as gm')
+            ->join('region_mapping_tmp as rm', function ($join) {
+                $join->on('gm.country', '=', 'rm.country')
+                    ->on('gm.region', '=', DB::raw("CONCAT('pkp-', rm.fips)"));
+            })
+            ->whereBetween('gm.metrics_submission_geo_monthly_id', [$this->startId, $this->endId]);
+
+        if (DB::connection() instanceof PostgresConnection) {
+            $query->updateFrom(['gm.region' => DB::raw('rm.iso')]);
         } else {
-            DB::statement("
-                UPDATE metrics_submission_geo_monthly gm
-                INNER JOIN region_mapping_tmp rm ON (rm.country = gm.country AND CONCAT('pkp-', rm.fips) = gm.region)
-                SET gm.region = rm.iso
-				WHERE gm.metrics_submission_geo_monthly_id >= {$this->startId} AND
-					gm.metrics_submission_geo_monthly_id <= {$this->endId}
-            ");
+            $query->update(['gm.region' => DB::raw('rm.iso')]);
         }
     }
 }

@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_4_0/jobs/CleanTmpChangesForRegionCodesFixes.php
  *
- * Copyright (c) 2022-2025 Simon Fraser University
- * Copyright (c) 2022-2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CleanTmpChangesForRegionCodesFixes

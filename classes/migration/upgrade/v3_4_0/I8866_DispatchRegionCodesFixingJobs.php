@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_4_0/I8866_DispatchRegionCodesFixingJobs.php
  *
- * Copyright (c) 2022 Simon Fraser University
- * Copyright (c) 2022 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I8866_DispatchRegionCodesFixingJobs
@@ -26,7 +26,6 @@ use PKP\migration\upgrade\v3_4_0\jobs\FixRegionCodesDaily;
 use PKP\migration\upgrade\v3_4_0\jobs\FixRegionCodesMonthly;
 use PKP\migration\upgrade\v3_4_0\jobs\PreFixRegionCodesDaily;
 use PKP\migration\upgrade\v3_4_0\jobs\PreFixRegionCodesMonthly;
-use PKP\migration\upgrade\v3_4_0\jobs\RegionMappingTmpClear;
 use PKP\migration\upgrade\v3_4_0\jobs\RegionMappingTmpInsert;
 use Throwable;
 
@@ -107,11 +106,11 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
                     $endId = min(($i + 1) * $chunkSize, $geoMonthlyIdMax);
                     $jobs[] = new FixRegionCodesMonthly($startId, $endId);
                 }
-                $jobs[] = new RegionMappingTmpClear();
             }
             $jobs[] = new CleanTmpChangesForRegionCodesFixes();
             Bus::chain($jobs)
                 ->catch(function (Throwable $e) {
+                    error_log('Error during region codes fixing jobs: ' . $e->getMessage());
                 })
                 ->dispatch();
         }

@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_4_0/jobs/RegionMappingTmpInsert.php
  *
- * Copyright (c) 2022-2025 Simon Fraser University
- * Copyright (c) 2022-2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RegionMappingTmpInsert
@@ -22,16 +22,12 @@ use PKP\jobs\BaseJob;
 
 class RegionMappingTmpInsert extends BaseJob
 {
-    /** The country ISO code */
-    protected string $country;
-
     /**
      * Create a new job instance.
      */
-    public function __construct(string $country)
+    public function __construct(private string $country)
     {
         parent::__construct();
-        $this->country = $country;
     }
 
     /**
@@ -42,20 +38,24 @@ class RegionMappingTmpInsert extends BaseJob
         // clear region_mapping_tmp table
         DB::table('region_mapping_tmp')->delete();
 
-        // read the FIPS to ISO mappings for the given country and insert them into the temporary table
+        // read the FIPS to ISO mappings for the given country
         $mappings = include Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/regionMapping.php';
+
+        // build batch insert array for mappings where FIPS differs from ISO
+        $inserts = [];
         foreach ($mappings[$this->country] as $fips => $iso) {
-            $insert = false;
             if ($fips !== $iso) {
-                $insert = true;
-            }
-            if ($insert) {
-                DB::table('region_mapping_tmp')->insert([
+                $inserts[] = [
                     'country' => $this->country,
                     'fips' => $fips,
                     'iso' => $iso
-                ]);
+                ];
             }
+        }
+
+        // insert all mappings in one batch
+        if (!empty($inserts)) {
+            DB::table('region_mapping_tmp')->insert($inserts);
         }
     }
 }

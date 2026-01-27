@@ -1598,10 +1598,8 @@ class PKPTemplateManager extends Smarty
             ),
             'helpUrl' => Application::get()->getHelpUrl(),
             'timeZone' => Config::getVar('general', 'time_zone'),
-            'featureFlags' => [
-                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions'),
-            ],
             'navigationMenuMaxDepth' => (int) Config::getVar('interface', 'navigation_menu_max_depth', PKPNavigationMenuController::DEFAULT_MAX_DEPTH),
+            'featureFlags' => []
         ];
 
         if ($context) {

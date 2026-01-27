@@ -10,8 +10,3 @@
 {capture assign=submissionFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.submission.AuthorSubmissionDetailsFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() escape=false}{/capture}
 {load_url_in_div id="submissionFilesGridDiv" url=$submissionFilesGridUrl}
 
-<div id="documentsContent">
-	<!-- Display queries grid -->
-	{capture assign=queriesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_SUBMISSION escape=false}{/capture}
-	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
-</div>

@@ -24,6 +24,7 @@ use Illuminate\Validation\Rule;
 use PKP\core\PKPApplication;
 use PKP\editorialTask\EditorialTask;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 
 class AddNote extends FormRequest
 {
@@ -33,10 +34,20 @@ class AddNote extends FormRequest
     // The submission associated with the task
     protected Submission $submission;
 
+    /**
+     * @var array<StageAssignment> $stageAssignments associated with the submission to validate the participants of the task.
+     */
+    protected array $stageAssignments = [];
+
     public function rules(): array
     {
         $this->task = EditorialTask::find($this->route('taskId'));
         $this->submission = Repo::submission()->get($this->task->assocId);
+        $this->stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$this->submission->getId()])
+            ->withStageIds([$this->task->stageId])
+            ->get()
+            ->all();
 
         $currentUser = Application::get()->getRequest()?->getUser();
 

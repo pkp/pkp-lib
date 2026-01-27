@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-01-28 01:29+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ru/>\n"
 "Language: ru\n"
@@ -2318,3 +2319,6 @@ msgstr "Выделения"
 
 msgid "common.sandbox"
 msgstr "Приложение, запущенное в режиме «песочницы»."
+
+msgid "common.changeLanguage"
+msgstr "Изменить язык"

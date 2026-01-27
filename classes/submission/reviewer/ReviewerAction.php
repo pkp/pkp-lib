@@ -61,7 +61,7 @@ class ReviewerAction
 
         $reviewer = $reviewAssignment->getReviewerId()
             ? Repo::user()->get($reviewAssignment->getReviewerId(), true)
-            : $this->fakeReviewer($reviewAssignment);
+            : $this->createTemporaryReviewer($reviewAssignment);
         // Only confirm the review for the reviewer if
         // he has not previously done so.
         if ($reviewAssignment->getDateConfirmed() == null) {
@@ -94,7 +94,7 @@ class ReviewerAction
                 'declined' => $decline,
                 'dateConfirmed' => Core::getCurrentDate(),
             ]);
-            if($decline){
+            if ($decline) {
                 // update related invitation
                 $invitation = Repo::invitation()->getInvitationByReviewerAssignmentId($reviewAssignment->getId());
                 $invitation?->updateStatus(InvitationStatus::DECLINED);
@@ -133,10 +133,10 @@ class ReviewerAction
             new ReviewDecline($submission, $reviewAssignment, $context) :
             new ReviewConfirm($submission, $reviewAssignment, $context);
 
-        // add temporary user because there will no user account until user accept the invitation
+        // Add temporary user because there will be no user account until user accepts the invitation
         $reviewer = $reviewAssignment->getReviewerId()
             ? Repo::user()->get($reviewAssignment->getReviewerId(), true)
-            : $this->fakeReviewer($reviewAssignment);
+            : $this->createTemporaryReviewer($reviewAssignment);
         $mailable->sender($reviewer);
         $mailable->replyTo($reviewer->getEmail(), $reviewer->getFullName());
 
@@ -177,11 +177,13 @@ class ReviewerAction
     }
 
     /**
-     * create a fake reviewer for invitations that not accepted yet
-     * @param $reviewAssignment
+     * Create a temporary reviewer for invitations that have not been accepted yet
+     *
+     * @param ReviewAssignment $reviewAssignment
      * @return User
      */
-    private function fakeReviewer($reviewAssignment):User{
+    private function createTemporaryReviewer(ReviewAssignment $reviewAssignment): User
+    {
         $email = $reviewAssignment->getData('email');
         $tempUser = Repo::user()->newDataObject();
         $tempUser->setEmail($email);

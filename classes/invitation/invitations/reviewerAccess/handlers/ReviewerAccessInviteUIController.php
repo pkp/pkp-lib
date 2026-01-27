@@ -191,7 +191,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         $payloadDataToBeTransform = [];
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;
         $submission = Repo::submission()->get($payload['submissionId']);
-        if($user){
+        if ($user) {
             // if edit an invitation for existing user, used user data as invitation payload
             $payloadDataToBeTransform = $user->getAllData();
             $payloadDataToBeTransform['userGroupsToAdd'] = $payload['userGroupsToAdd'];

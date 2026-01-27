@@ -75,10 +75,10 @@ class ThankReviewerForm extends Form
         $user = $request->getUser();
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
-        // add temporary user because there will no user account until user accept the invitation
+        // Add temporary user because there will be no user account until user accepts the invitation
         $reviewer = $reviewerId
             ? Repo::user()->get($reviewerId)
-            : $this->fakeReviewer($reviewAssignment);
+            : $this->createTemporaryReviewer($reviewAssignment);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
@@ -117,7 +117,7 @@ class ThankReviewerForm extends Form
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = $reviewerId
             ? Repo::user()->get($reviewerId)
-            : $this->fakeReviewer($reviewAssignment);
+            : $this->createTemporaryReviewer($reviewAssignment);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
@@ -172,11 +172,13 @@ class ThankReviewerForm extends Form
     }
 
     /**
-     * create a fake reviewer for invitations that not accepted yet
-     * @param $reviewAssignment
+     * Create a temporary reviewer for invitations that have not been accepted yet
+     *
+     * @param ReviewAssignment $reviewAssignment
      * @return User
      */
-    private function fakeReviewer($reviewAssignment):User{
+    private function createTemporaryReviewer(ReviewAssignment $reviewAssignment): User
+    {
         $email = $reviewAssignment->getData('email');
         $tempUser = Repo::user()->newDataObject();
         $tempUser->setEmail($email);

@@ -81,17 +81,18 @@ abstract class ReviewerNotifyActionForm extends Form
             'dateConfirmed' => $reviewAssignment->getDateConfirmed(),
             'reviewerId' => $reviewerId,
         ]);
-        if(!$reviewerId){
+        $tempUser = null;
+        if (!$reviewerId) {
             $tempUser = Repo::user()->newDataObject();
             $tempUser->setEmail($reviewAssignment->getData('email'));
-            $tempUser->setFamilyName($reviewAssignment->getData('email'),null);
-            $tempUser->setGivenName($reviewAssignment->getData('email'),null);
+            $tempUser->setFamilyName($reviewAssignment->getData('email'), null);
+            $tempUser->setGivenName($reviewAssignment->getData('email'), null);
         }
 
         $context = $request->getContext();
         $mailable = $this->getMailable($context, $submission, $reviewAssignment);
         $mailable->sender($request->getUser());
-        $mailable->recipients([$reviewerId?Repo::user()->get($reviewerId):$tempUser]);
+        $mailable->recipients([$reviewerId ? Repo::user()->get($reviewerId) : $tempUser]);
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
         $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->getData()));

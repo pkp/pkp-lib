@@ -1,12 +1,12 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
-# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-28 01:29+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
 "Language: tr\n"
@@ -643,7 +643,7 @@ msgid "admin.jobs.totalCount"
 msgstr ""
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Toplam <strong>{$total}</strong> başarısız iş var."
 
 msgid "admin.jobs.viewQueuedJobs"
 msgstr ""
@@ -659,6 +659,8 @@ msgstr "Başarısız İş Detayı"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Sistemdeki tüm sıraya alınmış işleri görüntüleyin ve başarısız denemeleri "
+"takip edin."
 
 msgid "navigation.tools.jobs.view"
 msgstr "İşleri Görüntüle"
@@ -679,13 +681,13 @@ msgid "admin.jobs.list.id"
 msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "İş / Görev"
 
 msgid "admin.jobs.list.queue"
 msgstr "Sıra"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Bağlantı"
 
 msgid "admin.jobs.list.attempts"
 msgstr ""
@@ -694,7 +696,7 @@ msgid "admin.jobs.list.createdAt"
 msgstr ""
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Hata Anı"
 
 msgid "admin.jobs.list.payload"
 msgstr ""
@@ -703,7 +705,7 @@ msgid "admin.jobs.list.exception"
 msgstr ""
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Eylemler"
 
 msgid "admin.jobs.failedAt"
 msgstr ""

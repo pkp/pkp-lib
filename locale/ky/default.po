@@ -1,3 +1,210 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-01-27 04:38+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>Бул автоматтык билдирүү <a href=\"{$contextUrl}\""
+">{$contextName}</a> системасынан.</p>"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Сайт администратору"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Сайт администраторлору"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Продакшн редактору"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Продакшн редакторлору"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Копи-редактор"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Копи-редакторлор"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.name.proofreader"
+msgstr "Корректор"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Корректорлор"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.name.designer"
+msgstr "Дизайнер"
+
+msgid "default.groups.plural.designer"
+msgstr "Дизайнерлер"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Design"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Ички рецензент"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Ички рецензенттер"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.marketing"
+msgstr "Маркетинг жана сатуу координатору"
+
+msgid "default.groups.plural.marketing"
+msgstr "Маркетинг жана сатуу координаторлору"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.name.funding"
+msgstr "Каржылоо координатору"
+
+msgid "default.groups.plural.funding"
+msgstr "Каржылоо координаторлору"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "Индекс түзүүчү"
+
+msgid "default.groups.plural.indexer"
+msgstr "Индекс түзүүчүлөр"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Макет редактору"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Макет редакторлору"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.name.author"
+msgstr "Автор"
+
+msgid "default.groups.plural.author"
+msgstr "Авторлор"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Котормочу"
+
+msgid "default.groups.plural.translator"
+msgstr "Котормочулар"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.name.reader"
+msgstr "Окурман"
+
+msgid "default.groups.plural.reader"
+msgstr "Окурмандар"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Read"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Редакциялык кеңештин мүчөсү"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Редакциялык кеңештин мүчөлөрү"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBM"
+
+msgid "default.genres.other"
+msgstr "Башка"
+
+msgid "default.genres.multimedia"
+msgstr "Мультимедиа"
+
+msgid "default.genres.image"
+msgstr "Сүрөт"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML стилдик баракча"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>{$contextName} системасына материал тапшырганыңыз үчүн рахмат. Сизден "
+"файлдарды жүктөө, кошумча авторлорду көрсөтүү жана аталыш менен анотация "
+"сыяктуу маалыматтарды берүү суралат.</p><p>Эгерде сиз али окуй элек "
+"болсоңуз, биздин <a href=\"{$submissionGuidelinesUrl}\" target=\"_blank\""
+">Материал тапшыруу көрсөтмөлөрүн</a> окуп чыгыңыз. Формаларды толтурганда "
+"мүмкүн болушунча көп деталдарды бериңиз, бул редакторлорго ишиңизди баалоого "
+"жардам берет.</p><p>Баштагандан кийин материалды сактап, кийин кайра кайтып "
+"келсеңиз болот. Тапшырганга чейин бардык маалыматты карап чыгып, оңдой "
+"аласыз.</p>"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>Редакциялык топ материалды баалоо үчүн керектүү бардык файлдарды бериңиз. "
+"Негизги иштен тышкары, маалымат топтомдорун, кызыкчылыктардын кагылышы "
+"боюнча билдирүүлөрдү же кошумча файлдарды да тапшыра аласыз.</p>"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>Бул материалга катышкан бардык авторлор тууралуу маалымат кошуңуз. Бул "
+"жерге кошулган катышуучуларга материал тапшырылганы тууралуу электрондук кат "
+"жөнөтүлөт жана редакциялык чечимдердин көчүрмөсү берилет.</p><p>Эгер "
+"катышуучуну электрондук почта аркылуу байланышууга мүмкүн болбосо (мисалы, "
+"анонимдүү болушу керек же электрондук почтасы жок болсо), жалган электрондук "
+"дарек киргизбеңиз. Бул катышуучу тууралуу маалыматты редакторго материал "
+"тапшыруу процессинин кийинки кадамында билдире аласыз.</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Системада материалды башкарууга жардам берүү үчүн төмөнкү деталдарды "
+"бериңиз.</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>Редакциялык топ материалды башкарууга жардам берүү үчүн төмөнкү "
+"деталдарды бериңиз.</p><p>Метамаалымат киргизгенде, материалды башкарган "
+"адамга эң пайдалуу болот деп ойлогон маалыматты бериңиз. Бул маалымат "
+"жарыялануудан мурун өзгөртүлүшү мүмкүн.</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Материалды тапшыруудан мурун киргизген маалыматты карап чыгыңыз. Ар бир "
+"бөлүмдүн үстүндөгү түзөтүү баскычын басып, деталдарды өзгөртө аласыз.</"
+"p><p>Материалды тапшыргандан кийин редакциялык топтун мүчөсү аны "
+"рецензиялоого дайындалат. Киргизген маалыматтарыңыз мүмкүн болушунча так "
+"экенине ынаныңыз.</p>"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Материал тапшырганда, мүмкүн болгон рецензенттерди сунуштоо "
+"мүмкүнчүлүгүңүз бар. Бул рецензия процессин жеңилдетип, редакциялык топко "
+"баалуу жардам берет. Өз тармагыңызда адис болгон жана ишиңиз менен "
+"кызыкчылыктардын кагылышы жок рецензенттерди тандаңыз. Бул функция рецензия "
+"процессин жакшыртууга жана авторлор менен редакциялык топ үчүн натыйжалуу "
+"тажрыйба түзүүгө багытталган.</p>"

@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 04:38+0000\n"
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "ky/>\n"
@@ -129,7 +129,7 @@ msgid "default.groups.plural.reader"
 msgstr "Окурмандар"
 
 msgid "default.groups.abbrev.reader"
-msgstr "Read"
+msgstr "Окуу"
 
 msgid "default.groups.name.editorialBoardMember"
 msgstr "Редакциялык кеңештин мүчөсү"

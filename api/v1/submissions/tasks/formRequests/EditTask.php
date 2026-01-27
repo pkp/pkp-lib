@@ -165,6 +165,12 @@ class EditTask extends FormRequest
                 // Check if the task creator is among participants
                 function (string $attribute, array $value, Closure $fail) {
                     $participantIds = Arr::pluck($this->input('participants'), 'userId');
+                    $creatorId = $this->getCreatorId();
+
+                    if ($creatorId === null) {
+                        return true; // We allow absent creator when task is automatically created
+                    }
+
                     if (!in_array($this->getCreatorId(), $participantIds)) {
                         return $fail(__('submission.task.validation.error.participant.creator'));
                     }
@@ -274,7 +280,7 @@ class EditTask extends FormRequest
         return $this->task->stageId;
     }
 
-    protected function getCreatorId(): int
+    protected function getCreatorId(): ?int
     {
         return $this->task->createdBy;
     }

@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"PO-Revision-Date: 2026-01-27 07:26+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ky/>\n"
@@ -1149,10 +1149,10 @@ msgid "submission.authors.label"
 msgstr "Авторлор"
 
 msgid "submission.submit.availableUserGroups"
-msgstr "Ким катары тапшыруу"
+msgstr "Тапшырманы төмөнкүдөй тапшыруу"
 
 msgid "submission.author.list"
-msgstr "Материал авторлорунун тизмеси"
+msgstr "Публикациянын авторлорунун тизмеси"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Бул материалга кошкон салымыңызды эң жакшы сүрөттөгөн ролду тандаңыз."

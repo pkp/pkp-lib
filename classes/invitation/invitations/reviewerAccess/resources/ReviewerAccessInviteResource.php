@@ -34,14 +34,7 @@ class ReviewerAccessInviteResource extends BaseReviewerAccessInviteResource
         $payload = $this->getPayload();
 
         if (!isset($existingUser)) {
-            $newUser = new User();
-
-            $newUser->setAffiliation($payload->affiliation, null);
-            $newUser->setFamilyName($payload->familyName, null);
-            $newUser->setGivenName($payload->givenName, null);
-            $newUser->setCountry($payload->userCountry);
-            $newUser->setUsername($payload->username);
-            $newUser->setEmail($payload->sendEmailAddress);
+            $newUser = $this->createNewUserFromPayload($payload);
         }
 
         // Return specific fields from the UserRoleAssignmentInvite

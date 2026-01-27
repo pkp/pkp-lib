@@ -65,11 +65,19 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
     public function confirmDecline(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            throw new \Symfony\Component\HttpKernel\Exception\GoneHttpException();
         }
 
         $context = $request->getContext();
-        $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
+        $payload = $this->getInvitation()->getPayload();
+        $reviewAssignmentId = $payload->reviewAssignmentId;
+        if (!$reviewAssignmentId) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
+        if (!$reviewAssignment) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
 
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),

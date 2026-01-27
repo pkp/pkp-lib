@@ -160,6 +160,16 @@ class EditTask extends FormRequest
                     if ($this->input('type') == EditorialTaskType::DISCUSSION->value && count($value) < 2) {
                         $fail(__('submission.task.validation.error.participants.required'));
                     }
+                },
+
+                // Check if the task creator is among participants
+                function (string $attribute, array $value, Closure $fail) {
+                    $participantIds = Arr::pluck($this->input('participants'), 'userId');
+                    if (!in_array($this->getCreatorId(), $participantIds)) {
+                        return $fail(__('submission.task.validation.error.participant.creator'));
+                    }
+
+                    return true;
                 }
             ],
             EditorialTask::ATTRIBUTE_PARTICIPANTS . '.*' => [
@@ -262,5 +272,10 @@ class EditTask extends FormRequest
     protected function getStageId(): int
     {
         return $this->task->stageId;
+    }
+
+    protected function getCreatorId(): int
+    {
+        return $this->task->createdBy;
     }
 }

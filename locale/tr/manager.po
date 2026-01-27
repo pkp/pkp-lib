@@ -1,12 +1,13 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 # "Dr. Uğur Koçak" <ugurkocak@hotmail.com>, 2025.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-10-11 01:22+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-28 01:29+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
 "Language: tr\n"
@@ -3775,3 +3776,8 @@ msgstr ""
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Davet E-posta Adresini Değiştir"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Lütfen editoryal geçmişi sağlayın; her bir editörün tam adını, kurumunu ve "
+"başlangıç ile bitiş tarihlerini ekleyin."

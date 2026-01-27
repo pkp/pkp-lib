@@ -2,7 +2,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 04:30+0000\n"
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ky/>\n"
@@ -1029,8 +1029,9 @@ msgstr "А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч 
 
 msgid "common.titleSmallWords"
 msgstr ""
-"of a the and an or nor but is if then else when at from by on off for in out "
-"over to into with"
+"-нын/-дин бир ошол жана бир же да эмес бирок болуп саналат/бар эгер анда "
+"болбосо качан -да/-де -дан/-ден аркылуу/тарабынан үстүндө/-да/-де өчүк/"
+"сыртында үчүн ичинде сыртында үстүндө/ашык -га/-ге ичине менен"
 
 msgid "common.alreadyAssigned"
 msgstr "Дайындалган"

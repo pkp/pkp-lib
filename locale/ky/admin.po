@@ -1,7 +1,7 @@
-# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-04 15:39+0000\n"
+"PO-Revision-Date: 2026-01-27 04:34+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ky/"
 ">\n"
@@ -13,16 +13,17 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.siteManagement"
-msgstr "Сайтты башкаруу"
+msgstr "Сайтты менеджмент"
 
 msgid "admin.siteSettings"
-msgstr "Сайттын жөндөөлөрү"
+msgstr "Сайт орнотуулары"
 
 msgid "admin.siteSetup"
-msgstr "Сайт орнотуу"
+msgstr "Сайтты орнотуу"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "<tt>config.inc.php</tt> конфигурация файлы жок, окулбайт же жараксыз."
+msgstr ""
+"Конфигурация файлы <tt>config.inc.php</tt> жок, окула албайт же жараксыз."
 
 msgid "admin.systemInformation"
 msgstr "Система маалыматы"
@@ -30,22 +31,22 @@ msgstr "Система маалыматы"
 msgid "admin.systemInformation.description"
 msgstr ""
 "Тиркеменин жана сервердин версиясы жана конфигурация орнотуулары жөнүндө "
-"маалыматты көрүңүз."
+"маалыматты көрүү."
 
 msgid "admin.systemInformation.view"
-msgstr "Тутум маалыматын көрсөтүү"
+msgstr "Система маалыматын көрүү"
 
 msgid "admin.versionBuild"
-msgstr "Ассамблея"
+msgstr "Жыйнак"
 
 msgid "admin.version.checkForUpdates"
-msgstr "Жаңыртууларды текшериңиз"
+msgstr "Жаңыртууларды текшерүү"
 
 msgid "admin.version.downloadPackage"
 msgstr "Жүктөп алуу"
 
 msgid "admin.version.downloadPatch"
-msgstr "Түзөтүүнү жүктөп алыңыз"
+msgstr "Патч жүктөп алуу"
 
 msgid "admin.versionHistory"
 msgstr "Версия тарыхы"
@@ -54,27 +55,1004 @@ msgid "admin.version.latest"
 msgstr "Акыркы версия"
 
 msgid "admin.versionMajor"
-msgstr "Улгайган"
+msgstr "Негизги"
 
 msgid "admin.versionMinor"
-msgstr "Кенже"
+msgstr "Кошумча"
 
 msgid "admin.version.moreInfo"
-msgstr "Кошумча маалымат"
+msgstr "Көбүрөөк маалымат"
 
 msgid "admin.versionRevision"
-msgstr "Аудит"
+msgstr "Ревизия"
 
 msgid "admin.version.updateAvailable"
-msgstr "Жаңыланган версия жеткиликтүү"
+msgstr "Жаңыртылган версия жеткиликтүү"
 
 msgid "admin.version.upToDate"
-msgstr "Системаңыз жаңырды"
+msgstr "Сиздин система жаңыртылган абалда"
 
 msgid "admin.version"
 msgstr "Версия"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Негизги жол {$path} коомдук файлдар каталогунун ичинде болушу керек."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "ROR реестринин маалымат топтомунун кэшти жаңыртуу"
+
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
+msgstr "Assoc түрү колдоого алынбайт."
+
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
+msgstr "Файл түрү колдоого алынбайт."
+
+msgid "admin.job.processLogFile.invalidLogEntry.country"
+msgstr "Өлкө эки алфавиттик символдон турган сап болушу керек."
+
+msgid "admin.settings.contactEmail"
+msgstr "Негизги байланыштын электрондук почтасы"
+
+msgid "admin.settings.contactName"
+msgstr "Негизги байланыштын аты"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Жыйнак рецензент статистикасын өчүрүү"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Ролдорду өчүрүү"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Бул орнотууну өзгөртүүгө администратор гана уруксат берилет."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Сайттын тили"
+
+msgid "admin.settings.siteTitle"
+msgstr "Сайттын аты"
+
+msgid "admin.settings.siteTheme"
+msgstr "Сайттын темасы"
+
+msgid "admin.siteAdmin"
+msgstr "Сайтты башкаруу"
+
+msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
-"Негизги каталог {$path} бардыгына жеткиликтүү болгон файлдар менен "
-"каталогдун ичинде болушу керек."
+"Файл {$filename} {$currentFilePath} → {$destinationPath} көчүрүлө алган жок."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Файлды декомпрессиялоо мүмкүн эмес. Максат файл {$filePath} fopen менен "
+"ачылган жок."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Файлды декомпрессиялоо мүмкүн эмес. Ачылган булак gz-файлы {$filePath} "
+"gzclose менен жабылган жок."
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Белгилүү Id боюнча кезекте турган тапшырманы тазалоо. Бардыгын тазалоо үчүн "
+"--all параметрин колдонуңуз. Белгилүү бир кезектен бардыгын тазалоо үчүн --"
+"queue= параметрин колдонуңуз."
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"Тест тапшырмасын тесттик кезекке кошуу. Кошумча параметрлер --only= менен "
+"'failed' же 'success' маанисин берип, иштен чыккан же ийгиликтүү тапшырманы "
+"жөнөтүңүз."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"Бардык иштен чыккан тапшырмаларды тизмелөө. Тизмени чыпкалоо үчүн --"
+"queue=QUEUE_NAME жана --connection=CONNECTION_NAME параметрлерин коюңуз. "
+"Ошондой эле --redispatch жана --clear параметрлерин колдонуп, тапшырмаларды "
+"кайра кезекке жөнөтүңүз же бардык/белгилүү иштен чыккан тапшырмаларды "
+"тазалаңыз."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Кезек {$queueName} ичинде иштен чыгууга багытталган тест тапшырма жөнөтүлдү"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Кезек {$queueName} ичинде ийгиликтүү аткарууга багытталган тест тапшырма "
+"жөнөтүлдү"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "Иштен чыккан тапшырмаларды көрүү"
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr "Иштен чыккан тапшырма:{$id} деталдарын көрүү"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Платформа ID"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "work командасы үчүн жеткиликтүү параметрлер"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Иштөө үчүн кезек байланышынын аты [демейки : '{$default}']"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "AppKey колдонуу параметрлерин көрсөтүү"
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Жосполдоочунун колдонуу параметрлерин көрсөтүү."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Төмөнкүлөрдүн бирин билдиргиңиз келдиби?"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Мөөнөтү бүткөн чакырууларды автоматтык түрдө өчүрүү үчүн тапшырма жөнөтүү"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Конфигурация файлынын ичинен учурдагы app key’ди текшерүү"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "config.inc.php файлына app_key конфигурация өзгөрмөсүн кошуу."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Дал келген жоспарланган тапшырма табылган жок."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Кайсы команданы иштетүүнү каалайсыз?"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"{$contextId} контекстинде {$userIds} колдонуучуларга редакциялык эскертме "
+"кат жөнөтүү үчүн {$count} тапшырма жөнөтүлдү"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Бардык жоспарланган тапшырмалардын аткаруу логдорун өчүрүүнү каалап "
+"жатканыңызга ишенесизби?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Жосполонгон тапшырмалардын логдорун тазалоо"
+
+msgid "admin.adminFunctions"
+msgstr "Административдик функциялар"
+
+msgid "admin.deleteCache"
+msgstr "Кэшти өчүрүү"
+
+msgid "admin.clearDataCache"
+msgstr "Маалымат кэштерин өчүрүү"
+
+msgid "admin.clearTemplateCache"
+msgstr "Шаблон кэштерин өчүрүү"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Аткарылган жоспарланган тапшырмалардын бардык логдорун өчүрүү."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Тапшырма логдорун өчүрүү"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Жарыяланууга жоспарланган материалдарды жарыялоо"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"DB-IP city lite маалымат базасынын файлын {$sourceFilename} → "
+"{$targetFilename} деп өзгөртүү ишке ашкан жок."
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Рецензия эскертүүсү"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Редакциялык отчеттун билдирүүсү"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Жазылуунун мөөнөтү бүтөрүн эскертүү"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Текшерилбеген мөөнөтү бүткөн колдонуучуларды өчүрүү"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr "Эскирген иштен чыккан тапшырмаларды тизмеден өчүрүү."
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Кезекте турган тапшырмаларды иштетүү"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "DB-IP city lite маалымат базасын жаңыртуу"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Колдонуу статистикасынын файл жүктөө тапшырмасы"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Файл {$filename} жөнөтүү папкасына көчүрүлдү."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Файл жүктөгүч"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Файлды декомпрессиялоо мүмкүн эмес. Булак gz-файлы {$filePath} gzopen менен "
+"ачылган жок."
+
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
+msgstr "Институт ID массив түрүндө болушу керек."
+
+msgid "admin.job.processLogFile.insertError"
+msgstr ""
+"Лог файлы {$file} ичиндеги {$lineNumber}-сапты иштетүүдө ката чыкты: {$msg}"
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Файлды компрессиялоо мүмкүн эмес. Компрессияланган булак файл {$filePath} "
+"unlink менен өчүрүлгөн жок."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Жүктөп алуу үчүн локалдар жеткиликтүү эмес."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Файлды компрессиялоо мүмкүн эмес. Ачылган булак файл {$filePath} fclose "
+"менен жабылган жок."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Файлды компрессиялоо мүмкүн эмес. Ачылган максат gz-файлы {$filePath} "
+"gzclose менен жабылган жок."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Колдонуу:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "команда [аргументтер]"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Бардык кезекте турган тапшырмаларды тизмелөө. Натыйжаларды бөлүп көрсөтүү "
+"үчүн --page= жана --perPage= параметрлерин колдонуңуз. Иштен чыккан "
+"тапшырмаларды тизмелөө үчүн --failed флагын колдонуңуз."
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Тапшырма"
+
+msgid "admin.jobs.list.queue"
+msgstr "Кезек"
+
+msgid "admin.jobs.list.connection"
+msgstr "Байланыш"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Аракеттер"
+
+msgid "admin.jobs.list.actions"
+msgstr "Аракеттер"
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Файл {$file} {$dispatchFilePath} → {$archivedFilePath} көчүрүлө алган жок."
+
+msgid "admin.settings.statistics.collection"
+msgstr "Маалымат чогултуу"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Колдонуу статистикасы серверде кандайча сакталары конфигурацияланат."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi протоколу"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"<a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 SUSHI</"
+"a> протоколун конфигурациялоо, бул колдонуу статистикасын бөлүштүрүү үчүн "
+"тармакта таанылган формат."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Айлык же күндүк статистика"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"COUNTER SUSHI статистика API’ине кирүүнү менеджерлер жана администраторлор "
+"менен чектөө"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Платформа"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Иштетүүчүнүн аты [демейки : '{$default}']"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Системадан кэш файлдарын өчүрүү. Бул иш-аракетти өнүктүрүү чөйрөсүндө гана "
+"жасоо керек."
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Контекст {$contextId} ичинде эскертилип жаткан редакторлорду аныктоо"
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Файлды декомпрессиялоо мүмкүн эмес. Булак gz-файлы {$file} gzread менен "
+"окулбай калды."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Файлды декомпрессиялоо мүмкүн эмес. Максат файл {$filePath} fwrite менен "
+"жазылган жок."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Файлды декомпрессиялоо мүмкүн эмес. Ачылган максат файл {$filePath} fclose "
+"менен жабылган жок."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Файлды декомпрессиялоо мүмкүн эмес. Декомпрессияланган булак gz-файлы "
+"{$filePath} unlink менен өчүрүлгөн жок."
+
+msgid "admin.cli.tool.available.commands"
+msgstr "`{$namespace}` namespace үчүн жеткиликтүү командалар:"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Кезектеги тапшырмаларды иштетүү мүмкүн эмес, анткени тиркеменин тейлөө "
+"режими иштетилген."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Файлды компрессиялоо мүмкүн эмес. Максат gz-файлы {$filePath} gzopen менен "
+"ачылган жок."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Файлды компрессиялоо мүмкүн эмес. Булак файл {$filePath} fopen менен ачылган "
+"жок."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Файлды компрессиялоо мүмкүн эмес. Булак файл {$filePath} fread менен окулган "
+"жок."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Файлды компрессиялоо мүмкүн эмес. Максат gz-файлы {$filePath} gzwrite менен "
+"жазылган жок."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Кезек иштетүүчү демонду учурдагы тапшырмадан кийин кайра иштетүү."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Иштетүүчүлөр учурдагы тапшырманы бүткөндөн кийин акырындык менен чыгышат."
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "{$jobsCount} тапшырма ийгиликтүү түрдө кайра кезекке жөнөтүлдү."
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr "{$jobsCount} иштен чыккан тапшырма ийгиликтүү түрдө тизмеден өчүрүлдү."
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "Бизде {$total} иштен чыккан тапшырма бар"
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Бизде {$total} кезекте турган тапшырма бар"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Параметр {$option} жок."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Төмөнкүлөрдүн бирин билдиргиңиз келдиби?"
+
+msgid "admin.jobs.totalCount"
+msgstr "Кезекте жалпы <strong>{$total}</strong> тапшырма бар"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr "Жалпы <strong>{$total}</strong> иштен чыккан тапшырма бар."
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Кезектеги тапшырмаларды көрүү"
+
+msgid "navigation.tools.jobs"
+msgstr "Тапшырмалар"
+
+msgid "navigation.tools.jobs.failed"
+msgstr "Иштен чыккан тапшырмалар"
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr "Иштен чыккан тапшырманын деталдары"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Системадагы бардык кезектеги тапшырмаларды көрүү жана иштен чыккан "
+"аракеттерди байкоо."
+
+msgid "navigation.tools.jobs.view"
+msgstr "Тапшырмаларды көрүү"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "Атрибут"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "Атрибут мааниси"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Түзүлгөн убакыт"
+
+msgid "admin.jobs.list.failedAt"
+msgstr "Иштен чыккан убакыт"
+
+msgid "admin.jobs.list.payload"
+msgstr "Жүктөм"
+
+msgid "admin.jobs.list.exception"
+msgstr "Ката"
+
+msgid "admin.jobs.failedAt"
+msgstr "{$failedAt} убакытта түзүлгөн"
+
+msgid "admin.jobs.createdAt"
+msgstr "{$createdAt} убакытта түзүлгөн"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "Кайра аракет кылуу"
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "Бардык иштен чыккан тапшырмаларды кайра кезекке кошуу"
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Файл {$file} ичинен колдонуу статистикасын жүктөөчү тапшырма иштен чыкты, "
+"жана файл {$archivedFilePath} → {$stagingPath} көчүрүлө алган жок."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Файл {$file} жок."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Файл {$file} ичинен колдонуу статистикасын жүктөөчү тапшырма иштен чыкты. "
+"Файл stage каталогуна жылдырылды."
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+"Кайсы түрдөгү колдонуу статистикасы чогултулушу керек экенин "
+"конфигурациялаңыз."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Маалымат сактоо"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Күндүк же айлык колдонуу статистикасын жүргүзүү керекпи. Күндүк статистиканы "
+"жүргүзүү маалымат базасынын көлөмүн кыйла көбөйтүшү мүмкүн."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Күндүк жана айлык статистиканы жүргүзүү"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Айлык статистиканы гана жүргүзүү"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Логдорду кысуу"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Иштетүүчү иштей ала турган максималдуу секунддар саны [демейки : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Кезектеги тапшырмаларды иштетүү мүмкүн эмес, анткени тиркеменин sandbox "
+"режими иштетилген."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Тапшырмаларды иштетүүнү уланта турган чексиз демон процессин иштетүү. Бул "
+"командага тиешелүү жеткиликтүү параметрлерди көрүү үчүн --help флагын "
+"колдонуңуз."
+
+msgid "admin.systemInfo.settingName"
+msgstr "Орнотуунун аты"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Орнотуунун мааниси"
+
+msgid "admin.languages.installLanguages"
+msgstr "Локалдарды башкаруу"
+
+msgid "admin.languages.availableLocales"
+msgstr "Жеткиликтүү локалдар"
+
+msgid "admin.languages.installLocale"
+msgstr "Локалды орнотуу"
+
+msgid "admin.languages.installLocales"
+msgstr "Орнотуу"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Жаңы локалдарды орнотуу"
+
+msgid "admin.languages.languageSettings"
+msgstr "Тил орнотуулары"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Орнотуу үчүн кошумча локалдар жеткиликтүү эмес."
+
+msgid "admin.languages.reload"
+msgstr "Локалды кайра жүктөө"
+
+msgid "admin.languages.uninstall"
+msgstr "Локалды өчүрүү"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Тапшырма процесси башталды."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Тапшырма процесси токтотулду."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Тапшырма эч кандай лог түзгөн жок."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Лог файлдарын иштетип, статистикалык маалыматтарды сактай турган фондук "
+"тапшырмалар жөнөтүлдү."
+
+msgid "admin.server.dbDriver"
+msgstr "Маалымат базасынын драйвери"
+
+msgid "admin.server.dbVersion"
+msgstr "Маалымат базасынын сервер версиясы"
+
+msgid "admin.serverInformation"
+msgstr "Сервер маалыматы"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP версиясы"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Рецензент статистикасы"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Көп контексттүү орнотууда рецензент статистикасы, мисалы тапшырылган "
+"рецензиялардын саны, ар бир контекст үчүн өзүнчө же жыйнак түрүндө "
+"көрсөтүлүшү мүмкүн."
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Тесттик кезек үчүн иштетүүчү демонду иштетүү"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Тапшырмалардын ортосунда эс алуу секунддары [демейки : '{$default}']"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Бардык журналдар үчүн сайтты платформа катары колдонуу."
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Файл {$filename} иштетилип архивделди."
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Конфигурация файлы ийгиликтүү жаңыртылды. Эгерде сайтыңыз туура иштебей "
+"калса, <tt>config.inc.php</tt> файлын түздөн-түз түзөтүп, конфигурацияны кол "
+"менен оңдоого туура келет."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr ""
+"Компиляцияланган шаблондордун кэштерин тазалоону каалап жатканыңызга "
+"ишенесизби?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Бардык колдонуучулардын сессияларын токтотууну каалап жатканыңызга "
+"ишенесизби? Учурда системага кирген бардык колдонуучулар (сизди кошо) кайра "
+"кирүүгө мажбур болушат."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Конфигурация файлынын мазмуну"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"«{$contextName}» жана анын бардык мазмунун түбөлүк өчүрүүнү каалап "
+"жатканыңызга ишенесизби?"
+
+msgid "admin.currentVersion"
+msgstr "Учурдагы версия"
+
+msgid "admin.dateInstalled"
+msgstr "Орнотулган дата"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Жаңыртылган конфигурациянын мазмуну төмөндө көрсөтүлгөн. Конфигурация "
+"өзгөртүүлөрүн колдонуу үчүн <tt>config.inc.php</tt> файлын текст "
+"редакторунда ачып, анын мазмунун төмөнкү текст талаасындагы мазмун менен "
+"алмаштырыңыз."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Жаңы конфигурацияны көрсөтүү"
+
+msgid "admin.expireSessions"
+msgstr "Колдонуучулардын сессияларын токтотуу"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Бардык колдонуучулар, анын ичинде сиз да, дароо системадан чыгарыласыз жана "
+"кайра киришиңиз керек болот."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Бул локаль сайттын негизги тили болуп саналат. Башка негизги тилди "
+"тандамайынча аны өчүрө албайсыз."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Сайттын негизги тилин өзгөртүүнү каалап жатканыңызга ишенесизби? "
+"Колдонуучулардын аттары, негизги тилде талап кылынган, учурдагы негизги "
+"тилден көчүрүлөт."
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Бул локалды кайра жүктөөнү каалап жатканыңызга ишенесизби? Бул учурдагы "
+"локалга тиешелүү маалыматтарды, мисалы ыңгайлаштырылган электрондук кат "
+"үлгүлөрүн өчүрөт."
+
+msgid "admin.languages.installedLocales"
+msgstr "Орнотулган локалдар"
+
+msgid "admin.phpInfo"
+msgstr "Кеңейтилген PHP маалыматы"
+
+msgid "admin.scheduledTask"
+msgstr "Жосполонгон тапшырма"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOI’лерди конфигурацияланган каттоо агенттигине жүктөө"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Сиздин {$softwareName} орнотуусу бул тапшырманы автоматтык түрдө аткарып "
+"бүтүрдү жана лог файлын бул жерден жүктөп алсаңыз болот: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Ар бир редакторго аткарылбаган тапшырмаларын эскерткен электрондук кат "
+"жөнөтүү"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"Каталог {$directory} бош эмес. Бул мурдагы иштен чыккан процесс же учурда "
+"иштеп жаткан процесс болушу мүмкүн. Бул файл автоматтык түрдө кайра "
+"иштетилет."
+
+msgid "admin.job.processLogFile.openFileFailed"
+msgstr "Файл {$file} ачылган жок жана четке кагылды."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Файл {$file} эски лог форматында, иштетилбейт жана кайра stage каталогуна "
+"жылдырылат."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Лог файлы {$file} өткөрүлүп кетти, анткени ошол айдын статистикасы мурунтан "
+"эсептелген. Мурунку айдын статистикасын кайра эсептөө үчүн ошол айдын бардык "
+"лог файлдарын калыбына келтирип, CLI куралын колдонуу керек."
+
+msgid "admin.job.processLogFile.wrongLoglineFormat"
+msgstr ""
+"Лог файлы {$file} ичиндеги {$lineNumber}-сап туура эмес форматта жана "
+"өткөрүлүп кетет."
+
+msgid "admin.job.processLogFile.invalidLogEntry"
+msgstr "Лог файлы {$file} ичиндеги {$lineNumber}-сапта жараксыз жазуу: {$error}"
+
+msgid "admin.job.processLogFile.invalidLogEntry.time"
+msgstr "Убакыт жарактуу дата эмес."
+
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
+msgstr "Контекст ID бүтүн сан эмес."
+
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
+msgstr "Жиберүү ID бүтүн сан эмес."
+
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
+msgstr "Представление ID бүтүн сан эмес."
+
+msgid "admin.job.processLogFile.invalidLogEntry.region"
+msgstr ""
+"Регион үчтөн ашпаган алфавиттик-сандык символдордон турган сап болушу керек."
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache версиясы"
+
+msgid "admin.server.platform"
+msgstr "ОС платформасы"
+
+msgid "admin.settings"
+msgstr "Орнотуулар"
+
+msgid "admin.settings.about"
+msgstr "Сайт жөнүндө"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Топтук электрондук каттар"
+
+msgid "admin.settings.introduction"
+msgstr "Кириш сөз"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Сырсөздүн минималдуу узундугу (символдор)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Топтук электрондук каттарды чектөө"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Сайттын стилдик барагынын форматы жараксыз. Жарактуу формат: .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Сайттын стилдик барагы"
+
+msgid "admin.settings.siteLogo"
+msgstr "Сайттын логотиби"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Каталог {$path} папка эмес же окула албайт."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Жеткиликтүү тапшырмаларды кезекке жөнөтүү. Белгилүү бир кезекке тапшырманы "
+"жөнөтүү үчүн --queue=QUEUE_NAME параметрин колдонуңуз. Тест тапшырмасын "
+"иштетүү үчүн --test колдонуңуз жана --once менен бир тапшырмадан кийин "
+"токтотуңуз."
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "{$queueName} аттуу кезекте {$jobCount} тапшырма ийгиликтүү иштетилди."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "Кезек {$queueName} ичинде иштетүүгө тапшырмалар жок."
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+"Кезекте турган тапшырмалардын жалпы санын көрсөтүү. Иштен чыккан "
+"тапшырмаларды көрүү үчүн --failed флагын колдонуңуз."
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Jobs командасынын колдонулушун көрсөтүү"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Jobs колдонуу параметрлерин көрсөтүү"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Параметр бош болбошу керек! Колдонуу ыкмасын текшериңиз."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "Иштен чыккан кезектеги тапшырмалар"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Кезектеги тапшырмалар"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Кезек"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "Байланыш"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Тапшырманын көрсөтүлгөн аты"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Аракеттер"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Резервделген убакыт"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Жеткиликтүү убакыт"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Түзүлгөн убакыт"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "Иштен чыккан убакыт"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "Ката билдирүүсү"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Барактоо"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Учурдагы"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Мурунку"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Кийинки"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Бул команданы колдонуу үчүн жок дегенде Job ID, '--all' же '--queue=' "
+"параметрин беришиңиз керек"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Тест тапшырма параметри жараксыз. '--only=' үчүн 'failed' же 'success' гана "
+"кабыл алынат."
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Жараксыз тапшырма ID"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Тапшырма өчүрүлдү!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Өчүрүү үчүн тапшырмалар табылган жок."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Бардык тапшырмаларды өчүрүү мүмкүн болгон жок."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Бардык тапшырмалар өчүрүлдү!"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Статистика кирүү лог файлдарынан түзүлөт жана иштетилгенден кийин "
+"<code>{$path}</code> папкасына жылдырылат. Лог файлдар иштетилгенден кийин "
+"<code>.gz</code> форматында кысылышы керекпи? Лог файлдарды кысуу сервердеги "
+"диск мейкиндигин үнөмдөйт."
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Лог файлдарды ошол бойдон калтыруу"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Лог файлдарды кысуу"
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"COUNTER SUSHI протоколуна ылайык, ар бир статистикалык отчет статистиканы "
+"камсыз кылган «платформаны» аныкташы керек. Демейки боюнча журнал бардык "
+"статистика үчүн платформа катары дайындалат. Бирок, эгер бул сайттагы бардык "
+"журналдар бир эле провайдер тарабынан жарыяланса, ээлик кылынса же "
+"иштетилсе, сайтты платформа катары дайындоону каалашыңыз мүмкүн."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Бул платформаны COUNTER SUSHI отчетторунда кантип аныктоо керек. Платформа "
+"ID 17 символдон ашпашы керек жана тамгаларды (a–z, A–Z), цифраларды (0–9), "
+"астынкы сызыктарды (_), чекиттерди (.) жана түз сызыктарды (/) камтышы "
+"мүмкүн. Платформа ID бир нече тилкелерде колдонулат жана мүмкүн болушунча "
+"кыска, бирок таанымал болушу керек. Платформа ID адатта басып чыгаруучунун "
+"же платформанын атына, домен атына же белгилүү, уникалдуу кыскартууга "
+"негизделет."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Сайт SUSHI платформа катары аныкталганда платформа ID талап кылынат."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "work командасынын параметрлери"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "колдонуу : [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Иштөө үчүн кезектин аты [демейки : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Күтүлбөгөн ката чыккан тапшырманы кайра аракет кылуудан мурун күтүү "
+"секунддары [демейки : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Эс тутум чеги мегабайтта [демейки : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"Төмөнкү процесс иштей ала турган секунддар саны [демейки : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Тапшырма жеткиликтүү болбогондо уктоо секунддары [демейки : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Тапшырманы иштен чыккан деп логдоодон мурун аракет кылуу саны [демейки : "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Тейлөө режиминде болсо да иштетүүчүнү иштетүүгө мажбурлоо [демейки : "
+"{$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Кезек бош болгондо токтотуу [демейки : {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+"Токтотуудан мурун иштетиле турган тапшырмалардын саны [демейки : "
+"'{$default}']"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Жаңы app key түзүп, конфигурация файлына алмаштыруу. --show флагы менен жөн "
+"гана көрүү, --force менен учурдагы жарактуу app key’ди үстүнөн жазуу."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Төмөнкүлөрдүн бирин билдиргиңиз келдиби?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Түзүлгөн App Key: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"`general` бөлүмүндө `app_key` аттуу өзгөрмө аныкталган эмес. Конфигурация "
+"файлынын general бөлүмүн жаңыртып, `app_key = ` сапын кошуңуз же `php lib/"
+"pkp/tools/appKey.php configure` командасын иштетип орнотуңуз."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"`general` бөлүмүндө `app_key` өзгөрмөсү мурунтан бар. Жаңы app key орнотуу "
+"үчүн `php lib/pkp/tools/appKey.php generate` командасын иштетиңиз."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Конфигурация файлына app key орнотулган эмес."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"App key жараксыз, колдоого алынбаган шифр же туура эмес узундук. Колдоого "
+"алынган шифрлер: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Конфигурация файлына жарактуу APP Key мурунтан орнотулган. Үстүнөн жазуу "
+"үчүн командага --force флагын кошуңуз."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App key конфигурация файлына ийгиликтүү орнотулду."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"App key өзгөрмөсү конфигурация файлына ийгиликтүү орнотулду. Жаңы app key "
+"орнотуу үчүн `php lib/pkp/tools/appKey.php generate` командасын иштетиңиз."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"`app_key` өзгөрмөсүн конфигурация файлына орнотуу мүмкүн эмес. Конфигурация "
+"файлынын general бөлүмүн жаңыртып, `app_key = ` сапын кошуңуз."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Конфигурация файлына жарактуу app key орнотулган"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Жосполдоочу иштетүү."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Бардык жоспарланган тапшырмаларды тизмелөө."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Жосполдоочу иштетүүчүнү баштоо."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Тизмеден белгилүү бир жоспарланган тапшырманы иштетүү же --name параметри "
+"менен конкреттүү тапшырманы иштетүү. Толук тизмени жылдырбай көрүү үчүн --no-"
+"scroll флагын коюңуз."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Жосполдонгон тапшырмаларды иштетүү мүмкүн эмес, анткени тиркеменин тейлөө "
+"режими иштетилген."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Жосполдонгон тапшырмаларды иштетүү мүмкүн эмес, анткени тиркеменин sandbox "
+"режими иштетилген."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Жосполдонгон тапшырмалар ар бир мүнөт сайын иштетилип жатат."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Жосполдонгон тапшырмалар катталган эмес."

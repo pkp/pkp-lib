@@ -47,12 +47,15 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
 
     public function createHandle(Request $request, $userId = null): void
     {
+        $userVars = $request->getUserVars();
+        $submissionId = isset($userVars['submissionId']) ? (int) $userVars['submissionId'] : null;
+        $reviewRoundId = isset($userVars['reviewRoundId']) ? (int) $userVars['reviewRoundId'] : null;
 
-        if (!$request->getUserVars()['submissionId'] || !$request->getUserVars()['reviewRoundId']) {
+        if (!$submissionId || !$reviewRoundId) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
-        $submission = Repo::submission()->get((int) $request->getUserVars()['submissionId']);
-        if (!$submission){
+        $submission = Repo::submission()->get($submissionId);
+        if (!$submission) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         $context = $request->getContext();
@@ -64,8 +67,8 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             'familyName' => null,
             'orcidValidation' => false,
             'disabled' => false,
-            'submissionId'=>$request->getUserVars()['submissionId'],
-		    'reviewRoundId'=>$request->getUserVars()['reviewRoundId'],
+            'submissionId' => $submissionId,
+            'reviewRoundId' => $reviewRoundId,
             'responseDueDate'=> (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
 		    'reviewDueDate'=> (new DateTime(Core::getCurrentDate()))->modify('+2 months')->format('Y-m-d'),
 		    'reviewMethod'=> '',
@@ -132,7 +135,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
                     'dashboard',
                     'editorial',
                     null,
-                    ['workflowSubmissionId' => $request->getUserVars()['submissionId']]
+                    ['workflowSubmissionId' => $submissionId]
                 )
         ];
         $breadcrumbs[] = [

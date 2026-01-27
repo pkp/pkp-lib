@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 04:34+0000\n"
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ky/"
 ">\n"
@@ -119,7 +119,7 @@ msgstr "Сайтты башкаруу"
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
-"Файл {$filename} {$currentFilePath} → {$destinationPath} көчүрүлө алган жок."
+"Файл {$filename} {$currentFilePath} → {$destinationPath} көчүрүлө алган жок"
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
@@ -135,7 +135,7 @@ msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
 "Белгилүү Id боюнча кезекте турган тапшырманы тазалоо. Бардыгын тазалоо үчүн "
 "--all параметрин колдонуңуз. Белгилүү бир кезектен бардыгын тазалоо үчүн --"
-"queue= параметрин колдонуңуз."
+"queue= параметрин колдонуңуз"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""

@@ -30,7 +30,7 @@ class NotesMigration extends \PKP\migration\Migration
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
 
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'notes_user_id');
 

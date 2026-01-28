@@ -46,13 +46,13 @@ class NoteResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'userId' => $user->getId(),
+            'userId' => $user?->getId(),
             'contents' => $this->contents,
             'dateCreated' => $this->dateCreated?->format('Y-m-d H:i:s'), // might be null if not saved yet
             'dateModified' => $this->dateModified?->format('Y-m-d H:i:s'),
-            'createdByName' => $user->getFullName(),
-            'createdByUsername' => $user->getUsername(),
-            'createdByEmail' => $user->getEmail(),
+            'createdByName' => $user?->getFullName(),
+            'createdByUsername' => $user?->getUsername(),
+            'createdByEmail' => $user?->getEmail(),
             'submissionFiles' => Repo::submissionFile()
                 ->getSchemaMap($submission, $fileGenres)
                 ->mapMany($submissionFiles)

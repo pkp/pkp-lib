@@ -31,6 +31,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\doi\Doi;
+use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -42,6 +43,9 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
 use PKP\validation\ValidatorFactory;
 
@@ -992,7 +996,7 @@ abstract class Repository
      *
      * @param array $publications - The publications to get peer review data for.
      */
-    public function getPeerReviews(array $publications): Enumerable
+    public function getPublicPeerReviews(array $publications): Enumerable
     {
         return collect($publications)
             ->lazy()
@@ -1001,6 +1005,109 @@ abstract class Repository
                 // Thus allowing code outside of an API context (e.g, page handlers) to use this getPeerReviews method to get peer review data in a consistent shape.
                 return (new PublicationPeerReviewResource($publication))->resolve();
             })->values();
+    }
+
+    /**
+     * Retrieve completed review assignments for publications.
+     *
+     * @param array $publicationIds
+     *
+     * @throws \Exception
+     * @return Enumerable Completed Review assignments
+     */
+    public function getCompletedReviewAssignments(array $publicationIds): Enumerable
+    {
+        return Repo::reviewAssignment()
+            ->getCollector()
+            ->filterByPublicationIds($publicationIds)
+            ->filterByCompleted(true)
+            ->getMany();
+    }
+
+    /**
+     * Retrieve author responses associated with review rounds of the specified publications
+     *
+     * @param array $publicationIds
+     *
+     * @throws \Exception
+     * @return Enumerable - Author responses
+     */
+    public function getReviewAuthorResponses(array $publicationIds): Enumerable
+    {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $reviewRounds = $reviewRoundDao->getByPublicationIds($publicationIds);
+
+        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
+        $roundIds = $reviewRoundsKeyedById->keys()->all();
+
+        return AuthorResponse::withReviewRoundIds($roundIds)->get();
+
+    }
+
+    /**
+     * Get review-related DOI data grouped by publication ID.
+     *
+     * @param int[] $publicationIds
+     *
+     * @throws \Exception
+     * @return array<int, array<array{pubObjectType: string, pubObjectId: int, doiObject: Doi|null}>>
+     */
+    public function getReviewDoiItemsGroupedByPublication(array $publicationIds): array
+    {
+        if (empty($publicationIds)) {
+            return [];
+        }
+
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $reviewRounds = $reviewRoundDao->getByPublicationIds($publicationIds);
+
+        $roundToPublication = [];
+        foreach ($reviewRounds->toArray() as $round) {
+            $roundToPublication[$round->getId()] = $round->getPublicationId();
+        }
+        $roundIds = array_keys($roundToPublication);
+
+        if (empty($roundIds)) {
+            return array_fill_keys($publicationIds, []);
+        }
+
+        $result = array_fill_keys($publicationIds, []);
+
+        // ReviewAssignments with DOIs
+        $assignments = Repo::reviewAssignment()
+            ->getCollector()
+            ->filterByReviewRoundIds($roundIds)
+            ->filterByCompleted(true)
+            ->getMany();
+
+        foreach ($assignments as $assignment) {
+            $pubId = $roundToPublication[$assignment->getReviewRoundId()] ?? null;
+            if ($pubId !== null) {
+                $result[$pubId][] = [
+                    'pubObjectType' => Repo::doi()::TYPE_PEER_REVIEW,
+                    'pubObjectId' => (int) $assignment->getId(),
+                    'doiObject' => $assignment->getData('doiObject'),
+                ];
+            }
+        }
+
+        // AuthorResponses with DOIs
+        $authorResponses = AuthorResponse::withReviewRoundIds($roundIds)->get();
+
+        foreach ($authorResponses as $response) {
+            $pubId = $roundToPublication[$response->reviewRoundId] ?? null;
+            if ($pubId !== null) {
+                $result[$pubId][] = [
+                    'pubObjectType' => Repo::doi()::TYPE_AUTHOR_RESPONSE,
+                    'pubObjectId' => (int) $response->id,
+                    'doiObject' => $response->doi,
+                ];
+            }
+        }
+
+        return $result;
     }
 
     /**

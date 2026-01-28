@@ -1146,7 +1146,10 @@ msgid "submission.page.citations"
 msgstr "#{$id} Citations"
 
 msgid "submission.peerReview"
-msgstr "Peer&nbsp;Review"
+msgstr "Peer Review"
+
+msgid "submission.peerReview.identified"
+msgstr "Peer Review {$identifier}"
 
 msgid "submission.production"
 msgstr "Production"
@@ -3434,14 +3437,14 @@ msgstr "Statement that describes the funding for the research on which this work
 msgid "submission.submit.form.fundingStatementRequired"
 msgstr "Please enter the Funding Statement."
 
-msgid "submission.reviewRound.authorResponse"
-msgstr "Review Response"
-
 msgid "submission.reviewRound.respondToReviews"
 msgstr "Respond to Reviews"
 
 msgid "submission.reviewRound.authorResponse"
 msgstr "Author Response"
+
+msgid "submission.reviewRound.authorResponse.identified"
+msgstr "Author Response {$identifier}"
 
 msgid "editor.submission.reviewRound.requestAuthorResponse"
 msgstr "Request Author Response"

@@ -18,6 +18,7 @@ namespace PKP\components\forms\context;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRadioInput;
 use PKP\components\forms\FieldSelect;

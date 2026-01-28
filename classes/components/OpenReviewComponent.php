@@ -29,7 +29,7 @@ class OpenReviewComponent
 
     public function __construct(Submission $submission)
     {
-        $this->publicationsPeerReviews = Repo::publication()->getPeerReviews(
+        $this->publicationsPeerReviews = Repo::publication()->getPublicPeerReviews(
             $submission->getPublishedPublications()
         );
 

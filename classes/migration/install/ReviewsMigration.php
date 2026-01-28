@@ -70,6 +70,13 @@ class ReviewsMigration extends \PKP\migration\Migration
                 ->onDelete('set null');
             $table->index(['reviewer_recommendation_id'], 'review_assignments_recommendation_id');
 
+            $table->bigInteger('doi_id')->nullable()->comment('DOI ID for the DOI assigned to this peer review');
+            $table->foreign('doi_id')
+                ->references('doi_id')
+                ->on('dois')
+                ->nullOnDelete();
+            $table->index(['doi_id'], 'review_assignments_doi_id');
+
             $table->datetime('date_assigned')->nullable();
             $table->datetime('date_notified')->nullable();
             $table->datetime('date_confirmed')->nullable();

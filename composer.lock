@@ -6785,16 +6785,16 @@
 		},
 		{
 			"name": "symfony/process",
-			"version": "v7.2.4",
+			"version": "v7.4.5",
 			"source": {
 				"type": "git",
 				"url": "https://github.com/symfony/process.git",
-				"reference": "d8f411ff3c7ddc4ae9166fb388d1190a2df5b5cf"
+				"reference": "608476f4604102976d687c483ac63a79ba18cc97"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/symfony/process/zipball/d8f411ff3c7ddc4ae9166fb388d1190a2df5b5cf",
-				"reference": "d8f411ff3c7ddc4ae9166fb388d1190a2df5b5cf",
+				"url": "https://api.github.com/repos/symfony/process/zipball/608476f4604102976d687c483ac63a79ba18cc97",
+				"reference": "608476f4604102976d687c483ac63a79ba18cc97",
 				"shasum": ""
 			},
 			"require": {
@@ -6826,7 +6826,7 @@
 			"description": "Executes commands in sub-processes",
 			"homepage": "https://symfony.com",
 			"support": {
-				"source": "https://github.com/symfony/process/tree/v7.2.4"
+				"source": "https://github.com/symfony/process/tree/v7.4.5"
 			},
 			"funding": [
 				{
@@ -6838,11 +6838,15 @@
 					"type": "github"
 				},
 				{
+					"url": "https://github.com/nicolas-grekas",
+					"type": "github"
+				},
+				{
 					"url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
 					"type": "tidelift"
 				}
 			],
-			"time": "2025-02-05T08:33:46+00:00"
+			"time": "2026-01-26T15:07:59+00:00"
 		},
 		{
 			"name": "symfony/routing",

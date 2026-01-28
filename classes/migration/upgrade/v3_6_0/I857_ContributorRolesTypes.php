@@ -59,14 +59,15 @@ class I857_ContributorRolesTypes extends Migration
         /**
          * Add contributor roles and types to current contributors
          */
-
         $translations = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get()
-            ->map(fn (UserGroup $ug, int $ugId): array => [
-                'userGroupId' => $ugId,
-                'key' => $ug->nameLocaleKey ?? 'default.groups.name.author',
-                'name' => $ug->name,
-                'contextId' => $ug->context_id,
+            ->mapWithKeys(fn (UserGroup $ug): array => [
+                $ug->user_group_id => [
+                    'userGroupId' => $ug->user_group_id,
+                    'key' => $ug->nameLocaleKey ?? 'default.groups.name.author',
+                    'name' => $ug->name,
+                    'contextId' => $ug->context_id,
+                ],
             ]);
         $roles = collect([
             'default.groups.name.author' => ContributorRoleIdentifier::AUTHOR->getName(),

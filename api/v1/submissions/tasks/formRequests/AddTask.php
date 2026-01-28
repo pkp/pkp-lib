@@ -61,4 +61,9 @@ class AddTask extends EditTask
     {
         return (int) $this->input('stageId');
     }
+
+    protected function getCreatorId(): int
+    {
+        return (int) $this->input('createdBy');
+    }
 }

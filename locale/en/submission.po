@@ -2327,6 +2327,9 @@ msgstr "You can update this discussion for {$allowedEditTimeNoticeLimit} minutes
 msgid "submission.task.validation.error.participant.responsible"
 msgstr "There should be one user responsible for the task."
 
+msgid "submission.task.validation.error.participant.creator"
+msgstr "The creator must participate in the task/discussion."
+
 msgid "submission.task.validation.error.reviewer.anonymous"
 msgstr "Cannot disclose the identity of reviewers in the task/discussion."
 

@@ -203,12 +203,6 @@ class Repository
             ->filterByInclude(true)
             ->get();
 
-        $request = Application::get()->getRequest();
-        $user = $request ? $request->getUser() : null;
-
-        // allow null when created by system
-        $createdBy = $user ? $user->getId() : $submission->getData('userId');
-
         foreach ($templates as $template) {
             $templateId = (int) $template->id;
 
@@ -217,7 +211,6 @@ class Repository
             }
 
             $task = $template->promote($submission, false); // no participants
-            $task->createdBy = $createdBy;                  // may be null
 
             $maxSeq = (float) (EditorialTask::query()
                 ->where('assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
@@ -226,8 +219,8 @@ class Repository
 
             $task->seq = $maxSeq + 1;
 
+            // createdBy left as default (NULL) for system-created tasks
             $task->save();
-
         }
     }
 

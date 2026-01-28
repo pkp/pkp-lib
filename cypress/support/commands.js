@@ -589,7 +589,7 @@ Cypress.Commands.add('clickStageParticipantButton', (participantName, buttonLabe
 Cypress.Commands.add('assignReviewer', (name, reviewMethod) => {
 	cy.get('[data-cy="active-modal"] button:contains("Add Reviewer")').click();
 	cy.waitJQuery();
-	cy.wait(2000); // Additional wait needed to reduce failures due to form not being fully initialized
+	cy.wait(5000); // Additional wait needed to reduce failures due to form not being fully initialized
 	cy.get('.listPanel--selectReviewer .pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
 	cy.contains('Select ' + name).click();
 	cy.waitJQuery();

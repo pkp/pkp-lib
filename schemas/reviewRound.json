@@ -18,6 +18,9 @@
 		"statusId": {
 			"type": "integer"
 		},
+		"publicationId": {
+			"type": "integer"
+		},
 		"authorResponse": {
 			"description": "The author response associated with this review round, if any.",
 			"type": "object",

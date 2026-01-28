@@ -18,6 +18,7 @@ namespace PKP\components\forms\context;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRadioInput;
 use PKP\components\forms\FieldSelect;
@@ -148,6 +149,16 @@ abstract class PKPDoiSetupSettingsForm extends FormComponent
                 'label' => __('doi.manager.settings.enableRepresentationDoi'),
                 'groupId' => self::DOI_CUSTOM_SUFFIX_GROUP,
                 'value' => $context->getData(Repo::doi()::CUSTOM_REPRESENTATION_PATTERN),
+            ]))
+            ->addField(new FieldHTML('peerReviewCustomSuffixMessage', [
+                'label' => __('submission.peerReview'),
+                'groupId' => self::DOI_CUSTOM_SUFFIX_GROUP,
+                'description' => __('doi.manager.settings.doiSuffixUserDefine.notSupported'),
+            ]))
+            ->addField(new FieldHTML('authorResponseCustomSuffixMessage', [
+                'label' => __('submission.reviewRound.authorResponse'),
+                'groupId' => self::DOI_CUSTOM_SUFFIX_GROUP,
+                'description' => __('doi.manager.settings.doiSuffixUserDefine.notSupported'),
             ]))
             ->addField(new FieldRadioInput(Context::SETTING_DOI_VERSIONING, [
                 'label' => __('doi.manager.settings.doiVersioning'),

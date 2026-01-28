@@ -31,6 +31,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\doi\Doi;
+use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -42,6 +43,9 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
 use PKP\validation\ValidatorFactory;
 
@@ -992,7 +996,7 @@ abstract class Repository
      *
      * @param array $publications - The publications to get peer review data for.
      */
-    public function getPeerReviews(array $publications): Enumerable
+    public function getPublicPeerReviews(array $publications): Enumerable
     {
         return collect($publications)
             ->lazy()
@@ -1001,6 +1005,35 @@ abstract class Repository
                 // Thus allowing code outside of an API context (e.g, page handlers) to use this getPeerReviews method to get peer review data in a consistent shape.
                 return (new PublicationPeerReviewResource($publication))->resolve();
             })->values();
+    }
+
+    public function getReviewAssignments(array $publicationIds): Enumerable
+    {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $reviewRounds = $reviewRoundDao->getByPublicationIds($publicationIds);
+
+        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
+        $roundIds = $reviewRoundsKeyedById->keys()->all();
+
+        return Repo::reviewAssignment()
+            ->getCollector()
+            ->filterByReviewRoundIds($roundIds)
+            ->filterByCompleted(true)
+            ->getMany();
+    }
+
+    public function getReviewAuthorResponses(array $publicationIds): Enumerable
+    {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $reviewRounds = $reviewRoundDao->getByPublicationIds($publicationIds);
+
+        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
+        $roundIds = $reviewRoundsKeyedById->keys()->all();
+
+        return AuthorResponse::withReviewRoundIds($roundIds)->get();
+
     }
 
     /**

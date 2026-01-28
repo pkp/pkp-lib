@@ -1007,6 +1007,9 @@ msgstr "None - Suffixes must be entered manually on the <a href=\"{$doiManagemen
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Custom pattern - (not recommended)"
 
+msgid "doi.manager.settings.doiSuffixUserDefine.notSupported"
+msgstr "Custom pattern not supported"
+
 msgid "doi.manager.settings.registrationAgency"
 msgstr "Registration Agency"
 

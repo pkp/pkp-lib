@@ -1140,7 +1140,7 @@ msgid "submission.page.citations"
 msgstr "#{$id} Citations"
 
 msgid "submission.peerReview"
-msgstr "Peer&nbsp;Review"
+msgstr "Peer Review"
 
 msgid "submission.production"
 msgstr "Production"

@@ -734,6 +734,7 @@ class PKPDoiController extends PKPBaseController
      */
     protected function getPubObjectHandler(string $type): mixed
     {
+        // PR_TODO: Handle for peer review and author responses
         return match ($type) {
             Repo::doi()::TYPE_PUBLICATION => Repo::publication(),
             Repo::doi()::TYPE_REPRESENTATION => Repo::galley(),

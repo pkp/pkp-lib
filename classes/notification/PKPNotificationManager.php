@@ -35,6 +35,7 @@ use PKP\payment\QueuedPaymentDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\userComment\relationships\UserCommentReport;
 use PKP\workflow\WorkflowStageDAO;
 
 class PKPNotificationManager extends PKPNotificationOperationManager
@@ -91,6 +92,30 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $queuedPayment = $queuedPaymentDao->getById($notification->assocId);
                 $context = $contextDao->getById($queuedPayment->getContextId());
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'payment', 'pay', [$queuedPayment->getId()]);
+            case Notification::NOTIFICATION_TYPE_USER_COMMENT_POSTED:
+                return $dispatcher->url(
+                    Application::get()->getRequest(),
+                    Application::ROUTE_PAGE,
+                    null,
+                    'management',
+                    'settings',
+                    ['userComments'],
+                    ['commentId' => $notification->assocId]
+                );
+            case Notification::NOTIFICATION_TYPE_USER_COMMENT_REPORTED:
+                $report = UserCommentReport::find($notification->assocId);
+                return $dispatcher->url(
+                    Application::get()->getRequest(),
+                    Application::ROUTE_PAGE,
+                    null,
+                    'management',
+                    'settings',
+                    ['userComments'],
+                    [
+                        'reportId' => $notification->assocId,
+                        'commentId' => $report->userCommentId
+                    ]
+                );
             default:
                 $delegateResult = $this->getByDelegate(
                     $notification->type,
@@ -195,6 +220,10 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 return $notificationSettings['contents'];
             case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
                 return __('notification.type.revertDecline');
+            case Notification::NOTIFICATION_TYPE_USER_COMMENT_POSTED:
+                return __('manager.userComment.moderator.commentSubmitted');
+            case Notification::NOTIFICATION_TYPE_USER_COMMENT_REPORTED:
+                return __('manager.userComment.moderator.commentReported');
             default:
                 $delegateResult = $this->getByDelegate(
                     $notification->type,

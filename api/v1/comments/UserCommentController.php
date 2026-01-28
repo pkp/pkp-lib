@@ -16,7 +16,11 @@
 
 namespace PKP\API\v1\comments;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\notification\NotificationManager;
+use PKP\core\PKPRequest;
+use PKP\notification\Notification;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -109,6 +113,15 @@ class UserCommentController extends PKPBaseController
         });
     }
 
+
+    /**
+     * @copydoc
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        // No authorization required for public endpoint
+        return true;
+    }
     /**
      * Gets the publicly accessible comments for a publication.
      * Accepts the following query parameters:
@@ -271,6 +284,12 @@ class UserCommentController extends PKPBaseController
             ]
         );
 
+        $this->notifyModerators(
+            assocId: $createdComment->id,
+            assocType: Application::ASSOC_TYPE_COMMENT,
+            notificationType: Notification::NOTIFICATION_TYPE_USER_COMMENT_POSTED
+        );
+
         return response()->json(new UserCommentResource($createdComment), Response::HTTP_OK);
     }
 
@@ -342,11 +361,16 @@ class UserCommentController extends PKPBaseController
         $requestBody = $illuminateRequest->validated();
         $note = $requestBody['note'];
         $commentId = (int)$illuminateRequest->route('commentId');
-
         $comment = UserComment::query()->find($commentId);
         $reportId = Repo::userComment()->addReport($comment, $this->getRequest()->getUser(), $note);
         $report = UserCommentReport::query()->find($reportId);
 
+
+        $this->notifyModerators(
+            assocId: $report->id,
+            assocType: Application::ASSOC_TYPE_COMMENT_REPORT,
+            notificationType: Notification::NOTIFICATION_TYPE_USER_COMMENT_REPORTED
+        );
         return response()->json(new UserCommentReportResource($report), Response::HTTP_OK);
     }
 
@@ -434,5 +458,34 @@ class UserCommentController extends PKPBaseController
             ->getPaginatedData($query);
 
         return response()->json($this->formatPaginatedResponseData($paginatedInfo), Response::HTTP_OK);
+    }
+
+    /**
+     * Notify moderators about a comment-related event.
+     */
+    private function notifyModerators(int $assocId, int $assocType, int $notificationType): void
+    {
+        $context = $this->getRequest()->getContext();
+        $notificationManager = new NotificationManager();
+
+        $moderators = Repo::user()
+            ->getCollector()
+            ->filterByRoleIds([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+            ])
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        foreach ($moderators as $moderator) {
+            $notificationManager->createNotification(
+                userId: $moderator->getId(),
+                notificationType: $notificationType,
+                contextId: $context->getId(),
+                assocType: $assocType,
+                assocId: $assocId,
+                level: Notification::NOTIFICATION_LEVEL_TASK
+            );
+        }
     }
 }

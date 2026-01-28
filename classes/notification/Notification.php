@@ -94,6 +94,9 @@ class Notification extends Model
     public const NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION = 0x100002B;
     public const NOTIFICATION_TYPE_EDITORIAL_REMINDER = 0x100002C;
 
+    public const NOTIFICATION_TYPE_USER_COMMENT_POSTED = 0x100002D;
+    public const NOTIFICATION_TYPE_USER_COMMENT_REPORTED = 0x100002E;
+
     // Maximum number of notifications that can be sent per job
     public const NOTIFICATION_CHUNK_SIZE_LIMIT = 100;
 

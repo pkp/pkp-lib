@@ -322,6 +322,8 @@ abstract class Repository
      */
     public function isAssigned(int $doiId, string $pubObjectType): bool
     {
+        // PR_TODO: Check how should work for peer reviews and author responses
+
         return match ($pubObjectType) {
             Repo::doi()::TYPE_PUBLICATION => Repo::publication()
                 ->getCollector()

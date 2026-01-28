@@ -43,6 +43,7 @@ class ReviewRoundAuthorResponse extends \PKP\migration\Migration
             $table->bigInteger('response_id')->autoIncrement()->comment('Primary key.');
             $table->bigInteger('review_round_id')->comment('ID of the review round the response belongs to.');
             $table->bigInteger('user_id')->comment('User ID of the assigned author participant that is submitting the response.');
+            $table->bigInteger('doi_id')->nullable()->comment('DOI ID for the DOI assigned to the author response');
             $table->timestamps();
 
             $table->foreign('review_round_id')
@@ -57,9 +58,15 @@ class ReviewRoundAuthorResponse extends \PKP\migration\Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
+            $table->foreign('doi_id')
+                ->references('doi_id')
+                ->on('dois')
+                ->nullOnDelete();
+
             $table->index(['review_round_id'], 'review_round_author_responses_review_round_id');
             $table->index(['user_id'], 'review_round_author_responses_user_id');
             $table->index(['review_round_id', 'user_id'], 'review_round_author_responses_review_round_id_user_id');
+            $table->index(['doi_id'], 'review_round_author_responses_doi_id');
         });
 
         Schema::create('review_round_author_response_settings', function (Blueprint $table) {

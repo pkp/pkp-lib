@@ -24,6 +24,7 @@ use PKP\doi\exceptions\DoiException;
 use PKP\jobs\doi\DepositSubmission;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -322,14 +323,38 @@ abstract class Repository
      */
     public function isAssigned(int $doiId, string $pubObjectType): bool
     {
+
         return match ($pubObjectType) {
             Repo::doi()::TYPE_PUBLICATION => Repo::publication()
                 ->getCollector()
                 ->filterByDoiIds([$doiId])
                 ->getQueryBuilder()
                 ->getCountForPagination() > 0,
+            Repo::doi()::TYPE_PEER_REVIEW => Repo::reviewAssignment()
+                    ->getCollector()
+                    ->filterByDoiIds([$doiId])
+                    ->getQueryBuilder()
+                    ->getCountForPagination() > 0,
+            Repo::doi()::TYPE_AUTHOR_RESPONSE => AuthorResponse::withDoiIds([$doiId])->count() > 0,
             default => false,
         };
+    }
+
+    /**
+     * Creates a DOI using the default pattern
+     *
+     * @throws DoiException
+     */
+    public function mintDoi(Context $context): int
+    {
+        $doiSuffix = '';
+
+        // Only the default pattern or manual entry of DOIs is supported for reviews
+        if ($context->getData(Context::SETTING_DOI_SUFFIX_TYPE) === Repo::doi()::SUFFIX_DEFAULT) {
+            $doiSuffix = $this->generateDefaultSuffix();
+        }
+
+        return $this->mintAndStoreDoi($context, $doiSuffix);
     }
 
     /**
@@ -377,7 +402,7 @@ abstract class Repository
     /**
      * Compose final DOI and save to database
      *
-     * @throws Exception
+     * @throws DoiException
      */
     protected function mintAndStoreDoi(Context $context, string $doiSuffix): int
     {

@@ -22,6 +22,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -31,8 +32,9 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
-use PKP\userGroup\UserGroup;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 
 class PKPBackendDoiController extends PKPBaseController
 {
@@ -67,6 +69,12 @@ class PKPBackendDoiController extends PKPBaseController
         Route::put('publications/{publicationId}', $this->editPublication(...))
             ->name('_doi.backend.publication.edit')
             ->whereNumber('publicationId');
+        Route::put('peerReviews/{reviewId}', $this->editPeerReview(...))
+            ->name('_doi.backend.peerReview.edit')
+            ->whereNumber('reviewId');
+        Route::put('authorResponses/{responseId}', $this->editAuthorResponse(...))
+            ->name('_doi.backend.authorResponse.edit')
+            ->whereNumber('responseId');
     }
 
     /**
@@ -130,14 +138,71 @@ class PKPBackendDoiController extends PKPBaseController
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
-        $contextId = $submission->getData('contextId');
-
-
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Edit ReviewAssignment (object containing peer review data) to add DOI
+     */
+    public function editPeerReview(Request $illuminateRequest): JsonResponse
+    {
+        $reviewAssignment = Repo::reviewAssignment()->get($illuminateRequest->route('reviewId'));
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT, $illuminateRequest->input());
+        $doi = Repo::doi()->get((int) $params['doiId']);
+        if (!$doi) {
+            return response()->json([
+                'error' => __('api.dois.404.doiNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+
+        }
+
+        Repo::reviewAssignment()->edit($reviewAssignment, ['doiId' => $doi->getId()]);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId());
+
+        $submission = Repo::submission()->get($reviewAssignment->getData('submissionId'));
+
+        return response()->json(
+            Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment, $submission),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Edit AuthorResponse to add DOI
+     */
+    public function editAuthorResponse(Request $illuminateRequest): JsonResponse
+    {
+        $authorResponse = AuthorResponse::find($illuminateRequest->route('responseId'));
+        if (!$authorResponse) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $doi = Repo::doi()->get((int) $illuminateRequest->input('doiId'));
+        if (!$doi) {
+            return response()->json([
+                'error' => __('api.dois.404.doiNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $authorResponse->doiId = $doi->getId();
+        $authorResponse->save();
+
+        return response()->json(
+            new ReviewRoundAuthorResponseResource($authorResponse),
             Response::HTTP_OK
         );
     }

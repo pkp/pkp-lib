@@ -284,6 +284,30 @@
 				"nullable"
 			]
 		},
+		"reviewDoiItems": {
+			"type": "array",
+			"description": "Information about review-related DOI object for open peer reviews and author responses.",
+			"readOnly": true,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"pubObjectType": {
+						"type": "string",
+						"description": "One of Repo::doi()::TYPE_PEER_REVIEW or Repo::doi()::TYPE_AUTHOR_RESPONSE"
+					},
+					"pubObjectId": {
+						"type": "integer",
+						"description": "Either a ReviewAssignment or AuthorResponse ID"
+					},
+					"doiObject": {
+						"type": "object",
+						"description": "An object representing the DOI for the given review-related pub object",
+						"$ref": "#/definitions/Doi"
+					}
+				}
+			}
+		},
 		"rights": {
 			"type": "string",
 			"description": "Optional metadata that describes any rights held over the submission.",

@@ -60,6 +60,7 @@ class Collector implements CollectorInterface, ViewsCount
     public ?string $orderBySubmissionIdDirection = null;
     public ?array $publicationIds = null;
     public ?bool $isPubliclyVisible = null;
+    public ?array $doiIds = null;
 
     public function __construct(DAO $dao)
     {
@@ -276,6 +277,15 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByIsAccessibleByReviewer(?bool $isAccessibleByReviewer): static
     {
         $this->isAccessibleByReviewer = $isAccessibleByReviewer;
+        return $this;
+    }
+
+    /**
+     * Filter by associated DOI
+     */
+    public function filterByDoiIds(?array $doiIds): self
+    {
+        $this->doiIds = $doiIds;
         return $this;
     }
 
@@ -571,7 +581,7 @@ class Collector implements CollectorInterface, ViewsCount
                 fn (Builder $q) => $q
                     ->where('ra.declined', '<>', 1)
                     ->where('ra.cancelled', '<>', 1)
-                    ->whereNotNull('ra.date_confirmed', )
+                    ->whereNotNull('ra.date_confirmed')
                     ->whereIn(
                         'ra.submission_id',
                         fn (Builder $q) => $q
@@ -582,6 +592,10 @@ class Collector implements CollectorInterface, ViewsCount
                     )
             )
         );
+
+        $q->when(!is_null($this->doiIds), function (Builder $q) {
+            $q->whereIn('ra.doi_id', $this->doiIds);
+        });
 
         $q->when(
             $this->count !== null,

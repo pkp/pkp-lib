@@ -22,6 +22,7 @@ import * as usePkpFetchPaginated from '@/frontend/composables/usePkpFetchPaginat
 import * as usePkpModal from '@/frontend/composables/usePkpModal.js';
 import * as usePkpLocalize from '@/frontend/composables/usePkpLocalize';
 import * as usePkpDate from '@/frontend/composables/usePkpDate';
+import * as usePkpStyles from '@/frontend/composables/usePkpStyles.js';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -184,6 +185,7 @@ export default {
 		usePkpModal,
 		usePkpLocalize,
 		usePkpDate,
+		usePkpStyles,
 	},
 	pkpCreateVueApp,
 	createApp,

@@ -27,6 +27,7 @@ use PKP\components\forms\citation\CitationRawEditForm;
 use PKP\components\forms\citation\CitationStructuredEditForm;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
+use PKP\components\forms\dataCitation\DataCitationEditForm;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -174,6 +175,8 @@ abstract class PKPDashboardHandler extends Handler
         $logResponseForm = new LogReviewerResponseForm($context->getSupportedFormLocales(), $context);
         $citationStructuredEditForm = new CitationStructuredEditForm('emit');
         $citationRawEditForm = new CitationRawEditForm('emit');
+        $dataCitationEditForm = new DataCitationEditForm('emit');
+
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -186,6 +189,8 @@ abstract class PKPDashboardHandler extends Handler
                 'contextCitationsMetadataLookup' => $context->getData('citationsMetadataLookup') ?: 0,
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
+                    'supportsDataCitations' => !!$context->getData('dataCitations'),
+                    'supportsDataAvailability' => !!$context->getData('dataAvailability'),
                     'identifiersEnabled' => $identifiersEnabled,
                     'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
                 ],
@@ -194,7 +199,8 @@ abstract class PKPDashboardHandler extends Handler
                     'logResponseForm' => $logResponseForm->getConfig(),
                     'versionStageOptions' => $versionStageOptions,
                     'citationStructuredEditForm' => $citationStructuredEditForm->getConfig(),
-                    'citationRawEditForm' => $citationRawEditForm->getConfig()
+                    'citationRawEditForm' => $citationRawEditForm->getConfig(),
+                    'dataCitationEditForm' => $dataCitationEditForm->getConfig()
                 ],
             ]
         ]);

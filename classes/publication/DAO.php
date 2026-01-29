@@ -26,6 +26,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
+use PKP\dataCitation\DataCitation;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -181,6 +182,7 @@ class DAO extends EntityDAO
         $this->setAuthors($publication);
         $this->setCategories($publication);
         $this->setControlledVocab($publication);
+        $this->setDataCitations($publication);
 
         return $publication;
     }
@@ -243,6 +245,7 @@ class DAO extends EntityDAO
         $this->deleteAuthors($publicationId);
         $this->deleteCategories($publicationId);
         $this->deleteControlledVocab($publicationId);
+        $this->deleteDataCitations($publicationId);
         Repo::citation()->deleteByPublicationId($publicationId);
 
         return $affectedRows;
@@ -469,6 +472,23 @@ class DAO extends EntityDAO
     protected function deleteCategories(int $publicationId): void
     {
         PublicationCategory::where('publication_id', $publicationId)->delete();
+    }
+
+    /**
+     * Set a publication's Data Citations
+     */
+    protected function setDataCitations(Publication $publication)
+    {
+        $dataCitations = DataCitation::where('publication_id', $publication->getId())->get()->values()->all();
+        $publication->setData('dataCitations', $dataCitations);
+    }
+
+    /**
+     * Delete a publication's Data Citations
+     */
+    protected function deleteDataCitations(int $publicationId)
+    {
+        DataCitation::where('publication_id', $publicationId)->delete();
     }
 
     /**

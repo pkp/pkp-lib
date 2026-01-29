@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2026-01-28 01:29+0000\n"
+"PO-Revision-Date: 2026-01-29 15:31+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
@@ -492,6 +492,8 @@ msgstr ""
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Dosya sıkıştırılamadı. Sıkıştırılmış kaynak dosya {$filePath}, unlink ile "
+"kaldırılamadı."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "İndirilecek herhangi bir dil bulunmuyor."
@@ -506,7 +508,7 @@ msgid "admin.cli.tool.available.commands"
 msgstr "`{$namespace}` alanı için mevcut komutlar:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
-msgstr ""
+msgstr "Uygulama bakım modu etkin olduğundan kuyruk işleri çalıştırılamıyor."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
@@ -515,39 +517,58 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Belirli bir kuyruk işini Id’sine göre temizleyin. Tümünü temizlemek "
+"isterseniz --all parametresini kullanın. Belirli bir kuyruktaki tümünü "
+"temizlemek isterseniz --queue= parametresini kullanın"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Test kuyruğuna bir test işi ekleyin. İsteğe bağlı --only= parametresini "
+"kullanın ve 'failed' veya 'success' değerini geçerek başarısız olabilen ya "
+"da başarılı bir işi gönderin."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Sonsuz bir daemon worker süreci çalıştırın; bu süreç işleri işlemeye devam "
+"edecektir. Bu komutla ilişkili mevcut seçenekleri görmek için --help "
+"bayrağını kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Tüm başarısız işleri listeleyin. Listeyi filtrelemek için --queue=QUEUE_NAME "
+"ve --connection=CONNECTION_NAME parametrelerini ayarlayın. Ayrıca işleri "
+"kuyruğa yeniden göndermek veya tümünü/belirli başarısız işleri temizlemek "
+"için --redispatch ve --clear parametrelerini/flaglarını kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Mevcut işleri kuyruğa gönderin. Belirli bir kuyruğa iş göndermek için --"
+"queue=QUEUE_NAME parametresini kullanın. Bir test işi çalıştırmak için --"
+"test parametresini ve tek bir işten sonra durmak için --once parametresini "
+"kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "{$queueName} adlı kuyruqda {$jobCount} iş tamamlandı."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "{$queueName} adlı kuyruqda çalıştırılacak iş yok."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Toplam kuyruktaki işleri görüntüleyin. Başarısız toplam işleri görmek için --"
+"failed bayrağını kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Jobs komutunun kullanımını görüntüleyin"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Jobs kullanım parametrelerini görüntüleyin"
 
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Seçenek boş bırakılamaz! Kullanım yöntemini kontrol edin."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Başarısız kuyruk işleri"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Sıradaki İşler"
@@ -568,7 +589,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
 msgstr "Girişimler"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Rezerve Edildi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
 msgstr ""
@@ -862,3 +883,15 @@ msgstr "{$filename} başlıklı dosya gönderim klasörüne taşındı."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "ROR kayıt defteri veri kümesi önbelleğini güncelle"
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr "Uygulama sandbox modu etkin olduğundan kuyruk işleri çalıştırılamıyor."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Mevcut işlerini tamamladıktan sonra kuyruk worker daemonlarını yeniden "
+"başlatın."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"İşçiler, mevcut işi tamamladıktan sonra zarif bir şekilde sonlanacaktır."

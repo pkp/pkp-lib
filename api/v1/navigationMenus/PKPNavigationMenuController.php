@@ -184,7 +184,7 @@ class PKPNavigationMenuController extends PKPBaseController
         // Validate required fields
         $errors = $this->validateNavigationMenu($params);
         if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+            return response()->json($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         /** @var NavigationMenuDAO $navigationMenuDao */
@@ -241,7 +241,7 @@ class PKPNavigationMenuController extends PKPBaseController
         // Pass menu ID to exclude it from area assignment check
         $errors = $this->validateNavigationMenu($params, false, $navigationMenuId);
         if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+            return response()->json($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         // Update fields if provided

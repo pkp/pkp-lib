@@ -119,7 +119,7 @@ class PublicationPeerReviewResource extends JsonResource
      */
     private function getReviewAssignmentPeerReviews(Enumerable $assignments, Context $context): Enumerable
     {
-        $this->availableReviewerRecommendations = $this->availableReviewerRecommendations ?: ReviewerRecommendation::withContextId($context->getId())->get();
+        $this->availableReviewerRecommendations = $this->availableReviewerRecommendations ?: ReviewerRecommendation::withContextId($context->getId())->get()->keyBy('reviewerRecommendationId');
         $recommendationTypesTypeLabels = Repo::reviewerRecommendation()->getRecommendationTypeLabels();
 
         return $assignments->map(function (ReviewAssignment $assignment) use ($recommendationTypesTypeLabels, $context) {

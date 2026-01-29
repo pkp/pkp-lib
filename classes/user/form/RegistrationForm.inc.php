@@ -32,6 +32,9 @@ class RegistrationForm extends Form {
 	/** @var boolean whether or not captcha is enabled for this form */
 	var $captchaEnabled;
 
+	/** @var bool whether or not captcha is enabled for this form */
+    var $altchaEnabled;
+
 	/**
 	 * Constructor.
 	 */
@@ -61,6 +64,12 @@ class RegistrationForm extends Form {
 		if ($this->captchaEnabled) {
 			$request = Application::get()->getRequest();
 			$this->addCheck(new FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
+		}
+
+		$this->altchaEnabled = Config::getVar('captcha', 'altcha') && Config::getVar('captcha', 'altcha_on_register');
+		if ($this->altchaEnabled) {
+			$request = Application::get()->getRequest();
+			$this->addCheck(new FormValidatorAltcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response'));
 		}
 
 		$authDao = DAORegistry::getDAO('AuthSourceDAO'); /* @var $authDao AuthSourceDAO */
@@ -96,6 +105,11 @@ class RegistrationForm extends Form {
 				'reCaptchaHtml' => $reCaptchaHtml,
 				'captchaEnabled' => true,
 			));
+		}
+
+		if ($this->altchaEnabled) {
+			FormValidatorAltcha::addAltchaJavascript($templateMgr);
+			FormValidatorAltcha::insertFormChallenge($templateMgr);
 		}
 
 		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
@@ -155,6 +169,12 @@ class RegistrationForm extends Form {
 		if ($this->captchaEnabled) {
 			$this->readUserVars(array(
 				'g-recaptcha-response',
+			));
+		}
+
+		if ($this->altchaEnabled) {
+			$this->readUserVars(array(
+				'altcha',
 			));
 		}
 

@@ -377,7 +377,7 @@ describe('Public Comments Tests', function() {
 
 		cy.get('[role="menuitem"]:contains("Report")').click();
 
-		cy.get('.PkpCommentReportDialog__reason-input')
+		cy.get('.PkpCommentReportDialog__reasonInput')
 			.find('textarea')
 			.type(`${testReportText} - 2`);
 

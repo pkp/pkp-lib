@@ -119,7 +119,7 @@ describe('Public Comments Tests', function() {
 			.and('contain.text', 'Please tell us why you want to report this comment');
 
 		cy.get('.PkpCommentReportDialog')
-			.find('.PkpCommentReportDialog__reason-input')
+			.find('.PkpCommentReportDialog__reasonInput')
 			.find('textarea')
 			.type(`${testReportText} - 1`);
 

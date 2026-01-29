@@ -64,7 +64,7 @@ import BaseCommentsNotificationNotLatest from '@/frontend/components/PkpComments
 import BaseCommentsVersionHeaderLabel from '@/frontend/components/PkpComments/base/BaseCommentsVersionHeaderLabel.vue';
 import BaseScrollToCommentsAllComments from '@/frontend/components/PkpComments/base/BaseScrollToCommentsAllComments.vue';
 import BaseScrollToCommentsLogInto from '@/frontend/components/PkpComments/base/BaseScrollToCommentsLogInto.vue';
-import BaseCommentReportDialogBase from '@/frontend/components/PkpComments/base/BaseCommentReportDialogBase.vue';
+import BaseCommentReportDialog from '@/frontend/components/PkpComments/base/BaseCommentReportDialog.vue';
 import BaseCommentReportDialogAuthor from '@/frontend/components/PkpComments/base/BaseCommentReportDialogAuthor.vue';
 import BaseCommentReportDialogReasonInput from '@/frontend/components/PkpComments/base/BaseCommentReportDialogReasonInput.vue';
 
@@ -128,8 +128,8 @@ VueRegistry.registerComponent(
 	BaseScrollToCommentsLogInto,
 );
 VueRegistry.registerComponent(
-	'BaseCommentReportDialogBase',
-	BaseCommentReportDialogBase,
+	'BaseCommentReportDialog',
+	BaseCommentReportDialog,
 );
 VueRegistry.registerComponent(
 	'BaseCommentReportDialogAuthor',

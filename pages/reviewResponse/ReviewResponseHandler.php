@@ -21,11 +21,11 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\components\RequestReviewResponsePage;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewRound\ReviewRound;
 
 class ReviewResponseHandler extends Handler
 {
@@ -62,9 +62,8 @@ class ReviewResponseHandler extends Handler
         $reviewRoundId = (int)$request->getUserVar('reviewRoundId');
         $stageId = (int)$request->getUserVar('stageId');
 
-        /** @var \PKP\submission\reviewRound\ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRound = $reviewRoundDao->getById($reviewRoundId);
+        /** @var ReviewRound $reviewRound */
+        $reviewRound = ReviewRound::find($reviewRoundId);
 
         if (!$reviewRound) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
@@ -73,7 +72,7 @@ class ReviewResponseHandler extends Handler
         /**
          * Ensure the review round belongs to the current context.
          */
-        $submission = Repo::submission()->get($reviewRound->getSubmissionId());
+        $submission = Repo::submission()->get($reviewRound->submissionId());
         $context = $request->getContext();
 
         if (!$submission || $context->getId() !== $submission->getData('contextId')) {

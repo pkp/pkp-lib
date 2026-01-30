@@ -34,7 +34,6 @@ use PKP\reviewForm\ReviewFormDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class EditReviewForm extends Form
@@ -42,8 +41,8 @@ class EditReviewForm extends Form
     /** @var ReviewAssignment */
     public $_reviewAssignment;
 
-    /** @var ReviewRound */
-    public $_reviewRound;
+
+    public ReviewRound $_reviewRound;
 
     protected Submission $submission;
 
@@ -53,8 +52,7 @@ class EditReviewForm extends Form
         $this->submission = $submission;
         assert($this->_reviewAssignment instanceof ReviewAssignment);
 
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
+        $this->_reviewRound = ReviewRound::find($reviewAssignment->getReviewRoundId());
         assert($this->_reviewRound instanceof ReviewRound);
 
         parent::__construct('controllers/grid/users/reviewer/form/editReviewForm.tpl');
@@ -119,7 +117,7 @@ class EditReviewForm extends Form
 
         $templateMgr->assign([
             'stageId' => $this->_reviewAssignment->getStageId(),
-            'reviewRoundId' => $this->_reviewRound->getId(),
+            'reviewRoundId' => $this->_reviewRound->id,
             'submissionId' => $this->_reviewAssignment->getSubmissionId(),
             'reviewAssignmentId' => $this->_reviewAssignment->getId(),
             'reviewMethod' => $this->_reviewAssignment->getReviewMethod(),
@@ -158,11 +156,11 @@ class EditReviewForm extends Form
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
         $reviewFilesDao->revokeByReviewId($this->_reviewAssignment->getId());
 
-        $fileStages = [$this->_reviewRound->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
+        $fileStages = [$this->_reviewRound->stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$this->_reviewAssignment->getSubmissionId()])
-            ->filterByReviewRoundIds([$this->_reviewRound->getId()])
+            ->filterByReviewRoundIds([$this->_reviewRound->id])
             ->filterByFileStages($fileStages)
             ->getMany();
 
@@ -176,7 +174,7 @@ class EditReviewForm extends Form
         }
 
         $reviewAssignment = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$this->_reviewRound->getId()])
+            ->filterByReviewRoundIds([$this->_reviewRound->id])
             ->filterByReviewerIds([$this->_reviewAssignment->getReviewerId()])
             ->getMany()
             ->first();

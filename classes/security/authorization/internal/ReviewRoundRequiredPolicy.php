@@ -22,7 +22,6 @@ use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -64,22 +63,23 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Validate the review round id.
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRound = $reviewRoundDao->getById($this->_reviewRoundId);
-        if (!$reviewRound instanceof ReviewRound) {
+        /** @var ReviewRound|null $reviewRound */
+        $reviewRound = ReviewRound::find($this->_reviewRoundId);
+
+        if (!$reviewRound) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the review round actually belongs to the
         // authorized submission.
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        if ($reviewRound->getSubmissionId() != $submission->getId()) {
+        if ($reviewRound->submissionId != $submission->getId()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the review round is for this workflow stage
         $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
-        if ($reviewRound->getStageId() != $stageId) {
+        if ($reviewRound->stageId != $stageId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

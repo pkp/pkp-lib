@@ -68,7 +68,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
         return array_merge(
             parent::getRequestArgs(),
             [
-                'reviewRoundId' => $reviewRound->getId()
+                'reviewRoundId' => $reviewRound->id
             ]
         );
     }
@@ -100,7 +100,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
     public function getSelectAction($request)
     {
         $reviewRound = $this->getReviewRound();
-        $modalTitle = __('editor.submission.review.currentFiles', ['round' => $reviewRound->getRound()]);
+        $modalTitle = __('editor.submission.review.currentFiles', ['round' => $reviewRound->round]);
         return new SelectReviewFilesLinkAction(
             $request,
             $reviewRound,
@@ -125,16 +125,14 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
             $this->getFileStage(),
             null,
             null,
-            $reviewRound->getId()
+            $reviewRound->id
         );
     }
 
     /**
      * Get the review round object.
-     *
-     * @return ReviewRound
      */
-    public function getReviewRound()
+    public function getReviewRound(): ReviewRound
     {
         $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
         return $reviewRound;

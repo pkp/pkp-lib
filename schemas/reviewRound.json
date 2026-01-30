@@ -6,23 +6,32 @@
 			"type": "integer"
 		},
 		"round": {
-			"type": "integer"
+			"type": "integer",
+			"origin": "primary"
 		},
 		"stageId": {
-			"type": "integer"
+			"type": "integer",
+			"origin": "primary"
 		},
 		"status": {
 			"type": "string",
+			"origin": "primary",
 			"readOnly": true
 		},
 		"statusId": {
-			"type": "integer"
+			"type": "integer",
+			"origin": "primary"
+		},
+		"isAuthorResponseRequested": {
+			"type": "boolean",
+			"origin": "settings"
 		},
 		"publicationId": {
 			"type": "integer"
 		},
 		"authorResponse": {
 			"description": "The author response associated with this review round, if any.",
+			"origin": "composed",
 			"type": "object",
 			"validation": ["nullable"],
 			"properties": {

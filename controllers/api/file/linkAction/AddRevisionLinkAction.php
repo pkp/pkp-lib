@@ -35,19 +35,19 @@ class AddRevisionLinkAction extends BaseAddFileLinkAction
         // Create the action arguments array.
         $actionArgs = [
             'fileStage' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
-            'stageId' => $reviewRound->getStageId(),
-            'reviewRoundId' => $reviewRound->getId(),
+            'stageId' => $reviewRound->stageId,
+            'reviewRoundId' => $reviewRound->id,
             'revisionOnly' => '1'
         ];
 
         // Call the parent class constructor.
         parent::__construct(
             $request,
-            $reviewRound->getSubmissionId(),
-            $reviewRound->getStageId(),
+            $reviewRound->submissionId,
+            $reviewRound->stageId,
             $uploaderRoles,
             $actionArgs,
-            __('submission.review.uploadRevisionToRound', ['round' => $reviewRound->getRound()]),
+            __('submission.review.uploadRevisionToRound', ['round' => $reviewRound->round]),
             __('submission.addFile')
         );
     }

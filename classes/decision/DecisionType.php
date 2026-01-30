@@ -36,7 +36,6 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use PKP\editorialTask\Template;
 use PKP\validation\ValidatorFactory;
@@ -214,15 +213,14 @@ abstract class DecisionType
             // when promoting to a review stage, or reset the review round
             // status if one already exists
             if (in_array($newStageId, [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
-                /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $newStageId);
                 $decisionPublicationId = $decision->getData('publicationId');
+                /** @var ReviewRound $reviewRound */
+                $reviewRound = ReviewRound::getLastBySubmissionId($submission->getId(), $newStageId);
 
-                if (!is_a($reviewRound, ReviewRound::class)) {
+                if (!$reviewRound) {
                     $this->createReviewRound($submission, $newStageId, 1, $decisionPublicationId);
                 } else {
-                    $reviewRoundDao->updateStatus($reviewRound, null);
+                    $reviewRound->updateStatus();
                 }
             }
             Repo::editorialTask()->autoCreateFromTemplates($submission, (int) $newStageId);
@@ -230,17 +228,17 @@ abstract class DecisionType
 
         // Change review round status when a decision is taken in a review stage
         if ($reviewRoundId = $decision->getData('reviewRoundId')) {
-            /** @var ReviewRoundDAO $reviewRoundDao */
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-            $reviewRound = $reviewRoundDao->getById($reviewRoundId);
-            if (is_a($reviewRound, ReviewRound::class)) {
+            /** @var ReviewRound $reviewRound */
+            $reviewRound = ReviewRound::find($reviewRoundId);
+
+            if ($reviewRound) {
                 // If the decision type doesn't specify a review round status, recalculate
                 // it from scratch. In order to do this, we unset the ReviewRound's status
-                // so the DAO will determine the new status
+                // so a new status can be determined.
                 if (is_null($this->getNewReviewRoundStatus())) {
-                    $reviewRound->setData('status', null);
+                    $reviewRound->status = null;
                 }
-                $reviewRoundDao->updateStatus($reviewRound, $this->getNewReviewRoundStatus());
+                $reviewRound->updateStatus($this->getNewReviewRoundStatus());
             }
         }
     }
@@ -449,8 +447,8 @@ abstract class DecisionType
             'dateDecided' => Core::getCurrentDate(),
             'decision' => $this->getDecision(),
             'editorId' => $editor->getId(),
-            'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
-            'round' => $reviewRound ? $reviewRound->getRound() : null,
+            'reviewRoundId' => $reviewRound?->id,
+            'round' => $reviewRound ?->round,
             'stageId' => $this->getStageId(),
             'submissionId' => $submission->getId(),
         ]);
@@ -508,21 +506,35 @@ abstract class DecisionType
     /**
      * Create a review round in a review stage
      */
-    protected function createReviewRound(Submission $submission, int $stageId, ?int $round = 1, ?int $publicationId = null)
+    protected function createReviewRound(Submission $submission, int $stageId, ?int $round = 1, ?int $publicationId = null): void
     {
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $publicationId = $publicationId ?: $submission->getCurrentPublication()->getId();
+        $reviewRound = ReviewRound::withSubmissionIds([$submission->getId()])
+            ->withPublicationIds([$publicationId])
+            ->withStageId($stageId)
+            ->withRound($round)
+            ->withStatus(ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS)
+            ->first();
 
-        $reviewRound = $reviewRoundDao->build(
-            $submission->getId(),
-            $publicationId ?? $submission->getCurrentPublication()->getId(),
-            $stageId,
-            $round,
-            ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS
-        );
+        if (!$reviewRound) {
+            if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ||
+                $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW &&
+                $round > 0
+            ) {
+                $reviewRound = ReviewRound::create([
+                    'submissionId' => $submission->getId(),
+                    'publicationId' => $publicationId,
+                    'round' => $round,
+                    'stageId' => $stageId,
+                    'status' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS
+                ]);
+            } else {
+                $reviewRound = null;
+            }
+        }
 
         // Create review round status notification
-        $count = Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId())
+        $count = Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->id)
             ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS)
             ->withContextId($submission->getData('contextId'))
             ->count();
@@ -533,7 +545,7 @@ abstract class DecisionType
                 Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
                 $submission->getData('contextId'),
                 Application::ASSOC_TYPE_REVIEW_ROUND,
-                $reviewRound->getId()
+                $reviewRound->id
             );
         }
     }

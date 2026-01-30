@@ -21,10 +21,8 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy
@@ -40,7 +38,6 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
     public function effect(): int
     {
         $request = $this->getRequest();
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
 
         // Get the submission file.
         $submissionFile = $this->getSubmissionFile($request);
@@ -50,13 +47,14 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 
         // Make sure the file is part of a review round
         // with a requested revision decision.
-        $reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
-        if (!$reviewRound instanceof ReviewRound) {
+        $reviewRound = ReviewRound::withSubmissionFileId($submissionFile->getId())->first();
+
+        if (!$reviewRound) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         $countRevisionDecisions = Repo::decision()->getCollector()
             ->filterBySubmissionIds([$submissionFile->getData('submissionId)')])
-            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewRoundIds([$reviewRound->id])
             ->filterByDecisionTypes([Decision::PENDING_REVISIONS])
             ->getCount();
 
@@ -66,7 +64,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
 
         // Make sure review round stage is the same of the current stage in request.
         $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
-        if ($reviewRound->getStageId() != $stageId) {
+        if ($reviewRound->stageId != $stageId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -75,13 +73,12 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
 
         // Make sure that the last review round editor decision is request revisions.
         $reviewRoundDecisions = Repo::decision()->getCollector()
             ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
-            ->filterByStageIds([$reviewRound->getStageId()])
-            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByStageIds([$reviewRound->stageId])
+            ->filterByReviewRoundIds([$reviewRound->id])
             ->getMany();
 
         if ($reviewRoundDecisions->isEmpty()) {

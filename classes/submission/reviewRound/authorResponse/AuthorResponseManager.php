@@ -49,7 +49,7 @@ class AuthorResponseManager
     /** @inheritDoc */
     public function getStageId(): int
     {
-        return $this->reviewRound->getStageId();
+        return $this->reviewRound->stageId;
     }
 
     /** @inheritDoc */
@@ -82,9 +82,9 @@ class AuthorResponseManager
     private function getCompletedReviewAssignments(): array
     {
         return Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$this->reviewRound->getId()])
+            ->filterByReviewRoundIds([$this->reviewRound->id])
             ->filterBySubmissionIds([$this->submission->getId()])
-            ->filterByStageId($this->reviewRound->getStageId())
+            ->filterByStageId($this->reviewRound->stageId)
             ->filterByCompleted(true)
             ->getMany()
             ->toArray();

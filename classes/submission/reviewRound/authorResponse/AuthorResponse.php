@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use PKP\core\traits\ModelWithSettings;
 use PKP\db\DAORegistry;
-
+use PKP\submission\reviewRound\ReviewRound;
 /**
  * @method static Builder withReviewRoundIds(array $reviewRoundIds) Filter responses by review round IDs.
  * @method static Builder withUserId(int $userId) Filter responses by user ID.
@@ -83,8 +83,7 @@ class AuthorResponse extends Model
     {
         return Attribute::make(
             get: function () {
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-                return $reviewRoundDao->getById($this->reviewRoundId);
+                return ReviewRound::find($this->reviewRoundId);
             }
         )->shouldCache();
     }

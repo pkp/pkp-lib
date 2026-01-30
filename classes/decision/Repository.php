@@ -34,9 +34,9 @@ use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\reviewRound\ReviewRound;
 
 abstract class Repository
 {
@@ -177,11 +177,10 @@ abstract class Repository
 
                 // The review round must exist and be related to the correct submission.
                 if (!$validator->errors()->get('reviewRoundId')) {
-                    $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                    $reviewRound = $reviewRoundDao->getById($props['reviewRoundId']);
+                    $reviewRound = ReviewRound::find($props['reviewRoundId']);
                     if (!$reviewRound) {
                         $validator->errors()->add('reviewRoundId', __('editor.submission.workflowDecision.invalidReviewRound'));
-                    } elseif ($reviewRound->getSubmissionId() !== $submission->getId()) {
+                    } elseif ($reviewRound->submissionId !== $submission->getId()) {
                         $validator->errors()->add('reviewRoundId', __('editor.submission.workflowDecision.invalidReviewRoundSubmission'));
                     }
                 }
@@ -190,7 +189,7 @@ abstract class Repository
             }
 
             // Allow the decision type to add validation checks
-            $decisionType->validate($props, $submission, $context, $validator, isset($reviewRound) ? $reviewRound->getId() : null);
+            $decisionType->validate($props, $submission, $context, $validator, isset($reviewRound) ? $reviewRound->id : null);
         });
 
         $errors = [];
@@ -357,8 +356,10 @@ abstract class Repository
         $round = $decision->getData('round');
         $sentRevisions = false;
 
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
+        $reviewRound = ReviewRound::withSubmissionIds([$submissionId])
+            ->withStageId($stageId)
+            ->withRound($round)
+            ->first();
 
         $fileStage = $stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW
             ? SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION
@@ -366,7 +367,7 @@ abstract class Repository
 
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
-            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewRoundIds([$reviewRound->id])
             ->filterByFileStages([$fileStage])
             ->getMany();
 
@@ -417,9 +418,8 @@ abstract class Repository
 
     protected function getRoundByReviewRoundId(int $reviewRoundId): int
     {
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRound = $reviewRoundDao->getById($reviewRoundId);
-        return $reviewRound->getData('round');
+        $reviewRound = ReviewRound::find($reviewRoundId);
+        return $reviewRound->round;
     }
 
     /**

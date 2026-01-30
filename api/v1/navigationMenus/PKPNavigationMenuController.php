@@ -184,7 +184,7 @@ class PKPNavigationMenuController extends PKPBaseController
         // Validate required fields
         $errors = $this->validateNavigationMenu($params);
         if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+            return response()->json($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         /** @var NavigationMenuDAO $navigationMenuDao */
@@ -238,9 +238,10 @@ class PKPNavigationMenuController extends PKPBaseController
         );
 
         // Validate - title is required only if provided (for partial updates)
-        $errors = $this->validateNavigationMenu($params, false);
+        // Pass menu ID to exclude it from area assignment check
+        $errors = $this->validateNavigationMenu($params, false, $navigationMenuId);
         if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+            return response()->json($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         // Update fields if provided
@@ -270,17 +271,43 @@ class PKPNavigationMenuController extends PKPBaseController
      *
      * @param array $params The parameters to validate
      * @param bool $requireTitle Whether title is required (true for create, false for update)
+     * @param int|null $excludeMenuId Menu ID to exclude from area check (for updates)
      * @return array Validation errors, empty if valid
      */
-    protected function validateNavigationMenu(array $params, bool $requireTitle = true): array
+    protected function validateNavigationMenu(array $params, bool $requireTitle = true, ?int $excludeMenuId = null): array
     {
         $errors = [];
+
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $contextId = $context?->getId() ?? PKPApplication::SITE_CONTEXT_ID;
+
+        /** @var NavigationMenuDAO $navigationMenuDao */
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
 
         // Title validation
         if ($requireTitle && empty($params['title'])) {
             $errors['title'] = [__('manager.navigationMenus.form.titleRequired')];
         } elseif (isset($params['title']) && empty($params['title'])) {
             $errors['title'] = [__('manager.navigationMenus.form.titleRequired')];
+        }
+
+        // Check for duplicate titles
+        if (!empty($params['title'])) {
+            $existingMenu = $navigationMenuDao->getByTitle($contextId, $params['title']);
+            if ($existingMenu && $existingMenu->getId() !== $excludeMenuId) {
+                $errors['title'] = [__('manager.navigationMenus.form.duplicateTitles')];
+            }
+        }
+
+        // Area assignment validation - check if another menu is already assigned to this area
+        if (!empty($params['areaName'])) {
+            $existingMenus = $navigationMenuDao->getByArea($contextId, $params['areaName'])->toArray();
+            $existingMenu = $existingMenus[0] ?? null;
+
+            if ($existingMenu && $existingMenu->getId() !== $excludeMenuId) {
+                $errors['areaName'] = [__('manager.navigationMenus.form.menuAssigned')];
+            }
         }
 
         return $errors;

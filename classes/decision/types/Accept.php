@@ -145,7 +145,7 @@ class Accept extends DecisionType
 
         $fakeDecision = $this->getFakeDecision($submission, $editor, $reviewRound);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
-        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), self::REVIEW_ASSIGNMENT_COMPLETED);
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->id, self::REVIEW_ASSIGNMENT_COMPLETED);
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {
@@ -194,7 +194,7 @@ class Accept extends DecisionType
                 ->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
                 ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
-                ->filterByReviewRoundIds([$reviewRound->getId()])
+                ->filterByReviewRoundIds([$reviewRound->id])
         ));
 
         return $steps;

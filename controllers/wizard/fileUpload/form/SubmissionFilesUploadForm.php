@@ -25,7 +25,6 @@ use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
-use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
@@ -47,7 +46,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
      * @param int $fileStage
      * @param bool $revisionOnly
      * @param int $stageId
-     * @param ReviewRound $reviewRound
+     * @param ReviewRoundModel $reviewRound
      * @param int $revisedFileId
      * @param int $assocType
      * @param int $assocId

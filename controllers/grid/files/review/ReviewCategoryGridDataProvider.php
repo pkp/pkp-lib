@@ -16,7 +16,6 @@
 namespace PKP\controllers\grid\files\review;
 
 use PKP\controllers\grid\files\SubmissionFilesCategoryGridDataProvider;
-use PKP\submission\reviewRound\ReviewRound;
 
 class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProvider
 {
@@ -37,7 +36,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
     // Getters and setters.
     //
     /**
-     * @return ReviewRound
+     * @return ReviewRoundModel
      */
     public function getReviewRound()
     {

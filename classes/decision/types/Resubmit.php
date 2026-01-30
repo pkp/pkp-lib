@@ -142,7 +142,7 @@ class Resubmit extends DecisionType
 
         $fakeDecision = $this->getFakeDecision($submission, $editor, $reviewRound);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
-        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), self::REVIEW_ASSIGNMENT_COMPLETED);
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->id, self::REVIEW_ASSIGNMENT_COMPLETED);
 
         $authors = $steps->getStageParticipants(Role::ROLE_ID_AUTHOR);
         if (count($authors)) {

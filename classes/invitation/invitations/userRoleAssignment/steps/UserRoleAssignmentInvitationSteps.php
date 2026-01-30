@@ -20,7 +20,14 @@ use PKP\userGroup\UserGroup;
 
 class UserRoleAssignmentInvitationSteps implements InvitationSteps
 {
-
+    /**
+     * Build the list of steps for sending an invitation.
+     *
+     * @param Invitation|null $invitation
+     * @param Context $context
+     * @param User|null $user
+     * @return \stdClass[] Step state objects
+     */
     public function getSendSteps(?Invitation $invitation, Context $context, ?User $user): array
     {
         $steps = [];
@@ -32,6 +39,14 @@ class UserRoleAssignmentInvitationSteps implements InvitationSteps
         return $steps;
     }
 
+    /**
+     * Build the list of steps for accepting an invitation.
+     *
+     * @param Invitation $invitation
+     * @param Context $context
+     * @param User|null $user
+     * @return \stdClass[] Step state objects
+     */
     public function getAcceptSteps(Invitation $invitation, Context $context, ?User $user): array
     {
         $steps = [];

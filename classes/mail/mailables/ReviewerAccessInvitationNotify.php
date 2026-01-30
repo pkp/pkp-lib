@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/mail/mailables/ReviewerAccessInvitationNotify.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewerAccessInvitationNotify
+ *
+ * @brief Mailable for notifying a reviewer about an invitation to access a submission
+ */
+
 namespace PKP\mail\mailables;
 
 use APP\core\Application;
@@ -96,7 +108,8 @@ class ReviewerAccessInvitationNotify extends Mailable
 
         //submission
         $submission = Repo::submission()->get((int) $this->invitation->getPayload()->submissionId);
-        if (!$submission) {
+        $context = $this->invitation->getContext();
+        if (!$submission || $submission->getContextId() !== $context->getId()) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         $publication = $submission->getCurrentPublication();

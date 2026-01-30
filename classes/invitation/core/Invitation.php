@@ -562,12 +562,22 @@ abstract class Invitation
         return false;
     }
 
+    /**
+     * @param Context $context
+     * @param User|null $user
+     * @return \stdClass[] Step state objects
+     */
     public function buildSendSteps(Context $context, ?User $user): array
     {
         $invitationController = $this->getInvitationUIActionRedirectController();
         return $invitationController ? $invitationController->getSendSteps($this, $context, $user) : [];
     }
 
+    /**
+     * @param Context $context
+     * @param User|null $user
+     * @return \stdClass[]
+     */
     public function buildAcceptSteps(Context $context, ?User $user): array
     {
         $invitationController = $this->getInvitationActionRedirectController();

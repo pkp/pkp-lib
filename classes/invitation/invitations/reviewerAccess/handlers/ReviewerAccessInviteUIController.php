@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/reviewerAccess/handlers/ReviewerAccessInviteUIController.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerAccessInviteUIController
@@ -25,6 +25,7 @@ use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\invitations\reviewerAccess\resources\ReviewerAccessInviteResource;
 use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
 use PKP\invitation\invitations\reviewerAccess\steps\ReviewerAccessInvitationSteps;
 use PKP\security\Role;
 use PKP\user\User;
@@ -37,11 +38,8 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
     /**
      * @param Invitation $invitation
      */
-    public function __construct(Invitation $invitation)
+    public function __construct(ReviewerAccessInvite $invitation)
     {
-        if (!$invitation instanceof ReviewerAccessInvite) {
-            throw new Exception("invalid invitation type");
-        }
         $this->invitation = $invitation;
     }
 
@@ -54,39 +52,43 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         if (!$submissionId || !$reviewRoundId) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
+        
         $submission = Repo::submission()->get($submissionId);
-        if (!$submission) {
+        if (!$submission || $submission->getContextId() !== $request->getContext()->getId()) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+        
+        // Validate that the review round exists and belongs to this submission
+        $reviewRound = Repo::reviewRound()->get($reviewRoundId);
+        if (!$reviewRound || $reviewRound->getSubmissionId() !== $submissionId) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         $context = $request->getContext();
-        $invitationPayload = [
-            'userId' => $userId,
-            'inviteeEmail' => '',
-            'orcid' => '',
-            'givenName' => '',
-            'familyName' => null,
-            'orcidValidation' => false,
-            'disabled' => false,
+
+        // Initialize a payload with only the allowed payload fields (InvitePayload filters keys).
+        $defaultReviewerGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->first();
+        $defaultReviewerGroupId = $defaultReviewerGroup ? $defaultReviewerGroup->user_group_id : null;
+
+        $initialPayload = [
             'submissionId' => $submissionId,
             'reviewRoundId' => $reviewRoundId,
-            'responseDueDate'=> (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
-		    'reviewDueDate'=> (new DateTime(Core::getCurrentDate()))->modify('+2 months')->format('Y-m-d'),
-		    'reviewMethod'=> '',
-            'userGroupsToAdd' => [
-                [
-                    'userGroupId' => Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->first()->user_group_id,
-                    'dateStart' => (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
-                    'dateEnd' => null,
-                    'masthead' => true,
-                ]
-            ],
-            'currentUserGroups' => [],
-            'userGroupsToRemove' => [],
-            'emailComposer' => [
-                'body' => '',
-                'subject' => '',
-            ]
+            'responseDueDate' => (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
+            'reviewDueDate' => (new DateTime(Core::getCurrentDate()))->modify('+2 months')->format('Y-m-d'),
+            'reviewMethod' => '',
+            'userGroupsToAdd' => $defaultReviewerGroupId ? [[
+                'userGroupId' => $defaultReviewerGroupId,
+                'dateStart' => (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
+                'dateEnd' => null,
+                'masthead' => true,
+            ]] : [],
+            'emailSubject' => '',
+            'emailBody' => '',
+            'sendEmailAddress' => '',
         ];
+
+        // Build a payload instance (this filters out any unwanted keys) and use its array form.
+        $invitationPayload = ReviewerAccessInvitePayload::fromArray($initialPayload)->toArray();
+        $invitationPayload['userId'] = $userId;
         $user = null;
         $invitationMode = self::MODE_CREATE;
         if ($userId) {
@@ -193,8 +195,12 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         $payload['email'] = $invitationModel['email'];
         $payloadDataToBeTransform = [];
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;
+        
+        // Validate that the submission exists and belongs to the current context
         $submission = Repo::submission()->get($payload['submissionId']);
-        if ($user) {
+        if (!$submission || $submission->getContextId() !== $request->getContext()->getId()) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
             // if edit an invitation for existing user, used user data as invitation payload
             $payloadDataToBeTransform = $user->getAllData();
             $payloadDataToBeTransform['userGroupsToAdd'] = $payload['userGroupsToAdd'];

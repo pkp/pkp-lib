@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/invitation/invitations/reviewerAccess/forms/AcceptReviewerDetailsForm.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class AcceptReviewerDetailsForm
+ *
+ * @brief Form for accepting reviewer details in an invitation
+ */
+
 namespace PKP\invitation\invitations\reviewerAccess\forms;
 
 use APP\core\Application;

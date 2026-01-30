@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/reviewerAccess/resources/BaseReviewerAccessInviteResource.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BaseReviewerAccessInviteResource
@@ -19,7 +19,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\context\Context;
 use PKP\facades\Locale;
-use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
 
@@ -81,20 +80,6 @@ class BaseReviewerAccessInviteResource extends JsonResource
         ];
     }
 
-    protected function createNewUserFromPayload(ReviewerAccessInvitePayload $payload): User
-    {
-        $newUser = new User();
-
-        $newUser->setAffiliation($payload->affiliation, null);
-        $newUser->setFamilyName($payload->familyName, null);
-        $newUser->setGivenName($payload->givenName, null);
-        $newUser->setCountry($payload->userCountry);
-        $newUser->setUsername($payload->username);
-        $newUser->setEmail($payload->sendEmailAddress);
-
-        return $newUser;
-    }
-
     protected function transformCurrentUserGroups(int $id , Context $context): array
     {
         $userGroups = [];
@@ -121,7 +106,7 @@ class BaseReviewerAccessInviteResource extends JsonResource
         return [
             'id' => $submission->getId(),
             'title'=>$submission->getCurrentPublication()->getLocalizedTitle(),
-            'abstract'=>$submission->getCurrentPublication()->getData('abstract',)
+            'abstract'=>$submission->getCurrentPublication()->getData('abstract')
         ];
     }
 }

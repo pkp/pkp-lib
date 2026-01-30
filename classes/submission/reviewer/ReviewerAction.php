@@ -96,7 +96,7 @@ class ReviewerAction
             ]);
             if ($decline) {
                 // update related invitation
-                $invitation = Repo::invitation()->getInvitationByReviewerAssignmentId($reviewAssignment->getId());
+                $invitation = app(\PKP\invitation\invitations\reviewerAccess\repositories\ReviewerAccessInvitationRepository::class)->getByReviewerAssignmentId($reviewAssignment->getId());
                 $invitation?->updateStatus(InvitationStatus::DECLINED);
             }
 

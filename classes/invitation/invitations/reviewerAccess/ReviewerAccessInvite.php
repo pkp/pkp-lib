@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/reviewerAccess/ReviewerAccessInvite.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerAccessInvite
@@ -247,11 +247,7 @@ class ReviewerAccessInvite extends Invitation implements IApiHandleable
     public function updatePayload(?ValidationContext $validationContext = null): ?bool
     {
         // Encrypt the password if it exists
-        // There is already a validation rule that makes username and password fields interconnected
-        if (isset($this->getPayload()->username) && isset($this->getPayload()->password) && !$this->getPayload()->passwordHashed) {
-            $this->getPayload()->password = Validation::encryptCredentials($this->getPayload()->username, $this->getPayload()->password);
-            $this->getPayload()->passwordHashed = true;
-        }
+        $this->getPayload()->encryptPasswordIfNeeded();
 
         // Call the parent updatePayload method to continue the normal update process
         return parent::updatePayload($validationContext);

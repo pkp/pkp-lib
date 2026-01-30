@@ -210,11 +210,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     public function updatePayload(?ValidationContext $validationContext = null): ?bool
     {
         // Encrypt the password if it exists
-        // There is already a validation rule that makes username and password fields interconnected
-        if (isset($this->getPayload()->username) && isset($this->getPayload()->password) && !$this->getPayload()->passwordHashed) {
-            $this->getPayload()->password = Validation::encryptCredentials($this->getPayload()->username, $this->getPayload()->password);
-            $this->getPayload()->passwordHashed = true;
-        }
+        $this->getPayload()->encryptPasswordIfNeeded();
 
         // Call the parent updatePayload method to continue the normal update process
         return parent::updatePayload($validationContext);

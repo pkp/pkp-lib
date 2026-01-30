@@ -66,19 +66,6 @@ class Repository
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
     }
 
-    public function getInvitationByReviewerAssignmentId(int $reviewerAssignmentId) : ?Invitation
-    {
-        $invitationModel = InvitationModel::where('payload->reviewAssignmentId', $reviewerAssignmentId)
-            ->orderBy('invitation_id', 'DESC')
-            ->first();
-
-        if (is_null($invitationModel)) {
-            return null;
-        }
-
-        return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
-    }
-
     public function findExistingInvitation(Invitation $invitation):Collection
     {
         return InvitationModel::byStatus(InvitationStatus::PENDING)

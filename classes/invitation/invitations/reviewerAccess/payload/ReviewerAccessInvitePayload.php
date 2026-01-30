@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/reviewerAccess/payload/ReviewerAccessInvitePayload.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerAccessInvitePayload
@@ -26,6 +26,7 @@ use PKP\invitation\invitations\userRoleAssignment\rules\ProhibitedIncludingNull;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UsernameExistsRule;
 use PKP\security\Role;
+use PKP\user\User;
 
 class ReviewerAccessInvitePayload extends InvitePayload
 {
@@ -261,5 +262,22 @@ class ReviewerAccessInvitePayload extends InvitePayload
         return [
             'reviewDueDate.after_or_equal' => __('reviewerInvitation.validator.reviewDueDate.afterOrEqual'),
         ];
+    }
+
+    /**
+     * Create a new User instance populated from this payload.
+     */
+    public function createUser(): User
+    {
+        $newUser = new User();
+
+        $newUser->setAffiliation($this->affiliation, null);
+        $newUser->setFamilyName($this->familyName, null);
+        $newUser->setGivenName($this->givenName, null);
+        $newUser->setCountry($this->userCountry);
+        $newUser->setUsername($this->username);
+        $newUser->setEmail($this->sendEmailAddress);
+
+        return $newUser;
     }
 }

@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/reviewerAccess/resources/ReviewerAccessInviteResource.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerAccessInviteResource
@@ -34,36 +34,14 @@ class ReviewerAccessInviteResource extends BaseReviewerAccessInviteResource
         $payload = $this->getPayload();
 
         if (!isset($existingUser)) {
-            $newUser = $this->createNewUserFromPayload($payload);
+            $newUser = $payload->createUser();
         }
 
-        // Return specific fields from the UserRoleAssignmentInvite
+        // Return transformed fields
         return array_merge($baseData, [
-            'orcid' => $payload->orcid,
-            'orcidAccessDenied' => $payload->orcidAccessDenied,
-            'orcidAccessExpiresOn' => $payload->orcidAccessExpiresOn,
-            'orcidAccessScope' => $payload->orcidAccessScope,
-            'orcidAccessToken' => $payload->orcidAccessToken,
-            'orcidIsVerified' => $payload->orcidIsVerified,
-            'orcidRefreshToken' => $payload->orcidRefreshToken,
-            'givenName' => $payload->givenName,
-            'familyName' => $payload->familyName,
-            'affiliation' => $payload->affiliation,
-            'country' => $payload->userCountry,
-            'emailSubject' => $payload->emailSubject,
-            'emailBody' => $payload->emailBody,
             'userGroupsToAdd' => $this->transformUserGroups($payload->userGroupsToAdd),
-            'username' => $payload->username,
-            'submissionId' => $payload->submissionId,
-            'reviewRoundId' => $payload->reviewRoundId,
-            'reviewAssignmentId' => $payload->reviewAssignmentId,
-            'reviewMethod' => $payload->reviewMethod,
-            'responseDueDate' => $payload->responseDueDate,
-            'reviewDueDate' => $payload->reviewDueDate,
-            'sendEmailAddress' => $payload->sendEmailAddress,
             'existingUser' => $this->transformUser($this->getExistingUser()),
             'newUser' => $this->transformUser($newUser),
-            'userInterests' => $payload->userInterests,
             'submission' => $this->transformSubmission($payload->submissionId),
         ]);
     }

@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/handlers/reviewerAccess/ReviewerAccessInviteRedirectController.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerAccessInviteRedirectController
@@ -25,10 +25,11 @@ use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\invitations\reviewerAccess\steps\ReviewerAccessInvitationSteps;
 use PKP\user\User;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 
 class ReviewerAccessInviteRedirectController extends InvitationActionRedirectController
 {
-    public function getInvitation(): \PKP\invitation\core\Invitation
+    public function getInvitation(): ReviewerAccessInvite
     {
         return $this->invitation;
     }
@@ -39,8 +40,8 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
 
         $templateMgr->assign('invitation', $this->getInvitation());
         $context = $request->getContext();
-        $invitationModel = $this->getInvitation()->invitationModel->toArray();
-        $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId']) : null;
+        $userId = $this->getInvitation()->invitationModel->userId;
+        $user = $userId ? Repo::user()->get($userId) : null;
         $steps = $this->getAcceptSteps($this->invitation, $context, $user);
 
         $templateMgr->setState([

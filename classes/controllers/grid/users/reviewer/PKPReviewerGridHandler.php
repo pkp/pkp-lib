@@ -668,12 +668,14 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Create mailable and send email
         if ($unassignReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
-
-            if(!$reviewAssignment->getReviewerId()){
+            
+            $hasRegisteredReviewer = (bool) $reviewAssignment->getReviewerId();
+            if (!$hasRegisteredReviewer) {
                 $reviewer = Repo::user()->newDataObject();
+                // creating temporary user object to send email to reviewer
                 $reviewer->setEmail($reviewAssignment->getData('email'));
-                $reviewer->setFamilyName($reviewAssignment->getData('email'),null);
-                $reviewer->setGivenName($reviewAssignment->getData('email'),null);
+                $reviewer->setFamilyName($reviewAssignment->getData('email'), null);
+                $reviewer->setGivenName($reviewAssignment->getData('email'), null);
             } else {
                 $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             }

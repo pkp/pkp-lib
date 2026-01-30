@@ -18,7 +18,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Laravel\Scout\Builder;
-use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
 use PKP\facades\Locale;
@@ -26,7 +25,7 @@ use PKP\plugins\Hook;
 use PKP\search\parsers\SearchFileParser;
 use PKP\submissionFile\SubmissionFile;
 
-class OpenSearchEngine extends ScoutEngine
+class OpenSearchEngine extends PKPSearchEngine
 {
     public const MINIMUM_DATA_LENGTH = 4096;
 
@@ -270,6 +269,46 @@ class OpenSearchEngine extends ScoutEngine
             'results' => array_map(fn ($result) => $result['_id'], $results['hits']['hits']),
             'total' => $results['hits']['total']['value'],
         ];
+    }
+
+    public function getFacets(int $contextId, string $field, ?string $filter, ?int $number = null): array
+    {
+        // Map externally-facing field names to OpenSearch's schema, and validate.
+        $fieldMap = [
+            'keywords' => 'keyword',
+            'subjects' => 'subject',
+        ];
+        if (!isset($fieldMap[$field])) {
+            throw new \InvalidArgumentException('Faceting is only available on "keywords" and "subjects" fields.');
+        }
+        $field = $fieldMap[$field];
+
+        $response = $this->getClient()->search($query = [
+            'index' => $this->getIndexName(),
+            'body' => [
+                'query' => [
+                    'bool' => [
+                        'filter' => [
+                            ['term' => ['contextId' => $contextId]],
+                            ...$filter ? [['wildcard' => [$field . '.' . Locale::getLocale() => ['value' => "*{$filter}*", 'case_insensitive' => true]]]] : [],
+                        ],
+                    ],
+                ],
+                'size' => 0,
+                'aggs' => [
+                    $field => [
+                        'terms' => [
+                            'field' => $field . '.' . Locale::getLocale() . '.keyword',
+                            ...$number ? ['size' => $number] : []
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+        error_log(print_r($query, true));
+        return collect($response['aggregations'][$field]['buckets'])
+            ->mapWithKeys(fn ($item) => [$item['key'] => $item['doc_count']])
+            ->all();
     }
 
     public function paginate(Builder $builder, $perPage, $page)

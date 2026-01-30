@@ -92,4 +92,17 @@ class OpenReviewComponent
             ],
         ];
     }
+
+    /**
+     * Get SVG icons used by the PkpOpenReview component.
+     */
+    public function getSvgIcons(): array
+    {
+        return [
+            'ReviewApproved',
+            'ReviewNotApproved',
+            'ReviewRevisionsRequested',
+            'ReviewComments',
+        ];
+    }
 }

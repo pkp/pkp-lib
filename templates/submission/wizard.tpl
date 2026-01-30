@@ -1,8 +1,8 @@
 {**
  * templates/submission/wizard.tpl
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2003-2022 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The submission wizard screen with all steps to complete for submission.
@@ -96,6 +96,12 @@
                             :publication="publication"
                             @updated:reviewer-suggestions="setReviewerSuggestion"
                         ></reviewer-suggestions-list-panel>
+                        <data-citation-manager
+                            v-else-if="section.type === 'dataCitations'"
+                            v-bind="components.dataCitation"
+                            :submission="submission"
+                            :publication="publication"
+                        ></data-citation-manager>
                         <template v-else-if="section.type === 'review'">
                             <notification
                                 v-if="Object.keys(errors).length" type="warning"

@@ -67,6 +67,9 @@ class OpenSearchEngine extends ScoutEngine
         $client = $this->getClient();
         $models->each(function ($submission) use ($client) {
             $publication = $submission->getCurrentPublication();
+            if (!$publication) {
+                return;
+            }
 
             // Index all galleys
             $submissionFiles = Repo::submissionFile()

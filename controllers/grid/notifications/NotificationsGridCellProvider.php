@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Illuminate\Support\Str;
 use PKP\announcement\Announcement;
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
@@ -32,6 +33,8 @@ use PKP\linkAction\request\AjaxAction;
 use PKP\notification\Notification;
 use PKP\payment\QueuedPaymentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\userComment\relationships\UserCommentReport;
+use PKP\userComment\UserComment;
 
 class NotificationsGridCellProvider extends GridCellProvider
 {
@@ -168,6 +171,18 @@ class NotificationsGridCellProvider extends GridCellProvider
                     default: assert(false);
                 }
                 break;
+            case Application::ASSOC_TYPE_COMMENT:
+                $comment = UserComment::find($notification->assocId);
+                if ($comment) {
+                    return Str::limit($comment->commentText, 200);
+                }
+                return null;
+            case Application::ASSOC_TYPE_COMMENT_REPORT:
+                $report = UserCommentReport::find($notification->assocId);
+                if ($report) {
+                    return Str::limit($report->note, 200);
+                }
+                return null;
             default:
                 return '—';
         }

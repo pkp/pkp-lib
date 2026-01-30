@@ -35,7 +35,6 @@ use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
@@ -116,7 +115,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Pass along the request vars
         $actionArgs = $request->getUserVars();
         $reviewRound = $this->getReviewRound();
-        $actionArgs['reviewRoundId'] = $reviewRound->getId();
+        $actionArgs['reviewRoundId'] = $reviewRound->id;
         $actionArgs['selectionType'] = PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH;
         // but change the selectionType for each action
         $advancedSearchAction = new LinkAction(
@@ -131,7 +130,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // get reviewer IDs already assign to this submission and this round
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$this->getSubmissionId()])
-            ->filterByReviewRoundIds([$this->getReviewRound()->getId()])
+            ->filterByReviewRoundIds([$this->getReviewRound()->id])
             ->getMany();
 
         $currentlyAssigned = [];
@@ -188,8 +187,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),
                     'submissionId' => $this->getSubmission()->getId(),
-                    'reviewRoundId' => $reviewRound->getId(),
-                    'reviewStage' => $reviewRound->getStageId(),
+                    'reviewRoundId' => $reviewRound->id,
+                    'reviewStage' => $reviewRound->stageId,
                 ],
                 'selectorName' => 'reviewerId',
                 'warnOnAssignment' => $warnOnAssignment,
@@ -198,14 +197,16 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         // Get reviewers who completed a review in the last round
         $lastRoundReviewerIds = [];
-        if ($this->getReviewRound()->getRound() > 1) {
-            /** @var ReviewRoundDAO */
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-            $previousRound = $this->getReviewRound()->getRound() - 1;
-            $lastReviewRound = $reviewRoundDao->getReviewRound($this->getSubmissionId(), $this->getReviewRound()->getStageId(), $previousRound);
+        if ($this->getReviewRound()->round > 1) {
+            $previousRound = $this->getReviewRound()->round - 1;
+
+            $lastReviewRound = ReviewRound::withSubmissionIds([$this->getSubmissionId()])
+                ->withStageId($this->getReviewRound()->stageId)
+                ->withRound($previousRound)
+                ->first();
 
             if ($lastReviewRound) {
-                $lastReviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewRoundIds([$lastReviewRound->getId()])->getMany();
+                $lastReviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewRoundIds([$lastReviewRound->id])->getMany();
                 foreach ($lastReviewAssignments as $reviewAssignment) {
                     if (in_array($reviewAssignment->getStatus(), [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE])) {
                         $lastRoundReviewerIds[] = (int) $reviewAssignment->getReviewerId();

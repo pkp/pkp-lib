@@ -24,6 +24,7 @@ use APP\facades\Repo;
 use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRound;
 
 class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
 {
@@ -58,6 +59,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
+        /** @var ReviewRound $reviewRound */
         $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $assignedStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
@@ -74,8 +76,8 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         }
 
         // Review assignment, review round and submission must match
-        if ($reviewAssignment->getReviewRoundId() != $reviewRound->getId()
-                || $reviewRound->getSubmissionId() != $submission->getId()) {
+        if ($reviewAssignment->getReviewRoundId() != $reviewRound->id
+                || $reviewRound->submissionId != $submission->getId()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -87,9 +89,9 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
 
         // Managers, editors and assistants can write review attachments when they are assigned
         // to the correct stage.
-        if (!empty($assignedStages[$reviewRound->getStageId()])) {
+        if (!empty($assignedStages[$reviewRound->stageId])) {
             $allowedRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
-            if (!empty(array_intersect($allowedRoles, $assignedStages[$reviewRound->getStageId()]))) {
+            if (!empty(array_intersect($allowedRoles, $assignedStages[$reviewRound->stageId]))) {
                 $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }

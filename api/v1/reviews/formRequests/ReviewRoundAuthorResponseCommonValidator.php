@@ -18,7 +18,7 @@ namespace PKP\API\v1\reviews\formRequests;
 use APP\facades\Repo;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\Rule;
-use PKP\db\DAORegistry;
+use PKP\submission\reviewRound\ReviewRound;
 
 trait ReviewRoundAuthorResponseCommonValidator
 {
@@ -27,15 +27,14 @@ trait ReviewRoundAuthorResponseCommonValidator
      */
     protected function commonRules(): array
     {
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $this->reviewRound = $reviewRoundDao->getById($this->route('reviewRoundId'));
+        $this->reviewRound = ReviewRound::find($this->route('reviewRoundId'));
 
         return [
             'reviewRoundId' => [
                 'required',
                 'integer',
                 function (string $attribute, mixed $value, \Closure $fail) {
-                    if (!$this->reviewRound || (int) $this->reviewRound->getId() !== (int) $value) {
+                    if (!$this->reviewRound || (int) $this->reviewRound->id !== (int) $value) {
                         $fail(__('api.404.resourceNotFound'));
                     }
                 },
@@ -65,7 +64,7 @@ trait ReviewRoundAuthorResponseCommonValidator
             function (Validator $validator) {
                 // Only run this validation if all initial checks in `rules` passed
                 if (!$validator->errors()->count()) {
-                    $publication = Repo::publication()->get($this->reviewRound->getPublicationId());
+                    $publication = Repo::publication()->get($this->reviewRound->publicationId);
                     $allAuthors = $publication->getData('authors');
                     $associatedAuthorIds = $this->input('associatedAuthorIds');
 

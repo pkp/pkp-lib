@@ -70,7 +70,6 @@ use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
@@ -208,7 +207,7 @@ class PKPReviewerGridHandler extends GridHandler
      *
      * @return ReviewRound
      */
-    public function getReviewRound()
+    public function getReviewRound(): ReviewRound
     {
         $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
         if ($reviewRound instanceof ReviewRound) {
@@ -216,9 +215,7 @@ class PKPReviewerGridHandler extends GridHandler
         } else {
             $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
             $reviewRoundId = $reviewAssignment->getReviewRoundId();
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            $reviewRound = $reviewRoundDao->getById($reviewRoundId);
-            return $reviewRound;
+            return ReviewRound::find($reviewRoundId);
         }
     }
 
@@ -324,7 +321,7 @@ class PKPReviewerGridHandler extends GridHandler
         return [
             'submissionId' => $submission->getId(),
             'stageId' => $this->getStageId(),
-            'reviewRoundId' => $reviewRound->getId()
+            'reviewRoundId' => $reviewRound->id
         ];
     }
 
@@ -336,7 +333,7 @@ class PKPReviewerGridHandler extends GridHandler
         // Get the existing review assignments for this submission
         $reviewRound = $this->getReviewRound();
         return Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewRoundIds([$reviewRound->id])
             ->getMany()
             ->keyBy(fn (ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
             ->sortKeys()

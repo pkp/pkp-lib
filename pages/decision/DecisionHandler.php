@@ -38,7 +38,6 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class DecisionHandler extends Handler
 {
@@ -103,9 +102,8 @@ class DecisionHandler extends Handler
             if (!$reviewRoundId) {
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            $this->reviewRound = $reviewRoundDao->getById($reviewRoundId);
-            if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== $this->submission->getId()) {
+            $this->reviewRound = ReviewRound::find($reviewRoundId);
+            if (!$this->reviewRound || $this->reviewRound->submissionId !== $this->submission->getId()) {
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
         }
@@ -154,7 +152,7 @@ class DecisionHandler extends Handler
             ),
             'fileGenres' => $this->getFileGenres($context),
             'keepWorkingLabel' => __('common.keepWorking'),
-            'reviewRoundId' => $this->reviewRound ? $this->reviewRound->getId() : null,
+            'reviewRoundId' => $this->reviewRound?->id,
             'stageId' => $this->submission->getData('stageId'),
             'stepErrorMessage' => __('editor.decision.stepError'),
             'steps' => $steps->getState(),

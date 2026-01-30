@@ -36,7 +36,6 @@ use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
-use PKP\security\Validation;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
@@ -348,7 +347,7 @@ class FileUploadWizardHandler extends Handler
             'fileStage' => $this->getFileStage(),
             'isReviewer' => $request->getUserVar('isReviewer'),
             'revisionOnly' => $this->getRevisionOnly(),
-            'reviewRoundId' => $reviewRound instanceof ReviewRound ? $reviewRound->getId() : null,
+            'reviewRoundId' => $reviewRound?->id,
             'revisedFileId' => $this->getRevisedFileId(),
             'assocType' => $this->getAssocType(),
             'assocId' => $this->getAssocId(),

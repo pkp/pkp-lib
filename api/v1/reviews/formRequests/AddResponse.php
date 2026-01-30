@@ -50,9 +50,9 @@ class AddResponse extends FormRequest
     {
         $user = Application::get()->getRequest()->getUser();
 
-        $isAssignedAuthor = StageAssignment::withSubmissionIds([$this->reviewRound->getSubmissionId()])
+        $isAssignedAuthor = StageAssignment::withSubmissionIds([$this->reviewRound->submissionId])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageIds([$this->reviewRound->getStageId()])
+            ->withStageIds([$this->reviewRound->stageId])
             ->withUserId($user->getId())
             ->exists();
 
@@ -62,7 +62,7 @@ class AddResponse extends FormRequest
             ], Response::HTTP_FORBIDDEN));
         }
 
-        $hasExistingResponse = AuthorResponse::withReviewRoundIds([$this->reviewRound->getId()])->exists();
+        $hasExistingResponse = AuthorResponse::withReviewRoundIds([$this->reviewRound->id])->exists();
         if ($hasExistingResponse) {
             throw new HttpResponseException(response()->json([
                 'error' => __('api.409.resourceActionConflict'),
@@ -71,8 +71,8 @@ class AddResponse extends FormRequest
 
         // Check that review round is in state where author response is applicable(revisions required, submission accepted), or that review response response was requested
         if (
-            !in_array($this->reviewRound->getStatus(), [ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED, ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED])
-            && !$this->reviewRound->getData('isAuthorResponseRequested')
+            !in_array($this->reviewRound->status, [ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED, ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED])
+            && !$this->reviewRound->isAuthorResponseRequested
         ) {
             throw new HttpResponseException(response()->json([
                 'error' => __('api.403.unauthorized'),

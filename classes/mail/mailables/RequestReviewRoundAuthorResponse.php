@@ -50,7 +50,7 @@ class RequestReviewRoundAuthorResponse extends Mailable
     {
         parent::__construct(array_slice(func_get_args(), 0, -2));
         $this->setupReviewerCommentsVariable($reviewAssignments, $submission);
-        $this->setupReviewAuthorResponseVariable($submission, $reviewRound->getId(), $reviewRound->getStageId(), $context);
+        $this->setupReviewAuthorResponseVariable($submission, $reviewRound->id, $reviewRound->stageId, $context);
     }
 
     public static function getDataDescriptions(): array

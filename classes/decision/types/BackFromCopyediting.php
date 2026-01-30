@@ -18,13 +18,13 @@
 namespace PKP\decision\types;
 
 use APP\decision\Decision;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\components\fileAttachers\FileStage;
 use PKP\components\fileAttachers\Library;
 use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
@@ -32,7 +32,6 @@ use PKP\decision\types\traits\NotifyAuthors;
 use PKP\mail\mailables\DecisionBackFromCopyeditingNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
@@ -76,14 +75,19 @@ class BackFromCopyediting extends DecisionType
      */
     public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $submissionHasReviewRound = ReviewRound::withSubmissionIds([$submission->getId()])
+            ->withStageId(WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)
+            ->exists();
 
-        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)) {
+        if ($submissionHasReviewRound) {
             return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
         }
 
-        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+        $submissionHasReviewRound = ReviewRound::withSubmissionIds([$submission->getId()])
+            ->withStageId(WORKFLOW_STAGE_ID_INTERNAL_REVIEW)
+            ->exists();
+
+        if ($submissionHasReviewRound) {
             return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
         }
 
@@ -137,9 +141,8 @@ class BackFromCopyediting extends DecisionType
     {
         parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        if($reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId())) {
-            $reviewRoundDao->updateStatus($reviewRound, ReviewRound::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW);
+        if($reviewRound = Repo::reviewRound()->getLastReviewRoundBySubmissionId($submission->getId())) {
+            $reviewRound->updateStatus(ReviewRound::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW);
         }
 
         foreach ($actions as $action) {

@@ -31,7 +31,6 @@ use PKP\notification\Notification;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
-
 class ResendRequestReviewerForm extends ReviewerNotifyActionForm
 {
     use HasReviewDueDate;

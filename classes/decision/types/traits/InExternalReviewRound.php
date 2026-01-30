@@ -78,7 +78,7 @@ trait InExternalReviewRound
 
         if ($reviewRound) {
             $reviewAssignments = Repo::reviewAssignment()->getCollector()
-                ->filterByReviewRoundIds([$reviewRound->getId()])
+                ->filterByReviewRoundIds([$reviewRound->id])
                 ->getMany()
                 ->keyBy(fn(ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
                 ->sortKeys()

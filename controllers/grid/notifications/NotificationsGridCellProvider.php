@@ -32,7 +32,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\notification\Notification;
 use PKP\payment\QueuedPaymentDAO;
-use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\userComment\relationships\UserCommentReport;
 use PKP\userComment\UserComment;
 
@@ -150,10 +150,9 @@ class NotificationsGridCellProvider extends GridCellProvider
                 $submissionId = $reviewAssignment->getSubmissionId();
                 break;
             case Application::ASSOC_TYPE_REVIEW_ROUND:
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRound = $reviewRoundDao->getById($notification->assocId);
+                $reviewRound = ReviewRound::find($notification->assocId);
                 assert($reviewRound instanceof \PKP\submission\reviewRound\ReviewRound);
-                $submissionId = $reviewRound->getSubmissionId();
+                $submissionId = $reviewRound->submissionId;
                 break;
             case Application::ASSOC_TYPE_QUERY:
                 $query = EditorialTask::find($notification->assocId);

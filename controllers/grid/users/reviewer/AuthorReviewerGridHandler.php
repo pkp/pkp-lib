@@ -159,7 +159,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
         // Only show open requests that have been accepted
         $reviewRound = $this->getReviewRound();
         return Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewRoundIds([$reviewRound->id])
             ->filterByReviewMethods([ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN])
             ->getMany()
             ->keyBy(fn(ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())

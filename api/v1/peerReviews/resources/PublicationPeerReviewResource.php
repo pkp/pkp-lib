@@ -30,8 +30,8 @@ use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
 
@@ -65,17 +65,18 @@ class PublicationPeerReviewResource extends JsonResource
         // Check up the tree on source IDs
         $allAssociatedPublicationIds = Repo::publication()->getWithSourcePublicationsIds([$publication->getId()]);
 
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRounds = $reviewRoundDao->getByPublicationIds($allAssociatedPublicationIds);
+        /** @var ReviewRound[] $reviewRounds */
+        $reviewRoundsKeyedById = ReviewRound::withPublicationIds($allAssociatedPublicationIds->all())
+            ->get()
+            ->keyBy('reviewRoundId');
+
         $context = app()->get('context')->get(
             Repo::submission()->get($publication->getData('submissionId'))->getData('contextId')
         );
 
-        $hasMultipleRounds = $reviewRounds->getCount() > 1;
+        $hasMultipleRounds = $reviewRoundsKeyedById->count() > 1;
         $roundsData = collect();
 
-        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
         $roundIds = $reviewRoundsKeyedById->keys()->all();
         unset($reviewRounds);
 
@@ -92,11 +93,12 @@ class PublicationPeerReviewResource extends JsonResource
         $roundResponses = AuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
 
         foreach ($reviewsGroupedByRoundId as $roundId => $assignments) {
+            /** @var ReviewRound $reviewRound */
             $reviewRound = $reviewRoundsKeyedById->get($roundId);
 
             $roundDisplayText = $hasMultipleRounds ? __('publication.versionStringWithRound', [
                 'versionString' => $publication->getData('versionString'),
-                'round' => $reviewRound->getData('round')
+                'round' => $reviewRound->round
             ]) :
                 $publication->getData('versionString');
 
@@ -105,8 +107,8 @@ class PublicationPeerReviewResource extends JsonResource
 
             $roundsData->add([
                 'displayText' => $roundDisplayText,
-                'roundId' => $reviewRound->getData('id'),
-                'originalPublicationId' => $reviewRound->getPublicationId(),
+                'roundId' => $reviewRound->id,
+                'originalPublicationId' => $reviewRound->publicationId,
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context),
                 'authorResponses' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
             ]);

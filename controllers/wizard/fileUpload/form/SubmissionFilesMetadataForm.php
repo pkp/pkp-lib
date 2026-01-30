@@ -22,6 +22,7 @@ use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\submission\GenreDAO;
+
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
@@ -33,18 +34,18 @@ class SubmissionFilesMetadataForm extends Form
     /** @var int */
     public $_stageId;
 
-    /** @var ReviewRound */
-    public $_reviewRound;
+
+    public ReviewRound $_reviewRound;
 
     /**
      * Constructor.
      *
      * @param SubmissionFile $submissionFile
      * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
-     * @param ReviewRound $reviewRound (optional) Current review round, if any.
-     * @param string $template Path and filename to template file (optional).
+     * @param ReviewRound|null $reviewRound (optional) Current review round, if any.
+     * @param string|null $template Path and filename to template file (optional).
      */
-    public function __construct($submissionFile, $stageId, $reviewRound = null, $template = null)
+    public function __construct(SubmissionFile $submissionFile, int $stageId, ReviewRound $reviewRound = null, string $template = null)
     {
         if ($template === null) {
             $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
@@ -167,7 +168,7 @@ class SubmissionFilesMetadataForm extends Form
         $templateMgr->assign([
             'submissionFile' => $this->getSubmissionFile(),
             'stageId' => $this->getStageId(),
-            'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
+            'reviewRoundId' => $reviewRound ? $reviewRound->id : null,
             'supportsDependentFiles' => Repo::submissionFile()->supportsDependentFiles($this->getSubmissionFile()),
             'genre' => $genre,
         ]);

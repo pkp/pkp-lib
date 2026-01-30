@@ -68,9 +68,9 @@ class EditResponse extends FormRequest
         $request = Application::get()->getRequest();
         $user = $request->getUser();
 
-        $isEditor = StageAssignment::withSubmissionIds([$this->reviewRound->getSubmissionId()])
+        $isEditor = StageAssignment::withSubmissionIds([$this->reviewRound->submissionId])
             ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->withStageIds([$this->reviewRound->getStageId()])
+            ->withStageIds([$this->reviewRound->stageId])
             ->withUserId($user->getId())
             ->exists();
 

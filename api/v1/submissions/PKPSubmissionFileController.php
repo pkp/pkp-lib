@@ -35,8 +35,8 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\reviewRound\ReviewRound;
 
 class PKPSubmissionFileController extends PKPBaseController
 {
@@ -231,17 +231,23 @@ class PKPSubmissionFileController extends PKPBaseController
         if (!empty($params['reviewRoundIds'])) {
             $reviewRoundIds = $params['reviewRoundIds'];
             $allowedReviewRoundIds = [];
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO  $reviewRoundDao*/
             if (!empty(array_intersect([SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION], $fileStages))) {
-                $result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW);
-                while ($reviewRound = $result->next()) {
-                    $allowedReviewRoundIds[] = $reviewRound->getId();
+
+                $result = ReviewRound::withSubmissionIds([$submission->getId()])
+                    ->withStageId(WORKFLOW_STAGE_ID_INTERNAL_REVIEW)
+                    ->get();
+
+                foreach ($result as $reviewRound) {
+                    $allowedReviewRoundIds[] = $reviewRound->id;
                 }
             }
             if (!empty(array_intersect([SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION], $fileStages))) {
-                $result = $reviewRoundDao->getBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
-                while ($reviewRound = $result->next()) {
-                    $allowedReviewRoundIds[] = $reviewRound->getId();
+                $result = ReviewRound::withSubmissionIds([$submission->getId()])
+                    ->withStageId(WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)
+                    ->get();
+
+                foreach ($result as $reviewRound) {
+                    $allowedReviewRoundIds[] = $reviewRound->id;
                 }
             }
 
@@ -380,14 +386,14 @@ class PKPSubmissionFileController extends PKPBaseController
                     'error' => __('api.submissionFiles.400.missingReviewRoundAssocType'),
                 ], Response::HTTP_BAD_REQUEST);
             }
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            $reviewRound = $reviewRoundDao->getById($params['assocId']);
+            /** @var ReviewRound $reviewRound */
+            $reviewRound = ReviewRound::find($params['assocId']);
             $stageId = in_array($params['fileStage'], [SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION])
                 ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
             if (!$reviewRound
-                    || $reviewRound->getData('submissionId') != $params['submissionId']
-                    || $reviewRound->getData('stageId') != $stageId) {
+                    || $reviewRound->submissionId != $params['submissionId']
+                    || $reviewRound->stageId != $stageId) {
                 app()->get('file')->delete($fileId);
                 return response()->json([
                     'error' => __('api.submissionFiles.400.reviewRoundSubmissionNotMatch'),
@@ -516,10 +522,9 @@ class PKPSubmissionFileController extends PKPBaseController
         if (in_array($toFileStage, Repo::submissionFile()->reviewFileStages)) {
             if (!empty($params['reviewRoundId'])) {
                 $reviewRoundId = (int) $params['reviewRoundId'];
-                /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-                $reviewRound = $reviewRoundDao->getById($reviewRoundId);
-                if (!$reviewRound || $reviewRound->getSubmissionId() != $submission->getId()) {
+                /** @var ReviewRound $reviewRound */
+                $reviewRound = ReviewRound::find($reviewRoundId);
+                if (!$reviewRound || $reviewRound->submissionId != $submission->getId()) {
                     return response()->json([
                         'error' => __('api.submissionFiles.400.reviewRoundSubmissionNotMatch'),
                     ], Response::HTTP_BAD_REQUEST);
@@ -529,12 +534,9 @@ class PKPSubmissionFileController extends PKPBaseController
                 $stageId = in_array($toFileStage, SubmissionFile::INTERNAL_REVIEW_STAGES)
                     ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                     : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
-                /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
-                if ($reviewRound) {
-                    $reviewRoundId = $reviewRound->getId();
-                }
+                
+                $reviewRound = Repo::reviewRound()->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+                $reviewRoundId = $reviewRound?->id;
             }
             if ($reviewRoundId === null) {
                 return response()->json([

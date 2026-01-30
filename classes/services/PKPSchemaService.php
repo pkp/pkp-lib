@@ -274,7 +274,11 @@ class PKPSchemaService
     public function groupPropsByOrigin(string $schemaName, bool $excludeReadOnly = false): array
     {
         $schema = $this->get($schemaName);
-        $propsByOrigin = [];
+        $propsByOrigin = [
+            Schema::ATTRIBUTE_ORIGIN_MAIN => [],
+            Schema::ATTRIBUTE_ORIGIN_SETTINGS => [],
+            Schema::ATTRIBUTE_ORIGIN_COMPOSED => [],
+        ];
         foreach ($schema->properties as $propName => $propSchema) {
             if (empty($propSchema->origin)) {
                 continue;

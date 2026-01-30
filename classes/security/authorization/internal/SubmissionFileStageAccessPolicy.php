@@ -25,7 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
@@ -103,8 +103,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
 
             if (in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[$reviewStage])) {
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
+                $reviewRound = Repo::reviewRound()->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
                 if ($reviewRound) {
                     $externalReviewDecisions = [
                         Decision::ACCEPT,
@@ -127,8 +126,8 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
 
                     $countDecisions = Repo::decision()->getCollector()
                         ->filterBySubmissionIds([$submission->getId()])
-                        ->filterByStageIds([$reviewRound->getStageId()])
-                        ->filterByReviewRoundIds([$reviewRound->getId()])
+                        ->filterByStageIds([$reviewRound->stageId])
+                        ->filterByReviewRoundIds([$reviewRound->id])
                         ->filterByDecisionTypes($decisionTypes)
                         ->getCount();
 

@@ -18,7 +18,6 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
@@ -28,7 +27,6 @@ use PKP\decision\types\traits\NotifyAuthors;
 use PKP\mail\mailables\DecisionNewReviewRoundNotifyAuthor;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
@@ -107,13 +105,14 @@ class NewExternalReviewRound extends DecisionType
 
     public function runAdditionalActions(Decision $decision, Submission $submission, User $editor, Context $context, array $actions)
     {
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        /** @var ReviewRound $reviewRound */
-        $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $this->getNewStageId($submission, $decision->getData('reviewRoundId')));
+        $reviewRound = Repo::reviewRound()->getLastReviewRoundBySubmissionId(
+            $submission->getId(),
+            $this->getNewStageId($submission, $decision->getData('reviewRoundId'))
+        );
+
         $decisionPublicationId = $decision->getData('publicationId');
 
-        $this->createReviewRound($submission, $this->getStageId(), $reviewRound->getRound() + 1, $decisionPublicationId);
+        $this->createReviewRound($submission, $this->getStageId(), $reviewRound->round + 1, $decisionPublicationId);
 
         parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
@@ -168,7 +167,7 @@ class NewExternalReviewRound extends DecisionType
                 ->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
                 ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
-                ->filterByReviewRoundIds([$reviewRound->getId()])
+                ->filterByReviewRoundIds([$reviewRound->id])
         ));
 
         return $steps;

@@ -30,7 +30,7 @@ use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewRound\ReviewRound;
 
 /**
  * @template T of Submission
@@ -276,9 +276,7 @@ class DAO extends EntityDAO
             Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$id])
         );
 
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao->deleteBySubmissionId($id);
-
+        ReviewRound::withSubmissionIds([$id])->delete();
         Repo::editorialTask()->deleteBySubmissionId($id);
 
         // Delete the stage assignments.

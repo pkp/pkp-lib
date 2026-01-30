@@ -39,9 +39,7 @@ use PKP\log\SubmissionEmailLogEventType;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
-use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -182,13 +180,12 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $uploadFileUrl = '';
         if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
             $fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
-            if ($fileStage && $lastReviewRound instanceof ReviewRound) {
+            $lastReviewRound = Repo::reviewRound()->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
+            if ($fileStage && $lastReviewRound) {
                 $editorDecisions = Repo::decision()->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
                     ->filterByStageIds([$submission->getData('stageId')])
-                    ->filterByReviewRoundIds([$lastReviewRound->getId()])
+                    ->filterByReviewRoundIds([$lastReviewRound->id])
                     ->getMany();
 
                 if (!$editorDecisions->isEmpty()) {
@@ -202,7 +199,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
                         $actionArgs['stageId'] = $submission->getData('stageId');
                         $actionArgs['uploaderRoles'] = Role::ROLE_ID_AUTHOR;
                         $actionArgs['fileStage'] = $fileStage;
-                        $actionArgs['reviewRoundId'] = $lastReviewRound->getId();
+                        $actionArgs['reviewRoundId'] = $lastReviewRound->id;
                         $uploadFileUrl = $request->getDispatcher()->url(
                             $request,
                             PKPApplication::ROUTE_COMPONENT,

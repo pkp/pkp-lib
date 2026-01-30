@@ -251,14 +251,13 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
      */
     public function createReviewRound(Submission $submission): void
     {
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-            $reviewRound = $reviewRoundDao->build(
-                $submission->getId(),
-                $submission->getCurrentPublication()->getId(),
-                $submission->getData('stageId'),
-                1,
-                ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
-            );
-        }
+        Repo::reviewRound()->build(
+            $submission->getId(),
+            $submission->getCurrentPublication()->getId(),
+            $submission->getData('stageId'),
+            1,
+            ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+        );
+    }
 
 }

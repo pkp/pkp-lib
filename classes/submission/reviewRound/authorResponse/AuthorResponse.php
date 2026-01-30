@@ -20,10 +20,10 @@ use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\DB;
 use PKP\core\traits\ModelWithSettings;
-use PKP\db\DAORegistry;
-
+use PKP\submission\reviewRound\ReviewRound;
 /**
  * @method static Builder withReviewRoundIds(array $reviewRoundIds) Filter responses by review round IDs.
  * @method static Builder withUserId(int $userId) Filter responses by user ID.
@@ -79,14 +79,13 @@ class AuthorResponse extends Model
     /**
      * Review round this response belongs to.
      */
-    protected function reviewRound(): Attribute
+    public function reviewRound(): BelongsTo
     {
-        return Attribute::make(
-            get: function () {
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-                return $reviewRoundDao->getById($this->reviewRoundId);
-            }
-        )->shouldCache();
+        return $this->belongsTo(
+            ReviewRound::class,
+            'review_round_id',
+            'review_round_id'
+        );
     }
 
     /**
@@ -109,7 +108,7 @@ class AuthorResponse extends Model
         return Attribute::make(
             get: function () {
                 $authorIds = DB::table('review_round_author_response_authors')
-                    ->where('response_id', $this->id)
+                    ->where('response_id', 1)
                     ->pluck('author_id')
                     ->all();
 

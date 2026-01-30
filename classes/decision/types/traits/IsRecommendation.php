@@ -94,7 +94,7 @@ trait IsRecommendation
         $fakeDecision = $this->getFakeDecision($submission, $editor);
         $fileAttachers = $this->getFileAttachers($submission, $context, $reviewRound);
         $editors = $steps->getDecidingEditors();
-        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), DecisionType::REVIEW_ASSIGNMENT_COMPLETED);
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->id, DecisionType::REVIEW_ASSIGNMENT_COMPLETED);
         $mailable = new RecommendationNotifyEditors($context, $submission, $fakeDecision, $reviewAssignments);
 
         $steps->addStep((new Email(

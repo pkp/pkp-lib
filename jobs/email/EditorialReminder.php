@@ -30,7 +30,6 @@ use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -97,9 +96,7 @@ class EditorialReminder extends BaseJob
             }
 
             if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
-                /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
+                $reviewRound = Repo::reviewRound()->getLastReviewRoundBySubmissionId($submission->getId(),$submission->getData('stageId'));
                 $status = $reviewRound->determineStatus();
 
                 if ($status === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS) {
@@ -194,7 +191,7 @@ class EditorialReminder extends BaseJob
             $this->editorId,
             $this->contextId
         );
-        
+
         return !in_array(Notification::NOTIFICATION_TYPE_EDITORIAL_REMINDER, $blockedEmails);
     }
 

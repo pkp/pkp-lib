@@ -19,10 +19,9 @@ namespace PKP\controllers\grid\files;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridDataProvider;
-use PKP\db\DAORegistry;
 use PKP\editorialTask\EditorialTask;
 use PKP\note\Note;
-use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
@@ -114,15 +113,14 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
 
         // For review stages, get the revisions of the review round that user is currently accessing.
         if ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-            if (is_null($reviewRound) || $reviewRound->getStageId() != $stageId) {
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+            if (is_null($reviewRound) || $reviewRound->stageId != $stageId) {
+                $reviewRound = Repo::reviewRound()->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
             }
             if ($reviewRound) {
                 $stageSubmissionFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
-                    ->filterByReviewRoundIds([$reviewRound->getId()])
+                    ->filterByReviewRoundIds([$reviewRound->id])
                     ->filterByFileStages($fileStages)
                     ->getMany()
                     ->toArray();

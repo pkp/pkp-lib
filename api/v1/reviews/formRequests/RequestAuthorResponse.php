@@ -24,7 +24,6 @@ use PKP\context\LibraryFileDAO;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class RequestAuthorResponse extends FormRequest
@@ -40,9 +39,7 @@ class RequestAuthorResponse extends FormRequest
             $this->get('context')->getId(),
         );
 
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $this->reviewRound = $reviewRoundDao->getById($this->route('reviewRoundId'));
+        $this->reviewRound = ReviewRound::find($this->route('reviewRoundId'));
 
         return [
             'submissionId' => [
@@ -58,7 +55,7 @@ class RequestAuthorResponse extends FormRequest
                 'required',
                 'integer',
                 function (string $attribute, mixed $value, \Closure $fail) {
-                    if (!$this->reviewRound || (int)$this->reviewRound->getId() !== (int)$value) {
+                    if (!$this->reviewRound || $this->reviewRound->id !== (int)$value) {
                         $fail(__('api.404.resourceNotFound'));
                     }
                 }

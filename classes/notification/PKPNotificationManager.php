@@ -34,9 +34,9 @@ use PKP\notification\managerDelegate\SubmissionNotificationManager;
 use PKP\payment\QueuedPaymentDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\userComment\relationships\UserCommentReport;
 use PKP\workflow\WorkflowStageDAO;
+use PKP\submission\reviewRound\ReviewRound;
 
 class PKPNotificationManager extends PKPNotificationOperationManager
 {
@@ -202,11 +202,12 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 if ($notification->assocType != Application::ASSOC_TYPE_REVIEW_ROUND) {
                     throw new \Exception('Unexpected association type!');
                 }
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRound = $reviewRoundDao->getById($notification->assocId);
+
+                /** @var ReviewRound $reviewRound */
+                $reviewRound = ReviewRound::find($notification->assocId);
                 $user = $request->getUser();
                 // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-                $isAuthor = StageAssignment::withSubmissionIds([$reviewRound->getSubmissionId()])
+                $isAuthor = StageAssignment::withSubmissionIds([$reviewRound->submissionId])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->withUserId($user->getId())
                     ->exists();
@@ -282,9 +283,9 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     {
         switch ($notification->type) {
             case Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
-                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRound = $reviewRoundDao->getById($notification->assocId);
-                return __('notification.type.roundStatusTitle', ['round' => $reviewRound->getRound()]);
+                /** @var ReviewRound $reviewRound */
+                $reviewRound = ReviewRound::find($notification->assocId);
+                return __('notification.type.roundStatusTitle', ['round' => $reviewRound->round]);
             case Notification::NOTIFICATION_TYPE_FORM_ERROR:
                 return __('form.errorsOccurred');
             default:

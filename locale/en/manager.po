@@ -3861,10 +3861,10 @@ msgid "manager.userComment.commentPreview"
 msgstr "Comment preview"
 
 msgid "manager.userComment.moderator.commentSubmitted"
-msgstr "A comment has been submitted and is pending review by a moderator"
+msgstr "A comment has been submitted and is pending review by a moderator."
 
 msgid "manager.userComment.moderator.commentReported"
-msgstr "A report was submitted for a comment"
+msgstr "A report was submitted for a comment and requires review by a moderator."
 
 msgid "manager.userComment.viewComment"
 msgstr "View Comment"

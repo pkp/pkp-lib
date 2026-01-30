@@ -122,6 +122,7 @@ class UserCommentController extends PKPBaseController
         // No authorization required for public endpoint
         return true;
     }
+    
     /**
      * Gets the publicly accessible comments for a publication.
      * Accepts the following query parameters:

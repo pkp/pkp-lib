@@ -116,5 +116,20 @@
 			</pkp-button>
 		</template>
 	</action-panel>
+	<action-panel>
+		<h2>{translate key="admin.logs"}</h2>
+		<p>
+			{translate key="admin.logs.description"}
+		</p>
+		<template #actions>
+			<pkp-button
+				element="a"
+				href="{url page="admin" op="log-viewer"}"
+				target="_blank"
+			>
+				{translate key="admin.logs.view"}
+			</pkp-button>
+		</template>
+	</action-panel>
 	{call_hook name="Templates::Admin::Index::AdminFunctions"}
 {/block}

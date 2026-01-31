@@ -2035,6 +2035,9 @@ msgstr ""
 "The current user is not the author of the requested submission. Please "
 "verify that you are logged in with the correct user account."
 
+msgid "user.authorization.siteAdminRequired"
+msgstr "Administrator level access required"
+
 msgid "user.register.form.privacyConsentLabel"
 msgstr "Privacy Options"
 

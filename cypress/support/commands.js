@@ -21,11 +21,13 @@ function getPassword(username) {
 	if (username === undefined || username === null) {
 		throw new Error('must provide a username');
 	}
+	
 	// admin keeps original password
 	if (username === 'admin') {
 		return username;
 	}
-	return username + '1#$';
+	
+	return username + username;
 }
 
 // Export for use in commands and tests

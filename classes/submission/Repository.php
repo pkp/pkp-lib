@@ -42,16 +42,16 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Collector as SubmissionCollector;
 use PKP\submission\reviewAssignment\Collector as ReviewCollector;
+use PKP\submission\traits\HasWordCountValidation;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
-use PKP\submission\traits\HasWordCountValidation;
 
 abstract class Repository
 {
     use HasWordCountValidation;
-    
+
     public const STAGE_STATUS_SUBMISSION_UNASSIGNED = 1;
 
     /** @var DAO $dao */
@@ -560,7 +560,7 @@ abstract class Repository
             return false;
         }
 
-        if ($assignments->contains(fn($sa) => $sa->canChangeMetadata)) {
+        if ($assignments->contains(fn ($sa) => $sa->canChangeMetadata)) {
             return true;
         }
         // If user has no stage assigments, check if user can edit anyway ie. is manager
@@ -1369,31 +1369,30 @@ abstract class Repository
         $publications = $submission->getData('publications'); /** @var LazyCollection $publications */
 
         // Declined submissions should remain declined regardless of their publications' statuses
-        if ($submission->getData('status') === Submission::STATUS_DECLINED) {
+        if ($submission->getData('status') == Submission::STATUS_DECLINED) {
             return Submission::STATUS_DECLINED;
         }
 
         // If there are no publications, we are probably in the process of deleting a submission.
-        // To be safe, reset the status anyway.
         if (!$publications->count()) {
-            return Submission::STATUS_DECLINED
-                ? Submission::STATUS_DECLINED
-                : Submission::STATUS_QUEUED;
+            return Submission::STATUS_DECLINED;
         }
 
-        $newStatus = Submission::STATUS_QUEUED;
+        // Any published publication sends the submission to the "published" queue.
         foreach ($publications as $publication) {
-            if ($publication->getData('status') === Publication::STATUS_PUBLISHED) {
-                $newStatus = Submission::STATUS_PUBLISHED;
-                break;
-            }
-            if ($publication->getData('status') === Publication::STATUS_SCHEDULED) {
-                $newStatus = Submission::STATUS_SCHEDULED;
-                continue;
+            if ($publication->getData('status') == Publication::STATUS_PUBLISHED) {
+                return Submission::STATUS_PUBLISHED;
             }
         }
 
-        return $newStatus;
+        // If there is a "scheduled" publication, the status will be "queued".
+        foreach ($publications as $publication) {
+            if ($publication->getData('status') == Publication::STATUS_SCHEDULED) {
+                return Submission::STATUS_SCHEDULED;
+            }
+        }
+
+        return Submission::STATUS_QUEUED;
     }
 
     /**

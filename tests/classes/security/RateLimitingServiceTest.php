@@ -286,4 +286,168 @@ class RateLimitingServiceTest extends PKPTestCase
         // user2 should NOT be limited (different username)
         self::assertFalse($service->isLoginLimited('user2@example.com', self::TEST_IP));
     }
+
+    /**
+     * Test that empty username falls back to IP-only rate limit key.
+     */
+    public function testEmptyUsernameUsesIpOnlyKey()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Record attempts with empty username
+        $service->recordLoginAttempt('', self::TEST_IP);
+        $service->recordLoginAttempt('', self::TEST_IP);
+
+        // Should be limited using IP-only key
+        self::assertTrue($service->isLoginLimited('', self::TEST_IP));
+
+        // Different username same IP should NOT be limited (different key)
+        self::assertFalse($service->isLoginLimited('someuser', self::TEST_IP));
+    }
+
+    /**
+     * Test that applyRateLimitDelay takes between 2-5 seconds.
+     */
+    public function testApplyRateLimitDelayTiming()
+    {
+        $service = $this->createService();
+
+        $start = microtime(true);
+        $service->applyRateLimitDelay();
+        $elapsed = microtime(true) - $start;
+
+        // Should be between 2 and 5 seconds (with small tolerance)
+        self::assertGreaterThanOrEqual(2.0, $elapsed);
+        self::assertLessThanOrEqual(5.5, $elapsed);
+    }
+
+    /**
+     * Test that clearing password reset limit resets the counter.
+     */
+    public function testClearPasswordResetLimit()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Trigger limit
+        $service->recordPasswordResetAttempt(self::TEST_IP);
+        $service->recordPasswordResetAttempt(self::TEST_IP);
+        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP));
+
+        // Clear limit
+        $service->clearPasswordResetLimit(self::TEST_IP);
+
+        // Should no longer be limited
+        self::assertFalse($service->isPasswordResetLimited(self::TEST_IP));
+    }
+
+    /**
+     * Test that getLoginRemainingAttempts returns correct count.
+     */
+    public function testGetLoginRemainingAttempts()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 5);
+
+        // Initially should have all attempts remaining
+        self::assertEquals(5, $service->getLoginRemainingAttempts(self::TEST_USERNAME, self::TEST_IP));
+
+        // After 2 attempts, should have 3 remaining
+        $service->recordLoginAttempt(self::TEST_USERNAME, self::TEST_IP);
+        $service->recordLoginAttempt(self::TEST_USERNAME, self::TEST_IP);
+        self::assertEquals(3, $service->getLoginRemainingAttempts(self::TEST_USERNAME, self::TEST_IP));
+    }
+
+    /**
+     * Test that password reset rate limiting is IP-only (not username-based).
+     * This prevents email enumeration attacks.
+     */
+    public function testPasswordResetIsIpOnlyNotUsernameBased()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Record attempts - password reset doesn't take username
+        $service->recordPasswordResetAttempt(self::TEST_IP);
+        $service->recordPasswordResetAttempt(self::TEST_IP);
+
+        // Should be limited for ANY request from this IP
+        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP));
+
+        // Different IP should NOT be limited
+        self::assertFalse($service->isPasswordResetLimited('10.0.0.1'));
+    }
+
+    /**
+     * Test that same username from different IPs have separate rate limits.
+     */
+    public function testSameUsernameFromDifferentIpsHaveSeparateLimits()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Record attempts from IP1
+        $service->recordLoginAttempt(self::TEST_USERNAME, '192.168.1.1');
+        $service->recordLoginAttempt(self::TEST_USERNAME, '192.168.1.1');
+
+        // IP1 should be limited
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, '192.168.1.1'));
+
+        // Same user from IP2 should NOT be limited
+        self::assertFalse($service->isLoginLimited(self::TEST_USERNAME, '192.168.1.2'));
+    }
+
+    /**
+     * Test boundary condition: exactly at max attempts.
+     */
+    public function testBoundaryExactlyAtMaxAttempts()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 3);
+
+        // Record exactly 2 attempts (one less than max)
+        $service->recordLoginAttempt(self::TEST_USERNAME, self::TEST_IP);
+        $service->recordLoginAttempt(self::TEST_USERNAME, self::TEST_IP);
+
+        // Should NOT be limited yet
+        self::assertFalse($service->isLoginLimited(self::TEST_USERNAME, self::TEST_IP));
+
+        // Record 3rd attempt (at max)
+        $service->recordLoginAttempt(self::TEST_USERNAME, self::TEST_IP);
+
+        // NOW should be limited
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, self::TEST_IP));
+    }
+
+    /**
+     * Test that default values are used when site settings return null.
+     */
+    public function testDefaultValuesWhenSiteSettingsNull()
+    {
+        $siteMock = Mockery::mock(Site::class);
+        $siteMock->shouldReceive('getData')->with('rateLimitEnabled')->andReturn(true);
+        $siteMock->shouldReceive('getData')->with('rateLimitMaxAttempts')->andReturn(null);
+        $siteMock->shouldReceive('getData')->with('rateLimitDecaySeconds')->andReturn(null);
+
+        $service = RateLimitingService::getInstance($siteMock);
+
+        // Should use default: 5 attempts (DEFAULT_MAX_ATTEMPTS)
+        for ($i = 0; $i < 5; $i++) {
+            self::assertFalse($service->isLoginLimited(self::TEST_USERNAME, self::TEST_IP));
+            $service->recordLoginAttempt(self::TEST_USERNAME, self::TEST_IP);
+        }
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, self::TEST_IP));
+    }
+
+    /**
+     * Test that invalid IPv6 addresses are handled gracefully.
+     */
+    public function testInvalidIpv6AddressHandling()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Invalid IPv6 address should be treated as-is (not crash)
+        $invalidIpv6 = 'not-a-valid-ipv6';
+
+        $service->recordLoginAttempt(self::TEST_USERNAME, $invalidIpv6);
+        $service->recordLoginAttempt(self::TEST_USERNAME, $invalidIpv6);
+
+        // Should still work (invalid IP passed through unchanged)
+        self::assertTrue($service->isLoginLimited(self::TEST_USERNAME, $invalidIpv6));
+    }
 }

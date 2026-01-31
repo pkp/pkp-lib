@@ -69,6 +69,104 @@ class LocalPasswordBlacklistVerifierTest extends PKPTestCase
     }
 
     /**
+     * Test that when blacklist file doesn't exist, all passwords pass.
+     */
+    public function testNonExistentBlacklistFilePassesAllPasswords()
+    {
+        /** @var LocalPasswordBlacklistVerifier&\Mockery\MockInterface $verifier */
+        $verifier = Mockery::mock(LocalPasswordBlacklistVerifier::class)
+            ->makePartial()
+            ->shouldAllowMockingProtectedMethods();
+
+        $verifier->shouldReceive('getBlacklistFilePath')
+            ->andReturn('/non/existent/path/blacklist.txt');
+
+        // Any password should pass when file doesn't exist
+        self::assertTrue($verifier->verify(['value' => 'password123']));
+        self::assertTrue($verifier->verify(['value' => 'qwerty']));
+    }
+
+    /**
+     * Test that when blacklist file is empty, all passwords pass.
+     */
+    public function testEmptyBlacklistFilePassesAllPasswords()
+    {
+        $emptyFilePath = sys_get_temp_dir() . '/empty_blacklist_' . uniqid() . '.txt';
+        file_put_contents($emptyFilePath, '');
+
+        /** @var LocalPasswordBlacklistVerifier&\Mockery\MockInterface $verifier */
+        $verifier = Mockery::mock(LocalPasswordBlacklistVerifier::class)
+            ->makePartial()
+            ->shouldAllowMockingProtectedMethods();
+
+        $verifier->shouldReceive('getBlacklistFilePath')
+            ->andReturn($emptyFilePath);
+
+        self::assertTrue($verifier->verify(['value' => 'password123']));
+        self::assertTrue($verifier->verify(['value' => 'qwerty']));
+
+        unlink($emptyFilePath);
+    }
+
+    /**
+     * Test that when blacklist file contains only comments, all passwords pass.
+     */
+    public function testBlacklistFileWithOnlyCommentsPassesAllPasswords()
+    {
+        $commentsOnlyPath = sys_get_temp_dir() . '/comments_blacklist_' . uniqid() . '.txt';
+        file_put_contents($commentsOnlyPath, "# Comment 1\n# Comment 2\n# Comment 3\n");
+
+        /** @var LocalPasswordBlacklistVerifier&\Mockery\MockInterface $verifier */
+        $verifier = Mockery::mock(LocalPasswordBlacklistVerifier::class)
+            ->makePartial()
+            ->shouldAllowMockingProtectedMethods();
+
+        $verifier->shouldReceive('getBlacklistFilePath')
+            ->andReturn($commentsOnlyPath);
+
+        self::assertTrue($verifier->verify(['value' => 'password123']));
+        self::assertTrue($verifier->verify(['value' => 'qwerty']));
+
+        unlink($commentsOnlyPath);
+    }
+
+    /**
+     * Test that comment lines in blacklist are properly ignored.
+     */
+    public function testCommentsAreIgnoredInBlacklist()
+    {
+        // The blacklist has "# This is a comment"
+        // Verify "This is a comment" is NOT blocked (the # should exclude the line)
+        self::assertTrue($this->verifier->verify(['value' => 'This is a comment']));
+        self::assertTrue($this->verifier->verify(['value' => '# This is a comment']));
+    }
+
+    /**
+     * Test that empty password fails validation.
+     */
+    public function testEmptyPasswordFails()
+    {
+        self::assertFalse($this->verifier->verify(['value' => '']));
+    }
+
+    /**
+     * Test that null password fails validation.
+     */
+    public function testNullPasswordFails()
+    {
+        self::assertFalse($this->verifier->verify(['value' => null]));
+    }
+
+    /**
+     * Test that missing 'value' key fails validation.
+     */
+    public function testMissingValueKeyFails()
+    {
+        self::assertFalse($this->verifier->verify([]));
+        self::assertFalse($this->verifier->verify(['threshold' => 0]));
+    }
+
+    /**
      * Test that a blacklisted password returns false (not safe).
      */
     public function testBlacklistedPasswordFails()

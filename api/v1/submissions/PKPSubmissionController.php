@@ -1431,7 +1431,7 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        Repo::publication()->publish($publication);
+        Repo::publication()->publish($publication, false);
 
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->get();
@@ -1450,13 +1450,10 @@ class PKPSubmissionController extends PKPBaseController
         $shouldCreatePMURReviewRound = filter_var($illuminateRequest->input('createPMURReviewRound'), FILTER_VALIDATE_BOOL);
         if ($shouldCreatePMURReviewRound) {
             try {
-                $this->createPMURReviewRound($submissionContext, $submission, $publication);
+                $this->createPMURReviewRound($submissionContext, $submission, $publication, Submission::STATUS_QUEUED);
             } catch (\Exception $exception) {
                 return response()->json(['error' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
             }
-            // The submission should move into the review workflow queue
-            $submission->setData('stageId', \WORKFLOW_STAGE_ID_EXTERNAL_REVIEW);
-            Repo::submission()->updateStatus($submission, Submission::STATUS_QUEUED);
         }
 
         /** @var GenreDAO $genreDao */
@@ -2481,8 +2478,9 @@ class PKPSubmissionController extends PKPBaseController
         Publication $publication,
         ?VersionStage $versionStage,
         bool $versionIsMinor,
+        ?int $submissionStatus = null
     ): Publication {
-        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
+        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor, $submissionStatus);
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();
@@ -2536,9 +2534,11 @@ class PKPSubmissionController extends PKPBaseController
      *
      * Optionally triggered when publishing a PMUR.
      *
+     * @param $submissionStatus The desired submission status to set, or null to determine from submission and publication data.
+     *
      * @throws \Exception
      */
-    private function createPMURReviewRound(Context $context, Submission $submission, Publication $publication): void
+    private function createPMURReviewRound(Context $context, Submission $submission, Publication $publication, int $submissionStatus = null): void
     {
         $request = $this->getRequest();
 
@@ -2569,7 +2569,8 @@ class PKPSubmissionController extends PKPBaseController
             $submission,
             $publication,
             VersionStage::VERSION_OF_RECORD,
-            false
+            false,
+            $submissionStatus
         );
     }
 }

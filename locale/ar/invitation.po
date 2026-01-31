@@ -279,9 +279,10 @@ msgstr "الخطوة"
 msgid "acceptInvitation.usernameField.description"
 msgstr "قد تكون تشكيلة من الحروف الكبيرة والصغيرة والأرقام"
 
+#, fuzzy
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"ينبغي أن لا تقل عن 6 محارف من تشكيلة من الحروف الكبيرة والصغيرة والأرقام"
+"ينبغي أن لا تقل عن {$length} محارف من تشكيلة من الحروف الكبيرة والصغيرة والأرقام"
 
 msgid "acceptInvitation.privacyStatement.label"
 msgstr "نعم، أوافق على جمع بياناتي وحفظها وفقًا لـ {$url}"

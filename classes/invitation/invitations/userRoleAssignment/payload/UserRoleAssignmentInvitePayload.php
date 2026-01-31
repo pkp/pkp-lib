@@ -143,11 +143,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 new NotNullIfPresent(),
                 'required_with:username',
                 'max:255',
-                Password::min($site->getMinPasswordLength())
-                    ->letters()
-                    ->numbers()
-                    ->symbols()
-                    ->uncompromised()
+                Password::min($site->getMinPasswordLength())->uncompromised()
             ],
             'userGroupsToAdd' => [
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE),
@@ -219,9 +215,6 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
             'password.min' => __('user.register.form.passwordLengthRestriction', [
                 'length' => $site->getMinPasswordLength()
             ]),
-            'password.letters' => __('validator.password'),
-            'password.numbers' => __('validator.password'),
-            'password.symbols' => __('validator.password'),
             'password.uncompromised' => __('validator.password.uncompromised'),
         ];
     }

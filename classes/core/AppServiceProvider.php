@@ -76,7 +76,6 @@ class AppServiceProvider extends ServiceProvider
             PKPApplication::ASSOC_TYPE_QUERY => EditorialTask::class,
         ]);
 
-        // BEGIN: Rate Limiting Service Registration
         $this->app->singleton(
             RateLimitingService::class,
             function ($app) {
@@ -84,6 +83,5 @@ class AppServiceProvider extends ServiceProvider
                 return RateLimitingService::getInstance($siteDao->getSite());
             }
         );
-        // END: Rate Limiting Service Registration
     }
 }

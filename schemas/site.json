@@ -123,8 +123,7 @@
 			"description": "Maximum attempts before rate limiting is triggered",
 			"validation": [
 				"nullable",
-				"min:1",
-				"max:100"
+				"min:1"
 			]
 		},
 		"rateLimitDecaySeconds": {
@@ -133,8 +132,7 @@
 			"description": "Seconds until rate limit resets",
 			"validation": [
 				"nullable",
-				"min:60",
-				"max:86400"
+				"min:60"
 			]
 		},
 		"disableSharedReviewerStatistics": {

@@ -2368,9 +2368,6 @@ msgstr "Only [{$tags}] html tags are allowed."
 msgid "validator.multilingual"
 msgstr "Multilingual requirement does not fulfilled for this field."
 
-msgid "validator.password"
-msgstr "Password must contain one letter, one number, and at least one symbol like !, $, #, or %."
-
 msgid "validator.password.uncompromised"
 msgstr "This password has appeared in data leaks. Please choose a different, strong password."
 

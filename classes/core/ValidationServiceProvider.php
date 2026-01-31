@@ -38,7 +38,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
 
         // Password blacklist verifier
         //  - uses local file if exists,
-        //  - allback to uses Have I Been Pwned API see at https://laravel.com/docs/11.x/validation#validating-passwords
+        //  - fallback to uses Have I Been Pwned API see at https://laravel.com/docs/11.x/validation#validating-passwords
         $this->app->singleton(UncompromisedVerifier::class, function ($app) {
             $localVerifier = new LocalPasswordBlacklistVerifier();
 

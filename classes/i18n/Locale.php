@@ -480,7 +480,8 @@ class Locale implements LocaleInterface
         }
 
         // will only log the missing locale keys when the application is running in strict mode
-        if (app()->getApplicationStrictModeStatus()) {
+        // and not running unit tests
+        if (app()->getApplicationStrictModeStatus() && !app()->runningUnitTests()) {
             error_log("Missing locale key \"{$key}\" for the locale \"{$locale}\"");
         }
 

@@ -63,9 +63,6 @@ class FormValidatorPassword extends FormValidator
                 "{$this->_field}.required" => 'user.profile.form.passwordRequired',
                 "{$this->_field}.confirmed" => 'user.register.form.passwordsDoNotMatch',
                 "{$this->_field}.min" => 'user.register.form.passwordLengthRestriction',
-                "{$this->_field}.letters" => 'validator.password',
-                "{$this->_field}.numbers" => 'validator.password',
-                "{$this->_field}.symbols" => 'validator.password',
                 "{$this->_field}.uncompromised" => 'validator.password.uncompromised',
             ]
         );
@@ -99,11 +96,7 @@ class FormValidatorPassword extends FormValidator
 
         array_push(
             $rules,
-            Password::min($this->minPasswordLength)
-                ->letters()
-                ->numbers()
-                ->symbols()
-                ->uncompromised()
+            Password::min($this->minPasswordLength)->uncompromised()
         );
 
         return $rules;

@@ -296,7 +296,7 @@ msgstr "{$step} - Преглед и създаване на акаунт"
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Трябва да е с дължина поне 6 знака и може да бъде комбинация от главни "
+"Трябва да е с дължина поне {$length} знака и може да бъде комбинация от главни "
 "букви, малки букви, цифри и символи"
 
 msgid "acceptInvitation.privacyStatement.btn"

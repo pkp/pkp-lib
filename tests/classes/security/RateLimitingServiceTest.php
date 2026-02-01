@@ -15,7 +15,6 @@
 namespace PKP\tests\classes\security;
 
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\RateLimiter;
 use Mockery;
 use PKP\security\RateLimitingService;
 use PKP\site\Site;
@@ -28,6 +27,7 @@ class RateLimitingServiceTest extends PKPTestCase
 {
     private const TEST_IP = '192.168.1.100';
     private const TEST_USERNAME = 'testuser@example.com';
+    private const TEST_EMAIL = 'resetuser@example.com';
 
     protected function setUp(): void
     {
@@ -124,15 +124,15 @@ class RateLimitingServiceTest extends PKPTestCase
         $service = $this->createService(enabled: true, maxAttempts: 3);
 
         // Initially not limited
-        self::assertFalse($service->isPasswordResetLimited(self::TEST_IP));
+        self::assertFalse($service->isPasswordResetLimited(self::TEST_IP, self::TEST_EMAIL));
 
         // Record 3 attempts
-        $service->recordPasswordResetAttempt(self::TEST_IP);
-        $service->recordPasswordResetAttempt(self::TEST_IP);
-        $service->recordPasswordResetAttempt(self::TEST_IP);
+        $service->recordPasswordResetAttempt(self::TEST_IP, self::TEST_EMAIL);
+        $service->recordPasswordResetAttempt(self::TEST_IP, self::TEST_EMAIL);
+        $service->recordPasswordResetAttempt(self::TEST_IP, self::TEST_EMAIL);
 
         // Should now be limited
-        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP));
+        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP, self::TEST_EMAIL));
     }
 
     /**
@@ -329,15 +329,15 @@ class RateLimitingServiceTest extends PKPTestCase
         $service = $this->createService(enabled: true, maxAttempts: 2);
 
         // Trigger limit
-        $service->recordPasswordResetAttempt(self::TEST_IP);
-        $service->recordPasswordResetAttempt(self::TEST_IP);
-        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP));
+        $service->recordPasswordResetAttempt(self::TEST_IP, self::TEST_EMAIL);
+        $service->recordPasswordResetAttempt(self::TEST_IP, self::TEST_EMAIL);
+        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP, self::TEST_EMAIL));
 
         // Clear limit
-        $service->clearPasswordResetLimit(self::TEST_IP);
+        $service->clearPasswordResetLimit(self::TEST_IP, self::TEST_EMAIL);
 
         // Should no longer be limited
-        self::assertFalse($service->isPasswordResetLimited(self::TEST_IP));
+        self::assertFalse($service->isPasswordResetLimited(self::TEST_IP, self::TEST_EMAIL));
     }
 
     /**
@@ -357,22 +357,59 @@ class RateLimitingServiceTest extends PKPTestCase
     }
 
     /**
-     * Test that password reset rate limiting is IP-only (not username-based).
-     * This prevents email enumeration attacks.
+     * Test that password reset rate limiting uses IP+email.
+     * Different emails from the same IP have separate rate limits.
+     * This allows institutional users behind NAT to request resets independently.
      */
-    public function testPasswordResetIsIpOnlyNotUsernameBased()
+    public function testPasswordResetUsesIpPlusEmail()
     {
         $service = $this->createService(enabled: true, maxAttempts: 2);
 
-        // Record attempts - password reset doesn't take username
-        $service->recordPasswordResetAttempt(self::TEST_IP);
-        $service->recordPasswordResetAttempt(self::TEST_IP);
+        // Record attempts for email1
+        $service->recordPasswordResetAttempt(self::TEST_IP, 'user1@example.com');
+        $service->recordPasswordResetAttempt(self::TEST_IP, 'user1@example.com');
 
-        // Should be limited for ANY request from this IP
-        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP));
+        // email1 from this IP should be limited
+        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP, 'user1@example.com'));
 
-        // Different IP should NOT be limited
-        self::assertFalse($service->isPasswordResetLimited('10.0.0.1'));
+        // Different email from same IP should NOT be limited (separate counter)
+        self::assertFalse($service->isPasswordResetLimited(self::TEST_IP, 'user2@example.com'));
+
+        // Same email from different IP should NOT be limited (separate counter)
+        self::assertFalse($service->isPasswordResetLimited('10.0.0.1', 'user1@example.com'));
+    }
+
+    /**
+     * Test that password reset email normalization works (case-insensitive).
+     */
+    public function testPasswordResetEmailCaseNormalization()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Record attempts with different case variations
+        $service->recordPasswordResetAttempt(self::TEST_IP, 'User@Example.com');
+        $service->recordPasswordResetAttempt(self::TEST_IP, 'USER@EXAMPLE.COM');
+
+        // Should be limited because both normalize to same key
+        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP, 'user@example.com'));
+    }
+
+    /**
+     * Test that empty email falls back to IP-only rate limit key for password reset.
+     */
+    public function testPasswordResetEmptyEmailUsesIpOnlyKey()
+    {
+        $service = $this->createService(enabled: true, maxAttempts: 2);
+
+        // Record attempts with empty email
+        $service->recordPasswordResetAttempt(self::TEST_IP, '');
+        $service->recordPasswordResetAttempt(self::TEST_IP, '');
+
+        // Should be limited using IP-only key
+        self::assertTrue($service->isPasswordResetLimited(self::TEST_IP, ''));
+
+        // Different email same IP should NOT be limited (different key)
+        self::assertFalse($service->isPasswordResetLimited(self::TEST_IP, 'someone@example.com'));
     }
 
     /**

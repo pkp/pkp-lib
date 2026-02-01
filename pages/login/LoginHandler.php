@@ -135,8 +135,7 @@ class LoginHandler extends Handler
         $rateLimiter = app()->get(RateLimitingService::class);
 
         if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isLoginLimited($username ?? '', $ip)) {
-            // Apply artificial delay to prevent timing attacks
-            $rateLimiter->applyRateLimitDelay();
+            $rateLimiter->applyRateLimitDelay(); // Apply artificial delay to prevent timing attacks
 
             // Show generic error (don't reveal rate limiting)
             $templateMgr->assign([
@@ -170,8 +169,7 @@ class LoginHandler extends Handler
             }
         }
 
-        // Track whether CAPTCHA passed (or was disabled) for rate limiting
-        // CAPTCHA failures should not count against the rate limit
+        // Check CAPTCHA failure before recording rate limit attempt as failure should not be counted
         $captchaPassed = ($error === null);
 
         $reason = null;
@@ -199,8 +197,6 @@ class LoginHandler extends Handler
             $this->_redirectAfterLogin($request);
         }
 
-        // Only record if CAPTCHA passed (or was disabled) but login failed
-        // CAPTCHA failures should not count against the rate limit
         if ($rateLimiter->isRateLimitEnabled() && strlen($username ?? '') > 0 && $captchaPassed) {
             $rateLimiter->recordLoginAttempt($username, $ip);
         }
@@ -268,10 +264,12 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $ip = $request->getRemoteAddr();
+        $email = (string) $request->getUserVar('email');
         $rateLimiter = app()->get(RateLimitingService::class);
 
-        if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isPasswordResetLimited($ip)) {
-            
+        // Rate limiting uses IP+email to allow institutional users behind NAT
+        // to request resets independently (prevents cross-user blocking)
+        if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isPasswordResetLimited($ip, $email)) {
             $rateLimiter->applyRateLimitDelay(); // Apply artificial delay to prevent timing attacks
 
             // Show generic success message (don't reveal rate limiting)
@@ -284,11 +282,7 @@ class LoginHandler extends Handler
             return;
         }
 
-        // Record attempt BEFORE checking email (prevents enumeration)
-        if ($rateLimiter->isRateLimitEnabled()) {
-            $rateLimiter->recordPasswordResetAttempt($ip);
-        }
-
+        // Check CAPTCHA failure before recording rate limit attempt as failure should not be counted
         $altchaHasError = $this->_validateAltchasResponse($request, 'altcha_on_lost_password');
 
         if ($altchaHasError) {
@@ -304,7 +298,10 @@ class LoginHandler extends Handler
             return;
         }
 
-        $email = (string) $request->getUserVar('email');
+        if ($rateLimiter->isRateLimitEnabled()) {
+            $rateLimiter->recordPasswordResetAttempt($ip, $email);
+        }
+        
         $user = $email ? Repo::user()->getByEmail($email, true) : null;
         if ($user !== null) {
             if ($user->getDisabled()) {
@@ -406,14 +403,6 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $ip = $request->getRemoteAddr();
-        $rateLimiter = app()->get(RateLimitingService::class);
-
-        if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isPasswordResetLimited($ip)) {
-            $rateLimiter->applyRateLimitDelay();
-            return $request->redirect(null, null, 'lostPassword');
-        }
-
         $username = $request->getUserVar('username');
         $confirmHash = $request->getUserVar('hash');
 
@@ -430,10 +419,6 @@ class LoginHandler extends Handler
 
         if ($passwordResetForm->validate()) {
             if ($passwordResetForm->execute()) {
-                if ($rateLimiter->isRateLimitEnabled()) {
-                    $rateLimiter->clearPasswordResetLimit($ip);
-                }
-
                 $templateMgr->assign([
                     'pageTitle' => 'user.login.resetPassword',
                     'message' => 'user.login.resetPassword.passwordUpdated',

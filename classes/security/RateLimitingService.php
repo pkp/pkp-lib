@@ -10,8 +10,9 @@
  * @brief Service class for handling rate limiting on login and password reset.
  *
  * Uses Laravel's RateLimiter facade to track and limit authentication attempts.
- * Rate limiting is keyed by IP + username for login attempts and IP-only for
- * password reset requests. Configuration is read from site settings.
+ * Rate limiting is keyed by 
+ *  - IP + username for login attempts
+ *  - IP + email for password reset requests
  */
 
 namespace PKP\security;
@@ -44,9 +45,7 @@ class RateLimitingService
     protected ?Site $site = null;
 
     // Private constructor to prevent direct instantiation
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 
     /*
      * Get the singleton instance
@@ -152,22 +151,23 @@ class RateLimitingService
     }
 
     /**
-     * Check if password reset requests are rate limited for the given IP.
+     * Check if password reset requests are rate limited for the given IP and email.
      *
      * @param string $ip The IP address of the request
+     * @param string $email The email address for the reset request
      *
      * @return bool True if rate limited, false if requests are allowed
      */
-    public function isPasswordResetLimited(string $ip): bool
+    public function isPasswordResetLimited(string $ip, string $email): bool
     {
-        $key = $this->getPasswordResetRateLimitKey($ip);
+        $key = $this->getPasswordResetRateLimitKey($ip, $email);
         $maxAttempts = $this->getMaxAttempts();
 
         $isLimited = RateLimiter::tooManyAttempts($key, $maxAttempts);
 
         // Log rate limit event for security monitoring
         if ($isLimited) {
-            $this->logRateLimitEvent('password_reset', $ip);
+            $this->logRateLimitEvent('password_reset', $ip, $email ?: null);
         }
 
         return $isLimited;
@@ -177,10 +177,11 @@ class RateLimitingService
      * Record a password reset request attempt.
      *
      * @param string $ip The IP address of the request
+     * @param string $email The email address for the reset request
      */
-    public function recordPasswordResetAttempt(string $ip): void
+    public function recordPasswordResetAttempt(string $ip, string $email): void
     {
-        $key = $this->getPasswordResetRateLimitKey($ip);
+        $key = $this->getPasswordResetRateLimitKey($ip, $email);
         $decaySeconds = $this->getDecaySeconds();
 
         RateLimiter::hit($key, $decaySeconds);
@@ -190,10 +191,11 @@ class RateLimitingService
      * Clear the password reset rate limit.
      *
      * @param string $ip The IP address
+     * @param string $email The email address
      */
-    public function clearPasswordResetLimit(string $ip): void
+    public function clearPasswordResetLimit(string $ip, string $email): void
     {
-        $key = $this->getPasswordResetRateLimitKey($ip);
+        $key = $this->getPasswordResetRateLimitKey($ip, $email);
         RateLimiter::clear($key);
     }
 
@@ -201,12 +203,13 @@ class RateLimitingService
      * Get the remaining seconds until the password reset rate limit resets.
      *
      * @param string $ip The IP address
+     * @param string $email The email address
      *
      * @return int Seconds until rate limit resets
      */
-    public function getPasswordResetAvailableIn(string $ip): int
+    public function getPasswordResetAvailableIn(string $ip, string $email): int
     {
-        $key = $this->getPasswordResetRateLimitKey($ip);
+        $key = $this->getPasswordResetRateLimitKey($ip, $email);
 
         return RateLimiter::availableIn($key);
     }
@@ -260,15 +263,16 @@ class RateLimitingService
      *
      * @param string $type The type of rate limit ('login' or 'password_reset')
      * @param string $ip The IP address (original, not normalized)
-     * @param string|null $username The username (for login attempts)
+     * @param string|null $identifier The username (for login) or email (for password reset)
      */
-    protected function logRateLimitEvent(string $type, string $ip, ?string $username = null): void
+    protected function logRateLimitEvent(string $type, string $ip, ?string $identifier = null): void
     {
+        $identifierLabel = $type === 'password_reset' ? 'Email' : 'Username';
         $message = sprintf(
             '[RateLimit] %s triggered - IP: %s%s',
             ucfirst($type),
             $ip,
-            $username !== null ? ", Username: {$username}" : ''
+            $identifier !== null ? ", {$identifierLabel}: {$identifier}" : ''
         );
 
         error_log($message);
@@ -312,17 +316,26 @@ class RateLimitingService
     /**
      * Generate the rate limit key for password reset requests.
      *
-     * Uses normalized IP (IPv6 /64 prefix) only to prevent email enumeration attacks.
+     * Uses normalized IP (IPv6 /64 prefix) + normalized email to allow
+     * institutional users behind NAT to request resets independently.
+     * Falls back to IP-only key when the email is empty.
      *
      * @param string $ip The IP address
+     * @param string $email The email address
      *
      * @return string The rate limit key
      */
-    protected function getPasswordResetRateLimitKey(string $ip): string
+    protected function getPasswordResetRateLimitKey(string $ip, string $email): string
     {
         $normalizedIp = $this->normalizeIp($ip);
 
-        return 'password_reset:' . $normalizedIp;
+        $normalizedEmail = mb_strtolower(trim($email), 'UTF-8'); // Normalize email: trim and lowercase
+
+        if (empty($normalizedEmail)) {
+            return 'password_reset:' . $normalizedIp;
+        }
+
+        return 'password_reset:' . $normalizedIp . ':' . $normalizedEmail;
     }
 
     /**

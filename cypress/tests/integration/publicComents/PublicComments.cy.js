@@ -233,7 +233,7 @@ describe('Public Comments Tests', function() {
 		cy.contains('.PkpScrollToComments__logInto', 'Log in to comment').click();
 		cy.url().should('include', '/login');
 		cy.get('input[name="username"]').type('eostrom');
-		cy.get('input[name="password"]').type('eostromeostrom');
+		cy.get('input[name="password"]').type(Cypress.getPassword('eostrom'));
 		cy.get('button[type="submit"]').click();
 
 		cy.get('.PkpComments__newInput').find('textarea').should('exist');

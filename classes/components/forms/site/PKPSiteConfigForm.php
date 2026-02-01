@@ -66,13 +66,6 @@ class PKPSiteConfigForm extends FormComponent
             ]));
         }
 
-        $this->addField(new FieldText('minPasswordLength', [
-            'label' => __('admin.settings.minPasswordLength'),
-            'isRequired' => true,
-            'size' => 'small',
-            'value' => $site->getData('minPasswordLength'),
-        ]));
-
         $this->addField(new FieldOptions('disableSharedReviewerStatistics', [
             'label' => __('admin.settings.sharedReviewerStatistics'),
             'description' => __('admin.settings.sharedReviewerStatistics.description'),

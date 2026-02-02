@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2026-02-02 12:40+0000\n"
+"PO-Revision-Date: 2026-02-02 18:37+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
@@ -671,7 +671,7 @@ msgid "admin.jobs.failed.totalCount"
 msgstr "Toplam <strong>{$total}</strong> başarısız iş var."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Kuyruktaki işleri görüntüle"
 
 msgid "navigation.tools.jobs"
 msgstr "İşler"
@@ -694,13 +694,13 @@ msgid "navigation.tools.jobs.failed.view"
 msgstr "Başarısız İşleri Görüntüle"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Başarısız İş:{$id} Ayrıntılarını Görüntüle"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Öznitelik"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Öznitelik Değeri"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -715,34 +715,34 @@ msgid "admin.jobs.list.connection"
 msgstr "Bağlantı"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Deneme Sayısı"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Oluşturulduğu Zaman"
 
 msgid "admin.jobs.list.failedAt"
 msgstr "Hata Anı"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Yük"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "İstisna"
 
 msgid "admin.jobs.list.actions"
 msgstr "Eylemler"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "{$failedAt} tarihinde oluşturuldu"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "{$createdAt} tarihinde oluşturuldu"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Tekrar Dene"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Tüm Başarısız İşleri Yeniden Kuyruğa Al"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
@@ -783,6 +783,8 @@ msgstr "Aylık veya Günlük İstatistikler"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Günlük veya aylık kullanım istatistiklerinin izlenip izlenmeyeceği. Günlük "
+"istatistiklerin izlenmesi veritabanı boyutunu önemli ölçüde artırabilir."
 
 msgid "admin.settings.statistics.keepDaily.keep"
 msgstr "Günlük ve aylık istatistikleri takip edin"
@@ -795,81 +797,108 @@ msgstr "Kayıtları Sıkıştır"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"İstatistikler, işlendikten sonra <code>{$path}</code> konumuna taşınan "
+"erişim günlük dosyalarından üretilir. Günlük dosyaları işlendikten sonra "
+"<code>.gz</code> dosyalarına sıkıştırılsın mı? Günlük dosyalarının "
+"sıkıştırılması sunucuda disk alanı tasarrufu sağlayabilir."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Günlük dosyalarını yerinde bırak"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr "Log dosyalarını sıkıştır"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"COUNTER SUSHI istatistik API’sine erişimi yalnızca yöneticiler ve adminlerle "
+"sınırla"
 
 msgid "admin.settings.statistics.sushiPlatform"
 msgstr "Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"COUNTER SUSHI protokolüne göre, her istatistik raporu istatistikleri "
+"sağlayan “platformu” belirtmelidir. Varsayılan olarak, tüm istatistikler "
+"için dergi platform olarak atanacaktır. Ancak, bu sitedeki tüm dergiler aynı "
+"sağlayıcı tarafından yayımlanıyor, sahipleniliyor veya işletiliyorsa, siteyi "
+"platform olarak atamak isteyebilirsiniz."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"COUNTER SUSHI raporlarında bu platformun nasıl tanımlanacağı. Platform "
+"kimliği en fazla 17 karakter olmalı ve harfler (a–z, A–Z), rakamlar (0–9), "
+"alt çizgi (_), nokta (.) ve eğik çizgi (/) içerebilir. Platform kimliği "
+"birkaç sütunda kullanılır ve mümkün olduğunca kısa, ancak tanınabilir "
+"olmalıdır. Platform kimliği genellikle bir yayınevi veya platform adı, bir "
+"alan adı ya da iyi bilinen, benzersiz bir kısaltmaya dayanır."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Site SUSHI platformu olarak tanımlandığında bir platform kimliği zorunlu "
+"olmalıdır."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "Çalıştır komutu seçenekleri"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
 msgstr "kullanım : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Çalıştır komutu için mevcut seçenekler"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Çalıştırılacak kuyruk bağlantısının adı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Çalıştırılacak kuyruğun adı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "İşçinin adı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Yakalanmamış bir istisna ile karşılaşan bir işi yeniden denemeden önce "
+"beklenecek saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Bellek sınırı (megabayt cinsinden) [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Bir alt sürecin çalışabileceği saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Hiçbir iş mevcut olmadığında uyunacak saniye sayısı [varsayılan : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Bir işin başarısız olarak kaydedilmeden önce deneneceği kez sayısı ["
+"varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
-msgstr ""
+msgstr "İşçiyi bakım modunda bile çalışmaya zorla [varsayılan : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Kuyruk boş olduğunda dur [varsayılan : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
+msgstr "Durdurmadan önce işlenecek iş sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"İşçinin çalışması gereken azami saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "İşler arasında dinlenilecek saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Test kuyruğu için işçi arka plan sürecini (daemon) çalıştır"
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Toplu incelemeci istatistiklerini devre dışı bırak"
@@ -899,3 +928,14 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "İşçiler, mevcut işi tamamladıktan sonra zarif bir şekilde sonlanacaktır."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"{$file} dosyası {$dispatchFilePath} konumundan {$archivedFilePath} konumuna "
+"taşınamadı."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "{$file} dosyası mevcut değil."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Süresi dolmuş davetleri otomatik olarak kaldırmak için bir iş gönder"

@@ -422,13 +422,9 @@ class PKPNavigationMenuService
             }
         }
 
-        // Assign child items to parent in array
-        for ($i = 0; $i < count($navigationMenu->menuTree); $i++) {
-            $assignmentId = $navigationMenu->menuTree[$i]->getMenuItemId();
-            if (isset($children[$assignmentId])) {
-                $navigationMenu->menuTree[$i]->children = $children[$assignmentId];
-            }
-        }
+        // Assign child items to parent in array (recursively for 3+ levels)
+        $this->assignChildren($navigationMenu->menuTree, $children);
+
         /** @var NavigationMenuDAO */
         Cache::put($cacheId = "navigationMenu-{$navigationMenu->getId()}", json_encode($navigationMenu), 60 * 60 * 24);
     }
@@ -449,11 +445,12 @@ class PKPNavigationMenuService
         $this->loadMenuTreeDisplayState($navigationMenu);
     }
 
-    private function loadMenuTreeDisplayState(NavigationMenu $navigationMenu): void
+    private function loadMenuTreeDisplayState(NavigationMenu $navigationMenu, ?array $items = null): void
     {
-        foreach ($navigationMenu->menuTree as $assignment) {
+        foreach ($items ?? $navigationMenu->menuTree as $assignment) {
             $nmi = $assignment->getMenuItem();
             if ($assignment->children) {
+                $this->loadMenuTreeDisplayState($navigationMenu, $assignment->children);
                 foreach ($assignment->children as $childAssignment) {
                     $childNmi = $childAssignment->getMenuItem();
                     $this->getDisplayStatus($childNmi, $navigationMenu);
@@ -464,6 +461,23 @@ class PKPNavigationMenuService
                 }
             }
             $this->getDisplayStatus($nmi, $navigationMenu);
+        }
+    }
+
+    /**
+     * Recursively assign children from the $children lookup array to items
+     *
+     * @param array $items Array of NavigationMenuItemAssignment objects
+     * @param array $children Lookup array of children keyed by parent menu item ID
+     */
+    private function assignChildren(array $items, array $children): void
+    {
+        foreach ($items as $item) {
+            $menuItemId = $item->getMenuItemId();
+            if (isset($children[$menuItemId])) {
+                $item->children = $children[$menuItemId];
+                $this->assignChildren($item->children, $children);
+            }
         }
     }
 

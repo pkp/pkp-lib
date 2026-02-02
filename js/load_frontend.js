@@ -62,7 +62,6 @@ import BaseCommentsNewInput from '@/frontend/components/PkpComments/base/BaseCom
 import BaseCommentsNewSubmit from '@/frontend/components/PkpComments/base/BaseCommentsNewSubmit.vue';
 import BaseCommentsNotificationMessageNeedsApproval from '@/frontend/components/PkpComments/base/BaseCommentsNotificationMessageNeedsApproval.vue';
 import BaseCommentsNotificationNotLatest from '@/frontend/components/PkpComments/base/BaseCommentsNotificationNotLatest.vue';
-import BaseCommentsVersionHeaderLabel from '@/frontend/components/PkpComments/base/BaseCommentsVersionHeaderLabel.vue';
 import BaseScrollToCommentsAllComments from '@/frontend/components/PkpComments/base/BaseScrollToCommentsAllComments.vue';
 import BaseScrollToCommentsLogInto from '@/frontend/components/PkpComments/base/BaseScrollToCommentsLogInto.vue';
 import BaseCommentReportDialog from '@/frontend/components/PkpComments/base/BaseCommentReportDialog.vue';

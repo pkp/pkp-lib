@@ -29,9 +29,17 @@ class RateLimitingServiceTest extends PKPTestCase
     private const TEST_USERNAME = 'testuser@example.com';
     private const TEST_EMAIL = 'resetuser@example.com';
 
+    protected $tmpErrorLog;
+    protected string $originalErrorLog;
+
     protected function setUp(): void
     {
         parent::setUp();
+
+        // Redirect error_log to temp file to suppress test output
+        $this->originalErrorLog = ini_get('error_log');
+        $this->tmpErrorLog = tmpfile();
+        ini_set('error_log', stream_get_meta_data($this->tmpErrorLog)['uri']);
 
         // Reset singleton instance before each test
         $this->resetSingleton();
@@ -42,6 +50,9 @@ class RateLimitingServiceTest extends PKPTestCase
 
     protected function tearDown(): void
     {
+        // Restore original error_log setting
+        ini_set('error_log', $this->originalErrorLog);
+
         // Reset singleton after tests
         $this->resetSingleton();
 

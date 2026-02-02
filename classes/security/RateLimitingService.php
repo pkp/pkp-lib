@@ -259,8 +259,6 @@ class RateLimitingService
     /**
      * Log a rate limit event for security monitoring.
      *
-     * Uses PHP's error_log() since OJS doesn't yet have Laravel Log facade.
-     *
      * @param string $type The type of rate limit ('login' or 'password_reset')
      * @param string $ip The IP address (original, not normalized)
      * @param string|null $identifier The username (for login) or email (for password reset)
@@ -316,8 +314,7 @@ class RateLimitingService
     /**
      * Generate the rate limit key for password reset requests.
      *
-     * Uses normalized IP (IPv6 /64 prefix) + normalized email to allow
-     * institutional users behind NAT to request resets independently.
+     * Uses normalized IP (IPv6 /64 prefix) + normalized email
      * Falls back to IP-only key when the email is empty.
      *
      * @param string $ip The IP address

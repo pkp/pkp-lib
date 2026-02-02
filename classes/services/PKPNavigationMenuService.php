@@ -422,6 +422,9 @@ class PKPNavigationMenuService
             }
         }
 
+        // Assign child items to parent in array (recursively for all levels)
+        $this->assignChildrenRecursively($navigationMenu->menuTree, $children);
+
         // Assign child items to parent in array
         for ($i = 0; $i < count($navigationMenu->menuTree); $i++) {
             $assignmentId = $navigationMenu->menuTree[$i]->getMenuItemId();
@@ -435,6 +438,8 @@ class PKPNavigationMenuService
 
     /**
      * Get a tree of NavigationMenuItems assigned to this menu
+     *
+     * @hook NavigationMenus::getMenuTree [[&$navigationMenu]]
      */
     public function getMenuTree(NavigationMenu &$navigationMenu): void
     {
@@ -447,17 +452,50 @@ class PKPNavigationMenuService
             $this->loadMenuTree($navigationMenu);
         }
         $this->loadMenuTreeDisplayState($navigationMenu);
+
+        // Allow themes/plugins to extend the navigation menu tree (e.g., for deeper nesting levels)
+        Hook::call('NavigationMenus::getMenuTree', [&$navigationMenu]);
     }
 
     private function loadMenuTreeDisplayState(NavigationMenu $navigationMenu): void
     {
-        foreach ($navigationMenu->menuTree as $assignment) {
+        $this->loadDisplayStateRecursively($navigationMenu->menuTree, $navigationMenu);
+    }
+
+    /**
+     * Recursively assign children to menu items at all levels
+     *
+     * @param array $assignments Array of NavigationMenuItemAssignment objects
+     * @param array $children Array of children grouped by parent menu item ID
+     */
+    private function assignChildrenRecursively(array &$assignments, array $children): void
+    {
+        foreach ($assignments as $assignment) {
+            $assignmentId = $assignment->getMenuItemId();
+            if (isset($children[$assignmentId])) {
+                $assignment->children = $children[$assignmentId];
+                // Recursively assign children to nested levels
+                $this->assignChildrenRecursively($assignment->children, $children);
+            }
+        }
+    }
+
+    /**
+     * Recursively load display state for menu items at all levels
+     *
+     * @param array $assignments Array of NavigationMenuItemAssignment objects
+     * @param NavigationMenu $navigationMenu The navigation menu
+     */
+    private function loadDisplayStateRecursively(array $assignments, NavigationMenu $navigationMenu): void
+    {
+        foreach ($assignments as $assignment) {
             $nmi = $assignment->getMenuItem();
             if ($assignment->children) {
+                // Recursively process children first
+                $this->loadDisplayStateRecursively($assignment->children, $navigationMenu);
+
                 foreach ($assignment->children as $childAssignment) {
                     $childNmi = $childAssignment->getMenuItem();
-                    $this->getDisplayStatus($childNmi, $navigationMenu);
-
                     if ($childNmi->getIsDisplayed()) {
                         $nmi->setIsChildVisible(true);
                     }

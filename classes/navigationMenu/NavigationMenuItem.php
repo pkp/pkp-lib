@@ -92,7 +92,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
      */
     public function getType(): string
     {
-        return $this->getData('type');
+        return $this->getData('type') ?? '';
     }
 
     /**

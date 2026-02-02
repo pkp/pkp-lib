@@ -156,9 +156,6 @@ msgstr "Publikacija, ki jo želite objaviti, je že objavljena."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Publikacija, ki jo želite preklicati, ni objavljena."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Publikacije ne morete spreminjati, ker je že objavljena."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Status ne morete spreminjati direktno preko API-ja. Namesto tega uporabite /"

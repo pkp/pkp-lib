@@ -158,9 +158,6 @@ msgid "api.publication.403.alreadyUnpublished"
 msgstr ""
 "Wskazane zgłoszenie które chcesz zdjąć z publikacji jest już nieopublikowane."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Nie możesz edytować zgłoszenia już opublikowanego."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Nie możesz modyfikować statusu bezpośrednio poprzez API. Zamiast tej metody, "

@@ -75,11 +75,11 @@ class PKPReviewSetupForm extends FormComponent
                 ],
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]))
-            ->addField(new FieldOptions('enablePublicPeerReviews', [
+            ->addField(new FieldOptions('defaultReviewPublicVisibility', [
                 'label' => __('manager.setup.reviewOptions.publicReviewerComments.show'),
                 'description' => __('manager.setup.reviewOptions.publicReviewerComments.description'),
                 'type' => 'checkbox',
-                'value' => $context->arePeersReviewPublic(),
+                'value' => $context->getDefaultReviewPublicVisibility(),
                 'options' => [
                     ['value' => false, 'label' => __('manager.setup.reviewOptions.publicReviewerComments.label')],
                 ],

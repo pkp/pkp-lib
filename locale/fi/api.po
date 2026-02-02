@@ -154,9 +154,6 @@ msgstr "Julkaistu versio jonka haluat julkaista on jo julkinen."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Julkaistu versio jonka julkaisun haluat perua ei ole julkinen."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Et voi muokata julkaistua versiota koska se on julkinen."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Et voi muokata tilaa tämän rajapinnan kautta, käytä /publish ja /unpublish "

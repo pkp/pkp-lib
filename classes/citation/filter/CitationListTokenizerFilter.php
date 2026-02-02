@@ -55,7 +55,3 @@ class CitationListTokenizerFilter extends Filter
         return $citations;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\citation\filter\CitationListTokenizerFilter', '\CitationListTokenizerFilter');
-}

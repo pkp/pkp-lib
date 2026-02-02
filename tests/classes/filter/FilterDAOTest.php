@@ -19,6 +19,7 @@
 namespace PKP\tests\classes\filter;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\filter\PersistableFilter;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
@@ -60,7 +61,7 @@ class FilterDAOTest extends DatabaseTestCase
         // Install a test filter object.
         $settings = ['seq' => '1', 'some-key' => 'some-value'];
         $testFilter = $filterDao->configureObject(PersistableTestFilterWithSetting::class, 'test-filter-group', $settings, false, 1);
-        self::assertInstanceOf('\PKP\filter\PersistableFilter', $testFilter);
+        self::assertInstanceOf(PersistableFilter::class, $testFilter);
         $filterId = $testFilter->getId();
         self::assertTrue(is_integer($filterId));
 

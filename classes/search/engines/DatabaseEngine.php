@@ -14,12 +14,14 @@ namespace PKP\search\engines;
 
 use APP\core\Application;
 use Illuminate\Database\Query\Builder as DatabaseBuilder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Builder as SearchBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
 use PKP\controlledVocab\ControlledVocab;
+use PKP\facades\Locale;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
@@ -75,9 +77,35 @@ class DatabaseEngine extends ScoutEngine
             }
         };
 
+        // Handle ordering
+        switch (count((array) $builder->orders)) {
+            case 0: $orderBy = $orderDirection = null;
+                break;
+            case 1:
+                $order = $builder->orders[0];
+                switch ($order['column']) {
+                    case 'datePublished':
+                    case 'title':
+                        $orderBy = $order['column'];
+                        $orderDirection = $order['direction'];
+                        break;
+                    case 'featured': // OMP only
+                        if ($applicationName = Application::get()->getName() != 'omp') {
+                            throw new \Exception("Features not supported in {$applicationName}!");
+                        }
+                        $orderBy = 'feature';
+                        $orderDirection = $order['direction'];
+                        break;
+                    default: throw new \Exception('Order-by "' . $order['column'] . '" not supported by DatabaseEngine!');
+                }
+                break;
+            default: throw new \Exception('Only a single order condition is accepted by DatabaseEngine!');
+        }
+
         return DB::table('submissions_fulltext AS ft')
             ->join('submissions AS s', 'ft.submission_id', 's.submission_id')
             ->when($contextId, fn (DatabaseBuilder $q) => $q->where('context_id', $contextId))
+            ->whereIn('s.submission_id', DB::table('publications')->where('status', PKPPublication::STATUS_PUBLISHED)->select('submission_id'))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords) || is_array($subjects), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
@@ -121,11 +149,29 @@ class DatabaseEngine extends ScoutEngine
                         }
                     })
             ))
+            ->when($orderBy == 'datePublished', function ($q) use ($orderBy, $orderDirection) {
+                $q->leftJoin('publications AS cp', 's.current_publication_id', 'cp.publication_id')
+                    ->orderBy('cp.date_published', $orderDirection);
+            })
+            ->when($orderBy == 'feature', function ($q) {
+                $q->leftJoin('features as f', 's.submission_id', 'f.submission_id')
+                    ->orderByRaw('COALESCE(MAX(f.seq), 999999)'); // MySQL and PostgreSQL don't agree on ORDER BY with NULLs
+            })
+            ->when($orderBy == 'title', function ($q) use ($orderBy, $orderDirection) {
+                $q->leftJoin(
+                    'publication_settings AS title_current',
+                    fn (JoinClause $j) =>
+                    $j->on('s.current_publication_id', '=', 'title_current.publication_id')
+                        ->where('title_current.setting_name', '=', 'title')
+                        ->where('title_current.locale', '=', Locale::getLocale())
+                )
+                    ->orderBy($q->raw('MIN(title_current.setting_value)'), $orderDirection);
+            })
             ->when($builder->query, fn ($q) => $q->whereFullText(['title', 'abstract', 'body', 'authors'], $builder->query))
             ->groupBy('s.submission_id');
     }
 
-    public function search(SearchBuilder $builder): Collection
+    public function search(SearchBuilder $builder): array
     {
         $query = $this->buildQuery($builder);
         $results = $query->pluck('s.submission_id');

@@ -1,11 +1,11 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2025-12-31 07:26+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/de/>"
 "\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Keine Einträge"
@@ -742,3 +742,34 @@ msgstr "Beiträger/in bearbeiten"
 
 #~ msgid "grid.user.authSource"
 #~ msgstr "Authentifizierungsquelle"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Im Impressum erscheinen"
+
+msgid "grid.user.remove"
+msgstr "Benutzer/in entfernen"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Gutachter/in-Vorschlag hinzufügen"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Sobald der/die Benutzer/in aktiviert ist, erhält er/sie wieder Zugriff auf "
+"die Seite und kann von Ihnen nach Bedarf zu Rollen eingeladen werden."
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Sind Sie sicher, dass Sie diesen Vorschlag entfernen möchten? Diese Aktion "
+"kann nicht rückgängig gemacht werden."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Bitte beachten Sie, dass ein/e deaktivierte/r Benutzer/in nicht zu Rollen "
+"eingeladen oder hinzugefügt werden kann, sofern der/die Benutzer/in nicht "
+"reaktiviert wird."
+
+msgid "grid.user.logInAs"
+msgstr "Einloggen als"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Gutachter/in-Vorschlag löschen"

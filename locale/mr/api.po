@@ -388,9 +388,6 @@ msgstr ""
 "एक/अनेक वृत्तवैशिष्ट्य (highlights) सापडले नाहीत म्हणून ठळक वृत्तांचा क्रम ("
 "Highlight order) सेव्ह करता आला नाही."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "हे प्रकाशन आधीच प्रकाशित झाले असल्याने तुम्ही ते संपादित करू शकत नाही."
-
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
 "तुम्ही संक्रमित (अपलोड) केलेली फाईल अपेक्षित फाईल एक्सटेंशनशी जुळत नाही. "

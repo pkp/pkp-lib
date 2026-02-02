@@ -64,6 +64,11 @@
 		{/foreach}
 	{/fbvFormSection}
 
+
+	{fbvFormSection title="editor.submissionReview.publicVisibility" list="false"}
+		{fbvElement type="checkbox" id="isReviewPubliclyVisible" name="isReviewPubliclyVisible" label="manager.setup.reviewOptions.publicReviewerComments.show" checked=($isReviewPubliclyVisible)}
+	{/fbvFormSection}
+
 	{if count($reviewForms)>0}
 		{fbvFormSection title="submission.reviewForm"}
 			{fbvElement type="select" name="reviewFormId" id="reviewFormId" defaultLabel="manager.reviewForms.noneChosen"|translate defaultValue="0" translate=false from=$reviewForms selected=$reviewFormId}

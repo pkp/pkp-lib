@@ -19,6 +19,7 @@ use APP\core\AppServiceProvider;
 use Exception;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
@@ -49,6 +50,11 @@ class PKPContainer extends Container
     protected string $basePath;
 
     /**
+     * Application strict mode control
+     */
+    protected bool $strictMode;
+
+    /**
      * Create own container instance, initialize bindings
      */
     public function __construct()
@@ -58,6 +64,14 @@ class PKPContainer extends Container
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
         $this->registerClassAliases();
+
+        $this->setApplicationStrictModeStatus(
+            // PHPUnit tests force strict mode to be enabled
+            // This takes precedence over config settings
+            defined('PKP_PHPUNIT_STRICT_MODE') && PKP_PHPUNIT_STRICT_MODE === true
+                ? true
+                : Config::getVar('general', 'strict', true)
+        );
     }
 
     /**
@@ -496,16 +510,18 @@ class PKPContainer extends Container
             'driver' => Config::getVar('search', 'driver', 'database'),
         ];
 
-        // Blade view settings
+        // Blade/Smarty view settings
+        // Resolution happens in Factory.make() via View::resolveName hook
         $items['view'] = [
             'compiled' => Str::of(
                 Config::getVar('cache', 'compiled', Core::getBaseDir() . '/cache/opcache')
             )->beforeLast('/')->append('/t_compile')->value(),
-            'cache' => false, // FIXME: Must be true in production, should it be a control config ?
+            'cache' => true, // Cache compiled templates (set false only for debugging)
             'compiled_extension' => 'php',
             'relative_hash' => false,
             'paths' => [
-                'app' => $this->basePath('templates'),
+                // 'app' namespace includes both directories to match Smarty's app: resource
+                'app' => [$this->basePath('templates'), $this->basePath('lib/pkp/templates')],
                 'pkp' => $this->basePath('lib/pkp/templates'),
             ],
             'components' =>  [
@@ -671,11 +687,73 @@ class PKPContainer extends Container
         $this->isRunningUnitTest = false;
     }
 
+    /*
+     * Set application strict mode
+     */
+    public function setApplicationStrictModeStatus(bool $mode): void
+    {
+        $this->strictMode = $mode;
+    }
+
+    /*
+     * Get application strict mode
+     */
+    public function getApplicationStrictModeStatus(): bool
+    {
+        return $this->strictMode;
+    }
+
     /**
      * Get the application namespace.
      */
     public function getNamespace(): string
     {
         return 'PKP\\';
+    }
+
+    /**
+     * Register class consts as global consts
+     */
+    public function registerGlobalConstants(string $classNamespacePath, array $constants): void
+    {
+        if ($this->getApplicationStrictModeStatus()) {
+            throw new Exception('Registering class const as global const in strict mode is not allowed');
+        }
+
+        if (!class_exists($classNamespacePath)) {
+            throw new Exception(sprintf('Given class %s does not exist', $classNamespacePath));
+        }
+
+        foreach ($constants as $constant) {
+            if (!defined($classNamespacePath . '::' . $constant)) {
+                throw new Exception(sprintf('Constant %s is not defined for class %s', $constant, $classNamespacePath));
+            }
+
+            if (!defined($constant)) {
+                define($constant, constant($classNamespacePath . '::' . $constant));
+            }
+        }
+    }
+
+    /**
+     * Encrypt the given value using app key
+     */
+    public function encrypt(mixed $value): string
+    {
+        return Crypt::encrypt($value);
+    }
+
+    /**
+     * Decrypt the given encrypted value using app key
+     */
+    public function decrypt(string $value): mixed
+    {
+        try {
+            return Crypt::decrypt($value);
+        } catch (Throwable $e) {
+            error_log("Unable to decrypt the {$value} with exception : {$e->__toString()}");
+        }
+
+        return null;
     }
 }

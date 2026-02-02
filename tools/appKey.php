@@ -142,9 +142,23 @@ class CommandAppKey extends CommandLineTool
             return;
         }
 
-        if ((PKPAppKey::hasKey() && PKPAppKey::validate(PKPAppKey::getKey())) && !$this->hasFlagSet('--force')) {
-            $output->warning(__('admin.cli.tool.appKey.warning.replaceValidKey'));
-            return;
+        if (PKPAppKey::hasKey() && PKPAppKey::validate(PKPAppKey::getKey())) {
+            if (!$this->hasFlagSet('--force')) {
+                $output->warning(__('admin.cli.tool.appKey.warning.replaceValidKey'));
+                $output->warning(__('admin.cli.tool.appKey.warning.replaceValidKey.caution'));
+                return;
+            }
+
+            // Even with --force, require explicit confirmation due to destructive nature
+            $output->warning(__('admin.cli.tool.appKey.warning.replaceValidKey.caution'));
+            $output->writeln(__('admin.cli.tool.appKey.confirm.prompt'));
+
+            $confirmation = trim(fgets(STDIN));
+
+            if ($confirmation !== 'YES') {
+                $output->info(__('admin.cli.tool.appKey.confirm.cancelled'));
+                return;
+            }
         }
 
         try {

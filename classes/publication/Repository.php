@@ -24,7 +24,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use PKP\API\v1\publicationPeerReviews\resources\PublicationPeerReviewResource;
+use PKP\API\v1\peerReviews\resources\PublicationPeerReviewResource;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -449,7 +449,6 @@ abstract class Repository
             }
         }
 
-        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
         $newPublication = Repo::publication()->newDataObject(array_merge($publication->_data, $params));
         $newPublication->stampModified();
 

@@ -17,9 +17,15 @@ namespace PKP\API\v1\submissions\tasks\resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
+use PKP\core\PKPApplication;
 use PKP\core\traits\ResourceWithData;
 use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\log\event\EventLogEntry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\note\Note;
+use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
 class TaskResource extends JsonResource
@@ -28,10 +34,63 @@ class TaskResource extends JsonResource
 
     public function toArray(Request $request)
     {
-        [$users] = $this->getData('users');
+        [$users, $submissionFiles, $stageAssignments, $submission, $fileGenres, $activities] = $this->getData('users', 'submissionFiles', 'stageAssignments', 'submission', 'fileGenres', 'activities');
 
         $createdBy = $users->first(fn (User $user) => $user->getId() === $this->createdBy); /** @var User $createdBy */
         $startedBy = $users->first(fn (User $user) => $user->getId() === $this->startedBy); /** @var User $startedBy */
+
+        $notes = $this->notes->sortBy('dateCreated');
+
+        $submissionFiles = $submissionFiles->collect()->filter(
+            fn (SubmissionFile $submissionFile) => $submissionFile->getAssocType() == PKPApplication::ASSOC_TYPE_NOTE &&
+                in_array(
+                    (int) $submissionFile->getData('assocId'),
+                    $notes->pluck((new Note())->getKeyName())->toArray()
+                )
+        );
+
+        $notesCollection = NoteResource::collection(resource: $notes, data: array_merge($this->data, [
+            'parentResource' => $this,
+            'submissionFiles' => $submissionFiles,
+            'users' => $users,
+            'stageAssignments' => $stageAssignments,
+            'submission' => $submission,
+            'fileGenres' => $fileGenres,
+        ]));
+
+        $activities = $activities->filter(fn (EventLogEntry $activity) => $activity->getAssocId() == $this->id);
+        $latestActivity = $activities->first(); /** @var ?EventLogEntry|null $latestActivity */
+        $latestActivities = [];
+        // always add an overdue at the start of the list
+        if ($dateDue = $this->dateDue) {
+            $overdue = Carbon::now()->gt($dateDue);
+            if ($overdue) {
+                $latestActivities[] = [
+                    'id' => 0, // Do not have
+                    'message' => __('submission.event.task.overdue'),
+                    'type' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_OVERDUE
+                ];
+            }
+        }
+
+        if ($latestActivity) {
+            $taskDateCreated = $latestActivity->getData('taskDateCreated');
+            $taskDateStarted = $latestActivity->getData('taskDateStarted');
+            $taskDateClosed = $latestActivity->getData('taskDateClosed');
+            $activityMessage = __($latestActivity->getMessage(), [
+                'taskType' => EditorialTaskType::from($this->type)->label(),
+                'username' => $latestActivity->getData('username'),
+                'taskDateCreated' => $taskDateCreated ? Carbon::parse($taskDateCreated)->format('Y-m-d') : null,
+                'taskDateStarted' => $taskDateStarted ? Carbon::parse($taskDateStarted)->format('Y-m-d') : null,
+                'taskDateClosed' => $taskDateClosed ? Carbon::parse($taskDateClosed)->format('Y-m-d') : null,
+                'taskDateReplied' => $notes->first()?->dateCreated?->format('Y-m-d'),
+            ]);
+            $latestActivities[] = [
+                'id' => $latestActivity->getId(),
+                'message' => $activityMessage,
+                'type' => $latestActivity->getEventType()
+            ];
+        }
 
         return [
             'id' => $this->id,
@@ -50,9 +109,8 @@ class TaskResource extends JsonResource
             'dateClosed' => $this->dateClosed?->format('Y-m-d'),
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
-            'notes' => NoteResource::collection(resource: $this->notes->sortBy('dateCreated'), data: array_merge($this->data, [
-                'parentResource' => $this,
-            ])),
+            'notes' => $notesCollection,
+            'latestActivities' => $latestActivities,
         ];
     }
 
@@ -67,6 +125,9 @@ class TaskResource extends JsonResource
             'userGroups',
             'stageAssignments',
             'reviewAssignments',
+            'submissionFiles',
+            'fileGenres',
+            'activities',
         ];
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/steps/Email.php
  *

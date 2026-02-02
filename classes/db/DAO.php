@@ -243,8 +243,9 @@ class DAO
      * @param $value Value from the database
      * @param $type Type from the database, eg `string`
      * @param $nullable True iff the value is allowed to be null
+     * @param $decrypt True if the value is in encrypted format need decryption at pulling from DB
      */
-    public function convertFromDB(mixed $value, ?string $type, bool $nullable = false): mixed
+    public function convertFromDB(mixed $value, ?string $type, bool $nullable = false, bool $decrypt = false): mixed
     {
         if ($nullable && $value === null) {
             return null;
@@ -269,6 +270,11 @@ class DAO
                 // Nothing required.
                 break;
         }
+
+        if ($decrypt && !empty($value) && !is_null($value)) {
+            return app()->decrypt($value);
+        }
+
         return $value;
     }
 
@@ -300,7 +306,7 @@ class DAO
      *
      * @return string
      */
-    public function convertToDB(mixed $value, ?string &$type = null, bool $nullable = false)
+    public function convertToDB(mixed $value, ?string &$type = null, bool $nullable = false, bool $encrypt = false)
     {
         if ($nullable && $value === null) {
             return null;
@@ -340,6 +346,10 @@ class DAO
             case 'string':
             default:
                 // do nothing.
+        }
+
+        if ($encrypt && !empty($value) && !is_null($value)) {
+            return app()->encrypt($value);
         }
 
         return $value;

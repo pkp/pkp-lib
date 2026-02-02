@@ -139,10 +139,6 @@ msgstr "Η έκδοση που θέλετε να δημοσιεύσετε έχε
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Η δημοσίευση που θέλετε να ακυρώσετε δεν έχει  δημοσιευτεί."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Δεν μπορείτε να επεξεργαστείτε αυτήν την έκδοση επειδή έχει ήδη δημοσιευτεί."
-
 #, fuzzy
 msgid "api.publication.403.cantEditStatus"
 msgstr ""

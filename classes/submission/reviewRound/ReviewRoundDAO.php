@@ -25,19 +25,16 @@ use PKP\db\DAOResultFactory;
 
 class ReviewRoundDAO extends \PKP\db\DAO
 {
+    public $settingsTable = 'review_round_settings';
     //
     // Public methods
     //
     /**
      * Fetch a review round, creating it if needed.
      *
-     * @param int $submissionId
-     * @param int $publicationId
      * @param int $stageId One of the WORKFLOW_*_REVIEW_STAGE_ID constants.
-     * @param int $round
      * @param ?int $status One of the ReviewRound::REVIEW_ROUND_STATUS_* constants.
      *
-     * @return ?ReviewRound
      */
     public function build(int $submissionId, int $publicationId, int $stageId, int $round, ?int $status = null): ?ReviewRound
     {
@@ -128,6 +125,12 @@ class ReviewRoundDAO extends \PKP\db\DAO
                 (int)$reviewRound->getRound()
             ]
         );
+
+        $this->updateDataObjectSettings(
+            $this->settingsTable,
+            $reviewRound,
+            ['review_round_id' => $reviewRound->getId()]
+        );
         return $returner;
     }
 
@@ -214,9 +217,9 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Get an iterator of review round objects associated with this publication.
      *
-     * @param int $publicationId
      * @param int|null $stageId One of the Stage_id_* constants.
      * @param int|null $round The review round to be retrieved.
+     *
      * @return DAOResultFactory<ReviewRound>
      */
     public function getByPublicationId(int $publicationId, ?int $stageId = null, ?int $round = null): DAOResultFactory
@@ -233,6 +236,9 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
     /**
      * Get an iterator of review round objects associated with a set of publication IDs
+     *
+     * @param null|mixed $stageId
+     * @param null|mixed $round
      */
     public function getByPublicationIds($publicationIds, $stageId = null, $round = null): DAOResultFactory
     {
@@ -274,9 +280,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Get the current review round by publication ID for a given stage (or for the latest stage)
      *
-     * @param int $publicationId
      * @param int|null $stageId One of the Stage_id_* constants.
-     * @return int
      */
     public function getCurrentRoundByPublicationId(int $publicationId, ?int $stageId = null): int
     {
@@ -320,9 +324,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Get the last review round for a given stage (or for the latest stage)
      *
-     * @param int $publicationId
      * @param int|null $stageId One of the Stage_id_* constants.
-     * @return ?ReviewRound
      */
     public function getLastReviewRoundByPublicationId(int $publicationId, ?int $stageId = null): ?ReviewRound
     {
@@ -365,9 +367,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Check if a publication has a review round (in the given stage id)
      *
-     * @param int $publicationId
      * @param int|null $stageId One of the Stage_id_* constants.
-     * @return bool
      */
     public function publicationHasReviewRound(int $publicationId, ?int $stageId = null): bool
     {
@@ -460,7 +460,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
             ->where('assoc_type', '=', Application::ASSOC_TYPE_REVIEW_ROUND)
             ->where('assoc_id', '=', $reviewRoundId)
             ->delete();
-
         return DB::table('review_rounds')
             ->where('review_round_id', '=', $reviewRoundId)
             ->delete();
@@ -487,6 +486,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
         $reviewRound->setRound((int)$row['round']);
         $reviewRound->setStatus((int)$row['status']);
 
+        $this->getDataObjectSettings($this->settingsTable, 'review_round_id', $row['review_round_id'], $reviewRound);
         return $reviewRound;
     }
 
@@ -534,5 +534,10 @@ class ReviewRoundDAO extends \PKP\db\DAO
             ->where('publication_id', $publicationId)
             ->when(!is_null($stageId), fn ($query) => $query->where('stage_id', $stageId))
             ->getCountForPagination();
+    }
+
+    public function getAdditionalFieldNames(): array
+    {
+        return ['isAuthorResponseRequested'];
     }
 }

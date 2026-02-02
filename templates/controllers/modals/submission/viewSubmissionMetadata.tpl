@@ -14,7 +14,7 @@
 	<div class="abstract">
 		{$publication->getLocalizedData('abstract')|strip_unsafe_html}
 	</div>
-	{if $additionalMetadata || $dataAvailability}
+	{if $additionalMetadata || $dataAvailability || $fundingStatement}
 		<pkp-table>
 		{foreach $additionalMetadata as $metadata}
 			<pkp-table-row>
@@ -34,6 +34,16 @@
 				</pkp-table-cell>
 				<pkp-table-cell>
 					{$dataAvailability|strip_unsafe_html}
+				</pkp-table-cell>
+			</pkp-table-row>
+		{/if}
+		{if $fundingStatement}
+			<pkp-table-row>
+				<pkp-table-cell :is-row-header="true">
+					{translate key="submission.fundingStatement"}
+				</pkp-table-cell>
+				<pkp-table-cell>
+					{$fundingStatement|strip_unsafe_html}
 				</pkp-table-cell>
 			</pkp-table-row>
 		{/if}

@@ -621,6 +621,10 @@ abstract class Repository
         }
         $submissionId = $this->dao->insert($submission);
         $submission = Repo::submission()->get($submissionId);
+        $stageId = (int) $submission->getData('stageId');
+        if ($stageId > 0) {
+            Repo::editorialTask()->autoCreateFromTemplates($submission, $stageId);
+        }
 
         $publication->setData('submissionId', $submission->getId());
 

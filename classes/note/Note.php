@@ -20,11 +20,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Facades\DB;
+use PKP\core\PKPApplication;
 use PKP\db\DAO;
 
 class Note extends Model
 {
     use HasCamelCasing;
+    use SaveNoteWithFiles;
 
     public const NOTE_ORDER_DATE_CREATED = 1;
     public const NOTE_ORDER_ID = 2;
@@ -50,6 +53,15 @@ class Note extends Model
             'dateCreated' => 'datetime',
             'dateModified' => 'datetime'
         ];
+    }
+
+    protected static function booted(): void
+    {
+        static::deleted(function (Note $note) {
+            DB::table(Repo::submissionFile()->dao->table)->where('assoc_type', '=', PKPApplication::ASSOC_TYPE_NOTE)
+                ->where('assoc_id', '=', $note->id)
+                ->delete();
+        });
     }
 
     /**
@@ -78,7 +90,14 @@ class Note extends Model
     {
         return Attribute::make(
             get: function () {
-                return Repo::user()->get($this->userId, true);
+                $userId = $this->userId;
+
+                // system-created note. no user
+                if (empty($userId)) {
+                    return null;
+                }
+
+                return Repo::user()->get((int) $userId, true);
             },
         );
     }
@@ -123,6 +142,15 @@ class Note extends Model
     }
 
     /**
+     * Scope a query to filter by assoc IDs.
+     */
+    public function scopeWithAssocIds(Builder $query, int $assocType, array $assocIds): Builder
+    {
+        return $query->where('assoc_type', $assocType)
+            ->whereIn('assoc_id', $assocIds);
+    }
+
+    /**
      * Scope a query to only include notes with a specific type.
      */
     public function scopeWithType(Builder $query, int $type): Builder
@@ -155,5 +183,41 @@ class Note extends Model
         };
 
         return $query->orderBy($orderSanitized, $directionSanitized);
+    }
+
+    /**
+     * Override Eloquent Model's method to save participants associated with the Tasks and Discussion
+     */
+    public function save(array $options = []): bool
+    {
+        $success = parent::save($options);
+        if (!$success) {
+            return false;
+        }
+
+        // If attributes representing associated files weren't passed, don't do anything
+        if (!is_array($this->temporaryFiles) && !is_array($this->submissionFiles)) {
+            return $success;
+        }
+
+        $this->manageFiles();
+
+        return $success;
+    }
+
+    /**
+     * Override Eloquent Model's method to accept participant IDs as an attribute
+     */
+    public function fill(array $attributes)
+    {
+        if (isset($attributes[self::ATTRIBUTE_TEMPORARY_FILE_IDS])) {
+            $attributes = $this->fillTemporaryFiles($attributes);
+        }
+
+        if (isset($attributes[self::ATTRIBUTE_SUBMISSION_FILE_IDS])) {
+            $attributes = $this->fillSubmissionFiles($attributes);
+        }
+
+        return parent::fill($attributes);
     }
 }

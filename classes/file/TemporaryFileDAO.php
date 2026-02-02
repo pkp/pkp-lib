@@ -44,6 +44,21 @@ class TemporaryFileDAO extends \PKP\db\DAO
     }
 
     /**
+     * Retrieve multiple temporary files related to a user by their IDs.
+     *
+     *
+     * @return array
+     */
+    public function getTemporaryFiles(array $fileIds): DAOResultFactory
+    {
+        $result = $this->retrieve(
+            'SELECT * FROM temporary_files WHERE file_id IN (' . implode(',', array_fill(0, count($fileIds), '?')) . ')',
+            $fileIds
+        );
+        return new DAOResultFactory($result, $this, '_returnTemporaryFileFromRow');
+    }
+
+    /**
      * Retrieve temporary files by user Id
      *
      * @param $userId int

@@ -225,7 +225,7 @@
 				"in:1,2,3"
 			]
 		},
-		"enablePublicPeerReviews": {
+		"defaultReviewPublicVisibility": {
 			"type": "boolean",
 			"validation": [
 				"nullable"
@@ -632,6 +632,7 @@
 		"orcidClientSecret": {
 			"type": "string",
 			"default": "",
+			"encrypt": true,
 			"validation": [
 				"nullable"
 			]
@@ -989,6 +990,14 @@
 		"dataAvailability": {
 			"type": "string",
 			"description": "Whether to not request, request or require a Data Availability Statement from the authors.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"fundingStatement": {
+			"type": "string",
+			"description": "Whether to not request, request or require a Funding Statement from the authors.",
 			"validation": [
 				"nullable",
 				"in:0,enable,request,require"

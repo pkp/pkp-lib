@@ -146,9 +146,6 @@ msgstr "Búið er að birta útgáfuna sem þú ert að reyna að birta."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Útgáfan sem þú ert að reyna að taka úr birtingu hefur ekki verið birt."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Þú getur ekki breytt þessari útgáfu þar sem hún hefur verið birt."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "You can not modify the status directly through the API. Instead, use the /"

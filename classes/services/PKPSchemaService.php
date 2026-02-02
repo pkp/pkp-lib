@@ -55,6 +55,8 @@ class PKPSchemaService
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
     public const SCHEMA_EMAIL_LOG = 'emailLog';
+    public const SCHEMA_NAVIGATION_MENU = 'navigationMenu';
+    public const SCHEMA_NAVIGATION_MENU_ITEM = 'navigationMenuItem';
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];
@@ -377,6 +379,10 @@ class PKPSchemaService
                     foreach ($value as $i => $v) {
                         $newArray[$i] = $this->coerce($v, $schema->items->type, $schema->items);
                     }
+                } elseif (isValidJson($value)) {
+                    // Value is already a JSON-encoded string (e.g., from Eloquent cast)
+                    // Return as-is to prevent double-encoding(e.g. serialized format)
+                    return $value;
                 } else {
                     $newArray[] = serialize($value);
                 }

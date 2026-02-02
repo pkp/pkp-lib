@@ -142,11 +142,6 @@ class PKPReviewerHandler extends Handler
         }
 
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign([
-            'featureFlags' => [
-                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions')
-            ]
-        ]);
 
         if ($step < 4) {
             $reviewerForm = $this->getReviewForm($step, $request, $reviewSubmission, $reviewAssignment);

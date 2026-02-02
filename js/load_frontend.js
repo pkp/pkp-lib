@@ -22,6 +22,7 @@ import * as usePkpFetchPaginated from '@/frontend/composables/usePkpFetchPaginat
 import * as usePkpModal from '@/frontend/composables/usePkpModal.js';
 import * as usePkpLocalize from '@/frontend/composables/usePkpLocalize';
 import * as usePkpDate from '@/frontend/composables/usePkpDate';
+import * as usePkpStyles from '@/frontend/composables/usePkpStyles.js';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -36,33 +37,9 @@ import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
 import PkpScrollToComments from '@/frontend/components/PkpComments/PkpScrollToComments.vue';
 import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
 import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpCommentReportDialog.vue';
-
-// Base Button Components
-import BaseButton from '@/frontend/components/PkpButton/BaseButton.vue';
-
-// Base Textarea Components
-import BaseTextarea from '@/frontend/components/PkpTextarea/BaseTextarea.vue';
-import BaseTextareaInput from '@/frontend/components/PkpTextarea/BaseTextareaInput.vue';
-import BaseTextareaLabel from '@/frontend/components/PkpTextarea/BaseTextareaLabel.vue';
-
-// Base Dialog Components
-import BaseDialog from '@/frontend/components/PkpDialog/base/BaseDialog.vue';
-import BaseDialogActionButtons from '@/frontend/components/PkpDialog/base/BaseDialogActionButtons.vue';
-import BaseDialogBody from '@/frontend/components/PkpDialog/base/BaseDialogBody.vue';
-import BaseDialogContent from '@/frontend/components/PkpDialog/base/BaseDialogContent.vue';
-import BaseDialogOverlay from '@/frontend/components/PkpDialog/base/BaseDialogOverlay.vue';
-import BaseDialogTitle from '@/frontend/components/PkpDialog/base/BaseDialogTitle.vue';
-
-// Base Dropdown Menu Components
-import BaseDropdownMenu from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenu.vue';
-import BaseDropdownMenuItem from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenuItem.vue';
-import BaseDropdownMenuItemLabel from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenuItemLabel.vue';
-import BaseDropdownMenuItems from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenuItems.vue';
-import BaseDropdownMenuTrigger from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenuTrigger.vue';
-import BaseDropdownMenuTriggerIcon from '@/frontend/components/PkpDropdownMenu/base/BaseDropdownMenuTriggerIcon.vue';
-
-// Base Icon Components
-import BaseIcon from '@/frontend/components/PkpIcon/BaseIcon.vue';
+import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue';
+import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
+import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
 
 // PkpTab Components
 import PkpTabRoot from '@/frontend/components/PkpTab/PkpTabRoot.vue';
@@ -70,42 +47,25 @@ import PkpTabList from '@/frontend/components/PkpTab/PkpTabList.vue';
 import PkpTabTrigger from '@/frontend/components/PkpTab/PkpTabTrigger.vue';
 import PkpTabContent from '@/frontend/components/PkpTab/PkpTabContent.vue';
 
-// Base Tab Components
-import BaseTabRoot from '@/frontend/components/PkpTab/base/BaseTabRoot.vue';
-import BaseTabList from '@/frontend/components/PkpTab/base/BaseTabList.vue';
-import BaseTabTrigger from '@/frontend/components/PkpTab/base/BaseTabTrigger.vue';
-import BaseTabContent from '@/frontend/components/PkpTab/base/BaseTabContent.vue';
+// PkpAccordion Components
+import PkpAccordionRoot from '@/frontend/components/PkpAccordion/PkpAccordionRoot.vue';
+import PkpAccordionItem from '@/frontend/components/PkpAccordion/PkpAccordionItem.vue';
+import PkpAccordionHeader from '@/frontend/components/PkpAccordion/PkpAccordionHeader.vue';
+import PkpAccordionContent from '@/frontend/components/PkpAccordion/PkpAccordionContent.vue';
 
 // Base Comments Components
 import BaseComments from '@/frontend/components/PkpComments/base/BaseComments.vue';
 import BaseCommentsLogInto from '@/frontend/components/PkpComments/base/BaseCommentsLogInto.vue';
-import BaseCommentsMessage from '@/frontend/components/PkpComments/base/BaseCommentsMessage.vue';
 import BaseCommentsMessageActions from '@/frontend/components/PkpComments/base/BaseCommentsMessageActions.vue';
-import BaseCommentsMessageAuthor from '@/frontend/components/PkpComments/base/BaseCommentsMessageAuthor.vue';
-import BaseCommentsMessageAuthorAffiliation from '@/frontend/components/PkpComments/base/BaseCommentsMessageAuthorAffiliation.vue';
-import BaseCommentsMessageAuthorName from '@/frontend/components/PkpComments/base/BaseCommentsMessageAuthorName.vue';
-import BaseCommentsMessageAuthorOrcid from '@/frontend/components/PkpComments/base/BaseCommentsMessageAuthorOrcid.vue';
-import BaseCommentsMessageBody from '@/frontend/components/PkpComments/base/BaseCommentsMessageBody.vue';
-import BaseCommentsMessageDate from '@/frontend/components/PkpComments/base/BaseCommentsMessageDate.vue';
-import BaseCommentsMessages from '@/frontend/components/PkpComments/base/BaseCommentsMessages.vue';
 import BaseCommentsNew from '@/frontend/components/PkpComments/base/BaseCommentsNew.vue';
 import BaseCommentsNewInput from '@/frontend/components/PkpComments/base/BaseCommentsNewInput.vue';
 import BaseCommentsNewSubmit from '@/frontend/components/PkpComments/base/BaseCommentsNewSubmit.vue';
 import BaseCommentsNotificationMessageNeedsApproval from '@/frontend/components/PkpComments/base/BaseCommentsNotificationMessageNeedsApproval.vue';
 import BaseCommentsNotificationNotLatest from '@/frontend/components/PkpComments/base/BaseCommentsNotificationNotLatest.vue';
-import BaseCommentsVersion from '@/frontend/components/PkpComments/base/BaseCommentsVersion.vue';
-import BaseCommentsVersionContent from '@/frontend/components/PkpComments/base/BaseCommentsVersionContent.vue';
-import BaseCommentsVersionHeader from '@/frontend/components/PkpComments/base/BaseCommentsVersionHeader.vue';
-import BaseCommentsVersionHeaderChevron from '@/frontend/components/PkpComments/base/BaseCommentsVersionHeaderChevron.vue';
-import BaseCommentsVersionHeaderLabel from '@/frontend/components/PkpComments/base/BaseCommentsVersionHeaderLabel.vue';
-import BaseCommentsVersionHeaderTrigger from '@/frontend/components/PkpComments/base/BaseCommentsVersionHeaderTrigger.vue';
-import BaseCommentsVersions from '@/frontend/components/PkpComments/base/BaseCommentsVersions.vue';
-import BaseScrollToComments from '@/frontend/components/PkpComments/base/BaseScrollToComments.vue';
 import BaseScrollToCommentsAllComments from '@/frontend/components/PkpComments/base/BaseScrollToCommentsAllComments.vue';
 import BaseScrollToCommentsLogInto from '@/frontend/components/PkpComments/base/BaseScrollToCommentsLogInto.vue';
 import BaseCommentReportDialog from '@/frontend/components/PkpComments/base/BaseCommentReportDialog.vue';
 import BaseCommentReportDialogAuthor from '@/frontend/components/PkpComments/base/BaseCommentReportDialogAuthor.vue';
-import BaseCommentReportDialogCommentText from '@/frontend/components/PkpComments/base/BaseCommentReportDialogCommentText.vue';
 import BaseCommentReportDialogReasonInput from '@/frontend/components/PkpComments/base/BaseCommentReportDialogReasonInput.vue';
 
 // Helper for initializing and tracking Vue controllers
@@ -122,45 +82,9 @@ VueRegistry.registerComponent('PkpIcon', PkpIcon);
 VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
 VueRegistry.registerComponent('PkpComments', PkpComments);
 VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
-
-// Register Base Button Components
-VueRegistry.registerComponent('BaseButton', BaseButton);
-
-// Register Base Textarea Components
-VueRegistry.registerComponent('BaseTextarea', BaseTextarea);
-VueRegistry.registerComponent('BaseTextareaInput', BaseTextareaInput);
-VueRegistry.registerComponent('BaseTextareaLabel', BaseTextareaLabel);
-
-// Register Base Dialog Components
-VueRegistry.registerComponent('BaseDialog', BaseDialog);
-VueRegistry.registerComponent(
-	'BaseDialogActionButtons',
-	BaseDialogActionButtons,
-);
-VueRegistry.registerComponent('BaseDialogBody', BaseDialogBody);
-VueRegistry.registerComponent('BaseDialogContent', BaseDialogContent);
-VueRegistry.registerComponent('BaseDialogOverlay', BaseDialogOverlay);
-VueRegistry.registerComponent('BaseDialogTitle', BaseDialogTitle);
-
-// Register Base Dropdown Menu Components
-VueRegistry.registerComponent('BaseDropdownMenu', BaseDropdownMenu);
-VueRegistry.registerComponent('BaseDropdownMenuItem', BaseDropdownMenuItem);
-VueRegistry.registerComponent(
-	'BaseDropdownMenuItemLabel',
-	BaseDropdownMenuItemLabel,
-);
-VueRegistry.registerComponent('BaseDropdownMenuItems', BaseDropdownMenuItems);
-VueRegistry.registerComponent(
-	'BaseDropdownMenuTrigger',
-	BaseDropdownMenuTrigger,
-);
-VueRegistry.registerComponent(
-	'BaseDropdownMenuTriggerIcon',
-	BaseDropdownMenuTriggerIcon,
-);
-
-// Register Base Icon Components
-VueRegistry.registerComponent('BaseIcon', BaseIcon);
+VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
+VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
+VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);
@@ -168,45 +92,19 @@ VueRegistry.registerComponent('PkpTabList', PkpTabList);
 VueRegistry.registerComponent('PkpTabTrigger', PkpTabTrigger);
 VueRegistry.registerComponent('PkpTabContent', PkpTabContent);
 
-// Register Base Tab Components
-VueRegistry.registerComponent('BaseTabRoot', BaseTabRoot);
-VueRegistry.registerComponent('BaseTabList', BaseTabList);
-VueRegistry.registerComponent('BaseTabTrigger', BaseTabTrigger);
-VueRegistry.registerComponent('BaseTabContent', BaseTabContent);
+// Register PkpAccordion Components
+VueRegistry.registerComponent('PkpAccordionRoot', PkpAccordionRoot);
+VueRegistry.registerComponent('PkpAccordionItem', PkpAccordionItem);
+VueRegistry.registerComponent('PkpAccordionHeader', PkpAccordionHeader);
+VueRegistry.registerComponent('PkpAccordionContent', PkpAccordionContent);
 
 // Register Base Comments Components
 VueRegistry.registerComponent('BaseComments', BaseComments);
 VueRegistry.registerComponent('BaseCommentsLogInto', BaseCommentsLogInto);
-VueRegistry.registerComponent('BaseCommentsMessage', BaseCommentsMessage);
 VueRegistry.registerComponent(
 	'BaseCommentsMessageActions',
 	BaseCommentsMessageActions,
 );
-VueRegistry.registerComponent(
-	'BaseCommentsMessageAuthor',
-	BaseCommentsMessageAuthor,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsMessageAuthorAffiliation',
-	BaseCommentsMessageAuthorAffiliation,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsMessageAuthorName',
-	BaseCommentsMessageAuthorName,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsMessageAuthorOrcid',
-	BaseCommentsMessageAuthorOrcid,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsMessageBody',
-	BaseCommentsMessageBody,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsMessageDate',
-	BaseCommentsMessageDate,
-);
-VueRegistry.registerComponent('BaseCommentsMessages', BaseCommentsMessages);
 VueRegistry.registerComponent('BaseCommentsNew', BaseCommentsNew);
 VueRegistry.registerComponent('BaseCommentsNewInput', BaseCommentsNewInput);
 VueRegistry.registerComponent('BaseCommentsNewSubmit', BaseCommentsNewSubmit);
@@ -218,29 +116,6 @@ VueRegistry.registerComponent(
 	'BaseCommentsNotificationNotLatest',
 	BaseCommentsNotificationNotLatest,
 );
-VueRegistry.registerComponent('BaseCommentsVersion', BaseCommentsVersion);
-VueRegistry.registerComponent(
-	'BaseCommentsVersionContent',
-	BaseCommentsVersionContent,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsVersionHeader',
-	BaseCommentsVersionHeader,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsVersionHeaderChevron',
-	BaseCommentsVersionHeaderChevron,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsVersionHeaderLabel',
-	BaseCommentsVersionHeaderLabel,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsVersionHeaderTrigger',
-	BaseCommentsVersionHeaderTrigger,
-);
-VueRegistry.registerComponent('BaseCommentsVersions', BaseCommentsVersions);
-VueRegistry.registerComponent('BaseScrollToComments', BaseScrollToComments);
 VueRegistry.registerComponent(
 	'BaseScrollToCommentsAllComments',
 	BaseScrollToCommentsAllComments,
@@ -256,10 +131,6 @@ VueRegistry.registerComponent(
 VueRegistry.registerComponent(
 	'BaseCommentReportDialogAuthor',
 	BaseCommentReportDialogAuthor,
-);
-VueRegistry.registerComponent(
-	'BaseCommentReportDialogCommentText',
-	BaseCommentReportDialogCommentText,
 );
 VueRegistry.registerComponent(
 	'BaseCommentReportDialogReasonInput',
@@ -311,6 +182,7 @@ export default {
 		usePkpModal,
 		usePkpLocalize,
 		usePkpDate,
+		usePkpStyles,
 	},
 	pkpCreateVueApp,
 	createApp,

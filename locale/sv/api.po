@@ -153,10 +153,6 @@ msgstr "Publikationen du vill offentliggöra är redan publicerad."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Publikationen du vill avpublicera är inte publicerad."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr ""
-"Du kan inte redigera denna publikation eftersom den redan är publicerad."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Du kan inte ändra status direkt genom APIet. Använd istället /publish och /"

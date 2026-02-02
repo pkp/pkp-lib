@@ -64,6 +64,12 @@ class Inbound
                         $newValue[] = $this->getAuthor($authorship);
                     }
                     break;
+                case 'sourceName':
+                    $newValue = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);
+                    if (empty($newValue)) {
+                        $newValue = ExternalServicesHelper::getValueFromArrayPath($response, ['locations', 0, 'raw_source_name']);
+                    }
+                    break;
                 case 'type':
                     $foundType = !empty($response[$mappedKey]) ? $response[$mappedKey] : $response['type'];
                     $newValue = $this->getTypeMapping($foundType);
@@ -100,6 +106,14 @@ class Inbound
         $displayName = $authorship['author']['display_name'];
         if (empty($displayName)) {
             $displayName = $authorship['raw_author_name'];
+        }
+
+
+        $firstNameFirst = explode(', ', trim($displayName));
+        if (count($firstNameFirst) > 1) {
+            $author['givenName'] = array_pop($firstNameFirst);
+            $author['familyName'] = trim($firstNameFirst[0]);
+            return $author;
         }
 
         $authorDisplayNameParts = explode(' ', trim($displayName));

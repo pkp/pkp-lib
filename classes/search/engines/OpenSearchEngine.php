@@ -21,7 +21,6 @@ use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
-use PKP\controlledVocab\ControlledVocab;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\search\parsers\SearchFileParser;
@@ -68,6 +67,9 @@ class OpenSearchEngine extends ScoutEngine
         $client = $this->getClient();
         $models->each(function ($submission) use ($client) {
             $publication = $submission->getCurrentPublication();
+            if (!$publication) {
+                return;
+            }
 
             // Index all galleys
             $submissionFiles = Repo::submissionFile()
@@ -106,7 +108,6 @@ class OpenSearchEngine extends ScoutEngine
                     $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
                 }
             }
-
             $json = [
                 'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
@@ -119,22 +120,12 @@ class OpenSearchEngine extends ScoutEngine
                     'datePublished' => $publication->getData('datePublished'),
                     'sectionId' => $publication->getData('sectionId'),
                     'categoryId' => $publication->getData('categoryIds'),
-                    'keyword' => array_merge(...array_values(array_filter(
-                        Repo::controlledVocab()->getBySymbolic(
-                            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-                            Application::ASSOC_TYPE_PUBLICATION,
-                            $submission->getCurrentPublication()->getId(),
-                            [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
-                        )
-                    ))),
-                    'subject' => array_merge(...array_values(array_filter(
-                        Repo::controlledVocab()->getBySymbolic(
-                            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-                            Application::ASSOC_TYPE_PUBLICATION,
-                            $submission->getCurrentPublication()->getId(),
-                            [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
-                        )
-                    )))
+                    'keyword' => collect($publication->getData('keywords'))
+                        ->map(fn ($items) => collect($items)->pluck('name')->all())
+                        ->all(),
+                    'subject' => collect($publication->getData('subjects'))
+                        ->map(fn ($items) => collect($items)->pluck('name')->all())
+                        ->all(),
                 ]
             ];
             // Give hooks a chance to alter the record before indexing
@@ -166,6 +157,7 @@ class OpenSearchEngine extends ScoutEngine
         $builder = clone $builder;
 
         $filter = [];
+        $sort = [];
         $query = [
             'index' => $this->getIndexName(),
             'body' => [
@@ -180,6 +172,7 @@ class OpenSearchEngine extends ScoutEngine
                         'filter' => &$filter,
                     ],
                 ],
+                'sort' => &$sort,
             ],
         ];
 
@@ -218,10 +211,10 @@ class OpenSearchEngine extends ScoutEngine
                         $filter[] = ['terms' => ['categoryId' => $list]];
                         break;
                     case 'keywords':
-                        $filter[] = ['terms' => ['keyword.keyword' => $list]];
+                        $filter[] = ['terms' => ['keyword.' . Locale::getLocale() . '.keyword' => $list]];
                         break;
                     case 'subjects':
-                        $filter[] = ['terms' => ['subject.keyword' => $list]];
+                        $filter[] = ['terms' => ['subject.' . Locale::getLocale() . '.keyword' => $list]];
                         break;
                     default: continue 2;
                 }
@@ -229,8 +222,28 @@ class OpenSearchEngine extends ScoutEngine
             unset($builder->whereIns[$field]);
         };
 
+        // Handle ordering
+        foreach ($builder->orders as $index => $order) {
+            switch ($order['column']) {
+                case 'datePublished':
+                    $sort[] = (object) [
+                        $order['column'] => (object) ['order' => $order['direction']]
+                    ];
+                    unset($builder->orders[$index]);
+                    break;
+                case 'title':
+                    $sort[] = (object) [
+                        'titles.' . Locale::getLocale() => (object) [
+                            'order' => $order['direction'],
+                        ]
+                    ];
+                    unset($builder->orders[$index]);
+                    break;
+            }
+        }
+
         // Allow hook registrants to process and consume additional query builder elements
-        Hook::run('OpenSearchEngine::buildQuery', ['query' => &$query, 'filter' => &$filter, 'builder' => $builder, 'originalBuilder' => $originalBuilder]);
+        Hook::run('OpenSearchEngine::buildQuery', ['query' => &$query, 'filter' => &$filter, 'sort' => &$sort, 'builder' => $builder, 'originalBuilder' => $originalBuilder]);
 
         // Ensure that the query builder was completely consumed (there were no unsupported details provided)
         if (!empty($builder->whereIns)) {
@@ -242,11 +255,14 @@ class OpenSearchEngine extends ScoutEngine
         if (!empty($builder->options)) {
             throw new \Exception('Unsupported option: ' . json_encode($builder->options));
         }
+        if (!empty($builder->orders)) {
+            throw new \Exception('Unsupported order-by: ' . json_encode($builder->orders));
+        }
 
         return $query;
     }
 
-    public function search(Builder $builder)
+    public function search(Builder $builder): array
     {
         $client = $this->getClient();
         $results = $client->search($this->buildQuery($builder));
@@ -297,22 +313,67 @@ class OpenSearchEngine extends ScoutEngine
 
     public function createIndex($name, array $options = [])
     {
+        // Determine all metadata locales supported by the site
+        $metadataLocales = [];
+        $contexts = Application::get()->getContextDAO()->getAll();
+        while ($context = $contexts->next()) {
+            $metadataLocales = [...$metadataLocales, ...$context->getSupportedSubmissionMetadataLocales()];
+        }
+        $metadataLocales = array_unique($metadataLocales);
+
+        $typicalKeywordClause = fn ($fielddata = false) => [
+            'properties' => [
+                ...array_map(fn ($e) => [
+                    'type' => 'text',
+                    'fielddata' => $fielddata,
+                    'fields' => [
+                        'keyword' => [
+                            'type' => 'keyword',
+                        ],
+                    ],
+                ], array_flip($metadataLocales)),
+            ],
+        ];
+
+        $mapping = [
+            'index' => $this->getIndexName(),
+            'body' => [
+                'mappings' => [
+                    'properties' => [
+                        'abstracts' => $typicalKeywordClause(),
+                        'titles' => $typicalKeywordClause(true),
+                        'authors' => $typicalKeywordClause(),
+                        'categoryId' => ['type' => 'long'],
+                        'contexetId' => ['type' => 'long'],
+                        'datePublished' => ['type' => 'date'],
+                        'keyword' => $typicalKeywordClause(),
+                        'subject' => $typicalKeywordClause(),
+                        'sectionId' => ['type' => 'long'],
+                    ],
+                ],
+            ],
+        ];
+
+        if (Hook::run('OpenSearchEngine::createIndex', ['mapping' => &$mapping]) !== Hook::ABORT) {
+            $this->getClient()->indices()->create($mapping);
+        }
     }
 
     public function deleteIndex($name)
     {
         $client = $this->getClient();
         $client->indices()->delete([
-            'index' => $name,
+            'index' => $this->getIndexName(),
         ]);
     }
 
     public function flush($model)
     {
+        $client = $this->getClient();
         try {
-            $this->deleteIndex($this->getIndexName());
-        } catch (\OpenSearch\Common\Exceptions\Missing404Exception $e) {
-            // Don't worry about missing indexes.
+            $client->indices()->flush(['index' => $this->getIndexName()]);
+        } catch (\Throwable $t) {
+            // Ignore errors
         }
     }
 }

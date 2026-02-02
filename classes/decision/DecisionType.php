@@ -38,6 +38,7 @@ use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
+use PKP\editorialTask\Template;
 use PKP\validation\ValidatorFactory;
 
 abstract class DecisionType
@@ -203,7 +204,7 @@ abstract class DecisionType
             Repo::submission()->updateStatus($submission, $this->getNewStatus());
         }
 
-        $newStageId = $this->getNewStageId($submission, (int)$decision->getData('reviewRoundId'));
+        $newStageId = $this->getNewStageId($submission, (int) $decision->getData('reviewRoundId'));
 
         if ($newStageId) {
             $submission->setData('stageId', $newStageId);
@@ -224,6 +225,7 @@ abstract class DecisionType
                     $reviewRoundDao->updateStatus($reviewRound, null);
                 }
             }
+            Repo::editorialTask()->autoCreateFromTemplates($submission, (int) $newStageId);
         }
 
         // Change review round status when a decision is taken in a review stage

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/mailable/Repository.php
  *
@@ -276,6 +277,7 @@ class Repository
             mailables\UserRoleEndNotify::class,
             mailables\ValidateEmailContext::class,
             mailables\ValidateEmailSite::class,
+            mailables\RequestReviewRoundAuthorResponse::class,
         ]);
     }
 }

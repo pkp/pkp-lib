@@ -26,11 +26,13 @@ use Illuminate\Support\Str;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
 use PKP\note\Note;
+use PKP\note\SaveNoteWithFiles;
 use PKP\notification\Notification;
 
 class EditorialTask extends Model
 {
     use ModelWithSettings;
+    use SaveNoteWithFiles;
 
     // Allow filling and saving related model through the 'participants' Model attribute
     public const ATTRIBUTE_PARTICIPANTS = 'participants';
@@ -122,6 +124,14 @@ class EditorialTask extends Model
             $attributes = $this->fillParticipants($attributes);
         }
 
+        if (isset($attributes[self::ATTRIBUTE_TEMPORARY_FILE_IDS])) {
+            $attributes = $this->fillTemporaryFiles($attributes);
+        }
+
+        if (isset($attributes[self::ATTRIBUTE_SUBMISSION_FILE_IDS])) {
+            $attributes = $this->fillSubmissionFiles($attributes);
+        }
+
         return parent::fill($attributes);
     }
 
@@ -138,7 +148,20 @@ class EditorialTask extends Model
         }
 
         $this->saveParticipants($exists);
-        $this->saveHeadnote();
+        $headnote = $this->saveHeadnote();
+
+        // If attributes representing associated files weren't passed, don't do anything
+        if (!is_array($this->temporaryFiles) && !is_array($this->submissionFiles)) {
+            return $success;
+        }
+
+        // Check if there is a current or existing headnote to manage files for
+        $headnote = $headnote ?? $this->notes()->where('is_headnote', true)->first();
+        if (!$headnote) {
+            return $success;
+        }
+
+        $this->manageFiles($headnote);
 
         return $success;
     }
@@ -326,7 +349,6 @@ class EditorialTask extends Model
         return $attributes;
     }
 
-
     /**
      * Save participants into a separate table.
      *
@@ -383,23 +405,24 @@ class EditorialTask extends Model
      * Save headnote into a separate table.
      *
      */
-    protected function saveHeadnote(): void
+    protected function saveHeadnote(): ?Note
     {
         if (!is_a($this->headnote, Note::class)) {
-            return;
+            return null;
         }
 
         // Check whether a headnote already exists
         $headnote = $this->notes()->where('is_headnote', true)->first();
 
         if (!$headnote) {
-            $this->notes()->save($this->headnote);
-            return;
+            return $this->notes()->save($this->headnote);
         }
 
         $headnote->update([
             'contents' => $this->headnote->contents,
             'dateModified' => now(),
         ]);
+
+        return $headnote;
     }
 }

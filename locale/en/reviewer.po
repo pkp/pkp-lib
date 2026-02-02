@@ -194,3 +194,54 @@ msgstr ""
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "The review was not completed."
+
+msgid "openReview.sortBy"
+msgstr "Sort by:"
+
+msgid "openReview.sortByReviewerName"
+msgstr "Reviewer Name"
+
+msgid "openReview.reportsByRecord"
+msgstr "Reviewer Reports by Record"
+
+msgid "openReview.reportsByReviewer"
+msgstr "Reviewer Reports by Reviewer"
+
+msgid "openReview.reviewerCount"
+msgstr "{$count} Reviewers"
+
+msgid "openReview.reviewCount"
+msgstr "{$count} Reviews"
+
+msgid "openReview.fullReview"
+msgstr "Full Review"
+
+msgid "openReview.noCommentsAvailable"
+msgstr "No review comments available."
+
+msgid "openReview.readReview"
+msgstr "Read Review"
+
+msgid "openReview.title"
+msgstr "Peer Review"
+
+msgid "openReview.reviewersContributed"
+msgstr "reviewers contributed to this article"
+
+msgid "openReview.howDecisionsSummarized"
+msgstr "How are reviewer decisions summarized?"
+
+msgid "openReview.howDecisionsSummarizedDescription"
+msgstr "Each reviewer's most recent decision is counted. If a reviewer participated in multiple review rounds, only their latest completed review is included in the summary."
+
+msgid "openReview.versionsPublished"
+msgstr "There have been {$count} versions published."
+
+msgid "openReview.currentVersion"
+msgstr "Current Version:"
+
+msgid "openReview.reviewModel"
+msgstr "Review Model:"
+
+msgid "openReview.seeFullRecord"
+msgstr "See full peer review record"

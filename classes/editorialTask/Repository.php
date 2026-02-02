@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -191,6 +192,47 @@ class Repository
             $submission->getData('contextId')
         );
     }
+
+    public function autoCreateFromTemplates(Submission $submission, int $stageId): void
+    {
+        $contextId = (int) $submission->getData('contextId');
+
+        $templates = Template::query()
+            ->byContextId($contextId)
+            ->filterByStageId($stageId)
+            ->filterByInclude(true)
+            ->get();
+
+        foreach ($templates as $template) {
+            $templateId = (int) $template->id;
+
+            if ($this->taskAlreadyCreatedFromTemplate($submission->getId(), $templateId)) {
+                continue;
+            }
+
+            $task = $template->promote($submission, false); // no participants
+
+            $maxSeq = (float) (EditorialTask::query()
+                ->where('assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
+                ->where('assoc_id', $submission->getId())
+                ->max('seq') ?? 0);
+
+            $task->seq = $maxSeq + 1;
+
+            // createdBy left as default (NULL) for system-created tasks
+            $task->save();
+        }
+    }
+
+    private function taskAlreadyCreatedFromTemplate(int $submissionId, int $templateId): bool
+    {
+        return DB::table('edit_tasks')
+            ->where('assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
+            ->where('assoc_id', $submissionId)
+            ->where('edit_task_template_id', $templateId)
+            ->exists();
+    }
+
 
     /**
      * Deletes all tasks, notes, and notifications associated with the given submission ID.

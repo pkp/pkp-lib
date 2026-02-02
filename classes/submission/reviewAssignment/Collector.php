@@ -58,6 +58,8 @@ class Collector implements CollectorInterface, ViewsCount
     public ?string $orderByContextIdDirection = null;
     public bool $orderBySubmissionId = false;
     public ?string $orderBySubmissionIdDirection = null;
+    public ?array $publicationIds = null;
+    public ?bool $isPubliclyVisible = null;
 
     public function __construct(DAO $dao)
     {
@@ -159,6 +161,15 @@ class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
+     * Filter review assignments based on their publicly visibility.
+     */
+    public function filterByIsPubliclyVisible(?bool $isPubliclyVisible): static
+    {
+        $this->isPubliclyVisible = $isPubliclyVisible;
+        return $this;
+    }
+
+    /**
      * Filter by completed review assignments, applies for all submissions stages, except submission is published (see filterByPublished)
      */
     public function filterByCompleted(bool $isCompleted): static
@@ -239,6 +250,14 @@ class Collector implements CollectorInterface, ViewsCount
         return $this;
     }
 
+    /**
+     * Filter review assignments by associated publication IDs.
+     */
+    public function filterByPublicationIds(?array $publicationIds): static
+    {
+        $this->publicationIds = $publicationIds;
+        return $this;
+    }
     /**
      * Filter by recommendations
      */
@@ -322,6 +341,17 @@ class Collector implements CollectorInterface, ViewsCount
             $this->submissionIds !== null,
             fn (Builder $q) =>
             $q->whereIn('ra.submission_id', $this->submissionIds)
+        );
+
+        $q->when(
+            $this->publicationIds !== null,
+            fn (Builder $q) => $q
+                ->whereExists(
+                    fn (Builder $sq) => $sq
+                        ->from('review_rounds AS rr')
+                        ->whereColumn('rr.review_round_id', 'ra.review_round_id')
+                        ->whereIn('rr.publication_id', $this->publicationIds)
+                )
         );
 
         $q->when($this->isLastReviewRound || $this->isIncomplete, function (Builder $q) {
@@ -583,6 +613,12 @@ class Collector implements CollectorInterface, ViewsCount
                 'ra.submission_id',
                 $this->orderBySubmissionIdDirection
             )
+        );
+
+        $q->when(
+            isset($this->isPubliclyVisible),
+            fn (Builder $q) =>
+            $q->where('ra.is_review_publicly_visible', $this->isPubliclyVisible ? 1 : 0)
         );
 
         return $q;

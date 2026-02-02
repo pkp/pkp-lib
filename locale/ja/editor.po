@@ -1,9 +1,9 @@
 # Emma U <emmaupkp@gmail.com>, 2021.
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
-# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-18 07:16+0000\n"
+"PO-Revision-Date: 2026-01-09 01:22+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ja/>\n"
@@ -595,3 +595,6 @@ msgstr "{$stepName} ステップで問題が発生しました。"
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "著者と同じ所属機関"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "査読者候補から査読者を選択してください"

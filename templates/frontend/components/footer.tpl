@@ -52,5 +52,8 @@
 {load_script context="frontend"}
 
 {call_hook name="Templates::Common::Footer::PageFooter"}
+
+{* SVG icon sprite - rendered at end so all icons from page content are collected *}
+{include file="frontend/components/svg-icon-sprite.blade"}
 </body>
 </html>

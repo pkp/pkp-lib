@@ -156,9 +156,6 @@ msgstr "Dərc etmək istədiyiniz nəşr artıq dərc olunub."
 msgid "api.publication.403.alreadyUnpublished"
 msgstr "Ləğv etmək istədiyiniz nəşr dərc olunmayıb."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Siz bu nəşri redaktə edə bilməzsiniz, çünki o, artıq dərc olunub."
-
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Siz statusu birbaşa API vasitəsilə dəyişdirə bilməzsiniz. Bunun əvəzinə, /"

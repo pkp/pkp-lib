@@ -267,8 +267,6 @@ class LoginHandler extends Handler
         $email = (string) $request->getUserVar('email');
         $rateLimiter = app()->get(RateLimitingService::class);
 
-        // Rate limiting uses IP+email to allow institutional users behind NAT
-        // to request resets independently (prevents cross-user blocking)
         if ($rateLimiter->isRateLimitEnabled() && $rateLimiter->isPasswordResetLimited($ip, $email)) {
             $rateLimiter->applyRateLimitDelay(); // Apply artificial delay to prevent timing attacks
 

@@ -71,6 +71,7 @@ class UserCommentComponent
             'MoreOptions',
             'Orcid',
             'OrcidUnauthenticated',
+            'ChevronDown'
         ];
     }
 

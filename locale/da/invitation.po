@@ -1,2 +1,110 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-02-02 18:37+0000\n"
+"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/da/>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Brugergruppen er tildelt den inviterede bruger"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "De angivne brugergrupper indeholder dubletter."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Der skal angives en adgangskode"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Inviter til en rolle"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Inviter brugeren til at påtage sig en rolle"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Indtast oplysninger og inviter til roller"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Gem og fortsæt"
+
+msgid "invitation.role.selectRole"
+msgstr "Vælg en ny rolle"
+
+msgid "invitation.role.dateStart"
+msgstr "Startdato"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Startdato"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Slutdato"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Gennemgå og invitér til roller"
+
+msgid "userInvitation.modal.button"
+msgstr "Se alle brugere"
+
+msgid "invitation.email.description"
+msgstr "f.eks. aeinstein@example.com"
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Der skal angives et brugernavn"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Mindst én brugergruppe, der skal tilføjes, skal defineres"
+
+msgid "invitation.role.dateEnd"
+msgstr "Slutdato"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Fjernelse af brugerroller kan ikke gennemføres for brugere, der ikke "
+"eksisterer."
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Inviter brugeren til rollen"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Der er allerede en eksisterende bruger med brugernavnet {$username}. Prøv en "
+"anden."
+
+msgid "userInvitation.modal.title"
+msgstr "Invitationen er sendt"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Når en invitation har et bruger-id ({$userId}) tildelt, skal den tilsvarende "
+"bruger eksistere."
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Et land skal angives"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Denne invitation kan ikke annulleres"
+
+msgid "invitation.header"
+msgstr "Invitationer"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Gennemgå og invitér til roller"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Når brugeren accepterer invitationen, vil vedkommende blive omdirigeret til "
+"ORCID for at verificere sin konto, hvis vedkommende ønsker det."
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Hvis brugeren ikke findes, kan du invitere dem til at påtage sig roller. "
+"Hvis brugeren allerede findes i systemet, kan du se deres oplysninger og "
+"invitere dem til at påtage sig yderligere roller."
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Indtast oplysninger"

@@ -44,7 +44,6 @@ class PublicationPeerReviewSummaryResource extends JsonResource
             ->filterByPublicationIds($allAssociatedPublicationIds)
             ->getMany();
 
-        $currentPublication = $submission->getCurrentPublication();
         $publishedPublications = $submission->getPublishedPublications();
 
         return [
@@ -54,10 +53,7 @@ class PublicationPeerReviewSummaryResource extends JsonResource
             'submissionPublishedVersionsCount' => count($publishedPublications),
             'reviewerCount' => $this->getReviewerCount($reviewAssignments),
             // Latest published publication for the submission associated with this publication
-            'submissionCurrentVersion' => $currentPublication ? [
-                'title' => $currentPublication->getLocalizedTitle(),
-                'datePublished' => $currentPublication->getData('datePublished'),
-            ] : null
+            'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($submission),
         ];
     }
 }

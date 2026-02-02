@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2026-01-29 15:31+0000\n"
+"PO-Revision-Date: 2026-02-02 12:40+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
@@ -592,16 +592,16 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
 msgstr "Rezerve Edildi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Mevcut"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Oluşturulduğu Zaman"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Hata Verdiği Zaman"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "İstisna Mesajı"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Sayfalandırma"
@@ -617,18 +617,22 @@ msgstr "Sonraki"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Bu komutu kullanmak için en az bir İş Kimliği, '--all' veya '--queue=' "
+"parametresi vermelisiniz"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
-msgstr ""
+msgstr "{$queueName} adlı kuyrukta başarısız olacak şekilde gönderilen test işi"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
-msgstr ""
+msgstr "{$queueName} adlı kuyrukta başarılı olacak şekilde gönderilen test işi"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Geçersiz test işi seçeneği. '--only=' seçeneği yalnızca 'failed' veya "
+"'success' değerlerini alabilir."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Geçersiz iş kimliği"
 
 msgid "admin.cli.tool.jobs.purge.successful"
 msgstr ""

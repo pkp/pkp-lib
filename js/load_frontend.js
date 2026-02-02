@@ -117,10 +117,6 @@ VueRegistry.registerComponent(
 	BaseCommentsNotificationNotLatest,
 );
 VueRegistry.registerComponent(
-	'BaseCommentsVersionHeaderLabel',
-	BaseCommentsVersionHeaderLabel,
-);
-VueRegistry.registerComponent(
 	'BaseScrollToCommentsAllComments',
 	BaseScrollToCommentsAllComments,
 );

@@ -39,6 +39,7 @@ import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
 import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpCommentReportDialog.vue';
 import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue';
 import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
+import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
 
 // PkpTab Components
 import PkpTabRoot from '@/frontend/components/PkpTab/PkpTabRoot.vue';
@@ -84,6 +85,7 @@ VueRegistry.registerComponent('PkpComments', PkpComments);
 VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
 VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
 VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
+VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);

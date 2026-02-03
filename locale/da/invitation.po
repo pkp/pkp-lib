@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-03 10:12+0000\n"
+"PO-Revision-Date: 2026-02-03 10:30+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/da/>\n"
@@ -127,9 +127,74 @@ msgid "invitation.tableHeader.name"
 msgstr "Navn"
 
 msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Der skal angives en tilknytning (en affiliering ?)"
+msgstr "Der skal angives en tilknytning"
 
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
 "Når en invitation har en tilknyttet e-mail ({email}), må denne e-mail-"
 "adresse ikke være i brug af en anden bruger."
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Der skal angives et fornavn"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Der skal angives en startdato for tilføjede brugergrupper"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Der skal angives en kolofon for tilføjede brugergrupper"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Denne invitationstype har ikke et defineret mail-indhold"
+
+msgid "invitation.validation.required"
+msgstr "{$attribute}-feltet er påkrævet."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Der blev fundet uventede egenskaber i elementet ved indeks {$attribute}: "
+"{$properties}."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Denne attribut må ikke tilgås af eksisterende brugere"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Denne attribut må ikke tilgås af ikke-eksisterende brugere"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Denne attribut skal have en værdi lig med eller efter i dag"
+
+msgid "invitation.step"
+msgstr "TRIN"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Angiv detaljer"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Søg efter bruger"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Der skal angives et efternavn"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Der skal angives et brugergruppe-id for tilføjede brugergrupper"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Denne invitationshandling fejlede"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Det angivne brugergruppe-ID {$userGroupId} eksisterer ikke"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "ID'et {reviewAssignmentId} svarer ikke til en gyldig bedømmelsesopgave"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Du kan ikke angive både e-mail og bruger-ID sammen."
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Attribut-feltet er forbudt"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "En værdi på sproget '{$primaryLocale}' er påkrævet"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Søg efter bruger"

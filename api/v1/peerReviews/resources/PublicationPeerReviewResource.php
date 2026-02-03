@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Enumerable;
+use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\reviewForm\ReviewFormDAO;
@@ -29,6 +30,7 @@ use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
@@ -87,6 +89,8 @@ class PublicationPeerReviewResource extends JsonResource
             ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
             ->sortKeys();
 
+        $roundResponses = AuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
+
         foreach ($reviewsGroupedByRoundId as $roundId => $assignments) {
             $reviewRound = $reviewRoundsKeyedById->get($roundId);
 
@@ -96,11 +100,15 @@ class PublicationPeerReviewResource extends JsonResource
             ]) :
                 $publication->getData('versionString');
 
+            /** @var ?AuthorResponse $currentRoundResponse */
+            $currentRoundResponse = $roundResponses->get($roundId)?->first();
+
             $roundsData->add([
                 'displayText' => $roundDisplayText,
                 'roundId' => $reviewRound->getData('id'),
                 'originalPublicationId' => $reviewRound->getPublicationId(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context),
+                'authorResponses' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
             ]);
         }
 

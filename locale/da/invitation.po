@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"PO-Revision-Date: 2026-02-03 10:12+0000\n"
 "Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/da/>\n"
@@ -125,3 +125,6 @@ msgstr "Annuller invitation"
 
 msgid "invitation.tableHeader.name"
 msgstr "Navn"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Der skal angives en tilknytning (en affiliering ?)"

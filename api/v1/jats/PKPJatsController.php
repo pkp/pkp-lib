@@ -204,8 +204,7 @@ class PKPJatsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        Repo::submissionFile()
-            ->delete($jatsFile->submissionFile);
+        Repo::jats()->deleteJatsFile($publication->getId(), $submission->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());

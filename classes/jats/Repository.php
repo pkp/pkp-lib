@@ -44,6 +44,7 @@ class Repository
         }
 
         $fileProps['isDefaultContent'] = $jatsFile->isDefaultContent;
+        $fileProps['revisionCount'] = $jatsFile->revisionCount;
 
         if ($jatsFile->loadingContentError) {
             $fileProps['loadingContentError'] = $jatsFile->loadingContentError;
@@ -114,7 +115,11 @@ class Repository
     }
 
     /**
-     * Base function that will add a new JATS file
+     * Add or update a JATS file for a publication.
+     *
+     * If a JATS file already exists, this creates a new revision by updating
+     * the existing record (which automatically creates a revision record) .
+     * If no JATS file exists, creates a new one.
      */
     public function addJatsFile(
         string $fileTmpName,
@@ -130,15 +135,12 @@ class Repository
         $context = Application::get()->getRequest()->getContext();
         $user = Application::get()->getRequest()->getUser();
 
-        // If no genre has been set and there is only one genre possible, set it automatically
         /** @var GenreDAO */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
+        // Check if a JATS file already exists
         $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
-        if (!$existingJatsFile->isDefaultContent) {
-            throw new Exception('A JATS file already exists');
-        }
 
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($fileName);
@@ -154,51 +156,80 @@ class Repository
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
 
-        $params['fileId'] = $fileId;
-        $params['submissionId'] = $submission->getId();
-        $params['uploaderUserId'] = $user->getId();
-        $params['fileStage'] = $type;
-
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getData('supportedSubmissionLocales');
 
-        $params['name'] = null;
-        $params['name'][$primaryLocale] = $fileName;
+        // REVISION: If JATS file already exists, UPDATE it which also creates revision automatically
+        if (!$existingJatsFile->isDefaultContent && $existingJatsFile->submissionFile) {
+            Repo::submissionFile()->edit(
+                $existingJatsFile->submissionFile,
+                [
+                    'fileId' => $fileId,
+                    'uploaderUserId' => $user->getId(),
+                    'name' => [$primaryLocale => $fileName],
+                ]
+            );
+        } else {
+            // FIRST UPLOAD: Create new submission file record
+            $params['fileId'] = $fileId;
+            $params['submissionId'] = $submission->getId();
+            $params['uploaderUserId'] = $user->getId();
+            $params['fileStage'] = $type;
+            $params['name'] = [$primaryLocale => $fileName];
 
-        if (empty($params['genreId'])) {
-
-            [$firstGenre, $secondGenre] = [$genres->next(), $genres->next()];
-            if ($firstGenre && !$secondGenre) {
-                $params['genreId'] = $firstGenre->getId();
+            if (empty($params['genreId'])) {
+                [$firstGenre, $secondGenre] = [$genres->next(), $genres->next()];
+                if ($firstGenre && !$secondGenre) {
+                    $params['genreId'] = $firstGenre->getId();
+                }
             }
-        }
 
-        $params['assocType'] = Application::ASSOC_TYPE_PUBLICATION;
-        $params['assocId'] = $publication->getId();
+            $params['assocType'] = Application::ASSOC_TYPE_PUBLICATION;
+            $params['assocId'] = $publication->getId();
 
-        $errors = Repo::submissionFile()
-            ->validate(
+            $errors = Repo::submissionFile()->validate(
                 null,
                 $params,
                 $allowedLocales,
                 $primaryLocale
             );
 
-        if (!empty($errors)) {
-            app()->get('file')->delete($fileId);
-            throw new Exception('' . implode(', ', $errors));
+            if (!empty($errors)) {
+                app()->get('file')->delete($fileId);
+                throw new Exception(print_r($errors, true));
+            }
+
+            $submissionFile = Repo::submissionFile()->newDataObject($params);
+            Repo::submissionFile()->add($submissionFile);
         }
 
-        $submissionFile = Repo::submissionFile()
-            ->newDataObject($params);
+        // Return fresh JatsFile
+        return $this->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+    }
 
-        $submissionFileId = Repo::submissionFile()
-            ->add($submissionFile);
+    /**
+     * Delete the JATS file for a publication.
+     *
+     * @param int $publicationId The publication ID
+     * @param int|null $submissionId Optional submission ID filter
+     */
+    public function deleteJatsFile(int $publicationId, ?int $submissionId = null): void
+    {
+        $query = Repo::submissionFile()
+            ->getCollector()
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_JATS])
+            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publicationId]);
 
-        $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+        if ($submissionId) {
+            $query = $query->filterBySubmissionIds([$submissionId]);
+        }
 
-        return $jatsFile;
+        $jatsFile = $query->getMany()->first();
+
+        if ($jatsFile) {
+            // Delete the single record (revisions cascade via FK)
+            Repo::submissionFile()->delete($jatsFile);
+        }
     }
 
     /**

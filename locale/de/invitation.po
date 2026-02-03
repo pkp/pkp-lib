@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-03 10:30+0000\n"
+"PO-Revision-Date: 2026-02-03 10:31+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/de/>\n"
@@ -192,3 +192,12 @@ msgstr "Startdatum"
 
 msgid "userInvitation.roleTable.endDate"
 msgstr "Enddatum"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Überprüfen & zu Rollen einladen"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Benutzer/in zu der Rolle einladen"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - An Benutzer/in versandte E-Mail anpassen"

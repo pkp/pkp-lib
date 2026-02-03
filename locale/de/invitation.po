@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"PO-Revision-Date: 2026-02-03 10:30+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/de/>\n"
@@ -110,3 +110,85 @@ msgstr "Sie können E-Mail und Benutzer/innen-ID nicht zusammen angeben."
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
 msgstr "Das Attribut darf für existierende Benutzer/innen nicht zugänglich sein"
+
+msgid "invitation.header"
+msgstr "Einladungen"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Überprüfen & zu Rollen einladen"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Wenn ein/e Benutzer/in nicht existiert, können Sie die Person dazu einladen, "
+"Rollen anzunehmen. Existiert der/die Benutzer/in bereits im System, können "
+"Sie die zugehörigen Informationen einsehen and die Person dazu einladen, "
+"weitere Rollen anzunehmen."
+
+msgid "invitation.role.selectRole"
+msgstr "Eine neue Rolle auswählen"
+
+msgid "invitation.role.addRole.button"
+msgstr "Eine weitere Rolle hinzufügen"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr ""
+"Das Attribut darf für nicht existierende Benutzer/innen nicht zugänglich sein"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr ""
+"Dieses Attribut muss einen Wert haben, der gleich oder später als heute ist"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Das :attribute Feld ist nicht zulässig"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr ""
+"Ein Wert für die Regionaleinstellung '{$primaryLocale}' ist erforderlich"
+
+msgid "invitation.step"
+msgstr "SCHRITT"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Zu einer Rolle einladen"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Benutzer/in zum Annehmen einer Rolle einladen"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Details eingeben"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Benutzer/in suchen"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Benutzer/in suchen"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Benutzer/in suchen"
+
+msgid "userInvitation.searchField.description"
+msgstr "z.B. aeinstein@beispiel.de oder aeinstein oder 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Details eingeben"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Details eingeben und zu Rollen einladen"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Speichern und fortfahren"
+
+msgid "invitation.role.dateStart"
+msgstr "Startdatum"
+
+msgid "invitation.role.dateEnd"
+msgstr "Enddatum"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rolle"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Startdatum"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Enddatum"

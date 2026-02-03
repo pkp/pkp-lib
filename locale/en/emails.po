@@ -707,3 +707,41 @@ msgstr "This is the decline invitation URL"
 
 msgid "emails.modifyEmailSharedWithUser"
 msgstr "Modify email shared with the user"
+#, fuzzy
+msgid "mailable.reviewerAccessInvitationNotify.name"
+msgstr "User Invited to Review Notification"
+
+#, fuzzy
+msgid "mailable.reviewerAccessInvitationNotify.description"
+msgstr "This email is sent to users that are invited to review certain submissions"
+
+#, fuzzy
+msgid "emails.reviewerAccessInvitationNotify.subject"
+msgstr "You are invited to new submission reviews"
+
+#, fuzzy
+msgid "emails.reviewerAccessInvitationNotify.body"
+msgstr ""
+"<div class='email-container'>"
+"    <div class='email-content'>"
+"        <p>Hello {$recipientName},</p>"
+"        <p>I believe that you would serve as an excellent reviewer of the manuscript, \"{$submissionTitle}\", which has been submitted to {$contextName}. I hope that you will consider undertaking this important task for us.</p>"
+"        <h2>About Submission</h2>"
+"        <div><b>Title</b> {$submissionTitle} </div>"
+"        <div><b>Abstract</b> {$submissionAbstract} </div>"
+"        <p>As part of our journal policy, we will redirect you to ORCID to verify your ORCID iD when you accept the invitation and start with our journal, in the spirit of creating a transparent and authenticated environment for our readers.</p>"
+"        <p>At {$contextName}, we value your privacy. As such, we have taken steps to ensure that we are fully GDPR compliant. These steps include you being accountable for entering your own data and choosing who can see what information. For additional information on how we handle your data, please refer to our <a href=\"{$privacyUrl}\" target=\"_blank\">Privacy Policy</a>.</p>"
+"        <p>If you decide to accept our invitation to review, you will need to click on the link below before {$expireDate} to indicate whether you will undertake the review, access the submission, and record your review and recommendation. If you do not have an account, clicking the link will redirect you to a form that will help you create your account. You can then access the submission and record your review recommendation.</p>"
+"        <p>On accepting the invitation, you will be redirected to {$contextName}.</p>"
+"        <p>Feel free to contact me with any questions about the process.</p>"
+"        <p><a href='{$acceptUrl}' class='btn btn-accept'>Accept Invitation</a></p>"
+"        <p><a href='{$declineUrl}' class='btn btn-decline'>Decline Invitation</a></p>"
+"        <div><b>The review itself due</b> {$reviewDueDate} </div>"
+"        <p>Kind regards,</p>"
+"        <p>{$contextName}</p>"
+"    </div>"
+"</div>"
+"<style>"
+"{$emailTemplateStyle}"
+"</style>"
+

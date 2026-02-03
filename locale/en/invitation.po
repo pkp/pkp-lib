@@ -221,10 +221,10 @@ msgid "acceptInvitation.accountDetails.nextButtonLabel"
 msgstr "Save and continue"
 
 msgid "acceptInvitation.userDetails.stepName"
-msgstr "Enter details"
+msgstr "User details"
 
 msgid "acceptInvitation.userDetails.stepLabel"
-msgstr "{$step} - Enter details"
+msgstr "{$step} - User details"
 
 msgid "acceptInvitation.userDetails.stepDescription"
 msgstr "Enter your details like email ID, affiliation etc. As per the GDPR compliance, this information can only modified by you. You can also choose if you want this information to be visible on your profile to the editor."
@@ -239,10 +239,10 @@ msgid "acceptInvitation.userDetails.form.description"
 msgstr "Please provide the following details to help us to manage your account"
 
 msgid "acceptInvitation.detailsReview.stepName"
-msgstr "Review & create account"
+msgstr "Review & accept invitation"
 
 msgid "acceptInvitation.detailsReview.stepLabel"
-msgstr "{$step} - Review & create account"
+msgstr "{$step} - Review & accept invitation"
 
 msgid "acceptInvitation.skipVerifyOrcid"
 msgstr "Skip ORCID verification"
@@ -263,7 +263,7 @@ msgid "acceptInvitation.privacyStatement.btn"
 msgstr "Privacy Statement"
 
 msgid "acceptInvitation.userDetailsForm.givenName.description"
-msgstr "Also known as a forename or the first name, it is tha part of a personal name that identifies a person."
+msgstr "Also known as a forename or first name, it is the part of a personal name that identifies a person."
 
 msgid "acceptInvitation.userDetailsForm.familyName.description"
 msgstr "A surname, family name, or last name is the mostly hereditary portion of one's personal name that indicates one's family."
@@ -387,4 +387,110 @@ msgstr "The user was disabled. You cannot assign them a role while they are disa
 
 msgid "acceptInvitation.privacyConsent"
 msgstr "Privacy Consent"
+
+msgid "reviewerInvitation.wizard.pageTitle"
+msgstr "Add Reviewer"
+
+msgid "reviewerInvitation.wizard.pageTitle.existingReviewer"
+msgstr "Enroll Existing Reviewer"
+
+msgid "reviewerInvitation.wizard.pageTitle.newUser"
+msgstr "Create a new reviewer"
+
+msgid "reviewerInvitation.wizard.pageTitle.existingUser"
+msgstr "Enroll existing user as a reviewer"
+
+msgid "reviewerInvitation.wizard.pageTitleDescription.existingUser"
+msgstr "You are inviting an existing user to take a reviewer role in OJS"
+
+msgid "reviewerInvitation.wizard.pageTitleDescription.newUser"
+msgstr "When creating a reviewer in OJS, you can search for an existing user and enroll them as a reviewer if they already have an account, or invite them to create one and join as a new reviewer if no account is found"
+
+msgid "reviewerInvitation.reviewDetails.stepName"
+msgstr "Review Details"
+
+msgid "reviewerInvitation.reviewDetails.stepLabel"
+msgstr "{$step} - Enter Review Details"
+
+msgid "reviewerInvitation.reviewDetails.nextButtonLabel"
+msgstr "Save and Continue"
+
+msgid "reviewerInvitation.reviewDetails.stepDescription"
+msgstr "you can add review related details."
+
+msgid "reviewerInvitation.reviewMethod"
+msgstr "Review Type"
+
+msgid "reviewerInvitation.responseDueDate"
+msgstr "Review Response Date"
+
+msgid "reviewerInvitation.reviewDueDate"
+msgstr "Review Due Date"
+
+msgid "reviewerInvitation.modal.message"
+msgstr "{$email} has been invited to review the submission \"{$articleTitle}\"<br><br> You can be updated about the user's decision on the reviewer panel in the review workflow or through email and OJS notifications."
+
+msgid "reviewerInvitation.reviewMethod.anonymousAuthorOrReviewer"
+msgstr "Anonymous Reviewer / Anonymous Author"
+
+msgid "reviewerInvitation.reviewMethod.disclosedAuthor"
+msgstr "Anonymous Reviewer / Disclosed Author"
+
+msgid "reviewerInvitation.reviewMethod.open"
+msgstr "Open"
+
+msgid "reviewerInvitation.modal.button"
+msgstr "View submission"
+
+msgid "reviewerInvitation.searchUser.stepName"
+msgstr "Create a new reviewer"
+
+msgid "reviewerInvitation.searchUser.stepLabel"
+msgstr "Search user you want to add as reviewer"
+
+msgid "reviewerInvitation.searchUser.stepDescription"
+msgstr "When creating a reviewer in OJS, you can search for an existing user and enroll them as a reviewer if they already have an account, or invite them to create one and join as a new reviewer if no account is found"
+
+msgid "reviewerInvitation.searchUser.nextButtonLabel"
+msgstr "Continue"
+
+msgid "reviewerInvitation.enterDetails.stepName"
+msgstr "User Details"
+
+msgid "reviewerInvitation.enterDetails.stepDescription"
+msgstr "Invite user to take the role of a reviewer in the system"
+
+msgid "reviewerInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Enter details to add user as a reviewer"
+
+msgid "acceptReviewerInvitation.aboutSubmission.stepName"
+msgstr "About Submission"
+
+msgid "acceptReviewerInvitation.aboutSubmission.stepLabel"
+msgstr "About Submission"
+
+msgid "acceptReviewerInvitation.aboutSubmission.stepDescription"
+msgstr "You can access the submission file and go through the review details"
+
+msgid "acceptReviewerInvitation.aboutSubmission.nextButtonLabel"
+msgstr "Accept review invite and create account"
+
+msgid "reviewerInvitation.sendMail.nextButtonLabel"
+msgstr "Invite user to the reviewer role"
+
+msgid "reviewerInvitation.sendMail.stepDescription"
+msgstr "Send an email to user to let them about your decision to adding them as reviewer on the submission along with setting OJS for the first time. The email could also entail information about GDPR policies of the journal and ORCiD"
+
+msgid "reviewerInvitation.wizard.breadcrumb"
+msgstr "Add reviewer"
+
+msgid "acceptReviewerInvitation.decline"
+msgstr "Decline review request"
+
+msgid "reviewerInvitation.addUserRolesMessage"
+msgstr "Please note that you can invite the user to a reviewer role from here. To invite the user to other roles, you can go to Users & Roles section, once the user accepts the invite."
+
+msgid "reviewerInvitation.validator.reviewDueDate.afterOrEqual"
+msgstr "The review due date must be greater than or equal to the response due date."
+
 

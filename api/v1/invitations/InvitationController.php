@@ -30,6 +30,7 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
+use PKP\invitation\invitations\reviewerAccess\rules\ReviewerNotAlreadyAssignedToReviewRoundRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\invitation\models\InvitationModel;
 use PKP\security\Role;
@@ -258,6 +259,7 @@ class InvitationController extends PKPBaseController
                 'required_without:inviteeEmail',
                 'integer',
                 new UserMustExistRule($payload['userId'] ?? null),
+                new ReviewerNotAlreadyAssignedToReviewRoundRule((int) $payload['submissionId'], (int) $payload['reviewRoundId']),
             ],
             'inviteeEmail' => [
                 Rule::prohibitedIf(isset($payload['userId'])),

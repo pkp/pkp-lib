@@ -18,11 +18,13 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationUIActionRedirectController;
+use PKP\invitation\invitations\userRoleAssignment\steps\UserRoleAssignmentInvitationSteps;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
-use PKP\invitation\stepTypes\SendInvitationStep;
+use PKP\user\User;
 
 class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectController
 {
@@ -69,7 +71,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             ]
         ];
         $user = null;
-        $invitationMode = 'create';
+        $invitationMode = self::MODE_CREATE;
         if ($userId) {
             //send invitation using edit user action in user access table
             $user = Repo::user()->get($userId, true);
@@ -80,7 +82,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             new UserRoleAssignmentInviteResource($this->invitation))
                 ->transformInvitationPayload($userId, $user->getAllData(), $request->getContext()
                 );
-            $invitationMode = 'editUser';
+            $invitationMode = self::MODE_EDIT_BY_USER;
         }
         $templateMgr = TemplateManager::getManager($request);
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
@@ -103,9 +105,9 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'id' => 'invitationWizard',
             'name' => __('invitation.wizard.pageTitle'),
         ];
-        $steps = new SendInvitationStep();
+        $steps = $this->invitation->buildSendSteps($context, $user);
         $templateMgr->setState([
-            'steps' => $steps->getSteps(null, $context, $user),
+            'steps' => $steps,
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -115,7 +117,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
                     'emailTemplates'
                 ),
             'primaryLocale' => $context->getData('primaryLocale'),
-            'invitationType' => 'userRoleAssignment',
+            'invitationType' => $this->invitation->getType(),
             'invitationPayload' => $invitationPayload,
             'invitationMode' => $invitationMode,
             'invitationUserData' => $userId ?
@@ -146,7 +148,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
     {
         $payload = $this->invitation->getPayload()->toArray();
         $invitationModel = $this->invitation->invitationModel->toArray();
-        $invitationMode = 'edit';
+        $invitationMode = self::MODE_EDIT;
         $payload['email'] = $invitationModel['email'];
         $payloadDataToBeTransform = [];
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;
@@ -184,9 +186,9 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'id' => 'invitationWizard',
             'name' => __('invitation.wizard.pageTitle'),
         ];
-        $steps = new SendInvitationStep();
+        $steps = $this->invitation->buildSendSteps($context, $user);
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->invitation, $context, $user),
+            'steps' => $steps,
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -196,7 +198,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
                     'emailTemplates'
                 ),
             'primaryLocale' => $context->getData('primaryLocale'),
-            'invitationType' => 'userRoleAssignment',
+            'invitationType' => $this->invitation->getType(),
             'invitationPayload' => $invitationPayload,
             'invitationMode' => $invitationMode,
             'invitationUserData' => $invitationModel['userId'] ?
@@ -226,4 +228,10 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
         ]);
         $templateMgr->display('/invitation/userInvitation.tpl');
     }
+
+    public function getSendSteps(Invitation $invitation, Context $context, ?User $user): array
+    {
+        return (new UserRoleAssignmentInvitationSteps())->getSendSteps($invitation, $context, $user);
+    }
+
 }

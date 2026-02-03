@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-03 10:30+0000\n"
-"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
+"PO-Revision-Date: 2026-02-03 10:31+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/da/>\n"
 "Language: da\n"
@@ -200,4 +200,13 @@ msgid "userInvitation.searchUser.stepName"
 msgstr "Søg efter bruger"
 
 msgid "userInvitation.searchUser.nextButtonLabel"
-msgstr "Søg bruger"
+msgstr "Søg efter bruger"
+
+msgid "userInvitation.searchField.description"
+msgstr "fx aeinstein@example.com eller aeinstein eller 0000-0002-1825-0097"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rolle"
+
+msgid "invitation.role.addRole.button"
+msgstr "Tilføj endnu en rolle"

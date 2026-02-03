@@ -1,30 +1,41 @@
+# Ivan Minárik <ivan.minarik@stuba.sk>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-06 17:00+0000\n"
-"PO-Revision-Date: 2021-05-06 12:00+0000\n"
-"Language: sk_SK\n"
+"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"Last-Translator: Ivan Minárik <ivan.minarik@stuba.sk>\n"
+"Language-Team: Slovak <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"pkp-lib/submission/sk_SK/>\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
+"Autorov tejto publikácie nie je možné upraviť, pretože publikácia je už "
+"zverejnená."
 
 msgid "author.publicationNotFound"
-msgstr ""
+msgstr "Publikácia tohto autora sa nenašla."
 
 msgid "author.submit.submissionCitations"
 msgstr ""
+"Uveďte formátovaný zoznam referencií prác citovaných v tomto príspevku. "
+"Oddeľte, prosím, jednotlivé referencie prázdnym riadkom."
 
 msgid "author.submission.roundStatus.reviewsReady"
-msgstr ""
+msgstr "Nové recenzie boli nahraté a v súčasnosti ich posudzuje redaktor."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
+"Jeden alebo viac recenzentov zmeškalo termín. Redakcia o tom vie a zabezpečí "
+"dokončenie recenzií. Momentálne nemusíte vykonať nič. O rozhodnutí budete "
+"informovaní."
 
 msgid "submission.submit.availableUserGroups"
 msgstr ""
@@ -2307,3 +2318,8 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Súbor s príspevkom"
 
+msgid "author.authorNotFound"
+msgstr "Nepodarilo sa nájsť autora pre túto afiliáciu."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Uveďte, prosím, príslušnosť k ROR alebo aspoň jeden názov príslušnosti."

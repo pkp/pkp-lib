@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-02 18:37+0000\n"
+"PO-Revision-Date: 2026-02-03 10:09+0000\n"
 "Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/da/>\n"
@@ -108,3 +108,20 @@ msgstr ""
 
 msgid "userInvitation.enterDetails.stepName"
 msgstr "Indtast oplysninger"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Mindst én brugergruppe, der skal fjernes, skal defineres"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Invitationen kan ikke sendes, fordi du ikke har defineret nogen ændringer i "
+"brugergruppen."
+
+msgid "invitation.cancelInvite.title"
+msgstr "Annuller invitationen"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Annuller invitation"
+
+msgid "invitation.tableHeader.name"
+msgstr "Navn"

@@ -18,7 +18,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use PKP\controllers\informationCenter\InformationCenterHandler;
 use PKP\controllers\informationCenter\form\NewGalleyNoteForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -47,19 +46,22 @@ class GalleyInformationCenterHandler extends InformationCenterHandler
     public function __construct()
     {
         parent::__construct();
-        // Add ROLE_ID_ASSISTANT same as FileInformationCenterHandler
+
         $this->addRoleAssignment(
             [Role::ROLE_ID_ASSISTANT],
             [
                 'viewInformationCenter',
                 'viewHistory',
-                'viewNotes', 'listNotes', 'saveNote', 'deleteNote',
+                'viewNotes',
+                'listNotes',
+                'saveNote',
+                'deleteNote',
             ]
         );
     }
 
     /**
-     * @copydoc PKPHandler::authorize()
+     * @copydoc InformationCenterHandler::authorize()
      */
     public function authorize($request, &$args, $roleAssignments)
     {
@@ -238,40 +240,5 @@ class GalleyInformationCenterHandler extends InformationCenterHandler
     public function _getAssocType()
     {
         return Application::ASSOC_TYPE_REPRESENTATION;
-    }
-
-    /**
-     * Set up the template
-     *
-     * @param PKPRequest $request
-     */
-    public function setupTemplate($request)
-    {
-        $templateMgr = TemplateManager::getManager($request);
-
-        // Get last event for this galley (from associated files)
-        $galleyFiles = Repo::submissionFile()
-            ->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_REPRESENTATION, [$this->galley->getId()])
-            ->getMany();
-
-        $fileIds = $galleyFiles->map(fn ($file) => $file->getId())->toArray();
-
-        $lastEvent = null;
-        if (!empty($fileIds)) {
-            $lastEvent = Repo::eventLog()->getCollector()
-                ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $fileIds)
-                ->getMany()
-                ->first();
-        }
-
-        if ($lastEvent) {
-            $templateMgr->assign('lastEvent', $lastEvent);
-            $userId = $lastEvent->getUserId();
-            $user = $userId ? Repo::user()->get($userId, true) : null;
-            $templateMgr->assign('lastEventUser', $user);
-        }
-
-        return parent::setupTemplate($request);
     }
 }

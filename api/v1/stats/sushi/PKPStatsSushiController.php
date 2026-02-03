@@ -338,8 +338,11 @@ class PKPStatsSushiController extends PKPBaseController
     protected function getReportResponse(CounterR5Report $report, Request $illuminateRequest): JsonResponse|StreamedResponse
     {
         $params = $illuminateRequest->query();
-        //$responseTSV = str_contains($illuminateRequest->getHeaderLine('Accept'), PKPRoutingProvider::RESPONSE_TSV['mime']) ? true : false;
-        $responseTSV = $illuminateRequest->accepts(PKPRoutingProvider::RESPONSE_TSV['mime']);
+        $acceptHeader = $illuminateRequest->header('accept', '');
+        if (is_array($acceptHeader)) {
+            $acceptHeader = implode(',', $acceptHeader);
+        }
+        $responseTSV = str_contains($acceptHeader, PKPRoutingProvider::RESPONSE_TSV['mime']);
 
         if ($responseTSV) {
             $errors = $this->_validateUserInput($report, $params);

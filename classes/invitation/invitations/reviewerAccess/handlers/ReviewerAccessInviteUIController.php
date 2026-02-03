@@ -69,26 +69,28 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         $defaultReviewerGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->first();
         $defaultReviewerGroupId = $defaultReviewerGroup ? $defaultReviewerGroup->user_group_id : null;
 
-        $initialPayload = [
-            'submissionId' => $submissionId,
-            'reviewRoundId' => $reviewRoundId,
-            'responseDueDate' => (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
-            'reviewDueDate' => (new DateTime(Core::getCurrentDate()))->modify('+2 months')->format('Y-m-d'),
-            'reviewMethod' => '',
-            'userGroupsToAdd' => $defaultReviewerGroupId ? [[
+        $currentDate = new DateTime(Core::getCurrentDate());
+        
+        // Build a payload instance with default values
+        $invitationPayload = new ReviewerAccessInvitePayload(
+            submissionId: $submissionId,
+            reviewRoundId: $reviewRoundId,
+            responseDueDate: $currentDate->format('Y-m-d'),
+            reviewDueDate: $currentDate->modify('+2 months')->format('Y-m-d'),
+            reviewMethod: '',
+            userGroupsToAdd: $defaultReviewerGroupId ? [[
                 'userGroupId' => $defaultReviewerGroupId,
                 'dateStart' => (new DateTime(Core::getCurrentDate()))->format('Y-m-d'),
                 'dateEnd' => null,
                 'masthead' => true,
             ]] : [],
-            'emailSubject' => '',
-            'emailBody' => '',
-            'sendEmailAddress' => '',
-        ];
+            emailSubject: '',
+            emailBody: '',
+            sendEmailAddress: '',
+        );
 
-        // Build a payload instance (this filters out any unwanted keys) and use its array form.
-        $invitationPayload = ReviewerAccessInvitePayload::fromArray($initialPayload)->toArray();
-        $invitationPayload['userId'] = $userId;
+        $invitationPayloadArray = $invitationPayload->toArray();
+        $invitationPayloadArray['userId'] = $userId;
         $user = null;
         $invitationMode = self::MODE_CREATE;
         if ($userId) {
@@ -98,17 +100,17 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             }
             //send invitation using select a user already has reviewer permission user group
             if ($user->hasRole([Role::ROLE_ID_REVIEWER], $request->getContext()->getId())) {
-                $invitationPayload['userGroupsToAdd'] = [];
+                $invitationPayloadArray['userGroupsToAdd'] = [];
             }
             $payloadWithUserData = [
-                ...$invitationPayload,
+                ...$invitationPayloadArray,
                 ...$user->getAllData(),
             ];
-            $invitationPayload = (
+            $invitationPayloadArray = (
             new ReviewerAccessInviteResource($this->invitation))
                 ->transformInvitationPayload($userId, $payloadWithUserData, $request->getContext(),
                 );
-            $invitationPayload->userGroupsToAdd = [];
+            $invitationPayloadArray->userGroupsToAdd = [];
         }
         $templateMgr = TemplateManager::getManager($request);
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
@@ -163,7 +165,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
                 ),
             'primaryLocale' => $context->getData('primaryLocale'),
             'invitationType' => $this->invitation->getType(),
-            'invitationPayload' => $invitationPayload,
+            'invitationPayload' => $invitationPayloadArray,
             'invitationMode' => $invitationMode,
             'invitationUserData' => $userId ?
                 (
@@ -201,7 +203,9 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
         if (!$submission || $submission->getContextId() !== $request->getContext()->getId()) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
-            // if edit an invitation for existing user, used user data as invitation payload
+
+        // if edit an invitation for existing user, used user data as invitation payload
+        if ($user) {
             $payloadDataToBeTransform = $user->getAllData();
             $payloadDataToBeTransform['userGroupsToAdd'] = $payload['userGroupsToAdd'];
             $payloadDataToBeTransform['submissionId'] = $payload['submissionId'];
@@ -211,6 +215,7 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             $payloadDataToBeTransform['reviewDueDate'] = $payload['reviewDueDate'];
             $payloadDataToBeTransform['reviewAssignmentId'] = $payload['reviewAssignmentId'];
         }
+
         $invitationPayload =
         (new ReviewerAccessInviteResource($this->invitation))
             ->transformInvitationPayload(

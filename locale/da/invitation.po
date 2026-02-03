@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2026-02-03 10:31+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/da/>\n"
 "Language: da\n"
@@ -210,3 +210,7 @@ msgstr "Rolle"
 
 msgid "invitation.role.addRole.button"
 msgstr "Tilføj endnu en rolle"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr ""
+"{$step} - Rediger e-mailadresse (eller bare email?), der er delt med brugeren"

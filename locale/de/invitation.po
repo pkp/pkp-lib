@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-03 10:31+0000\n"
+"PO-Revision-Date: 2026-02-04 07:18+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/de/>\n"
@@ -201,3 +201,241 @@ msgstr "Benutzer/in zu der Rolle einladen"
 
 msgid "userInvitation.sendMail.stepLabel"
 msgstr "{$step} - An Benutzer/in versandte E-Mail anpassen"
+
+msgid "userInvitation.modal.button"
+msgstr "Alle Benutzer/innen ansehen"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Bei Annahme der Einladung wird der/die Benutzer/in zu ORCID weitergeleitet, "
+"um das eigene Konto zu verifizieren (wenn erwünscht)."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Wenn Ihnen der Nachname des/der Benutzer/in bekannt ist, können Sie ihn "
+"eingeben. Diese Information kann jedoch von dem/der Benutzer/in geändert "
+"werden."
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Details eingeben"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Geben Sie Details wie E-Mail, Affiliation, etc. ein. Gemäß der DSGVO-"
+"Konformität können diese Informationen nur von Ihnen geändert werden. Sie "
+"können auch auswählen, ob diese Informationen für die Redaktion sichtbar in "
+"Ihrem Profil erscheinen."
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Es sollte mindestens 6 Zeichen lang sein und kann eine Kombination aus "
+"Großbuchstaben, Kleinbuchstaben, Ziffern und Symbolen sein"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Ein Nachname oder Familienname ist der meist vererbte Teil des persönlichen "
+"Namens einer Person. Er kennzeichnet die Zugehörigkeit zu einer Familie."
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Geben Sie mindestens ein Suchkriterium an."
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Eine Stornierung der Einladung, die an {$givenName} {$familyName} gesendet "
+"wurde, führt zur Deaktivierung des Annahmelinks, der per E-Mail verschickt "
+"wurde. Hier sind die Details der Einladung: "
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Wenn Sie die bestehende Einladung bearbeiten oder eine neue Rolle "
+"hinzufügen, wird die aktuelle Einladung storniert und eine neue gesendet. "
+"Sind Sie sicher, dass Sie fortfahren möchten?"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Bitte bestätigen Sie, dass Sie die Datenschutzerklärung gelesen haben und "
+"akzeptieren"
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Der/die Benutzer/in wurde deaktiviert. Sie können dieser Person keine Rolle "
+"zuweisen, während sie deaktiviert ist. Bitte aktivieren Sie den/die Benutzer/"
+"in, bevor Sie zu einer Rolle einladen."
+
+msgid "userInvitation.modal.title"
+msgstr "Einladung verschickt"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Rolle entfernen"
+
+msgid "invitation.email.description"
+msgstr "z.B. aeinstein@beispiel.de"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Wenn Ihnen der Vorname des/der Benutzer/in bekannt ist, können Sie ihn "
+"eingeben. Diese Information kann jedoch von dem/der Benutzer/in geändert "
+"werden."
+
+msgid "invitation.decline.confirm"
+msgstr "Ablehnung der Einladung bestätigen"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Einladung ablehnen"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Sind Sie sicher, dass Sie diese Einladung ablehnen möchten? Bestätigen Sie "
+"dies bitte, indem Sie unterhalb auf den Button klicken."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "ORCID iD verifizieren"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - ORCID iD verifizieren"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Speichern und fortfahren"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Speichern und fortfahren"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Details eingeben"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Speichern und fortfahren"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Formular zur Annahme der Einladung mit Benutzer/innendetails"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Bitte geben Sie die folgenden Details an um uns bei der Verwaltung Ihres "
+"Kontos zu helfen"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Überprüfen & Account anlegen"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Überprüfen & Account anlegen"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "ORCID-Verifizierung überspringen"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "ORCID iD verifizieren"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Eine Kombination aus Großbuchstaben, Kleinbuchstaben und Ziffern ist erlaubt"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Ja, ich stimme der Erfassung und Speicherung meiner Daten gemäß {$url} zu"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Datenschutzerklärung"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Auch als erster Name bezeichnet, es ist der Teil eines persönlichen Namens, "
+"der eine Person identifiziert."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Dies ist die Institution, mit der Sie affiliiert sind"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr ""
+"Dies ist das Land, in dem sich die Institution befindet, mit der Sie "
+"affiliiert sind"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Land der Affiliation"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Account Details"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Benutzer/innen Details"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Alle Einreichungen ansehen"
+
+msgid "invitation.tableHeader.name"
+msgstr "Name"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Sie schauen die Benutzer/innendetails von {$name} an"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Einladung stornieren"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Einladung stornieren"
+
+msgid "invitation.masthead.show"
+msgstr "Im redaktionellem Impressum erscheinen"
+
+msgid "invitation.masthead.hidden"
+msgstr "Erscheint nicht im redaktionellem Impressum"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Rolle modifizieren"
+
+msgid "invitation.management.options"
+msgstr "Optionen zur Verwaltung der Einladungen"
+
+msgid "userInvitation.cancel.message"
+msgstr "Sind Sie sicher, dass Sie diese Einladung stornieren wollen?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Zurückgehen"
+
+msgid "userInvitation.status.invited"
+msgstr "Eingeladen am {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Einladung bearbeiten"
+
+msgid "validation.after_or_equal"
+msgstr "Startdatum sollte das heutige Datum oder später sein"
+
+msgid "invitation.removeRoles"
+msgstr "Benutzer/in von Rolle entfernt"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Sind Sie sicher, dass Sie Abbrechen möchten? Durch das Abbrechen wird der "
+"Prozess zur Annahme der Rolle beendet und Sie müssen erneut mit der "
+"Einladungs-E-Mail beginnen, um die Rolle erneut anzunehmen. Wenn Sie bereits "
+"Benutzer/in sind, werden Sie zum Dashboard zurückgeleitet. Andernfalls "
+"müssen Sie auf die Einladungs-E-Mail zugreifen, um den Prozess erneut zu "
+"starten."
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Prozess der Rolleneinladung abbrechen?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Prozess der Einladung abbrechen"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr ""
+"Einladung wurde nicht angenommen. Sie sind als ein/e andere/r Benutzer/in "
+"eingeloggt."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Bitte melden Sie sich ab und melden Sie sich dann mit dem korrekten Account "
+"an, um diese Einladung anzunehmen."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Nach einem/einer Benutzer/in per E-Mail, Benutzer/innenname oder ORCID iD "
+"suchen. Geben Sie nur einen Wert ein, um zu beginnen!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Der/die Benutzer/in ist derzeit deaktiviert."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Einwilligung zum Datenschutz"

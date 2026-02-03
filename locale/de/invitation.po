@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-28 15:21+0000\n"
+"PO-Revision-Date: 2026-02-03 10:09+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/de/>\n"
@@ -22,3 +22,91 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr ""
 "Die Benutzer/innengruppe ist dem/der eingeladenen Benutzer/in zugewiesen"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Die Einladung kann nicht verschickt werden, da Sie keine Änderungen von "
+"Benutzer/innengruppen definiert haben"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Wenn eine Einladung eine zugewiesene E-Mail ({$email}) hat, darf diese E-"
+"Mail nicht bereits von einem/einer anderen Benutzer/in verwendet werden."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Für hinzugefügte Benutzer/innengruppen muss ein Startdatum angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr ""
+"Für hinzugefügte Benutzer/innengruppen muss ein Impressum angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Die angegebene Benutzer/innengruppen-ID {$userGroupId} existiert nicht"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"Die ID {reviewAssignmentId} stimmt mit keiner validen Gutachtenzuweisung "
+"überein"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Benutzer/innenrollen entfernen darf nicht für nicht existierende Benutzer/"
+"innen definiert sein."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Die angegebenen Benutzer/innengruppen enthalten doppelte Einträge."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Es existiert bereits ein/e Benutzer/in mit dem Namen {$username}. Versuchen "
+"Sie einen anderen Namen."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Wenn eine Einladung eine zugewiesene Benutzer/innen-ID ({$userId}) hat, muss "
+"der/die zugehörige Benutzer/in existieren."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Ein Benutzer/innenname muss angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Ein Passwort muss angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Eine Affiliation muss angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Ein Land muss angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Ein Vorname muss angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Ein Nachname muss angegeben werden"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"Für hinzugefügte Benutzer/innengruppen muss eine Gruppen-ID angegeben werden"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Für diesen Einladungstyp ist keine Versandart definiert"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Diese Einladungsaktion ist fehlgeschlagen"
+
+msgid "invitation.validation.required"
+msgstr "Das {$attribute} Feld ist erforderlich."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Unerwartete Werte gefunden im Element mit Index {$attribute}: {$properties}."
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Diese Einladung kann nicht storniert werden"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Sie können E-Mail und Benutzer/innen-ID nicht zusammen angeben."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Das Attribut darf für existierende Benutzer/innen nicht zugänglich sein"

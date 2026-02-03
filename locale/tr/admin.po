@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2026-02-02 18:37+0000\n"
+"PO-Revision-Date: 2026-02-03 10:09+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
@@ -59,7 +59,7 @@ msgstr "Yapılandırma dosyasının içeriği"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""
-"{$contextName} ve tüm  içeriklerini kalıcı olarak silmek istediğinizden emin "
+"{$contextName} ve tüm içeriklerini kalıcı olarak silmek istediğinizden emin "
 "misiniz?"
 
 msgid "admin.currentVersion"
@@ -635,28 +635,28 @@ msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "Geçersiz iş kimliği"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "İş silindi!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Silinecek iş bulunamadı."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Tüm işleri silmek imkânsız oldu."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Tüm işler silindi!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
+msgstr "{$jobsCount} başarısız iş, başarısız listeden başarıyla kaldırıldı."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} iş başarıyla yeniden kuyruğa gönderildi."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "{$total} başarısız işimiz var"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "{$total} kuyruğa alınmış işimiz var"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
 msgstr "{$option} seçeneği mevcut değil."
@@ -665,7 +665,7 @@ msgid "admin.cli.tool.jobs.mean.those"
 msgstr "Aşağıdakilerden birini mi demek istediniz?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Kuyrukta toplam <strong>{$total}</strong> iş var"
 
 msgid "admin.jobs.failed.totalCount"
 msgstr "Toplam <strong>{$total}</strong> başarısız iş var."
@@ -939,3 +939,111 @@ msgstr "{$file} dosyası mevcut değil."
 
 msgid "admin.scheduledTask.removeExpiredInvitations"
 msgstr "Süresi dolmuş davetleri otomatik olarak kaldırmak için bir iş gönder"
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Eşleşen zamanlanmış görev bulunamadı."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Yapılandırma dosyasının `general` bölümünde `app_key` değişkeni zaten "
+"mevcut. Yeni bir uygulama anahtarı ayarlamak için `php lib/pkp/tools/"
+"appKey.php generate` komutunu çalıştırın."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Geçersiz uygulama anahtarı ayarlanmış, desteklenmeyen şifreleme yöntemi veya "
+"yanlış anahtar uzunluğu. Desteklenen şifreleme yöntemleri: {$ciphers}."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Listeden belirli bir zamanlanmış görevi çalıştırın veya belirli birini "
+"çalıştırmak için --name bayrağını kullanın. Tam listeyi kaydırmadan görmek "
+"için --no-scroll bayrağını ayarlayın."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Zamanlanmış görevler her dakika çalıştırılıyor."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Tüm dergiler için siteyi platform olarak kullan."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Tüm dergiler için siteyi platform olarak kullan"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Mevcut uygulama anahtarını, yapılandırma dosyasında bulunursa, doğrula"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "config.inc.php dosyasına app_key yapılandırma değişkenini ekle."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Yeni bir uygulama anahtarı oluştur ve yapılandırma dosyasında değiştir. "
+"Yalnızca görüntülemek için --show bayrağını, mevcut geçerli bir uygulama "
+"anahtarını üzerine yazmak için --force bayrağını kullan."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Aşağıdakilerden birini mi demek istediniz?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Oluşturulan Uygulama Anahtarı: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Yapılandırma dosyasının `general` bölümünde `app_key` adlı bir değişken "
+"tanımlı değil. Lütfen yapılandırma dosyasının general bölümünü güncelleyin "
+"ve `app_key = ` satırını ekleyin veya `php lib/pkp/tools/appKey.php "
+"configure` komutunu çalıştırarak ayarlayın."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Yapılandırma dosyasında herhangi bir uygulama anahtarı ayarlanmadı."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Yapılandırma dosyasında geçerli bir APP Anahtarı zaten ayarlanmış. Üzerine "
+"yazmak için komutla birlikte --force bayrağını kullanın."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Uygulama anahtarı yapılandırma dosyasına başarıyla ayarlandı."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Yapılandırma dosyasında app_key değişkeni başarıyla ayarlandı. Yeni bir "
+"uygulama anahtarı oluşturmak için `php lib/pkp/tools/appKey.php generate` "
+"komutunu çalıştırın."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Yapılandırma dosyasında `app_key` değişkeni ayarlanamadı. Lütfen "
+"yapılandırma dosyasının general bölümünü güncelleyin ve `app_key = ` "
+"satırını ekleyin."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Yapılandırma dosyasında geçerli bir uygulama anahtarı ayarlanmış"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Zamanlayıcıyı çalıştır."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Tüm zamanlanmış görevleri listele."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Zamanlayıcı işçisini başlat."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Zamanlayıcı kullanım parametrelerini görüntüle."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr "Zamanlanmış görevler çalıştırılamıyor çünkü uygulama bakım modu etkin."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Şunlardan birini mi kastettiniz?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Zamanlanmış görevler çalıştırılamıyor çünkü uygulama sandbox modu etkin."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Hiçbir zamanlanmış görev kaydedilmemiş."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Hangi komutu çalıştırmak istiyorsunuz?"

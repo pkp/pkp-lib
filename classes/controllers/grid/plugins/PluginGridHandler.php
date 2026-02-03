@@ -122,18 +122,20 @@ abstract class PluginGridHandler extends CategoryGridHandler
         // Grid level actions.
         $userRoles = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_USER_ROLES);
         if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
-            // Install plugin.
-            $this->addAction(
-                new LinkAction(
-                    'upload',
-                    new AjaxModal(
-                        $router->url($request, null, null, 'uploadPlugin'),
+            if (PluginHelper::isUploadAllowed()) {
+                // Install plugin.
+                $this->addAction(
+                    new LinkAction(
+                        'upload',
+                        new AjaxModal(
+                            $router->url($request, null, null, 'uploadPlugin'),
+                            __('manager.plugins.upload'),
+                        ),
                         __('manager.plugins.upload'),
-                    ),
-                    __('manager.plugins.upload'),
-                    'add'
-                )
-            );
+                        'add'
+                    )
+                );
+            }
         }
     }
 

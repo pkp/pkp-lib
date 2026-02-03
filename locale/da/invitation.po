@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2026-02-03 10:30+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/da/>\n"
 "Language: da\n"
@@ -198,3 +198,6 @@ msgstr "En værdi på sproget '{$primaryLocale}' er påkrævet"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Søg efter bruger"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Søg bruger"

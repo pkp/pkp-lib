@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\informationCenter\form\NewSubmissionNoteForm;
+use PKP\core\PKPRequest;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\log\event\EventLogEntry;

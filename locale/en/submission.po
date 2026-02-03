@@ -3251,7 +3251,7 @@ msgid "discussion.form.taskInfoAssigneesDescription"
 msgstr "If there is a specific participant designated to complete this task, please assign it to them here."
 
 msgid "discussion.form.taskInfoAssigneesLabel"
-msgstr "Responsible to complete this task"
+msgstr "Responsible to complete this task (Task owner)"
 
 msgid "discussion.form.taskInfoConvertToTask"
 msgstr "You can convert this into a task by clicking <strong>Edit</strong>."

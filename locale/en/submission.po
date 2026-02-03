@@ -3280,6 +3280,9 @@ msgstr "Message from {$from}"
 msgid "discussion.name"
 msgstr "Discussion"
 
+msgid "discussion.noAccessToAddMessage"
+msgstr "Please enter the name for the task and discussion."
+
 msgid "discussion.reopenThisDiscussion"
 msgstr "Reopen this Discussion"
 

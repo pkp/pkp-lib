@@ -3281,7 +3281,7 @@ msgid "discussion.name"
 msgstr "Discussion"
 
 msgid "discussion.noAccessToAddMessage"
-msgstr "Please enter the name for the task and discussion."
+msgstr "To add a new message, please assign yourself as a participant."
 
 msgid "discussion.reopenThisDiscussion"
 msgstr "Reopen this Discussion"

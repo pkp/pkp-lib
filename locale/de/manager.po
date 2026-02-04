@@ -1,5 +1,5 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023, 2025.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023, 2025, 2026.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023, 2024.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-10-27 14:24+0000\n"
+"PO-Revision-Date: 2026-02-04 12:57+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
@@ -1020,7 +1020,10 @@ msgid "manager.setup.copyrightNotice"
 msgstr "Copyright-Vermerk"
 
 msgid "manager.setup.copyrightNotice.description"
-msgstr "Autor/innen müssen im Einreichungsverfahren der Lizenz zustimmen."
+msgstr ""
+"Das folgende erscheint auf der <a href=\"{$url}\">Einreichungen</a>-Seite, "
+"wo Autor/innen mehr über die Anforderungen für die Einreichung erfahren. "
+"Autor/innen müssen im Einreichungsverfahren der Lizenz zustimmen."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Autor/innen-Richtlinien"
@@ -3009,6 +3012,8 @@ msgstr "Name von dem/der Gutachter/in"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
+"Eine Beschreibung der Standard-Gutachtenmethode, z.B. doppelt anonym oder "
+"offen"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
@@ -3895,3 +3900,148 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Sie müssen <a href=\"#announcements/announcement-settings\">Ankündigungen "
 "aktivieren</a>."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Die Affiliation des/der Autor/in {$authorName} hat keinen Namen in der "
+"Sprache der Einreichung, {$localeName}. Die Einreichung kann ohne diese "
+"Information nicht importiert werden."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Erinnerungen für das Gutachten festlegen"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Die nachfolgenden Informationen werden Autor/innen während dem Schritt "
+"angezeigt, in dem sie Gutachter/innen vorschlagen können. Erläutern Sie "
+"kurz, welche Informationen Autor/innen über die Gutachter/innen angeben "
+"sollten."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Legen Sie die Reihenfolge der Rollen im redaktionellen Impressum für die "
+"öffentliche Anzeige fest."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Legen Sie die Reihenfolge der Rollen im redaktionellen Impressum für die "
+"öffentliche Anzeige fest."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"E-Mail-Erinnerungen können vor und nach der Antwort auf die Gutachtenanfrage "
+"(wenn ein/e Gutachter/in noch nicht auf die Gutachtenanfrage reagiert hat) "
+"und vor und nach der Gutachtenabgabe (wenn ein/e Gutachter/in noch kein "
+"Gutachten eingereicht hat) verschickt werden"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Link zu einer Seite, die das aktuelle redaktionelle Impressum anzeigt."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Gutachter/innen werden in einem standardisierten Format angezeigt, um die "
+"Einheitlichkeit zu gewähren und eine einfache Auffindbarkeit in diesem "
+"Abschnitt zu ermöglichen."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Erforderliches Minimum bestätigter Gutachten"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr ""
+"Die Mindestanzahl bestätigter Gutachten, die für eine Einreichung "
+"erforderlich sind"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Der/Die Autor/in kann mehrere potentielle Gutachter/innen während des "
+"Einreichens vorschlagen. Dies kann dazu beitragen, den Gutachtenprozess zu "
+"optimieren und einen wertvollen Input für das Redaktionsteam zu liefern."
+
+msgid "settings.roles.masthead"
+msgstr "Rolle dem redaktionellen Impressum hinzufügen"
+
+msgid "settings.roles.permitSettings"
+msgstr "Kann Einstellungen verändern"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Website Sprachen"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Einreichung Sprachen"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Sprache hinzufügen/entfernen"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadaten"
+
+msgid "manager.language.submission.form.description"
+msgstr "Sprachen für Einreichungen und Metadaten auswählen."
+
+msgid "manager.language.submission.from.error"
+msgstr "Mindestens eine Regionaleinstellung muss ausgewählt werden."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Die Kategorie existiert nicht oder gehört zu einem anderen Kontext ("
+"Zeitschrift, Reihe, etc.). Bitte stellen Sie sicher, dass Sie im richtigen "
+"Kontext arbeiten und versuchen Sie es erneut."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Cover-Bild und Thumbnail-Datei konnten nicht gefunden werden. Möglicherweise "
+"wurden sie bereits gelöscht. Probieren Sie, die Seite neu zu laden."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Bitte geben Sie für jede/n Gutachter/in die redaktionelle Historie ein, "
+"inklusive des vollen Namens, der Affiliation und dem Start- und Enddatum."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "E-Mail Adresse der Einladung ändern"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Die Spracheinstellung konnte nicht gespeichert werden. Alle Optionen müssen "
+"aktiviert sein."
+
+msgid "notification.submissionLocales"
+msgstr "Regionaleinstellungen der Einreichungen aktualisiert."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Installierte Version: {$version}"
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Der Titel des Menüeintrags ist erforderlich."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Autor/innen erlauben, potentielle Gutachter/innen beim Einreichen "
+"vorzuschlagen"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Antwort auf die Gutachtenanfrage - Vor dem Fälligkeitsdatum"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Antwort auf die Gutachtenanfrage - Nach dem Fälligkeitsdatum"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Abgabe des Gutachtens - Vor dem Fälligkeitsdatum"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Abgabe des Gutachtens - Nach dem Fälligkeitsdatum"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} Tage vor dem Fälligkeitsdatum"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} Tage nach dem Fälligkeitsdatum"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Keine"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Keine Erinnerung eingestellt"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Gutachter/innen-Vorschlag bei Einreichung"

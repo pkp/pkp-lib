@@ -3251,7 +3251,7 @@ msgid "discussion.form.taskInfoAssigneesDescription"
 msgstr "If there is a specific participant designated to complete this task, please assign it to them here."
 
 msgid "discussion.form.taskInfoAssigneesLabel"
-msgstr "Responsible to complete this task"
+msgstr "Responsible to complete this task (Task owner)"
 
 msgid "discussion.form.taskInfoConvertToTask"
 msgstr "You can convert this into a task by clicking <strong>Edit</strong>."
@@ -3279,6 +3279,9 @@ msgstr "Message from {$from}"
 
 msgid "discussion.name"
 msgstr "Discussion"
+
+msgid "discussion.noAccessToAddMessage"
+msgstr "To add a new message, please assign yourself as a participant."
 
 msgid "discussion.reopenThisDiscussion"
 msgstr "Reopen this Discussion"

@@ -245,3 +245,6 @@ msgstr "Review Model:"
 
 msgid "openReview.seeFullRecord"
 msgstr "See full peer review record"
+
+msgid "openReview.readResponse"
+msgstr "Read Response"

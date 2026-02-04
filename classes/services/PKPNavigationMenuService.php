@@ -453,8 +453,6 @@ class PKPNavigationMenuService
                 $this->loadMenuTreeDisplayState($navigationMenu, $assignment->children);
                 foreach ($assignment->children as $childAssignment) {
                     $childNmi = $childAssignment->getMenuItem();
-                    $this->getDisplayStatus($childNmi, $navigationMenu);
-
                     if ($childNmi->getIsDisplayed()) {
                         $nmi->setIsChildVisible(true);
                     }

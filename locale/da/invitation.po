@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-04 07:18+0000\n"
+"PO-Revision-Date: 2026-02-04 10:01+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/da/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Brugergruppen er tildelt den inviterede bruger"
+msgstr "Den inviterede bruger har fået tildelt brugergruppen"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
 msgstr "De angivne brugergrupper indeholder dubletter."

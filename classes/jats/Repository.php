@@ -44,7 +44,6 @@ class Repository
         }
 
         $fileProps['isDefaultContent'] = $jatsFile->isDefaultContent;
-        $fileProps['revisionCount'] = $jatsFile->revisionCount;
 
         if ($jatsFile->loadingContentError) {
             $fileProps['loadingContentError'] = $jatsFile->loadingContentError;

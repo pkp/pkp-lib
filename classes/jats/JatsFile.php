@@ -16,7 +16,6 @@
 
 namespace PKP\jats;
 
-use APP\core\Application;
 use APP\facades\Repo;
 use PKP\jats\exceptions\UnableToCreateJATSContentException;
 use PKP\submissionFile\exceptions\UnableToCreateFileContentException;
@@ -28,7 +27,6 @@ class JatsFile
     public ?string $jatsContent = null;
     public bool $isDefaultContent = true;
     public array $props = [];
-    public int $revisionCount = 0;
 
     public function __construct(
         public int $publicationId,
@@ -42,18 +40,6 @@ class JatsFile
 
                 $this->jatsContent = Repo::submissionFile()
                     ->getSubmissionFileContent($submissionFile);
-
-                // Count all JATS files for this publication
-                $collector = Repo::submissionFile()
-                    ->getCollector()
-                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_JATS])
-                    ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publicationId]);
-
-                if ($submissionId) {
-                    $collector = $collector->filterBySubmissionIds([$submissionId]);
-                }
-
-                $this->revisionCount = $collector->getCount();
             } else {
                 $this->jatsContent = Repo::jats()
                     ->createDefaultJatsContent($publicationId, $submissionId);

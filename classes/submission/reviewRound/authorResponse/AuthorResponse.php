@@ -27,6 +27,7 @@ use PKP\db\DAORegistry;
 /**
  * @method static Builder withReviewRoundIds(array $reviewRoundIds) Filter responses by review round IDs.
  * @method static Builder withUserId(int $userId) Filter responses by user ID.
+ * @method static Builder withDoiIds(array $doiIds) Filter responses by DOI IDs.
  */
 class AuthorResponse extends Model
 {
@@ -40,6 +41,7 @@ class AuthorResponse extends Model
         'reviewRoundId',
         'userId',
         'authorResponse',
+        'doiId'
     ];
 
     /**
@@ -89,6 +91,13 @@ class AuthorResponse extends Model
         )->shouldCache();
     }
 
+    protected function doi(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => Repo::doi()->get($this->doiId)
+        )->shouldCache();
+    }
+
     /**
      * User object of assigned author participant who submitted the response.
      */
@@ -126,6 +135,11 @@ class AuthorResponse extends Model
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
         return $query->where('user_id', $userId);
+    }
+
+    public function scopeWithDoiIds(Builder $query, array $doiIds): Builder
+    {
+        return $query->whereIn('doi_id', $doiIds);
     }
 
     public function associateAuthorsToResponse(array $authorIds): bool

@@ -40,8 +40,11 @@ use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use Illuminate\Database\Eloquent\Model;
+use PKP\core\DataObject;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 
 class PKPDoiController extends PKPBaseController
 {
@@ -297,7 +300,7 @@ class PKPDoiController extends PKPBaseController
 
         // Check pubObject for doiId
         $pubObject = $this->getViaPubObjectHandler($pubObjectHandler, $pubObjectId);
-        if ($pubObject?->getData('doiId') != $doi->getId()) {
+        if ($this->getPubObjectDoiId($pubObject) != $doi->getId()) {
             return response()->json([
                 'error' => __('api.dois.404.pubObjectNotFound'),
             ], Response::HTTP_NOT_FOUND);
@@ -308,7 +311,7 @@ class PKPDoiController extends PKPBaseController
         // Eventually we could just edit all the same DOIs, but this way we eventually keep
         // some older ones that should stay as they are, e.g. if there was a switch in the settings
         // from one DOI for all versions to different DOIs for different versions.
-        $pubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
+        $minorVersionPubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
 
         // Copy DOI object data
         $newDoi = clone $doi;
@@ -317,8 +320,8 @@ class PKPDoiController extends PKPBaseController
         $newDoiId = Repo::doi()->add($newDoi);
 
         // Update pubObjects with new DOI
-        foreach ($pubObjects as $pubObject) {
-            $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, $newDoiId);
+        foreach ($minorVersionPubObjects as $minorVersionPubObject) {
+            $this->editViaPubObjectHandler($pubObjectHandler, $minorVersionPubObject, $newDoiId);
         }
 
         // Remove old DOI if no longer in use
@@ -374,17 +377,17 @@ class PKPDoiController extends PKPBaseController
 
         // Check pubObject for doiId
         $pubObject = $this->getViaPubObjectHandler($pubObjectHandler, $pubObjectId);
-        if ($pubObject?->getData('doiId') != $doi->getId()) {
+        if ($this->getPubObjectDoiId($pubObject) != $doi->getId()) {
             return response()->json([
                 'error' => __('api.dois.404.pubObjectNotFound'),
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $pubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
+        $minorVersionPubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
 
         // Remove reference to DOI from pubObjects
-        foreach ($pubObjects as $pubObject) {
-            $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, null);
+        foreach ($minorVersionPubObjects as $minorVersionPubObject) {
+            $this->editViaPubObjectHandler($pubObjectHandler, $minorVersionPubObject, null);
         }
 
         // Remove DOI object if no longer in use elsewhere
@@ -595,7 +598,7 @@ class PKPDoiController extends PKPBaseController
         foreach ($requestIds as $id) {
             $doiIds = Repo::doi()->getDoisForSubmission($id);
             foreach ($doiIds as $doiId) {
-                Repo::doi()->markUnregistered($doiId);
+                 Repo::doi()->markUnregistered($doiId);
             }
         }
 
@@ -737,6 +740,8 @@ class PKPDoiController extends PKPBaseController
         return match ($type) {
             Repo::doi()::TYPE_PUBLICATION => Repo::publication(),
             Repo::doi()::TYPE_REPRESENTATION => Repo::galley(),
+            Repo::doi()::TYPE_PEER_REVIEW => Repo::reviewAssignment(),
+            Repo::doi()::TYPE_AUTHOR_RESPONSE => AuthorResponse::class,
             default => null,
         };
     }
@@ -752,7 +757,10 @@ class PKPDoiController extends PKPBaseController
      */
     protected function getMinorVersionsViaPubObjectHandler(mixed $pubObjectHandler, mixed $pubObject): array
     {
-        return $pubObjectHandler->getMinorVersionsWithSameDoi($pubObject);
+        if (method_exists($pubObjectHandler, 'getMinorVersionsWithSameDoi')) {
+            return $pubObjectHandler->getMinorVersionsWithSameDoi($pubObject);
+        }
+        return [];
     }
 
     /**
@@ -764,6 +772,9 @@ class PKPDoiController extends PKPBaseController
      */
     protected function getViaPubObjectHandler(mixed $pubObjectHandler, int $pubObjectId): mixed
     {
+        if (is_a($pubObjectHandler, Model::class, true)) {
+            return $pubObjectHandler::find($pubObjectId);
+        }
         return $pubObjectHandler->get($pubObjectId);
     }
 
@@ -775,6 +786,21 @@ class PKPDoiController extends PKPBaseController
      */
     protected function editViaPubObjectHandler(mixed $pubObjectHandler, mixed $pubObject, ?int $doiId): void
     {
-        $pubObjectHandler->edit($pubObject, ['doiId' => $doiId]);
+        if (is_a($pubObjectHandler, Model::class, true)) {
+            $pubObject->doiId = $doiId;
+            $pubObject->save();
+        } else {
+            $pubObjectHandler->edit($pubObject, ['doiId' => $doiId]);
+        }
+    }
+
+    /**
+     * Get the DOI ID from a pub object, handling both DataObject and Eloquent Model types.
+     */
+    protected function getPubObjectDoiId(mixed $pubObject): ?int
+    {
+        return $pubObject instanceof DataObject
+            ? $pubObject->getData('doiId')
+            : $pubObject->doiId;
     }
 }

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
+use PKP\submissionFile\enums\MediaVariantType;
 
 /**
  * @template T of SubmissionFile
@@ -64,6 +65,12 @@ class Collector implements CollectorInterface
 
     /** @var null|array get submission files matching one or more uploader users id */
     protected $uploaderUserIds = null;
+
+    /** @var array<MediaVariantType>|null Media variant for files of type SubmissionFile::SUBMISSION_FILE_MEDIA */
+    protected ?array $mediaVariantTypes = null;
+
+    /** @var array|null Media variant group for files of type SubmissionFile::SUBMISSION_FILE_MEDIA */
+    protected ?array $variantGroupIds = null;
 
     /** @var null|int */
     public $count = null;
@@ -205,6 +212,26 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * @param array<MediaVariantType>|null $mediaVariantTypes
+     * @return self
+     */
+    public function filterByMediaVariantTypes(?array $mediaVariantTypes): self
+    {
+        $this->mediaVariantTypes = $mediaVariantTypes;
+        return $this;
+    }
+
+    /**
+     * @param array<int>|null $variantGroupIds
+     * @return self
+     */
+    public function filterByVariantGroupIds(array $variantGroupIds): self
+    {
+        $this->variantGroupIds = $variantGroupIds;
+        return $this;
+    }
+
+    /**
      * Whether or not to include dependent files in the results
      */
     public function includeDependentFiles(bool $includeDependentFiles = true): self
@@ -298,6 +325,14 @@ class Collector implements CollectorInterface
 
         if ($this->doiIds !== null) {
             $qb->whereIn('sf.doi_id', $this->doiIds);
+        }
+
+        if ($this->mediaVariantTypes !== null) {
+            $qb->whereIn('sf.variant_type', array_column($this->mediaVariantTypes, 'value'));
+        }
+
+        if ($this->variantGroupIds !== null) {
+            $qb->whereIn('sf.variant_group_id', $this->variantGroupIds);
         }
 
         if ($this->includeDependentFiles !== true && $this->fileStages !== null && !in_array(SubmissionFile::SUBMISSION_FILE_DEPENDENT, $this->fileStages)) {

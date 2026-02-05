@@ -104,7 +104,7 @@ class PKPMastheadForm extends FormComponent
                 'isMultilingual' => true,
                 'groupId' => 'keyInfo',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,lists,image,code',
+                'plugins' => 'paste,link,lists,image,code,contextmenu',
                 'uploadUrl' => $imageUploadUrl,
                 'value' => $context->getData('editorialTeam'),
             ]))

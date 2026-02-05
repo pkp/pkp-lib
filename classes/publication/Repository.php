@@ -338,6 +338,7 @@ abstract class Repository
         if ($submissionStatus !== false) {
             Repo::submission()->updateStatus($submission, $submissionStatus);
         }
+        Repo::submission()->updateCurrentPublication($submission);
 
         return $publication->getId();
     }
@@ -564,8 +565,11 @@ abstract class Repository
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
         // Update a submission's status based on the status of its publications
-        if ($newPublication->getData('status') !== $publication->getData('status') && $submissionStatus !== false) {
-            Repo::submission()->updateStatus($submission, $submissionStatus);
+        if ($newPublication->getData('status') !== $publication->getData('status')) {
+            if ($submissionStatus !== false) {
+                Repo::submission()->updateStatus($submission, $submissionStatus);
+            }
+            Repo::submission()->updateCurrentPublication($submission);
             $submission = Repo::submission()->get($submission->getId());
         }
 
@@ -691,8 +695,11 @@ abstract class Repository
         $wasCurrentPublication = $publication->getId() == $submission->getData('currentPublicationId');
 
         // Update a submission's status based on the status of its publications
-        if ($newPublication->getData('status') !== $publication->getData('status') && $submissionStatus !== false) {
-            Repo::submission()->updateStatus($submission, $submissionStatus);
+        if ($newPublication->getData('status') !== $publication->getData('status')) {
+            if ($submissionStatus !== false) {
+                Repo::submission()->updateStatus($submission, $submissionStatus);
+            }
+            Repo::submission()->updateCurrentPublication($submission);
             $submission = Repo::submission()->get($submission->getId());
         }
 
@@ -785,6 +792,7 @@ abstract class Repository
         if ($submissionStatus !== false) {
             Repo::submission()->updateStatus($submission, $submissionStatus, $section);
         }
+        Repo::submission()->updateCurrentPublication($submission);
 
         Hook::call('Publication::delete', [&$publication]);
     }

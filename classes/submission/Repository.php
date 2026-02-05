@@ -718,7 +718,7 @@ abstract class Repository
      *
      * @hook Submission::updateStatus [[&$newStatus, $status, $submission]]
      */
-    public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null)
+    public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null): void
     {
         $status = $submission->getData('status');
 
@@ -726,21 +726,34 @@ abstract class Repository
             $newStatus = $this->getStatusByPublications($submission);
         }
 
-        Hook::call('Submission::updateStatus', [&$newStatus, $status, $submission]);
+        if (Hook::run('Submission::updateStatus', ['newStatus' => &$newStatus, 'status' => $status, 'submission' => $submission]) == Hook::ABORT) {
+            return;
+        }
 
         if ($status !== $newStatus) {
             $submission->setData('status', $newStatus);
         }
 
-        $currentPublicationId = $newCurrentPublicationId = $submission->getData('currentPublicationId');
+        $this->dao->update($submission);
+    }
+
+    /**
+     * Determine and update the current publication ID for the given submission.
+     *
+     * @hook Submission::updateCurrentPublication ['submission' => $submission, 'newCurrentPublicationId' => &$newCurrentPublicationId]
+     */
+    public function updateCurrentPublication(Submission $submission): void
+    {
+        $oldCurrentPublicationId = $submission->getData('currentPublicationId');
         $newCurrentPublicationId = $this->getCurrentPublicationIdByPublications($submission);
-        if ($currentPublicationId !== $newCurrentPublicationId) {
-            $submission->setData('currentPublicationId', $newCurrentPublicationId);
+        if (Hook::run('Submission::updateCurrentPublication', ['submission' => $submission, 'newCurrentPublicationId' => &$newCurrentPublicationId]) == Hook::ABORT) {
+            return;
         }
 
-        // Use the DAO instead of the Repository to prevent
-        // calling this method over and over again.
-        $this->dao->update($submission);
+        if ($oldCurrentPublicationId != $newCurrentPublicationId) {
+            $submission->setData('currentPublicationId', $newCurrentPublicationId);
+            $this->dao->update($submission);
+        }
     }
 
     /**

@@ -274,6 +274,21 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+		"variantGroupId": {
+			"type": "integer",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"variantType": {
+			"type": "string",
+			"description": "One of the MediaVariantType enums.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"viewable": {
 			"type": "boolean",
 			"apiSummary": true

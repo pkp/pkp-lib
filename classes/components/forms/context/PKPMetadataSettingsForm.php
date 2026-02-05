@@ -3,8 +3,8 @@
 /**
  * @file classes/components/form/context/PKPMetadataSettingsForm.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetadataSettingsForm
@@ -229,7 +229,7 @@ class PKPMetadataSettingsForm extends FormComponent
                 'value' => $context->getData('fundingStatement') ? $context->getData('fundingStatement') : Context::METADATA_DISABLE,
             ]))
             ->addField(new FieldMetadataSetting('dataCitations', [
-                'label' => __('submission.dataCitations'),
+                'label' => __('manager.setup.metadata.dataCitations'),
                 'description' => __('manager.setup.metadata.dataCitations.description'),
                 'options' => [
                     ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataCitations.enable')]

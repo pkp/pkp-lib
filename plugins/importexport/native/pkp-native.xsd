@@ -3,8 +3,8 @@
 <!--
   * plugins/importexport/native/pkp-native.xsd
   *
-  * Copyright (c) 2014-2025 Simon Fraser University
-  * Copyright (c) 2003-2025 John Willinsky
+  * Copyright (c) 2014-2026 Simon Fraser University
+  * Copyright (c) 2003-2026 John Willinsky
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Schema describing native XML import/export elements shared across PKP applications
@@ -289,6 +289,7 @@
 			<element ref="pkp:authors" minOccurs="0" maxOccurs="1" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:citations" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="pkp:dataCitations" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute name="date_submitted" type="date" use="optional" />
 		<attribute name="date_published" type="date" use="optional" />
@@ -419,6 +420,14 @@
 		<complexType>
 			<sequence>
 				<element name="citation" type="string" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+			<attribute name="locale" type="string" />
+		</complexType>
+	</element>
+	<element name="dataCitations">
+		<complexType>
+			<sequence>
+				<element name="dataCitation" type="string" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 			<attribute name="locale" type="string" />
 		</complexType>

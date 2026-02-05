@@ -129,15 +129,6 @@ class PKPMetadataForm extends FormComponent
             ]));
         }
 
-        if ($this->enabled('dataAvailability')) {
-            $this->addField(new FieldRichTextarea('dataAvailability', [
-                'label' => __('submission.dataAvailability'),
-                'tooltip' => __('manager.setup.metadata.dataAvailability.description'),
-                'isMultilingual' => true,
-                'value' => $publication->getData('dataAvailability'),
-            ]));
-        }
-
         if ($this->enabled('fundingStatement')) {
             $this->addField(new FieldRichTextarea('fundingStatement', [
                 'label' => __('submission.fundingStatement'),

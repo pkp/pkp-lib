@@ -3,8 +3,8 @@
 /**
  * @file pages/authorDashboard/PKPAuthorDashboardHandler.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorDashboardHandler
@@ -300,13 +300,11 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'currentSubmissionLanguageLabel' => Locale::getSubmissionLocaleDisplayNames([$submissionLocale])[$submissionLocale],
             'components' => [
                 $titleAbstractForm::FORM_TITLE_ABSTRACT => $this->getLocalizedForm($titleAbstractForm, $submissionLocale, $locales),
-                $citationsForm::FORM_CITATIONS => $this->getLocalizedForm($citationsForm, $submissionLocale, $locales),
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
             ],
             'currentPublication' => $currentPublicationProps,
             'publicationFormIds' => [
                 $titleAbstractForm::FORM_TITLE_ABSTRACT,
-                $citationsForm::FORM_CITATIONS,
             ],
             'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
             'submission' => $submissionProps,

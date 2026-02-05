@@ -192,7 +192,7 @@ class DAO extends EntityDAO
     public function getByDoi(string $doi, int $contextId): ?Submission
     {
         $row = DB::table($this->table, 's')
-            ->leftJoin('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
+            ->leftJoin('publications AS p', 'p.submission_id', '=', 's.submission_id')
             ->leftJoin('dois AS d', 'd.doi_id', '=', 'p.doi_id')
             ->where('d.doi', '=', $doi)
             ->where('s.context_id', '=', $contextId)

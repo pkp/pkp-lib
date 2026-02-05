@@ -74,7 +74,7 @@
 			<div class="section">
 				{foreach from=$possibleResponses key=key item=possibleResponse}
 					<div>
-						<input type="checkbox" {if in_array($key, $reviewFormCheckboxResponses)}checked="1"{/if}>
+						<input type="checkbox" {if is_array($reviewFormCheckboxResponses) && in_array($key, $reviewFormCheckboxResponses)}checked="1"{/if}>
 						<span>{$possibleResponse|escape}</span>
 					</div>
 				{/foreach}

@@ -172,6 +172,9 @@ msgstr "Resend Review Request"
 msgid "editor.submissionReview.reviewType"
 msgstr "Review Type"
 
+msgid "editor.submissionReview.publicVisibility"
+msgstr "Public Visibility"
+
 msgid "editor.submissionReview.sendEmail"
 msgstr "Send an email notification to the author(s): {$authorName}"
 

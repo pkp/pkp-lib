@@ -27,7 +27,6 @@ use PKP\API\v1\peerReviews\resources\PublicationPeerReviewSummaryResource;
 use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewSummaryResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\security\authorization\PublicReviewsEnabledPolicy;
 
 class PeerReviewController extends PKPBaseController
 {
@@ -36,7 +35,6 @@ class PeerReviewController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        $this->addPolicy(new PublicReviewsEnabledPolicy($request->getContext()));
         return parent::authorize($request, $args, $roleAssignments);
     }
 

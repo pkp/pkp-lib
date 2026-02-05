@@ -90,7 +90,14 @@ class Note extends Model
     {
         return Attribute::make(
             get: function () {
-                return Repo::user()->get($this->userId, true);
+                $userId = $this->userId;
+
+                // system-created note. no user
+                if (empty($userId)) {
+                    return null;
+                }
+
+                return Repo::user()->get((int) $userId, true);
             },
         );
     }

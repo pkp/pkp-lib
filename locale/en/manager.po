@@ -2562,6 +2562,18 @@ msgstr "Assigned Menu Items"
 msgid "manager.navigationMenus.unassignedMenuItems"
 msgstr "Unassigned Menu Items"
 
+msgid "manager.navigationMenu.noAssignedItems"
+msgstr "No items assigned to this menu. Drag items from Unassigned Menu Items."
+
+msgid "manager.navigationMenu.noUnassignedItems"
+msgstr "All items have been assigned."
+
+msgid "manager.navigationMenu.assigned"
+msgstr "Assigned"
+
+msgid "manager.navigationMenu.unassigned"
+msgstr "Unassigned"
+
 msgid "manager.navigationMenus.form.navigationMenuArea"
 msgstr "Active Theme Navigation Areas"
 
@@ -3028,6 +3040,10 @@ msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
 "All comments from completed reviews. Reviewer names are hidden for anonymous "
 "reviews"
+
+msgid "emailTemplate.variable.reviewRoundAuthorResponseUrl"
+msgstr ""
+"The URL to the page where the author can submit their response to reviewers' comments."
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr "The names and affiliations of the submission's authors."
@@ -3844,6 +3860,12 @@ msgstr "No one has reported this comment yet"
 msgid "manager.userComment.commentPreview"
 msgstr "Comment preview"
 
+msgid "manager.userComment.moderator.commentSubmitted"
+msgstr "A comment has been submitted and is pending review by a moderator."
+
+msgid "manager.userComment.moderator.commentReported"
+msgstr "A report was submitted for a comment and requires review by a moderator."
+
 msgid "manager.userComment.viewComment"
 msgstr "View Comment"
 
@@ -3950,3 +3972,9 @@ msgstr "Recommendation type"
 
 msgid "manager.reviewerRecommendations.type.notApproved"
 msgstr "Not Approved"
+
+msgid "mailable.reviewRound.requestAuthorResponse.name"
+msgstr "Request Author Review Response"
+
+msgid "mailable.reviewRound.requestAuthorResponse.description"
+msgstr "This email notifies the author to submit a response to reviewers' comments."

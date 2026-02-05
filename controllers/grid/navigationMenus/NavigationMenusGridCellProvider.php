@@ -23,7 +23,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\VueModal;
 use PKP\navigationMenu\NavigationMenuItemDAO;
 
 class NavigationMenusGridCellProvider extends GridCellProvider
@@ -36,16 +36,31 @@ class NavigationMenusGridCellProvider extends GridCellProvider
         switch ($column->getId()) {
             case 'title':
                 $navigationMenu = $row->getData();
-                $router = $request->getRouter();
-                $actionArgs = ['navigationMenuId' => $row->getId()];
+                $context = $request->getContext();
+
+                // Generate API URL for the Vue modal
+                $apiUrl = $request->getDispatcher()->url(
+                    $request,
+                    Application::ROUTE_API,
+                    $context ? $context->getPath() : 'index',
+                    'navigationMenus'
+                );
+
+                // Prepare navigation menu data for the Vue modal
+                $navigationMenuData = [
+                    'id' => $navigationMenu->getId(),
+                    'title' => $navigationMenu->getTitle(),
+                    'areaName' => $navigationMenu->getAreaName(),
+                ];
 
                 return [new LinkAction(
                     'edit',
-                    new AjaxModal(
-                        $router->url($request, null, null, 'editNavigationMenu', null, $actionArgs),
-                        __('grid.action.edit'),
-                        null,
-                        true
+                    new VueModal(
+                        'NavigationMenuManagerFormModal',
+                        [
+                            'navigationMenu' => $navigationMenuData,
+                            'apiUrl' => $apiUrl,
+                        ]
                     ),
                     htmlspecialchars($navigationMenu->getTitle())
                 )];

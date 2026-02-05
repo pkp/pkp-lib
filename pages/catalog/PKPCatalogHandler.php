@@ -16,16 +16,15 @@
 
 namespace PKP\pages\catalog;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\submission\Collector;
-use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\config\Config;
 use PKP\core\PKPRequest;
+use PKP\search\SubmissionSearchResult;
 use PKP\security\authorization\ContextRequiredPolicy;
-use PKP\security\Role;
 
 class PKPCatalogHandler extends Handler
 {
@@ -73,23 +72,14 @@ class PKPCatalogHandler extends Handler
         $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . Collector::ORDER_DIR_DESC;
         [$orderBy, $orderDir] = explode('-', $orderOption);
 
-        $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
-        $offset = $page > 1 ? ($page - 1) * $count : 0;
-
-        $collector = Repo::submission()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByCategoryIds([$category->getId()])
-            ->filterByStatus([Submission::STATUS_PUBLISHED])
-            ->orderBy($orderBy, $orderDir);
-
-        // Featured items are only in OMP at this time
-        if (method_exists($collector, 'orderByFeatured')) {
-            $collector->orderByFeatured(true);
+        $rangeInfo = $this->getRangeInfo($request, 'category');
+        $builder = (new SubmissionSearchResult())->builderFromRequest($request, $rangeInfo);
+        $builder->whereIn('categoryIds', [$category->getId()]);
+        if (Application::get()->getName() == 'omp') {
+            // Featured items are only in OMP at this time
+            $builder->orderBy('featured');
         }
-
-        $total = $collector->getCount();
-        $submissions = $collector->limit($count)->offset($offset)->getMany();
+        $results = $builder->paginate($rangeInfo->getCount(), 'submissions', $rangeInfo->getPage());
 
         // Provide the parent category and a list of subcategories
         $parentCategory = $category->getParentId() ? Repo::category()->get($category->getParentId()) : null;
@@ -97,13 +87,15 @@ class PKPCatalogHandler extends Handler
             ->filterByParentIds([$category->getId()])
             ->getMany();
 
-        $this->_setupPaginationTemplate($request, count($submissions), $page, $count, $offset, $total);
-
         $templateMgr->assign([
             'category' => $category,
             'parentCategory' => $parentCategory,
             'subcategories' => iterator_to_array($subcategories),
-            'publishedSubmissions' => $submissions->toArray(),
+            'results' => $results,
+            'query' => $builder->query,
+            'searchContext' => $context?->getId(),
+            'orderBy' => $request->getUserVar('orderBy'),
+            'orderDir' => $request->getUserVar('orderDir'),
         ]);
 
         return $templateMgr->display('frontend/pages/catalogCategory.tpl');
@@ -155,32 +147,5 @@ class PKPCatalogHandler extends Handler
             default:
                 throw new \Exception('invalid type specified');
         }
-    }
-
-    /**
-     * Assign the pagination template variables
-     *
-     * @param PKPRequest $request
-     * @param int $submissionsCount Number of monographs being shown
-     * @param int $page Page number being shown
-     * @param int $count Max number of monographs being shown
-     * @param int $offset Starting position of monographs
-     * @param int $total Total number of monographs available
-     */
-    protected function _setupPaginationTemplate($request, $submissionsCount, $page, $count, $offset, $total)
-    {
-        $showingStart = $offset + 1;
-        $showingEnd = min($offset + $count, $offset + $submissionsCount);
-        $nextPage = $total > $showingEnd ? $page + 1 : null;
-        $prevPage = $showingStart > 1 ? $page - 1 : null;
-
-        $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign([
-            'showingStart' => $showingStart,
-            'showingEnd' => $showingEnd,
-            'total' => $total,
-            'nextPage' => $nextPage,
-            'prevPage' => $prevPage,
-        ]);
     }
 }

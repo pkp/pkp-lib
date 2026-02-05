@@ -34,7 +34,7 @@ class SiteDAO extends \PKP\db\DAO
     /**
      * Retrieve site information.
      */
-    public function getSite(): ?site
+    public function getSite(): ?Site
     {
         $result = $this->retrieve(
             'SELECT * FROM site'
@@ -133,8 +133,8 @@ class SiteDAO extends \PKP\db\DAO
             $set[] = $column . ' = ?';
             $property = $schema->properties->{$propName};
             $params[] = $this->convertToDb(
-                value: $sanitizedProps[$propName], 
-                type: $property->type, 
+                value: $sanitizedProps[$propName],
+                type: $property->type,
                 nullable: in_array('nullable', $property->validation ?? []),
                 encrypt: $property->encrypt ?? false
             );
@@ -162,7 +162,7 @@ class SiteDAO extends \PKP\db\DAO
                             ['locale' => $localeKey, 'setting_name' => $propName],
                             [
                                 'setting_value' => $this->convertToDB(
-                                    value: $localeValue, 
+                                    value: $localeValue,
                                     type: $schema->properties->{$propName}->type,
                                     encrypt: $schema->properties->{$propName}->encrypt ?? false
                                 )

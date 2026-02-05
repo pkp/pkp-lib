@@ -224,6 +224,45 @@
 				"min:1"
 			]
 		},
+		"taskDateClosed": {
+			"type": "string",
+			"description": "The date when the task associated with the event was closed.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateCreated": {
+			"type": "string",
+			"description": "The date when the task associated with the event was created.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateStarted": {
+			"type": "string",
+			"description": "The date when the task associated with the event was started.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateReplied": {
+			"type": "string",
+			"description": "The date when the note was posted.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskType": {
+			"type": "string",
+			"description": "The type of the task associated with the event. see `EditorialTaskType` enum.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"userFullName": {
 			"type": "string",
 			"description": "The full name of the user/author associated with the event, e.g., confirming the copyright during submission.",

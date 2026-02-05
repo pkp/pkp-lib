@@ -259,6 +259,7 @@ class ManagementHandler extends Handler
         $contentCommentSettingsForm = new ContentCommentsForm($contextApiUrl, $locales, $context);
 
         $highlightsListPanel = $this->getHighlightsListPanel();
+        $navigationMenuEditorConfig = $this->getNavigationMenuEditorConfig();
 
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
@@ -276,6 +277,7 @@ class ManagementHandler extends Handler
             $dateTimeForm::FORM_DATE_TIME => $dateTimeForm->getConfig(),
             $highlightsListPanel->id => $highlightsListPanel->getConfig(),
             $contentCommentSettingsForm::FORM_CONTENT_COMMENT => $contentCommentSettingsForm->getConfig(),
+            'navigationMenuEditor' => $navigationMenuEditorConfig,
         ];
 
         if ($informationForm) {
@@ -802,6 +804,25 @@ class ManagementHandler extends Handler
                 'itemsMax' => $items->count(),
             ]
         );
+    }
+
+    /**
+     * Get the navigation menu editor configuration
+     */
+    protected function getNavigationMenuEditorConfig(): array
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $apiUrl = $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getPath(),
+            'navigationMenus'
+        );
+
+        return [
+            'apiUrl' => $apiUrl,
+        ];
     }
 
     /**

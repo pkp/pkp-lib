@@ -104,6 +104,7 @@ class ReviewsMigration extends \PKP\migration\Migration
 
             $table->smallInteger('considered')->nullable();
             $table->smallInteger('request_resent')->default(0);
+            $table->boolean('is_review_publicly_visible')->default(false);
 
             // Normally reviewer can't be assigned twice on the same review round.
             // HOWEVER, if two reviewer user accounts are subsequently merged, both will keep

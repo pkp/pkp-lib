@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * @file api/v1/reviews/formRequests/ReviewRoundAuthorResponseCommonValidator.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @trait  ReviewRoundAuthorResponseCommonValidator
+ *
+ * @brief Trait to handle common validation when creating/editing review round responses.
+ *
+ */
+
+namespace PKP\API\v1\reviews\formRequests;
+
+use APP\facades\Repo;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\Rule;
+use PKP\db\DAORegistry;
+
+trait ReviewRoundAuthorResponseCommonValidator
+{
+    /*
+     * Common validation rules for adding and editing review responses
+     */
+    protected function commonRules(): array
+    {
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $this->reviewRound = $reviewRoundDao->getById($this->route('reviewRoundId'));
+
+        return [
+            'reviewRoundId' => [
+                'required',
+                'integer',
+                function (string $attribute, mixed $value, \Closure $fail) {
+                    if (!$this->reviewRound || (int) $this->reviewRound->getId() !== (int) $value) {
+                        $fail(__('api.404.resourceNotFound'));
+                    }
+                },
+            ],
+            'submissionId' => [
+                'required',
+                'integer',
+                Rule::exists('submissions', 'submission_id'),
+            ],
+            'authorResponse' => [
+                'array',
+                'required',
+            ],
+            'associatedAuthorIds' => [
+                'required',
+                'array',
+            ],
+        ];
+    }
+
+    /**
+     * Perform additional form specific validations after initial check was passed.
+     */
+    protected function commonAfter(): array
+    {
+        return [
+            function (Validator $validator) {
+                // Only run this validation if all initial checks in `rules` passed
+                if (!$validator->errors()->count()) {
+                    $publication = Repo::publication()->get($this->reviewRound->getPublicationId());
+                    $allAuthors = $publication->getData('authors');
+                    $associatedAuthorIds = $this->input('associatedAuthorIds');
+
+                    foreach ($associatedAuthorIds as $authorId) {
+                        if (!$allAuthors->get($authorId)) {
+                            $validator->errors()->add('associatedAuthorIds', __('api.404.resourceNotFound'));
+                            break;
+                        }
+                    }
+                }
+            }
+        ];
+    }
+
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'reviewRoundId' => $this->route('reviewRoundId'),
+            'submissionId' => $this->route('submissionId'),
+        ]);
+
+        if ($this->route('responseId')) {
+            $this->merge([
+                'responseId' => $this->route('responseId'),
+            ]);
+        }
+    }
+
+    /**
+     * Validation rules and their messages
+     */
+    protected function commonMessages(): array
+    {
+        return [
+            'submissionId.exists' => __('api.404.resourceNotFound'),
+            'reviewRoundId.exists' => __('api.404.resourceNotFound'),
+            'authorReviewResponse.required' => __('api.reviewRound.authorResponse.400.missingAuthorReviewResponse'),
+            'associatedAuthorIds.required' => __('api.reviewRound.authorResponse.400.missingAuthorIds'),
+        ];
+    }
+
+    /**
+     * Data to be returned after validation.
+     */
+    protected function commonValidated()
+    {
+        $request = $this->validator->validated();
+        $request['associatedAuthorIds'] = $this->input('associatedAuthorIds');
+        $request['reviewRound'] = $this->reviewRound;
+        $request['authorResponse'] = $this->input('authorResponse');
+
+        return $request;
+    }
+}

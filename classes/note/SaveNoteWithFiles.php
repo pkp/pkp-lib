@@ -206,6 +206,7 @@ trait SaveNoteWithFiles
             $newSubmissionFile = Repo::submissionFile()->newDataObject(array_merge($submissionFile->getAllData(), [
                 'assocType' => PKPApplication::ASSOC_TYPE_NOTE,
                 'assocId' => $noteId,
+                'fileStage' => SubmissionFile::SUBMISSION_FILE_QUERY,
                 'sourceSubmissionFileId' => $submissionFile->getId(),
             ]));
 

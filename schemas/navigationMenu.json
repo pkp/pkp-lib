@@ -1,0 +1,63 @@
+{
+	"title": "Navigation Menu",
+	"description": "A navigation menu that can be assigned to a theme navigation area.",
+	"required": [
+		"title"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"description": "The unique ID of the navigation menu.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"contextId": {
+			"type": "integer",
+			"description": "The journal, press or preprint server ID. Use 0 for site-level menus.",
+			"apiSummary": true,
+			"writeDisabledInApi": true
+		},
+		"title": {
+			"type": "string",
+			"description": "The title of the navigation menu.",
+			"apiSummary": true,
+			"validation": [
+				"required"
+			]
+		},
+		"areaName": {
+			"type": "string",
+			"description": "The theme navigation area this menu is assigned to.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"menuTree": {
+			"type": "array",
+			"description": "The menu tree structure for assigned items.",
+			"writeOnly": true,
+			"apiSummary": false,
+			"items": {
+				"type": "object",
+				"properties": {
+					"menuItemId": {
+						"type": "integer",
+						"description": "The menu item ID."
+					},
+					"seq": {
+						"type": "integer",
+						"description": "The sequence order of the item."
+					},
+					"parentId": {
+						"type": "integer",
+						"description": "The parent menu item ID for nested items.",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
+			}
+		}
+	}
+}

@@ -316,33 +316,43 @@ class SettingsBuilder extends Builder
         // First, get all Model columns from the main table
         $primaryKey = $this->model->getKeyName();
 
-        $rows = $this->query->get()->keyBy($primaryKey);
-        if ($rows->isEmpty()) {
-            return $rows->all();
+        $collection = $this->query->get();
+        if ($collection->isEmpty()) {
+            return $collection->all();
         }
 
-        // Retrieve records from the settings table associated with the primary Model IDs
-        $ids = $rows->pluck($primaryKey)->toArray();
+        $rows = $collection->all();
+
+        // the main query may return multiple rows per primary key. map settings to all rows sharing the same primary key.
+        $ids = array_map(
+            fn ($row) => $row->{$primaryKey},
+            $rows
+        );
+        $uniqueIds = array_values(array_unique($ids));
+
+        $rowIndexesById = [];
+        foreach ($rows as $index => $row) {
+            $rowIndexesById[$row->{$primaryKey}][] = $index;
+        }
+
         $settings = DB::table($this->model->getSettingsTable())
-            ->whereIn($primaryKey, $ids)
+            ->whereIn($primaryKey, $uniqueIds)
             ->get();
 
-        $rows = $rows->all();
-
-        $settings->each(function (\stdClass $setting) use (&$rows, $primaryKey, $columns) {
+        $settings->each(function (stdClass $setting) use (&$rows, $rowIndexesById, $primaryKey) {
             $settingModelId = $setting->{$primaryKey};
 
-            // Even for empty('') locale, the multilingual props need to be an array
-            if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
-                $rows[$settingModelId]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
-            } else {
-                $rows[$settingModelId]->{$setting->setting_name} = $setting->setting_value;
+            foreach ($rowIndexesById[$settingModelId] as $index) {
+                if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
+                    $rows[$index]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
+                } else {
+                    $rows[$index]->{$setting->setting_name} = $setting->setting_value;
+                }
             }
         });
 
-        // Include only specified columns
-        foreach ($ids as $id) {
-            $this->filterRow($rows[$id], $columns);
+        foreach ($rows as $row) {
+            $this->filterRow($row, $columns);
         }
 
         return $rows;

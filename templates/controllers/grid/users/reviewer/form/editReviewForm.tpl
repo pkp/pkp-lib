@@ -40,6 +40,10 @@
 		{/foreach}
 	{/fbvFormSection}
 
+	{fbvFormSection title="editor.submissionReview.publicVisibility" list="false"}
+		{fbvElement type="checkbox" id="isReviewPubliclyVisible" name="isReviewPubliclyVisible" label="manager.setup.reviewOptions.publicReviewerComments.show" checked=($isReviewPubliclyVisible)}
+	{/fbvFormSection}
+
 	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}
 
 	<h3>{translate key="editor.submissionReview.restrictFiles"}</h3>

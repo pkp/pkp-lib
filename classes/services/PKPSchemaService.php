@@ -55,6 +55,8 @@ class PKPSchemaService
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
     public const SCHEMA_EMAIL_LOG = 'emailLog';
+    public const SCHEMA_NAVIGATION_MENU = 'navigationMenu';
+    public const SCHEMA_NAVIGATION_MENU_ITEM = 'navigationMenuItem';
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];

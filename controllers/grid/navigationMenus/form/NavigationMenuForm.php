@@ -24,7 +24,6 @@ use PKP\form\Form;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\navigationMenu\NavigationMenuItemAssignment;
 use PKP\navigationMenu\NavigationMenuItemAssignmentDAO;
-use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\plugins\PluginRegistry;
 
 class NavigationMenuForm extends Form
@@ -77,43 +76,11 @@ class NavigationMenuForm extends Form
             }
         }
 
-        $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
-        if ($context) {
-            $contextId = $context->getId();
-        }
-
-        $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
-        $navigationMenuItems = $navigationMenuItemDao->getByContextId($contextId)
-            ->toArray();
-        $assignedItems = $navigationMenuItemDao->getByMenuId($this->_navigationMenuId)
-            ->toArray();
-        $unassignedItems = array_udiff($navigationMenuItems, $assignedItems, function ($a, $b) {
-            return $a->getId() - $b->getId();
-        });
-
-        foreach ($unassignedItems as $unassignedItem) {
-            app()->get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $unassignedItem);
-        }
-
-        $navigationMenuItemTypes = app()->get('navigationMenu')->getMenuItemTypes();
-
-        $typeConditionalWarnings = [];
-        foreach ($navigationMenuItemTypes as $type => $settings) {
-            if (array_key_exists('conditionalWarning', $settings)) {
-                $typeConditionalWarnings[$type] = $settings['conditionalWarning'];
-            }
-        }
-
         $templateMgr->assign([
             'activeThemeNavigationAreas' => $activeThemeNavigationAreas,
-            'unassignedItems' => $unassignedItems,
             'navigationMenuId' => $this->_navigationMenuId,
             'title' => $this->getData('title'),
             'navigationMenuArea' => $this->getData('areaName'),
-            'menuTree' => $this->getData('menuTree'),
-            'navigationMenuItemTypes' => $navigationMenuItemTypes,
-            'navigationMenuItemTypeConditionalWarnings' => json_encode($typeConditionalWarnings),
         ]);
 
         return parent::fetch($request, $template, $display);

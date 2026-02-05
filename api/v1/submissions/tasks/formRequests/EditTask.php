@@ -119,7 +119,7 @@ class EditTask extends FormRequest
 
                         if (in_array(
                             $reviewAssignment->getReviewMethod(),
-                            [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS]
+                            [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]
                         )
                         ) {
                             $blindedReviewerIds[] = $reviewAssignment->getReviewerId();
@@ -133,7 +133,7 @@ class EditTask extends FormRequest
                     }
 
                     // Don't disclose anonymous reviewer to other reviewers
-                    if (count($blindedReviewerIds) > 1 && !empty($nonBlindedReviewerIds)) {
+                    if (count($blindedReviewerIds) > 1 || !empty($nonBlindedReviewerIds)) {
                         return $fail(__('submission.task.validation.error.reviewer.anonymous'));
                     }
 
@@ -142,7 +142,7 @@ class EditTask extends FormRequest
                             continue;
                         }
 
-                        if (!in_array(Role::ROLE_ID_AUTHOR, $stageAssignment->userGroup->role_id)) {
+                        if ($stageAssignment->userGroup->roleId != Role::ROLE_ID_AUTHOR) {
                             continue;
                         }
 
@@ -160,6 +160,22 @@ class EditTask extends FormRequest
                     if ($this->input('type') == EditorialTaskType::DISCUSSION->value && count($value) < 2) {
                         $fail(__('submission.task.validation.error.participants.required'));
                     }
+                },
+
+                // Check if the task creator is among participants
+                function (string $attribute, array $value, Closure $fail) {
+                    $participantIds = Arr::pluck($this->input('participants'), 'userId');
+                    $creatorId = $this->getCreatorId();
+
+                    if ($creatorId === null) {
+                        return true; // We allow absent creator when task is automatically created
+                    }
+
+                    if (!in_array($this->getCreatorId(), $participantIds)) {
+                        return $fail(__('submission.task.validation.error.participant.creator'));
+                    }
+
+                    return true;
                 }
             ],
             EditorialTask::ATTRIBUTE_PARTICIPANTS . '.*' => [
@@ -262,5 +278,10 @@ class EditTask extends FormRequest
     protected function getStageId(): int
     {
         return $this->task->stageId;
+    }
+
+    protected function getCreatorId(): ?int
+    {
+        return $this->task->createdBy;
     }
 }

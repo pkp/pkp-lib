@@ -45,16 +45,16 @@ class OpenReviewComponent
         return [
             'openReview.sortBy',
             'openReview.sortByReviewerName',
-            'openReview.reportsByRecord',
-            'openReview.reportsByReviewer',
-            'openReview.reviewerCount',
             'openReview.reviewCount',
             'openReview.fullReview',
             'openReview.noCommentsAvailable',
             'openReview.readReview',
+            'openReview.readResponse',
+            'openReview.hideResponse',
             'publication.versionStage.versionOfRecord',
             'common.pagination.previous',
             'common.pagination.next',
+            'submission.reviewRound.authorResponse',
             // PkpOpenReviewSummary component locale keys
             'openReview.title',
             'openReview.reviewersContributed',
@@ -103,6 +103,7 @@ class OpenReviewComponent
             'ReviewNotApproved',
             'ReviewRevisionsRequested',
             'ReviewComments',
+            'ReviewAuthorResponse',
         ];
     }
 }

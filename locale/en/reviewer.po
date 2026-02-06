@@ -201,15 +201,6 @@ msgstr "Sort by:"
 msgid "openReview.sortByReviewerName"
 msgstr "Reviewer Name"
 
-msgid "openReview.reportsByRecord"
-msgstr "Reviewer Reports by Record"
-
-msgid "openReview.reportsByReviewer"
-msgstr "Reviewer Reports by Reviewer"
-
-msgid "openReview.reviewerCount"
-msgstr "{$count} Reviewers"
-
 msgid "openReview.reviewCount"
 msgstr "{$count} Reviews"
 
@@ -248,3 +239,6 @@ msgstr "See full peer review record"
 
 msgid "openReview.readResponse"
 msgstr "Read Response"
+
+msgid "openReview.hideResponse"
+msgstr "Hide Response"

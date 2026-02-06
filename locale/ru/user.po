@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2024-06-15 09:38+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-06 20:38+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ru/"
 ">\n"
 "Language: ru\n"
@@ -776,3 +777,59 @@ msgstr "Неверные учетные данные клиента"
 
 msgid "orcid.manager.status.configuration.clientIdValid"
 msgstr "Идентификатор клиента корректный"
+
+msgid "user.affiliations.translation"
+msgstr "Дополнительная информация"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Удалить учреждение"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Введите название учреждения на {$language}"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Добавление, обновление или удаление предложений рецензента для завершённой "
+"отправки ограничено."
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Фраза для поиска не найдена"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Пользователь должен быть анонимным. В данный момент вы вошли в систему."
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Редактировать название учреждения"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Нажмите, чтобы редактировать или удалить"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Все переводы доступны"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} из {$total} языков завершено"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Название института на {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Вы уверены?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Аффилиация <strong>{$affiliation}</strong> будет удалена."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Введите название института на {$language}"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Основной язык {$primaryLocale} обязателен"
+
+msgid "user.affiliations.institution"
+msgstr "Учреждение"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Введите полное название учреждения ниже, избегая аббревиатур. Выберите "
+"название из выпадающего списка и нажмите «Добавить», чтобы включить "
+"аффилиацию в свой профиль. (например, «Simon Fraser University»)"

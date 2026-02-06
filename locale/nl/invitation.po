@@ -354,7 +354,7 @@ msgstr "Beoordeel & maak een account aan"
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Het behoort ten minste 6 tekens te bevatten en kan een combinatie van "
+"Het behoort ten minste {$length} tekens te bevatten en kan een combinatie van "
 "hoofdletters, kleine letters, cijfers en symbolen zijn"
 
 msgid "acceptInvitation.userDetailsForm.familyName.description"

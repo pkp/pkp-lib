@@ -303,6 +303,9 @@ msgstr "OS platform"
 msgid "admin.settings"
 msgstr "Settings"
 
+msgid "admin.security"
+msgstr "Security"
+
 msgid "admin.settings.about"
 msgstr "About the Site"
 
@@ -320,6 +323,46 @@ msgstr "Introduction"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimum password length (characters)"
+
+msgid "admin.settings.security.passwordPolicy"
+msgstr "Password Policy"
+
+msgid "admin.settings.security.passwordUncompromised"
+msgstr "Compromised Password Check"
+
+msgid "admin.settings.security.passwordUncompromised.description"
+msgstr ""
+"Passwords are verified against a database of known compromised passwords. <br />"
+"Verification uses a local blacklist file (<i>lib/pkp/registry/blacklistedPasswords.txt</i>) if available, "
+"otherwise it falls back to the <a href=\"https://haveibeenpwned.com/\" target=\"_blank\">Have I Been Pwned</a> API service "
+"using the <a href=\"https://en.wikipedia.org/wiki/K-anonymity\" target=\"_blank\">k-Anonymity</a> model to protect user privacy."
+
+msgid "admin.settings.security.passwordUncompromised.enable.label"
+msgstr "Check passwords against compromised password databases"
+
+msgid "admin.settings.security.rateLimit"
+msgstr "Rate Limiting"
+
+msgid "admin.settings.security.rateLimit.description"
+msgstr "Limit the number of failed attempts to protect against brute force attacks. Applies to both login and password reset requests."
+
+msgid "admin.settings.security.rateLimit.enable"
+msgstr "Enable"
+
+msgid "admin.settings.security.rateLimit.enable.label"
+msgstr "Enable rate limiting"
+
+msgid "admin.settings.security.rateLimit.maxAttempts"
+msgstr "Maximum attempts"
+
+msgid "admin.settings.security.rateLimit.maxAttempts.description"
+msgstr "Number of attempts allowed before rate limiting is triggered."
+
+msgid "admin.settings.security.rateLimit.decaySeconds"
+msgstr "Lockout duration (seconds)"
+
+msgid "admin.settings.security.rateLimit.decaySeconds.description"
+msgstr "Time in seconds before the rate limit resets."
 
 msgid "admin.settings.sharedReviewerStatistics"
 msgstr "Reviewer statistics"

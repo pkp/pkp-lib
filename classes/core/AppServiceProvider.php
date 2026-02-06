@@ -16,6 +16,8 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use PKP\db\DAORegistry;
+use PKP\security\RateLimitingService;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 use PKP\context\Context;
@@ -73,5 +75,13 @@ class AppServiceProvider extends ServiceProvider
         Relation::enforceMorphMap([
             PKPApplication::ASSOC_TYPE_QUERY => EditorialTask::class,
         ]);
+
+        $this->app->singleton(
+            RateLimitingService::class,
+            function ($app) {
+                $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
+                return RateLimitingService::getInstance($siteDao->getSite());
+            }
+        );
     }
 }

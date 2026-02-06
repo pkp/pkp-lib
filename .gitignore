@@ -10,3 +10,4 @@ styles/tinymce
 tests/.phpunit.cache
 lib/weblateLanguages/languages.json
 /js/lib/altcha/
+registry/blacklistedPasswords.txt

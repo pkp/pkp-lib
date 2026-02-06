@@ -210,6 +210,7 @@ class AdminHandler extends Handler
 
         $siteAppearanceForm = new PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
         $siteConfigForm = new PKPSiteConfigForm($apiUrl, $locales, $site);
+        $siteSecurityForm = new \PKP\components\forms\site\PKPSiteSecurityForm($apiUrl, $locales, $site);
         $siteInformationForm = new PKPSiteInformationForm($apiUrl, $locales, $site);
         $siteBulkEmailsForm = new PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
         $orcidSettingsForm = new OrcidSiteSettingsForm($apiUrl, $locales, $site);
@@ -232,6 +233,7 @@ class AdminHandler extends Handler
                 $announcementsListPanel->id => $announcementsListPanel->getConfig(),
                 $siteAppearanceForm::FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
                 $siteConfigForm::FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
+                $siteSecurityForm::FORM_SITE_SECURITY => $siteSecurityForm->getConfig(),
                 $siteInformationForm::FORM_SITE_INFO => $siteInformationForm->getConfig(),
                 $siteBulkEmailsForm::FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
                 $orcidSettingsForm->id => $orcidSettingsForm->getConfig(),
@@ -269,6 +271,7 @@ class AdminHandler extends Handler
             'languages' => true,
             'bulkEmails' => true,
             'statistics' => true,
+            'siteSecurity' => true,
             'siteAppearance' => $isMultiContextSite,
             'sitePlugins' => $isMultiContextSite,
             'siteConfig' => $isMultiContextSite,

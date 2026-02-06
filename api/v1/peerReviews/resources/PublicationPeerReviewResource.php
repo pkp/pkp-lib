@@ -108,7 +108,7 @@ class PublicationPeerReviewResource extends JsonResource
                 'roundId' => $reviewRound->getData('id'),
                 'originalPublicationId' => $reviewRound->getPublicationId(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context),
-                'authorResponses' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
+                'authorResponse' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
             ]);
         }
 

@@ -44,6 +44,7 @@ class ReviewRoundAuthorResponseResource extends JsonResource
                 'id' => $author->getId(),
                 'fullName' => $author->getFullName(),
             ], $associatedAuthors),
+            'createdAt' => $response->created_at,
         ];
     }
 }

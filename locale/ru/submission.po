@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2024-01-04 15:39+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-06 20:38+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru/>\n"
 "Language: ru\n"
@@ -2741,3 +2742,33 @@ msgstr ""
 
 msgid "author.competingInterests"
 msgstr "Конфликт интересов"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Отправка отменена"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Предупреждение: Эта версия была опубликована. Редактирование может повлиять "
+"на опубликованный контент."
+
+msgid "author.authorNotFound"
+msgstr "Автор для этой аффилиации не найден."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Пожалуйста, укажите аффилиацию ROR или хотя бы одно название учреждения."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Пожалуйста, укажите название учреждения на основном языке подачи."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Требуется локаль отображения ROR."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Отменить отправку"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Отправка была отменена, и все связанные данные удалены."
+
+msgid "ror.nameRequired"
+msgstr "Требуется название ROR."

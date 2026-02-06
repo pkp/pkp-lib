@@ -1,4 +1,4 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023, 2025.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023, 2025, 2026.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Emma U <emmaupkp@gmail.com>, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-12-24 14:21+0000\n"
+"PO-Revision-Date: 2026-02-06 20:38+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
@@ -1058,8 +1058,8 @@ msgstr ""
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
-"Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, wie "
-"beispielsweise Revisionen oder Dateien, anhängen."
+"Hängen Sie Dateien an, die bei der Einreichung hochgeladen wurden, wie "
+"beispielsweise Überarbeitungen oder Dateien, die begutachtet werden müssen."
 
 msgid "email.addAttachment.libraryFiles"
 msgstr "Dateien aus der Bibliothek"
@@ -1880,7 +1880,7 @@ msgid "notification.reviewerResendRequest"
 msgstr "Antrag auf Überprüfung des Begutachtungsauftrags gestellt."
 
 msgid "notification.addedStageParticipant"
-msgstr "Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt."
+msgstr "Benutzer/in als Beteiligte/r dieser Phase hinzugefügt."
 
 msgid "notification.editStageParticipant"
 msgstr "Die Zuordnung zu einem Bearbeitungsschritt wurde geändert."
@@ -1974,7 +1974,7 @@ msgstr "Gespräch ergänzt."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
-"Weisen Sie eine/n Lektor/in über den Hinzufügen-Link in der Teilnehmer/innen-"
+"Weisen Sie eine/n Lektor/in über den Hinzufügen-Link in der Beteiligten-"
 "Liste zu."
 
 msgid "notification.type.awaitingCopyedits"

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-01-28 01:29+0000\n"
+"PO-Revision-Date: 2026-02-06 20:38+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ru/>\n"
@@ -2322,3 +2322,25 @@ msgstr "Приложение, запущенное в режиме «песоч�
 
 msgid "common.changeLanguage"
 msgstr "Изменить язык"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Просмотреть <a href=\"{$url}\">Редакционную историю</a>"
+
+msgid "common.moreActions"
+msgstr "Дополнительные действия"
+
+msgid "common.editorialMasthead"
+msgstr "Редакционная шапка"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Рецензенты за предыдущие годы"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Редакция выражает признательность рецензентам за {$year}, перечисленным ниже."
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Рецензенты за прошлый год"
+
+msgid "common.editorialHistory"
+msgstr "Редакционная история"

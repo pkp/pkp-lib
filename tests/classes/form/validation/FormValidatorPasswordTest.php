@@ -419,4 +419,76 @@ class FormValidatorPasswordTest extends PKPTestCase
 
         self::assertTrue($validator->isValid());
     }
+
+    /**
+     * Test that when passwordUncompromisedEnabled is disabled, compromised passwords pass.
+     * This verifies the site setting integration in ValidationServiceProvider.
+     */
+    public function testCompromisedPasswordPassesWhenSettingDisabled()
+    {
+        // Mock Site with passwordUncompromisedEnabled = false (disabled)
+        $siteMock = Mockery::mock(Site::class);
+        $siteMock->shouldReceive('getMinPasswordLength')->andReturn(8);
+        $siteMock->shouldReceive('getData')
+            ->with('passwordUncompromisedEnabled')
+            ->andReturn(false);
+        Registry::set('site', $siteMock);
+
+        // Use a verifier that would fail if called (to verify it's not called)
+        app()->instance(UncompromisedVerifier::class, new class implements UncompromisedVerifier {
+            public function verify($data): bool
+            {
+                return true; // When disabled, this no-op verifier should be used
+            }
+        });
+
+        $form = new Form('some template');
+        $form->setData('password', 'password123'); // Common password that would be compromised
+
+        $validator = new FormValidatorPassword(
+            $form,
+            'password',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key'
+        );
+
+        // Should pass because the setting is disabled (no-op verifier returns true)
+        self::assertTrue($validator->isValid());
+    }
+
+    /**
+     * Test that when passwordUncompromisedEnabled is enabled, compromised passwords fail.
+     * This verifies the site setting integration in ValidationServiceProvider.
+     */
+    public function testCompromisedPasswordFailsWhenSettingEnabled()
+    {
+        // Mock Site with passwordUncompromisedEnabled = true (enabled)
+        $siteMock = Mockery::mock(Site::class);
+        $siteMock->shouldReceive('getMinPasswordLength')->andReturn(8);
+        $siteMock->shouldReceive('getData')
+            ->with('passwordUncompromisedEnabled')
+            ->andReturn(true);
+        Registry::set('site', $siteMock);
+
+        // Use a verifier that returns false (password IS compromised)
+        app()->instance(UncompromisedVerifier::class, new class implements UncompromisedVerifier {
+            public function verify($data): bool
+            {
+                return false; // Password IS compromised
+            }
+        });
+
+        $form = new Form('some template');
+        $form->setData('password', 'password123'); // Compromised password
+
+        $validator = new FormValidatorPassword(
+            $form,
+            'password',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key'
+        );
+
+        // Should fail because the setting is enabled and password is compromised
+        self::assertFalse($validator->isValid());
+    }
 }

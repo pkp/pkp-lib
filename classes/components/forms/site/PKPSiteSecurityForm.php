@@ -67,6 +67,19 @@ class PKPSiteSecurityForm extends FormComponent
                 'size' => 'small',
                 'value' => $site->getData('minPasswordLength'),
                 'groupId' => static::PASSWORD_POLICY_GROUP,
+            ]))
+            ->addField(new FieldOptions('passwordUncompromisedEnabled', [
+                'label' => __('admin.settings.security.passwordUncompromised'),
+                'description' => __('admin.settings.security.passwordUncompromised.description'),
+                'type' => 'checkbox',
+                'options' => [
+                    [
+                        'value' => true,
+                        'label' => __('admin.settings.security.passwordUncompromised.enable.label'),
+                    ],
+                ],
+                'value' => $site->getData('passwordUncompromisedEnabled') ?? false,
+                'groupId' => static::PASSWORD_POLICY_GROUP,
             ]));
 
         return $this;

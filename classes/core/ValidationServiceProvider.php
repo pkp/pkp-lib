@@ -14,6 +14,7 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
 use Illuminate\Http\Client\Factory as HttpFactory;
 use Illuminate\Support\Facades\Validator;
@@ -37,11 +38,26 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
         parent::register();
 
         // Password blacklist verifier
-        //  - uses local file if exists,
+        //  - check if site setting is enabled (disabled by default)
+        //  - if enabled, uses local file if exists,
         //  - fallback to uses Have I Been Pwned API see at https://laravel.com/docs/11.x/validation#validating-passwords
         $this->app->singleton(UncompromisedVerifier::class, function ($app) {
-            $localVerifier = new LocalPasswordBlacklistVerifier();
+            $site = Application::get()->getRequest()->getSite();
+            $isEnabled = $site?->getData('passwordUncompromisedEnabled') ?? false;
 
+            if (!$isEnabled) {
+                return new class implements UncompromisedVerifier {
+                    /**
+                     * @see \Illuminate\Contracts\Validation\UncompromisedVerifier::verify()
+                     */
+                    public function verify($data)
+                    {
+                        return true;
+                    }
+                };
+            }
+
+            $localVerifier = new LocalPasswordBlacklistVerifier();
             if ($localVerifier->blacklistFileExists()) {
                 return $localVerifier;
             }

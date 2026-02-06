@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2024-02-23 17:05+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-06 20:38+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ru/>\n"
 "Language: ru\n"
@@ -17,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Задаем название"
+msgstr "Имя настройки"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "Задаем значение"

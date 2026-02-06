@@ -30,11 +30,10 @@ class JatsFile
 
     public function __construct(
         public int $publicationId,
-        public ?int $submissionId = null, 
-        public ?SubmissionFile $submissionFile = null, 
+        public ?int $submissionId = null,
+        public ?SubmissionFile $submissionFile = null,
         public array $genres = []
-    ) 
-    {
+    ) {
         try {
             if ($submissionFile) {
                 $this->isDefaultContent = false;
@@ -48,6 +47,5 @@ class JatsFile
         } catch (UnableToCreateFileContentException | UnableToCreateJATSContentException $e) {
             $this->loadingContentError = $e->getMessage();
         }
-        
     }
 }

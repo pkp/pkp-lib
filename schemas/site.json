@@ -112,6 +112,11 @@
 				"min:4"
 			]
 		},
+		"passwordUncompromisedEnabled": {
+			"type": "boolean",
+			"default": false,
+			"description": "Enable password verification against compromised password databases"
+		},
 		"rateLimitEnabled": {
 			"type": "boolean",
 			"default": false,

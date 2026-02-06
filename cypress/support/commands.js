@@ -13,7 +13,7 @@ import 'cypress-wait-until';
 import 'cypress-iframe'
 
 /**
- * Get a standardized password for a test user
+ * Generate and return a standardized password for a test user
  * @param {string} username - The username
  * @returns {string} The password
  */
@@ -27,7 +27,7 @@ function getPassword(username) {
 		return username;
 	}
 
-	return username + '1!#';
+	return username + username;
 }
 
 // Export for use in commands and tests

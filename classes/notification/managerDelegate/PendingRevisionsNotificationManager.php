@@ -25,7 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\security\Role;
-use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\workflow\WorkflowStageDAO;
 
 class PendingRevisionsNotificationManager extends NotificationManagerDelegate
@@ -68,8 +68,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
         $submissionId = $notification->assocId;
 
         $submission = Repo::submission()->get($submissionId);
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+        $lastReviewRound = ReviewRound::getLastBySubmissionId($submission->getId(), $stageId)->first();
 
         $uploadFileAction = new AddRevisionLinkAction(
             $request,

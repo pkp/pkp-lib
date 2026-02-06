@@ -15,9 +15,11 @@
 
 namespace PKP\decision\types;
 
+use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -32,7 +34,6 @@ use PKP\mail\mailables\DecisionCancelReviewRoundNotifyAuthor;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 
 class CancelReviewRound extends DecisionType implements DecisionRetractable
@@ -72,14 +73,11 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
      */
     public function getNewStageId(Submission $submission, ?int $reviewRoundId): ?int
     {
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-
-        if ($reviewRoundDao->getReviewRoundCountBySubmissionId($submission->getId(), WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) > 1) {
+        if (ReviewRound::withSubmissionIds([$submission->getId()])->withStageId(WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)->count() > 1) {
             return WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
         }
 
-        if ($reviewRoundDao->submissionHasReviewRound($submission->getId(), WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
+        if (ReviewRound::withSubmissionIds([$submission->getId()])->withStageId(WORKFLOW_STAGE_ID_INTERNAL_REVIEW)->exists()) {
             return WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
         }
 
@@ -193,13 +191,18 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
             }
         }
 
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundId = $decision->getData('reviewRoundId');
 
         Repo::reviewAssignment()->deleteMany(
             Repo::reviewAssignment()->getCollector()->filterByReviewRoundIds([$reviewRoundId])
         );
-        $reviewRoundDao->deleteById($reviewRoundId);
+
+        // todo put this in some sort if util method
+        DB::table('notifications')
+            ->where('assoc_type', '=', Application::ASSOC_TYPE_REVIEW_ROUND)
+            ->where('assoc_id', '=', $reviewRoundId)
+            ->delete();
+        ReviewRound::where('review_round_id', $reviewRoundId)->delete();
     }
 
     public function getSteps(Submission $submission, Context $context, User $editor, ?ReviewRound $reviewRound): ?Steps
@@ -226,7 +229,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
             ));
         }
 
-        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), DecisionType::REVIEW_ASSIGNMENT_ACTIVE);
+        $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->id, DecisionType::REVIEW_ASSIGNMENT_ACTIVE);
 
         if (count($reviewAssignments)) {
             $reviewers = $steps->getReviewersFromAssignments($reviewAssignments);

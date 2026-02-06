@@ -52,7 +52,6 @@ use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\authorResponse\AuthorResponseManager;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\submissionFile\SubmissionFile;
 
@@ -840,7 +839,7 @@ class PKPReviewController extends PKPBaseController
         $reviewRound = $validated['reviewRound'];
 
         $reviewResponse = AuthorResponse::create([
-            'reviewRoundId' => $reviewRound->getId(),
+            'reviewRoundId' => $reviewRound->id,
             'authorResponse' => $validated['authorResponse'],
             'userId' => $user->getId(),
         ]);
@@ -891,10 +890,9 @@ class PKPReviewController extends PKPBaseController
 
         $reviewAuthorResponseManager->sendAuthorRequest(new EmailData($payload), $request->getUser());
 
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRound->setData('isAuthorResponseRequested', true);
-        $reviewRoundDao->updateObject($reviewRound);
+        $reviewRound->update([
+           'isAuthorResponseRequested' => true
+        ]);
 
         return response()->json([], Response::HTTP_OK);
     }
@@ -907,9 +905,7 @@ class PKPReviewController extends PKPBaseController
         $reviewRoundId = (int)$illuminateRequest->route('reviewRoundId');
         $responseId = (int)$illuminateRequest->route('responseId');
 
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRound = $reviewRoundDao->getById($reviewRoundId);
+        $reviewRound = ReviewRound::find($reviewRoundId);
 
         if (!$reviewRound) {
             return response()->json(

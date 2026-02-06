@@ -1454,6 +1454,10 @@ class PKPSubmissionController extends PKPBaseController
             } catch (\Exception $exception) {
                 return response()->json(['error' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
             }
+        } else {
+            // Move the submission into the published queue
+            Repo::submission()->updateStatus($submission, Submission::STATUS_PUBLISHED);
+            Repo::submission()->updateCurrentPublication($submission);
         }
 
         /** @var GenreDAO $genreDao */

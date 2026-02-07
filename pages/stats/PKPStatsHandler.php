@@ -265,50 +265,14 @@ class PKPStatsHandler extends Handler
                 break;
         }
 
+        $tableColumns = $this->getTableColumns();
         $statsComponent = new \PKP\components\PKPStatsPublicationPage(
             $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'stats/publications'),
             [
                 'timeline' => $timeline,
                 'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_DAY,
                 'timelineType' => 'abstract',
-                'tableColumns' => [
-                    [
-                        'name' => 'title',
-                        'label' => __('common.title'),
-                    ],
-                    [
-                        'name' => 'abstractViews',
-                        'label' => __('submission.abstractViews'),
-                        'value' => 'abstractViews',
-                    ],
-                    [
-                        'name' => 'galleyViews',
-                        'label' => __('stats.fileViews'),
-                        'value' => 'galleyViews',
-                    ],
-                    [
-                        'name' => 'pdf',
-                        'label' => __('stats.pdf'),
-                        'value' => 'pdfViews',
-                    ],
-                    [
-                        'name' => 'html',
-                        'label' => __('stats.html'),
-                        'value' => 'htmlViews',
-                    ],
-                    [
-                        'name' => 'other',
-                        'label' => __('common.other'),
-                        'value' => 'otherViews',
-                    ],
-                    [
-                        'name' => 'total',
-                        'label' => __('stats.total'),
-                        'value' => 'total',
-                        'orderBy' => 'total',
-                        'initialOrderDirection' => true,
-                    ],
-                ],
+                'tableColumns' => $tableColumns,
                 'count' => $count,
                 'dateStart' => $dateStart,
                 'dateEnd' => $dateEnd,
@@ -605,5 +569,47 @@ class PKPStatsHandler extends Handler
             case 'submissionsSkipped': return __('stats.description.submissionsSkipped');
         }
         return '';
+    }
+
+    protected function getTableColumns(): array
+    {
+        return [
+            [
+                'name' => 'title',
+                'label' => __('common.title'),
+            ],
+            [
+                'name' => 'abstractViews',
+                'label' => __('submission.abstractViews'),
+                'value' => 'abstractViews',
+            ],
+            [
+                'name' => 'galleyViews',
+                'label' => __('stats.fileViews'),
+                'value' => 'galleyViews',
+            ],
+            [
+                'name' => 'pdf',
+                'label' => __('stats.pdf'),
+                'value' => 'pdfViews',
+            ],
+            [
+                'name' => 'html',
+                'label' => __('stats.html'),
+                'value' => 'htmlViews',
+            ],
+            [
+                'name' => 'other',
+                'label' => __('common.other'),
+                'value' => 'otherViews',
+            ],
+            [
+                'name' => 'total',
+                'label' => __('stats.total'),
+                'value' => 'total',
+                'orderBy' => 'total',
+                'initialOrderDirection' => true,
+            ],
+        ];
     }
 }

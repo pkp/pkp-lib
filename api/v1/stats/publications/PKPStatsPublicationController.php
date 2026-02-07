@@ -224,10 +224,11 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             $dateEnd = array_key_exists('dateEnd', $allowedParams) ? $allowedParams['dateEnd'] : null;
             $metricsByType = $statsService->getTotalsByType($submissionId, $this->getRequest()->getContext()->getId(), $dateStart, $dateEnd);
 
+            $jatsViews = $metricsByType['jats'] ?? 0;
             if ($responseCSV) {
-                $items[] = $this->getItemForCSV($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other']);
+                $items[] = $this->getItemForCSV($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $jatsViews);
             } else {
-                $items[] = $this->getItemForJSON($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other']);
+                $items[] = $this->getItemForJSON($submissionId, $metricsByType['abstract'], $metricsByType['pdf'], $metricsByType['html'], $metricsByType['other'], $jatsViews);
             }
         }
 
@@ -892,7 +893,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     /**
      * Get the CSV row with submission metrics
      */
-    protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews): array
+    protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $jatsViews = 0): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
         $totalViews = $abstractViews + $galleyViews;
@@ -916,7 +917,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     /**
      * Get the JSON data with submission metrics
      */
-    protected function getItemForJSON(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews): array
+    protected function getItemForJSON(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $jatsViews = 0): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
 

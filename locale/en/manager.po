@@ -2878,6 +2878,9 @@ msgstr "File Views"
 msgid "stats.html"
 msgstr "HTML"
 
+msgid "stats.jats"
+msgstr "JATS"
+
 msgid "stats.monthly"
 msgstr "Monthly"
 

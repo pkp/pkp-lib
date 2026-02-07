@@ -226,6 +226,7 @@
 								<table-cell>{{ row.pdfViews }}</table-cell>
 								<table-cell>{{ row.htmlViews }}</table-cell>
 								<table-cell>{{ row.otherViews }}</table-cell>
+								<table-cell v-if="row.jatsViews !== undefined">{{ row.jatsViews }}</table-cell>
 								<table-cell>{{ row.total }}</table-cell>
 							</table-row>
 							<template #no-content v-if="!items.length">

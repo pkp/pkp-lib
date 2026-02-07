@@ -19,11 +19,22 @@ namespace PKP\services;
 use APP\core\Application;
 use APP\services\queryBuilders\StatsPublicationQueryBuilder;
 use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use PKP\statistics\PKPStatisticsHelper;
 
 abstract class PKPStatsPublicationService
 {
     use PKPStatsServiceTrait;
+
+    /**
+     * Check if JATS Template plugin is available and enabled
+     * JATS statistics are only supported when the jatsTemplate plugin is installed and enabled
+     */
+    protected function isJatsPluginAvailable(): bool
+    {
+        $plugin = PluginRegistry::getPlugin('generic', 'jatstemplateplugin');
+        return $plugin && $plugin->getEnabled();
+    }
 
     /**
      * A callback to be used with array_filter() to return
@@ -71,6 +82,19 @@ abstract class PKPStatsPublicationService
     }
 
     /**
+     * A callback to be used with array_filter() to return
+     * records for JATS downloads.
+     * Only available when jatsTemplate plugin is installed.
+     */
+    public function filterRecordJATS(object $record): bool
+    {
+        if (!$this->isJatsPluginAvailable()) {
+            return false;
+        }
+        return $record->assoc_type == Application::ASSOC_TYPE_JATS;
+    }
+
+    /**
      * Get a count of all submissions with stats that match the request arguments
      *
      * @hook StatsPublication::getCount::queryBuilder [[&$metricsQB, $args]]
@@ -78,9 +102,16 @@ abstract class PKPStatsPublicationService
     public function getCount(array $args): int
     {
         $defaultArgs = $this->getDefaultArgs();
+        $assocTypes = [
+            Application::ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION_FILE,
+        ];
+        if ($this->isJatsPluginAvailable()) {
+            $assocTypes[] = Application::ASSOC_TYPE_JATS;
+        }
         $args = array_merge(
             $defaultArgs,
-            ['assocTypes' => [Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE]],
+            ['assocTypes' => $assocTypes],
             $args
         );
         unset($args['count']);
@@ -100,9 +131,16 @@ abstract class PKPStatsPublicationService
     public function getTotals(array $args): array
     {
         $defaultArgs = $this->getDefaultArgs();
+        $assocTypes = [
+            Application::ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION_FILE,
+        ];
+        if ($this->isJatsPluginAvailable()) {
+            $assocTypes[] = Application::ASSOC_TYPE_JATS;
+        }
         $args = array_merge(
             $defaultArgs,
-            ['assocTypes' => [Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE],
+            ['assocTypes' => $assocTypes,
                 'orderDirection' => PKPStatisticsHelper::STATISTICS_ORDER_DESC],
             $args
         );
@@ -127,12 +165,20 @@ abstract class PKPStatsPublicationService
     public function getTotalsByType(int $submissionId, int $contextId, ?string $dateStart, ?string $dateEnd): array
     {
         $defaultArgs = $this->getDefaultArgs();
+        $assocTypes = [
+            Application::ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION_FILE,
+            Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER,
+        ];
+        if ($this->isJatsPluginAvailable()) {
+            $assocTypes[] = Application::ASSOC_TYPE_JATS;
+        }
         $args = [
             'submissionIds' => [$submissionId],
             'contextIds' => [$contextId],
             'dateStart' => $dateStart ?? $defaultArgs['dateStart'],
             'dateEnd' => $dateEnd ?? $defaultArgs['dateEnd'],
-            'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER]
+            'assocTypes' => $assocTypes
         ];
         $metricsQB = $this->getQueryBuilder($args);
 
@@ -166,13 +212,24 @@ abstract class PKPStatsPublicationService
             $suppFileViews = (int) current($suppFileRecord)->metric;
         }
 
-        return [
+        $result = [
             'abstract' => $abstractViews,
             'pdf' => $pdfViews,
             'html' => $htmlViews,
             'other' => $otherViews,
-            'suppFileViews' => $suppFileViews
+            'suppFileViews' => $suppFileViews,
         ];
+
+        if ($this->isJatsPluginAvailable()) {
+            $jatsViews = 0;
+            $jatsRecord = array_filter($metricsByType, $this->filterRecordJATS(...));
+            if (!empty($jatsRecord)) {
+                $jatsViews = (int) current($jatsRecord)->metric;
+            }
+            $result['jats'] = $jatsViews;
+        }
+
+        return $result;
     }
 
     /**

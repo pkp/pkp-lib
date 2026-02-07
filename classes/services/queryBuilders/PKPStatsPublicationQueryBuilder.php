@@ -29,8 +29,10 @@ use PKP\statistics\PKPStatisticsHelper;
 abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
 {
     /**
-     *Include records for one of these object types:
-     * Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER
+     * Include records for one of these object types:
+     * Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE,
+     * Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER,
+     * and Application::ASSOC_TYPE_JATS if the jatsTemplate plugin is installed
      */
     protected array $assocTypes = [];
 

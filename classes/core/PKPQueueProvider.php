@@ -17,9 +17,15 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Queue\Events\Looping;
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
 use Illuminate\Queue\Worker;
 use Illuminate\Queue\WorkerOptions;
@@ -29,6 +35,8 @@ use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\queue\JobRunner;
 use PKP\queue\WorkerConfiguration;
+use PKP\queue\PKPQueueDatabaseConnector;
+use Throwable;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
 {
@@ -36,6 +44,11 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      * Specific queue to target to run the associated jobs
      */
     protected ?string $queue = null;
+
+    /**
+     * Whether the site is a multi-context site
+     */
+    protected bool $isMultiContextSite = false;
 
     /**
      * Set a specific queue to target to run the associated jobs
@@ -48,9 +61,37 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     }
 
     /**
+     * Apply context-aware filtering to the job query.
+     */
+    public function applyJobContextAwareFilter(
+        EloquentBuilder|QueryBuilder $jobQuery,
+        ?int $contextId = null
+    ): EloquentBuilder|QueryBuilder
+    {
+        if (DB::connection() instanceof PostgresConnection) {
+            return $jobQuery->where(
+                fn ($query) => $query
+                    ->whereRaw(
+                        "REGEXP_REPLACE(payload, '.*\"context_id\":\\s*([0-9]+).*', '\\1') = ?",
+                        [(string) $contextId]
+                    )
+                    ->orWhereRaw(
+                        "payload !~ '\"context_id\":\\s*[0-9]+'"
+                    )
+            );
+        }
+
+        return $jobQuery->where(
+            fn ($query) => $query
+                ->where('payload->context_id', $contextId)
+                ->orWhereNull('payload->context_id')
+        );
+    }
+
+    /**
      * Get a job model builder instance to query the jobs table
      */
-    public function getJobModelBuilder(): Builder
+    public function getJobModelBuilder(): EloquentBuilder
     {
         return PKPJobModel::isAvailable()
             ->nonEmptyQueue()
@@ -88,21 +129,25 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     /**
      * Run the queue worker to process queue the jobs
      */
-    public function runJobInQueue(): void
+    public function runJobInQueue(?EloquentBuilder $jobBuilder = null): bool
     {
-        $job = $this->getJobModelBuilder()->limit(1)->first();
+        $job = $jobBuilder
+            ? $jobBuilder->limit(1)->first()
+            : $this->getJobModelBuilder()->limit(1)->first();
 
         if ($job === null) {
-            return;
+            return false; // this will signal that there are no jobs to run
         }
 
-        $worker = $this->app->get('queue.worker'); /** @var \Illuminate\Queue\Worker $worker */
+        $queueWorker = app()->get('queue.worker'); /** @var \Illuminate\Queue\Worker $queueWorker */
 
-        $worker->runNextJob(
-            'database',
+        $queueWorker->runNextJob(
+            Config::getVar('queues', 'default_connection', 'database'),
             $job->queue ?? Config::getVar('queues', 'default_queue', 'queue'),
             $this->getWorkerOptions()
         );
+
+        return true;
     }
 
     /**
@@ -111,6 +156,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function boot()
     {
+        if (Application::isInstalled() && !Application::isUpgrading()) {
+            $this->isMultiContextSite = app()->get("context")->getCount() > 1;
+        }
+
         if (Config::getVar('queues', 'job_runner', true)) {
             $currentWorkingDir = getcwd();
             register_shutdown_function(function () use ($currentWorkingDir) {
@@ -131,17 +180,35 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
-                (new JobRunner($this))
+                // We only want to Job Runner for the web request life cycle
+                // not in any CLI based request life cycle
+                if (app()->runningInConsole()) {
+                    return;
+                }
+
+                // Not to run in unit test mode as part of the application lifecycle
+                if (app()->runningUnitTests()) {
+                    return;
+                }
+
+                // error_log('Shutdown function started at: ' . microtime(true));
+
+                $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
+                $jobRunner
+                    ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
                     ->withMaxExecutionTimeConstrain()
                     ->withMaxJobsConstrain()
                     ->withMaxMemoryConstrain()
                     ->withEstimatedTimeToProcessNextJobConstrain()
                     ->processJobs();
+
+                // error_log('Shutdown function ended at: ' . microtime(true));
             });
         }
 
         Queue::failing(function (JobFailed $event) {
-            error_log($event->exception->__toString());
+            $contextId = $event->job->payload()['context_id'] ?? 'unknown';
+            error_log("Job failed for context_id {$contextId}: {$event->exception->__toString()}");
 
             app('queue.failer')->log(
                 $event->connectionName,
@@ -155,6 +222,149 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     'trace' => $event->exception->getTrace(),
                 ])
             );
+
+            // Clear the context for current CLI session when job failed to process
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
+                Application::get()->clearCliContext();
+            }
+        });
+
+        // We will only register the payload creator if the application is not under maintenance
+        // to prevent any unintended DB access.
+        if (!Application::get()->isUnderMaintenance()) {
+            Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
+                // if running in unit tests, no change to payload and immediate return
+                // if (app()->runningUnitTests()) {
+                //     return $payload;
+                // }
+
+                // If a `context_id` already exists, will not try to set a new one.
+                if (array_key_exists('context_id', $payload)) {
+                    return [];
+                }
+
+                $contextId = null;
+                $jobInstance = $payload['data']['command']; /** @var \Illuminate\Contracts\Queue\ShouldQueue $jobInstance */
+
+                if ($jobInstance instanceof \PKP\queue\ContextAwareJob) {
+                    $contextId = $jobInstance->getContextId();
+
+                    // Specifically log the case when a context aware job return null context id
+                    if ($contextId === null) {
+                        error_log("Context aware job calss {$payload['displayName']} returned null contextId");
+                    }
+                }
+                
+                // Fallback to determine the context id from app reqeust or CLI context if available
+                // This is a placeholder solution of until all the needed job implements the ContextAwareJob
+                // interface and strictly return the context id as required
+                if (!$contextId) {
+                    // This try/catch block is to facilitate the case when the application
+                    // running in CLI mode and a job get dispatched in CLI where it trying to
+                    // determine the context form the request() . But as the request delegate
+                    // to router and in CLI mode, perhaps the router is not available which throws
+                    // as \AssertionError. In that case it will fallback to CLI context to get
+                    // directly from there if exists a context and set it.
+                    try {
+                        $contextId = Application::get()->getRequest()->getContext()?->getId();
+                    } catch (Throwable $e) {
+                        // error_log('Failed to retrieve context ID from request on queue payload creator with exception: ' . $e->__toString());
+                        $contextId = Application::get()->getCliContext()?->getId();
+                    }
+                }
+                
+
+                if ($contextId) {
+                    return ['context_id' => $contextId];
+                }
+
+                return [];
+            });
+        }
+        
+        Queue::before(function(JobProcessing $event) {
+            // Set the context for current CLI session if available right before job start processing
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
+                $contextId = $event->job->payload()['context_id'] ?? null;
+
+                // Validate the context exists if a context_id is provided
+                if ($contextId !== null) {
+                    $contextDao = Application::getContextDAO();
+                    $context = $contextDao->getById($contextId);
+                    
+                    if (!$context) {
+                        $jobName = $event->job->payload()['displayName'] ?? 'Unknown';
+                        error_log("Job '{$jobName}' failed: Invalid context_id {$contextId} - context does not exist");
+
+                        // Fail the job immediately with a meaningful exception
+                        throw new \RuntimeException(
+                            "Job execution failed: Invalid context_id {$contextId}. The context does not exist in the database."
+                        );
+                    }
+
+                    Application::get()->setCliContext($context);
+
+                    // Initialize the locale and load generic plugins.
+                    \PKP\plugins\PluginRegistry::loadCategory('generic', false, $contextId);
+                }
+            }
+        });
+
+        Queue::after(function(JobProcessed $event) {
+            // Clear the context for current CLI session if available when job finish the processing
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
+                Application::get()->clearCliContext();
+            }
+        });
+
+        $this->app['events']->listen(Looping::class, function (Looping $event) {
+
+            if (!app()->runningInConsole() || app()->runningUnitTests()) {
+                return true;
+            }
+
+            if (!$this->isMultiContextSite) {
+                return true;
+            }
+
+            static $lockedContextId = null;
+        
+            // Peek at next job WITHOUT popping (no lock, no reserve, no attempt increment)
+            $nextJob = DB::table('jobs')
+                ->where('queue', $event->queue)
+                ->where(fn($q) => $q->whereNull('reserved_at')
+                    ->orWhere('reserved_at', '<=', now()->subSeconds(90)))
+                ->orderBy('id', 'asc')
+                ->first();
+        
+            if (!$nextJob) {
+                return true; // No jobs available, continue looping
+            }
+        
+            $payload = json_decode($nextJob->payload, true);
+            $nextContextId = $payload['context_id'] ?? null;
+        
+            // Non-context-aware jobs don't affect locking
+            if ($nextContextId === null) {
+                return true;
+            }
+        
+            // First context-aware job sets the locked context
+            if ($lockedContextId === null) {
+                $lockedContextId = $nextContextId;
+                return true;
+            }
+        
+            // Different context detected - quit BEFORE popping
+            if ($nextContextId !== $lockedContextId) {
+                app('queue.worker')->shouldQuit = true;
+                return false; // Skip this iteration, pauseWorker() will check shouldQuit and exit
+            }
+        
+            return true;
         });
     }
 

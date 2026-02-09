@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-06 20:38+0000\n"
+"PO-Revision-Date: 2026-02-10 03:09+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ru/>\n"
@@ -636,3 +636,27 @@ msgstr "Та же организация, что и у автора"
 
 msgid "editor.submission.findAndSelectReviewerFromSuggestions"
 msgstr "Выберите рецензента из предложений рецензентов"
+
+msgid "editor.review.reviewViewed"
+msgstr "Рецензия просмотрена"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Произошла ошибка при добавлении рецензента, так как срок сдачи рецензии "
+"должен быть равен или больше срока ответа."
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Дата завершения рецензирования должна быть больше или равна дате ответа."
+
+msgid "editor.submission.search"
+msgstr "Поиск отправок, ID, авторов, ключевых слов и т. д."
+
+msgid "editor.submission.days"
+msgstr "Дни"
+
+msgid "editor.submission.daysInStage"
+msgstr "Дни на этапе"
+
+msgid "editor.submission.viewSummary"
+msgstr "Сводка"

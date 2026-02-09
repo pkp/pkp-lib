@@ -35,7 +35,7 @@ class SubmissionFilesMetadataForm extends Form
     public $_stageId;
 
 
-    public ReviewRound $_reviewRound;
+    public ?ReviewRound $_reviewRound = null;
 
     /**
      * Constructor.

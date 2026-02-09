@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2024-12-01 23:38+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-10 03:09+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru/>\n"
 "Language: ru\n"
@@ -3807,3 +3808,18 @@ msgstr "Проверять XML перед экспортом и регистра
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Установленная версия: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Языки веб‑сайта"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Языки отправки"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Добавить/Удалить языки"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Метаданные"
+
+msgid "manager.language.submission.form.description"
+msgstr "Выберите языки отправки и метаданных."

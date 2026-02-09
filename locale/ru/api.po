@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-02-06 20:38+0000\n"
+"PO-Revision-Date: 2026-02-10 03:09+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ru/>"
 "\n"
@@ -397,3 +397,52 @@ msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
 msgstr ""
 "Вы указали недопустимый параметр \"eventType\", {$eventType} для писем "
 "авторам."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Запрошенный автор не найден"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Вы не можете вносить изменения в авторов в материалах, к которым вы не "
+"назначены."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Этот конечный пункт недоступен из общесайтового пространства имён и должен "
+"запрашиваться для заданного контекста."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Вы не можете изменить язык этой подачи, так как она уже имеет более одной "
+"версии публикации или опубликованную публикацию."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Отправка для этого задания на рецензию не найдена."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Рецензент для этого задания не найден"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Допустимыми значениями являются только «accept» и «decline»"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Указанный раздел не существует."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"В запросе отсутствует обязательный параметр `ids`. Пожалуйста, укажите `ids` "
+"отправок, которые вы хотите удалить."
+
+msgid "api.submission.400.invalidId"
+msgstr "Недопустимый идентификатор: \"{$id}\" указан."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Форма идентификаторов публикации недоступна, так как не включено ни одного "
+"идентификатора."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Не удалось выполнить запланированное действие над ресурсом."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Запрошенный ROR не найден."

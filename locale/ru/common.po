@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-02-06 20:38+0000\n"
+"PO-Revision-Date: 2026-02-10 03:09+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ru/>\n"
@@ -2344,3 +2344,18 @@ msgstr "Рецензенты за прошлый год"
 
 msgid "common.editorialHistory"
 msgstr "Редакционная история"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Просмотреть профиль ORCID {$name}"
+
+msgid "common.assignments"
+msgstr "Назначения"
+
+msgid "common.yesContinue"
+msgstr "Да, продолжить"
+
+msgid "common.editorialHistory.page.description"
+msgstr "В этом разделе перечислены прошлые участники."
+
+msgid "common.filtersClear"
+msgstr "Очистить фильтры"

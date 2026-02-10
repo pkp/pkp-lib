@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-10 03:09+0000\n"
+"PO-Revision-Date: 2026-02-10 15:38+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru/>\n"
@@ -1320,13 +1320,13 @@ msgstr "Новые версии были запрошены."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Новые версии были отправлены, нужно принять решение."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Материал нужно повторно отправить на рецензирование."
+msgstr ""
+"Запрошены исправления от автора, необходимо вынести их на новый раунд "
+"рецензирования."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Материал был повторно отправлен на рецензирование."
+msgstr "Исправления отправлены. Необходимо создать новый раунд рецензирования."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Отправлен на внешнее рецензирование."
@@ -1346,9 +1346,8 @@ msgstr "Ожидает ответа от рецензентов."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Новые рецензии были отправлены."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Все рецензенты прислали свои рецензии, нужно принять решение."
+msgstr "Все рецензии подтверждены, необходимо принять решение."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Срок рецензии прошел."
@@ -2771,3 +2770,209 @@ msgstr "Отправка была отменена, и все связанные
 
 msgid "ror.nameRequired"
 msgstr "Требуется название ROR."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Предложения рецензентов"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Изменить язык подачи для"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Это основной язык подачи. Его изменение повлияет на саму подачу и введённые "
+"метаданные"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Рекомендуется включить аннотацию на {$language}. Это поможет обеспечить "
+"доступность содержания"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Все на этапе подачи"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Просмотреть сводку подачи"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Все на этапе литературного редактирования"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Запланировано к публикации"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Все назначения"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Отклонено"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Пожалуйста, укажите, почему вы рекомендуете этого рецензента, и отметьте, "
+"есть ли потенциальный конфликт интересов."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Для предложения рецензента"
+
+msgid "submission.review.status.viewed"
+msgstr "Редактор просмотрел рецензию."
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Изменить"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Введите название подачи здесь на {$language}. Вы можете отформатировать "
+"название по своему усмотрению"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Прежде чем изменить язык подачи, убедитесь, что Вы заполнили "
+"следующие поля метаданных для сохранения целостности системы. Также обратите "
+"внимание, что информация об авторах и имена файлов будут скопированы из "
+"ранее введённых данных.</strong>"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Вы уверены, что хотите отменить эту подачу? Это удалит подачу и все "
+"связанные данные. Это действие нельзя будет отменить."
+
+msgid "submission.dashboard.view.active"
+msgstr "Активные подачи"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Назначено мне"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Требуется редактор"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Рекомендация сделана вами."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Рецензенты, предложенные автором"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Требуются рецензии"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Все на этапе рецензирования"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Рецензии просрочены"
+
+msgid "submission.dashboard.view.published"
+msgstr "Опубликовано"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Текущий язык подачи:"
+
+msgid "submission.list.completeSubmission"
+msgstr "Завершить подачу"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Для этой подачи не предложено ни одного рецензента."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Название аффилиации отсутствует на {$language} для одной или нескольких "
+"аффилиаций у одного или нескольких участников."
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Все на этапе рецензирования"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Ожидает рецензий"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Рецензии отправлены"
+
+msgid "submission.stage.published"
+msgstr "Опубликовано"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Подтвердить удаление JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Вы собираетесь удалить существующий JATS XML‑файл из этой публикации. Вы "
+"уверены?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Удалить JATS‑файл"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Этот JATS‑файл создаётся автоматически на основе метаданных подачи"
+
+msgid "publication.jats.lastModified"
+msgstr "Последнее изменение {$modificationDate} пользователем {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Произошла ошибка при попытке создать стандартное JATS‑содержимое. "
+"Пожалуйста, убедитесь, что плагин JatsTemplate установлен."
+
+msgid "submission.files.content.error"
+msgstr "Содержимое файла отправки «{$fileName}» не удалось получить."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Причины для предложения рецензента"
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Язык подачи ({$language}) не входит в число поддерживаемых языков подачи. Вы "
+"всё ещё можете редактировать сведения о подаче, но новые материалы с этим "
+"языком в настоящее время не принимаются."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Назначенные рецензенты"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Обновление рецензий {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Применить фильтры"
+
+msgid "submission.dashboard.view.production"
+msgstr "Все на этапе производства"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Отклонено"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Запрошены исправления"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Авторские исправления отправлены"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Незавершённые подачи"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "В ожидании"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Завершено / Отклонено"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Все назначения"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Требуется действие с моей стороны"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Архивировано"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Завершено"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Опубликовано"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Рецензия (Раунд {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Запланировано к публикации"

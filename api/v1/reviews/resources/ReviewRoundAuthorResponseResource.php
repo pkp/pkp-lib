@@ -25,7 +25,7 @@ class ReviewRoundAuthorResponseResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
-        /** @var AuthorResponse $reponse */
+        /** @var AuthorResponse $response */
         $response = $this;
 
         /** @var User $user */
@@ -33,18 +33,19 @@ class ReviewRoundAuthorResponseResource extends JsonResource
 
         $associatedAuthors = $response->associatedAuthors;
         return [
+            'id' => $response->id,
             'reviewRoundId' => $response->reviewRoundId,
             'response' => $response->authorResponse,
-            'id' => $response->id,
-            'submittedByUser' => [
-                'id' => $user->getId(),
-                'fullName' => $user->getFullName(),
-            ],
             'associatedAuthors' => array_map(fn (Author $author) => [
                 'id' => $author->getId(),
                 'fullName' => $author->getFullName(),
             ], $associatedAuthors),
-            'createdAt' => $response->created_at,
+            'submittedByUser' => [
+                'id' => $user->getId(),
+                'fullName' => $user->getFullName(),
+            ],
+            'isPublic' => $response->isPublic,
+            'createdAt' => $response->created_at?->format('Y-m-d H:i:s'),
         ];
     }
 }

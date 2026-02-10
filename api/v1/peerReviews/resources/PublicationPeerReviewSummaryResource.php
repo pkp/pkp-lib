@@ -19,14 +19,19 @@ namespace PKP\API\v1\peerReviews\resources;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class PublicationPeerReviewSummaryResource extends JsonResource
 {
     use ReviewerRecommendationSummary;
 
-    public function toArray(\Illuminate\Http\Request $request)
+    public function toArray(Request $request)
     {
         /** @var Publication $publication */
         $publication = $this->resource;
@@ -44,6 +49,31 @@ class PublicationPeerReviewSummaryResource extends JsonResource
             ->filterByPublicationIds($allAssociatedPublicationIds)
             ->getMany();
 
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $reviewRounds = $reviewRoundDao->getByPublicationIds($allAssociatedPublicationIds);
+        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($rr) => $rr->getId());
+
+        $assignmentsByRound = $reviewAssignments
+            ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId())
+            ->sortKeys();
+
+        $roundsData = [];
+        /** @var ReviewRound $reviewRound */
+        foreach ($reviewRoundsKeyedById as $roundId => $reviewRound) {
+            $roundAssignments = $assignmentsByRound->get($roundId, collect());
+            $publicStatus = $reviewRound->getPublicReviewStatus($roundAssignments);
+
+            $roundsData[] = [
+                'roundId' => $reviewRound->getId(),
+                'round' => $reviewRound->getRound(),
+                'status' => $publicStatus['status']->value,
+                'dateStarted' => $publicStatus['dateStarted'],
+                'dateInProgress' => $publicStatus['dateInProgress'],
+                'dateCompleted' => $publicStatus['dateCompleted'],
+            ];
+        }
+
         $publishedPublications = $submission->getPublishedPublications();
 
         return [
@@ -54,6 +84,7 @@ class PublicationPeerReviewSummaryResource extends JsonResource
             'reviewerCount' => $this->getReviewerCount($reviewAssignments),
             // Latest published publication for the submission associated with this publication
             'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($submission),
+            'reviewRounds' => $roundsData,
         ];
     }
 }

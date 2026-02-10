@@ -104,19 +104,20 @@ trait ReviewerRecommendationSummary
 
     /**
      * Get info for the latest published publication for a submission.
-     * @return array{'title': string, 'datePublished': string}|null
-     * - title: The localized title of the latest published publication.
-     * - datePublished: The publication date as a string, or null if not set.
+     * @return array{'versionString': string, 'datePublished': string}|null
+     * - versionString: The version string of the latest published publication.
+     * - datePublished: The publication date as a string.
      */
     private function getSubmissionLatestPublishedPublication(Submission $submission): ?array
     {
+        /** @var Publication $latestVersion */
         $latestVersion = $submission->getData('publications')
             ->filter(fn(Publication $publication) => $publication->getData('status') === Submission::STATUS_PUBLISHED)
             ->sortByDesc(fn(Publication $publication) => $publication->getData('version'))
             ->first();
 
         return $latestVersion ? [
-            'title' => $latestVersion->getLocalizedTitle(),
+            'versionString' => $latestVersion->getData('versionString'),
             'datePublished' => $latestVersion->getData('datePublished'),
         ] : null;
     }

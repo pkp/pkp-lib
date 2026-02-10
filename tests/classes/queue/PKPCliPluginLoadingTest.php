@@ -27,6 +27,11 @@ use PKP\job\models\Job as PKPJobModel;
 use PKP\jobs\testJobs\CliWorkerTestJobWithHook;
 use APP\core\Application;
 
+/**
+ * @runTestsInSeparateProcesses
+ *
+ * @see https://docs.phpunit.de/en/9.6/annotations.html#runtestsinseparateprocesses
+ */
 class PKPCliPluginLoadingTest extends PKPTestCase
 {
     protected $tmpErrorLog;

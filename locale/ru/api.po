@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-02-10 03:09+0000\n"
+"PO-Revision-Date: 2026-02-10 15:38+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ru/>"
 "\n"
@@ -446,3 +446,13 @@ msgstr "Не удалось выполнить запланированное д
 
 msgid "api.rors.404.rorNotFound"
 msgstr "Запрошенный ROR не найден."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Назначение ORCID iD автора через конечные точки Edit/Add Author не "
+"допускается. Чтобы запросить у автора обновление его ORCID iD, используйте "
+"конечную точку «orcid/requestAuthorVerification/{authorId}»."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Вы не можете выполнить эту операцию при отключённой функциональности ORCID."

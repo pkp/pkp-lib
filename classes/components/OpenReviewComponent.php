@@ -57,6 +57,9 @@ class OpenReviewComponent
             'submission.reviewRound.authorResponse',
             // PkpOpenReviewSummary component locale keys
             'openReview.title',
+            'openReview.status',
+            'openReview.statusInProgress',
+            'openReview.recommendationItem',
             'openReview.reviewersContributed',
             'openReview.howDecisionsSummarized',
             'openReview.howDecisionsSummarizedDescription',

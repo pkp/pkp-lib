@@ -216,6 +216,15 @@ msgstr "Read Review"
 msgid "openReview.title"
 msgstr "Peer Review"
 
+msgid "openReview.status"
+msgstr "Status:"
+
+msgid "openReview.statusInProgress"
+msgstr "In progress since {$date}"
+
+msgid "openReview.recommendationItem"
+msgstr "{$label} - {$count}"
+
 msgid "openReview.reviewersContributed"
 msgstr "reviewers contributed to this article"
 

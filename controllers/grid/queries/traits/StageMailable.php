@@ -26,13 +26,13 @@ use PKP\mail\mailables\DiscussionSubmission;
 
 trait StageMailable
 {
-    abstract public function getStageId();
-
     /**
      * @return Mailable which corresponds to the given workflow stage
      */
-    protected function getStageMailable(Context $context, Submission $submission): Mailable
+    protected function getStageMailable(Context $context, Submission $submission, ?int $stageId = null): Mailable
     {
+        $stageId = $stageId ?? $this->getStageId();
+
         $map = [
             WORKFLOW_STAGE_ID_SUBMISSION => DiscussionSubmission::class,
             WORKFLOW_STAGE_ID_INTERNAL_REVIEW => DiscussionReview::class,
@@ -40,7 +40,7 @@ trait StageMailable
             WORKFLOW_STAGE_ID_EDITING => DiscussionCopyediting::class,
             WORKFLOW_STAGE_ID_PRODUCTION => DiscussionProduction::class,
         ];
-        $mailableClassName = $map[$this->getStageId()];
+        $mailableClassName = $map[$stageId];
         return new $mailableClassName($context, $submission);
     }
 }

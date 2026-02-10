@@ -17,6 +17,8 @@
 namespace PKP\API\v1\peerReviews\resources;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -98,5 +100,24 @@ trait ReviewerRecommendationSummary
             ->all();
 
         return count(array_unique($reviewerIds));
+    }
+
+    /**
+     * Get info for the latest published publication for a submission.
+     * @return array{'title': string, 'datePublished': string}|null
+     * - title: The localized title of the latest published publication.
+     * - datePublished: The publication date as a string, or null if not set.
+     */
+    private function getSubmissionLatestPublishedPublication(Submission $submission): ?array
+    {
+        $latestVersion = $submission->getData('publications')
+            ->filter(fn(Publication $publication) => $publication->getData('status') === Submission::STATUS_PUBLISHED)
+            ->sortByDesc(fn(Publication $publication) => $publication->getData('version'))
+            ->first();
+
+        return $latestVersion ? [
+            'title' => $latestVersion->getLocalizedTitle(),
+            'datePublished' => $latestVersion->getData('datePublished'),
+        ] : null;
     }
 }

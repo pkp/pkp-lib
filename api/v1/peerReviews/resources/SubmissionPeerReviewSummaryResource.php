@@ -39,17 +39,13 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
         $contextDao = Application::getContextDAO();
         /** @var Context $context */
         $context = $contextDao->getById($submission->getData('contextId'));
-        $currentPublication = $submission->getCurrentPublication();
 
         return [
             'submissionId' => $submission->getId(),
             'reviewerRecommendations' => $this->getReviewerRecommendationsSummary($reviewAssignments, $context),
             'submissionPublishedVersionsCount' => count($submission->getPublishedPublications()),
             'reviewerCount' => $this->getReviewerCount($reviewAssignments),
-            'submissionCurrentVersion' => $currentPublication ? [
-                'title' => $currentPublication->getLocalizedTitle(),
-                'datePublished' => $currentPublication->getData('datePublished'),
-            ] : null,
+            'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($submission),
         ];
     }
 }

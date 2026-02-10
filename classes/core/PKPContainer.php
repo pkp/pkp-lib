@@ -728,7 +728,7 @@ class PKPContainer extends Container
 
         // Force flush and close connection for non-blocking behavior
         // and set headers to close connection and specify content length (if buffer exists)
-        if (headers_sent() === false) {
+        if (!headers_sent()) {
             header('Connection: close');
             header('Content-Encoding: none');
             if (ob_get_length() > 0) {

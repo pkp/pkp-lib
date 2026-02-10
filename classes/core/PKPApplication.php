@@ -192,6 +192,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
     public function setCliContext(int|Context|null $context = null): void
     {
         if (is_null($context)) {
+            $this->cliContext = null;
             return;
         }
 
@@ -200,12 +201,9 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             return;
         }
 
-        /** @var \PKP\context\ContextDAO $contextDao */
         $contextDao = static::getContextDAO();
 
-        if($context = $contextDao->getById($context)) {
-            $this->cliContext = $context;
-        }
+        $this->cliContext = $contextDao->getById($context) ?? throw new \InvalidArgumentException('Invalid context ID');
     }
 
     /**

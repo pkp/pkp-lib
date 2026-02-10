@@ -20,7 +20,6 @@ use Exception;
 use Illuminate\Bus\PendingBatch;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Queue;
-use PKP\queue\JobRunner;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\config\Config;
 use PKP\jobs\testJobs\TestJobFailure;
@@ -46,6 +45,7 @@ class PKPJobTest extends PKPTestCase
 
         ini_set('error_log', stream_get_meta_data($this->tmpErrorLog)['uri']);
 
+        // Store originals before any test modifies them
         $this->busInstance = Bus::getFacadeRoot();
         $this->queueInstance = Queue::getFacadeRoot();
     }
@@ -57,6 +57,7 @@ class PKPJobTest extends PKPTestCase
     {
         ini_set('error_log', $this->originalErrorLog);
 
+        // Restore originals after each test
         Bus::swap($this->busInstance);
         Queue::swap($this->queueInstance);
 

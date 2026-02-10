@@ -113,6 +113,14 @@ class JobRunner
         return self::$instance;
     }
 
+    /**
+     * Reset the singleton instance (for testing purposes only)
+     */
+    public static function resetInstance(): void
+    {
+        self::$instance = null;
+    }
+
     /*
      * Set/Update the job queue
      */
@@ -430,7 +438,8 @@ class JobRunner
      */
     public function getCacheTimeout(): int
     {
-        // To ensure long running jobs have enough time to complete, we double the max execution time
+        // To ensure long running jobs have enough time to complete, 
+        // we double the cache clear time of the max execution time
         return 2 * $this->deduceSafeMaxExecutionTime();
     }
 

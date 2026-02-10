@@ -113,6 +113,14 @@ class JobRunner
         return self::$instance;
     }
 
+    /**
+     * Reset the singleton instance (for testing purposes only)
+     */
+    public static function resetInstance(): void
+    {
+        self::$instance = null;
+    }
+
     /*
      * Set/Update the job queue
      */

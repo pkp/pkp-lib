@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-10 03:09+0000\n"
+"PO-Revision-Date: 2026-02-10 15:38+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ru/>\n"
@@ -660,3 +660,35 @@ msgstr "Дни на этапе"
 
 msgid "editor.submission.viewSummary"
 msgstr "Сводка"
+
+msgid "editor.review.logResponse.for"
+msgstr "Журнал ответов"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Необходимо выбрать хотя бы один ответ"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Записать ответ от имени рецензента"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Если рецензент связывается с вами по электронной почте или любым другим "
+"способом, вы можете записать его ответ от его имени"
+
+msgid "editor.review.logResponse"
+msgstr "Журнал ответа для"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Рецензент принял приглашение на рецензирование"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Рецензент отклонил приглашение на рецензирование"
+
+msgid "editor.review.download"
+msgstr "Скачать форму рецензии"
+
+msgid "editor.review.authorOnly"
+msgstr "Отображаются только разделы для автора"
+
+msgid "editor.review.allSections"
+msgstr "Форма редактора отображает все разделы рецензии"

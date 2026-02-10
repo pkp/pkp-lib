@@ -27,7 +27,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 #[RunTestsInSeparateProcesses]
-#[CoversClass(ContextAwareJob::class)]
 #[CoversClass(JobRunner::class)]
 class PKPContextAwareJobTest extends PKPTestCase
 {

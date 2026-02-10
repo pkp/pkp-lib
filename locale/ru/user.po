@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2026-02-10 03:09+0000\n"
+"PO-Revision-Date: 2026-02-10 15:38+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ru/"
 ">\n"
@@ -855,3 +855,12 @@ msgstr ""
 
 msgid "user.preferredAvatarInitials"
 msgstr "Предпочитаемые инициалы аватара"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Сейчас вы будете автоматически перенаправлены обратно в {$contextName}."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Включить функцию ORCID"
+
+msgid "orcid.unauthenticated"
+msgstr "(неаутентифицированный)"

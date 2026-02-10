@@ -102,6 +102,24 @@ class AuthorResponse extends Model
     }
 
     /**
+     * Whether this author response is directed at publicly available review assignment comments.
+     */
+    protected function isPublic(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $visibility = DB::table('review_assignments')
+                    ->where('review_round_id', $this->review_round_id)
+                    ->where('declined', 0)
+                    ->where('cancelled', 0)
+                    ->pluck('is_review_publicly_visible');
+
+                return $visibility->isNotEmpty() && $visibility->every(fn ($visibility) => (bool) $visibility);
+            }
+        )->shouldCache();
+    }
+
+    /**
      * Authors associated with this response.
      */
     protected function associatedAuthors(): Attribute

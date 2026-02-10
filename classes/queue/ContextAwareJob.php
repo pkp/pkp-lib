@@ -18,5 +18,5 @@ interface ContextAwareJob
     /**
      * Get the context id of this context aware job
      */
-    public function getContextId(): ?int;
+    public function getContextId(): int;
 }

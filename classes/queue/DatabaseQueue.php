@@ -98,7 +98,8 @@ class DatabaseQueue extends IlluminateDatabaseQueue
         $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
         $job =  $jobQueue
             ->applyJobContextAwareFilter($jobPickQuery, $this->contextId)
-            ->orderBy('id', 'asc')->first();
+            ->orderBy('id', 'asc')
+            ->first();
 
         return $job ? new DatabaseJobRecord((object) $job) : null;
     }

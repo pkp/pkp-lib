@@ -85,7 +85,8 @@ class ReviewReminderForm extends Form
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
         $mailable->sender($user)->recipients([$reviewer]);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+        $templateKey = $mailable::getEmailTemplateKey();
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
         $data = $mailable->getData(Locale::getLocale());
         // Don't expose the reviewer's one-click access URL to editors
         $data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = '{$' . ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL . '}';
@@ -98,6 +99,8 @@ class ReviewReminderForm extends Form
         $this->setData('reviewerName', $reviewer->getFullName() . ' <' . $reviewer->getEmail() . '>');
         $this->setData('message', $body);
         $this->setData('reviewDueDate', $mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
+        // Default selected template in the UI
+        $this->setData('templateKey', $templateKey);
     }
 
     /**
@@ -111,6 +114,26 @@ class ReviewReminderForm extends Form
         $templateMgr->assign('emailVariables', [
             'passwordResetUrl' => __('common.url'),
         ]);
+        // Provide templates for the <select>
+        $context = $request->getContext();
+        $reviewAssignment = $this->getReviewAssignment();
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
+        $data = $mailable->getData(Locale::getLocale());
+        $templateKey = $mailable::getEmailTemplateKey();
+        $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
+        $templates = [$templateKey => $defaultTemplate->getLocalizedData('name')];
+        $alternateTemplates = Repo::emailTemplate()->getCollector($context->getId())
+            ->alternateTo([$mailable::getEmailTemplateKey()])
+            ->getMany();
+        foreach ($alternateTemplates as $alternateTemplate) {
+            $templates[$alternateTemplate->getData('key')] =
+                Mail::compileParams($alternateTemplate->getLocalizedData('name'), $data);
+        }
+        $templateMgr->assign([
+            'templates' => $templates,
+            'templateKey' => $templateKey,
+        ]);
         return parent::fetch($request, $template, $display);
     }
 
@@ -122,6 +145,7 @@ class ReviewReminderForm extends Form
     public function readInputData()
     {
         $this->readUserVars([
+            'template',
             'message',
             'reviewDueDate',
         ]);
@@ -142,7 +166,8 @@ class ReviewReminderForm extends Form
 
         // Create ReviewRemind email and populate with data
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+        $templateKey = $this->getData('template') ?: $mailable::getEmailTemplateKey();
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
         $mailable
             ->subject($template->getLocalizedData('subject'))
             ->body($this->getData('message'))

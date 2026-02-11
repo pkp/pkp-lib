@@ -18,12 +18,15 @@ namespace PKP\API\v1\submissions\tasks;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\event\SubmissionEventLogEntry;
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use PKP\API\v1\submissions\tasks\formRequests\AddNote;
 use PKP\API\v1\submissions\tasks\formRequests\AddTask;
@@ -31,6 +34,7 @@ use PKP\API\v1\submissions\tasks\formRequests\EditTask;
 use PKP\API\v1\submissions\tasks\resources\EditorialTaskParticipantResource;
 use PKP\API\v1\submissions\tasks\resources\NoteResource;
 use PKP\API\v1\submissions\tasks\resources\TaskResource;
+use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
@@ -41,23 +45,28 @@ use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
 use PKP\editorialTask\Template;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\NoteAccessPolicy;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\authorization\QueryWritePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\authorization\NoteAccessPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
 class EditorialTaskController extends PKPBaseController
 {
+    use StageMailable;
+
     /**
      * @inheritDoc
      */
@@ -210,6 +219,13 @@ class EditorialTaskController extends PKPBaseController
         ]);
         Repo::eventLog()->add($eventLog);
 
+        $newParticipants = $editorialTask->participants->pluck('userId')->toArray();
+        if (!in_array($currentUser->getId(), $newParticipants)) {
+            $newParticipants[] = $currentUser->getId();
+        }
+
+        $this->notifyParticipants($newParticipants, $editorialTask);
+
         return response()->json(
             new TaskResource(resource: $editorialTask, data: $this->getTaskData($submission, $editorialTask)),
             Response::HTTP_OK
@@ -342,6 +358,7 @@ class EditorialTaskController extends PKPBaseController
     {
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $editTask = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_QUERY); /** @var EditorialTask $editTask */
+        $oldParticipantIds = $editTask->participants->pluck('userId')->toArray();
 
         if (!$editTask) {
             return response()->json([
@@ -356,6 +373,12 @@ class EditorialTaskController extends PKPBaseController
                 'error' => __('api.409.resourceActionConflict'),
             ], Response::HTTP_CONFLICT);
         }
+
+        $newParticipantIds = Participant::withTaskIds([$editTask->id])->get()->pluck('userId')->toArray();
+        $this->notifyParticipants(
+            array_diff($newParticipantIds, $oldParticipantIds),
+            $editTask
+        );
 
         return response()->json(
             new TaskResource(resource: $editTask->refresh(), data: $this->getTaskData($submission, $editTask)),
@@ -640,7 +663,7 @@ class EditorialTaskController extends PKPBaseController
             ->get();
 
         $eventLog = Repo::eventLog()->newDataObject([
-            'assocType' => PKPApplication::ASSOC_TYPE_NOTE,
+            'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $task->id,
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
             'userId' => $currentUser->getId(),
@@ -656,6 +679,9 @@ class EditorialTaskController extends PKPBaseController
         $context = $this->getRequest()->getContext();
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+
+        $participantIds = $task->participants->pluck('userId')->toArray();
+        $this->notifyParticipants($participantIds, $task, $note);
 
         return response()->json(
             new NoteResource(resource: $note, data: [
@@ -897,5 +923,96 @@ class EditorialTaskController extends PKPBaseController
         }
 
         return ['users' => $users, 'reviewAssignments' => $includedReviewAssignments];
+    }
+
+    /**
+     * This method is used to send notifications and emails to task/discussion participants when
+     * 1. New Task or Discussion is created and the participants are assigned
+     * 2. Task and Discussion is edited and new participants are added
+     * 3. New note/reply is added to the task/discussion
+     *
+     * @param array<int> $participantIds
+     * @param Note|null $note if null, it will try to find the headnote for the task/discussion
+     */
+    protected function notifyParticipants(array $participantIds, EditorialTask $editorialTask, ?Note $note = null): void
+    {
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $context = $this->getRequest()->getContext();
+        $currentUser = $this->getRequest()->getUser();
+        if (!$note) {
+            $note = $editorialTask->notes()->where('is_headnote', true)->first();
+        }
+        $submissionFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
+            ->getMany();
+
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationMgr = new NotificationManager();
+
+        if (
+            $editorialTask->stageId == WORKFLOW_STAGE_ID_EDITING ||
+            $editorialTask->stageId == WORKFLOW_STAGE_ID_PRODUCTION
+        ) {
+            // Update submission notifications
+            $notificationMgr->updateNotification(
+                $this->getRequest(),
+                [
+                    Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                    Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                    Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                ],
+                null,
+                PKPApplication::ASSOC_TYPE_SUBMISSION,
+                $this->getAssocId()
+            );
+        }
+        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+
+        foreach ($users as $user) {
+
+            $notificationSubscriptionSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY,
+                $user->getId(),
+                $context->getId()
+            );
+            if (in_array(Notification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
+                continue;
+            }
+
+            $notification = $notificationMgr->createNotification(
+                $user->getId(),
+                Notification::NOTIFICATION_TYPE_NEW_QUERY,
+                $context->getId(),
+                PKPApplication::ASSOC_TYPE_QUERY,
+                $editorialTask->id,
+                Notification::NOTIFICATION_LEVEL_TASK
+            );
+
+            // Check if the user is unsubscribed
+            $emailSubscriptionSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                $user->getId(),
+                $context->getId()
+            );
+            if (in_array(Notification::NOTIFICATION_TYPE_NEW_QUERY, $emailSubscriptionSettings)) {
+                continue;
+            }
+
+            $mailable = $this->getStageMailable($context, $submission, $editorialTask->stageId)
+                ->sender($currentUser)
+                ->recipients([$user])
+                ->subject($editorialTask->title)
+                ->body($note->getData('contents'))
+                ->allowUnsubscribe($notification);
+
+            $submissionFiles->each(fn (SubmissionFile $item) => $mailable->attachSubmissionFile(
+                $item->getId(),
+                $item->getLocalizedData('name')
+            ));
+
+            Mail::send($mailable);
+            Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::DISCUSSION_NOTIFY, $mailable, $submission);
+        }
     }
 }

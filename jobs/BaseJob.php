@@ -5,20 +5,17 @@ declare(strict_types=1);
 /**
  * @file jobs/BaseJob.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BaseJob
- *
- * @ingroup support
  *
  * @brief Abstract class for Jobs
  */
 
 namespace PKP\jobs;
 
-use APP\core\Application;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -58,27 +55,15 @@ abstract class BaseJob implements ShouldQueue
     /**
      * Indicate if the job should be marked as failed on timeout.
      */
-    public bool $failOnTimeout = true;
+    public bool $failOnTimeout = false;
 
     /**
      * Initialize the job
      */
     public function __construct()
     {
-        $this->connection = $this->defaultConnection();
+        $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Config::getVar('queues', 'default_queue', 'queue');
-    }
-
-    /**
-     * Get the queue job default connection to execute
-     */
-    protected function defaultConnection(): string
-    {
-        if (Application::isUnderMaintenance()) {
-            return 'sync';
-        }
-
-        return Config::getVar('queues', 'default_connection', 'database');
     }
 
     /**

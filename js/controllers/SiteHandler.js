@@ -148,16 +148,16 @@
 				width: '100%',
 				resize: 'both',
 				entity_encoding: 'raw',
-				plugins: ['fullscreen','link','lists','code','image','-pkpTags'],
+				plugins: ['fullscreen','link','lists','code','image','emoticons','-pkpTags'],
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
 				apply_source_formatting: false,
 				toolbar: 'copy paste | bold italic underline | link unlink ' +
-						'code fullscreen | image | pkpTags',
+						'code fullscreen | image | emoticons | pkpTags',
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +
-						'image | pkpTags',
+						'image | emoticons | pkpTags',
 				statusbar: false,
 				content_css: contentCSS,
 				browser_spellcheck: true,

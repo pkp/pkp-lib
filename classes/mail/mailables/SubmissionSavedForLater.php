@@ -19,12 +19,14 @@ use APP\decision\Decision;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\security\Role;
 
 class SubmissionSavedForLater extends Mailable
 {
     use Recipient;
+    use Configurable;
 
     /** @var string An email variable that contains a description of the editorial decision */
     public const DECISION_DESCRIPTION = 'decisionDescription';

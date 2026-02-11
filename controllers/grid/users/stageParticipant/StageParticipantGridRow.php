@@ -71,20 +71,16 @@ class StageParticipantGridRow extends GridRow
             // Only add row actions if this is an existing row.
             $router = $request->getRouter();
             if ($this->_canAdminister) {
-                $this->addAction(
-                    new LinkAction(
-                        'delete',
-                        new RemoteActionConfirmationModal(
-                            $request->getSession(),
-                            __('editor.submission.removeStageParticipant.description'),
-                            __('editor.submission.removeStageParticipant'),
-                            $router->url($request, null, null, 'deleteParticipant', null, $this->getRequestArgs()),
-                            'modal_delete'
-                        ),
-                        __('grid.action.remove'),
-                        'delete'
-                    )
-                );
+                $this->addAction(new LinkAction(
+					'delete',
+					new AjaxModal(
+						$router->url($request, null, null, 'removeParticipant', null, $this->getRequestArgs()),
+						__('editor.submission.removeStageParticipant'),
+						'modal_delete'
+					),
+					__('grid.action.remove'),
+					'delete'
+				));
 
                 $this->addAction(
                     new LinkAction(

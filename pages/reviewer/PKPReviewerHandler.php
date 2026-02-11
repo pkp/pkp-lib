@@ -27,7 +27,6 @@ use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\facades\Locale;
@@ -36,6 +35,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
 use PKP\submission\reviewer\form\ReviewerReviewForm;
 use PKP\submission\reviewer\ReviewerAction;
+use PKP\submission\reviewRound\ReviewRound;
 
 class PKPReviewerHandler extends Handler
 {
@@ -65,10 +65,9 @@ class PKPReviewerHandler extends Handler
             throw new Exception('Invalid step!');
         }
 
-        /** @var \PKP\submission\reviewRound\ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         $submissionId = $reviewSubmission->getId();
-        $lastRoundId = $reviewRoundDao->getLastReviewRoundBySubmissionId($submissionId)->getId();
+        $lastRoundId = Repo::reviewRound()->getLastReviewRoundBySubmissionId($submissionId)->id;
+
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterByContextIds([$request->getContext()->getId()])
             ->filterBySubmissionIds([$submissionId])

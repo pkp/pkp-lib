@@ -31,7 +31,6 @@ use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 
 /**
  * @template T of SubmissionFile
@@ -326,14 +325,14 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     ): void {
         DB::table('review_round_files')->updateOrInsert(
             [
-                'submission_id' => $reviewRound->getSubmissionId(),
-                'review_round_id' => $reviewRound->getId(),
+                'submission_id' => $reviewRound->submissionId,
+                'review_round_id' => $reviewRound->id,
                 'submission_file_id' => $submissionFile->getId(),
             ],
             [
-                'submission_id' => $reviewRound->getSubmissionId(),
-                'review_round_id' => $reviewRound->getId(),
-                'stage_id' => $reviewRound->getStageId(),
+                'submission_id' => $reviewRound->submissionId,
+                'review_round_id' => $reviewRound->id,
+                'stage_id' => $reviewRound->stageId,
                 'submission_file_id' => $submissionFile->getId(),
             ],
         );
@@ -432,8 +431,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
         DB::table('review_round_files')->insert([
             'submission_id' => $submissionFile->getData('submissionId'),
-            'review_round_id' => $reviewRound->getId(),
-            'stage_id' => $reviewRound->getStageId(),
+            'review_round_id' => $reviewRound->id,
+            'stage_id' => $reviewRound->stageId,
             'submission_file_id' => $submissionFile->getId(),
         ]);
     }
@@ -444,14 +443,12 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     protected function getReviewRound(SubmissionFile $submissionFile): ?ReviewRound
     {
         if ($submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ROUND) {
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            return $reviewRoundDao->getById($submissionFile->getData('assocId'));
+            return ReviewRound::find($submissionFile->getData('assocId'));
         }
 
         if ($submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
             $reviewAssignment = Repo::reviewAssignment()->get($submissionFile->getData('assocId'));
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            return $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
+            return ReviewRound::find($reviewAssignment->getReviewRoundId());
         }
 
         return null;

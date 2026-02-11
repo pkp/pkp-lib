@@ -33,8 +33,8 @@ abstract class ReviewerNotifyActionForm extends Form
     /** @var Submission The submission associated with the review assignment */
     public $_submission;
 
-    /** @var ReviewRound The review round associated with the review assignment */
-    public $_reviewRound;
+    /** The review round associated with the review assignment */
+    public ReviewRound $_reviewRound;
 
     /**
      * Constructor
@@ -74,8 +74,8 @@ abstract class ReviewerNotifyActionForm extends Form
 
         $this->setData([
             'submissionId' => $submission->getId(),
-            'stageId' => $reviewRound->getStageId(),
-            'reviewRoundId' => $reviewRound->getId(),
+            'stageId' => $reviewRound->stageId,
+            'reviewRoundId' => $reviewRound->id,
             'reviewAssignmentId' => $reviewAssignment->getId(),
             'dateConfirmed' => $reviewAssignment->getDateConfirmed(),
             'reviewerId' => $reviewerId,

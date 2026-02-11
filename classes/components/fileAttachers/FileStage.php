@@ -48,7 +48,7 @@ class FileStage extends BaseAttacher
     {
         $queryParams = ['fileStages' => [$fileStage]];
         if ($reviewRound) {
-            $queryParams['reviewRoundIds'] = [$reviewRound->getId()];
+            $queryParams['reviewRoundIds'] = [$reviewRound->id];
         }
         $this->fileStages[] = [
             'label' => $label,

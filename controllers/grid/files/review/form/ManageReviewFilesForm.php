@@ -18,9 +18,7 @@ namespace PKP\controllers\grid\files\review\form;
 
 use APP\facades\Repo;
 use PKP\controllers\grid\files\form\ManageSubmissionFilesForm;
-use PKP\db\DAORegistry;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class ManageReviewFilesForm extends ManageSubmissionFilesForm
@@ -71,8 +69,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
      */
     public function getReviewRound()
     {
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        return $reviewRoundDao->getById($this->getReviewRoundId());
+        return ReviewRound::find($this->getReviewRoundId());
     }
 
 
@@ -88,7 +85,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
         $this->setData('reviewRoundId', $this->getReviewRoundId());
 
         $reviewRound = $this->getReviewRound();
-        $this->setData('round', $reviewRound->getRound());
+        $this->setData('round', $reviewRound->round);
 
         parent::initData();
     }

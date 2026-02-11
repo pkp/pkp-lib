@@ -42,7 +42,7 @@ class EditorialReminderTest extends PKPTestCase
     public function testUnserializationGetProperJobInstance(): void
     {
         $this->assertInstanceOf(
-            EditorialReminder::class, 
+            EditorialReminder::class,
             unserialize($this->serializedJobData)
         );
     }
@@ -55,7 +55,7 @@ class EditorialReminderTest extends PKPTestCase
         $this->mockRequest();
 
         $this->mockMail();
-        
+
         /** @var EditorialReminder $editorialReminderJob*/
         $editorialReminderJob = unserialize($this->serializedJobData);
 
@@ -85,7 +85,7 @@ class EditorialReminderTest extends PKPTestCase
             ])
             ->withAnyArgs()
             ->getMock();
-        
+
         $contextServiceMock = Mockery::mock(\APP\services\ContextService::class)
             ->makePartial()
             ->shouldReceive('get')
@@ -110,7 +110,7 @@ class EditorialReminderTest extends PKPTestCase
             ->withAnyArgs()
             ->andReturn($userMock)
             ->getMock();
-        
+
         app()->instance(UserRepository::class, $userRepoMock);
 
         /**
@@ -149,7 +149,7 @@ class EditorialReminderTest extends PKPTestCase
             ->withAnyArgs()
             ->andReturn(collect([1,2]))
             ->getMock();
-        
+
         app()->instance(SubmissionCollector::class, $submissionCollectorMock);
 
         $publicationMock = Mockery::mock(\APP\publication\Publication::class)
@@ -179,25 +179,19 @@ class EditorialReminderTest extends PKPTestCase
             ])
             ->withAnyArgs()
             ->getMock();
-        
+
         app()->instance(SubmissionRepository::class, $submissionRepoMock);
 
         $reviewRoundMock = Mockery::mock(\PKP\submission\reviewRound\ReviewRound::class)
-            ->makePartial()
-            ->shouldReceive([
-                'getStatus' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
-            ])
-            ->withAnyArgs()
-            ->getMock();
+            ->makePartial();
+        $reviewRoundMock->status = ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS;
 
-        $reviewRoundDaoMock = Mockery::mock(\PKP\submission\reviewRound\ReviewRoundDAO::class)
+        Mockery::mock(\PKP\submission\reviewRound\Repository::class)
             ->makePartial()
-            ->shouldReceive('getLastReviewRoundBySubmissionId')
+            ->shouldReceive('getLastBySubmissionId')
             ->withAnyArgs()
-            ->andReturn($reviewRoundMock)
-            ->getMock();
+            ->andReturn($reviewRoundMock);
 
-        DAORegistry::registerDAO('ReviewRoundDAO', $reviewRoundDaoMock);
 
         $emailTemplateMock = Mockery::mock(\PKP\emailTemplate\EmailTemplate::class)
             ->makePartial()

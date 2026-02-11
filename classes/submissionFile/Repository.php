@@ -41,10 +41,10 @@ use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\exceptions\UnableToCreateFileContentException;
 use PKP\submissionFile\maps\Schema;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\reviewRound\ReviewRound;
 
 abstract class Repository
 {
@@ -307,19 +307,19 @@ abstract class Repository
         // Update status and notifications when revisions have been uploaded
         if ($submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION ||
             $submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION) {
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
+            /** @var ReviewRound $reviewRound */
+            $reviewRound = ReviewRound::find($submissionFile->getData('assocId'));
             if (!$reviewRound) {
                 throw new Exception('Submission file added to review round that does not exist.');
             }
 
-            $reviewRoundDao->updateStatus($reviewRound);
+            $reviewRound->updateStatus();
 
             // Update author notifications
             // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
             $authorUserIds = StageAssignment::withSubmissionIds([$submissionFile->getData('submissionId')])
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
-                ->withStageIds([$reviewRound->getStageId()])
+                ->withStageIds([$reviewRound->stageId])
                 ->get()
                 ->pluck('user_id')
                 ->all();
@@ -480,8 +480,7 @@ abstract class Repository
 
         // Get the review round before review round files are deleted
         if ($submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            $reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
+            $reviewRound = ReviewRound::withSubmissionFileId($submissionFile->getId())->first();
         }
 
 
@@ -501,7 +500,7 @@ abstract class Repository
 
         // Update the review round status after deletion
         if ($submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
-            $reviewRoundDao->updateStatus($reviewRound);
+            $reviewRound->updateStatus();
         }
 
         // Log the deletion
@@ -711,10 +710,10 @@ abstract class Repository
             $fileStage === SubmissionFile::SUBMISSION_FILE_ATTACHMENT ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION
         ) {
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-            $reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
+            /** @var ReviewRound|null $reviewRound */
+            $reviewRound = ReviewRound::withSubmissionFileId($submissionFile->getId())->first();
 
-            return $reviewRound?->getStageId();
+            return $reviewRound?->stageId;
         }
 
         if ($fileStage === SubmissionFile::SUBMISSION_FILE_QUERY) {
@@ -809,12 +808,11 @@ abstract class Repository
         }
 
         // Get editors assigned to the submission, consider also the recommendOnly editors
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
+        $reviewRound = ReviewRound::find($submissionFile->getData('assocId'));
 
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
         $editorsStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-            ->withStageIds([$reviewRound->getStageId()])
+            ->withStageIds([$reviewRound->stageId])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 

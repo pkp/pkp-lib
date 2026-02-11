@@ -472,7 +472,6 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             'ReviewFormDAO' => 'PKP\reviewForm\ReviewFormDAO',
             'ReviewFormElementDAO' => 'PKP\reviewForm\ReviewFormElementDAO',
             'ReviewFormResponseDAO' => 'PKP\reviewForm\ReviewFormResponseDAO',
-            'ReviewRoundDAO' => 'PKP\submission\reviewRound\ReviewRoundDAO',
             'RoleDAO' => 'PKP\security\RoleDAO',
             'SiteDAO' => 'PKP\site\SiteDAO',
             'SubEditorsDAO' => 'PKP\context\SubEditorsDAO',

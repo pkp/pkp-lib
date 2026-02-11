@@ -37,7 +37,6 @@ use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -75,22 +74,22 @@ class EditorAction
         // assigned to review this submission.
 
         $assigned = (bool) Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewRoundIds([$reviewRound->id])
             ->filterByReviewerIds([$reviewerId])
             ->getMany()
             ->first();
 
         // Only add the reviewer if he has not already
         // been assigned to review this submission.
-        $stageId = $reviewRound->getStageId();
-        $round = $reviewRound->getRound();
+        $stageId = $reviewRound->stageId;
+        $round = $reviewRound->round;
         $newData = [
             'submissionId' => $submission->getId(),
             'reviewerId' => $reviewerId,
             'dateAssigned' => Core::getCurrentDate(),
             'stageId' => $stageId,
             'round' => $round,
-            'reviewRoundId' => $reviewRound->getId(),
+            'reviewRoundId' => $reviewRound->id,
             'isReviewPubliclyVisible' => $isReviewPubliclyVisible ?? $request->getContext()->getDefaultReviewPublicVisibility(),
         ];
         if (isset($reviewMethod)) {
@@ -209,9 +208,9 @@ class EditorAction
         string $emailSubject,
         Context $context
     ): ReviewRequest|ReviewRequestSubsequent {
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-        $mailable = $reviewRound->getRound() == 1 ?
+        /** @var ReviewRound $reviewRound */
+        $reviewRound = ReviewRound::find($reviewAssignment->getReviewRoundId());
+        $mailable = $reviewRound->round == 1 ?
             new ReviewRequest($context, $submission, $reviewAssignment) :
             new ReviewRequestSubsequent($context, $submission, $reviewAssignment);
 

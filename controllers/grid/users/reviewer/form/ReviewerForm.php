@@ -55,8 +55,8 @@ class ReviewerForm extends Form
     /** @var Submission The submission associated with the review assignment */
     public $_submission;
 
-    /** @var ReviewRound The review round associated with the review assignment */
-    public $_reviewRound;
+    /** The review round associated with the review assignment */
+    public ReviewRound $_reviewRound;
 
     /** @var array An array of actions for the other reviewer forms */
     public $_reviewerFormActions;
@@ -224,13 +224,13 @@ class ReviewerForm extends Form
 
         // Get the currently selected reviewer selection type to show the correct tab if we're re-displaying the form
         $selectionType = (int) $request->getUserVar('selectionType');
-        $stageId = $reviewRound->getStageId();
+        $stageId = $reviewRound->stageId;
 
         $this->setData('submissionId', $this->getSubmissionId());
         $this->setData('stageId', $stageId);
         $this->setData('reviewMethod', $reviewMethod);
         $this->setData('reviewFormId', $reviewFormId);
-        $this->setData('reviewRoundId', $reviewRound->getId());
+        $this->setData('reviewRoundId', $reviewRound->id);
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);
@@ -281,7 +281,7 @@ class ReviewerForm extends Form
         $reviewRound = $this->getReviewRound();
         $reviewerUserGroups = Repo::userGroup()->getUserGroupsByStage(
             $context->getId(),
-            $reviewRound->getStageId(),
+            $reviewRound->stageId,
             Role::ROLE_ID_REVIEWER
         );
 
@@ -332,7 +332,7 @@ class ReviewerForm extends Form
         $context = $request->getContext();
 
         $currentReviewRound = $this->getReviewRound();
-        $stageId = $currentReviewRound->getStageId();
+        $stageId = $currentReviewRound->stageId;
         $reviewDueDate = $this->getData('reviewDueDate');
         $responseDueDate = $this->getData('responseDueDate');
 
@@ -358,7 +358,7 @@ class ReviewerForm extends Form
 
         // Get the reviewAssignment object now that it has been added.
         $reviewAssignment = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$currentReviewRound->getId()])
+            ->filterByReviewRoundIds([$currentReviewRound->id])
             ->filterByReviewerIds([$reviewerId])
             ->getMany()
             ->first();
@@ -379,7 +379,7 @@ class ReviewerForm extends Form
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
-            ->filterByReviewRoundIds([$currentReviewRound->getId()])
+            ->filterByReviewRoundIds([$currentReviewRound->id])
             ->filterByFileStages($fileStages)
             ->getMany();
 
@@ -441,8 +441,8 @@ class ReviewerForm extends Form
             'addReviewer',
             new AjaxAction($request->url(null, null, 'reloadReviewerForm', null, [
                 'submissionId' => $this->getSubmissionId(),
-                'stageId' => $reviewRound->getStageId(),
-                'reviewRoundId' => $reviewRound->getId(),
+                'stageId' => $reviewRound->stageId,
+                'reviewRoundId' => $reviewRound->id,
                 'selectionType' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
             ])),
             __('editor.submission.backToSearch'),
@@ -469,7 +469,7 @@ class ReviewerForm extends Form
         // Ensure the user isn't already assigned to the current submission
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
-            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewRoundIds([$reviewRound->id])
             ->getMany();
 
         foreach ($reviewAssignments as $reviewAssignment) {

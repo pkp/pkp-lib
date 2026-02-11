@@ -28,20 +28,17 @@ use PKP\linkAction\request\ConfirmationModal;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {
-    /** @var int */
-    public $_stageId;
+    public int $_stageId;
 
-    /** @var ReviewRound */
-    public $_reviewRound;
+    public ?ReviewRound $_reviewRound = null;
 
-    /** @var array the submission files for this submission and file stage */
-    public $_submissionFiles;
+    /** The submission files for this submission and file stage */
+    public ?array $_submissionFiles = null;
 
     /**
      * Constructor.
@@ -93,18 +90,16 @@ class PKPSubmissionFilesUploadBaseForm extends Form
             }
 
             // Get the review round object.
-            /** @var ReviewRoundDAO */
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-            $this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
+            $this->_reviewRound = ReviewRound::find($reviewAssignment->getReviewRoundId());
         } elseif (!$assocType && !$reviewRound) {
-            $reviewRound = null;
+            $this->reviewRound = null;
         }
 
         $this->setData('fileStage', (int)$fileStage);
         $this->setData('submissionId', (int)$submissionId);
         $this->setData('revisionOnly', (bool)$revisionOnly);
         $this->setData('revisedFileId', $revisedFileId ? (int)$revisedFileId : null);
-        $this->setData('reviewRoundId', $reviewRound ? $reviewRound->getId() : null);
+        $this->setData('reviewRoundId', $reviewRound?->id);
         $this->setData('assocType', $assocType ? (int)$assocType : null);
         $this->setData('assocId', $assocId ? (int)$assocId : null);
         $this->setData('queryId', $queryId ? (int) $queryId : null);
@@ -130,9 +125,9 @@ class PKPSubmissionFilesUploadBaseForm extends Form
     /**
      * Get the review round object (if any).
      *
-     * @return ReviewRound
+     * @return ReviewRound|null
      */
-    public function getReviewRound()
+    public function getReviewRound(): ?ReviewRound
     {
         return $this->_reviewRound;
     }
@@ -178,7 +173,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
         if (is_null($this->_submissionFiles)) {
             if ($this->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW || $this->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
                 // If we have a review stage id then we also expect a review round.
-                if (!$this->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY && !$this->getReviewRound() instanceof ReviewRound) {
+                if (!$this->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY && !$this->getReviewRound()) {
                     throw new Exception('Can not request submission files for a review stage without specifying a review round.');
                 }
                 // Can only upload submission files, review files, review attachments, dependent files, or query attachments.
@@ -212,7 +207,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     $this->_submissionFiles = Repo::submissionFile()
                         ->getCollector()
                         ->filterByFileStages([(int) $this->getData('fileStage')])
-                        ->filterByReviewRoundIds([(int) $reviewRound->getId()])
+                        ->filterByReviewRoundIds([(int) $reviewRound->id])
                         ->filterBySubmissionIds([$submissionId])
                         ->getMany()
                         ->toArray();
@@ -307,8 +302,8 @@ class PKPSubmissionFilesUploadBaseForm extends Form
 
         // Set the review round id, if any.
         $reviewRound = $this->getReviewRound();
-        if ($reviewRound instanceof ReviewRound) {
-            $this->setData('reviewRoundId', $reviewRound->getId());
+        if ($reviewRound) {
+            $this->setData('reviewRoundId', $reviewRound->id);
         }
 
         // Retrieve the uploaded file (if any).

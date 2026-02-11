@@ -1,34 +1,46 @@
 <?php
 
-/**
- * @defgroup submission_reviewRound Review Round
- */
-/**
- * @file classes/submission/reviewRound/ReviewRound.php
- *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @class ReviewRound
- *
- * @ingroup submission_reviewRound
- *
- * @see ReviewRoundDAO
- *
- * @brief Basic class describing a review round.
- */
-
 namespace PKP\submission\reviewRound;
 
 use APP\decision\Decision;
 use APP\facades\Repo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use PKP\core\traits\ModelWithSettings;
 use PKP\security\Role;
+use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use Illuminate\Database\Eloquent\Model;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
+use Illuminate\Database\Query\Builder;
 
-class ReviewRound extends \PKP\core\DataObject
+/**
+ * ReviewRound Model
+ * // the scope methods
+ * @method static \Illuminate\Database\Eloquent\Builder|ReviewRound withSubmissionIds(array $submissionIds) Scope to filter by submission id
+ * @method static \Illuminate\Database\Eloquent\Builder|ReviewRound withPublicationIds(array $publicationIds) Scope to filter by publication id
+ * @method static \Illuminate\Database\Eloquent\Builder|ReviewRound withStageId(int $stageId) Scope to filter by stage id
+ * @method static \Illuminate\Database\Eloquent\Builder|ReviewRound withRound(int $round) Scope to filter by round number
+ * @method static \Illuminate\Database\Eloquent\Builder|ReviewRound withStatus(int $status) Scope to filter by status
+ * @method static \Illuminate\Database\Eloquent\Builder|ReviewRound withSubmissionFileId(int $submissionFileId) Scope to filter by submission file id
+ * @method static \Illuminate\Database\Eloquent\Builder|ReviewRound withContextId(int $contextId) Scope to filter by context id
+ * @property int $submissionId
+ * @property int $publicationId
+ * @property int $stageId
+ * @property int $round
+ * @property int $reviewRevision
+ * @property int $status
+ * @property-read int $id
+ * @property bool $isAuthorResponseRequested
+ */
+class ReviewRound extends Model
 {
+    use ModelWithSettings;
+
+    protected $table = 'review_rounds';
+    protected $primaryKey = 'review_round_id';
+    public $timestamps = false;
+
     // The first four statuses are set explicitly by Decisions, which override
     // the current status.
     public const REVIEW_ROUND_STATUS_REVISIONS_REQUESTED = 1;
@@ -61,101 +73,44 @@ class ReviewRound extends \PKP\core\DataObject
     // The following status is set when a submission return back from copyediting stage to last review round again
     public const REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW = 16;
 
-    //
-    // Get/set methods
-    //
+    protected $fillable = [
+        'submissionId',
+        'publicationId',
+        'stageId',
+        'round',
+        'reviewRevision',
+        'status',
+    ];
 
-    /**
-     * get submission id
-     *
-     * @return int
-     */
-    public function getSubmissionId()
+    protected $casts = [
+        'submission_id' => 'integer',
+        'publication_id' => 'integer',
+        'stage_id' => 'integer',
+        'round' => 'integer',
+        'review_revision' => 'integer',
+        'status' => 'integer',
+        'is_author_response_requested' => 'bool',
+    ];
+
+    /** @copydoc */
+    public function getSettingsTable(): string
     {
-        return $this->getData('submissionId');
+        return 'review_round_settings';
     }
 
-    /**
-     * set submission id
-     *
-     * @param int $submissionId
-     */
-    public function setSubmissionId($submissionId)
+    /** @copydoc */
+    public static function getSchemaName(): ?string
     {
-        $this->setData('submissionId', $submissionId);
+        return PKPSchemaService::SCHEMA_REVIEW_ROUND;
     }
 
-    /**
-     * Get publication ID
-     */
-    public function getPublicationId(): int
-    {
-        return (int) $this->getData('publicationId');
-    }
 
     /**
-     * Set publication ID
+     * Get the author response associated with this review round, if any.
      */
-    public function setPublicationId(int $publicationId): void
+    public function roundAuthorResponse(): HasOne
     {
-        $this->setData('publicationId', $publicationId);
-    }
-
-    /**
-     * Get review stage id (internal or external review).
-     *
-     * @return int
-     */
-    public function getStageId()
-    {
-        return $this->getData('stageId');
-    }
-
-    /**
-     * Set review stage id
-     *
-     * @param int $stageId
-     */
-    public function setStageId($stageId)
-    {
-        $this->setData('stageId', $stageId);
-    }
-
-    /**
-     * Get review round
-     *
-     * @return int
-     */
-    public function getRound()
-    {
-        return $this->getData('round');
-    }
-
-    /**
-     * Set review round
-     */
-    public function setRound($round)
-    {
-        $this->setData('round', $round);
-    }
-    /**
-     * Get current round status
-     *
-     * @return int
-     */
-    public function getStatus()
-    {
-        return $this->getData('status');
-    }
-
-    /**
-     * Set current round status
-     *
-     * @param int $status
-     */
-    public function setStatus($status)
-    {
-        $this->setData('status', $status);
+        return $this->hasOne(AuthorResponse::class, 'review_round_id', 'review_round_id');
     }
 
     /**
@@ -166,35 +121,35 @@ class ReviewRound extends \PKP\core\DataObject
      * yet, it will determine the status based on the statuses of the round's
      * ReviewAssignments.
      *
-     * @return int
      */
-    public function determineStatus()
+    public function determineStatus(): int
     {
         // If revisions have been requested, check to see if any have been
         // submitted
-        if ($this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
+        if ($this->status == self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->status == self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
             // get editor decisions
-            $decisionToCheck = $this->getStageId() === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::PENDING_REVISIONS : Decision::PENDING_REVISIONS_INTERNAL;
-            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), $decisionToCheck);
+            $decisionToCheck = $this->stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::PENDING_REVISIONS : Decision::PENDING_REVISIONS_INTERNAL;
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->submissionId, $this->stageId, $decisionToCheck);
 
             if ($pendingRevisionDecision) {
-                if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {
+                if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->submissionId)) {
                     return self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED;
                 }
             }
             return self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
         }
 
+
         // If revisions have been requested for re-submission, check to see if any have been
         // submitted
-        if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
+        if ($this->status == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->status == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
             // get editor decisions
-            $decisionToCheck = $this->getStageId() === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::RESUBMIT : Decision::RESUBMIT_INTERNAL;
+            $decisionToCheck = $this->stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::RESUBMIT : Decision::RESUBMIT_INTERNAL;
 
-            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), $decisionToCheck);
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->submissionId, $this->stageId, $decisionToCheck);
 
             if ($pendingRevisionDecision) {
-                if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {
+                if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->submissionId)) {
                     return self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED;
                 }
             }
@@ -202,7 +157,7 @@ class ReviewRound extends \PKP\core\DataObject
         }
 
         $statusFinished = in_array(
-            $this->getStatus(),
+            $this->status,
             [
                 self::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
                 self::REVIEW_ROUND_STATUS_ACCEPTED,
@@ -210,7 +165,7 @@ class ReviewRound extends \PKP\core\DataObject
             ]
         );
         if ($statusFinished) {
-            return $this->getStatus();
+            return $this->status;
         }
 
         // Determine the round status by looking at the recommendOnly editor assignment statuses
@@ -219,8 +174,8 @@ class ReviewRound extends \PKP\core\DataObject
         $recommendationsReady = false;
 
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-        $editorsStageAssignments = StageAssignment::withSubmissionIds([$this->getSubmissionId()])
-            ->withStageIds([$this->getStageId()])
+        $editorsStageAssignments = StageAssignment::withSubmissionIds([$this->submissionId])
+            ->withStageIds([$this->stageId])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 
@@ -229,9 +184,9 @@ class ReviewRound extends \PKP\core\DataObject
                 $pendingRecommendations = true;
                 // Get recommendation from the assigned recommendOnly editor
                 $decisions = Repo::decision()->getCollector()
-                    ->filterBySubmissionIds([$this->getSubmissionId()])
-                    ->filterByStageIds([$this->getStageId()])
-                    ->filterByReviewRoundIds([$this->getId()])
+                    ->filterBySubmissionIds([$this->submissionId])
+                    ->filterByStageIds([$this->stageId])
+                    ->filterByReviewRoundIds([$this->id])
                     ->filterByEditorIds([$editorsStageAssignment->userId])
                     ->getCount();
 
@@ -255,7 +210,7 @@ class ReviewRound extends \PKP\core\DataObject
         $anyIncompletedReview = false;
         $anyUnreadReview = false;
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$this->getId()])
+            ->filterByReviewRoundIds([$this->id])
             ->getMany();
 
         foreach ($reviewAssignments as $reviewAssignment) {
@@ -302,7 +257,7 @@ class ReviewRound extends \PKP\core\DataObject
         }
 
         // The submission back form copy editing stage to last review round
-        if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW) {
+        if ($this->status == self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW) {
             return self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW;
         }
 
@@ -314,44 +269,110 @@ class ReviewRound extends \PKP\core\DataObject
      *
      * @param bool $isAuthor True iff the status is to be shown to the author (slightly tweaked phrasing)
      *
-     * @return string
      */
-    public function getStatusKey($isAuthor = false)
+    public function getStatusKey(bool $isAuthor = false): ?string
     {
-        switch ($this->determineStatus()) {
-            case self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED:
-                return 'editor.submission.roundStatus.revisionsRequested';
-            case self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED:
-                return 'editor.submission.roundStatus.revisionsSubmitted';
-            case self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW:
-                return 'editor.submission.roundStatus.resubmitForReview';
-            case self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED:
-                return 'editor.submission.roundStatus.submissionResubmitted';
-            case self::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL:
-                return 'editor.submission.roundStatus.sentToExternal';
-            case self::REVIEW_ROUND_STATUS_ACCEPTED:
-                return 'editor.submission.roundStatus.accepted';
-            case self::REVIEW_ROUND_STATUS_DECLINED:
-                return 'editor.submission.roundStatus.declined';
-            case self::REVIEW_ROUND_STATUS_PENDING_REVIEWERS:
-                return 'editor.submission.roundStatus.pendingReviewers';
-            case self::REVIEW_ROUND_STATUS_PENDING_REVIEWS:
-                return 'editor.submission.roundStatus.pendingReviews';
-            case self::REVIEW_ROUND_STATUS_REVIEWS_READY:
-                return $isAuthor ? 'author.submission.roundStatus.reviewsReady' : 'editor.submission.roundStatus.reviewsReady';
-            case self::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED:
-                return 'editor.submission.roundStatus.reviewsCompleted';
-            case self::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE:
-                return $isAuthor ? 'author.submission.roundStatus.reviewOverdue' : 'editor.submission.roundStatus.reviewOverdue';
-            case self::REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS:
-                return 'editor.submission.roundStatus.pendingRecommendations';
-            case self::REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY:
-                return 'editor.submission.roundStatus.recommendationsReady';
-            case self::REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED:
-                return 'editor.submission.roundStatus.recommendationsCompleted';
-            case self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW:
-                return 'editor.submission.roundStatus.returnedToReview';
-            default: return null;
+        return match ($this->determineStatus()) {
+            self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED => 'editor.submission.roundStatus.revisionsRequested',
+            self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED => 'editor.submission.roundStatus.revisionsSubmitted',
+            self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW => 'editor.submission.roundStatus.resubmitForReview',
+            self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED => 'editor.submission.roundStatus.submissionResubmitted',
+            self::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL => 'editor.submission.roundStatus.sentToExternal',
+            self::REVIEW_ROUND_STATUS_ACCEPTED => 'editor.submission.roundStatus.accepted',
+            self::REVIEW_ROUND_STATUS_DECLINED => 'editor.submission.roundStatus.declined',
+            self::REVIEW_ROUND_STATUS_PENDING_REVIEWERS => 'editor.submission.roundStatus.pendingReviewers',
+            self::REVIEW_ROUND_STATUS_PENDING_REVIEWS => 'editor.submission.roundStatus.pendingReviews',
+            self::REVIEW_ROUND_STATUS_REVIEWS_READY => $isAuthor ? 'author.submission.roundStatus.reviewsReady' : 'editor.submission.roundStatus.reviewsReady',
+            self::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED => 'editor.submission.roundStatus.reviewsCompleted',
+            self::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE => $isAuthor ? 'author.submission.roundStatus.reviewOverdue' : 'editor.submission.roundStatus.reviewOverdue',
+            self::REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS => 'editor.submission.roundStatus.pendingRecommendations',
+            self::REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY => 'editor.submission.roundStatus.recommendationsReady',
+            self::REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED => 'editor.submission.roundStatus.recommendationsCompleted',
+            self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW => 'editor.submission.roundStatus.returnedToReview',
+            default => null,
+        };
+    }
+
+    /**
+     * Update the review round status.
+     *
+     * @param ?int $status Optionally pass a ReviewRound::REVIEW_ROUND_STATUS_... to set a
+     *  specific status. If not included, will determine the appropriate status
+     *  based on ReviewRound::determineStatus().
+     */
+    public function updateStatus(?int $status = null): void
+    {
+        $currentStatus = $this->status;
+
+        if ($status === null) {
+            $status = $this->determineStatus();
         }
+
+        // Avoid unnecessary database access
+        if ($status !== $currentStatus) {
+            $this->update(['status' => $status]);
+        }
+    }
+
+    /**
+     * Scope a query to only include review rounds with given submission IDs.
+     */
+    public function scopeWithSubmissionIds($query, array $submissionIds)
+    {
+        return $query->whereIn('submission_id', $submissionIds);
+    }
+
+    // scope to fetch by  publication IDs
+    public function scopeWithPublicationIds($query, array $publicationIds)
+    {
+        return $query->whereIn('publication_id', $publicationIds);
+    }
+
+    /**
+     * Scope query to only include review rounds with given stage id.
+     */
+    public function scopeWithStageId($query, int $stageId)
+    {
+        return $query->where('stage_id', $stageId);
+    }
+
+    /**
+     * Scope query to only include review rounds with given round number.
+     */
+    public function scopeWithRound($query, int $round)
+    {
+        return $query->where('round', $round);
+    }
+
+    /**
+     * Scope query to only include review rounds with given status.
+     */
+    public function scopeWithStatus($query, int $status)
+    {
+        return $query->where('status', $status);
+    }
+
+    /**
+     * Scope a query to only include review rounds with given submission file id.
+     */
+    public function scopeWithSubmissionFileId($query, int $submissionFileId)
+    {
+        return $query
+            ->join(
+                'review_round_files as rrf',
+                'review_rounds.review_round_id',
+                '=',
+                'rrf.review_round_id'
+            )
+            ->where('rrf.submission_file_id', $submissionFileId);
+    }
+
+    /**
+     * Scope a query to only include review rounds with given context id.
+     */
+    public function scopeWithContextId(Builder $query, int $contextId): Builder
+    {
+        return $query->join('submissions', 'review_rounds.submission_id', '=', 'submissions.submission_id')
+            ->where('submissions.context_id', $contextId);
     }
 }

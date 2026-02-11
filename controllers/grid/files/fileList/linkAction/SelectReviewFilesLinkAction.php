@@ -32,8 +32,8 @@ class SelectReviewFilesLinkAction extends SelectFilesLinkAction
      */
     public function __construct($request, $reviewRound, $actionLabel, $modalTitle = null)
     {
-        $actionArgs = ['submissionId' => $reviewRound->getSubmissionId(),
-            'stageId' => $reviewRound->getStageId(), 'reviewRoundId' => $reviewRound->getId()];
+        $actionArgs = ['submissionId' => $reviewRound->submissionId,
+            'stageId' => $reviewRound->stageId, 'reviewRoundId' => $reviewRound->id];
 
         parent::__construct($request, $actionArgs, $actionLabel, $modalTitle);
     }

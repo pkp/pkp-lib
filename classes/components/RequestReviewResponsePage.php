@@ -81,7 +81,7 @@ class RequestReviewResponsePage
             );
 
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$this->reviewRound->getId()])
+            ->filterByReviewRoundIds([$this->reviewRound->id])
             ->getMany()
             ->keyBy(fn (ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
             ->sortKeys()
@@ -129,7 +129,7 @@ class RequestReviewResponsePage
         return [
             'recipients' => $assignedAuthors->keys()->all(),
             'recipientOptions' => $this->recipientOptions($assignedAuthors),
-            'reviewRoundId' => $this->reviewRound->getId(),
+            'reviewRoundId' => $this->reviewRound->id,
             'stageId' => $this->stageId,
             'emailTemplatesApiUrl' => $this->getEmailTemplatesApiUrl(),
             'canChangeRecipients' => false,

@@ -27,7 +27,7 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\ReviewFilesDAO;
-use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\validation\ValidatorFactory;
 
 class Repository
@@ -242,8 +242,7 @@ class Repository
         }
 
         // delete review rounds associated with this context
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao->deleteByContextId($contextId);
+        ReviewRound::withContextId($contextId)->delete();
     }
 
     /**
@@ -264,16 +263,14 @@ class Repository
      */
     protected function updateReviewRoundStatus(ReviewAssignment $reviewAssignment): bool
     {
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRound = $reviewRoundDao->getReviewRound(
-            $reviewAssignment->getSubmissionId(),
-            $reviewAssignment->getStageId(),
-            $reviewAssignment->getRound()
-        );
+        $reviewRound = ReviewRound::withSubmissionIds([$reviewAssignment->getSubmissionId()])
+            ->withStageId($reviewAssignment->getStageId())
+            ->withRound($reviewAssignment->getRound())
+            ->first();
 
         // Review round may not exist if submission is being deleted
         if ($reviewRound) {
-            $reviewRoundDao->updateStatus($reviewRound);
+            $reviewRound->updateStatus();
             return true;
         }
 

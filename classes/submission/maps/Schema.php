@@ -35,7 +35,6 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserGroupStage;
@@ -523,10 +522,10 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $this->getPropertyReviewRounds($reviewRounds);
                     break;
                 case 'revisionsRequested':
-                    $output[$prop] = $currentReviewRound && $currentReviewRound->getData('status') == ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
+                    $output[$prop] = $currentReviewRound && $currentReviewRound->status  == ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED;
                     break;
                 case 'revisionsSubmitted':
-                    $output[$prop] = $currentReviewRound && $currentReviewRound->getData('status') == ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED;
+                    $output[$prop] = $currentReviewRound && $currentReviewRound->status == ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED;
                     break;
                 case 'stageName':
                     $output[$prop] = __(Application::get()->getWorkflowStageName($submission->getData('stageId')));
@@ -737,19 +736,19 @@ class Schema extends \PKP\core\maps\Schema
     protected function getPropertyReviewRounds(Collection $reviewRounds): array
     {
         $rounds = [];
-        $roundIds = $reviewRounds->map(fn (ReviewRound $r) => $r->getId())->all();
+        $roundIds = $reviewRounds->map(fn (ReviewRound $r) => $r->id)->all();
         $roundResponses = AuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
 
         foreach ($reviewRounds as $reviewRound) {
-            $currentRoundResponse = $roundResponses->get($reviewRound->getId())?->first();
+            $currentRoundResponse = $roundResponses->get($reviewRound->id)?->first();
             $rounds[] = [
-                'id' => $reviewRound->getId(),
-                'round' => $reviewRound->getRound(),
-                'stageId' => $reviewRound->getStageId(),
+                'id' => $reviewRound->id,
+                'round' => $reviewRound->round,
+                'stageId' => $reviewRound->stageId,
                 'statusId' => $reviewRound->determineStatus(),
                 'status' => __($reviewRound->getStatusKey()),
-                'publicationId' => $reviewRound->getData('publicationId'),
-                'isAuthorResponseRequested' => $reviewRound->getData('isAuthorResponseRequested'),
+                'publicationId' => $reviewRound->publicationId,
+                'isAuthorResponseRequested' => $reviewRound->isAuthorResponseRequested,
                 'authorResponse' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
             ];
         }
@@ -973,7 +972,7 @@ class Schema extends \PKP\core\maps\Schema
                 }
 
                 // Get only decisions related to the relevant review round
-                if ($currentReviewRound->getId() != $decision->getData('reviewRoundId')) {
+                if ($currentReviewRound->id != $decision->getData('reviewRoundId')) {
                     continue;
                 }
 
@@ -1099,10 +1098,8 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function getReviewRoundsFromSubmission(Submission $submission): Collection
     {
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-
-        return collect($reviewRoundDao->getBySubmissionId($submission->getId())->toIterator())
-            ->keyBy(fn (ReviewRound $reviewRound) => $reviewRound->getData('round'));
+        return collect(ReviewRound::withSubmissionIds([$submission->getId()])->get())
+            ->keyBy(fn (ReviewRound $reviewRound) => $reviewRound->round);
     }
 
     /**
@@ -1113,7 +1110,7 @@ class Schema extends \PKP\core\maps\Schema
     {
         $hasDecidingEditors = $stageAssignments->first(fn (StageAssignment $stageAssignment) => $stageAssignment->recommendOnly);
 
-        return $hasDecidingEditors ? $currentReviewRound->getData('status') == ReviewRound::REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY : null;
+        return $hasDecidingEditors ? $currentReviewRound->status == ReviewRound::REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY : null;
     }
 
     /**

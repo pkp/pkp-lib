@@ -54,6 +54,7 @@ use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\user\interest\Repository as UserInterestRepository;
 use PKP\userComment\Repository as UserCommentRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
+use PKP\submission\reviewRound\Repository as ReviewRoundRepository;
 
 class Repo
 {
@@ -205,5 +206,10 @@ class Repo
     public static function userComment(): UserCommentRepository
     {
         return app(UserCommentRepository::class);
+    }
+
+    public static function reviewRound(): ReviewRoundRepository
+    {
+        return app(ReviewRoundRepository::class);
     }
 }

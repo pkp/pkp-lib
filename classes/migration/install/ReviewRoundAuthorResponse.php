@@ -28,7 +28,6 @@ class ReviewRoundAuthorResponse extends \PKP\migration\Migration
             $table->string('locale')->nullable();
             $table->string('setting_name');
             $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)'); // ReviewRoundDAO extends \PKP\db\DAO which requires setting type
 
             $table->foreign('review_round_id')
                 ->references('review_round_id')

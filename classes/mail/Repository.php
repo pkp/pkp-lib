@@ -20,13 +20,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PKP\context\Context;
 use PKP\mail\mailables\DecisionNotifyOtherAuthors;
-use PKP\mail\mailables\EditReviewNotify;
-use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\mail\mailables\SubmissionAcknowledgement;
 use PKP\mail\mailables\SubmissionAcknowledgementNotAuthor;
-use PKP\mail\mailables\SubmissionNeedsEditor;
-use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\mail\traits\Configurable;
 use PKP\plugins\Hook;
 
@@ -188,24 +184,6 @@ class Repository
         if (!in_array(Configurable::class, class_uses_recursive($class))) {
             return false;
         }
-
-        /**
-         * Mailables may not have associated email templates due to pkp/pkp-lib#9109 and pkp/pkp-lib#9217,
-         * don't allow to configure them
-         * FIXME remove after #9202 is resolved
-         */
-        if (in_array($class, [
-            EditReviewNotify::class,
-            ReviewCompleteNotifyEditors::class,
-            SubmissionSavedForLater::class,
-            SubmissionNeedsEditor::class,
-        ])) {
-            $template = Repo::emailTemplate()->getByKey($context->getId(), $class::getEmailTemplateKey());
-            if (!$template) {
-                return false;
-            }
-        }
-
         return true;
     }
 
@@ -278,6 +256,8 @@ class Repository
             mailables\ValidateEmailContext::class,
             mailables\ValidateEmailSite::class,
             mailables\RequestReviewRoundAuthorResponse::class,
+            mailables\SubmissionSavedForLater::class,
+            mailables\SubmissionNeedsEditor::class,
         ]);
     }
 }

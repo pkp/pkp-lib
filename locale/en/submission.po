@@ -932,6 +932,12 @@ msgstr "How to Cite"
 msgid "submission.howToCite.citationFormats"
 msgstr "More Citation Formats"
 
+msgid "submission.howToCite.copyToClipboard"
+msgstr "Copy to clipboard"
+
+msgid "submission.howToCite.selectedFormat"
+msgstr "Selected format"
+
 msgid "submission.howToCite.downloadCitation"
 msgstr "Download Citation"
 

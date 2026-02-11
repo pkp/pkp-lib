@@ -40,6 +40,14 @@ import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpComment
 import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue';
 import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
 import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
+import PkpCiteBody from '@/frontend/components/PkpCite/PkpCiteBody.vue';
+
+// Pinia stores
+import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
+import {usePageStore} from '@/frontend/stores/pkpPageStore';
+import {usePkpCommentsStore} from '@/frontend/components/PkpComments/usePkpCommentsStore';
+import {usePkpOpenReviewStore} from '@/frontend/components/PkpOpenReview/usePkpOpenReviewStore';
+import {usePkpCiteStore} from '@/frontend/components/PkpCite/usePkpCiteStore';
 
 // PkpTab Components
 import PkpTabRoot from '@/frontend/components/PkpTab/PkpTabRoot.vue';
@@ -73,6 +81,13 @@ import VueRegistry from './classes/VueRegistry.js';
 
 VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 
+// Register frontend Pinia stores for lookup via pkp.registry.getPiniaStore()
+VueRegistry.registerStore('pkpModal', usePkpModalStore);
+VueRegistry.registerStore('pkpPage', usePageStore);
+VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
+VueRegistry.registerStore('pkpOpenReview', usePkpOpenReviewStore);
+VueRegistry.registerStore('pkpCite', usePkpCiteStore);
+
 VueRegistry.registerComponent('PkpButton', PkpButton);
 VueRegistry.registerComponent('PkpDialog', PkpDialog);
 VueRegistry.registerComponent('PkpModalManager', PkpModalManager);
@@ -85,6 +100,7 @@ VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
 VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
 VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
 VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
+VueRegistry.registerComponent('PkpCiteBody', PkpCiteBody);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);

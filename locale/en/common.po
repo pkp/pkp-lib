@@ -358,6 +358,9 @@ msgstr "Yes, Continue"
 msgid "common.copy"
 msgstr "Copy"
 
+msgid "common.copied"
+msgstr "Copied"
+
 msgid "common.country"
 msgstr "Country"
 

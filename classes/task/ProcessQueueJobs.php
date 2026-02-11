@@ -17,8 +17,8 @@
 namespace PKP\task;
 
 use APP\core\Application;
+use PKP\core\PKPContainer;
 use PKP\config\Config;
-use PKP\queue\JobRunner;
 use PKP\scheduledTask\ScheduledTask;
 
 class ProcessQueueJobs extends ScheduledTask
@@ -41,7 +41,7 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        $jobQueue = app('pkpJobQueue');
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
 
         $jobBuilder = $jobQueue->getJobModelBuilder();
 
@@ -49,17 +49,32 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        // Executes all pending jobs when running the runScheduledTasks.php on the CLI
-        if (runOnCLI('runScheduledTasks.php')) {
-            while ($jobBuilder->count()) {
-                $jobQueue->runJobInQueue();
+        // When processing queue jobs via schedule task in CLI mode
+        // will process a limited number of jobs at a single time
+        if (PKPContainer::getInstance()->runningInConsole('runScheduledTasks.php')) {
+            $maxJobCountToProcess = abs(Config::getVar('queues', 'job_runner_max_jobs', 30));
+            
+            while ($jobBuilder->count() && $maxJobCountToProcess) {
+                // if there is no more jobs to run, exit the loop
+                if ($jobQueue->runJobInQueue() === false) {
+                    break;
+                }
+                
+                --$maxJobCountToProcess;
             }
 
             return true;
         }
 
+        // Will never run the job runner in CLI mode
+        if (PKPContainer::getInstance()->runningInConsole()) {
+            return true;
+        }
+
         // Executes a limited number of jobs when processing a request
-        (new JobRunner($jobQueue))
+        $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
+        $jobRunner
+            ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
             ->withMaxExecutionTimeConstrain()
             ->withMaxJobsConstrain()
             ->withMaxMemoryConstrain()

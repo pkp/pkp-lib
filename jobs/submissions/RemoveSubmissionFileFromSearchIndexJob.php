@@ -19,10 +19,11 @@ declare(strict_types=1);
 namespace PKP\jobs\submissions;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\jobs\BaseJob;
 use PKP\search\SubmissionSearch;
 
-class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
+class RemoveSubmissionFileFromSearchIndexJob extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     /**
      * The submission id of the targeted submission
@@ -47,6 +48,14 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 
         $this->submissionId = $submissionId;
         $this->submissionFileId = $submissionFileId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return Repo::submission()->get($this->submissionId)->getData('contextId');
     }
 
     /**

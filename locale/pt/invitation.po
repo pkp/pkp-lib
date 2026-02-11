@@ -1,2 +1,157 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-02-11 19:28+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/pt/>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "O grupo de utilizador foi atribuído ao utilizador convidado"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Não se podem remover funções de utilizadores que não existam."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Os grupos de utilizadores fornecidos contêm entradas duplicadas."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Já existe um utilizador com o nome de utilizador {$username}. Experimente "
+"outro."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Quando um convite tiver um e-mail ({$email}) atribuído, este e-mail não "
+"poderá estar a ser utilizado por outro utilizador."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "É necessário fornecer uma palavra-passe"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "É necessário fornecer o apelido"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr ""
+"Para grupos de utilizadores adicionais, é necessário fornecer um cabeçalho"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Não se definiu um e-mail para este tipo de convite"
+
+msgid "invitation.validation.required"
+msgstr "O campo {$attribute} é de preenchimento obrigatório."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Propriedades inesperadas encontradas no item no índice {$attribute}: "
+"{$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"O ID {reviewAssignmentId} não corresponde a uma atribuição de revisão válida"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Este convite não pode ser cancelado"
+
+msgid "invitation.header"
+msgstr "Convites"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Convidar para um papel"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Convidar utilizador a assumir um papel"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Procurar utilizador"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Deve definir pelo menos um grupo de utilizadores a adicionar"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"O convite não pode ser enviado porque não definiu nenhuma alteração no grupo "
+"de utilizadores"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "É necessário fornecer uma afiliação"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Deve definir pelo menos um grupo de utilizadores a eliminar"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "É necessário fornecer um país"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Quando um convite tem um ID de utilizador ({$userId}) atribuído, o "
+"utilizador correspondente deve existir."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "É necessário fornecer um nome de utilizador"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "É necessário fornecer um nome"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"Para grupos de utilizadores adicionais, é necessário fornecer um ID de grupo "
+"de utilizadores"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Para grupos de utilizadores adicionais, é necessário fornecer uma data de "
+"início"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Não foi possível completar o convite"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "O grupo de utilizadores com ID {$userGroupId} não existe"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr ""
+"Não pode fornecer o endereço de e-mail e o ID de utilizador em simultâneo."
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "O campo :attribute é proibido"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr ""
+"É necessário fornecer um valor para a configuração de língua "
+"'{$primaryLocale}'"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "O acesso a este atributo não é permitido aos utilizadores existentes"
+
+msgid "invitation.step"
+msgstr "PASSO"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "O atributo não pode ser acedido para utilizadores inexistentes"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Introduzir detalhes"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Este atributo deve ter um valor igual ou posterior ao de hoje"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Rever e convidar para papeis"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Procurar utilizador"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Procurar utilizador"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Se o utilizador não existir, pode convidá-lo para assumir funções. Se o "
+"utilizador já existir no sistema, pode visualizar as informações do mesmo e "
+"convidá-lo a assumir funções adicionais."

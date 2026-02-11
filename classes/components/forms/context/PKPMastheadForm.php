@@ -15,6 +15,8 @@
 
 namespace PKP\components\forms\context;
 
+use APP\core\Application;
+use PKP\db\DAORegistry;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
@@ -50,6 +52,23 @@ class PKPMastheadForm extends FormComponent
         usort($countries, function ($a, $b) {
             return strcmp($a['label'], $b['label']);
         });
+
+        // Add list of links to public 
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
+        $contextId = $context->getId();
+        $files = $libraryFileDao->getByContextId($contextId);
+        $linkList = [];
+
+        while ($file = $files->next()) {
+            if ($file->getPublicAccess()){
+                $linkList[] = [
+                    "title" => $file->getLocalizedName(),
+                    "value" => $request->getDispatcher()->url(Application::get()->getRequest(), Application::ROUTE_PAGE, null, 'libraryFiles', 'downloadPublic', [$file->getId()])
+                ];                
+            }
+        }
 
         $this->addGroup([
             'id' => 'identity',
@@ -96,6 +115,7 @@ class PKPMastheadForm extends FormComponent
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
                 'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
+                'linkList' => $linkList,
                 'value' => $context->getData('editorialHistory'),
             ]))
             ->addGroup([
@@ -107,6 +127,7 @@ class PKPMastheadForm extends FormComponent
                 'description' => __('manager.setup.contextSummary.description'),
                 'isMultilingual' => true,
                 'groupId' => 'about',
+                'linkList' => $linkList,
                 'value' => $context->getData('description'),
             ]))
             ->addField(new FieldRichTextarea('about', [
@@ -114,10 +135,11 @@ class PKPMastheadForm extends FormComponent
                 'description' => __('manager.setup.contextAbout.description'),
                 'isMultilingual' => true,
                 'size' => 'large',
-                'groupId' => 'about',
+                'groupId' => 'about',     
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
                 'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
+                'linkList' => $linkList,
                 'value' => $context->getData('about'),
             ]));
     }

@@ -1,25 +1,21 @@
 <?php
 
-declare(strict_types=1);
-
 /**
- * @file classes/core/PKPQueueDatabaseConnector.php
+ * @file classes/queue/PKPQueueDatabaseConnector.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPQueueDatabaseConnector
  *
- * @ingroup core
- *
  * @brief Registers the database queue connector
  */
 
-namespace PKP\core;
+namespace PKP\queue;
 
 use Illuminate\Queue\Connectors\DatabaseConnector as IlluminateQueueDatabaseConnector;
-use Illuminate\Queue\DatabaseQueue;
+use PKP\queue\DatabaseQueue;
 use PKP\config\Config;
 
 class PKPQueueDatabaseConnector extends IlluminateQueueDatabaseConnector

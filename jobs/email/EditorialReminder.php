@@ -192,6 +192,19 @@ class EditorialReminder extends BaseJob
     {
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao  */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+
+        // Check if the editor/user has blocked this notification type itself
+        // If so, email notification should not be sent anyway
+        $blockedNotifications = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+            NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY,
+            $this->editorId,
+            $this->contextId
+        );
+        if (in_array(Notification::NOTIFICATION_TYPE_EDITORIAL_REMINDER, $blockedNotifications)) {
+            return false;
+        }
+
+        // Check if the editor/user has blocked ONLY the email notification for this notification type
         $blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
             NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
             $this->editorId,

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-02-10 15:38+0000\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ru/>\n"
@@ -2403,3 +2403,12 @@ msgstr "№"
 
 msgid "common.refreshingData"
 msgstr "Обновление данных"
+
+msgid "common.showingXofX"
+msgstr "Показано <strong>{$start} по {$finish}</strong> из {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Загружено"

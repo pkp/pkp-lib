@@ -90,9 +90,19 @@ class NoteAccessPolicy extends AuthorizationPolicy
         }
 
         // Notes can only be edited by their original creators
-        if ($this->_accessMode === self::NOTE_ACCESS_WRITE
-                && $note->userId != $this->_request->getUser()->getId()) {
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        if ($this->_accessMode === self::NOTE_ACCESS_WRITE) {
+            if ($note->userId != $this->_request->getUser()->getId()) {
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
+            }
+
+            // 1 hour edit window for the discussion head note
+            if (
+                $note->assocType == Application::ASSOC_TYPE_QUERY
+                && $note->isHeadnote
+                && time() - strtotime($note->dateCreated) >= 3600
+            ) {
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
+            }
         }
 
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_NOTE, $note);

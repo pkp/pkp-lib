@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-10 15:38+0000\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru/>\n"
@@ -2965,6 +2965,8 @@ msgstr "Имя рецензента"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
+"Описание метода рецензирования по умолчанию, например двойное анонимное или "
+"открытое"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
@@ -3891,3 +3893,53 @@ msgstr ""
 
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "Заголовок пункта меню обязателен."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Отправить напоминание по электронной почте до или после ответа на запрос "
+"рецензии (если рецензент ещё не ответил на запрос) или до/после подачи "
+"рецензии (если рецензент ещё не отправил рецензию)"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Определите порядок ролей редакционной коллегии для публичного отображения."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Рецензенты будут отображаться в стандартизированном формате, чтобы сохранить "
+"единообразие и обеспечить лёгкую доступность в этом разделе."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Установить напоминания для рецензии"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Ответ на запрос рецензии — до даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Ответ на запрос рецензии — после даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Подача рецензии — до даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Подача рецензии — после даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} дней до даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} дней после даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Нет"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Напоминание не установлено"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Пожалуйста, предоставьте редакционную историю, включая полное имя, аффиляцию "
+"и даты начала и окончания работы каждого редактора."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Изменить адрес электронной почты для приглашения"

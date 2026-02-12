@@ -52,7 +52,9 @@ trait ReviewerRecommendationSummary
     {
         $responses = collect();
 
-        $availableRecommendationTypes = ReviewerRecommendation::withContextId($context->getId())->get();
+        $availableRecommendationTypes = ReviewerRecommendation::withContextId($context->getId())
+            ->get()
+            ->keyBy('reviewerRecommendationId');
 
         foreach ($reviewAssignmentsGroupedByRoundId as $reviews) {
             /** @var ReviewAssignment $review */

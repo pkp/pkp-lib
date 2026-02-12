@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-10 15:38+0000\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru/>\n"
@@ -2976,3 +2976,269 @@ msgstr "Рецензия (Раунд {$round})"
 
 msgid "submission.stage.scheduledForPublication"
 msgstr "Запланировано к публикации"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Минимально необходимое количество рецензий подтверждено. Требуется принять "
+"решение."
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Это файлы, которые будут отправлены для публикации"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Будет создан новый раунд рецензирования"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Срок ответа на этот запрос истёк. Пожалуйста, примите или отклоните его как "
+"можно скорее."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Срок завершения этого рецензирования истёк. Пожалуйста, завершите "
+"рецензирование как можно скорее."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Ожидается ответ от рецензента"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Запрос на рецензирование был передан рецензенту. Ожидается ответ в течение "
+"<b>{$days} дней, до {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Запрос на рецензирование был отклонён {$date}"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Этот рецензент не завершил своё рецензирование. Ответ должен был быть "
+"предоставлен <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Рецензент отклонил запрос на рецензирование <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Рецензирование было завершено {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Рецензирование было принято редактором <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Этот рецензент не ответил на запрос на рецензирование. Ответ должен был быть "
+"предоставлен <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Запрос на рецензирование был повторно отправлен рецензенту. Ожидается ответ "
+"в течение {$days} дней, до {$date}"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Отменить рецензента"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Просмотреть рекомендацию"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Отменить назначение"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Просмотреть непрочитанную рекомендацию"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Рекомендующие редакторы должны дать совет о следующих шагах для этой подачи"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Минимальное количество подтвержденных рецензий не достигнуто. Вы все еще "
+"хотите продолжить с этим редакционным решением?"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Вы не можете получить доступ к этой подаче как управляющий журналом, так как "
+"вы являетесь автором. Чтобы просмотреть её, перейдите в «Мои подачи»"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Подача перешла в следующий раунд рецензирования, была принята и в настоящее "
+"время находится на этапе {$stage}."
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Вы не можете получить доступ к этой подаче как управляющий журналом, так как "
+"вы являетесь рецензентом. Чтобы просмотреть её, перейдите в «Назначенные "
+"рецензии»"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Эти файлы были отправлены автором после того, как были запрошены исправления"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Файлы после литературного редактирования"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Статус рецензента"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Минимальное количество подтвержденных рецензий требуется: {$number}."
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Это файлы из этапа рецензирования, которые должны пройти литературное "
+"редактирование"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Вы уверены, что хотите удалить выбранные элементы? Это действие нельзя будет "
+"отменить. Пожалуйста, подтвердите, чтобы продолжить."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Продолжить без минимального количества подтвержденных рецензий?"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Будет опубликовано в выпуске {$issue}"
+
+msgid "fileManager.filesForReview"
+msgstr "Файлы для рецензии"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Рецензент отменил запрос на рецензирование"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Рецензент отменил запрос на рецензирование <b>{$date}</b>."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Удалить незавершённые подачи"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Разрешено только рекомендовать редакционное решение"
+
+msgid "workflow.stageNotStarted"
+msgstr "Этап {$stage} еще не был инициирован."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Подача в настоящее время находится на этапе {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Подача была переведена в следующий раунд рецензирования"
+
+msgid "workflow.reviewRoundN"
+msgstr "Раунд рецензирования {$number}"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Запрос на рецензирование просрочен на {$days} дней"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Запрос на рецензирование принят — рецензирование продолжается"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Этот рецензент принял запрос на рецензирование. Его рецензия должна быть "
+"предоставлена в течение <b>{$days} дней, до {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Рецензирование просрочено на {$days} дней"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Рецензирование завершено {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Рецензирование было завершено {$date} с рекомендацией: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Рецензирование было подтверждено редактором"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Редакционная рекомендация получена"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Все редакционные рекомендации получены, требуется принять решение."
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Загруженные исправленные версии"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Рецензия отправлена {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Пожалуйста, завершите это рецензирование до {$date}."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Ожидается ответ от рецензента"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr ""
+"Запрос на рецензирование был повторно отправлен рецензенту. Ожидается ответ "
+"от рецензента"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Запрос на рецензирование был повторно отправлен рецензенту"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Изменить дату сдачи"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Отправить рецензию в ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Отправить эту рецензию в ORCID рецензента?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Отклонено на этапе {$stageName}."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Файлы, загруженные во время подачи"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Эти файлы будут отправлены рецензентам для рецензирования"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"Это отредактированные файлы, которые будут переданы на этап производства"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Подтвердите удаление незавершённых подач"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Выберите незавершённые подачи для удаления."
+
+msgid "dashboard.assignReviewers"
+msgstr "Назначить рецензентов"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Запрошены исправления от автора"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Запрошены исправления от автора, необходимо вынести их на новый раунд "
+"рецензирования"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Загружено отредактированных файлов: {$count}"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Начать новую подачу"
+
+msgid "dashboard.revisionRequested"
+msgstr "Запрошены исправления"
+
+msgid "dashboard.submitRevisions"
+msgstr "Отправить исправления"
+
+msgid "workflow.uploadRevisions"
+msgstr "Загрузить исправления"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Ответить на запрос"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Завершить рецензирование"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Пожалуйста, примите или отклоните этот запрос до {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Запрос отклонён {$date}"

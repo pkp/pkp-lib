@@ -67,10 +67,12 @@
 					{capture assign=pluginGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.plugins.SettingsPluginGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
 				</tab>
-				<tab id="gallery" label="{translate key="manager.plugins.pluginGallery"}">
-					{capture assign=pluginGalleryGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT context=$editContext->getPath() component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}{/capture}
-					{load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}
-				</tab>
+				{if $canSeePluginGallery}
+					<tab id="gallery" label="{translate key="manager.plugins.pluginGallery"}">
+						{capture assign=pluginGalleryGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT context=$editContext->getPath() component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}{/capture}
+						{load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}
+					</tab>
+				{/if}
 				{call_hook name="Template::Settings::admin::contextSettings::plugins"}
 			</tabs>
 		</tab>

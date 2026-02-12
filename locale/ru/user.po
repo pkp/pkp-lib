@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2026-02-10 15:38+0000\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ru/"
 ">\n"
@@ -864,3 +864,74 @@ msgstr "Включить функцию ORCID"
 
 msgid "orcid.unauthenticated"
 msgstr "(неаутентифицированный)"
+
+msgid "orcid.field.verification.requested"
+msgstr "Проверка ORCID была запрошена!"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Хотите ли вы отправить этому автору письмо с просьбой подтвердить его ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Этот ORCID не был подтверждён. Пожалуйста, удалите непроверенный ORCID и "
+"запросите подтверждение напрямую у пользователя/автора."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Вы уверены, что хотите навсегда удалить эту роль? Это действие лишит "
+"пользователя доступа ко всей информации и разрешениям, связанным с этой "
+"ролью."
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Включить функцию ORCID на всём сайте"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"Функцию ORCID можно при необходимости включить и настроить на уровне сайта "
+"для всех журналов/прессов/серверов. Если она включена, это переопределит все "
+"учётные данные на уровне контекста и применит следующие учётные данные ко "
+"всем журналам/прессам/серверам в данной установке."
+
+msgid "orcid.field.verification.request"
+msgstr "Запросить проверку"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Отправить письмо для повторной проверки ещё раз"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Запросить проверку ORCID"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Удалить ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Вы уверены, что хотите удалить этот ORCID?"
+
+msgid "user.disabledModal.description"
+msgstr "Текущие роли: {$roles}"
+
+msgid "user.futureRole.notification.message"
+msgstr "Ваша роль запланирована на начало {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"До этого момента вы можете просматривать и обновлять свой профиль. Если вы "
+"считаете, что это ошибка, пожалуйста, свяжитесь с администратором."
+
+msgid "user.disabledModal.title"
+msgstr "Отключить {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Включить {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Заявление об авторе"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Вы не можете удалить роль. Пользователю должна быть назначена как минимум "
+"одна роль."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Электронное письмо будет отправлено после того, как автор будет создан."

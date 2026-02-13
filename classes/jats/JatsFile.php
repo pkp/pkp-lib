@@ -9,8 +9,6 @@
  *
  * @class JatsFile
  *
- * @ingroup jats
- *
  * @brief JatsFile file class.
  */
 

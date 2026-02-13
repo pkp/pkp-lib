@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionController.php
  *
- * Copyright (c) 2023-2025 Simon Fraser University
- * Copyright (c) 2023-2025 John Willinsky
+ * Copyright (c) 2023-2026 Simon Fraser University
+ * Copyright (c) 2023-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionController
@@ -44,8 +44,7 @@ use PKP\author\contributorRole\ContributorType;
 use PKP\citation\Citation;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\components\forms\FormComponent;
-use PKP\components\forms\publication\PKPCitationsForm;
-use PKP\components\forms\publication\PKPDataCitationsForm;
+use PKP\components\forms\publication\PKPDataAvailabilityForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
@@ -124,8 +123,7 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'addDecision',
-        'getPublicationReferenceForm',
-        'getPublicationDataCitationsForm',
+        'getPublicationDataAvailabilityForm',
         'getPublicationMetadataForm',
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
@@ -331,8 +329,7 @@ class PKPSubmissionController extends PKPBaseController
 
             Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
                 Route::get('metadata', $this->getPublicationMetadataForm(...))->name('submission.publication._components.metadata');
-                Route::get('reference', $this->getPublicationReferenceForm(...))->name('submission.publication._components.reference');
-                Route::get('dataCitation', $this->getPublicationDataCitationsForm(...))->name('submission.publication._components.dataCitation');
+                Route::get('dataAvailability', $this->getPublicationDataAvailabilityForm(...))->name('submission.publication._components.dataAvailability');
                 Route::get('titleAbstract', $this->getPublicationTitleAbstractForm(...))->name('submission.publication._components.titleAbstract');
                 Route::get('changeLanguageMetadata', $this->getChangeLanguageMetadata(...))->name('submission.publication._components.changeLanguageMetadata');
             })->whereNumber(['submissionId', 'publicationId']);
@@ -435,8 +432,7 @@ class PKPSubmissionController extends PKPBaseController
         if (in_array(
             $actionName,
             [
-                'getPublicationReferenceForm',
-                'getPublicationDataCitationsForm',
+                'getPublicationDataAvailabilityForm',
                 'getPublicationMetadataForm',
                 'getPublicationIdentifierForm',
                 'getPublicationLicenseForm',
@@ -2048,28 +2044,9 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
-     * Get Publication Reference/Citation Form component
+     * Get Publication Data Availability Form component
      */
-    protected function getPublicationReferenceForm(Request $illuminateRequest): JsonResponse
-    {
-        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
-
-        if (isset($data['error'])) {
-            return response()->json([ 'error' => $data['error'],], $data['status']);
-        }
-
-        $publication = $data['publication']; /** @var Publication $publication*/
-        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
-
-        $citationsForm = new PKPCitationsForm($publicationApiUrl, $publication);
-
-        return response()->json($citationsForm->getConfig(), Response::HTTP_OK);
-    }
-
-    /**
-     * Get Publication Data Citation Form component
-     */
-    protected function getPublicationDataCitationsForm(Request $illuminateRequest): JsonResponse
+    protected function getPublicationDataAvailabilityForm(Request $illuminateRequest): JsonResponse
     {
         $data = $this->getSubmissionAndPublicationData($illuminateRequest);
 
@@ -2085,10 +2062,11 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionLocale = $submission->getData('locale');
         $locales = $this->getPublicationFormLocales($context, $submission);
+        $dataAvailabilitySetting = (bool) $context->getData('dataAvailability');
 
-        $dataCitationsForm = new PKPDataCitationsForm($publicationApiUrl, $locales, $publication);
+        $dataAvailabilityForm = new PKPDataAvailabilityForm($publicationApiUrl, $locales, $publication, $dataAvailabilitySetting);
 
-        return response()->json($this->getLocalizedForm($dataCitationsForm, $submissionLocale, $locales), Response::HTTP_OK);
+        return response()->json($this->getLocalizedForm($dataAvailabilityForm, $submissionLocale, $locales), Response::HTTP_OK);
 
     }
 

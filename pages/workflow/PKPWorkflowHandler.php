@@ -28,8 +28,6 @@ use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Enumerable;
 use PKP\components\forms\FormComponent;
-use PKP\components\forms\publication\PKPCitationsForm;
-use PKP\components\forms\publication\PKPDataCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;

@@ -3,8 +3,8 @@
 /**
  * @file classes/services/PKPSchemaService.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSchemaService
@@ -36,6 +36,7 @@ class PKPSchemaService
     public const SCHEMA_CITATION = 'citation';
     public const SCHEMA_CONTEXT = 'context';
     public const SCHEMA_CONTRIBUTOR_ROLE = 'contributorRole';
+    public const SCHEMA_DATA_CITATION = 'dataCitation';
     public const SCHEMA_DOI = 'doi';
     public const SCHEMA_DECISION = 'decision';
     public const SCHEMA_EMAIL_TEMPLATE = 'emailTemplate';

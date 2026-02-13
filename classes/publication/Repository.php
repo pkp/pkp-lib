@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/Repository.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -29,6 +29,7 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
+use PKP\dataCitation\DataCitation;
 use PKP\db\DAORegistry;
 use PKP\doi\Doi;
 use PKP\doi\exceptions\DoiException;
@@ -402,10 +403,14 @@ abstract class Repository
             }
         }
 
-        Repo::citation()->importCitations(
-            $newPublication->getId(),
-            $newPublication->getData('citationsRaw')
-        );
+        // Clone data citations if any
+        $dataCitations = $publication->getData('dataCitations');
+        foreach ($dataCitations as $dataCitation) {
+            $data = $dataCitation->toArray();
+            unset($data['dataCitationId']);
+            $data['publicationId'] = $newPublication->getId();
+            $newDataCitation = DataCitation::create($data);
+        }
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());

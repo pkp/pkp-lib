@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/maps/Schema.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Schema
@@ -20,6 +20,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
+use PKP\dataCitation\DataCitation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 
@@ -163,8 +164,12 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
                     break;
                 case 'dataCitations':
-                        // DATACITATIONS TODO
-                        break;
+                    $data = [];
+                    foreach ($publication->getData('dataCitations') as $dataCitation) {
+                        $data[] = Repo::dataCitation()->getSchemaMap()->map($dataCitation);
+                    }
+                    $output[$prop] = $data;
+                    break;
                 case 'doiObject':
                     if ($publication->getData('doiObject')) {
                         $retVal = Repo::doi()->getSchemaMap()->summarize($publication->getData('doiObject'));

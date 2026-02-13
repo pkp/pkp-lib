@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/install/MetadataMigration.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataMigration
@@ -64,24 +64,21 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->foreign('publication_id', 'data_citations_publication')->references('publication_id')->on('publications')->onDelete('cascade');
             $table->index(['publication_id'], 'data_citations_publication');
 
-            $table->text('raw_citation');
             $table->bigInteger('seq')->default(0);
 
-            $table->unique(['publication_id', 'seq'], 'data_citations_publication_seq');
         });
 
-        // Citation settings
+        // Data Citation settings
         Schema::create('data_citation_settings', function (Blueprint $table) {
             $table->comment('Additional data about data citations, including localized content.');
             $table->bigIncrements('data_citation_setting_id');
             $table->bigInteger('data_citation_id');
-            $table->foreign('data_citation_id', 'data_citation_settings_data_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
+            $table->foreign('data_citation_id', 'data_citation_settings_data_citation_id')->references('data_citation_id')->on('data_citations')->onDelete('cascade');
             $table->index(['data_citation_id'], 'data_citation_settings_data_citation_id');
 
             $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6);
 
             $table->unique(['data_citation_id', 'locale', 'setting_name'], 'data_citation_settings_unique');
         });

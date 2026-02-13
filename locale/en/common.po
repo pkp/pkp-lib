@@ -1845,6 +1845,9 @@ msgstr "Title"
 msgid "search.typeMethodApproach"
 msgstr "Type (method/approach)"
 
+msgid "grid.action.addDataCitation"
+msgstr "Add a new Data Citation"
+
 msgid "grid.action.downloadFile"
 msgstr "Download this file"
 

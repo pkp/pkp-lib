@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/DAO.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -26,6 +26,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
+use PKP\dataCitation\DataCitation;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -181,6 +182,7 @@ class DAO extends EntityDAO
         $this->setAuthors($publication);
         $this->setCategories($publication);
         $this->setControlledVocab($publication);
+        $this->setDataCitations($publication);
 
         return $publication;
     }
@@ -201,12 +203,6 @@ class DAO extends EntityDAO
             $publication,
             $publication->getData('citationsRaw')
         );
-        // DATACITATIONS TODO
-
-        // Parse the citations
-        if ($publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
-        }
 
         return $id;
     }
@@ -222,8 +218,6 @@ class DAO extends EntityDAO
 
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
-
-        // DATACITATIONS TODO
 
         if ($oldPublication) {
             Repo::citation()->importCitations(
@@ -251,6 +245,7 @@ class DAO extends EntityDAO
         $this->deleteAuthors($publicationId);
         $this->deleteCategories($publicationId);
         $this->deleteControlledVocab($publicationId);
+        $this->deleteDataCitations($publicationId);
         Repo::citation()->deleteByPublicationId($publicationId);
 
         return $affectedRows;
@@ -479,7 +474,26 @@ class DAO extends EntityDAO
         PublicationCategory::where('publication_id', $publicationId)->delete();
     }
 
-    // DATACITATIONS TODO
+    /**
+     * Set a publication's Data Citations
+     */
+    protected function setDataCitations(Publication $publication): void
+    {
+        $dataCitations = DataCitation::withPublicationId($publication->getId())
+            ->orderBySeq()
+            ->get()
+            ->values()
+            ->all();
+        $publication->setData('dataCitations', $dataCitations);
+    }
+
+    /**
+     * Delete a publication's Data Citations
+     */
+    protected function deleteDataCitations(int $publicationId): void
+    {
+        DataCitation::where('publication_id', $publicationId)->delete();
+    }
 
     /**
      * Set the DOI object

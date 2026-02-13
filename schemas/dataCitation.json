@@ -1,0 +1,129 @@
+{
+	"title": "DataCitation",
+	"description": "A Data Citation in a Publication.",
+    "type": "object",
+    "required": [
+        "relationshipType",
+        "title"
+    ],
+	"properties": {
+		"authors": {
+			"type": "array",
+            "origin": "setting",
+			"description": "A list of the creators for this dataset.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"givenName": {
+						"type": "string"
+					},
+					"familyName": {
+						"type": "string"
+					},
+					"orcid": {
+						"type": "string",
+                        "validation": [
+                            "orcid"
+                        ]
+					}
+				}
+			}
+		},
+		"id": {
+            "type": "integer",
+            "origin": "primary",
+            "readOnly": true,
+            "apiSummary": true
+        },
+        "identifier": {
+            "type": "string",
+            "origin": "setting",
+            "multilingual": false,
+            "description": "The identifier for the dataset.",
+            "apiSummary": true,
+            "validation": [
+				"nullable"
+			]
+        },
+        "identifierType": {
+            "type": "string",
+            "origin": "setting",
+            "multilingual": false,
+            "description": "The identifier type for the dataset.",
+            "apiSummary": true,
+            "validation": [
+                "nullable",
+                "in:DOI,Accession,PURL,ARK,URI,ARXIV,ECLI,Handle,ISSN,ISBN,PMID,PMCID,UUID"
+            ]
+        },
+        "publicationId": {
+            "type": "integer",
+            "origin": "primary",
+            "apiSummary": true,
+            "writeDisabledInApi": true
+        },
+        "relationshipType": {
+            "type": "string",
+            "origin": "setting",
+            "multilingual": false,
+            "description": "The type of relationship between the data and the publication.",
+            "apiSummary": true,
+            "validation": [
+                "in:supporting,generated,analyzed,non-analyzed"
+            ]
+        },
+        "repository": {
+            "type": "string",
+            "origin": "setting",
+            "multilingual": false,
+            "description": "The repository where the dataset is stored or the publisher of the dataset.",
+            "apiSummary": true,
+            "validation": [
+				"nullable"
+			]
+        },
+		"seq": {
+			"type": "integer",
+            "origin": "primary",
+			"description": "The sequence number of data citation.",
+			"default": 0,
+			"validation": [
+				"nullable"
+			]
+		},
+        "title": {
+            "type": "string",
+            "origin": "setting",
+            "multilingual": false,
+            "description": "The title of the dataset.",
+            "apiSummary": true
+        },
+        "url": {
+            "type": "string",
+            "origin": "setting",
+            "multilingual": false,
+            "description": "The URL of the dataset.",
+            "apiSummary": true,
+            "validation": [
+                "nullable",
+                "url"
+            ]
+        },
+        "year": {
+            "type": "integer",
+            "origin": "setting",
+            "multilingual": false,
+            "description": "The year the dataset was published.",
+            "apiSummary": true,
+            "validation": [
+				"nullable",
+                "digits:4"
+			]
+        }
+    }
+}

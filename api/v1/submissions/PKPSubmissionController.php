@@ -28,6 +28,7 @@ use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\Submission;
+use PKP\log\SubmissionEmailLogEventType;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -59,6 +60,7 @@ use PKP\decision\DecisionType;
 use PKP\decision\types\SendExternalReview;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\mail\Mailable;
 use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\Notification;
@@ -121,6 +123,7 @@ class PKPSubmissionController extends PKPBaseController
         'deleteContributor',
         'editContributor',
         'saveContributorsOrder',
+        'emailAuthors',
         'addDecision',
         'getPublicationMetadataForm',
         'getPublicationIdentifierForm',
@@ -323,6 +326,10 @@ class PKPSubmissionController extends PKPBaseController
 
             Route::delete('{submissionId}/publications/{publicationId}/contributors/{contributorId}', $this->deleteContributor(...))
                 ->name('submission.publication.contributor.delete')
+                ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
+
+            Route::post('{submissionId}/publications/{publicationId}/contributors/email',$this->emailAuthors(...))
+                ->name('submission.publication.contributor.email')
                 ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
 
             Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {

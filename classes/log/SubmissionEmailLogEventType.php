@@ -80,4 +80,7 @@ enum SubmissionEmailLogEventType: int implements EmailLogEventType
 
     // Discussion
     case DISCUSSION_NOTIFY = 0x90000001;
+
+    // Email all authors
+    case EMAIL_ALL_AUTHORS = 0xA0000001;
 }

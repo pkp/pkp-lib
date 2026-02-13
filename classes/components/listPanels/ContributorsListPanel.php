@@ -18,6 +18,7 @@ namespace PKP\components\listPanels;
 use APP\core\Application;
 use APP\submission\Submission;
 use PKP\components\forms\publication\ContributorForm;
+use PKP\components\forms\publication\EmailContributorForm;
 use PKP\context\Context;
 
 class ContributorsListPanel extends ListPanel
@@ -64,6 +65,7 @@ class ContributorsListPanel extends ListPanel
                 'canEditPublication' => $this->canEditPublication,
                 'publicationApiUrlFormat' => $this->getPublicationUrlFormat(),
                 'form' => $this->getLocalizedForm(),
+                'emailform' => $this->getLocalizedEmailForm(),
                 'items' => $this->items,
             ]
         );
@@ -113,11 +115,49 @@ class ContributorsListPanel extends ListPanel
     }
 
     /**
+     * Get the form data localized to the submission's locale
+     */
+    protected function getLocalizedEmailForm(): array
+    {
+        $apiUrl = Application::get()->getRequest()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_API,
+            $this->context->getPath(),
+            'submissions/' . $this->submission->getId() . '/publications/__publicationId__/contributors'
+        );
+
+        $submissionLocale = $this->submission->getData('locale');
+        $data = $this->getEmailForm($apiUrl)->getConfig();
+
+        $data['primaryLocale'] = $submissionLocale;
+        $data['visibleLocales'] = [$submissionLocale];
+        $data['supportedFormLocales'] = collect($this->locales)
+            ->sortBy([fn (array $a, array $b) => $b['key'] === $submissionLocale ? 1 : -1])
+            ->values()
+            ->toArray();
+
+        return $data;
+    }
+
+    /**
      * Get the contributor form
      */
     protected function getForm(string $url): ContributorForm
     {
         return new ContributorForm(
+            $url,
+            $this->locales,
+            $this->submission,
+            $this->context
+        );
+    }
+
+    /**
+     * Get the email form
+     */
+    protected function getEmailForm(string $url): EmailContributorForm
+    {
+        return new EmailContributorForm(
             $url,
             $this->locales,
             $this->submission,

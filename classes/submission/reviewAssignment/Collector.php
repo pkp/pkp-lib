@@ -61,6 +61,7 @@ class Collector implements CollectorInterface, ViewsCount
     public ?array $publicationIds = null;
     public ?bool $isPubliclyVisible = null;
     public ?array $doiIds = null;
+    public ?bool $isConfirmed = null;
 
     public function __construct(DAO $dao)
     {
@@ -119,6 +120,16 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByIsIncomplete(?bool $isIncomplete): static
     {
         $this->isIncomplete = $isIncomplete;
+        return $this;
+    }
+
+    /**
+     * Filter by review assignments that were confirmed by the reviewer.
+     *
+     */
+    public function filterByIsConfirmed(?bool $isConfirmed): static
+    {
+        $this->isConfirmed = $isConfirmed;
         return $this;
     }
 
@@ -633,6 +644,13 @@ class Collector implements CollectorInterface, ViewsCount
             isset($this->isPubliclyVisible),
             fn (Builder $q) =>
             $q->where('ra.is_review_publicly_visible', $this->isPubliclyVisible ? 1 : 0)
+        );
+
+        $q->when(
+            isset($this->isConfirmed),
+            fn(Builder $q) => $this->isConfirmed
+                ? $q->whereNotNull('ra.date_confirmed')
+                : $q->whereNull('ra.date_confirmed')
         );
 
         return $q;

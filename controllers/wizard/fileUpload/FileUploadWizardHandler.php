@@ -236,7 +236,7 @@ class FileUploadWizardHandler extends Handler
     /**
      * The submission to which we upload files.
      *
-     * @return Submission
+     * @return \PKP\submission\PKPSubmission
      */
     public function getSubmission()
     {

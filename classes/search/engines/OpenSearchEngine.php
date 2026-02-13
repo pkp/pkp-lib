@@ -344,7 +344,7 @@ class OpenSearchEngine extends ScoutEngine
                         'titles' => $typicalKeywordClause(true),
                         'authors' => $typicalKeywordClause(),
                         'categoryId' => ['type' => 'long'],
-                        'contexetId' => ['type' => 'long'],
+                        'contextId' => ['type' => 'long'],
                         'datePublished' => ['type' => 'date'],
                         'keyword' => $typicalKeywordClause(),
                         'subject' => $typicalKeywordClause(),

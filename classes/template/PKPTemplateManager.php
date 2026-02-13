@@ -580,7 +580,7 @@ class PKPTemplateManager extends Smarty
     public function getCachedLessFilePath(string $name): string
     {
         $directory = Core::getBaseDir() . '/cache';
-        $contextId = $this->_request->getContext()?->getId() ?? PKPApplication::CONTEXT_SITE;
+        $contextId = $this->_request->getContext()?->getId() ?? PKPApplication::SITE_CONTEXT_ID;
         $hash = crc32($this->_request->getBaseUrl());
         return "{$directory}/{$contextId}-{$name}-{$hash}.css";
     }
@@ -959,6 +959,9 @@ class PKPTemplateManager extends Smarty
         }
 
         $this->setConstants([
+            'MIN_PASSWORD_LENGTH' => Application::isInstalled() && !Application::isUpgrading()
+                ? $request->getSite()->getMinPasswordLength()
+                : \PKP\install\PKPInstall::MIN_PASSWORD_LENGTH,
             'REALLY_BIG_NUMBER' => REALLY_BIG_NUMBER,
             'UPLOAD_MAX_FILESIZE' => UPLOAD_MAX_FILESIZE,
             'WORKFLOW_STAGE_ID_PUBLISHED' => WORKFLOW_STAGE_ID_PUBLISHED,

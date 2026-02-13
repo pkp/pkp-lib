@@ -40,6 +40,9 @@ class Schema extends \PKP\core\maps\Schema
     /** @var Genre[] The file genres for this context. */
     public array $genres;
 
+    /** @var array<int, array>|null Cached review DOI data keyed by publicationId */
+    protected ?array $reviewDoiItemsCache = null;
+
     public function __construct(Submission $submission, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
@@ -91,6 +94,25 @@ class Schema extends \PKP\core\maps\Schema
         return $collection->map(function ($item) use ($anonymize) {
             return $this->summarize($item, $anonymize);
         });
+    }
+
+    /**
+     * Get and cache review DOI data for all publications in the current collection.
+     *
+     * @throws \Exception
+     * @return array<int, array> Review DOI entries keyed by publication ID
+     */
+    protected function getReviewDoiItemsCache(Publication $publication): array
+    {
+        if ($this->reviewDoiItemsCache === null) {
+            $publicationIds = isset($this->collection) && $this->collection->isNotEmpty()
+                ? $this->collection->map(fn ($pub) => $pub->getId())->toArray()
+                : [$publication->getId()];
+
+            $this->reviewDoiItemsCache = Repo::publication()->getReviewDoiItemsGroupedByPublication($publicationIds);
+        }
+
+        return $this->reviewDoiItemsCache;
     }
 
     /**
@@ -147,6 +169,19 @@ class Schema extends \PKP\core\maps\Schema
                         $retVal = null;
                     }
                     $output[$prop] = $retVal;
+                    break;
+                case 'reviewDoiItems':
+                    $reviewDoiItemsByPub = $this->getReviewDoiItemsCache($publication);
+                    $entries = $reviewDoiItemsByPub[$publication->getId()] ?? [];
+                    $output[$prop] = array_map(function ($entry) {
+                        return [
+                            'pubObjectType' => $entry['pubObjectType'],
+                            'pubObjectId' => $entry['pubObjectId'],
+                            'doiObject' => $entry['doiObject']
+                                ? Repo::doi()->getSchemaMap()->summarize($entry['doiObject'])
+                                : null,
+                        ];
+                    }, $entries);
                     break;
                 case 'fullTitle':
                     $output[$prop] = $publication->getFullTitles('html');

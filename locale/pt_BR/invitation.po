@@ -374,7 +374,7 @@ msgstr "Consentimento de privacidade"
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Deve ter pelo menos 6 caracteres e pode ser uma combinação de letras "
+"Deve ter pelo menos {$length} caracteres e pode ser uma combinação de letras "
 "maiúsculas, letras minúsculas, números e símbolos"
 
 msgid "userInvitation.edit.message"

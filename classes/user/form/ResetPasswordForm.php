@@ -21,10 +21,8 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Auth;
 use PKP\form\Form;
-use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorCSRF;
-use PKP\form\validation\FormValidatorCustom;
-use PKP\form\validation\FormValidatorLength;
 use PKP\form\validation\FormValidatorPost;
 use PKP\security\Validation;
 
@@ -50,13 +48,7 @@ class ResetPasswordForm extends Form
         $this->_site = $site;
         $this->_hash = $hash;
 
-        $this->addCheck(new FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
-        $this->addCheck(new FormValidator($this, 'password', 'required', 'user.profile.form.newPasswordRequired'));
-        $form = $this;
-        $this->addCheck(new FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
-            return $password == $form->getData('password2');
-        }));
-
+        $this->addCheck(new FormValidatorPassword($this, 'password', 'required', '', 'password2'));
         $this->addCheck(new FormValidatorPost($this));
         $this->addCheck(new FormValidatorCSRF($this));
     }

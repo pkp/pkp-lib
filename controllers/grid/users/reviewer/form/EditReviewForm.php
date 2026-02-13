@@ -236,7 +236,7 @@ class EditReviewForm extends Form
             'dateDue' => $this->getData('reviewDueDate'),
             'dateResponseDue' => $this->getData('responseDueDate'),
             'reviewMethod' => $this->getData('reviewMethod'),
-            'isReviewPubliclyVisible' => (int)$this->getData('isReviewPubliclyVisible'),
+            'isReviewPubliclyVisible' => (bool)$this->getData('isReviewPubliclyVisible'),
         ];
 
         if (!$reviewAssignment->getDateCompleted()) {

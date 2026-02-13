@@ -201,15 +201,6 @@ msgstr "Sort by:"
 msgid "openReview.sortByReviewerName"
 msgstr "Reviewer Name"
 
-msgid "openReview.reportsByRecord"
-msgstr "Reviewer Reports by Record"
-
-msgid "openReview.reportsByReviewer"
-msgstr "Reviewer Reports by Reviewer"
-
-msgid "openReview.reviewerCount"
-msgstr "{$count} Reviewers"
-
 msgid "openReview.reviewCount"
 msgstr "{$count} Reviews"
 
@@ -224,6 +215,18 @@ msgstr "Read Review"
 
 msgid "openReview.title"
 msgstr "Peer Review"
+
+msgid "openReview.status"
+msgstr "Status:"
+
+msgid "openReview.statusInProgress"
+msgstr "In progress since {$date}"
+
+msgid "openReview.recommendationItem"
+msgstr "{$label} - {$count}"
+
+msgid "openReview.recommendationItemSeparator"
+msgstr " – "
 
 msgid "openReview.reviewersContributed"
 msgstr "reviewers contributed to this article"
@@ -245,3 +248,9 @@ msgstr "Review Model:"
 
 msgid "openReview.seeFullRecord"
 msgstr "See full peer review record"
+
+msgid "openReview.readResponse"
+msgstr "Read Response"
+
+msgid "openReview.hideResponse"
+msgstr "Hide Response"

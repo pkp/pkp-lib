@@ -14,29 +14,69 @@
 
 namespace PKP\core;
 
-use PKP\facades\Locale;
-use Illuminate\Support\Str;
-use PKP\validation\MultilingualInput;
+use APP\core\Application;
+use Illuminate\Contracts\Validation\UncompromisedVerifier;
+use Illuminate\Http\Client\Factory as HttpFactory;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Validator as ValidationValidator;
+use Illuminate\Support\Str;
 use Illuminate\Translation\CreatesPotentiallyTranslatedStrings;
+use Illuminate\Validation\NotPwnedVerifier;
+use Illuminate\Validation\Validator as ValidationValidator;
+use PKP\facades\Locale;
+use PKP\security\LocalPasswordBlacklistVerifier;
+use PKP\validation\MultilingualInput;
 
 class ValidationServiceProvider extends \Illuminate\Validation\ValidationServiceProvider
 {
     use CreatesPotentiallyTranslatedStrings;
-    
+
+    /**
+     * Register the service provider
+     */
+    public function register(): void
+    {
+        parent::register();
+
+        // Password blacklist verifier
+        //  - check if site setting is enabled (disabled by default)
+        //  - if enabled, uses local file if exists,
+        //  - fallback to uses Have I Been Pwned API see at https://laravel.com/docs/11.x/validation#validating-passwords
+        $this->app->singleton(UncompromisedVerifier::class, function ($app) {
+            $site = Application::get()->getRequest()->getSite();
+            $isEnabled = $site?->getData('passwordUncompromisedEnabled') ?? false;
+
+            if (!$isEnabled) {
+                return new class implements UncompromisedVerifier {
+                    /**
+                     * @see \Illuminate\Contracts\Validation\UncompromisedVerifier::verify()
+                     */
+                    public function verify($data)
+                    {
+                        return true;
+                    }
+                };
+            }
+
+            $localVerifier = new LocalPasswordBlacklistVerifier();
+            if ($localVerifier->blacklistFileExists()) {
+                return $localVerifier;
+            }
+
+            return new NotPwnedVerifier($app->make(HttpFactory::class), 30);
+        });
+    }
+
     /**
      * Boot service provider
-     * 
+     *
      * A good place to add any custom validation rules which will be availbale once the
      * service provider get registered
-     * 
-     * @return void
+     *
      */
     public function boot()
     {
         Validator::extend('multilingual', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
-            
+
             $parameters = collect($parameters);
             $multilinngualInput = new MultilingualInput($parameters->shift(), $parameters->toArray());
 
@@ -55,7 +95,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
 
         Validator::extend('email_or_localhost', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
             $validationFactory = app()->get('validator'); /** @var \Illuminate\Validation\Factory $validationFactory */
-            
+
             $emailValidator = $validationFactory->make(
                 ['value' => $value],
                 ['value' => 'email']
@@ -153,23 +193,20 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     /**
      * Register the validation factory.
      *
-     * @return void
      */
     protected function registerValidationFactory()
     {
         $this->app->singleton('validator', function ($app) {
-            $validator = new class($app['translator'], $app) extends \Illuminate\Validation\Factory
-            {    
+            $validator = new class ($app['translator'], $app) extends \Illuminate\Validation\Factory {
                 /**
                  * @see \Illuminate\Validation\Factory::resolve()
                  */
                 protected function resolve(array $data, array $rules, array $messages, array $attributes)
                 {
                     if (is_null($this->resolver)) {
-                        return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator
-                        {
+                        return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator {
                             /*
-                             * Rehydrate the validation error messages with predefined translated 
+                             * Rehydrate the validation error messages with predefined translated
                              * messages mapped to validation rules
                              */
                             protected function rehydrateValidationErrorMessages(): void
@@ -180,19 +217,19 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                             /**
                              * This override the core Validator's message construction system
                              * that allows multilingual support for validation error message
-                             * 
+                             *
                              * @see \Illuminate\Validation\Concerns\FormatsMessages::getMessage()
                              */
                             protected function getMessage($attribute, $rule)
                             {
                                 $this->rehydrateValidationErrorMessages();
-                                
+
                                 $attributeWithPlaceholders = $attribute;
-                                
+
                                 $attribute = $this->replacePlaceholderInString($attribute);
-                                
+
                                 $inlineMessage = $this->getInlineMessage($attribute, $rule);
-                                
+
                                 // First we will retrieve the custom message for the validation rule if one
                                 // exists. If a custom validation message is being used we'll return the
                                 // custom message, otherwise we'll keep searching for a valid message.
@@ -203,17 +240,17 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                                 $lowerRule = Str::snake($rule);
 
                                 $customKey = "validation.custom.{$attribute}.{$lowerRule}";
-                                
+
                                 $customMessage = $this->getCustomMessageFromTranslator(
                                     in_array($rule, $this->sizeRules)
-                                        ? [$customKey.".{$this->getAttributeType($attribute)}", $customKey]
+                                        ? [$customKey . ".{$this->getAttributeType($attribute)}", $customKey]
                                         : $customKey
                                 );
-                                
+
                                 // First we check for a custom defined validation message for the attribute
                                 // and rule. This allows the developer to specify specific messages for
                                 // only some attributes and rules that need to get specially formed.
-                                if ($customMessage !== '##'.$customKey.'##') {
+                                if ($customMessage !== '##' . $customKey . '##') {
                                     return $customMessage;
                                 }
 
@@ -230,16 +267,18 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                                 $key = "validator.{$lowerRule}";
 
                                 $translatedValue = $this->translator->get(
-                                    $key, 
-                                    $customMessage === '##'.$customKey.'##' ? ['attribute' => $attribute] : []
+                                    $key,
+                                    $customMessage === '##' . $customKey . '##' ? ['attribute' => $attribute] : []
                                 );
-                                
+
                                 if ($key !== $translatedValue) {
                                     return $translatedValue;
                                 }
 
                                 return $this->getFromLocalArray(
-                                    $attribute, $lowerRule, $this->fallbackMessages
+                                    $attribute,
+                                    $lowerRule,
+                                    $this->fallbackMessages
                                 ) ?: $key;
                             }
                         };

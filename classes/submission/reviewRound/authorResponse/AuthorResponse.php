@@ -27,6 +27,7 @@ use PKP\db\DAORegistry;
 /**
  * @method static Builder withReviewRoundIds(array $reviewRoundIds) Filter responses by review round IDs.
  * @method static Builder withUserId(int $userId) Filter responses by user ID.
+ * @method static Builder withDoiIds(array $doiIds) Filter responses by DOI IDs.
  */
 class AuthorResponse extends Model
 {
@@ -40,6 +41,13 @@ class AuthorResponse extends Model
         'reviewRoundId',
         'userId',
         'authorResponse',
+        'doiId'
+    ];
+
+    protected $casts = [
+        'reviewRoundId' => 'int',
+        'userId' => 'int',
+        'doiId' => 'int'
     ];
 
     /**
@@ -90,6 +98,16 @@ class AuthorResponse extends Model
     }
 
     /**
+     * DOI associated with this response.
+     */
+    protected function doi(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->doiId !== null ? Repo::doi()->get($this->doiId) : null
+        )->shouldCache();
+    }
+
+    /**
      * User object of assigned author participant who submitted the response.
      */
     protected function submittedBy(): Attribute
@@ -97,6 +115,24 @@ class AuthorResponse extends Model
         return Attribute::make(
             get: function () {
                 return Repo::user()->get($this->userId);
+            }
+        )->shouldCache();
+    }
+
+    /**
+     * Whether this author response is directed at publicly available review assignment comments.
+     */
+    protected function isPublic(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $visibility = DB::table('review_assignments')
+                    ->where('review_round_id', $this->review_round_id)
+                    ->where('declined', 0)
+                    ->where('cancelled', 0)
+                    ->pluck('is_review_publicly_visible');
+
+                return $visibility->isNotEmpty() && $visibility->every(fn ($visibility) => (bool) $visibility);
             }
         )->shouldCache();
     }
@@ -126,6 +162,11 @@ class AuthorResponse extends Model
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
         return $query->where('user_id', $userId);
+    }
+
+    public function scopeWithDoiIds(Builder $query, array $doiIds): Builder
+    {
+        return $query->whereIn('doi_id', $doiIds);
     }
 
     public function associateAuthorsToResponse(array $authorIds): bool

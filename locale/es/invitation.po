@@ -328,7 +328,7 @@ msgstr ""
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Debe tener al menos 6 caracteres y puede ser una combinación de letras "
+"Debe tener al menos {$length} caracteres y puede ser una combinación de letras "
 "mayúsculas, minúsculas, números y símbolos"
 
 msgid "acceptInvitation.userDetailsForm.familyName.description"

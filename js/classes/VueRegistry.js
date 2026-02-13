@@ -31,6 +31,11 @@ export default {
 	_globalDirectives: {},
 
 	/**
+	 * Registry of frontend Pinia store factories (defineStore functions)
+	 */
+	_storeFactories: {},
+
+	/**
 	 * Initialize a Vue controller
 	 *
 	 * This method is often called directly from a <script> tag in a template
@@ -106,6 +111,16 @@ export default {
 	},
 
 	/**
+	 * Register a frontend Pinia store factory for lookup via getPiniaStore()
+	 *
+	 * @param {string} name - Store name (matches defineStore id)
+	 * @param {Function} factory - The useXxxStore function returned by defineStore
+	 */
+	registerStore(name, factory) {
+		this._storeFactories[name] = factory;
+	},
+
+	/**
 	 * Keeps track of all globally registered vue components
 	 *
 	 * This is important especially for plugins with custom vue components
@@ -155,8 +170,11 @@ export default {
 		return this._globalDirectives;
 	},
 
-	/** Get pinia store by name */
+	/** Get pinia store by name — tries registered frontend stores first, then component stores */
 	getPiniaStore(storeName) {
+		if (this._storeFactories[storeName]) {
+			return this._storeFactories[storeName]();
+		}
 		return getComponentStoreByName(storeName);
 	},
 

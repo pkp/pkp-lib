@@ -377,7 +377,7 @@ msgstr "Може да биде комбинација од големи букв
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Треба да биде долг најмалку 6 знаци и може да биде комбинација од големи "
+"Треба да биде долг најмалку {$length} знаци и може да биде комбинација од големи "
 "букви, мали букви, броеви и симболи"
 
 msgid "acceptInvitation.privacyStatement.label"

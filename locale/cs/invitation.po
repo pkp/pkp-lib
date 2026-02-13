@@ -243,7 +243,7 @@ msgstr "Datum ukončení"
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Musí mít alespoň 6 znaků a může to být kombinace velkých písmen, malých "
+"Musí mít alespoň {$length} znaků a může to být kombinace velkých písmen, malých "
 "písmen, čísel a symbolů"
 
 msgid "userInvitation.searchUser.stepDescription"

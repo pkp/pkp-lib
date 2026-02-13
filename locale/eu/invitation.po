@@ -280,7 +280,7 @@ msgstr "Mesedez, eman ondorengo datuak zure kontua kudeatzen laguntzeko"
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Gutxienez 6 karaktere izan behar ditu eta letra larrien, letra xeheen, "
+"Gutxienez {$length} karaktere izan behar ditu eta letra larrien, letra xeheen, "
 "zenbakien eta sinboloen konbinazioa izan daiteke"
 
 msgid "acceptInvitation.userDetailsForm.givenName.description"

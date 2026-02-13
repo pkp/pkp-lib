@@ -54,6 +54,7 @@ use PKP\mail\variables\SenderEmailVariable;
 use PKP\mail\variables\SiteEmailVariable;
 use PKP\mail\variables\Variable;
 use PKP\payment\QueuedPayment;
+use PKP\plugins\Hook;
 use PKP\site\Site;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -321,6 +322,7 @@ class Mailable extends IlluminateMailable
      */
     public function build(): self
     {
+        Hook::run('Mailable::build', ['mailable' => $this]);
         return $this;
     }
 

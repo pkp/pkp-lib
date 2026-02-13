@@ -147,6 +147,21 @@
 			"description": "Whether review assignment was declined by tge reviewer",
 			"apiSummary": true
 		},
+		"doiObject": {
+			"type": "object",
+			"description": "An object representing the DOI for this review assignment.",
+			"apiSummary": true,
+			"readOnly": true,
+			"$ref": "#/definitions/Doi"
+		},
+		"doiId": {
+			"type": "integer",
+			"description": "The ID of the DOI to assign to this review assignment.",
+			"writeOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"id": {
 			"type": "integer",
 			"description": "The id of this review assignment",

@@ -44,8 +44,9 @@ class Inbound
     public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/works/?query.bibliographic=' . urlencode($citation->getData('rawCitation')),
-            ['headers' => ['mailto' => $this->contactEmail]]);
+            $this->url . '/works/?query.bibliographic=' . urlencode(strip_tags($citation->getData('rawCitation'))),
+            ['headers' => ['mailto' => $this->contactEmail]]
+        );
 
         if (is_int($response)) {
             $this->statusCode = $response;
@@ -56,7 +57,7 @@ class Inbound
             return null;
         }
 
-        if (!$this->isMatched($citation->getData('rawCitation'), $response)) {
+        if (!$this->isMatched(strip_tags($citation->getData('rawCitation')), $response)) {
             return $citation;
         }
 

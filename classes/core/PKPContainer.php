@@ -19,20 +19,19 @@ use APP\core\AppServiceProvider;
 use Exception;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
-use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PKP\config\Config;
-use PKP\core\PKPBladeViewServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
@@ -364,7 +363,7 @@ class PKPContainer extends Container
     }
 
     /**
-     * Register class aliases to simplify the usage of the class 
+     * Register class aliases to simplify the usage of the class
      * To register more aliases, as AliasLoader::getInstance()->alias('key', SomeClass::class)
      */
     protected function registerClassAliases(): void
@@ -437,7 +436,7 @@ class PKPContainer extends Container
             'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],
-            'expire_on_close' => false,
+            'expire_on_close' => Config::getVar('security', 'session_expire_on_close', false),
             'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
             'partitioned' => false,
             'encrypt' => false,
@@ -524,7 +523,7 @@ class PKPContainer extends Container
                 'app' => [$this->basePath('templates'), $this->basePath('lib/pkp/templates')],
                 'pkp' => $this->basePath('lib/pkp/templates'),
             ],
-            'components' =>  [
+            'components' => [
                 // Component namespace here registered based on hierarchy and priority,
                 // do not alter the ordering
                 'namespace' => [

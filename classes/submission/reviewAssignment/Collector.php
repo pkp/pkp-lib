@@ -60,6 +60,8 @@ class Collector implements CollectorInterface, ViewsCount
     public ?string $orderBySubmissionIdDirection = null;
     public ?array $publicationIds = null;
     public ?bool $isPubliclyVisible = null;
+    public ?array $doiIds = null;
+    public ?bool $isConfirmed = null;
 
     public function __construct(DAO $dao)
     {
@@ -118,6 +120,16 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByIsIncomplete(?bool $isIncomplete): static
     {
         $this->isIncomplete = $isIncomplete;
+        return $this;
+    }
+
+    /**
+     * Filter by review assignments that were confirmed by the reviewer.
+     *
+     */
+    public function filterByIsConfirmed(?bool $isConfirmed): static
+    {
+        $this->isConfirmed = $isConfirmed;
         return $this;
     }
 
@@ -276,6 +288,15 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByIsAccessibleByReviewer(?bool $isAccessibleByReviewer): static
     {
         $this->isAccessibleByReviewer = $isAccessibleByReviewer;
+        return $this;
+    }
+
+    /**
+     * Filter by associated DOI
+     */
+    public function filterByDoiIds(?array $doiIds): self
+    {
+        $this->doiIds = $doiIds;
         return $this;
     }
 
@@ -571,7 +592,7 @@ class Collector implements CollectorInterface, ViewsCount
                 fn (Builder $q) => $q
                     ->where('ra.declined', '<>', 1)
                     ->where('ra.cancelled', '<>', 1)
-                    ->whereNotNull('ra.date_confirmed', )
+                    ->whereNotNull('ra.date_confirmed')
                     ->whereIn(
                         'ra.submission_id',
                         fn (Builder $q) => $q
@@ -582,6 +603,10 @@ class Collector implements CollectorInterface, ViewsCount
                     )
             )
         );
+
+        $q->when(!is_null($this->doiIds), function (Builder $q) {
+            $q->whereIn('ra.doi_id', $this->doiIds);
+        });
 
         $q->when(
             $this->count !== null,
@@ -619,6 +644,13 @@ class Collector implements CollectorInterface, ViewsCount
             isset($this->isPubliclyVisible),
             fn (Builder $q) =>
             $q->where('ra.is_review_publicly_visible', $this->isPubliclyVisible ? 1 : 0)
+        );
+
+        $q->when(
+            isset($this->isConfirmed),
+            fn(Builder $q) => $this->isConfirmed
+                ? $q->whereNotNull('ra.date_confirmed')
+                : $q->whereNull('ra.date_confirmed')
         );
 
         return $q;

@@ -290,7 +290,7 @@ msgstr "Gali būti didžiosios ir mažosios raidės arba skaičiai"
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"Turi būti bent 6 simbolių ilgio; galima naudoti didžiąsias ir mažąsias "
+"Turi būti bent {$length} simbolių ilgio; galima naudoti didžiąsias ir mažąsias "
 "raides, skaičius ir simbolius"
 
 msgid "acceptInvitation.privacyStatement.label"

@@ -902,7 +902,7 @@ class Schema extends \PKP\core\maps\Schema
                 }
 
                 // Identify properties related to the current user
-                if ($stageAssignment->userId !== $currentUser->getId()) {
+                if ($stageAssignment->userId != $currentUser->getId()) {
                     continue;
                 }
 
@@ -1048,7 +1048,7 @@ class Schema extends \PKP\core\maps\Schema
         $userGroup = $stageAssignment->userGroup;
         $userUserGroup = $userGroup->userUserGroups->first(
             fn (UserUserGroup $userUserGroup) =>
-            $userUserGroup->userId === $stageAssignment->userId && // Check if user is associated with stage assignment
+            $userUserGroup->userId == $stageAssignment->userId && // Check if user is associated with stage assignment
             (!$userUserGroup->dateEnd || $userUserGroup->dateEnd->gt(now())) &&
             (!$userUserGroup->dateStart || $userUserGroup->dateStart->lte(now()))
         );

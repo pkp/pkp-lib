@@ -17,6 +17,8 @@
 namespace PKP\API\v1\peerReviews\resources;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -50,7 +52,9 @@ trait ReviewerRecommendationSummary
     {
         $responses = collect();
 
-        $availableRecommendationTypes = ReviewerRecommendation::withContextId($context->getId())->get();
+        $availableRecommendationTypes = ReviewerRecommendation::withContextId($context->getId())
+            ->get()
+            ->keyBy('reviewerRecommendationId');
 
         foreach ($reviewAssignmentsGroupedByRoundId as $reviews) {
             /** @var ReviewAssignment $review */
@@ -98,5 +102,25 @@ trait ReviewerRecommendationSummary
             ->all();
 
         return count(array_unique($reviewerIds));
+    }
+
+    /**
+     * Get info for the latest published publication for a submission.
+     * @return array{'versionString': string, 'datePublished': string}|null
+     * - versionString: The version string of the latest published publication.
+     * - datePublished: The publication date as a string.
+     */
+    private function getSubmissionLatestPublishedPublication(Submission $submission): ?array
+    {
+        /** @var Publication $latestVersion */
+        $latestVersion = $submission->getData('publications')
+            ->filter(fn(Publication $publication) => $publication->getData('status') === Submission::STATUS_PUBLISHED)
+            ->sortByDesc(fn(Publication $publication) => $publication->getData('version'))
+            ->first();
+
+        return $latestVersion ? [
+            'versionString' => $latestVersion->getData('versionString'),
+            'datePublished' => $latestVersion->getData('datePublished'),
+        ] : null;
     }
 }

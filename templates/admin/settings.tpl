@@ -36,6 +36,14 @@
 					/>
 				</tab>
 				{/if}
+				{if $componentAvailability['siteSecurity']}
+				<tab id="security" label="{translate key="admin.security"}">
+					<pkp-form
+						v-bind="components.{PKP\components\forms\site\PKPSiteSecurityForm::FORM_SITE_SECURITY}"
+						@set="set"
+					/>
+				</tab>
+				{/if}
 				{if $componentAvailability['siteInfo']}
 				<tab id="info" label="{translate key="manager.setup.information"}">
 					<pkp-form

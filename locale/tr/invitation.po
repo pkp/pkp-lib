@@ -380,7 +380,7 @@ msgstr "Büyük harfler, küçük harfler veya rakamların bir kombinasyonu olab
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
-"En az 6 karakter uzunluğunda olmalı ve büyük harfler, küçük harfler, "
+"En az {$length} karakter uzunluğunda olmalı ve büyük harfler, küçük harfler, "
 "rakamlar ve sembollerden oluşan bir kombinasyon olabilir"
 
 msgid "acceptInvitation.privacyStatement.label"

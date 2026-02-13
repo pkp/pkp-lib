@@ -56,7 +56,7 @@ describe('API tests', function() {
 	
 });
 
-describe('Peer Reviews API tests', function() {
+ describe('Peer Reviews API tests', function() {
 	let publicationId;
 	let submissionId;
 
@@ -74,23 +74,22 @@ describe('Peer Reviews API tests', function() {
 			});
 	});
 
-	it('Tests peer reviews endpoint without public reviews enabled', function() {
-		// Test that the endpoint returns 401 when public reviews are not enabled
+	it('Tests peer reviews endpoint is functional', function() {
 		cy.request({
 			url: `index.php/publicknowledge/api/v1/peerReviews/open/publications/${publicationId}`,
 			failOnStatusCode: false
 		}).then(response => {
-			expect(response.status).to.eq(401);
+			expect(response.status).to.eq(200);
 		});
 	});
 
-	it('Enables public peer reviews', function() {
+	it('Make review assignment default visibility public', function() {
 		cy.login('dbarnes', null, 'publicknowledge');
 		cy.visit('index.php/publicknowledge/management/settings/workflow');
 		cy.get('#review-button').click();
 		
 		// Enable public peer reviews
-		cy.get('input[name="enablePublicPeerReviews"]').check();
+		cy.get('input[name="defaultReviewPublicVisibility"]').check();
 		cy.get('#review button').contains('Save').click();
 		cy.get('span:contains("Saved")');
 	});
@@ -226,13 +225,13 @@ describe('Peer Reviews API tests', function() {
 		});
 	});
 
-	it('Disables public peer reviews', function() {
+	it('Sets review assignment default visibility to not publicly visible', function() {
 		cy.login('dbarnes', null, 'publicknowledge');
 		cy.visit('index.php/publicknowledge/management/settings/workflow');
 		cy.get('#review-button').click();
 		
 		// Disable public peer reviews
-		cy.get('input[name="enablePublicPeerReviews"]').uncheck();
+		cy.get('input[name="defaultReviewPublicVisibility"]').uncheck();
 		cy.get('#review button').contains('Save').click();
 		cy.get('span:contains("Saved")');
 		cy.logout();

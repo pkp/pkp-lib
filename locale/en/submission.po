@@ -2912,6 +2912,24 @@ msgstr "Last Modification at {$modificationDate} by {$username}"
 msgid "publication.jats.defaultContentCreationError"
 msgstr "An error occured when trying to create the default JATS content. Please make sure that the JatsTemplate plugin is installed."
 
+msgid "publication.jats.makePublic"
+msgstr "Make available with publication"
+
+msgid "publication.jats.enableVisibilityTitle"
+msgstr "Enable JATS XML Download"
+
+msgid "publication.jats.enableVisibilityMessage"
+msgstr "This will make the JATS XML file available for public download when the publication is published. Are you sure you want to enable this?"
+
+msgid "publication.jats.disableVisibilityTitle"
+msgstr "Disable JATS XML Download"
+
+msgid "publication.jats.disableVisibilityMessage"
+msgstr "This will remove the JATS XML download option from the public article page. Are you sure you want to disable this?"
+
+msgid "publication.jats.download"
+msgstr "JATS XML"
+
 msgid "submission.files.content.error"
 msgstr "The content of the submission file '{$fileName}' could not be retrieved."
 

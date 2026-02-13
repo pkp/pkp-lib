@@ -19,14 +19,18 @@ use APP\submission\Submission;
 use APP\facades\Repo;
 use APP\plugins\generic\jatsTemplate\classes\Article;
 use Exception;
+use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\jats\exceptions\UnableToCreateJATSContentException;
+use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use Throwable;
 
 class Repository
 {
+    public const JATS_FILE_CACHE_LIFETIME = 24 * 60 * 60; // 24 hours
+    
     /**
      * Summarize the JatsFile along with the jatsContent
      */
@@ -202,6 +206,9 @@ class Repository
             Repo::submissionFile()->add($submissionFile);
         }
 
+        // cache should be cleared when file changes
+        $this->clearPublicJatsCache($publicationId);
+
         // Return fresh JatsFile
         return $this->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
     }
@@ -229,6 +236,9 @@ class Repository
             // Delete the single record (revisions cascade via FK)
             Repo::submissionFile()->delete($jatsFile);
         }
+
+        // cache should be cleared when file deleted
+        $this->clearPublicJatsCache($publicationId);
     }
 
     /**
@@ -264,5 +274,57 @@ class Repository
     public function getFileStages(): array
     {
         return [SubmissionFile::SUBMISSION_FILE_JATS];
+    }
+
+    /**
+     * Get JATS content for public download with given cache life time as defined
+     *
+     * This method caches the JATS XML content to prevent server overload
+     * from repeated public requests. Cache is invalidated when:
+     * - JATS file is uploaded (addJatsFile)
+     * - JATS file is deleted (deleteJatsFile)
+     * - Visibility setting changes (via controller)
+     *
+     * @param int $publicationId The publication ID
+     * @param int $submissionId Optional submission ID filter
+     * @return string|null The JATS XML content or null if unavailable
+     */
+    public function getPublicJatsContent(int $publicationId, int $submissionId): ?string
+    {
+        $cacheKey = $this->getPublicJatsCacheKey($publicationId);
+
+        return Cache::remember($cacheKey, static::JATS_FILE_CACHE_LIFETIME, function () use ($publicationId, $submissionId) {
+            $submission = Repo::submission()->get($submissionId);
+            
+            /** @var \PKP\context\Context $context */
+            $context = app()->get('context')->get($submission->getData('contextId'));
+            
+            $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+            $genres = $genreDao->getEnabledByContextId($context->getId());
+
+            $jatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
+
+            return $jatsFile?->jatsContent;
+        });
+    }
+
+    /**
+     * Clear the public JATS cache for a publication.
+     *
+     * Should be called when:
+     * - JATS file content changes (upload/delete)
+     * - Visibility setting changes
+     */
+    public function clearPublicJatsCache(int $publicationId): void
+    {
+        Cache::forget($this->getPublicJatsCacheKey($publicationId));
+    }
+
+    /**
+     * Get the cache key for public JATS content.
+     */
+    protected function getPublicJatsCacheKey(int $publicationId): string
+    {
+        return "jats-public-content-{$publicationId}";
     }
 }

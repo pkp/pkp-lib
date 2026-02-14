@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPApplication.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -91,6 +91,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
     public const ASSOC_TYPE_DECISION_TYPE = 0x010000f;
     public const ASSOC_TYPE_COMMENT = 0x0100010;
     public const ASSOC_TYPE_COMMENT_REPORT = 0x0100011;
+    public const ASSOC_TYPE_DATA_CITATION = 0x0100012;
 
     // Constant used in UsageStats for submission files that are not full texts
     public const ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER = 0x0000213;
@@ -663,6 +664,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             'agencies',
             'citations',
             'dataAvailability',
+            'dataCitations',
             'fundingStatement',
         ];
     }

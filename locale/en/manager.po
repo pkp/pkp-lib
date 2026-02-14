@@ -2218,6 +2218,25 @@ msgstr ""
 "Require the author to suggest coverage metadata before accepting their "
 "submission."
 
+msgid "manager.setup.metadata.dataCitations"
+msgstr "Data Citations"
+
+msgid "manager.setup.metadata.dataCitations.description"
+msgstr "A data citation typically identifies a dataset that supports the findings of the work. Data citations ensure reproducibility, transparency, and proper attribution of research data."
+
+msgid "manager.setup.metadata.dataCitations.enable"
+msgstr "Enable data citation metadata"
+
+msgid "manager.setup.metadata.dataCitations.noRequest"
+msgstr "Do not request data citation metadata from the author during submission."
+
+msgid "manager.setup.metadata.dataCitations.request"
+msgstr "Ask the author for data citation metadata during submission."
+
+msgid "manager.setup.metadata.dataCitations.require"
+msgstr ""
+"Require the author to add data citation metadata before accepting their submission."
+
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
 "Keywords are typically one- to three-word phrases that are used to indicate "

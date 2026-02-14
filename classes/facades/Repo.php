@@ -3,8 +3,8 @@
 /**
  * @file classes/facades/Repo.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repo
@@ -33,6 +33,7 @@ use PKP\author\creditRole\Repository as CreditRoleRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\citation\Repository as CitationRepository;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
+use PKP\dataCitation\Repository as DataCitationRepository;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\editorialTask\Repository as EditorialTaskRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
@@ -90,6 +91,11 @@ class Repo
     public static function creditRole(): CreditRoleRepository
     {
         return app(CreditRoleRepository::class);
+    }
+
+    public static function dataCitation(): DataCitationRepository
+    {
+        return app(DataCitationRepository::class);
     }
 
     public static function decision(): DecisionRepository

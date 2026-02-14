@@ -3,8 +3,8 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
@@ -30,6 +30,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
+use PKP\components\forms\dataCitation\DataCitationEditForm;
+use PKP\components\forms\publication\PKPDataAvailabilityForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\CommentsForTheEditors;
 use PKP\components\forms\submission\ConfirmSubmission;
@@ -52,6 +54,7 @@ abstract class PKPSubmissionHandler extends Handler
 {
     public const SECTION_TYPE_CONFIRM = 'confirm';
     public const SECTION_TYPE_CONTRIBUTORS = 'contributors';
+    public const SECTION_TYPE_DATA_CITATIONS = 'dataCitations';
     public const SECTION_TYPE_REVIEWER_SUGGESTIONS = 'reviewerSuggestions';
     public const SECTION_TYPE_FILES = 'files';
     public const SECTION_TYPE_FORM = 'form';
@@ -230,6 +233,14 @@ abstract class PKPSubmissionHandler extends Handler
         if ($context->getData('reviewerSuggestionEnabled')) {
             $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $formLocales);
             $components[$reviewerSuggestionsListPanel->id] = $reviewerSuggestionsListPanel->getConfig();
+        }
+
+        $dataCitationsSetting = $context->getData('dataCitations');
+        if (in_array($dataCitationsSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $dataCitationEditForm = new DataCitationEditForm('emit');
+            $components['dataCitation'] = [
+                'dataCitationEditForm' => $dataCitationEditForm->getConfig(),
+            ];
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
@@ -752,6 +763,16 @@ abstract class PKPSubmissionHandler extends Handler
             ];
         }
 
+        $dataCitationsSetting = $request->getContext()->getData('dataCitations');
+        if (in_array($dataCitationsSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $sections[] = [
+                'id' => 'dataCitations',
+                'name' => __('submission.dataCitations'),
+                'type' => self::SECTION_TYPE_DATA_CITATIONS,
+                'description' => __('submission.dataCitations.description'),
+            ];
+        }
+
         return [
             'id' => 'details',
             'name' => __('common.details'),
@@ -794,35 +815,48 @@ abstract class PKPSubmissionHandler extends Handler
         );
         $this->removeButtonFromForm($metadataForm);
 
+        $dataAvailabilitySetting = $request->getContext()->getData('dataAvailability');
+        $dataAvailabilityForm = new PKPDataAvailabilityForm(
+            $publicationApiUrl,
+            $locales,
+            $publication,
+            in_array($dataAvailabilitySetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE]),
+            $dataAvailabilitySetting === Context::METADATA_REQUIRE
+        );
+        $this->removeButtonFromForm($dataAvailabilityForm);
+
         $commentsForm = new CommentsForTheEditors(
             Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
             $submission
         );
         $this->removeButtonFromForm($commentsForm);
 
-        $hasMetadataForm = count($metadataForm->fields);
+        $sections = [];
+        $description = $request->getContext()->getLocalizedData('forTheEditorsHelp');
 
-        $metadataFormData = $this->getLocalizedForm($metadataForm, $submission->getData('locale'), $locales);
-        $commentsFormData = $this->getLocalizedForm($commentsForm, $submission->getData('locale'), $locales);
-
-        $sections = [
-            [
-                'id' => $hasMetadataForm ? $metadataForm->id : $commentsForm->id,
-                'name' => __('submission.forTheEditors'),
-                'type' => self::SECTION_TYPE_FORM,
-                'description' => $request->getContext()->getLocalizedData('forTheEditorsHelp'),
-                'form' => $hasMetadataForm ? $metadataFormData : $commentsFormData,
-            ],
+        if (count($metadataForm->fields)) {
+            $sections[] = [
+                'id' => $metadataForm->id,
+                'form' => $this->getLocalizedForm($metadataForm, $submission->getData('locale'), $locales),
+            ];
+        }
+        if (in_array($dataAvailabilitySetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $sections[] = [
+                'id' => $dataAvailabilityForm->id,
+                'form' => $dataAvailabilityForm->getConfig(),
+            ];
+        }
+        $sections[] = [
+            'id' => $commentsForm->id,
+            'form' => $this->getLocalizedForm($commentsForm, $submission->getData('locale'), $locales),
         ];
 
-        if ($hasMetadataForm) {
-            $sections[] = [
-                'id' => $commentsForm->id,
-                'name' => '',
+        foreach ($sections as $index => $section) {
+            $sections[$index] = array_merge([
+                'name' => $index === 0 ? __('submission.forTheEditors') : '',
                 'type' => self::SECTION_TYPE_FORM,
-                'description' => '',
-                'form' => $commentsFormData,
-            ];
+                'description' => $index === 0 ? $description : '',
+            ], $section);
         }
 
         return [

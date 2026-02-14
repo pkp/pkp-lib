@@ -3,8 +3,8 @@
 /**
  * @file classes/components/form/context/PKPMetadataSettingsForm.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetadataSettingsForm
@@ -202,6 +202,19 @@ class PKPMetadataSettingsForm extends FormComponent
                 'value' => (bool)$context->getData('citationsMetadataLookup'),
                 'showWhen' => 'citations'
             ]))
+            ->addField(new FieldMetadataSetting('fundingStatement', [
+                'label' => __('submission.fundingStatement'),
+                'description' => __('manager.setup.metadata.fundingStatement.description'),
+                'options' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.fundingStatement.enable')]
+                ],
+                'submissionOptions' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.fundingStatement.noRequest')],
+                    ['value' => Context::METADATA_REQUEST, 'label' => __('manager.setup.metadata.fundingStatement.request')],
+                    ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.fundingStatement.require')],
+                ],
+                'value' => $context->getData('fundingStatement') ? $context->getData('fundingStatement') : Context::METADATA_DISABLE,
+            ]))
             ->addField(new FieldMetadataSetting('dataAvailability', [
                 'label' => __('submission.dataAvailability'),
                 'description' => __('manager.setup.metadata.dataAvailability.description'),
@@ -215,18 +228,18 @@ class PKPMetadataSettingsForm extends FormComponent
                 ],
                 'value' => $context->getData('dataAvailability') ? $context->getData('dataAvailability') : Context::METADATA_DISABLE,
             ]))
-            ->addField(new FieldMetadataSetting('fundingStatement', [
-                'label' => __('submission.fundingStatement'),
-                'description' => __('manager.setup.metadata.fundingStatement.description'),
+            ->addField(new FieldMetadataSetting('dataCitations', [
+                'label' => __('manager.setup.metadata.dataCitations'),
+                'description' => __('manager.setup.metadata.dataCitations.description'),
                 'options' => [
-                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.fundingStatement.enable')]
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataCitations.enable')]
                 ],
                 'submissionOptions' => [
-                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.fundingStatement.noRequest')],
-                    ['value' => Context::METADATA_REQUEST, 'label' => __('manager.setup.metadata.fundingStatement.request')],
-                    ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.fundingStatement.require')],
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataCitations.noRequest')],
+                    ['value' => Context::METADATA_REQUEST, 'label' => __('manager.setup.metadata.dataCitations.request')],
+                    ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.dataCitations.require')],
                 ],
-                'value' => $context->getData('fundingStatement') ? $context->getData('fundingStatement') : Context::METADATA_DISABLE,
+                'value' => $context->getData('dataCitations') ? $context->getData('dataCitations') : Context::METADATA_DISABLE,
             ]))
             ->addField(new FieldOptions('submitWithCategories', [
                 'label' => __('category.category'),

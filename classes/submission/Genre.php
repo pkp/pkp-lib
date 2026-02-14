@@ -26,6 +26,26 @@ class Genre extends \PKP\core\DataObject
     public const GENRE_CATEGORY_ARTWORK = 2;
     public const GENRE_CATEGORY_SUPPLEMENTARY = 3;
 
+    // Genre category-specific metadata fields.
+    // Some may not be limited to these categories only but should be considered for the specified genre categories.
+
+    // Artwork
+    public const METADATA_ARTWORK_CAPTION = 'artworkCaption';
+    public const METADATA_ARTWORK_CREDIT = 'artworkCredit';
+    public const METADATA_ARTWORK_COPYRIGHT_OWNER = 'artworkCopyrightOwner';
+    public const METADATA_ARTWORK_PERMISSION_TERMS = 'artworkPermissionTerms';
+
+    // Supplementary
+    public const METADATA_SUPPLEMENTARY_DESCRIPTION = 'description';
+    public const METADATA_SUPPLEMENTARY_CREATOR = 'creator';
+    public const METADATA_SUPPLEMENTARY_PUBLISHER = 'publisher';
+    public const METADATA_SUPPLEMENTARY_SOURCE = 'source';
+    public const METADATA_SUPPLEMENTARY_SUBJECT = 'subject';
+    public const METADATA_SUPPLEMENTARY_SPONSOR = 'sponsor';
+    public const METADATA_SUPPLEMENTARY_DATE_CREATED = 'dateCreated';
+    public const METADATA_SUPPLEMENTARY_LANGUAGE = 'language';
+
+
     /**
      * Get ID of context.
      */
@@ -212,6 +232,22 @@ class Genre extends \PKP\core\DataObject
     }
 
     /**
+     * Get whether this file supports media variant types
+     */
+    public function getSupportsFileVariants(): bool
+    {
+        return (bool) $this->getData('supportsFileVariants');
+    }
+
+    /**
+     * Set whether this file supports media variant types
+     */
+    public function setSupportsFileVariants(bool $supportsFileVariants): void
+    {
+        $this->setData('supportsFileVariants', $supportsFileVariants);
+    }
+
+    /**
      * Is this a default genre.
      *
      * @return bool
@@ -221,5 +257,33 @@ class Genre extends \PKP\core\DataObject
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $defaultKeys = $genreDao->getDefaultKeys();
         return in_array($this->getKey(), $defaultKeys);
+    }
+
+    /**
+     * Get category-specific metadata fields for genre categories
+     *
+     * @return array<int,list<string>> Keyed by GENRE_CATEGORY_* constant, values are lists of METADATA_* field name strings
+     */
+    public static function getCategoryMetadataFields(): array
+    {
+        return [
+            self::GENRE_CATEGORY_DOCUMENT => [],
+            self::GENRE_CATEGORY_ARTWORK => [
+                self::METADATA_ARTWORK_CAPTION,
+                self::METADATA_ARTWORK_CREDIT,
+                self::METADATA_ARTWORK_COPYRIGHT_OWNER,
+                self::METADATA_ARTWORK_PERMISSION_TERMS,
+            ],
+            self::GENRE_CATEGORY_SUPPLEMENTARY => [
+                self::METADATA_SUPPLEMENTARY_DESCRIPTION,
+                self::METADATA_SUPPLEMENTARY_CREATOR,
+                self::METADATA_SUPPLEMENTARY_PUBLISHER,
+                self::METADATA_SUPPLEMENTARY_SOURCE,
+                self::METADATA_SUPPLEMENTARY_SUBJECT,
+                self::METADATA_SUPPLEMENTARY_SPONSOR,
+                self::METADATA_SUPPLEMENTARY_DATE_CREATED,
+                self::METADATA_SUPPLEMENTARY_LANGUAGE,
+            ],
+        ];
     }
 }

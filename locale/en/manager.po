@@ -1991,6 +1991,13 @@ msgstr ""
 "These are supplementary files, such as data sets and research materials, and "
 "will be displayed separately from the main publication files."
 
+msgid "manager.setup.genres.supportsFileVariants.title"
+msgstr "File Variants"
+
+msgid "manager.setup.genres.supportsFileVariants.label"
+msgstr "These files support file variants types, such as 'web' or 'high resolution' images."
+
+
 msgid "manager.setup.genres.key"
 msgstr "Key"
 

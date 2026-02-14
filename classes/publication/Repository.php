@@ -47,6 +47,8 @@ use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
+use PKP\submissionFile\SubmissionFile;
+use PKP\submissionFile\VariantGroup;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -432,6 +434,38 @@ abstract class Repository
         if (!$jatsFile->isDefaultContent) {
             Repo::submissionFile()
                 ->versionSubmissionFile($jatsFile->submissionFile, $newPublication);
+        }
+
+        // Copy over publication media files
+        $mediaFiles = Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_MEDIA])
+            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publication->getId()])
+            ->getMany();
+
+        if ($mediaFiles->isNotEmpty()) {
+            $variantGroupMap = [];
+
+            foreach ($mediaFiles as $mediaFile) {
+                $oldGroupId = $mediaFile->getData('variantGroupId');
+                $newGroupId = null;
+
+                if ($oldGroupId !== null) {
+                    if (!isset($variantGroupMap[$oldGroupId])) {
+                        $newGroup = VariantGroup::create([]);
+                        $variantGroupMap[$oldGroupId] = $newGroup->getKey();
+                    }
+                    $newGroupId = $variantGroupMap[$oldGroupId];
+                }
+
+                $newMediaFile = clone $mediaFile;
+                $newMediaFile->setData('id', null);
+                $newMediaFile->setData('assocId', $newPublication->getId());
+                $newMediaFile->setData('variantGroupId', $newGroupId);
+
+                Repo::submissionFile()->add($newMediaFile);
+            }
         }
 
         $newPublication = Repo::publication()->get($newPublication->getId());
@@ -1055,7 +1089,7 @@ abstract class Repository
      */
     public function getPublicPeerReviews(array $publications): Enumerable
     {
-        $allPublicationIds = collect($publications)->map(fn($p) => $p->getId())->all();
+        $allPublicationIds = collect($publications)->map(fn ($p) => $p->getId())->all();
 
         // Find which publication IDs in this batch are claimed as the source for another publication.
         // Those publications' own review rounds will be excluded from in their own review data and shown only under the child.

@@ -60,9 +60,24 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             //  pkp/pkp-lib#5804
             $table->index(['file_stage', 'assoc_type', 'assoc_id'], 'submission_files_stage_assoc');
         });
+
+        Schema::create('variant_groups', function (Blueprint $table) {
+            $table->bigInteger('variant_group_id')->autoIncrement();
+        });
+
         Schema::table('submission_files', function (Blueprint $table) {
             $table->foreign('source_submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
             $table->index(['source_submission_file_id'], 'submission_files_source_submission_file_id');
+
+            // Variant group ID needs to be created after variant_groups table
+            $table->bigInteger('variant_group_id')->nullable();
+            $table->string('variant_type', 255)->nullable();
+
+            $table->foreign('variant_group_id')
+                ->references('variant_group_id')
+                ->on('variant_groups')
+                ->onDelete('set null');
+            $table->index(['variant_group_id'], 'submission_files_variant_group_id');
         });
 
         Schema::create('submission_file_settings', function (Blueprint $table) {
@@ -101,6 +116,7 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
     {
         Schema::drop('submission_file_revisions');
         Schema::drop('submission_file_settings');
+        Schema::drop('variant_groups');
         Schema::drop('submission_files');
     }
 }

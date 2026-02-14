@@ -27,6 +27,9 @@
 	{fbvElement type="checkbox" id="dependent" checked=$dependent label="manager.setup.genres.dependent"}
 	{fbvElement type="checkbox" id="supplementary" checked=$supplementary label="manager.setup.genres.supplementary"}
 {/fbvFormSection}
+{fbvFormSection list="true" title="manager.setup.genres.supportsFileVariants.title"}
+	{fbvElement type="checkbox" id="supportsFileVariants" checked=$supportsFileVariants label="manager.setup.genres.supportsFileVariants.label"}
+{/fbvFormSection}
 {fbvFormSection label="manager.setup.genres.metatadata" description="manager.setup.genres.metatadata.description" for="category"}
 	{fbvElement type="select" id="category" from=$submissionFileCategories selected=$category translate=false}
 {/fbvFormSection}

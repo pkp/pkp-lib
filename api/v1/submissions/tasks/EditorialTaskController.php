@@ -400,8 +400,10 @@ class EditorialTaskController extends PKPBaseController
         $newOwner = $editTask->participants->where('isResponsible', true)->first();
 
         $this->logTaskFiles($oldFiles, $newFiles, $submission, $editTask, $currentUser);
-        $this->logDueDate($oldDueDate, $newDueDate, $submission, $editTask, $currentUser);
-        $this->logOwner($newOwner, $submission, $editTask, $currentUser, $oldOwner);
+        if ($editTask->type == EditorialTaskType::TASK->value) {
+            $this->logDueDate($oldDueDate, $newDueDate, $submission, $editTask, $currentUser);
+            $this->logOwner($newOwner, $submission, $editTask, $currentUser, $oldOwner);
+        }
 
         return response()->json(
             new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask)),
@@ -1178,11 +1180,6 @@ class EditorialTaskController extends PKPBaseController
         User $uploaderUser,
         ?Participant $oldOwner = null,
     ): void {
-        // Discussions don't have an owner
-        if ($editorialTask->type == EditorialTaskType::DISCUSSION->value) {
-            return;
-        }
-
         if ($oldOwner?->userId == $newOwner->userId) {
             return;
         }

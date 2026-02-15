@@ -59,7 +59,6 @@ class TaskResource extends JsonResource
         ]));
 
         $activities = $activities->filter(fn (EventLogEntry $activity) => $activity->getAssocId() == $this->id);
-        $latestActivity = $activities->first(); /** @var ?EventLogEntry|null $latestActivity */
         $latestActivities = [];
         // always add an overdue at the start of the list
         if ($dateDue = $this->dateDue) {
@@ -73,22 +72,40 @@ class TaskResource extends JsonResource
             }
         }
 
-        if ($latestActivity) {
-            $taskDateCreated = $latestActivity->getData('taskDateCreated');
-            $taskDateStarted = $latestActivity->getData('taskDateStarted');
-            $taskDateClosed = $latestActivity->getData('taskDateClosed');
-            $activityMessage = __($latestActivity->getMessage(), [
+        foreach ($activities as $activity) {
+            $taskDateCreated = $activity->getData('taskDateCreated');
+            $taskDateStarted = $activity->getData('taskDateStarted');
+            $taskDateClosed = $activity->getData('taskDateClosed');
+            $taskDateOpened = $activity->getData('taskDateOpened');
+            $taskDateFileUploaded = $activity->getData('taskDateFileUploaded');
+            $taskDateDueModified = $activity->getData('taskDateDueModified');
+            $taskDateDueOld = $activity->getData('taskDateDueOld');
+            $taskDateDueNew = $activity->getData('taskDateDueNew');
+            $taskOwnerModifiedDate = $activity->getData('taskOwnerModifiedDate');
+
+            $activityMessage = __($activity->getMessage(), [
                 'taskType' => EditorialTaskType::from($this->type)->label(),
-                'username' => $latestActivity->getData('username'),
+                'username' => $activity->getData('username'),
+                'userGroupName' => $activity->getData('userGroupName'),
                 'taskDateCreated' => $taskDateCreated ? Carbon::parse($taskDateCreated)->format('Y-m-d') : null,
                 'taskDateStarted' => $taskDateStarted ? Carbon::parse($taskDateStarted)->format('Y-m-d') : null,
                 'taskDateClosed' => $taskDateClosed ? Carbon::parse($taskDateClosed)->format('Y-m-d') : null,
                 'taskDateReplied' => $notes->first()?->dateCreated?->format('Y-m-d'),
+                'taskDateOpened' => $taskDateOpened ? Carbon::parse($taskDateOpened)->format('Y-m-d') : null,
+                'taskDateFileUploaded' => $taskDateFileUploaded ? Carbon::parse($taskDateFileUploaded)->format('Y-m-d') : null,
+                'taskDateDueModified' => $taskDateDueModified ? Carbon::parse($taskDateDueModified)->format('Y-m-d') : null,
+                'taskDateDueOld' => $taskDateDueOld ? Carbon::parse($taskDateDueOld)->format('Y-m-d') : null,
+                'taskDateDueNew' => $taskDateDueNew ? Carbon::parse($taskDateDueNew)->format('Y-m-d') : null,
+                'filename' => $activity->getData('filename'),
+                'taskOwnerModifiedDate' => $taskOwnerModifiedDate ? Carbon::parse($taskOwnerModifiedDate)->format('Y-m-d') : null,
+                'taskOwnerOldUsername' => $activity->getData('taskOwnerOldUsername'),
+                'taskOwnerNewUsername' => $activity->getData('taskOwnerNewUsername'),
             ]);
+
             $latestActivities[] = [
-                'id' => $latestActivity->getId(),
+                'id' => $activity->getId(),
                 'message' => $activityMessage,
-                'type' => $latestActivity->getEventType()
+                'type' => $activity->getEventType()
             ];
         }
 

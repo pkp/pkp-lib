@@ -240,9 +240,41 @@
 				"date_format:Y-m-d H:i:s"
 			]
 		},
-		"taskDateStarted": {
+		"taskDateDueModified": {
 			"type": "string",
-			"description": "The date when the task associated with the event was started.",
+			"description": "The date when the due date was modified for the task associated with the event.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateDueNew": {
+			"type": "string",
+			"description": "The new due date for the task associated with the event, if the due date was changed.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateDueOld": {
+			"type": "string",
+			"description": "The old due date for the task associated with the event, if the due date was changed.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateFileUploaded": {
+			"type": "string",
+			"description": "The date when the file was uploaded for the task associated with the event.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateOpened": {
+			"type": "string",
+			"description": "The date when the task associated with the event was re-opened.",
 			"validation": [
 				"nullable",
 				"date_format:Y-m-d H:i:s"
@@ -254,6 +286,52 @@
 			"validation": [
 				"nullable",
 				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskDateStarted": {
+			"type": "string",
+			"description": "The date when the task associated with the event was started.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskOwnerModifiedDate": {
+			"type": "string",
+			"description": "The date when the responsible person was modified for the task.",
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"taskOwnerNewUserId": {
+			"type": "integer",
+			"description": "The user ID of the new person responsible for the task, if the responsible person was modified.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"taskOwnerNewUsername": {
+			"type": "string",
+			"description": "The username of the new person responsible for the task, if the responsible person was modified.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"taskOwnerOldUserId": {
+			"type": "integer",
+			"description": "The user ID of the person previously responsible for the task, if the responsible person was modified.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"taskOwnerOldUsername": {
+			"type": "string",
+			"description": "The username of the person previously responsible for the task, if the responsible person was modified.",
+			"validation": [
+				"nullable"
 			]
 		},
 		"taskType": {

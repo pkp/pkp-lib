@@ -2055,19 +2055,34 @@ msgid "submission.event.proofsApproved"
 msgstr "\"{$userFullName}\" ({$username}) has approved the proofs for \"{$publicationFormatName}.\""
 
 msgid "submission.event.task.created"
-msgstr "{$taskType} created by {$username} on {$taskDateCreated}"
+msgstr "{$taskType} created by {$username} ({$userGroupName}) on {$taskDateCreated}"
 
 msgid "submission.event.task.started"
-msgstr "{$taskType} initiated by {$username} on {$taskDateStarted}"
+msgstr "{$taskType} initiated by {$username} ({$userGroupName}) on {$taskDateStarted}"
 
 msgid "submission.event.task.closed"
 msgstr "{$taskType} closed by {$username} on {$taskDateClosed}"
+
+msgid "submission.event.task.opened"
+msgstr "{$taskType} reopened by {$username} on {$taskDateOpened}"
 
 msgid "submission.event.task.overdue"
 msgstr "This task is overdue. Remind the task owner to complete it as soon as possible"
 
 msgid "submission.event.task.notePosted"
-msgstr "{$username} posted a response on {$taskDateReplied}"
+msgstr "{$username} ({$userGroupName}) posted a response on {$taskDateReplied}"
+
+msgid "submission.event.task.fileUploaded"
+msgstr "{$filename} uploaded by {$username} on {$taskDateFileUploaded}"
+
+msgid "submission.event.task.datedue.modified"
+msgstr "Due date changed from {$taskDateDueOld} to {$taskDateDueNew} by {$username} on {$taskDateDueModified}"
+
+msgid "submission.event.task.reassigned"
+msgstr "Task reassigned from {$taskOwnerOldUsername} to {$taskOwnerNewUsername} by {$username} on {$taskOwnerModifiedDate}"
+
+msgid "submission.event.task.assigned"
+msgstr "Task assigned to {$taskOwnerNewUsername} by {$username} on {$taskOwnerModifiedDate}"
 
 msgid "submission.overview"
 msgstr "Submission Overview"

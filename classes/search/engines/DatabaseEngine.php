@@ -16,18 +16,18 @@ use APP\core\Application;
 use Illuminate\Database\Query\Builder as DatabaseBuilder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Builder as SearchBuilder;
-use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\facades\Locale;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
-class DatabaseEngine extends ScoutEngine
+class DatabaseEngine extends PKPSearchEngine
 {
-    public const MINIMUM_DATA_LENGTH = 4096;
+    public const FACETS_CACHE_TIME_SECONDS = 60 * 60 * 24;
 
     protected function getIndexName(): string
     {
@@ -179,6 +179,37 @@ class DatabaseEngine extends ScoutEngine
             'results' => $results,
             'total' => $results->count()
         ];
+    }
+
+    public function getFacets(int $contextId, string $field, ?string $filter, ?int $number = null): array
+    {
+        // Map externally-facing field names to the controlled vocabs symbolic names, and validate.
+        $fieldMap = [
+            'keywords' => 'submissionKeyword',
+            'subjects' => 'submissionSubject',
+        ];
+        if (!isset($fieldMap[$field])) {
+            throw new \InvalidArgumentException('Faceting is only available on "keywords" and "subjects" fields.');
+        }
+        $field = $fieldMap[$field];
+        return Cache::remember(
+            "facets-{$contextId}-{$field}",
+            self::FACETS_CACHE_TIME_SECONDS,
+            fn () => DB::table('controlled_vocab_entry_settings AS cves')
+                ->join('controlled_vocab_entries AS cve', 'cves.controlled_vocab_entry_id', 'cve.controlled_vocab_entry_id')
+                ->join('controlled_vocabs AS cv', 'cv.controlled_vocab_id', 'cve.controlled_vocab_id')
+                ->join('publications AS p', fn ($q) => $q->on('cv.assoc_id', 'p.publication_id')->where('cv.assoc_type', ASSOC_TYPE_PUBLICATION))
+                ->join('submissions AS s', 's.submission_id', 'p.submission_id')
+                ->where('cv.symbolic', $field)
+                ->where('s.context_id', $contextId)
+                ->where('cves.setting_name', 'name')
+                ->select(['cves.setting_value AS cv_value', DB::raw('COUNT(*) AS cv_count')])
+                ->groupBy('cves.setting_value')
+                ->when($number !== null, fn ($q) => $q->limit($number))
+                ->get()
+                ->mapWithKeys(fn ($row) => [$row->cv_value => $row->cv_count])
+                ->all()
+        );
     }
 
     public function paginate(SearchBuilder $builder, $perPage, $page): LengthAwarePaginator

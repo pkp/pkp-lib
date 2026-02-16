@@ -3987,7 +3987,7 @@ msgid "manager.reviewerRecommendations.type.approved"
 msgstr "Approved"
 
 msgid "manager.reviewerRecommendations.type.revisionsRequested"
-msgstr "Revisions requested"
+msgstr "Revisions Requested"
 
 msgid "manager.reviewerRecommendations.type.withComments"
 msgstr "With Comments"

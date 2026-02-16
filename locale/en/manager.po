@@ -2335,6 +2335,11 @@ msgstr ""
 "The submission file {$id} was skipped because it is attached to a record "
 "that will not be imported, such as a review assignment or discussion."
 
+# fuzzy
+msgid "plugins.importexport.native.error.submissionFileSourceMissing"
+msgstr ""
+"The submission file was not assigned with the source file id {$id} because it's source failed to be imported."
+
 msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
 msgstr "The submission file {$id} was skipped because it does not have a valid revision."
 

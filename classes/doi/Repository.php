@@ -42,7 +42,8 @@ abstract class Repository
     public const CREATION_TIME_COPYEDIT = 'copyEditCreationTime';
     public const CREATION_TIME_PUBLICATION = 'publicationCreationTime';
     public const CREATION_TIME_NEVER = 'neverCreationTime';
-
+    public const TYPE_PEER_REVIEW = 'peerReview';
+    public const TYPE_AUTHOR_RESPONSE = 'authorResponse';
     /** @var DAO $dao */
     public $dao;
 

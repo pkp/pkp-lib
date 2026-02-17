@@ -34,11 +34,15 @@ use PKP\security\Validation;
 
 class GalleyInformationCenterHandler extends InformationCenterHandler
 {
-    /** @var Galley The galley */
-    public $galley;
+    /** 
+     * The galley instance
+     */
+    public Galley $galley;
 
-    /** @var int The stage ID */
-    public $_stageId;
+    /**
+     * The stage ID 
+     */
+    public int $stageId;
 
     /**
      * Constructor
@@ -70,7 +74,7 @@ class GalleyInformationCenterHandler extends InformationCenterHandler
             $args,
             $roleAssignments,
             'submissionId',
-            (int) $request->getUserVar('stageId') // FIXME: should only allow for WORKFLOW_STAGE_ID_PRODUCTION ?
+            (int) $request->getUserVar('stageId')
         ));
 
         $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
@@ -88,8 +92,16 @@ class GalleyInformationCenterHandler extends InformationCenterHandler
     {
         parent::initialize($request, $args);
 
-        $this->_stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
+        $this->stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $this->galley = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION);
+        
+        /** @var \PKP\publication\PKPPublication $publication */
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+
+        // Ensure data integrity.
+        if ($this->galley->getData('publicationId') != $publication->getId()) {
+            throw new \Exception('Unknown or invalid publication or galley!');
+        };
     }
 
     /**
@@ -217,7 +229,7 @@ class GalleyInformationCenterHandler extends InformationCenterHandler
             [
                 'representationId' => $this->galley->getId(),
                 'publicationId' => $this->galley->getData('publicationId'),
-                'stageId' => $this->_stageId,
+                'stageId' => $this->stageId,
             ]
         );
     }

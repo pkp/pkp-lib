@@ -75,7 +75,6 @@ class ReviewReminderForm extends Form
     public function initData()
     {
         $request = Application::get()->getRequest();
-        $user = $request->getUser();
         $context = $request->getContext();
 
         $reviewAssignment = $this->getReviewAssignment();
@@ -83,14 +82,13 @@ class ReviewReminderForm extends Form
         $reviewer = Repo::user()->get($reviewerId);
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $mailable->sender($user)->recipients([$reviewer]);
-        $templateKey = $mailable::getEmailTemplateKey();
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
+        $mailable = $this->getReviewRemindMailable($context);
+        $defaultTemplate = $this->getDefaultTemplate($context);
+        $defaultTemplateKey = $defaultTemplate->getData('key');
         $data = $mailable->getData(Locale::getLocale());
         // Don't expose the reviewer's one-click access URL to editors
         $data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = '{$' . ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL . '}';
-        $body = Mail::compileParams($template->getLocalizedData('body'), $data);
+        $body = Mail::compileParams($defaultTemplate->getLocalizedData('body'), $data);
 
         $this->setData('stageId', $reviewAssignment->getStageId());
         $this->setData('reviewAssignmentId', $reviewAssignment->getId());
@@ -100,7 +98,7 @@ class ReviewReminderForm extends Form
         $this->setData('message', $body);
         $this->setData('reviewDueDate', $mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
         // Default selected template in the UI
-        $this->setData('templateKey', $templateKey);
+        $this->setData('defaultTemplateKey', $defaultTemplateKey);
     }
 
     /**
@@ -115,24 +113,11 @@ class ReviewReminderForm extends Form
             'passwordResetUrl' => __('common.url'),
         ]);
         // Provide templates for the <select>
-        $context = $request->getContext();
-        $reviewAssignment = $this->getReviewAssignment();
-        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $data = $mailable->getData(Locale::getLocale());
-        $templateKey = $mailable::getEmailTemplateKey();
-        $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
-        $templates = [$templateKey => $defaultTemplate->getLocalizedData('name')];
-        $alternateTemplates = Repo::emailTemplate()->getCollector($context->getId())
-            ->alternateTo([$mailable::getEmailTemplateKey()])
-            ->getMany();
-        foreach ($alternateTemplates as $alternateTemplate) {
-            $templates[$alternateTemplate->getData('key')] =
-                Mail::compileParams($alternateTemplate->getLocalizedData('name'), $data);
-        }
+        $templates = $this->getEmailTemplates();
+        $defaultTemplateKey = array_key_first($templates);
         $templateMgr->assign([
             'templates' => $templates,
-            'templateKey' => $templateKey,
+            'defaultTemplateKey' => $defaultTemplateKey,
         ]);
         return parent::fetch($request, $template, $display);
     }
@@ -145,7 +130,7 @@ class ReviewReminderForm extends Form
     public function readInputData()
     {
         $this->readUserVars([
-            'template',
+            'templateKey',
             'message',
             'reviewDueDate',
         ]);
@@ -165,14 +150,15 @@ class ReviewReminderForm extends Form
         $context = $request->getContext();
 
         // Create ReviewRemind email and populate with data
-        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $templateKey = $this->getData('template') ?: $mailable::getEmailTemplateKey();
+        $mailable = $this->getReviewRemindMailable($context);
+        $templateKey = $this->getData('templateKey') ?: $mailable::getEmailTemplateKey();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
+        if ($template === null) {
+            throw new \Exception("Selected email template with key $templateKey not found.");
+        }
         $mailable
             ->subject($template->getLocalizedData('subject'))
-            ->body($this->getData('message'))
-            ->sender($user)
-            ->recipients([$reviewer]);
+            ->body($this->getData('message'));
 
         // Finally, send email and handle Symfony transport exceptions
         try {
@@ -209,5 +195,62 @@ class ReviewReminderForm extends Form
         }
 
         parent::execute(...$functionArgs);
+    }
+
+    /**
+     * Get the mailable for this form, populated with necessary data for template variable replacement.
+     *
+     * @return ReviewRemind
+     */
+    public function getReviewRemindMailable($context)
+    {
+        $reviewAssignment = $this->getReviewAssignment();
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        $user = Application::get()->getRequest()->getUser();
+        $mailable
+            ->sender($user)
+            ->recipients([$reviewer]);
+        return $mailable;
+    }
+
+    public function getDefaultTemplate($context)
+    {
+        $mailable = $this->getReviewRemindMailable($context);
+        $templateKey = $mailable::getEmailTemplateKey();
+        $contextId = $context->getId();
+        $defaultTemplate = Repo::emailTemplate()->getByKey($contextId, $templateKey);
+        // Handle missing template case, showing an error message,
+        // since the default template is required for the form to work properly.
+        if ($defaultTemplate === null) {
+            throw new \Exception("Default email template with key $templateKey not found for context " . $contextId);
+        }
+        return $defaultTemplate;
+    }
+
+    /**
+     * Get available email templates for this form, with the default template as the first option.
+     *
+     * @return array
+     */
+    public function getEmailTemplates()
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $contextId = $context->getId();
+        $mailable = $this->getReviewRemindMailable($context);
+        $defaultTemplate = $this->getDefaultTemplate($context);
+        $defaultTemplateKey = $defaultTemplate->getData('key');
+        $data = $mailable->getData(Locale::getLocale());
+        $templates = [$defaultTemplateKey => $defaultTemplate->getLocalizedData('name')];
+        $alternateTemplates = Repo::emailTemplate()->getCollector($contextId)
+            ->alternateTo([$defaultTemplateKey])
+            ->getMany();
+        foreach ($alternateTemplates as $alternateTemplate) {
+            $templates[$alternateTemplate->getData('key')] =
+                Mail::compileParams($alternateTemplate->getLocalizedData('name'), $data);
+        }
+        return $templates;
     }
 }

@@ -27,6 +27,7 @@ use Illuminate\Support\Enumerable;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\enums\PublicReviewStatus;
 
 class ReviewRound extends \PKP\core\DataObject
@@ -422,5 +423,13 @@ class ReviewRound extends \PKP\core\DataObject
             'dateInProgress' => $dateInProgress,
             'dateCompleted' => $dateCompleted,
         ];
+    }
+
+    /*
+     * Get the author response for this review round, if any.
+     */
+    public function getAuthorResponse(): ?AuthorResponse
+    {
+        return AuthorResponse::withReviewRoundIds([$this->getId()])->first();
     }
 }

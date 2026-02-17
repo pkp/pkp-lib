@@ -31,8 +31,8 @@
 		{/fbvFormSection}
 
 		{if count($templates)}
-			{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
-				{fbvElement type="select" from=$templates translate=false id="template" selected=$templateKey defaultValue="" defaultLabel=""}
+			{fbvFormSection title="stageParticipants.notify.chooseMessage" for="templateKey" size=$fbvStyles.size.medium}
+				{fbvElement type="select" from=$templates translate=false id="template" selected=$defaultTemplateKey defaultValue="" defaultLabel=""}
 			{/fbvFormSection}
 		{/if}
 

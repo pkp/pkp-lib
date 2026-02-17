@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/grid/users/reviewer/form/ReviewReminderFormHandler.js
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminderFormHandler
@@ -27,8 +27,8 @@
 	 * @param {jQueryObject} $form
 	 * @param {Object} options
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler =
-		function ($form, options) {
+	$.pkp.controllers.grid.users.reviewer.form.
+			ReviewReminderFormHandler = function ($form, options) {
 		this.parent($form, options);
 
 		if (options.templateUrl) {
@@ -38,6 +38,7 @@
 		$form.find('#template')
 			.change(this.callbackWrapper(this.selectTemplateHandler_));
 	};
+
 	$.pkp.classes.Helper.inherits(
 		$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler,
 		$.pkp.controllers.form.AjaxFormHandler
@@ -47,24 +48,23 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler
-		.prototype.templateUrl_ = null;
+	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler.
+			prototype.templateUrl_ = null;
 
 	/**
 	 * @private
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler
-		.prototype.selectTemplateHandler_ =
-		function () {
-			var $form = this.getHtmlElement();
+	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler.
+			prototype.selectTemplateHandler_ = function () {
+		var $form = this.getHtmlElement();
 
-			$.post(
-				this.templateUrl_,
-				$form.find('#template').serialize(),
-				this.callbackWrapper(this.updateTemplate_),
-				'json'
-			);
-		};
+		$.post(
+			this.templateUrl_,
+			$form.find('#template').serialize(),
+			this.callbackWrapper(this.updateTemplate_),
+			'json'
+		);
+	};
 
 	/**
 	 * @private
@@ -72,31 +72,31 @@
 	 * @param {Object} jsonData
 	 * @return {boolean}
 	 */
-	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler
-		.prototype.updateTemplate_ =
-		function (formElement, jsonData) {
-			var $form = this.getHtmlElement();
-			var processedJsonData = this.handleJson(jsonData);
-			if (!processedJsonData.status) {
-				return false;
-			}
+	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler.
+			prototype.updateTemplate_ = function (formElement, jsonData) {
+		var $form = this.getHtmlElement();
+		var processedJsonData = this.handleJson(jsonData);
+		if (!processedJsonData.status) {
+			return false;
+		}
 
-			var content = jsonData.content || {};
-			var body = content.body || '';
+		var content = jsonData.content || {};
+		var body = content.body || '';
 
-			var $textarea = $form.find('textarea[name="message"]');
-			var editor = tinyMCE.EditorManager.get($textarea.attr('id'));
+		var $textarea = $form.find('textarea[name="message"]');
+		var editor = tinyMCE.EditorManager.get($textarea.attr('id'));
 
-			if (content.variables) {
-				$textarea.attr('data-variables', JSON.stringify(content.variables));
-			}
+		if (content.variables) {
+			$textarea.attr('data-variables', JSON.stringify(content.variables));
+		}
 
-			if (editor) {
-				editor.setContent(body);
-			} else {
-				$textarea.val(body);
-			}
+		if (editor) {
+			editor.setContent(body);
+		} else {
+			$textarea.val(body);
+		}
 
-			return processedJsonData.status;
-		};
+		return processedJsonData.status;
+	};
+
 })(jQuery);

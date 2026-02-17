@@ -221,6 +221,12 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     $this->_submissionFiles = [];
                 }
             } else {
+                // For representations (galleys), don't show revision selector - only new file upload allowed
+                if ($this->getAssocType() === Application::ASSOC_TYPE_REPRESENTATION) {
+                    $this->_submissionFiles = [];
+                    return $this->_submissionFiles;
+                }
+                
                 $collector = Repo::submissionFile()
                     ->getCollector()
                     ->filterByFileStages([(int) $this->getData('fileStage')])

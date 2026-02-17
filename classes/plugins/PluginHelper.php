@@ -202,6 +202,7 @@ class PluginHelper
      *
      * @param string $path path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
+     * @param bool $gallerySource Indicates whether the plugin is being installed from the gallery (true) or from the upload form (false).
      *
      * @return Version Version of installed plugin on success
      */
@@ -281,6 +282,7 @@ class PluginHelper
      *
      * @param string $path path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
+     * @param bool $gallerySource Indicates whether the plugin is being installed from the gallery (true) or from the upload form (false).
      *
      */
     public function upgradePlugin(string $category, string $plugin, string $path, string $originalFileName, bool $gallerySource = false): Version

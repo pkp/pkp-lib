@@ -19,14 +19,18 @@ use APP\submission\Submission;
 use APP\facades\Repo;
 use APP\plugins\generic\jatsTemplate\classes\Article;
 use Exception;
+use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\jats\exceptions\UnableToCreateJATSContentException;
+use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use Throwable;
 
 class Repository
 {
+    public const JATS_FILE_CACHE_LIFETIME = 24 * 60 * 60; // 24 hours
+    
     /**
      * Summarize the JatsFile along with the jatsContent
      */
@@ -114,7 +118,11 @@ class Repository
     }
 
     /**
-     * Base function that will add a new JATS file
+     * Add or update a JATS file for a publication.
+     *
+     * If a JATS file already exists, this creates a new revision by updating
+     * the existing record (which automatically creates a revision record) .
+     * If no JATS file exists, creates a new one.
      */
     public function addJatsFile(
         string $fileTmpName,
@@ -130,15 +138,12 @@ class Repository
         $context = Application::get()->getRequest()->getContext();
         $user = Application::get()->getRequest()->getUser();
 
-        // If no genre has been set and there is only one genre possible, set it automatically
         /** @var GenreDAO */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
+        // Check if a JATS file already exists
         $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
-        if (!$existingJatsFile->isDefaultContent) {
-            throw new Exception('A JATS file already exists');
-        }
 
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($fileName);
@@ -154,51 +159,86 @@ class Repository
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
 
-        $params['fileId'] = $fileId;
-        $params['submissionId'] = $submission->getId();
-        $params['uploaderUserId'] = $user->getId();
-        $params['fileStage'] = $type;
-
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getData('supportedSubmissionLocales');
 
-        $params['name'] = null;
-        $params['name'][$primaryLocale] = $fileName;
+        // REVISION: If JATS file already exists, UPDATE it which also creates revision automatically
+        if (!$existingJatsFile->isDefaultContent && $existingJatsFile->submissionFile) {
+            Repo::submissionFile()->edit(
+                $existingJatsFile->submissionFile,
+                [
+                    'fileId' => $fileId,
+                    'uploaderUserId' => $user->getId(),
+                    'name' => [$primaryLocale => $fileName],
+                ]
+            );
+        } else {
+            // FIRST UPLOAD: Create new submission file record
+            $params['fileId'] = $fileId;
+            $params['submissionId'] = $submission->getId();
+            $params['uploaderUserId'] = $user->getId();
+            $params['fileStage'] = $type;
+            $params['name'] = [$primaryLocale => $fileName];
 
-        if (empty($params['genreId'])) {
-
-            [$firstGenre, $secondGenre] = [$genres->next(), $genres->next()];
-            if ($firstGenre && !$secondGenre) {
-                $params['genreId'] = $firstGenre->getId();
+            if (empty($params['genreId'])) {
+                [$firstGenre, $secondGenre] = [$genres->next(), $genres->next()];
+                if ($firstGenre && !$secondGenre) {
+                    $params['genreId'] = $firstGenre->getId();
+                }
             }
-        }
 
-        $params['assocType'] = Application::ASSOC_TYPE_PUBLICATION;
-        $params['assocId'] = $publication->getId();
+            $params['assocType'] = Application::ASSOC_TYPE_PUBLICATION;
+            $params['assocId'] = $publication->getId();
 
-        $errors = Repo::submissionFile()
-            ->validate(
+            $errors = Repo::submissionFile()->validate(
                 null,
                 $params,
                 $allowedLocales,
                 $primaryLocale
             );
 
-        if (!empty($errors)) {
-            app()->get('file')->delete($fileId);
-            throw new Exception('' . implode(', ', $errors));
+            if (!empty($errors)) {
+                app()->get('file')->delete($fileId);
+                throw new Exception(print_r($errors, true));
+            }
+
+            $submissionFile = Repo::submissionFile()->newDataObject($params);
+            Repo::submissionFile()->add($submissionFile);
         }
 
-        $submissionFile = Repo::submissionFile()
-            ->newDataObject($params);
+        // cache should be cleared when file changes
+        $this->clearPublicJatsCache($publicationId);
 
-        $submissionFileId = Repo::submissionFile()
-            ->add($submissionFile);
+        // Return fresh JatsFile
+        return $this->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+    }
 
-        $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+    /**
+     * Delete the JATS file for a publication.
+     *
+     * @param int $publicationId The publication ID
+     * @param int|null $submissionId Optional submission ID filter
+     */
+    public function deleteJatsFile(int $publicationId, ?int $submissionId = null): void
+    {
+        $query = Repo::submissionFile()
+            ->getCollector()
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_JATS])
+            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publicationId]);
 
-        return $jatsFile;
+        if ($submissionId) {
+            $query = $query->filterBySubmissionIds([$submissionId]);
+        }
+
+        $jatsFile = $query->getMany()->first();
+
+        if ($jatsFile) {
+            // Delete the single record (revisions cascade via FK)
+            Repo::submissionFile()->delete($jatsFile);
+        }
+
+        // cache should be cleared when file deleted
+        $this->clearPublicJatsCache($publicationId);
     }
 
     /**
@@ -234,5 +274,57 @@ class Repository
     public function getFileStages(): array
     {
         return [SubmissionFile::SUBMISSION_FILE_JATS];
+    }
+
+    /**
+     * Get JATS content for public download with given cache life time as defined
+     *
+     * This method caches the JATS XML content to prevent server overload
+     * from repeated public requests. Cache is invalidated when:
+     * - JATS file is uploaded (addJatsFile)
+     * - JATS file is deleted (deleteJatsFile)
+     * - Visibility setting changes (via controller)
+     *
+     * @param int $publicationId The publication ID
+     * @param int $submissionId Optional submission ID filter
+     * @return string|null The JATS XML content or null if unavailable
+     */
+    public function getPublicJatsContent(int $publicationId, int $submissionId): ?string
+    {
+        $cacheKey = $this->getPublicJatsCacheKey($publicationId);
+
+        return Cache::remember($cacheKey, static::JATS_FILE_CACHE_LIFETIME, function () use ($publicationId, $submissionId) {
+            $submission = Repo::submission()->get($submissionId);
+            
+            /** @var \PKP\context\Context $context */
+            $context = app()->get('context')->get($submission->getData('contextId'));
+            
+            $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+            $genres = $genreDao->getEnabledByContextId($context->getId());
+
+            $jatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
+
+            return $jatsFile?->jatsContent;
+        });
+    }
+
+    /**
+     * Clear the public JATS cache for a publication.
+     *
+     * Should be called when:
+     * - JATS file content changes (upload/delete)
+     * - Visibility setting changes
+     */
+    public function clearPublicJatsCache(int $publicationId): void
+    {
+        Cache::forget($this->getPublicJatsCacheKey($publicationId));
+    }
+
+    /**
+     * Get the cache key for public JATS content.
+     */
+    protected function getPublicJatsCacheKey(int $publicationId): string
+    {
+        return "jats-public-content-{$publicationId}";
     }
 }

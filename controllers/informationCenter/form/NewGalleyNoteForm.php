@@ -20,16 +20,18 @@ use PKP\controllers\informationCenter\form\NewNoteForm;
 
 class NewGalleyNoteForm extends NewNoteForm
 {
-    /** @var int The ID of the galley to attach the note to */
-    public $galleyId;
+    /** 
+     * The ID of the galley to attach the note to
+     */
+    public int $galleyId;
 
     /**
      * Constructor.
      */
-    public function __construct($galleyId)
+    public function __construct(int $galleyId)
     {
         parent::__construct();
-        $this->galleyId = (int) $galleyId;
+        $this->galleyId = $galleyId;
     }
 
     /**

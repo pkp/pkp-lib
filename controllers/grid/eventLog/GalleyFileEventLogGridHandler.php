@@ -27,35 +27,27 @@ use PKP\security\Role;
 
 class GalleyFileEventLogGridHandler extends SubmissionEventLogGridHandler
 {
-    /** @var Galley The galley */
-    protected $_galley;
+    /**
+     * The galley instance
+     */
+    protected Galley $galley;
 
-    //
-    // Getters/Setters
-    //
     /**
      * Get the galley associated with this grid.
-     *
-     * @return Galley Galley
      */
-    public function getGalley()
+    public function getGalley(): Galley
     {
-        return $this->_galley;
+        return $this->galley;
     }
 
     /**
      * Set the galley
-     *
-     * @param Galley $galley
      */
-    public function setGalley($galley)
+    public function setGalley(Galley $galley)
     {
-        $this->_galley = $galley;
+        $this->galley = $galley;
     }
 
-    //
-    // Overridden methods from PKPHandler
-    //
     /**
      * @see PKPHandler::authorize()
      *
@@ -67,7 +59,6 @@ class GalleyFileEventLogGridHandler extends SubmissionEventLogGridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        // Use WorkflowStageAccessPolicy for production stage
         $this->addPolicy(new WorkflowStageAccessPolicy(
             $request,
             $args,
@@ -76,10 +67,7 @@ class GalleyFileEventLogGridHandler extends SubmissionEventLogGridHandler
             (int) $args['stageId']
         ));
 
-        // Require valid publication access
         $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
-
-        // Require valid representation (galley)
         $this->addPolicy(new RepresentationRequiredPolicy($request, $args));
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -98,9 +86,6 @@ class GalleyFileEventLogGridHandler extends SubmissionEventLogGridHandler
         $this->setGalley($this->getAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION));
     }
 
-    //
-    // Overridden methods from GridHandler
-    //
     /**
      * Get the arguments that will identify the data in the grid
      *

@@ -246,7 +246,7 @@ class DAO extends EntityDAO
         array $locales = [],
         ?string $emailKey = null,
         bool $skipExisting = false,
-        $recordTemplateGroupAccess = false
+        bool $recordTemplateGroupAccess = false
     ): bool {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct($templatesFile, ['email']);

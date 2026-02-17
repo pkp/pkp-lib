@@ -15,6 +15,7 @@
 
 namespace PKP\mail\mailables;
 
+use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
@@ -37,20 +38,29 @@ class RequestReviewRoundAuthorResponse extends Mailable
 
     protected static ?string $name = 'mailable.reviewRound.requestAuthorResponse.name';
     protected static ?string $description = 'mailable.reviewRound.requestAuthorResponse.description';
-    protected static ?string $emailTemplateKey = 'EDITOR_DECISION_REVISIONS';
+    protected static ?string $emailTemplateKey = 'REQUEST_REVIEW_ROUND_AUTHOR_RESPONSE';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static array $fromRoleIds = [Role::ROLE_ID_SUB_EDITOR];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 
+    private Context $context;
+    private Submission $submission;
+    /** @var array<ReviewAssignment> */
+    private array $reviewAssignments;
+    private ReviewRound $reviewRound;
     /**
      * @param array<ReviewAssignment> $reviewAssignments
      */
     public function __construct(Context $context, Submission $submission, array $reviewAssignments, ReviewRound $reviewRound)
     {
+        $this->context = $context;
+        $this->submission = $submission;
+        $this->reviewAssignments = $reviewAssignments;
+        $this->reviewRound = $reviewRound;
+
         parent::__construct(array_slice(func_get_args(), 0, -2));
-        $this->setupReviewerCommentsVariable($reviewAssignments, $submission);
-        $this->setupReviewAuthorResponseVariable($submission, $reviewRound->getId(), $reviewRound->getStageId(), $context);
+        $this->setupTemplateVariables();
     }
 
     public static function getDataDescriptions(): array
@@ -60,5 +70,22 @@ class RequestReviewRoundAuthorResponse extends Mailable
         $variables = self::addReviewAuthorResponseDataDescription($variables);
 
         return $variables;
+    }
+
+
+    /**
+     * Setup variables for the email template.
+     * @return void
+     * @throws \Exception
+     */
+    private function setupTemplateVariables(): void
+    {
+        $this->setupReviewerCommentsVariable($this->reviewAssignments, $this->submission);
+        $this->setupReviewAuthorResponseVariable(
+            $this->submission,
+            $this->reviewRound->getId(),
+            $this->reviewRound->getStageId(),
+            $this->context
+        );
     }
 }

@@ -888,12 +888,20 @@ class PKPReviewController extends PKPBaseController
             ->filterByReviewRoundIds([$reviewRound->getId()])
             ->getMany();
 
+        /**
+         * Only allow request to be sent if either:
+         * 1) The number of completed reviews meets the minimum required number of reviews per submission as defined on the Context, or;
+         * 2) All reviews for the round are completed.
+         */
         $shouldConsiderMinimumRequiredReviews = (bool)$context->getNumReviewsPerSubmission();
 
-        $hasMinimumRequiredReviews =
-            $assignments->filter(fn(ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)->count() >= $context->getNumReviewsPerSubmission();
+        $hasMinimumRequiredReviews = $assignments
+                ->filter(fn(ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)
+                ->count() >= $context->getNumReviewsPerSubmission();
 
-        $areAllReviewsCompleted = $assignments->isNotEmpty() && $assignments->every(fn($assignment) => $assignment->getDateCompleted() !== null);
+        $areAllReviewsCompleted = $assignments->isNotEmpty() &&
+            $assignments
+                ->every(fn($assignment) => $assignment->getDateCompleted() !== null);
 
         $passesMinimumReviewsCheck = $shouldConsiderMinimumRequiredReviews && $hasMinimumRequiredReviews;
 

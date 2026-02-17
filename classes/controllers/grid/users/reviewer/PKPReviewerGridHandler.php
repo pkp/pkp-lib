@@ -990,10 +990,18 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $submission = $this->getSubmission();
+        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
+        $templates = $reviewReminderForm->getEmailTemplates();
+
+        // Look if the template key from the request matches any of the templates available for this form.
+        // If not, return an error.
+        if (!isset($templates[$templateKey])) {
+            return new JSONMessage(false, __('editor.review.reminderError'));
+        }
+
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         $sender = $request->getUser();
-        $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
+        $mailable = $reviewReminderForm->getReviewRemindMailable($context);
         $mailable->sender($sender)->recipients([$reviewer]);
         $data = $mailable->getData(Locale::getLocale());
         // Don't expose the reviewer's one-click access URL to editors

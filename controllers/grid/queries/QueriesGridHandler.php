@@ -277,7 +277,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $query = Query::where('id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
+        $query = Query::where('query_id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
         $query->seq = $newSequence;
         $query->save();
     }

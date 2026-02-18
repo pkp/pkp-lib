@@ -678,6 +678,23 @@ class PKPReviewerGridHandler extends GridHandler
                 Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_CANCEL, $mailable, $submission, $user);
             }
         }
+        $reviewerId = $reviewAssignment->getReviewerId();
+        $submissionId = $submission->getId();
+
+        $stillReviewerSomewhereOnSubmission = Repo::reviewAssignment()
+            ->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByReviewerIds([$reviewerId])
+            ->filterByActive(true)
+            ->getCount() > 0;
+
+        if (!$stillReviewerSomewhereOnSubmission) {
+            Repo::editorialTask()->removeParticipantFromSubmissionTasks(
+                $submissionId,
+                $reviewerId,
+                $request->getContext()->getId()
+            );
+        }
 
         $json = DAO::getDataChangedEvent($reviewAssignment->getId());
         $json->setGlobalEvent('update:decisions');

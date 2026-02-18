@@ -112,19 +112,19 @@ class EditTask extends FormRequest
                     $blindedReviewerIds = [];
                     $nonBlindedReviewerIds = [];
                     foreach ($this->reviewAssignments as $reviewAssignment) {
+                        $reviewerId = $reviewAssignment->getReviewerId();
 
-                        if (!in_array($reviewAssignment->getReviewerId(), $participants)) {
+                        if (!in_array($reviewerId, $participants)) {
                             continue;
                         }
 
                         if (in_array(
                             $reviewAssignment->getReviewMethod(),
                             [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]
-                        )
-                        ) {
-                            $blindedReviewerIds[] = $reviewAssignment->getReviewerId();
+                        )) {
+                            $blindedReviewerIds[$reviewerId] = true;
                         } else {
-                            $nonBlindedReviewerIds[] = $reviewAssignment->getReviewerId();
+                            $nonBlindedReviewerIds[$reviewerId] = true;
                         }
                     }
 

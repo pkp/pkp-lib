@@ -418,8 +418,18 @@ class StageParticipantGridHandler extends CategoryGridHandler
             return new JSONMessage(false);
         }
 
+        $userId = $stageAssignment->userId;
+        $userGroupId = $stageAssignment->userGroupId;
+
         // Delete the assignment
         $stageAssignment->delete();
+
+        // remove participant from submission tasks/discussions
+        Repo::editorialTask()->removeParticipantFromSubmissionTasks(
+            $submission->getId(),
+            $userId,
+            $request->getContext()->getId()
+        );
 
         // FIXME: perhaps we can just insert the notification on page load
         // instead of having it there all the time?
@@ -450,8 +460,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
         }
 
         // Log removal.
-        $assignedUser = Repo::user()->get($stageAssignment->userId, true);
-        $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+        $assignedUser = Repo::user()->get($userId, true);
+        $userGroup = Repo::userGroup()->get($userGroupId);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -468,7 +478,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         Repo::eventLog()->add($eventLog);
 
         // Redraw the category
-        return \PKP\db\DAO::getDataChangedEvent($stageAssignment->userGroupId);
+        return \PKP\db\DAO::getDataChangedEvent($userGroupId);
     }
 
     /**

@@ -248,4 +248,29 @@ class Repository
             Notification::whereIn('assoc_id', $taskIds)->delete();
         }
     }
+
+    public function removeParticipantFromSubmissionTasks(int $submissionId, int $userId, int $contextId): void
+    {
+        $user = Repo::user()->get($userId);
+
+        // Non-managerial only
+        if ($user && $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $contextId)) {
+            return;
+        }
+
+        $taskIds = EditorialTask::query()
+            ->where('assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
+            ->where('assoc_id', $submissionId)
+            ->pluck('edit_task_id')
+            ->all();
+
+        if (empty($taskIds)) {
+            return;
+        }
+
+        Participant::query()
+            ->whereIn('edit_task_id', $taskIds)
+            ->where('user_id', $userId)
+            ->delete();
+    }
 }

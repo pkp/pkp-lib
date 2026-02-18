@@ -16,6 +16,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use PKP\services\PKPStatsSushiService;
 use PKP\services\PKPStatsGeoService;
@@ -64,5 +65,16 @@ class AppServiceProvider extends ServiceProvider
 
         // SUSHI statistics service
         $this->app->singleton('sushiStats', fn ($app) => new PKPStatsSushiService);
+    }
+
+    /**
+     * Boot service provider
+     */
+    public function boot()
+    {
+        // Prevent lazy loading in development and testing environments
+        // to enable this add the following to config.inc.php of the `general` section as
+        // app_env = 'development'
+        Model::preventLazyLoading(!app()->isProduction());
     }
 }

@@ -504,7 +504,7 @@ class Validation
 
         // single query to fetch user groups assigned to either user
         $allUserGroups = UserGroup::query()
-            ->whereHas('userUserGroups', function ($query) use ($administratorUserId, $administeredUserId) {
+            ->withWhereHas('userUserGroups', function ($query) use ($administratorUserId, $administeredUserId) {
                 $query->withUserIds([$administratorUserId, $administeredUserId])
                     ->withActive();
             })

@@ -617,6 +617,14 @@ class PKPContainer extends Container
     {
         $this->isRunningUnitTest = false;
     }
+
+    /**
+     * Determine if the application is in the production environment.
+     */
+    public function isProduction(): bool
+    {
+        return Config::getVar('general', 'app_env', 'production') === 'production';
+    }
 }
 
 if (!PKP_STRICT_MODE) {

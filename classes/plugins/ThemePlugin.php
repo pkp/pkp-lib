@@ -900,6 +900,19 @@ abstract class ThemePlugin extends LazyLoadPlugin
     }
 
     /**
+     * Get usage stats chart data for Vue component consumption
+     */
+    public function getUsageStatsChartData(int $submissionId): array
+    {
+        return [
+            'chartType' => $this->getOption('displayStats'),
+            'statsData' => $this->getAllDownloadsStats($submissionId),
+            'monthLabels' => explode(' ', __('plugins.themes.default.displayStats.monthInitials')),
+            'noStatsMessage' => __('plugins.themes.default.displayStats.noStats'),
+        ];
+    }
+
+    /**
      * Add usage statistics graph to submission view page
      */
     public function displayUsageStatsGraph(int $submissionId): void

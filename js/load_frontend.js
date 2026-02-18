@@ -42,6 +42,7 @@ import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenRev
 import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
 import PkpCiteBody from '@/frontend/components/PkpCite/PkpCiteBody.vue';
 import PkpCrossmarkButton from '@/frontend/components/PkpCrossmarkButton/PkpCrossmarkButton.vue';
+import PkpUsageChart from '@/frontend/components/PkpUsageChart/PkpUsageChart.vue';
 
 // Pinia stores
 import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
@@ -49,6 +50,7 @@ import {usePageStore} from '@/frontend/stores/pkpPageStore';
 import {usePkpCommentsStore} from '@/frontend/components/PkpComments/usePkpCommentsStore';
 import {usePkpOpenReviewStore} from '@/frontend/components/PkpOpenReview/usePkpOpenReviewStore';
 import {usePkpCiteStore} from '@/frontend/components/PkpCite/usePkpCiteStore';
+import {usePkpUsageChartStore} from '@/frontend/components/PkpUsageChart/usePkpUsageChartStore';
 
 // PkpTab Components
 import PkpTabRoot from '@/frontend/components/PkpTab/PkpTabRoot.vue';
@@ -88,6 +90,7 @@ VueRegistry.registerStore('pkpPage', usePageStore);
 VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
 VueRegistry.registerStore('pkpOpenReview', usePkpOpenReviewStore);
 VueRegistry.registerStore('pkpCite', usePkpCiteStore);
+VueRegistry.registerStore('pkpUsageChart', usePkpUsageChartStore);
 
 VueRegistry.registerComponent('PkpButton', PkpButton);
 VueRegistry.registerComponent('PkpDialog', PkpDialog);
@@ -103,6 +106,7 @@ VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
 VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
 VueRegistry.registerComponent('PkpCiteBody', PkpCiteBody);
 VueRegistry.registerComponent('PkpCrossmarkButton', PkpCrossmarkButton);
+VueRegistry.registerComponent('PkpUsageChart', PkpUsageChart);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);

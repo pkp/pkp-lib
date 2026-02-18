@@ -376,7 +376,7 @@ class PKPStatsContextController extends PKPBaseController
             return response()->withFile($data, $csvColumnNames, count($data));
         }
 
-        return response()->withJson($data, Response::HTTP_OK);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**

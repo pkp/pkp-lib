@@ -36,6 +36,7 @@ use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
 use PKP\publication\helpers\PublicationVersionInfo;
+use PKP\publication\PKPPublication;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
@@ -552,7 +553,7 @@ abstract class Repository
                 fn (Publication $p) =>
                     in_array(
                         $p->getData('status'),
-                        [Submission::STATUS_PUBLISHED, Submission::STATUS_SCHEDULED]
+                        [PKPPublication::STATUS_PUBLISHED, PKPPublication::STATUS_SCHEDULED]
                     )
             );
 

@@ -63,6 +63,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?string $searchPhrase = null;
     public ?int $maxSearchKeywords = null;
     public ?array $statuses = null;
+    public ?array $currentPublicationStatuses = null;
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
     public ?bool $hasDois = null;
@@ -177,6 +178,17 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public function filterByStatus(?array $statuses): AppCollector
     {
         $this->statuses = $statuses;
+        return $this;
+    }
+
+    /**
+     * Limit results by submissions having a current publication with these statuses
+     *
+     * @see \PKP\publication\PKPPublication::STATUS_
+     */
+    public function filterByCurrentPublicationStatus(?array $statuses): AppCollector
+    {
+        $this->currentPublicationStatuses = $statuses;
         return $this;
     }
 
@@ -510,6 +522,10 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
         if (isset($this->statuses)) {
             $q->whereIn('s.status', $this->statuses);
+        }
+
+        if (isset($this->currentPublicationStatuses)) {
+            $q->whereIn('po.status', $this->currentPublicationStatuses);
         }
 
         if (isset($this->stageIds)) {

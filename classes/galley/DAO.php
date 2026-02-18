@@ -26,8 +26,8 @@ use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
+use PKP\publication\PKPPublication;
 use PKP\services\PKPSchemaService;
-use PKP\submission\PKPSubmission;
 use PKP\submission\Representation;
 use PKP\submission\RepresentationDAOInterface;
 
@@ -291,7 +291,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
                         ->where('gss.setting_name', '=', $pubIdSettingName)
                 )
             )
-            ->where('s.status', '=', PKPSubmission::STATUS_PUBLISHED)
+            ->where('p.status', '=', PKPPublication::STATUS_PUBLISHED)
             ->where('s.context_id', '=', $contextId)
             ->when(
                 $pubIdType != null,

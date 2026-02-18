@@ -19,6 +19,7 @@ use Laravel\Scout\Builder;
 use PKP\core\PKPRequest;
 use PKP\db\DBResultRange;
 use PKP\plugins\Hook;
+use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
 class SubmissionSearchResult
@@ -78,12 +79,15 @@ class SubmissionSearchResult
         return LazyCollection::make(function () use ($models, &$contextCache, &$sectionCache) {
             foreach ($models as $data) {
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
-
                 $submission = Repo::submission()->get($submissionId);
-                if (!$submission || $submission->getData('status') != PKPSubmission::STATUS_PUBLISHED) {
+                if (!$submission) {
                     continue;
                 }
+
                 $currentPublication = $submission->getCurrentPublication();
+                if ($currentPublication->getData('status') != PKPPublication::STATUS_PUBLISHED) {
+                    continue;
+                }
 
                 $contextId = $submission->getData('contextId');
                 $context = $contextCache[$contextId] ??= Application::getContextDAO()->getById($contextId);

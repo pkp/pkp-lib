@@ -23,11 +23,13 @@ use APP\galley\Galley;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\context\Context;
+use PKP\core\DataObject;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\doi\Doi;
@@ -35,13 +37,12 @@ use PKP\doi\exceptions\DoiException;
 use PKP\file\TemporaryFileManager;
 use PKP\jobs\doi\DepositSubmission;
 use PKP\plugins\Hook;
+use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use Illuminate\Database\Eloquent\Model;
-use PKP\core\DataObject;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
@@ -476,7 +477,7 @@ class PKPDoiController extends PKPBaseController
         $validIds = Repo::submission()
             ->getCollector()
             ->filterByContextIds([$context->getId()])
-            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->filterByCurrentPublicationStatus([PKPPublication::STATUS_PUBLISHED])
             ->getIds()
             ->toArray();
 
@@ -523,7 +524,7 @@ class PKPDoiController extends PKPBaseController
         $validIds = Repo::submission()
             ->getCollector()
             ->filterByContextIds([$context->getId()])
-            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->filterByCurrentPublicationStatus([PKPPublication::STATUS_PUBLISHED])
             ->getIds()
             ->toArray();
 
@@ -598,7 +599,7 @@ class PKPDoiController extends PKPBaseController
         foreach ($requestIds as $id) {
             $doiIds = Repo::doi()->getDoisForSubmission($id);
             foreach ($doiIds as $doiId) {
-                 Repo::doi()->markUnregistered($doiId);
+                Repo::doi()->markUnregistered($doiId);
             }
         }
 
@@ -623,7 +624,7 @@ class PKPDoiController extends PKPBaseController
         $validIds = Repo::submission()
             ->getCollector()
             ->filterByContextIds([$context->getId()])
-            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->filterByCurrentPublicationStatus([PKPPublication::STATUS_PUBLISHED])
                 // Items can only be considered stale if they have been deposited/queued for deposit in the first place
             ->filterByDoiStatuses([Doi::STATUS_SUBMITTED, Doi::STATUS_REGISTERED])
             ->getIds()

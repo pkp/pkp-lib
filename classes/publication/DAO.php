@@ -522,6 +522,23 @@ class DAO extends EntityDAO
     }
 
     /**
+     * Given a set of publication IDs, return which of those IDs are
+     * claimed as a source publication by another publication.
+     *
+     * @param int[] $publicationIds
+     * @return int[]
+     */
+    public function getClaimedSourcePublicationIds(array $publicationIds): array
+    {
+        return DB::table('publications')
+            ->whereIn('source_publication_id', $publicationIds)
+            ->pluck('source_publication_id')
+            ->unique()
+            ->values()
+            ->all();
+    }
+
+    /**
      * Get all submission IDs for which DOIs can be exported.
      * If the same DOI is used for all versions: the current publication needs to have a DOI and is published.
      * If different DOIs are used for different versions: a publication that have a DOI and is published needs to exist.

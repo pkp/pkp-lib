@@ -44,6 +44,9 @@ class PublicationPeerReviewResource extends JsonResource
 {
     use ReviewerRecommendationSummary;
 
+    /** @var array<int> Publication IDs claimed by "child" publications pointing to these "source" publications  */
+    private array $claimedPublicationIds = [];
+
     private ?Enumerable $availableReviewerRecommendations = null;
 
     /** @var Context|null Caches context to avoid redundant fetches */
@@ -73,6 +76,22 @@ class PublicationPeerReviewResource extends JsonResource
             'reviewerRecommendationsSummary' => $publicationReviewsData->get('reviewerRecommendationsSummary'),
         ];
     }
+
+    /**
+     * Fluent method for adding which publication IDs should not be included
+     * as they are already considered by the "child" publication.
+     *
+     * Prevents double review presentation
+     *
+     * E.g. Publication B has "source" publication A, so publication A can be passed to this method to be excluded
+     * when constructing list of peer reviews.
+     */
+    public function withClaimedPublicationIds(array $publicationIds): static
+    {
+        $this->claimedPublicationIds = $publicationIds;
+        return $this;
+    }
+
     /**
      * Get public peer review data for a publication.
      *
@@ -98,12 +117,22 @@ class PublicationPeerReviewResource extends JsonResource
         }
         $context = $this->context;
 
-        $hasMultipleRounds = $reviewRounds->getCount() > 1;
         $roundsData = collect();
 
         $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
-        $roundIds = $reviewRoundsKeyedById->keys()->all();
         unset($reviewRounds);
+
+        // If this publication is claimed as a source by a child publication, exclude its own review rounds.
+        // Those review rounds will appear under the child publication instead,
+        // i.e., the "newest," most up-to-date publication.
+        if (in_array($publication->getId(), $this->claimedPublicationIds)) {
+            $reviewRoundsKeyedById = $reviewRoundsKeyedById->filter(
+                fn (ReviewRound $round) => $round->getPublicationId() !== $publication->getId()
+            );
+        }
+
+        $hasMultipleRounds = $reviewRoundsKeyedById->count() > 1;
+        $roundIds = $reviewRoundsKeyedById->keys()->all();
 
         $reviewAssignments = Repo::reviewAssignment()
             ->getCollector()
@@ -141,13 +170,13 @@ class PublicationPeerReviewResource extends JsonResource
                 'dateStarted' => $publicStatus['dateStarted'],
                 'dateInProgress' => $publicStatus['dateInProgress'],
                 'dateCompleted' => $publicStatus['dateCompleted'],
-                'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context),
-                'authorResponse' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
+                'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
+                'authorResponse' => $currentRoundResponse ? (new ReviewRoundAuthorResponseResource($currentRoundResponse))->resolve() : null,
             ]);
         }
 
 
-        $results->put('roundsData', $roundsData);
+        $results->put('roundsData', $roundsData->toArray());
         $results->put('reviewerRecommendationsSummary', $this->getReviewerRecommendationsSummary($reviewAssignments, $context));
         return $results;
     }

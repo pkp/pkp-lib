@@ -23,7 +23,7 @@
 namespace PKP\stageAssignment;
 
 use Eloquence\Behaviours\HasCamelCasing;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

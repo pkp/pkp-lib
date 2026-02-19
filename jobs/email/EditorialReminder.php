@@ -37,7 +37,7 @@ use PKP\security\Role;
 use PKP\user\User;
 use PKP\workflow\WorkflowStageDAO;
 
-class EditorialReminder extends BaseJob
+class EditorialReminder extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     protected int $editorId;
     protected int $contextId;
@@ -48,6 +48,14 @@ class EditorialReminder extends BaseJob
 
         $this->editorId = $editorId;
         $this->contextId = $contextId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     /**

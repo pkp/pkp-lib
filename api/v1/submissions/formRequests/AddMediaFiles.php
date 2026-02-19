@@ -56,11 +56,11 @@ class AddMediaFiles extends FormRequest
     public function messages(): array
     {
         return [
-            'files.required' => __('api.400.missingRequired', ['param' => 'files']),
-            'files.array' => __('api.400.missingRequired', ['param' => 'files']),
-            'files.min' => __('api.400.missingRequired', ['param' => 'files']),
-            'files.*.temporaryFileId.required' => __('api.400.missingRequired', ['param' => 'temporaryFileId']),
-            'files.*.variantType.required' => __('api.400.missingRequired', ['param' => 'variantType']),
+            'files.required' => __('api.422.missingRequired', ['param' => 'files']),
+            'files.array' => __('api.422.missingRequired', ['param' => 'files']),
+            'files.min' => __('api.422.missingRequired', ['param' => 'files']),
+            'files.*.temporaryFileId.required' => __('api.422.missingRequired', ['param' => 'temporaryFileId']),
+            'files.*.variantType.required' => __('api.422.missingRequired', ['param' => 'variantType']),
             'files.*.variantType.in' => __('api.400.invalidValue', ['param' => 'variantType']),
         ];
     }

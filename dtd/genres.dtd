@@ -16,4 +16,5 @@
 		dependent CDATA #REQUIRED
 		supplementary CDATA #REQUIRED
 		required CDATA #IMPLIED
+        supportsFileVariants CDATA #IMPLIED
 		localeKey CDATA #REQUIRED>

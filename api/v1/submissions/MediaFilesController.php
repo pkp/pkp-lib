@@ -44,6 +44,7 @@ use PKP\security\Role;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\enums\MediaVariantType;
+use PKP\submissionFile\maps\Schema;
 use PKP\submissionFile\SubmissionFile;
 use PKP\submissionFile\VariantGroup;
 
@@ -188,9 +189,7 @@ class MediaFilesController extends PKPBaseController
 
         $files = $collector->getMany();
 
-        $items = Repo::submissionFile()
-            ->getSchemaMap($submission, $this->getFileGenres())
-            ->summarizeMany($files);
+        $items = $this->getSubmissionFileSchemaMap($submission)->summarizeMany($files);
 
         return response()->json([
             'itemsMax' => $files->count(),
@@ -292,9 +291,7 @@ class MediaFilesController extends PKPBaseController
 
         $createdFiles = array_map(function ($id) use ($submission) {
             $submissionFile = Repo::submissionFile()->get($id);
-            return Repo::submissionFile()
-                ->getSchemaMap($submission, $this->getFileGenres())
-                ->map($submissionFile);
+            return $this->getSubmissionFileSchemaMap($submission)->map($submissionFile);
         }, $createdFileIds);
 
         return response()->json($createdFiles, Response::HTTP_OK);
@@ -319,9 +316,7 @@ class MediaFilesController extends PKPBaseController
 
         $submissionFile = Repo::submissionFile()->get($submissionFile->getId());
 
-        $data = Repo::submissionFile()
-            ->getSchemaMap($submission, $this->getFileGenres())
-            ->map($submissionFile);
+        $data = $this->getSubmissionFileSchemaMap()->map($submissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -364,9 +359,7 @@ class MediaFilesController extends PKPBaseController
 
         $response = array_map(function ($id) use ($submission) {
             $file = Repo::submissionFile()->get($id);
-            return Repo::submissionFile()
-                ->getSchemaMap($submission, $this->getFileGenres())
-                ->map($file);
+            return $this->getSubmissionFileSchemaMap($submission)->map($file);
         }, $affectedFileIds);
 
         return response()->json(array_values($response), Response::HTTP_OK);
@@ -393,9 +386,7 @@ class MediaFilesController extends PKPBaseController
         // Return both linked files
         $response = array_map(function ($file) use ($submission) {
             $refreshed = Repo::submissionFile()->get($file->getId());
-            return Repo::submissionFile()
-                ->getSchemaMap($submission, $this->getFileGenres())
-                ->map($refreshed);
+            return $this->getSubmissionFileSchemaMap($submission)->map($refreshed);
         }, [$sourceFile, $targetFile]);
 
         return response()->json($response, Response::HTTP_OK);
@@ -412,9 +403,7 @@ class MediaFilesController extends PKPBaseController
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
         // Snapshot the submission file for the response before deletion
-        $deletedSubmissionFileData = Repo::submissionFile()
-            ->getSchemaMap($submission, $this->getFileGenres())
-            ->map($submissionFile);
+        $deletedSubmissionFileData = $this->getSubmissionFileSchemaMap($submission)->map($submissionFile);
 
         $variantGroupId = $submissionFile->getData('variantGroupId');
 
@@ -445,5 +434,24 @@ class MediaFilesController extends PKPBaseController
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toAssociativeArray();
+    }
+
+    /**
+     * Gets submission file schema with media-file-specific additions
+     */
+    protected function getSubmissionFileSchemaMap(Submission $submission): Schema
+    {
+        return Repo::submissionFile()
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->extend(function (array $output, SubmissionFile $input, Schema $map) {
+                $fileService = app('file');
+                $file = $fileService->get($output['fileId']);
+                $fileSize = $fileService->fs->fileSize($file->path);
+                $output['fileSize'] = $fileSize;
+
+                ksort($output);
+
+                return $output;
+            });
     }
 }

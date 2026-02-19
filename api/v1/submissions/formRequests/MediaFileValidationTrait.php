@@ -57,28 +57,13 @@ trait MediaFileValidationTrait
     protected function validateMediaFileOwnership(SubmissionFile $file, $submission): ?string
     {
         if ($file->getData('submissionId') !== $submission->getId()) {
-            return __('api.submissionFiles.400.targetNotInSubmission');
+            return __('api.submissionFiles.422.targetNotInSubmission');
         }
 
         if ($file->getData('fileStage') !== SubmissionFile::SUBMISSION_FILE_MEDIA) {
-            return __('api.submissionFiles.400.targetNotMediaFile');
+            return __('api.submissionFiles.422.targetNotMediaFile');
         }
 
         return null;
-    }
-
-    /**
-     * Handle a failed validation attempt.
-     *
-     * @param Validator $validator
-     * @return void
-     *
-     * @throws ValidationException
-     */
-    protected function failedValidation(Validator $validator): void
-    {
-        throw new HttpResponseException(response()->json([
-            'error' => $validator->errors()->first(),
-        ], Response::HTTP_BAD_REQUEST));
     }
 }

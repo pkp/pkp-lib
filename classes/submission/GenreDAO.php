@@ -244,6 +244,7 @@ class GenreDAO extends DAO
         $genre->setRequired($row['required']);
         $genre->setSequence($row['seq']);
         $genre->setEnabled($row['enabled']);
+        $genre->setSupportsFileVariants((bool) $row['supports_file_variants']);
 
         $this->getDataObjectSettings('genre_settings', 'genre_id', $row['genre_id'], $genre);
 
@@ -263,9 +264,9 @@ class GenreDAO extends DAO
     {
         $this->update(
             'INSERT INTO genres
-				(entry_key, seq, context_id, category, dependent, supplementary, required)
+				(entry_key, seq, context_id, category, dependent, supplementary, required, supports_file_variants)
 			VALUES
-				(?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?)',
             [
                 $genre->getKey(),
                 (float) $genre->getSequence(),
@@ -274,6 +275,7 @@ class GenreDAO extends DAO
                 $genre->getDependent() ? 1 : 0,
                 $genre->getSupplementary() ? 1 : 0,
                 $genre->getRequired() ? 1 : 0,
+                $genre->getSupportsFileVariants() ? 1 : 0,
             ]
         );
 
@@ -297,7 +299,8 @@ class GenreDAO extends DAO
 				supplementary = ?,
 				enabled = ?,
 				category = ?,
-				required = ?
+				required = ?,
+			    supports_file_variants = ?
 			WHERE	genre_id = ?',
             [
                 $genre->getKey(),
@@ -307,6 +310,7 @@ class GenreDAO extends DAO
                 $genre->getEnabled() ? 1 : 0,
                 $genre->getCategory(),
                 $genre->getRequired() ? 1 : 0,
+                $genre->getSupportsFileVariants() ? 1 : 0,
                 (int) $genre->getId(),
             ]
         );
@@ -377,6 +381,7 @@ class GenreDAO extends DAO
             $genre->setDependent($attrs['dependent']);
             $genre->setSupplementary($attrs['supplementary']);
             $genre->setRequired((bool) ($attrs['required'] ?? false));
+            $genre->setSupportsFileVariants((bool) ($attrs['supportsFileVariants'] ?? false));
             $genre->setSequence($seq++);
             foreach ($locales as $locale) {
                 $genre->setName(__($attrs['localeKey'], [], $locale), $locale);

@@ -58,7 +58,7 @@ class LinkManyMediaFiles extends FormRequest
                     $secondaryFileId = $linkEntry['secondarySubmissionFileId'] ?? null;
                     if ($secondaryFileId !== null) {
                         if ((int) $secondaryFileId === (int) $linkEntry['primarySubmissionFileId']) {
-                            $validator->errors()->add("links.{$index}.secondarySubmissionFileId", __('api.submissionFiles.400.cannotLinkToSelf'));
+                            $validator->errors()->add("links.{$index}.secondarySubmissionFileId", __('api.submissionFiles.422.cannotLinkToSelf'));
                             continue;
                         }
 
@@ -77,12 +77,12 @@ class LinkManyMediaFiles extends FormRequest
                         $secondaryVariantType = MediaVariantType::tryFrom($secondaryFile->getData('variantType') ?? '');
 
                         if (!$primaryVariantType || !$secondaryVariantType) {
-                            $validator->errors()->add("links.{$index}", __('api.submissionFiles.400.variantTypeRequired'));
+                            $validator->errors()->add("links.{$index}", __('api.submissionFiles.422.variantTypeRequired'));
                             continue;
                         }
 
                         if ($primaryVariantType === $secondaryVariantType) {
-                            $validator->errors()->add("links.{$index}", __('api.submissionFiles.400.cannotLinkSameVariantType'));
+                            $validator->errors()->add("links.{$index}", __('api.submissionFiles.422.cannotLinkSameVariantType'));
                         }
                     }
                 }
@@ -93,9 +93,9 @@ class LinkManyMediaFiles extends FormRequest
     public function messages(): array
     {
         return [
-            'links.required' => __('api.400.missingRequired', ['param' => 'links']),
-            'links.array' => __('api.400.missingRequired', ['param' => 'links']),
-            'links.*.primarySubmissionFileId.required' => __('api.400.missingRequired', ['param' => 'primarySubmissionFileId']),
+            'links.required' => __('api.422.missingRequired', ['param' => 'links']),
+            'links.array' => __('api.422.missingRequired', ['param' => 'links']),
+            'links.*.primarySubmissionFileId.required' => __('api.422.missingRequired', ['param' => 'primarySubmissionFileId']),
         ];
     }
 }

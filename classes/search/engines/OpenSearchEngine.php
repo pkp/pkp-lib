@@ -201,7 +201,7 @@ class OpenSearchEngine extends ScoutEngine
 
         // Handle "whereIn" conditions
         foreach ($builder->whereIns as $field => $list) {
-            $list = (array) $list;
+            $list = array_filter((array) $list);
             if (!empty($list)) {
                 switch ($field) {
                     case 'sectionIds':

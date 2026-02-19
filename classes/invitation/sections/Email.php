@@ -60,6 +60,7 @@ class Email extends Section
         $config->locale = Locale::getLocale();
         $config->locales = [];
         foreach ($this->locales as $locale) {
+            $config->variables[$locale] = $this->getVariables($locale);
             $config->locales[] = [
                 'locale' => $locale,
                 'name' => Locale::getMetadata($locale)->getDisplayName(),
@@ -111,5 +112,30 @@ class Email extends Section
         }
 
         return Repo::emailTemplate()->getSchemaMap()->mapMany($emailTemplates)->toArray();
+    }
+
+    /**
+     * Format the mailable variables into an array to
+     * pass to the Composer component
+     */
+    protected function getVariables(string $locale): array
+    {
+        $data = $this->mailable->getData($locale);
+        $descriptions = $this->mailable::getDataDescriptions();
+
+        $variables = [];
+        foreach ($data as $key => $value) {
+            $valueOrToken = $value
+                ? '<span class="mceNonEditable" data-symbolic="' . $key . '" contenteditable="false">' . $value . '</span>'
+                : '<span class="pkpTag mceNonEditable" data-symbolic="' . $key . '" contenteditable="false">' . $key . '</span>';
+
+            $variables[] = [
+                'key' => $key,
+                'value' => $valueOrToken,
+                'description' => $descriptions[$key] ?? '',
+            ];
+        }
+
+        return $variables;
     }
 }

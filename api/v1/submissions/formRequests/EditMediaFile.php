@@ -91,7 +91,7 @@ class EditMediaFile extends FormRequest
         ];
     }
 
-    public function validated($key = null, $default = null)
+    public function validated($key = null, $default = null): array
     {
         return [
             'params' => $this->cleanedParams,

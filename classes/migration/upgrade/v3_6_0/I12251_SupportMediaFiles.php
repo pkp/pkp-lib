@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_6_0;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 
@@ -40,6 +41,17 @@ class I12251_SupportMediaFiles extends Migration
                 ->onDelete('set null');
             $table->index(['variant_group_id'], 'submission_files_variant_group_id');
         });
+
+        Schema::table('genres', function (Blueprint $table) {
+           $table->boolean('supports_file_variants')
+               ->default(false)
+               ->comment('Whether submission files in this genre support variant types, e.g. "web" or "high resolution"');
+        });
+
+        // Adds `supportsFileVariants` for image "media submission files" by default
+        DB::table('genres')
+            ->where('entry_key', '=', 'IMAGE') // "Image" from genres.xml
+            ->update(['supports_file_variants' => 1]);
     }
 
     /**
@@ -51,6 +63,9 @@ class I12251_SupportMediaFiles extends Migration
             $table->dropForeign(['variant_group_id']);
             $table->dropIndex('submission_files_variant_group_id');
             $table->dropColumn(['variant_group_id', 'variant_type']);
+        });
+        Schema::table('genres', function (Blueprint $table) {
+            $table->dropColumn('supports_file_variants');
         });
         Schema::dropIfExists('variant_groups');
     }

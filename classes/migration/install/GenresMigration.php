@@ -44,6 +44,9 @@ class GenresMigration extends \PKP\migration\Migration
             $table->smallInteger('supplementary')->default(0);
             $table->smallInteger('required')->default(0)->comment('Whether or not at least one file of this genre is required for a new submission.');
             $table->string('entry_key', 30)->nullable();
+            $table->boolean('supports_file_variants')
+                ->default(false)
+                ->comment('Whether submission files in this genre support variant types, e.g. "web" or "high resolution"');
         });
 
         // Genre settings

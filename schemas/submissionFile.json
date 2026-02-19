@@ -126,6 +126,12 @@
 			"description": "The genre id of this file",
 			"apiSummary": true
 		},
+		"genreMetadataType": {
+			"type": "string",
+			"description": "One of Genre::GENRE_CATEGORY_*",
+			"apiSummary": true,
+			"readOnly": true
+		},
 		"genreName": {
 			"type": "string",
 			"description": "The genre name of this file, suc as Article Text or Data Set.",
@@ -142,6 +148,12 @@
 		"genreIsSupplementary": {
 			"type": "boolean",
 			"description": "Whether or not this is a supplementary file, such as data sets and research materials, that are displayed separately from the main publication files.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"genreSupportsFileVariants": {
+			"type": "boolean",
+			"description": "Whether submission file genre supports file variants types, e.g. 'web' or 'high resolution'",
 			"apiSummary": true,
 			"readOnly": true
 		},

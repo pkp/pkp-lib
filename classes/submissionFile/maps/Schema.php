@@ -153,6 +153,13 @@ class Schema extends BaseSchema
                 continue;
             }
 
+            if ($prop === 'genreMetadataType') {
+                $genre = $this->getGenre($submissionFile);
+                $output[$prop] = $genre?->getCategory();
+
+                continue;
+            }
+
             if ($prop === 'genreName') {
                 $genre = $this->getGenre($submissionFile);
                 $output[$prop] = $genre ? $genre->getName(null) : null;
@@ -170,6 +177,13 @@ class Schema extends BaseSchema
             if ($prop === 'genreIsSupplementary') {
                 $genre = $this->getGenre($submissionFile);
                 $output[$prop] = $genre ? (bool) $genre->getSupplementary() : null;
+
+                continue;
+            }
+
+            if ($prop === 'genreSupportsFileVariants') {
+                $genre = $this->getGenre($submissionFile);
+                $output[$prop] = $genre?->getSupportsFileVariants();
 
                 continue;
             }

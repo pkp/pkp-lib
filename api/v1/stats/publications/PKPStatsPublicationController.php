@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
+use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -177,6 +178,10 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      */
     public function getMany(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\publication\Publication::STATUS_PUBLISHED;
+        $junk2 = \APP\submission\Submission::STATUS_PUBLISHED;
+
         $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $defaultParams = [
@@ -252,6 +257,10 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      */
     public function getManyTimeline(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\publication\Publication::STATUS_PUBLISHED;
+        $junk2 = \APP\submission\Submission::STATUS_PUBLISHED;
+
         $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $defaultParams = [
@@ -803,7 +812,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     }
 
     /**
-     * A helper method to get the submissionIds param when a searchPhase
+     * A helper method to get the submissionIds param when a searchPhrase
      * param is also passed.
      *
      * If the searchPhrase and submissionIds params were both passed in the
@@ -814,7 +823,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $searchPhraseSubmissionIds = Repo::submission()
             ->getCollector()
             ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->filterByCurrentPublicationStatus([PKPPublication::STATUS_PUBLISHED])
             ->searchPhrase($searchPhrase)
             ->getIds();
 

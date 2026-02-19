@@ -106,6 +106,7 @@ trait ReviewerRecommendationSummary
 
     /**
      * Get info for the latest published publication for a submission.
+     *
      * @return array{'versionString': string, 'datePublished': string}|null
      * - versionString: The version string of the latest published publication.
      * - datePublished: The publication date as a string.
@@ -114,8 +115,8 @@ trait ReviewerRecommendationSummary
     {
         /** @var Publication $latestVersion */
         $latestVersion = $submission->getData('publications')
-            ->filter(fn(Publication $publication) => $publication->getData('status') === Submission::STATUS_PUBLISHED)
-            ->sortByDesc(fn(Publication $publication) => $publication->getData('version'))
+            ->filter(fn (Publication $publication) => $publication->getData('status') === Publication::STATUS_PUBLISHED)
+            ->sortByDesc(fn (Publication $publication) => $publication->getData('version'))
             ->first();
 
         return $latestVersion ? [

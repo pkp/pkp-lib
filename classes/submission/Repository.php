@@ -36,22 +36,23 @@ use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
 use PKP\publication\helpers\PublicationVersionInfo;
+use PKP\publication\PKPPublication;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Collector as SubmissionCollector;
 use PKP\submission\reviewAssignment\Collector as ReviewCollector;
+use PKP\submission\traits\HasWordCountValidation;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
-use PKP\submission\traits\HasWordCountValidation;
 
 abstract class Repository
 {
     use HasWordCountValidation;
-    
+
     public const STAGE_STATUS_SUBMISSION_UNASSIGNED = 1;
 
     /** @var DAO $dao */
@@ -552,7 +553,7 @@ abstract class Repository
                 fn (Publication $p) =>
                     in_array(
                         $p->getData('status'),
-                        [Submission::STATUS_PUBLISHED, Submission::STATUS_SCHEDULED]
+                        [PKPPublication::STATUS_PUBLISHED, PKPPublication::STATUS_SCHEDULED]
                     )
             );
 
@@ -560,7 +561,7 @@ abstract class Repository
             return false;
         }
 
-        if ($assignments->contains(fn($sa) => $sa->canChangeMetadata)) {
+        if ($assignments->contains(fn ($sa) => $sa->canChangeMetadata)) {
             return true;
         }
         // If user has no stage assigments, check if user can edit anyway ie. is manager
@@ -578,11 +579,6 @@ abstract class Repository
      */
     public function canPreview(?User $user, Submission $submission): bool
     {
-        // Only grant access when in copyediting or production stage
-        if (!in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
-            return false;
-        }
-
         if ($this->_roleCanPreview($user, $submission)) {
             return true;
         }
@@ -718,7 +714,7 @@ abstract class Repository
      *
      * @hook Submission::updateStatus [[&$newStatus, $status, $submission]]
      */
-    public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null)
+    public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null): void
     {
         $status = $submission->getData('status');
 
@@ -726,21 +722,34 @@ abstract class Repository
             $newStatus = $this->getStatusByPublications($submission);
         }
 
-        Hook::call('Submission::updateStatus', [&$newStatus, $status, $submission]);
+        if (Hook::run('Submission::updateStatus', ['newStatus' => &$newStatus, 'status' => $status, 'submission' => $submission]) == Hook::ABORT) {
+            return;
+        }
 
         if ($status !== $newStatus) {
             $submission->setData('status', $newStatus);
         }
 
-        $currentPublicationId = $newCurrentPublicationId = $submission->getData('currentPublicationId');
+        $this->dao->update($submission);
+    }
+
+    /**
+     * Determine and update the current publication ID for the given submission.
+     *
+     * @hook Submission::updateCurrentPublication ['submission' => $submission, 'newCurrentPublicationId' => &$newCurrentPublicationId]
+     */
+    public function updateCurrentPublication(Submission $submission): void
+    {
+        $oldCurrentPublicationId = $submission->getData('currentPublicationId');
         $newCurrentPublicationId = $this->getCurrentPublicationIdByPublications($submission);
-        if ($currentPublicationId !== $newCurrentPublicationId) {
-            $submission->setData('currentPublicationId', $newCurrentPublicationId);
+        if (Hook::run('Submission::updateCurrentPublication', ['submission' => $submission, 'newCurrentPublicationId' => &$newCurrentPublicationId]) == Hook::ABORT) {
+            return;
         }
 
-        // Use the DAO instead of the Repository to prevent
-        // calling this method over and over again.
-        $this->dao->update($submission);
+        if ($oldCurrentPublicationId != $newCurrentPublicationId) {
+            $submission->setData('currentPublicationId', $newCurrentPublicationId);
+            $this->dao->update($submission);
+        }
     }
 
     /**
@@ -1369,31 +1378,30 @@ abstract class Repository
         $publications = $submission->getData('publications'); /** @var LazyCollection $publications */
 
         // Declined submissions should remain declined regardless of their publications' statuses
-        if ($submission->getData('status') === Submission::STATUS_DECLINED) {
+        if ($submission->getData('status') == Submission::STATUS_DECLINED) {
             return Submission::STATUS_DECLINED;
         }
 
         // If there are no publications, we are probably in the process of deleting a submission.
-        // To be safe, reset the status anyway.
         if (!$publications->count()) {
-            return Submission::STATUS_DECLINED
-                ? Submission::STATUS_DECLINED
-                : Submission::STATUS_QUEUED;
+            return Submission::STATUS_DECLINED;
         }
 
-        $newStatus = Submission::STATUS_QUEUED;
+        // Any published publication sends the submission to the "published" queue.
         foreach ($publications as $publication) {
-            if ($publication->getData('status') === Publication::STATUS_PUBLISHED) {
-                $newStatus = Submission::STATUS_PUBLISHED;
-                break;
-            }
-            if ($publication->getData('status') === Publication::STATUS_SCHEDULED) {
-                $newStatus = Submission::STATUS_SCHEDULED;
-                continue;
+            if ($publication->getData('status') == Publication::STATUS_PUBLISHED) {
+                return Submission::STATUS_PUBLISHED;
             }
         }
 
-        return $newStatus;
+        // If there is a "scheduled" publication, the status will be "queued".
+        foreach ($publications as $publication) {
+            if ($publication->getData('status') == Publication::STATUS_SCHEDULED) {
+                return Submission::STATUS_SCHEDULED;
+            }
+        }
+
+        return Submission::STATUS_QUEUED;
     }
 
     /**

@@ -300,8 +300,17 @@ abstract class Repository
         return $errors;
     }
 
-    /** @copydoc DAO::insert() */
-    public function add(Publication $publication): int
+    /**
+     * @copydoc DAO::insert()
+     *
+     * @param $submissionStatus
+     *  - PKPSubmission::STATUS_... constant: Set the submission status to the specified constant
+     *  - null: Determine the appropriate status based on the submission and publications
+     *  - false: Do not set the submission status
+     *
+     * @hook Publication::add [[&$publication]]
+     */
+    public function add(Publication $publication, false|int|null $submissionStatus = null): int
     {
         $publication->stampCreated();
         $publicationId = $this->dao->insert($publication);
@@ -331,7 +340,10 @@ abstract class Repository
         Hook::call('Publication::add', [&$publication]);
 
         // Update a submission's status based on the status of its publications
-        Repo::submission()->updateStatus($submission);
+        if ($submissionStatus !== false) {
+            Repo::submission()->updateStatus($submission, $submissionStatus);
+        }
+        Repo::submission()->updateCurrentPublication($submission);
 
         return $publication->getId();
     }
@@ -344,7 +356,7 @@ abstract class Repository
      *
      * @hook Publication::version [[&$newPublication, $publication]]
      */
-    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true): int
+    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true, ?int $submissionStatus = null): int
     {
         $newPublication = clone $publication;
         $newPublication->setData('id', null);
@@ -383,7 +395,7 @@ abstract class Repository
         // so that they are not re-processed when inserting the new publication
         $newPublication->setData('citations', null);
         $newPublication->setData('citationsRaw', null);
-        $newId = $this->add($newPublication);
+        $newId = $this->add($newPublication, $submissionStatus);
         // insert citations as they are for the new publication
         Repo::citation()->copyCitations($citations, $newId);
 
@@ -495,13 +507,18 @@ abstract class Repository
      * This method performs all actions needed when publishing an item, such
      * as setting metadata, logging events, updating the search index, etc.
      *
+     * @param $submissionStatus
+     *  - PKPSubmission::STATUS_... constant: Set the submission status to the specified constant
+     *  - null: Determine the appropriate status based on the submission and publications
+     *  - false: Do not set the submission status
+     *
      * @throws \Exception
      *
      * @see self::setStatusOnPublish()
      *
      * @hook Publication::publish::before [[&$newPublication, $publication]]
      */
-    public function publish(Publication $publication)
+    public function publish(Publication $publication, false|int|null $submissionStatus = null): void
     {
         $newPublication = clone $publication;
         $newPublication->stampModified();
@@ -563,7 +580,10 @@ abstract class Repository
 
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {
-            Repo::submission()->updateStatus($submission);
+            if ($submissionStatus !== false) {
+                Repo::submission()->updateStatus($submission, $submissionStatus);
+            }
+            Repo::submission()->updateCurrentPublication($submission);
             $submission = Repo::submission()->get($submission->getId());
         }
 
@@ -658,11 +678,16 @@ abstract class Repository
      * This method performs all actions needed when unpublishing an item, such
      * as changing the status, logging events, updating the search index, etc.
      *
+     * @param $submissionStatus
+     *  - PKPSubmission::STATUS_... constant: Set the submission status to the specified constant
+     *  - null: Determine the appropriate status based on the submission and publications
+     *  - false: Do not set the submission status
+     *
      * @see self::setStatusOnPublish()
      *
      * @hook Publication::unpublish::before [[ &$newPublication, $publication ]]
      */
-    public function unpublish(Publication $publication)
+    public function unpublish(Publication $publication, false|int|null $submissionStatus = null)
     {
         $newPublication = clone $publication;
         $newPublication->setData('status', Publication::STATUS_QUEUED);
@@ -685,7 +710,10 @@ abstract class Repository
 
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {
-            Repo::submission()->updateStatus($submission);
+            if ($submissionStatus !== false) {
+                Repo::submission()->updateStatus($submission, $submissionStatus);
+            }
+            Repo::submission()->updateCurrentPublication($submission);
             $submission = Repo::submission()->get($submission->getId());
         }
 
@@ -753,8 +781,17 @@ abstract class Repository
         event(new PublicationUnpublished($newPublication, $publication, $submission, $context));
     }
 
-    /** @copydoc DAO::delete() */
-    public function delete(Publication $publication)
+    /**
+     * @copydoc DAO::delete()
+     *
+     * @param $submissionStatus
+     *  - PKPSubmission::STATUS_... constant: Set the submission status to the specified constant
+     *  - null: Determine the appropriate status based on the submission and publications
+     *  - false: Do not set the submission status
+     *
+     * @hook Publication::delete::before [[&$publication]]
+     */
+    public function delete(Publication $publication, false|int|null $submissionStatus = null): null
     {
         Hook::call('Publication::delete::before', [&$publication]);
 
@@ -766,7 +803,10 @@ abstract class Repository
 
         // Update a submission's status based on the status of its remaining publications
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        Repo::submission()->updateStatus($submission, null, $section);
+        if ($submissionStatus !== false) {
+            Repo::submission()->updateStatus($submission, $submissionStatus, $section);
+        }
+        Repo::submission()->updateCurrentPublication($submission);
 
         Hook::call('Publication::delete', [&$publication]);
     }

@@ -458,6 +458,10 @@ class PKPSubmissionController extends PKPBaseController
         $currentUser = $request->getUser();
         $context = $request->getContext();
 
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\submission\Submission::STATUS_PUBLISHED;
+        $junk2 = \APP\publication\Publication::STATUS_PUBLISHED;
+
         $collector = $this->getSubmissionCollector($illuminateRequest->query());
 
         Hook::run('API::submissions::params', [$collector, $illuminateRequest]);
@@ -1435,7 +1439,7 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        Repo::publication()->publish($publication);
+        Repo::publication()->publish($publication, false);
 
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->get();
@@ -1454,10 +1458,14 @@ class PKPSubmissionController extends PKPBaseController
         $shouldCreatePMURReviewRound = filter_var($illuminateRequest->input('createPMURReviewRound'), FILTER_VALIDATE_BOOL);
         if ($shouldCreatePMURReviewRound) {
             try {
-                $this->createPMURReviewRound($submissionContext, $submission, $publication);
+                $this->createPMURReviewRound($submissionContext, $submission, $publication, Submission::STATUS_QUEUED);
             } catch (\Exception $exception) {
                 return response()->json(['error' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
             }
+        } else {
+            // Move the submission into the published queue
+            Repo::submission()->updateStatus($submission, Submission::STATUS_PUBLISHED);
+            Repo::submission()->updateCurrentPublication($submission);
         }
 
         /** @var GenreDAO $genreDao */
@@ -2057,7 +2065,7 @@ class PKPSubmissionController extends PKPBaseController
         $context = $data['context']; /** @var Context $context*/
         $submission = $data['submission']; /** @var Submission $submission */
         $publication = $data['publication']; /** @var Publication $publication*/
-        
+
         $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
 
         $submissionLocale = $submission->getData('locale');
@@ -2509,8 +2517,9 @@ class PKPSubmissionController extends PKPBaseController
         Publication $publication,
         ?VersionStage $versionStage,
         bool $versionIsMinor,
+        ?int $submissionStatus = null
     ): Publication {
-        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
+        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor, $submissionStatus);
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();
@@ -2564,22 +2573,25 @@ class PKPSubmissionController extends PKPBaseController
      *
      * Optionally triggered when publishing a PMUR.
      *
+     * @param $submissionStatus The desired submission status to set, or null to determine from submission and publication data.
+     *
      * @throws \Exception
      */
-    private function createPMURReviewRound(Context $context, Submission $submission, Publication $publication): void
+    private function createPMURReviewRound(Context $context, Submission $submission, Publication $publication, int $submissionStatus = null): void
     {
         $request = $this->getRequest();
 
         // Create review round associated with PMUR and forward link to new VoR
         $decisionType = new SendExternalReview();
 
-        $params = [];
-        $params['decision'] = Decision::EXTERNAL_REVIEW;
-        $params['submissionId'] = $submission->getId();
-        $params['publicationId'] = $publication->getId();
-        $params['dateDecided'] = Core::getCurrentDate();
-        $params['editorId'] = $request->getUser()->getId();
-        $params['stageId'] = $decisionType->getStageId();
+        $params = [
+            'decision' => Decision::EXTERNAL_REVIEW,
+            'submissionId' => $submission->getId(),
+            'publicationId' => $publication->getId(),
+            'dateDecided' => Core::getCurrentDate(),
+            'editorId' => $request->getUser()->getId(),
+            'stageId' => $decisionType->getStageId(),
+        ];
 
         $errors = Repo::decision()->validate($params, $decisionType, $submission, $context);
 
@@ -2596,7 +2608,8 @@ class PKPSubmissionController extends PKPBaseController
             $submission,
             $publication,
             VersionStage::VERSION_OF_RECORD,
-            false
+            false,
+            $submissionStatus
         );
     }
 }

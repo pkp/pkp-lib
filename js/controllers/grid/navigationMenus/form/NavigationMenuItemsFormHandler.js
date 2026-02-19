@@ -120,7 +120,7 @@
 		$('#' + itemType).fadeIn();
 
 		// Show/hide query params field (hidden for REMOTE_URL, CUSTOM, and no selection)
-		if (itemType === 'NMI_TYPE_REMOTE_URL' || itemType === 'NMI_TYPE_CUSTOM' || !itemType || itemType === '0') {
+		if (itemType == 'NMI_TYPE_REMOTE_URL' || itemType == 'NMI_TYPE_CUSTOM' || !itemType || itemType == '0') {
 			$('.NMI_QUERY_PARAMS', this.getHtmlElement()).hide();
 		} else {
 			$('.NMI_QUERY_PARAMS', this.getHtmlElement()).show();

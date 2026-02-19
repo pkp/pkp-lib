@@ -386,8 +386,8 @@ class PKPNavigationMenuService
         // Append query parameters to URL if configured
         $queryParams = $navigationMenuItem->getLocalizedQueryParams();
         if (!empty($queryParams)
-            && $menuItemType !== NavigationMenuItem::NMI_TYPE_REMOTE_URL
-            && $menuItemType !== NavigationMenuItem::NMI_TYPE_CUSTOM
+            && $menuItemType != NavigationMenuItem::NMI_TYPE_REMOTE_URL
+            && $menuItemType != NavigationMenuItem::NMI_TYPE_CUSTOM
         ) {
             $currentUrl = $navigationMenuItem->getUrl();
             if ($currentUrl) {

@@ -521,6 +521,10 @@ class PKPDoiController extends PKPBaseController
 
         $context = $this->getRequest()->getContext();
 
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\publication\Publication::STATUS_PUBLISHED;
+        $junk2 = \APP\submission\Submission::STATUS_PUBLISHED;
+
         $validIds = Repo::submission()
             ->getCollector()
             ->filterByContextIds([$context->getId()])
@@ -620,6 +624,10 @@ class PKPDoiController extends PKPBaseController
         }
 
         $context = $this->getRequest()->getContext();
+
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\publication\Publication::STATUS_PUBLISHED;
+        $junk2 = \APP\submission\Submission::STATUS_PUBLISHED;
 
         $validIds = Repo::submission()
             ->getCollector()

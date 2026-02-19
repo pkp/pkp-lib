@@ -53,6 +53,20 @@ class Repository
     }
 
     /**
+     * Get the default recommendations mapped to machine-readable type as recommendation defaultTranslationKey => machine-readable type
+     */
+    private  function getDefaultRecommendationsMappedToMachineReadableType(): array
+    {
+        return [
+            'reviewer.article.decision.accept' => ReviewerRecommendationType::APPROVED->value,
+            'reviewer.article.decision.pendingRevisions' => ReviewerRecommendationType::REVISIONS_REQUESTED->value,
+            'reviewer.article.decision.resubmitHere' => ReviewerRecommendationType::REVISIONS_REQUESTED->value,
+            'reviewer.article.decision.resubmitElsewhere' => ReviewerRecommendationType::REVISIONS_REQUESTED->value,
+            'reviewer.article.decision.decline' => ReviewerRecommendationType::NOT_APPROVED->value,
+            'reviewer.article.decision.seeComments' => ReviewerRecommendationType::WITH_COMMENTS->value,
+        ];
+    }
+    /**
      * Add the default recommendations to context
      */
     public function addDefaultRecommendations(Context $context): void
@@ -73,6 +87,8 @@ class Repository
             $context->getData('supportedLocales')
         );
 
+        $defaultsMappedToMachineReadableTypes = $this->getDefaultRecommendationsMappedToMachineReadableType();
+
         collect($defaultRecommendations)
             ->each(
                 fn (string $translatableKey) => ReviewerRecommendation::create([
@@ -86,6 +102,7 @@ class Repository
                             ]
                         )
                         ->toArray(),
+                    'type' => $defaultsMappedToMachineReadableTypes[$translatableKey],
                 ])
             );
     }

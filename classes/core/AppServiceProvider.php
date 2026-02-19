@@ -20,6 +20,7 @@ use PKP\db\DAORegistry;
 use PKP\security\RateLimitingService;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Model;
 use PKP\context\Context;
 use PKP\editorialTask\EditorialTask;
 use PKP\services\PKPFileService;
@@ -72,6 +73,11 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        // Prevent lazy loading in development and testing environments
+        // to enable this add the following to config.inc.php of the `general` section as
+        // app_env = 'development'
+        Model::preventLazyLoading(!app()->isProduction());
+
         Relation::enforceMorphMap([
             PKPApplication::ASSOC_TYPE_QUERY => EditorialTask::class,
         ]);

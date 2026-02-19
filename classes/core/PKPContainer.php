@@ -711,6 +711,14 @@ class PKPContainer extends Container
     }
 
     /**
+     * Determine if the application is in the production environment.
+     */
+    public function isProduction(): bool
+    {
+        return Config::getVar('general', 'app_env', 'production') === 'production';
+    }
+
+    /**
      * Register class consts as global consts
      */
     public function registerGlobalConstants(string $classNamespacePath, array $constants): void

@@ -521,6 +521,8 @@ abstract class Repository
     public function publish(Publication $publication, false|int|null $submissionStatus = null): void
     {
         $newPublication = clone $publication;
+        $newPublication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
+
         $newPublication->stampModified();
 
         $this->setStatusOnPublish($newPublication);
@@ -690,6 +692,7 @@ abstract class Repository
     public function unpublish(Publication $publication, false|int|null $submissionStatus = null)
     {
         $newPublication = clone $publication;
+        $newPublication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
         $newPublication->setData('status', Publication::STATUS_QUEUED);
         $newPublication->stampModified();
 

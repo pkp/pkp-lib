@@ -75,7 +75,7 @@ class NavigationMenuItemResource extends JsonResource
             'localizedTitle' => $localizedTitle,
             'type' => $menuItem->getType(),
             'path' => $menuItem->getPath(),
-            'queryParams' => $menuItem->getQueryParams(),
+            'queryParams' => $menuItem->getLocalizedQueryParams(),
             'url' => $menuItem->getUrl(),
             'isVisible' => !$conditionalInfo['hasConditionalDisplay'],
             'hasWarning' => count($this->children) > 0,

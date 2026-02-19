@@ -61,6 +61,7 @@
 		"queryParams": {
 			"type": "string",
 			"description": "Query parameters to append to the navigation menu item URL.",
+			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
 				"nullable"

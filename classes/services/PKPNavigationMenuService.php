@@ -384,7 +384,7 @@ class PKPNavigationMenuService
         Hook::call('NavigationMenus::displaySettings', [$navigationMenuItem, $navigationMenu]);
 
         // Append query parameters to URL if configured
-        $queryParams = $navigationMenuItem->getQueryParams();
+        $queryParams = $navigationMenuItem->getLocalizedQueryParams();
         if (!empty($queryParams)
             && $menuItemType !== NavigationMenuItem::NMI_TYPE_REMOTE_URL
             && $menuItemType !== NavigationMenuItem::NMI_TYPE_CUSTOM

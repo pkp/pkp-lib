@@ -131,7 +131,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      */
     public function getLocaleFieldNames(): array
     {
-        return ['title', 'content', 'remoteUrl'];
+        return ['title', 'content', 'remoteUrl', 'queryParams'];
     }
 
     /**
@@ -139,7 +139,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      */
     public function getAdditionalFieldNames(): array
     {
-        return ['titleLocaleKey', 'queryParams'];
+        return ['titleLocaleKey'];
     }
 
     /**

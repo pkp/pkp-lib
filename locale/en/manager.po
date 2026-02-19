@@ -2575,6 +2575,12 @@ msgstr "This title already exists for another navigation menu."
 msgid "manager.navigationMenus.form.titleRequired"
 msgstr "The title is required"
 
+msgid "manager.navigationMenus.form.queryParams"
+msgstr "Query Parameters"
+
+msgid "manager.navigationMenus.form.queryParams.description"
+msgstr "Optional query string to append to the URL (e.g., tab=metrics). Do not include the leading '?' character."
+
 msgid "manager.navigationMenuItems"
 msgstr "Navigation Menu Items"
 

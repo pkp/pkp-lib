@@ -64,6 +64,30 @@ class NavigationMenuItem extends \PKP\core\DataObject
     }
 
     /**
+     * Get the localized query parameters for this navigation menu item.
+     */
+    public function getLocalizedQueryParams(): ?string
+    {
+        return $this->getLocalizedData('queryParams');
+    }
+
+    /**
+     * Set query parameters for this navigation menu item.
+     */
+    public function setQueryParams(array|string|null $queryParams, ?string $locale): void
+    {
+        $this->setData('queryParams', $queryParams, $locale);
+    }
+
+    /**
+     * Get query parameters for this navigation menu item.
+     */
+    public function getQueryParams(?string $locale): array|string|null
+    {
+        return $this->getData('queryParams', $locale);
+    }
+
+    /**
      * Set url for this navigation menu item.
      */
     public function setUrl(?string $url): void

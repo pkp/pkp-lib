@@ -40,6 +40,11 @@
 		{foreach from=$customTemplates key=nmiType item=customTemplate}
 			{include file=$customTemplate.template}
 		{/foreach}
+
+		{fbvFormSection id="queryParamsSection" class="NMI_QUERY_PARAMS" title="manager.navigationMenus.form.queryParams" for="queryParams"}
+			{fbvElement type="text" multilingual=true id="queryParams" value=$queryParams maxlength="1000"}
+			<p class="description">{translate key="manager.navigationMenus.form.queryParams.description"}</p>
+		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{fbvFormSection class="formButtons"}

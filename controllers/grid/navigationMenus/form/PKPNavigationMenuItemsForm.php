@@ -143,6 +143,7 @@ class PKPNavigationMenuItemsForm extends Form
 
             $this->setData('content', $navigationMenuItem->getContent(null)); // Localized
             $this->setData('remoteUrl', $navigationMenuItem->getRemoteUrl(null)); // Localized
+            $this->setData('queryParams', $navigationMenuItem->getQueryParams(null)); // Localized
         }
     }
 
@@ -151,7 +152,7 @@ class PKPNavigationMenuItemsForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['navigationMenuItemId', 'path', 'content', 'title', 'remoteUrl', 'menuItemType']);
+        $this->readUserVars(['navigationMenuItemId', 'path', 'content', 'title', 'remoteUrl', 'menuItemType', 'queryParams']);
     }
 
     /**
@@ -219,6 +220,7 @@ class PKPNavigationMenuItemsForm extends Form
         $navigationMenuItem->setContextId($this->getContextId());
         $navigationMenuItem->setRemoteUrl($this->getData('remoteUrl'), null); // Localized
         $navigationMenuItem->setType($this->getData('menuItemType'));
+        $navigationMenuItem->setQueryParams($this->getData('queryParams'), null); // Localized
 
         // Update or insert navigation menu item
         if ($navigationMenuItem->getId()) {

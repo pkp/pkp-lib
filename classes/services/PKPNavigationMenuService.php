@@ -383,6 +383,23 @@ class PKPNavigationMenuService
 
         Hook::call('NavigationMenus::displaySettings', [$navigationMenuItem, $navigationMenu]);
 
+        // Append query parameters to URL if configured
+        $queryParams = $navigationMenuItem->getLocalizedQueryParams();
+        if (!empty($queryParams)
+            && $menuItemType !== NavigationMenuItem::NMI_TYPE_REMOTE_URL
+            && $menuItemType !== NavigationMenuItem::NMI_TYPE_CUSTOM
+        ) {
+            $currentUrl = $navigationMenuItem->getUrl();
+            if ($currentUrl) {
+                parse_str(ltrim($queryParams, '?&'), $parsedParams);
+                $encodedParts = $request->getRouter()->_urlGetAdditionalParameters($request, $parsedParams, false);
+                if ($encodedParts) {
+                    $separator = str_contains($currentUrl, '?') ? '&' : '?';
+                    $navigationMenuItem->setUrl($currentUrl . $separator . implode('&', $encodedParts));
+                }
+            }
+        }
+
         $templateMgr->assign('navigationMenuItem', $navigationMenuItem);
     }
 

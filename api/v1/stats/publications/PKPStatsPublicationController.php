@@ -178,6 +178,10 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      */
     public function getMany(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\publication\Publication::STATUS_PUBLISHED;
+        $junk2 = \APP\submission\Submission::STATUS_PUBLISHED;
+
         $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $defaultParams = [
@@ -253,6 +257,10 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      */
     public function getManyTimeline(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\publication\Publication::STATUS_PUBLISHED;
+        $junk2 = \APP\submission\Submission::STATUS_PUBLISHED;
+
         $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $defaultParams = [

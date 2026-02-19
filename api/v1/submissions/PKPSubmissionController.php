@@ -458,6 +458,10 @@ class PKPSubmissionController extends PKPBaseController
         $currentUser = $request->getUser();
         $context = $request->getContext();
 
+        // Work around https://github.com/php/php-src/issues/20469
+        $junk1 = \APP\submission\Submission::STATUS_PUBLISHED;
+        $junk2 = \APP\publication\Publication::STATUS_PUBLISHED;
+
         $collector = $this->getSubmissionCollector($illuminateRequest->query());
 
         Hook::run('API::submissions::params', [$collector, $illuminateRequest]);
@@ -2061,7 +2065,7 @@ class PKPSubmissionController extends PKPBaseController
         $context = $data['context']; /** @var Context $context*/
         $submission = $data['submission']; /** @var Submission $submission */
         $publication = $data['publication']; /** @var Publication $publication*/
-        
+
         $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
 
         $submissionLocale = $submission->getData('locale');

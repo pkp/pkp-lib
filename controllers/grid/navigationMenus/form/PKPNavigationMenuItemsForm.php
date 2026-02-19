@@ -137,6 +137,7 @@ class PKPNavigationMenuItemsForm extends Form
                 'title' => $navigationMenuItem->getTitle(null),
                 'url' => $navigationMenuItem->getUrl(),
                 'menuItemType' => $navigationMenuItem->getType(),
+                'queryParams' => $navigationMenuItem->getQueryParams(),
             ];
 
             $this->_data = $formData;
@@ -151,7 +152,7 @@ class PKPNavigationMenuItemsForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['navigationMenuItemId', 'path', 'content', 'title', 'remoteUrl', 'menuItemType']);
+        $this->readUserVars(['navigationMenuItemId', 'path', 'content', 'title', 'remoteUrl', 'menuItemType', 'queryParams']);
     }
 
     /**
@@ -219,6 +220,7 @@ class PKPNavigationMenuItemsForm extends Form
         $navigationMenuItem->setContextId($this->getContextId());
         $navigationMenuItem->setRemoteUrl($this->getData('remoteUrl'), null); // Localized
         $navigationMenuItem->setType($this->getData('menuItemType'));
+        $navigationMenuItem->setQueryParams($this->getData('queryParams'));
 
         // Update or insert navigation menu item
         if ($navigationMenuItem->getId()) {

@@ -64,6 +64,22 @@ class NavigationMenuItem extends \PKP\core\DataObject
     }
 
     /**
+     * Set query parameters for this navigation menu item.
+     */
+    public function setQueryParams(?string $queryParams): void
+    {
+        $this->setData('queryParams', $queryParams);
+    }
+
+    /**
+     * Get query parameters for this navigation menu item.
+     */
+    public function getQueryParams(): ?string
+    {
+        return $this->getData('queryParams');
+    }
+
+    /**
      * Set url for this navigation menu item.
      */
     public function setUrl(?string $url): void

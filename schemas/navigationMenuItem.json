@@ -58,6 +58,14 @@
 				"regex:/^[a-zA-Z0-9\\/._-]+$/"
 			]
 		},
+		"queryParams": {
+			"type": "string",
+			"description": "Query parameters to append to the navigation menu item URL.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"url": {
 			"type": "string",
 			"description": "The computed URL for this navigation menu item.",

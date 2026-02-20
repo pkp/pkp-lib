@@ -61,7 +61,7 @@ class Collector implements CollectorInterface, ViewsCount
     public ?array $publicationIds = null;
     public ?bool $isPubliclyVisible = null;
     public ?array $doiIds = null;
-    public ?bool $isConfirmed = null;
+    public ?bool $isAccepted = false;
 
     public function __construct(DAO $dao)
     {
@@ -124,12 +124,13 @@ class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
-     * Filter by review assignments that were confirmed by the reviewer.
+     * Filter by review assignments that were accepted by the reviewer.
+     * A review assignment is considered to be accepted if it was confirmed by the reviewer and it was not cancelled or declined.
      *
      */
-    public function filterByIsConfirmed(?bool $isConfirmed): static
+    public function filterByIsAccepted(?bool $isAccepted): static
     {
-        $this->isConfirmed = $isConfirmed;
+        $this->isAccepted = $isAccepted;
         return $this;
     }
 
@@ -646,11 +647,10 @@ class Collector implements CollectorInterface, ViewsCount
             $q->where('ra.is_review_publicly_visible', $this->isPubliclyVisible ? 1 : 0)
         );
 
-        $q->when(
-            isset($this->isConfirmed),
-            fn(Builder $q) => $this->isConfirmed
-                ? $q->whereNotNull('ra.date_confirmed')
-                : $q->whereNull('ra.date_confirmed')
+        $q->when($this->isAccepted,
+            fn(Builder $q) => $q->whereNotNull('ra.date_confirmed')
+                ->where('ra.declined', '<>', 1)
+                ->where('ra.cancelled', '<>', 1)
         );
 
         return $q;

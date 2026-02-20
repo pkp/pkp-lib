@@ -35,6 +35,12 @@ msgstr "The {$param} parameter is not supported."
 msgid "api.400.propReadOnly"
 msgstr "The {$prop} property can not be modified."
 
+msgid "api.400.missingRequired"
+msgstr "The {$param} parameter is required."
+
+msgid "api.400.invalidValue"
+msgstr "The {$param} parameter contains an invalid value."
+
 msgid "api.400.invalidApiToken"
 msgstr "The API token could not be validated. This may indicate an error in the API token or that the API token is no longer valid."
 
@@ -262,6 +268,27 @@ msgstr "You must provide a review round id when moving a file to this file stage
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "The review round you provided is not part of this submission."
+
+msgid "api.submissionFiles.400.cannotLinkToSelf"
+msgstr "A file cannot be linked to itself."
+
+msgid "api.submissionFiles.400.variantTypeRequired"
+msgstr "Both files must have a variant type assigned before they can be linked."
+
+msgid "api.submissionFiles.400.cannotLinkSameVariantType"
+msgstr "Files with the same variant type cannot be linked."
+
+msgid "api.submissionFiles.400.variantGroupAtCapacity"
+msgstr "The variant group already has the maximum number of files."
+
+msgid "api.submissionFiles.400.filesInDifferentGroups"
+msgstr "The files belong to different variant groups and cannot be linked."
+
+msgid "api.submissionFiles.400.targetNotInSubmission"
+msgstr "The target file does not belong to this submission."
+
+msgid "api.submissionFiles.400.targetNotMediaFile"
+msgstr "The target file is not a media file."
 
 msgid "api.submissionFiles.403.unauthorizedFileStageId"
 msgstr "You are not allowed to access these files."

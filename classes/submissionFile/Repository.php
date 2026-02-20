@@ -690,7 +690,8 @@ abstract class Repository
             $fileStage === SubmissionFile::SUBMISSION_FILE_PROOF ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY ||
             $fileStage === SubmissionFile::SUBMISSION_FILE_BODY_TEXT ||
-            $fileStage === SubmissionFile::SUBMISSION_FILE_JATS
+            $fileStage === SubmissionFile::SUBMISSION_FILE_JATS ||
+            $fileStage === SubmissionFile::SUBMISSION_FILE_MEDIA
         ) {
             return WORKFLOW_STAGE_ID_PRODUCTION;
         }
@@ -928,5 +929,27 @@ abstract class Repository
         }
 
         return $retValue;
+    }
+
+    /**
+     * Gets list of fields that will be applied across media files when linking different variants.
+     *
+     * @return string[]
+     */
+    public function getCommonMediaFileFields(): array
+    {
+        return [
+            'caption',
+            'copyrightOwner',
+            'creator',
+            'credit',
+            'description',
+            'publisher',
+            'source',
+            'sponsor',
+            'subject',
+            'terms',
+            'viewable',
+        ];
     }
 }

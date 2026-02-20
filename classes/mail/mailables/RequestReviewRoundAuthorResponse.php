@@ -9,8 +9,7 @@
  *
  * @class RequestReviewRoundAuthorResponse
  *
- * @brief Email sent to the author(s) when requesting an author response to reviewers' comments. Uses the same email template as the DecisionRequestRevisionsNotifyAuthor mailable, but specifically for
- * sending the email template outside of the context of a decision, and without having to create/have a Decision object, which is required when using DecisionRequestRevisionsNotifyAuthor mailable.
+ * @brief Email sent to the author(s) when requesting an author response to reviewers' comments.
  */
 
 namespace PKP\mail\mailables;

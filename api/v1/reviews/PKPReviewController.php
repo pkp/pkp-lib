@@ -885,6 +885,7 @@ class PKPReviewController extends PKPBaseController
         $reviewRound = $validated['reviewRound'];
 
         $assignments = Repo::reviewAssignment()->getCollector()
+            ->filterByIsAccepted(true)
             ->filterByReviewRoundIds([$reviewRound->getId()])
             ->getMany();
 

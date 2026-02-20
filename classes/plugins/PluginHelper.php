@@ -41,6 +41,109 @@ class PluginHelper
     public const PLUGIN_INSTALL_FILE = 'install.xml';
     public const PLUGIN_UPGRADE_FILE = 'upgrade.xml';
 
+    public const PLUGIN_INSTALL_ON = 'on';
+    public const PLUGIN_INSTALL_GALLERY_ONLY = 'gallery_only';
+    public const PLUGIN_INSTALL_UPGRADE_ONLY = 'upgrade_only';
+    public const PLUGIN_INSTALL_OFF = 'off';
+
+    public static function getInstallMode(): string
+    {
+        $raw = Config::getVar(
+            'security',
+            'allow_plugin_install',
+            self::PLUGIN_INSTALL_ON
+        );
+
+        // boolean config values
+        if (is_bool($raw)) {
+            return $raw ? self::PLUGIN_INSTALL_ON : self::PLUGIN_INSTALL_OFF;
+        }
+
+        // Normalize strings
+        $mode = strtolower(trim((string) $raw));
+
+        $allowed = [
+            self::PLUGIN_INSTALL_ON,
+            self::PLUGIN_INSTALL_GALLERY_ONLY,
+            self::PLUGIN_INSTALL_UPGRADE_ONLY,
+            self::PLUGIN_INSTALL_OFF,
+        ];
+
+        // Fail closed for unknown values (security setting)
+        return in_array($mode, $allowed, true)
+            ? $mode
+            : self::PLUGIN_INSTALL_OFF;
+    }
+
+    /**
+     * Mode mapping
+     *
+     * 1) on             -> upload yes, gallery tab yes, gallery install yes, gallery upgrade yes
+     * 2) gallery_only   -> upload no,  gallery tab yes, gallery install yes, gallery upgrade yes
+     * 3) upgrade_only   -> upload no,  gallery tab yes, gallery install no,  gallery upgrade yes
+     * 4) off            -> upload no,  gallery tab yes,  gallery install no,  gallery upgrade no
+     */
+    public static function getCapabilities(): array
+    {
+        $mode = self::getInstallMode();
+
+        // Default
+        $caps = [
+            'canSeeGallery' => true,
+            'canUpload' => false,
+            'canGalleryInstall' => false,
+            'canGalleryUpgrade' => false,
+        ];
+
+        switch ($mode) {
+            case self::PLUGIN_INSTALL_ON:
+                $caps['canUpload'] = true;
+                $caps['canGalleryInstall'] = true;
+                $caps['canGalleryUpgrade'] = true;
+                break;
+
+            case self::PLUGIN_INSTALL_GALLERY_ONLY:
+                $caps['canGalleryInstall'] = true;
+                $caps['canGalleryUpgrade'] = true;
+                break;
+
+            case self::PLUGIN_INSTALL_UPGRADE_ONLY:
+                $caps['canGalleryUpgrade'] = true;
+                break;
+
+            case self::PLUGIN_INSTALL_OFF:
+            default:
+                break;
+        }
+
+        return $caps;
+    }
+
+    public static function isGalleryAllowed(): bool
+    {
+        return self::getCapabilities()['canSeeGallery'];
+    }
+
+    public static function isUploadAllowed(): bool
+    {
+        return self::getCapabilities()['canUpload'];
+    }
+
+    public static function isGalleryInstallAllowed(): bool
+    {
+        return self::getCapabilities()['canGalleryInstall'];
+    }
+
+    public static function isGalleryUpgradeAllowed(): bool
+    {
+        return self::getCapabilities()['canGalleryUpgrade'];
+    }
+
+    public static function isPluginInstallDisabled(): bool
+    {
+        return self::getInstallMode() === self::PLUGIN_INSTALL_OFF;
+    }
+
     /**
      * Extract the plugin, executes the callback, then cleanup the files
      *
@@ -99,11 +202,17 @@ class PluginHelper
      *
      * @param string $path path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
+     * @param bool $gallerySource Indicates whether the plugin is being installed from the gallery (true) or from the upload form (false).
      *
      * @return Version Version of installed plugin on success
      */
-    public function installPlugin(string $path, string $originalFileName): Version
+    public function installPlugin(string $path, string $originalFileName, bool $gallerySource = false): Version
     {
+        // Exception if gallery is added in Gallery Grid Handler
+        if (!$gallerySource && !self::isUploadAllowed()) {
+            throw new Exception(__('manager.plugins.uploadPluginsDisabled'));
+        }
+
         return $this->extractPlugin($path, $originalFileName, function (string $pluginFolder): Version {
             $fileManager = new FileManager();
             $versionFile = $pluginFolder . static::PLUGIN_VERSION_FILE;
@@ -173,10 +282,16 @@ class PluginHelper
      *
      * @param string $path path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
+     * @param bool $gallerySource Indicates whether the plugin is being installed from the gallery (true) or from the upload form (false).
      *
      */
-    public function upgradePlugin(string $category, string $plugin, string $path, string $originalFileName): Version
+    public function upgradePlugin(string $category, string $plugin, string $path, string $originalFileName, bool $gallerySource = false): Version
     {
+        // Exception if gallery is added in Gallery Grid Handler
+        if (!$gallerySource && !self::isUploadAllowed()) {
+            throw new Exception(__('manager.plugins.uploadDisabled'));
+        }
+
         return $this->extractPlugin($path, $originalFileName, function (string $pluginFolder) use ($category, $plugin): Version {
             $fileManager = new FileManager();
             $versionFile = $pluginFolder . static::PLUGIN_VERSION_FILE;

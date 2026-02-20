@@ -1649,6 +1649,18 @@ msgstr ""
 msgid "manager.plugins.uploadFailed"
 msgstr "Please ensure a file was selected for upload."
 
+# fuzzy
+msgid "manager.plugins.galleryInstallsDisabled"
+msgstr "Plugin installs through the Plugin Gallery are disabled by the Site Administrator."
+
+# fuzzy
+msgid "manager.plugins.galleryUpgradesDisabled"
+msgstr "Plugin upgrades through the Plugin Gallery are disabled by the Site Administrator."
+
+# fuzzy
+msgid "manager.plugins.uploadPluginsDisabled"
+msgstr "Plugin uploads are disabled by the Site Administrator."
+
 msgid "manager.plugins.installed"
 msgstr "Installed Plugins"
 

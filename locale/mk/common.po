@@ -1,9 +1,9 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024, 2025.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024, 2025, 2026.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-19 06:31+0000\n"
+"PO-Revision-Date: 2026-02-20 22:21+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
@@ -1965,7 +1965,6 @@ msgstr "Круг {$round} статус"
 msgid "notification.type.editorialReport"
 msgstr "Збирен статистички извештај."
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Ова е еден вид потсетник за да го проверите здравјето на вашето списание "

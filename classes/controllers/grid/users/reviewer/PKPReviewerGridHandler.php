@@ -56,7 +56,9 @@ use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\mail\mailables\ReviewerUnassign;
+use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\traits\Sender;
+use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\Notification;
 use PKP\notification\PKPNotificationManager;
 use PKP\reviewForm\ReviewFormDAO;
@@ -970,6 +972,50 @@ class PKPReviewerGridHandler extends GridHandler
     }
 
     /**
+     * Fetch the compiled body for a review reminder template (AJAX).
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function fetchReviewReminderTemplateBody(array $args, PKPRequest $request): JSONMessage
+    {
+        $templateKey = $request->getUserVar('template');
+        $context = $request->getContext();
+        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
+
+        if (!$template) {
+            return new JSONMessage(false);
+        }
+
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
+        $templates = $reviewReminderForm->getEmailTemplates();
+
+        // Look if the template key from the request matches any of the templates available for this form.
+        // If not, return an error.
+        if (!isset($templates[$templateKey])) {
+            return new JSONMessage(false, __('editor.review.reminderError'));
+        }
+
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        $sender = $request->getUser();
+        $mailable = $reviewReminderForm->getReviewRemindMailable($context);
+        $mailable->sender($sender)->recipients([$reviewer]);
+        $data = $mailable->getData(Locale::getLocale());
+        // Don't expose the reviewer's one-click access URL to editors
+        $data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = '{$' . ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL . '}';
+
+        return new JSONMessage(true, [
+            'body' => Mail::compileParams($template->getLocalizedData('body'), $data),
+            'variables' => [
+                'passwordResetUrl' => __('common.url'),
+            ],
+        ]);
+    }
+
+    /**
      * Displays a modal to send an email message to the user.
      *
      * @param array $args
@@ -1150,6 +1196,7 @@ class PKPReviewerGridHandler extends GridHandler
             'thankReviewer',
             'editReminder',
             'sendReminder',
+            'fetchReviewReminderTemplateBody',
             'unassignReviewer',
             'updateUnassignReviewer',
             'reinstateReviewer',

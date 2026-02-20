@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-06 06:50+0000\n"
+"PO-Revision-Date: 2026-02-20 22:21+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/mk/>\n"
@@ -653,3 +653,81 @@ msgstr ""
 "се сè уште активни.</p>        <p>Слободно контактирајте ме во врска со сите "
 "прашања поврзани со овој процес.</p>        <p>Со почит,</p>        "
 "<p>{$contextName}</p>    </div></div><style>{$emailTemplateStyle}</style>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Веќе доделени улоги</h2></p>"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Ова е името на испраќачот на поканата"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Ова е улогата на испраќачот на поканата"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Овој дел ги опишува улогите што ќе му бидат додадени на корисникот по "
+"прифаќањето на поканата"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Ова е URL-адресата за одбивање на поканата"
+
+msgid "emails.userRoleAssignmentInvitationNotify.body"
+msgstr ""
+"<div class='email-container'> <div class='email-header'> <h2>Покана за нова "
+"улога</h2> </div> <div class='email-content'> <p>Почитуван/а "
+"{$recipientName},</p> <p>Врз основа на вашата експертиза, сте поканети од "
+"{$inviterName} да преземете нови улоги во {$contextName}</p> <p>Во "
+"{$contextName}, ја цениме вашата приватност. Како такви, презедовме чекори "
+"за да осигуриме дека сме целосно во согласност со GDPR. Овие чекори "
+"вклучуваат ваша одговорност да ги внесете вашите сопствени податоци и да "
+"изберете кој може да види кои информации. За дополнителни информации за тоа "
+"како ги обработуваме вашите податоци, ве молиме погледнете ја нашата "
+"Политика за приватност.</p> <div>{$existingRoles}</div> <div>{$rolesAdded</"
+"div> <p>По прифаќањето на поканата, ќе бидете пренасочени кон "
+"{$contextName}.</p> <p>Слободно контактирајте ме доколку имате какви било "
+"прашања во врска со процесот.</p> <p><a href='{$acceptUrl}' class='btn btn-"
+"accept'>Прифати покана</a></p> <p><a href='{$declineUrl}' class='btn btn-"
+"decline'>Одбиј покана</a></p> <p>Со почит,</p> <p>{$contextName}</p> "
+"</div></div><style>{$emailTemplateStyle</style>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSection"
+msgstr ""
+"<div class='section'> <div class='section-number'>{$sectionNumber}.</div> "
+"<div class='section-content'> <h2>{$sectionName}</h2> <p>Почнувајќи од "
+"{$dateStart</p> <p>{$sectionEndingDate</p> <p>{$sectionMastheadAppear</p> "
+"</div></div>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Завршува на {$dateEnd}"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr ""
+"Вашето име нема да се појави во насловот на {$contextName} како "
+"{$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr ""
+"Вашето име ќе се појави во насловот на {$contextName} како {$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Новододелени улоги</h2></p>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Ова е името на примателот на поканата"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Овој дел ги опишува улогите што корисникот веќе ги има."
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Ова е URL-адресата за прифаќање на поканата"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Поканети сте на нови улоги"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Известување за поканет корисник во улога"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Оваа е-пошта е испратена до корисниците кои се поканети да добијат одредени "
+"улоги"

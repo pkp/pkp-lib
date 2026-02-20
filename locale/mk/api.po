@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"PO-Revision-Date: 2026-02-20 22:21+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "mk/>\n"
@@ -457,3 +457,9 @@ msgstr ""
 
 msgid "api.rors.404.rorNotFound"
 msgstr "Не е пронајден роторот што го побаравте."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Доделувањето на ORCiD ID на автор преку крајните точки Уреди/Додај автор не "
+"е дозволено. За да побарате од автор да го ажурира својот ORCID iD, "
+"користете ја крајната точка „orcid/requestAuthorVerification/{authorId}“."

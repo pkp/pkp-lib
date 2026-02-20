@@ -38,6 +38,8 @@ use Symfony\Component\Console\Helper\TableCell;
 use Symfony\Component\Console\Helper\TableCellStyle;
 use Throwable;
 
+// error_reporting(E_ALL & ~E_DEPRECATED);
+
 define('APP_ROOT', dirname(__FILE__, 4));
 require_once APP_ROOT . '/tools/bootstrap.php';
 
@@ -71,9 +73,9 @@ class commandJobs extends CommandLineTool
     /**
      * Constructor
      */
-    public function __construct($argv = [])
+    public function __construct($argv = [], $loadPlugins = true)
     {
-        parent::__construct($argv);
+        parent::__construct($argv, $loadPlugins);
 
         array_shift($argv);
 
@@ -322,7 +324,7 @@ class commandJobs extends CommandLineTool
             $queue = PKPJobModel::TESTING_QUEUE;
         }
 
-        $jobQueue = app('pkpJobQueue');
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
 
         if ($queue && is_string($queue)) {
             $jobQueue = $jobQueue->forQueue($queue);
@@ -561,7 +563,7 @@ class commandJobs extends CommandLineTool
 }
 
 try {
-    $tool = new commandJobs($argv ?? []);
+    $tool = new commandJobs($argv ?? [], false);
     $tool->execute();
 } catch (Throwable $e) {
     $output = new \PKP\cliTool\CommandInterface;

@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\jobs\BaseJob;
 use PKP\mail\Mailable;
 
-class BulkEmailSender extends BaseJob
+class BulkEmailSender extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     use Batchable;
 
@@ -74,6 +74,14 @@ class BulkEmailSender extends BaseJob
         $this->body = $body;
         $this->fromEmail = $fromEmail;
         $this->fromName = $fromName;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     public function handle()

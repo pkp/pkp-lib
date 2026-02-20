@@ -29,7 +29,7 @@ use PKP\orcid\enums\OrcidDepositType;
 use PKP\orcid\OrcidManager;
 use PKP\user\User;
 
-class SendUpdateScopeMail extends BaseJob implements ShouldBeUnique
+class SendUpdateScopeMail extends BaseJob implements ShouldBeUnique, \PKP\queue\ContextAwareJob
 {
     public function __construct(
         /** @var Identity $identity Will be either a user or an author */
@@ -39,6 +39,14 @@ class SendUpdateScopeMail extends BaseJob implements ShouldBeUnique
         private int $itemId,
         private OrcidDepositType $depositType,
     ) {
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     /**

@@ -159,6 +159,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public array $enabledProducts = [];
 
     /**
+     * Instance of context(journal/press/server) when running on CLI
+     *
+     * @var Context|null
+     */
+    protected ?Context $cliContext = null;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -248,6 +255,42 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             $appVersion = $versionDao->getCurrentVersion()->getVersionString();
             Registry::set('appVersion', $appVersion);
         }
+    }
+
+    /**
+     * Set the context set when app running on CLI
+     */
+    public function setCliContext(int|Context|null $context = null): void
+    {
+        if (is_null($context)) {
+            $this->cliContext = null;
+            return;
+        }
+
+        if ($context instanceof Context) {
+            $this->cliContext = $context;
+            return;
+        }
+
+        $contextDao = static::getContextDAO();
+
+        $this->cliContext = $contextDao->getById($context) ?? throw new \InvalidArgumentException('Invalid context ID');
+    }
+
+    /**
+     * Clear/unset the context set on CLI
+     */
+    public function clearCliContext(): void
+    {
+        $this->cliContext = null;
+    }
+
+    /**
+     * Get the context set when app running on CLI
+     */
+    public function getCliContext(): ?Context
+    {
+        return $this->cliContext;
     }
 
     /**

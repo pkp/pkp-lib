@@ -19,11 +19,23 @@ declare(strict_types=1);
 namespace PKP\queue;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
 use PKP\core\PKPQueueProvider;
 
 class JobRunner
 {
+    /*
+     * Singleton instance
+     */
+    private static $instance = null;
+
+    /**
+     * Static flag to prevent multiple runs within the same request.
+     */
+    protected bool $jobProcessing = false;
+
     /**
      * The core queue job running service provider
      */
@@ -65,12 +77,58 @@ class JobRunner
     protected bool $hasEstimatedTimeToProcessNextJobConstrain = false;
 
     /**
-     * Create a new instance
-     *
+     * Should estimate next job possible processing time to allow next job to be processed/run
      */
-    public function __construct(?PKPQueueProvider $jobQueue = null)
+    protected int $jobProcessedOnRunner = 0;
+
+    /**
+     * Should the job runner run in context aware mode
+     * 
+     * This will allow the job runner to take into account the current context when processing jobs as 
+     *  - If current request has context, only process jobs for which there context id in the payload
+     *    that match it or the context id is null
+     *  - If the current request has not context, only process jobs that has not context id or
+     *    the context id is null
+     */
+    protected bool $runInContextAwareMode = true;
+
+    /**
+     * The current context ID
+     */
+    protected ?int $currentContextId = null;
+
+    // Private constructor to prevent direct instantiation
+    private function __construct() {}
+
+     /*
+     * Get the singleton instance
+     */
+    public static function getInstance(?PKPQueueProvider $jobQueue = null): self
     {
-        $this->jobQueue = $jobQueue ?? app('pkpJobQueue');
+        if (self::$instance === null) {
+            self::$instance = new self();
+            self::$instance->jobQueue = $jobQueue ?? app('pkpJobQueue');
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * Reset the singleton instance (for testing purposes only)
+     */
+    public static function resetInstance(): void
+    {
+        self::$instance = null;
+    }
+
+    /*
+     * Set/Update the job queue
+     */
+    public function setJobQueue(PKPQueueProvider $jobQueue): static
+    {
+        $this->jobQueue = $jobQueue;
+
+        return $this;
     }
 
     /**
@@ -190,39 +248,199 @@ class JobRunner
     }
 
     /**
+     * Check if the job runner is running in context-aware mode
+     */
+    public function isRunningInContextAwareMode(): bool
+    {
+        return $this->runInContextAwareMode;
+    }
+
+    /**
+     * Disable context-aware constraints
+     */
+    public function withDisableContextAwareConstraints(): self
+    {
+        $this->runInContextAwareMode = false;
+
+        return $this;
+    }
+
+    /**
+     * Set the current context id
+     */
+    public function setCurrentContextId(?int $contextId): self
+    {
+        $this->currentContextId = $contextId;
+
+        return $this;
+    }
+
+    /**
+     * Get the current context id
+     */
+    public function getCurrentContextId(): ?int
+    {
+        return $this->currentContextId;
+    }
+
+    /**
      * Process/Run/Execute jobs off CLI
-     *
      */
     public function processJobs(?EloquentBuilder $jobBuilder = null): bool
     {
-        $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
-
-        $jobProcessedCount = 0;
-        $jobProcessingStartTime = time();
-
-        while ($jobBuilder->count()) {
-            if ($this->exceededJobLimit($jobProcessedCount)) {
-                return true;
-            }
-
-            if ($this->exceededTimeLimit($jobProcessingStartTime)) {
-                return true;
-            }
-
-            if ($this->exceededMemoryLimit()) {
-                return true;
-            }
-
-            if ($this->mayExceedMemoryLimitAtNextJob($jobProcessedCount, $jobProcessingStartTime)) {
-                return true;
-            }
-
-            $this->jobQueue->runJobInQueue();
-
-            $jobProcessedCount = $jobProcessedCount + 1;
+        // if job is already processing via job runner, will not start to process more
+        if ($this->isJobProcessing()) {
+            return false;
         }
 
-        return true;
+        try {
+
+            $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
+
+            if ($this->isRunningInContextAwareMode()) {
+                $queueHandler = app()->get(\Illuminate\Contracts\Queue\Queue::class);
+                if ($queueHandler instanceof \PKP\queue\DatabaseQueue) {
+                    $queueHandler
+                        ->enableJobInContextAwareMode()
+                        ->setContextId($this->getCurrentContextId());
+
+                    $jobBuilder = $this->jobQueue->applyJobContextAwareFilter(
+                        $jobBuilder,
+                        $this->getCurrentContextId()
+                    );
+                }
+            }
+
+
+            // return back if there is no job to process
+            if (!$jobBuilder->count()) {
+                return false;
+            }
+
+            // Check for stale lock and clear it up if available
+            $lockData = Cache::get($this->getCacheKey());
+            if ($lockData && (time() - $lockData['timestamp']) >= $this->getCacheTimeout()) {
+                Cache::forget($this->getCacheKey());
+            }
+
+            // Try to acquire lock by setting cache key
+            $newToken = Str::uuid()->toString();
+            $newLockData = ['timestamp' => time(), 'token' => $newToken];
+            if (!Cache::add($this->getCacheKey(), $newLockData, $this->getCacheTimeout())) {
+                // Re-check cache to avoid race condition
+                // Store result to avoid double-call and properly handle NULL case
+                $cachedLock = Cache::get($this->getCacheKey());
+                if ($cachedLock && $cachedLock['token'] !== $newToken) {
+                    // JobRunner cache lock acquired by another process
+                    // will consider as processing job so will not proceed
+                    return false;
+                }
+
+                // If Cache::get() returned NULL, the lock may have been cleared between
+                // add() and get(). Add a small delay and re-check to be safe.
+                if (!$cachedLock) {
+                    usleep(10000); // 10ms delay
+                    $cachedLock = Cache::get($this->getCacheKey());
+                    if ($cachedLock && $cachedLock['token'] !== $newToken) {
+                        return false;
+                    }
+                }
+            }
+
+            // force flush the output buffer
+            app()->flushOutputBuffer();
+
+            $this->jobProcessing = true; // set the job runner to processing state
+            $this->jobProcessedOnRunner = 0;
+            $jobProcessingStartTime = time();
+
+            while ($jobBuilder->count()) {
+                if ($this->exceededJobLimit($this->jobProcessedOnRunner)) {
+                    return true;
+                }
+
+                if ($this->exceededTimeLimit($jobProcessingStartTime)) {
+                    return true;
+                }
+
+                if ($this->exceededMemoryLimit()) {
+                    return true;
+                }
+
+                if ($this->mayExceedMemoryLimitAtNextJob($this->jobProcessedOnRunner, $jobProcessingStartTime)) {
+                    return true;
+                }
+
+                // if there is no more jobs to run, exit the loop
+                if ($this->jobQueue->runJobInQueue($jobBuilder) === false) {
+                    return true;
+                }
+
+                $this->jobProcessedOnRunner = $this->jobProcessedOnRunner + 1;
+            }
+
+            return true;
+
+        } finally {
+            Cache::forget($this->getCacheKey());
+            $this->jobProcessing = false; // reset the job processing state
+        }
+    }
+
+    /**
+     * Get the number of job successfully processed on job runner
+     */
+    public function getJobProcessedCount(): int
+    {
+        return $this->jobProcessedOnRunner;
+    }
+
+    /**
+     * Get the current status of job runner to see if this is processing jobs.
+     * It will check for both in the current request life cycle and also
+     * in the other request life cycle.
+     */
+    public function isJobProcessing(): bool
+    {
+        // Job is being processed within the current reqeust life cycle
+        if ($this->jobProcessing) {
+            return true;
+        }
+
+        // if not processing within current request life cycle,
+        // we will check if it's being processed in other request life cycle
+        $lockData = Cache::get($this->getCacheKey());
+
+        // no cache lock found, job is not being processed
+        if (!$lockData) {
+            return false;
+        }
+
+        if ((time() - $lockData['timestamp']) < $this->getCacheTimeout()) {
+            // JobRunner is locked by another process (cache key exists), will consider as processing
+            return true;
+        }
+
+        // Stale lock detected, will consider that the job is not being processed
+        return false;
+    }
+
+    /**
+     * Get the cache key for the job runner
+     */
+    public function getCacheKey(): string
+    {
+        return 'jobRunnerLastRun';
+    }
+
+    /**
+     * Get the cache timeout(expiry time) for the job runner cache
+     */
+    public function getCacheTimeout(): int
+    {
+        // To ensure long running jobs have enough time to complete, 
+        // we double the cache clear time of the max execution time
+        return 2 * $this->deduceSafeMaxExecutionTime();
     }
 
     /**
@@ -255,7 +473,6 @@ class JobRunner
 
     /**
      * Check if memory consumed since job processing started has exceed defined max memory
-     *
      */
     protected function exceededMemoryLimit(): bool
     {
@@ -271,7 +488,6 @@ class JobRunner
      *
      * @param int $jobProcessedCount        The number of jobs that has processed so far
      * @param int $jobProcessingStartTime   The start time since job processing has started in seconds
-     *
      */
     protected function mayExceedMemoryLimitAtNextJob(int $jobProcessedCount, int $jobProcessingStartTime): bool
     {
@@ -301,7 +517,6 @@ class JobRunner
      *
      * It will consider both what defined in the ini file and application config file
      * and will take a minimum one based on those two values
-     *
      */
     protected function deduceSafeMaxExecutionTime(): int
     {
@@ -326,7 +541,6 @@ class JobRunner
      *
      *      If defined as STRING (e.g 128M), it will try to calculate it as memory defined in megabytes
      *      but if failed, will try to cast to INT to apply percentage rule
-     *
      */
     protected function deduceSafeMaxAllowedMemory(): int
     {

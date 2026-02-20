@@ -24,7 +24,7 @@ use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 use PKP\submission\PKPSubmission;
 
-class UpdateSubmissionSearchJob extends BaseJob
+class UpdateSubmissionSearchJob extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
@@ -45,6 +45,14 @@ class UpdateSubmissionSearchJob extends BaseJob
         parent::__construct();
 
         $this->submissionId = $submissionId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return Repo::submission()->get($this->submissionId)->getData('contextId');
     }
 
     /**

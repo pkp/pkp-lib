@@ -48,6 +48,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\authorResponse\AuthorResponseManager;
@@ -882,6 +883,41 @@ class PKPReviewController extends PKPBaseController
 
         /** @var ReviewRound $reviewRound */
         $reviewRound = $validated['reviewRound'];
+
+        $assignments = Repo::reviewAssignment()->getCollector()
+            ->filterByIsAccepted(true)
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->getMany();
+
+        /**
+         * Only allow request to be sent if either:
+         * 1) The number of completed reviews meets the minimum required number of reviews per submission as defined on the Context, or;
+         * 2) All reviews for the round are completed.
+         */
+        $shouldConsiderMinimumRequiredReviews = (bool)$context->getNumReviewsPerSubmission();
+
+        $hasMinimumRequiredReviews = $assignments
+                ->filter(fn(ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)
+                ->count() >= $context->getNumReviewsPerSubmission();
+
+        $areAllReviewsCompleted = $assignments->isNotEmpty() &&
+            $assignments
+                ->every(fn($assignment) => $assignment->getDateCompleted() !== null);
+
+        $passesMinimumReviewsCheck = $shouldConsiderMinimumRequiredReviews && $hasMinimumRequiredReviews;
+
+        if (!$passesMinimumReviewsCheck && !$areAllReviewsCompleted) {
+            return response()->json([
+                'error' => __('api.reviewRound.422.reviewAssignments')
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        if ($reviewRound->getAuthorResponse()) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict')
+            ], Response::HTTP_CONFLICT);
+        }
+
         $reviewAuthorResponseManager = new AuthorResponseManager(
             reviewRound: $reviewRound,
             submission: $validated['submission'],

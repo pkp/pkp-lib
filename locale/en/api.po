@@ -430,3 +430,6 @@ msgstr "The request is missing a value for `associatedAuthorIds`."
 
 msgid "api.reviewRound.authorResponse.400.missingAuthorReviewResponse"
 msgstr "The request is missing a value for `authorReviewResponse`."
+
+msgid "api.reviewRound.422.reviewAssignments"
+msgstr "This review round has review assignments that needs to be completed before a response can be requested from the Author."

@@ -46,7 +46,7 @@ class PublicationPeerReviewSummaryResource extends JsonResource
         // Include reviews from the Publication's Source Publication so that reviews that are to be copied forward are accounted for.
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterByIsPubliclyVisible(true)
-            ->filterByIsConfirmed(true)
+            ->filterByIsAccepted(true)
             ->filterByPublicationIds($allAssociatedPublicationIds)
             ->getMany();
 

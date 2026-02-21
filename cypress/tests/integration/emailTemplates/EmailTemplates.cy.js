@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/integration/Orcid.cy.js
+ * @file cypress/tests/integration/EmailTemplates.cy.js
  *
  * Copyright (c) 2014-2025 Simon Fraser University
  * Copyright (c) 2000-2025 John Willinsky
@@ -23,7 +23,9 @@ describe('Email Template Access Tests', function() {
 
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
 		cy.setEmailTemplateUnrestrictedTo(false);
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 		// reload and check that template was updated
 		cy.reload();
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
@@ -39,7 +41,9 @@ describe('Email Template Access Tests', function() {
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'false');
 		cy.setEmailTemplateUnrestrictedTo(true);
 
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 		cy.reload();
 
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
@@ -57,7 +61,9 @@ describe('Email Template Access Tests', function() {
 		// Assign the fist two user groups in the list
 		cy.get('input[name="assignedUserGroupIds"]').first().check();
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).check();
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 
 		cy.reload();
 
@@ -76,7 +82,9 @@ describe('Email Template Access Tests', function() {
 		cy.get('input[name="assignedUserGroupIds"]').first().should('be.checked');
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).should('be.checked');
 
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 
 		cy.reload();
 		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
@@ -107,7 +115,9 @@ describe('Email Template Access Tests', function() {
 		// Assign two available user groups
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).check();
 		cy.get('input[name="assignedUserGroupIds"]').eq(2).check();
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 
 		cy.reload();
 
@@ -137,7 +147,9 @@ describe('Email Template Access Tests', function() {
 		populateEmailTemplateBody();
 		cy.setEmailTemplateUnrestrictedTo(true);
 
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 
 		cy.reload();
 		cy.openEmailTemplate('Discussion (Production)', templateName);
@@ -165,7 +177,9 @@ describe('Email Template Access Tests', function() {
 		populateEmailTemplateBody();
 		cy.setEmailTemplateUnrestrictedTo(false);
 
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 
 		cy.reload();
 		cy.openEmailTemplate('Reinstate Submission Declined Without Review', templateName);
@@ -186,7 +200,9 @@ describe('Email Template Access Tests', function() {
 
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'true');
 		cy.get('input[name="assignedUserGroupIds"]').should('not.exist');
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 
 		// Reload and check that it is still hidden
 		cy.reload();
@@ -205,7 +221,9 @@ describe('Email Template Access Tests', function() {
 
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'false');
 		cy.get('input[name="assignedUserGroupIds"]').should('exist');
-		cy.contains('button', 'Save').click();
+		cy.get('[data-cy="active-modal"]').within(() => {
+			cy.contains('button', 'Save').click();
+		});
 
 		// Reload a check that it is still visible
 		cy.reload();

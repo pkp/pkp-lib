@@ -44,7 +44,6 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
@@ -1042,19 +1041,35 @@ abstract class Repository
     }
 
     /**
+     * @copydoc DAO::getClaimedSourcePublicationIds()
+     */
+    public function getClaimedSourcePublicationIds(array $publicationIds): array
+    {
+        return $this->dao->getClaimedSourcePublicationIds($publicationIds);
+    }
+
+    /**
      * Get public peer review data for publications.
      *
      * @param array $publications - The publications to get peer review data for.
      */
     public function getPublicPeerReviews(array $publications): Enumerable
     {
+        $allPublicationIds = collect($publications)->map(fn($p) => $p->getId())->all();
+
+        // Find which publication IDs in this batch are claimed as the source for another publication.
+        // Those publications' own review rounds will be excluded from in their own review data and shown only under the child.
+        $claimedPublicationIds = $this->getClaimedSourcePublicationIds($allPublicationIds);
+
         return collect($publications)
-            ->lazy()
-            ->map(function ($publication) {
+            ->map(function ($publication) use ($claimedPublicationIds) {
                 // Call resolve to get the array representation of the data prepared by the resource.
-                // Thus allowing code outside of an API context (e.g, page handlers) to use this getPeerReviews method to get peer review data in a consistent shape.
-                return (new PublicationPeerReviewResource($publication))->resolve();
-            })->values();
+                // Thus allowing code outside an API context (e.g., page handlers) to use this getPeerReviews method to get peer review data in a consistent shape.
+                return (new PublicationPeerReviewResource($publication))
+                    ->withClaimedPublicationIds($claimedPublicationIds)
+                    ->resolve();
+            })
+            ->values();
     }
 
     /**

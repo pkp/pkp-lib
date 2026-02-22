@@ -18,13 +18,13 @@ namespace PKP\components;
 
 use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Support\LazyCollection;
+use Illuminate\Support\Enumerable;
 use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewSummaryResource;
 use PKP\submission\reviewer\recommendation\enums\ReviewerRecommendationType;
 
 class OpenReviewComponent
 {
-    private LazyCollection $publicationsPeerReviews;
+    private Enumerable $publicationsPeerReviews;
     private array $submissionPeerReviewSummary;
 
     public function __construct(Submission $submission)

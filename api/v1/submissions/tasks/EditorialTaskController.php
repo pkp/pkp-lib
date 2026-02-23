@@ -203,7 +203,6 @@ class EditorialTaskController extends PKPBaseController
         $editorialTask->refresh();
 
         // Log the action
-        $currentDate = Core::getCurrentDate();
         $currentUser = $this->getRequest()->getUser();
         $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask);
 
@@ -214,13 +213,14 @@ class EditorialTaskController extends PKPBaseController
             'userId' => $currentUser->getId(),
             'message' => 'submission.event.task.created',
             'isTranslated' => false,
-            'dateLogged' => $currentDate,
+            'dateLogged' => $editorialTask->createdAt->format('Y-m-d H:i:s'),
             'submissionId' => $submission->getId(),
-            'taskDateCreated' => $editorialTask->createdAt->format('Y-m-d H:i:s'),
             'username' => $currentUser->getUsername(),
-            'userGroupName' => implode(', ', $currentUserUserGroups),
+            'userGroupNames' => $currentUserUserGroups,
+            'userFullName' => $currentUser->getFullNames(),
             'taskType' => $editorialTask->type,
         ]);
+
         Repo::eventLog()->add($eventLog);
 
         $newParticipants = $editorialTask->participants->pluck('userId')->toArray();
@@ -399,9 +399,12 @@ class EditorialTaskController extends PKPBaseController
         $newDueDate = $editTask->dateDue;
         $newOwner = $editTask->participants->where('isResponsible', true)->first();
 
-        $this->logTaskFiles($oldFiles, $newFiles, $submission, $editTask, $currentUser);
+        $this->logParticipants($newParticipantIds, $submission, $editTask, $currentUser, $oldParticipantIds);
+        $this->logTaskFiles($newFiles, $submission, $editTask, $currentUser, $oldFiles);
         if ($editTask->type == EditorialTaskType::TASK->value) {
-            $this->logDueDate($oldDueDate, $newDueDate, $submission, $editTask, $currentUser);
+            if ($oldDueDate) {
+                $this->logDueDate($oldDueDate, $newDueDate, $submission, $editTask, $currentUser);
+            }
             $this->logOwner($newOwner, $submission, $editTask, $currentUser, $oldOwner);
         }
 
@@ -448,9 +451,10 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_CONFLICT);
         }
 
-        $dateClosed = Carbon::now();
+        $dateClosed = Core::getCurrentDate();
         $editTask->fill(['dateClosed' => $dateClosed])->save();
         $editTask->refresh();
+        $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $currentUser, $editTask);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
@@ -461,8 +465,9 @@ class EditorialTaskController extends PKPBaseController
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
-            'taskDateClosed' => $dateClosed->format('Y-m-d H:i:s'),
             'username' => $currentUser->getUsername(),
+            'userGroupNames' => $currentUserUserGroups,
+            'userFullName' => $currentUser->getFullNames(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -496,6 +501,7 @@ class EditorialTaskController extends PKPBaseController
 
         $editTask->fill(['dateClosed' => null])->save();
         $editTask->refresh();
+        $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $currentUser, $editTask);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
@@ -506,8 +512,9 @@ class EditorialTaskController extends PKPBaseController
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
-            'taskDateOpened' => now()->format('Y-m-d H:i:s'),
             'username' => $currentUser->getUsername(),
+            'userGroupNames' => $currentUserUserGroups,
+            'userFullName' => $currentUser->getFullName(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -539,8 +546,9 @@ class EditorialTaskController extends PKPBaseController
             ], Response::HTTP_CONFLICT);
         }
 
+        $dateStarted = Core::getCurrentDate();
         $editTask->fill([
-            'dateStarted' => Carbon::now(),
+            'dateStarted' => $dateStarted,
             'startedBy' => $this->getRequest()->getUser()->getId(),
         ])->save();
         $editTask->refresh();
@@ -552,11 +560,11 @@ class EditorialTaskController extends PKPBaseController
             'userId' => $currentUser->getId(),
             'message' => 'submission.event.task.started',
             'isTranslated' => false,
-            'dateLogged' => Core::getCurrentDate(),
+            'dateLogged' => $dateStarted,
             'submissionId' => $submission->getId(),
-            'taskDateStarted' => $editTask->dateStarted->format('Y-m-d H:i:s'),
             'username' => $currentUser->getUsername(),
-            'userGroupName' => implode(', ', $this->getCurrentUserUserGroups($submission, $currentUser, $editTask)),
+            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editTask),
+            'userFullName' => $currentUser->getFullName(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -712,11 +720,11 @@ class EditorialTaskController extends PKPBaseController
             'userId' => $currentUser->getId(),
             'message' => 'submission.event.task.notePosted',
             'isTranslated' => false,
-            'dateLogged' => Core::getCurrentDate(),
+            'dateLogged' => $note->dateCreated->format('Y-m-d H:i:s'),
             'submissionId' => $submission->getId(),
-            'taskDateReplied' => $note->dateCreated->format('Y-m-d H:i:s'),
             'username' => $currentUser->getUsername(),
-            'userGroupName' => implode(', ', $this->getCurrentUserUserGroups($submission, $currentUser, $task)),
+            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $task),
+            'userFullName' => $currentUser->getFullName(),
         ]);
         Repo::eventLog()->add($eventLog);
 
@@ -726,6 +734,12 @@ class EditorialTaskController extends PKPBaseController
 
         $participantIds = $task->participants->pluck('userId')->toArray();
         $this->notifyParticipants($participantIds, $task, $note);
+
+        $newFiles = Repo::submissionFile()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
+            ->getMany()
+            ->toArray();
+        $this->logTaskFiles($newFiles, $submission, $task, $currentUser);
 
         return response()->json(
             new NoteResource(resource: $note, data: [
@@ -1064,7 +1078,11 @@ class EditorialTaskController extends PKPBaseController
      * Get the list of user groups the user belongs to for a given submission and stage,
      * including global roles and reviewer role for a review stage
      *
-     * @return array List of localized user groups
+     * @return array<string, array> List of localized user groups by locale, e.g.,
+     * [
+     *   'en' => ['Journal Editor'],
+     *   'uk' => ['Редактор журналу']
+     * ]
      */
     protected function getCurrentUserUserGroups(Submission $submission, User $currentUser, EditorialTask $editorialTask): array
     {
@@ -1077,7 +1095,9 @@ class EditorialTaskController extends PKPBaseController
             ->get();
 
         foreach ($currentUserStageAssignments as $currentUserStageAssignment) {
-            $currentUserUserGroups[] = $currentUserStageAssignment->userGroup->getlocalizedData('name');
+            foreach ($currentUserStageAssignment->userGroup->name as $locale => $groupName) {
+                $currentUserUserGroups[$locale][] = $groupName;
+            }
         }
 
         // Check for the reviewer role
@@ -1089,18 +1109,36 @@ class EditorialTaskController extends PKPBaseController
             collect()->lazy();
 
         if ($reviewAssignments->isNotEmpty()) {
-            $currentUserUserGroups[] = __('user.role.reviewer');
+            $reviewerUserGroup = UserGroup::withContextIds([$submission->getData('contextId')])
+                ->withRoleIds([Role::ROLE_ID_REVIEWER])
+                ->withUserIds([$currentUser->getId()])
+                ->get()
+                ->first()
+                ?->name;
+
+            if ($reviewerUserGroup) {
+                foreach ($reviewerUserGroup as $locale => $groupName) {
+                    $currentUserUserGroups[$locale][] = $groupName;
+                }
+            }
         }
 
         // Check if user has global roles
         $globalRoles = UserGroup::withContextIds([$submission->getData('contextId')])
             ->withRoleIds([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER])
             ->withUserIds([$currentUser->getId()])
-            ->get()
-            ->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))
-            ->toArray();
+            ->get();
 
-        return array_merge($currentUserUserGroups, $globalRoles);
+        foreach ($globalRoles as $globalRole) {
+            foreach ($globalRole->name as $locale => $groupName) {
+                if (isset($currentUserUserGroups[$locale]) && in_array($groupName, $currentUserUserGroups[$locale])) {
+                    continue;
+                }
+                $currentUserUserGroups[$locale][] = $groupName;
+            }
+        }
+
+        return $currentUserUserGroups;
     }
 
     /**
@@ -1110,43 +1148,70 @@ class EditorialTaskController extends PKPBaseController
      * @param array<int, SubmissionFile> $newSubmissionFiles
      */
     protected function logTaskFiles(
-        array $oldSubmissionFiles,
         array $newSubmissionFiles,
         Submission $submission,
         EditorialTask $editorialTask,
         User $uploaderUser,
+        array $oldSubmissionFiles = []
     ): void {
-        $files = array_diff_key($newSubmissionFiles, $oldSubmissionFiles);
-        if (empty($files)) {
+        $filesAdded = array_diff_key($newSubmissionFiles, $oldSubmissionFiles);
+        $filesRemoved = array_diff_key($oldSubmissionFiles, $newSubmissionFiles);
+        if (empty($filesAdded) && empty($filesRemoved)) {
             return;
         }
 
-        $filenames = array_map(fn (SubmissionFile $file) => $file->getLocalizedData('name'), $files);
-        $eventLog = Repo::eventLog()->newDataObject([
-            'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
-            'assocId' => $editorialTask->id,
-            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_FILE_UPLOADED,
-            'userId' => $uploaderUser->getId(),
-            'message' => 'submission.event.task.fileUploaded',
-            'isTranslated' => false,
-            'dateLogged' => Core::getCurrentDate(),
-            'submissionId' => $submission->getId(),
-            'taskDateFileUploaded' => now()->format('Y-m-d H:i:s'),
-            'username' => $uploaderUser->getUsername(),
-            'filename' => implode(', ', $filenames),
-        ]);
-        Repo::eventLog()->add($eventLog);
+        $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $uploaderUser, $editorialTask);
+
+        foreach ($filesAdded as $file) {
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+                'assocId' => $editorialTask->id,
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_FILE_UPLOADED,
+                'userId' => $uploaderUser->getId(),
+                'message' => 'submission.event.task.fileUploaded',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'submissionId' => $submission->getId(),
+                'username' => $uploaderUser->getUsername(),
+                'userGroupNames' => $currentUserUserGroups,
+                'userFullName' => $uploaderUser->getFullName(),
+                'filename' => $file->getLocalizedData('name'),
+                'fileId' => $file->getId(),
+                'stageId' => $editorialTask->stageId,
+            ]);
+            Repo::eventLog()->add($eventLog);
+        }
+
+        foreach ($filesRemoved as $file) {
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+                'assocId' => $editorialTask->id,
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_FILE_REMOVED,
+                'userId' => $uploaderUser->getId(),
+                'message' => 'submission.event.task.fileRemoved',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'submissionId' => $submission->getId(),
+                'username' => $uploaderUser->getUsername(),
+                'userGroupNames' => $currentUserUserGroups,
+                'userFullName' => $uploaderUser->getFullName(),
+                'filename' => $file->getLocalizedData('name'),
+                'fileId' => $file->getId(),
+                'stageId' => $editorialTask->stageId,
+            ]);
+            Repo::eventLog()->add($eventLog);
+        }
     }
 
     /**
      * Log the change of task due date in the submission event log
      */
     protected function logDueDate(
-        Carbon $oldDueDate,
-        Carbon $newDueDate,
-        Submission $submission,
+        Carbon        $oldDueDate,
+        Carbon        $newDueDate,
+        Submission    $submission,
         EditorialTask $editorialTask,
-        User $uploaderUser,
+        User          $currentUser,
     ): void {
         if ($oldDueDate->eq($newDueDate)) {
             return;
@@ -1156,15 +1221,16 @@ class EditorialTaskController extends PKPBaseController
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editorialTask->id,
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_DATEDUE_MODIFIED,
-            'userId' => $uploaderUser->getId(),
+            'userId' => $currentUser->getId(),
             'message' => 'submission.event.task.datedue.modified',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
-            'taskDateDueModified' => now()->format('Y-m-d H:i:s'),
             'taskDateDueOld' => $oldDueDate->format('Y-m-d H:i:s'),
             'taskDateDueNew' => $newDueDate->format('Y-m-d H:i:s'),
-            'username' => $uploaderUser->getUsername(),
+            'username' => $currentUser->getUsername(),
+            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
+            'userFullName' => $currentUser->getFullName(),
         ]);
         Repo::eventLog()->add($eventLog);
     }
@@ -1177,7 +1243,7 @@ class EditorialTaskController extends PKPBaseController
         Participant $newOwner,
         Submission $submission,
         EditorialTask $editorialTask,
-        User $uploaderUser,
+        User $currentUser,
         ?Participant $oldOwner = null,
     ): void {
         if ($oldOwner?->userId == $newOwner->userId) {
@@ -1188,17 +1254,79 @@ class EditorialTaskController extends PKPBaseController
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editorialTask->id,
             'eventType' => is_null($oldOwner) ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_ASSIGNED : PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_REASSIGNED,
-            'userId' => $uploaderUser->getId(),
+            'userId' => $currentUser->getId(),
             'message' => is_null($oldOwner) ? 'submission.event.task.assigned' : 'submission.event.task.reassigned',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
-            'taskOwnerModifiedDate' => now()->format('Y-m-d H:i:s'),
             'taskOwnerOldUserId' => $oldOwner->userId,
             'taskOwnerOldUsername' => $oldOwner->userId ? Repo::user()->get($oldOwner->userId)->getUsername() : '',
             'taskOwnerNewUserId' => $newOwner->userId,
             'taskOwnerNewUsername' => $newOwner->userId ? Repo::user()->get($newOwner->userId)->getUsername() : '',
-            'username' => $uploaderUser->getUsername(),
+            'username' => $currentUser->getUsername(),
+            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
+            'userFullName' => $currentUser->getFullName(),
+        ]);
+        Repo::eventLog()->add($eventLog);
+    }
+
+    /**
+     * Log the addition or removal of task participants to the submission event log
+     * One message will be logged for all the added participants and one for removed
+     */
+    protected function logParticipants(array $newParticipantIds, Submission $submission, EditorialTask $editorialTask, User $currentUser, array $oldParticipantIds = []): void
+    {
+        $participantsAdded = array_diff($newParticipantIds, $oldParticipantIds);
+        $participantsRemoved = array_diff($oldParticipantIds, $newParticipantIds);
+        if (empty($participantsAdded) && empty($participantsRemoved)) {
+            return;
+        }
+
+        if (!empty($participantsAdded)) {
+            $this->recordParticipantsAction($participantsAdded, $submission, $editorialTask, $currentUser, PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_PARTICIPANTS_ADDED);
+        }
+
+        if (!empty($participantsRemoved)) {
+            $this->recordParticipantsAction($participantsRemoved, $submission, $editorialTask, $currentUser, PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_PARTICIPANTS_REMOVED);
+        }
+
+
+    }
+
+    /**
+     * @param array<int> $participantIds User IDs of the participants that were added or removed
+     */
+    public function recordParticipantsAction(array $participantIds, Submission $submission, EditorialTask $editorialTask, User $currentUser, int $eventType): void
+    {
+        $message = $eventType == PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_PARTICIPANTS_ADDED ?
+            'submission.event.task.participantsAdded' :
+            'submission.event.task.participantsRemoved';
+
+        $usersToRecord = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany()->toArray();
+        $taskParticipants = '';
+        $lastKey = array_key_last($usersToRecord);
+        foreach ($usersToRecord as $key => $user) {
+            $userRoles = $this->getCurrentUserUserGroups($submission, $user, $editorialTask);
+            $taskParticipants .= $user->getUsername() . ' (' . implode(', ', $userRoles) . ')';
+            if ($key != $lastKey) {
+                $taskParticipants .= ', ';
+            }
+        }
+
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+            'assocId' => $editorialTask->id,
+            'eventType' => $eventType,
+            'userId' => $currentUser->getId(),
+            'message' => $message,
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'submissionId' => $submission->getId(),
+            'taskParticipantsModifiedUserIds' => array_values($participantIds),
+            'taskParticipantsModifiedUsernames' => $taskParticipants,
+            'username' => $currentUser->getUsername(),
+            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
+            'userFullName' => $currentUser->getFullName(),
         ]);
         Repo::eventLog()->add($eventLog);
     }

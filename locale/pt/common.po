@@ -1,13 +1,13 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024, 2026.
 # Sérgio Reis <disergioreis@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2025-10-24 20:18+0000\n"
-"Last-Translator: Sérgio Reis <disergioreis@gmail.com>\n"
+"PO-Revision-Date: 2026-02-24 09:55+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/pt/>\n"
 "Language: pt\n"
@@ -965,7 +965,7 @@ msgid "common.user"
 msgstr "Utilizador"
 
 msgid "common.user.nonexistent"
-msgstr "[Nonexistent user]"
+msgstr "[Utilizador não existente]"
 
 msgid "common.view"
 msgstr "Visualizar"
@@ -1512,7 +1512,7 @@ msgid "navigation.previousPage"
 msgstr "&lt;&lt;"
 
 msgid "navigation.previousStep"
-msgstr "Voltar"
+msgstr "Passo Anterior"
 
 msgid "navigation.publicMenu"
 msgstr "Menu Público"
@@ -1907,7 +1907,7 @@ msgid "timeZone"
 msgstr "Fuso horário"
 
 msgid "user.email"
-msgstr "Endereço de e-mail"
+msgstr "Endereço de correio eletrónico"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1967,7 +1967,6 @@ msgstr "Estado da Ronda {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Resumo do relatório de estatísticas."
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Este é um lembrete para verificar a situação da sua revista através do "
@@ -1977,7 +1976,7 @@ msgid "notification.type.editorialReminder"
 msgstr "E-mail semanal com tarefas pendentes"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Item do menu de navegação atualizado com sucesso"
@@ -2369,7 +2368,6 @@ msgstr "Página de Histórico Editorial"
 msgid "common.changeLanguage"
 msgstr "Alterar idioma"
 
-#, fuzzy
 msgid "common.inParenthesis"
 msgstr "({$text})"
 
@@ -2407,7 +2405,6 @@ msgstr "Atualizar dados"
 msgid "common.numero"
 msgstr "Nr"
 
-#, fuzzy
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
 
@@ -2420,6 +2417,5 @@ msgstr "Revisores em anos anteriores"
 msgid "validator.multilingual"
 msgstr "O requisito de multilinguismo não é cumprido para este campo."
 
-#, fuzzy
 msgid "common.editorialMasthead"
-msgstr "Masthead Editorial"
+msgstr "Corpo Editorial"

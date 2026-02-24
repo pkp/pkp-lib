@@ -2054,12 +2054,15 @@ msgstr ""
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr ""
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr ""
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr ""
 

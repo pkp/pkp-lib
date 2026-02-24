@@ -2237,12 +2237,15 @@ msgstr ""
 "href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Attribution-ShareAlike 3.0 Unported ლიცენზიით</a> .</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "მიმოხილვიებს წინასწარი დისკუსიები"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "მიმოხილვიებს დისკუსიები"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "ლიტერატურული რედაქტირების დისკუსია"
 

@@ -2268,12 +2268,15 @@ msgstr ""
 "\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Erkännande-DelaLika 3.0 Unported-licens</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Diskussioner före granskning"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Granskningsdiskussioner"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Manusredigeringsdiskussioner"
 

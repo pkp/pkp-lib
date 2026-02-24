@@ -252,9 +252,11 @@ msgstr "Dreitos d'autor {$copyrightYear} {$copyrightHolder}"
 msgid "submission.license.cc.by-sa4"
 msgstr "CC Reconoixencia-SinObrasDerivadas 4.0"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discusions previas a la revisión"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Discusions de revisión"
 
@@ -2364,6 +2366,7 @@ msgstr ""
 "href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Reconoixencia-CompartirIgual 3.0 Unported</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discusions de corrección"
 

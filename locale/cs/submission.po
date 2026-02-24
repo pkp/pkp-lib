@@ -2266,12 +2266,15 @@ msgstr ""
 "\"licence\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. </p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Diskuse před recenzním procesem"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Diskuse během recenzního procesu"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Diskuse během redakčního procesu"
 

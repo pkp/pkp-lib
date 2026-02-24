@@ -2303,12 +2303,15 @@ msgstr ""
 "\"https://creativecommons.org/licenses/by-sa/3.0/\">Із Зазначенням Авторства "
 "– Поширення На Тих Самих Умовах 3.0 Міжнародна</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Обговорення до рецензування"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Обговорення рецензування"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Обговорення редагування"
 

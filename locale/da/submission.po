@@ -2303,12 +2303,15 @@ msgstr ""
 "\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Drøftelser forud for bedømmelse"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Drøftelser under bedømmelse"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Drøftelser under manuskriptredigering"
 

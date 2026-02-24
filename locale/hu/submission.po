@@ -2214,12 +2214,15 @@ msgstr ""
 "creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Nevezd meg! - Így "
 "add tovább! 3.0 Unported Licenc</a> szerint használható fel.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Szakmai lektorálást megelőző megbeszélések"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Lektorálási megbeszélések"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Technikai szerkesztéssel kapcsolatos megbeszélések"
 

@@ -2361,12 +2361,15 @@ msgstr ""
 "Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 "
 "International</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Diskussion vor der Begutachtung"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Diskussion zur Begutachtung"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Diskussion zum Lektorat"
 

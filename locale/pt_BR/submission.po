@@ -2303,12 +2303,15 @@ msgstr ""
 "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discussão da pré-avaliação"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Discussão da avaliação"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discussão da edição de texto"
 

@@ -2174,12 +2174,15 @@ msgstr ""
 "rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discuții pre-revizuire"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Discuții revizuire"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discuții editare conținut"
 

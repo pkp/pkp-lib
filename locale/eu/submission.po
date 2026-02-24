@@ -2281,12 +2281,15 @@ msgstr ""
 "://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Aitortu-"
 "PartekatuBerdin 3.0 Moldatu gabea Lizentziapean</a> dago argitaratuta.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Ebaluazioaren aurreko eztabaidak"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Ebaluazio-eztabaidak"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Kopien ediziorako eztabaida"
 

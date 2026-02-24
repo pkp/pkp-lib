@@ -839,12 +839,15 @@ msgstr ""
 msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Izstrādes process uzsākts."
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Pirmsrecenzēšanas diskusijas"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Recenzēšanas diskusijas"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Literārās rediģēšanas diskusijas"
 

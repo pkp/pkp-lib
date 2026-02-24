@@ -2351,12 +2351,15 @@ msgstr ""
 "href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Attribution - Partage dans les Mêmes Conditions 3.0 non transposé</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discussions pré-évaluation"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Discussions sur l'évaluation"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discussions sur l'édition"
 

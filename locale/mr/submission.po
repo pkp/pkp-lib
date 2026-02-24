@@ -1705,6 +1705,7 @@ msgstr "विषय"
 msgid "submission.query.messages"
 msgstr "संदेश"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "समीक्षणपूर्व चर्चा"
 
@@ -2526,6 +2527,7 @@ msgstr ""
 "ई-मेलने कळवा. निर्णय का फिरवला ते स्पष्ट करा आणि सादरीकरणाचे समीक्षण केले जा"
 "ईल का ते त्यांना कळवा."
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "समीक्षणादरम्यान चर्चा"
 
@@ -2540,6 +2542,7 @@ msgstr ""
 "{$title} - हे सादरीकरण आता सादरीकरण टप्प्यात सक्रिय केले गेले आहे. त्याबद्दल "
 "लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले आहे."
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "कॉपीएडिटिंगदरम्यान चर्चा"
 

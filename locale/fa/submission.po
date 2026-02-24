@@ -2189,12 +2189,15 @@ msgstr ""
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "گفتگوهای قبل از ارسال به داوری"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "مرور گفتگو ها"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "گفتگوی ویراستاری"
 

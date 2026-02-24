@@ -2320,12 +2320,15 @@ msgstr ""
 "Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 "
 "Непортированная</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Обсуждения до рецензирования"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Обсуждения рецензирования"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Обсуждения литературного редактирования"
 

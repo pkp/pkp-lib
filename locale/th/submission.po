@@ -2101,12 +2101,15 @@ msgstr ""
 "\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
 "Attribution-ShareAlike 4.0 International License</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "การสนทนาก่อนการทบทวน"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "การสนทนาระหว่างการทบทวน"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "การสนทนาเกี่ยวกับการแก้ไขสำเนา"
 

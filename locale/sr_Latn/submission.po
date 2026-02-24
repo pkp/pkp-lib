@@ -2071,12 +2071,15 @@ msgstr ""
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Pred recenzentske diskusije"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Recenzentske diskusije"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Korekturne diskusije"
 

@@ -2168,12 +2168,15 @@ msgstr ""
 "\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Attribution-ShareAlike 3.0 Unported Lisens</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Diskusjon før fagfellevurdering"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Diskusjon av fagfellevurderingen"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Diskusjon av språkvask"
 

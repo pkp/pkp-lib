@@ -2255,12 +2255,15 @@ msgstr ""
 "href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Attribution-ShareAlike 3.0 mednarodna licenca</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Predrecenzijska diskusija"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Recenzijska diskusija"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Lektorska diskusija"
 

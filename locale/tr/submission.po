@@ -2243,12 +2243,15 @@ msgstr ""
 "creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-"
 "ShareAlike 3.0 International License</a> ile lisanslanmıştır.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Ön Değerlendirme Tartışmaları"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Değerlendirme Tartışmaları"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Kopya Düzeltme Tartışmaları"
 

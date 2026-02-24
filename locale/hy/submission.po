@@ -2281,12 +2281,15 @@ msgstr ""
 "licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 Unported "
 "License</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Նախնական գրախոսման քննարկումներ"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Գրախոսման քննարկումներ"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Գրական սրբագրման քննարկումներ"
 

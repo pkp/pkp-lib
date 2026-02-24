@@ -228,6 +228,9 @@ msgstr "{$label} - {$count}"
 msgid "openReview.recommendationItemSeparator"
 msgstr " – "
 
+msgid "openReview.authorAffiliationSeparator"
+msgstr " — "
+
 msgid "openReview.reviewersContributed"
 msgstr "reviewers contributed to this article"
 

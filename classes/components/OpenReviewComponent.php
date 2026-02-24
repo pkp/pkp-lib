@@ -68,6 +68,7 @@ class OpenReviewComponent
             'openReview.reviewModel',
             'openReview.seeFullRecord',
             'openReview.recommendationItemSeparator',
+            'openReview.authorAffiliationSeparator',
             'common.inParenthesis'
         ];
     }

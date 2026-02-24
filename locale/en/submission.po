@@ -2340,13 +2340,13 @@ msgid "submission.license.cc.by-sa3.footer"
 msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>This work is licensed under a <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
 msgid "submission.queries.submission"
-msgstr "Pre-Review Discussions"
+msgstr "Desk Review Tasks & Discussions"
 
 msgid "submission.queries.review"
-msgstr "Review Discussions"
+msgstr "Review Tasks & Discussions"
 
 msgid "submission.queries.editorial"
-msgstr "Copyediting Discussions"
+msgstr "Copyediting Tasks & Discussions"
 
 msgid "submission.query.subject"
 msgstr "Subject"
@@ -3375,9 +3375,6 @@ msgstr "This discussion template pre-fills the name, participants, and starting 
 
 msgid "discussion.template.taskDescription"
 msgstr "This task template auto-fills the task name, due date, description, and roles. After selecting the template, you can modify any details before saving the task."
-
-msgid "discussion.title"
-msgstr "Desk Review Tasks & Discussions"
 
 msgid "stage.submission"
 msgstr "Submission Stage"

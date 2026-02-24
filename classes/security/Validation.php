@@ -351,8 +351,12 @@ class Validation
         }
 
         $suggestion = Str::of($name)->ascii()->lower()->replaceMatches('/[^a-zA-Z0-9_-]/', '');
-        for ($i = ''; Repo::user()->getByUsername($suggestion . $i, true); $i++);
-        return $suggestion . $i;
+        $suffix = '';
+        $i = 0;
+        while (Repo::user()->getByUsername($suggestion . $suffix, true)) {
+            $suffix = (string) ++$i;
+        }
+        return $suggestion . $suffix;
     }
 
     /**

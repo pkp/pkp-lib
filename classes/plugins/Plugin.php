@@ -63,6 +63,7 @@ use PKP\install\Installer;
 use PKP\observers\events\PluginSettingChanged;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
+use PKP\template\PKPTemplateResource;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 
@@ -422,6 +423,13 @@ abstract class Plugin
             // Auto register the plugin's view namespace and component class namespace
             $this->_registerTemplateViewNamespace($this->getTemplateViewNamespace(), $inCore);
             $this->_registerViewComponentNamespace($this->getComponentClassNamespace());
+
+            // Register as Smarty resource so {include file="pluginname::template"} works at compile time
+            $templateMgr = \APP\template\TemplateManager::getManager();
+            $templateMgr->registerResource(
+                $this->getTemplateViewNamespace(),
+                new PKPTemplateResource($templatePath)
+            );
         }
     }
 

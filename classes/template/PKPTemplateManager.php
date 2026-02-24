@@ -1433,9 +1433,11 @@ class PKPTemplateManager extends Smarty
      */
     public function smartyPathToViewName(string $template): string
     {
-        // If it's a Laravel namespaced view (contains ::), pass through as-is
+        // If it's a Laravel namespaced view (contains ::), strip .tpl/.blade extension and pass through
         if (str_contains($template, '::')) {
-            return $template;
+            [$ns, $tpl] = explode('::', $template, 2);
+            $tpl = preg_replace('/\.(tpl|blade)$/', '', $tpl);
+            return $ns . '::' . $tpl;
         }
 
         // If already in dot notation (no slashes, no .tpl), return as-is
@@ -2044,6 +2046,16 @@ class PKPTemplateManager extends Smarty
         // This ensures plugins calling fetch() go through our unified system
         // which routes through Laravel's FileViewFinder for proper hook handling
         Hook::call($params['name'], [&$params, $this, &$output]);
+
+        // Sync template variable changes back to the active Smarty template.
+        // Hook callbacks receive $this (TemplateManager) and may call assign()
+        // to modify template vars. Those changes must propagate to the
+        // Smarty_Internal_Template that is currently rendering, since it has
+        // its own variable scope (snapshot created by SmartyTemplatingEngine).
+        if ($smarty instanceof \Smarty_Internal_Template) {
+            $smarty->assign($this->getTemplateVars());
+        }
+
         return $output;
     }
 

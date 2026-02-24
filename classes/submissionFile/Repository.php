@@ -388,7 +388,7 @@ abstract class Repository
 
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
 
-        Repo::eventLog()->newDataObject(array_merge(
+        $submissionLogEntry = Repo::eventLog()->newDataObject(array_merge(
             $logData,
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -399,6 +399,7 @@ abstract class Repository
                 'dateLogged' => Core::getCurrentDate(),
             ]
         ));
+        Repo::eventLog()->add($submissionLogEntry);
     }
 
     /**

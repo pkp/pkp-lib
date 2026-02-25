@@ -1,10 +1,11 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
 # José Carvalho <jcarvalho@keep.pt>, 2023, 2024, 2026.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-24 09:55+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"PO-Revision-Date: 2026-02-25 15:45+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
 "Language: pt\n"
@@ -369,3 +370,69 @@ msgstr "Parâmetro inválido para autor (author-friendly)."
 
 msgid "api.400.routeNotDefined"
 msgstr "Nenhuma rota de API foi fornecida."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "O autor solicitado não foi encontrado"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Não é possível alterar os autores em submissões para as quais não foi "
+"atribuído."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"A rota não está disponível no contexto geral do website e deve ser "
+"solicitado para um contexto específico."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "A secção fornecida não existe."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"O pedido não inclui o parâmetro de consulta obrigatório `ids`. Forneça os "
+"`ids` das submissões que pretende eliminar."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID inválido: \"{$id}\"."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "O ror que solicitou não foi encontrado."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Não foi possível concluir a acção pretendida no recurso."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Não é permitido atribuir o ID ORCID de um autor através das rotas Editar/"
+"Adicionar Autor. Para solicitar que um autor atualize o seu ID ORCID, "
+"utilize a rota \"orcid/requestAuthorVerification/{authorId}\"."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Não é possível alterar o idioma deste documento, uma vez que já tem mais do "
+"que uma versão publicada ou já foi publicado."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "O pedido para esta revisão não foi encontrado."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Não foi possível encontrar o revisor para esta atribuição"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Apenas 'aceitar' e 'recusar' são valores válidos"
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"O formulário de identificadores de publicação não está disponível, uma vez "
+"que não existem identificadores ativados."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Não foi possível processar o pedido da API."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Forneceu um \"eventType\" inválido, {$eventType}, para e-mails de autor."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Não é possível realizar esta operação com a funcionalidade ORCID inativa."

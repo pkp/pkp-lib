@@ -522,8 +522,8 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Given a set of publication IDs, return which of those IDs are
-     * claimed as a source publication by another publication.
+     * Given a set of publication IDs, return which of those IDs are claimed as a source publication
+     * by another publication among the publication IDs passed in.
      *
      * @param int[] $publicationIds
      * @return int[]
@@ -531,6 +531,8 @@ class DAO extends EntityDAO
     public function getClaimedSourcePublicationIds(array $publicationIds): array
     {
         return DB::table('publications')
+            // Limit the pool to only publications currently being checked
+            ->whereIn('publication_id', $publicationIds)
             ->whereIn('source_publication_id', $publicationIds)
             ->pluck('source_publication_id')
             ->unique()

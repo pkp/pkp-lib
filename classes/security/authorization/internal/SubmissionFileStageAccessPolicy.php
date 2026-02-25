@@ -22,6 +22,7 @@ use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
+use PKP\plugins\Hook;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
@@ -56,6 +57,8 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
     //
     /**
      * @see AuthorizationPolicy::effect()
+     * 
+     * @hook SubmissionFileStageAccessPolicy::effect [[$submission, $userRoles, $stageAssignments, $this->_fileStage, $this->_action, &$assignedFileStages]]
      */
     public function effect(): int
     {
@@ -138,6 +141,9 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 }
             }
         }
+
+        // Give plugin a chance to override the submission file stage access policy
+        Hook::call('SubmissionFileStageAccessPolicy::effect', [$submission, $userRoles, $stageAssignments, $this->_fileStage, $this->_action, &$assignedFileStages]);
 
         if (in_array($this->_fileStage, $assignedFileStages)) {
             $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_FILE_STAGES, $assignedFileStages);

@@ -1,13 +1,14 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024, 2026.
 # Sérgio Reis <disergioreis@gmail.com>, 2025.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2026-02-24 09:55+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"PO-Revision-Date: 2026-02-25 15:45+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/pt/>\n"
 "Language: pt\n"
@@ -1907,7 +1908,7 @@ msgid "timeZone"
 msgstr "Fuso horário"
 
 msgid "user.email"
-msgstr "Endereço de correio eletrónico"
+msgstr "E-mail"
 
 msgid "user.authorization.submissionFile"
 msgstr ""

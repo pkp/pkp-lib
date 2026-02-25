@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-25 15:45+0000\n"
+"PO-Revision-Date: 2026-02-25 17:49+0000\n"
 "Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/pt/>\n"
@@ -167,3 +167,262 @@ msgstr "{$step} - Introdução de detalhes e convites para funções"
 
 msgid "userInvitation.enterDetails.nextButtonLabel"
 msgstr "Guardar e continuar"
+
+msgid "invitation.role.selectRole"
+msgstr "Selecionar uma nova função"
+
+msgid "invitation.role.dateEnd"
+msgstr "Data limite"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Função"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Data de início"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Rever e enviar convites para funções"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Convidar utilizador para a função"
+
+msgid "userInvitation.modal.title"
+msgstr "Convite enviado"
+
+msgid "userInvitation.modal.button"
+msgstr "Ver todos os utilizadores"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Remover função"
+
+msgid "invitation.email.description"
+msgstr "ex. aeinstein@example.com"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Se souber o nome do utilizador, pode introduzir as informações. No entanto, "
+"estas informações podem ser alteradas pelo utilizador."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Se souber o apelido do utilizador, pode inserir a informação. No entanto, "
+"esta informação poderá ser alterada pelo utilizador."
+
+msgid "invitation.decline.confirm"
+msgstr "Confirmar recusa do convite"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Recusar convite"
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verificar ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Guardar e continuar"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Guardar e continuar"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Introduzir detalhes"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Introduzir detalhes"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Guardar e continuar"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Rever e criar conta"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verificar o ORCID iD"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Deve ter pelo menos 6 caracteres e pode ser uma combinação de letras "
+"maiúsculas, letras minúsculas, números e símbolos"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Sim, concordo que os meus dados sejam recolhidos e armazenados de acordo com "
+"{$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Declaração de privacidade"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Este é o país onde se situa a instituição à qual está afiliado"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Detalhes da conta"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Detalhes do utilizador"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Ver todas as submissões"
+
+msgid "invitation.tableHeader.name"
+msgstr "Nome"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Cancelar convite"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Cancelar convite"
+
+msgid "invitation.masthead.show"
+msgstr "Aparecer no cabeçalho editorial"
+
+msgid "invitation.masthead.hidden"
+msgstr "Não consta no cabeçalho"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modificar função"
+
+msgid "invitation.management.options"
+msgstr "Opções de gestão de convites"
+
+msgid "userInvitation.cancel.message"
+msgstr "Confirma que deseja cancelar este convite?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Recuar"
+
+msgid "userInvitation.edit.title"
+msgstr "Editar convite"
+
+msgid "invitation.removeRoles"
+msgstr "Função removida do utilizador"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Por favor confirme que leu e que concorda com a declaração de privacidade"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Cancelar o processo de convite para a função?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Cancelar processo de convite"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Convite não aceite. Está autenticado com um utilizador diferente."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Por favor, feche a sessão e inicie uma nova sessão com a conta correta para "
+"aceitar este convite."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "O utilizador está atualmente desativado."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"O utilizador foi desativado. Não pode atribuir-lhe uma função enquanto "
+"estiver desativado. Ative primeiro o utilizador para o convidar a uma função."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Consentimento de privacidade"
+
+msgid "invitation.role.dateStart"
+msgstr "Data de início"
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Pesquise um utilizador por endereço de e-mail, nome de utilizador ou ORCID "
+"iD. Introduza apenas um para começar!"
+
+msgid "invitation.role.addRole.button"
+msgstr "Adicionar outra função"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Data limite"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Modificar o e-mail partilhado com o utilizador"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Ao aceitar o convite, o utilizador será redirecionado para o ORCID para "
+"verificar a sua conta, caso pretenda."
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Tem a certeza que pretende recusar este convite? Confirme a recusa clicando "
+"no botão abaixo."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Introduza os seus dados, como o endereço de e-mail, afiliação etc. De acordo "
+"com o RGPD, estas informações só podem ser modificadas por si. Também pode "
+"escolher se pretende que estas informações sejam visíveis no seu perfil para "
+"o editor."
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Formulário de aceitação de convite e dados do utilizador"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Por favor, forneça os seguintes detalhes para nos ajudar a gerir a sua conta"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Rever e criar conta"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Ignorar verificação do ORCID"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Pode ser uma combinação de letras maiúsculas, letras minúsculas ou números"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Também conhecido como nome ou nome próprio, é a parte do nome pessoal que "
+"identifica uma pessoa."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Apelido, nome de família ou último nome é a parte do nome pessoal de uma "
+"pessoa, geralmente hereditária, que indica a sua família."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Esta é a instituição à que está afiliado"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "País de afiliação"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Indique pelo menos um critério de pesquisa."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Está a consultar os detalhes do utilizador {$nome}"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Ao cancelar o convite enviado para {$given Name} {$family Name} irá "
+"desativar o link de aceitação enviado por e-mail. Eis os detalhes do convite:"
+" "
+
+msgid "userInvitation.status.invited"
+msgstr "Convidado em {$date}"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Se editar o convite existente ou adicionar uma nova função, o convite atual "
+"será cancelado e será enviado um novo. Tem a certeza de que pretende "
+"prosseguir?"
+
+msgid "validation.after_or_equal"
+msgstr "A data de início deve ser igual ou posterior à de hoje"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Tem a certeza de que pretende cancelar? Cancelar agora irá interromper o "
+"processo de aceitação da função e terá de reiniciar o processo a partir do e-"
+"mail de convite para poder aceitar novamente a função. Se já for utilizador, "
+"será redirecionado para o painel de controlo. Caso contrário, terá de aceder "
+"ao e-mail de convite para iniciar o processo novamente."

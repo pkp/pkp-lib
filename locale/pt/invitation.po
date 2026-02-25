@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-11 19:28+0000\n"
+"PO-Revision-Date: 2026-02-25 15:45+0000\n"
 "Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/pt/>\n"
@@ -155,3 +155,15 @@ msgstr ""
 "Se o utilizador não existir, pode convidá-lo para assumir funções. Se o "
 "utilizador já existir no sistema, pode visualizar as informações do mesmo e "
 "convidá-lo a assumir funções adicionais."
+
+msgid "userInvitation.searchField.description"
+msgstr "ex. aeinstein@example.com ou aeinstein ou 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Introduzir dados"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Introdução de detalhes e convites para funções"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Guardar e continuar"

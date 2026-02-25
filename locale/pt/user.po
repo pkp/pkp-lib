@@ -1,13 +1,14 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024, 2026.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-02-24 09:55+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"PO-Revision-Date: 2026-02-25 08:43+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "pt/>\n"
 "Language: pt\n"
@@ -18,7 +19,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
-msgstr "Informação sobre Conta"
+msgstr "Informação sobre a conta"
 
 msgid "user.affiliation"
 msgstr "Afiliação"
@@ -810,3 +811,28 @@ msgstr "{$count} de {$total} idiomas concluídos"
 
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Indique o nome do instituto em {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Não foi possível encontrar a frase pesquisada"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Introduza o nome completo da instituição, evitando siglas. Selecione o nome "
+"a partir do menu clique em \"Adicionar\" para incluir a afiliação no seu "
+"perfil. (Ex.: \"Universidade de Aveiro\")"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "O idioma principal {$primaryLocale} é obrigatório"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Adicionar, atualizar ou eliminar sugestões de revisores para trabalhos já "
+"concluídos é restrito."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr ""
+"O utilizador deve permanecer anónimo. Atualmente encontra-se com uma sessão "
+"iniciada."
+
+msgid "user.login.activate.description"
+msgstr "Confirmar e ativar a sua conta"

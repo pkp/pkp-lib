@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2026-02-27 14:26+0000\n"
+"PO-Revision-Date: 2026-02-27 16:32+0000\n"
 "Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
 "fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -547,7 +547,7 @@ msgid "submission.contributors"
 msgstr "Liste des contributeurs"
 
 msgid "submission.copyedited"
-msgstr "Version(s) révisée(s)"
+msgstr "Version(s) éditée(s)"
 
 msgid "submission.copyediting"
 msgstr "Édition"
@@ -805,7 +805,7 @@ msgid "submission.informationCenter.submissionInfo"
 msgstr "Renseignements sur la soumission"
 
 msgid "submission.informationCenter.metadata"
-msgstr "Métadonnées"
+msgstr "Métadonnées complémentaires"
 
 msgid "submission.informationCenter.notes"
 msgstr "Notes"
@@ -873,7 +873,7 @@ msgid "submission.layout.galleyNoImages"
 msgstr "Aucune image"
 
 msgid "submission.layout.galleys"
-msgstr "Épreuves"
+msgstr "Documents à publier"
 
 msgid "submission.layout.galleyStylesheet"
 msgstr "Fichier de la feuille de style"
@@ -1683,7 +1683,7 @@ msgid "editor.submission.decision.newRound"
 msgstr "Nouveau cycle d'évaluation"
 
 msgid "editor.submission.decision.sendToProduction"
-msgstr "Envoyer en production"
+msgstr "Passer à l'étape de production"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
@@ -2218,7 +2218,9 @@ msgid "submission.copyrightYear"
 msgstr "Année du copyright"
 
 msgid "submission.copyrightStatement"
-msgstr "(c) Copyright {$copyrightHolder} {$copyrightYear}"
+msgstr ""
+"Merci de créditer les auteurs lors de toute citation : {$copyrightHolder} "
+"({$copyrightYear})"
 
 msgid "submission.licenseURLValid"
 msgstr "Veuillez indiquer une URL à distance valide (incluez http://)."
@@ -2363,7 +2365,7 @@ msgid "submission.queries.review"
 msgstr "Discuter et envoyer des fichiers"
 
 msgid "submission.queries.editorial"
-msgstr "Discussions sur l'édition"
+msgstr "Discuter et envoyer des fichiers"
 
 msgid "submission.query.subject"
 msgstr "Sujet"
@@ -2617,7 +2619,7 @@ msgid "catalog.category.subcategories"
 msgstr "Sous-catégories"
 
 msgid "publication.contributors"
-msgstr "Contributeurs(-trices)"
+msgstr "Contributeurs & contributrices"
 
 msgid "publication.createVersion"
 msgstr "Créer une nouvelle version"

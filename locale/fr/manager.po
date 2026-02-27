@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-02-27 14:26+0000\n"
+"PO-Revision-Date: 2026-02-27 16:32+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr/>\n"
@@ -1102,7 +1102,7 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Envoyer une copie à cette adresse courriel"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr "Informer les auteur·e·s"
+msgstr "Informer les auteur/ices"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
@@ -1122,7 +1122,7 @@ msgid "manager.setup.submissionsNotifications"
 msgstr "Notifications"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Avertir le contact principal"
+msgstr "Informer le contact principal"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Oui, envoyer une copie à {$email}"
@@ -1149,7 +1149,7 @@ msgstr ""
 "copies de ce message à :"
 
 msgid "manager.setup.notifyUsers"
-msgstr "Notifier"
+msgstr "Informer"
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
@@ -3895,10 +3895,10 @@ msgid "manager.highlights.add"
 msgstr "Ajouter"
 
 msgid "manager.highlights.delete"
-msgstr "Supprimer le surlignage"
+msgstr "Supprimer"
 
 msgid "manager.highlights.edit"
-msgstr "Modifier le surlignage"
+msgstr "Modifier"
 
 msgid "manager.highlights.image"
 msgstr "Image"
@@ -3913,7 +3913,7 @@ msgstr ""
 
 msgid "manager.highlights.url.description"
 msgstr ""
-"L'URL complète, y compris https://, pour le bouton dans l'élément surligné."
+"L'URL complète, y compris https://, pour le bouton du contenu mis à la une."
 
 msgid "manager.highlights.urlText.description"
 msgstr ""
@@ -4111,8 +4111,8 @@ msgstr "La liste des évaluateur/ices sera affichée de manière standardisée."
 
 msgid "manager.setup.editorialMasthead.editorialHistory.description"
 msgstr ""
-"Veuillez fournir l'historique éditorial, y compris le nom complet, "
-"l'affiliation et les dates de début et de fin de chaque éditeur."
+"Saisir ici la liste des anciens membres de l'équipe éditoriale (nom complet, "
+"rôle, affiliation, dates d'exercice...)."
 
 msgid "plugins.importexport.common.error.missingAffiliationName"
 msgstr ""

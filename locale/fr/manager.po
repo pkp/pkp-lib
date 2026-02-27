@@ -5,13 +5,15 @@
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-08-14 09:46+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2026-02-27 14:26+0000\n"
+"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
+"fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr/>\n"
 "Language: fr\n"
@@ -124,7 +126,7 @@ msgid "manager.announcements.type"
 msgstr "Type"
 
 msgid "manager.announcementTypes"
-msgstr "Types d'annonce"
+msgstr "Types d'actualité"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
@@ -410,7 +412,7 @@ msgid "manager.publication.submissionStage"
 msgstr "Soumission"
 
 msgid "manager.publication.reviewStage"
-msgstr "Évaluation"
+msgstr "Évaluation & Révisions"
 
 msgid "manager.publication.editorialStage"
 msgstr "Éditorial"
@@ -1314,7 +1316,7 @@ msgstr ""
 "supplémentaire pour modifier l'apparence."
 
 msgid "manager.setup.technicalSupportContact"
-msgstr "Support technique"
+msgstr "Assistance technique"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
@@ -1861,7 +1863,7 @@ msgstr ""
 "<blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Sélectionner le fichier de bibliothèque à envoyer"
+msgstr "Joindre un fichier (à partir de la bibliothèque de l'éditeur)"
 
 msgid "grid.action.addGenre"
 msgstr "Ajouter un type"
@@ -1946,10 +1948,10 @@ msgid "manager.website.title"
 msgstr "Paramètres du site Web"
 
 msgid "manager.workflow"
-msgstr "Flux des travaux"
+msgstr "Flux éditorial"
 
 msgid "manager.workflow.title"
-msgstr "Paramètres du flux des travaux"
+msgstr "Paramètres du flux éditorial"
 
 msgid "manager.distribution"
 msgstr "Distribution"

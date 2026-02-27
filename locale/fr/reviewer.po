@@ -1,13 +1,15 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-07-30 00:34+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2026-02-27 14:26+0000\n"
+"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
+"fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "fr/>\n"
 "Language: fr\n"
@@ -21,7 +23,7 @@ msgid "reviewer.reviewSteps.request"
 msgstr "1. Demande"
 
 msgid "reviewer.reviewSteps.guidelines"
-msgstr "2. Lignes directrices"
+msgstr "2. Consignes d'évaluation"
 
 msgid "reviewer.reviewSteps.download"
 msgstr "3. Télécharger & Examiner"
@@ -34,16 +36,16 @@ msgstr "Demande d’évaluation"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
-"Vous avez été choisi(e) en tant que rapporteur(se) potentiel(lle) de la "
+"Vous avez été désigné(e) comme évaluateur ou évaluatrice potentiel(le) de la "
 "soumission suivante. Voici un aperçu de la soumission, ainsi que les "
-"échéanciers associés à son examen. Nous espérons que vous pourrez participer "
-"au processus d'examen."
+"échéanciers associés à son évaluation.\n"
+"Nous espérons que vous pourrez participer au processus d'évaluation."
 
 msgid "reviewer.step1.viewAllDetails"
 msgstr "Voir tous les détails de la soumission"
 
 msgid "reviewer.submission.reviewerFiles"
-msgstr "Fichiers du rapporteur"
+msgstr "Fichiers de l'évaluateur"
 
 msgid "reviewer.submission.declineReview"
 msgstr "Refuser la demande d’évaluation"
@@ -60,32 +62,30 @@ msgid "reviewer.submission.continueToStepThree"
 msgstr "Continuer à l'étape #3"
 
 msgid "reviewer.submission.submitReview"
-msgstr "Soumettre l'examen"
+msgstr "Envoyer l'évaluation"
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Sauvegarder pour plus tard"
 
 msgid "reviewer.submission.reviewerGuidelines"
-msgstr "Lignes directrices des rapporteurs"
+msgstr "Consignes d'évaluation"
 
 msgid "reviewer.submission.enterCompetingInterests"
 msgstr ""
-"La maison d'édition a adopté une politique de divulgation des intérêts "
-"opposés chez ses rapporteurs. Veuillez prendre un moment pour lire cette "
-"politique."
+"Merci de signaler tout potentiel conflit d'intérêts.\n"
+"Pour plus d'information sur les conflits d'intérêts :"
 
 msgid "reviewer.submission.noCompetingInterests"
-msgstr "Je n'ai pas d'intérêts concurrents"
+msgstr "Il n'y a pas de conflits d'intérêts"
 
 msgid "reviewer.submission.hasCompetingInterests"
-msgstr ""
-"Il est possible que j'aie des intérêts concurrents (veuillez spécifier)"
+msgstr "Il est possible qu'il y ait conflit d'intérêts (veuillez spécifier)"
 
 msgid "reviewer.submission.competingInterests"
-msgstr "Intérêts opposés"
+msgstr "Conflits d'intérêts"
 
 msgid "reviewer.submission.guidelines"
-msgstr "Lignes directrices des examens"
+msgstr "Lire les consignes d'évaluation"
 
 msgid "reviewer.submission.noGuidelines"
 msgstr "Cet éditeur n'a pas établi de lignes directrices pour les rapporteurs."
@@ -97,14 +97,12 @@ msgstr ""
 
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
-"Saisir (ou copier/coller) votre évaluation de cette soumission dans le "
-"formulaire ci-dessous."
+"Saisir (ou copier/coller) votre évaluation dans le formulaire ci-dessous."
 
 msgid "reviewer.submission.uploadDescription"
 msgstr ""
-"Transférez des fichiers que vous souhaitez que l'éditeur·rice et/ou l'auteur·"
-"e consultent, y compris des versions révisées des fichiers d'évaluation "
-"originaux."
+"Déposer ci-dessous des fichiers à destination des responsables éditoriaux et/"
+"ou des auteurs, notamment la soumission commentée."
 
 msgid "reviewer.complete"
 msgstr "Examen envoyé"
@@ -128,10 +126,10 @@ msgstr ""
 "avant la date d'échéance, et complétiez l'examen avant la date d'échéance."
 
 msgid "submission.comments.canShareWithAuthor"
-msgstr "Ce texte sera transmis à l'auteur et au rédacteur"
+msgstr "Ce texte sera transmis à l'auteur/ice et aux responsables éditoriaux"
 
 msgid "submission.comments.cannotShareWithAuthor"
-msgstr "Ce texte sera transmis au rédacteur"
+msgstr "Ce texte sera transmis uniquement aux responsables éditoriaux"
 
 msgid "submission.comments.sendCopyToReviewers"
 msgstr ""

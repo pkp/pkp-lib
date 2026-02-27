@@ -17,6 +17,7 @@
 
 namespace PKP\migration\upgrade\v3_6_0;
 
+use APP\core\Application;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\install\DowngradeNotSupportedException;
@@ -62,8 +63,20 @@ class I12347_FixRevisionUploadLogData extends Migration
      */
     private function fixRevisionUploadLogData(): void
     {
+        // The off-by-one bug in Repository::edit() was introduced in version 3.4.0.
+        // Data created before that version is correct and must not be modified.
+        $cutoffDate = $this->getBugIntroductionDate();
+
+        if ($cutoffDate === null) {
+            // No version >= 3.4.0 found in history. This happens on direct
+            // pre-3.4.0 → 3.6.0 upgrades where the buggy code never ran.
+            // So we can safely assume as this is an upgrade from 3.3.0-x or below
+            // no need to update any data in that case and nothing to fix.
+            return;
+        }
+
         // Phase 1: Bulk read all needed data (4 queries total)
-        $allLogs = $this->fetchAllRevisionUploadLogs();
+        $allLogs = $this->fetchAllRevisionUploadLogs($cutoffDate);
 
         if ($allLogs->isEmpty()) {
             return;
@@ -90,9 +103,36 @@ class I12347_FixRevisionUploadLogData extends Migration
     }
 
     /**
-     * Fetch all REVISION_UPLOAD log entries with their fileId settings.
+     * Determine the date when the buggy code (>= 3.4.0) was first installed.
+     *
+     * The off-by-one bug in PKP\submissionFile\Repository::edit() was introduced
+     * in version 3.4.0. Data created before this version was installed is correct
+     * and must not be modified by this migration.
+     *
+     * @return ?string The date_installed of the earliest version >= 3.4.0, or null if
+     *                 no such version exists (meaning the buggy code never ran).
      */
-    private function fetchAllRevisionUploadLogs(): Collection
+    private function getBugIntroductionDate(): ?string
+    {
+        $product = Application::get()->getName();
+
+        return DB::table('versions')
+            ->where('product_type', 'core')
+            ->where('product', $product)
+            ->whereRaw('major * 1000 + minor * 100 + revision * 10 + build >= ?', [3400])
+            ->orderByRaw('major * 1000 + minor * 100 + revision * 10 + build ASC')
+            ->limit(1)
+            ->value('date_installed');
+    }
+
+    /**
+     * Fetch all REVISION_UPLOAD log entries with their fileId settings,
+     * limited to entries created on or after the cutoff date.
+     *
+     * @param string $cutoffDate Only include logs with date_logged >= this value.
+     *                           This filters out correct pre-3.4.0 data.
+     */
+    private function fetchAllRevisionUploadLogs(string $cutoffDate): Collection
     {
         return DB::table('event_log AS el')
             ->join('event_log_settings AS els', function ($join) {
@@ -101,6 +141,7 @@ class I12347_FixRevisionUploadLogData extends Migration
             })
             ->where('el.event_type', self::EVENT_TYPE_REVISION_UPLOAD)
             ->where('el.assoc_type', self::ASSOC_TYPE_SUBMISSION_FILE)
+            ->where('el.date_logged', '>=', $cutoffDate)
             ->select([
                 'el.log_id',
                 'el.assoc_id AS submission_file_id',

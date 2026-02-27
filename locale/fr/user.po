@@ -4,13 +4,15 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-08-14 09:46+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2026-02-27 16:32+0000\n"
+"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
+"fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fr/>"
 "\n"
 "Language: fr\n"
@@ -242,7 +244,7 @@ msgid "user.phone"
 msgstr "Téléphone"
 
 msgid "user.preferredPublicName"
-msgstr "Nom public souhaité"
+msgstr "Nom affiché sur la publication"
 
 msgid "user.preferredPublicName.description"
 msgstr ""
@@ -420,7 +422,7 @@ msgid "user.role.reviewer"
 msgstr "Rapporteur"
 
 msgid "user.role.reviewers"
-msgstr "Rapporteurs"
+msgstr "Désigner des évaluateur/ices"
 
 msgid "user.role.siteAdmin"
 msgstr "Administrateur du site"
@@ -470,7 +472,8 @@ msgid "user.userHome"
 msgstr "Accueil de l'utilisateur"
 
 msgid "user.username"
-msgstr "Nom d'utilisateur"
+msgstr ""
+"Nom d'utilisateur (lettres minuscules et chiffres uniquement, sans espace)"
 
 msgid "user.workingLanguages"
 msgstr "Langues de travail"

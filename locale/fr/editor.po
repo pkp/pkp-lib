@@ -2,14 +2,14 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
 "PO-Revision-Date: 2026-02-27 14:26+0000\n"
-"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
-"fr>\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fr/>\n"
 "Language: fr\n"
@@ -758,7 +758,7 @@ msgid "editor.review.reviewViewed"
 msgstr "Évaluation vue"
 
 msgid "editor.review.logResponse.for"
-msgstr "Enregistrer la réponse pour"
+msgstr "Compléter l'évaluation pour le compte de l'évaluateur/ice"
 
 msgid "editor.review.logResponse"
 msgstr "Enregistrer la réponse"
@@ -783,13 +783,13 @@ msgid "editor.review.logResponse.form.detail"
 msgstr "Enregistrer la réponse au nom du rapporteur"
 
 msgid "editor.review.download"
-msgstr "Télécharger le formulaire d'évaluation"
+msgstr "Télécharger l'évaluation"
 
 msgid "editor.review.authorOnly"
 msgstr "Affichage des sections destinées aux auteurs seuls"
 
 msgid "editor.review.allSections"
-msgstr "Editor Form Voir toutes les sections"
+msgstr "Toutes les sections"
 
 msgid "editor.review.errorAddingReviewer.dateValidationFailed"
 msgstr ""

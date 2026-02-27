@@ -6,13 +6,15 @@
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 # Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2025, 2026.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
 "PO-Revision-Date: 2026-02-27 14:26+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
+"fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
 "Language: fr\n"
@@ -142,7 +144,7 @@ msgid "common.addCCBCC"
 msgstr "Ajouter CC/CCI"
 
 msgid "common.addFiles"
-msgstr "Ajouter des fichiers"
+msgstr "Déposer un fichier"
 
 msgid "common.addSelf"
 msgstr "S'ajouter"
@@ -272,7 +274,7 @@ msgid "common.closeWindow"
 msgstr "Fermer la fenêtre"
 
 msgid "common.complete"
-msgstr "Terminer"
+msgstr "Valider"
 
 msgid "common.completed"
 msgstr "Terminé"
@@ -729,7 +731,7 @@ msgid "common.quality"
 msgstr "Qualité"
 
 msgid "common.queue.long.active"
-msgstr "Toutes actives"
+msgstr "En cours"
 
 msgid "common.range"
 msgstr "{$min}-{$max}"
@@ -821,7 +823,7 @@ msgid "common.searching"
 msgstr "Recherche"
 
 msgid "common.searchQuery"
-msgstr "Requête"
+msgstr "Rechercher"
 
 msgid "common.clearSearch"
 msgstr "RAZ de la recherche"
@@ -951,7 +953,7 @@ msgid "common.addFile"
 msgstr "Ajouter un fichier"
 
 msgid "common.upload.addFile"
-msgstr "Transférer un fichier"
+msgstr "Déposer un fichier"
 
 msgid "common.upload.addFile.description"
 msgstr "Téléverser un fichier depuis votre ordinateur."
@@ -963,10 +965,10 @@ msgid "common.upload.thumbnailPreview"
 msgstr "Aperçu de l'image sélectionnée."
 
 msgid "common.upload.changeFile"
-msgstr "Remplacer un fichier"
+msgstr "Remplacer le fichier"
 
 msgid "common.upload.dragFile"
-msgstr "Faites glisser et déposez un fichier ici pour commencer le transfert"
+msgstr "Glisser-déposer votre fichier ici"
 
 msgid "common.url"
 msgstr "URL"
@@ -1041,10 +1043,10 @@ msgid "defaultMetric.title"
 msgstr "Métrique (par défaut)"
 
 msgid "editor.submissionReview.uploadFile"
-msgstr "Téléverser le fichier d'évaluation"
+msgstr "Ajouter un fichier"
 
 msgid "editor.submissionReview.uploadAttachment"
-msgstr "Transférer le fichier"
+msgstr "Déposer un fichier"
 
 msgid "email.addAttachment"
 msgstr "Ajouter une pièce jointe"
@@ -1219,7 +1221,7 @@ msgstr ""
 "l'administrateur ou l'administratrice du système si ce problème persiste."
 
 msgid "form.dropzone.dictCancelUpload"
-msgstr "Annuler le téléversement"
+msgstr "Annuler"
 
 msgid "form.dropzone.dictUploadCanceled"
 msgstr "Téléversement annulé"
@@ -1648,7 +1650,7 @@ msgid "notification.notification"
 msgstr "Avis"
 
 msgid "notification.notifications"
-msgstr "Avis"
+msgstr "Notifications"
 
 msgid "notification.sentNotification"
 msgstr "Avis envoyé."
@@ -1716,7 +1718,7 @@ msgid "search.date"
 msgstr "Date"
 
 msgid "search.dateFrom"
-msgstr "De"
+msgstr "Filtrer par date : De"
 
 msgid "search.dateTo"
 msgstr "Jusqu'à"

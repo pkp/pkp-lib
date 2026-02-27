@@ -15,8 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2026-02-27 16:32+0000\n"
-"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
-"fr>\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
 "Language: fr\n"
@@ -68,7 +67,7 @@ msgid "submission.submit.submissionChecklist"
 msgstr "Liste de vérifications de la soumisssion"
 
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Toutes les soumissions doivent répondre aux exigences suivantes."
+msgstr "Toutes les soumissions doivent répondre aux pré-requis suivants."
 
 msgid "submission.submit.submissionChecklistConfirm"
 msgstr "Oui, ma soumission répond à toutes ces exigences."
@@ -1461,10 +1460,10 @@ msgid "editor.submission.decision"
 msgstr "Décision"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr "Informer les auteur·e·s"
+msgstr "Informer les auteur/ices"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr "Informer les évaluateur·rice·s"
+msgstr "Informer les évaluateur/ices"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
@@ -2918,7 +2917,7 @@ msgid "author.competingInterests"
 msgstr "Conflit d'intérêt"
 
 msgid "submission.dashboard.view.assigned"
-msgstr "Qui m'a été attribué"
+msgstr "Ma file d'attente"
 
 msgid "submission.dashboard.view.reviewAll"
 msgstr "Étape d'évaluation et révision par les auteur/ices"
@@ -3040,7 +3039,7 @@ msgstr ""
 "supprimées."
 
 msgid "dashboard.applyFilters"
-msgstr "Appliquer des filtres"
+msgstr "Filtrer"
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
 msgstr ""
@@ -3228,11 +3227,11 @@ msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Évaluation en retard de {$days} jours"
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
-msgstr "Évaluation complétée le {$date}"
+msgstr "Évaluation finalisée le {$date}"
 
 msgid "dashboard.reviewAssignment.statusReceived.description"
 msgstr ""
-"L'évaluation a été achevée le {$date} avec la recommandation suivante : "
+"L'évaluation a été envoyée le {$date} avec la recommandation suivante : "
 "<b>{$recommendation}</b>"
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
@@ -3266,7 +3265,7 @@ msgid "dashboard.reviewAssignment.action.unassignReviewer"
 msgstr "Désassigner"
 
 msgid "dashboard.reviewAssignment.action.viewRecommendation"
-msgstr "Voir la recommandation"
+msgstr "Consulter l'évaluation"
 
 msgid "dashboard.recommendOnly.recommendationsReady"
 msgstr "Une recommandation éditoriale a été reçue"

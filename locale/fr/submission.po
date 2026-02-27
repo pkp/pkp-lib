@@ -8,13 +8,15 @@
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 # Express2120+ <mirouxmmp111@gmail.com>, 2025.
 # Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2026-02-27 14:26+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
+"fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
 "Language: fr\n"
@@ -75,7 +77,7 @@ msgid "submission.submit.submissionComplete"
 msgstr "Soumission complète"
 
 msgid "submission.submit.genre.label"
-msgstr "De quel type de fichier s'agit-il ?"
+msgstr "De quel type de document s'agit-il ?"
 
 msgid "submission.submit.genre.description"
 msgstr "Choisissez l'option qui décrit le mieux ce fichier."
@@ -87,10 +89,10 @@ msgid "submission.submit.whatNext.forNow"
 msgstr "Pour le moment, vous pouvez :"
 
 msgid "submission.submit.whatNext.review"
-msgstr "Réviser cette soumission"
+msgstr "Voir ma soumission"
 
 msgid "submission.submit.whatNext.create"
-msgstr "Créer une nouvelle soumission"
+msgstr "Soumettre une autre contribution"
 
 msgid "submission.submit.whatNext.return"
 msgstr "Revenir à votre tableau de bord"
@@ -415,7 +417,7 @@ msgid "metadata.property.displayName.abstract"
 msgstr "Résumé"
 
 msgid "common.queue.long.submissionsUnassigned"
-msgstr "Soumissions non assignées"
+msgstr "Soumissions à assigner"
 
 msgid "common.queue.long.myAssigned"
 msgstr "Soumissions en cours"
@@ -445,7 +447,7 @@ msgid "submission.mySubmissions"
 msgstr "Mes soumissions"
 
 msgid "submission.addFile"
-msgstr "Transférer un fichier"
+msgstr "Ajouter un fichier"
 
 msgid "submission.additionalFiles"
 msgstr "Fichiers supplémentaires"
@@ -1098,10 +1100,10 @@ msgid "submission.submit.includeInBrowse.title"
 msgstr "Listes de publications"
 
 msgid "submission.submit.newFile"
-msgstr "Soumettre un nouveau fichier"
+msgstr "Ajouter un autre fichier"
 
 msgid "submission.submit.metadataForm"
-msgstr "Autres modifications"
+msgstr "Autres métadonnées"
 
 msgid "submission.submit.submissionLocale"
 msgstr "Langue de la soumission"
@@ -1110,7 +1112,9 @@ msgid "submission.submit.submissionLocaleDescription"
 msgstr "Choisissez la langue principale de la soumission."
 
 msgid "submission.submit.submissionFiles"
-msgstr "Fichiers de soumission"
+msgstr ""
+"Fichiers soumis\n"
+"Vérifier l'anonymat si besoin"
 
 msgid "submission.submit.dependentFiles"
 msgstr "Fichiers dépendants"
@@ -1119,9 +1123,7 @@ msgid "submission.manageDependentFiles"
 msgstr "Gestion des fichiers dépendants"
 
 msgid "submission.upload.instructions"
-msgstr ""
-"Téléverser tous les fichiers dont l'équipe éditoriale aura besoin pour "
-"évaluer votre soumission."
+msgstr "Glisser-déposer vos fichiers ici"
 
 msgid "submission.upload.percentComplete"
 msgstr "Téléversement complété à {$percent} %"
@@ -1221,7 +1223,7 @@ msgid "submission.submit.form.dataAvailabilityRequired"
 msgstr "Veuillez remplir la déclaration de disponibilité des données."
 
 msgid "submission.form.name"
-msgstr "Nommer le fichier (par exemple : manuscrit ; table1)"
+msgstr "Nom du fichier (anonymiser si besoin)"
 
 msgid "submission.form.replaceExisting"
 msgstr "Remplacer un fichier existant ?"
@@ -1257,16 +1259,16 @@ msgid "submission.status.published"
 msgstr "Publiées"
 
 msgid "submission.submit.uploadStep"
-msgstr "1. Transférer la soumission"
+msgstr "1. Déposer le fichier"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr "Transférer le fichier de soumission"
+msgstr "Ajouter un fichier"
 
 msgid "submission.submit.metadataStep"
 msgstr "2. Métadonnées"
 
 msgid "submission.submit.finishingUpStep"
-msgstr "3. Terminer"
+msgstr "3. Valider"
 
 msgid "submission.submit.fileNameRequired"
 msgstr "Vous devez entrer un nom de fichier pour ce fichier"
@@ -1294,11 +1296,11 @@ msgstr "Veuillez sélectionner le fichier que vous souhaitez réviser."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
-"Si vous téléversez une révision d'un fichier existant, veuillez indiquer de "
-"quel fichier il s'agit."
+"Pour remplacer un fichier, sélectionner le fichier à remplacer dans la liste "
+"déroulante"
 
 msgid "submission.upload.uploadNewFile"
-msgstr "Sélectionner le fichier (pour conserver l'historique)"
+msgstr "Sélectionner le fichier à remplacer"
 
 msgid "submission.upload.userGroup"
 msgstr "Transférer ce fichier. Mon rôle est..."
@@ -1339,13 +1341,13 @@ msgid "submission.upload.noAvailableReviewFiles"
 msgstr "Vous n'avez aucun fichier à examiner pour le moment."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
-msgstr "Accepté en attente de corrections."
+msgstr "Révisions mineures requises"
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Des révisions ont été soumises et une décision est nécessaire."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "La soumission doit être soumise à un nouveau cycle d'évaluation."
+msgstr "Révisions majeures requises"
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
@@ -1511,7 +1513,7 @@ msgstr ""
 "décision n'ait été enregistrée."
 
 msgid "editor.submission.decision.decline"
-msgstr "Refus de la soumission"
+msgstr "Refuser la soumission"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
@@ -1575,7 +1577,7 @@ msgid "editor.submission.decision.promoteFiles.production"
 msgstr "Choisir les fichiers qui seront envoyés à l'étape de production."
 
 msgid "editor.submission.decision.requestRevisions"
-msgstr "Demande de révisions"
+msgstr "Demander des révisions"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
@@ -1629,7 +1631,7 @@ msgstr ""
 "ou soumise n'est disponible."
 
 msgid "editor.submission.decision.resubmit"
-msgstr "Resoumettre pour évaluation"
+msgstr "Demander des révisions majeures (soumises à nouvelle évaluation)"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
@@ -1660,7 +1662,7 @@ msgstr ""
 "commentaires des évaluateur·rice·s."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr "Envoyer au relecteur externe"
+msgstr "Passer à l'étape d'évaluation"
 
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Cette soumission est prête à être envoyée pour évaluation externe."
@@ -2065,7 +2067,7 @@ msgid "notification.type.revertDecline"
 msgstr "La décision de refuser cette soumission à été annulée."
 
 msgid "grid.reviewAttachments.title"
-msgstr "Pièces jointes de l'évaluation"
+msgstr "Documents envoyés par les évaluateurs"
 
 msgid "grid.reviewAttachments.send.title"
 msgstr "Sélectionner les rapports à partager avec l'auteur·e"
@@ -2112,13 +2114,13 @@ msgstr ""
 "la soumission {$submissionId}."
 
 msgid "submission.review.status.awaitingResponse"
-msgstr "En attente de réponse du relecteur."
+msgstr "En attente de réponse de l'évaluateur/ice"
 
 msgid "submission.review.status.declined"
 msgstr "Le relecteur a décliné la demande d'évaluation."
 
 msgid "submission.review.status.responseOverdue"
-msgstr "Le relecteur a dépassé la date de réponse."
+msgstr "L'évaluateur/ice est en retard pour répondre."
 
 msgid "submission.review.status.reviewOverdue"
 msgstr "Le relecteur a dépassé la date de retour de l'évaluation."
@@ -2353,10 +2355,12 @@ msgstr ""
 "Attribution - Partage dans les Mêmes Conditions 3.0 non transposé</a>.</p>"
 
 msgid "submission.queries.submission"
-msgstr "Discussions pré-évaluation"
+msgstr ""
+"Sélectionner les documents à envoyer à l'auteur/ice\n"
+"(rapports d'évaluation, documents annotés)"
 
 msgid "submission.queries.review"
-msgstr "Discussions sur l'évaluation"
+msgstr "Discuter et envoyer des fichiers"
 
 msgid "submission.queries.editorial"
 msgstr "Discussions sur l'édition"
@@ -2720,8 +2724,8 @@ msgstr ""
 
 msgid "submission.submit.metadataForm.tip"
 msgstr ""
-"Ajouter d'autres renseignements pour votre soumission. Veuillez appuyer sur "
-"la touche « Entrée » après chaque terme."
+"Ajouter des mots-clés. Appuyer sur la touche « <strong>Entrée</stong> » "
+"après chaque terme."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Personne-ressource pour la correspondance éditoriale."

@@ -1,13 +1,15 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-08-14 15:07+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2026-02-27 14:26+0000\n"
+"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
+"fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/fr/>"
 "\n"
 "Language: fr\n"
@@ -285,7 +287,7 @@ msgid "grid.action.addAnnouncementType"
 msgstr "Ajouter un type d'annonce"
 
 msgid "grid.action.addAnnouncement"
-msgstr "Ajouter une annonce"
+msgstr "Ajouter une actualité"
 
 msgid "grid.action.addInstitution"
 msgstr "Ajouter un établissement"

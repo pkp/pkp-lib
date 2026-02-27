@@ -5,13 +5,13 @@
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
-# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2025.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-10-17 09:58+0000\n"
+"PO-Revision-Date: 2026-02-27 14:26+0000\n"
 "Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
@@ -660,7 +660,7 @@ msgid "common.options"
 msgstr "Options"
 
 msgid "common.order"
-msgstr "Classer"
+msgstr "Réordonner"
 
 msgid "common.orderUp"
 msgstr "Remonter {$itemTitle}"
@@ -2421,7 +2421,7 @@ msgid "showAll"
 msgstr "Montrer tous"
 
 msgid "common.highlights"
-msgstr "Mises en évidence"
+msgstr "Contenus à la une"
 
 msgid "common.sandbox"
 msgstr "Application fonctionnant en mode bac à sable."
@@ -2430,10 +2430,10 @@ msgid "common.yesContinue"
 msgstr "Oui, continuer"
 
 msgid "common.filtersClear"
-msgstr "Effacer les filtres"
+msgstr "Effacer la sélection"
 
 msgid "common.showingXofX"
-msgstr "Affichage de <strong>{$start} à {$finish}</strong> sur {$total}"
+msgstr "<strong>{$start} à {$finish}</strong> sur {$total}"
 
 msgid "common.loaded"
 msgstr "Chargé"
@@ -2445,7 +2445,7 @@ msgid "validator.multilingual"
 msgstr "L'exigence multilingue n'est pas remplie pour ce champ."
 
 msgid "common.numero"
-msgstr "Non"
+msgstr "No"
 
 msgid "common.refreshingData"
 msgstr "Actualisation des données"
@@ -2494,13 +2494,13 @@ msgstr ""
 "de continuer."
 
 msgid "navigation.mySubmissions"
-msgstr "Mes soumissions en tant qu'auteur"
+msgstr "Mes soumissions en tant qu'auteur/ice"
 
 msgid "navigation.reviewAssignments"
-msgstr "Mes tâches en tant que relecteur"
+msgstr "Mes évaluations en tant qu'évaluateur/ice"
 
 msgid "navigation.dashboards"
-msgstr "Tableau de bord de l'éditeur"
+msgstr "Tableau de bord éditorial"
 
 msgid "reviewer.submission.acceptedOn"
 msgstr "Évaluation acceptée le"

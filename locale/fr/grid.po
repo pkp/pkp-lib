@@ -2,14 +2,14 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025.
 # Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-02-27 14:26+0000\n"
-"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
-"fr>\n"
+"PO-Revision-Date: 2026-02-27 16:32+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/fr/>"
 "\n"
 "Language: fr\n"
@@ -230,7 +230,7 @@ msgid "grid.action.expand"
 msgstr "Élargir"
 
 msgid "grid.action.notify"
-msgstr "Avertir cet utilisateur"
+msgstr "Informer l'utilisateur/ice"
 
 msgid "grid.action.addUserGroup"
 msgstr "Ajouter un nouveau groupe d'utilisateurs"
@@ -555,7 +555,7 @@ msgid "grid.user.generatePasswordDescription"
 msgstr "Générer un mot de passe aléatoire pour cet utilisateur."
 
 msgid "grid.user.notifyUser"
-msgstr "Avertir l'utilisateur"
+msgstr "Informer l'utilisateur/ice"
 
 msgid "grid.user.notifyUserDescription"
 msgstr "Envoyer un courriel de bienvenue à l'utilisateur ou l'utilisatrice."

@@ -1,11 +1,12 @@
 # Marko Simendic <marko.simendic@gmail.com>, 2026.
+# lena bojcic <lenabojcicck@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-02-24 09:55+0000\n"
-"Last-Translator: Marko Simendic <marko.simendic@gmail.com>\n"
+"PO-Revision-Date: 2026-03-01 15:20+0000\n"
+"Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
 "Language: sr_Latn\n"
@@ -17,10 +18,10 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
-msgstr ""
+msgstr "Autori ove publikacije ne mogu biti izmenjeni jer je već objavljena."
 
 msgid "author.publicationNotFound"
-msgstr ""
+msgstr "Publikacija za ovog autora nije pronađena."
 
 msgid "author.submit.submissionCitations"
 msgstr ""
@@ -2433,3 +2434,17 @@ msgstr "Molimo Vas, prihvatite ili odbijte ovaj zahtev do {$date}"
 
 msgid "submission.dashboard.view.reviewAssignments.actionRequired"
 msgstr "Moje aktivnosti"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Upozorenje: ova verzija je već objavljena. Uređivanje  može da utiče na "
+"objavljeni sadržaj."
+
+msgid "author.authorNotFound"
+msgstr "Autor za ovu afilijaciju nije pronađen."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Molimo vas priložite  ROR afilijaciju ili ime bar jedne afilijacije."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Molimo navedite naziv afilijacije na primarnom jeziku prijave."

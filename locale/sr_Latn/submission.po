@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-03-01 16:18+0000\n"
+"PO-Revision-Date: 2026-03-01 17:45+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -735,6 +735,8 @@ msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr ""
+"Ovo je zastarela verzija objavljena {$datePublished}. Pročitajte <a href=\""
+"{$urlRecentVersion}\">najnoviju verziju</a>."
 
 msgid "submission.identifiers"
 msgstr "Identifikatori"
@@ -744,9 +746,12 @@ msgstr "Javna URL odrednica"
 
 msgid "submission.publisherId.description"
 msgstr ""
+"ID izdavača može da se koristi za evidentiranje ID-a iz spoljne baze "
+"podataka. Na primer, stavke izvezene za deponovanje u PubMed mogu da "
+"uključuju ID izdavača. Ovo se ne bi trebalo da se koristi za DOI-e."
 
 msgid "submission.publisherId.enable"
-msgstr ""
+msgstr "Omogući za {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Informacije o predaji"
@@ -954,7 +959,7 @@ msgid "submission.review"
 msgstr "Recenzija"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Pregledaj i podnesi"
 
 msgid "submission.reviewed"
 msgstr "Recenzirano"
@@ -1041,7 +1046,7 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Dodati ovog koautora u listu za pretragu?"
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "lista publikacija"
 
 msgid "submission.submit.newFile"
 msgstr "Dodaj sledeći dokument"
@@ -1069,9 +1074,11 @@ msgstr "Upravljaj zavisnim dokumentima"
 
 msgid "submission.upload.instructions"
 msgstr ""
+"Otpremite sve fajlove koji će uredničkom timu biti potrebni za evaluaciju "
+"vaše prijave."
 
 msgid "submission.upload.percentComplete"
-msgstr ""
+msgstr "Otpremanje: {$percent}% završeno"
 
 msgid "submission.upload.dependent"
 msgstr "Dostavi zavisni dokument"
@@ -1137,34 +1144,34 @@ msgid "submission.submit.addAuthor"
 msgstr "Dodaj saradnika"
 
 msgid "submission.submit.form.languagesRequired"
-msgstr ""
+msgstr "Molimo unesite jezik."
 
 msgid "submission.submit.form.subjectsRequired"
-msgstr ""
+msgstr "Molimo unesite predmet."
 
 msgid "submission.submit.form.disciplinesRequired"
-msgstr ""
+msgstr "Molimo unesite disciplinu."
 
 msgid "submission.submit.form.keywordsRequired"
-msgstr ""
+msgstr "Molimo unesite ključnu reč."
 
 msgid "submission.submit.form.coverageRequired"
-msgstr ""
+msgstr "Molimo unesite informacije o pokrivenosti."
 
 msgid "submission.submit.form.typeRequired"
-msgstr ""
+msgstr "Molimo unesite vrstu."
 
 msgid "submission.submit.form.sourceRequired"
-msgstr ""
+msgstr "Molimo unesite izvor."
 
 msgid "submission.submit.form.rightsRequired"
-msgstr ""
+msgstr "Molimo unesite prava."
 
 msgid "submission.submit.form.citationsRequired"
-msgstr ""
+msgstr "Molimo unesite reference."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Molimo unesite Izjavu o dostupnosti podataka."
 
 msgid "submission.form.name"
 msgstr "Unesite ime dokumenta (npr. Rukopis; Tabela 1)"
@@ -1284,7 +1291,7 @@ msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Zahteva se revizija."
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr ""
+msgstr "Izmene su poslate i potrebna je odluka."
 
 #, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
@@ -1317,22 +1324,22 @@ msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Recenzije su završene."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
-msgstr ""
+msgstr "Recenzija je prekoračila rok."
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr ""
+msgstr "Čekaju se preporuke urednika."
 
 msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr ""
+msgstr "Nove preporuke urednika su poslate."
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr ""
+msgstr "Sve preporuke su stigle i potrebna je odluka."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Neaktivan/na više od {$days} dana u fazi {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Nova prijava čeka da bude poslata na recenziju ili odbijena."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Učesnici"
@@ -2479,3 +2486,12 @@ msgstr "Otkaži prijavu"
 
 msgid "submission.wizard.submissionCancelled.description"
 msgstr "Prijava je otkazana, svi povezani podaci su obrisani."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Dali ste preporuku."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Vraćeno na recenziju."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Predlozi recenzenta"

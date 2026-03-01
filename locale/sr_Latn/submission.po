@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-03-01 15:20+0000\n"
+"PO-Revision-Date: 2026-03-01 16:18+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -36,13 +36,14 @@ msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 
 msgid "submission.submit.availableUserGroups"
-msgstr ""
+msgstr "Podneti kao"
 
 msgid "submission.submit.availableUserGroupsDescription"
-msgstr ""
+msgstr "Izaberite ulogu koja najbolje opisuje vaš doprinos ovoj prijavi."
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Izaberite uredničku ulogu ako želite da sami uredite i objavite ovu prijavu."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Uslovi za predaju članka"
@@ -53,19 +54,19 @@ msgstr ""
 "Morate pročitati i potvrditi da ste zadovoljili uslove pre nastavka prijave."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Da, moja prijava ispunjava sve ove uslove."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Predaja je završena"
 
 msgid "submission.submit.genre.label"
-msgstr ""
+msgstr "Kakav je ovo fajl?"
 
 msgid "submission.submit.genre.description"
-msgstr ""
+msgstr "Izaberite opciju koja najbolje opisuje ovaj fajl."
 
 msgid "submission.submit.removeConfirm"
-msgstr ""
+msgstr "Da li ste sigurni da želite da uklonite ovaj fajl?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Za sada, možete:"
@@ -388,7 +389,7 @@ msgstr ""
 "su 'lično', 'korporativno' i 'konferencija'."
 
 msgid "metadata.property.displayName.abstract"
-msgstr ""
+msgstr "Apstrakt"
 
 msgid "common.queue.long.submissionsUnassigned"
 msgstr "Nedodeljeno"
@@ -403,19 +404,19 @@ msgid "submission.authors"
 msgstr "Autori"
 
 msgid "submission.authorBiography"
-msgstr ""
+msgstr "Biografija autora"
 
 msgid "submission.authorBiographies"
 msgstr "Biografije autora"
 
 msgid "submission.authorWithAffiliation"
-msgstr ""
+msgstr "{$ime} {$affilijacija}"
 
 msgid "submission.shortAuthor"
 msgstr "{$author} i drugi."
 
 msgid "submission.representationOfTitle"
-msgstr ""
+msgstr "{$predstavništvo} {$naslova}"
 
 msgid "submission.mySubmissions"
 msgstr "Moje autorstvo"
@@ -424,7 +425,7 @@ msgid "submission.addFile"
 msgstr "Dodaj fajl"
 
 msgid "submission.additionalFiles"
-msgstr ""
+msgstr "Dodatni fajlovi"
 
 msgid "submission.agencies"
 msgstr "Ustanove"
@@ -458,18 +459,20 @@ msgstr "Reference"
 
 msgid "submission.citations.description"
 msgstr ""
+"Unesite svaku referencu u novi red kako bi mogle da budu izdvojene i "
+"zabeležene zasebno."
 
 msgid "submission.parsedCitations"
-msgstr ""
+msgstr "Izdvojene reference"
 
 msgid "submission.parsedCitations.DOI"
-msgstr ""
+msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
-msgstr ""
+msgstr "Sledeće reference su izdvojene i biće povezane sa metapodacima prijave."
 
 msgid "submission.parsedAndSaveCitations"
-msgstr ""
+msgstr "Izvoji i sačuvaj reference"
 
 msgid "submission.comments.addComment"
 msgstr "Dodaj komentar"
@@ -529,13 +532,13 @@ msgid "submission.coverage"
 msgstr "Informacija o široj oblasti"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Detalji prijave"
 
 msgid "submission.done"
 msgstr "Gotovo"
 
 msgid "submission.downloads"
-msgstr ""
+msgstr "Preuzimanja"
 
 msgid "submission.dueDate"
 msgstr "Do datuma"
@@ -662,6 +665,8 @@ msgstr ""
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"Autorima sada nije dozvoljeno da uređuju metapodatke kada je prijava u fazi "
+"{stage}."
 
 msgid "submission.files"
 msgstr "Fajlovi"
@@ -671,12 +676,14 @@ msgstr "Preuzmi sve dokumente"
 
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
+"Zapis o osobi koja je učitala fajl se čuva kada se fajl kreira i ne može se "
+"promeniti."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Prvi put objavljeno"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Za urednike"
 
 msgid "submission.galley"
 msgstr "Fajl prikaza"
@@ -712,19 +719,19 @@ msgid "submission.howToCite.citationFormats"
 msgstr "Formati citiranja"
 
 msgid "submission.howToCite.downloadCitation"
-msgstr ""
+msgstr "Preuzmi citat"
 
 msgid "submission.initiated"
 msgstr "Započeto"
 
 msgid "submission.updatedOn"
-msgstr ""
+msgstr "{$datePublished} — Ažurirano {$dateUpdated}"
 
 msgid "submission.versions"
-msgstr ""
+msgstr "Verzije"
 
 msgid "submission.versionIdentity"
-msgstr ""
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -2448,3 +2455,27 @@ msgstr "Molimo vas priložite  ROR afilijaciju ili ime bar jedne afilijacije."
 
 msgid "author.affiliationNamePrimaryLocaleMissing"
 msgstr "Molimo navedite naziv afilijacije na primarnom jeziku prijave."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Za predlog recenzenta"
+
+msgid "ror.nameRequired"
+msgstr "Naziv ROR-a je obavezan."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Lokalizacija prikaza ROR-a je obavezna."
+
+msgid "submission.author.list"
+msgstr "Lista autora prijave"
+
+msgid "submission.authors.label"
+msgstr "Autori"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Prijava je otkazana"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Otkaži prijavu"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Prijava je otkazana, svi povezani podaci su obrisani."

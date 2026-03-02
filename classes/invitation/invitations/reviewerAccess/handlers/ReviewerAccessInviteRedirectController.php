@@ -40,7 +40,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
-            throw new Exception();
+            throw new Exception('The review assignment associated with this invitation could not be found.');
         }
 
         $url = PKPApplication::get()->getDispatcher()->url(

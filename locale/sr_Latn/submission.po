@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-03-02 12:29+0000\n"
+"PO-Revision-Date: 2026-03-02 17:44+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -1704,72 +1704,87 @@ msgstr ""
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Pošaljite poruku urednicima koji donose odluku kako biste ih obavestili o "
+"preporuci. Objasnite zašto je ova preporuka data, u odgovoru na preporuke i "
+"komentare koje su dostavili recenzenti."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Preporuči prihvatanje"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Preporučite da ova prijava bude prihvaćena za objavljivanje i poslata na "
+"lekturu."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} je predložio/la da ova prijava bude prihvaćena i poslata na "
+"lekturu."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Preporuka je poslata"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Preporuči izmene"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Preporučite da se od autora zatraže izmene pre nego što ova prijava bude "
+"prihvaćena za objavljivanje."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} je predložio/la da se zatraže izmene."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Preporuči ponovno slanje na recenziju"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Preporučite da se od autora zatraži da pošalje izmene za još jedan krug "
+"recenzije."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} je preporučio/la da se zatraže izmene i da te izmene budu "
+"poslate na još jedan krug recenzije."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Preporuči odbijanje"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Preporučite da prijava bude odbijena za objavljivanje."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} je predložio/la da ova prijava bude odbijena."
 
 msgid "editor.submission.makeRecommendation"
-msgstr ""
+msgstr "Napravi preporuku"
 
 msgid "editor.submission.changeRecommendation"
-msgstr ""
+msgstr "Izmeni preporuku"
 
 msgid "editor.submission.recommendation.display"
-msgstr ""
+msgstr "Preporuka: {$recommendation}"
 
 msgid "editor.submission.allRecommendations.display"
-msgstr ""
+msgstr "Preporuke: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Ne možete dati preporuku dok ne bude dodeljen urednik sa ovlašćenjem da "
+"zabeleži odluku."
 
 msgid "editor.submission.recommendation"
-msgstr ""
+msgstr "Preporuka"
 
 msgid "editor.submission.recommendation.description"
-msgstr ""
+msgstr "Preporučite uredničku odluku za ovu prijavu."
 
 msgid "editor.submission.recordedRecommendations"
-msgstr ""
+msgstr "Zabeležene preporuke"
 
 msgid "submission.currentStage"
 msgstr "Trenutna faza"
@@ -1793,7 +1808,7 @@ msgid "editor.submission.addAuditorError"
 msgstr "Pojavila se greška u dodeli revizora. Pokušajte ponovo."
 
 msgid "submission.event.fileEdited"
-msgstr ""
+msgstr "Metapodaci za fajl \"{$filename}\" su izmenjeni od strane {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
@@ -2254,73 +2269,86 @@ msgid "submission.list.currentStage"
 msgstr ""
 
 msgid "submission.list.activity"
-msgstr ""
+msgstr "Aktivnost"
 
 msgid "submission.list.daysSinceLastActivity"
-msgstr ""
+msgstr "Dana od poslednje aktivnosti"
 
 msgid "submission.list.assignEditor"
-msgstr ""
+msgstr "Dodeli urednika"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Ova prijava je već poslata. Molimo posetite svoj <a href=\"{$url}\""
+">kontrolni panel prijava</a> da biste je pogledali."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Pre nego što počnete"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Odaberite samo kategorije koje su odgovarajuće za vašu prijavu."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Izmeni podešavanja slanja"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Dovršite korake da biste poslali unos"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Prijava, <strong>{$title}</strong>, biće poslata u <strong>{$context}</"
+"strong> na uređivačku recenziju. Da li ste sigurni da želite da završite ovu "
+"prijavu?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Postoji jedan ili više problema koje je potrebno ispraviti pre nego što "
+"možete poslati prijavu. Molimo vas, pregledajte informacije ispod i izvršite "
+"tražene izmene."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Proveravanje prijave"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Dodajte informacije koje smatrate da urednici treba da znaju prilikom "
+"ocenjivanja vaše prijave."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Molimo potvrdite sledeće pre nego što pošaljete prijavu."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Pošaljite prijavu"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Pošaljite prijavu: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Za ovu prijavu nisu dodati nijedni autori."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr ""
+msgstr "Nedostaje ime na {$language} za jednog ili više autora."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Nije dozvoljeno"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Saglasnost o privatnosti"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Sačuvano za kasnije"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Detalji vaše prijave su sačuvani u našem sistemu, ali prijava još nije "
+"poslata na razmatranje. Možete se vratiti i završiti slanje prijave u bilo "
+"kom trenutku prateći link ispod."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "Kopija ovog linka je poslata na vaš {$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Sekcija je zatvorena"
 
 msgid "submission.wizard.start"
 msgstr ""
@@ -2404,25 +2432,34 @@ msgid "publication.urlPath.numberInvalid"
 msgstr ""
 
 msgid "publication.version.all"
-msgstr ""
+msgstr "Sve verzije"
 
 msgid "publication.version.confirm"
-msgstr ""
+msgstr "Da li se sigurni da želite da napravite novu verziju?"
 
 msgid "publication.wordCountLong"
 msgstr ""
+"Apstrakt je predugačak. Treba da ima {$limit} reči ili manje. Trenutno ima "
+"{$count} reči."
 
 msgid "publication.wordCount"
-msgstr ""
+msgstr "Broj reči: {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Označavanje DOI-a za {$pubObjectTitle} kao ‘potrebna sinhronizacija’ nije "
+"uspelo. DOI ne može biti označen kao ‘potrebna sinhronizacija’ jer još uvek "
+"nije registrovan niti poslat."
 
 msgid "doi.submission.notPublished"
 msgstr ""
+"Označavanje DOI-a za {$pubObjectTitle} kao registrovanog nije uspelo. "
+"Prijava mora biti objavljena pre nego što se status može ažurirati."
 
 msgid "submission.viewingPreview"
 msgstr ""
+"Ovo je pregled i još uvek nije objavljen. <a href=\"{$url}\">Prikaži "
+"prijavu</a>“ ✅"
 
 #, fuzzy
 msgid "author.submit.noFiles"
@@ -2432,13 +2469,15 @@ msgid "author.submit.confirmation"
 msgstr "Potvrda"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Podnošenje na <strong>{$language}</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Podnošenje u odeljak <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Podnošenje u odeljak <strong>{$section}</strong> na jeziku "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2464,19 +2503,23 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Glavni kontakt za uredničku korespodenciju."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Izjava o dostupnosti podataka"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Navedite da li ste učinili dostupnim podatke koji potkrepljuju ovaj rad i, "
+"ukoliko jeste, gde i na koji način im se može pristupiti"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Morate otpremiti najmanje jedan fajl tipa {$genre}."
 
 msgid "submission.files.required.genres"
 msgstr ""
+"Morate otpremiti najmanje po jednu datoteku svakog od sledećih tipova: "
+"{$genres}."
 
 msgid "publication.version"
-msgstr ""
+msgstr "Verzija {$version}"
 
 #~ msgid "submission.event.reviewer.reviewCancelled"
 #~ msgstr "Dodela recenzije poništena"
@@ -2536,3 +2579,303 @@ msgstr "Vraćeno na recenziju."
 
 msgid "submission.reviewerSuggestions"
 msgstr "Predlozi recenzenta"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Zahtev za recenziju odbijen {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Recenzent je odbio zahtev za recenziju <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Zahtev za recenziju je prekoračio rok za {$days} dana"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Ovaj recenzent nije odgovorio na zahtev za recenziju. Odgovor je bio "
+"očekivan <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Recenzija u toku – zahtev prihvaćen"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Recenzija kasni {$days} dana"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Potrebne recenzije"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Čekanje na recenzije"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Svi zadaci"
+
+msgid "dashboard.applyFilters"
+msgstr "Primeni filtere"
+
+msgid "dashboard.submitRevisions"
+msgstr "Podnesi izmene"
+
+msgid "workflow.uploadRevisions"
+msgstr "Otpremi izmene"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Odgovori na zahtev"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Završi recenziju"
+
+msgid "dashboard.revisionRequested"
+msgstr "Zahtevana izmena"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Zahtev odbijen {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Molimo vas dovršite ovu recenziju do {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr "Rok za završetak recenzije je istekao. Završite je što pre."
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Da li ste sigurni da želite da otkažete ovu prijavu? Ovo će izbrisati "
+"prijavu i sve povezane podatke. Ova akcija se ne može poništiti."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Naziv afilijacije nije unet na {$language} za jednu ili više afilijacija "
+"jednog ili više autora."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Dodeljeno meni"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Sve u recenziji"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Planirano za objavljivanje"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Došlo je do greške prilikom pokušaja kreiranja podrazumevanog JATS sadržaja. "
+"Molimo proverite da li je JatsTemplate dodatak instaliran."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Jezik prijave ({$language}) nije jedan od podržanih jezika za prijavu. I "
+"dalje možete uređivati detalje prijave, ali nove prijave trenutno se ne "
+"prihvataju na ovom jeziku."
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Ažuriranje recenzija {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Biće objavljeno u broju {$issue}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recenzija poslata {$date}"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Čeka se odgovor recenzenta"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Potreban urednik"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Rok za odgovor na ovaj zahtev je istekao. Molimo da što pre prihvatite ili "
+"odbijete zahtev."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Zahtev za recenziju je poslat recenzentu. Odgovor se očekuje za <b>{$days} "
+"dana, do {$date}</b>"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Sve u fazi prijave"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Ovaj recenzent je prihvatio zahtev za recenziju. Recenzija je očekivana za "
+"<b>{$days} dana, do {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Ovaj recenzent nije završio recenziju. Odgovor je bio očekivan <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recenzent je otkazao zahtev za recenziju <b>{$date}</b>."
+
+msgid "author.competingInterests"
+msgstr "Sukob interesa"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktivne prijave"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Recenzije poslate"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Sve u fazi lekture"
+
+msgid "submission.dashboard.view.production"
+msgstr "Sve u fazi produkcije"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Zakazano za objavljivanje"
+
+msgid "submission.dashboard.view.published"
+msgstr "Objavljeno"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Odbijeno"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Zahtevane ispravke"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Ispravke autora poslate"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Nepotpune prijave"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Svi zadaci"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Na čekanju"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Završeno / Odbijeno"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arhivirano"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Odbijeno"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Završeno"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Objavljeno"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Recenzija (Krug {$round})"
+
+msgid "submission.stage.published"
+msgstr "Objavljeno"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Upravo ćete ukloniti postojeći JATS XML fajl iz ove publikacije. Da li ste "
+"sigurni?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Obriši JATS fajl"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Ovaj JATS fajl se automatski generiše na osnovu metapodataka prijave"
+
+msgid "publication.jats.lastModified"
+msgstr "Poslednja izmena: {$modificationDate}, od strane {$username}"
+
+msgid "submission.files.content.error"
+msgstr "Sadržaj fajla prijave '{$fileName}' nije moguće preuzeti."
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Molimo navedite sve sukobe interesa koje ovaj autor može imati u vezi sa "
+"predmetom istraživanja."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Razlozi za predlog recenzenta"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Molimo navedite razloge zbog kojih preporučujete ovog recenzenta i navedite "
+"da li postoje potencijalni sukobi interesa."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Recenzenti dodeljeni"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Započni novu prijavu"
+
+msgid "dashboard.assignReviewers"
+msgstr "Dodeli recenzente"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Zahtevi za izmenama od strane autora"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Zahtevi za izmenama od strane autora koji će biti prosleđeni u novi krug "
+"recenzije"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Kreira se novi krug recenzije"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Otpremljeni fajlovi nakon lekture: {$count}"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Recenzija je završena {$date}"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Potvrdi brisanje JATS XML"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Zahtev za recenziju je ponovo poslat recenzentu. Odgovor se očekuje za "
+"{$days} dana, do {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Pogledaj detalje"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Pošalji ponovo zahtev za recenziju"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Otkaži recenzenta"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Ukloni dodeljivanje"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Sve u fazi recenzije"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Recenzije kasne"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Recenzija završena {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Recenzija je prihvaćena od strane urednika <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recenzent je otkazao zahtev za recenziju"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Čeka se odgovor recenzenta"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Izmeni rok"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Recenzija je završena {$date} sa sledećom preporukom: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Recenziju potvrdio urednik"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Za ovu prijavu nisu predloženi recenzenti."
+
+msgid "submission.list.completeSubmission"
+msgstr "Završi prijavu"

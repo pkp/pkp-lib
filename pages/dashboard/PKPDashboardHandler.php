@@ -42,6 +42,7 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\DashboardView;
+use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
@@ -322,6 +323,11 @@ abstract class PKPDashboardHandler extends Handler
                 'ORCID' => CitationProcessingStatus::ORCID->value,
                 'PROCESSED' => CitationProcessingStatus::PROCESSED->value,
             ],
+
+            // Genre categories
+            'GENRE_CATEGORY_DOCUMENT ' => Genre::GENRE_CATEGORY_DOCUMENT,
+            'GENRE_CATEGORY_ARTWORK' => Genre::GENRE_CATEGORY_ARTWORK,
+            'GENRE_CATEGORY_SUPPLEMENTARY' => Genre::GENRE_CATEGORY_SUPPLEMENTARY,
         ]);
 
         $this->setupIndex($request);

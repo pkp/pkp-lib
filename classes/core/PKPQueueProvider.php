@@ -69,19 +69,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         ?int $contextId = null
     ): EloquentBuilder|QueryBuilder
     {
-        if (DB::connection() instanceof PostgresConnection) {
-            return $jobQuery->where(
-                fn ($query) => $query
-                    ->whereRaw(
-                        "REGEXP_REPLACE(payload, '.*\"context_id\":\\s*([0-9]+).*', '\\1') = ?",
-                        [(string) $contextId]
-                    )
-                    ->orWhereRaw(
-                        "payload !~ '\"context_id\":\\s*[0-9]+'"
-                    )
-            );
-        }
-
         return $jobQuery->where(
             fn ($query) => $query
                 ->where('payload->context_id', $contextId)
@@ -158,9 +145,13 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     public function boot()
     {
         if (!Application::isUnderMaintenance()) {
-            $this->isMultiContextSite = DB::table(Application::getContextDAO()->tableName)
-                ->where('enabled', 1)
-                ->count() > 1;
+            try {
+                $this->isMultiContextSite = DB::table(Application::getContextDAO()->tableName)
+                    ->where('enabled', 1)
+                    ->count() > 1;
+            } catch (Throwable $e) {
+                $this->isMultiContextSite = false;
+            }
         }
 
         if (Config::getVar('queues', 'job_runner', true)) {

@@ -105,43 +105,45 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         $context = $contextDao->getById($this->invitationModel->contextId);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            if (!$this->_validateAccessKey()) {
-                throw new Exception();
-            }
+            $this->_validateAccessKey();
 
             $this->invitationModel->markAs(InvitationStatus::ACCEPTED);
         }
     }
 
-    private function _validateAccessKey(): bool
+    /**
+     * Validate the access key for the reviewer invitation.
+     *
+     * @throws Exception If validation fails, with a descriptive message.
+     */
+    private function _validateAccessKey(): void
     {
         $reviewAssignment = Repo::reviewAssignment()->get($this->getPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
-            return false;
+            throw new Exception('The review assignment associated with this invitation could not be found.');
         }
 
-        // Check if the user is already logged in
-        if (Application::get()->getRequest()->getSessionGuard()->getUserId() && Application::get()->getRequest()->getSessionGuard()->getUserId() != $this->invitationModel->userId) {
-            return false;
+        // Check if a different user is already logged in
+        $loggedInUserId = Application::get()->getRequest()->getSessionGuard()->getUserId();
+        if ($loggedInUserId && $loggedInUserId != $this->invitationModel->userId) {
+            throw new Exception('You are logged in as a different user. Please log out and try the invitation link again.');
         }
 
         $reviewSubmission = Repo::submission()->getByBestId($reviewAssignment->getSubmissionId());
         if (!isset($reviewSubmission)) {
-            return false;
+            throw new Exception('The submission associated with this review assignment could not be found.');
         }
 
         // Get the reviewer user object
         $user = Repo::user()->get($this->invitationModel->userId);
         if (!$user) {
-            return false;
+            throw new Exception('The reviewer account associated with this invitation could not be found.');
         }
 
         // Register the user object in the session
         $reason = null;
         Validation::registerUserSession($user, $reason);
-
-        return true;
     }
 
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController

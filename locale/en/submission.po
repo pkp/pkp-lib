@@ -2747,11 +2747,11 @@ msgstr "Media Files"
 msgid "publication.mediaFiles.add"
 msgstr "Add Media File"
 
-msgid "publication.mediaFiles.batchLinkImages"
-msgstr "Batch Link Images"
+msgid "publication.mediaFiles.batchLinkMedia"
+msgstr "Batch Link Media"
 
-msgid "publication.mediaFiles.batchLinkImages.description"
-msgstr "Link web version images to their high-resolution counterparts. Select a high-resolution file for each web version below."
+msgid "publication.mediaFiles.batchLinkMedia.description"
+msgstr "Link web version media files to their high-resolution counterparts. Select a high-resolution file for each web version below."
 
 msgid "publication.mediaFiles.description"
 msgstr "Upload media files in bulk, including high-resolution versions. The system will auto-link them to your HTML galley based on filename. If needed, right-click a file to manually link it to its web or high-res counterpart."
@@ -2759,11 +2759,11 @@ msgstr "Upload media files in bulk, including high-resolution versions. The syst
 msgid "publication.mediaFiles.linkHighResolutionVersion"
 msgstr "Link High-Resolution Version"
 
-msgid "publication.mediaFiles.linkImage"
-msgstr "Link Image"
+msgid "publication.mediaFiles.linkMedia"
+msgstr "Link Media"
 
-msgid "publication.mediaFiles.linkImages"
-msgstr "Link Images"
+msgid "publication.mediaFiles.manuallyLinkMedia"
+msgstr "Manually Link Media"
 
 msgid "publication.mediaFiles.metadataName"
 msgstr "Name of the file"
@@ -2772,7 +2772,7 @@ msgid "publication.mediaFiles.metadataNameDescription"
 msgstr "(e.g., Manuscript; Table 1)"
 
 msgid "publication.mediaFiles.selectHighResolutionFor"
-msgstr "Select high-resolution image for {$fileName}"
+msgstr "Select high-resolution version for {$fileName}"
 
 msgid "publication.mediaFiles.selectMediaFileToLink"
 msgstr "Select the media file to link as its counterpart"
@@ -2789,10 +2789,10 @@ msgstr "Upload Media File"
 msgid "publication.mediaFiles.upload.description"
 msgstr "Upload image or multimedia files in bulk. The system will auto-link them to your HTML galley using matching filenames. You can manually adjust or link files later if needed."
 
-msgid "publication.mediaFiles.upload.resolutionTypeWeb"
+msgid "publication.mediaFiles.upload.variantTypeWeb"
 msgstr "Web resolution"
 
-msgid "publication.mediaFiles.upload.resolutionTypeHighRes"
+msgid "publication.mediaFiles.upload.variantTypeHighRes"
 msgstr "High resolution"
 
 msgid "publication.mediaFiles.upload.selectMediaType"
@@ -2806,6 +2806,9 @@ msgstr "File resolution type"
 
 msgid "publication.mediaFiles.upload.fileResTypeDescription"
 msgstr "Select a file resolution from the dropdown."
+
+msgid "publication.mediaFiles.variantType.highResolution"
+msgstr "High-resolution {$genreName}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr "Failed to mark the DOI needs sync for {$pubObjectTitle}. The DOI cannot be marked needs sync because they have not yet been registered or submitted."

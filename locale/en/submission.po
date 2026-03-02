@@ -2753,8 +2753,14 @@ msgstr "Batch Link Media"
 msgid "publication.mediaFiles.batchLinkMedia.description"
 msgstr "Link web version media files to their high-resolution counterparts. Select a high-resolution file for each web version below."
 
+msgid "publication.mediaFiles.confirmDelete"
+msgstr "Are you sure you want to delete <strong>\"{$fileName}\"</strong>? This action cannot be undone. If this file is linked to other media, those links will be removed."
+
+msgid "publication.mediaFiles.delete"
+msgstr "Delete media file?"
+
 msgid "publication.mediaFiles.description"
-msgstr "Upload media files in bulk, including high-resolution versions. The system will auto-link them to your HTML galley based on filename. If needed, right-click a file to manually link it to its web or high-res counterpart."
+msgstr "Upload media files in bulk, including high-resolution versions. After uploading, link each file to its web or high resolution counterpart by cliking Manually Link Media from the More Actions dropdown, or use Batch Link Media to link multiple files at once."
 
 msgid "publication.mediaFiles.linkHighResolutionVersion"
 msgstr "Link High-Resolution Version"
@@ -2770,6 +2776,12 @@ msgstr "Name of the file"
 
 msgid "publication.mediaFiles.metadataNameDescription"
 msgstr "(e.g., Manuscript; Table 1)"
+
+msgid "publication.mediaFiles.noHighResolutionFile"
+msgstr "No high-resolution file"
+
+msgid "publication.mediaFiles.noWebVersionFile"
+msgstr "No web version file"
 
 msgid "publication.mediaFiles.selectHighResolutionFor"
 msgstr "Select high-resolution version for {$fileName}"

@@ -69,6 +69,23 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         ?int $contextId = null
     ): EloquentBuilder|QueryBuilder
     {
+        if (DB::connection() instanceof PostgresConnection) {
+            // Failed to cast payload to jsonb because it contains PHP-serialized objects
+            // with null bytes (\u0000) which PostgreSQL's jsonb parser rejects.
+            // Use text-based regex to extract the top-level context_id instead using SUBSTRING
+            // instead of REGEXP_REPLACE .
+            return $jobQuery->where(
+                fn ($query) => $query
+                    ->whereRaw(
+                        "SUBSTRING(payload FROM '\"context_id\":\\s*([0-9]+)') = ?",
+                        [(string) $contextId]
+                    )
+                    ->orWhereRaw(
+                        "payload !~ '\"context_id\":\\s*[0-9]+'"
+                    )
+            );
+        }
+        
         return $jobQuery->where(
             fn ($query) => $query
                 ->where('payload->context_id', $contextId)

@@ -20,11 +20,13 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\template\TemplateManager;
 use Illuminate\Http\Response;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class InvitationHandler extends Handler
 {
@@ -86,10 +88,21 @@ class InvitationHandler extends Handler
         $invitation = Repo::invitation()
             ->getByIdAndKey($id, $key);
 
-        if (is_null($invitation)) {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        if (!is_null($invitation)) {
+            return $invitation;
         }
-        return $invitation;
+
+        // Check if invitation exists but is no longer actionable (already used or expired).
+        // If so, display a friendly landing page instead of a 404 to avoid confusion
+        if ($id && $key) {
+            $expiredInvitation = Repo::invitation()->getById($id)?->invitationModel;
+
+            if ($expiredInvitation && password_verify($key, $expiredInvitation->keyHash)) {
+                $this->displayInvitationNotAvailablePage($request);
+            }
+        }
+
+        throw new NotFoundHttpException();
     }
 
     public static function getActionUrl(InvitationAction $action, Invitation $invitation): ?string
@@ -117,5 +130,41 @@ class InvitationHandler extends Handler
                     'key' => $invitationKey,
                 ]
             );
+    }
+
+    /**
+     * Display a friendly landing page when an invitation is no longer actionable.
+     */
+    private function displayInvitationNotAvailablePage(Request $request): never
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+
+        $context = $request->getContext();
+        $contextPath = $context?->getData('urlPath');
+
+        $loginUrl = Application::get()->getDispatcher()->url(
+            $request,
+            Application::ROUTE_PAGE,
+            $contextPath,
+            'login',
+        );
+
+        $registerUrl = Application::get()->getDispatcher()->url(
+            $request,
+            Application::ROUTE_PAGE,
+            $contextPath,
+            'user',
+            'register',
+        );
+
+        $templateMgr->assign([
+            'loginUrl' => $loginUrl,
+            'registerUrl' => $registerUrl,
+            'pageComponent' => 'Page',
+        ]);
+
+        $templateMgr->display('invitation/invitationUnavailable.tpl');
+        exit;
     }
 }

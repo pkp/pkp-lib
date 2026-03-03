@@ -2343,12 +2343,15 @@ msgstr ""
 ">Creative Commons priskyrimo–panašiai dalijimosi 3.0 (Unported) "
 "licenciją</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Diskusijos (iki recenzavimo)"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Diskusijos (recenzuojant)"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Diskusijos (redaguojant)"
 

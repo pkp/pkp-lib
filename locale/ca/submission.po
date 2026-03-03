@@ -2267,12 +2267,15 @@ msgstr ""
 "internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
 "by-sa/3.0/\">Creative Commons Reconeixement-CompartirIgual 3.0</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discussions prèvies a la revisió"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Discussions de revisió"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discussions de correcció"
 

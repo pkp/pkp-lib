@@ -2245,12 +2245,15 @@ msgstr ""
 "href=\"https://creativecommons.org/licenses/by-sa/3.0 /\">Creative Commons "
 "Attribution-ShareAlike 3.0 Unported licenca</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Rasprave prije recenzije"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Recenzije rasprava"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Rasprave o kopiranju"
 

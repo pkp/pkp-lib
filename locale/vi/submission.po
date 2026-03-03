@@ -2226,12 +2226,15 @@ msgstr ""
 "href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Giấy phép Creative "
 "Commons Ghi công-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Thảo luận trước khi đánh giá"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Thảo luận đánh giá"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Thảo luận chỉnh sửa"
 

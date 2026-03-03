@@ -2289,12 +2289,15 @@ msgstr ""
 "Internacional Creative Commons Atribuição-CompartilhaIgual 3.0 não "
 "exportada</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discussões Pré-Revisão"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Rever Discussões"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discussões de edição de texto"
 

@@ -2183,12 +2183,15 @@ msgstr ""
 "\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Συζητήσεις προ-Κρίσης"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Συζητήσεις Κρίσης"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Συζητήσεις Επιμέλειας"
 

@@ -2305,12 +2305,15 @@ msgstr ""
 "\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.nl\""
 ">Naamsvermelding-GelijkDelen 3.0 Internationaal</a> licentie.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Pre-review-discussies"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Review-discussies"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Teksredactie-discussies"
 

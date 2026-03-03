@@ -2294,12 +2294,15 @@ msgstr ""
 "\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Nimeä-"
 "JaaSamoin 3.0 Kansainvälinen -lisenssillä</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Arviointia edeltävät keskustelut"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Arviointiin liittyvät keskustelut"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Tekniseen toimittamiseen liittyvät keskustelut"
 

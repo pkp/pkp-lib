@@ -2151,12 +2151,15 @@ msgstr ""
 "\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
 "\">Creative Commons Recoñecemento-Compartir Igual 3.0</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discusións previas á revisión"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Discusións de revisión"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discusións de corrección"
 

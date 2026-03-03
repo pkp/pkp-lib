@@ -2299,12 +2299,15 @@ msgstr ""
 "\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
 "Reconocimiento-CompartirIgual 3.0 Unported</a>.</p>"
 
+#, fuzzy
 msgid "submission.queries.submission"
 msgstr "Discusiones previas a la revisión"
 
+#, fuzzy
 msgid "submission.queries.review"
 msgstr "Discusiones de revisión"
 
+#, fuzzy
 msgid "submission.queries.editorial"
 msgstr "Discusiones de corrección"
 

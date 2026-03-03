@@ -23,6 +23,7 @@ use OpenSearch\Client;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
+use PKP\publication\PKPPublication;
 use PKP\search\parsers\SearchFileParser;
 use PKP\submissionFile\SubmissionFile;
 
@@ -113,6 +114,7 @@ class OpenSearchEngine extends ScoutEngine
                 'id' => $submission->getId(),
                 'body' => [
                     'titles' => $publication->getFullTitles(),
+                    'status' => $publication->getData('status'),
                     'abstracts' => $publication->getData('abstract'),
                     'bodies' => $bodies,
                     'authors' => $authors,
@@ -175,6 +177,7 @@ class OpenSearchEngine extends ScoutEngine
                 'sort' => &$sort,
             ],
         ];
+        $filter[] = ['term' => ['status' => PKPPublication::STATUS_PUBLISHED]];
 
         // Handle "where" conditions
         $publishedFrom = $publishedTo = null;
@@ -349,6 +352,7 @@ class OpenSearchEngine extends ScoutEngine
                         'keyword' => $typicalKeywordClause(),
                         'subject' => $typicalKeywordClause(),
                         'sectionId' => ['type' => 'long'],
+                        'status' => ['type' => 'long'],
                     ],
                 ],
             ],

@@ -20,8 +20,11 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use Illuminate\Http\Response;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class InvitationHandler extends Handler
 {
@@ -55,9 +58,20 @@ class InvitationHandler extends Handler
 
     /**
      * Confirm decline invitation handler
+     * 
+     * This force a POST request to confrim the invitation decline from user
+     * @see https://github.com/pkp/pkp-lib/issues/11690 and https://github.com/pkp/pkp-lib/issues/12332
      */
     public function confirmDecline(array $args, Request $request): void
     {
+        if (!$request->isPost()) {
+            throw new MethodNotAllowedHttpException(['POST']);
+        }
+
+        if (!$request->checkCSRF()) {
+            throw new HttpException(Response::HTTP_FORBIDDEN);
+        }
+
         $invitation = $this->getInvitationByKey($request);
         $invitationHandler = $invitation->getInvitationActionRedirectController();
         $invitationHandler->preRedirectActions(InvitationAction::DECLINE);

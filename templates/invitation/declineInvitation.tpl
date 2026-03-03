@@ -16,11 +16,11 @@
         <p>
             {translate key="invitation.decline.confirm.description"}
         </p>
-        <pkp-button
-            element="a"
-            href="{$declineUrl}"
-        >
-            {translate key="invitation.decline.confirm"}
-        </pkp-button>
+        <form method="post" action="{$declineUrl}">
+            {csrf}
+            <button type="submit" class="pkpButton">
+                {translate key="invitation.decline.confirm"}
+            </button>
+        </form>
     </div>
 {/block}

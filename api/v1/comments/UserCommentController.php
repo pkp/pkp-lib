@@ -122,7 +122,7 @@ class UserCommentController extends PKPBaseController
         // No authorization required for public endpoint
         return true;
     }
-    
+
     /**
      * Gets the publicly accessible comments for a publication.
      * Accepts the following query parameters:
@@ -316,7 +316,13 @@ class UserCommentController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        $reportIds = $comment->reports()->pluck('user_comment_report_id')->all();
         $comment->delete();
+
+        // Delete notifications associated with the comment and its reports
+        Notification::whereIn('assoc_type', [Application::ASSOC_TYPE_COMMENT, Application::ASSOC_TYPE_COMMENT_REPORT])
+            ->whereIn('assoc_id', array_merge([$commentId], $reportIds))
+            ->delete();
 
         return response()->json([], Response::HTTP_OK);
     }
@@ -393,6 +399,11 @@ class UserCommentController extends PKPBaseController
 
         $report->delete();
 
+        // Delete notifications associated with the report
+        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
+            ->where('assoc_id', $reportId)
+            ->delete();
+
         return response()->json([], Response::HTTP_OK);
     }
 
@@ -410,7 +421,13 @@ class UserCommentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        UserCommentReport::withCommentIds([$commentId])->delete();
+        $reportIds = $comment->reports()->pluck('user_comment_report_id')->all();
+        UserCommentReport::withReportIds([$reportIds])->delete();
+
+        // Delete notifications associated with the reports
+        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
+            ->whereIn('assoc_id', $reportIds)
+            ->delete();
 
         return response()->json([], Response::HTTP_OK);
     }

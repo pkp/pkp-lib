@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2025.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-04 13:21+0000\n"
+"PO-Revision-Date: 2026-03-04 15:05+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "mk/>\n"
@@ -233,7 +233,7 @@ msgid "grid.action.editUserGroup"
 msgstr "Уреди ја оваа група корисници"
 
 msgid "grid.action.removeUserGroup"
-msgstr "Отсрани ја оваа група корисници"
+msgstr "Отстрани ја оваа група корисници"
 
 msgid "grid.action.disable"
 msgstr "Оневозможи"

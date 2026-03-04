@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-03-02 17:44+0000\n"
+"PO-Revision-Date: 2026-03-04 15:44+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -2879,3 +2879,73 @@ msgstr "Za ovu prijavu nisu predloženi recenzenti."
 
 msgid "submission.list.completeSubmission"
 msgstr "Završi prijavu"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Urednici predlagači imaju zadatak da savetuju o narednim koracima za ovu "
+"prijavu"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Primljena je preporuka urednika"
+
+msgid "workflow.reviewRoundN"
+msgstr "Krug recenzije {$number}"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Zahteva se minimalan broj potvrđenih recenzija: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Nastaviti bez minimalnog broja potvrđenih recenzija?"
+
+msgid "workflow.stageNotStarted"
+msgstr "Faza {$stage} još nije pokrenuta."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Ne možete pristupiti ovoj prijavi kao menadžer časopisa jer ste njen autor. "
+"Da biste je videli, idite na ‘Moje prijave’"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Minimalan potreban broj recenzija je potvrđen. Potrebna je odluka."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Minimalan broj potvrđenih recenzija nije dostignut. Da li i dalje želite da "
+"nastavite sa ovom uredničkom odlukom?"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Sve preporuke urednika su primljene i potrebna je odluka."
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Ne možete pristupiti ovoj prijavi kao menadžer časopisa jer ste recenzent. "
+"Da biste je videli, idite na ‘Dodeljene recenzije’"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Dozvoljeno je samo davanje preporuke za uredničku odluku"
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Prijava se trenutno nalazi u fazi {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Prijava je prešla u sledeći krug recenzije, prihvaćena je i trenutno se "
+"nalazi u fazi {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Prijava je prebačena u sledeći krug recenzije"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Odbijeno u fazi {$stageName}."
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Pogledaj preporuku"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Pogledaj nepročitanu preporuku"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Pošalji recenziju ORCID-u"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Da li želite da pošaljete ovu recenziju na ORCID nalog recenzenta?"

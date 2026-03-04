@@ -3,7 +3,7 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-20 22:21+0000\n"
+"PO-Revision-Date: 2026-03-04 15:05+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
@@ -1622,7 +1622,7 @@ msgid "notification.removedNote"
 msgstr "Белешката е избришана."
 
 msgid "notification.removedFile"
-msgstr "Фајлот е избриушан."
+msgstr "Фајлот е избришан."
 
 msgid "notification.removedSubmission"
 msgstr "Поднесувањето е отстрането."
@@ -1851,7 +1851,7 @@ msgstr ""
 "испратено известување по е-пошта."
 
 msgid "notification.removedReviewer"
-msgstr "Рецензентот е одбиен."
+msgstr "Рецензентот е отстранет."
 
 msgid "notification.cancelledReviewer"
 msgstr "Рецензентот е одбиен."

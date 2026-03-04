@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-03-04 15:44+0000\n"
+"PO-Revision-Date: 2026-03-04 16:43+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -2949,3 +2949,47 @@ msgstr "Pošalji recenziju ORCID-u"
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
 msgstr "Da li želite da pošaljete ovu recenziju na ORCID nalog recenzenta?"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status recenzenta"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Recenzije otpremljene"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "ve fajlove je autor dostavio nakon što su zatražene izmene"
+
+msgid "fileManager.filesForReview"
+msgstr "Fajlovi za recenziju"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Ovi fajlovi će biti poslati recenzentima na recenziju"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Ovo su fajlovi koji će biti poslati na objavljivanje"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Potvrdite brisanje nedovršenih prijava"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Da li ste sigurni da želite da obrišete izabrane stavke? Ova radnja se ne "
+"može opozvati. Molimo potvrdite da biste nastavili."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Izaberite nedovršene prijave za brisanje."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Obriši nedovršene prijave"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Fajlovi otpremljeni prilikom podnošenja prijave"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Ovo su uređeni fajlovi koji će biti prosleđeni u fazu produkcije"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Ovo su fajlovi iz faze recenzije koji treba da budu lektorisani"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Lektorisani fajlovi"

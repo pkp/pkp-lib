@@ -114,10 +114,7 @@ trait ReviewerRecommendationSummary
     private function getSubmissionLatestPublishedPublication(Submission $submission): ?array
     {
         /** @var Publication $latestVersion */
-        $latestVersion = $submission->getData('publications')
-            ->filter(fn (Publication $publication) => $publication->getData('status') === Publication::STATUS_PUBLISHED)
-            ->sortByDesc(fn (Publication $publication) => $publication->getData('version'))
-            ->first();
+        $latestVersion = collect(array_reverse($submission->getPublishedPublications()))->first();
 
         return $latestVersion ? [
             'versionString' => $latestVersion->getData('versionString'),

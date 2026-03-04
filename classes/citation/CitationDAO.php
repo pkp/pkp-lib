@@ -84,7 +84,7 @@ class CitationDAO extends \PKP\db\DAO
      *
      * @hook Citation::importCitations::after [$publicationId, $existingCitations, $importedCitations]
      */
-    public function importCitations(int $publicationId, string $rawCitationList)
+    public function importCitations(int $publicationId, ?string $rawCitationList)
     {
         assert(is_numeric($publicationId));
         $publicationId = (int) $publicationId;

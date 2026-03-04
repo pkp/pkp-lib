@@ -152,6 +152,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
             ->limit(30)
             ->offset(0);
 
+        $collector->allowAuthorSearch = true;
+
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'orderBy':

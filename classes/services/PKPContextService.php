@@ -630,17 +630,17 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
         $pluginSettingsDao->deleteByContextId($context->getId());
 
-        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
-        $reviewFormDao->deleteByAssoc($context->getAssocType(), $context->getId());
-
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /** @var NavigationMenuDAO $navigationMenuDao */
         $navigationMenuDao->deleteByContextId($context->getId());
 
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
         $navigationMenuItemDao->deleteByContextId($context->getId());
-    
+
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao*/
         $reviewAssignmentDao->deleteByContextId($context->getId());
+
+        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
+        $reviewFormDao->deleteByAssoc($context->getAssocType(), $context->getId());
 
         $contextFileManager = new ContextFileManager($context->getId());
         $contextFileManager->rmtree($contextFileManager->getBasePath());

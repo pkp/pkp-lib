@@ -3,15 +3,15 @@
 /**
  * @file classes/task/UpdateRorRegistryDataset.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UpdateRorRegistryDataset
  *
  * @ingroup tasks
  *
- * @brief Class responsible to bi-weekly update of the Ror Registry tables in the database.
+ * @brief Class responsible for bi-weekly update of the ROR Registry tables in the database.
  */
 
 /**
@@ -80,8 +80,8 @@ class UpdateRorRegistryDataset extends ScheduledTask
 {
     private PrivateFileManager $fileManager;
 
-    /** @var string API Url of the data dump versions. */
-    private string $urlVersions = 'https://zenodo.org/api/communities/ror-data/records?q=&sort=newest';
+    /** @var string API url for the ROR Registry dataset (redirects to the latest version). */
+    private string $rorDatasetUrl = 'https://zenodo.org/api/records/6347574';
 
     /** @var string The file contains the following text in the name. */
     private string $csvNameContains = 'ror-data.csv';
@@ -125,12 +125,12 @@ class UpdateRorRegistryDataset extends ScheduledTask
             $this->cleanup([$pathZipFile, $pathZipDir]);
             $this->createTemporaryTable();
 
-            $downloadUrl = $this->getDownloadUrl();
-            if (empty($downloadUrl)) {
+            $downloadData = $this->getDownloadData();
+            if (empty($downloadData)) {
                 return false;
             }
 
-            if (!$this->downloadAndExtract($downloadUrl, $pathZipFile, $pathZipDir)) {
+            if (!$this->downloadAndExtract($downloadData['url'], $pathZipFile, $pathZipDir, $downloadData['checksum'])) {
                 return false;
             }
 
@@ -158,48 +158,66 @@ class UpdateRorRegistryDataset extends ScheduledTask
     /**
      * Get download url
      */
-    private function getDownloadUrl(): string
+    private function getDownloadData(): array
     {
         try {
             $client = Application::get()->getHttpClient();
 
-            $response = $client->request('GET', $this->urlVersions);
+            $response = $client->request('GET', $this->rorDatasetUrl);
             $responseArray = json_decode($response->getBody(), true);
 
             if ($response->getStatusCode() !== 200 || json_last_error() !== JSON_ERROR_NONE || empty($responseArray)) {
-                return '';
+                return [];
             }
 
-            if (!empty($responseArray['hits']['hits'][0]['files'][0]['links']['self'])) {
-                return $responseArray['hits']['hits'][0]['files'][0]['links']['self'];
+            if (
+                !empty($responseArray['files'][0]['links']['self']) &&
+                !empty($responseArray['files'][0]['checksum'])
+            ) {
+                // Remove 'md5:' from the beginning of the checksum
+                $checksum = str_replace('md5:', '', $responseArray['files'][0]['checksum']);
+                $url = $responseArray['files'][0]['links']['self'];
+                return ['url' => $url, 'checksum' => $checksum];
             }
 
-            return '';
+            return [];
         } catch (GuzzleException | Exception $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
 
-            return '';
+            return [];
         }
     }
 
     /**
      * Download and extract zip file
      */
-    private function downloadAndExtract(string $downloadUrl, string $pathZipFile, string $pathZipDir): bool
+    private function downloadAndExtract(string $downloadUrl, string $pathZipFile, string $pathZipDir, string $checksum): bool
     {
         try {
             $client = Application::get()->getHttpClient();
 
-            // download file
+            // Download the file
             $client->request('GET', $downloadUrl, ['sink' => $pathZipFile]);
             if (!$this->fileManager->fileExists($pathZipFile)) {
                 return false;
             }
 
-            // extract file
+            // Verify the checksum of the downloaded file
+            $fileChecksum = md5_file($pathZipFile);
+            if ($fileChecksum !== $checksum) {
+                $this->addExecutionLogEntry(
+                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.checksum', [
+                        'expected' => $checksum, 'actual' => $fileChecksum
+                    ]),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
+                return false;
+            }
+
+            // Extract the file
             $zip = new ZipArchive();
             if ($zip->open($pathZipFile) === true) {
                 $zip->extractTo($pathZipDir);
@@ -242,13 +260,12 @@ class UpdateRorRegistryDataset extends ScheduledTask
      */
     private function processCsv(string $pathCsv): void
     {
-        $i = 0;
         $isHeader = true;
         $batchCounter = 0;
         $batchSize = 5000;
         $batchRows = [];
         if (($handle = fopen($pathCsv, 'r')) !== false) {
-            while (($rowCsv = fgetcsv($handle, null, ',', '"', '\\')) !== false) {
+            while (($rowCsv = fgetcsv($handle)) !== false) {
                 if ($isHeader) {
                     foreach ($this->dataMapping as $keyDB => $keyCsv) {
                         $this->dataMappingIndex[$keyDB] = array_search($keyCsv, $rowCsv, true);
@@ -263,7 +280,6 @@ class UpdateRorRegistryDataset extends ScheduledTask
                         $batchRows = [];
                     }
                 }
-                $i++;
                 $batchCounter++;
             }
             fclose($handle);

@@ -19,10 +19,12 @@ namespace PKP\API\v1\peerReviews\resources;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\submission\reviewRound\ReviewRound;
 
 trait ReviewerRecommendationSummary
 {
@@ -120,5 +122,37 @@ trait ReviewerRecommendationSummary
             'versionString' => $latestVersion->getData('versionString'),
             'datePublished' => $latestVersion->getData('datePublished'),
         ] : null;
+    }
+
+    /**
+     * Gets array of review round status date info
+     *
+     * @param Enumerable $reviewAssignments All public assignments, not limited by round
+     * @param array $reviewRounds Iterative array keyed by review round ID
+     * @return list<array{roundId: int, round: int, status: string, dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}>
+     */
+    private function getReviewRoundsStatusData(Enumerable $reviewAssignments, array $reviewRounds): array
+    {
+        $assignmentsByRound = $reviewAssignments
+            ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId())
+            ->sortKeys();
+
+        $roundsData = [];
+        /** @var ReviewRound $reviewRound */
+        foreach ($reviewRounds as $roundId => $reviewRound) {
+            $roundAssignments = $assignmentsByRound->get($roundId, collect());
+            $publicStatus = $reviewRound->getPublicReviewStatus($roundAssignments);
+
+            $roundsData[] = [
+                'roundId' => $reviewRound->getId(),
+                'round' => $reviewRound->getRound(),
+                'status' => $publicStatus['status']->value,
+                'dateStarted' => $publicStatus['dateStarted'],
+                'dateInProgress' => $publicStatus['dateInProgress'],
+                'dateCompleted' => $publicStatus['dateCompleted'],
+            ];
+        }
+
+        return $roundsData;
     }
 }

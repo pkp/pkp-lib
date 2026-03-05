@@ -27,7 +27,7 @@ use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\jobs\BaseJob;
 
-class ReviewReminder extends BaseJob
+class ReviewReminder extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     public function __construct(
         public int $contextId,
@@ -36,6 +36,14 @@ class ReviewReminder extends BaseJob
     )
     {
         parent::__construct();
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     /**

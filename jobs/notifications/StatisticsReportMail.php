@@ -30,7 +30,7 @@ use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\notification\Notification;
 use SplFileObject;
 
-class StatisticsReportMail extends BaseJob
+class StatisticsReportMail extends BaseJob  implements \PKP\queue\ContextAwareJob
 {
     use Batchable;
 
@@ -47,6 +47,14 @@ class StatisticsReportMail extends BaseJob
         $this->contextId = $contextId;
         $this->dateStart = $dateStart;
         $this->dateEnd = $dateEnd;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     public function handle()

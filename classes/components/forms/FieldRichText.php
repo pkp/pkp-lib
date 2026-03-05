@@ -29,7 +29,7 @@ class FieldRichText extends Field
     public $size = 'oneline';
 
     /** @var string Optional. A preset toolbar configuration. */
-    public $toolbar = 'formatgroup';
+    public $toolbar = 'bold italic underline superscript subscript';
 
     /** @var array Optional. A list of required plugins. */
     public $plugins = [];
@@ -49,7 +49,8 @@ class FieldRichText extends Field
 
         $config['i18nFormattingLabel'] = __('common.formatting');
 
-        $config['toolbar'] = $this->toolbar;
+        $config['toolbar'] = 'formatgroup';
+        $config['formatToolbar'] = $this->toolbar;
         $config['plugins'] = $this->plugins;
         $config['size'] = $this->size;
 

@@ -21,7 +21,13 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\enums\PublicReviewStatus;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class SubmissionPeerReviewSummaryResource extends JsonResource
 {
@@ -31,6 +37,7 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
     {
         /** @var Submission $submission */
         $submission = $this->resource;
+
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->filterByIsPubliclyVisible(true)
@@ -47,6 +54,51 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
             'submissionPublishedVersionsCount' => count($submission->getPublishedPublications()),
             'reviewerCount' => $this->getReviewerCount($reviewAssignments),
             'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($submission),
+            'reviewStatus' => $this->getReviewStatus($reviewAssignments),
+        ];
+    }
+
+    /**
+     * Gets aggregated review round status for submission as a whole.
+     *
+     * @param Collection<ReviewAssignment> $reviewAssignments
+     * @return array{dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}
+     */
+    private function getReviewStatus(Enumerable $reviewAssignments): array
+    {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $reviewRounds = $reviewRoundDao->getBySubmissionId($this->resource->getId())->toAssociativeArray();
+
+
+        $roundsStatusData = $this->getReviewRoundsStatusData($reviewAssignments, $reviewRounds);
+
+        if (empty($roundsStatusData)) {
+            return [
+                'dateStarted' => null,
+                'dateInProgress' => null,
+                'dateCompleted' => null,
+            ];
+        }
+
+        $lastRound = end($roundsStatusData);
+
+        $dateStarted = collect($roundsStatusData)
+            ->pluck('dateStarted')
+            ->filter()
+            ->sort()
+            ->first();
+
+        $dateInProgress = collect($roundsStatusData)
+            ->pluck('dateInProgress')
+            ->filter()
+            ->sort()
+            ->first();
+
+        return [
+            'dateStarted' => $dateStarted,
+            'dateInProgress' => $dateInProgress,
+            'dateCompleted' => $lastRound['dateCompleted'],
         ];
     }
 }

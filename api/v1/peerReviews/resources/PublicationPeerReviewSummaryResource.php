@@ -52,28 +52,9 @@ class PublicationPeerReviewSummaryResource extends JsonResource
 
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRounds = $reviewRoundDao->getByPublicationIds($allAssociatedPublicationIds);
-        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($rr) => $rr->getId());
+        $reviewRounds = $reviewRoundDao->getByPublicationIds($allAssociatedPublicationIds)->toAssociativeArray();
 
-        $assignmentsByRound = $reviewAssignments
-            ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId())
-            ->sortKeys();
-
-        $roundsData = [];
-        /** @var ReviewRound $reviewRound */
-        foreach ($reviewRoundsKeyedById as $roundId => $reviewRound) {
-            $roundAssignments = $assignmentsByRound->get($roundId, collect());
-            $publicStatus = $reviewRound->getPublicReviewStatus($roundAssignments);
-
-            $roundsData[] = [
-                'roundId' => $reviewRound->getId(),
-                'round' => $reviewRound->getRound(),
-                'status' => $publicStatus['status']->value,
-                'dateStarted' => $publicStatus['dateStarted'],
-                'dateInProgress' => $publicStatus['dateInProgress'],
-                'dateCompleted' => $publicStatus['dateCompleted'],
-            ];
-        }
+        $roundsStatusData = $this->getReviewRoundsStatusData($reviewAssignments, $reviewRounds);
 
         $publishedPublications = $submission->getPublishedPublications();
 
@@ -85,7 +66,7 @@ class PublicationPeerReviewSummaryResource extends JsonResource
             'reviewerCount' => $this->getReviewerCount($reviewAssignments),
             // Latest published publication for the submission associated with this publication
             'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($submission),
-            'reviewRounds' => $roundsData,
+            'reviewRounds' => $roundsStatusData,
         ];
     }
 }

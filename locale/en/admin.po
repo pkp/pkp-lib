@@ -207,7 +207,12 @@ msgstr ""
 "{$targetFilename} failed."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
+msgstr "Update ROR registry dataset cache"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Unable to update the ROR Registry dataset due to a checksum mismatch."
+" Expected checksum: {$expected}. Actual checksum: {$actual}"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Usage statistics file loader task"

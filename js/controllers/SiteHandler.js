@@ -163,7 +163,8 @@
 				browser_spellcheck: true,
 				skin: 'tinymce-5',
 				license_key: 'gpl',
-				menubar: false
+				menubar: false,
+				sandbox_iframes: false
 			};
 
 			// Support image uploads

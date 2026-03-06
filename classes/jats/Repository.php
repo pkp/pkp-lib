@@ -206,7 +206,6 @@ class Repository
             Repo::submissionFile()->add($submissionFile);
         }
 
-        // cache should be cleared when file changes
         $this->clearPublicJatsCache($publicationId);
 
         // Return fresh JatsFile
@@ -215,20 +214,14 @@ class Repository
 
     /**
      * Delete the JATS file for a publication.
-     *
-     * @param int $publicationId The publication ID
-     * @param int|null $submissionId Optional submission ID filter
      */
-    public function deleteJatsFile(int $publicationId, ?int $submissionId = null): void
+    public function delete(int $publicationId, ?int $submissionId = null): void
     {
         $query = Repo::submissionFile()
             ->getCollector()
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_JATS])
-            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publicationId]);
-
-        if ($submissionId) {
-            $query = $query->filterBySubmissionIds([$submissionId]);
-        }
+            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION, [$publicationId])
+            ->filterBySubmissionIds($submissionId !== null ? [$submissionId] : null);
 
         $jatsFile = $query->getMany()->first();
 
@@ -237,7 +230,6 @@ class Repository
             Repo::submissionFile()->delete($jatsFile);
         }
 
-        // cache should be cleared when file deleted
         $this->clearPublicJatsCache($publicationId);
     }
 
@@ -285,8 +277,6 @@ class Repository
      * - JATS file is deleted (deleteJatsFile)
      * - Visibility setting changes (via controller)
      *
-     * @param int $publicationId The publication ID
-     * @param int $submissionId Optional submission ID filter
      * @return string|null The JATS XML content or null if unavailable
      */
     public function getPublicJatsContent(int $publicationId, int $submissionId): ?string
@@ -296,11 +286,8 @@ class Repository
         return Cache::remember($cacheKey, static::JATS_FILE_CACHE_LIFETIME, function () use ($publicationId, $submissionId) {
             $submission = Repo::submission()->get($submissionId);
             
-            /** @var \PKP\context\Context $context */
-            $context = app()->get('context')->get($submission->getData('contextId'));
-            
             $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-            $genres = $genreDao->getEnabledByContextId($context->getId());
+            $genres = $genreDao->getEnabledByContextId($submission->getData('contextId'));
 
             $jatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
 

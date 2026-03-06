@@ -33,6 +33,9 @@ use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
+use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
@@ -99,9 +102,13 @@ class PKPJatsController extends PKPBaseController
         $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
         $actionName = static::getRouteActionName($illuminateRequest);
 
-        // no authorization check for public access api request
+        $this->addPolicy(new ContextRequiredPolicy($request));
+        $this->addPolicy(new SubmissionRequiredPolicy($request, $args));
+        $this->addPolicy(new SubmissionCompletePolicy($request, $args));
+
+        // For the public api endpoint, we don't need to role/access based authorization
         if ($actionName === 'publicDownload') {
-            return true;
+            return parent::authorize($request, $args, $roleAssignments);
         }
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
@@ -219,7 +226,7 @@ class PKPJatsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        Repo::jats()->deleteJatsFile($publication->getId(), $submission->getId());
+        Repo::jats()->delete($publication->getId(), $submission->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
@@ -267,7 +274,7 @@ class PKPJatsController extends PKPBaseController
 
     /**
      * Public endpoint to download JATS XML.
-     * This endpoint does not require authenticatio.
+     * This endpoint does not require authentication.
      * Response is cached as per defined in \PKP\jats\Repository::JATS_FILE_CACHE_LIFETIME to prevent DDOS.
      */
     public function publicDownload(Request $illuminateRequest): Response|JsonResponse
@@ -284,7 +291,7 @@ class PKPJatsController extends PKPBaseController
         }
 
         // Verify publication is published
-        if ($publication->getData('status') !== PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') != PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);

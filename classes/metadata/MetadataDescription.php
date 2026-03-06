@@ -17,7 +17,7 @@
  *
  * @brief Class modeling a description (DCMI abstract model) or subject-
  *  predicate-object graph (RDF). This class and its children provide
- *  meta-data (DCMI abstract model: statements of property-value pairs,
+ *  metadata (DCMI abstract model: statements of property-value pairs,
  *  RDF: assertions of predicate-object pairs) about a given PKP application
  *  entity instance (DCMI abstract model: described resource, RDF: subject).
  *
@@ -30,31 +30,31 @@
  *  any application object that implements the MetadataProvider interface.
  *
  *  Special attention has been paid to the compatibility of the class
- *  implementation with the implementation of several meta-data standards
+ *  implementation with the implementation of several metadata standards
  *  that we consider especially relevant to our use cases.
  *
- *  We distinguish two main use cases for meta-data: discovery and delivery
+ *  We distinguish two main use cases for metadata: discovery and delivery
  *  of described resources. We have chosen the element-citation tag from the
  *  NLM standard <http://dtd.nlm.nih.gov/publishing/tag-library/3.0/n-8xa0.html>
- *  as our primary representation of delivery meta-data and dcterms
+ *  as our primary representation of delivery metadata and dcterms
  *  <http://dublincore.org/documents/dcmi-terms/> as our primary
- *  representation of discovery meta-data.
+ *  representation of discovery metadata.
  *
- *  Our specific use of meta-data has important implications and determines
+ *  Our specific use of metadata has important implications and determines
  *  our design goals:
  *  * Neither NLM-citation nor dcterms have been designed with an object
  *    oriented encoding in mind. NLM-citation is usually XML encoded
  *    while typical dcterms encodings are HTML meta-tags, RDF or XML.
- *  * We believe that trying to implement a super-set of meta-data
+ *  * We believe that trying to implement a super-set of metadata
  *    standards ("least common denominator" or super-schema approach)
- *    is fundamentally flawed as meta-data standards are always
+ *    is fundamentally flawed as metadata standards are always
  *    developed with specific use-cases in mind that require potentially
  *    incompatible data properties or encodings.
  *  * Although we think that NLM-citation and dcterms are sensible default
- *    meta-data schemes our design should remain flexible enough for
- *    users to implement and use other schemes as an internal meta-data
+ *    metadata schemes our design should remain flexible enough for
+ *    users to implement and use other schemes as an internal metadata
  *    standard.
- *  * We have to make sure that we can easily extract/inject meta-data
+ *  * We have to make sure that we can easily extract/inject metadata
  *    from/to PKP application objects.
  *  * We have to avoid code duplication to keep maintenance cost under
  *    control.
@@ -65,7 +65,7 @@
  *  * We have to make sure that we can switch between internal and
  *    external encodings without any data loss.
  *  * We have to make sure that crosswalks to and from other important
- *    meta-data standards (e.g. OpenURL variants, MODS, MARC) can be
+ *    metadata standards (e.g. OpenURL variants, MODS, MARC) can be
  *    performed in a well-defined and easy way while minimizing data
  *    loss.
  *  * We have to make sure that we can support qualified fields (e.g.
@@ -77,22 +77,22 @@
  *    use-cases. We recognize that the limiting factor is not the data that
  *    we could represent but the data we actually have. This is not determined
  *    by the chosen standard but by the PKP application objects we want to
- *    represent. Additional meta-data properties/predicates can be added as
+ *    represent. Additional metadata properties/predicates can be added as
  *    required.
  *  * We do adapt data structures as long as we can make sure that a
  *    fully standard compliant encoding can always be re-constructed. This
  *    is especially true for NLM-citation which is designed with
  *    XML in mind and therefore uses hierarchical constructs that are
  *    difficult to represent in an OO class model.
- *    This means that our meta-data framework only supports (nested) key/
+ *    This means that our metadata framework only supports (nested) key/
  *    value-based schemas which can however be converted to hierarchical
  *    representations.
  *  * We borrow class and property names from the DCMI abstract model as
  *    the terms used there provide better readability for developers less
  *    acquainted with formal model theory. We'll, however, make sure that
  *    data can easily be RDF encoded within our data model.
- *  * Data validation must ensure that meta-data always complies with a
- *    specific meta-data standard. As we are speaking about an object
+ *  * Data validation must ensure that metadata always complies with a
+ *    specific metadata standard. As we are speaking about an object
  *    oriented encoding that is not defined in the original standard, we
  *    define compliance as "roundtripability". This means we must be able
  *    to convert our object oriented data encoding to a fully standard
@@ -111,7 +111,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     public const METADATA_DESCRIPTION_UNKNOWN_LOCALE = 'unknown';
 
-    /** @var string fully qualified class name of the meta-data schema this description complies to */
+    /** @var string fully qualified class name of the metadata schema this description complies to */
     public $_metadataSchemaName;
 
     /** @var MetadataSchema the schema this description complies to */
@@ -125,7 +125,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * @var string an (optional) display name that describes the contents
-     *  of this meta-data description to the end user.
+     *  of this metadata description to the end user.
      */
     public $_displayName;
 
@@ -151,7 +151,7 @@ class MetadataDescription extends \PKP\core\DataObject
     //
     /**
      * Get the fully qualified class name of
-     * the supported meta-data schema.
+     * the supported metadata schema.
      */
     public function getMetadataSchemaName()
     {
@@ -165,7 +165,7 @@ class MetadataDescription extends \PKP\core\DataObject
      */
     public function &getMetadataSchema()
     {
-        // Lazy-load the meta-data schema if this has
+        // Lazy-load the metadata schema if this has
         // not been done before.
         if (is_null($this->_metadataSchema)) {
             $metadataSchemaName = $this->getMetadataSchemaName();
@@ -173,7 +173,7 @@ class MetadataDescription extends \PKP\core\DataObject
             if (class_exists($metadataSchemaName)) {
                 $this->_metadataSchema = new $metadataSchemaName();
             }
-            
+
             if (! $this->_metadataSchema instanceof \PKP\metadata\MetadataSchema) {
                 throw new \Exception('Unexpected metadata schema class!');
             }
@@ -212,9 +212,9 @@ class MetadataDescription extends \PKP\core\DataObject
     }
 
     /**
-     * Construct a meta-data application entity id
+     * Construct a metadata application entity id
      * (described resource id / subject id) for
-     * this meta-data description object.
+     * this metadata description object.
      *
      * @return string
      */
@@ -267,8 +267,8 @@ class MetadataDescription extends \PKP\core\DataObject
     }
 
     /**
-     * Add a meta-data statement. Statements can only be added
-     * for properties that are part of the meta-data schema. This
+     * Add a metadata statement. Statements can only be added
+     * for properties that are part of the metadata schema. This
      * method will also check the validity of the value for the
      * given property before adding the statement.
      *
@@ -423,7 +423,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * Add several statements at once. If one of the statements
-     * is invalid then the meta-data description will remain in its
+     * is invalid then the metadata description will remain in its
      * initial state.
      * * Properties with a cardinality of 'many' must be passed in as
      *   sub-arrays.
@@ -512,7 +512,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * Convenience method that returns the properties of
-     * the underlying meta-data schema.
+     * the underlying metadata schema.
      *
      * @return array an array of MetadataProperties
      */
@@ -524,7 +524,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * Convenience method that returns a property from
-     * the underlying meta-data schema.
+     * the underlying metadata schema.
      *
      * @param string $propertyName
      *
@@ -538,7 +538,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * Convenience method that returns a property id
-     * the underlying meta-data schema.
+     * the underlying metadata schema.
      *
      * @param string $propertyName
      *
@@ -552,7 +552,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * Convenience method that returns the valid
-     * property names of the underlying meta-data schema.
+     * property names of the underlying metadata schema.
      *
      * @return array an array of string values representing valid property names
      */
@@ -564,7 +564,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * Convenience method that returns the names of properties with a
-     * given data type of the underlying meta-data schema.
+     * given data type of the underlying metadata schema.
      *
      * @param string $propertyType
      *
@@ -589,7 +589,7 @@ class MetadataDescription extends \PKP\core\DataObject
 
     /**
      * Convenience method that checks the existence
-     * of a property in the underlying meta-data schema.
+     * of a property in the underlying metadata schema.
      *
      * @param string $propertyName
      *

@@ -14,7 +14,7 @@
  * @see MetadataDescription
  *
  * @brief Class that provides methods to convert one type of
- *  meta-data description into another. This is an abstract
+ *  metadata description into another. This is an abstract
  *  class that must be sub-classed by specific cross-walk
  *  implementations.
  */
@@ -28,8 +28,8 @@ class CrosswalkFilter extends Filter
     /**
      * Constructor
      *
-     * @param string $fromSchema fully qualified class name of supported input meta-data schema
-     * @param string $toSchema fully qualified class name of supported output meta-data schema
+     * @param string $fromSchema fully qualified class name of supported input metadata schema
+     * @param string $toSchema fully qualified class name of supported output metadata schema
      */
     public function __construct($fromSchema, $toSchema)
     {

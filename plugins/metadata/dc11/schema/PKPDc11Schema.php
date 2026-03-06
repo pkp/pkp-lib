@@ -16,7 +16,7 @@
  *
  * @see MetadataSchema
  *
- * @brief Class that provides meta-data properties compliant with
+ * @brief Class that provides metadata properties compliant with
  *  the Dublin Core specification, version 1.1.
  *
  *  For details see <http://dublincore.org/documents/dces/>,
@@ -36,7 +36,7 @@ class PKPDc11Schema extends MetadataSchema
      */
     public function __construct($appSpecificAssocType, $classname = 'APP\plugins\metadata\dc11\schema\Dc11Schema')
     {
-        // Configure the meta-data schema.
+        // Configure the metadata schema.
         parent::__construct(
             'dc-1.1',
             'dc',

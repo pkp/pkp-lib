@@ -29,13 +29,13 @@ class MetadataTypeDescription extends ClassTypeDescription
 {
     public const ASSOC_TYPE_ANY = -1;
 
-    /** @var string the expected meta-data schema package */
+    /** @var string the expected metadata schema package */
     public $_metadataSchemaPackageName;
 
-    /** @var string the expected meta-data schema class */
+    /** @var string the expected metadata schema class */
     public $_metadataSchemaClassName;
 
-    /** @var int the expected assoc type of the meta-data description */
+    /** @var int the expected assoc type of the metadata description */
     public $_assocType;
 
 
@@ -51,7 +51,7 @@ class MetadataTypeDescription extends ClassTypeDescription
     }
 
     /**
-     * @return string the fully qualified class name of the meta-data schema.
+     * @return string the fully qualified class name of the metadata schema.
      */
     public function getMetadataSchemaClass()
     {
@@ -82,7 +82,7 @@ class MetadataTypeDescription extends ClassTypeDescription
     public function parseTypeName(string $typeName): bool
     {
         // Configure the parent class type description
-        // with the expected meta-data class.
+        // with the expected metadata class.
         parent::parseTypeName(MetadataDescription::class);
 
         // Split the type name into class name and assoc type.
@@ -91,7 +91,7 @@ class MetadataTypeDescription extends ClassTypeDescription
             return false;
         }
 
-        // The meta-data schema class must be
+        // The metadata schema class must be
         // a fully qualified class name.
         $splitMetadataSchemaClass = $this->splitClassName($typeNameParts[0]);
         if ($splitMetadataSchemaClass === false) {
@@ -121,12 +121,12 @@ class MetadataTypeDescription extends ClassTypeDescription
     public function checkType($object): bool
     {
         // First of all check whether this is a
-        // meta-data description at all.
+        // metadata description at all.
         if (!parent::checkType($object)) {
             return false;
         }
 
-        // Check the meta-data schema.
+        // Check the metadata schema.
         $metadataSchema = & $object->getMetadataSchema();
         if (!$metadataSchema instanceof $this->_metadataSchemaClassName) {
             return false;

@@ -15,7 +15,7 @@
  * @see MetadataSchema
  * @see MetadataDescription
  *
- * @brief Class that injects/extracts a meta-data description
+ * @brief Class that injects/extracts a metadata description
  *  into/from an application entity object (DataObject).
  *
  *  These adapters have to be persistable as they'll be provided
@@ -72,7 +72,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
         // Extract information from the input/output types.
 
         // Find out whether this filter is injecting or
-        // extracting meta-data.
+        // extracting metadata.
         $metadataTypeDescription = null; /** @var MetadataTypeDescription $metadataTypeDescription */
         $dataObjectTypeDescription = null; /** @var ClassTypeDescription $dataObjectTypeDescription */
         $inputType = $this->getInputType();
@@ -87,12 +87,12 @@ class MetadataDataObjectAdapter extends PersistableFilter
         $this->_mode = $mode;
 
         if ($mode == self::METADATA_DOA_INJECTION_MODE) {
-            // We are in meta-data injection mode (or both input and output are meta-data descriptions).
+            // We are in metadata injection mode (or both input and output are metadata descriptions).
             $metadataTypeDescription = & $inputType; /** @var MetadataTypeDescription $metadataTypeDescription */
             assert($outputType instanceof ClassTypeDescription);
             $dataObjectTypeDescription = & $outputType; /** @var ClassTypeDescription $dataObjectTypeDescription */
         } else {
-            // We are in meta-data extraction mode.
+            // We are in metadata extraction mode.
             assert($outputType instanceof \PKP\metadata\MetadataTypeDescription);
             $metadataTypeDescription = & $outputType;
             assert($inputType instanceof ClassTypeDescription);
@@ -127,7 +127,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
 
     /**
      * Get the fully qualified class name of
-     * the supported meta-data schema.
+     * the supported metadata schema.
      *
      * @return string
      */
@@ -137,13 +137,13 @@ class MetadataDataObjectAdapter extends PersistableFilter
     }
 
     /**
-     * Get the supported meta-data schema (lazy load)
+     * Get the supported metadata schema (lazy load)
      *
      * @return MetadataSchema
      */
     public function &getMetadataSchema()
     {
-        // Lazy-load the meta-data schema if this has
+        // Lazy-load the metadata schema if this has
         // not been done before.
         if (is_null($this->_metadataSchema)) {
             $metadataSchemaName = $this->getMetadataSchemaName();
@@ -164,7 +164,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
 
     /**
      * Convenience method that returns the
-     * meta-data name space.
+     * metadata name space.
      *
      * @return string
      */
@@ -210,7 +210,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     }
 
     /**
-     * Set the target data object for meta-data injection.
+     * Set the target data object for metadata injection.
      *
      * @param DataObject $targetDataObject
      */
@@ -220,7 +220,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     }
 
     /**
-     * Get the target data object for meta-data injection.
+     * Get the target data object for metadata injection.
      */
     public function &getTargetDataObject()
     {
@@ -260,10 +260,10 @@ class MetadataDataObjectAdapter extends PersistableFilter
 
     /**
      * Return the additional field names introduced by the
-     * meta-data schema that need to be persisted in the
+     * metadata schema that need to be persisted in the
      * ..._settings table corresponding to the DataObject
      * which is supported by this adapter.
-     * NB: The field names must be prefixed with the meta-data
+     * NB: The field names must be prefixed with the metadata
      * schema namespace identifier.
      *
      * @param bool $translated if true, return localized field
@@ -304,7 +304,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
                     assert(is_a($targetDataObject, $this->getDataObjectName()));
                 }
 
-                // Inject meta-data into the data object.
+                // Inject metadata into the data object.
                 $output = & $this->injectMetadataIntoDataObject($input, $targetDataObject);
                 break;
 
@@ -342,7 +342,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     }
 
     /**
-     * Instantiate a meta-data description that conforms to the
+     * Instantiate a metadata description that conforms to the
      * settings of this adapter.
      *
      * @return MetadataDescription
@@ -355,7 +355,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
 
     /**
      * Return all field names introduced by the
-     * meta-data schema that might have to be persisted.
+     * metadata schema that might have to be persisted.
      *
      * @param $translated if true, return localized field
      *  names, otherwise return additional field names.
@@ -379,7 +379,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
                 if (in_array($this->_assocType, $propertyAssocTypes)) {
                     // Separate translated and non-translated property names
                     // and add the name space so that field names are unique
-                    // across various meta-data schemas.
+                    // across various metadata schemas.
                     $this->_metadataFieldNames[$property->getTranslated()][] = $metadataSchemaNamespace . ':' . $property->getName();
                 }
             }
@@ -390,7 +390,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     }
 
     /**
-     * Set several localized statements in a meta-data schema.
+     * Set several localized statements in a metadata schema.
      *
      * @param MetadataDescription $metadataDescription
      * @param string $propertyName
@@ -415,7 +415,7 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /**
      * Directly inject all fields that are not mapped to the
      * data object into the data object's data array for
-     * automatic persistence by the meta-data framework.
+     * automatic persistence by the metadata framework.
      *
      * @param MetadataDescription $metadataDescription
      * @param DataObject $dataObject

@@ -21,33 +21,33 @@
  * @see MetadataProperty
  * @see MetadataRecord
  *
- * @brief Class that represents a meta-data schema (e.g. NLM element-citation,
+ * @brief Class that represents a metadata schema (e.g. NLM element-citation,
  *  OpenURL, dc(terms), MODS) or a subset of it.
  *
- *  We only implement such subsets of meta-data schemas that contain elements which
- *  can be mapped to PKP application objects. Meta-data schemas are not meant to
- *  represent any meta-data in the given schema just PKP application meta-data. The
- *  constructor argument uniquely identifies the application objects this meta-data
+ *  We only implement such subsets of metadata schemas that contain elements which
+ *  can be mapped to PKP application objects. Metadata schemas are not meant to
+ *  represent any metadata in the given schema just PKP application metadata. The
+ *  constructor argument uniquely identifies the application objects this metadata
  *  schema can be mapped to. There should never be two MetadataSchemas with the same
  *  namespace that map to the same application object type. This also means that we
  *  implement composite elements if and only if the composite complies with our
  *  internal class composition schema and not only because the schema allows a composite
  *  in a certain position. See MetadataDescription and MetadataProperty for further
- *  information about composite meta-data properties.
+ *  information about composite metadata properties.
  *
  *  Example: We implement a composite to represent authors that correspond to the
- *  \PKP\author\Author class. We do not implement composites for title meta-data
+ *  \PKP\author\Author class. We do not implement composites for title metadata
  *  even if the chosen schema allows this (e.g. abbreviated title, alternative title)
  *  as this data is implemented as fields of the Submission object. This doesn't mean
  *  that such data cannot be mapped to composites in external bindings, e.g. in an
- *  XML binding of the meta-data schema. We can always map a flat list of key/value
+ *  XML binding of the metadata schema. We can always map a flat list of key/value
  *  pairs to a hierarchical representation in an external binding.
  *
- *  This coupling allows us to flexibly configure meta-data entry for application
- *  objects. We can identify appropriate meta-data fields for application objects
- *  when displaying or entering object meta-data in application forms. Thereby users
- *  can dynamically add meta-data fields for input/output if they require these for
- *  their local meta-data partners (e.g. libraries, repositories, harvesters, indexers).
+ *  This coupling allows us to flexibly configure metadata entry for application
+ *  objects. We can identify appropriate metadata fields for application objects
+ *  when displaying or entering object metadata in application forms. Thereby users
+ *  can dynamically add metadata fields for input/output if they require these for
+ *  their local metadata partners (e.g. libraries, repositories, harvesters, indexers).
  *
  *  We assume that all properties defined within a schema can potentially be assigned
  *  to the objects represented by the given association types. Users should, however,
@@ -58,8 +58,8 @@
  *  New schemas can be dynamically added to the mix at any time if they provide fields
  *  not provided by already existing schemas.
  *
- *  NB: We currently provide meta-data schemas as classes for better performance
- *  and code readability. It might, however, be necessary to maintain meta-data
+ *  NB: We currently provide metadata schemas as classes for better performance
+ *  and code readability. It might, however, be necessary to maintain metadata
  *  schemas in the database for higher flexibility and easier run-time configuration/
  *  installation of new schemas.
  */
@@ -81,15 +81,15 @@ class MetadataSchema
     public $_classname;
 
     /**
-     * @var array meta-data properties (predicates)
-     *  supported for this meta-data schema.
+     * @var array metadata properties (predicates)
+     *  supported for this metadata schema.
      */
     public $_properties = [];
 
     /**
      * Constructor
      *
-     * @param string $name the meta-data schema name
+     * @param string $name the metadata schema name
      * @param string $namespace a globally unique namespace for
      *  the schema. Property names must be unique within this
      *  namespace.
@@ -163,7 +163,7 @@ class MetadataSchema
     }
 
     /**
-     * Get the properties of the meta-data schema.
+     * Get the properties of the metadata schema.
      *
      * @return array an array of MetadataProperties
      */
@@ -205,7 +205,7 @@ class MetadataSchema
     }
 
     /**
-     * (Re-)set all properties of this meta-data schema.
+     * (Re-)set all properties of this metadata schema.
      *
      * @param array $properties an array of MetadataProperties
      */
@@ -221,9 +221,9 @@ class MetadataSchema
     }
 
     /**
-     * Add a property to this meta-data schema.
+     * Add a property to this metadata schema.
      *
-     * @param string $name the unique name of the property within a meta-data schema (can be a property URI)
+     * @param string $name the unique name of the property within a metadata schema (can be a property URI)
      * @param mixed $allowedTypes must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
      * @param bool $translated whether the property may have various language versions, default: false
      * @param int $cardinality must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
@@ -251,7 +251,7 @@ class MetadataSchema
     }
 
     /**
-     * Get the property names defined for this meta-data schema
+     * Get the property names defined for this metadata schema
      *
      * @return array an array of string values representing valid property names
      */
@@ -283,7 +283,7 @@ class MetadataSchema
     }
 
     /**
-     * Checks whether a property exists in the meta-data schema
+     * Checks whether a property exists in the metadata schema
      *
      * @param string $propertyName
      *

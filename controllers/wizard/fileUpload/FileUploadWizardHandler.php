@@ -436,7 +436,7 @@ class FileUploadWizardHandler extends Handler
         $uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile, $originalFile ?? null);
         $reviewRound = $this->getReviewRound();
 
-        // Advance to the next step (i.e. meta-data editing).
+        // Advance to the next step (i.e. metadata editing).
         return new JSONMessage(true, '', '0', $uploadedFileInfo);
     }
 

@@ -75,7 +75,7 @@
 
 
 	/**
-	 * The URL from which to load the meta-data form.
+	 * The URL from which to load the metadata form.
 	 * @private
 	 * @type {string}
 	 */

@@ -39,16 +39,16 @@ class DataObject
     /** @var array Array of object data */
     public array $_data = [];
 
-    /** @var bool Whether this objects loads meta-data adapters from the database */
+    /** @var bool Whether this objects loads metadata adapters from the database */
     public bool $_hasLoadableAdapters = false;
 
-    /** @var array An array of meta-data extraction adapters (one per supported schema) */
+    /** @var array An array of metadata extraction adapters (one per supported schema) */
     public array $_metadataExtractionAdapters = [];
 
     /** @var bool whether extraction adapters have already been loaded from the database */
     public bool $_extractionAdaptersLoaded = false;
 
-    /** @var array An array of meta-data injection adapters (one per supported schema) */
+    /** @var array An array of metadata injection adapters (one per supported schema) */
     public array $_metadataInjectionAdapters = [];
 
     /** @var mixed Whether injection adapters have already been loaded from the database */
@@ -196,7 +196,7 @@ class DataObject
     // MetadataProvider interface implementation
     //
     /**
-     * Set whether the object has loadable meta-data adapters
+     * Set whether the object has loadable metadata adapters
      */
     public function setHasLoadableAdapters(bool $hasLoadableAdapters)
     {
@@ -204,7 +204,7 @@ class DataObject
     }
 
     /**
-     * Get whether the object has loadable meta-data adapters
+     * Get whether the object has loadable metadata adapters
      */
     public function getHasLoadableAdapters(): bool
     {
@@ -212,7 +212,7 @@ class DataObject
     }
 
     /**
-     * Add a meta-data adapter that will be supported
+     * Add a metadata adapter that will be supported
      * by this application entity. Only one adapter per schema
      * can be added.
      */
@@ -224,11 +224,11 @@ class DataObject
         }
 
         // NB: Some adapters are injectors and extractors at the same time,
-        // notably the meta-data description dummy adapter that converts
-        // from/to a meta-data description. That's why we have to check
+        // notably the metadata description dummy adapter that converts
+        // from/to a metadata description. That's why we have to check
         // input and output type separately.
 
-        // Is this a meta-data extractor?
+        // Is this a metadata extractor?
         $inputType = $metadataAdapter->getInputType();
         if ($inputType->checkType($this)) {
             if (!isset($this->_metadataExtractionAdapters[$metadataSchemaName])) {
@@ -236,7 +236,7 @@ class DataObject
             }
         }
 
-        // Is this a meta-data injector?
+        // Is this a metadata injector?
         $outputType = $metadataAdapter->getOutputType();
         if ($outputType->checkType($this)) {
             if (!isset($this->_metadataInjectionAdapters[$metadataSchemaName])) {
@@ -246,7 +246,7 @@ class DataObject
     }
 
     /**
-     * Remove all adapters for the given meta-data schema
+     * Remove all adapters for the given metadata schema
      * (if it exists).
      *
      * @param $metadataSchemaName fully qualified class name
@@ -266,13 +266,13 @@ class DataObject
     }
 
     /**
-     * Get all meta-data extraction adapters that
+     * Get all metadata extraction adapters that
      * support this data object. This includes adapters
      * loaded from the database.
      */
     public function getSupportedExtractionAdapters(): array
     {
-        // Load meta-data adapters from the database.
+        // Load metadata adapters from the database.
         if ($this->getHasLoadableAdapters() && !$this->_extractionAdaptersLoaded) {
             $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
             $loadedAdapters = $filterDao->getObjectsByTypeDescription('class::%', 'metadata::%', $this);
@@ -286,13 +286,13 @@ class DataObject
     }
 
     /**
-     * Get all meta-data injection adapters that
+     * Get all metadata injection adapters that
      * support this data object. This includes adapters
      * loaded from the database.
      */
     public function getSupportedInjectionAdapters(): array
     {
-        // Load meta-data adapters from the database.
+        // Load metadata adapters from the database.
         if ($this->getHasLoadableAdapters() && !$this->_injectionAdaptersLoaded) {
             $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
             $loadedAdapters = $filterDao->getObjectsByTypeDescription('metadata::%', 'class::%', $this, false);
@@ -306,7 +306,7 @@ class DataObject
     }
 
     /**
-     * Returns all supported meta-data schemas
+     * Returns all supported metadata schemas
      * which are supported by extractor adapters.
      */
     public function getSupportedMetadataSchemas(): array
@@ -320,14 +320,14 @@ class DataObject
     }
 
     /**
-     * Retrieve the names of meta-data properties of this data object.
+     * Retrieve the names of metadata properties of this data object.
      *
      * @param $translated if true, return localized field
      *  names, otherwise return additional field names.
      */
     public function getMetadataFieldNames(bool $translated = true): array
     {
-        // Create a list of all possible meta-data field names
+        // Create a list of all possible metadata field names
         $metadataFieldNames = [];
         $extractionAdapters = $this->getSupportedExtractionAdapters();
         foreach ($extractionAdapters as $metadataAdapter) {
@@ -341,7 +341,7 @@ class DataObject
     }
 
     /**
-     * Retrieve the names of meta-data
+     * Retrieve the names of metadata
      * properties that need to be persisted
      * (i.e. that have data).
      *
@@ -352,7 +352,7 @@ class DataObject
      */
     public function getSetMetadataFieldNames(bool $translated = true): array
     {
-        // Retrieve a list of all possible meta-data field names
+        // Retrieve a list of all possible metadata field names
         $metadataFieldNameCandidates = $this->getMetadataFieldNames($translated);
 
         // Only retain those fields that have data
@@ -366,7 +366,7 @@ class DataObject
     }
 
     /**
-     * Retrieve the names of translated meta-data
+     * Retrieve the names of translated metadata
      * properties that need to be persisted.
      */
     public function getLocaleMetadataFieldNames(): array
@@ -375,7 +375,7 @@ class DataObject
     }
 
     /**
-     * Retrieve the names of additional meta-data
+     * Retrieve the names of additional metadata
      * properties that need to be persisted.
      */
     public function getAdditionalMetadataFieldNames(): array
@@ -384,7 +384,7 @@ class DataObject
     }
 
     /**
-     * Inject a meta-data description into this
+     * Inject a metadata description into this
      * data object.
      *
      * @return bool true on success, otherwise false
@@ -395,8 +395,8 @@ class DataObject
         $metadataSchemaName = $metadataDescription->getMetadataSchemaName();
         $injectionAdapters = $this->getSupportedInjectionAdapters();
         if (isset($injectionAdapters[$metadataSchemaName])) {
-            // Get the meta-data adapter that supports the
-            // given meta-data description's schema.
+            // Get the metadata adapter that supports the
+            // given metadata description's schema.
             $metadataAdapter = $injectionAdapters[$metadataSchemaName]; /** @var \PKP\metadata\MetadataDataObjectAdapter $metadataAdapter */
 
             // Pass in a reference to the data object which
@@ -404,7 +404,7 @@ class DataObject
             // of the data object.
             $metadataAdapter->setTargetDataObject($this);
 
-            // Use adapter filter to convert from a meta-data
+            // Use adapter filter to convert from a metadata
             // description to a data object.
             $dataObject = $metadataAdapter->execute($metadataDescription);
         }
@@ -412,7 +412,7 @@ class DataObject
     }
 
     /**
-     * Extract a meta-data description from this
+     * Extract a metadata description from this
      * data object.
      */
     public function extractMetadata(MetadataSchema $metadataSchema): MetadataDescription
@@ -421,11 +421,11 @@ class DataObject
         $metadataSchemaName = $metadataSchema->getClassName();
         $extractionAdapters = $this->getSupportedExtractionAdapters();
         if (isset($extractionAdapters[$metadataSchemaName])) {
-            // Get the meta-data adapter that supports the
-            // given meta-data description's schema.
+            // Get the metadata adapter that supports the
+            // given metadata description's schema.
             $metadataAdapter = $extractionAdapters[$metadataSchemaName];
             // Use adapter filter to convert from a data object
-            // to a meta-data description.
+            // to a metadata description.
             $metadataDescription = $metadataAdapter->execute($this);
         }
         return $metadataDescription;

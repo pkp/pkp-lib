@@ -29,7 +29,7 @@ class Representation extends \PKP\core\DataObject
      */
     public function __construct()
     {
-        // Switch on meta-data adapter support.
+        // Switch on metadata adapter support.
         $this->setHasLoadableAdapters(true);
 
         parent::__construct();

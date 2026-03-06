@@ -155,6 +155,15 @@ msgstr "Files larger than {$maxSize} can not be uploaded."
 msgid "api.files.400.config"
 msgstr "File could not be uploaded because of a server configuration error. Please contact the system administrator."
 
+msgid "api.funders.404.funderNotFound"
+msgstr "The funder you requested was not found."
+
+msgid "api.funders.400.submissionsNotMatched"
+msgstr "The funder you requested is not associated with this submission."
+
+msgid "api.funders.404.invalidOrderFormat"
+msgstr "Funder order could not be saved because the provided order format is invalid."
+
 msgid "api.highlights.400.noOrderData"
 msgstr "Highlight order could not be saved because no ordering information was found."
 

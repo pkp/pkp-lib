@@ -26,12 +26,17 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
+use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\security\authorization\internal\PublicationRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
@@ -52,14 +57,15 @@ class PKPJatsController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            'has.user',
             'has.context',
         ];
     }
 
     public function getGroupRoutes(): void
     {
+        // Authenticated routes for JATS management
         Route::middleware([
+            'has.user',
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SITE_ADMIN,
@@ -78,7 +84,15 @@ class PKPJatsController extends PKPBaseController
             Route::delete('', $this->delete(...))
                 ->name('publication.jats.delete');
 
+            Route::put('visibility', $this->setVisibility(...))
+                ->name('publication.jats.setVisibility');
+
         })->whereNumber(['submissionId', 'publicationId']);
+
+        // Public route for JATS download which requried no authentication
+        Route::get('download', $this->publicDownload(...))
+            ->name('publication.jats.publicDownload')
+            ->whereNumber(['submissionId', 'publicationId']);
     }
 
     /**
@@ -88,6 +102,17 @@ class PKPJatsController extends PKPBaseController
     {
         $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
         $actionName = static::getRouteActionName($illuminateRequest);
+
+        $this->addPolicy(new ContextRequiredPolicy($request));
+        $this->addPolicy(new SubmissionRequiredPolicy($request, $args));
+        $this->addPolicy(new SubmissionCompletePolicy($request, $args));
+
+        if ($actionName === 'publicDownload') {
+            $this->addPolicy(new PublicationRequiredPolicy($request, $args, 'publicationId'));
+            
+            // For the public api endpoint, we don't need to role/access based authorization
+            return parent::authorize($request, $args, $roleAssignments);
+        }
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -188,8 +213,8 @@ class PKPJatsController extends PKPBaseController
      */
     public function delete(Request $illuminateRequest): JsonResponse
     {
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var \APP\submission\Submission $submission */
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION); /** @var \APP\publication\Publication $publication */
 
         $context = Application::get()->getRequest()->getContext();
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
@@ -204,8 +229,7 @@ class PKPJatsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        Repo::submissionFile()
-            ->delete($jatsFile->submissionFile);
+        Repo::jats()->delete($publication->getId(), $submission->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
@@ -213,5 +237,70 @@ class PKPJatsController extends PKPBaseController
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile, $submission);
         return response()->json($jatsFilesProp, Response::HTTP_OK);
+    }
+
+    /**
+     * Update the JATS XML public visibility setting.
+     */
+    public function setVisibility(Request $illuminateRequest): JsonResponse
+    {
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION); /** @var \APP\publication\Publication $publication */
+        $params = $illuminateRequest->input();
+
+        if (!array_key_exists('jatsPublicVisibility', $params)) {
+            return response()->json([
+                'error' => __('api.400.missingRequiredParameter', ['param' => 'jatsPublicVisibility']),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $newVisibility = (bool) $params['jatsPublicVisibility'];
+
+        Repo::publication()->edit($publication, [
+            'jatsPublicVisibility' => $newVisibility,
+        ]);
+
+        // Invalidate should cache when visibility changes
+        Repo::jats()->clearPublicJatsCache($publication->getId());
+
+        return response()->json([
+            'jatsPublicVisibility' => $newVisibility,
+            'publicationId' => $publication->getId(),
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Public endpoint to download JATS XML.
+     * This endpoint does not require authentication.
+     * Response is cached as per defined in \PKP\jats\Repository::JATS_FILE_CACHE_LIFETIME to prevent DDOS.
+     */
+    public function publicDownload(Request $illuminateRequest): Response|JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var \APP\submission\Submission $submission */
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION); /** @var \APP\publication\Publication $publication */
+
+        // Verify publication is published and has public visibility enabled
+        if ($publication->getData('status') != PKPPublication::STATUS_PUBLISHED || !$publication->getData('jatsPublicVisibility')) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        // Get cached JATS content
+        $jatsContent = Repo::jats()->getPublicJatsContent($publication->getId(), $submission->getId());
+
+        if (!$jatsContent) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Build filename
+        $urlPath = ($publication->getData('urlPath') ?? ("submission-{$submission->getBestId()}-")) . "publication-{$publication->getId()}";
+        $filename = $urlPath . '-jats.xml';
+
+        return response($jatsContent, Response::HTTP_OK)
+            ->header('Content-Type', 'application/xml; charset=utf-8')
+            ->header('Content-Disposition', 'attachment; filename="' . $filename . '"')
+            ->header('Cache-Control', 'public, max-age=' . Repo::jats()::JATS_FILE_CACHE_LIFETIME);
     }
 }

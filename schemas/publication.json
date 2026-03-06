@@ -223,6 +223,15 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"jatsPublicVisibility": {
+			"type": "boolean",
+			"description": "Whether the JATS XML file should be publicly available for download when the publication is published.",
+			"apiSummary": true,
+			"default": false,
+			"validation": [
+				"nullable"
+			]
+		},
 		"keywords": {
 			"type": "array",
 			"description": "Optional metadata, usually one- to three-word phrases that are used to indicate the main topics of a submission.",

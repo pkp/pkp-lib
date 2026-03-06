@@ -41,12 +41,12 @@
 		{* When a user is registering with a specific journal *}
 		{if $currentContext}
 
-			<fieldset class="agreements">
+			<fieldset class="consent">
 				{if $currentContext->getData('privacyStatement')}
 					{* Require the user to agree to the terms of the privacy policy *}
 					<legend class="pkp_screen_reader">{translate key="user.register.form.privacyConsentLabel"}</legend>
 					<div class="fields">
-						<div class="optin optin-policy">
+						<div class="optin optin-privacy">
 							<label>
 								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
 								{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
@@ -128,7 +128,7 @@
 			{* Require the user to agree to the terms of the privacy policy *}
 			{if $siteWidePrivacyStatement}
 				<div class="fields">
-					<div class="optin optin-policy">
+					<div class="optin optin-privacy">
 						<label>
 							<input type="checkbox" name="privacyConsent[{$siteContextId}]" id="dataCollectionCheck[{$siteContextId}]" value="1"{if $privacyConsent[$siteContextId]} checked="checked"{/if}>
 							{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}

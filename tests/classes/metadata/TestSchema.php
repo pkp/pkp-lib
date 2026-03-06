@@ -13,7 +13,7 @@
  *
  * @see MetadataSchema
  *
- * @brief Class that provides typical meta-data properties for
+ * @brief Class that provides typical metadata properties for
  *  testing purposes.
  */
 
@@ -30,7 +30,7 @@ class TestSchema extends MetadataSchema
      */
     public function __construct()
     {
-        // Configure the meta-data schema.
+        // Configure the metadata schema.
         parent::__construct(
             'test-schema',
             'test',

@@ -51,16 +51,16 @@
  *  * lookup: compare the data of a given entity (e.g. a bibliographic
  *    reference) with data from other sources (e.g. Crossref) and use this
  *    to normalize data or improve data quality.
- *  * harvest: cleanse and normalize incoming meta-data
+ *  * harvest: cleanse and normalize incoming metadata
  *
  *  3) Map
- *  * cross-walk: transform one meta-data format into another. Meta-data
+ *  * cross-walk: transform one metadata format into another. Metadata
  *    can be represented as structured clob/blob data (e.g. XML) or as
  *    application objects (i.e. a MetadataRecord instance).
- *  * meta-data extraction: retrieve meta-data from OO entities
- *    (e.g. an Article) into a standardized meta-data record (e.g. NLM
+ *  * metadata extraction: retrieve metadata from OO entities
+ *    (e.g. an Article) into a standardized metadata record (e.g. NLM
  *    element-citation).
- *  * meta-data injection: inject data from a standardized meta-data
+ *  * metadata injection: inject data from a standardized metadata
  *    record into application objects.
  *
  *  4) Convert documents
@@ -93,7 +93,7 @@ abstract class Filter extends \PKP\core\DataObject
 
     public $_output;
 
-    /** 
+    /**
      * A list of errors occurred while filtering
      */
     public array $_errors = [];
@@ -110,8 +110,8 @@ abstract class Filter extends \PKP\core\DataObject
      *
      * @see TypeDescription
      *
-     * @param $inputType a string representation of a TypeDescription
-     * @param $outputType a string representation of a TypeDescription
+     * @param string $inputType a string representation of a TypeDescription
+     * @param string $outputType a string representation of a TypeDescription
      */
     public function __construct(string $inputType, string $outputType)
     {
@@ -423,7 +423,7 @@ abstract class Filter extends \PKP\core\DataObject
      *
      * @param mixed $input an input value that is supported
      *  by this filter
-     * @param $returnErrors whether the value
+     * @param bool $returnErrors whether the value
      *  should be returned also if an error occurred
      *
      * @return mixed a valid return value or null

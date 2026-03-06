@@ -15,7 +15,7 @@
  * @see MetadataRecord
  *
  * @brief Class representing metadata properties. It specifies type and cardinality
- *  of a meta-data property (=term, field, ...) and whether the property can
+ *  of a metadata property (=term, field, ...) and whether the property can
  *  be internationalized. It also provides a validator to test whether input
  *  conforms to the property specification.
  *
@@ -27,7 +27,7 @@
  *  valid resource associations are made. It also allows us to prepare property
  *  entry forms or displays for a given resource type and integrate these in the
  *  work-flow of the resource. By dynamically adding or removing assoc types,
- *  end users will be able to configure the meta-data fields that they wish to
+ *  end users will be able to configure the metadata fields that they wish to
  *  make available, persist or enter in their application.
  */
 
@@ -57,7 +57,7 @@ class MetadataProperty
     // non-literal value pointing to a separate description set instance (=another MetadataRecord object)
     public const METADATA_PROPERTY_TYPE_COMPOSITE = 6;
 
-    // allowed cardinality of statements for a given property type in a meta-data schema
+    // allowed cardinality of statements for a given property type in a metadata schema
     public const METADATA_PROPERTY_CARDINALITY_ONE = 1;
     public const METADATA_PROPERTY_CARDINALITY_MANY = 2;
 
@@ -88,7 +88,7 @@ class MetadataProperty
     /**
      * Constructor
      *
-     * @param string $name the unique name of the property within a meta-data schema (can be a property URI)
+     * @param string $name the unique name of the property within a metadata schema (can be a property URI)
      * @param array $assocTypes an array of integers that define the application entities that can
      *  be described with this property.
      * @param mixed $allowedTypes must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
@@ -353,7 +353,7 @@ class MetadataProperty
         }
 
         // MetadataProperty::getSupportedTypes() returns an ordered
-        // list of possible meta-data types with the most specific
+        // list of possible metadata types with the most specific
         // type coming first so that we always correctly identify
         // specializations (e.g. a date is a specialized string).
         $allowedTypes = $this->getAllowedTypes();
@@ -363,7 +363,7 @@ class MetadataProperty
                     // Type specific validation
                     switch ($testedType) {
                         case self::METADATA_PROPERTY_TYPE_COMPOSITE:
-                            // Composites can either be represented by a meta-data description
+                            // Composites can either be represented by a metadata description
                             // or by a string of the form AssocType:AssocId if the composite
                             // has already been persisted in the database.
                             switch (true) {
@@ -509,7 +509,7 @@ class MetadataProperty
     // Public static methods
     //
     /**
-     * Return supported meta-data property types
+     * Return supported metadata property types
      *
      * NB: These types are sorted from most specific to
      * most general and will be validated in this order
@@ -517,7 +517,7 @@ class MetadataProperty
      * as such (see MetadataProperty::isValid() for more
      * details).
      *
-     * @return array supported meta-data property types
+     * @return array supported metadata property types
      */
     public static function getSupportedTypes()
     {

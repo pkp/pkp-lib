@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "plugins.metadata.dc11.displayName"
-msgstr "Meta-data Dublin Core 1.1"
+msgstr "Metadata Dublin Core 1.1"
 
 msgid "plugins.metadata.dc11.description"
 msgstr "Menyumbang skema Dublin Core versi 1.1 dan penyesuai aplikasi."

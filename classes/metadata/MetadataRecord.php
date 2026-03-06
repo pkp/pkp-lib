@@ -14,7 +14,7 @@
  * @see MetadataProperty
  * @see MetadataDescription
  *
- * @brief Class modeling a meta-data record (DCMI abstract model: an instance
+ * @brief Class modeling a metadata record (DCMI abstract model: an instance
  *  of a description set, RDF: a graph of several subject nodes with associated
  *  object nodes).
  */
@@ -30,7 +30,7 @@ class MetadataRecord
     // Get/set methods
     //
     /**
-     * Add a meta-data description.
+     * Add a metadata description.
      *
      * @param MetadataDescription $metadataDescription
      * @param bool $replace whether to replace a description if a description for
@@ -42,7 +42,7 @@ class MetadataRecord
     {
         assert($metadataDescription instanceof \PKP\metadata\MetadataDescription);
 
-        // Check that the description complies with the meta-data schema
+        // Check that the description complies with the metadata schema
         $descriptionMetadataSchema = $metadataDescription->getMetadataSchema();
         $recordMetadataSchema = $this->getMetadataSchema();
         if ($descriptionMetadataSchema->getName() != $recordMetadataSchema->getName()) {
@@ -114,7 +114,7 @@ class MetadataRecord
 
     /**
      * Replace all descriptions at once. If one of the descriptions
-     * is invalid then the meta-data record will be empty after this
+     * is invalid, then the metadata record will be empty after this
      * operation.
      *
      * @param array $descriptions descriptions

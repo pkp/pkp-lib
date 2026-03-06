@@ -13,7 +13,7 @@
  *
  * @ingroup controllers_modals_review_linkAction
  *
- * @brief An action to open the submission meta-data modal.
+ * @brief An action to open the submission metadata modal.
  */
 
 namespace PKP\controllers\modals\review;
@@ -34,7 +34,7 @@ class ReviewerViewMetadataLinkAction extends LinkAction
      */
     public function __construct($request, $submissionId, $reviewAssignmentId)
     {
-        // Instantiate the meta-data modal.
+        // Instantiate the metadata modal.
         $dispatcher = $request->getDispatcher();
         $modal = new AjaxModal(
             $dispatcher->url(

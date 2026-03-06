@@ -19,6 +19,7 @@ namespace PKP\citation\externalServices\openAlex;
 use PKP\citation\Citation;
 use PKP\citation\enum\CitationType;
 use PKP\citation\externalServices\ExternalServicesHelper;
+use PKP\config\Config;
 
 class Inbound
 {
@@ -41,9 +42,15 @@ class Inbound
      */
     public function getWork(Citation $citation): ?Citation
     {
+        $apiKey = Config::getVar('features', 'openalex_api_key');
+        if ($apiKey) {
+            $options = ['query' => ['api_key' => $apiKey]];
+        } else {
+            $options = ['headers' => ['mailto' => $this->contactEmail]];
+        }
         $response = ExternalServicesHelper::apiRequest(
             $this->url . '/works/doi:' . urlencode($citation->getData('doi')),
-            ['headers' => ['mailto' => $this->contactEmail]]
+            $options
         );
 
         if (is_int($response)) {

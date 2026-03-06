@@ -165,6 +165,10 @@ class CategoryForm extends Form {
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('categoryId', $this->getCategoryId());
 
+		$applicationName = Application::get()->getName();
+		$catalogPage = ($applicationName === 'ops') ? "preprints" : "catalog";
+		$templateMgr->assign('catalogPage', $catalogPage);
+
 		// Provide a list of root categories to the template
 		$rootCategoriesIterator = $categoryDao->getByParentId(0, $context->getId());
 		$rootCategories = array(0 => __('common.none'));
@@ -338,4 +342,3 @@ class CategoryForm extends Form {
 		return $category;
 	}
 }
-

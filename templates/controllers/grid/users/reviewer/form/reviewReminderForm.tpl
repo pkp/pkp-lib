@@ -10,8 +10,12 @@
  *}
 <script type="text/javascript">
 	$(function() {ldelim}
-		// Attach the form handler.
-		$('#sendReminderForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#sendReminderForm').pkpHandler(
+			'$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler',
+			{ldelim}
+				templateUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.reviewer.PKPReviewerGridHandler' op='fetchReviewReminderTemplateBody' stageId=$stageId submissionId=$submissionId reviewAssignmentId=$reviewAssignmentId escape=false}
+			{rdelim}
+		);
 	{rdelim});
 </script>
 
@@ -25,6 +29,12 @@
 		{fbvFormSection title="user.role.reviewer"}
 			{fbvElement type="text" id="reviewerName" value=$reviewerName disabled="true"}
 		{/fbvFormSection}
+
+		{if count($templates)}
+			{fbvFormSection title="stageParticipants.notify.chooseMessage" for="templateKey" size=$fbvStyles.size.medium}
+				{fbvElement type="select" from=$templates translate=false id="template" selected=$defaultTemplateKey defaultValue="" defaultLabel=""}
+			{/fbvFormSection}
+		{/if}
 
 		{fbvFormSection title="editor.review.personalMessageToReviewer" for="message"}
 			{fbvElement type="textarea" id="message" value=$message variables=$emailVariables rich=true}

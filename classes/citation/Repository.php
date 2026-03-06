@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Bus;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\filter\CitationListTokenizerFilter;
+use PKP\citation\pid\Doi;
 use PKP\jobs\citation\CrossrefJob;
 use PKP\jobs\citation\ExtractPidsJob;
 use PKP\jobs\citation\IsProcessedJob;
@@ -242,6 +243,12 @@ class Repository
                         $citation->setId($newCitationId);
                         if ($citationsMetadataLookup && $reprocess) {
                             $this->reprocessCitation($citation);
+                        } elseif (!$citationsMetadataLookup) {
+                            $rawString = str_ireplace('http://', 'https://', $rawCitationString);
+                            $doi = Doi::extractFromString($rawString);
+                            if (!empty($doi)) {
+                                $citation->setData('doi', $doi);
+                            }
                         }
                         $importedCitations[] = $citation;
                     }
@@ -290,6 +297,13 @@ class Repository
                         $citation->setId($newCitationId);
                         if ($this->request->getContext()->getData('citationsMetadataLookup')) {
                             $this->reprocessCitation($citation);
+                        } else {
+                            $rawString = str_ireplace('http://', 'https://', $rawCitationString);
+                            $doi = Doi::extractFromString($rawString);
+                            if (!empty($doi)) {
+                                $citation->setData('doi', $doi);
+                                Repo::citation()->edit($citation, []);
+                            }
                         }
                     } else {
                         $rejectedCitations[] = $rawCitationString;

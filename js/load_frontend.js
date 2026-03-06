@@ -66,6 +66,7 @@ import PkpAccordionContent from '@/frontend/components/PkpAccordion/PkpAccordion
 
 // Base Comments Components
 import BaseComments from '@/frontend/components/PkpComments/base/BaseComments.vue';
+import BaseCommentShowMore from '@/frontend/components/PkpComments/base/BaseCommentShowMore.vue';
 import BaseCommentsLogInto from '@/frontend/components/PkpComments/base/BaseCommentsLogInto.vue';
 import BaseCommentsMessageActions from '@/frontend/components/PkpComments/base/BaseCommentsMessageActions.vue';
 import BaseCommentsNew from '@/frontend/components/PkpComments/base/BaseCommentsNew.vue';
@@ -157,6 +158,10 @@ VueRegistry.registerComponent(
 VueRegistry.registerComponent(
 	'BaseCommentReportDialogReasonInput',
 	BaseCommentReportDialogReasonInput,
+);
+VueRegistry.registerComponent(
+	'BaseCommentShowMore',
+	BaseCommentShowMore,
 );
 
 const pinia = createPinia();

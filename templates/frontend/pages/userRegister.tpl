@@ -130,7 +130,7 @@
 				<div class="fields">
 					<div class="optin optin-privacy">
 						<label>
-							<input type="checkbox" name="privacyConsent[{$siteContextId}]" id="dataCollectionCheck[{$siteContextId}]" value="1"{if $privacyConsent[$siteContextId]} checked="checked"{/if}>
+							<input type="checkbox" name="privacyConsent[{$siteContextId}]" id="privacyConsent[{$siteContextId}]" value="1"{if $privacyConsent[$siteContextId]} checked="checked"{/if}>
 							{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 						</label>

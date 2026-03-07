@@ -31,6 +31,7 @@ use PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
 
@@ -72,6 +73,8 @@ class SubmissionFileAccessPolicy extends ContextPolicy
      * @param int $mode bitfield
      * @param int $submissionFileId
      * @param string $submissionParameterName
+     * 
+     * @hook SubmissionFileAccessPolicy::authorFileAccess [[$request, $mode, $submissionFileId, &$authorFileAccessOptionsPolicy]]
      */
     public function buildFileAccessPolicy($request, $args, $roleAssignments, $mode, $submissionFileId, $submissionParameterName)
     {
@@ -160,6 +163,9 @@ class SubmissionFileAccessPolicy extends ContextPolicy
                 // 3h) ...or the file is a representation (galley/publication format)...
                 $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_PROOF));
             }
+
+            // Give plugin a chance to modify/add policies for author to access
+            Hook::call('SubmissionFileAccessPolicy::authorFileAccess', [$request, $mode, $submissionFileId, &$authorFileAccessOptionsPolicy]);
 
             // Add the rules from 3)
             $authorFileAccessPolicy->addPolicy($authorFileAccessOptionsPolicy);

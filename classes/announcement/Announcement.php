@@ -18,7 +18,7 @@
  *
  * @see DAO
  *
- * @brief Basic class describing a announcement.
+ * @brief Basic class describing an announcement.
  */
 
 namespace PKP\announcement;
@@ -30,97 +30,75 @@ use PKP\db\DAORegistry;
 
 class Announcement extends \PKP\core\DataObject
 {
-    //
-    // Get/set methods
-    //
     /**
-     * Get assoc ID for this announcement.
-     *
-     * @return int
+     * Get assoc ID.
      */
-    public function getAssocId()
+    public function getAssocId(): ?int
     {
         return $this->getData('assocId');
     }
 
     /**
-     * Set assoc ID for this announcement.
-     *
-     * @param int $assocId
+     * Set assoc ID.
      */
-    public function setAssocId($assocId)
+    public function setAssocId(?int $assocId): void
     {
         $this->setData('assocId', $assocId);
     }
 
     /**
-     * Get assoc type for this announcement.
-     *
-     * @return int
+     * Get assoc type.
      */
-    public function getAssocType()
+    public function getAssocType(): ?int
     {
         return $this->getData('assocType');
     }
 
     /**
-     * Set assoc type for this announcement.
-     *
-     * @param int $assocType
+     * Set assoc type.
      */
-    public function setAssocType($assocType)
+    public function setAssocType(?int $assocType): void
     {
         $this->setData('assocType', $assocType);
     }
 
     /**
-     * Get the announcement type of the announcement.
-     *
-     * @return int
+     * Get the announcement type.
      */
-    public function getTypeId()
+    public function getTypeId(): ?int
     {
         return $this->getData('typeId');
     }
 
     /**
-     * Set the announcement type of the announcement.
-     *
-     * @param int $typeId
+     * Set the announcement type.
      */
-    public function setTypeId($typeId)
+    public function setTypeId(?int $typeId): void
     {
         $this->setData('typeId', $typeId);
     }
 
     /**
-     * Get the announcement type name of the announcement.
-     *
-     * @return string|null
+     * Get the announcement type name.
      */
-    public function getAnnouncementTypeName()
+    public function getAnnouncementTypeName(): string
     {
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        $announcementType = $announcementTypeDao->getById($this->getData('typeId'));
-        return $announcementType ? $announcementType->getLocalizedTypeName() : null;
+        return $this->getData('typeId') ? $announcementTypeDao->getById($this->getData('typeId'))?->getLocalizedTypeName() ?? '' : '';
     }
 
     /**
      * Get localized announcement title
-     *
-     * @return string
      */
-    public function getLocalizedTitle()
+    public function getLocalizedTitle(): string
     {
-        return $this->getLocalizedData('title');
+        return $this->getLocalizedData('title') ?? '';
     }
 
     /**
      * Get full localized announcement title including type name
-     *
-     * @return string
      */
-    public function getLocalizedTitleFull()
+    public function getLocalizedTitleFull(): string
     {
         $typeName = $this->getAnnouncementTypeName();
         if (!empty($typeName)) {
@@ -132,89 +110,64 @@ class Announcement extends \PKP\core\DataObject
 
     /**
      * Get announcement title.
-     *
-     * @param string $locale
-     *
-     * @return string
      */
-    public function getTitle($locale)
+    public function getTitle(?string $locale): array|string|null
     {
         return $this->getData('title', $locale);
     }
 
     /**
      * Set announcement title.
-     *
-     * @param string $title
-     * @param string $locale
      */
-    public function setTitle($title, $locale)
+    public function setTitle(array|string|null $title, ?string $locale): void
     {
         $this->setData('title', $title, $locale);
     }
 
     /**
      * Get localized short description
-     *
-     * @return string
      */
-    public function getLocalizedDescriptionShort()
+    public function getLocalizedDescriptionShort(): string
     {
-        return $this->getLocalizedData('descriptionShort');
+        return $this->getLocalizedData('descriptionShort') ?? '';
     }
 
     /**
      * Get announcement brief description.
-     *
-     * @param string $locale
-     *
-     * @return string
      */
-    public function getDescriptionShort($locale)
+    public function getDescriptionShort(?string $locale): array|string|null
     {
         return $this->getData('descriptionShort', $locale);
     }
 
     /**
      * Set announcement brief description.
-     *
-     * @param string $descriptionShort
-     * @param string $locale
      */
-    public function setDescriptionShort($descriptionShort, $locale)
+    public function setDescriptionShort(array|string|null $descriptionShort, ?string $locale): void
     {
         $this->setData('descriptionShort', $descriptionShort, $locale);
     }
 
     /**
      * Get localized full description
-     *
-     * @return string
      */
-    public function getLocalizedDescription()
+    public function getLocalizedDescription(): string
     {
-        return $this->getLocalizedData('description');
+        return $this->getLocalizedData('description') ?? '';
     }
 
     /**
      * Get announcement description.
-     *
-     * @param string $locale
-     *
-     * @return string
      */
-    public function getDescription($locale)
+    public function getDescription(?string $locale): array|string|null
     {
         return $this->getData('description', $locale);
     }
 
     /**
      * Set announcement description.
-     *
-     * @param string $description
-     * @param string $locale
      */
-    public function setDescription($description, $locale)
+    public function setDescription(array|string|null $description, ?string $locale): void
     {
         $this->setData('description', $description, $locale);
     }
@@ -222,9 +175,9 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement expiration date.
      *
-     * @return string (YYYY-MM-DD)
+     * @return ?string Format (YYYY-MM-DD)
      */
-    public function getDateExpire()
+    public function getDateExpire(): ?string
     {
         return $this->getData('dateExpire');
     }
@@ -232,9 +185,9 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement expiration date.
      *
-     * @param string $dateExpire (YYYY-MM-DD)
+     * @param ?string $dateExpire Format YYYY-MM-DD
      */
-    public function setDateExpire($dateExpire)
+    public function setDateExpire(?string $dateExpire): void
     {
         $this->setData('dateExpire', $dateExpire);
     }
@@ -242,29 +195,29 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement posted date.
      *
-     * @return string (YYYY-MM-DD)
+     * @return string Format YYYY-MM-DD
      */
-    public function getDatePosted()
+    public function getDatePosted(): ?string
     {
-        return date('Y-m-d', strtotime($this->getData('datePosted')));
+        return $this->getData('datePosted') ? date('Y-m-d', strtotime($this->getData('datePosted'))) : null;
     }
 
     /**
      * Get announcement posted datetime.
      *
-     * @return string (YYYY-MM-DD HH:MM:SS)
+     * @return string Format YYYY-MM-DD HH:MM:SS
      */
-    public function getDatetimePosted()
+    public function getDatetimePosted(): ?string
     {
-        return $this->getData('datePosted');
+        return $this->getData('datePosted') ?? null;
     }
 
     /**
      * Set announcement posted date.
      *
-     * @param string $datePosted (YYYY-MM-DD)
+     * @param string $datePosted Format YYYY-MM-DD
      */
-    public function setDatePosted($datePosted)
+    public function setDatePosted(string $datePosted): void
     {
         $this->setData('datePosted', $datePosted);
     }
@@ -272,9 +225,9 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement posted datetime.
      *
-     * @param string $datetimePosted (YYYY-MM-DD HH:MM:SS)
+     * @param string $datetimePosted Format YYYY-MM-DD HH:MM:SS
      */
-    public function setDatetimePosted($datetimePosted)
+    public function setDatetimePosted(string $datetimePosted): void
     {
         $this->setData('datePosted', $datetimePosted);
     }
@@ -304,7 +257,6 @@ class Announcement extends \PKP\core\DataObject
     public function getImageUrl(bool $withTimestamp = true): string
     {
         $image = $this->getImage();
-
         if (!$image) {
             return '';
         }
@@ -319,7 +271,7 @@ class Announcement extends \PKP\core\DataObject
         return join('/', [
             Application::get()->getRequest()->getBaseUrl(),
             $this->getAssocId()
-                ? $publicFileManager->getContextFilesPath((int) $this->getAssocId())
+                ? $publicFileManager->getContextFilesPath($this->getAssocId())
                 : $publicFileManager->getSiteFilesPath(),
             Repo::announcement()->getImageSubdirectory(),
             $filename
@@ -331,13 +283,7 @@ class Announcement extends \PKP\core\DataObject
      */
     public function getImageAltText(): string
     {
-        $image = $this->getImage();
-
-        if (!$image || !$image['altText']) {
-            return '';
-        }
-
-        return $image['altText'];
+        return $this->getImage()['altText'] ?? '';
     }
 }
 

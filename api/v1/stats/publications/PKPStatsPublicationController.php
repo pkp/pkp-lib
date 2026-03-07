@@ -844,6 +844,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         return [
             __('common.id'),
             __('common.title'),
+            __('submission.authors'),
             __('stats.total'),
             __('submission.abstractViews'),
             __('stats.fileViews'),
@@ -907,13 +908,16 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
         $totalViews = $abstractViews + $galleyViews;
 
-        // Get submission title for display
+        // Get submission title and authors for display
         $submission = Repo::submission()->get($submissionId);
-        $submissionTitle = $submission->getCurrentPublication()->getLocalizedTitle();
+        $currentPublication = $submission->getCurrentPublication();
+        $submissionTitle = $currentPublication->getLocalizedTitle();
+        $authorsString = $currentPublication->getShortAuthorString() ?? '';
 
         return [
             $submissionId,
             $submissionTitle,
+            $authorsString,
             $totalViews,
             $abstractViews,
             $galleyViews,

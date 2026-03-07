@@ -101,6 +101,7 @@ class GenreForm extends Form
                 'required' => $genre->getRequired(),
                 'key' => $genre->getKey(),
                 'keyReadOnly' => $genre->isDefault(),
+                'supportsFileVariants' => $genre->getSupportsFileVariants(),
             ];
         } else {
             $this->_data = [
@@ -136,7 +137,7 @@ class GenreForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['genreId', 'name', 'category', 'dependent', 'supplementary', 'required', 'gridId', 'rowId', 'key']);
+        $this->readUserVars(['genreId', 'name', 'category', 'dependent', 'supplementary', 'required', 'gridId', 'rowId', 'key', 'supportsFileVariants']);
     }
 
     /**
@@ -163,6 +164,7 @@ class GenreForm extends Form
         $genre->setDependent($this->getData('dependent'));
         $genre->setSupplementary($this->getData('supplementary'));
         $genre->setRequired((bool) $this->getData('required'));
+        $genre->setSupportsFileVariants((bool) $this->getData('supportsFileVariants'));
 
         if (!$genre->isDefault()) {
             $genre->setKey($this->getData('key'));

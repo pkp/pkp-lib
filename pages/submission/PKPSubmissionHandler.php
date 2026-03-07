@@ -31,6 +31,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\dataCitation\DataCitationEditForm;
+use PKP\components\forms\funder\FunderEditForm;
 use PKP\components\forms\publication\PKPDataAvailabilityForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\CommentsForTheEditors;
@@ -55,6 +56,7 @@ abstract class PKPSubmissionHandler extends Handler
     public const SECTION_TYPE_CONFIRM = 'confirm';
     public const SECTION_TYPE_CONTRIBUTORS = 'contributors';
     public const SECTION_TYPE_DATA_CITATIONS = 'dataCitations';
+    public const SECTION_TYPE_FUNDERS = 'funders';
     public const SECTION_TYPE_REVIEWER_SUGGESTIONS = 'reviewerSuggestions';
     public const SECTION_TYPE_FILES = 'files';
     public const SECTION_TYPE_FORM = 'form';
@@ -240,6 +242,14 @@ abstract class PKPSubmissionHandler extends Handler
             $dataCitationEditForm = new DataCitationEditForm('emit');
             $components['dataCitation'] = [
                 'dataCitationEditForm' => $dataCitationEditForm->getConfig(),
+            ];
+        }
+
+        $fundersSetting = $context->getData('funders');
+        if (in_array($fundersSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $funderEditForm = new FunderEditForm('emit');
+            $components['funder'] = [
+                'funderEditForm' => $funderEditForm->getConfig(),
             ];
         }
 
@@ -770,6 +780,16 @@ abstract class PKPSubmissionHandler extends Handler
                 'name' => __('submission.dataCitations'),
                 'type' => self::SECTION_TYPE_DATA_CITATIONS,
                 'description' => __('submission.dataCitations.description'),
+            ];
+        }
+
+        $fundersSetting = $request->getContext()->getData('funders');
+        if (in_array($fundersSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $sections[] = [
+                'id' => 'funders',
+                'name' => __('submission.funders'),
+                'type' => self::SECTION_TYPE_FUNDERS,
+                'description' => __('submission.funders.description'),
             ];
         }
 

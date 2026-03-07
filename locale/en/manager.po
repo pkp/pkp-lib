@@ -2237,6 +2237,34 @@ msgid "manager.setup.metadata.dataCitations.require"
 msgstr ""
 "Require the author to add data citation metadata before accepting their submission."
 
+msgid "manager.setup.metadata.funders"
+msgstr "Funders"
+
+msgid "manager.setup.metadata.funders.description"
+msgstr "Identify the Funders and Funder Grants associated with the submission."
+
+msgid "manager.setup.metadata.funders.enable"
+msgstr "Enable funder metadata"
+
+msgid "manager.setup.metadata.funders.noRequest"
+msgstr "Do not request funder metadata from the author during submission."
+
+msgid "manager.setup.metadata.funders.request"
+msgstr "Ask the author for funder metadata during submission."
+
+msgid "manager.setup.metadata.funders.require"
+msgstr ""
+"Require the author to add funder metadata before accepting their submission."
+
+msgid "manager.setup.metadata.funders.funderGrantValidation"
+msgstr "Funder Grant ID validation"
+
+msgid "manager.setup.metadata.funders.funderGrantValidation.description"
+msgstr "Enable grant ID validation for supported funders (using the Zenodo API)."
+
+msgid "manager.setup.metadata.funders.funderGrantValidation.enable"
+msgstr "Enable Grant ID validation."
+
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
 "Keywords are typically one- to three-word phrases that are used to indicate "

@@ -102,6 +102,12 @@
                             :submission="submission"
                             :publication="publication"
                         ></data-citation-manager>
+                        <funder-manager
+                            v-else-if="section.type === 'funders'"
+                            v-bind="components.funder"
+                            :submission="submission"
+                            :publication="publication"
+                        ></funder-manager>
                         <template v-else-if="section.type === 'review'">
                             <notification
                                 v-if="Object.keys(errors).length" type="warning"

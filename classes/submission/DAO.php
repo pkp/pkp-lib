@@ -25,6 +25,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
+use PKP\funder\Funder;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -290,6 +291,10 @@ class DAO extends EntityDAO
 
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
         $submissionCommentDao->deleteBySubmissionId($id);
+
+        // Delete a submissions's Funders
+        Funder::withSubmissionIds([$id])
+            ->delete();
 
         // Delete any outstanding notifications for this submission
         Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)->delete();

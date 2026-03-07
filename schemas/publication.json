@@ -210,6 +210,15 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"funders": {
+			"type": "array",
+			"description": "Optional metadata that contains an array of funders for this publication.",
+			"apiSummary": true,
+			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/Funder"
+			}
+		},
 		"fundingStatement": {
 			"type": "string",
 			"description": "Optional metadata that describes funding details for this publication.",

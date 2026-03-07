@@ -1,0 +1,82 @@
+{
+	"title": "Funder",
+	"description": "A Funder in a Publication.",
+    "type": "object",
+    "required": [
+        "submissionId"
+    ],
+	"properties": {
+		"grants": {
+			"type": "array",
+            "origin": "setting",
+			"description": "A list of the grants for this funder.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"grantNumber": {
+						"type": "string"
+					},
+					"grantName": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"id": {
+            "type": "integer",
+            "description": "The unique id of funder in the database.",
+			"origin": "primary",
+            "readOnly": true,
+            "apiSummary": true
+        },
+        "submissionId": {
+            "type": "integer",
+            "description": "The submission to which this funder is associated with.",
+			"origin": "primary",
+            "apiSummary": true,
+            "writeDisabledInApi": true
+        },
+		"ror": {
+			"type": "string",
+			"description": "The [ROR](https://ror.org/) id of this funder.",
+			"origin": "primary",
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"regex:#https://ror.org/0[^ILOU]{6}\\d{2}#"
+			]
+		},
+		"rorObject": {
+			"type": "object",
+			"description": "An object representing the ROR for this funder.",
+			"origin": "composed",
+			"apiSummary": true,
+			"readOnly": true,
+			"$ref": "#/definitions/Ror"
+		},
+		"name": {
+			"type": "string",
+			"origin": "setting",
+			"description": "The name of this institution.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"seq": {
+			"type": "integer",
+            "origin": "primary",
+			"description": "The sequence number of funder.",
+			"default": 0,
+			"validation": [
+				"nullable"
+			]
+		}
+    }
+}

@@ -60,6 +60,7 @@ use PKP\core\PKPRequest;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\invitation\core\Invitation;
 use PKP\mail\Mailable;
+use PKP\plugins\PluginHelper;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
@@ -297,6 +298,8 @@ class ManagementHandler extends Handler
         $templateMgr->assign([
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
+
+            'canSeePluginGallery' => PluginHelper::isGalleryAllowed(),
         ]);
 
         $templateMgr->registerClass($announcementSettingsForm::class, $announcementSettingsForm::class);

@@ -85,6 +85,10 @@ class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvi
                     
                     $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
                     $scheduler->registerPluginSchedules();
+                    
+                    // force flush the output buffer
+                    PKPContainer::getInstance()->flushOutputBuffer();
+
                     $scheduler->runWebBasedScheduleTaskRunner();
                 });
             }

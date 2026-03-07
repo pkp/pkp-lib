@@ -24,7 +24,7 @@ use PKP\context\Context;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
-class DepositSubmission extends BaseJob
+class DepositSubmission extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     protected int $submissionId;
 
@@ -46,6 +46,14 @@ class DepositSubmission extends BaseJob
         $this->submissionId = $submissionId;
         $this->context = $context;
         $this->agency = $agency;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->context->getId();
     }
 
     /**

@@ -367,9 +367,12 @@ abstract class Repository
 
         $this->dao->update($newSubmissionFile);
 
+        // Get the updated submission file after saving to ensure all data is up to date
+        $newSubmissionFile = $this->get($newSubmissionFile->getId());
+
         $newFileUploaded = !empty($params['fileId']) && $params['fileId'] !== $submissionFile->getData('fileId');
 
-        $logData = $this->getSubmissionFileLogData($submissionFile);
+        $logData = $this->getSubmissionFileLogData($newSubmissionFile);
         $logEntry = Repo::eventLog()->newDataObject(array_merge(
             $logData,
             [
@@ -385,7 +388,7 @@ abstract class Repository
 
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
 
-        Repo::eventLog()->newDataObject(array_merge(
+        $submissionLogEntry = Repo::eventLog()->newDataObject(array_merge(
             $logData,
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -396,6 +399,7 @@ abstract class Repository
                 'dateLogged' => Core::getCurrentDate(),
             ]
         ));
+        Repo::eventLog()->add($submissionLogEntry);
     }
 
     /**

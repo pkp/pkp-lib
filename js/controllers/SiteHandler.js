@@ -142,7 +142,7 @@
 				resize: 'both',
 				entity_encoding: 'raw',
 				plugins: 'paste,fullscreen,link,lists,code,' +
-						'image,-pkpTags,noneditable',
+						'image,-pkpTags,noneditable,contextmenu',
 				convert_urls: false,
 				forced_root_block: 'p',
 				paste_auto_cleanup_on_paste: true,
@@ -154,7 +154,8 @@
 						'image | pkpTags',
 				statusbar: false,
 				content_css: contentCSS,
-				browser_spellcheck: true
+				browser_spellcheck: true,
+				contextmenu: 'pkptools link openlink'
 			};
 
 			// Support image uploads
@@ -218,6 +219,9 @@
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCEInitialized =
 			function(tinyMCEObject) {
 
+		tinyMCEObject.settings.contextmenu = 'link openlink | copy cut paste | selectall';
+		tinyMCEObject.settings.plugins += ' contextmenu';
+
 		var $inputElement = $('#' +
 				$.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id));
 		$inputElement.trigger('tinyMCEInitialized', [tinyMCEObject]);
@@ -234,6 +238,89 @@
 		var target = $('#' +
 				$.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id)),
 				height;
+
+		// Register custom clipboard menu items using the Clipboard API.
+		// The built-in 'paste' item uses document.execCommand('paste')
+		// which modern browsers block for security reasons.
+		tinyMCEObject.ui.registry.addMenuItem('pkpCopy', {
+			text: 'Copy',
+			icon: 'copy',
+			shortcut: 'Meta+C',
+			onAction: function() {
+				var html = tinyMCEObject.selection.getContent({format: 'html'});
+				var text = tinyMCEObject.selection.getContent({format: 'text'});
+				var clipboardItem = new ClipboardItem({
+					'text/html': new Blob([html], {type: 'text/html'}),
+					'text/plain': new Blob([text], {type: 'text/plain'})
+				});
+				navigator.clipboard.write([clipboardItem]);
+			}
+		});
+		tinyMCEObject.ui.registry.addMenuItem('pkpCut', {
+			text: 'Cut',
+			icon: 'cut',
+			shortcut: 'Meta+X',
+			onAction: function() {
+				var html = tinyMCEObject.selection.getContent({format: 'html'});
+				var text = tinyMCEObject.selection.getContent({format: 'text'});
+				var clipboardItem = new ClipboardItem({
+					'text/html': new Blob([html], {type: 'text/html'}),
+					'text/plain': new Blob([text], {type: 'text/plain'})
+				});
+				navigator.clipboard.write([clipboardItem]).then(function() {
+					tinyMCEObject.execCommand('Delete');
+				});
+			}
+		});
+		tinyMCEObject.ui.registry.addMenuItem('pkpPaste', {
+			text: 'Paste',
+			icon: 'paste',
+			shortcut: 'Meta+V',
+			onAction: function() {
+				if (navigator.clipboard && navigator.clipboard.read) {
+					navigator.clipboard.read().then(function(items) {
+						for (var i = 0; i < items.length; i++) {
+							if (items[i].types.indexOf('text/html') !== -1) {
+								items[i].getType('text/html').then(function(blob) {
+									blob.text().then(function(html) {
+										tinyMCEObject.execCommand(
+												'mceInsertContent', false, html);
+									});
+								});
+								return;
+							}
+						}
+						navigator.clipboard.readText().then(function(text) {
+							tinyMCEObject.execCommand('mceInsertContent', false, text);
+						});
+					}).catch(function() {
+						navigator.clipboard.readText().then(function(text) {
+							tinyMCEObject.execCommand('mceInsertContent', false, text);
+						}).catch(function() {
+							var key = navigator.platform.indexOf('Mac') > -1 ?
+									'\u2318' : 'Ctrl';
+							tinyMCEObject.notificationManager.open({
+								text: 'Paste permission was denied. Please use ' +
+										key + '+V instead.',
+								type: 'warning'
+							});
+						});
+					});
+				} else {
+					var key = navigator.platform.indexOf('Mac') > -1 ?
+							'\u2318' : 'Ctrl';
+					tinyMCEObject.notificationManager.open({
+						text: 'Please use ' + key + '+V to paste.',
+						type: 'info'
+					});
+				}
+			}
+		});
+		tinyMCEObject.ui.registry.addContextMenu('pkptools', {
+			update: function() {
+				return 'pkpCopy pkpCut pkpPaste | selectall';
+			}
+		});
 
 		// For read-only controls, set up TinyMCE read-only mode.
 		if (target.attr('readonly')) {

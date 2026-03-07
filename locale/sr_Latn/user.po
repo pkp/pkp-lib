@@ -1,11 +1,12 @@
 # Marko Simendic <marko.simendic@gmail.com>, 2026.
+# lena bojcic <lenabojcicck@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-02-24 09:55+0000\n"
-"Last-Translator: Marko Simendic <marko.simendic@gmail.com>\n"
+"PO-Revision-Date: 2026-03-07 20:25+0000\n"
+"Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/sr_Latn/>\n"
 "Language: sr_Latn\n"
@@ -53,6 +54,7 @@ msgstr "Trenutna uloga nema pristup ovoj operaciji."
 
 msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr ""
+"Niste dodeljeni za ovu prijavu u ulozi koja ima dozvolu za ovu operaciju."
 
 msgid "user.authorization.userGroupRequired"
 msgstr "Morate odrediti važeću grupu korisnika da pristupe ovoj operaciji."
@@ -72,10 +74,10 @@ msgid "user.authorization.pluginRequired"
 msgstr "Dodatak nije definisan, a neophodan je."
 
 msgid "user.authorization.invalidReviewAssignment"
-msgstr ""
+msgstr "Pristup ovoj dodeli recenzije vam nije dozvoljen."
 
 msgid "user.authorization.submissionQuery"
-msgstr ""
+msgstr "Nemate dozvolu za pristup ovoj diskusiji."
 
 msgid "user.biography"
 msgstr "Biografska izjava (npr. odsek, zvanje)"
@@ -109,6 +111,9 @@ msgstr "Privatne napomene"
 
 msgid "user.gossip.description"
 msgstr ""
+"Unesite napomene o ovom recenzentu koje će biti vidljive administratorima, "
+"menadžerima i urednicima. Napomene će se koristiti u budućim dodelama "
+"recenzija."
 
 msgid "user.group"
 msgstr "Grupa korisnika"
@@ -228,10 +233,12 @@ msgid "user.phone"
 msgstr "Telefon"
 
 msgid "user.preferredPublicName"
-msgstr ""
+msgstr "Željeno javno ime"
 
 msgid "user.preferredPublicName.description"
 msgstr ""
+"Molimo unesite puni naziv koji će se koristiti za identifikaciju autora na "
+"objavljenom radu. Primer: Dr. Alan P. Mwandenga"
 
 msgid "user.profile.changePasswordInstructions"
 msgstr ""
@@ -503,3 +510,65 @@ msgstr ""
 
 msgid "user.usernameOrEmail"
 msgstr "Korisničko ime ili mejl"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Unesite puni naziv institucije ispod, izbegavajući skraćenice. Izaberite "
+"naziv iz padajuće liste i kliknite na ‘Dodaj’ da biste uključili afilijaciju "
+"u svoj profil. (npr. ‘Simon Fraser University’)"
+
+msgid "user.login.activate.description"
+msgstr "Potvrdite i aktivirajte svoj nalog"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Korisnik bi trebalo da bude anoniman. Trenutno ste prijavljeni."
+
+msgid "user.affiliations.institution"
+msgstr "Institucija"
+
+msgid "user.affiliations.translation"
+msgstr "Više informacija"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Izmeni naziv institucije"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Ukloni instituciju"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klikni da urediš ili obrišeš"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Svi dostupni prevodi"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "Završeno {$count} od {$total} jezika"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Unesite naziv instituta na {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Naziv instituta na {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Da li se sigurni?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Afilijacija <strong>{$affiliation}</strong> biće obrisana."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Unesite naziv institucije na {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Vaša pretraga nije pronašla rezultate"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Primarni jezik {$primaryLocale} je obavezan"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Pristup tokovima rada za nedovršenu prijavu je ograničen."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Dodavanje, izmena ili brisanje predloga recenzenta za završenu prijavu je "
+"ograničeno."

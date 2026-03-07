@@ -65,6 +65,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         'submissionId' => 'submission_id',
         'updatedAt' => 'updated_at',
         'uploaderUserId' => 'uploader_user_id',
+        'variantGroupId' => 'variant_group_id',
+        'variantType' => 'variant_type',
         'viewable' => 'viewable',
     ];
 

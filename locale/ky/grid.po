@@ -1,0 +1,749 @@
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/ky/>"
+"\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "grid.action.addSponsor"
+msgstr "Каржылоочуну кошуу"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Каржылоочуну өчүрүү"
+
+msgid "grid.noFiles"
+msgstr "Файлдар жок"
+
+msgid "grid.user.disableReason"
+msgstr "Колдонуучуну өчүрүүнүн себеби"
+
+msgid "grid.userGroup.allStages"
+msgstr "Бардык иш процесс стадиялары"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Дайындалган ролдорду тизмектөө"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Уруксат деңгээли менен"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "{$userGroupName} ролу демейки болуп саналат жана алып салынбайт."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"{$userGroupName} ролун алып салууга болбойт. Учурда {$usersCount} колдонуучу "
+"ага дайындалган."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} ролу алынды."
+
+msgid "grid.noItems"
+msgstr "Элементтер жок"
+
+msgid "grid.settings"
+msgstr "Орнотуулар"
+
+msgid "grid.noAuditors"
+msgstr "Аудиторлор жок"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Бул элемент алыстан жайгаштырылган."
+
+msgid "grid.action.uninstall"
+msgstr "Өчүрүү"
+
+msgid "grid.action.manageAccess"
+msgstr "Кирүүнү башкаруу"
+
+msgid "grid.action.sort"
+msgstr "Иреттөө"
+
+msgid "grid.action.addItem"
+msgstr "Элемент кошуу"
+
+msgid "grid.action.addNote"
+msgstr "Эскертүү кошуу"
+
+msgid "grid.action.addQuery"
+msgstr "Талкуу кошуу"
+
+msgid "grid.action.readQuery"
+msgstr "Талкууну окуу"
+
+msgid "grid.action.deleteQuery"
+msgstr "Талкууну өчүрүү"
+
+msgid "grid.action.updateQuery"
+msgstr "Талкууну жаңыртуу"
+
+msgid "grid.action.addUser"
+msgstr "Колдонуучу кошуу"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Бул рецензентти дайындоону алып салуу"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Бул копи-редакция файлды кийинки стадияга жөнөтүү үчүн бекитүү"
+
+msgid "grid.action.reload"
+msgstr "Кайра жүктөө"
+
+msgid "grid.action.delete"
+msgstr "Өчүрүү"
+
+msgid "grid.action.deleteFile"
+msgstr "Файлды өчүрүү"
+
+msgid "grid.action.deleteMedia"
+msgstr "Медианы өчүрүү"
+
+msgid "grid.action.editMedia"
+msgstr "Медианы түзөтүү"
+
+msgid "grid.action.editSection"
+msgstr "Бөлүмдү түзөтүү"
+
+msgid "grid.action.export"
+msgstr "Экспорттоо"
+
+msgid "grid.action.deleteSection"
+msgstr "Бөлүмдү өчүрүү"
+
+msgid "grid.action.editorialHistory"
+msgstr "Редакциялык тарых"
+
+msgid "grid.action.remove"
+msgstr "Алып салуу"
+
+msgid "grid.action.edit"
+msgstr "Түзөтүү"
+
+msgid "grid.action.approve"
+msgstr "Бекитүү"
+
+msgid "grid.action.disapprove"
+msgstr "Бекитпөө"
+
+msgid "grid.action.setApproval"
+msgstr "Бекитүүнү коюу"
+
+msgid "grid.action.moreInformation"
+msgstr "Кошумча маалымат"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Баштапкы абалга кайтаруу"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Баштапкы абалга кайтарууну каалайсызбы?"
+
+msgid "grid.action.addAuthor"
+msgstr "Автор кошуу"
+
+msgid "grid.action.editAuthor"
+msgstr "Авторду түзөтүү"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Авторду өчүрүү"
+
+msgid "grid.action.addAuditor"
+msgstr "Аудитор кошуу"
+
+msgid "grid.action.upgrade"
+msgstr "Жаңыртуу"
+
+msgid "grid.action.order"
+msgstr "Ирет"
+
+msgid "grid.action.saveOrdering"
+msgstr "Иретти сактоо"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Иреттөөнү жокко чыгаруу"
+
+msgid "grid.action.extendAll"
+msgstr "Баарын кеңейтүү"
+
+msgid "grid.action.collapse"
+msgstr "Жыйруу"
+
+msgid "grid.action.collapseAll"
+msgstr "Баарын жыйруу"
+
+msgid "grid.action.wizard"
+msgstr "Орнотуулар устаты"
+
+msgid "grid.action.moveItem"
+msgstr "Элементти жылдыруу"
+
+msgid "grid.action.downloadAll"
+msgstr "Бардык файлдарды архив катары жүктөө"
+
+msgid "grid.action.readReview"
+msgstr "Бул рецензияны окуу"
+
+msgid "grid.action.email"
+msgstr "Электрондук кат жөнөтүү"
+
+msgid "grid.action.addReviewer"
+msgstr "Рецензент кошуу"
+
+msgid "grid.action.addFile"
+msgstr "Файл кошуу"
+
+msgid "grid.action.editFile"
+msgstr "Файлды түзөтүү"
+
+msgid "grid.action.selectFiles"
+msgstr "Башкаруу үчүн файлдарды тандоо"
+
+msgid "grid.action.requestRevisions"
+msgstr "Бул материал үчүн ревизия сурауу"
+
+msgid "grid.action.accept"
+msgstr "Бул материалды кабыл алуу"
+
+msgid "grid.action.decline"
+msgstr "Бул материалды четке кагуу"
+
+msgid "grid.action.internalReview"
+msgstr "Бул материалды ички рецензияга жөнөтүү"
+
+msgid "grid.action.externalReview"
+msgstr "Бул материалды тышкы рецензияга жөнөтүү"
+
+msgid "grid.action.sendToProduction"
+msgstr "Бул материалды продакшнго жөнөтүү"
+
+msgid "grid.action.settings"
+msgstr "Орнотуулар"
+
+msgid "grid.action.importexport"
+msgstr "Мазмунду же сайт маалыматтарын импорттоо/экспорттоо"
+
+msgid "grid.action.orderItems"
+msgstr "Иреттөө режимин иштетүү"
+
+msgid "grid.action.resetAll"
+msgstr "Бардык элементтерди баштапкы мааниге кайтаруу"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Жаңы электрондук кат шаблонун кошуу"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Бул электрондук кат шаблонун түзөтүү"
+
+msgid "grid.action.disableEmail"
+msgstr "Бул электрондук кат шаблонун өчүрүү"
+
+msgid "grid.action.resetEmail"
+msgstr "Бул электрондук кат шаблонун баштапкы абалга кайтаруу"
+
+msgid "grid.action.expandAll"
+msgstr "Баарын кеңейтүү"
+
+msgid "grid.action.requestAccount"
+msgstr "Катышуучу кошуу"
+
+msgid "grid.action.expand"
+msgstr "Кеңейтүү"
+
+msgid "grid.action.notify"
+msgstr "Бул колдонуучуну кабардар кылуу"
+
+msgid "grid.action.addUserGroup"
+msgstr "Жаңы колдонуучу тобун кошуу"
+
+msgid "grid.action.editUserGroup"
+msgstr "Бул колдонуучу тобун түзөтүү"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Бул колдонуучу тобун алып салуу"
+
+msgid "grid.action.disable"
+msgstr "Өчүрүү"
+
+msgid "grid.action.details"
+msgstr "Бул элементти көрүү"
+
+msgid "grid.action.enrolExisting"
+msgstr "Бар болгон колдонуучуну рецензент кылып кошуу"
+
+msgid "grid.action.selectCreate"
+msgstr "Жаңы рецензент түзүү"
+
+msgid "grid.action.search"
+msgstr "Издөө"
+
+msgid "grid.action.advancedSearch"
+msgstr "Кеңейтилген издөө"
+
+msgid "grid.action.viewLibrary"
+msgstr "Документтик китепкананы көрүү"
+
+msgid "grid.action.viewMetadata"
+msgstr "Бул материалдын метадайындарын көрүү"
+
+msgid "grid.action.sendReminder"
+msgstr "Бул колдонуучуга тапшырма эскертүүсүн жөнөтүү"
+
+msgid "grid.action.newRound"
+msgstr "Жаңы айлампа түзүү"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Рецензиялоо көрсөтмөлөрүн көрүү"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Тирешкен кызыкчылыктар саясатын көрүү"
+
+msgid "grid.action.thankReviewer"
+msgstr "Бул рецензентке ыраазычылык билдирүү жөнөтүү"
+
+msgid "grid.action.uploadFile"
+msgstr "Файл жүктөө"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Жаңы жарыя түрүн кошуу"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Жарыя кошуу"
+
+msgid "grid.action.addInstitution"
+msgstr "Институт кошуу"
+
+msgid "grid.action.mergeUser"
+msgstr "Колдонуучуларды бириктирүү"
+
+msgid "grid.action.unassignUser"
+msgstr "Колдонуучуну дайындоону алып салуу"
+
+msgid "grid.action.history"
+msgstr "Тарыхты көрүү"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Бул рецензия аяктады, бирок аны каралбаган деп белгилесеңиз болот"
+
+msgid "grid.action.enable"
+msgstr "Иштетүү"
+
+msgid "grid.action.bookInfo"
+msgstr "Материал тууралуу маалымат"
+
+msgid "grid.action.logInAs"
+msgstr "Бул колдонуучу катары кирүү"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Бардык колдонуучуларды экспорттоо"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Бардык колдонуучуларды экспорттоону каалайсызбы?"
+
+msgid "grid.action.activate"
+msgstr "Активдештирүү"
+
+msgid "grid.action.deactivate"
+msgstr "Өчүрүү"
+
+msgid "grid.action.copy"
+msgstr "Көчүрүү"
+
+msgid "grid.action.preview"
+msgstr "Алдын ала көрүү"
+
+msgid "grid.action.install"
+msgstr "Орнотуу"
+
+msgid "grid.action.moreItems"
+msgstr "Дагы жүктөө"
+
+msgid "grid.action.users"
+msgstr "Колдонуучуларды көрүү/тандоо"
+
+msgid "grid.task.status.completed"
+msgstr "Бул тапшырма аяктады"
+
+msgid "grid.task.status.new"
+msgstr "Каралганда белгиленет"
+
+msgid "grid.task.status.uploaded"
+msgstr "Тилкенин аталышы бул файлды ким жүктөгөнүн көрсөтөт"
+
+msgid "grid.task.status.unfinished"
+msgstr "Тапшырма аякталган жок"
+
+msgid "grid.task.status.reviewReady"
+msgstr "Бул рецензия даяр. Окуу үчүн сол жактагы белги иконкасын басыңыз."
+
+msgid "grid.columns.actions"
+msgstr "Аракеттер"
+
+msgid "grid.columns.institution"
+msgstr "Институт"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Аудитор"
+
+msgid "grid.columns.locale"
+msgstr "Локаль"
+
+msgid "grid.columns.locale.code"
+msgstr "Код"
+
+msgid "grid.sponsor.title"
+msgstr "Каржылаган уюмдар"
+
+msgid "grid.action.editSponsor"
+msgstr "Каржылоочуну түзөтүү"
+
+msgid "grid.action.addSeries"
+msgstr "Серия кошуу"
+
+msgid "grid.action.editSeries"
+msgstr "Серияны түзөтүү"
+
+msgid "grid.action.deleteSeries"
+msgstr "Серияны өчүрүү"
+
+msgid "grid.action.addCategory"
+msgstr "Категория кошуу"
+
+msgid "grid.action.editCategory"
+msgstr "Категорияны түзөтүү"
+
+msgid "grid.action.deleteCategory"
+msgstr "Категорияны өчүрүү"
+
+msgid "grid.contributor.title"
+msgstr "Колдоо булактары"
+
+msgid "grid.action.addContributor"
+msgstr "Салым кошуучуну кошуу"
+
+msgid "grid.action.deleteContributor"
+msgstr "Салым кошуучуну өчүрүү"
+
+msgid "grid.preparedEmails.title"
+msgstr "Даяр электрондук кат шаблондору"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Учурдагы тизмек"
+
+msgid "grid.plugin.allCategories"
+msgstr "Бардык категориялар"
+
+msgid "grid.plugin.disable"
+msgstr "Бул плагинди өчүрүүнү каалайсызбы?"
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+"Корректура түзөтүүлөрү жасалды. Бул тапшырманы каралбаган деп белгилесеңиз "
+"болот"
+
+msgid "grid.artworkFile.caption"
+msgstr "Сүрөттүн аталышы"
+
+msgid "grid.artworkFile.credit"
+msgstr "Автордук шилтеме"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Автордук укук ээси"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Байланыш маалыматы (эгер автор/басмакана эмес болсо)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Уруксат шарттары"
+
+msgid "grid.artworkFile.placement"
+msgstr "Материалдагы жайгашуу"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Стадияга дайындоо"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Стадиядан дайындоону алып салуу"
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} ролу {$stageName} стадиясына дайындалды."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} ролу {$stageName} стадиясынан алынды."
+
+msgid "grid.submission.itemTitle"
+msgstr "Автор; Аталыш"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Автор тарабынан тапшырылбаган толук эмес материалдарды кошуу."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Меню кошуу"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Элемент кошуу"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Навигация меню элементтери жок"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Навигация менюлары жок"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Түрүн тандаңыз..."
+
+msgid "grid.action.view"
+msgstr "Көрүү"
+
+msgid "author.users.contributor.name"
+msgstr "Аты"
+
+msgid "author.users.contributor.email"
+msgstr "Электрондук почта"
+
+msgid "author.users.contributor.role"
+msgstr "Роль"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Издөө тизмелеринде"
+
+msgid "grid.action.editContributor"
+msgstr "Салым кошуучуну түзөтүү"
+
+msgid "grid.user.remove"
+msgstr "Колдонуучуну алып салуу"
+
+msgid "grid.user.logInAs"
+msgstr "Бул колдонуучу катары кирүү"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Колдонуучу активдештирилгенден кийин сайтка кайра кирүү мүмкүнчүлүгүн алат "
+"жана зарыл болсо ролдорго чакырсаңыз болот."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Эске алыңыз, колдонуучу өчүрүлгөндөн кийин, ал кайра активдештирилгенге "
+"чейин эч кандай ролго кошула албайт."
+
+msgid "grid.user.enableReason"
+msgstr "Колдонуучуну активдештирүүнүн себеби"
+
+msgid "grid.user.error"
+msgstr "Бул колдонуучуну башкарууда ката кетти. Кайра аракет кылыңыз."
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Сиз {$name} салым кошуучуну алып салууну каалайсызбы? Бул аракетти артка "
+"кайтарууга болбойт."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Рецензент сунушун кошуу"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Рецензент сунушун өчүрүү"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Бул сунушту алып салууну каалайсызбы? Бул аракетти артка кайтарууга болбойт."
+
+msgid "grid.action.newVersion"
+msgstr "Жаңы версия түзүү"
+
+msgid "grid.reviewForm.title"
+msgstr "Рецензия формалары"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Жооп варианттары"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Файлдар"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Материал китепканасы"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Редакциялык китепкана"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Рецензия китепканасы"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Продакшн китепканасы"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Продакшн шаблон китепканасы"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Материал тапшырма тизмеси"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Тизмедеги пункт"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Негизги байланыш"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Негизги байланыш катары коюу"
+
+msgid "contributor.listPanel.preview"
+msgstr "Алдын ала көрүү"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Бул жарыяга салым кошуучулар төмөнкү форматтарда көрсөтүлөт."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Формат"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Көрсөтүү"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Кыскартылган"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Жарыялар тизмеси"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Толук"
+
+msgid "grid.roles.currentRoles"
+msgstr "Учурдагы ролдор"
+
+msgid "grid.roles.add"
+msgstr "Жаңы роль түзүү"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Стадияга дайындоо"
+
+msgid "grid.user.currentUsers"
+msgstr "Учурдагы колдонуучулар"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Учурдагы катталуу"
+
+msgid "grid.user.allRoles"
+msgstr "Бардык ролдор"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Бардык уруксат деңгээлдери"
+
+msgid "grid.user.add"
+msgstr "Колдонуучу кошуу"
+
+msgid "grid.user.enroll"
+msgstr "Колдонуучуну каттоо"
+
+msgid "grid.user.edit"
+msgstr "Колдонуучуну түзөтүү"
+
+msgid "grid.user.email"
+msgstr "Электрондук почта"
+
+msgid "grid.user.enable"
+msgstr "Колдонуучуну активдештирүү"
+
+msgid "grid.user.disable"
+msgstr "Колдонуучуну өчүрүү"
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Бул электрондук катты жөнөтүүдө ката кетти. Электрондук почта сервериңиздин "
+"конфигурациясы иштеп жатканын текшериңиз жана/же системалык администраторго "
+"кайрылыңыз."
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Бул колдонуучуну башкарууга жетиштүү уруксатыңыз жок. Колдонуучуну башкаруу "
+"үчүн сайт администратору болушуңуз керек же бул колдонуучу катталган бардык "
+"контексттерди башкаруу укугуңуз болушу керек."
+
+msgid "grid.user.mustProvideName"
+msgstr "Алгач колдонуучунун жок дегенде фамилиясын киргизиңиз."
+
+msgid "grid.user.generatePassword"
+msgstr "Сырсөз түзүү"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Бул колдонуучу үчүн кокустук сырсөз түзүү."
+
+msgid "grid.user.notifyUser"
+msgstr "Колдонуучуну кабардар кылуу"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Колдонуучуга тосмо электрондук кат жөнөтүү."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Сырсөздү өзгөртүү"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Колдонуучу кийинки киргенде сырсөзүн өзгөртүшү керек."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Колдонуучудан кийинки киргенде сырсөзүн өзгөртүүсүн талап кылуу."
+
+msgid "grid.user.moreDetails"
+msgstr "Колдонуучу тууралуу кеңири маалымат"
+
+msgid "grid.user.lessDetails"
+msgstr "Колдонуучу тууралуу аз маалымат"
+
+msgid "grid.user.userDetails"
+msgstr "Колдонуучу маалыматтары"
+
+msgid "grid.user.userRoles"
+msgstr "Колдонуучу ролдору"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Баш сөздө көрсөтүлөт"
+
+msgid "grid.user.userNoRoles"
+msgstr "Бул колдонуучунун эч кандай ролу жок."
+
+msgid "grid.user.step1"
+msgstr "1-кадам: Колдонуучу маалыматтарын толтуруу"
+
+msgid "grid.user.step2"
+msgstr "2-кадам: {$userFullName} үчүн колдонуучу ролдорун кошуу"
+
+msgid "grid.user.addRoles"
+msgstr "Ролдорду кошуу"
+
+msgid "grid.user.addRole"
+msgstr "Роль кошуу"
+
+msgid "grid.user.selectUser"
+msgstr "Колдонуучуну тандоо"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Колдонуучуну тандаңыз"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Бул колдонуучу катары киресизби? Сиз аткарган бардык аракеттер бул "
+"колдонуучуга таандык болот."
+
+msgid "grid.user.mergeUsers"
+msgstr "Колдонуучуларды бириктирүү"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Колдонуучуну бириктирүү"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Бул колдонуучуга бириктирүү"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Бардык катталган колдонуучулар"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Сиз \"{$oldUsername}\" колдонуучу атындагы аккаунтту \"{$newUsername}\" "
+"колдонуучу атындагы аккаунтка бириктирүүнү каалайсызбы? \"{$oldUsername}\" "
+"аккаунту андан кийин болбойт. Бул аракетти артка кайтарууга болбойт."

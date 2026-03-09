@@ -1,0 +1,911 @@
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ky/>"
+"\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Ошол убакытка чейин профилиңизди карап чыгып, жаңырта аласыз. Эгер бул ката "
+"деп ойлосоңуз, администраторго кайрылыңыз."
+
+msgid "user.disabledModal.description"
+msgstr "Учурдагы ролдор: {$roles}"
+
+msgid "user.accountInformation"
+msgstr "Эсеп маалыматы"
+
+msgid "user.affiliation"
+msgstr "Тиешелүүлүк"
+
+msgid "user.affiliation.description"
+msgstr "(Сиздин уюмуңуз, мисалы: \"Simon Fraser University\")"
+
+msgid "user.affiliations"
+msgstr "Тиешелүүлүктөр"
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Бул рецензия тапшырмасына кирүүгө уруксатыңыз жок."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Бул талкууга кирүүгө уруксатыңыз жок."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Колдонуучу анонимдүү болушу керек. Учурда сиз системага киргенсиз."
+
+msgid "user.biography"
+msgstr "Биографиялык билдирүү (мисалы: кафедра жана даража)"
+
+msgid "user.changeMyPassword"
+msgstr "Сырсөзүмдү өзгөртүү"
+
+msgid "user.changePassword"
+msgstr "Сырсөздү өзгөртүү"
+
+msgid "user.dateLastLogin"
+msgstr "Акыркы кирүү"
+
+msgid "user.dateRegistered"
+msgstr "Катталган дата"
+
+msgid "user.editMyProfile"
+msgstr "Профилимди түзөтүү"
+
+msgid "user.email"
+msgstr "Электрондук почта"
+
+msgid "user.givenName"
+msgstr "Аты"
+
+msgid "user.interests"
+msgstr "Рецензиялоо кызыкчылыктары"
+
+msgid "user.gossip"
+msgstr "Редакциялык эскертмелер"
+
+msgid "user.gossip.description"
+msgstr ""
+"Бул рецензент жөнүндө башка администраторлорго, менеджерлерге жана "
+"редакторлорго көрүнүшү үчүн эскертмелерди жазып коюңуз. Эскертмелер "
+"келечектеги рецензия тапшырмаларында көрүнөт."
+
+msgid "user.group"
+msgstr "Колдонуучу тобу"
+
+msgid "user.familyName"
+msgstr "Фамилиясы"
+
+msgid "user.preferredPublicName"
+msgstr "Жарыялануучу ысым"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Сайт боюнча ORCID функциясын иштетүү"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID функциясы сайт деңгээлинде бардык журналдар/басмалар/серверлер үчүн "
+"иштетилип жана конфигурацияланышы мүмкүн. Эгер иштетилсе, бул бардык "
+"контексттик кирүү маалыматтарын жокко чыгарып, төмөнкү кирүү маалыматтарын "
+"ушул орнотуудагы бардык журналдар/басмалар/серверлерге колдонулат."
+
+msgid "orcid.field.verification.request"
+msgstr "Ырастоону сурануу"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID ырастоосу суралды!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Ырастоо катын кайра жөнөтүү"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "ORCID ырастоону сурануу"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Бул авторго ORCID’ди ырастоону суранган электрондук кат жөнөтүүнү "
+"каалайсызбы?"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Автор түзүлгөндөн кийин электрондук кат жөнөтүлөт."
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "ORCID’ди өчүрүү"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Бул ORCID’ди өчүрүүнү каалайсызбы?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Бул ORCID ырасталган эмес. Бул ырасталбаган ORCID’ди өчүрүп, колдонуучудан/"
+"автордон түздөн-түз ырастоону суранууңуз керек."
+
+msgid "user.affiliations.institution"
+msgstr "Уюм"
+
+msgid "user.affiliations.translation"
+msgstr "Кошумча маалымат"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Уюмдун атын түзөтүү"
+
+msgid "user.authorization.loginRequired"
+msgstr "Кирүү талап кылынат."
+
+msgid "user.mailingAddress"
+msgstr "Почта дареги"
+
+msgid "user.myAccount"
+msgstr "Менин аккаунтум"
+
+msgid "user.name"
+msgstr "Аты"
+
+msgid "user.password"
+msgstr "Сырсөз"
+
+msgid "user.repeatPassword"
+msgstr "Сырсөздү кайталаңыз"
+
+msgid "user.phone"
+msgstr "Телефон"
+
+msgid "user.role.ended"
+msgstr "Роль аяктады"
+
+msgid "user.roles"
+msgstr "Ролдор"
+
+msgid "user.sendPassword"
+msgstr "Ырастоо"
+
+msgid "user.sendPassword.description"
+msgstr "Колдонуучу аты жана сырсөзүм камтылган ырастоо катын жөнөтүңүз"
+
+msgid "user.signature"
+msgstr "Кол тамга"
+
+msgid "user.title"
+msgstr "Титул"
+
+msgid "user.url"
+msgstr "Башкы беттин URL’и"
+
+msgid "user.userHome"
+msgstr "Колдонуучунун башкы бет"
+
+msgid "user.username"
+msgstr "Колдонуучу аты"
+
+msgid "user.usernameOrEmail"
+msgstr "Колдонуучу аты же электрондук почта"
+
+msgid "user.workingLanguages"
+msgstr "Иштөө тилдери"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Көрсөтүлгөн ORCID iD жараксыз. Толук URI киргизиңиз (мисалы: \"https://orcid."
+"org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Идентификация"
+
+msgid "user.profile.contact"
+msgstr "Байланыш"
+
+msgid "user.profile.public"
+msgstr "Жарыялык"
+
+msgid "user.apiKey"
+msgstr "API ачкычы"
+
+msgid "user.apiKeyEnabled"
+msgstr "Тышкы тиркемелерге бул аккаунтка кирүү үчүн API ачкычын иштетүү"
+
+msgid "user.apiKey.generate"
+msgstr "API ачкыч түзүү"
+
+msgid "user.apiKey.remove"
+msgstr "Өчүрүү"
+
+msgid "user.apiKey.generateWarning"
+msgstr "Жаңы API ачкыч түзүү учурдагы ачкычты жараксыз кылат."
+
+msgid "user.apiKey.removeWarning"
+msgstr "Ачкычты өчүрүү аны колдонгон бардык тиркемелерге кирүүнү токтотот."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Бул API ачкычты өчүрүүнү каалайсызбы?"
+
+msgid "user.hello"
+msgstr "Салам, "
+
+msgid "user.affiliations.description"
+msgstr ""
+"Төмөндө уюмдун толук атын акронимдерди колдонбой киргизиңиз. Төмөнкү "
+"тизмеден атын тандап, \"Кошуу\" баскычын басыңыз, профилиңизге тиешелүүлүктү "
+"кошуу үчүн. (мисалы: \"Simon Fraser University\")"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Уюмду өчүрүү"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Түзөтүү же өчүрүү үчүн басыңыз"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Бардык котормолор жеткиликтүү"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$total} тилдин ичинен {$count} толтурулду"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Уюмдун атын {$language} тилинде жазыңыз"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Уюмдун аты {$language} тилинде"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Ишенимдүүбү?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Тиешелүүлүк <strong>{$affiliation}</strong> өчүрүлөт."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Уюмдун атын {$language} тилинде жазыңыз"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Издөө фразасы табылган жок"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Негизги тил {$primaryLocale} талап кылынат"
+
+msgid "user.authorization.accessDenied"
+msgstr "Кирүү тыюу салынган."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Аутентификация процесси үчүн токен жок же жараксыз."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Бул операцияны контекстсиз (басма, журнал, конференция ж.б.) чакыра албайсыз."
+
+msgid "user.authorization.privateOperation"
+msgstr "Сиз кирүүгө аракет кылган операция жеке же жок."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Кирүү четке кагылды. Бул сайтка кирүү учурда чектелген."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Учурдагы роль бул операцияга кирүүгө уруксат бербейт."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Бул материалга кирүүгө уруксат берилген рол менен дайындалган эмессиз."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Бул операцияга кирүү үчүн жарактуу колдонуучу тобун орнотууңуз керек."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Бул стадияга өтүүдөн мурун Менеджер ролундагы (мисалы: Продакшн редактору) "
+"колдонуучу дайындалышы керек."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Учурда иш агымынын бул стадиясына кирүү мүмкүн эмес."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Иш агымынын стадиясы көрсөтүлгөн эмес."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Толук эмес материал үчүн иш агымына кирүү чектелген."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Толук материал үчүн рецензент сунушун кошуу, жаңыртуу же өчүрүү чектелген."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Плагин көрсөтүлгөн эмес жана талап кылынат."
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Профиль сүрөтүнүн форматы жараксыз же сүрөт өтө чоң. Жарактуу форматтар: ."
+"gif, .jpg, .png жана сүрөт 150x150 пикселден ашпашы керек."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Эсебиңиз төмөнкү себептен улам өчүрүлдү: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Эсебиңиз өчүрүлдү. Көбүрөөк маалымат алуу үчүн администраторго кайрылыңыз."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Биз {$email} дарегиңизге ырастоо катын жөнөттүк. Жаңы аккаунтуңузду "
+"активдештирүү үчүн ошол каттагы көрсөтмөлөрдү аткарыңыз. Эгер катты "
+"көрбөсөңүз, ал спам папкасына түшүп калганын текшериңиз."
+
+msgid "user.login.activate.description"
+msgstr "Эсебиңизди ырастап, активдештириңиз"
+
+msgid "user.login.activate"
+msgstr "Эсепти активдештирүү"
+
+msgid "user.login.activated"
+msgstr ""
+"Эсебиңизди активдештиргениңиз үчүн рахмат. Эми аккаунт түзгөндө берген "
+"маалыматыңыз менен кире аласыз."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Бул сайтка кирүүдөн мурун жаңы сырсөз тандооңуз керек.<br /><br />Төмөндө "
+"колдонуучу атыңызды, учурдагы жана жаңы сырсөзүңүздү киргизип, сырсөзүңүздү "
+"өзгөртүңүз."
+
+msgid "user.login.forgotPassword"
+msgstr "Сырсөзүңүздү унуттуңузбу?"
+
+msgid "user.login.loginError"
+msgstr ""
+"Колдонуучу аты/электрондук почта же сырсөз жараксыз. Кайра аракет кылыңыз."
+
+msgid "user.login"
+msgstr "Кирүү"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Эгер дал келген аккаунт табылса, электрондук почтаңызга ырастоо жөнөтүлдү. "
+"Сырсөзүңүздү кайра коюу үчүн каттагы көрсөтмөлөрдү аткарыңыз."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Тилекке каршы, баскан шилтемеңиздин мөөнөтү бүттү же жараксыз. Сырсөзүңүздү "
+"кайра коюуга аракет кылыңыз."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Жаңы сырсөз электрондук почтаңызга жөнөтүлдү. Эми сайтка жаңы сырсөз менен "
+"кире аласыз."
+
+msgid "user.login.registeredEmail"
+msgstr "Катталган колдонуучунун электрондук почтасы"
+
+msgid "user.login.registrationComplete"
+msgstr "Каттоо аяктады"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Катталгандыгыңыз үчүн рахмат! Эми эмне кылгыңыз келет?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Материалдарды көрүү"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Жаңы материал тапшыруу"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Карап чыгууну улантуу"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Каттоо текшерүүнү күтүп жатат"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Мени системада калтыр"
+
+msgid "user.login.resetPassword"
+msgstr "Сырсөздү кайра коюу"
+
+msgid "user.logOut"
+msgstr "Чыгуу"
+
+msgid "user.logOutAs"
+msgstr "{$username} катары чыгуу"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Жарыяланган эмгекте автор катары көрсөтүлө турган толук атты бериңиз. Мисалы:"
+" Др. Алан П. Мванденга"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Аватар инициалдары"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Аватар катары колдонгуңуз келген эки тамганы киргизиңиз. Бул инициалдар "
+"сизди көрсөтөт."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Эсебиңиздин сырсөзүн өзгөртүү үчүн учурдагы жана жаңы сырсөзүңүздү "
+"киргизиңиз."
+
+msgid "user.profile.editProfile"
+msgstr "Профилди түзөтүү"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Өлкө талап кылынат."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Жарактуу электрондук почта талап кылынат."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Аты талап кылынат."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Бул тил үчүн фамилия кошулду, бирок аты жок. Аты кошулушу керек."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Материал тапшыруу тилинде тиешелүүлүктү кошуңуз."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Почта дареги талап кылынат."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Жаңы сырсөз киргизилиши керек."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Киргизилген учурдагы сырсөз туура эмес."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Ачык жеткиликтүү чыгарылыштар боюнча эскертмелер"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Сырсөз талап кылынат."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Жаңы сырсөз эскиси менен бирдей."
+
+msgid "user.profile.form.profileImage"
+msgstr "Профиль сүрөтү"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Жаңы чыгарылыш жарыяланганда эскертмелер"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Көрсөтүлгөн URL жараксыз. URL’ди текшерип, кайра аракет кылыңыз. (Кеңеш: URL "
+"башына http:// кошуп көрүңүз.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Колдонуучу тобу талап кылынат."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Колдонуучу аты талап кылынат."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Купуялык билдирүүсүнүн шарттарына макул болушуңуз керек."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Учурдагы сырсөздү сактоо үчүн сырсөз талааларын бош калтырыңыз."
+
+msgid "user.profile.newPassword"
+msgstr "Жаңы сырсөз"
+
+msgid "user.profile.oldPassword"
+msgstr "Учурдагы сырсөз"
+
+msgid "user.profile"
+msgstr "Профиль"
+
+msgid "user.profile.publicProfile"
+msgstr "Колдонуучу профили"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Жаңы сырсөздү кайталаңыз"
+
+msgid "user.login.registerNewAccount"
+msgstr "Катталуу"
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Салымчылар үчүн ырасталбаган ORCID’дер табылды."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Төмөндө аккаунтуңуздун электрондук почтасын киргизиңиз, сырсөздү кайра коюу "
+"боюнча көрсөтмөлөр менен кат жөнөтүлөт."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ооба, менин маалыматтарым <a href=\"{$privacyUrl}\" target=\"_blank\""
+">купуялык билдирүүсүнө</a> ылайык чогултулуп жана сакталарына макулмун."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Ооба, жаңы жарыялануулар жана билдирүүлөр жөнүндө эскертмелерди алгым келет."
+
+msgid "user.register.form.emailExists"
+msgstr "Тандалган электрондук почта башка колдонуучу тарабынан колдонулууда."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Сырсөздөр дал келген жок."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Электрондук почта талаалары дал келген жок."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Колдонуучу аты кичине тамгалардан, цифралардан, астынкы сызыктардан жана "
+"сызыктардан гана турушу керек жана алфавиттик-цифралык символ менен "
+"башталып, бүтүшү керек."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Кеминде бир роль тандалышы керек."
+
+msgid "user.register.form.usernameExists"
+msgstr "Тандалган колдонуучу аты башка колдонуучу тарабынан колдонулууда."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Сырсөз кеминде {$length} символ болушу керек."
+
+msgid "user.register.registerAs"
+msgstr "{$contextName} ичинде төмөнкү ролдо катталуу..."
+
+msgid "user.register"
+msgstr "Катталуу"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Колдонуучу аты кичине тамгалардан, цифралардан жана сызыктар/астынкы "
+"сызыктардан гана турушу керек."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Каттоо ийгиликтүү аяктады. <a href=\"{$profileUrl}\">Бул жерди басыңыз</a> "
+"колдонуучу профилиңизди толуктоо үчүн."
+
+msgid "user.role.assistant"
+msgstr "Ассистент"
+
+msgid "user.role.author"
+msgstr "Автор"
+
+msgid "user.role.author_s"
+msgstr "Автор(лор)"
+
+msgid "user.role.authors"
+msgstr "Авторлор"
+
+msgid "user.role.editor"
+msgstr "Редактор"
+
+msgid "user.role.editors"
+msgstr "Редакторлор"
+
+msgid "user.role.reader"
+msgstr "Окурман"
+
+msgid "user.role.readers"
+msgstr "Окурмандар"
+
+msgid "user.role.reviewer"
+msgstr "Рецензент"
+
+msgid "user.role.reviewers"
+msgstr "Рецензенттер"
+
+msgid "user.role.siteAdmin"
+msgstr "Сайт администратору"
+
+msgid "user.role.siteAdmins"
+msgstr "Сайт администраторлору"
+
+msgid "user.role.copyeditor"
+msgstr "Текст редактору"
+
+msgid "user.role.copyeditors"
+msgstr "Текст редакторлору"
+
+msgid "user.role.proofreader"
+msgstr "Корректор"
+
+msgid "user.role.proofreaders"
+msgstr "Корректорлор"
+
+msgid "user.role.layoutEditor"
+msgstr "Макет редактору"
+
+msgid "user.role.layoutEditors"
+msgstr "Макет редакторлору"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"API ачкыч түзүүдөн мурун сайт администратору конфигурация файлына жашыруун "
+"ачкычты (\"api_key_secret\") орнотуусу керек."
+
+msgid "user.privacyLink"
+msgstr ""
+"Сиздин маалыматтар <a href=\"{$privacyUrl}\" target=\"_blank\">купуялык "
+"билдирүүсүнө</a> ылайык сакталат."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Сырсөздү кайра коюу сурамы аткарылган жок, себеби: {$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Кирүү сырсөзүн жаңыртуу үчүн жаңы сырсөздү киргизиңиз."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Сырсөз ийгиликтүү жаңыртылды. Жаңы сырсөз менен кирүүңүздү өтүнөбүз."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Сиз электрондук почтаңызды \"{$pendingEmail}\" дарегине өзгөртүүнү "
+"сурандыңыз. Биз сизге электрондук кат жөнөттүк, анда өзгөртүлгөн электрондук "
+"почтаны кантип ырастоо керектиги көрсөтүлгөн."
+
+msgid "orcid.displayName"
+msgstr "ORCID"
+
+msgid "orcid.description"
+msgstr "ORCID’ден колдонуучу профилинин маалыматын импорттоого мүмкүндүк берет."
+
+msgid "orcid.instructions"
+msgstr ""
+"Бул форманы ORCID профилинен алынган маалымат менен алдын ала толтура "
+"аласыз. ORCID профилине байланышкан электрондук почтаны же ORCID iD’ни "
+"киргизип, андан соң \"Жөнөтүү\" баскычын басыңыз."
+
+msgid "orcid.noData"
+msgstr "ORCID’ден маалымат табылган жок."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Электрондук почта дареги же ORCID iD:"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API Орнотуулары"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "жашыруун"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"ORCID API кирүү мүмкүнчүлүгүн конфигурациялаңыз, колдонуучу жана автор "
+"профилдерине ORCID маалыматтарын алуу жана байланышкан ORCID жазууларын жаңы "
+"жарыялануулар менен жаңыртуу үчүн (ORCID мүчөлөрү үчүн гана)."
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"ORCID API хост тарабынан глобалдуу конфигурацияланган. ORCID API, Client ID "
+"жана Client Secret сайт деңгээлинде орнотулган жана бул жерден өзгөртүлө "
+"албайт. ORCID функциясын өчүрүү же бул маалыматтарды өзгөртүү үчүн сайт "
+"администраторуна кайрылыңыз."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Ачык"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Ачык Sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Мүчө"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Мүчө Sandbox"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Клиент ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Клиент Secret"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Профилге кирүү чеги"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Электрондук почта орнотуулары"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Орнотуулар сакталды"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Макала кабыл алынганда (мисалы: тексттик редакцияга жөнөтүлгөндө) "
+"авторлордон ORCID уруксатын сурануу үчүн электрондук кат жөнөтүү"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID сурам журналы"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "ORCID функциясы жазган логдордун көлөмүн тандаңыз"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Каталар"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Бардыгы"
+
+msgid "orcid.manager.settings.city"
+msgstr "Шаар"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID кирүү четке кагылды"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"ORCID жазууга кирүү {$orcidAccessScope} чеги менен берилди, жарактуулук "
+"мөөнөтү:"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Салымчыдан ORCID уруксатын сурануу үчүн электрондук кат жөнөтүү"
+
+msgid "orcid.author.deleteORCID"
+msgstr "ORCID iD жана кирүү токенин өчүрүү!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Ырасталган ORCID iD суроо үчүн төмөндү караңыз"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID iD ырасталган эмес! Салымчыдан ырастоону суранууңуз керек."
+
+msgid "orcid.unauthenticated"
+msgstr "(ырасталган эмес)"
+
+msgid "orcid.verify.title"
+msgstr "ORCID Уруксаты"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Материал сиздин ORCID жазууңузга кошулду."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Материал сиздин ORCID жазууңузга кошулган жок."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Материал жарыяланганда сиздин ORCID жазууңузга кошулат."
+
+msgid "orcid.verify.success"
+msgstr "Сиздин ORCID iD текшерилди жана материалга ийгиликтүү байланыштырылды."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Эми сиз автоматтык түрдө {$contextName} барагына багытталасыз."
+
+msgid "orcid.verify.failure"
+msgstr "Сиздин ORCID iD текшерилген жок. Шилтеме жараксыз болуп калды."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Бул материал үчүн ORCID iD мурунтан сакталган."
+
+msgid "orcid.verify.denied"
+msgstr "Сиз ORCID жазууңузга кирүүгө уруксат берүүдөн баш тарттыңыз."
+
+msgid "orcid.authFailure"
+msgstr "ORCID уруксат шилтемеси мурунтан колдонулган же жараксыз."
+
+msgid "orcid.invalidClient"
+msgstr "Клиенттин маалыматы жараксыз"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Өз атыңызды, ORCID iD жана материалдын деталдарын көрсөтүп, журнал "
+"менеджерине кайрылыңыз."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "ORCID iD түзүү же туташтыруу"
+
+msgid "orcid.authorise"
+msgstr "ORCID iD’ни ыйгарым укук берүү жана туташтыруу"
+
+msgid "orcid.about.title"
+msgstr "ORCID деген эмне?"
+
+msgid "orcid.manager.context.enabled"
+msgstr "ORCID функциясын иштетүү"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID — бул көз карандысыз коммерциялык эмес уюм, ал туруктуу "
+"идентификаторду – ORCID iD’ни берет, ал сизди башка изилдөөчүлөрдөн "
+"айырмалап турат жана изилдөө натыйжаларыңызды жана иш-аракеттериңизди iD’ге "
+"байланыштыруу механизмин камсыз кылат. ORCID басып чыгаруучулар, "
+"каржылоочулар, уюмдар жана башка изилдөө кызматтары колдонгон көптөгөн "
+"системаларга интеграцияланган. Көбүрөөк маалымат алуу үчүн https://orcid.org."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Эмне үчүн жана кантип ORCID iD чогултабыз?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Бул сайт сиздин ORCID iD’ни чогултат, ошентип биз жана кеңири коомчулук "
+"сизди туура аныкталган жана жарыяланууларыңызга байланышкан деп ишене "
+"алабыз. Бул сиздин бардык эмгектериңизге болгон байланышты карьераңыз бою "
+"сактап калат.<br>\n"
+"\tORCID терезесиндеги “Authorize” баскычын басканда, биз сизден iD’ни "
+"ырасталган процесс аркылуу бөлүшүүнү сурайбыз — ORCID iD түзүү же эгерде "
+"сизде мурунтан бар болсо, ORCID аккаунтуңузга кирип, бизге ORCID iD’ни алуу "
+"үчүн уруксат бересиз. Бул сизди туура аныктоо жана коопсуз туташтыруу үчүн "
+"жасалат.<br>\n"
+"\tКөбүрөөк маалымат алуу үчүн <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Кирүүнүн өзгөчөлүгү эмнеде</a>.<br>\n"
+"Бул сайт ырасталган авторлордун жана тең авторлордун iD’лерин колдонуучу "
+"профилинде жана авторлук көрсөтүлгөн жерлерде чогултат жана көрсөтөт."
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Бул сайт сиздин ORCID iD’ни чогултат, ошентип биз жана кеңири коомчулук "
+"сизди туура аныкталган жана жарыяланууларыңызга байланышкан деп ишене "
+"алабыз. Бул сиздин бардык эмгектериңизге болгон байланышты карьераңыз бою "
+"сактап калат.<br>\n"
+"\tORCID терезесиндеги “Authorize” баскычын басканда, биз сизден iD’ни "
+"ырасталган процесс аркылуу бөлүшүүнү сурайбыз — ORCID iD түзүү же эгерде "
+"сизде мурунтан бар болсо, ORCID аккаунтуңузга кирип, бизге ORCID iD’ни алуу "
+"үчүн уруксат бересиз. Бул сизди туура аныктоо жана коопсуз туташтыруу үчүн "
+"жасалат.<br>\n"
+"\tКөбүрөөк маалымат алуу үчүн <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Кирүүнүн өзгөчөлүгү эмнеде</a>.<br>\n"
+"\tБул сайт ырасталган авторлордун жана тең авторлордун iD’лерин профилде "
+"жана авторлук көрсөтүлгөн жерлерде чогултат жана көрсөтөт. Мындан тышкары, "
+"жарыялануу метадайындары автоматтык түрдө сиздин ORCID жазууңузга жөнөтүлөт, "
+"бул сиздин жазууңузду ишенимдүү маалымат менен жаңыртып турууга жардам "
+"берет. Көбүрөөк маалымат алуу үчүн <a href=\"https://info.orcid.org/"
+"six-ways-to-make-your-orcid-id-work-for-you/\">ORCID iD’ни пайдалуу кылуунун "
+"алты жолу</a>.\n"
+
+msgid "orcid.about.display.title"
+msgstr "ORCID iD кайсы жерде көрсөтүлөт?"
+
+msgid "orcid.about.display"
+msgstr ""
+"Сиз iD’ни колдонгонуңузду жана анын ырасталганын көрсөтүү үчүн, биз ORCID iD "
+"белгисин <img src=\"https://info.orcid.org/wp-content/uploads/2020/12/"
+"ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\"0"
+"\"> сиздин атыңыздын жанында материалдын барагында жана коомдук колдонуучу "
+"профилиңизде көрсөтөбүз.<br>\n"
+"\t\tКөбүрөөк маалымат алуу үчүн <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">ORCID iD кантип көрсөтүлүшү керек</a>."
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Клиент ID жараксыз"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Клиент Secret жараксыз"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Журнал боюнча конфигурацияланган"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Клиент ID жарактуу"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Клиент ID жараксыз, киргизгениңизди текшериңиз"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Клиент Secret жарактуу"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Клиент Secret жараксыз, кирүү маалыматыңызды текшериңиз"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Салымчылар үчүн кайталанган ORCID’дер табылды."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Бул ролду түбөлүк өчүрүүнү каалайсызбы? Бул аракет колдонуучунун бул ролго "
+"байланышкан бардык маалыматтарга жана уруксаттарга кирүүсүн токтотот."
+
+msgid "user.futureRole.notification.message"
+msgstr "Сиздин ролуңуз {$roleStartDate} күнү башталат"
+
+msgid "user.disabledModal.title"
+msgstr "{$fullName} өчүрүү"
+
+msgid "user.enabledModal.title"
+msgstr "{$fullName} иштетүү"
+
+msgid "user.bioStatement"
+msgstr "Биографиялык билдирүү"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Бул ролду өчүрө албайсыз. Колдонуучуга кеминде бир роль дайындалышы керек."

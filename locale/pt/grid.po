@@ -1,23 +1,24 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/grid/pt_PT/>\n"
-"Language: pt_PT\n"
+"PO-Revision-Date: 2026-02-24 19:15+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
-msgstr "Sem Itens"
+msgstr "Sem itens"
 
 msgid "grid.settings"
 msgstr "Configurações"
@@ -726,3 +727,33 @@ msgstr "Nas Listas de Navegação"
 
 msgid "grid.action.editContributor"
 msgstr "Editar Colaborador"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Assim que o utilizador estiver activo, recuperará o acesso ao site e poderá "
+"convidá-lo para funções, conforme necessário."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Adicionar sugestão de revisor"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Eliminar sugestão de revisor"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Tem a certeza que pretende remover esta sugestão? Esta acção não pode ser "
+"anulada."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Aparecer no cabeçalho"
+
+msgid "grid.user.remove"
+msgstr "Remover utilizador"
+
+msgid "grid.user.logInAs"
+msgstr "Iniciar sessão como"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Note que, uma vez desativado um utilizador, não poderá adicioná-lo a nenhuma "
+"função até que seja reativado."

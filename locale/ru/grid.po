@@ -1,20 +1,21 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2023-04-24 10:26+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/ru/"
 ">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Нет элементов"
@@ -730,3 +731,32 @@ msgstr "В списки просмотра"
 
 msgid "grid.action.editContributor"
 msgstr "Редактировать поддерживающего"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Добавить предложение рецензента"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Удалить предложение рецензента"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Вы уверены, что хотите удалить это предложение? Это действие нельзя отменить."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Отображать в выходных данных"
+
+msgid "grid.user.logInAs"
+msgstr "Войти как"
+
+msgid "grid.user.remove"
+msgstr "Удалить пользователя"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"После того как пользователь будет активирован, он снова получит доступ к "
+"сайту, и вы сможете пригласить его к нужным ролям."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Обратите внимание: после того как пользователь будет отключён, вы не сможете "
+"назначить ему какие-либо роли, пока он снова не будет активирован."

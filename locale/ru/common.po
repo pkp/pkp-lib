@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ru/>\n"
 "Language: ru\n"
@@ -1969,7 +1970,6 @@ msgstr "Статус раунда {$round}"
 msgid "notification.type.editorialReport"
 msgstr "Сводный отчёт по статистике."
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Напоминаем Вам о необходимости проверить состояние Вашего журнала с помощью "
@@ -2318,3 +2318,97 @@ msgstr "Выделения"
 
 msgid "common.sandbox"
 msgstr "Приложение, запущенное в режиме «песочницы»."
+
+msgid "common.changeLanguage"
+msgstr "Изменить язык"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Просмотреть <a href=\"{$url}\">Редакционную историю</a>"
+
+msgid "common.moreActions"
+msgstr "Дополнительные действия"
+
+msgid "common.editorialMasthead"
+msgstr "Редакционная шапка"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Рецензенты за предыдущие годы"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Редакция выражает признательность рецензентам за {$year}, перечисленным ниже."
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Рецензенты за прошлый год"
+
+msgid "common.editorialHistory"
+msgstr "Редакционная история"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Просмотреть профиль ORCID {$name}"
+
+msgid "common.assignments"
+msgstr "Назначения"
+
+msgid "common.yesContinue"
+msgstr "Да, продолжить"
+
+msgid "common.editorialHistory.page.description"
+msgstr "В этом разделе перечислены прошлые участники."
+
+msgid "common.filtersClear"
+msgstr "Очистить фильтры"
+
+msgid "navigation.dashboards"
+msgstr "Панель редактора"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Обнаружена 1 ошибка! Пожалуйста, исправьте её ниже, прежде чем продолжить."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Обнаружено {$count} ошибок! Пожалуйста, исправьте их ниже, прежде чем "
+"продолжить."
+
+msgid "navigation.reviewAssignments"
+msgstr "Мои назначения в качестве рецензента"
+
+msgid "navigation.mySubmissions"
+msgstr "Мои отправки как автора"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Рецензия принята [дата]"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Рецензия отправлена [дата]"
+
+msgid "common.viewMoreDetails"
+msgstr "Просмотреть подробности"
+
+msgid "validator.multilingual"
+msgstr "Многоязычное требование для этого поля не выполнено."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.editorialHistory.page"
+msgstr "Страница редакционной истории"
+
+msgid "validator.date.comparison"
+msgstr "Указаны недопустимые даты для сравнения."
+
+msgid "common.numero"
+msgstr "№"
+
+msgid "common.refreshingData"
+msgstr "Обновление данных"
+
+msgid "common.showingXofX"
+msgstr "Показано <strong>{$start} по {$finish}</strong> из {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Загружено"

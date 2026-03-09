@@ -1,0 +1,3148 @@
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:26+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "submission.source.tip"
+msgstr ""
+"Бул материал башка булактан алынганбы? Эгер ошондой болсо, ошол булактын URL "
+"же сүрөттөмөсүн киргизсеңиз болот."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Кааласаңыз, бул материалга байланыштуу жеткиликтүүлүк укуктары жөнүндө "
+"кыскача билдирүү киргизсеңиз болот."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Материалыңыз үчүн кошумча маалымат кошуңуз. Ар бир терминден кийин 'enter' "
+"басыңыз."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Редакциялык байланыш үчүн негизги контакт."
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "JATS файлын өчүрүү"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Рецензия {$days} күнгө кечикти"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Ревизиялар жүктөлдү"
+
+msgid "submission.noReviewAssignments"
+msgstr "Рецензия тапшырмалары жок"
+
+msgid "submission.notes.addNewNote"
+msgstr "Жаңы эскертме кошуу"
+
+msgid "submission.notes.attachedFile"
+msgstr "Тиркелген файл"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Материал эскертмелерине кайтуу"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Эскертмелер"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Бардык эскертмелерди тазалоо"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Эскертмелерди жыйруу"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Бардык материал эскертмелерин өчүрүүнү каалайсызбы?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Бул материал эскертмесин өчүрүүнү каалайсызбы?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Жаңы эскертме түзүү"
+
+msgid "submission.notes.deleteNote"
+msgstr "Эскертмени өчүрүү"
+
+msgid "submission.notes.editNote"
+msgstr "Эскертмени түзөтүү"
+
+msgid "submission.notes.expandNotes"
+msgstr "Эскертмелерди кеңейтүү"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Материал эскертмелери жок"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Жүктөлгөн файлды өчүрүү"
+
+msgid "submission.notes"
+msgstr "Материал эскертмелери"
+
+msgid "submission.notes.updateNote"
+msgstr "Эскертмени жаңыртуу"
+
+msgid "submission.notes.viewNotes"
+msgstr "Эскертмелерди көрүү"
+
+msgid "submission.originalFile"
+msgstr "Баштапкы файл"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Түзөтүү"
+
+msgid "submission.page.history"
+msgstr "#{$id} Тарых"
+
+msgid "submission.page.review"
+msgstr "#{$id} Рецензия"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Кыскача маалымат"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Шилтемелер"
+
+msgid "submission.peerReview"
+msgstr "Тең&nbsp;рецензиялоо"
+
+msgid "submission.production"
+msgstr "Продакшн"
+
+msgid "submission.recommendation"
+msgstr "Сунуш: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Четке кагылды"
+
+msgid "submission.request"
+msgstr "Сураныч"
+
+msgid "submission.response"
+msgstr "Жооп"
+
+msgid "submission.restrictions"
+msgstr "Чектөөлөр"
+
+msgid "submission.reviewMetadata"
+msgstr "Метамаалыматты рецензиялоо"
+
+msgid "submission.review"
+msgstr "Рецензия"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Рецензиялап жана тапшыруу"
+
+msgid "submission.reviewed"
+msgstr "Рецензияланган"
+
+msgid "submission.reviewVersion"
+msgstr "Рецензия версиясы"
+
+msgid "submission.rights"
+msgstr "Укуктар"
+
+msgid "submissions.active"
+msgstr "Активдүү"
+
+msgid "submissions.archived"
+msgstr "Архивделген"
+
+msgid "submission.saveMetadata"
+msgstr "Метамаалыматты сактоо"
+
+msgid "submissions.completed"
+msgstr "Аяктады"
+
+msgid "submissions.declined"
+msgstr "Четке кагылды"
+
+msgid "submissions.incomplete"
+msgstr "Толук эмес"
+
+msgid "submissions.noSubmissions"
+msgstr "Материалдар жок"
+
+msgid "submissions.queuedEditing"
+msgstr "Түзөтүүдө"
+
+msgid "submissions.queued"
+msgstr "Кезекте"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Бул материалга редактор дайындалган жок."
+
+msgid "submissions.ruling"
+msgstr "Чечим"
+
+msgid "submission.source"
+msgstr "Булак"
+
+msgid "submissions.submit"
+msgstr "Тапшыруу"
+
+msgid "submissions.submitted"
+msgstr "Тапшырылды"
+
+msgid "submission.submission"
+msgstr "Материал"
+
+msgid "submission.submissionTitle"
+msgstr "Материалдын аталышы:"
+
+msgid "submission.start"
+msgstr "Баштоо"
+
+msgid "submission.submissionHistory"
+msgstr "Материал тарыхы"
+
+msgid "submission.submissionManuscript"
+msgstr "Материалдын кол жазмасы"
+
+msgid "submission.submissionReview"
+msgstr "Материалды рецензиялоо"
+
+msgid "submission.submitter"
+msgstr "Тапшырган"
+
+msgid "submission.submit.selectFile"
+msgstr "Файлды тандоо"
+
+msgid "submission.submit.fileInformation"
+msgstr "Файл маалыматы"
+
+msgid "submission.submit.fileAdded"
+msgstr "Файл кошулду"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Жарыялардын тизмесинде авторлорду аныктоодо бул салымчыны кошуу."
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Жарыялар тизмеси"
+
+msgid "submission.submit.newFile"
+msgstr "Дагы бир файл кошуу"
+
+msgid "submission.submit.metadataForm"
+msgstr "Кошумча тактоолор"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Материалдын тили"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Материалдын негизги тилин тандаңыз."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Материал файлдары"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Кошумча файлдар"
+
+msgid "submission.manageDependentFiles"
+msgstr "Кошумча файлдарды башкаруу"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Редакциялык топ материалды баалоо үчүн керектүү бардык файлдарды жүктөңүз."
+
+msgid "submission.upload.percentComplete"
+msgstr "Жүктөө {$percent}% аяктады"
+
+msgid "submission.upload.dependent"
+msgstr "Кошумча файлды жүктөө"
+
+msgid "submission.upload.query"
+msgstr "Талкуу файлын жүктөө"
+
+msgid "submission.summary"
+msgstr "Кыскача маалымат"
+
+msgid "submission.supportingAgencies"
+msgstr "Колдогон агенттиктер"
+
+msgid "submission.currentAgencies"
+msgstr "Учурдагы агенттиктер"
+
+msgid "submission.indexingInformation"
+msgstr "Индекстөө маалыматы"
+
+msgid "submission.titleAndAbstract"
+msgstr "Аталыш жана анотация"
+
+msgid "submission.underway"
+msgstr "Уланууда"
+
+msgid "submission.uploadFileTo"
+msgstr "Файлды жүктөө жери"
+
+msgid "submission.createRemote"
+msgstr "Алыскы түзүү"
+
+msgid "submission.viewMetadata"
+msgstr "Метамаалыматты көрүү"
+
+msgid "submission.views"
+msgstr "Көрүүлөр"
+
+msgid "submission.uploadSuccessful"
+msgstr "Файлыңыз жүктөлдү."
+
+msgid "submission.loadMessage"
+msgstr "Файл серверге жүктөлүп жатканда күтө туруңуз."
+
+msgid "submission.artworkFileDetails"
+msgstr "Иллюстрация файл маалыматы"
+
+msgid "submission.fileDetails"
+msgstr "Файл маалыматы"
+
+msgid "submission.nameRequired"
+msgstr "Бул элемент үчүн ат талап кылынат."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "submission.submit.contributorRole"
+msgstr "Салымчынын ролу"
+
+msgid "submission.submit.addAuthor"
+msgstr "Салымчы кошуу"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Тилди киргизиңиз."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Тема киргизиңиз."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Тармакты киргизиңиз."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Ачкыч сөз киргизиңиз."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Камтуу маалыматын киргизиңиз."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Түрүн киргизиңиз."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Булакты киргизиңиз."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Укуктарды киргизиңиз."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Шилтемелерди киргизиңиз."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Маалымат жеткиликтүүлүгү боюнча билдирүүнү киргизиңиз."
+
+msgid "submission.form.name"
+msgstr "Файлга ат бериңиз (мисалы: Кол жазма; Таблица 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Бар болгон файлды алмаштырасызбы?"
+
+msgid "workflow.review.internalReview"
+msgstr "Ички рецензия"
+
+msgid "workflow.stage.any"
+msgstr "Каалаган стадия"
+
+msgid "workflow.stage"
+msgstr "Стадия"
+
+msgid "submission.status.editorial"
+msgstr "Тексттик редакцияда"
+
+msgid "submission.status.production"
+msgstr "Корректурада"
+
+msgid "submission.status.review"
+msgstr "Рецензияда"
+
+msgid "submission.status.submission"
+msgstr "Редактордун чечимин күтүп жатат"
+
+msgid "submission.status.unassigned"
+msgstr "Дайындалган жок"
+
+msgid "submission.status.declined"
+msgstr "Четке кагылды"
+
+msgid "submission.status.published"
+msgstr "Жарыяланды"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Файл жүктөө"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Материал файлын жүктөө"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Деталдарды карап чыгуу"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Ырастоо"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Бул файл үчүн ат киргизишиңиз керек"
+
+msgid "submission.upload.noGenre"
+msgstr "Компонент жок же жараксыз!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Колдонуучу тобу жок же жараксыз!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Мүмкүн болгон кайталануу же ревизия аныкталды"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Жүктөлгөн файлдын аты мурун жүктөлгөн файлдын атына окшош, \""
+"{$revisedFileName}.\" Бул файл \"{$revisedFileName}\" файлын алмаштыруу "
+"үчүнбү? Эгер ошондой болсо, төмөнкү файлды тандаңыз. Болбосо, \"Бул бар "
+"болгон файлдын ревизиясы эмес\" дегенди тандап андан ары улантыңыз."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Ревизиялагыңыз келген файлды тандаңыз."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Жаңы редакциялык сунуштар тапшырылды."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Бардык сунуштар тапшырылды жана чечим талап кылынат."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Рецензияга кайра жөнөтүлдү."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "{$stage} стадиясында {$days} күндөн ашык активдүү эмес."
+
+msgid "editor.submission.recommendation.display"
+msgstr "Сунуш: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Сунуштар: {$recommendations}"
+
+msgid "notification.type.indexRequest"
+msgstr "Сизден \"{$title}\" үчүн индекс түзүү суралды."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Акыркы редактордук чечим."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Материал кабыл алынды."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Тышкы рецензия процесси башталды."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Ревизия талап кылынат."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Рецензияга кайра тапшыруу."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Жаңы рецензия айлампасы башталды."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Материал четке кагылды."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Четке кагылган материал кайра активдештирилди."
+
+msgid "notification.uploadedResponse"
+msgstr "Жооп жүктөлдү."
+
+msgid "submission.queries.review"
+msgstr "Рецензия талкуулары"
+
+msgid "submission.queries.editorial"
+msgstr "Тексттик редакция талкуулары"
+
+msgid "submission.query.subject"
+msgstr "Тема"
+
+msgid "submission.query.messages"
+msgstr "Билдирүүлөр"
+
+msgid "submission.query.replies"
+msgstr "Жооптор"
+
+msgid "submission.query.from"
+msgstr "Кимден"
+
+msgid "submission.query.lastReply"
+msgstr "Акыркы жооп"
+
+msgid "submission.query.closed"
+msgstr "Жабылды"
+
+msgid "submission.query.addNote"
+msgstr "Билдирүү кошуу"
+
+msgid "submission.query.leaveQuery"
+msgstr "Талкуудан чыгуу"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Эгер бул талкуудан чыксаңыз, жаңы билдирүүлөр жөнүндө кабарланбай каласыз. "
+"Чыгууну каалайсызбы?"
+
+msgid "grid.action.openNoteForm"
+msgstr "Талкууга жаңы жооп кошуу"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} {$noteTitle} темасына жооп берди: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} талкууну баштады: {$noteTitle}: {$noteContents}"
+
+msgid "catalog.category.noItems"
+msgstr "Бул категорияда азырынча эч нерсе жарыяланган жок."
+
+msgid "catalog.category.subcategories"
+msgstr "Ички категориялар"
+
+msgid "publication.contributors"
+msgstr "Салымчылар"
+
+msgid "publication.createVersion"
+msgstr "Жаңы версия түзүү"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Дата YYYY-MM-DD форматында болушу керек, мисалы 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "Жаңы версия түзүлдү."
+
+msgid "publication.publicationLicense"
+msgstr "Уруксаттар жана ачыктоо"
+
+msgid "publication.status.scheduled"
+msgstr "Жосполонгон"
+
+msgid "publication.status.unpublished"
+msgstr "Жарыяланбаган"
+
+msgid "publication.titleAbstract"
+msgstr "Аталыш жана анотация"
+
+msgid "publication.unschedule"
+msgstr "Жосполду жокко чыгаруу"
+
+msgid "publication.urlPath"
+msgstr "URL жолу"
+
+msgid "publication.urlPath.description"
+msgstr "ID ордуна URLде колдонулуучу кошумча жол."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Бул URL жолу мурун колдонулган жана кайра колдонулбайт."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL жолу сан болбошу керек."
+
+msgid "publication.version.all"
+msgstr "Бардык версиялар"
+
+msgid "publication.version.confirm"
+msgstr "Жаңы версия түзүүнү каалайсызбы?"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Рецензиялар тапшырылды"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Рецензиялар кечикти"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Бардыгы тексттик редакция стадиясында"
+
+msgid "submission.dashboard.view.production"
+msgstr "Бардыгы продакшн стадиясында"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Жарыяланууга пландалды"
+
+msgid "submission.dashboard.view.published"
+msgstr "Жарыяланды"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Четке кагылды"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Ревизиялар суралды"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Автордун ревизиялары тапшырылды"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Толук эмес материалдар"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Бардык тапшырмалар"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Күтүүдө"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Аяктады / Четке кагылды"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Бардык тапшырмалар"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Менден аракет талап кылынат"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Архивделди"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Четке кагылды"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Аяктады"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Жарыяланды"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Рецензия (Айлампа {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Жарыяланууга пландалды"
+
+msgid "submission.stage.published"
+msgstr "Жарыяланды"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "JATS XML өчүрүүнү ырастоо"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Мөөнөтүн түзөтүү"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Сунушту көрүү"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Окула элек сунушту көрүү"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Рецензияны ORCIDге жөнөтүү"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Бул рецензияны рецензенттин ORCIDине жөнөтөсүзбү?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "{$stageName} стадиясында четке кагылды."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Сунуш берүүчү редакторлор бул материал үчүн кийинки кадамдарды сунуштоого "
+"милдеттүү"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Редакциялык сунуш алынды"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Өчүрүлө турган толук эмес материалдарды тандаңыз."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Толук эмес материалдарды өчүрүү"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Учурдагы тапшырманын тили:"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Жаңы рецензиялар тапшырылды жана редактор тарабынан каралууда."
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Жарактуу серияны киргизиңиз."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Кошумча"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Жарактуу кошумчаны киргизиңиз."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Конференция датасы"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Жарактуу конференция датасын киргизиңиз (формат: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Конференция жайгашкан жери"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Жарактуу конференция жайгашкан жерди киргизиңиз."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Конференциянын аталышы"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Жарактуу конференция аталышын киргизиңиз."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Конференциянын демөөрчүсү"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Жарактуу конференция демөөрчүсүн киргизиңиз."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Уюм"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Жарактуу уюмду киргизиңиз."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Биринчи бет"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Жарактуу биринчи бетти киргизиңиз (сандык мааниси болушу керек)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Акыркы бет"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Жарактуу акыркы бетти киргизиңиз (сандык мааниси болушу керек)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Беттердин саны"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Жарактуу жалпы бет санын киргизиңиз (сандык мааниси болушу керек)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Басып чыгаруучунун жайгашкан жери"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Жарактуу басып чыгаруучунун жайгашкан жерин киргизиңиз."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Басып чыгаруучунун аты"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Жарактуу басып чыгаруучунун атын киргизиңиз."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Жарактуу ISBN киргизиңиз (9 же 13 сан)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Басма ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Жарактуу басма ISSN киргизиңиз."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Жарактуу eISSN киргизиңиз."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Жарактуу DOI киргизиңиз."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Ыңгайлаштырылган жарыя ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Жарактуу ыңгайлаштырылган жарыя ID киргизиңиз."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Жарактуу CODEN киргизиңиз."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Жарактуу SICI киргизиңиз."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Жарактуу PMID киргизиңиз."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Жарыяга шилтеме"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Жарыяга жарактуу альтернативалуу шилтемени киргизиңиз."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Анотация"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Жарактуу анотация киргизиңиз."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Жарыя түрү"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Ар дайым жарыя түрүн белгилеңиз. Учурда колдоого алынган маанилер: китеп ("
+"китептер же бөлүмдөр үчүн) жана журнал (журнал макалалары үчүн). Болбосо "
+"шилтеме форматтоо туура иштебейт."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Аталыш түрү"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Жарактуу аталыш түрүн белгилеңиз. Колдоого алынган маанилер: 'кыска', "
+"'котормо', 'альтернативдүү' жана 'бирдиктүү'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Сорттоодо эске алынбаган аталыш бөлүгү"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Сорттоодо эске алынбашы керек болгон аталыштын башкы тамгаларын гана "
+"киргизиңиз."
+
+msgid "metadata.property.displayName.title"
+msgstr "Аталыш"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Жарактуу аталышты киргизиңиз."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Кошумча аталыш"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Жарактуу кошумча аталышты киргизиңиз."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Бөлүк номери"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Жарактуу бөлүк номерин киргизиңиз."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Бөлүк аты"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Жарактуу бөлүк атын киргизиңиз."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Ат түрү"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Жарактуу ат түрүн белгилеңиз. Колдоого алынган маанилер: 'жеке', 'уюмдук' "
+"жана 'конференциялык'."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Анотация"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Дайындалбаган"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Менин дайындалгандарым"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Архивделген материалдар"
+
+msgid "submission.authors"
+msgstr "Авторлор"
+
+msgid "submission.authorBiography"
+msgstr "Автордун биографиясы"
+
+msgid "submission.authorBiographies"
+msgstr "Авторлордун биографиялары"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} ж.б."
+
+msgid "submission.representationOfTitle"
+msgstr "{$title} аталышынын {$representation}"
+
+msgid "submission.mySubmissions"
+msgstr "Менин материалдарым"
+
+msgid "submission.addFile"
+msgstr "Файл жүктөө"
+
+msgid "submission.additionalFiles"
+msgstr "Кошумча файлдар"
+
+msgid "submission.agencies"
+msgstr "Агенттиктер"
+
+msgid "submission.abstractViews"
+msgstr "Анотация көрүүлөрү"
+
+msgid "submission.accepted"
+msgstr "Кабыл алынган"
+
+msgid "submission.acknowledge"
+msgstr "Ырастоо"
+
+msgid "submission.ask"
+msgstr "Суроо"
+
+msgid "submission.attachedFile"
+msgstr "Тиркелген файл"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Материалды түзөтүүгө кайтуу"
+
+msgid "submission.changeComments"
+msgstr "Төмөнкүсүнө өзгөртүү"
+
+msgid "submission.changeFile"
+msgstr "Файлды өзгөртүү"
+
+msgid "submission.citations"
+msgstr "Шилтемелер"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$userFullName} ({$username}) бул материалга {$userGroupName} катары "
+"дайындалды."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$userFullName}\" ({$username}) {$userGroupName} катары өчүрүлдү."
+
+msgid "submission.event.backToEventLog"
+msgstr "Окуя журналына кайтуу"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Бул материал үчүн окуя журналын тазалоону каалайсызбы?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Бул окуя журналынын жазуусун өчүрүүнү каалайсызбы?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Журнал жазуусун өчүрүү"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Бул версткага стилдик файл кошулган жок."
+
+msgid "submission.layout.newGalley"
+msgstr "Жаңы верстка түзүү"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Материал версткасын көрүү"
+
+msgid "submission.layout.viewProof"
+msgstr "Далилди көрүү"
+
+msgid "submission.metadata"
+msgstr "Материалдын метамаалыматы"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Эң жакшы натыйжа үчүн редакторлорду төмөнкү форматта киргизүү керек: Coleman "
+"Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Макаланын/Эмгектин аталышы"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Жарактуу макала/эмгек аталышын киргизиңиз."
+
+msgid "author.editPublishedDisabled"
+msgstr "Бул материал мурунтан жарыялангандыктан авторлорду түзөтүүгө болбойт."
+
+msgid "author.publicationNotFound"
+msgstr "Бул автор үчүн материал табылган жок."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Бул материалда колдонулган эмгектердин форматталган шилтемелер тизмесин "
+"бериңиз. Ар бир шилтемени бош сап менен бөлүңүз."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Комментарий"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Жарактуу комментарий киргизиңиз."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Баштапкы материал тапшыруу аяктады."
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Рецензия тапшырмасы башталды"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Рецензия сунуш файлы"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Рецензия тапшырмасы кайра башталды"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Рецензия кайра тапшырылды"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Электрондук кат жөнөтүлдү:"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Окуя журналы"
+
+msgid "submission.history.submissionNotes"
+msgstr "Материал эскертмелери"
+
+msgid "submission.history.viewLog"
+msgstr "Журналды көрүү"
+
+msgid "submission.howToCite"
+msgstr "Кантип шилтеме берүү керек"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Кошумча шилтеме форматтары"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Шилтемени жүктөө"
+
+msgid "submission.initiated"
+msgstr "Башталган"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — {$dateUpdated} күнү жаңыртылды"
+
+msgid "submission.versions"
+msgstr "Версиялар"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Башкаруу панелине кайтуу"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Өзгөртүү"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Тапшырманын тилин өзгөртүү үчүн"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Бул негизги тапшырма тили. Аны өзгөртүү тапшырмага жана киргизилген "
+"метадайындарга таасир этет."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Тапшырманын тилин өзгөртүүдөн мурун системанын бүтүндүгүн сактоо "
+"үчүн төмөнкү метадайын талааларын толтурганыңызды текшериңиз. Ошондой эле, "
+"катышуучулар тууралуу маалымат жана файл аттары мурда киргизилген "
+"маалыматтан көчүрүлөрүн эске алыңыз.</strong>\""
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"{$language} тилинде тапшырманын аталышын бул жерге киргизиңиз. Аталышты "
+"керектүүдөй форматтай аласыз."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"{$language} тилинде аннотацияны кошуу сунушталат. Бул мазмундун "
+"жеткиликтүүлүгүн камсыз кылууга жардам берет."
+
+msgid "submission.list.infoCenter"
+msgstr "Иш-аракет журналы жана эскертмелер"
+
+msgid "submission.list.empty"
+msgstr "Тапшырмалар табылган жок."
+
+msgid "submission.list.responseDue"
+msgstr "Жооп берүү мөөнөтү: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Кароо тапшырмасы"
+
+msgid "submission.list.reviewDue"
+msgstr "Кароо мөөнөтү: {$date}"
+
+msgid "metadata.property.displayName.series"
+msgstr "Серия"
+
+msgid "submission.supplementary.publisher"
+msgstr "Басып чыгаруучу"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Салымчы же демөөрчү агенттик"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Бул материалдын иш агымына өтүү"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Продакшн процесси башталды."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Продакшн процесси башталаардан мурун продакшн редактор дайындалышы керек. "
+"Катышуучулар тизмесинен продакшн редактор кошуңуз."
+
+msgid "submission.queries.submission"
+msgstr "Рецензияга чейинки талкуулар"
+
+msgid "category.category"
+msgstr "Категориялар"
+
+msgid "category.coverImage"
+msgstr "Капкак сүрөтү"
+
+msgid "submission.submit.placement.categories"
+msgstr "Категориялар"
+
+msgid "submission.currentCoverImage"
+msgstr "Учурдагы сүрөт"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Бир же бир нече рецензент мөөнөтүн өткөрүп жиберди. Редакциялык топ кабардар "
+"жана рецензиялар толук аткарылышын камсыз кылат. Учурда сизден эч кандай "
+"аракет талап кылынбайт. Чечим кабыл алынганда сизге кабар берилет."
+
+msgid "author.authorNotFound"
+msgstr "Бул тиешелүүлүк үчүн автор табылган жок."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "ROR тиешелүүлүгүн же жок дегенде бир тиешелүүлүк атын бериңиз."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Материалдын негизги тилинде тиешелүүлүк атын бериңиз."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Эскертүү: Бул версия мурунтан жарыяланган. Аны түзөтүү жарыяланган мазмунга "
+"таасир этет."
+
+msgid "ror.nameRequired"
+msgstr "ROR аты талап кылынат."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR көрсөтүү тили талап кылынат."
+
+msgid "submission.authors.label"
+msgstr "Авторлор"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Тапшырманы төмөнкүдөй тапшыруу"
+
+msgid "submission.author.list"
+msgstr "Публикациянын авторлорунун тизмеси"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Бул материалга кошкон салымыңызды эң жакшы сүрөттөгөн ролду тандаңыз."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Эгер материалды өзүңүз түзөтүп жана жарыялагыңыз келсе, редакциялык ролду "
+"тандаңыз."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Материал талаптары"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Бардык материалдар төмөнкү талаптарга жооп бериши керек."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Ооба, менин материалым бул талаптардын бардыгына жооп берет."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Материал тапшыруу аяктады"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Материал тапшыруу токтотулду"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Материал тапшырууну токтотуу"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Материал тапшыруу токтотулду жана бардык байланышкан маалыматтар өчүрүлдү."
+
+msgid "submission.submit.genre.label"
+msgstr "Бул кандай файл?"
+
+msgid "submission.submit.genre.description"
+msgstr "Бул файлды эң жакшы сүрөттөгөн параметрди тандаңыз."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Бул файлды өчүрүүнү каалайсызбы?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Азырынча сиз төмөнкүлөрдү кыла аласыз:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Бул материалды карап чыгуу"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Жаңы материал түзүү"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Кеңейтилген метамаалымат"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Crossref каттоо электрондук почтасы"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Жарактуу басылышты киргизиңиз."
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Жарактуу Crossref каттоо электрондук почтасын киргизиңиз. Электрондук "
+"почтаны Crossref веб-сайтынан акысыз каттасаңыз болот."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API ачкычы"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"ISBNdb API ачкычыңызды киргизиңиз. Эгерде ачкычыңыз жок болсо, аны ISBNdb "
+"долбоорунан акысыз сурасаңыз болот."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed каттоо электрондук почтасы"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+"Эгерде бар болсо, жарактуу PubMed каттоо электрондук почтасын киргизиңиз."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API ачкычы"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Эгерде бар болсо, жарактуу WorldCat API ачкычын киргизиңиз."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Шилтеме модулу"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Берилген шилтеме модулдарынан бирин тандаңыз."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Демейки боюнча колдонбоо (редактор үчүн жеткиликтүү бойдон калат)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Ички ката. 'optional filter' орнотуусу үчүн жараксыз мааниси берилди. Бул "
+"катаны баг катары билдириңиз."
+
+msgid "metadata.property.displayName.author"
+msgstr "Авторлор"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Эң жакшы натыйжа үчүн авторлорду төмөнкү форматта киргизүү керек: Coleman "
+"Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Редакторлор"
+
+msgid "metadata.property.displayName.source"
+msgstr "Жарыялануу аталышы"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Жарактуу жарыялануу аталышын киргизиңиз."
+
+msgid "metadata.property.displayName.date"
+msgstr "Жарыялануу датасы"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Жарактуу жарыялануу датасын киргизиңиз (формат: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Кирүү датасы"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Жарактуу кирүү датасын киргизиңиз (формат: YYYY-MM-DD)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Чыгарылыш"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Жарактуу чыгарылышты киргизиңиз."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Том"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Жарактуу томду киргизиңиз."
+
+msgid "metadata.property.displayName.season"
+msgstr "Мезгил"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Жарактуу мезгил идентификаторун киргизиңиз."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Бөлүмдүн аталышы"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Жарактуу бөлүм аталышын киргизиңиз."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Басылыш"
+
+msgid "submission.citations.description"
+msgstr ""
+"Ар бир шилтемени жаңы сапка киргизиңиз, аларды өзүнчө бөлүп алуу жана жазуу "
+"үчүн."
+
+msgid "submission.parsedCitations"
+msgstr "Алынып чыккан шилтемелер"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Төмөнкү шилтемелер алынып чыкты жана материалдын метамаалыматына "
+"байланыштырылат."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Шилтемелерди алуу жана сактоо"
+
+msgid "submission.comments.addComment"
+msgstr "Комментарий кошуу"
+
+msgid "submission.comments.comments"
+msgstr "Комментарийлер"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Бул комментарийди өчүрүүнү каалайсызбы?"
+
+msgid "submission.comments.corrections"
+msgstr "Түзөтүүлөр"
+
+msgid "submission.comments.editComment"
+msgstr "Комментарийди түзөтүү"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Рецензияларды импорттоо"
+
+msgid "submission.comments.addReviews"
+msgstr "Рецензияларды электрондук катка кошуу"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Комментарийлер жок"
+
+msgid "submission.comments.noReviews"
+msgstr "Рецензиялар жок"
+
+msgid "submission.comments.review"
+msgstr "Рецензия"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Редакциялык чечимди рецензенттерге жөнөтүү"
+
+msgid "submission.comments.subject"
+msgstr "Тема"
+
+msgid "submission.complete"
+msgstr "Аяктады"
+
+msgid "submission.contributors"
+msgstr "Салымчылардын тизмеси"
+
+msgid "submission.copyedited"
+msgstr "Тексттик редакциядан өткөн"
+
+msgid "submission.copyediting"
+msgstr "Тексттик редакциялоо"
+
+msgid "submission.queryNoteFiles"
+msgstr "Талкуу файлдары"
+
+msgid "submission.coverage"
+msgstr "Камтуу маалыматы"
+
+msgid "submission.details"
+msgstr "Материалдын деталдары"
+
+msgid "submission.done"
+msgstr "Бүттү"
+
+msgid "submission.downloads"
+msgstr "Жүктөөлөр"
+
+msgid "submission.dueDate"
+msgstr "Мөөнөт датасы"
+
+msgid "submission.due"
+msgstr "Мөөнөт"
+
+msgid "submission.editing"
+msgstr "Түзөтүү"
+
+msgid "submission.editMetadata"
+msgstr "Метамаалыматты түзөтүү"
+
+msgid "submission.editorial"
+msgstr "Тексттик редакциялоо"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Электрондук кат журналына кайтуу"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Бул материал үчүн электрондук кат журналын тазалоону каалайсызбы?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Бул электрондук кат журналынын жазуусун өчүрүүнү каалайсызбы?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Журнал жазуусун өчүрүү"
+
+msgid "submission.emailLog"
+msgstr "Электрондук кат журналы"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Чечим жөнүндө электрондук кат {$recipientCount} рецензентке {$subject} "
+"темасы менен жөнөтүлдү."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+"{$filename} ({$username}) материал үчүн автордук укук шарттарына макул болду."
+
+msgid "submission.event.fileRevised"
+msgstr "Файл {$submissionFileId} үчүн \"{$filename}\" ревизиясы жүктөлдү."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Материалдын метамаалыматы жаңыртылды"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Материал файлы жаңыртылды"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Рецензия тапшырмасы прокси аркылуу кабыл алынды"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Рецензия тапшырмасы кабыл алынды"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Рецензия тапшырмасы четке кагылды"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Рецензия мөөнөт датасы өзгөртүлдү"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Материалга рецензент дайындалды"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Рецензенттин баасы тапшырылды"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Материалдан рецензент алынган жок"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Рецензия файлы жаңыртылды"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Рецензенттин түзөтүүлөр файлы жаңыртылды"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+"{$senderName} {$recipientName} рецензия тапшырмасы боюнча эскертүү жөнөттү"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+"Рецензия тапшырмасы боюнча {$recipientName} дарегине автоматтык эскертүү "
+"жөнөтүлдү"
+
+msgid "submission.event.viewEmail"
+msgstr "Электрондук катты көрүү"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Эми авторлор {stage} стадиясында материалдын метамаалыматын түзөтө алышат."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Эми авторлор {stage} стадиясында материалдын метамаалыматын түзөтө алышпайт."
+
+msgid "submission.files"
+msgstr "Файлдар"
+
+msgid "submission.files.downloadAll"
+msgstr "Бардык файлдарды жүктөө"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr "Файл түзүлгөндө жүктөөчүнүн жазуусу сакталат жана өзгөртүлө албайт."
+
+msgid "submission.firstPublished"
+msgstr "Алгач жарыяланган"
+
+msgid "submission.forTheEditors"
+msgstr "Редакторлор үчүн"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Рецензент сунушу үчүн"
+
+msgid "submission.galley"
+msgstr "Верстка (Galley)"
+
+msgid "submission.history.clearLog"
+msgstr "Журналды тазалоо"
+
+msgid "submission.history"
+msgstr "Тарых"
+
+msgid "submission.history.noLogEntries"
+msgstr "Журнал жазуулары жок."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Акыркы жазуулар"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Электрондук кат журналы"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Бул эски версия {$datePublished} күнү жарыяланган. <a href=\""
+"{$urlRecentVersion}\">Эң акыркы версияны</a> окуңуз."
+
+msgid "submission.identifiers"
+msgstr "Идентификаторлор"
+
+msgid "submission.publisherId"
+msgstr "Басып чыгаруучунун ID"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Басып чыгаруучунун ID тышкы базадан алынган ID’ни жазуу үчүн колдонулушу "
+"мүмкүн. Мисалы, PubMed’ге жүктөлгөн элементтер басып чыгаруучунун ID’син "
+"камтышы мүмкүн. Бул DOIs үчүн колдонулбашы керек."
+
+msgid "submission.publisherId.enable"
+msgstr "{$objects} үчүн иштетүү"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Материал маалыматы"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Метамаалымат"
+
+msgid "submission.informationCenter.notes"
+msgstr "Эскертмелер"
+
+msgid "submission.informationCenter.history"
+msgstr "Тарых"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Мурунку версиялардан окуяларды көрсөтүү"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Кабарлоо"
+
+msgid "submission.lastModified"
+msgstr "Акыркы өзгөртүү"
+
+msgid "submission.layout.addGalley"
+msgstr "Верстка кошуу"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Бул верстканы түбөлүк өчүрүүнү каалайсызбы?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Бул сүрөттү версткадан өчүрүүнү каалайсызбы?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Бул стилдик файлды өчүрүү."
+
+msgid "submission.layout.editGalley"
+msgstr "Верстканы түзөтүү"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Верстка форматы"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML верстка файлдары"
+
+msgid "submission.layout.galleyImages"
+msgstr "Сүрөттөр"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Верстка белгиси"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Адатта файл форматты аныктоо үчүн колдонулат (мисалы: PDF, HTML ж.б.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Верстка белгиси талап кылынат."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Верстка тили талап кылынат."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Верстка локали талап кылынат."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Алыскы URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Жарактуу алыскы URL бериңиз (http:// кошуңуз)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Сүрөттөр жок"
+
+msgid "submission.layout.galleys"
+msgstr "Версткалар"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Стилдик файл"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Стиль"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Баштапкы верстка түзүү"
+
+msgid "submission.layout.layoutFile"
+msgstr "Макет файлы"
+
+msgid "submission.layout"
+msgstr "Макет"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Макет версиясы"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Эгер бар болгон файлдын ревизиясын жүктөп жатсаңыз, кайсы файл экенин "
+"көрсөтүңүз."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Бул бар болгон файлдын ревизиясы эмес"
+
+msgid "submission.upload.userGroup"
+msgstr "Бул файлды менин ролум катары жүктөө..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Эгерде сиз редакцияланган томду тапшырып жатсаңыз, бардык том бөлүмдөрүн "
+"өзүнчө, том редактору катары жүктөшүңүз керек."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Китепкана файлын жүктөө"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Материал документ категориясы"
+
+msgid "submission.upload.finalDraft"
+msgstr "Файл жүктөө"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Редакцияланган файлды жүктөө"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Файлдарды жүктөө"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Тапшырылган файлды карап чыккандан кийин, файл боюнча комментарийлерди "
+"төмөндө жазып, жана/же файлдын анотацияланган көчүрмөсүн (же башка файлды) "
+"жүктөңүз."
+
+msgid "submission.upload.productionReady"
+msgstr "Продакшнга даяр файлды жүктөө"
+
+msgid "submission.upload.proof"
+msgstr "Жарыяланууга даяр файлды жүктөө"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Учурда ревизиялоо үчүн файлдар жок."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Рецензент сунуштары"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Ревизиялар суралды."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Ревизиялар тапшырылды жана чечим талап кылынат."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Автордон жаңы рецензия айлампасына киргизүү үчүн ревизиялар суралды."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Ревизиялар тапшырылды. Жаңы рецензия айлампасын түзүү керек."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Тышкы рецензияга жөнөтүлдү."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Материал кабыл алынды."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Материал четке кагылды."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Рецензенттер дайындалышын күтүп жатат."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Рецензенттерден жоопторду күтүп жатат."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Жаңы рецензиялар тапшырылды."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Бардык рецензиялар ырасталды жана чечим талап кылынат."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Бир рецензия мөөнөтүнөн кечикти."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Сиз сунуш киргиздиңиз."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Редакторлордун сунуштарын күтүп жатат."
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Сунушту өзгөртүү"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Жаңы материал рецензияга жөнөтүлүүнү же четке кагылууну күтүп жатат."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Катышуучулар"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Автор сунуштаган рецензенттер"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Дайындалган жок"
+
+msgid "editor.submission.participant"
+msgstr "Катышуучу"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Катышуучуну дайындоо"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Дайындоону түзөтүү"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Колдонуучулар иш агымынын стадияларына колдонуучу тобу аркылуу дайындалат. "
+"Бул стадияга дайындалган колдонуучу автоматтык түрдө анын колдонуучу тобу "
+"дайындалган башка стадияларга да дайындалат. Бул көбүнчө редакторлорго, "
+"авторлорго жана котормочуларга арналган."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Катышуучуну алып салуу"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Сиз бул катышуучуну <strong>бардык</strong> стадиялардан алып салганы "
+"жатасыз."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Колдонуучу тобун тандашыңыз керек."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Белгиленген колдонуучу тобу үчүн колдонуучуну тандашыңыз керек."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Сиз тандаган катышуучу анонимдүү рецензия жүргүзүүгө дайындалган. Эгер аны "
+"катышуучу катары дайындасаңыз, ал автордун инсандыгына кире алат. Рецензия "
+"процессинин бүтүндүгүн өз алдынча камсыздай албасаңыз, бул катышуучуну "
+"дайындабоо сунушталат."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Метамаалыматты түзөтүүгө тыюу салуу"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Метамаалыматты түзөтүүгө уруксат берүү"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Бул стадияда авторлор материалдын метамаалыматын түзөтө албай тургандай "
+"кылууну каалайсызбы?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Бул стадияда авторлор материалдын метамаалыматын түзөтө алышы үчүн уруксат "
+"берүүнү каалайсызбы?"
+
+msgid "editor.submission.decision"
+msgstr "Чечим"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Авторлорго кабарлоо"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Рецензенттерге кабарлоо"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Рецензенттерге алардын рецензиясы үчүн ыраазычылык билдирип жана чечим кабыл "
+"алынганын кабарлоо үчүн электрондук кат жөнөтүңүз. Ар бир рецензентке "
+"анонимдүүлүктү сактоо үчүн өзүнчө кат жөнөтүлөт. {$recipientName} сөзүн ар "
+"бир рецензенттин атын коопсуз киргизүү үчүн колдонсоңуз болот."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} бул материал үчүн жаңы рецензия айлампасына жөнөтүлө турган "
+"ревизияларды сурады."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Дайындалган рецензенттерге алардын рецензия тапшырмасы жокко чыгарылганын "
+"кабарлоо үчүн электрондук кат жөнөтүңүз."
+
+msgid "editor.submission.decision.accept"
+msgstr "Материалды кабыл алуу"
+
+msgid "editor.submission.decision.accept.description"
+msgstr "Бул материал жарыяланууга кабыл алынып, тексттик редакцияга жөнөтүлөт."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} бул материалды кабыл алып, тексттик редакция стадиясына "
+"жөнөттү."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Материал кабыл алынды"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Материал, {$title}, жарыяланууга кабыл алынып, тексттик редакция стадиясына "
+"жөнөтүлдү. Бардык билдирүүлөр жөнөтүлдү, сиз өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материалдары жарыяланууга кабыл алынганын кабарлоо үчүн "
+"электрондук кат жөнөтүңүз. Бул кат чечим жазылганга чейин жөнөтүлбөйт."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго рецензия айлампасы жабылганын кабарлоо үчүн электрондук кат "
+"жөнөтүңүз. Бул кат чечим жазылганга чейин жөнөтүлбөйт."
+
+msgid "editor.submission.decision.decline"
+msgstr "Материалды четке кагуу"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Бул материал жарыяланууга четке кагылат. Тең рецензия стадиясы жабылып, "
+"материал архивге жөнөтүлөт."
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} бул материалды четке какты."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Материал четке кагылды"
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"Материал, {$title}, четке кагылып, архивге жөнөтүлдү. Бардык билдирүүлөр "
+"жөнөтүлдү, сиз өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материалдары четке кагылганын кабарлоо үчүн электрондук кат "
+"жөнөтүңүз. Бул кат чечим жазылганга чейин жөнөтүлбөйт."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Бул материал жарыяланууга четке кагылат. Мындан ары рецензия жүргүзүлбөйт "
+"жана материал архивге жөнөтүлөт."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Жаңы рецензия айлампасы"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Бул материал үчүн дагы бир рецензия айлампасын ачуу."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} бул материал үчүн жаңы рецензия айлампасын түздү."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Рецензия айлампасы түзүлдү"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"Материал, {$title}, үчүн жаңы рецензия айлампасы түзүлдү. Авторго "
+"кабарланды, сиз электрондук катты өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материалдары жаңы рецензия айлампасына жөнөтүлгөнүн кабарлоо үчүн "
+"электрондук кат жөнөтүңүз. Бул кат чечим жазылганга чейин жөнөтүлбөйт."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Тексттик редакция стадиясына жөнөтүлө турган файлдарды тандаңыз."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Рецензияга жөнөтүлө турган файлдарды тандаңыз."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Продакшн стадиясына жөнөтүлө турган файлдарды тандаңыз."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Ревизияларды сураңыз"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Бул материал жарыяланууга кабыл алынардан мурун автор ревизияларды бериши "
+"керек."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} бул материал үчүн ревизияларды сурады."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Ревизиялар суралды"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"Материал, {$title}, үчүн ревизиялар суралды. Бардык билдирүүлөр жөнөтүлдү, "
+"сиз өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материалдары жарыяланууга кабыл алынардан мурун ревизиялар талап "
+"кылынарын кабарлоо үчүн электрондук кат жөнөтүңүз. Авторго материалын "
+"ревизиялоо үчүн керектүү бардык деталдарды кошуңуз. Зарыл болсо, "
+"рецензенттин комментарийлерин анонимдүү кылууну унутпаңыз. Бул кат чечим "
+"жазылганга чейин жөнөтүлбөйт."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Рецензия айлампасын жокко чыгаруу"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Учурдагы рецензия айлампасын жокко чыгарып, материалды мурунку рецензия "
+"айлампасына жөнөтүү. Эгер бул биринчи рецензия айлампасы болсо, материал "
+"тапшыруу стадиясына жөнөтүлөт."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} рецензия айлампасын жокко чыгарды."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Акыркы рецензия айлампасы жокко чыгарылды."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"Материал, {$title}, үчүн рецензия айлампасы жокко чыгарылды. Бардык "
+"билдирүүлөр жөнөтүлдү, сиз өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Рецензия айлампасын жокко чыгаруу рецензенттерден эч кандай бүткөн же "
+"тапшырылган рецензия жок болсо гана мүмкүн."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Рецензияга кайра тапшыруу"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Бул материал жарыяланууга кабыл алынардан мурун автор ревизияларды берип, "
+"аларды жаңы рецензия айлампасына жөнөтүшү керек."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Ревизиялар суралды"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Материал, {$title}, үчүн ревизиялар суралды. Ревизияларды жаңы рецензия "
+"айлампасына жөнөтүү чечими жазылды. Бардык билдирүүлөр жөнөтүлдү, сиз "
+"өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго ревизиялар талап кылынарын жана алар жаңы рецензия айлампасына "
+"жөнөтүлөрүн кабарлоо үчүн электрондук кат жөнөтүңүз. Авторго материалын "
+"ревизиялоо үчүн керектүү бардык деталдарды кошуңуз. Зарыл болсо, "
+"рецензенттин комментарийлерин анонимдүү кылууну унутпаңыз."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Рецензияга жөнөтүү"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Бул материал тең рецензияга жөнөтүүгө даяр."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} бул материалды рецензия стадиясына жөнөттү."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Рецензияга жөнөтүлдү"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"Материал, {$title}, рецензия стадиясына жөнөтүлдү. Авторго кабарланды, сиз "
+"электрондук катты өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Жаңы рецензия айлампасы"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Продакшнга жөнөтүү"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "Бул материалды жарыяланууга даярдоо үчүн продакшн стадиясына жөнөтүү."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} бул материалды продакшн стадиясына жөнөттү."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Продакшнга жөнөтүлдү"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+"Материал, {$title}, продакшн стадиясына жөнөтүлдү. Авторго кабарланды, сиз "
+"электрондук катты өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материалдары продакшн стадиясына жөнөтүлгөнүн кабарлоо үчүн "
+"электрондук кат жөнөтүңүз. Бул кат чечим жазылганга чейин жөнөтүлбөйт."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Тексттик редакцияны жокко чыгаруу"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Бул материалды тексттик редакция стадиясынан артка жөнөтүү."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+"{$editorName} бул материалды тексттик редакция стадиясынан артка жөнөттү."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Тексттик редакциядан артка жөнөтүлдү"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"Материал, {$title}, тексттик редакция стадиясынан артка жөнөтүлдү. Авторго "
+"кабарланды, сиз электрондук катты өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Материалды жарыяланууга четке кагууну сунуштоо."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго тексттик редакция жокко чыгарылганын жана материал кошумча "
+"редакциялык кароодон өтөрүн кабарлоо үчүн электрондук кат жөнөтүңүз."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Тексттик редакцияга кайтаруу"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Бул материалды тексттик редакция стадиясына кайтаруу."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} бул материалды тексттик редакция стадиясына кайтарды."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Тексттик редакцияга кайтарылды"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"Материал, {$title}, тексттик редакция стадиясына кайтарылды. Авторго "
+"кабарланды, сиз электрондук катты өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материал тексттик редакция стадиясына кайтарылганын кабарлоо үчүн "
+"электрондук кат жөнөтүңүз. Бул чечим эмне үчүн кабыл алынганын түшүндүрүп, "
+"материал продакшнга даярдалганга чейин кандай кошумча түзөтүүлөр талап "
+"кылынарын кабарлаңыз."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Кабыл алуу жана рецензияны өткөрүп жиберүү"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Бул материалды жарыяланууга кабыл алып, рецензия стадиясын өткөрүп жиберүү. "
+"Бул чечим материалды тексттик редакция стадиясына жөнөтөт."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} рецензия стадиясын өткөрүп жиберип, бул материалды тексттик "
+"редакция стадиясына жөнөттү."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Рецензия өткөрүлүп жиберилди"
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Материал, {$title}, рецензия стадиясын өткөрүп жиберип, тексттик редакция "
+"стадиясына жөнөтүлдү. Авторго кабарланды, сиз электрондук катты өткөрүп "
+"жибергениңизден башкасы."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материалдары жарыяланууга кабыл алынганын жана рецензиясыз "
+"тексттик редакция стадиясына жөнөтүлгөнүн кабарлоо үчүн электрондук кат "
+"жөнөтүңүз. Бул кат чечим жазылганга чейин жөнөтүлбөйт."
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Ички рецензияга жөнөтүү"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Беттин корректура файлы жарыяланууга жеткиликтүү болушу үчүн бекитилиши "
+"керек. Аны бекитүүнү каалайсызбы?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Корректураны бекитүү"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Бул корректура файлы жүктөө же сатып алуу үчүн коомдук жеткиликтүү болбой "
+"калат. Аны жокко чыгарууну каалайсызбы?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Четке кагууну кайтаруу"
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} бул материалды четке кагууну сунуштады."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Материалды четке кагуу чечимин кайтарып, аны активдүү редакциялык процесске "
+"кайтаруу. Авторго кабарланды, сиз электрондук катты өткөрүп жибергениңизден "
+"башкасы."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} бул материалды четке кагуу чечимин кайтарды."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Материал кайра активдештирилди"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+"Материал, {$title}, азыр рецензия стадиясында активдүү материал болуп калды."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Авторлорго материалды четке кагуу чечими кайтарылганын кабарлоо үчүн "
+"электрондук кат жөнөтүңүз. Чечим эмне үчүн кайтарылганын түшүндүрүп, "
+"материал кошумча рецензиядан өтөрүн кабарлаңыз."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"Материал, {$title}, азыр тапшыруу стадиясында активдүү. Авторго кабарланды, "
+"сиз электрондук катты өткөрүп жибергениңизден башкасы."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Бул стадия үчүн редакциялык чечимдерди иштетүү үчүн редакторду дайындаңыз."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Чечим кабыл алган редакторлорго сунушту кабарлоо үчүн билдирүү жөнөтүңүз. "
+"Бул сунуш рецензенттер тарабынан тапшырылган сунуштарга жана "
+"комментарийлерге жооп катары эмне үчүн берилгенин түшүндүрүңүз."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Кабыл алууну сунуштоо"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Бул материалды жарыяланууга кабыл алууну жана тексттик редакцияга жөнөтүүнү "
+"сунуштоо."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} бул материалды кабыл алып, тексттик редакцияга жөнөтүүнү "
+"сунуштады."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Сунуш тапшырылды"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr "Сиздин сунуш жазылды жана чечим кабыл алган редакторлорго кабарланды."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Ревизияларды сунуштоо"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Бул материал жарыяланууга кабыл алынардан мурун автордон ревизияларды "
+"сураууну сунуштоо."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} ревизияларды сураууну сунуштады."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Рецензияга кайра тапшырууну сунуштоо"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr "Автордон жаңы рецензия айлампасы үчүн ревизияларды тапшырууну сунуштоо."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} ревизияларды сурап, аларды жаңы рецензия айлампасына жөнөтүүнү "
+"сунуштады."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Четке кагууну сунуштоо"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Сунуш берүү"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Чечим жазууга уруксаты бар редактор дайындалмайынча сунуш бере албайсыз."
+
+msgid "editor.submission.recommendation"
+msgstr "Сунуш"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Бул материал үчүн редакциялык чечимди сунуштоо."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Жазылган сунуштар"
+
+msgid "submission.currentStage"
+msgstr "Учурдагы стадия"
+
+msgid "submission.noActionRequired"
+msgstr "Аракет талап кылынбайт"
+
+msgid "submission.actionNeeded"
+msgstr "Аракет талап кылынат"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Рецензия файлдары"
+
+msgid "submission.submit.currentFile"
+msgstr "Учурдагы файл"
+
+msgid "submission.finalDraft"
+msgstr "Кол жазма файлдары"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Аудиторду дайындоодо ката кетти. Кайра аракет кылыңыз."
+
+msgid "submission.event.fileEdited"
+msgstr "\"{$filename}\" файлынын метамаалыматын {$username} түзөттү."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"\"{$filename}\" файлы {$username} тарабынан материал {$submissionId} үчүн "
+"жүктөлдү."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"\"{$filename}\" файлы {$username} тарабынан материал {$submissionId} үчүн "
+"өчүрүлдү."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"\"{$filename}\" файл ревизиясы {$username} тарабынан материал {$submissionId}"
+" үчүн жүктөлдү."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"\"{$filename}\" файл ревизиясы {$username} тарабынан материал {$submissionId}"
+" үчүн өчүрүлдү."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"\"{$filename}\" файлынын акыркы ревизиясы {$username} тарабынан өчүрүлдү."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) \"{$filename}\" файлы үчүн аудитор катары "
+"кошулду."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$userFullName}\" ({$username}) \"{$filename}\" файлы үчүн аудитор катары "
+"өчүрүлдү."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) аудитти аяктап, \"{$filename}\" файлын "
+"жүктөдү."
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$userFullName}\" ({$username}) \"{$filename}\" файлы боюнча кол коюуну "
+"аяктады."
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$userFullName}\" ({$username}) \"{$publicationFormatName}\" корректурасын "
+"бекитти."
+
+msgid "submission.overview"
+msgstr "Материалдын жалпы көрүнүшү"
+
+msgid "submission.description"
+msgstr "Сүрөттөмө"
+
+msgid "submission.stageNotInitiated"
+msgstr "Стадия баштала элек."
+
+msgid "submission.documents"
+msgstr "Материал документтери"
+
+msgid "notification.type.editorAssign"
+msgstr "Сиз \"{$title}\" материалына редактор катары дайындалдыңыз."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Сизден \"{$title}\" үчүн тексттик редакцияны карап чыгуу суралды."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Сизден \"{$title}\" үчүн макеттерди карап чыгуу суралды."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Рецензия башталаардан мурун редактор дайындалышы керек. Катышуучулар "
+"тизмесинен редактор кошуңуз."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Материалдын жаңы версиясы түзүлдү"
+
+msgid "notification.type.revertDecline"
+msgstr "Бул материалды четке кагуу чечими кайтарылды."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Рецензенттин тиркемелери"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Автор(лор) менен бөлүшүү үчүн рецензия файлдарын тандаңыз"
+
+msgid "submission.productionReady"
+msgstr "Китеп жеткиликтүү"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Ревизияланган файлды жүктөө"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} {$submissionId} материалы үчүн {$round}-айлампа рецензиясына "
+"дайындалды."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"{$submissionId} материалы үчүн {$reviewerName} тарабынан {$round}-айлампа "
+"рецензия тазаланды."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} {$submissionId} материалы үчүн {$round}-айлампа рецензияны "
+"каралбаган деп белгиледи."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"{$submissionId} материалы үчүн {$reviewerName} тарабынан {$round}-айлампа "
+"рецензия кайра башталды."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"{$submissionid} материалы үчүн {$reviewerName} дарегине {$round}-айлампа "
+"рецензия өтүнүчү кайра жөнөтүлдү."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Редактор {$editorName} {$submissionId} материалы үчүн {$round}-айлампа "
+"рецензияны ырастады."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} {$submissionId} материалы үчүн {$round}-айлампа рецензияны "
+"аяктады."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Рецензенттин жообун күтүп жатат."
+
+msgid "submission.review.status.declined"
+msgstr "Рецензент бул рецензия өтүнүчүн четке какты."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Рецензент жооп берүү мөөнөтүн өткөрүп жиберди."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Рецензент рецензия мөөнөтүн өткөрүп жиберди."
+
+msgid "submission.review.status.accepted"
+msgstr "Бул рецензия кабыл алынды."
+
+msgid "submission.review.status.received"
+msgstr "Рецензент рецензиясын тапшырды."
+
+msgid "submission.review.status.viewed"
+msgstr "Редактор рецензияны көрдү."
+
+msgid "submission.review.status.complete"
+msgstr "Бул рецензия аяктады."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Бул рецензия аяктады жана рецензентке салымы үчүн ыраазычылык билдирилди."
+
+msgid "submission.document"
+msgstr "Документ"
+
+msgid "submission.art"
+msgstr "Иллюстрация"
+
+msgid "submission.supplementary"
+msgstr "Кошумча мазмун"
+
+msgid "submission.supplementary.creator"
+msgstr "Файлдын түзүүчүсү (же ээси)"
+
+msgid "submission.supplementary.subject"
+msgstr "Тема"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Редакциялык процесс башталаардан мурун продакшн редактор дайындалышы керек. "
+"Катышуучулар тизмесинен продакшн редактор кошуңуз."
+
+msgid "submission.reviewForm"
+msgstr "Рецензия формасы"
+
+msgid "submission.reviewFormResponse"
+msgstr "Рецензия формасынын жообу"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Жаңы рецензия формасынын элементин түзүү"
+
+msgid "grid.action.editMetadata"
+msgstr "Метамаалыматты түзөтүү"
+
+msgid "submission.permissions"
+msgstr "Уруксаттар"
+
+msgid "submission.attachPermissions"
+msgstr "Материалга төмөнкү уруксаттарды тиркеңиз:"
+
+msgid "submission.license"
+msgstr "Лицензия"
+
+msgid "submission.copyright"
+msgstr "Автордук укук"
+
+msgid "submission.copyright.agree"
+msgstr "Ооба, мен автордук укук билдирүүсүнө макулмун."
+
+msgid "submission.copyrightHolder"
+msgstr "Автордук укук ээси"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Ыңгайлаштырылган автордук укук билдирүүсү"
+
+msgid "submission.copyrightOther"
+msgstr "Автордук укук билдирүүсү"
+
+msgid "submission.copyrightYear"
+msgstr "Автордук укук жылы"
+
+msgid "submission.copyrightStatement"
+msgstr "Автордук укук (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Жарактуу алыскы URL бериңиз (http:// кошуңуз)."
+
+msgid "submission.licenseURL"
+msgstr "Лицензия URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-"
+"NonCommercial-NoDerivatives 4.0 International License</a> лицензиясы менен "
+"берилген.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-"
+"NonCommercial 4.0 International License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-"
+"NonCommercial-ShareAlike 4.0 International License</a> лицензиясы менен "
+"берилген.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Attribution-"
+"NoDerivatives 4.0 International License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 "
+"International License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-"
+"ShareAlike 4.0 International License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-"
+"NonCommercial-NoDerivatives 3.0 Unported License</a> лицензиясы менен "
+"берилген.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-"
+"NonCommercial 3.0 Unported License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-"
+"NonCommercial-ShareAlike 3.0 Unported License</a> лицензиясы менен "
+"берилген.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-"
+"NoDerivatives 3.0 Unported License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 "
+"Unported License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>Бул эмгек <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-"
+"ShareAlike 3.0 Unported License</a> лицензиясы менен берилген.</p>"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"\"{$submissionTitle}\" материалы боюнча \"{$queryTitle}\" аттуу талкууда "
+"жаңы активдүүлүк бар."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Сиз \"{$submissionTitle}\" материалы боюнча \"{$queryTitle}\" аттуу талкууга "
+"кошулдуңуз."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "Талку"
+
+msgid "submission.list.reviewComplete"
+msgstr "Рецензия тапшырылды"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Рецензия жокко чыгарылды"
+
+msgid "submission.list.confirmDelete"
+msgstr "Материалды өчүрөсүзбү?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Бардык материалдарды көрүү"
+
+msgid "submission.list.viewSubmission"
+msgstr "Материалды көрүү"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Материалдын кыскача маалыматтарын көрүү"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Дайындалган рецензиялар аяктады"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Ревизиялар тапшырылды"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Тексттик редакцияланган файлдар тапшырылды"
+
+msgid "submission.list.galleysCreated"
+msgstr "Продакшн версткалары түзүлдү"
+
+msgid "submission.list.filesPrepared"
+msgstr "Файлдар даярдалды"
+
+msgid "submission.list.discussions"
+msgstr "Ачык талкуулар"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Сиз бул материал үчүн бир нече ролго дайындалдыңыз. <a href=\""
+"{$urlAuthorWorkflow}\">Автордун иш агымына</a> же <a href=\""
+"{$urlEditorialWorkflow}\">Редакциялык иш агымына</a> кирүүнү каалайсызбы?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Сиз бул материал үчүн редакциялык ролго дайындалдыңыз. <a href=\""
+"{$urlEditorialWorkflow}\">Редакциялык иш агымына</a> кирүүнү каалайсызбы?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Бул материал редактор тарабынан каралмайынча толуктап бүтүрүлүшү керек."
+
+msgid "submission.list.currentStage"
+msgstr "Учурда {$stage} стадиясында."
+
+msgid "submission.list.activity"
+msgstr "Активдүүлүк"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Акыркы активдүүлүктөн бери өткөн күндөр"
+
+msgid "submission.list.assignEditor"
+msgstr "Редактор дайындоо"
+
+msgid "submission.list.completeSubmission"
+msgstr "Материалды толуктоо"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Бул материал мурун тапшырылган. Аны көрүү үчүн <a href=\"{$url}\""
+">материалдар панелине</a> өтүңүз."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Баштаардан мурун"
+
+msgid "submission.wizard.categories.description"
+msgstr "Материалыңызга ылайыктуу категорияларды гана тандаңыз."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Материал орнотууларын өзгөртүү"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Материал тапшыруу үчүн кадамдарды бүтүрүңүз"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Бул материалды жокко чыгарууну каалайсызбы? Бул материал жана бардык "
+"байланышкан маалыматтар өчүрүлөт. Бул аракетти артка кайтарууга болбойт."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Материал, <strong>{$title}</strong>, <strong>{$context}</strong> редакциялык "
+"кароого тапшырылат. Бул материалды толуктап тапшырууну каалайсызбы?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Материалды тапшыраардан мурун оңдолушу керек болгон бир же бир нече көйгөй "
+"бар. Төмөнкү маалыматты карап чыгып, талап кылынган өзгөртүүлөрдү жасаңыз."
+
+msgid "submission.wizard.validating"
+msgstr "Материалыңызды текшерүү"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Редакциялык топ материалды баалаганда билиши керек деп ойлогон маалыматты "
+"кошуңуз."
+
+msgid "submission.wizard.confirm"
+msgstr "Материалды тапшыраардан мурун төмөнкүлөрдү ырастап бериңиз."
+
+msgid "submission.wizard.title"
+msgstr "Материал тапшыруу"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Материал тапшыруу: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "Бул материал үчүн салымчылар кошулган жок."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Бул материал үчүн рецензенттер сунушталган жок."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "Бир же бир нече салымчы үчүн {$language} тилинде берилген ат жок."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Бир же бир нече салымчы үчүн {$language} тилинде байланышкан уюмдун аты жок."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Уруксат берилген эмес"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Купуялуулукка макулдук"
+
+msgid "submission.wizard.saved"
+msgstr "Кийинчерээк сакталды"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Материалыңыздын деталдары системага сакталды, бирок азырынча кароого "
+"тапшырылган жок. Төмөнкү шилтемени колдонуп, каалаган убакта материалды "
+"толуктап тапшыра аласыз."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr ""
+"Бул шилтеменин көчүрмөсү {$email} дарегиңизге электрондук кат аркылуу "
+"жөнөтүлдү."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Бөлүм жабылды"
+
+msgid "submission.wizard.start"
+msgstr "Материал тапшырууну баштоо"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Жаңы материал тапшыруу башталууда"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Ката кетти жана материалыңызды сактай алган жокпуз. Балким байланыш үзүлүп "
+"калган."
+
+msgid "grid.category.categories"
+msgstr "Категориялар"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Аталыш (А-Я)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Аталыш (Я-А)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Жарыяланган датасы (эң эскиден баштап)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Жарыяланган датасы (эң жаңысынан баштап)"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Анотация өтө узун. Ал {$limit} сөз же андан аз болушу керек. Азыр {$count} "
+"сөз бар."
+
+msgid "publication.wordCount"
+msgstr "Сөздөрдүн саны: {$count}/{$limit}"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"{$pubObjectTitle} үчүн DOI синхрондоштурулушу керек деп белгилөө ишке ашкан "
+"жок. DOI синхрондоштурулушу керек деп белгиленбейт, анткени ал азырынча "
+"катталган же тапшырылган эмес."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"{$pubObjectTitle} үчүн DOI катталган деп белгилөө ишке ашкан жок. Статус "
+"жаңыртылышы үчүн материал жарыяланууга тийиш."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Бул алдын ала көрүү жана жарыяланган эмес. <a href=\"{$url}\">Материалды "
+"көрүү</a>"
+
+msgid "author.submit.noFiles"
+msgstr "Бул материал үчүн файлдар жүктөлгөн жок."
+
+msgid "author.submit.confirmation"
+msgstr "Ырастоо"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "<strong>{$language}</strong> тилинде тапшыруу."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "<strong>{$section}</strong> бөлүмүнө тапшыруу."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"<strong>{$language}</strong> тилинде <strong>{$section}</strong> бөлүмүнө "
+"тапшыруу."
+
+msgid "submission.type.tip"
+msgstr ""
+"Материал түрү адатта 'сүрөт', 'текст' же башка мультимедиа түрлөрү, анын "
+"ичинде 'программа' же 'интерактивдүү' болот. Материалыңызга эң ылайыктуусун "
+"тандаңыз. Мисалдарды бул жерден таба аласыз: <a target=\"_blank\" href="
+"\"https://www.dublincore.org/specifications/dublin-core/usageguide/"
+"2001-04-12/generic/\">https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.dataAvailability"
+msgstr "Маалымат жеткиликтүүлүгү боюнча билдирүү"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Бул ишти колдогон далилдерди жеткиликтүү кылганыңызды жана аларды кайдан, "
+"кантип табууга болорун көрсөтүңүз."
+
+msgid "submission.files.required.genre"
+msgstr "Кеминде бир {$genre} файлын жүктөшүңүз керек."
+
+msgid "submission.files.required.genres"
+msgstr ""
+"Төмөнкү файл түрлөрүнүн ар биринен кеминде бирден жүктөшүңүз керек: "
+"{$genres}."
+
+msgid "publication.version"
+msgstr "Версия {$version}"
+
+msgid "submission.submissionFile"
+msgstr "Материал файлы"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Мага дайындалган"
+
+msgid "submission.dashboard.view.active"
+msgstr "Активдүү материалдар"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Редактор талап кылынат"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Бардыгы тапшыруу стадиясында"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Бардыгы тең рецензияда"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Бардыгы рецензия стадиясында"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Рецензиялар талап кылынат"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Рецензияларды күтүп жатат"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Бул жарыядан учурдагы JATS XML файлын өчүргөнү жатасыз. Чын эле каалайсызбы?"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Бул JATS файлы материалдын метамаалыматы аркылуу автоматтык түрдө түзүлгөн"
+
+msgid "publication.jats.lastModified"
+msgstr "Акыркы өзгөртүү {$modificationDate} күнү {$username} тарабынан жасалды"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Негизги JATS мазмунун түзүүдө ката кетти. JatsTemplate плагини орнотулганын "
+"текшериңиз."
+
+msgid "submission.files.content.error"
+msgstr "Материал файлынын '{$fileName}' мазмуну алынган жок."
+
+msgid "author.competingInterests"
+msgstr "Тирешкен кызыкчылыктар"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Бул автордун изилдөө темасына байланыштуу тирешкен кызыкчылыктарын ачыкка "
+"чыгарыңыз."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Рецензентти сунуштоонун себептери"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Бул рецензентти эмне үчүн сунуштап жатканыңызды жана мүмкүн болгон "
+"кызыкчылыктардын кагылышы бар-жогун бөлүшүңүз."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Материалдын тили ({$language}) колдоого алынган тилдердин бири эмес. Сиз "
+"материалдын деталдарын түзөтө аласыз, бирок жаңы материалдар бул тилде "
+"учурда кабыл алынбайт."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Рецензенттер дайындалды"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Рецензия жаңыртуусу {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Фильтрлерди колдонуу"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Жаңы материал тапшырууну баштоо"
+
+msgid "dashboard.assignReviewers"
+msgstr "Рецензенттерди дайындоо"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Автордон ревизиялар суралды"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Автордон жаңы рецензия айлампасына киргизүү үчүн ревизиялар суралды"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Жаңы рецензия айлампасы түзүлөт"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "{$issue} санында жарыяланат"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Тексттик редакцияланган файлдар жүктөлдү: {$count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Ревизия суралды"
+
+msgid "dashboard.submitRevisions"
+msgstr "Ревизияларды тапшыруу"
+
+msgid "workflow.uploadRevisions"
+msgstr "Ревизияларды жүктөө"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Өтүнүчкө жооп берүү"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Рецензияны аяктоо"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Бул өтүнүчтү {$date} чейин кабыл алыңыз же четке кагыңыз"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Өтүнүч {$date} күнү четке кагылды"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Рецензия {$date} күнү тапшырылды"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Бул өтүнүчкө жооп берүү мөөнөтү өтүп кетти. Өтүнүчтү мүмкүн болушунча "
+"эртерээк кабыл алыңыз же четке кагыңыз."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Бул рецензияны {$date} чейин аяктаңыз."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Бул рецензияны аяктоо мөөнөтү өтүп кетти. Рецензияны мүмкүн болушунча "
+"эртерээк аяктаңыз."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Рецензенттин жообун күтүп жатат"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Рецензия өтүнүчү рецензентке жөнөтүлдү. Жооп <b>{$days} күн ичинде, {$date} "
+"күнү</b> күтүлүүдө"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Рецензия өтүнүчү {$date} күнү четке кагылды"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Рецензент рецензия өтүнүчүн <b>{$date}</b> күнү четке какты"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Рецензия өтүнүчү {$days} күнгө кечикти"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Бул рецензент рецензия өтүнүчүнө жооп берген жок. Жооп <b>{$date}</b> күнү "
+"күтүлгөн"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Рецензия жүрүп жатат — өтүнүч кабыл алынды"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Бул рецензент рецензия өтүнүчүн кабыл алды. Анын рецензиясы <b>{$days} күн "
+"ичинде, {$date} күнү</b> тапшырылышы керек."
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Бул рецензент рецензиясын аяктаган жок. Жооп <b>{$date}</b> күнү күтүлгөн."
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Рецензия {$date} күнү аяктады"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Рецензия {$date} күнү төмөнкү сунуш менен аяктады: <b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Рецензия {$date} күнү аяктады"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Рецензия редактор тарабынан ырасталды"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Рецензия редактор тарабынан <b>{$date}</b> күнү кабыл алынды."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Рецензент рецензия өтүнүчүн жокко чыгарды"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Рецензент рецензия өтүнүчүн <b>{$date}</b> күнү жокко чыгарды."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Рецензенттин жообун күтүп жатат"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Рецензия өтүнүчү рецензентке кайра жөнөтүлдү. Жооп {$days} күн ичинде, "
+"{$date} күнү күтүлүүдө"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Деталдарды көрүү"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Рецензия өтүнүчүн кайра жөнөтүү"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Рецензентти жокко чыгаруу"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Дайындабаганды алып салуу"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Бардык редакциялык сунуштар алынды жана чечим талап кылынат."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Сиз автор болгондуктан бул материалга Журнал Менеджери катары кире албайсыз. "
+"Аны көрүү үчүн \"Менин материалдарым\" бөлүмүнө өтүңүз"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Сиз рецензент болгондуктан бул материалга Журнал Менеджери катары кире "
+"албайсыз. Аны көрүү үчүн \"Рецензия тапшырмалары\" бөлүмүнө өтүңүз"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Минималдуу талап кылынган рецензиялар ырасталды. Чечим талап кылынат."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Минималдуу талап кылынган рецензиялардын саны: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Минималдуу ырасталган рецензияларсыз улантууну каалайсызбы?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Минималдуу талап кылынган рецензиялар ырастала элек. Ошентсе да бул "
+"редакциялык чечимди улантууну каалайсызбы?"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Редакциялык чечимди сунуштоого гана уруксат берилген"
+
+msgid "workflow.stageNotStarted"
+msgstr "{$stage} стадиясы азырынча баштала элек."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Материал учурда {$stage} стадиясында."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Материал кийинки рецензия айлампасына өтүп, кабыл алынды жана учурда {$stage}"
+" стадиясында."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Материал кийинки рецензия айлампасына өткөрүлдү"
+
+msgid "workflow.reviewRoundN"
+msgstr "Рецензия айлампасы {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Материал тапшырылган учурда жүктөлгөн файлдар"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Бул файлдар автор тарабынан ревизиялар суралгандан кийин тапшырылды"
+
+msgid "fileManager.filesForReview"
+msgstr "Рецензия үчүн файлдар"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Бул файлдар рецензенттерге рецензиялоо үчүн жөнөтүлөт"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Тексттик редакцияланган файлдар"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Бул түзөтүлгөн файлдар продакшн стадиясына өткөрүлөт"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Бул файлдар рецензия стадиясынан алынган жана тексттик редакцияга өткөрүлөт"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Бул файлдар жарыяланууга жөнөтүлөт"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Рецензенттин статусу"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Толук эмес материалдарды өчүрүүнү ырастоо"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Тандалган элементтерди өчүрүүнү каалайсызбы? Бул аракетти артка кайтарууга "
+"болбойт. Улантуу үчүн ырастоо керек."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Бул талкууну **{$allowedEditTimeNoticeLimit} мүнөт** ичинде жаңырта аласыз."

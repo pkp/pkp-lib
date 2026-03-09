@@ -5,13 +5,15 @@
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-08-14 09:46+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2026-02-27 16:32+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr/>\n"
 "Language: fr\n"
@@ -124,7 +126,7 @@ msgid "manager.announcements.type"
 msgstr "Type"
 
 msgid "manager.announcementTypes"
-msgstr "Types d'annonce"
+msgstr "Types d'actualité"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
@@ -410,7 +412,7 @@ msgid "manager.publication.submissionStage"
 msgstr "Soumission"
 
 msgid "manager.publication.reviewStage"
-msgstr "Évaluation"
+msgstr "Évaluation & Révisions"
 
 msgid "manager.publication.editorialStage"
 msgstr "Éditorial"
@@ -1100,7 +1102,7 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Envoyer une copie à cette adresse courriel"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr "Informer les auteur·e·s"
+msgstr "Informer les auteur/ices"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
@@ -1120,7 +1122,7 @@ msgid "manager.setup.submissionsNotifications"
 msgstr "Notifications"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Avertir le contact principal"
+msgstr "Informer le contact principal"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Oui, envoyer une copie à {$email}"
@@ -1147,7 +1149,7 @@ msgstr ""
 "copies de ce message à :"
 
 msgid "manager.setup.notifyUsers"
-msgstr "Notifier"
+msgstr "Informer"
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
@@ -1314,7 +1316,7 @@ msgstr ""
 "supplémentaire pour modifier l'apparence."
 
 msgid "manager.setup.technicalSupportContact"
-msgstr "Support technique"
+msgstr "Assistance technique"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
@@ -1861,7 +1863,7 @@ msgstr ""
 "<blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Sélectionner le fichier de bibliothèque à envoyer"
+msgstr "Joindre un fichier (à partir de la bibliothèque de l'éditeur)"
 
 msgid "grid.action.addGenre"
 msgstr "Ajouter un type"
@@ -1946,10 +1948,10 @@ msgid "manager.website.title"
 msgstr "Paramètres du site Web"
 
 msgid "manager.workflow"
-msgstr "Flux des travaux"
+msgstr "Flux éditorial"
 
 msgid "manager.workflow.title"
-msgstr "Paramètres du flux des travaux"
+msgstr "Paramètres du flux éditorial"
 
 msgid "manager.distribution"
 msgstr "Distribution"
@@ -3890,13 +3892,13 @@ msgstr ""
 "fichier valide."
 
 msgid "manager.highlights.add"
-msgstr "Surligner"
+msgstr "Ajouter"
 
 msgid "manager.highlights.delete"
-msgstr "Supprimer le surlignage"
+msgstr "Supprimer"
 
 msgid "manager.highlights.edit"
-msgstr "Modifier le surlignage"
+msgstr "Modifier"
 
 msgid "manager.highlights.image"
 msgstr "Image"
@@ -3911,7 +3913,7 @@ msgstr ""
 
 msgid "manager.highlights.url.description"
 msgstr ""
-"L'URL complète, y compris https://, pour le bouton dans l'élément surligné."
+"L'URL complète, y compris https://, pour le bouton du contenu mis à la une."
 
 msgid "manager.highlights.urlText.description"
 msgstr ""
@@ -4008,7 +4010,7 @@ msgstr ""
 "Lien vers une page affichant tous les services éditoriaux actifs de l'équipe."
 
 msgid "manager.setup.editorialMasthead.order.description"
-msgstr "Définissez l'ordre d'affichage public des rôles de l'équipe."
+msgstr "Définir l'ordre d'apparition sur la page d'accueil."
 
 msgid "manager.language.websiteLanguages"
 msgstr "Langues du site web"
@@ -4105,14 +4107,12 @@ msgstr ""
 "doivent être activées."
 
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
-msgstr ""
-"Les relecteurs seront affichés dans un format standardisé afin de garantir "
-"l'uniformité et de faciliter leur recherche dans cette section."
+msgstr "La liste des évaluateur/ices sera affichée de manière standardisée."
 
 msgid "manager.setup.editorialMasthead.editorialHistory.description"
 msgstr ""
-"Veuillez fournir l'historique éditorial, y compris le nom complet, "
-"l'affiliation et les dates de début et de fin de chaque éditeur."
+"Saisir ici la liste des anciens membres de l'équipe éditoriale (nom complet, "
+"rôle, affiliation, dates d'exercice...)."
 
 msgid "plugins.importexport.common.error.missingAffiliationName"
 msgstr ""

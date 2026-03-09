@@ -1,5 +1,5 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025, 2026.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2025-12-10 22:39+0000\n"
+"PO-Revision-Date: 2026-02-06 20:38+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da/>\n"
@@ -2115,14 +2115,12 @@ msgid "manager.setup.metadata.rights.noRequest"
 msgstr "Anmod ikke om rettighedsoplysninger fra forfatteren under indsendelse."
 
 msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Bed forfatteren om at angive forudgående adgangsrettigheder under "
-"indsendelse."
+msgstr "Bed forfatteren om at angive forudgående rettigheder under indsendelse."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
-"Kræv at forfatteren angiver forudgående adgangsrettigheder, før vedkommende "
-"kan acceptere indsendelsen."
+"Kræv at forfatteren angiver forudgående rettigheder, før vedkommende kan "
+"acceptere indsendelsen."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""

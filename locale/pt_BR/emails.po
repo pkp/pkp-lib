@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
-"PO-Revision-Date: 2025-03-21 14:35+0000\n"
-"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
+"PO-Revision-Date: 2026-03-06 19:44+0000\n"
+"Last-Translator: Felipe Geremia Nievinski <fgnievinski@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/emails/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -669,3 +669,49 @@ msgstr ""
 "\">rejeitar</a> esta alteração de e-mail.</p><p>Sinta-se à vontade para "
 "entrar em contato comigo caso tenha alguma dúvida sobre a submissão ou o "
 "processo de avaliação.</p><p>Atenciosamente,</p>{$siteContactName}"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Encerramento em {$dateEnd}"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr ""
+"O seu nome vai aparecer no cabeçalho de {$contextName} como um "
+"{$sectionName}."
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Este é o papel do remetente do convite"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Esta é a URL para recusa do convite"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Você está convidado para novos papéis"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Notificação de Convite de Papel para Usuário"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr ""
+"O seu nome não vai aparecer no cabeçalho de {$contextName} como um "
+"{$sectionName}."
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Este é o nome do destinatário do convite"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Este é o nome do remetente do convite"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Esta seção descreve os papéis que serão adicionados ao usuário após o aceite "
+"do convite"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Esta seção descreve os papéis que o usuário já tem."
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Esta é a URL para aceite do convite"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Este email é enviado para usuários que são convidados a obter certos papéis"

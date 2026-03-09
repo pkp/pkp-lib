@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
+use PDO;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -88,6 +89,45 @@ class PKPContainer extends Container
             'mysql', 'mysqli' => 'mysql',
             'mariadb' => 'mariadb'
         };
+    }
+
+    /**
+     * Add SSL/TLS options to a database connection configuration array.
+     *
+     * For MySQL/MariaDB: adds PDO options (MYSQL_ATTR_SSL_CA, MYSQL_ATTR_SSL_VERIFY_SERVER_CERT)
+     * For PostgreSQL: adds sslmode and sslrootcert top-level config keys
+     *
+     * @param string $driver The Laravel database driver name (mysql, mariadb, pgsql)
+     * @param array $connectionConfig The connection configuration array to augment
+     *
+     * @return array The augmented connection configuration array
+     * 
+     * @throws Exception if SSL certificate path is not set in the config file
+     */
+    public static function addDatabaseSslOptionsToConnection(string $driver, array $connectionConfig): array
+    {
+        $capath = Config::getVar('database', 'capath');
+        $verify = Config::getVar('database', 'verify', true);
+
+        if (!$capath) {
+            throw new Exception('SSL certificate path is not set in the config file.');
+        }
+
+        // PostgreSQL
+        if ($driver === 'pgsql') {
+            $connectionConfig['sslmode'] = $verify ? 'verify-full' : 'require';
+            $connectionConfig['sslrootcert'] = $capath;
+            
+            return $connectionConfig;
+        }
+
+        // MySQL / MariaDB
+        $connectionConfig['options'] = [
+            PDO::MYSQL_ATTR_SSL_CA => $capath,
+            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => $verify,
+        ];
+
+        return $connectionConfig;
     }
 
     /**
@@ -407,6 +447,14 @@ class PKPContainer extends Container
             'charset' => Config::getVar('i18n', 'connection_charset', 'utf8'),
             'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
         ];
+
+        // Add SSL/TLS options if secure mode is enabled
+        if (Config::getVar('database', 'secure', false)) {
+            $items['database']['connections'][$driver] = static::addDatabaseSslOptionsToConnection(
+                $driver,
+                $items['database']['connections'][$driver]
+            );
+        }
 
         // Auth
         $items['auth'] = [

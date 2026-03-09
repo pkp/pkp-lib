@@ -100,6 +100,15 @@ class PKPInstall extends Installer
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
         ];
+
+        // Apply SSL/TLS options from config.inc.php if enabled
+        if (Config::getVar('database', 'secure', false)) {
+            $config['connections'][$driver] = PKPContainer::addDatabaseSslOptionsToConnection(
+                $driver,
+                $config['connections'][$driver]
+            );
+        }
+
         FacadesConfig::set('database', $config);
 
         // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`

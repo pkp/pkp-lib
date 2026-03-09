@@ -114,7 +114,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         if (isset($emailComposerValues)) {
             $emailSubject = $emailComposerValues['subject'] ?? $emailSubject;
-            $emailBody = $emailComposerValues['bodyTokenized'] ?? $templateBody;
+            $emailBody = $emailComposerValues['body'] ?? $templateBody;
         }
 
         $mailable

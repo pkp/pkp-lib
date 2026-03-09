@@ -327,11 +327,11 @@ class Repository
         $contactEmail = $context->getContactEmail();
 
         $jobs = [
-            new ExtractPidsJob($citation->getId()),
-            new CrossrefJob($citation->getId(), $contactEmail),
-            new OpenAlexJob($citation->getId(), $contactEmail),
-            new OrcidJob($citation->getId(), $contactEmail),
-            new IsProcessedJob($citation->getId())
+            new ExtractPidsJob($citation->getId(), $context->getId()),
+            new CrossrefJob($citation->getId(), $contactEmail, $context->getId()),
+            new OpenAlexJob($citation->getId(), $contactEmail, $context->getId()),
+            new OrcidJob($citation->getId(), $contactEmail, $context->getId()),
+            new IsProcessedJob($citation->getId(), $context->getId()),
         ];
 
         Bus::chain($jobs)

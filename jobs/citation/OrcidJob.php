@@ -22,16 +22,26 @@ use PKP\citation\externalServices\orcid\Inbound;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
-class OrcidJob extends BaseJob
+class OrcidJob extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     protected int $citationId;
     protected string $contactEmail = '';
+    protected int $contextId;
 
-    public function __construct(int $citationId, string $contactEmail)
+    public function __construct(int $citationId, string $contactEmail, int $contextId)
     {
         parent::__construct();
         $this->citationId = $citationId;
         $this->contactEmail = $contactEmail;
+        $this->contextId = $contextId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     /**

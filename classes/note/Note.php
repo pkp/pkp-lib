@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
+use PKP\config\Config;
 use PKP\db\DAO;
 
 class Note extends Model
@@ -41,7 +42,8 @@ class Note extends Model
     protected $fillable = [
         'assocType', 'assocId', 'userId',
         'dateCreated', 'dateModified',
-        'title', 'contents', 'isHeadnote'
+        'title', 'contents', 'isHeadnote',
+        'messageId',
     ];
 
     protected function casts(): array
@@ -57,10 +59,24 @@ class Note extends Model
 
     protected static function booted(): void
     {
+        static::creating(function (Note $note) {
+            if (
+                $note->assocType === PKPApplication::ASSOC_TYPE_QUERY
+                && empty($note->messageId)
+            ) {
+                $note->messageId = self::generateMessageId();
+            }
+        });
+
         static::deleted(function (Note $note) {
-            DB::table(Repo::submissionFile()->dao->table)->where('assoc_type', '=', PKPApplication::ASSOC_TYPE_NOTE)
+            DB::table(Repo::submissionFile()->dao->table)
+                ->where('assoc_type', '=', PKPApplication::ASSOC_TYPE_NOTE)
                 ->where('assoc_id', '=', $note->id)
                 ->delete();
+        });
+
+        static::created(function (Note $note) {
+            Repo::editorialTask()->notifyParticipantsOnNote($note);
         });
     }
 
@@ -122,6 +138,14 @@ class Note extends Model
         return $field ? $this->$field : $this;
     }
 
+    /**
+     * Generate a new unique message ID.
+     */
+    public static function generateMessageId(): string
+    {
+        return 'note-' . (new \Random\Randomizer())->getInt(0, PHP_INT_MAX) . Config::getVar('email', 'message_id_suffix');
+    }
+
     // Scopes
 
     /**
@@ -156,6 +180,14 @@ class Note extends Model
     public function scopeWithType(Builder $query, int $type): Builder
     {
         return $query->where('type', $type);
+    }
+
+    /**
+     * Scope a query to only include notes with a specific message ID.
+     */
+    public function scopeWithMessageId(Builder $query, string $messageId): Builder
+    {
+        return $query->where('message_id', $messageId);
     }
 
     /**

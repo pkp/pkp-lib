@@ -1,13 +1,13 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
-# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-12-23 09:27+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-28 01:29+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr/>\n"
 "Language: tr\n"
@@ -421,7 +421,7 @@ msgid "common.event"
 msgstr "Olay"
 
 msgid "common.export"
-msgstr "İhraç"
+msgstr "Dışa Aktar"
 
 msgid "common.finish"
 msgstr "Son"

@@ -1,3 +1,2355 @@
 # Emma U <emmaupkp@gmail.com>, 2023.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "validator.localeExpected"
+msgstr ""
+"Бул талаа көп тилдүү. Ар бир колдоого алынган тил үчүн өзүнчө маанилер "
+"берилүүгө тийиш."
+
+msgid "validator.localeKey"
+msgstr ""
+"Тилдер локаль код менен көрсөтүлүшү керек. Мисалдар: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.file"
+msgstr "Бул {$max} килобайттан чоң болбошу керек."
+
+msgid "validator.max.string"
+msgstr "Бул {$max} символдон ашпашы керек."
+
+msgid "validator.max.array"
+msgstr "Бул {$max} элементтен ашпашы керек."
+
+msgid "validator.mimes"
+msgstr "Бул {$values} түрүндөгү файл болушу керек."
+
+msgid "validator.min.file"
+msgstr "Бул кеминде {$min} килобайт болушу керек."
+
+msgid "validator.min.string"
+msgstr "Бул кеминде {$min} символ болушу керек."
+
+msgid "validator.min.array"
+msgstr "Бул кеминде {$min} элемент болушу керек."
+
+msgid "validator.not_in"
+msgstr "Тандалган {$attribute} жараксыз."
+
+msgid "validator.orcid"
+msgstr "Бул жарактуу ORCID эмес."
+
+msgid "validator.present"
+msgstr "{$attribute} талаасы болушу керек."
+
+msgid "validator.regex"
+msgstr "Бул туура форматта эмес."
+
+msgid "validator.required"
+msgstr "Бул талаа талап кылынат."
+
+msgid "validator.required_if"
+msgstr "Бул талаа {$other} {$value} болгондо талап кылынат."
+
+msgid "validator.required_with_all"
+msgstr "Бул талаа {$values} болгондо талап кылынат."
+
+msgid "validator.size.numeric"
+msgstr "Бул {$size} болушу керек."
+
+msgid "validator.required_without"
+msgstr "Бул талаа {$values} жок болгондо талап кылынат."
+
+msgid "validator.required_without_all"
+msgstr "Бул талаа {$values} эч бири жок болгондо талап кылынат."
+
+msgid "validator.same"
+msgstr "{$attribute} жана {$other} дал келиши керек."
+
+msgid "validator.size.file"
+msgstr "Бул {$size} килобайт болушу керек."
+
+msgid "validator.string"
+msgstr "Бул жарактуу сап эмес."
+
+msgid "validator.timezone"
+msgstr "Бул жарактуу саат алкагы эмес."
+
+msgid "validator.unique"
+msgstr "{$attribute} мурунтан колдонулуп калган."
+
+msgid "validator.url"
+msgstr "Бул жарактуу URL эмес."
+
+msgid "validator.no_new_line"
+msgstr "Жаңы сапка уруксат берилбейт."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "Тек гана [{$tags}] HTML тегдерине уруксат берилет."
+
+msgid "validator.multilingual"
+msgstr "Бул талаа үчүн көп тилдүү талап аткарылган жок."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Фильтр ({$displayName}) {$inputTypeName} киргизүүнү колдойт – берилген "
+"{$typeofInput}"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML түйүнүн импорттоо мүмкүн болгон жок"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Автор кошулду."
+
+msgid "notification.editedAuthor"
+msgstr "Автор түзөтүлдү."
+
+msgid "common.sandbox"
+msgstr "Тиркеме sandbox режиминде иштеп жатат."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "№"
+
+msgid "common.refreshingData"
+msgstr "Маалымат жаңыртылууда"
+
+msgid "common.viewMoreDetails"
+msgstr "Көбүрөөк деталдарды көрүү"
+
+msgid "common.yesContinue"
+msgstr "Ооба, улантуу"
+
+msgid "common.dateDecided"
+msgstr "Чечилген дата"
+
+msgid "common.date"
+msgstr "Дата"
+
+msgid "common.dateRequested"
+msgstr "Суралган дата"
+
+msgid "common.dateHijri"
+msgstr "Хижри календары"
+
+msgid "common.day"
+msgstr "Күн"
+
+msgid "common.default"
+msgstr "Демейки"
+
+msgid "common.declined"
+msgstr "Четке кагылды"
+
+msgid "common.fileName"
+msgstr "Файлдын аты"
+
+msgid "common.lessThanOnly"
+msgstr "Андан аз"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.status"
+msgstr "Статус"
+
+msgid "common.subject"
+msgstr "Тема"
+
+msgid "common.subjects"
+msgstr "Темалар"
+
+msgid "common.submenu"
+msgstr "Ички меню"
+
+msgid "email.addAttachment"
+msgstr "Тиркеме кошуу"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Файлды өчүрүү"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Дагы файлдарды жүктөй албайсыз."
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Сиз бул жерде:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Куралдар"
+
+msgid "navigation.tools.importExport"
+msgstr "Импорт/Экспорт"
+
+msgid "notification.addedAnnouncementType"
+msgstr "Жарыя түрү кошулду."
+
+msgid "search.advancedSearchLess"
+msgstr "Кошумча издөө параметрлерин жашыруу"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "аяктады"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "ката"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} макала индексацияга пландалды"
+
+msgid "search.coverage"
+msgstr "Камтуу"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Рецензия кабыл алынган дата"
+
+msgid "notification.type.pendingRevisions"
+msgstr "{$stage} стадиясында каралуучу ревизиялар."
+
+msgid "timeZone"
+msgstr "Саат алкагы"
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Жараксыз материал."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Учурда материалды көрүү үчүн жетиштүү укуктарыңыз жок. Профилиңизди түзөтүп, "
+"\"Катталуу\" бөлүмүндө тиешелүү ролдор берилгенин текшериңиз."
+
+msgid "showLess"
+msgstr "Аз көрсөтүү"
+
+msgid "list.viewMore"
+msgstr "{$name} жөнүндө көбүрөөк маалымат көрсөтүү"
+
+msgid "validator.alpha_num"
+msgstr "Бул талаа тамгалардан жана сандардан гана турушу керек."
+
+msgid "validator.array"
+msgstr "Бул жарактуу массив эмес."
+
+msgid "validator.locale"
+msgstr "Бул тил кабыл алынбайт."
+
+msgid "validator.max.numeric"
+msgstr "Бул {$max} санынан чоң болбошу керек."
+
+msgid "validator.min.numeric"
+msgstr "Бул кеминде {$min} болушу керек."
+
+msgid "validator.numeric"
+msgstr "Бул жарактуу сан эмес."
+
+msgid "validator.required_unless"
+msgstr "Бул талаа {$other} {$values} ичинде болбосо талап кылынат."
+
+msgid "validator.required_with"
+msgstr "Бул талаа {$values} болгондо талап кылынат."
+
+msgid "validator.size.string"
+msgstr "Бул {$size} символ болушу керек."
+
+msgid "validator.size.array"
+msgstr "Бул {$size} элемент камтышы керек."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Орнотуу чөйрөсүндө колдоого алынбаган трансформацияны иштетүүгө аракет "
+"кылынууда."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Сервер {{statusCode}} коду менен жооп берди. Эгер көйгөй уланса, системанын "
+"администраторуна кайрылыңыз."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Жүктөөнү жокко чыгаруу"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Жүктөө жокко чыгарылды"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Бул жүктөөнү жокко чыгарууну каалайсызбы?"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel} бөлүгүнө өтүңүз: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Кийинки катаны көрүү"
+
+msgid "form.errorOne"
+msgstr "Бир катаны оңдоңуз."
+
+msgid "form.errorMany"
+msgstr "{$count} катаны оңдоңуз."
+
+msgid "form.errorSummaryOne"
+msgstr "1 ката табылды! Улантуудан мурун төмөнкү катаны оңдоңуз."
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} ката табылды! Улантуудан мурун төмөнкү каталарды оңдоңуз."
+
+msgid "form.errorsOccurred"
+msgstr "Бул форманы иштетүүдө каталар кетти"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Төмөнкү маалыматты кошумча тилдерде киргизүү үчүн адегенде тилди тандаңыз."
+
+msgid "form.formLanguage"
+msgstr "Форманын тили"
+
+msgid "form.contains"
+msgstr "камтыйт"
+
+msgid "form.is"
+msgstr "бул"
+
+msgid "form.startsWith"
+msgstr "мындан башталат"
+
+msgid "form.postRequired"
+msgstr "Форма туура тапшырылган жок."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Форма тапшырылган жок. Балким сиз системадан чыктыңыз. Баракты кайра жүктөп, "
+"аракет кылыңыз."
+
+msgid "form.fileRequired"
+msgstr "Файл жүктөө талап кылынат."
+
+msgid "form.required"
+msgstr "(* Талап кылынат)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Бул талааны {$language} тилинде толтурушуңуз керек."
+
+msgid "form.requireId"
+msgstr "Жарактуу ID киргизишиңиз керек."
+
+msgid "form.resubmit"
+msgstr "Кайра тапшыруу"
+
+msgid "form.saved"
+msgstr "Сакталды"
+
+msgid "form.saveToUpload"
+msgstr "Файлды жүктөө үчүн Сактоо баскычын колдонуңуз."
+
+msgid "form.send"
+msgstr "Жөнөтүү"
+
+msgid "form.submit"
+msgstr "Тапшыруу"
+
+msgid "form.invalidImage"
+msgstr "Жараксыз сүрөт жүктөлдү. Кабыл алынган форматтар: .png, .gif, же .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$localeName} тилинде {$label}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} тилдер толтурулду"
+
+msgid "help.help"
+msgstr "Жардам"
+
+msgid "help.toc"
+msgstr "Мазмун тизмеси"
+
+msgid "help.previous"
+msgstr "Мурунку"
+
+msgid "icon.checked.alt"
+msgstr "Белгиленген"
+
+msgid "icon.comment.alt"
+msgstr "Комментарий"
+
+msgid "icon.delete.alt"
+msgstr "Өчүрүү"
+
+msgid "icon.folder.alt"
+msgstr "Папка"
+
+msgid "icon.font_large.alt"
+msgstr "Чоң"
+
+msgid "icon.font_medium.alt"
+msgstr "Орто"
+
+msgid "icon.font_small.alt"
+msgstr "Кичине"
+
+msgid "icon.info.alt"
+msgstr "Маалымат"
+
+msgid "icon.letter.alt"
+msgstr "Кат"
+
+msgid "icon.unchecked.alt"
+msgstr "Белгиленген эмес"
+
+msgid "icon.view.alt"
+msgstr "Көрүү"
+
+msgid "informationCenter.informationCenter"
+msgstr "Маалымат борбору"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Редакциялык тарых"
+
+msgid "informationCenter.addNote"
+msgstr "Белгеме кошуу"
+
+msgid "informationCenter.noNotes"
+msgstr "Көрсөтүлө турган белгемелер жок."
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Бул белгемени өчүрүүнү каалайсызбы?"
+
+msgid "informationCenter.pastHistory"
+msgstr "Мурунку ревизиялар"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "informationCenter.history.noItems"
+msgstr "Эч кандай окуялар жазылган эмес."
+
+msgid "stageParticipants.notify.message"
+msgstr "Билдирүү"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Билдирүү талаасын толтурганыңызды жана талкууга өзүңүздөн башка адамды "
+"кошконуңузду текшериңиз."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Бул адамга жарыяга өзгөртүүлөрдү киргизүүгө уруксат бериңиз, мисалы аталыш, "
+"анотация, метамаалымат жана башка жарыянын деталдары. Эгер материал акыркы "
+"текшерүүдөн өтүп, жарыяланууга даяр болсо, бул укукту алып салгыңыз келиши "
+"мүмкүн."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Катышуучу"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Бул катышуучуга өзгөртүүлөр киргизүүгө болбойт"
+
+msgid "locale.primary"
+msgstr "Негизги локаль"
+
+msgid "locale.supported"
+msgstr "Колдоого алынган локалдар"
+
+msgid "navigation.access"
+msgstr "Колдонуучулар жана ролдор"
+
+msgid "navigation.about"
+msgstr "Жөнүндө"
+
+msgid "navigation.admin"
+msgstr "Администрация"
+
+msgid "navigation.archives"
+msgstr "Архивдер"
+
+msgid "navigation.tools.statistics"
+msgstr "Статистика"
+
+msgid "navigation.browse"
+msgstr "Карап чыгуу"
+
+msgid "navigation.backTo"
+msgstr "⟵ {$page} бетине кайтуу"
+
+msgid "navigation.browseByAuthor"
+msgstr "Автор боюнча"
+
+msgid "navigation.browseByTitle"
+msgstr "Аталыш боюнча"
+
+msgid "navigation.dashboard"
+msgstr "Башкаруу панели"
+
+msgid "navigation.data"
+msgstr "Маалымат"
+
+msgid "navigation.home"
+msgstr "Башкы бет"
+
+msgid "navigation.infoForReaders"
+msgstr "Окурмандар үчүн"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Окурмандар үчүн маалымат"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} ичинен {$total} элемент"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} ичинен {$total} элемент"
+
+msgid "navigation.login"
+msgstr "Кирүү"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Кийинки кадам"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Мурунку кадам"
+
+msgid "navigation.publicMenu"
+msgstr "Ачык меню"
+
+msgid "navigation.register"
+msgstr "Катталуу"
+
+msgid "navigation.search"
+msgstr "Издөө"
+
+msgid "navigation.settings"
+msgstr "Орнотуулар"
+
+msgid "navigation.setup"
+msgstr "Баштапкы орнотуу"
+
+msgid "navigation.sitemap"
+msgstr "Сайт картасы"
+
+msgid "navigation.skip.description"
+msgstr "Мазмун шилтемелерине өтүү"
+
+msgid "navigation.skip.announcements"
+msgstr "Жарыяларга өтүү"
+
+msgid "navigation.skip.main"
+msgstr "Негизги мазмунга өтүү"
+
+msgid "navigation.skip.nav"
+msgstr "Негизги навигация менюсуна өтүү"
+
+msgid "navigation.skip.footer"
+msgstr "Сайттын төмөнкү бөлүгүнө өтүү"
+
+msgid "navigation.stepNumber"
+msgstr "Кадам {$step}"
+
+msgid "navigation.submissions"
+msgstr "Материалдар"
+
+msgid "navigation.dashboards"
+msgstr "Редактор панели"
+
+msgid "navigation.reviewAssignments"
+msgstr "Менин рецензент катары тапшырмаларым"
+
+msgid "navigation.mySubmissions"
+msgstr "Менин автор катары материалдарым"
+
+msgid "navigation.system"
+msgstr "Система"
+
+msgid "navigation.userHome"
+msgstr "Колдонуучунун башкы бет"
+
+msgid "navigation.user"
+msgstr "Колдонуучу"
+
+msgid "navigation.viewFrontend"
+msgstr "Сайтты көрүү"
+
+msgid "institution.institutions"
+msgstr "Институттар"
+
+msgid "notification.addedAuditor"
+msgstr "Аудитор кошулду."
+
+msgid "notification.removedAuditor"
+msgstr "Аудитор өчүрүлдү."
+
+msgid "notification.addedQuery"
+msgstr "Талкуу кошулду"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Рецензия ырастады деп белгиленди. Электрондук кат жөнөтүлгөн жок."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Рецензентке ыраазычылык электрондук каты жөнөтүлдү."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Рецензия файлдары жаңыртылды."
+
+msgid "notification.allow"
+msgstr "Бул түрдөгү билдирүүлөрдү иштетүү."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Жарыя түрү түзөтүлдү."
+
+msgid "icon.mail.alt"
+msgstr "Почта"
+
+msgid "notification.removedAnnouncementType"
+msgstr "Жарыя түрү өчүрүлдү."
+
+msgid "notification.removedAnnouncement"
+msgstr "Жарыя өчүрүлдү."
+
+msgid "notification.confirmError"
+msgstr "Катталууңузду ырастоодо ката кетти."
+
+msgid "notification.confirmSuccess"
+msgstr "Сиз ийгиликтүү катталдыңыз."
+
+msgid "notification.email"
+msgstr "Бул түрдөгү билдирүүлөр үчүн мага электрондук кат жөнөтпөңүз."
+
+msgid "notification.noneExist"
+msgstr "Учурда билдирүүлөрүңүз жок."
+
+msgid "common.all"
+msgstr "Бардыгы"
+
+msgid "notification.addedNote"
+msgstr "Белгеме жарыяланды."
+
+msgid "notification.removedNote"
+msgstr "Белгеме өчүрүлдү."
+
+msgid "common.dateSubmitted"
+msgstr "Тапшырылган дата"
+
+msgid "common.dateUploaded"
+msgstr "Жүктөлгөн дата"
+
+msgid "notification.removedSubmission"
+msgstr "Материал өчүрүлдү."
+
+msgid "common.reminder"
+msgstr "Эскертүү"
+
+msgid "common.remoteURL"
+msgstr "Алыскы URL"
+
+msgid "common.replaceFile"
+msgstr "Файлды алмаштыруу"
+
+msgid "common.selectAll"
+msgstr "Бардыгын тандоо"
+
+msgid "notification.notification"
+msgstr "Билдирүү"
+
+msgid "icon.edit.alt"
+msgstr "Түзөтүү"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Бардык файлдардын анонимдүүлүгүн камсыздоо"
+
+msgid "navigation.userManagement"
+msgstr "Колдонуучуларды башкаруу"
+
+msgid "grid.action.markRead"
+msgstr "Окуган деп белгилөө"
+
+msgid "notification.signedFile"
+msgstr "Файл каралды."
+
+msgid "common.publicKnowledgeProject"
+msgstr "Ачык Билим Долбоору"
+
+msgid "common.currentStyleSheet"
+msgstr "Учурдагы стилдик барак"
+
+msgid "about.description"
+msgstr "Сүрөттөмө"
+
+msgid "about.guidelines"
+msgstr "Нускамалар"
+
+msgid "about.aboutSite"
+msgstr "Сайт жөнүндө"
+
+msgid "about.contact"
+msgstr "Байланыш"
+
+msgid "about.contact.email"
+msgstr "Электрондук почта"
+
+msgid "about.contact.phone"
+msgstr "Телефон"
+
+msgid "about.contact.principalContact"
+msgstr "Негизги байланыш"
+
+msgid "about.contact.supportContact"
+msgstr "Колдоо байланышы"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Көбүрөөк жарыялар..."
+
+msgid "announcement.noneExist"
+msgstr "Жарыялар жарыяланган жок."
+
+msgid "announcement.postedOn"
+msgstr "{$postDate} күнү жарыяланды"
+
+msgid "common.allDownloads"
+msgstr "Бардык жүктөөлөр"
+
+msgid "common.navigation.sidebar"
+msgstr "Каптал тилке"
+
+msgid "common.navigation.site"
+msgstr "Сайт навигациясы"
+
+msgid "common.navigation.siteContext"
+msgstr "Сайт контекст навигациясы"
+
+msgid "common.navigation.user"
+msgstr "Колдонуучу навигациясы"
+
+msgid "common.tasks"
+msgstr "Тапшырмалар"
+
+msgid "common.list"
+msgstr "Тизме"
+
+msgid "common.grid"
+msgstr "Тор"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Бул элементти өчүрүүнү каалайсызбы? Бул аракетти артка кайтарууга болбойт."
+
+msgid "common.abstract"
+msgstr "Анотация"
+
+msgid "common.accepted"
+msgstr "Кабыл алынды"
+
+msgid "common.acknowledged"
+msgstr "Ырасталды"
+
+msgid "common.action"
+msgstr "Аракет"
+
+msgid "common.moreActions"
+msgstr "Кошумча аракеттер"
+
+msgid "common.activate"
+msgstr "Активдештирүү"
+
+msgid "common.active"
+msgstr "Активдүү"
+
+msgid "common.inactive"
+msgstr "Активдүү эмес"
+
+msgid "common.add"
+msgstr "Кошуу"
+
+msgid "common.addCCBCC"
+msgstr "CC/BCC кошуу"
+
+msgid "common.addFiles"
+msgstr "Файлдарды кошуу"
+
+msgid "common.addSelf"
+msgstr "Өзүн кошуу"
+
+msgid "common.attachedFiles"
+msgstr "Тиркелген файлдар"
+
+msgid "common.attachFiles"
+msgstr "Файлдарды тиркөө"
+
+msgid "common.attachSelected"
+msgstr "Тандалгандарды тиркөө"
+
+msgid "common.editorialMasthead"
+msgstr "Редакциялык курам"
+
+msgid "common.editorialHistory.page"
+msgstr "Редакциялык тарых барагы"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Бул бөлүм мурунку салымчыларды тизмектейт."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "{$name} ORCID профилин көрүү"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Бул сүрөттү тексттик браузерди же жардамчы түзмөктөрдү колдонгон коноктор "
+"үчүн сүрөттөп бериңиз. Мисалы: \"Редакторубуз PKP конференциясында сүйлөп "
+"жатат.\""
+
+msgid "common.and"
+msgstr "жана"
+
+msgid "common.applyAction"
+msgstr "Аракетти колдонуу"
+
+msgid "common.assign"
+msgstr "Дайында"
+
+msgid "common.assigned"
+msgstr "Дайындалган"
+
+msgid "common.assigned.date"
+msgstr "Дайындалды: {$dateAssigned}"
+
+msgid "common.between"
+msgstr "ортосунда"
+
+msgid "form.disallowedLocales"
+msgstr "Төмөнкү тилдер гана уруксат берилет: {$languages}."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Сиздин браузериңиз файлдарды сүйрөп таштап жүктөөнү колдобойт."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Файл өтө чоң ({{filesize}}mb). {{maxFilesize}}mb дан чоң файлдар жүктөлбөйт."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Бул түрдөгү файлдар жүктөлбөйт."
+
+msgid "common.error.databaseError"
+msgstr "Маалымат базасында ката кетти: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Маалымат базасына белгисиз байланыш катасы кетти."
+
+msgid "common.event"
+msgstr "Иш-чара"
+
+msgid "common.filterRemove"
+msgstr "Фильтрди тазалоо: {$filterTitle}"
+
+msgid "common.filtersClear"
+msgstr "Фильтрлерди тазалоо"
+
+msgid "common.geographic"
+msgstr "Географиялык"
+
+msgid "common.go"
+msgstr "Өтүү"
+
+msgid "common.height"
+msgstr "Бийиктик"
+
+msgid "common.highlight"
+msgstr "Белгилөө"
+
+msgid "common.highlights"
+msgstr "Негизги учурлар"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Башкы бет"
+
+msgid "common.hour"
+msgstr "Саат"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Импорттоо"
+
+msgid "common.initiate"
+msgstr "Баштоо"
+
+msgid "common.inProgress"
+msgstr "Жүрүп жатат"
+
+msgid "common.insertContentSearch"
+msgstr "Кошула турган мазмунду табуу"
+
+msgid "common.itemsPerPage"
+msgstr "Барактагы элементтер"
+
+msgid "common.languages"
+msgstr "Тилдер"
+
+msgid "common.lastSaved"
+msgstr "Акыркы сактоо: {$when}"
+
+msgid "common.lastActivity"
+msgstr "Акыркы активдүүлүк {$date} күнү жазылды."
+
+msgid "common.less"
+msgstr "Аз"
+
+msgid "common.lessThan"
+msgstr "{$value} же андан аз"
+
+msgid "common.keepWorking"
+msgstr "Ишти улантуу"
+
+msgid "common.manage"
+msgstr "Башкаруу"
+
+msgid "common.billingAddress"
+msgstr "Эсеп дареги (эгер башка болсо)"
+
+msgid "common.minute"
+msgstr "Мүнөт"
+
+msgid "common.noComments"
+msgstr "Комментарийлер жок"
+
+msgid "common.notApplicable"
+msgstr "Колдонулбайт"
+
+msgid "common.notApplicableShort"
+msgstr "Ж/Ж"
+
+msgid "common.on"
+msgstr "Жүк"
+
+msgid "common.ok"
+msgstr "Макул"
+
+msgid "common.reminded.date"
+msgstr "Эскертилди: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Алыскы"
+
+msgid "form.disallowedProp"
+msgstr "Бул касиетке уруксат берилбейт."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Файлдарыңызды жүктөө үчүн төмөнкү резервдик форманы колдонуңуз."
+
+msgid "informationCenter.pastNotes"
+msgstr "Мурунку ревизия белгемелери"
+
+msgid "informationCenter.currentHistory"
+msgstr "Учурдагы ревизия"
+
+msgid "informationCenter.history.notePosted"
+msgstr "Жаңы белгеме жарыяланды."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Талкууну баштоо"
+
+msgid "stageParticipants.options"
+msgstr "Тапшырма укуктары"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Бул катышуучу редакциялык чечимди сунуштоого гана уруксат берилген жана "
+"чечимди жазуу үчүн ыйгарым укуктуу редактор талап кылынат."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Уруксаттар"
+
+msgid "notification.reviewerResendRequest"
+msgstr "Рецензия тапшырмасын кайра карап чыгуу өтүнүчү жөнөтүлдү."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "<a href=\"{$url}\">Редакциялык тарыхты</a> көрүү"
+
+msgid "about.other"
+msgstr "Башка"
+
+msgid "about.people"
+msgstr "Адамдар"
+
+msgid "about.policies"
+msgstr "Саясаттар"
+
+msgid "about.siteMap"
+msgstr "Сайт картасы"
+
+msgid "announcement.announcements"
+msgstr "Жарыялар"
+
+msgid "announcement.announcementsHome"
+msgstr "Жарыялар"
+
+msgid "announcement.posted"
+msgstr "Жарыяланды"
+
+msgid "announcement.view"
+msgstr "Жарыяны көрүү"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Өткөн жылдагы рецензенттер"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Мурунку жылдардагы рецензенттер"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Редакторлор төмөндө көрсөтүлгөн {$year} жылдын рецензенттерине ыраазычылыгын "
+"билдиришет."
+
+msgid "common.editorialHistory"
+msgstr "Редакциялык тарых"
+
+msgid "common.name"
+msgstr "Ат"
+
+msgid "common.alphaList"
+msgstr "А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ы Э Ю Я"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"-нын/-дин бир ошол жана бир же да эмес бирок болуп саналат/бар эгер анда "
+"болбосо качан -да/-де -дан/-ден аркылуу/тарабынан үстүндө/-да/-де өчүк/"
+"сыртында үчүн ичинде сыртында үстүндө/ашык -га/-ге ичине менен"
+
+msgid "common.alreadyAssigned"
+msgstr "Дайындалган"
+
+msgid "common.altText"
+msgstr "Альтернативдүү текст"
+
+msgid "common.available"
+msgstr "Жеткиликтүү"
+
+msgid "common.back"
+msgstr "Артка"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Спам материалдарды алдын алуу үчүн текшерүүнү бүтүрүшүңүз керек."
+
+msgid "common.changesSaved"
+msgstr "Өзгөртүүлөрүңүз сакталды."
+
+msgid "common.chooseOne"
+msgstr "Бирди тандаңыз"
+
+msgid "common.more"
+msgstr "Көбүрөөк"
+
+msgid "common.notAvailable"
+msgstr "Жеткиликтүү эмес"
+
+msgid "common.note"
+msgstr "Белгеме"
+
+msgid "common.notes"
+msgstr "Белгемелер"
+
+msgid "common.updated"
+msgstr "Жаңыртылды"
+
+msgid "common.publicAccess"
+msgstr "Ачык жеткиликтүүлүк"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Рецензенттер тарабынан жүктөлгөн файлдарды тиркөө"
+
+msgid "email.addBccRecipient"
+msgstr "BCC кошуу"
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Файлдарды жүктөө үчүн бул жерге таштаңыз"
+
+msgid "form.errors"
+msgstr ""
+"Форма сакталган жок, анткени {$count} ката табылды. Бул каталарды оңдоп, "
+"кайра аракет кылыңыз."
+
+msgid "help.next"
+msgstr "Кийинки"
+
+msgid "help.upALevel"
+msgstr "Бир деңгээл жогору"
+
+msgid "informationCenter.history.messageSent"
+msgstr "Колдонуучуларга билдирүү жөнөтүлдү."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Колдонуучуларга билдирүү жөнөтүлдү."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Өзүңүз менен {$userFullName} ортосунда талкууну баштаңыз."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Алдын ала аныкталган билдирүүнү тандаңыз же төмөнкү форманы толтуруңуз."
+
+msgid "notification.removedFile"
+msgstr "Файл өчүрүлдү."
+
+msgid "notification.reminderError"
+msgstr ""
+"Сырсөздү жөнөтүүдө ката кетти, электрондук почта дарегиңизди туура "
+"киргизгениңизди текшериңиз."
+
+msgid "notification.reminderSent"
+msgstr "Жаңы сырсөзүңүз көрсөтүлгөн электрондук почта дарегине жөнөтүлдү."
+
+msgid "submission.task.responseDueDate"
+msgstr "Жооп берүү мөөнөтү"
+
+msgid "navigation.goBack"
+msgstr "Артка кайтуу"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} бул материалды рецензиялоого дайындалды жана электрондук "
+"билдирүү жөнөтүлдү."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензент кайра дайындалды."
+
+msgid "notification.addedStageParticipant"
+msgstr "Колдонуучу этаптын катышуучусу катары кошулду."
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Навигация менюсу ийгиликтүү өчүрүлдү"
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "{$stage} стадиясына тапшырылган ревизиялар."
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Белгисиз буйрук {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.notice"
+msgstr "Билдирүү"
+
+msgid "common.assignments"
+msgstr "Тапшырмалар"
+
+msgid "common.cancel"
+msgstr "Жокко чыгаруу"
+
+msgid "common.cancelled"
+msgstr "Жокко чыгарылды"
+
+msgid "common.warning"
+msgstr "Эскертүү"
+
+msgid "common.error"
+msgstr "Ката"
+
+msgid "notification.notifications"
+msgstr "Билдирүүлөр"
+
+msgid "notification.sentNotification"
+msgstr "Билдирүү жөнөтүлдү."
+
+msgid "notification.settings"
+msgstr "Билдирүү орнотуулары"
+
+msgid "common.year"
+msgstr "Жыл"
+
+msgid "common.fileSize"
+msgstr "Файлдын өлчөмү"
+
+msgid "common.dragAndDropHere"
+msgstr "Файлдарды бул жерге сүйрөп таштаңыз."
+
+msgid "common.orUploadFile"
+msgstr "Же файлды жүктөңүз"
+
+msgid "common.edit"
+msgstr "Түзөтүү"
+
+msgid "common.editItem"
+msgstr "{$name} түзөтүү"
+
+msgid "common.emailTemplates"
+msgstr "Электрондук почта шаблондору"
+
+msgid "common.enable"
+msgstr "Иштетүү"
+
+msgid "common.enabled"
+msgstr "Иштетилген"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Бул барак фреймдерди талап кылат. <a href=\"{$url}\">Бул жерди басыңыз</a> "
+"фреймсиз версия үчүн."
+
+msgid "common.export"
+msgstr "Экспорттоо"
+
+msgid "common.finish"
+msgstr "Аяктоо"
+
+msgid "common.fullscreen"
+msgstr "Толук экран"
+
+msgid "common.fullscreenOff"
+msgstr "Толук экрандан чыгуу"
+
+msgid "common.false"
+msgstr "Жалган"
+
+msgid "common.file"
+msgstr "Файл"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileType"
+msgstr "Файлдын түрү"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Системанын файл жүктөгүчү жүктөлүүдө. Эгер көрүнбөсө, бул браузерде анын "
+"иштөө чөйрөлөрү колдоого алынбайт болушу мүмкүн. Колдоо үчүн администрацияга "
+"кайрылыңыз."
+
+msgid "common.filter"
+msgstr "Фильтрлер"
+
+msgid "common.filterAdd"
+msgstr "Фильтр кошуу: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr "Шаблон табуу"
+
+msgid "common.formatting"
+msgstr "Форматтоо"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Башкы беттин логотиби"
+
+msgid "common.insert"
+msgstr "Кошуу"
+
+msgid "common.insertContent"
+msgstr "Мазмун кошуу"
+
+msgid "common.keywords"
+msgstr "Ачкыч сөздөр"
+
+msgid "common.label"
+msgstr "Белги"
+
+msgid "common.language"
+msgstr "Тил"
+
+msgid "common.mailingAddress"
+msgstr "Почта дареги"
+
+msgid "common.modify"
+msgstr "Өзгөртүү"
+
+msgid "common.month"
+msgstr "Ай"
+
+msgid "common.moreThan"
+msgstr "{$value} же андан көп"
+
+msgid "common.moreThanOnly"
+msgstr "Андан көп"
+
+msgid "common.noneAssigned"
+msgstr "Дайындалган жок"
+
+msgid "common.none"
+msgstr "Жок"
+
+msgid "common.noneSelected"
+msgstr "Тандалган жок"
+
+msgid "common.noneProvided"
+msgstr "Берилген жок"
+
+msgid "common.no"
+msgstr "Жок"
+
+msgid "common.noItemsFound"
+msgstr "Элементтер табылган жок."
+
+msgid "common.noTemporaryFile"
+msgstr "Сиз жүктөгөн файл табылган жок. Аны кайра жүктөп көрүңүз."
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Белгемелер (сары: жаңы белгемелер бар; көк: көрүлгөн белгемелер; боз: "
+"белгемелер жок)"
+
+msgid "common.notified"
+msgstr "Кабарланды"
+
+msgid "common.notified.date"
+msgstr "Кабарланды: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Дал келүүлөр жок"
+
+msgid "common.numberedMore"
+msgstr "{$number} дагы"
+
+msgid "common.off"
+msgstr "Өчүк"
+
+msgid "common.options"
+msgstr "Опциялар"
+
+msgid "common.order"
+msgstr "Тартип"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} позициясын жогорулатуу"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} позициясын төмөндөтүү"
+
+msgid "common.originalFileName"
+msgstr "Баштапкы файлдын аты"
+
+msgid "common.or"
+msgstr "же"
+
+msgid "common.other"
+msgstr "Башка"
+
+msgid "common.overdue"
+msgstr "Кечиккен"
+
+msgid "common.override"
+msgstr "Алмаштыруу"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} ичинен {$total}"
+
+msgid "common.pagination.label"
+msgstr "Кошумча барактарды көрүү"
+
+msgid "common.pagination.goToPage"
+msgstr "{$page} баракка өтүү"
+
+msgid "common.pagination.next"
+msgstr "Кийинки"
+
+msgid "common.pagination.previous"
+msgstr "Мурунку"
+
+msgid "common.pageNumber"
+msgstr "Барак {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Плагин"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\" плагини иштетилди."
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" плагини өчүрүлдү."
+
+msgid "common.prefix"
+msgstr "Префикс"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Мисалдар: A, The"
+
+msgid "common.preview"
+msgstr "Алдын ала көрүү"
+
+msgid "common.publisher"
+msgstr "Басып чыгаруучу"
+
+msgid "common.quality"
+msgstr "Сапат"
+
+msgid "common.queue.long.active"
+msgstr "Бардык активдүү"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Жооп:"
+
+msgid "common.readMore"
+msgstr "Көбүрөөк окуу"
+
+msgid "common.readMoreWithTitle"
+msgstr "{$title} жөнүндө көбүрөөк окуу"
+
+msgid "common.reconnecting"
+msgstr "Кайра туташууда"
+
+msgid "common.record"
+msgstr "Жазуу"
+
+msgid "common.refresh"
+msgstr "Жаңыртуу"
+
+msgid "common.related"
+msgstr "Тектеш"
+
+msgid "common.remove"
+msgstr "Өчүрүү"
+
+msgid "common.removeItem"
+msgstr "{$item} өчүрүү"
+
+msgid "common.removeSelection"
+msgstr "Тандалгандарды өчүрүү"
+
+msgid "common.replaced"
+msgstr "Алмаштырылды"
+
+msgid "common.requiredField"
+msgstr ""
+"Талап кылынган талаалар жылдызча менен белгиленет: <abbr class=\"required\" "
+"title=\"required\">*</abbr>"
+
+msgid "common.required"
+msgstr "Талап кылынат"
+
+msgid "common.reset"
+msgstr "Кайра коюу"
+
+msgid "common.reviewRoundNumber"
+msgstr "Айлампа {$round}"
+
+msgid "common.role"
+msgstr "Роль"
+
+msgid "common.saveAndContinue"
+msgstr "Сактап улантуу"
+
+msgid "common.saveAndEmail"
+msgstr "Сактап жана электрондук кат жөнөтүү"
+
+msgid "common.save"
+msgstr "Сактоо"
+
+msgid "common.saving"
+msgstr "Сакталып жатат"
+
+msgid "common.search"
+msgstr "Издөө"
+
+msgid "common.searchPhrase"
+msgstr "Издөө сөзү"
+
+msgid "common.searching"
+msgstr "Изделүүдө"
+
+msgid "common.searchQuery"
+msgstr "Издөө суроосу"
+
+msgid "common.clearSearch"
+msgstr "Издөө сөзүн тазалоо"
+
+msgid "common.second"
+msgstr "Секунд"
+
+msgid "common.selectedPrefix"
+msgstr "Тандалды:"
+
+msgid "common.selectNone"
+msgstr "Эч нерсе тандалган жок"
+
+msgid "common.select"
+msgstr "Тандоо"
+
+msgid "common.selectWithName"
+msgstr "{$name} тандоо"
+
+msgid "common.sendEmail"
+msgstr "Электрондук кат жөнөтүү"
+
+msgid "common.showAllSteps"
+msgstr "Бардык кадамдарды көрсөтүү"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} кадам"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Материал файлдарын тиркөө"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr ""
+"Автор тарабынан материал тапшыруу стадиясында жүктөлгөн файлдарды тиркөө."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Материал тапшыруу процессинде жүктөлгөн файлдарды тиркөө, мисалы ревизиялар "
+"же рецензиялануучу файлдар."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Китепкана файлдары"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Китепкана файлдарын тиркөө"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Материал жана басып чыгаруучу китепканалардан файлдарды тиркөө."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Рецензия файлдарын тиркөө"
+
+msgid "email.addCcRecipient"
+msgstr "CC кошуу"
+
+msgid "email.addToRecipient"
+msgstr "Алуучуну кошуу"
+
+msgid "email.attachments"
+msgstr "Тиркемелер"
+
+msgid "email.attachmentNotFound"
+msgstr "Файл {$fileName} тиркелген жок."
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Бул билдирүүнүн көчүрмөсүн менин дарегиме жөнөт ({$address})"
+
+msgid "email.body"
+msgstr "Негизги текст"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Бул электрондук катты түзүү үчүн {$localeName} тилине өзгөртүүнү "
+"каалайсызбы? Каттын темасына жана негизги текстине жасаган өзгөртүүлөр "
+"жоголот."
+
+msgid "email.compose"
+msgstr "Электрондук кат жөнөтүү"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Сиз жөнөтүүгө аракет кылган билдирүүдө өтө көп алуучулар бар."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Сиз акыркы билдирүү жөнөтүлгөндөн кийин абдан жакында жаңы билдирүү "
+"жөнөтүүгө аракет кылып жатасыз. Башка билдирүү жөнөтүүдөн мурун күтө туруңуз."
+
+msgid "email.compose.error"
+msgstr ""
+"Электрондук кат жөнөтүүдө көйгөй чыкты. Кийинчерээк аракет кылып көрүңүз же "
+"системанын администраторуна кайрылыңыз."
+
+msgid "email.email"
+msgstr "Электрондук почта"
+
+msgid "email.from"
+msgstr "Кимден"
+
+msgid "email.invalid"
+msgstr "Электрондук почта дареги {$email} жараксыз."
+
+msgid "email.multipart"
+msgstr "Бул MIME форматындагы көп бөлүктүү билдирүү."
+
+msgid "email.recipient"
+msgstr "Алуучу"
+
+msgid "email.recipients"
+msgstr "Алуучулар"
+
+msgid "email.sender"
+msgstr "Жөнөтүүчү"
+
+msgid "email.senderName"
+msgstr "Жөнөтүүчүнүн аты"
+
+msgid "email.senderEmail"
+msgstr "Жөнөтүүчүнүн электрондук дареги"
+
+msgid "email.send"
+msgstr "Жөнөтүү"
+
+msgid "email.skip"
+msgstr "Электрондук катты өткөрүп жиберүү"
+
+msgid "email.subject"
+msgstr "Тема"
+
+msgid "email.subjectRequired"
+msgstr "Электрондук каттын темасын киргизиңиз."
+
+msgid "email.bodyRequired"
+msgstr "Электрондук каттын негизги текстин киргизиңиз."
+
+msgid "email.to"
+msgstr "Кимге"
+
+msgid "form.url.invalid"
+msgstr "Көрсөтүлгөн URL жараксыз. Текшерип, кайра аракет кылыңыз."
+
+msgid "form.confirmSubmit"
+msgstr "Бул форманы тапшырууну каалайсызбы?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Ырастоо"
+
+msgid "form.dataHasChanged"
+msgstr "Бул формадагы маалымат өзгөртүлдү. Сактабастан улантууну каалайсызбы?"
+
+msgid "common.showingXofX"
+msgstr "<strong>{$start} - {$finish}</strong> ичинен {$total} көрсөтүлүүдө"
+
+msgid "common.size"
+msgstr "Өлчөмү"
+
+msgid "common.downloadReport"
+msgstr "Отчетту жүктөө"
+
+msgid "common.source"
+msgstr "Булак"
+
+msgid "common.subtitle"
+msgstr "Кошумча аталыш"
+
+msgid "common.suggest"
+msgstr "Сунуштоо"
+
+msgid "common.switchTo"
+msgstr "Өтүү"
+
+msgid "common.switchToNamedItem"
+msgstr "{$name} бөлүгүнө өтүү"
+
+msgid "common.title"
+msgstr "Аталыш"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "Жогору"
+
+msgid "common.true"
+msgstr "Чын"
+
+msgid "common.type"
+msgstr "Түрү"
+
+msgid "common.uploadedBy"
+msgstr "{$name} тарабынан жүктөлдү"
+
+msgid "common.uploadedByAndWhen"
+msgstr "{$name} тарабынан {$date} күнү жүктөлдү"
+
+msgid "common.component"
+msgstr "Компонент"
+
+msgid "common.uninitiated"
+msgstr "Баштала элек"
+
+msgid "common.unknownError"
+msgstr "Күтүлбөгөн ката кетти. Баракты кайра жүктөп, дагы аракет кылыңыз."
+
+msgid "common.unread"
+msgstr "Окула элек"
+
+msgid "common.unsavedChanges"
+msgstr "Сакталбаган өзгөртүүлөр"
+
+msgid "list.expandAll"
+msgstr "Баарын кеңейтүү"
+
+msgid "list.collapseAll"
+msgstr "Баарын жыйруу"
+
+msgid "validation.invalidOption"
+msgstr "Бул жарактуу параметр эмес."
+
+msgid "validator.accepted"
+msgstr "Бул элементти кабыл алыңыз."
+
+msgid "validator.active_url"
+msgstr "Бул жарактуу URL эмес."
+
+msgid "validator.after"
+msgstr "Бул дата {$date} датасынан кийин болушу керек."
+
+msgid "validator.alpha"
+msgstr "Бул талаа тамгалардан гана турушу керек."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Бул талаа тамгалардан, сандардан, сызыктардан жана астынкы сызыктардан гана "
+"турушу керек."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Бул талаа тамгалардан, сандардан, сызыктардан, астынкы сызыктардан жана "
+"чекиттерден гана турушу керек."
+
+msgid "validator.before"
+msgstr "Бул дата {$date} датасынан мурун болушу керек."
+
+msgid "validator.between.numeric"
+msgstr "Бул {$min} менен {$max} ортосунда болушу керек."
+
+msgid "validator.between.file"
+msgstr "Бул {$min} менен {$max} килобайт ортосунда болушу керек."
+
+msgid "validator.between.string"
+msgstr "Бул {$min} менен {$max} символ ортосунда болушу керек."
+
+msgid "validator.between.array"
+msgstr "Бул {$min} менен {$max} элемент ортосунда болушу керек."
+
+msgid "validator.boolean"
+msgstr "Бул талаа чын же жалган болушу керек."
+
+msgid "validator.confirmed"
+msgstr "Бул талаанын ырастоосу дал келбейт."
+
+msgid "validator.country"
+msgstr "Бул жарактуу өлкө эмес."
+
+msgid "validator.country.regex"
+msgstr ""
+"Бул жарактуу өлкө эмес. Өлкө 2 тамгадан турган эл аралык коддордун бири "
+"болушу керек. Бардык коддорду https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements дарегинен көрүңүз."
+
+msgid "validator.currency"
+msgstr "Бул жарактуу валюта эмес."
+
+msgid "validator.date"
+msgstr "Бул жарактуу дата эмес."
+
+msgid "validator.date.comparison"
+msgstr "Салыштыруу үчүн жараксыз даталар берилди."
+
+msgid "validator.date_format"
+msgstr "Бул {$format} форматына дал келбейт."
+
+msgid "validator.different"
+msgstr "{$attribute} жана {$other} ар башка болушу керек."
+
+msgid "validator.digits"
+msgstr "Бул {$digits} сан узундугунда болушу керек."
+
+msgid "validator.digits_between"
+msgstr "Бул {$min} менен {$max} сан ортосунда болушу керек."
+
+msgid "validator.email"
+msgstr "Бул жарактуу электрондук почта дареги эмес."
+
+msgid "validator.exists"
+msgstr "Тандалган {$attribute} жараксыз."
+
+msgid "validator.filled"
+msgstr "Бул талаа талап кылынат."
+
+msgid "validator.image"
+msgstr "Бул сүрөт болушу керек."
+
+msgid "validator.in"
+msgstr "Тандалган {$attribute} жараксыз."
+
+msgid "validator.integer"
+msgstr "Бул жарактуу бүтүн сан эмес."
+
+msgid "validator.ip"
+msgstr "Бул жарактуу IP дарек эмес."
+
+msgid "validator.issn"
+msgstr "Бул жарактуу ISSN эмес."
+
+msgid "validator.json"
+msgstr "Бул жарактуу JSON сап эмес."
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tБул эмгек <a rel=\"license\" target=\"_blank\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 "
+"License</a> лицензиясы менен берилген.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tБул эмгек <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a> "
+"лицензиясы менен берилген.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changeLanguage"
+msgstr "Тилди өзгөртүү"
+
+msgid "common.close"
+msgstr "Жабуу"
+
+msgid "common.closePanel"
+msgstr "Панелди жабуу"
+
+msgid "common.closeWindow"
+msgstr "Терезени жабуу"
+
+msgid "common.complete"
+msgstr "Толуктоо"
+
+msgid "common.completed"
+msgstr "Толукталды"
+
+msgid "common.completed.date"
+msgstr "Аяктады: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Ырастоо"
+
+msgid "common.confirmed.date"
+msgstr "Ырасталды: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Мазмун"
+
+msgid "common.contents"
+msgstr "Мазмундар"
+
+msgid "common.continue"
+msgstr "Улантуу"
+
+msgid "common.copy"
+msgstr "Көчүрүү"
+
+msgid "common.country"
+msgstr "Өлкө"
+
+msgid "common.create"
+msgstr "Түзүү"
+
+msgid "common.dateCompleted"
+msgstr "Аяктаган дата"
+
+msgid "common.dateModified"
+msgstr "Түзөтүлгөн дата"
+
+msgid "common.deactivate"
+msgstr "Деактивдештирүү"
+
+msgid "common.delete"
+msgstr "Өчүрүү"
+
+msgid "common.deleting"
+msgstr "Өчүрүлүүдө"
+
+msgid "common.deleteSelection"
+msgstr "Тандалгандарды өчүрүү"
+
+msgid "common.deselect"
+msgstr "Тандоону алып салуу"
+
+msgid "common.designation"
+msgstr "Белгилөө"
+
+msgid "common.description"
+msgstr "Сүрөттөмө"
+
+msgid "common.details"
+msgstr "Деталдар"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; {$dpi} DPI/PPI менен"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} пиксел"
+
+msgid "common.discardChanges"
+msgstr "Жок, сакталбаган өзгөртүүлөрдү жокко чыгаруу"
+
+msgid "common.disconnected"
+msgstr "Байланыш үзүлдү"
+
+msgid "common.disable"
+msgstr "Өчүрүү"
+
+msgid "common.disabled"
+msgstr "Өчүрүлгөн"
+
+msgid "common.discipline"
+msgstr "Тармак"
+
+msgid "common.done"
+msgstr "Бүттү"
+
+msgid "common.download"
+msgstr "Жүктөө"
+
+msgid "common.downloadPdf"
+msgstr "PDF жүктөө"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Биз {$when} датасынан сакталбаган өзгөртүүлөрдү таптык. Бул серверге туташуу "
+"үзүлгөндө болушу мүмкүн. Бул өзгөртүүлөрдү калыбына келтирүү сиз андан кийин "
+"жасаган өзгөртүүлөрдү алмаштырып коюшу мүмкүн. Азыр калыбына келтирүүнү "
+"каалайсызбы?"
+
+msgid "common.untitled"
+msgstr "Аталышсыз"
+
+msgid "common.uploadedDate"
+msgstr "Жүктөлгөн дата"
+
+msgid "common.upload"
+msgstr "Жүктөө"
+
+msgid "common.uploadFailed"
+msgstr "Файл жүктөлгөн жок же ревизияланбаган."
+
+msgid "common.up"
+msgstr "Жогору"
+
+msgid "common.addFile"
+msgstr "Файл кошуу"
+
+msgid "common.upload.addFile"
+msgstr "Файл жүктөө"
+
+msgid "common.upload.addFile.description"
+msgstr "Компьютериңизден файл жүктөө."
+
+msgid "common.upload.restore"
+msgstr "Баштапкыны калыбына келтирүү"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Учурда тандалган сүрөттүн алдын ала көрүнүшү."
+
+msgid "common.upload.changeFile"
+msgstr "Файлды өзгөртүү"
+
+msgid "common.upload.dragFile"
+msgstr "Жүктөөнү баштоо үчүн файлды бул жерге сүйрөп таштаңыз"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Колдонуучу"
+
+msgid "common.user.nonexistent"
+msgstr "[Жок колдонуучу]"
+
+msgid "common.view"
+msgstr "Көрүү"
+
+msgid "common.viewError"
+msgstr "Көрүү катасы"
+
+msgid "common.viewWithName"
+msgstr "{$name} көрүү"
+
+msgid "common.viewProfile"
+msgstr "Профилди көрүү"
+
+msgid "common.weeks"
+msgstr "жумалар"
+
+msgid "common.width"
+msgstr "Туурасы"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.yes"
+msgstr "Ооба"
+
+msgid "common.loading"
+msgstr "Жүктөлүүдө"
+
+msgid "common.loaded"
+msgstr "Жүктөлдү"
+
+msgid "common.plugins"
+msgstr "Плагиндер"
+
+msgid "common.count"
+msgstr "Саны"
+
+msgid "debug.databaseQueries"
+msgstr "Маалымат базасына суроолордун саны"
+
+msgid "debug.executionTime"
+msgstr "Барак түзүлгөн убакыт"
+
+msgid "debug.memoryUsage"
+msgstr "Эс тутум колдонулушу"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Локалдардын тизмеси \"{$localeList}\" XMLден жүктөлдү"
+
+msgid "debug.notes.localeLoad"
+msgstr "Локал файлы \"{$localeFile}\" XMLден жүктөлдү"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Локал ачкычы жок \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Белгемелер:"
+
+msgid "defaultMetric.title"
+msgstr "Демейки метрика"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Рецензия файлын жүктөө"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Файл жүктөө"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Кайсы системалык окуялар боюнча билдирүү алгыңыз келсе, тандаңыз. Эгер "
+"элементти алып салсаңыз, ал окуя боюнча билдирүү системада да, электрондук "
+"почта аркылуу да көрсөтүлбөйт. Белгиленген окуялар системада көрүнөт жана "
+"кошумча түрдө электрондук кат аркылуу алууну же албоону тандай аласыз."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Материалдын метамаалыматы сакталды."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Бул тууралуу бардык катталган колдонуучуларга электрондук кат жөнөтүү."
+
+msgid "search.author"
+msgstr "Автор боюнча"
+
+msgid "search.abstract"
+msgstr "Анотация"
+
+msgid "search.advancedFilters"
+msgstr "Кеңейтилген фильтрлер"
+
+msgid "search.advancedSearchMore"
+msgstr "Кошумча издөө параметрлери"
+
+msgid "search.searchAgain"
+msgstr "Кайра издөө"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Индекстен тазалоо"
+
+msgid "search.date"
+msgstr "Жарыяланган дата"
+
+msgid "search.dateFrom"
+msgstr "Бул датадан кийин жарыяланган"
+
+msgid "search.dateTo"
+msgstr "Бул датадан мурун жарыяланган"
+
+msgid "search.deleteFilter"
+msgstr "Өчүрүү"
+
+msgid "search.discipline"
+msgstr "Тармактар"
+
+msgid "search.fullText"
+msgstr "Толук текст"
+
+msgid "search.indexTerms"
+msgstr "Индекс терминдери"
+
+msgid "search.indexTermsLong"
+msgstr "Бардык индекс талаалары"
+
+msgid "search.matchAll"
+msgstr "Бардык категорияларга дал келүү"
+
+msgid "search.noResults"
+msgstr "Натыйжалар жок"
+
+msgid "search.operator.and"
+msgstr "жана"
+
+msgid "search.operator.not"
+msgstr "эмес"
+
+msgid "search.operator.or"
+msgstr "же"
+
+msgid "search.SearchFor"
+msgstr "Издөө"
+
+msgid "search.searchResults"
+msgstr "Издөө натыйжалары"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Бир элемент табылды."
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} элемент табылды."
+
+msgid "search.subject"
+msgstr "Ачкыч сөздөр"
+
+msgid "search.titleIndex"
+msgstr "Аталыш индекси боюнча карап чыгуу"
+
+msgid "search.title"
+msgstr "Аталыш"
+
+msgid "search.typeMethodApproach"
+msgstr "Түрү (метод/ыкма)"
+
+msgid "grid.action.downloadFile"
+msgstr "Бул файлды жүктөө"
+
+msgid "context.path"
+msgstr "Жол"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Бардык файлдардын анонимдүүлүгүн камсыздоо"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Учурдагы рецензия саясатын окуу"
+
+msgid "grid.action.deleteNotification"
+msgstr "Тапшырманы өчүрүү"
+
+msgid "grid.action.markNew"
+msgstr "Жаңы деп белгилөө"
+
+msgid "dashboard.tasks"
+msgstr "Тапшырмалар"
+
+msgid "dashboard.myQueue"
+msgstr "Менин кезегим"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Анонимдүү рецензиянын бүтүндүгүн камсыздоо үчүн авторлор менен "
+"рецензенттердин ким экенин бири-бири билбеши керек. Бул авторлор, "
+"редакторлор жана рецензенттер (документтерди жүктөгөндөр) текст жана файл "
+"касиеттери боюнча төмөнкү кадамдарды аткарганын текшерүүсүн камтыйт:</p>\n"
+"<ul><li>Авторлор тексттен өз аттарын алып салышкан, шилтемелерде жана "
+"эскертмелерде \"Author\" жана жыл гана колдонулган.</li>\n"
+"<li>Авторлор файл касиеттеринен жеке маалыматтарын алып салышкан:</li>\n"
+"<ul><li>Microsoft Word (Windows): Файл → Info → Check for Issues → Inspect "
+"Document → жашыруун мазмунду тандап → Remove All → Close → Сактоо.</li>\n"
+"<li>Microsoft Word (MacOS): Tools → Protect Document → Remove personal "
+"information on save → OK → Сактоо.</li>\n"
+"<li>Adobe Acrobat (PDF): File → Properties → Author талаасынан атты алып "
+"салуу → OK → Сактоо.</li></ul></ul>\n"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Рецензия графиги"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Редактордун өтүнүчү"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Жооп берүү мөөнөтү"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Рецензия мөөнөтү"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Рецензия тапшырылган дата"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} бул материалды рецензиялоого дайындалды, бирок электрондук "
+"билдирүү жөнөтүлгөн жок."
+
+msgid "notification.removedReviewer"
+msgstr "Рецензент өчүрүлдү."
+
+msgid "notification.cancelledReviewer"
+msgstr "Рецензент жокко чыгарылды."
+
+msgid "notification.editStageParticipant"
+msgstr "Этаптагы тапшырма өзгөртүлдү."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Жаңы жарыя."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Рецензия күтүлүүдө."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Рецензия тапшырмасы жаңыртылды."
+
+msgid "notification.type.auditorRequest"
+msgstr "\"{$file}\" үчүн аудит өтүнүчү"
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"Бардык рецензенттер жооп беришти жана {$stage} стадиясында чечим талап "
+"кылынат."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Редакциялык кароого {$stage} стадиясында кайра түзүлгөн файл жүктөлдү."
+
+msgid "notification.type.reviewerComment"
+msgstr "Рецензент \"{$title}\" боюнча комментарий берди."
+
+msgid "user.email"
+msgstr "Электрондук почта дареги"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Учурдагы колдонуучуга көрсөтүлгөн материал файлына кирүүгө уруксат берилген "
+"эмес."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Жараксыз жарыя."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Жараксыз көрсөтмө."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Жараксыз рецензия айлампасы."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Жараксыз талкуу."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Бул талкуу билдирүүсүнө кирүүгө укугуңуз жок."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Бул рецензия тапшырмасына кирүүгө укугуңуз жок."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Учурдагы колдонуучу суралган материалдын автору эмес. Туура колдонуучу "
+"аккаунту менен киргендигиңизди текшериңиз."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Купуялык параметрлери"
+
+msgid "notification.type.queryActivity"
+msgstr "Талкуу активдүүлүгү."
+
+msgid "notification.type.queryAdded"
+msgstr "Талкуу кошулду."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Катышуучулар тизмесиндеги \"Дайында\" шилтемесин колдонуп редактор "
+"дайындаңыз."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Редакциялык түзөтүүлөр күтүлүүдө."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Айлампа {$round} статусу"
+
+msgid "notification.type.editorialReport"
+msgstr "Статистика отчетунун кыскача мазмуну."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Бул редакциялык отчет аркылуу жарыяңыздын абалын текшерүү үчүн эскертүү."
+
+msgid "notification.type.editorialReminder"
+msgstr "Апта сайын outstanding тапшырмалар боюнча электрондук кат"
+
+msgid "semicolon"
+msgstr "{$label}: "
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Навигация менюсу ийгиликтүү жаңыртылды"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Навигация менюсу ийгиликтүү кошулду"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Навигация менюсу ийгиликтүү кошулду"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Навигация менюсу ийгиликтүү жаңыртылды"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Навигация менюсу ийгиликтүү өчүрүлдү"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Сиз жазылуудан чыктыңыз"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Сизди жазылуудан чыгара алган жокпуз"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"{$contextName} системасынан {$email} дарегине мындан ары алгыңыз келбеген "
+"электрондук каттарды тандаңыз."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Электрондук билдирүүлөргө каалаган убакта кайра жазылсаңыз болот <a href=\""
+"{$profileNotificationUrl}\">колдонуучу профилиңизден</a>."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"{$email} дареги ийгиликтүү жазылуудан чыгарылды. Мындан ары бул электрондук "
+"каттар жөнөтүлбөйт. Электрондук билдирүүлөргө каалаган убакта кайра "
+"жазылсаңыз болот <a href=\"{$profileNotificationUrl}\">колдонуучу "
+"профилиңизден</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Күтүлбөгөн ката кетти жана {$email} дарегин жазылуудан чыгара алган жокпуз. "
+"Бардык электрондук билдирүүлөрдөн жазылуудан колдонуучу профилиңизден <a "
+"href=\"{$profileNotificationUrl}\">чыга аласыз</a> же түздөн-түз бизге "
+"кайрылыңыз."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Жазылуудан чыгуу"
+
+msgid "showAll"
+msgstr "Баарын көрсөтүү"
+
+msgid "list.viewLess"
+msgstr "{$name} жөнүндө кеңейтилген деталдарды жашыруу"

@@ -1,0 +1,413 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Жок болгон колдонуучулар үчүн ролдорду алып салуу аныкталбайт."
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr ""
+"Бул атрибуттун мааниси бүгүнкү күнгө барабар же андан кийинки болушу керек"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr ":attribute талаасы тыюу салынган"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Локаль '{$primaryLocale}' үчүн мааниси талап кылынат"
+
+msgid "invitation.step"
+msgstr "КАДАМ"
+
+msgid "invitation.header"
+msgstr "Чакыруулар"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Ролго чакыруу"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Колдонуучуну ролго чакыруу"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Маалыматтарды киргизүү"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Ролдорду карап чыгып чакыруу"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Колдонуучуну издөө"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Колдонуучуну издөө"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Колдонуучуну издөө"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Эгер колдонуучу жок болсо, аны ролдорго чакыра аласыз. Эгер колдонуучу "
+"системада мурунтан бар болсо, анын маалыматтарын көрүп, кошумча ролдорго "
+"чакыра аласыз."
+
+msgid "userInvitation.searchField.description"
+msgstr "мисалы: aeinstein@example.com же aeinstein же 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Маалыматтарды киргизүү"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Маалыматтарды киргизүү жана ролдорго чакыруу"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Сактоо жана улантуу"
+
+msgid "invitation.role.selectRole"
+msgstr "Жаңы ролду тандоо"
+
+msgid "invitation.role.dateStart"
+msgstr "Башталуу датасы"
+
+msgid "invitation.role.dateEnd"
+msgstr "Аяктоо датасы"
+
+msgid "invitation.role.addRole.button"
+msgstr "Дагы бир роль кошуу"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Роль"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Башталуу датасы"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Аяктоо датасы"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Ролдорду карап чыгып чакыруу"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Колдонуучуну ролго чакыруу"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Колдонуучу менен бөлүшүлгөн электрондук катты өзгөртүү"
+
+msgid "userInvitation.modal.title"
+msgstr "Чакыруу жөнөтүлдү"
+
+msgid "userInvitation.modal.button"
+msgstr "Бардык колдонуучуларды көрүү"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Ролду алып салуу"
+
+msgid "invitation.email.description"
+msgstr "мисалы: aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Чакырууну кабыл алганда, колдонуучу кааласа аккаунтун ырастоо үчүн ORCIDге "
+"багытталат."
+
+msgid "invitation.decline.confirm"
+msgstr "Чакырууну четке кагууну ырастоо"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "ORCID текшерүүнү өткөрүп жиберүү"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Купуялык билдирүүсү"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Тиешелүү өлкө"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Аккаунт маалыматтары"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Колдонуучу маалыматтары"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Бардык материалдарды көрүү"
+
+msgid "invitation.tableHeader.name"
+msgstr "Аты"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Сиз {$name} колдонуучунун маалыматтарын көрүп жатасыз"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Чакырууну жокко чыгаруу"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Чакырууну жокко чыгаруу"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"{$givenName} {$familyName} үчүн жөнөтүлгөн чакырууну жокко чыгаруу "
+"электрондук почта аркылуу жөнөтүлгөн кабыл алуу шилтемесин иштен чыгарат. "
+"Мына чакыруунун деталдары: "
+
+msgid "invitation.masthead.show"
+msgstr "Баш сөздө көрсөтүлөт"
+
+msgid "invitation.masthead.hidden"
+msgstr "Баш сөздө көрсөтүлбөйт"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Ролду өзгөртүү"
+
+msgid "invitation.management.options"
+msgstr "Чакырууну башкаруу параметрлери"
+
+msgid "userInvitation.cancel.message"
+msgstr "Бул чакырууну жокко чыгаргыңыз келеби?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Артка кайтуу"
+
+msgid "userInvitation.status.invited"
+msgstr "Чакырылды {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Чакырууну түзөтүү"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Эгерде учурдагы чакырууну түзөтсөңүз же жаңы роль кошсоңуз, учурдагы чакыруу "
+"жокко чыгарылып, жаңысын жөнөтүлөт. Улантууну каалайсызбы?"
+
+msgid "validation.after_or_equal"
+msgstr "Башталуу датасы бүгүнкү күнгө барабар же андан кийинки болушу керек"
+
+msgid "invitation.removeRoles"
+msgstr "Колдонуучу ролдон алынды"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Купуялык билдирүүсүн окуп, макул экениңизди ырастооңузду суранабыз"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Кошуу үчүн жок дегенде бир колдонуучу тобу аныкталышы керек"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Колдонуучу тобу чакырылган колдонуучуга дайындалган"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Алып салуу үчүн жок дегенде бир колдонуучу тобу аныкталышы керек"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Жок дегенде бир издөө критерийин бериңиз."
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Жокко чыгаргыңыз келеби? Азыр жокко чыгарсаңыз, ролду кабыл алуу процесси "
+"токтойт жана ролду кайра кабыл алуу үчүн чакыруу электрондук почтасынан "
+"башташыңыз керек болот. Эгер сиз мурунтан колдонуучу болсоңуз, башкы бетке "
+"кайтарылатсыз. Эгер болбосоңуз, процессти баштоо үчүн чакыруу электрондук "
+"почтасына киришиңиз керек болот."
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Рол чакыруу процессин жокко чыгаруу?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Чакыруу процессин жокко чыгаруу"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Чакыруу кабыл алынган жок. Сиз башка колдонуучу катары кирип жатасыз."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Бул чакырууну кабыл алуу үчүн чыгуу жасап, туура аккаунт менен киришиңиз "
+"керек."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Колдонуучуну электрондук почта, колдонуучу аты же ORCID iD аркылуу издеңиз. "
+"Баштоо үчүн бир гана маалыматты киргизиңиз!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Колдонуучу учурда өчүрүлгөн."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Колдонуучу өчүрүлгөн. Ал өчүрүлгөн учурда ага роль дайындай албайсыз. Алгач "
+"колдонуучуну активдештирип, андан кийин ролго чакырыңыз."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Купуялыкка макулдук"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Чакырууну жөнөтүүгө болбойт, анткени сиз эч кандай колдонуучу тобунун "
+"өзгөрүүлөрүн аныктаган жоксуз"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Берилген колдонуучу топторунда кайталанган жазуулар бар."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Колдонуучу аты {$username} менен колдонуучу мурунтан бар. Башкасын тандаңыз."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Чакырууда колдонуучу ID ({$userId}) дайындалса, тиешелүү колдонуучу болушу "
+"керек."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Чакырууда электрондук почта ({$email}) дайындалса, бул почта башка "
+"колдонуучу тарабынан колдонулбашы керек."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Колдонуучу аты берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Сырсөз берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Тиешелүүлүк (affiliation) берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Өлкө берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Аты берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Фамилия берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Кошулган колдонуучу топтору үчүн колдонуучу тобунун ID берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Кошулган колдонуучу топтору үчүн башталуу датасы берилүүгө тийиш"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Кошулган колдонуучу топтору үчүн баш сөз (masthead) берилүүгө тийиш"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Бул чакыруу түрүндө жөнөтүлүүчү электрондук кат аныкталган эмес"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Бул чакыруу операциясы ишке ашкан жок"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Берилген колдонуучу тобунун ID {$userGroupId} жок"
+
+msgid "invitation.validation.required"
+msgstr "{$attribute} талаасы талап кылынат."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Индекс {$attribute} элементинде күтүлбөгөн касиеттер табылды: {$properties}."
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Бул чакырууну жокко чыгарууга болбойт"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Электрондук почта жана userId экөөнү тең бир убакта бере албайсыз."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Бул атрибут учурдагы колдонуучулар үчүн жеткиликтүү эмес"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Бул атрибут жок болгон колдонуучулар үчүн жеткиликтүү эмес"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Эгер колдонуучунун атын билсеңиз, маалыматты киргизсеңиз болот. Бирок бул "
+"маалыматты колдонуучу өзгөртө алат."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Эгер колдонуучунун фамилиясын билсеңиз, маалыматты киргизсеңиз болот. Бирок "
+"бул маалыматты колдонуучу өзгөртө алат."
+
+msgid "invitation.decline.confirm.title"
+msgstr "Чакырууну четке кагуу"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Бул чакырууну четке кагууну каалайсызбы? Төмөнкү баскычты басуу менен четке "
+"кагууну ырастасаңыз болот."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "ORCID iD текшерүү"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - ORCID iD текшерүү"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Сактоо жана улантуу"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Сактоо жана улантуу"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Маалыматтарды киргизүү"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Маалыматтарды киргизүү"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Электрондук почта, тиешелүүлүк ж.б. маалыматтарды киргизиңиз. GDPR "
+"талаптарына ылайык, бул маалыматты өзүңүз гана өзгөртө аласыз. Ошондой эле "
+"бул маалыматты профилиңизде редакторго көрүнүктүү кылууну тандай аласыз."
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Сактоо жана улантуу"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Чакырууну кабыл алуу колдонуучу маалымат формасы"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Аккаунтуңузду башкарууга жардам берүү үчүн төмөнкү маалыматтарды бериңиз"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Карап чыгуу жана аккаунт түзүү"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Карап чыгуу жана аккаунт түзүү"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "ORCID iD текшерүү"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Бул чоң тамгалар, кичине тамгалар же сандардан турган айкалыш болушу мүмкүн"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Бул жок дегенде 6 белгиден турушу керек жана чоң тамгалар, кичине тамгалар, "
+"сандар жана символдордун айкалышы болушу мүмкүн"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "Ооба, менин маалыматтарым {$url} боюнча чогултулуп сакталарына макулмун"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Аты же биринчи аты деп да белгилүү, бул адамды аныктаган жеке аттын бөлүгү."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Фамилия же акыркы ат — бул адамдын үй-бүлөсүн көрсөткөн мурасталган жеке "
+"аттын бөлүгү."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Бул сиз тиешелүү болгон институт"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Бул сиз тиешелүү болгон институт жайгашкан өлкө"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"Идентификатор {reviewAssignmentId} жарактуу кароо тапшырмасына туура келбейт"

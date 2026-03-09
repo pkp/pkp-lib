@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2023.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2023-11-19 14:38+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-10 15:38+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ru/>\n"
 "Language: ru\n"
@@ -632,3 +633,62 @@ msgstr "Возникла проблема с шагом {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Та же организация, что и у автора"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Выберите рецензента из предложений рецензентов"
+
+msgid "editor.review.reviewViewed"
+msgstr "Рецензия просмотрена"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Произошла ошибка при добавлении рецензента, так как срок сдачи рецензии "
+"должен быть равен или больше срока ответа."
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Дата завершения рецензирования должна быть больше или равна дате ответа."
+
+msgid "editor.submission.search"
+msgstr "Поиск отправок, ID, авторов, ключевых слов и т. д."
+
+msgid "editor.submission.days"
+msgstr "Дни"
+
+msgid "editor.submission.daysInStage"
+msgstr "Дни на этапе"
+
+msgid "editor.submission.viewSummary"
+msgstr "Сводка"
+
+msgid "editor.review.logResponse.for"
+msgstr "Журнал ответов"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Необходимо выбрать хотя бы один ответ"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Записать ответ от имени рецензента"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Если рецензент связывается с вами по электронной почте или любым другим "
+"способом, вы можете записать его ответ от его имени"
+
+msgid "editor.review.logResponse"
+msgstr "Журнал ответа для"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Рецензент принял приглашение на рецензирование"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Рецензент отклонил приглашение на рецензирование"
+
+msgid "editor.review.download"
+msgstr "Скачать форму рецензии"
+
+msgid "editor.review.authorOnly"
+msgstr "Отображаются только разделы для автора"
+
+msgid "editor.review.allSections"
+msgstr "Форма редактора отображает все разделы рецензии"

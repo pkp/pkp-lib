@@ -3,16 +3,17 @@
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
 # Mickael Gomes da Silva <mickael.silva@uc.pt>, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2024-11-12 09:40+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/manager/pt_PT/>\n"
-"Language: pt_PT\n"
+"PO-Revision-Date: 2026-02-25 08:43+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -846,7 +847,7 @@ msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
 
 msgid "manager.setup.dois"
-msgstr "DOIs"
+msgstr "DOI"
 
 msgid "manager.setup.dois.setup"
 msgstr "Configuração"
@@ -915,9 +916,7 @@ msgstr ""
 "registo de DOI configurada."
 
 msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Um sufixo DOI pode assumir qualquer formato, mas deve ser único entre todos "
-"os objetos publicados com o mesmo prefixo DOI:"
+msgstr "Selecione o formato a usar quando a aplicação gera um DOI."
 
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Usar padrão"
@@ -987,17 +986,22 @@ msgstr "Informação sobre Direitos de Autor"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""
-"Exigir que os autores aceitem o Aviso de Direitos de Autor como parte do "
-"processo de submissão."
+"O texto que se segue aparece na página de <a href=\"{$url}\">submissões</a>, "
+"onde os autores encontrarão informação sobre os requisitos para submissão. "
+"Os autores deverão confirmar que concordam com o aviso de direitos de autor "
+"antes de concluir a submissão."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Directrizes Autor"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
-"As directrizes recomendadas incluem normas bibliográficos e de formatação, "
-"juntamente com exemplos de formatos comuns de citação para serem usados na "
-"submissão de artigos."
+"O texto que se segue aparece na página de <a href=\"{$url}\">submissões</a>, "
+"onde os autores poderão encontrar informação sobre como preparar os seus "
+"trabalhos para submissão. Forneça orientações sobre tudo o que possam "
+"precisar de saber, como normas bibliográficas e de formatação, juntamente "
+"com exemplos de formatos de citação comuns a utilizar. Também pode fornecer "
+"detalhes sobre o formato e o assunto preferidos para as submissões."
 
 msgid "manager.setup.disableSubmissions"
 msgstr "Desativar Submissões"
@@ -1012,7 +1016,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Ocorreu um erro ao eliminar este item."
 
 msgid "manager.setup.favicon"
-msgstr "Favicon"
+msgstr "Ícone para a web (favicon)"
 
 msgid "manager.setup.homepageImage"
 msgstr "Image Homepage"
@@ -2579,7 +2583,7 @@ msgid "stats.downloads.timelineInterval"
 msgstr "Total de downloads por data"
 
 msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/year)"
+msgstr "{$count} ({$average}/ano)"
 
 msgid "stats.daily"
 msgstr "Diariamente"
@@ -2934,8 +2938,7 @@ msgstr "O nome do revisor"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
-"Uma descrição do método de revisão padrão, tal como duplamente cega ou "
-"aberta."
+"Descrição do método de revisão padrão, tal como duplamente cega ou aberta"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
@@ -3733,7 +3736,7 @@ msgstr ""
 "fase válido."
 
 msgid "manager.statistics.counterR5"
-msgstr "Counter R5"
+msgstr "Contador R5"
 
 msgid "manager.statistics.counterR5Reports"
 msgstr "Relatórios Counter R5"
@@ -3796,3 +3799,136 @@ msgstr "Validar o XML antes de exportar e registar."
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Versão instalada: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Idiomas do site"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Nenhum"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"A seguinte mensagem é apresentada aos autores durante a etapa de sugestões "
+"para revisão. Apresente uma breve explicação sobre que informação o autor "
+"deve fornecer sobre si próprio, os coautores e quaisquer outros "
+"colaboradores."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"A categoria não existe ou pertence a um contexto diferente. Certifique-se de "
+"que está a trabalhar com o contexto correto e tente novamente."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Defina lembretes para revisão"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Enviar um lembrete por e-mail antes ou depois da resposta ao pedido de "
+"revisão (caso o revisor ainda não tenha respondido) ou do envio da revisão ("
+"caso o revisor ainda não a tenha enviado)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Resposta ao pedido de revisão - Antes do prazo"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Resposta ao pedido de revisão - Após o prazo"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Envio da revisão - Antes do prazo"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Envio da revisão - Depois do prazo"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dias antes do fim do prazo"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dias após a data limite"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Nenhum lembrete configurado"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Sugestão de revisor na submissão"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"O autor pode sugerir vários potenciais revisores antes de concluir a "
+"submissão, o que pode agilizar o processo de revisão e fornecer informações "
+"valiosas para a equipa editorial."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Permitir que os autores sugiram potenciais revisores durante o processo de "
+"submissão"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Idiomas de submissões"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Adicionar/remover idiomas"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadados"
+
+msgid "manager.language.submission.form.description"
+msgstr "Selecione os idiomas e metadados da submissão."
+
+msgid "manager.language.submission.from.error"
+msgstr "É necessário selecionar pelo menos uma configuração de região."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Número mínimo de revisões confirmadas necessárias"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Número mínimo de revisões confirmadas necessárias para uma submissão"
+
+msgid "notification.submissionLocales"
+msgstr "Configurações de região da submissão atualizadas."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Definir a ordem das funções no cabeçalho editorial para apresentação pública."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"O autor {$authorName} não tem um nome de afiliação no idioma da submissão, "
+"{$localeName}. A submissão não pode ser importada sem esta informação."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Defina a ordem das funções no cabeçalho para visualização pública."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Os avaliadores serão apresentados num formato padronizado para manter a "
+"uniformidade e garantir uma fácil localização nesta secção."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"A propriedade de idioma não pode ser guardado. É necessário ativar todas as "
+"opções."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"A imagem de capa e os ficheiros de thumbnail não foram encontrados. Podem já "
+"ter sido apagados. Tente recarregar a página."
+
+msgid "settings.roles.masthead"
+msgstr "Considerar a função na lista de cabeçalho"
+
+msgid "settings.roles.permitSettings"
+msgstr "Permitir alterações às configurações"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Ligação para uma página que exibe todos os serviços editoriais ativos."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Por favor, forneça o histórico editorial, incluindo o nome completo, a "
+"afiliação e as datas de início e de fim de cada editor."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Alterar o endereço de e-mail do convite"
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "O título do item do menu é obrigatório."

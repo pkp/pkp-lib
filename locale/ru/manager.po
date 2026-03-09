@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2024-12-01 23:38+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru/>\n"
 "Language: ru\n"
@@ -2961,6 +2962,8 @@ msgstr "Имя рецензента"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
+"Описание метода рецензирования по умолчанию, например двойное анонимное или "
+"открытое"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
@@ -3804,3 +3807,136 @@ msgstr "Проверять XML перед экспортом и регистра
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Установленная версия: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Языки веб‑сайта"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Языки отправки"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Добавить/Удалить языки"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Метаданные"
+
+msgid "manager.language.submission.form.description"
+msgstr "Выберите языки отправки и метаданных."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Минимальное количество подтверждённых рецензий"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Автор может предложить нескольких потенциальных рецензентов до завершения "
+"отправки, что может ускорить процесс рецензирования и предоставить "
+"редакционной команде ценные рекомендации."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Категория не существует или принадлежит другому контексту. Пожалуйста, "
+"убедитесь, что вы работаете с правильным контекстом и попробуйте снова."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Обложка и файлы миниатюр не найдены. Возможно, они уже были удалены. "
+"Попробуйте перезагрузить страницу."
+
+msgid "settings.roles.masthead"
+msgstr "Рассмотреть роль в списке редакционной коллегии"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Определите порядок ролей редакционной коллегии для публичного отображения."
+
+msgid "manager.language.submission.from.error"
+msgstr "Необходимо выбрать хотя бы одну локаль."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Предложение рецензента при отправке"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "Разрешить авторам предлагать потенциальных рецензентов при отправке"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Следующее показывается авторам на этапе предложений рецензентов. Дайте "
+"краткое объяснение того, какую информацию автор должен предоставить о себе, "
+"соавторах и любых других участниках."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Ссылка на страницу, отображающую все активные редакционные службы в составе "
+"редакции."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr ""
+"Минимальное количество подтверждённых рецензий, необходимое для отправки"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Настройка языка не может быть сохранена. Все параметры должны быть включены."
+
+msgid "notification.submissionLocales"
+msgstr "Локали подачи обновлены."
+
+msgid "settings.roles.permitSettings"
+msgstr "Разрешить изменения в настройках"
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Автор {$authorName} не имеет названия аффилиации на языке подачи "
+"{$localeName}. Подача не может быть импортирована без этой информации."
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Заголовок пункта меню обязателен."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Отправить напоминание по электронной почте до или после ответа на запрос "
+"рецензии (если рецензент ещё не ответил на запрос) или до/после подачи "
+"рецензии (если рецензент ещё не отправил рецензию)"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Определите порядок ролей редакционной коллегии для публичного отображения."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Рецензенты будут отображаться в стандартизированном формате, чтобы сохранить "
+"единообразие и обеспечить лёгкую доступность в этом разделе."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Установить напоминания для рецензии"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Ответ на запрос рецензии — до даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Ответ на запрос рецензии — после даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Подача рецензии — до даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Подача рецензии — после даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} дней до даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} дней после даты сдачи"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Нет"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Напоминание не установлено"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Пожалуйста, предоставьте редакционную историю, включая полное имя, аффиляцию "
+"и даты начала и окончания работы каждого редактора."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Изменить адрес электронной почты для приглашения"

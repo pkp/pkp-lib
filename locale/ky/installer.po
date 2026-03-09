@@ -1,0 +1,271 @@
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Колдоого алынбаган шифр же туура эмес ачкыч узундугу. Колдоого алынган "
+"шифрлер: {$ciphers}."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"`config.inc.php` файлынын `general` бөлүмүнө `app_key` маанисин {$key} кылып "
+"коюңуз."
+
+msgid "installer.databaseHost"
+msgstr "Хост"
+
+msgid "installer.databaseName"
+msgstr "Маалымат базасынын аты"
+
+msgid "installer.filesDir"
+msgstr "Файлдарды жүктөө үчүн каталог"
+
+msgid "installer.fileSettings"
+msgstr "Файл орнотуулары"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Клиент символдор топтомун тандоо керек."
+
+msgid "installer.form.emailRequired"
+msgstr "Администратор аккаунту үчүн жарактуу электрондук почта талап кылынат."
+
+msgid "installer.form.localeRequired"
+msgstr "Локалды тандоо керек."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Убакыт зонасын тандоо керек."
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr "Конфигурация файлын окууга мүмкүн эмес же файл күткөн жолдо жок. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Конфигурация файлын талдоого мүмкүн эмес."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Конфигурация файлына app key өзгөрмөсүн жазууга мүмкүн эмес."
+
+msgid "installer.appKey.write.error"
+msgstr "Конфигурация файлына app key жазууга мүмкүн эмес."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Электрондук кат шаблон файлын талдоодо ката кетти <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Фильтр конфигурация файлын талдоодо ката кетти <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Жаңыртуу колдоого алынбайт. Толук маалымат үчүн Upgrade Guide (https://docs."
+"pkp.sfu.ca/dev/upgrade-guide) караңыз."
+
+msgid "installer.timezoneInstructions"
+msgstr "Бул система үчүн колдонулуучу убакыт зонасы."
+
+msgid "installer.additionalLocales"
+msgstr "Кошумча локалдар"
+
+msgid "installer.administratorAccount"
+msgstr "Администратор аккаунту"
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"`general` бөлүмүндө `app_key` аттуу конфигурация өзгөрмөсү мурунтан "
+"аныкталган. "
+
+msgid "installer.installMigrationError"
+msgstr ""
+"<tt>{$class}</tt> миграция классын аткарууда өзгөчө кырдаал чыкты. Өзгөчө "
+"кырдаал: {$message}."
+
+msgid "installer.installFilesDirError"
+msgstr "Жүктөлгөн файлдар үчүн көрсөтүлгөн каталог жок же жазууга мүмкүн эмес."
+
+msgid "installer.installParseDBFileError"
+msgstr "Маалымат базасын орнотуу файлын талдоодо ката кетти <tt>{$file}</tt>."
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Бул колдонуучу аккаунту сайттын администратору болуп, системага толук кирүү "
+"укугуна ээ болот. Орнотуудан кийин кошумча колдонуучу аккаунттарын түзсө "
+"болот."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">ЖОК</span>"
+
+msgid "installer.checkYes"
+msgstr "Ооба"
+
+msgid "installer.configFileError"
+msgstr "<tt>config.inc.php</tt> конфигурация файлы жок же окууга мүмкүн эмес."
+
+msgid "installer.connectionCharset"
+msgstr "Туташуу символдор топтому"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Конфигурация файлынын мазмуну"
+
+msgid "installer.databaseDriver"
+msgstr "Маалымат базасы драйвери"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Система учурда MySQL жана PostgreSQL колдойт. Эгер бул параметрлерди "
+"тандай албасаңыз, серверде керектүү PHP кеңейтүүлөр бар экенин текшерүү үчүн "
+"системалык администраторго кайрылыңыз.</strong>"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Хост атын бош калтырсаңыз, TCP/IP ордуна домен сокеттер аркылуу туташат. "
+"MySQL менен бул талап кылынбайт, анткени \"localhost\" киргизилсе автоматтык "
+"түрдө сокеттерди колдонот, бирок PostgreSQL сыяктуу башка маалымат "
+"базаларында талап кылынат."
+
+msgid "installer.databasePassword"
+msgstr "Сырсөз"
+
+msgid "installer.databaseSettings"
+msgstr "Маалымат базасынын орнотуулары"
+
+msgid "installer.databaseUsername"
+msgstr "Колдонуучу аты"
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Маалымат базасы драйверин тандоо керек."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Маалымат базасынын аты талап кылынат."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Жүктөлгөн файлдарды сактоо үчүн каталог талап кылынат."
+
+msgid "installer.form.passwordRequired"
+msgstr "Администратор аккаунту үчүн сырсөз талап кылынат."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Администратор сырсөздөрү дал келбейт."
+
+msgid "installer.form.separateMultiple"
+msgstr "Бир нече маанилерди үтүр менен бөлүңүз"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Администратор колдонуучу атына тамгалар жана цифралар, астынкы сызыктар жана "
+"сызыктар гана кириши мүмкүн жана ал тамга же цифра менен башталып, тамга же "
+"цифра менен аякташы керек."
+
+msgid "installer.form.usernameRequired"
+msgstr "Администратор аккаунту үчүн колдонуучу аты талап кылынат."
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>ЭСКЕРТҮҮ: Учурдагы PHP версияңыз орнотуу үчүн минималдуу "
+"талаптарга жооп бербейт. PHPнин жаңы версиясына жаңыртуу сунушталат.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Орнотуу учурунда каталар кетти"
+
+msgid "installer.installerSQLStatements"
+msgstr "Орнотуу үчүн SQL билдирүүлөрү"
+
+msgid "installer.installFileError"
+msgstr ""
+"<tt>dbscripts/xml/install.xml</tt> орнотуу файлы жок же окууга мүмкүн эмес."
+
+msgid "installer.locale"
+msgstr "Локаль"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Белгиленген локалдар толук эмес болушу мүмкүн."
+
+msgid "installer.localeSettings"
+msgstr "Локаль орнотуулары"
+
+msgid "installer.oaiSettings"
+msgstr "OAI орнотуулары"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Бул сайттан индекстелген метадайындарды аныктоо үчүн уникалдуу идентификатор "
+"<a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives "
+"Initiative</a> Metadata Harvesting протоколу аркылуу колдонулат."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Репозиторий идентификатору"
+
+msgid "installer.publicFilesDirError"
+msgstr "Жалпы файлдар каталогу жок же жазууга мүмкүн эмес."
+
+msgid "installer.releaseNotes"
+msgstr "Чыгарылыш жазуулары"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Орнотуудан мурунку кадамдар"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Төмөнкү файлдар жана каталогдор (алардын мазмуну менен) жазууга "
+"мүмкүн болушу керек:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> жазууга мүмкүн (милдеттүү эмес): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> жазууга мүмкүн: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> жазууга мүмкүн: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> жазууга мүмкүн: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> жазууга мүмкүн: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> жазууга мүмкүн: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Жүктөлгөн файлдарды сактоо үчүн каталог түзүлүп, жазууга мүмкүн "
+"болушу керек (төмөндөгү \"Файл орнотуулары\" бөлүмүн караңыз).</p>\n"
+"\t"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>Сиздин PHP орнотууда XSL модулу иштетилген эмес. Аны иштетиңиз же "
+"config.inc.php файлыңыздагы xslt_command параметрин конфигурациялаңыз.</p>"
+
+msgid "installer.beacon"
+msgstr "Маяк (Beacon)"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"PKPга статистика жана коопсуздук эскертүүлөрү үчүн уникалдуу сайт ID жана "
+"OAI негизги URL бериңиз."
+
+msgid "installer.miscSettings"
+msgstr "Ар кандай орнотуулар"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Сиздин сервердеги PHP версиясы бул программалык камсыздоо тарабынан колдоого "
+"алынбайт. docs/README ичиндеги орнотуу талаптарын кайра текшериңиз."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"`general` бөлүмүнүн астына `app_key` аттуу конфигурация өзгөрмөсүн кол менен "
+"кошуңуз же CLI аркылуу орнотуу үчүн `php lib/pkp/tools/appKey.php configure` "
+"командасын иштетиңиз."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"`general` бөлүмүндө `app_key` аттуу конфигурация өзгөрмөсү аныкталган эмес. "
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Бул система үчүн кошумча тилдерди тандаңыз. Кошумча тилдерди сайт "
+"администрлөө интерфейсинен каалаган убакта орнотсо болот.<br>* = Толук "
+"которулбаган тилдерди билдирет (> 90% терминдер которулган)"

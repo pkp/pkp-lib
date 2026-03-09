@@ -1,16 +1,17 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 # Judite Leite de Oliveira Dias <judite.dias@usdb.uminho.pt>, 2023.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-11-27 16:38+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/editor/pt_PT/>\n"
-"Language: pt_PT\n"
+"PO-Revision-Date: 2026-02-25 08:43+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"editor/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -622,3 +623,63 @@ msgstr "Houve um problema com a etapa {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Mesma afiliação do autor"
+
+msgid "editor.submission.viewSummary"
+msgstr "Sumário"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Ocorreu um erro ao adicionar o revisor, uma vez que o prazo da revisão deve "
+"ser igual ou posterior ao prazo de resposta."
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Se o revisor entrar em contacto consigo por e-mail ou qualquer outro meio, "
+"pode gravar a resposta"
+
+msgid "editor.review.authorOnly"
+msgstr "Secções exclusivas para autores"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Selecione um revisor a partir das sugestões do(s) autor(es)"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"A data limite para a revisão deve ser igual ou posterior à data limite para "
+"a resposta."
+
+msgid "editor.review.reviewViewed"
+msgstr "Revisão visualizada"
+
+msgid "editor.submission.search"
+msgstr "Procurar submisões, ID, autores, palavras chave, etc."
+
+msgid "editor.submission.days"
+msgstr "Dias"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dias nesta etapa"
+
+msgid "editor.review.logResponse.for"
+msgstr "Registar resposta para"
+
+msgid "editor.review.logResponse"
+msgstr "Registar resposta"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Deve selecionar uma resposta"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "O revisor aceitou o convite"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "O revisor declinou o convite"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registar a resposta em nome do revisor"
+
+msgid "editor.review.download"
+msgstr "Decarregar formulário de revisão"
+
+msgid "editor.review.allSections"
+msgstr "O formulário do editor mostra todas as secções de revisão"

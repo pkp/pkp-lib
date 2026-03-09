@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2024-12-01 23:37+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-10 15:38+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ru/>"
 "\n"
 "Language: ru\n"
@@ -370,3 +371,79 @@ msgstr "Запрашиваемое вами выделение не найден
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Нельзя присвоить DOI этому элементу."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Не удалось обработать запрос к API."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Не удалось получить ожидаемый ответ."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Недопустимый параметр, удобный для автора."
+
+msgid "api.400.routeNotDefined"
+msgstr "Не был указан маршрут API."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Вы указали недопустимый параметр \"eventType\", {$eventType} для писем "
+"авторам."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Запрошенный автор не найден"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Вы не можете вносить изменения в авторов в материалах, к которым вы не "
+"назначены."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Этот конечный пункт недоступен из общесайтового пространства имён и должен "
+"запрашиваться для заданного контекста."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Вы не можете изменить язык этой подачи, так как она уже имеет более одной "
+"версии публикации или опубликованную публикацию."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Отправка для этого задания на рецензию не найдена."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Рецензент для этого задания не найден"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Допустимыми значениями являются только «accept» и «decline»"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Указанный раздел не существует."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"В запросе отсутствует обязательный параметр `ids`. Пожалуйста, укажите `ids` "
+"отправок, которые вы хотите удалить."
+
+msgid "api.submission.400.invalidId"
+msgstr "Недопустимый идентификатор: \"{$id}\" указан."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Форма идентификаторов публикации недоступна, так как не включено ни одного "
+"идентификатора."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Не удалось выполнить запланированное действие над ресурсом."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Запрошенный ROR не найден."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Назначение ORCID iD автора через конечные точки Edit/Add Author не "
+"допускается. Чтобы запросить у автора обновление его ORCID iD, используйте "
+"конечную точку «orcid/requestAuthorVerification/{authorId}»."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Вы не можете выполнить эту операцию при отключённой функциональности ORCID."

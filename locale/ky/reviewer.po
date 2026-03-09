@@ -1,0 +1,198 @@
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
+"ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Рецензия чакыруусун четке кагуу себеби берилген жок."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Четке кагылган дата"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Макаланын метадайындары"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Түрү"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Аннотация"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Ачкыч сөздөр"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Жалпы маалымат"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Тиркемелер"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Бул рецензия менен кошо тиркелген файлдар"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Рецензия үчүн файлдар"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Бул файлдар сизге рецензия үчүн жөнөтүлгөн"
+
+msgid "reviewer.complete"
+msgstr "Рецензия тапшырылды"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Бул рецензияны тапшырууну каалайсызбы?"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Суроо"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Нускамалар"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Жүктөө жана рецензиялоо"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Аяктоо"
+
+msgid "reviewer.step1.request"
+msgstr "Рецензия суроо"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Четке кагуу себеби электрондук почта аркылуу жөнөтүлдү"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Бул материалды рецензиялап бүткөнүңүз үчүн рахмат. Рецензияңыз ийгиликтүү "
+"тапшырылды. Биз жарыялаган иштердин сапатына кошкон салымыңызды баалайбыз; "
+"редактор зарыл болсо кошумча маалымат үчүн сиз менен байланышышы мүмкүн."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Мөөнөттөр жөнүндө"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Редактор сизден жооп берүү мөөнөтүнө чейин рецензияны кабыл алууну же четке "
+"кагууну жана рецензия мөөнөтүнө чейин рецензияны бүтүрүүнү сурайт."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Автор жана редактор үчүн"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Редактор үчүн гана"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Бул электрондук кат эскертмесинин көчүрмөсүн төмөнкү рецензенттерге BCC "
+"аркылуу жөнөтүү."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Рецензенттерге жөнөтүү"
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"Учурдагы колдонуучу суралган документ үчүн рецензент катары дайындалган эмес."
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Рецензия аяктаган жок."
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Сиз төмөнкү материалдын мүмкүн болгон рецензенти катары тандалдыңыз. Төмөндө "
+"материалдын жалпы көрүнүшү жана бул рецензиянын убакыт графиги берилген. "
+"Сиздин катыша аларыңызга үмүттөнөбүз."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Материалдын бардык деталдарын көрүү"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Рецензент файлдары"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Рецензия суроону четке кагуу"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Бул рецензияны четке какканыңыздын себебин редакторго төмөнкү талаада бере "
+"аласыз."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Рецензияны кабыл алуу, 2-кадамга өтүү"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "3-кадамга өтүү"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Рецензияны тапшыруу"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Кийин сактоо"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Рецензент нускамалары"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Бул басмакананын рецензенттерден мүмкүн болгон тирешкен кызыкчылыктарды "
+"ачыктоо саясаты бар. Бул саясатты карап чыгыңыз."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Менде эч кандай тирешкен кызыкчылыктар жок"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Менде тирешкен кызыкчылыктар болушу мүмкүн (төмөндө көрсөтүңүз)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Тирешкен кызыкчылыктар"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Рецензиялоо нускамалары"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Бул басмакана рецензенттер үчүн нускамаларды аныктаган эмес."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Бул материалга байланышкан файлдарды жүктөө үчүн төмөнкү файл аттарына "
+"басыңыз."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Бул материал боюнча рецензияңызды төмөнкү формага киргизиңиз (же чаптаңыз)."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Редактор жана/же автор карап чыгышы үчүн файлдарды жүктөңүз, анын ичинде "
+"рецензия файлдарынын жаңыртылган версияларын."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Мурунку рецензиялар"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "{$round}-айлампа рецензия {$submittedOn} күнү тапшырылды"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "{$round}-айлампа рецензияны окуу"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Сиз тапшырган {$round}-айлампа рецензия"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Рецензент комментарийлери"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Редакторлор жана авторлор үчүн"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Редакторлор үчүн гана"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Комментарий {$index}: "

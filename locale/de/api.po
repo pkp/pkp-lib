@@ -1,11 +1,11 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023, 2025.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023, 2025, 2026.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-12-24 14:21+0000\n"
+"PO-Revision-Date: 2026-02-04 12:57+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/de/>"
 "\n"
@@ -66,7 +66,7 @@ msgstr "Die folgenden Sprachen werden nicht unterstützt: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
-"Sie können keine DOI eines Objektes bearbeiten, dass nicht in diesem Kontext "
+"Sie können keine DOI eines Objektes bearbeiten, das nicht in diesem Kontext "
 "ist."
 
 msgid "api.dois.403.pubTypeNotRecognized"
@@ -74,8 +74,8 @@ msgstr "Der Publikationstyp wurde nicht erkannt."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
-"Dieser Endpunkt ist nicht über den seitenübergreifenden Namensraum verfügbar "
-"und muss für einen bestimmten Kontext angefordert werden."
+"Dieser Endpoint ist nicht für den site-weiten Namespace verfügbar und muss "
+"für einen bestimmten Kontext angefordert werden."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "Die DOI, nach der Sie suchen, konnte nicht gefunden werden."

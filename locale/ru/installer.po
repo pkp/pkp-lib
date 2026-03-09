@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-10 03:09+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/ru/>\n"
 "Language: ru\n"
@@ -257,3 +258,43 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Различные настройки"
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Пожалуйста, добавьте переменную конфигурации с именем `app_key` в раздел "
+"`general` вручную или выполните команду `php lib/pkp/tools/appKey.php "
+"configure`, чтобы задать её из CLI."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Неподдерживаемый шифр или неверная длина ключа. Поддерживаемые шифры: "
+"{$ciphers}."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Переменная конфигурации с именем `app_key` не определена в разделе `general`"
+". "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Переменная конфигурации с именем `app_key` уже определена в разделе `general`"
+". "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Не удаётся прочитать файл конфигурации или файл отсутствует по ожидаемому "
+"пути. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Не удаётся разобрать файл конфигурации."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Не удаётся записать переменную app key в файл конфигурации."
+
+msgid "installer.appKey.write.error"
+msgstr "Не удаётся записать ключ приложения в файл конфигурации."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Установите значение `app_key` в разделе `general` файла `config.inc.php` "
+"равным {$key}."

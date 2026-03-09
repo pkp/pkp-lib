@@ -1,8 +1,8 @@
 # Russian Agency for Digital Standardization <info@rads-doi.org>, 2023.
-# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"PO-Revision-Date: 2026-01-27 04:38+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ky/>\n"
@@ -14,66 +14,66 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.activityLog"
-msgstr "Иш-аракеттер журналы"
+msgstr "Иш-аракет журналы"
 
 msgid "editor.submissionLibrary"
-msgstr "китепкана"
+msgstr "Китепкана"
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Материал жарыяланды."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Жаңы кароого тапшырылды."
+msgstr "Жаңы рецензия айлампасына жөнөтүлдү."
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Басууга жиберилди."
+msgstr "Продакшнго жөнөтүлдү."
 
 msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Чечимди өзгөртүү"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr "Бул чечимди бул материалга жаздырууга уруксатыңыз жок."
+msgstr "Бул материал боюнча чечим жазууга уруксат берилген эмес."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
-"Редактор аныкталган эмес болсо жана бул материал боюнча чечим жазууга "
-"уруксаты жок болушу мүмкүн."
+"Редактор таанылган жок жана бул материал боюнча чечим жазууга укугу жок "
+"болушу мүмкүн."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr "Сиз төмөнкү алуучуларга электрондук кат жөнөтө албайсыз: {$names}."
+msgstr "Төмөнкү алуучуларга электрондук кат жөнөтө албайсыз: {$names}."
 
 msgid "editor.submission.fileAuditor.skipEmail"
 msgstr "Аудиторго электрондук кат жөнөтпөңүз"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "Сиз дайындоо үчүн колдонуучуну тандап алышыңыз керек."
+msgstr "Дайындоо үчүн колдонуучуну тандашыңыз керек."
 
 msgid "editor.submission.selectFiles"
-msgstr "Файлдарды тандаңыз"
+msgstr "Файлдарды тандоо"
 
 msgid "editor.submission.revisions"
-msgstr "Версиялар"
+msgstr "Ревизиялар"
 
 msgid "editor.submission.addReviewer"
 msgstr "Рецензент кошуу"
 
 msgid "editor.submission.findAndSelectReviewer"
-msgstr "Рецензент кошуу"
+msgstr "Рецензентти табуу"
 
 msgid "editor.submission.findAndSelectUser"
-msgstr "Колдонуучуну тандоо"
+msgstr "Колдонуучуну табуу"
 
 msgid "editor.submission.fileList.includeAllStages"
-msgstr "Иш процессинин бардык жеткиликтүү этаптарынан файлдарды көрсөтүңүз."
+msgstr "Бардык жеткиликтүү стадиялардан файлдарды көрсөтүү."
 
 msgid "editor.submission.review.currentFiles"
-msgstr "{$round}. Тур үчүн жарактуу карап чыгуу файлдары"
+msgstr "Учурдагы рецензия файлдары {$round} айлампасы үчүн"
 
 msgid "editor.submissionArchive.confirmDelete"
-msgstr "Бул материалды чын эле биротоло алып салгыңыз келеби?"
+msgstr "Бул материалды түбөлүк өчүрүүнү каалайсызбы?"
 
 msgid "editor.submission.workflowDecision.submission"
-msgstr "Чечим жазылган"
+msgstr "Чечим жазылды"
 
 msgid "editor.submission.workflowDecision.submission.declined"
 msgstr "Материал четке кагылды."
@@ -82,18 +82,578 @@ msgid "editor.submission.workflowDecision.submission.accepted"
 msgstr "Материал кабыл алынды."
 
 msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Материал карап чыгууга кабыл алынды."
+msgstr "Материал рецензияга кабыл алынды."
 
 msgid "editor.submission.uploadSelectFiles"
 msgstr "Файлдарды жүктөө/тандоо"
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
-"Окурмандарды мазмун файлдарын карап чыгууга чакыруу үчүн <em>+Каралоочу "
-"кошуу</em> колдонуңуз. Блокнот сүрөтчөсү карап чыгуу тапшырылганын көрсөтүп "
-"турат, ал каралып чыккандан кийин <em>Кабыл алынган</em> деп белгиленет. "
-"Карап чыгууну тапшыруу мөөнөтү аяктаганда, кызыл конверттин сөлөкөтү "
-"рецензенттерди эскертип турат."
+"<em>+Рецензент кошуу</em> баскычын колдонуп, окурмандарды материал файлдарын "
+"рецензиялоого чакырыңыз. Дептерче белгиси рецензия тапшырылганын көрсөтөт "
+"жана ал каралгандан кийин <em>Ырасталды</em> деп белгиленет. Рецензия "
+"кечиккенде, рецензенттерди эскертуу үчүн кызыл конверт белгиси пайда болот."
 
 msgid "editor.submission.backToSearch"
-msgstr "Издөө үчүн кайтуу"
+msgstr "Издөөгө кайтуу"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Рецензент сунуштарынан рецензентти тандоо"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Рецензия түрү"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Рецензентти кайра дайындоо"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Рецензия өтүнүчүн кайра жөнөтүү"
+
+msgid "editor.review.mustSelect"
+msgstr "Сиз рецензентти тандашыңыз керек"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Рецензентке рецензия чакыруусун кайра карап чыгуу өтүнүчүн жөнөтүүдө ката "
+"кетти. Кайра аракет кылыңыз."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Бул рецензия айлампасы табылган жок."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Рецензия айлампасы берилди, бирок бул чечим рецензия стадиясында кабыл "
+"алынбайт."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr "Редакциялык чечим жазуу үчүн бул материалга дайындалышыңыз керек."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Бул материал боюнча чечим кабыл алынган жок. Материалдын ID жок же суралган "
+"материалга дал келбейт."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Бул чечим табылган жок. Таанылган чечим түрүн бериңиз."
+
+msgid "editor.review.notInitiated"
+msgstr "Рецензия процесси али баштала элек."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Колдонуучуга билдирүү"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Файлдарды рецензия стадиясына жөнөтүү үчүн тандаңыз."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Колдонуучуга дайындоо үчүн жок дегенде бир файлды тандашыңыз керек."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Жеке билдирүү кошушуңуз керек."
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Авторлорго электрондук билдирүү жөнөтүү: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Редакторлорго электрондук билдирүү жөнөтүү: {$editorNames}"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Рецензиялануучу файлдар"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Файл тандоону жабуу"
+
+msgid "editor.review.readNewReview"
+msgstr "Жаңы рецензияны окуу"
+
+msgid "editor.review.responseDue"
+msgstr "Жооп берүү мөөнөтү: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Өтүнүч жөнөтүлдү"
+
+msgid "editor.review.requestCancelled"
+msgstr "Өтүнүч жокко чыгарылды"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Рецензент бул рецензия өтүнүчүн четке какты."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Колдонуучуну бул рецензенттик топко кошуу"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Бул файл үчүн аудит суралган жок"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Колдонуучуга жөнөтүлүүчү электрондук билдирүү"
+
+msgid "editor.review.reviewDetails"
+msgstr "Рецензиянын деталдары"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Файлдар жүктөлгөн жок"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Сиз рецензия файлдарын жүктөгөн жоксуз."
+
+msgid "editor.review.emailReviewer"
+msgstr "Рецензентке электрондук кат жөнөтүү"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Продакшнго даяр файлдар"
+
+msgid "editor.submission.newRound"
+msgstr "Жаңы рецензия айлампасы"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Редакциялык чечимди жазуу"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Редакциялык сунушту жазуу"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Редакторлорду кабардар кылуу"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Редакторлорго электрондук кат жөнөтпөңүз."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Бул сунуш боюнча рецензия талкуусун түзүү."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Рецензия талкуусун түзбөңүз."
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Бул материал үчүн жаңы рецензия айлампасын түзүүгө даярданып жатасыз. Башка "
+"рецензия айлампаларында колдонулбаган файлдар төмөндө көрсөтүлөт."
+
+msgid "editor.submission.createNewRound"
+msgstr "Жаңы рецензия айлампасын түзүү"
+
+msgid "editor.article.reviewForms"
+msgstr "Рецензия формалары"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Рецензия формасын тандоо"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Эскертүү: Рецензия формасын өзгөртүү рецензенттер бул форма аркылуу берген "
+"жоопторго таасир этет. Улантууну каалайсызбы?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Файлдар тандалган жок"
+
+msgid "submission.queries.messageRequired"
+msgstr "Талкуу билдирүүсү талап кылынат."
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Корректураны бекитүү"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Корректураны бекитүүнү жокко чыгаруу"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Бул рецензент акыркы айлампада рецензияны аяктады."
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Автор менен бир эле мекемеден"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Эч качан дайындалган эмес"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Бул чечимди жокко чыгарууну каалайсызбы?"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Бул корректураны бекитүү менен текшерүү аяктаганын жана файл жарыяланууга "
+"даяр экенин көрсөтөсүз."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Бул корректураны бекитүүнү жокко чыгаруу менен текшерүү аяктаган эмес экенин "
+"жана файл жарыяланууга даяр эместигин көрсөтөсүз."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Бул материалды четке кагуу чечимин артка кайтарууну каалайсызбы?"
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Бул рецензия айлампасы бул материалдын бөлүгү эмес."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Ачык идентификатор '{$publicIdentifier}' сан болбошу керек."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Ачык идентификатор үчүн {$pattern} үлгүсүнө уруксат берилбейт."
+
+msgid "reviewer.list.filterRating"
+msgstr "Кеминде мындай баа"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} активдүү"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Учурда дайындалган активдүү рецензиялар"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Аяктаган рецензиялар"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Рецензия өтүнүчтөрү четке кагылды"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Рецензия өтүнүчтөрү жокко чыгарылды"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Рецензенттин рейтинги: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} күн мурун"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Кечээ"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Акыркы рецензия дайындалгандан бери өткөн күндөр"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Рецензияны аяктоо үчүн орточо күндөр"
+
+msgid "reviewer.list.reassign"
+msgstr "Кайра дайындоо"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "{$name} кайра дайындоо"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Бул рецензент бул рецензия айлампасына мурунтан дайындалган."
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Бул рецензент кулпуланган, анткени ага автордун кимдигин көрүүгө уруксат "
+"берген роль дайындалган. Анонимдүү рецензия кепилденбейт. Бул рецензентти "
+"ачкыңыз келеби?"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Ачуу"
+
+msgid "reviewer.list.biography"
+msgstr "Биография"
+
+msgid "reviewer.list.empty"
+msgstr "Рецензенттер табылган жок"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Мурунку айлампага дайындалган"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Чечимди жокко чыгаруу"
+
+msgid "editor.decision.completeSteps"
+msgstr "Бул чечимди кабыл алуу үчүн төмөнкү кадамдарды бүтүрүңүз"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Бул электрондук катты өткөрүп жибербеңиз"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Бул кадам өткөрүлүп жиберилди жана электрондук кат жөнөтүлбөйт."
+
+msgid "editor.decision.recordDecision"
+msgstr "Чечимди жазуу"
+
+msgid "editor.decision.skipEmail"
+msgstr "Бул электрондук катты өткөрүп жиберүү"
+
+msgid "editor.decision.stepError"
+msgstr "{$stepName} кадамында көйгөй чыкты."
+
+msgid "editor.review.logResponse"
+msgstr "Жоопту жазуу"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Жооп тандалышы керек"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Рецензент рецензия чакыруусун кабыл алды"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Рецензент рецензия чакыруусун четке какты"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Рецензенттин атынан жоопту жазуу"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Эгер рецензент сизге электрондук кат же башка жол менен кайрылса, анын "
+"жообун жазып коюуга болот"
+
+msgid "editor.review.download"
+msgstr "Рецензия формасын жүктөө"
+
+msgid "editor.review.authorOnly"
+msgstr "Авторго гана көрсөтүлгөн бөлүмдөр"
+
+msgid "editor.review.allSections"
+msgstr "Редактор формасы бардык рецензия бөлүмдөрүн көрсөтөт"
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr "Материал бул чечимди кабыл алуу үчүн туура стадияда эмес."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Бул чечимди кабыл алуу үчүн рецензия айлампасынын ID берилиши керек."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr "Акыркы чечимди кабыл ала турган редактор дайындалбаса, сунуш берилбейт."
+
+msgid "editor.review.createReviewer"
+msgstr "Жаңы рецензент түзүү"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Бар болгон колдонуучуну рецензент кылып кошуу"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Рецензентти дайындоону алып салуу"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Рецензентти жокко чыгаруу"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Электрондук билдирүү жөнөтпөө"
+
+msgid "editor.submissionReview.open"
+msgstr "Ачык"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Анонимдүү рецензент/Автор белгилүү"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Анонимдүү рецензент/Анонимдүү автор"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Рецензияны түзөтүү"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Анонимдүү рецензент"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Рецензентке жөнөтүлүүчү электрондук билдирүү"
+
+msgid "editor.review.importantDates"
+msgstr "Маанилүү даталар"
+
+msgid "editor.review.uploadRevision"
+msgstr "Ревизия жүктөө"
+
+msgid "editor.review.newReviewRound"
+msgstr "Жаңы рецензия айлампасын талап кылуу"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Ревизиялар жаңы рецензия айлампасына жөнөтүлбөйт."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Ревизиялар жаңы рецензия айлампасына жөнөтүлөт."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Ревизиялар жаңы рецензия айлампасына жөнөтүлбөшү керек."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Ревизиялар жаңы рецензия айлампасына жөнөтүлүшү керек."
+
+msgid "editor.review.dateAccepted"
+msgstr "Рецензия кабыл алынган дата"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Рецензиялар билдирүү текстине кошулду."
+
+msgid "editor.review.noReviews"
+msgstr "Импорттоло турган рецензиялар жок"
+
+msgid "editor.review.reminder"
+msgstr "Рецензия эскертүүсү"
+
+msgid "editor.review.thankReviewer"
+msgstr "Рецензентке ыраазычылык билдирүү"
+
+msgid "editor.review.reminderError"
+msgstr "Рецензия эскертүүсүн жөнөтүүдө ката кетти"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Рецензентке ыраазычылык билдирүүнү жөнөтүүдө ката кетти"
+
+msgid "editor.review.skipEmail"
+msgstr "Рецензентке электрондук кат жөнөтпөңүз."
+
+msgid "editor.review.sendReminder"
+msgstr "Эскертүү жөнөтүү"
+
+msgid "editor.review.readReview"
+msgstr "Рецензияны окуу"
+
+msgid "editor.review.requestAccepted"
+msgstr "Өтүнүч кабыл алынды"
+
+msgid "editor.review.requestDeclined"
+msgstr "Өтүнүч четке кагылды"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Редактор бул рецензия өтүнүчүн жокко чыгарды."
+
+msgid "editor.review.revertDecision"
+msgstr "Чечимди артка кайтаруу"
+
+msgid "editor.review.reviewDue"
+msgstr "Рецензия мөөнөтү: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Рецензия мөөнөтү"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Рецензия аяктады"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Рецензия ырасталды"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Рецензия тапшырылды"
+
+msgid "editor.review.reviewViewed"
+msgstr "Рецензия каралды"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Рецензентке ыраазычылык билдирилди"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Өтүнүч кайра жөнөтүлдү"
+
+msgid "editor.review.reviewerComments"
+msgstr "Рецензенттин комментарийлери"
+
+msgid "editor.review.rateReviewer"
+msgstr "Рецензентти баалоо"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Берилген рецензиянын сапатын баалаңыз. Бул баа рецензентке бөлүшүлбөйт."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Баалоо жок"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Рецензентти кошууда ката кетти. Кайра аракет кылыңыз."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Рецензентти кошууда ката кетти, анткени рецензия мөөнөтү жооп берүү "
+"мөөнөтүнөн узак же барабар болушу керек."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Рецензентти өчүрүүдө ката кетти. Кайра аракет кылыңыз."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Рецензентти кайра дайындоодо ката кетти. Кайра аракет кылыңыз."
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Бул рецензияны каралбаган деп белгилегиңиз келеби? Рецензия тарыхы сакталат."
+
+msgid "editor.review.importantDates.notice"
+msgstr "Рецензия мөөнөтү жооп берүү мөөнөтүнөн узак же барабар болушу керек."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Бул рецензияны каралбаган деп белгилөө"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Рецензиялоо кызыкчылыктары"
+
+msgid "editor.review.logResponse.for"
+msgstr "Жоопту жазуу:"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Бул рецензия окулгандан кийин \"Ырастоо\" баскычын басыңыз, рецензия "
+"процесси улантылышы үчүн. Эгер рецензент рецензиясын башка жерде тапшырса, "
+"төмөнкү файлды жүктөп, андан кийин \"Ырастоо\" баскычын басып уланта аласыз."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Тандалган катышуучулар менен талкуу түзүлбөйт, анткени бул рецензия "
+"процессинин анонимдүүлүгүнө таасир этет."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Тандалган катышуучу бул стадияга дайындалган эмес."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Жарыялоо графиги"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Копи-редакция файлдары"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Рецензентти тандоо"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Тапшырманын мөөнөтү"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Тапшырма графиги"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Бар болгон колдонуучуну рецензент кылып кошуу"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Корректура эскертүүсү"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Копи-редакцияланган файлды продакшн стадиясына жөнөтүү үчүн алдын ала "
+"бекитүү керек. Бул файлды бекитүүнү каалайсызбы?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Бул копи-редакцияланган файлды бекитпөө аны продакшн стадиясына жөнөтүүгө "
+"мүмкүн эмес кылат. Бул файлды бекитпөөнү каалайсызбы?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Аудитор дайындоо"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Ар кандай стадияда жүктөлгөн файлдар копи-редакция файлдары тизмесине "
+"кошулушу мүмкүн. Төмөнкү «Кошуу» кутучасын белгилеп, «Издөө» баскычын "
+"басыңыз: жеткиликтүү бардык файлдар көрсөтүлөт жана кошууга тандалат. "
+"Стадияга жүктөлбөгөн кошумча файлдарды «Файл жүктөө» шилтемеси аркылуу "
+"кошсоңуз болот."
+
+msgid "editor.review"
+msgstr "Рецензия"
+
+msgid "editor.submission.search"
+msgstr "Материалдарды, ID, авторлорду, ачкыч сөздөрдү ж.б. издөө"
+
+msgid "editor.submission.days"
+msgstr "Күндөр"
+
+msgid "editor.submission.daysInStage"
+msgstr "Стадиядагы күндөр"
+
+msgid "editor.submission.viewSummary"
+msgstr "Кыскача маалымат"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Сиз рецензентке рецензиялоо үчүн файлдарды тандаган жоксуз."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Талкуунун темасы талап кылынат."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Тиркелген файлдар"
+
+msgid "grid.action.editQuery"
+msgstr "Талкууну түзөтүү"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Төмөнкү тизмеден файлдарды бул талкууга тиркесе болот."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Тандалган рецензент"

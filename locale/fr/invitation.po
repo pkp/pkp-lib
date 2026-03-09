@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-17 12:49+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2026-02-27 14:26+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
 "Language: fr\n"
@@ -74,3 +74,9 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMa
 msgstr ""
 "Veuillez fournir un identifiant de groupe d'utilisateurs pour les groupes "
 "d'utilisateurs ajoutés"
+
+msgid "invitation.header"
+msgstr "Invitations en cours"
+
+msgid "invitation.tableHeader.name"
+msgstr "Nom"

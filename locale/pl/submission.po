@@ -1,4 +1,4 @@
-# rl <biuro@fimagis.pl>, 2022, 2024.
+# rl <biuro@fimagis.pl>, 2022, 2024, 2026.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
 # Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2025-10-30 12:42+0000\n"
-"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-21 23:01+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
 "Language: pl\n"
@@ -2429,8 +2429,8 @@ msgstr "Rejestracja zgłoszenia nastąpi po wykonaniu wszystkich kroków"
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
 "Zaraz nastąpi rejestracja zgłoszenia „<strong>{$title}</strong>” w "
-"czasopiśmie <strong>{$context}</strong> w celu jego redakcyjnej weryfikacji "
-"i publikacji. Czy na pewno zarejestrować?"
+"<strong>{$context}</strong> w celu jego redakcyjnej weryfikacji i "
+"publikacji. Czy na pewno chcesz je przesłać?"
 
 msgid "submission.wizard.errors"
 msgstr ""

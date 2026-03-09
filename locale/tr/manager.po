@@ -1,12 +1,13 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 # "Dr. Uğur Koçak" <ugurkocak@hotmail.com>, 2025.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-10-11 01:22+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
 "Language: tr\n"
@@ -914,6 +915,8 @@ msgstr "Varsayılan"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Yok - Son ekler <a href=\"{$doiManagementUrl}\">DOI yönetim sayfası</a> "
+"üzerinden elle girilmelidir ve otomatik olarak oluşturulmayacaktır"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Özel şablon (önerilmez)"
@@ -1294,9 +1297,15 @@ msgstr ""
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Aşağıdaki bilgiler, yazarlar editörler için adımında anahtar kelimeler, "
+"editöre yorumlar ve editoryal incelemeye yardımcı olacak diğer ayrıntıları "
+"sağlamaları istendiğinde gösterilir."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Aşağıdaki bilgiler, yazarlar gönderim sihirbazının son adımında "
+"çalışmalarını göndermeden önce sağladıkları tüm bilgileri gözden geçirmeleri "
+"istendiğinde gösterilir."
 
 msgid "manager.setup.workflow.guidance"
 msgstr "Yazar Rehberi"
@@ -1304,14 +1313,11 @@ msgstr "Yazar Rehberi"
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Makale Gönderim Kontrol Listesi"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Dergiye makale başvurusu yaparken, yazarlar önce Başvuru Hazırlık Kontrol "
-"Listesini kontrol etmelidirler. Kontrol listesi \"Dergi Hakkında\" altındaki "
-"\"Yazar Rehberi\" bölümündedir. Liste aşağıda düzenlenebilir, ama listedeki "
-"bütün öğelerin bir sonraki basamağa geçebilmek için yazarlar tarafından "
-"işaretlenmesi gerekmektedir."
+"Bu metin, yazarlar başvurularına başladıklarında kendilerine gösterilir. "
+"Yazarların, başvurularına başlamadan önce burada belirtilen tüm "
+"gerekliliklere uyduklarını onaylamaları istenir."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1329,12 +1335,16 @@ msgstr "Editör Atamaları"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Bu bölüme yapılan tüm yeni gönderilere otomatik olarak atanacak editoryal "
+"kullanıcıları seçin."
 
 msgid "manager.sections.form.assignEditorAs"
 msgstr "{$name} için {$role} olarak atayın"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Bu kategoriye yapılan tüm yeni gönderilere otomatik olarak atanacak "
+"editoryal kullanıcıları seçin."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Erişim Seçenekleri"
@@ -1818,16 +1828,21 @@ msgstr ""
 "verileri gerektiren dosyalar için uygundur."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Gönderimlerle birlikte zorunlu kıl"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Her yeni gönderimle birlikte bu dosyalardan en az birinin zorunlu olması "
+"gerekir mi? Evet seçerseniz, yazarlar bu türden en az bir dosya yüklemeden "
+"gönderim yapamayacaklardır."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Evet, gönderim yapan yazarların bu dosyalardan bir veya daha fazlasını "
+"yüklemesi zorunlu olsun."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Hayır, yeni gönderimlere bu dosyalar olmadan izin ver."
 
 msgid "manager.settings.wizard"
 msgstr "Ayarlar Sihirbazı"
@@ -2182,18 +2197,23 @@ msgstr "Yazarın gönderisini kabul etmeden önce referans vermesini isteyin."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Yazar(lar)ın araştırma verilerini erişime açıp açmadığını ve açtıysa "
+"okuyucuların bu verilere nereden ulaşabileceğini belirten kısa bir açıklama."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Veri erişilebilirlik bildirimi metadatasını etkinleştir"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
-msgstr ""
+msgstr "Gönderim sırasında yazardan veri erişilebilirlik bildirimi talep etme."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Gönderim sırasında yazardan veri erişilebilirlik bildirimi sağlamasını iste."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Gönderim kabul edilmeden önce yazarın veri erişilebilirlik bildirimi "
+"sağlaması zorunlu olsun."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Doğrulama hataları:"
@@ -2279,7 +2299,7 @@ msgstr ""
 "aynı değil."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Test"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Başlık"
@@ -2614,10 +2634,10 @@ msgid "stats.editorialActivity"
 msgstr "Editöryal Etkinlik"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Birincil Dosya"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Tamamlayıcı Dosya"
 
 msgid "stats.fileViews"
 msgstr "Dosya Görüntülemeleri"
@@ -2705,10 +2725,10 @@ msgid "stats.name.submissionsSkipped"
 msgstr "Diğer Aday Makaleler"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Devam Eden Başvurular"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "İçe Aktarılan Başvurular"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Kabul Edilen Gönderiler"
@@ -2790,7 +2810,7 @@ msgstr ""
 "değerlendirme için gizlenir"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Başvurunun yazarlarının adları ve kurumları."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "Kullanıcının kayıp bir şifreyi kurtarabileceği bir sayfanın URL'si"
@@ -2846,34 +2866,44 @@ msgid "emailTemplate.variable.recommendation"
 msgstr "Önerilen karar, kabul"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Bu incelemenin atandığı tarih"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "İnceleme türü; anonim, çift anonim veya açık gibi"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Hakemin önerisi; Örneğin, Başvuruyu Kabul Et veya Reddet"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "İnceleme turu; Örneğin, 1. Tur veya 2. Tur"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Hakem tarafından yüklenen dosyalar"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Hakemin adı"
 
 msgid "emailTemplate.variable.reviewType"
-msgstr ""
+msgstr "Varsayılan inceleme yönteminin açıklaması; çift anonim veya açık gibi"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Bu dergi çift anonim hakem değerlendirmesi yapmaktadır. Hakemler sizin veya "
+"eş‑yazarlarınızla ilgili herhangi bir kimlik bilgisi görmeyecektir. Benzer "
+"şekilde, siz de başvurunuzu kimin değerlendirdiğini bilmeyecek ve "
+"hakemlerden doğrudan geri bildirim almayacaksınız."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Bu dergi “hakem anonim” hakem değerlendirmesi yapmaktadır. Sizin ve eş‑"
+"yazarlarınızın adları hakemler tarafından görülebilecektir; ancak hakemlerin "
+"kimlikleri anonim kalacaktır."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Bu dergi açık hakem değerlendirmesi yapmaktadır. Hakemler sizin ve eş‑"
+"yazarlarınızın adlarını ve kurumlarını görecektir. Benzer şekilde, siz de "
+"hakemlerin adlarını ve kurumlarını göreceksiniz."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Gönderenin tam adı"
@@ -2891,7 +2921,7 @@ msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "Birincil iletişim kişisinin e-postası"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Web sitesinin otomatik e-postalar için e-posta imzası"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr "Bu aday makaleye atanan ve karar verebilecek editörler"
@@ -2912,34 +2942,38 @@ msgid "emailTemplate.variable.submission.authors"
 msgstr "Yazarların tam isimleri"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Yazarın başvuruya ait URL’si"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "Editör ekranında aday makalenin URL'si"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "Yayımlanan başvuruya ait URL"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "Başvuru sihirbazındaki başvuruya ait URL"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Başvuru iş akışına atanmış yazarların adları. Genellikle bu, başvuruyu yapan "
+"yazardır"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Kullanıcıya gönderilen şifre sıfırlama işlemini onaylamak için kullanılan, "
+"karma (hashed) URL"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Yeni rastgele kullanıcı parolası"
 
 msgid "mailable.reviewerReinstate.name"
 msgstr "Hakem Yeniden Atandı"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Hakeme inceleme talebini yeniden gönder"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Bir başvuru dosyası yükleyen kullanıcının tam adı"
 
 msgid "emailTemplate.variable.announcementTitle"
 msgstr "Duyuru başlığı"
@@ -2960,7 +2994,7 @@ msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "Kabul edilen başvuru sayısı"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Diğer toplamlar içinde yer almayan başvuru sayısı"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "Toplam gelen başvuru sayısı"
@@ -2969,13 +3003,13 @@ msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "Raporun verildiği ay"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Raporun yılı"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Cilt, sayı, yıl ve başlık dahil olmak üzere sayıyı tanımlama"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "Yayımlanan sayıya ait URL"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Raporun yılı"
@@ -3006,130 +3040,172 @@ msgstr ""
 "otomatik olarak gönderilir."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Diğer yazarlara bildir"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Bu e-posta, başvuruya katılımcı olarak atanmış olmayan yazarlara bir karar "
+"verildiğini bildirmek için gönderilir. Genellikle bunlar, başvuruyu yapan "
+"yazar dışındaki tüm diğer yazarlardır."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Başvuru yapan yazara gönderilen e-posta mesajının bir kopyası"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Hakemlere karar bildiriminde bulun"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Bu e-posta, bir Editör tarafından bir Hakeme, hakemlik yaptığı başvuru "
+"hakkında bir karar verildiğini bildirmek için gönderilir."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Hakemlere bu kararla ilgili e-posta bildiriminde paylaşılmak üzere "
+"hazırlanmış kısa bir açıklama"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Revizyonsuz olarak bu başvuruyu kabul etmeyi seçtik."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Bu başvuruyu reddetmeyi seçtik."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Yazarlardan revizyon göndermeleri için davet ettik."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Yazarlardan, daha fazla inceleme için revize edilmiş bir sürüm göndermeleri "
+"davet edildi."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Başvuruya davet edilen hakem görevlendirmeden çıkarıldı."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Başvuru kabul edildi"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun yayımlanmak üzere kabul edildiğini "
+"bildirmek için gönderilir."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Başvuru, Dizgi Aşamasına Geri Gönderildi"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun dizgi aşamasına geri gönderildiğini "
+"bildirmek için gönderilir."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun dizgi aşamasından geri gönderildiğini "
+"bildirmek için gönderilir"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun dizgi aşamasından geri gönderildiğini "
+"bildirmek için gönderilir."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Hakemlik turu iptal edildi"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusu için yürütülen bir hakemlik turunun iptal "
+"edildiğini bildirmek için gönderilir."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Başvuru reddedildi"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun hakem değerlendirmesinden sonra "
+"reddedildiğini bildirmek için gönderilir."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Başvuru (ön inceleme aşamasında) reddedildi"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Yeni bir hakemlik turu başlatıldı"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Yeni bir hakemlik turunun yazarın başvurusu için başladığını bildirmek üzere "
+"bu e-posta gönderilir."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Düzeltmeler talep edildi"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusu için hakem değerlendirmesi sürecinde düzeltme "
+"talep edildiğini bildirmek üzere gönderilir."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Yeniden hakem değerlendirmesi için gönderim"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Başvurunuz için \"düzelt ve yeniden gönder\" kararı verildiğini bildirmek "
+"üzere bu e-posta gönderilir."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Reddedilen başvuru yeniden etkinleştirildi"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusu için hakem değerlendirmesi sonrasında verilen "
+"reddetme kararının geri alındığını bildirmek üzere gönderilir."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Reddedilen başvuru (ön inceleme yapılmadan) yeniden etkinleştirildi"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun ön inceleme yapılmadan reddedilmesine "
+"ilişkin önceki kararın geri alındığını bildirmek üzere gönderilir."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "İncelemeye gönderildi"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun inceleme aşamasına gönderildiğini bildirmek "
+"üzere gönderilir."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Yayına gönderildi"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun üretim aşamasına gönderildiğini bildirmek "
+"üzere gönderilir."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Başvuru kabul edildi (ön inceleme yapılmadan)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun doğrudan dizgi aşamasına gönderildiğini ve "
+"hakem değerlendirmesine tabi tutulmayacağını bildirmek üzere gönderilir."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Öneri yapıldı"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Bu e-posta, Kıdemli Editör veya Bölüm Editörüne, kendilerine atanmış bir "
+"başvuru hakkında editoryal öneri yapıldığını bildirmek üzere gönderilir. Bu "
+"mesaj, editörün yalnızca öneri yapmasına izin verildiği ve editoryal "
+"kararların yetkili bir editör tarafından kaydedilmesi gerektiği durumlarda "
+"kullanılır. Bu seçenek, bir başvuruya katılımcı atanırken seçilebilir."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "İnceleme onayı"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3138,7 +3214,7 @@ msgstr ""
 "tarafından gönderilir."
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "İnceleme reddedildi"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
@@ -3147,10 +3223,12 @@ msgstr ""
 "kişi tarafından gönderilir."
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "İnceleme Hatırlatıcısı"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Bu e-posta, bir Editör tarafından hakeme, incelemenin teslim tarihinin "
+"yaklaştığını veya geçtiğini hatırlatmak amacıyla gönderilir."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Değerlendirme Hatırlatıcısı (Otomatik)"
@@ -3165,53 +3243,50 @@ msgstr "Değerlendirme için Teşekkür"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Bu e-posta, bir Editör tarafından hakeme, incelemenin teslim alındığını "
+"doğrulamak ve katkılarından dolayı teşekkür etmek amacıyla gönderilir."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "İnceleme Yanıtı Gecikti (Otomatik)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Bu e-posta, bir hakemin onay tarihi geçtiğinde otomatik olarak gönderilir "
-"(Ayarlar> İş Akışı> Gözden geçirme altındaki İnceleme Seçenekleri'ne bakın) "
-"ve tek tıklatma hakem erişimi devre dışı bırakılır. Zamanlanmış görevler "
-"etkinleştirilmeli ve yapılandırılmalıdır (site yapılandırma dosyası bölümüne "
-"bakınız)."
+"Bu e-posta, hakemin inceleme davetine yanıt vermesi için belirlenen sürenin "
+"geçtiğinde sistem tarafından otomatik olarak gönderilir."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "İnceleme Daveti"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Bu eposta Bölüm Editöründen bir hakeme bir çalışmanın hakemlik görevine "
-"davet amacı ile iletir. "
+"Bu e-posta, Bölüm Editörü tarafından bir Hakeme gönderilerek, hakemin bir "
+"başvuruyu inceleme görevini kabul etmesini veya reddetmesini talep eder. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Sonraki İnceleme Daveti"
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Editörden Hakem'e gönderilen bu e-posta, hakemin yeni bir inceleme turu için "
-"hakemliği kabul etmesini veya reddetmesini ister. Başlık ve özet, "
-"değerlendirme son tarihi ve aday makaleye nasıl erişileceği gibi bilgileri "
-"içerir."
+"Bu e-posta, bir Editör tarafından bir Hakeme gönderilerek, hakemin ek bir "
+"inceleme turu için bir başvuruyu inceleme görevini kabul etmesini veya "
+"reddetmesini talep eder. Başvuruya ilişkin başlık ve özet, inceleme teslim "
+"tarihi ve başvuruya erişim bilgileri sağlanır."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Başvurunun mevcut yayını eksik"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Başvurunun alt öğesi {$child} işlenemedi"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Editoryal Hatırlatma"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Editörlere, tamamlanmamış görevleri olanlara gönderilen otomatik e-posta"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Şifre Sıfırlama Onayı"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3220,16 +3295,17 @@ msgstr ""
 "izleyebilecekleri bir URL bağlantısı içerir."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Kullanıcı Oluşturuldu"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Bu e-posta yeni kaydolmuş kullanıcıya sisteme kabul edildiğini belirtmek ve "
-"kullanıcı adı ile şifresini bildirmek amacı ile gönderilmektedir."
+"Bu e-posta, editoryal yönetici tarafından kullanıcı ayarları aracılığıyla "
+"yeni bir kullanıcı oluşturulduğunda gönderilir. E-posta, onları sisteme hoş "
+"geldiniz diyerek karşılamalı ve kullanıcı adı ile şifre kayıtlarını "
+"sağlamalıdır."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Hakem Kaydı"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3237,57 +3313,68 @@ msgstr ""
 "birlikte kullanıcı adı ve şifresini iletmek için gönderilir."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Daha Sonra Kaydedilen Başvuru"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Yazarlar, başvurularını daha sonra tamamlamak üzere kaydettiklerinde "
+"gönderilen otomatik e-posta"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Başvuru Onayı"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Bu eposta etkinleştirildiğinde, yazar dergiye yazı gönderme işlemini "
-"tamamladığında otomatik olarak bu e-posta gönderilir. Bu e-posta yazara "
-"makale gönderdiği için teşekkür mesajı ve makalenin durumunu takip "
-"edebilmesi için gerekli olan bilgileri içerir."
+"Bu e-posta, bir yazar başvuru yaptığında otomatik olarak gönderilir. "
+"Editoryal süreç boyunca başvurunun nasıl takip edileceğine dair bilgi sağlar "
+"ve yazara başvurusu için teşekkür eder."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Başvuru Onayı (Diğer Yazarlar)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Bu e-posta etkinleştirildiğinde, aday makale başvurusu sırasında belirtilen "
 "diğer yazarlara da e-posta gönderilir."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Başvuru Üzerine Tartışma"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Bu e-posta, başvuru aşamasında bir tartışma oluşturulduğunda veya mevcut "
+"tartışmaya yanıt verildiğinde otomatik olarak gönderilir."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Tartışma (Hakemlik)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Bu e-posta, hakemlik aşamasında bir tartışma oluşturulduğunda veya mevcut "
+"tartışmaya yanıt verildiğinde otomatik olarak gönderilir."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Tartışma (Dizgi)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Bu e-posta, dizgi aşamasında bir tartışma oluşturulduğunda veya mevcut "
+"tartışmaya yanıt verildiğinde otomatik olarak gönderilir."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Tartışma (Üretim)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Bu e-posta, üretim aşamasında yeni bir tartışma oluşturulduğunda veya mevcut "
+"bir tartışmaya yanıt verildiğinde ilgili taraflara gönderilir. Mesajda "
+"tartışmanın konusu, başvuruya ait temel bilgiler (örneğin başlık, yazar(lar))"
+" ve yeni eklenen yorum yer alır. Böylece editörler, yazarlar ve üretim ekibi "
+"sürece dair gelişmelerden haberdar olur ve iletişim kesintisiz şekilde devam "
+"eder."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Revize Sürüm Bildirimi"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3295,43 +3382,55 @@ msgstr ""
 "makaleye atanmış editöre otomatik olarak gönderilir."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Yeni Duyuru"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Bu e-posta, yeni bir duyuru oluşturulduğunda gönderilir."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "İstatistik Raporu Bildirimi"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Hakem Değerlendirme Bildirimi"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Bu e-posta, bir hakemin değerlendirme görevinin ayrıntıları "
+"değiştirildiğinde otomatik olarak ilgili hakeme gönderilir. Mesajda "
+"başvurunun temel bilgileri (başlık, yazar(lar), başvuru numarası) ve "
+"güncellenen atama ayrıntıları (örneğin teslim tarihi, bölüm, ek talimatlar) "
+"yer alır. Böylece hakem, kendi göreviyle ilgili değişikliklerden haberdar "
+"olur ve değerlendirme sürecini yeni koşullara göre sürdürebilir."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Hakem Yorum Bildirimi – Editörleri Bilgilendir"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Bu e-posta, bir hakem değerlendirme önerisi sunduğunda atanmış editörlere "
+"otomatik olarak gönderilir"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Kimlik Doğrulama Kaynağı"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Başvuru Yeniden Hakemlik Aşamasına Gönderildi"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun yeniden hakemlik aşamasına gönderildiğini "
+"bildirmek için otomatik olarak gönderilir."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Başvuru Yeniden Başvuru Aşamasına Gönderildi"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Bu e-posta, yazarın başvurusunun yeniden başvuru aşamasına gönderildiğini "
+"bildirmek için otomatik olarak gönderilir."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "E-postaları Yönet"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
@@ -3340,117 +3439,136 @@ msgstr ""
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Kullanıcıya bu e-postayı gönderirken kullanılabilir hale getirmek "
+"istediğiniz şablonları ekleyin ve düzenleyin. Varsayılan şablon otomatik "
+"olarak yüklenecek ve kullanıcı buraya eklediğiniz diğer şablonları hızlıca "
+"yükleyebilecektir."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Şablonlar"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Şablonu Düzenle"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Şablonu Kaldır"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Şablonu silmek istediğinizden emin misiniz <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Şablonu Sıfırla"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Şablonun <strong>{$template}</strong> için konu ve gövdesini varsayılan "
+"ayarlarına sıfırlamak istediğinizden emin misiniz?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "İsim veya açıklamaya göre ara"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Bu şablonu bulmanıza yardımcı olacak kısa bir isim girin."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Yeni Başvuru"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Yeni bir başvuru yapıldığında gönderilecek e-posta bildirimlerini "
+"yapılandırın."
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Yeni bir başvuru tamamlandığında kimin e-posta alması gerektiğini "
+"yapılandırın."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "E-posta gönderme."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Yalnızca başvuruyu yapan yazara e-posta gönder."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Tüm yazarlara e-posta gönder."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Editoryal Kararlar"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Editoryal bir karar kaydedildiğinde yazarlara gönderilecek e-posta "
+"bildirimlerini yapılandırın."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Editörler İçin"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Editörlere gönderilecek e-posta bildirimlerini yapılandırın."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Editoryal İstatistikler"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Editörlere, derginin kabul ve reddetme oranları gibi editoryal "
+"istatistiklerini içeren aylık e-posta gönderilip gönderilmeyeceğini "
+"belirleyin."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Editörlere aylık e-posta gönder."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Editörlere e-posta gönderme."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Yeni başvuru yapıldığında gönderen yazardan kategori seçmesi istenmeli mi?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Başvuru sihirbazına kategori alanı ekle."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Yazarlara kategori alanını gösterme."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Düzeltme İsteği"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Editör Atandı"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Yayıma Hazır"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Sistem"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Sürüm Oluşturuldu"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Değerlendirme Tamamlandı"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Değerlendirme Düzenlendi"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Diğer Yazarlara Başvuru Onayı"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Editör Atandı (Otomatik)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Bu e-posta, bir başvuruya sistem tarafından otomatik olarak editör "
+"atandığında ilgili editöre gönderilir."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Editör Atama"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Başvuru Editör Bekliyor"
 
 #~ msgid "manager.paymentMethod.currency.description"
 #~ msgstr ""
@@ -3772,3 +3890,83 @@ msgstr ""
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Davet E-posta Adresini Değiştir"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Lütfen editoryal geçmişi sağlayın; her bir editörün tam adını, kurumunu ve "
+"başlangıç ile bitiş tarihlerini ekleyin."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Kategori mevcut değil veya farklı bir bağlama ait. Lütfen doğru bağlamda "
+"çalıştığınızdan emin olun ve tekrar deneyin."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Dil ayarı kaydedilemedi. Tüm seçeneklerin etkinleştirilmesi gerekiyor."
+
+msgid "settings.roles.permitSettings"
+msgstr "Ayarlar üzerinde değişikliklere izin ver"
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Yazar {$authorName}, gönderimin dili olan {$localeName} için bir kurum/"
+"kuruluş adı belirtmemiştir. Bu bilgi olmadan gönderim içe aktarılamaz."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Bu ayar, hakemlerin isim ve bilgilerini tek tip bir formatta göstermeyi "
+"sağlar. Amaç, tutarlılığı korumak ve bu bölümde kolay bulunabilirliği "
+"artırmaktır. Böylece tüm hakemler aynı düzen içinde listelenir, kullanıcılar "
+"için daha anlaşılır ve erişilebilir hale gelir."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"{$id} numaralı gönderim dosyası geçerli bir dosya aşamasına sahip olmadığı "
+"için atlandı."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Bir e-posta hesabını doğrulamak için kullanılan bağlantı"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Yüklü sürüm: {$version}"
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Menü öğesi başlığı gereklidir."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Kapak resmi ve küçük resim dosyaları bulunamadı. Bunlar önceden silinmiş "
+"olabilir. Sayfayı yeniden yüklemeyi deneyin."
+
+msgid "notification.submissionLocales"
+msgstr "Gönderim dilleri güncellendi."
+
+msgid "settings.roles.masthead"
+msgstr "Masthead listesinde rolü dikkate al"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Editoryal masthead (yayın ekibi) rollerinin halka açık görüntüleme sırasını "
+"tanımla."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"{$id} numaralı gönderim dosyası geçerli bir revizyona sahip olmadığı için "
+"atlandı."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"{$id} numaralı gönderim dosyasının {$revision} revizyonu \"{$path}\" yolunda "
+"bulunamadığı için atlandı."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"{$id} numaralı yayının kapak görseli dışa aktarılmadı, dosya \"{$path}\" "
+"yolunda bulunamadı."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Tüm aktif editoryal masthead hizmetlerini görüntüleyen bir sayfaya bağlantı."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Masthead Rollerinin Görüntüleme Sırası."

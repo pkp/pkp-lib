@@ -2,16 +2,17 @@
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
 # Paula Moura <paula.moura@usdb.uminho.pt>, 2023.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2024-02-26 14:18+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/admin/pt_PT/>\n"
-"Language: pt_PT\n"
+"PO-Revision-Date: 2026-02-24 19:15+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"admin/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -966,3 +967,121 @@ msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "Serão abandonadas graciosamente as tarefas depois de concluída a execução "
 "das tarefas atuais."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Enviar uma tarefa para remover automaticamente os convites expirados"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Atualizar cache do conjunto de dados do registo Ror"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Exibir os parâmetros de utilização do AppKey"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Adicione a variável de configuração app_key no ficheiro config.inc.php."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Referia-se a uma das seguintes opções?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Chave de aplicação gerada: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"A variável `app_key` já existe na secção `general` do ficheiro de "
+"configuração. Execute o comando `php lib/pkp/tools/appKey.php generate` para "
+"definir uma nova chave de aplicação."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Já existe uma chave de aplicação válida definida no ficheiro de "
+"configuração. Para a reescrever use o parâmetro --force juntamento com o "
+"comando."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr ""
+"A chave da aplicação foi definida com sucesso no ficheiro de configuração."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Chave de aplicação válida definida no ficheiro de configuração"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Executar o escalonador de tarefas."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Listar todas as tarefas escalonadas."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Ver parâmetros de utilização do escalonador."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Não é possível executar tarefas escalonadas porque o modo de manutenção da "
+"aplicação está ativado."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Queria selecionar uma das seguintes opções?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Não é possível executar tarefas escalonadas porque o modo sandbox da "
+"aplicação está ativado."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "A executar tarefas escalonadas a cada minuto."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Não existem tarefas escalonadas registadas."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Não encontradas tarefas escalonadas correspondentes."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Que comando deseja executar?"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Verifique se a chave da aplicação atual está presente no ficheiro de "
+"configuração"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Gere uma nova chave de aplicação e substitua-a no ficheiro de configuração. "
+"Utilize o parâmetro --show para apenas visualizar e --force para "
+"sobrescrever uma chave de aplicação válida existente."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Não foi encontrada nenhuma variável denominada `app_key` definida na secção "
+"`general` do ficheiro de configuração. Por favor, atualize a secção `general`"
+" do ficheiro de configuração e adicione a linha `app_key = ` ou execute o "
+"comando `php lib/pkp/tools/appKey.php configure` para a definir."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Nenhuma chave de aplicação definida no ficheiro de configuração."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"A chave de aplicação é inválida: ou a cifra não é suportada ou o comprimento "
+"de chave é incorreto. As cifras suportadas são: {$ciphers}."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"A variável da chave de aplicação foi definida com sucesso no ficheiro de "
+"configuração. Execute o comando `php lib/pkp/tools/appKey.php generate` para "
+"definir uma nova chave de aplicação."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Não foi possível definir a variável `app_key` no ficheiro de configuração. "
+"Atualize a secção geral do ficheiro de configuração e adicione a linha `"
+"app_key = `."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Executar as tarefas escalonadas."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Executar uma tarefa escalonada específica a partir da lista ou utilize o "
+"parâmetro --name para executar uma tarefa específica. Defina o parâmetro "
+"--no-scroll para visualizar a lista completa sem ter de fazer scroll no ecrã."

@@ -1,15 +1,16 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2024-02-19 11:08+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/installer/pt_PT/>\n"
-"Language: pt_PT\n"
+"PO-Revision-Date: 2026-02-25 17:49+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -248,3 +249,46 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Configurações Diversas"
+
+msgid "installer.appKey.write.error"
+msgstr ""
+"Não foi possível gravar a chave da aplicação no ficheiro de configuração."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Adicione manualmente a variável de configuração denominada `app_key` na "
+"secção `general` ou execute o comando `php lib/pkp/tools/appKey.php "
+"configure` para a configurar através da linha de comandos."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"A variável de configuração denominada `app_key` não está definida na secção "
+"`general`. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"A variável de configuração denominada `app_key` já está definida na secção "
+"`general`. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Não foi possível ler o ficheiro de configuração ou o ficheiro não existe no "
+"caminho esperado. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Não foi possível analisar o ficheiro de configuração."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr ""
+"Não foi possível escrever a variável chave da aplicação no ficheiro de "
+"configuração."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Cifra não suportada ou comprimento de chave incorreto. As cifras suportadas "
+"são: {$ciphers}."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Defina o valor de `app_key` na secção `general` do ficheiro `config.inc.php` "
+"como {$key}."

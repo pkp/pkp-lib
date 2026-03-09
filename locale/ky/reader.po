@@ -1,0 +1,81 @@
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "comments.email"
+msgstr "Жиберүүчүнүн электрондук почтасы"
+
+msgid "comments.emailReply"
+msgstr "Электрондук почта аркылуу жооп берүү"
+
+msgid "comments.enterComment"
+msgstr "Комментарий киргизүү"
+
+msgid "comments.name"
+msgstr "Жиберүүчүнүн аты"
+
+msgid "comments.anonymous"
+msgstr "Анонимдүү колдонуучу"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Мазмуну"
+
+msgid "comments.titleRequired"
+msgstr "Комментарийдин аталышы талап кылынат."
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Бул комментарийди өчүрсөңүз, ага берилген жооптор да өчүрүлөт. Муну жасоону "
+"каалайсызбы?"
+
+msgid "comments.delete"
+msgstr "Бул комментарийди өчүрүү"
+
+msgid "comments.inResponseTo"
+msgstr "Жооп <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.noComments"
+msgstr "Окурмандар тарабынан комментарийлер жазылган жок."
+
+msgid "comments.nReplies"
+msgstr "({$num} жооп)"
+
+msgid "comments.oneReply"
+msgstr "(1 жооп)"
+
+msgid "comments.postAnonymously"
+msgstr "Бул комментарийди анонимдүү түрдө жарыялоо"
+
+msgid "comments.postReply"
+msgstr "Жооп жарыялоо"
+
+msgid "comments.readerComments"
+msgstr "Окурмандардын комментарийлери"
+
+msgid "comments.readMore"
+msgstr "Толугураак окуу"
+
+msgid "comments.replies"
+msgstr "Жооптор"
+
+msgid "comments.title"
+msgstr "Аталыш"
+
+msgid "comments.viewAllComments"
+msgstr "Бардык комментарийлерди көрүү"
+
+msgid "reader.fullText"
+msgstr "Толук текст:"

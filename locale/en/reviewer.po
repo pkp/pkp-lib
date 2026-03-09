@@ -222,6 +222,24 @@ msgstr "Status:"
 msgid "openReview.statusInProgress"
 msgstr "In progress since {$date}"
 
+msgid "openReview.statusCompleted"
+msgstr "Completed on {$date}"
+
+msgid "openReview.dataNotAvailable"
+msgstr "Peer review data is not available"
+
+msgid "openReview.inProgressTitle"
+msgstr "Peer review is in progress"
+
+msgid "openReview.inProgressDescription"
+msgstr "Once reviews are submitted, decision summaries and reviewer reports will appear here."
+
+msgid "openReview.noReportsCompleted"
+msgstr "No reviewer reports have been completed yet."
+
+msgid "openReview.noReportsDescription"
+msgstr "Once reviews are submitted, decision summaries will appear here."
+
 msgid "openReview.recommendationItem"
 msgstr "{$label} - {$count}"
 

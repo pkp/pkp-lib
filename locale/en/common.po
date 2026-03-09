@@ -904,6 +904,9 @@ msgstr "Search Query"
 msgid "common.clearSearch"
 msgstr "Clear search phrase"
 
+msgid "common.clearSelection"
+msgstr "Clear selection"
+
 msgid "common.second"
 msgstr "Second(s)"
 

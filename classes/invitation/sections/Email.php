@@ -129,13 +129,9 @@ class Email extends Section
 
         $variables = [];
         foreach ($data as $key => $value) {
-            $valueOrToken = $value
-                ? '<span class="mceNonEditable" data-symbolic="' . $key . '" contenteditable="false">' . $value . '</span>'
-                : '<span class="pkpTag mceNonEditable" data-symbolic="' . $key . '" contenteditable="false">' . $key . '</span>';
-
             $variables[] = [
                 'key' => $key,
-                'value' => $valueOrToken,
+                'value' => $value ?: '{$' . $key . '}',
                 'description' => $descriptions[$key] ?? '',
             ];
         }

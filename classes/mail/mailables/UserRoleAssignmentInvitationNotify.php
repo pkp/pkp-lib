@@ -182,6 +182,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         // Roles Added
         $userGroupsAddedTitle = __('emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles');
+        $userGroupsAdded = '';
 
         if ($this->invitation->getPayload()->userGroupsToAdd) {
             $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getPayload()->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);

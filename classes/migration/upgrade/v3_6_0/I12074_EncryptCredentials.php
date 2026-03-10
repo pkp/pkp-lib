@@ -77,6 +77,9 @@ class I12074_EncryptCredentials extends Migration
 
         // Crossref plugin: password
         $this->encryptPluginSettingValues('crossrefplugin', ['password']);
+
+        // PayPal plugin: secret
+        $this->encryptPluginSettingValues('paypalpayment', ['secret']);
     }
 
     /**
@@ -105,6 +108,9 @@ class I12074_EncryptCredentials extends Migration
 
         // Crossref plugin: password
         $this->decryptPluginSettingValues('crossrefplugin', ['password']);
+
+        // PayPal plugin: secret
+        $this->decryptPluginSettingValues('paypalpayment', ['secret']);
     }
 
     /**

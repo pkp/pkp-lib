@@ -201,16 +201,14 @@ class PublicationPeerReviewResource extends JsonResource
             $reviewerComments = null;
 
             if ($assignment->getReviewFormId()) {
-                /** @var ReviewFormDAO $reviewFormDao */
-                $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-                $reviewForm = $reviewFormDao->getById($assignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
+                $reviewFormData = $this->reviewFormsCache->get($assignment->getReviewFormId());
 
-                $reviewForm = [
-                    'id' => $reviewForm->getId(),
-                    'description' => $reviewForm->getLocalizedDescription(),
-                    'title' => $reviewForm->getLocalizedTitle(),
+                $reviewForm = $reviewFormData ? [
+                    'id' => $reviewFormData->getId(),
+                    'description' => $reviewFormData->getLocalizedDescription(),
+                    'title' => $reviewFormData->getLocalizedTitle(),
                     'questions' => $this->getReviewFormQuestions($assignment)
-                ];
+                ] : null;
             } else {
                 $reviewerComments = $this->getReviewAssignmentComments($assignment);
             }

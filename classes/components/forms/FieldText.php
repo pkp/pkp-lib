@@ -35,6 +35,9 @@ class FieldText extends Field
     /** @var string A prefix to display before the input value */
     public $prefix = '';
 
+    /** @var string|null The HTML autocomplete attribute. Defaults to 'off' for password fields in the frontend. */
+    public ?string $autocomplete = null;
+
     /**
      * @copydoc Field::getConfig()
      */
@@ -46,6 +49,10 @@ class FieldText extends Field
         $config['optIntoEditLabel'] = $this->optIntoEditLabel;
         $config['size'] = $this->size;
         $config['prefix'] = $this->prefix;
+
+        if (isset($this->autocomplete)) {
+            $config['autocomplete'] = $this->autocomplete;
+        }
 
         return $config;
     }

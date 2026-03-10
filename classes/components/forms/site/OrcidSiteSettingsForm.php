@@ -77,6 +77,7 @@ class OrcidSiteSettingsForm extends FormComponent
                 'isRequired' => true,
                 'value' => $site->getData(OrcidManager::CLIENT_SECRET) ?? '',
                 'inputType' => 'password',
+                'autocomplete' => 'off',
             ]));
     }
 }

@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 
 class I18nController extends PKPBaseController
@@ -47,6 +48,16 @@ class I18nController extends PKPBaseController
     public function getGroupRoutes(): void
     {
         Route::get('ui.js', $this->getTranslations(...))->name('_i18n.getTranslations');
+    }
+
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        // No authorization required for publicly accessible endpoint
+        return true;
     }
 
     /**

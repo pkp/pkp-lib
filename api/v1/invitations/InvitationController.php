@@ -41,6 +41,13 @@ class InvitationController extends PKPBaseController
     public const PARAM_ID = 'invitationId';
     public const PARAM_KEY = 'key';
 
+    public array $publicActions = [
+        'receive',
+        'finalize',
+        'refine',
+        'decline',
+    ];
+
     public $actionsInvite = [
         'get',
         'populate',
@@ -183,6 +190,10 @@ class InvitationController extends PKPBaseController
         $invitationType = $this->getParameter(self::PARAM_TYPE);
         $invitationId = (int) $this->getParameter(self::PARAM_ID);
         $invitationKey = $this->getParameter(self::PARAM_KEY);
+
+        if(in_array($actionName, $this->publicActions)){
+            $this->setEnforceRestrictedSite(false);
+        }
 
         if (in_array($actionName, $this->requiresType)) {
             if (!isset($invitationType)) {

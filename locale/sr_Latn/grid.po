@@ -1,15 +1,20 @@
+# lena bojcic <lenabojcicck@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:04+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: sr_RS@latin\n"
+"PO-Revision-Date: 2026-03-05 16:36+0000\n"
+"Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
+"Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"grid/sr_Latn/>\n"
+"Language: sr_Latn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Nema stavki"
@@ -24,7 +29,7 @@ msgid "grid.remotelyHostedItem"
 msgstr "Ovaj objekat je hostovan na udaljenom serveru."
 
 msgid "grid.action.uninstall"
-msgstr ""
+msgstr "Deinstaliraj"
 
 msgid "grid.action.manageAccess"
 msgstr "Upravljaj pristupom"
@@ -231,7 +236,7 @@ msgid "grid.action.editUserGroup"
 msgstr "Izmeni ovu grupu korisnika"
 
 msgid "grid.action.removeUserGroup"
-msgstr ""
+msgstr "Ukloni ovu korisničku grupu"
 
 msgid "grid.action.disable"
 msgstr "Onemogući"
@@ -282,7 +287,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Dodaj obaveštenje"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Dodaj instituciju"
 
 msgid "grid.action.mergeUser"
 msgstr "Spoji korisnike"
@@ -330,7 +335,7 @@ msgid "grid.action.moreItems"
 msgstr "Učitaj više"
 
 msgid "grid.action.users"
-msgstr ""
+msgstr "Pogledaj/Izaberi korisnike"
 
 msgid "grid.task.status.completed"
 msgstr "Ovaj zadatak je završen"
@@ -365,7 +370,7 @@ msgid "grid.columns.locale"
 msgstr "Lokalizacija"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Kodiraj"
 
 msgid "grid.sponsor.title"
 msgstr "Ustanove podrške"
@@ -408,9 +413,11 @@ msgstr "Obriši saradnika"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Da li ste sigurni da želite da uklonite {$name} kao saradnika? Ova radnja se "
+"ne može opozvati."
 
 msgid "grid.action.newVersion"
-msgstr ""
+msgstr "Kreiraj novu verziju"
 
 msgid "grid.reviewForm.title"
 msgstr "Forme recenzija"
@@ -449,28 +456,28 @@ msgid "author.users.contributor.principalContact"
 msgstr "Primarni kontakt"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Postavi kao primarni kontakt"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Pregled"
 
 msgid "contributor.listPanel.preview.description"
-msgstr ""
+msgstr "Saradnici na ovoj publikaciji biće navedeni u sledećim formatima."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Format"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Prikaži"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Skraćeno"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Liste publikacija"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Puno"
 
 msgid "grid.roles.currentRoles"
 msgstr "Trenutne uloge"
@@ -680,25 +687,25 @@ msgid "grid.submission.itemTitle"
 msgstr "Autor; Naslov"
 
 msgid "grid.submission.active.selectOrphaned"
-msgstr ""
+msgstr "Uključi nedovršene prijave koje autor nije podneo."
 
 msgid "grid.action.addNavigationMenu"
-msgstr ""
+msgstr "Dodaj meni"
 
 msgid "grid.action.addNavigationMenuItem"
-msgstr ""
+msgstr "Dodaj stavku"
 
 msgid "grid.navigationMenus.navigationMenuItems.noneExist"
-msgstr ""
+msgstr "Nema stavki u navigacionom meniju"
 
 msgid "grid.navigationMenus.navigationMenu.noneExist"
-msgstr ""
+msgstr "Nema navigacionih menija"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
-msgstr ""
+msgstr "Izaberi tip..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Pogledaj"
 
 msgid "author.users.contributor.name"
 msgstr "Ime"
@@ -733,3 +740,33 @@ msgstr "Imeni saradnika"
 #~ msgstr ""
 #~ "Da li ste sigurni da želite da spojite ovog korisnika sa drugim? Drugog "
 #~ "korisnika ćete odabrati na sledećoj stranici."
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Da li ste sigurni da želite da uklonite ovaj predlog? Ova radnja se ne može "
+"opozvati."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Prikaži na impresumu"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Kada se korisnik aktivira, ponovo će imati pristup sajtu, a vi ćete moći da "
+"ga po potrebi dodeljujete različitim ulogama."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Dodaj predlog recenzenta"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Obriši predlog recenzenta"
+
+msgid "grid.user.remove"
+msgstr "Ukloni korisnika"
+
+msgid "grid.user.logInAs"
+msgstr "Uloguj se kao"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Imajte u vidu da, kada je korisnik onemogućen, nećete moći da ga dodelite "
+"nijednoj ulozi dok ponovo ne bude omogućen."

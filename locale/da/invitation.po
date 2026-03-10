@@ -1,0 +1,422 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-02-04 10:01+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/da/>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Den inviterede bruger har fået tildelt brugergruppen"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "De angivne brugergrupper indeholder dubletter."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Der skal angives en adgangskode"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Inviter til en rolle"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Inviter brugeren til at påtage sig en rolle"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Indtast oplysninger og inviter til roller"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Gem og fortsæt"
+
+msgid "invitation.role.selectRole"
+msgstr "Vælg en ny rolle"
+
+msgid "invitation.role.dateStart"
+msgstr "Startdato"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Startdato"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Slutdato"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Gennemgå og invitér til roller"
+
+msgid "userInvitation.modal.button"
+msgstr "Se alle brugere"
+
+msgid "invitation.email.description"
+msgstr "f.eks. aeinstein@example.com"
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Der skal angives et brugernavn"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Mindst én brugergruppe, der skal tilføjes, skal defineres"
+
+msgid "invitation.role.dateEnd"
+msgstr "Slutdato"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Fjernelse af brugerroller kan ikke gennemføres for brugere, der ikke "
+"eksisterer."
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Inviter brugeren til rollen"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Der er allerede en eksisterende bruger med brugernavnet {$username}. Prøv et "
+"andet."
+
+msgid "userInvitation.modal.title"
+msgstr "Invitationen er sendt"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Når en invitation har et tilknyttet bruger-id ({$userId}), skal den "
+"tilsvarende bruger eksistere."
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Et land skal angives"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Denne invitation kan ikke annulleres"
+
+msgid "invitation.header"
+msgstr "Invitationer"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Gennemgå og invitér til roller"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Når brugeren accepterer invitationen, vil vedkommende blive omdirigeret til "
+"ORCID for at verificere sin konto, hvis vedkommende ønsker det."
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Hvis brugeren ikke findes, kan du invitere dem til at påtage sig roller. "
+"Hvis brugeren allerede findes i systemet, kan du se deres oplysninger og "
+"invitere dem til at påtage sig yderligere roller."
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Indtast oplysninger"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Mindst én brugergruppe, der skal fjernes, skal defineres"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Invitationen kan ikke sendes, fordi du ikke har defineret nogen ændringer i "
+"brugergruppen"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Annuller invitationen"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Annuller invitation"
+
+msgid "invitation.tableHeader.name"
+msgstr "Navn"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Der skal angives en tilknytning"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Når en invitation har en tilknyttet e-mail ({email}), må denne e-mail-"
+"adresse ikke være i brug af en anden bruger."
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Der skal angives et fornavn"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Der skal angives en startdato for tilføjede brugergrupper"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Der skal angives en kolofon for tilføjede brugergrupper"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Denne invitationstype har ikke et defineret mail-indhold"
+
+msgid "invitation.validation.required"
+msgstr "{$attribute}-feltet er påkrævet."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Der blev fundet uventede egenskaber i elementet ved indeks {$attribute}: "
+"{$properties}."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Denne attribut må ikke tilgås af eksisterende brugere"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Denne attribut må ikke tilgås af ikke-eksisterende brugere"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Denne attribut skal have en værdi lig med eller efter i dag"
+
+msgid "invitation.step"
+msgstr "TRIN"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Indtast oplysninger"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Søg efter bruger"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Der skal angives et efternavn"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Der skal angives et brugergruppe-id for tilføjede brugergrupper"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Denne invitationshandling fejlede"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Det angivne brugergruppe-ID {$userGroupId} eksisterer ikke"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "ID'et {reviewAssignmentId} svarer ikke til en gyldig bedømmelsesopgave"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Du kan ikke angive både e-mail og bruger-ID sammen."
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Attribut-feltet er forbudt"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "En værdi på sproget '{$primaryLocale}' er påkrævet"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Søg efter bruger"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Søg efter bruger"
+
+msgid "userInvitation.searchField.description"
+msgstr "fx aeinstein@example.com eller aeinstein eller 0000-0002-1825-0097"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rolle"
+
+msgid "invitation.role.addRole.button"
+msgstr "Tilføj endnu en rolle"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Rediger e-mail, der er delt med brugeren"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Fjern rolle"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Hvis du kender brugerens fornavn, kan du indtaste denne information. Den kan "
+"dog blive ændret af brugeren."
+
+msgid "invitation.decline.confirm"
+msgstr "Bekræft afvis invitation"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Afvis invitation"
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verificer ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Gem og fortsæt"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Gem og fortsæt"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Indtast oplysninger"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Indtast oplysninger"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Gem og fortsæt"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Gennemgå og opret konto"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Spring over ORCID verificering"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Det kan være en kombination af store og små bogstaver samt tal"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Ja, jeg accepterer at mine data bliver indsamlet og opbevaret i "
+"overensstemmelse med {$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Privatlivs- og persondatapolitik"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Dette er den del af en persons navn, der identificerer personen, og kaldes "
+"fornavn, givet navn eller første navn."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Dette er den institution, du er tilknyttet"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Dette er det land, hvori den institution, du er tilknyttet, ligger"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Land for tilknyttet institution"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Brugeroplysninger"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Se alle indsendelser"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Angiv mindst et søgekriterium."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Du ser {$name}s brugeroplysninger"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Ændr rolle"
+
+msgid "invitation.management.options"
+msgstr "Invitationshåndteringsmuligheder"
+
+msgid "userInvitation.status.invited"
+msgstr "Inviteret {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Rediger invitation"
+
+msgid "validation.after_or_equal"
+msgstr "Startdatoen skal være større end eller lig med i dag"
+
+msgid "invitation.removeRoles"
+msgstr "Bruger fjernet fra rolle"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Annuller rolle-invitationsprocessen?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Annuller invitationsprocessen"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Invitation ikke accepteret. Du er logget ind som en anden bruger."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Log venligst ud og derefter ind med den rigtige konto for at acceptere denne "
+"invitation."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Søg efter en bruger med e-mail-adresse, brugernavn eller ORCID iD. Indtast "
+"kun en af delene for at starte!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Brugeren er pt. deaktiveret."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Privatlivs- og persondatasamtykke"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Hvis du kender brugerens efternavn, kan du indtaste denne information. Den "
+"kan dog blive ændret af brugeren."
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Accepter invitation brugerinformation formular"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Angiv venligst de følgende informationer for at hjælpe os med at håndtere "
+"din konto"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Er du sikker på, at du vil afvise denne invitation? Bekræft ved at klikke på "
+"knappen herunder."
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verificer ORCID iD"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Gennemgå og opret konto"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verificer ORCID iD"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Indtast dine oplysninger såsom e-mail ID, tilknytning osv. Af hensyn til "
+"GDPR-overholdelse, kan disse oplysninger kun ændres af dig. Du kan også "
+"vælge, hvorvidt disse oplysninger skal være synlige for redaktøren."
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Det skal være minimum 6 karakterer, som kan være en kombination af store og "
+"små bogstaver samt tal og symboler"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Et efternavn eller familienavn er den oftest arvelige del af en persons "
+"navn, som indikerer ens familietilhørsforhold."
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Kontooplysninger"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Er du sikker på, du vil annullere? Hvis du annullerer, vil processen med at "
+"acceptere rollen blive afbrudt, og du bliver nødt til at starte forfra fra "
+"invitations-e-mailen for at acceptere rollen. Hvis du allerede har en "
+"bruger, bliver du ført tilbage til betjeningspanelet. Hvis ikke, skal du "
+"tilgå invitations-e-mailen for at genstarte processen."
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Hvis du annullerer invitationen sendt til {$givenName} {$familyName}, vil "
+"linket til at acceptere, der blev udsendt på e-mail, blive deaktiveret. Her "
+"er oplysningerne om invitationen: "
+
+msgid "invitation.masthead.show"
+msgstr "Fremgår på kolofonen"
+
+msgid "invitation.masthead.hidden"
+msgstr "Fremgår ikke på kolofonen"
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Brugeren var deaktiveret. Du kan ikke tildele dem en rolle, når de er "
+"deaktiveret. Vær venlig at aktivere brugeren først for at kunne invitere dem "
+"til en rolle."
+
+msgid "userInvitation.cancel.message"
+msgstr "Er du sikker på, du vil annullere denne invitation?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Gå tilbage"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Hvis du redigerer den eksisterende invitation eller tilføjer en ny rolle, "
+"vil den nuværende invitation blive annulleret, og en ny vil blive udsendt. "
+"Er du sikker på, du vil fortsætte?"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Bekræft venligst, at du har læst og accepterer privatlivs- og "
+"persondatapolitikken"

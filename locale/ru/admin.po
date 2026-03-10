@@ -1,11 +1,12 @@
 # Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2024-02-23 17:05+0000\n"
-"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ru/>\n"
 "Language: ru\n"
@@ -17,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Задаем название"
+msgstr "Имя настройки"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "Задаем значение"
@@ -970,3 +971,116 @@ msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr ""
 "Перезапустить очередь рабочих сервисов-демонов после выполнения ими текущего "
 "задания."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Обновить кэш набора данных реестра ROR"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Запустить задачу для автоматического удаления просроченных приглашений"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Отобразить параметры использования AppKey"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Добавить переменную конфигурации app_key в файл config.inc.php"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Вы имели в виду одно из следующих?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Сгенерированный ключ приложения: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Переменная app_key уже существует в разделе general файла конфигурации. "
+"Выполните команду php lib/pkp/tools/appKey.php generate, чтобы установить "
+"новый ключ приложения."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "В файле конфигурации не установлен ключ приложения."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Установлен недействительный ключ приложения: неподдерживаемый шифр или "
+"неверная длина ключа. Поддерживаемые шифры: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Ключ приложения успешно установлен в файле конфигурации."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Не удалось установить переменную app_key в файле конфигурации. Пожалуйста, "
+"обновите раздел general файла config и добавьте строку app_key = ."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Действительный ключ приложения установлен в файле конфигурации"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Запустить планировщик."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Список всех запланированных задач."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Отобразить параметры использования планировщика."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Вы имели в виду одно из следующих?"
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Не найдено соответствующей запланированной задачи."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Какую команду вы хотите выполнить?"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Проверить текущий ключ приложения, если он найден в файле конфигурации"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Сгенерировать новый ключ приложения и заменить его в файле конфигурации. "
+"Используйте флаг --show только для просмотра и --force для перезаписи "
+"существующего действительного ключа приложения."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"В разделе general файла конфигурации не определена переменная app_key. "
+"Пожалуйста, обновите раздел general файла config и добавьте строку app_key = "
+", либо выполните команду php lib/pkp/tools/appKey.php configure для её "
+"установки."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Действительный ключ приложения уже установлен в файле конфигурации. Чтобы "
+"перезаписать его, используйте флаг --force с командой."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Переменная app_key успешно установлена в файле конфигурации. Выполните "
+"команду php lib/pkp/tools/appKey.php generate, чтобы установить новый ключ "
+"приложения."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Запустить рабочий процесс планировщика."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Невозможно выполнить запланированные задачи, так как включён режим "
+"обслуживания приложения."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Выполнить определённую запланированную задачу из списка или используйте "
+"параметр --name для запуска конкретной. Установите флаг --no-scroll, чтобы "
+"просмотреть полный список без прокрутки."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Невозможно выполнить запланированные задачи, так как включён режим песочницы "
+"приложения."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Запуск запланированных задач каждую минуту."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Запланированные задачи не зарегистрированы."

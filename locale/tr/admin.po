@@ -1,12 +1,12 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
-# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
 "Language: tr\n"
@@ -59,7 +59,7 @@ msgstr "Yapılandırma dosyasının içeriği"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""
-"{$contextName} ve tüm  içeriklerini kalıcı olarak silmek istediğinizden emin "
+"{$contextName} ve tüm içeriklerini kalıcı olarak silmek istediğinizden emin "
 "misiniz?"
 
 msgid "admin.currentVersion"
@@ -492,6 +492,8 @@ msgstr ""
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Dosya sıkıştırılamadı. Sıkıştırılmış kaynak dosya {$filePath}, unlink ile "
+"kaldırılamadı."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "İndirilecek herhangi bir dil bulunmuyor."
@@ -506,7 +508,7 @@ msgid "admin.cli.tool.available.commands"
 msgstr "`{$namespace}` alanı için mevcut komutlar:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
-msgstr ""
+msgstr "Uygulama bakım modu etkin olduğundan kuyruk işleri çalıştırılamıyor."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
@@ -515,39 +517,58 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Belirli bir kuyruk işini Id’sine göre temizleyin. Tümünü temizlemek "
+"isterseniz --all parametresini kullanın. Belirli bir kuyruktaki tümünü "
+"temizlemek isterseniz --queue= parametresini kullanın"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Test kuyruğuna bir test işi ekleyin. İsteğe bağlı --only= parametresini "
+"kullanın ve 'failed' veya 'success' değerini geçerek başarısız olabilen ya "
+"da başarılı bir işi gönderin."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Sonsuz bir daemon worker süreci çalıştırın; bu süreç işleri işlemeye devam "
+"edecektir. Bu komutla ilişkili mevcut seçenekleri görmek için --help "
+"bayrağını kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Tüm başarısız işleri listeleyin. Listeyi filtrelemek için --queue=QUEUE_NAME "
+"ve --connection=CONNECTION_NAME parametrelerini ayarlayın. Ayrıca işleri "
+"kuyruğa yeniden göndermek veya tümünü/belirli başarısız işleri temizlemek "
+"için --redispatch ve --clear parametrelerini/flaglarını kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Mevcut işleri kuyruğa gönderin. Belirli bir kuyruğa iş göndermek için --"
+"queue=QUEUE_NAME parametresini kullanın. Bir test işi çalıştırmak için --"
+"test parametresini ve tek bir işten sonra durmak için --once parametresini "
+"kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "{$queueName} adlı kuyruqda {$jobCount} iş tamamlandı."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "{$queueName} adlı kuyruqda çalıştırılacak iş yok."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Toplam kuyruktaki işleri görüntüleyin. Başarısız toplam işleri görmek için --"
+"failed bayrağını kullanın."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Jobs komutunun kullanımını görüntüleyin"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Jobs kullanım parametrelerini görüntüleyin"
 
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Seçenek boş bırakılamaz! Kullanım yöntemini kontrol edin."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Başarısız kuyruk işleri"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Sıradaki İşler"
@@ -568,19 +589,19 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
 msgstr "Girişimler"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Rezerve Edildi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Mevcut"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Oluşturulduğu Zaman"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Hata Verdiği Zaman"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "İstisna Mesajı"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Sayfalandırma"
@@ -596,42 +617,46 @@ msgstr "Sonraki"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Bu komutu kullanmak için en az bir İş Kimliği, '--all' veya '--queue=' "
+"parametresi vermelisiniz"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
-msgstr ""
+msgstr "{$queueName} adlı kuyrukta başarısız olacak şekilde gönderilen test işi"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
-msgstr ""
+msgstr "{$queueName} adlı kuyrukta başarılı olacak şekilde gönderilen test işi"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Geçersiz test işi seçeneği. '--only=' seçeneği yalnızca 'failed' veya "
+"'success' değerlerini alabilir."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Geçersiz iş kimliği"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "İş silindi!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Silinecek iş bulunamadı."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Tüm işleri silmek imkânsız oldu."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Tüm işler silindi!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
+msgstr "{$jobsCount} başarısız iş, başarısız listeden başarıyla kaldırıldı."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} iş başarıyla yeniden kuyruğa gönderildi."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "{$total} başarısız işimiz var"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "{$total} kuyruğa alınmış işimiz var"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
 msgstr "{$option} seçeneği mevcut değil."
@@ -640,13 +665,13 @@ msgid "admin.cli.tool.jobs.mean.those"
 msgstr "Aşağıdakilerden birini mi demek istediniz?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Kuyrukta toplam <strong>{$total}</strong> iş var"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Toplam <strong>{$total}</strong> başarısız iş var."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Kuyruktaki işleri görüntüle"
 
 msgid "navigation.tools.jobs"
 msgstr "İşler"
@@ -659,6 +684,8 @@ msgstr "Başarısız İş Detayı"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Sistemdeki tüm sıraya alınmış işleri görüntüleyin ve başarısız denemeleri "
+"takip edin."
 
 msgid "navigation.tools.jobs.view"
 msgstr "İşleri Görüntüle"
@@ -667,55 +694,55 @@ msgid "navigation.tools.jobs.failed.view"
 msgstr "Başarısız İşleri Görüntüle"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Başarısız İş:{$id} Ayrıntılarını Görüntüle"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Öznitelik"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Öznitelik Değeri"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "İş / Görev"
 
 msgid "admin.jobs.list.queue"
 msgstr "Sıra"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Bağlantı"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Deneme Sayısı"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Oluşturulduğu Zaman"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Hata Anı"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Yük"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "İstisna"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Eylemler"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "{$failedAt} tarihinde oluşturuldu"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "{$createdAt} tarihinde oluşturuldu"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Tekrar Dene"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Tüm Başarısız İşleri Yeniden Kuyruğa Al"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
@@ -756,6 +783,8 @@ msgstr "Aylık veya Günlük İstatistikler"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Günlük veya aylık kullanım istatistiklerinin izlenip izlenmeyeceği. Günlük "
+"istatistiklerin izlenmesi veritabanı boyutunu önemli ölçüde artırabilir."
 
 msgid "admin.settings.statistics.keepDaily.keep"
 msgstr "Günlük ve aylık istatistikleri takip edin"
@@ -768,81 +797,108 @@ msgstr "Kayıtları Sıkıştır"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"İstatistikler, işlendikten sonra <code>{$path}</code> konumuna taşınan "
+"erişim günlük dosyalarından üretilir. Günlük dosyaları işlendikten sonra "
+"<code>.gz</code> dosyalarına sıkıştırılsın mı? Günlük dosyalarının "
+"sıkıştırılması sunucuda disk alanı tasarrufu sağlayabilir."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Günlük dosyalarını yerinde bırak"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr "Log dosyalarını sıkıştır"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"COUNTER SUSHI istatistik API’sine erişimi yalnızca yöneticiler ve adminlerle "
+"sınırla"
 
 msgid "admin.settings.statistics.sushiPlatform"
 msgstr "Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"COUNTER SUSHI protokolüne göre, her istatistik raporu istatistikleri "
+"sağlayan “platformu” belirtmelidir. Varsayılan olarak, tüm istatistikler "
+"için dergi platform olarak atanacaktır. Ancak, bu sitedeki tüm dergiler aynı "
+"sağlayıcı tarafından yayımlanıyor, sahipleniliyor veya işletiliyorsa, siteyi "
+"platform olarak atamak isteyebilirsiniz."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"COUNTER SUSHI raporlarında bu platformun nasıl tanımlanacağı. Platform "
+"kimliği en fazla 17 karakter olmalı ve harfler (a–z, A–Z), rakamlar (0–9), "
+"alt çizgi (_), nokta (.) ve eğik çizgi (/) içerebilir. Platform kimliği "
+"birkaç sütunda kullanılır ve mümkün olduğunca kısa, ancak tanınabilir "
+"olmalıdır. Platform kimliği genellikle bir yayınevi veya platform adı, bir "
+"alan adı ya da iyi bilinen, benzersiz bir kısaltmaya dayanır."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Site SUSHI platformu olarak tanımlandığında bir platform kimliği zorunlu "
+"olmalıdır."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "Çalıştır komutu seçenekleri"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
 msgstr "kullanım : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Çalıştır komutu için mevcut seçenekler"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Çalıştırılacak kuyruk bağlantısının adı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Çalıştırılacak kuyruğun adı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "İşçinin adı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Yakalanmamış bir istisna ile karşılaşan bir işi yeniden denemeden önce "
+"beklenecek saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Bellek sınırı (megabayt cinsinden) [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Bir alt sürecin çalışabileceği saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Hiçbir iş mevcut olmadığında uyunacak saniye sayısı [varsayılan : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Bir işin başarısız olarak kaydedilmeden önce deneneceği kez sayısı ["
+"varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
-msgstr ""
+msgstr "İşçiyi bakım modunda bile çalışmaya zorla [varsayılan : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Kuyruk boş olduğunda dur [varsayılan : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
+msgstr "Durdurmadan önce işlenecek iş sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"İşçinin çalışması gereken azami saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "İşler arasında dinlenilecek saniye sayısı [varsayılan : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Test kuyruğu için işçi arka plan sürecini (daemon) çalıştır"
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Toplu incelemeci istatistiklerini devre dışı bırak"
@@ -860,3 +916,134 @@ msgstr "{$filename} başlıklı dosya gönderim klasörüne taşındı."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "ROR kayıt defteri veri kümesi önbelleğini güncelle"
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr "Uygulama sandbox modu etkin olduğundan kuyruk işleri çalıştırılamıyor."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Mevcut işlerini tamamladıktan sonra kuyruk worker daemonlarını yeniden "
+"başlatın."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"İşçiler, mevcut işi tamamladıktan sonra zarif bir şekilde sonlanacaktır."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"{$file} dosyası {$dispatchFilePath} konumundan {$archivedFilePath} konumuna "
+"taşınamadı."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "{$file} dosyası mevcut değil."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Süresi dolmuş davetleri otomatik olarak kaldırmak için bir iş gönder"
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Eşleşen zamanlanmış görev bulunamadı."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Yapılandırma dosyasının `general` bölümünde `app_key` değişkeni zaten "
+"mevcut. Yeni bir uygulama anahtarı ayarlamak için `php lib/pkp/tools/"
+"appKey.php generate` komutunu çalıştırın."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Geçersiz uygulama anahtarı ayarlanmış, desteklenmeyen şifreleme yöntemi veya "
+"yanlış anahtar uzunluğu. Desteklenen şifreleme yöntemleri: {$ciphers}."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Listeden belirli bir zamanlanmış görevi çalıştırın veya belirli birini "
+"çalıştırmak için --name bayrağını kullanın. Tam listeyi kaydırmadan görmek "
+"için --no-scroll bayrağını ayarlayın."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Zamanlanmış görevler her dakika çalıştırılıyor."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Tüm dergiler için siteyi platform olarak kullan."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Tüm dergiler için siteyi platform olarak kullan"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Mevcut uygulama anahtarını, yapılandırma dosyasında bulunursa, doğrula"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "config.inc.php dosyasına app_key yapılandırma değişkenini ekle."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Yeni bir uygulama anahtarı oluştur ve yapılandırma dosyasında değiştir. "
+"Yalnızca görüntülemek için --show bayrağını, mevcut geçerli bir uygulama "
+"anahtarını üzerine yazmak için --force bayrağını kullan."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Aşağıdakilerden birini mi demek istediniz?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Oluşturulan Uygulama Anahtarı: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Yapılandırma dosyasının `general` bölümünde `app_key` adlı bir değişken "
+"tanımlı değil. Lütfen yapılandırma dosyasının general bölümünü güncelleyin "
+"ve `app_key = ` satırını ekleyin veya `php lib/pkp/tools/appKey.php "
+"configure` komutunu çalıştırarak ayarlayın."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Yapılandırma dosyasında herhangi bir uygulama anahtarı ayarlanmadı."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Yapılandırma dosyasında geçerli bir APP Anahtarı zaten ayarlanmış. Üzerine "
+"yazmak için komutla birlikte --force bayrağını kullanın."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Uygulama anahtarı yapılandırma dosyasına başarıyla ayarlandı."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Yapılandırma dosyasında app_key değişkeni başarıyla ayarlandı. Yeni bir "
+"uygulama anahtarı oluşturmak için `php lib/pkp/tools/appKey.php generate` "
+"komutunu çalıştırın."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Yapılandırma dosyasında `app_key` değişkeni ayarlanamadı. Lütfen "
+"yapılandırma dosyasının general bölümünü güncelleyin ve `app_key = ` "
+"satırını ekleyin."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Yapılandırma dosyasında geçerli bir uygulama anahtarı ayarlanmış"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Zamanlayıcıyı çalıştır."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Tüm zamanlanmış görevleri listele."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Zamanlayıcı işçisini başlat."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Zamanlayıcı kullanım parametrelerini görüntüle."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr "Zamanlanmış görevler çalıştırılamıyor çünkü uygulama bakım modu etkin."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Şunlardan birini mi kastettiniz?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Zamanlanmış görevler çalıştırılamıyor çünkü uygulama sandbox modu etkin."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Hiçbir zamanlanmış görev kaydedilmemiş."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Hangi komutu çalıştırmak istiyorsunuz?"

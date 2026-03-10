@@ -1,13 +1,15 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
+# Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
+# Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-08-14 15:07+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2026-02-27 16:32+0000\n"
+"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fr/>\n"
 "Language: fr\n"
@@ -22,7 +24,7 @@ msgstr ""
 "Êtes-vous certain de vouloir supprimer définitivement cette soumission ?"
 
 msgid "editor.activityLog"
-msgstr "Journal d'activité"
+msgstr "Historique & Notes"
 
 msgid "editor.submissionLibrary"
 msgstr "Bibliothèque de soumission"
@@ -43,7 +45,7 @@ msgid "editor.submission.workflowDecision.submission.reviewRound"
 msgstr "Envoyer pour un nouveau cycle d'évaluation."
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Envoyer en production."
+msgstr "Passer à l'étape de production"
 
 msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "Soumission acceptée pour évaluation."
@@ -113,10 +115,7 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Message à l'utilisateur"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr ""
-"Vous entamez le processus d'évaluation externe de cette soumission. La liste "
-"des fichiers faisant partie de cette soumission est affichée ci-dessous. Ils "
-"peuvent être sélectionnés pour être révisés."
+msgstr "Sélectionner ci-dessous les fichiers à faire évaluer."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr ""
@@ -132,13 +131,13 @@ msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Vous devez choisir un utilisateur à qui l'ouvrage sera attribué."
 
 msgid "editor.submission.uploadSelectFiles"
-msgstr "Transférer/Sélectionner les fichiers"
+msgstr "Ajouter des fichiers"
 
 msgid "editor.submission.selectFiles"
 msgstr "Sélectionner les fichiers"
 
 msgid "editor.submission.revisions"
-msgstr "Révisions"
+msgstr "Fichiers révisés"
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
@@ -149,7 +148,7 @@ msgstr ""
 "enveloppe rouge s'affichera à titre de rappel pour les rapporteurs."
 
 msgid "editor.submission.addReviewer"
-msgstr "Ajouter un rapporteur"
+msgstr "Ajouter un évaluateur"
 
 msgid "editor.submission.findAndSelectReviewer"
 msgstr "Trouver un rapporteur"
@@ -159,7 +158,10 @@ msgstr "Trouver un utilisateur"
 
 msgid "editor.submission.fileList.includeAllStages"
 msgstr ""
-"Inclure tous les fichiers de toutes les étapes de production accessibles."
+"S'il manque des fichiers, cocher pour afficher les fichiers des étapes "
+"précédentes.\n"
+"Cocher chaque fichier à ajouter à cette étape et valider en cliquant sur OK "
+"en bas à droite de cette fenêtre."
 
 msgid "editor.submission.review.currentFiles"
 msgstr "Fichiers d'évaluation en cours pour le cycle {$round}"
@@ -168,13 +170,13 @@ msgid "editor.submission.backToSearch"
 msgstr "Revenir en mode de recherche simple"
 
 msgid "editor.review.createReviewer"
-msgstr "Créer un nouveau rapporteur"
+msgstr "Créer un nouvel évaluateur"
 
 msgid "editor.review.enrollReviewer.short"
-msgstr "Enregistrer un rapporteur actuel"
+msgstr "Rechercher un évaluateur externe à la revue"
 
 msgid "editor.review.unassignReviewer"
-msgstr "Retirer ce rapporteur"
+msgstr "Décommander l'évaluateur/ice"
 
 msgid "editor.review.cancelReviewer"
 msgstr "Annuler l'évaluateur·rice"
@@ -195,7 +197,7 @@ msgid "editor.submissionReview.sendEmail.editors"
 msgstr "Envoyer un mail aux rédacteurs : {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
-msgstr "Ne pas envoyer un courriel à l'auteur"
+msgstr "Ne pas envoyer de courriel à l'auteur/ice"
 
 msgid "editor.submissionReview.open"
 msgstr "Évaluation ouverte"
@@ -219,7 +221,7 @@ msgid "editor.review.anonymousReviewer"
 msgstr "Rapporteur anonyme"
 
 msgid "editor.review.personalMessageToReviewer"
-msgstr "Envoyer un courriel au rapporteur"
+msgstr "Envoyer un courriel à l'évaluateur"
 
 msgid "editor.review.importantDates"
 msgstr "Dates importantes"
@@ -271,7 +273,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Erreur d'envoi du remerciement au rapporteur"
 
 msgid "editor.review.skipEmail"
-msgstr "Ne pas envoyer un courriel au rapporteur."
+msgstr "Ne pas envoyer de courriel à l'évaluateur"
 
 msgid "editor.review.sendReminder"
 msgstr "Envoyer un rappel"
@@ -390,7 +392,7 @@ msgid "editor.discussion.errorNotStageParticipant"
 msgstr "Une personne sélectionnée n'est pas assignée à cette étape."
 
 msgid "editor.submission.schedulePublication"
-msgstr "Calendrier de publication"
+msgstr "Programmer la publication"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Fichiers de travail éditorial"
@@ -454,19 +456,19 @@ msgid "editor.review.emailReviewer"
 msgstr "Envoyer un courriel"
 
 msgid "editor.submission.production.productionReadyFiles"
-msgstr "Fichiers publiables"
+msgstr "Épreuves"
 
 msgid "editor.submission.newRound"
-msgstr "Nouveau cycle d'évaluation"
+msgstr "Si révisions majeures : nouveau cycle d'évaluation"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr "Enregistrement des décisions éditoriales"
+msgstr "Valider"
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Enregistrement de la recommandation éditoriale"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Notifier les rédacteurs"
+msgstr "Informer les rédacteur/ices"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
 msgstr "Ne pas envoyer de mail aux rédacteurs."
@@ -524,7 +526,7 @@ msgstr ""
 "ci-dessous."
 
 msgid "editor.submission.selectedReviewer"
-msgstr "Rapporteur sélectionné"
+msgstr "Évaluateur sélectionné"
 
 msgid "editor.submission.proofreading.approveProof"
 msgstr "Approuver la preuve"
@@ -750,16 +752,16 @@ msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Même institution de rattachement que l'auteur·e"
 
 msgid "editor.submission.findAndSelectReviewerFromSuggestions"
-msgstr "Sélectionner un rapporteur parmi les suggestions"
+msgstr "Trouver un évaluateur"
 
 msgid "editor.review.reviewViewed"
 msgstr "Évaluation vue"
 
 msgid "editor.review.logResponse.for"
-msgstr "Enregistrer la réponse pour"
+msgstr "Compléter l'évaluation pour le compte de l'évaluateur/ice"
 
 msgid "editor.review.logResponse"
-msgstr "Enregistrer la réponse"
+msgstr "Enregistrer"
 
 msgid "editor.review.importantDates.notice"
 msgstr ""
@@ -781,13 +783,13 @@ msgid "editor.review.logResponse.form.detail"
 msgstr "Enregistrer la réponse au nom du rapporteur"
 
 msgid "editor.review.download"
-msgstr "Télécharger le formulaire d'évaluation"
+msgstr "Télécharger l'évaluation"
 
 msgid "editor.review.authorOnly"
 msgstr "Affichage des sections destinées aux auteurs seuls"
 
 msgid "editor.review.allSections"
-msgstr "Editor Form Voir toutes les sections"
+msgstr "Toutes les sections"
 
 msgid "editor.review.errorAddingReviewer.dateValidationFailed"
 msgstr ""
@@ -796,7 +798,7 @@ msgstr ""
 "réponse."
 
 msgid "editor.submission.search"
-msgstr "Chercher des soumissions, ID, auteurs, mots-clés, etc."
+msgstr "Rechercher"
 
 msgid "editor.review.logResponse.form.responseRequired"
 msgstr "Une réponse doit être sélectionnée"

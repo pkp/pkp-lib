@@ -1,3 +1,414 @@
 # Russian Agency for Digital Standardization <info@rads-doi.org>, 2023.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-01-27 04:38+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ky/>"
+"\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "API сурамын иштетүү мүмкүн эмес."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Күтүлгөн жооп алынган жок."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Авторго ыңгайлуу параметр жараксыз."
+
+msgid "api.400.routeNotDefined"
+msgstr "API маршруту берилген эмес."
+
+msgid "api.400.propReadOnly"
+msgstr "{$prop} касиети өзгөртүлө албайт."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Электрондук кат үчүн тема жана мазмун берилиши керек."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Бул түзүлгөн убакытты өзгөртүү мүмкүн эмес."
+
+msgid "api.403.unauthorized"
+msgstr "Суралган ресурска кирүүгө укугуңуз жок."
+
+msgid "api.404.resourceNotFound"
+msgstr "Суралган ресурс табылган жок."
+
+msgid "api.404.endpointNotFound"
+msgstr "Суралган URL таанылган жок."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Төмөнкү локалдар колдоого алынбайт: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Бул контекстке кирбеген элементтин DOI’ин түзөтө албайсыз."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Жарыялануу түрү таанылган жок."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Жарыяланбаган элементтер экспорттоло/жүктөлө албайт. Жарыяланбаган "
+"элементтерди тандабай, кайра аракет кылыңыз."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Сурамда жарактуу жарыялануу объекттери камтылган эмес."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "Сурамда бир же бир нече жараксыз жарыялануу объекттери камтылган."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr "Учурда конфигурацияланган плагин каттоо агенттиги плагини болушу керек."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Бул материал мурунтан жарыялангандыктан чечимди жазуу же сунуштоо мүмкүн "
+"эмес."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Автор электрондук каттары үчүн жараксыз \"eventType\" берилди: {$eventType}."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Бир же бир нече файл жүктөлгөн жок."
+
+msgid "api.files.400.fileSize"
+msgstr "{$maxSize} чоң файлдар жүктөлө албайт."
+
+msgid "api.files.400.config"
+msgstr ""
+"Файл сервер конфигурация катасына байланыштуу жүктөлгөн жок. Системанын "
+"администраторуна кайрылыңыз."
+
+msgid "api.highlights.400.noOrderData"
+msgstr "Тандоо тартиби сакталган жок, анткени тартип маалыматтары табылган жок."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Суралган белгилөө табылган жок."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "ORCID функциясы өчүрүлгөн учурда бул операцияны аткаруу мүмкүн эмес."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Суралган автор табылган жок."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "Сиз дайындалбаган материалдардагы авторлорго өзгөртүү киргизе албайсыз."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Бул endpoint сайттын жалпы namespace’инен жеткиликтүү эмес, белгилүү "
+"контекст үчүн суралышы керек."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Сиз төмөнкү файл түрлөрүн гана жүктөй аласыз: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Жүктөлгөн сүрөт жараксыз."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "Сурам жараксыз. timelineInterval `day` же `month` болушу керек."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Сурам жараксыз. orderDirection `desc` же `asc` болушу керек."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Бул файл стадиясынан башка материал файлына ассоциация жасай албайсыз."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Файл стадиясын көрсөтүшүңүз керек."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Активдүү тема {$themePluginPath} иштетилген эмес жана орнотулбаган болушу "
+"мүмкүн."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr "Иштен чыккан тапшырма кайра жөнөтүү үчүн payload жок."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Иштен чыккан тапшырманы кайра жөнөтүү мүмкүн болгон жок."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "Иштен чыккан тапшырма ийгиликтүү кайра жөнөтүлдү."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Бул тапшырма үчүн рецензент табылган жок."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Сурамда талап кылынган `ids` параметри жок. Өчүргүңүз келген материалдардын "
+"`ids` маанисин бериңиз."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Суралган ROR табылган жок."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Ресурска карата пландалган аракетти аткаруу мүмкүн болгон жок."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Көрсөтүлгөн бөлүм жок."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "apiToken төмөнкү катага байланыштуу чечмеленген жок: {$error}"
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Бул endpoint сайттын жалпы namespace’инен жеткиликтүү эмес, белгилүү "
+"контекст үчүн суралышы керек."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Ката чыкты жана айрым тапшырылган элементтер катталган деп белгиленген жок."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Суралган электрондук кат шаблону табылган жок."
+
+msgid "api.files.400.noUpload"
+msgstr "Сурамда жүктөлө турган файл табылган жок."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Тандоо тартиби сакталган жок, анткени бир же бир нече белгилөө табылган жок."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Жарыялагыңыз келген материал мурунтан жарыяланган."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Жарыялануудан чыгаргыңыз келген материал жарыяланган эмес."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Коомдук файлдар каталогу табылган жок же ага файлдар сакталбайт. Бул "
+"маселени чечүү үчүн администраторго кайрылыңыз."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Дата YYYY-MM-DD форматында болушу керек."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Башталган дата аяктаган датадан кийин боло албайт."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Колдонуучу каталогунда жетиштүү орун жок. Жүктөлүп жаткан файл "
+"{$fileUploadSize}kb, сизде калган орун {$dirSizeLeft}kb."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Тизмеде иштен чыккан тапшырма табылган жок."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Бул элементке DOI дайындала албайт."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Суралган DOI табылган жок."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Бул файлдарды кошууга жана түзөтүүгө уруксатыңыз жок."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Бул рецензия айлампасындагы файлдарга кирүүгө уруксатыңыз жок."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "Иштен чыккан тапшырманы тизмеден өчүрүү мүмкүн болгон жок."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Бул сүрөттү жүктөөдө ката чыкты."
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param} параметри колдоого алынбайт."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API токен текшерилген жок. Бул токенде ката бар экенин же токен жараксыз "
+"болуп калганын билдириши мүмкүн."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "DOI түзүү үчүн DOI префикси талап кылынат."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "assocType жана assocId берилбесе файл ассоциациясы өзгөртүлө албайт."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Бул файл стадиясынан талкуу жазуусуна ассоциация жасай албайсыз."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Бул файл стадиясынан рецензия тапшырмасына ассоциация жасай албайсыз."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Бул файл стадиясынан рецензия айлампасына ассоциация жасай албайсыз."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Рецензия стадиясында файл сураганда рецензия айлампасын көрсөтүшүңүз керек."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Көрсөтүлгөн файл стадиясы жараксыз."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Бул файлды түзөтүү сурамында өзгөртүүлөр табылган жок."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Бул файл стадиясына файлды жылдырууда рецензия айлампасынын ID көрсөтүлүшү "
+"керек."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Көрсөтүлгөн рецензия айлампасы бул материалдын бөлүгү эмес."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Бул файлдарга кирүүгө уруксатыңыз жок."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Сурам аткарылган жок, анткени талап кылынган маалыматтар жок."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Суралган том, номер же жыл жараксыз."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Бул колдонуучу ролунда материал тапшырууга уруксатыңыз жок."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API токен бул сайтка кирүү үчүн колдонулбайт, анткени сайт администратору "
+"жашыруун ачкычты конфигурациялаган эмес."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Суралган билдирүү табылган жок."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Суралган институт табылган жок."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Суралган жарыялануу объектиси табылган жок."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "Суралган материал табылган жок."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Ката чыкты жана DOI объектиси түзүлгөн жок."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "XML текшерүү катасы чыкты жана XML экспорттолгон жок."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Айрым элементтер ийгиликтүү жүктөлгөн жок. Ар бир элементтин өзүнчө ката "
+"билдирүүлөрүн текшериңиз."
+
+msgid "api.emails.400.missingBody"
+msgstr "Жөнөтүлө турган электрондук каттын мазмуну кошулушу керек."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Электрондук кат үчүн тема берилиши керек."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Бул электрондук катты алуучу колдонуучу ролдорун көрсөтүшүңүз керек."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Тандалган ролдордун бирине же бир нечесине электрондук кат жөнөтүүгө "
+"уруксатыңыз жок."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Бул белгилүү электрондук кат үчүн демейки шаблон эмес."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Бул жарактуу контекст эмес."
+
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Автордун ORCiD ID’син Edit/Add Author endpoint аркылуу дайындоо мүмкүн эмес. "
+"Авторго ORCID ID жаңыртууну сурануу үчүн \"orcid/requestAuthorVerification/"
+"{authorId}\" endpoint колдонуңуз."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Бул материалды түзөтүү мүмкүн эмес, анткени ал мурунтан жарыяланган."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"API аркылуу статус түздөн-түз өзгөртүлө албайт. Анын ордуна /publish жана /"
+"unpublish endpoint’терин колдонуңуз."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Бул материалды өчүрүүдөн мурун жарыялануудан чыгарышыңыз керек."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Жүктөлгөн файл кеңейтүүгө дал келген жок. Бул файл туура эмес түргө "
+"өзгөртүлгөндө болушу мүмкүн, мисалы photo.png → photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Файлдарды жүктөөгө уруксатыңыз жок."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Башталган дата 2001-01-01 датасынан мурун боло албайт."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Аяктаган дата кечээки күндөн кийин боло албайт."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr "Сурам жараксыз. timelineInterval `day` же `month` болушу керек."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Бул материалдын тилин өзгөртө албайсыз, анткени анда мурунтан бир нече "
+"версия же жарыяланган материал бар."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Сурамыңыз четке кагылды. Бул логиниңиздин мөөнөтү бүтүп калгандыктан болушу "
+"мүмкүн. Баракты кайра жүктөп, кайра аракет кылыңыз."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Бул контекстке дайындалбаган материалды өчүрө албайсыз."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Сиз дайындалган гана жарыяланбаган материалдарды көрө аласыз."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Бул материалды өчүрүүгө уруксатыңыз жок."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Бул жарыяланууну түзөтүүгө уруксатыңыз жок."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Бул endpoint контексттен жеткиликтүү эмес. Ал сайттын жалпы namespace’инен "
+"кирилиши керек."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "{$locale} локаль колдоого алынбайт."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Суралган электрондук кат табылган жок."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "Иштен чыккан тапшырма тизмеден табылган жок."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Payload’ы жарактуу болгон бардык иштен чыккан тапшырмалар ийгиликтүү кайра "
+"кезекке кошулду."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Иштен чыккан тапшырма тизмеден ийгиликтүү өчүрүлдү."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Бул рецензия тапшырмасы үчүн материал табылган жок."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Жарактуу маанилер 'accept' жана 'decline' гана."
+
+msgid "api.submission.400.invalidId"
+msgstr "Жараксыз ID берилди: \"{$id}\"."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Жарыялануу идентификаторлору формасы жеткиликтүү эмес, анткени "
+"идентификаторлор иштетилген эмес."

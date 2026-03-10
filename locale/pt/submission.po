@@ -1,13 +1,14 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022, 2023.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
 # Sérgio Reis <disergioreis@gmail.com>, 2025.
+# Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2025-10-24 20:18+0000\n"
-"Last-Translator: Sérgio Reis <disergioreis@gmail.com>\n"
+"PO-Revision-Date: 2026-02-11 19:28+0000\n"
+"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pt/>\n"
 "Language: pt\n"
@@ -33,13 +34,11 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Foram submetidas novas revisões e estão a ser analisadas pelo editor."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Uma ou mais revisões ultrapassaram o prazo. A equipa editorial foi "
-"notificada e irá proceder para assegurar-se que as revisões ficam "
-"concluídas. Não precisa de tomar qualquer ação neste momento. Será "
-"notificado quando uma decisão for tomada."
+"Um ou mais revisores falharam o prazo. A equipa editorial está ciente e "
+"garantirá que as revisões são concluídas. Não é necessária qualquer acção da "
+"sua parte neste momento. Será notificado assim que uma decisão for tomada."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Enviar Como"
@@ -1314,13 +1313,13 @@ msgstr "Foram solicitadas revisões."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Foram submetidas revisões e é necessária emitir uma decisão."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "A submissão deve ser objeto de nova ronda de revisão."
+msgstr ""
+"As revisões solicitadas pelo autor serão encaminhadas para uma nova ronda de "
+"revisão."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "A submissão foi enviada para uma nova ronda de revisão."
+msgstr "Revisões enviadas. É necessário criar uma nova ronda de revisão."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Enviado para revisão externa."
@@ -1340,9 +1339,8 @@ msgstr "A aguardar respostas dos revisores."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Foram submetidas novas revisões."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Todos os revisores responderam e é necessário emitir uma decisão."
+msgstr "Todas as avaliações foram confirmadas e é necessária uma decisão."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Uma revisão ultrapassou o prazo."
@@ -2853,3 +2851,376 @@ msgstr "É necessário definir o idioma de exibição do ROR."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "A aguardar resposta dos revisores"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Número mínimo de avaliações confirmadas necessárias: {$number}."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Antes de alterar o idioma da submissão, certifique-se de que "
+"preenche os seguintes campos de metadados para manter a integridade do "
+"sistema. Note, também, que as informações do colaborador e os nomes dos "
+"ficheiros serão copiados das informações introduzidas anteriormente.</strong>"
+
+msgid "submission.list.completeSubmission"
+msgstr "Completar submissão"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Está prestes a remover o ficheiro XML JATS existente desta publicação. Tem a "
+"certeza?"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Este ficheiro JATS é gerado automaticamente pelos metadados da submissão"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"O nome da afiliação está em falta em {$language} para uma ou mais "
+"afiliações, de um ou mais colaboradores."
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Eliminar ficheiro JATS"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Todos em fase de submissão"
+
+msgid "publication.jats.lastModified"
+msgstr "Última modificação em {$modificationDate} por {$username}"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Por favor, aceite ou rejeita este pedido até {$date}"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Agendado para publicação"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Pedido recusado em {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Revisão enviada em {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"O prazo para responder a este pedido já expirou. Por favor, aceite ou recuse "
+"este pedido o mais rapidamente possível."
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "O revisor recusou o pedido de revisão em <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Este revisor aceitou o pedido de avaliação. A avaliação deverá estar "
+"concluída no prazo de <b>{$dias} dias, no dia {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"A avaliação foi concluída em {$date} com a seguinte recomendação: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"O pedido de revisão foi reenviado ao revisor. Aguarda resposta em {$days} "
+"dias, até {$date}"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Como Gestor da Revista, não pode aceder a este artigo, pois é o autor. Para "
+"o visualizar, aceda a \"Minhas submissões\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Como Gestor da Revista, não pode aceder a este envio, pois é o(a) revisor(a)"
+". Para o visualizar, aceda a \"Atribuições de Revisão\""
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"O número mínimo de avaliações exigido foi confirmado. Uma decisão ainda tem "
+"de ser tomada."
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Estes são ficheiros editados que serão usados na fase de produção"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Estado do revisor"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirmar eliminação de submissões incompletas"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Tem a certeza de que pretende eliminar os itens selecionados? Esta acção não "
+"pode ser anulada. Confirme para prosseguir."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Indique o nome da sua afiliação na língua da sua submissão."
+
+msgid "dashboard.applyFilters"
+msgstr "Aplicar filtros"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Recomenda-se incluir o resumo em {$language}. Isto ajuda a garantir que o "
+"conteúdo é acessível"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Esta é a língua principal da sua submissão. Alterá-la irá ter efeitos na sua "
+"submissão e metadados introduzidos"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Insira o título da sua submissão aqui, em {$language}. Pode formatar o "
+"título conforme necessário"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Ver resumo da submissão"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Tem a certeza que pretende cancelar esta submissão? Isto excluirá a "
+"submissão e todos os dados associados. Esta acção não pode ser anulada."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Não foram sugeridos revisores para este artigo."
+
+msgid "submission.dashboard.view.active"
+msgstr "Submissões ativas"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Requere editor"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Todos em avaliação por pares"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Revisões do autor enviadas"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Submissões incompletas"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Todas as atribuições"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Pendente"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Completo / Recusado"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Todas as atribuições"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Acção necessária por mim"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arquivado"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Recusado"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Completo"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publicado"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Revisão (Ronda {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Agendado para publicação"
+
+msgid "publication.jats"
+msgstr "XML JATS"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Confirmar eliminação do XML JATS"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Ocorreu um erro ao tentar criar o conteúdo JATS padrão. Certifique-se de que "
+"o plugin JatsTemplate está instalado."
+
+msgid "submission.files.content.error"
+msgstr ""
+"Não foi possível recuperar o conteúdo do ficheiro de envio '{$fileName}'."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Motivos para sugerir o revisor"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Por favor, explique porque está a recomendar este avaliador e mencione se "
+"existe algum potencial conflito de interesses."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"O idioma da submissão ({$language}) não se encontra entre os idiomas de "
+"submissão suportados. Pode ainda editar os detalhes da submissão, mas não "
+"serão aceites novas submissões neste idioma."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Revisores atribuídos"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Estado de revisão {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Iniciar uma nova submissão"
+
+msgid "dashboard.assignReviewers"
+msgstr "Atribuir revisores"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Revisões solicitadas ao autor"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"As revisões solicitadas pelo autor serão encaminhadas para uma nova ronda de "
+"revisão"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Uma nova ronda de revisão será criada"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "A publicar na edição {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Ficheiros revistos e enviados: {$count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revisão solicitada"
+
+msgid "dashboard.submitRevisions"
+msgstr "Enviar revisões"
+
+msgid "workflow.uploadRevisions"
+msgstr "Carregar revisões"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Responder ao pedido"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Finalizar revisão"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Por favor, complete esta avaliação até {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"O prazo para a conclusão desta avaliação já expirou. Por favor, conclua a "
+"avaliação o mais rapidamente possível."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Aguarda resposta do revisor"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"O pedido de revisão foi partilhado com o revisor. Aguarda resposta em "
+"<b>{$dias} dias, em {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Pedido de revisão recusado em {$date}"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Todas as recomendações editoriais foram recebidas e é necessário tomar uma "
+"decisão."
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Estes ficheiros foram enviados pelo autor após pedidos de revisão"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Estes ficheiros serão enviados aos revisores para análise"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Estes são ficheiros da fase de revisão que devem ser corrigidos"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Estes são os ficheiros que serão enviados para publicação"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Ver recomendação"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Ver recomendação não lida"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Os editores responsáveis pela recomendação devem orientar sobre os próximos "
+"passos para esta submissão"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Arquivos revistos"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Precisa de revisões"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Todos em fase de revisão"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Aguarda revisões"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Revisões enviadas"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Revisões atrasadas"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Todos em fase de revisão de texto"
+
+msgid "submission.dashboard.view.production"
+msgstr "Todos em fase de produção"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publicado"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Recusado"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Revisões solicitadas"
+
+msgid "submission.stage.published"
+msgstr "Publicado"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Revisão concluída em {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Ver detalhes"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Reenviar pedido de revisão"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Cancelar revisor"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Remover atribuição"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Editar data limite"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Pedido de revisão expirado há {$days} dias"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Este revisor não respondeu ao pedido de avaliação. A resposta era esperada "
+"em <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Revisão em curso - pedido aceite"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Revisão em atraso há {$dias} dias"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Este revisor não concluiu a sua avaliação. A resposta era esperada em "
+"<b>{$date}.</b>"

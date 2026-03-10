@@ -1,10 +1,10 @@
-# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-25 23:49+0000\n"
+"PO-Revision-Date: 2026-01-27 07:06+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
-"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/ojs/manager/ky/>"
-"\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"ky/>\n"
 "Language: ky\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,6 +12,3794 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-
 msgid "manager.setup.masthead"
-msgstr "Чыгаруу"
+msgstr "Башкы тизме"
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Мөөнөтү бүтүү датасы"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Мөөнөтү бүтүү күнү менен кошо жылды жана/же айды тандаңыз."
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Бул компонентти өчүрүүдөн мурун бардык байланышкан тапшырма файлдарын башка "
+"компонентке байланыштырышыңыз керек."
+
+msgid "manager.highlights.add"
+msgstr "Маанилүүнү кошуу"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Элементтер ийгиликтүү синхрондоштурууга муктаж деп белгиленди"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Элементтерге жаңы DOIлер ийгиликтүү дайындалды"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Элементтер ийгиликтүү тапшырылууга кезекке коюлду"
+
+msgid "manager.dois.help.statuses.title"
+msgstr "DOI статусу"
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"DOI башкаруу көчүрүлдү. <a href=\"{$doiManagementUrl}\">DOI башкаруу</a> "
+"жана <a href=\"{$doiSettingsUrl}\">DOI орнотуулары</a> беттерин караңыз."
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+"DOI дайындоо үчүн DOI префикси талап кылынат. <a href=\"{$doiSettingsUrl}\""
+">DOI префикс кошуу</a>."
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+"DOI түзүүгө аракет кылынды, бирок контекстте DOI префикси талап кылынат."
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Сиз {$title} өчүрүүнү каалайсызбы? Бул аракетти артка кайтарууга болбойт."
+
+msgid "manager.highlights.delete"
+msgstr "Маанилүүнү өчүрүү"
+
+msgid "manager.highlights.edit"
+msgstr "Маанилүүнү түзөтүү"
+
+msgid "manager.highlights.image"
+msgstr "Сүрөт"
+
+msgid "manager.highlights.url.description"
+msgstr "Маанилүүдөгы баскыч үчүн толук URL, https:// менен кошо."
+
+msgid "manager.highlights.urlText"
+msgstr "Баскыч жазуусу"
+
+msgid "emailTemplate.variable.reviewType"
+msgstr "Баштапкы рецензия ыкмасынын сүрөттөлүшү, мисалы кош анонимдүү же ачык"
+
+msgid "manager.website.information"
+msgstr "Маалымат"
+
+msgid "manager.website.appearance"
+msgstr "Көрүнүшү"
+
+msgid "manager.website.imageFileRequired"
+msgstr "Сүрөт файлы талап кылынат. Файлды тандап жүктөгөнүңүзгө ынаныңыз."
+
+msgid "manager.announcements"
+msgstr "Жарыялар"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Сиз {$title} жарыясын түбөлүк өчүрүүнү каалайсызбы?"
+
+msgid "manager.announcements.create"
+msgstr "Жаңы жарыя түзүү"
+
+msgid "manager.announcements.edit"
+msgstr "Жарыяны түзөтүү"
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун ачкыч сөздөрдү сунуштоосу талап "
+"кылынат."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Тапшырмага байланышкан бардык укуктар, мисалы Интеллектуалдык менчик "
+"укуктары (IPR), Автордук укук жана ар кандай менчик укуктары."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Укуктар метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Автордон тапшырма учурунда укуктар жөнүндө билдирүүнү сурабоо."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Автордон тапшырма учурунда мурунку жеткиликтүүлүк укуктарын ачыктоону "
+"сураңыз."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун мурунку жеткиликтүүлүк укуктарын "
+"ачыктоосу талап кылынат."
+
+msgid "manager.setup.metadata.source.description"
+msgstr "Булак башка иштен же ресурстан алынган ID болушу мүмкүн, мисалы DOI."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Булак метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Автордон тапшырма учурунда булак URL дарегин сурабоо."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Автордон тапшырма учурунда булак URL дарегин берүүнү сураңыз."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун булак URL дарегин берүүсү талап "
+"кылынат."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Темалар тапшырманын темасын сүрөттөгөн ачкыч сөздөр, негизги сөз айкаштары "
+"же классификация коддору болот."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Темалар метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Автордон тапшырма учурунда темаларды сурабоо."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Автордон тапшырма учурунда темаларды берүүнү сураңыз."
+
+msgid "manager.highlights.urlText.description"
+msgstr "Маанилүүдөгы баскыч үчүн жазуу, мисалы «Толугураак окуу»."
+
+msgid "manager.institutions.edit"
+msgstr "Институтту түзөтүү"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Бул институт үчүн Research Organization Registry ID."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP диапазондору"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Туура маанилерге IP дарек (мисалы, 142.58.103.1), IP диапазону (мисалы, "
+"142.58.103.1 - 142.58.103.4), '*' менен IP диапазону (мисалы, 142.58.*.*), "
+"жана CIDR менен IP диапазону (мисалы, 142.58.100.0/24) кирет."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Институтту өчүрүү"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Бул институтту өчүрүүнү улантууну каалайсызбы?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "IP диапазону туура эмес"
+
+msgid "manager.publication.submissionStage"
+msgstr "Тапшырма"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензия"
+
+msgid "manager.publication.editorialStage"
+msgstr "Редакциялык"
+
+msgid "manager.publication.productionStage"
+msgstr "Продакшн"
+
+msgid "manager.publication.emails"
+msgstr "Электрондук каттар"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Рецензент үчүн нускамалар"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Рецензия эскертмелеринин деталдары жаңыртылды."
+
+msgid "manager.dois.title"
+msgstr "DOIлер"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Төмөнкү ката {$registrationAgency} тарабынан кайтарылды жана катанын себеби "
+"жөнүндө маалыматты камтыйт:"
+
+msgid "manager.files.emptyDir"
+msgstr "Бул каталогдо файлдар табылган жок."
+
+msgid "manager.files.indexOfDir"
+msgstr "{$dir} индекси"
+
+msgid "manager.files.parentDir"
+msgstr "Ата каталог"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Жүктөлгөн файлдар"
+
+msgid "manager.files.uploadFile"
+msgstr "Файл жүктөө"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Бул топту өчүрүүнү каалайсызбы?"
+
+msgid "manager.groups.createTitle"
+msgstr "Аталыш түзүү"
+
+msgid "manager.groups.editTitle"
+msgstr "Аталышты түзөтүү"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Топтун аталышы талап кылынат."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Мүчө кошуу"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Бул топтун мүчөлүгүн өчүрүүнү каалайсызбы?"
+
+msgid "manager.groups.membership"
+msgstr "Мүчөлүк"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Бул топто мүчөлөр жок."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Колдонуучулар табылган жок."
+
+msgid "manager.groups.title"
+msgstr "Аталыш"
+
+msgid "manager.image"
+msgstr "Сүрөт"
+
+msgid "manager.importExport"
+msgstr "Маалыматтарды импорттоо/экспорттоо"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Вебсайт тилдери"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Тапшырма тилдери"
+
+msgid "manager.language.ui"
+msgstr "Интерфейс"
+
+msgid "manager.language.submissions"
+msgstr "Тапшыруулар"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Тилдерди кошуу/алып салуу"
+
+msgid "manager.language.forms"
+msgstr "Формалар"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Метадайындар"
+
+msgid "manager.language.submission.form.description"
+msgstr "Тапшырма жана метадайын тилдерин тандаңыз."
+
+msgid "manager.language.submission.from.error"
+msgstr "Жок дегенде бир локаль тандалышы керек."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Баштапкы абалды кайра жүктөө"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Бул система маанилүү маалыматтарды кошумча тилдерде киргизүүгө мүмкүнчүлүк "
+"берет. Бул функцияны колдонуу үчүн кошумча локалдарды тандап, төмөнкү "
+"параметрлерден тандаңыз."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Сайтта колдоого алынган бардык локалдарды тандаңыз. Тил тандоо менюсу ар бир "
+"бетте көрсөтүлөт, бирок бирден ашык локаль тандалганда гана."
+
+msgid "manager.payment.timestamp"
+msgstr "Убакыт белгиси"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Мурунтан бар колдонуучу киргизилиши керек."
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Бул колдонуучуну каттоодон чыгаргыңыз келеби?"
+
+msgid "manager.people.createUser"
+msgstr "Жаңы колдонуучу түзүү"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Кокустук сырсөз түзүү."
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Колдонуучуга анын колдонуучу аты жана сырсөзү камтылган тосмо электрондук "
+"кат жөнөтүү."
+
+msgid "manager.people.disable"
+msgstr "Өчүрүү"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Ролсуз"
+
+msgid "manager.people.editProfile"
+msgstr "Профилди түзөтүү"
+
+msgid "manager.people.editUser"
+msgstr "Колдонуучуну түзөтүү"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Тандалган колдонуучуларга электрондук кат жөнөтүү"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Белгилүү ролго катталган колдонуучуларга электрондук кат жөнөтүү"
+
+msgid "manager.people.emailUsers"
+msgstr "Колдонуучуларга электрондук кат жөнөтүү"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Локалды тандаңыз"
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Кардар ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Метрик түрү"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Көрсөтүлө турган атрибуттар"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Жоопто кайтарылуучу жарыяланган жылдардын тизмеси же диапазону yyyy|yyyy"
+"|yyyy-yyyy форматында болушу керек."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Жарыяланган жыл"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Айлык деталдарды кошпоо"
+
+msgid "manager.statistics.reports"
+msgstr "Отчеттор"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Система белгилүү бир убакыт аралыгында сайт колдонуу жана тапшырмаларга "
+"байланышкан деталдарды көзөмөлдөгөн отчетторду түзөт. Отчеттор CSV "
+"форматында түзүлөт жана аларды көрүү үчүн электрондук жадыбал колдонмосу "
+"талап кылынат."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "YYYYMM форматын колдонуңуз."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "YYYYMMDD форматында колдонуңуз."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Демөөрчү"
+
+msgid "manager.setup.dois"
+msgstr "DOIлер"
+
+msgid "manager.setup.dois.setup"
+msgstr "Орнотуу"
+
+msgid "manager.setup.dois.registration"
+msgstr "Каттоо"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI префикси"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Автоматтык тапшыруу"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Автоматтык тапшырууну иштетүү"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"DOI каттоо жана метадайындар DOI бар элемент жарыяланганда тандалган каттоо "
+"агенттигине автоматтык түрдө тапшырылышы мүмкүн. Автоматтык тапшыруу "
+"белгиленген интервалдарда болот жана ар бир DOIнин каттоо статусу DOI "
+"башкаруу бетинен көзөмөлдөнөт."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Негизги байланыш адамды кабардар кылуу"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ооба, {$email} дарегине көчүрмө жөнөтүү"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Жок"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Каалаган адамды кабардар кылуу"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Тапшырма кабыл алынгандыгы жөнүндө электрондук каттын көчүрмөсү бул жерге "
+"киргизилген электрондук почта даректерине жөнөтүлөт. Бир нече даректи үтүр "
+"менен бөлүңүз. Мисал: one@example.com,two@example.com"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr "Колдонмо DOI түзгөндө колдонулуучу форматты тандаңыз."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Бул электрондук почта даректеринин бири же бир нечеси жараксыз."
+
+msgid "plugins.categories.themes.description"
+msgstr "Тема плагиндери системанын көрүнүшүн өзгөртүү үчүн колдонулат."
+
+msgid "plugins.categories.themes"
+msgstr "Тема плагиндери"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "OAI метадайын формат плагиндери"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Бул формат плагиндери OAI байланыштарында метадайындарды билдирет."
+
+msgid "plugins.categories.pubIds"
+msgstr "Коомдук идентификатор плагиндери"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Бул плагиндер коомдук идентификаторду ишке ашырууга колдоо көрсөтөт."
+
+msgid "grid.action.installPlugin"
+msgstr "Бул плагинди орнотуу же жаңыртуу"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Плагин ийгиликтүү көчүрүлгөн жок. Бул уруксат маселеси болушу мүмкүн. Веб-"
+"сервер плагиндер каталогунда (анын ичинде ички каталогдордо) жазууга "
+"мүмкүнчүлүгү бар экенин текшериңиз, бирок кийин кайра коопсуздукту камсыз "
+"кылууну унутпаңыз."
+
+msgid "manager.plugins.delete"
+msgstr "Плагинди өчүрүү"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Бул плагинди орнотууну каалайсызбы?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Бул плагинди жаңыртууну каалайсызбы?"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Бул плагинди системадан өчүрүүнү каалайсызбы?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Өчүрүү баскычын басуу менен плагинди сервердин файл системасынан өчүрөсүз."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Плагин мурунтан орнотулган, бирок жаңы версияга жаңыртса болот."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Плагин мурунтан орнотулган жана акыркы абалда."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Жеткиликтүү версиядан жаңыраак"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Жаңыртса болот"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Акыркы абалда"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Жеткиликтүү эмес"
+
+msgid "manager.plugins.installFailed"
+msgstr "Орнотуу ишке ашкан жок. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Версия {$versionNumber} ийгиликтүү орнотулду"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Жүктөлгөн плагин архивинде плагиндин атына туура келген папка жок."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Жүктөлгөн плагин жаңыртылган плагиндин категориясына туура келбейт."
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Жүктөлгөн плагиндин version.xml файлы жаңыртылган плагиндин атына туура "
+"келбеген плагин атын камтыйт."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Плагин жок. Орнотуңуз."
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "Плагин мурунтан бар, бирок орнотулган версиядан жаңыраак. Жаңыртыңыз."
+
+msgid "manager.plugins.settings"
+msgstr "Орнотуулар"
+
+msgid "manager.plugins.upgrade"
+msgstr "Плагинди жаңыртуу"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Бул форма плагинди жаңыртууга мүмкүнчүлүк берет. Плагин .tar.gz файлы катары "
+"кысылганын текшериңиз."
+
+msgid "notification.localeEnabled"
+msgstr "Локаль иштетилди."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Жаңыртуу ишке ашкан жок. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Версия {$versionString} ийгиликтүү жаңыртылды"
+
+msgid "manager.plugins.uploadError"
+msgstr "Файл жүктөөдө ката кетти"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Плагин файлын тандаңыз"
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "Плагин каталогунда version.xml табылган жок"
+
+msgid "notification.localeDisabled"
+msgstr "Локаль өчүрүлдү."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} негизги локаль катары аныкталды."
+
+msgid "notification.localeInstalled"
+msgstr "Тандалган бардык локал(дар) орнотулуп жана иштетилди."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} локаль өчүрүлдү."
+
+msgid "notification.localeReloaded"
+msgstr "{$contextName} үчүн {$locale} локаль кайра жүктөлдү."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Локаль орнотуулары сакталды."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Тил орнотуусу сакталган жок. Ар бир параметр үчүн жок дегенде бир тил "
+"иштетилиши керек."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Тил орнотуусу сакталган жок. Бардык параметрлер иштетилиши керек."
+
+msgid "manager.distribution.license"
+msgstr "Лицензия"
+
+msgid "manager.distribution.license.other"
+msgstr "Башка лицензия URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Лицензия шарттары"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Жарыяланган иш менен кошо көрсөтүлө турган коомдук лицензия шарттарын "
+"киргизиңиз."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Ыңгайлаштырылган тегдер"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Тиркөө үчүн китепкана файлдарын тандаңыз"
+
+msgid "grid.action.addGenre"
+msgstr "Компонент кошуу"
+
+msgid "grid.action.editGenre"
+msgstr "Бул компонентти түзөтүү"
+
+msgid "grid.action.deleteGenre"
+msgstr "Бул компонентти өчүрүү"
+
+msgid "manager.announcements.createTitle"
+msgstr "Түзүү"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Мөөнөтү бүтүү"
+
+msgid "manager.announcements.datePublish"
+msgstr "Жарыяланган"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Жарыяны өчүрүү"
+
+msgid "manager.announcements.editTitle"
+msgstr "Түзөтүү"
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Жарыянын мөөнөтү бүтүү датасын туура тандаңыз."
+
+msgid "manager.announcements.form.title"
+msgstr "Аталыш"
+
+msgid "manager.announcementTypes"
+msgstr "Жарыя түрлөрү"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Түзүү"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Сактап, дагы бирди түзүү"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Бул ат менен жарыя түрү мурунтан бар."
+
+msgid "manager.emails.addEmail"
+msgstr "Шаблон кошуу"
+
+msgid "manager.emails.disable"
+msgstr "Өчүрүү"
+
+msgid "manager.people.enrollUserAs"
+msgstr "Колдонуучуну ролго каттоо"
+
+msgid "manager.plugins.action"
+msgstr "Аракет:"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Өзгөртүү"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Рецензентти аты боюнча издөө"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Аты боюнча издөө"
+
+msgid "manager.roles"
+msgstr "Ролдор"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Коноктун өлкөсүн жыйноо"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Аяктоо датасы"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Дата YYYY-MM-DD же YYYY-MM форматында болушу керек. Акыркы мүмкүн болгон "
+"дата {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Дата форматы туура эмес."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Жарыяланган жылдын форматы туура эмес."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Тапшырма ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Тапшырма IDси жок."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Ата-эне деталдарын кошуу"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI префикси"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "DOIлер менен элементтер"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "DOI префикси талап кылынат"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI форматы"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI суффикси"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Ыңгайлаштырылган DOI суффикс үлгүсү"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Тапшырууларды өчүрүү"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Сүрөттөмөлөр"
+
+msgid "manager.setup.principalContact"
+msgstr "Негизги байланыш"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Негизги редактор, башкаруучу редактор же административдик кызматкер үчүн "
+"байланыш маалыматтарын киргизиңиз. Бул маалыматтар коомдук жеткиликтүү "
+"вебсайтыңызда көрсөтүлүшү мүмкүн."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Бул бөлүмдү өчүрүүнү каалайсызбы?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Редакциялык дайындоолор"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} жаңы)"
+
+msgid "manager.users"
+msgstr "Колдонуучулар"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Жүктөө үчүн файл тандалганын текшериңиз."
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Кыскача маалымат"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "Плагин каталогундагы version.xml жараксыз маалыматты камтыйт."
+
+msgid "notification.submissionLocales"
+msgstr "Тапшырма локалдары жаңыртылды."
+
+msgid "notification.editedUser"
+msgstr "Колдонуучу түзөтүлдү."
+
+msgid "settings.roles.showTitles"
+msgstr "Салым кошуучулар тизмесинде ролдун аталышын көрсөтүү"
+
+msgid "settings.roles.roleName"
+msgstr "Ролдун аты"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Кыскартма"
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Ролдун кыскартмасын аныкташыңыз керек."
+
+msgid "settings.roles.uniqueName"
+msgstr "Уникалдуу рол атын аныкташыңыз керек."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Бул жанр үчүн кошумча кыска символдук идентификатор."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Ачкыч мурунтан бар."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Ачкычта тамга-сан белгилери, астынкы сызык жана дефис гана болушу мүмкүн "
+"жана тамга-сан белгиси менен башталып жана бүтүшү керек."
+
+msgid "manager.reviewForms"
+msgstr "Рецензия формалары"
+
+msgid "manager.reviewForms.completed"
+msgstr "Аяктады"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Белгилөө кутучалары (бир же бир нечесин тандай аласыз)"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Форма элементинин түрүн өзгөртүү..."
+
+msgid "manager.reviewFormElements"
+msgstr "Форма элементтери"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Тандоо кошуу"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Элемент түрүн тандаңыз"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Элемент түрү"
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Камтуу метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Түр метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "Маалымат жеткиликтүүлүгү жөнүндө билдирүү метадайындарын иштетүү"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Эскертүүлөр кездешти:"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Импорт/экспорт каталары:"
+
+msgid "manager.navigationMenuItems"
+msgstr "Навигация меню элементтери"
+
+msgid "grid.category.add"
+msgstr "Категория кошуу"
+
+msgid "stats.downloads"
+msgstr "Жүктөөлөр"
+
+msgid "stats.daily"
+msgstr "Күн сайын"
+
+msgid "stats.dateRange.customRange"
+msgstr "Ыңгайлаштырылган диапазон"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Киргизилген даталардын бири жок."
+
+msgid "stats.dateRange.untilDate"
+msgstr "{$date} чейин"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Негизги файл"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Тапшырмаларды экспорттоо натыйжалары"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Процесс ишке ашкан жок. Төмөндө каталарды/эскертүүлөрдү текшериңиз."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Экспорттолгон файлды жүктөө"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Экспорт ийгиликтүү аяктады."
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr "Рецензенттин сунушу, мисалы Тапшырманы кабыл алуу же Четке кагуу"
+
+msgid "emailTemplate.variable.review.round"
+msgstr "Рецензия айлампасы, мисалы 1-айлампа же 2-айлампа"
+
+msgid "emailTemplate.variable.review.files"
+msgstr "Рецензент жүктөгөн файлдар"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Жөнөтүүчүнүн электрондук почта кол тамгасы"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Вебсайттын негизги байланыш адамынын толук аты"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Вебсайттын негизги байланыш адамынын электрондук почтасы"
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "Рецензентти кайра дайындоо"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Жарыянын аталышы"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Жарыянын кыска сүрөттөмөсү"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "Жарыяга шилтеме URL"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Бул айда кабыл алынган тапшырмалардын саны"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Четке кагылган тапшырмалардын саны"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Бул чечим жөнүндө рецензенттерге жөнөтүлгөн электрондук катта бөлүшүү үчүн "
+"кыска сүрөттөмө"
+
+msgid "grid.action.restoreGenres"
+msgstr "Компоненттерди баштапкы орнотууларга калыбына келтирүү"
+
+msgid "manager.setup.genres.label"
+msgstr "Файл түрү"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Рецензия формасы үчүн аталыш талап кылынат."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Рецензияда"
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Автордон тапшырма учурунда ачкыч сөздөрдү сунуштоону сураңыз."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Автор тапшырмасы кабыл алынардан мурун темаларды берүүсү талап кылынат."
+
+msgid "stats.name.daysToAccept"
+msgstr "Кабыл алууга чейин күндөр"
+
+msgid "stats.name.daysToReject"
+msgstr "Четке кагууга чейин күндөр"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Кабыл алуу көрсөткүчү"
+
+msgid "stats.name.declineRate"
+msgstr "Четке кагуу көрсөткүчү"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Дароо четке кагуу көрсөткүчү"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Көрсөтүлгөн журнал жолу \"{$contextPath}\" жок."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Авторлорду талдоо процесси ишке ашкан жок"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Жарыяларды талдоо процесси ишке ашкан жок"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Экспорттолгон файлды төмөнкү баскычтан жүктөп алыңыз."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Жалпы элементтер"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Фильтр конфигурациясы туура эмес [{$filterName}]: {$filterCount} жолу "
+"кездешти. Бир гана болушу керек."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "КАТА:"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Редакциялык активдүүлүк барагына шилтеме"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Электрондук почта аккаунтун ырастоого шилтеме"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Рецензия айлампасы жокко чыгарылды"
+
+msgid "mailable.announcementNotify.description"
+msgstr "Бул электрондук кат жаңы жарыя түзүлгөндө жөнөтүлөт."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Статистика отчету жөнүндө билдирүү"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Рецензияны түзөтүү жөнүндө билдирүү"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Дата жана убакыт үчүн артыкчылыктуу форматты тандаңыз. Ыңгайлаштырылган "
+"форматты атайын <a href=\"https://www.php.net/manual/en/datetime.format."
+"php#refsect1-datetime.format-parameters\">формат белгилерин</a> колдонуп "
+"киргизсеңиз болот."
+
+msgid "settings.roles.stages"
+msgstr "Этаптар"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Тапшырма файлы \"{$fileId}\" үчүн \"{$revisionId}\" ревизиясы кайталанма "
+"жазууну түзмөк"
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr "Бул рецензия дайындалган дата"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Редактор дайындалды (Автоматтык)"
+
+msgid "stats.views.timelineInterval"
+msgstr "Даталар боюнча жалпы көрүүлөр"
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Меню элементинин аталышы талап кылынат."
+
+msgid "grid.category.edit"
+msgstr "Категорияны түзөтүү"
+
+msgid "grid.category.name"
+msgstr "Аталыш"
+
+msgid "grid.category.path"
+msgstr "Жол"
+
+msgid "grid.category.urlWillBe"
+msgstr "Категориянын URL дареги мындай болот: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Категориянын жолу тамга жана сан белгилеринен гана турушу керек."
+
+msgid "grid.category.pathExists"
+msgstr "Категориянын жолу мурунтан бар. Уникалдуу жол киргизиңиз."
+
+msgid "grid.category.description"
+msgstr "Сүрөттөмө"
+
+msgid "grid.category.parentCategory"
+msgstr "Ата категория"
+
+msgid "grid.category.removeText"
+msgstr "Бул категорияны алып салууну каалайсызбы?"
+
+msgid "grid.category.nameRequired"
+msgstr "Категориянын атын киргизиңиз."
+
+msgid "grid.category.categoryDetails"
+msgstr "Категориянын деталдары"
+
+msgid "stats.allUsers"
+msgstr "Бардык колдонуучулар"
+
+msgid "stats.city"
+msgstr "Шаар"
+
+msgid "stats.views"
+msgstr "Көрүүлөр"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Даталар боюнча жалпы жүктөөлөр"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} (жылына {$average})"
+
+msgid "stats.dateRange"
+msgstr "Дата диапазону"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Рецензиядан кийин четке кагуу көрсөткүчү"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Биз авторлорду кайра рецензия үчүн өзгөртүлгөн версияны тапшырууга чакырдык."
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "Тапшырманы ырастоо (Башка авторлор)"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Жаңы тапшырма берилгенде жөнөтүлүүчү электрондук кат эскертүүлөрүн "
+"конфигурациялаңыз."
+
+msgid "manager.submissionAck.description"
+msgstr "Жаңы тапшырма аяктагандан кийин кимге электрондук кат жөнөтүлүшү керек."
+
+msgid "manager.submissionAck.off"
+msgstr "Электрондук кат жөнөтпөңүз."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Электрондук катты тапшырманы берген авторго гана жөнөтүңүз."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Электрондук катты бардык авторлорго жөнөтүңүз."
+
+msgid "manager.editorialDecisions"
+msgstr "Редакциялык чечимдер"
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Редакциялык чечим жазылганда авторлорго жөнөтүлүүчү электрондук кат "
+"эскертүүлөрүн конфигурациялаңыз."
+
+msgid "manager.reviewForms.edit"
+msgstr "Рецензия формасы"
+
+msgid "stats.name.daysToDecision"
+msgstr "Биринчи редакциялык чечимге чейин күндөр"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Камтуу"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Камтуу адатта иштин мейкиндик жайгашкан жерин (жер аталышы же географиялык "
+"координаттар), убакыт мезгилин (мезгил белгиси, дата же дата диапазону) же "
+"юрисдикцияны (мисалы, административдик бирдиктин аты) көрсөтөт."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Автордон тапшырма учурунда камтуу метадайындарын сурабоо."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Автордон тапшырма учурунда камтуу метадайындарын сунуштоону сураңыз."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун камтуу метадайындарын сунуштоосу "
+"талап кылынат."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Ачкыч сөздөр адатта бирден үч сөзгө чейинки сөз айкаштары болуп, тапшырманын "
+"негизги темаларын көрсөтүү үчүн колдонулат."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Ачкыч сөз метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Автордон тапшырма учурунда ачкыч сөздөрдү сурабоо."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Меню элементи кошумча менюну ачканда, анын шилтемеси бардык түзмөктөрдө "
+"иштебеши мүмкүн. Мисалы, эгерде сизде \"Журнал жөнүндө\" элементи болсо жана "
+"ал \"Байланыш\" жана \"Редакциялык башкы тизме\" кошумча менюсун ачса, анда "
+"\"Журнал жөнүндө\" шилтемеси бардык түзмөктөрдө жеткиликтүү болбой калышы "
+"мүмкүн. Баштапкы менюда бул \"Журнал жөнүндө\" деген экинчи меню элементи "
+"түзүлүп, кошумча менюда көрсөтүлүү менен чечилет."
+
+msgid "manager.dois.update.success"
+msgstr "DOI(лер) ийгиликтүү жаңыртылды"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "DOI(лер)ди тапшыруу"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "DOI талап кылынат"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Катталбаган"
+
+msgid "manager.dois.status.submitted"
+msgstr "Тапшырылган"
+
+msgid "manager.dois.status.registered"
+msgstr "Катталган"
+
+msgid "manager.dois.status.error"
+msgstr "Ката"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr "Ката бар"
+
+msgid "manager.dois.status.stale"
+msgstr "Синхрондоштурууга муктаж"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr "DOI дайындалган"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr "DOI жок бардык элементтер."
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr "DOI дайындалган бардык элементтер."
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"DOI бар, бирок каттоо агенттигине тапшырылбаган жарыяланган бардык "
+"элементтер."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Каттоо агенттигине тапшырылган бардык элементтер."
+
+msgid "manager.dois.status.registered.description"
+msgstr "Каттоо агенттигине катталган же кол менен катталган бардык элементтер."
+
+msgid "manager.dois.status.error.description"
+msgstr "Каттоо процессинде катага учураган бардык элементтер."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Каттоо агенттигине акыркы тапшырылгандан кийин кайра жарыяланган бардык "
+"элементтер. Алардын метадайындарын жаңыртуу үчүн кайра тапшырылышы керек."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI жаңыртуулары ишке ашкан жок"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Кээ бир DOIлер жаңыртылган жок"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Элементтер ийгиликтүү экспорттолду"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Элементтер ийгиликтүү катталган деп белгиленди"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Элементтер ийгиликтүү катталбаган деп белгиленди"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Колдонуучуну аты боюнча издөө"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Жарыя окурмандарга ушул датага чейин көрсөтүлөт. Эгерде жарыя чексиз "
+"көрсөтүлүшү керек болсо, бош калтырыңыз."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Мөөнөтү бүтүү айы менен кошо жылды жана/же күндү тандаңыз."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Мөөнөтү бүтүү жылы менен кошо айды жана/же күндү тандаңыз."
+
+msgid "manager.announcements.form.description"
+msgstr "Жарыя"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Жарыянын толук тексти."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Жарыянын сүрөттөлүшү талап кылынат."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Жарыянын аталышы менен кошо кыска сүрөттөлүшү көрсөтүлөт."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Кыска сүрөттөлүшү талап кылынат."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Кыска сүрөттөлүшү"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Сактап, дагы бирди түзүү"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Жарыянын аталышы талап кылынат."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Түрү"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Жарыянын туура түрүн тандаңыз."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Сиз <a href=\"#announcements/announcement-settings\">жарыяларды иштетишиңиз</"
+"a> керек."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Эч кандай жарыя түзүлгөн жок."
+
+msgid "manager.announcements.title"
+msgstr "Аталыш"
+
+msgid "manager.announcements.type"
+msgstr "Түрү"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Эскертүү! Бул жарыя түрү менен бардык жарыялар да өчүрүлөт. Улантып, бул "
+"жарыя түрүн өчүрүүнү каалайсызбы?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Жарыя түрүн түзүү"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Жарыя түрүн түзөтүү"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Түзөтүү"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Аты"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Жарыя түрүнүн аты талап кылынат."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Эч кандай жарыя түрү түзүлгөн жок."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Жарыя түрү"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Баарын тапшыруу"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "DOIлерди тапшыруу"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Сиз {$count} элементтин DOI метадайындарын {$registrationAgency} агенттигине "
+"жөнөтүүгө даярданып жатасыз. Бул жазууларды тапшырууну каалайсызбы?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "DOIлерди катталган деп белгилөө"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Ийгиликтүү каттоо жөнүндө билдирүү"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Сиз {$count} элементтин DOI метадайындарын катталган деп белгилөөгө "
+"даярданып жатасыз. Бул жазууларды катталган деп белгилөөнү каалайсызбы?"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "DOIлерди катталбаган деп белгилөө"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Сиз {$count} элементтин DOI метадайындарын катталбаган деп белгилөөгө "
+"даярданып жатасыз. Бул жазууларды катталбаган деп белгилөөнү каалайсызбы?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "DOIлерди синхрондоштурууга муктаж деп белгилөө"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Сиз {$count} элементтин DOI метадайындарын синхрондоштурууга муктаж деп "
+"белгилөөгө даярданып жатасыз. «Синхрондоштурууга муктаж» статусу мурун "
+"тапшырылган DOIлерге гана колдонулат. Бул жазууларды эскирген деп белгилөөнү "
+"каалайсызбы?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "DOIлерди экспорттоо"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Сиз {$count} элементтин DOI метадайындарын {$registrationAgency} үчүн "
+"экспорттоого даярданып жатасыз. Бул жазууларды экспорттоону каалайсызбы?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "DOIлерди дайындоо"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Сиз {$count} элементке жаңы DOIлерди дайындоого даярданып жатасыз. DOI "
+"дайындалбаган жарактуу элементтерге гана дайындалат. Бул элементтерге "
+"DOIлерди дайындоону каалайсызбы?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Бардык DOIлерди тапшыруу"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Сиз бардык тапшырылбаган DOI метадайындарын {$registrationAgency} "
+"агенттигине тапшырууга даярданып жатасыз. DOI бар болгон жарыяланган "
+"элементтер гана тапшырылат. Ар бир элементтин статусу жооп алынганда "
+"жаңыртылат. Бул элементтердин баарын тапшырууну пландагыңыз келеби?"
+
+msgid "manager.dois.actions.description"
+msgstr "{$count} тандалган элементке аракет жасаңыз."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Топтук аракеттер"
+
+msgid "manager.dois.depositStatus"
+msgstr "Тапшыруу статусу"
+
+msgid "manager.dois.publicationStatus"
+msgstr "Жарыялоо статусу"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr ""
+"Бул элементтин метадайындары {$registrationAgency} агенттигине тапшырылды."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Бул элемент каттоо агенттигине кол менен катталган."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+"Бул элементтин метадайындары {$registrationAgency} агенттигине тапшырылган "
+"эмес."
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Бул элемент жарыяланмайынча тапшырылбайт."
+
+msgid "manager.dois.registration.viewError"
+msgstr "Катаны көрүү"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Каттоо катасы жөнүндө билдирүү"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Жазууну көрүү"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Төмөнкү билдирүү {$registrationAgency} тарабынан кайтарылды жана каттоо "
+"жөнүндө маалыматты камтыйт:"
+
+msgid "manager.emails.createEmail"
+msgstr "Электрондук кат түзүү"
+
+msgid "manager.emails.data"
+msgstr "Шаблон билдирүү маалыматтары"
+
+msgid "manager.emails.details"
+msgstr "Шаблон деталдары"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Сиз бул электрондук кат шаблонун өчүрүүгө даярданып жатасыз. Эгерде "
+"системалык процесстер бул шаблонду колдонуп жатса, алар мындан ары "
+"колдонбойт. Бул операцияны ырастоону каалайсызбы?"
+
+msgid "manager.emails.editTestExample"
+msgstr "Электрондук кат тест мисалын түзөтүү"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Электрондук кат шаблону"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Электрондук кат шаблондору"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Башка шаблондор"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Электрондук кат шаблонун кошууда контекст ID беришиңиз керек."
+
+msgid "manager.emails.enabled"
+msgstr "Бул электрондук кат шаблонун иштетүү"
+
+msgid "manager.emails.enable"
+msgstr "Иштетүү"
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Сиз бул электрондук катты иштетүүгө даярданып жатасыз. Бул операцияны "
+"ырастоону каалайсызбы?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"Электрондук кат үчүн боштуктарсыз жана атайын белгилерсиз уникалдуу ачкыч "
+"талап кылынат."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Электрондук кат үчүн мазмун талап кылынат."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Электрондук кат үчүн тема талап кылынат."
+
+msgid "manager.emails"
+msgstr "Даяр электрондук каттар"
+
+msgid "manager.emails.resetAll"
+msgstr "Баарын баштапкы абалга келтирүү"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Эгерде бардык шаблондорду баштапкы абалга келтирсеңиз, бардык өзгөртүүлөр "
+"жоголот. Бул операцияны ырастоону каалайсызбы?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Эгерде бул шаблонду баштапкы абалга келтирсеңиз, бардык билдирүү "
+"маалыматтары баштапкы мааниге келтирилет жана бардык өзгөртүүлөр жоголот. "
+"Бул операцияны ырастоону каалайсызбы?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Баштапкы абалга келтирүү"
+
+msgid "manager.emails.sentFrom"
+msgstr "Жөнөтүлгөн тарап"
+
+msgid "manager.emails.sentTo"
+msgstr "Кимге жөнөтүлгөн"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Excel/CSVге экспорттоо"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Excel/CSV файлына экспорттоло турган колдонуучуларды тандаңыз."
+
+msgid "manager.filesBrowser"
+msgstr "Файл браузери"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Бул файлды же каталогду өчүрөсүзбү? Каталогду өчүрүү үчүн ал бош болушу "
+"керек экенин эске алыңыз."
+
+msgid "manager.files.createDir"
+msgstr "Каталог түзүү"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Электрондук кат жөнөтө турган колдонуучуларды алардын аттарынын жанындагы "
+"кутучаларды белгилөө менен тандаңыз"
+
+msgid "manager.people.enable"
+msgstr "Иштетүү"
+
+msgid "manager.people.enroll"
+msgstr "Колдонуучуну каттоо"
+
+msgid "manager.people.enrollment"
+msgstr "Каттоо"
+
+msgid "manager.people.enrollSelected"
+msgstr "Тандалган колдонуучуларды каттоо"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Ролду синхрондоштуруу"
+
+msgid "manager.people.enrollSync"
+msgstr "Каттоону синхрондоштуруу"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr ""
+"Колдонуучулар каалаган убакта ролго дайындалышы же ролдон алынуусу мүмкүн."
+
+msgid "manager.people.invalidUser"
+msgstr "Кечиресиз, суралган колдонуучу жок."
+
+msgid "manager.people.mergeUser"
+msgstr "Колдонуучуну бириктирүү"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Сиз тандалган {$oldAccountCount} аккаунтту \"{$newUsername}\" колдонуучу аты "
+"бар аккаунтка бириктирүүнү каалайсызбы? Тандалган {$oldAccountCount} аккаунт "
+"андан кийин болбойт. Бул аракетти артка кайтарууга болбойт."
+
+msgid "manager.people.mergeUsers"
+msgstr "Колдонуучуларды бириктирүү"
+
+msgid "manager.people.mustChooseRole"
+msgstr "Колдонуучуну каттоодон мурун барактын үстүнөн ролду тандаңыз."
+
+msgid "manager.people.mustProvideName"
+msgstr "Алгач колдонуучунун жок дегенде фамилиясын бериңиз."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Туура келген колдонуучулар жок."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Катталган колдонуучулар жок."
+
+msgid "manager.people"
+msgstr "Колдонуучулар"
+
+msgid "manager.people.remove"
+msgstr "Алып салуу"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Сактап, дагы бирди түзүү"
+
+msgid "manager.people.signedInAs"
+msgstr "Учурда {$username} катары кирип жатасыз"
+
+msgid "manager.people.signInAs"
+msgstr "Башка колдонуучу катары кирүү"
+
+msgid "manager.people.signInAsUser"
+msgstr "Колдонуучу катары кирүү"
+
+msgid "manager.people.syncUsers"
+msgstr "Колдонуучуларды каттоону синхрондоштуруу"
+
+msgid "manager.people.unenroll"
+msgstr "Каттоодон чыгаруу"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Колдонуучу ийгиликтүү түзүлдү."
+
+msgid "manager.people.userMustChangePassword"
+msgstr "Колдонуучу кийинки киргенде сырсөзүн өзгөртүүсү талап кылынат."
+
+msgid "manager.plugins.disable"
+msgstr "Өчүрүү"
+
+msgid "manager.plugins.enable"
+msgstr "Иштетүү"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Плагиндерди башкаруу"
+
+msgid "manager.plugins.sitePlugin"
+msgstr "Бул сайт боюнча плагин. Аны сайт администратору гана башкара алат."
+
+msgid "manager.plugins"
+msgstr "Системалык плагиндер"
+
+msgid "manager.readingTools"
+msgstr "Окуу шаймандары"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Бул өкүлдү өчүрө албайсыз, анткени ал бул тапшырманын бир же бир нече "
+"жарыялоо форматтары үчүн рынок метадайындарына дайындалган."
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Рецензиялоо кызыкчылыктары"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Төмөнкү форма аркылуу издөө терминдери үчүн максималдуу маанилерди коюңуз. "
+"Форма бул талаалардын эсептелген орточо маанилери менен алдын ала "
+"толтурулган."
+
+msgid "manager.setup.statistics"
+msgstr "Статистика"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Географиялык статистика"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Жыйналуучу географиялык колдонуу статистикасынын түрүн тандаңыз. Толугураак "
+"географиялык статистика маалымат базанын көлөмүн кыйла көбөйтүшү мүмкүн жана "
+"сейрек учурларда коноктордун анонимдүүлүгүн бузушу мүмкүн."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Эч кандай географиялык маалыматты жыйнабоо"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Коноктун өлкөсүн жана регионун жыйноо"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Коноктун өлкөсүн, регионун жана шаарын жыйноо"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Институционалдык статистика"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Эгерде колдонуу статистикасын институт боюнча жыйнагыңыз келсе, "
+"институционалдык статистиканы иштетиңиз. Иштетилгенде, ар бир институт үчүн "
+"IP диапазондорун конфигурациялашыңыз керек болот."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Институционалдык статистиканы иштетүү"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Ачык API"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"COUNTER SUSHI статистикасы үчүн API пункттарына кирүүнү чектөө же чектебөө. "
+"Эгерде белгиленбесе, APIге администратор же менеджер ролдору бар "
+"колдонуучулар гана кире алышат."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "COUNTER SUSHI статистикасын ачык жеткиликтүү кылуу"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 отчеттору"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Ар бир отчет жөнүндө көбүрөөк маалымат алуу үчүн <a href=\"https://cop5."
+"projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\">COUNTER "
+"5.0.3 документациясын</a> караңыз."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Азырынча Counter R5 колдонуу статистикасы жеткиликтүү эмес."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Отчет орнотуулары"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Башталуу датасы"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Дата YYYY-MM-DD же YYYY-MM форматында болушу керек. Эрте мүмкүн болгон дата "
+"{$earliestDate}."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"DOI префикси каттоо агенттиги тарабынан дайындалат, мисалы <a href=\"https"
+"://www.crossref.org\" target=\"_new\">Crossref</a> же <a href=\"https"
+"://datacite.org/\" target=\"new\">DataCite</a>. Мисал: 10.xxxx"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI префикси талап кылынат жана төмөнкү форматта болушу керек: 10.xxxx."
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Автоматтык DOI дайындоо"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Тапшырма качан DOIге дайындалышы керек?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Жарыяланганда"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Эч качан"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+"Тандалган DOI түрлөрүнүн бири же бир нечеси конфигурацияланган DOI каттоо "
+"агенттиги үчүн уруксат берилген эмес."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr ""
+"Баштапкы — Автоматтык түрдө уникалдуу сегиз белгиден турган суффикс түзөт"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"Жок — Суффикстерди <a href=\"{$doiManagementUrl}\">DOI башкаруу бетинде</a> "
+"кол менен киргизүү керек жана алар автоматтык түрдө түзүлбөйт"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Ыңгайлаштырылган үлгү — (сунушталбайт)"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Каттоо агенттиги"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "DOIлерди тапшырууда колдонулуучу каттоо агенттигин тандаңыз."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Каттоо агенттиги иштетилген эмес"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOIлер автоматтык түрдө түзүлүп жана каттоо агенттигине тапшырылышы мүмкүн. "
+"Бул функцияны колдонуу үчүн тиешелүү каттоо агенттигинен плагинди табып жана "
+"орнотуңуз."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Жок"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "DOI версиялоо"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "DOI иштетилбесе бул операцияны чакыра албайсыз."
+
+msgid "doi.manager.versions.countStatement"
+msgstr "{$count} версия бар."
+
+msgid "doi.manager.versions.view"
+msgstr "Баарын көрүү"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "Бардык версиялар үчүн DOIлер"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOIде жараксыз белгилер бар."
+
+msgid "manager.setup.publishing"
+msgstr "Жарыялоо деталдары"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Бул деталдар үчүнчү тарап архивдик органдарына берилген метадайындарга "
+"киргизилиши мүмкүн."
+
+msgid "manager.setup.additionalContent"
+msgstr "Кошумча мазмун"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Бул жерге киргизилген нерсе башкы бетте көрсөтүлөт."
+
+msgid "manager.setup.advanced"
+msgstr "Кеңейтилген"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Автордук укук жөнүндө эскертүү"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Төмөнкү маалымат <a href=\"{$url}\">тапшыруулар</a> бетинде көрсөтүлөт, анда "
+"авторлор тапшырма талаптары жөнүндө билишет. Авторлор тапшырмасын бүтүрүүдөн "
+"мурун автордук укук эскертүүсүнө макул экендигин ырасташы керек болот."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Авторлор үчүн нускамалар"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Төмөнкү маалымат <a href=\"{$url}\">тапшыруулар</a> бетинде көрсөтүлөт, анда "
+"авторлор тапшырмасын даярдоо үчүн эмне кылышы керектигин билишет. "
+"Библиографиялык жана форматтоо стандарттары боюнча нускамаларды, "
+"колдонулуучу жалпы шилтеме форматтарынын мисалдарын бериңиз. Ошондой эле "
+"тапшырмалардын артыкчылыктуу форматы жана темасы жөнүндө деталдарды берсеңиз "
+"болот."
+
+msgid "manager.setup.checklist"
+msgstr "Текшерүү тизмеси"
+
+msgid "manager.setup.competingInterests"
+msgstr "Тирешкен кызыкчылыктар"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Бул элементти өчүрүүдө ката кетти."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.homepageImage"
+msgstr "Башкы бет сүрөтү"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Башкы бетте көрүнүктүү көрсөтүлүүчү сүрөттү жүктөңүз."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Башкы бет сүрөтүнүн форматы жараксыз же жүктөө ишке ашкан жок. Кабыл алынган "
+"форматтар: .gif, .jpg, же .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Башкы беттин аталыш сүрөтүнүн форматы жараксыз же жүктөө ишке ашкан жок. "
+"Кабыл алынган форматтар: .gif, .jpg, же .png."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Каптал тилке"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name} блогу табылган жок. Плагин орнотулган жана иштетилгенин текшериңиз."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Журналга жазуу жана аудит"
+
+msgid "manager.setup.logo"
+msgstr "Логотип"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Жүктөгөн файлыңыз табылган жок. Аны кайра жүктөп көрүңүз."
+
+msgid "manager.setup.notifications"
+msgstr "Автордук тапшырма жөнүндө билдирүү"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Бул электрондук почта дарегине көчүрмө жөнөтүү"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Бардык авторлорду кабардар кылуу"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Редакциялык чечим жазылганда кимге билдирүү жөнөтүлүшү керек?"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Тапшырманын бардык авторлоруна электрондук кат жөнөтүү."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Тапшырма процесси үчүн дайындалган авторлорго гана электрондук кат жөнөтүү. "
+"Көбүнчө бул тапшырманы берген автор болот."
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Билдирүүлөр"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Процесстеги тапшырмалар"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Авторлорго тапшырмасы кабыл алынгандыгы жөнүндө электрондук кат автоматтык "
+"түрдө жөнөтүлөт. Бул каттын көчүрмөсүн төмөнкүлөргө жөнөтсөңүз болот:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Кабардар кылуу"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Электрондук кат билдирүүсүн алуучу колдонуучуларды тандаңыз."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Бул электрондук каттын көчүрмөсүн мага {$email} дарегине жөнөтүңүз."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Электрондук кат жөнөтүү"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Сиз {$total} колдонуучуга электрондук кат жөнөтүүгө даярданып жатасыз. Бул "
+"катты жөнөтүүнү каалайсызбы?"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Электрондук каттар мүмкүн болушунча эрте жөнөтүлүү үчүн кезекке ийгиликтүү "
+"коюлду."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Дагы бир электрондук кат жөнөтүү"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Ачык жеткиликтүүлүк саясаты"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Эгерде бардык жарыяланган мазмунга дароо акысыз жеткиликтүүлүк берилсе, Ачык "
+"жеткиликтүүлүк саясатыңыздын сүрөттөмөсүн киргизсеңиз болот."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Барактын башындагы логотиптин форматы жараксыз же жүктөө ишке ашкан жок. "
+"Кабыл алынган форматтар: .gif, .jpg, же .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Барактын асты"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Сайтыңыздын ылдый жагында көрсөтүлө турган сүрөттөрдү, текстти же HTML кодду "
+"киргизиңиз."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Окурмандар жана авторлор үчүн рецензиялоо саясатын жана процесстерин "
+"сүрөттөп бериңиз. Бул сүрөттөмө адатта тапшырманы рецензиялоо үчүн "
+"колдонулган рецензенттердин саны, рецензенттер тапшырмаларды баалоо үчүн "
+"колдонгон критерийлер, рецензия жүргүзүүгө талап кылынган убакыт жана "
+"рецензенттерди тандоо принциптерин камтыйт."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Купуялык билдирүүсү"
+
+msgid "manager.setup.dateTime"
+msgstr "Дата жана убакыт"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Дата жана убакыт форматтары"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Дата"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Дата (Кыска)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Убакыт"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Дата жана убакыт"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Дата жана убакыт (Кыска)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Ыңгайлаштырылган"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Авторлорго тапшырма процессинде мүмкүн болгон рецензенттерди сунуштоого "
+"уруксат берүү"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Демөөрчүлүк мамиле жана саясаттын сүрөттөлүшү"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Бул билдирүү колдонуучуну каттоо учурунда, автордук тапшырмада жана коомдук "
+"жеткиликтүү Купуялык бетинде көрсөтүлөт. Айрым юрисдикцияларда сиз "
+"колдонуучу маалыматтарын кантип иштетериңизди бул купуялык саясатында "
+"ачыктоого мыйзам боюнча милдеттүү болосуз."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Баштапкы жооп берүү мөөнөтү"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Баштапкы бүтүрүү мөөнөтү"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Рецензия суроо-талапка макул болуу же баш тартуу үчүн жумалардын саны."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Рецензияны бүтүрүүгө уруксат берилген жумалар"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Эч качан эскертпөө"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Баштапкы маанилер редакциялык процесс учурунда ар бир рецензия үчүн "
+"өзгөртүлүшү мүмкүн."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Рецензия үчүн эскертмелерди коюу"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Эгерде рецензент рецензия суроо-талапка жооп бере элек болсо, же рецензияны "
+"тапшыра элек болсо, рецензия суроо-талапка жооп берүү же рецензия тапшыруу "
+"үчүн мөөнөттөн мурун же кийин электрондук кат эскертмесин жөнөтүү."
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Рецензия суроо-талапка жооп — мөөнөттөн мурун"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Рецензия суроо-талапка жооп — мөөнөттөн кийин"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Рецензия тапшыруу — мөөнөттөн мурун"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Рецензия тапшыруу — мөөнөттөн кийин"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} күн мөөнөттөн мурун"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} күн мөөнөттөн кийин"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Жок"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Эскертме коюлган жок"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Баштапкы рецензия режими"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Жүктөө учурунда <button type=\"button\">бардык файлдардын анонимдүүлүгүн "
+"камсыз кылуу жолун</button> көрсөтүү"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Тапшырма үчүн талап кылынган минималдуу тастыкталган рецензиялар"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr ""
+"Тапшырма үчүн талап кылынган минималдуу тастыкталган рецензиялардын саны"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Тапшыруу учурунда рецензент сунуштоо"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Автор тапшырмасын бүтүрүүдөн мурун бир нече мүмкүн болгон рецензенттерди "
+"сунуштай алат, бул рецензия процессин жеңилдетип, редакциялык топ үчүн "
+"баалуу маалымат берет."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Мисалдар: илимий ассоциациялар, университет бөлүмдөрү, кооперативдер ж.б. "
+"Демөөрчүлөр коомдук түрдө көрсөтүлөт."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Тажрыйбалуу веб-разработчиктер сайттын көрүнүшүн кошумча ыңгайлаштыруу үчүн "
+"CSS файлын жүктөй алышат."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Техникалык колдоо байланыш"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Редакторлорго, авторлорго жана рецензенттерге тапшырма берүү, түзөтүү, "
+"рецензиялоо же жарыялоо маселелеринде жардам бере турган байланыш адам."
+
+msgid "manager.setup.theme"
+msgstr "Тема"
+
+msgid "manager.setup.institutions"
+msgstr "Институттар"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Жаңы темаларды бул барактын үстүндөгү Плагиндер өтмөгүнөн орнотсо болот."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Тандалган тема орнотулган эмес же иштетилген эмес."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Авторлор тапшырмасын баштаардан мурун төмөнкү маалымат көрсөтүлөт. Автор "
+"тапшырма процессинен эмнени күтүшү керектигин билүүсү үчүн кыскача "
+"түшүндүрмө бериңиз."
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"Авторлор файлдарды жүктөө кадамында төмөнкү маалымат көрсөтүлөт. Авторлор "
+"тапшырмасы менен кошо кайсы файлдарды бөлүшүүсү керектигин кыскача "
+"түшүндүрмө бериңиз."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"Авторлор салым кошуучулар кадамында төмөнкү маалымат көрсөтүлөт. Автор өзүн, "
+"кошумча авторлорду жана башка салым кошуучуларды кандай маалымат менен "
+"камсыз кылышы керектигин кыскача түшүндүрмө бериңиз."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Авторлор рецензент сунуштары кадамында төмөнкү маалымат көрсөтүлөт. Автор "
+"өзүн, кошумча авторлорду жана башка салым кошуучуларды кандай маалымат менен "
+"камсыз кылышы керектигин кыскача түшүндүрмө бериңиз."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Авторлор деталдар кадамында тапшырманын аталышын, аннотациясын жана башка "
+"негизги маалыматтарды берүүсү талап кылынганда төмөнкү маалымат көрсөтүлөт."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Авторлор редакторлор үчүн кадамында ачкыч сөздөр, редакторго комментарийлер "
+"жана редакциялык рецензияга жардам берүүчү башка метадайындарды берүүсү "
+"талап кылынганда төмөнкү маалымат көрсөтүлөт."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Авторлор тапшырма устатынын акыркы кадамында тапшырмасын жөнөтүүдөн мурун "
+"берген бардык маалыматтарын карап чыгышы талап кылынганда төмөнкү маалымат "
+"көрсөтүлөт."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Авторлор үчүн нускамалар"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Тапшырма текшерүү тизмеси"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Авторлор тапшырмасын баштаганда төмөнкү маалымат көрсөтүлөт. Авторлор "
+"тапшырмасы бул жерде көрсөтүлгөн талаптарга ылайык экендигин ырасташы керек."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Бул бөлүмдү өчүрүп, ага жаңы тапшырмалардын берилишине уруксат бербөө."
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Бул бөлүмдү иштетүүнү каалайсызбы?"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Бул бөлүмгө жаңы тапшырмалар автоматтык түрдө дайындалуучу редакциялык "
+"колдонуучуларды тандаңыз."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "{$name} колдонуучуну {$role} катары дайындоо"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Бул категорияга жаңы тапшырмалар автоматтык түрдө дайындалуучу редакциялык "
+"колдонуучуларды тандаңыз."
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Категория жок же башка контекстке таандык. Туура контекст менен иштеп "
+"жатканыңызды текшериңиз жана кайра аракет кылыңыз."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Каптама сүрөт жана кичирейтилген сүрөт файлдары табылган жок. Алар мурунтан "
+"өчүрүлгөн болушу мүмкүн. Баракты кайра жүктөп көрүңүз."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Сайтка кирүү параметрлери"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Катталган колдонуучулар"
+
+msgid "plugins.categories.metadata"
+msgstr "Метадайын плагиндери"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Метадайын плагиндери кошумча метадайын стандарттарын ишке ашырат."
+
+msgid "plugins.categories.auth"
+msgstr "Авторизация плагиндери"
+
+msgid "plugins.categories.blocks"
+msgstr "Блок плагиндери"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Блок плагиндери — ар кандай каптал тилке шаймандары сыяктуу UI компоненттери."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway плагиндери тышкы системаларга жандуу маалымат берет."
+
+msgid "plugins.categories.gateways"
+msgstr "Gateway плагиндери"
+
+msgid "plugins.categories.generic"
+msgstr "Жалпы плагиндер"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Импорт/экспорт плагиндери мазмунду башка системаларга жана системалардан "
+"өткөрүү үчүн колдонулат."
+
+msgid "plugins.categories.importexport"
+msgstr "Импорт/экспорт плагиндери"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Төлөм ыкмасы плагиндери онлайн төлөмдөрдү ар кандай жолдор менен иштетүүгө "
+"колдоо көрсөтөт."
+
+msgid "plugins.categories.paymethod"
+msgstr "Төлөм плагиндери"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Отчет плагиндери ар кандай отчетторду жана маалыматтарды алуу үчүн "
+"колдонулат."
+
+msgid "plugins.categories.reports"
+msgstr "Отчет плагиндери"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"\"{$pluginName}\" плагини файл системасынан өчүрүлө алган жок. Бул уруксат "
+"маселеси болушу мүмкүн. Веб-сервер плагиндер каталогунда (анын ичинде ички "
+"каталогдордо) жазууга мүмкүнчүлүгү бар экенин текшериңиз, бирок кийин кайра "
+"коопсуздукту камсыз кылууну унутпаңыз."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "\"{$pluginName}\" плагини ийгиликтүү өчүрүлдү"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Бул баракча менеджерге учурда орнотулган плагиндерди карап чыгууга жана "
+"мүмкүн болсо конфигурациялоого мүмкүнчүлүк берет. Плагиндер функциясына "
+"жараша категорияларга бөлүнөт. Категориялар төмөндө көрсөтүлгөн жана ар бир "
+"категорияда анын учурдагы плагиндери бар."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "\"{$pluginName}\" плагини жок"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Алгач файлды тандаңыз"
+
+msgid "manager.plugins.upload"
+msgstr "Жаңы плагин жүктөө"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Бул форма жаңы плагинди жүктөп жана орнотууга мүмкүнчүлүк берет. Плагин ."
+"tar.gz файлы катары кысылганын текшериңиз."
+
+msgid "manager.plugins.installed"
+msgstr "Орнотулган плагиндер"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Плагин галереясы"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Орнотуу"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Акыркы шайкеш чыгарылыш"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Расмий"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Бул плагин Public Knowledge Project командасы тарабынан иштелип чыгып, "
+"колдоого алынат."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Каралган"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Бул плагин Public Knowledge Project командасы тарабынан каралып, бекитилген."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Өнөктөш"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Бул плагин биздин өнүктүрүү өнөктөштөрүбүздүн бири тарабынан берилген."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Колдоочу"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} {$date} күнү чыгарылган"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Орнотулган версия: {$version}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Башкы бет"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Кыскача маалымат"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Статус"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Бул плагин али орнотулган эмес."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Учурда бул плагиндин шайкеш версиясы жеткиликтүү эмес."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Плагин мурунтан орнотулган жана галереядагы версиядан жаңыраак."
+
+msgid "manager.reviewForms.description"
+msgstr "Сүрөттөмө жана нускамалар"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Ар бир беттин башына киргизиле турган ыңгайлаштырылган HTML тегдерди (мета "
+"тегдерди) кошуңуз. Бул жерге тегдерди кошуудан мурун техникалык кеңешчи "
+"менен кеңешиңиз."
+
+msgid "manager.paymentMethod"
+msgstr "Төлөмдөр"
+
+msgid "manager.paymentMethod.title"
+msgstr "Төлөм ыкмалары"
+
+msgid "manager.paymentMethod.none"
+msgstr "Төлөм ыкмасы тандалган жок"
+
+msgid "manager.paymentMethod.method"
+msgstr "Төлөм ыкмасы"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валюта"
+
+msgid "settings.roles.masthead"
+msgstr "Ролду башкы тизме тизмесинде эске алуу"
+
+msgid "settings.roles.roleOptions"
+msgstr "Рол параметрлери"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Колдонуучунун өз алдынча каттоосуна уруксат берүү"
+
+msgid "settings.roles.permitSettings"
+msgstr "Орнотууларды өзгөртүүгө уруксат берүү"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Бул роль рецензия чечимин сунуштоого гана уруксат берет жана акыркы чечимди "
+"жазуу үчүн ыйгарым укуктуу редактор талап кылынат."
+
+msgid "settings.roles.assignedStages"
+msgstr "Дайындалган этаптар"
+
+msgid "settings.roles.roleDetails"
+msgstr "Ролдун деталдары"
+
+msgid "settings.roles.from"
+msgstr "Уруксат деңгээли"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Бул ролду ушул контексттен алып салууга даярданып жатасыз. Бул операция "
+"ролго байланышкан орнотууларды жана бардык колдонуучулардын дайындоолорун да "
+"өчүрөт. Улантууну каалайсызбы?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Ролдун атын аныкташыңыз керек."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Уникалдуу рол кыскартмасын аныкташыңыз керек."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Ролдун уруксат деңгээлин аныкташыңыз керек."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Дайындоо үчүн этапты аныкташыңыз керек."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Тапшырма метадайындарын түзөтүүгө уруксат берүү."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Китепкана файлы талап кылынат. Файлды тандап жана жүктөгөнүңүздү текшериңиз."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Бул китепкана файлы үчүн ат талап кылынат."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Бул китепкана файлы үчүн файл түрү талап кылынат."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Келишимдер"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Уруксаттар"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Отчеттор"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Башка"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Эгерде \"Коомдук жеткиликтүүлүк\" иштетилсе, бул китепкана файлы төмөнкү "
+"даректен жүктөө үчүн жеткиликтүү болот: "
+"<blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Бул көз каранды файлдар, мисалы HTML файлы тарабынан көрсөтүлгөн сүрөттөр, "
+"жана жарыяланган мазмун менен көрсөтүлбөйт."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Бул кошумча файлдар, мисалы маалымат топтомдору жана изилдөө материалдары, "
+"жана негизги жарыялоо файлдарынан өзүнчө көрсөтүлөт."
+
+msgid "manager.setup.genres.key"
+msgstr "Ачкыч"
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Файл метадайындары"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Бул файлдар ала турган метадайын түрүн тандаңыз. Негизги жарыялоо файлдары "
+"үчүн (мисалы жүктөлүүчү PDF) Документти тандаңыз, ошондо бул файлдар "
+"жарыядан метадайындарды мурастайт. Болбосо, көпчүлүк файл түрлөрү үчүн "
+"Кошумча мазмунду тандаңыз. Өнөр чыгармалары өзүнчө автордук кредит, "
+"сүрөттөмө жана лицензия метадайындарын талап кылган файлдар үчүн ылайыктуу."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Тапшыруулар менен талап кылынат"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"Ар бир жаңы тапшырма менен бул файлдардын жок дегенде бири талап кылынуусу "
+"керекпи? Эгерде ооба деп тандасаңыз, авторлор бул түрдөгү жок дегенде бир "
+"файлды жүктөмөйүнчө тапшырма бере алышпайт."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+"Ооба, тапшырма берген авторлор бул файлдардын бирин же бир нечесин жүктөөсү "
+"талап кылынат."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "Жок, жаңы тапшырмалар бул файлдарсыз кабыл алынсын."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Редакциялык башкы тизме ролдорунун коомдук көрсөтүлүү тартибин аныктаңыз."
+
+msgid "manager.settings.wizard"
+msgstr "Орнотуулар устаты"
+
+msgid "manager.users.roleRequired"
+msgstr "Бул колдонуучуга байланыштуу жок дегенде бир ролду тандашыңыз керек."
+
+msgid "manager.website"
+msgstr "Вебсайт"
+
+msgid "manager.website.title"
+msgstr "Вебсайт орнотуулары"
+
+msgid "manager.workflow"
+msgstr "Иш агымы"
+
+msgid "manager.workflow.title"
+msgstr "Иш агымы орнотуулары"
+
+msgid "manager.distribution"
+msgstr "Таратуу"
+
+msgid "manager.distribution.title"
+msgstr "Таратуу орнотуулары"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Бул рецензия формасын иштетүүнү каалайсызбы? Бир жолу рецензияга "
+"дайындалгандан кийин аны өчүрө албайсыз."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Бул рецензия формасын өчүрүүнү каалайсызбы? Ал жаңы рецензия дайындоолору "
+"үчүн жеткиликтүү болбой калат."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Бул рецензия формасынын көчүрмөсүн түзүүнү каалайсызбы?"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Бул рецензия формасын өчүрүүнү каалайсызбы?"
+
+msgid "manager.reviewForms.create"
+msgstr "Рецензия формасын түзүү"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Бул жерде түзүлгөн рецензия формалары рецензенттерге толтурууга берилет, эки "
+"ачык текст кутучасынан турган баштапкы форма ордуна: биринчиси «автор жана "
+"редактор үчүн», экинчиси «редактор үчүн». Рецензия формалары белгилүү бир "
+"басма бөлүмүнө дайындалышы мүмкүн жана редакторлор рецензия дайындоодо кайсы "
+"форманы колдонорун тандап алышат. Бардык учурларда редакторлор рецензияларды "
+"автор менен байланышууда кошууга мүмкүнчүлүк алышат."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Жок / Эркин форма рецензия"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Рецензия формалары түзүлгөн жок."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Рецензия формалары колдонулган жок."
+
+msgid "manager.reviewForms.preview"
+msgstr "Форманы алдын ала көрүү"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Рецензия формасынын маалыматтары"
+
+msgid "manager.reviewForms.title"
+msgstr "Аталыш"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Жарыяланган форма элементин өчүрүүнү ырастоо..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Көчүрүү:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Жаңы элемент түзүү"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Төмөн түшүүчү куту"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Форма элементин түзөтүү"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Форма элементи үчүн элемент түрү талап кылынат."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Форма элементи үчүн суроо талап кылынат."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Форма элементтери түзүлгөн жок."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Тандоо"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Элемент"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Сүрөттөмө"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радио баскычтар (бир гана тандоого болот)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Рецензенттер элементти толтурууга милдеттүү"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Авторго жөнөтүлгөн билдирүүгө кошулат"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Бир сөздүк текст кутучасы"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Кеңейтилген текст кутучасы"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Бир саптык текст кутучасы"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Көрсөтүлөт (авторлор үчүн)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Жаңы рецензия формасын түзүү"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Рецензия учурунда тирешкен кызыкчылыктар жөнүндө билдирүү талап кылуу."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr ""
+"Лицензияны сүрөттөгөн веб-баракчанын URL дареги, эгер жеткиликтүү болсо."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Тапшырма формасы"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Тапшырманын негизги мазмунунун табияты же жанры. Түрү адатта \"Текст\" "
+"болот, бирок \"Маалымат топтому\", \"Сүрөт\" же <a target=\"_blank\" href="
+"\"https://www.dublincore.org/specifications/dublin-core/dcmi-terms/\">Dublin "
+"Core түрлөрүнүн</a> бири болушу мүмкүн."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Автордон тапшырма учурунда түрдү сурабоо."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Автордон тапшырма учурунда түрдү берүүнү сураңыз."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Автор тапшырмасы кабыл алынардан мурун түрдү берүүсү талап кылынат."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Дисциплиналар — университет факультеттери жана илимий коомдор тарабынан "
+"сүрөттөлгөн окуу түрлөрү же билим тармактары."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Дисциплина метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Автордон тапшырма учурунда дисциплиналарды сурабоо."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Автордон тапшырма учурунда дисциплиналарды берүүнү сураңыз."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун дисциплиналарды берүүсү талап кылынат."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Колдоочу агенттиктер изилдөөгө каржылык булак же башка институционалдык "
+"колдоону көрсөткөн болушу мүмкүн."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Колдоочу агенттиктер метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Автордон тапшырма учурунда колдоочу агенттиктерди сурабоо."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Автордон тапшырма учурунда колдоочу агенттиктерди ачыктоону сураңыз."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун колдоочу агенттиктерди ачыктоосу "
+"талап кылынат."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Тапшырманын шилтемелерин өзүнчө талаада жыйноо. Бул Crossref сыяктуу шилтеме "
+"көзөмөлдөө кызматтарына ылайык келүү үчүн талап кылынат."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Шилтемелер метадайындарын иштетүү"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Автордон тапшырма учурунда шилтемелерди сурабоо."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Автордон тапшырма учурунда шилтемелерди берүүнү сураңыз."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун шилтемелерди берүүсү талап кылынат."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"Автор(лор) изилдөө маалыматтарын жеткиликтүү кылышканбы же жокпу жана эгер "
+"жеткиликтүү болсо, окурмандар аны кайдан таба ала тургандыгы жөнүндө кыска "
+"билдирүү."
+
+msgid "stats.name.submissionsImported"
+msgstr "Импорттолгон тапшырмалар"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+"Автордон тапшырма учурунда маалымат жеткиликтүүлүгү жөнүндө билдирүүнү "
+"сурабоо."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"Автордон тапшырма учурунда маалымат жеткиликтүүлүгү жөнүндө билдирүүнү "
+"берүүнү сураңыз."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Автор тапшырмасы кабыл алынардан мурун маалымат жеткиликтүүлүгү жөнүндө "
+"билдирүү берүүсү талап кылынат."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Текшерүү каталары:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Каталар болду:"
+
+msgid "plugins.importexport.common.id"
+msgstr "ID: {$id}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Белгисиз элемент {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Белгисиз жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Белгисиз коддоо {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Мазмун {$param} катары коддолгон эмес"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+"Импорт файлы автор '{$authorName}' менен '{$userGroupName}' колдонуучу тобун "
+"камтыйт. Максаттуу орнотууда бул ат менен колдонуучу тобу аныкталган эмес."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Автордун аты {$param} үчүн колдонуучу тобу жок"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Автор {$authorName} тапшырманын тилинде ({$localeName}) берилген атка ээ "
+"эмес. Бул маалыматсыз тапшырма импорттоло албайт."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Автор {$authorName} тапшырманын тилинде ({$localeName}) аффиляция аталышына "
+"ээ эмес. Бул маалыматсыз тапшырма импорттоло албайт."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Белгисиз жүктөөчү {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Убактылуу файл {$dest} {$source} дан түзүлө алган жок"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Көрсөтүлгөн файл өлчөмү \"{$expected}\" жана чыныгы файл өлчөмү \"{$actual}\""
+" дал келбейт"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Тапшырма файлы импорттоло алган жок"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Тапшырма файлы {$id} өткөрүлүп кетти, анткени ал импорттолбой турган жазууга "
+"тиркелген (мисалы, рецензия дайындоо же талкуу)."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Тапшырма файлы {$id} өткөрүлүп кетти, анткени анын жарактуу ревизиясы жок."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Тапшырма файлы {$id} өткөрүлүп кетти, анткени анын жарактуу файл стадиясы "
+"жок."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Тапшырма файлы {$id} үчүн {$revision} ревизиясы өткөрүлүп кетти, анткени "
+"файл \"{$path}\" жолунда табылган жок."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Жарыялануунун {$id} каптама сүрөтү экспорттолгон жок, анын файлы \"{$path}\" "
+"жолунда табылган жок."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Импорттолгон колдонуучу \"{$username}\" сырсөзгө ээ эмес. Импорт XML "
+"форматын текшериңиз. Колдонуучу импорттолгон жок."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Импорттолгон колдонуучу \"{$username}\" сырсөзү ошол бойдон импорттоло алган "
+"жок. Жаңы сырсөз колдонуучунун электрондук почтасына жөнөтүлдү. Колдонуучу "
+"импорттолду."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Импорттолгон колдонуучу \"{$username}\" жараксыз жөнөкөй сырсөзгө ээ. "
+"Колдонуучу импорттолгон жок."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Колдонуучу аты \"{$username}\" жана электрондук почта \"{$email}\" бир эле "
+"учурда бар болгон колдонуучуга дал келбейт."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr "Тестирлөө"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Аталыш"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Жол"
+
+msgid "manager.navigationMenus"
+msgstr "Навигация"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Бул баракча төмөнкү даректе жеткиликтүү болот: <blockquote>{$pagesPath}</"
+"blockquote>... бул жерде %PATH% жогоруда киргизилген жол. <strong>Эскертүү:</"
+"strong> Эки баракчанын бирдей жолу болбойт. Системага орнотулган жолдорду "
+"колдонуу маанилүү функцияларга кирүүнү жоготууга алып келиши мүмкүн.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Мазмун"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Жол талаасында тамга-сан белгилери жана '.', '/', '-', '_' гана болушу керек."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Бул жол башка навигация меню элементинде мурунтан бар."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Бул аталыш башка навигация менюсу үчүн мурунтан бар."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Аталыш талап кылынат"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Дайындалган меню элементтери"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Дайындалбаган меню элементтери"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Активдүү тема навигация аймактары"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Навигация аймагын тандаңыз"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Бул аймакка навигация менюсу мурунтан дайындалган."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "URL дареги берилиши керек"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Бул меню элементи качан көрсөтүлөрүн же жашырылары жөнүндө көбүрөөк билиңиз."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Навигация меню түрү"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Кабыл алынган тапшырмалар"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Навигация меню түрүн тандаңыз же өз алдынча түзүү үчүн Ыңгайлаштырылганды "
+"тандаңыз"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Ыңгайлаштырылган баракча"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Сайтыңызда ыңгайлаштырылган баракча түзүп, аны навигация менюсуна шилтеме "
+"кылып кошуңуз."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Тышкы URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Башка сайттагы каалаган URL дарегине шилтеме, мисалы https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Орнотуулар > Журнал бөлүмүндөгү \"Журнал жөнүндө\" мазмунду көрсөтүүчү "
+"баракчага шилтеме"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Бул шилтеме Орнотуулар > Журнал бөлүмүндө \"Журнал жөнүндө\" бөлүгү "
+"толтурулса гана көрсөтүлөт."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Бардык активдүү редакциялык башкы тизме кызматтарын көрсөтүүчү баракчага "
+"шилтеме."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Тапшыруу нускамаларын көрсөтүүчү баракчага шилтеме."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Учурдагы санга шилтеме."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Сандардын архивине шилтеме."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Жарыяларды көрсөтүүчү баракчага шилтеме."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Бул шилтеме Орнотуулар > Вебсайт бөлүмүндө жарыялар иштетилсе гана "
+"көрсөтүлөт."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Колдонуучу кирүү баракчасына шилтеме."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Колдонуучу каттоо баракчасына шилтеме."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Редакциялык панелге шилтеме."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Колдонуучу профили баракчасына шилтеме."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Сайт боюнча администрациялык шаймандарга шилтеме."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Бул шилтеме администрациялык колдонуучуларга гана көрсөтүлөт."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Колдонуучуну чыгаруучу шилтеме."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Бул шилтеме конок киргенде гана көрсөтүлөт."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Бул шилтеме конок кирбегенде гана көрсөтүлөт."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Байланыш маалыматыңызды көрсөтүүчү баракчага шилтеме."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Бул шилтеме Орнотуулар > Байланыш бөлүмүндө маалымат толтурулса гана "
+"көрсөтүлөт."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Навигация меню түрүн тандаңыз."
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Четке кагылган тапшырмалар"
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Бул шилтеме Орнотуулар > Таратуу > Төлөмдөр бөлүмүндө төлөмдөр иштетилсе "
+"гана көрсөтүлөт."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Бул шилтеме конок киргенде, төлөмдөр иштетилгенде жана Орнотуулар > Таратуу "
+"> Кирүү бөлүмүндө жазылуулар талап кылынса гана көрсөтүлөт."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Издөө баракчасына шилтеме."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Купуялык билдирүүсүн көрсөтүүчү баракчага шилтеме."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Бул шилтеме Орнотуулар > Иш агымы > Тапшыруулар бөлүмүндө купуялык "
+"билдирүүсү киргизилсе гана көрсөтүлөт."
+
+msgid "stats.dateRange.allDates"
+msgstr "Бардык даталар"
+
+msgid "stats.dateRange.apply"
+msgstr "Колдонуу"
+
+msgid "stats.dateRange.change"
+msgstr "Дата диапазонун өзгөртүү"
+
+msgid "stats.dateRange.from"
+msgstr "Баштап"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Ар бир датаны YYYY-MM-DD форматында киргизиңиз. Мисалы, 2019-жылдын 15-"
+"январын киргизүү үчүн 2019-01-15 деп жазыңыз."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Дата форматы жараксыз. Ар бир датаны YYYY-MM-DD форматында киргизиңиз."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Башталуу датасы аяктоо датасынан мурун болушу керек."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Аяктоо датасы {$date} датасынан кеч болбошу керек."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Башталуу датасы {$date} датасынан эрте болбошу керек."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Акыркы 12 ай"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Акыркы 30 күн"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Акыркы 90 күн"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Акыркы эки жыл"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Акыркы жыл"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "{$date} тартып"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Учурдагы жыл"
+
+msgid "stats.dateRange.to"
+msgstr "Чейин"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Тандалган дата диапазону үчүн пайыздык көрсөткүч ошол аралыкта тапшырылган "
+"жана акыркы чечим алган тапшырмалар үчүн эсептелет.<br><br>Мисалы, бул "
+"аралыкта он тапшырма берилген болсо, төртөө кабыл алынган, төртөө четке "
+"кагылган жана экөө акыркы чечимди күтүп жатат.<br><br>Кабыл алуу көрсөткүчү "
+"50% (8 тапшырманын 4ү) болот, анткени акыркы чечимге жетпеген эки тапшырма "
+"эсепке алынбайт."
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Четке кагылган тапшырмалар (Дароо)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Четке кагылган тапшырмалар (Рецензиядан кийин)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Жарыяланган тапшырмалар"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Көпчүлүк тапшырмалар биринчи редакциялык чечимди (мисалы, дароо четке кагуу "
+"же рецензияга жөнөтүү) алуу үчүн талап кылынган күндөрдүн саны.<br><br>Бул "
+"көрсөткүчтөр тапшырмалардын 80% белгиленген күндөрдүн ичинде чечимге жетерин "
+"көрсөтөт.<br><br>Бул статистика журналга тапшырма берген авторлордун "
+"көпчүлүгү качан чечим күтсө болоорун сүрөттөйт."
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Бул башка жалпы эсептерге кирбеген тапшырмаларды камтыйт, мисалы, дагы эле "
+"процессте турган же импорттолгон тапшырмалар."
+
+msgid "stats.descriptionForStat"
+msgstr "{$stat} үчүн сүрөттөмө"
+
+msgid "stats.editorialActivity"
+msgstr "Редакциялык активдүүлүк"
+
+msgid "stats.file.type.suppFile"
+msgstr "Кошумча файл"
+
+msgid "stats.fileViews"
+msgstr "Файл көрүүлөрү"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Ай сайын"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Геолокация <a href='https://db-ip.com'>DB-IP</a> тарабынан берилген"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Геолокация жөнүндө"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} – {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Бардык {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Файлдарды жүктөө"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Ар бир файл үчүн жүктөөлөрдүн саны."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Географиялык жүктөөлөр"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Ар бир шаар, регион же өлкө үчүн көрүүлөр жана жүктөөлөрдүн саны."
+
+msgid "stats.region"
+msgstr "Регион"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Аталыш, автор жана ID боюнча издөө"
+
+msgid "stats.submissionsActive"
+msgstr "Активдүү тапшырмалар"
+
+msgid "stats.timeline"
+msgstr "Хронология"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Ар бир {$interval} үчүн {$type} саны."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Хронологияны жүктөө"
+
+msgid "stats.timelineInterval"
+msgstr "Хронологиялык интервал"
+
+msgid "stats.timelineType"
+msgstr "Хронология түрү"
+
+msgid "stats.total"
+msgstr "Жалпы"
+
+msgid "stats.unique"
+msgstr "Уникалдуу"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Дата диапазонундагы жалпы"
+
+msgid "stats.trends"
+msgstr "Тренддер"
+
+msgid "stats.unknown"
+msgstr "белгисиз"
+
+msgid "stats.userStatistics"
+msgstr "Колдонуучу статистикасы"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Кабыл алынган тапшырмалар"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Башка тапшырмалар"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Аяктаган рецензиялардын бардык комментарийлери. Анонимдүү рецензияларда "
+"рецензенттин аттары жашырылат"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Тапшырманын авторлорунун аттары жана аффиляциялары."
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"Колдонуучу жоголгон сырсөзүн калыбына келтире турган баракчанын URL дареги"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Колдонуучунун дайындалган бардык тапшырмаларын көрүү үчүн URL"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Колдонуучу профилин көрүү жана түзөтүү үчүн URL"
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Кабыл алынган чечимдин аты"
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Кабыл алынган чечимдин сүрөттөмөсү"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Бул чечим кабыл алынган редакциялык иш агымынын этабы"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Эгерде чечим рецензия этабына байланыштуу болсо, бул чечим кабыл алынган "
+"рецензия айлампасы"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Талкуунун темасы"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Жаңы талкуунун же жооптун мазмуну"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Аяктабай калган тапшырмалардын тизмеси"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Бул редакторго дайындалган тапшырмалардын саны"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Алуучунун же бардык алуучулардын толук аты-жөнү"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Алуучунун же бардык алуучулардын колдонуучу аты"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Рецензия бүтүрүлүшү керек болгон дата"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Рецензент дайындоону кабыл алуу же четке кагуу керек болгон дата"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "Рецензия дайындоосуна шилтеме URL"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Сунушталган чечим, мисалы Тапшырманы кабыл алуу"
+
+msgid "emailTemplate.variable.review.method"
+msgstr "Рецензия түрү, мисалы анонимдүү, кош анонимдүү же ачык"
+
+msgid "emailTemplate.variable.review.name"
+msgstr "Рецензенттин аты"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Бул журнал кош анонимдүү рецензия жүргүзөт. Рецензенттер сизди же кошумча "
+"авторлоруңузду аныктоочу маалыматты көрбөйт. Ошо сыяктуу эле, сиз ким "
+"рецензия кылганын билбейсиз жана рецензенттерден түз жооп албайсыз."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Бул журнал «рецензент анонимдүү» рецензия жүргүзөт. Сиздин жана кошумча "
+"авторлоруңуздун аттары рецензенттерге көрүнөт; бирок рецензенттердин "
+"инсандыгы анонимдүү бойдон калат."
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Бул журнал ачык рецензия жүргүзөт. Рецензенттер сиздин жана кошумча "
+"авторлоруңуздун аттарын жана аффиляцияларын көрүшөт. Ошо сыяктуу эле, сиз да "
+"рецензенттердин аттарын жана аффиляцияларын көрөсүз."
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Жөнөтүүчүнүн толук аты"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Жөнөтүүчүнүн электрондук почта дареги"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Вебсайттын автоматтык электрондук каттар үчүн кол тамгасы"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Бул тапшырмага чечим кабыл ала турган редакторлор дайындалган"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Тапшырманын аталышы"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Тапшырманын уникалдуу ID номери"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Тапшырманын аннотациясы"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Авторлордун аттарынын кыскача түрү, мисалы \"Barnes, et al\""
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Авторлордун толук аттары"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Автордун тапшырмага шилтемеси"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "Редакциялык системадагы тапшырмага шилтеме"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "Жарыяланган тапшырмага шилтеме"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "Тапшырма устатындагы тапшырмага шилтеме"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Тапшырма иш агымына дайындалган авторлордун аттары. Адатта бул тапшырманы "
+"берген автор болот"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Колдонуучуга сырсөздү калыбына келтирүүнү ырастоо үчүн жөнөтүлгөн хэш URL"
+
+msgid "emailTemplate.variable.password"
+msgstr "Жаңы кокустук колдонуучу сырсөзү"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Рецензентке рецензия суроо-талапты кайра жөнөтүү"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Тапшырма файлын жүктөгөн колдонуучунун толук аты"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Кабыл алынган тапшырмалардын саны"
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Башка жалпы эсепке кирбеген тапшырмалардын саны"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Кабыл алынган тапшырмалардын жалпы саны"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Отчет айы"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Отчет жылы"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Сандын идентификациясы: том, номер, жыл жана аталыш"
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr "Жарыяланган санга шилтеме URL"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Отчет жылы"
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"Бул электрондук кат редактор тарабынан кайра дайындалган рецензентке "
+"жөнөтүлөт."
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Бул электрондук кат редактор тарабынан рецензия суроо-талапты четке каккан "
+"рецензентке кайра жөнөтүлөт."
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "Рецензентти дайындоону алып салуу"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+"Бул электрондук кат редактор рецензентти дайындоону алып салганда жөнөтүлөт."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Электрондук почтаны ырастоо (Сайт)"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Бул электрондук кат жаңы колдонуучу сайтка катталганда жана орнотуулар "
+"электрондук почтаны ырастоону талап кылганда автоматтык түрдө жөнөтүлөт."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Башка авторлорду кабардар кылуу"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Бул электрондук кат тапшырмага катышуучу катары дайындалбаган авторлорго "
+"чечим кабыл алынганын билдирүү үчүн жөнөтүлөт. Адатта бул тапшырманы берген "
+"автордон башка бардык авторлор болот."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Тапшырманы берген авторго жөнөтүлгөн электрондук каттын көчүрмөсү"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Рецензенттерди чечим жөнүндө кабардар кылуу"
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Бул электрондук кат редактор тарабынан рецензентке тапшырма боюнча чечим "
+"кабыл алынганын билдирүү үчүн жөнөтүлөт."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Биз бул тапшырманы өзгөртүүсүз кабыл алууну чечтик."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Биз бул тапшырманы четке кагууну чечтик."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "Биз авторлорду өзгөртүүлөрдү тапшырууга чакырдык."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Тапшырмага чакырылган рецензент дайындоодон алынды."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Тапшырма кабыл алынды"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы жарыяланууга кабыл алынганын билдирет."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Тапшырма кайра корректордук түзөтүүгө жөнөтүлдү"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы корректордук түзөтүү этабына кайра "
+"жөнөтүлгөнүн билдирет."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Тапшырма корректордук түзөтүүдөн кайра жөнөтүлдү"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы корректордук түзөтүү этабынан кайра "
+"жөнөтүлгөнүн билдирет."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы үчүн рецензия айлампасы жокко "
+"чыгарылганын билдирет."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Тапшырма четке кагылды"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы рецензиядан кийин четке кагылганын "
+"билдирет."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Тапшырма четке кагылды (Рецензияга чейин)"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Жаңы рецензия айлампасы башталды"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы үчүн жаңы рецензия айлампасы "
+"башталганын билдирет."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Өзгөртүүлөр талап кылынды"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго рецензия учурунда өзгөртүүлөрдү талап кылуу "
+"чечими кабыл алынганын билдирет."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Рецензия үчүн кайра тапшыруу"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы боюнча «өзгөртүп кайра тапшыруу» "
+"чечими кабыл алынганын билдирет."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Четке кагылган тапшырманы кайра кабыл алуу"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы рецензиядан кийин четке кагылган "
+"мурунку чечим кайра каралып жатканын билдирет."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Рецензиясыз четке кагылган тапшырманы кайра кабыл алуу"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы рецензиясыз четке кагылган мурунку "
+"чечим кайра каралып жатканын билдирет."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Рецензияга жөнөтүлдү"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы рецензия этабына жөнөтүлгөнүн "
+"билдирет."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Продакшнга жөнөтүлдү"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы продакшн этабына жөнөтүлгөнүн "
+"билдирет."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Тапшырма кабыл алынды (Рецензиясыз)"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы түздөн-түз корректордук түзөтүүгө "
+"жөнөтүлүп, рецензияланбай турганын билдирет."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Сунуш берилди"
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+"Аяктабай калган тапшырмалар менен редакторлорго автоматтык түрдө жөнөтүлгөн "
+"электрондук кат"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Сырсөздү калыбына келтирүүнү ырастоо"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Бул билдирүү улук редакторго же бөлүм редакторуна дайындалган тапшырмасы "
+"боюнча редакциялык сунуш берилгенин билдирет. Бул билдирүү редакторго "
+"редакциялык чечимди сунуштоого гана уруксат берилгенде жана чечимди жазуу "
+"үчүн ыйгарым укуктуу редактор талап кылынганда колдонулат. Бул параметр "
+"тапшырмага катышуучуларды дайындоодо тандалышы мүмкүн."
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Рецензияны ырастоо"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Бул электрондук кат рецензент рецензия суроо-талапты кабыл алганда "
+"автоматтык түрдө жөнөтүлөт"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Рецензиядан баш тартуу"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Бул электрондук кат рецензент рецензия суроо-талаптан баш тартканда жөнөтүлөт"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Рецензия эскертүүсү"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Бул электрондук кат редактор тарабынан рецензентке рецензия мөөнөтү жакындап "
+"калганын эскертип жөнөтүлөт."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Рецензия эскертүүсү (Автоматтык)"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Бул электрондук кат рецензент белгиленген мөөнөттө рецензиясын бүтүрбөгөндө "
+"автоматтык түрдө жөнөтүлөт."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Рецензияны кабыл алуу ырастоосу"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Бул электрондук кат редактор тарабынан рецензентке рецензиясы алынганын "
+"ырастоо жана анын салымы үчүн ыраазычылык билдирүү үчүн жөнөтүлөт."
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr "Рецензияга жооп кечикти (Автоматтык)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Бул электрондук кат рецензенттин рецензия суроо-талапка жооп берүү мөөнөтү "
+"өтүп кеткенде автоматтык түрдө жөнөтүлөт."
+
+msgid "mailable.reviewRequest.name"
+msgstr "Рецензия суроо-талап"
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Бул электрондук кат бөлүм редактору тарабынан рецензентке тапшырманы кабыл "
+"алуу же четке кагуу өтүнүчү менен жөнөтүлөт. "
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Кийинки рецензия суроо-талап"
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Бул электрондук кат редактор тарабынан рецензентке тапшырманы кошумча "
+"рецензия айлампасы үчүн кабыл алуу же четке кагуу өтүнүчү менен жөнөтүлөт. "
+"Ал тапшырма жөнүндө маалыматтарды, мисалы аталыш жана аннотация, рецензия "
+"мөөнөтү жана тапшырмага кантип кирүү керектигин камтыйт."
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Тапшырманын учурдагы жарыясы жок"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Тапшырманын {$child} бөлүгү иштетилген жок"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Редакциялык эскертүү"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Бул электрондук кат катталган колдонуучуга сырсөзүн унутканын же кире албай "
+"жатканын билдиргенде жөнөтүлөт. Ал сырсөздү калыбына келтирүү үчүн шилтемени "
+"камтыйт."
+
+msgid "mailable.userRegister.name"
+msgstr "Колдонуучу түзүлдү"
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"Бул электрондук кат редакциялык менеджер колдонуучуну орнотуулар аркылуу "
+"түзгөндө жаңы колдонуучуга жөнөтүлөт. Электрондук кат аларды системага тосуп "
+"алып, колдонуучу аты жана сырсөзү жөнүндө маалымат берет."
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Рецензент катталды"
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Бул электрондук кат жаңы катталган рецензентке системага кош келиңиз деп "
+"жөнөтүлөт жана колдонуучу аты менен сырсөзүн камтыйт."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Тапшырма кийинчерээк сакталды"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Авторлор тапшырмасын кийин бүтүрүү үчүн сактаганда автоматтык түрдө "
+"жөнөтүлгөн электрондук кат"
+
+msgid "mailable.submissionAck.name"
+msgstr "Тапшырманы ырастоо"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырма бергенде автоматтык түрдө жөнөтүлөт. Ал "
+"тапшырманы редакциялык процессте кантип көзөмөлдөөнү түшүндүрөт жана авторго "
+"ыраазычылык билдирет."
+
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"Бул электрондук кат тапшырмада аты көрсөтүлгөн, бирок тапшырманы берген эмес "
+"авторлорго автоматтык түрдө жөнөтүлөт."
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Талкуу (Тапшырма)"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Бул электрондук кат тапшырма этабында талкуу түзүлгөндө же жооп берилгенде "
+"жөнөтүлөт."
+
+msgid "mailable.discussionReview.name"
+msgstr "Талкуу (Рецензия)"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Бул электрондук кат рецензия этабында талкуу түзүлгөндө же жооп берилгенде "
+"жөнөтүлөт."
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Талкуу (Корректордук түзөтүү)"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Бул электрондук кат корректордук түзөтүү этабында талкуу түзүлгөндө же жооп "
+"берилгенде жөнөтүлөт."
+
+msgid "mailable.discussionProduction.name"
+msgstr "Талкуу (Продакшн)"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Бул электрондук кат продакшн этабында талкуу түзүлгөндө же жооп берилгенде "
+"жөнөтүлөт."
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Өзгөртүлгөн версия жөнүндө билдирүү"
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Бул электрондук кат автор макаланын өзгөртүлгөн версиясын жүктөгөндө "
+"дайындалган редакторго автоматтык түрдө жөнөтүлөт."
+
+msgid "mailable.announcementNotify.name"
+msgstr "Жаңы жарыя"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Бул электрондук кат рецензентке рецензия дайындоосунун деталдары өзгөргөндө "
+"автоматтык түрдө жөнөтүлөт."
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Рецензенттин комментарийи жөнүндө редакторлорду кабардар кылуу"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Бул электрондук кат рецензент рецензия боюнча сунуш бергенде дайындалган "
+"редакторлорго автоматтык түрдө жөнөтүлөт."
+
+msgid "manager.people.authSource"
+msgstr "Аутентификация булагы"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Тапшырма кайра рецензияга жөнөтүлдү"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы кайра рецензия этабына жөнөтүлгөнүн "
+"билдирет."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Тапшырма кайра тапшырма этабына жөнөтүлдү"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Бул электрондук кат авторго тапшырмасы кайра тапшырма этабына жөнөтүлгөнүн "
+"билдирет."
+
+msgid "manager.manageEmails"
+msgstr "Электрондук каттарды башкаруу"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p>Системадан жөнөтүлгөн бардык электрондук каттар үчүн <a href=\"{$url}\""
+">шаблондорду кошуп жана түзөтүңүз</a>.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Колдонуучу бул электрондук катты жөнөтүп жатканда жеткиликтүү болушу үчүн "
+"шаблондорду кошуп жана түзөтүңүз. Баштапкы шаблон автоматтык түрдө жүктөлөт, "
+"жана колдонуучу бул жерге кошкон башка шаблондорду тез жүктөй алат."
+
+msgid "manager.mailables.templates"
+msgstr "Шаблондор"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Шаблонду түзөтүү"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Шаблонду өчүрүү"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr "Чын эле <strong>{$template}</strong> шаблонун өчүрүүнү каалайсызбы?"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Шаблонду баштапкы абалга келтирүү"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Чын эле <strong>{$template}</strong> шаблонунун темасын жана мазмунун "
+"баштапкы абалга келтирүүнү каалайсызбы?"
+
+msgid "manager.mailables.search"
+msgstr "Ат же сүрөттөмө боюнча издөө"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Бул шаблонду табууга жардам берүү үчүн кыска ат киргизиңиз."
+
+msgid "manager.newSubmission"
+msgstr "Жаңы тапшырма"
+
+msgid "manager.forEditors"
+msgstr "Редакторлор үчүн"
+
+msgid "manager.forEditors.description"
+msgstr ""
+"Редакторлорго жөнөтүлүүчү электрондук кат эскертүүлөрүн конфигурациялаңыз."
+
+msgid "manager.editorialStatistics"
+msgstr "Редакциялык статистика"
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Редакторлорго журналдын редакциялык статистикасы (мисалы, кабыл алуу жана "
+"четке кагуу көрсөткүчтөрү) менен ай сайын электрондук кат жөнөтүлүшү керекпи "
+"же жокпу. Редакторлор бул электрондук катка өз профилинен жазылуудан баш "
+"тарта алышат."
+
+msgid "manager.editorialStatistics.on"
+msgstr "Редакторлорго ай сайын электрондук кат жөнөтүү."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Редакторлорго электрондук кат жөнөтпөө."
+
+msgid "manager.submitWithCategories.description"
+msgstr "Жаңы тапшырма бергенде автордон категория тандашы талап кылынсынбы?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Ооба, тапшырма устатына категория талаасын кошуу."
+
+msgid "manager.submitWithCategories.no"
+msgstr "Жок, авторлорго бул талааны көрсөтпөө."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Корректордук түзөтүү өтүнүчү"
+
+msgid "mailable.editorAssign.name"
+msgstr "Редактор дайындалды"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Продакшнга даяр"
+
+msgid "mailable.system"
+msgstr "Система"
+
+msgid "mailable.versionCreated.name"
+msgstr "Версия түзүлдү"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Рецензия аяктады"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Рецензия түзөтүлдү"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Башка авторлорго тапшырманы ырастоо"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Бул электрондук кат редакторго тапшырмага автоматтык түрдө дайындалганда "
+"жөнөтүлөт."
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "Редактор дайындоо"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Тапшырма редакторду талап кылат"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Авторлор тапшырма бергенде тирешкен кызыкчылыктар (CI) жөнүндө билдирүү "
+"тапшыруусу талап кылынат."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Башкы тизме ролдорунун коомдук көрсөтүлүү тартибин аныктаңыз."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Рецензенттер бул бөлүмдө бирдиктүү форматта көрсөтүлөт, бул бирдейликти "
+"сактап жана оңой табууну камсыз кылат."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Ар бир редактордун толук аты-жөнүн, аффиляциясын жана башталыш/аяктоо "
+"даталарын камтыган редакциялык тарыхты бериңиз."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Электрондук почта дарегин өзгөртүү чакыруусу"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Экспорт жана каттоодон мурун XMLди текшерүү."

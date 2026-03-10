@@ -1,4 +1,4 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023, 2025.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023, 2025, 2026.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Emma U <emmaupkp@gmail.com>, 2024.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-12-24 14:21+0000\n"
+"PO-Revision-Date: 2026-02-06 20:38+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "de/>\n"
@@ -385,7 +385,7 @@ msgstr ""
 
 msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
-"Eine Diskussion mit den ausgewählten Teilnehmern kann nicht erstellt werden, "
+"Eine Diskussion mit den ausgewählten Beteiligten kann nicht erstellt werden, "
 "da dies die Anonymität des Review-Prozesses beeinträchtigen würde."
 
 msgid "editor.discussion.errorNotStageParticipant"

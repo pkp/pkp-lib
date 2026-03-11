@@ -165,7 +165,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy
             }
 
             // Give plugin a chance to modify/add policies for author to access
-            Hook::call('SubmissionFileAccessPolicy::authorFileAccess', [$request, $mode, $submissionFileId, &$authorFileAccessOptionsPolicy]);
+            Hook::run('SubmissionFileAccessPolicy::authorFileAccess', [$request, $mode, $submissionFileId, &$authorFileAccessOptionsPolicy]);
 
             // Add the rules from 3)
             $authorFileAccessPolicy->addPolicy($authorFileAccessOptionsPolicy);

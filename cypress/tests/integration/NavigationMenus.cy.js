@@ -42,10 +42,11 @@ describe('Navigation Menu Management', function() {
 	}
 
 	/**
-	 * Close the Vue modal by clicking the Cancel button
+	 * Confirm closing the Vue modal with unsaved changes
 	 */
 	function closeModal() {
 		cy.contains('[data-cy="active-modal"] button', 'Cancel').click();
+		cy.get('[data-cy="dialog"]').contains('button', 'Yes').click();
 		cy.get('[data-cy="active-modal"]').should('not.exist');
 	}
 

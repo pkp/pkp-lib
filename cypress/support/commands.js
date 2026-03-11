@@ -629,7 +629,7 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 	cy.contains('table tr', title).within(() => {
 		cy.get('button').click()
 	})
-	cy.get('input[id="privacyConsent"]').click();
+	cy.get('input[name="privacyConsent"]').click();
 	cy.get('button:contains("Accept Review, Continue to Step #2")').click();
 	cy.get('button:contains("Continue to Step #3")').click();
 	cy.wait(2000); // Give TinyMCE control time to load

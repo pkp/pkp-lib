@@ -62,6 +62,7 @@ abstract class Collector implements CollectorInterface
     public string $orderDirection = 'DESC';
     public ?string $searchPhrase = null;
     public ?int $maxSearchKeywords = null;
+    public bool $allowAuthorSearch = false;
     public ?array $statuses = null;
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
@@ -492,7 +493,7 @@ abstract class Collector implements CollectorInterface
                                     ->whereColumn('s.submission_id', '=', 'sso.submission_id')
                                 // Don't permit reviewers to search on author names
                                     ->when(
-                                        !empty($this->assignedTo),
+                                        !empty($this->assignedTo) && !$this->allowAuthorSearch,
                                         fn (Builder $q) => $q
                                             ->where(
                                                 fn (Builder $q) => $q
@@ -526,7 +527,7 @@ abstract class Collector implements CollectorInterface
                                     ])
                                 // Don't permit reviewers to search on author names
                                     ->when(
-                                        !empty($this->assignedTo),
+                                        !empty($this->assignedTo) && !$this->allowAuthorSearch,
                                         fn (Builder $q) => $q
                                             ->where(
                                                 fn (Builder $q) => $q

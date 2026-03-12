@@ -388,3 +388,9 @@ msgstr "The user was disabled. You cannot assign them a role while they are disa
 msgid "acceptInvitation.privacyConsent"
 msgstr "Privacy Consent"
 
+msgid "invitation.unavailable.title"
+msgstr "Invitation Unavailable"
+
+msgid "invitation.unavailable.description"
+msgstr "This invitation is no longer available. It may have already been accepted, declined, or expired. Please contact the journal manager for further assistance."
+

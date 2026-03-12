@@ -31,6 +31,9 @@ class UserCommentComponent
 
     private array $commentsCountPerPublication;
 
+    private Submission $submission;
+    private Request $request;
+
     /**
      * @param Submission $submission - The submission for which the user comment component is being prepared.
      * @param Request $request - The current request object.
@@ -44,20 +47,36 @@ class UserCommentComponent
         $this->publishedPublication = collect();
         foreach (array_reverse($submission->getPublishedPublications()) as $publishedPublication) {
             $this->publishedPublication->add([
-                'id' => $publishedPublication->getId(), 
+                'id' => $publishedPublication->getId(),
                 'version' => $publishedPublication->getData('versionString')
             ]);
         }
 
 
-        $this->commentsCountPerPublication = UserComment::withPublicationIds($this->publishedPublication->pluck('id')->all())
-            ->withIsApproved(true)
-            ->select('publication_id', DB::raw('count(*) as count'))
+        // Fetch data needed to calculate the count of comments for each publication and the total count of all comments across publications.
+        $commentsForAllPublications = UserComment::withPublicationIds($this->publishedPublication->pluck('id')->all())
+            ->where(function ($query) {
+                $query->where('is_approved', true);
+                $userId = $this->request->getUser()?->getId();
+
+                // A user can see their unapproved comments for a given publication, so we include those to be able to properly calculate
+                // the count number shown next to the "Show More" button in the front-office UI. This number should reflect the total remaining approved comments + the user's remaining unapproved comments (if the user is logged in) that can be viewed.
+                if ($userId) {
+                    $query->orWhere('user_id', $userId);
+                }
+            })
+            ->select(['publication_id', 'is_approved'])
+            ->get();
+
+        $this->commentsCountPerPublication = $commentsForAllPublications
             ->groupBy('publication_id')
-            ->pluck('count', 'publication_id')
+            ->map
+            ->count()
             ->toArray();
 
-        $this->allCommentsCount = array_sum($this->commentsCountPerPublication);
+        $this->allCommentsCount = $commentsForAllPublications
+            ->filter(fn($comment) => $comment->is_approved)
+            ->count();
     }
 
     /**

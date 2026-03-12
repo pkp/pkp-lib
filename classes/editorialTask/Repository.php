@@ -32,6 +32,11 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
+use PKP\mail\mailables\DiscussionSubmission;
+use PKP\mail\mailables\DiscussionReview;
+use PKP\mail\mailables\DiscussionCopyediting;
+use PKP\mail\mailables\DiscussionProduction;
+
 
 class Repository
 {
@@ -46,7 +51,7 @@ class Repository
     {
         $counts = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->when($participantIds !== null, function ($q) use ($participantIds) {
-                $q->withUserIds($participantIds);
+                $q->withParticipantIds($participantIds);
             })
             ->withClosed(false)
             ->selectRaw('stage_id, COUNT(stage_id) as count')
@@ -96,15 +101,21 @@ class Repository
             'seq' => $maxSeq + 1,
             'createdBy' => $fromUser->getId(),
             'type' => EditorialTaskType::DISCUSSION->value,
-            EditorialTask::ATTRIBUTE_PARTICIPANTS => array_map(fn (int $participantId) => ['userId' => $participantId], array_unique($participantUserIds)),
+            EditorialTask::ATTRIBUTE_PARTICIPANTS => array_map(
+                fn (int $participantId) => ['userId' => $participantId],
+                array_unique($participantUserIds)
+            ),
             'title' => $title,
         ]);
 
-        Note::create([
+        // Head note for this discussion, with a capturable messageId
+        $headNote = Note::create([
             'assocType' => Application::ASSOC_TYPE_QUERY,
             'assocId' => $task->id,
             'contents' => $content,
             'userId' => $fromUser->getId(),
+            'isHeadnote' => true,
+            'messageId' => Note::generateMessageId(),
         ]);
 
         // Add task for assigned participants
@@ -113,8 +124,24 @@ class Repository
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 
+        // need submission + context + stage mailables to send capturable email
+        $submission = Repo::submission()->get($submissionId);
+        $application = Application::get();
+        $request = $application->getRequest();
+        $context = $request?->getContext();
+
+        $mailableMap = [
+            WORKFLOW_STAGE_ID_SUBMISSION => DiscussionSubmission::class,
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => DiscussionReview::class,
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => DiscussionReview::class,
+            WORKFLOW_STAGE_ID_EDITING => DiscussionCopyediting::class,
+            WORKFLOW_STAGE_ID_PRODUCTION => DiscussionProduction::class,
+        ];
+
+        $mailableClass = $mailableMap[$stageId] ?? null;
+
         foreach ($task->participants()->get() as $participant) {
-            $notificationMgr->createNotification(
+            $notification = $notificationMgr->createNotification(
                 $participant->userId,
                 Notification::NOTIFICATION_TYPE_NEW_QUERY,
                 $contextId,
@@ -123,7 +150,8 @@ class Repository
                 Notification::NOTIFICATION_LEVEL_TASK
             );
 
-            if (!$sendEmail) {
+            if (
+                !$sendEmail|| !$notification || !$mailableClass || !$submission || !$context) {
                 continue;
             }
 
@@ -138,11 +166,20 @@ class Repository
             }
 
             $recipient = $participant->user;
-            $mailable = new Mailable();
-            $mailable->to($recipient->getEmail(), $recipient->getFullName());
-            $mailable->from($fromUser->getEmail(), $fromUser->getFullName());
-            $mailable->subject($title);
-            $mailable->body($content);
+            if (!$recipient) {
+                continue;
+            }
+
+            /** @var \PKP\mail\Mailable $mailable */
+            $mailable = new $mailableClass($context, $submission);
+
+            $mailable
+                ->sender($fromUser)
+                ->recipients([$recipient])
+                ->subject($title)
+                ->body($content)
+                ->allowUnsubscribe($notification)
+                ->allowCapturableReply($headNote->messageId);
 
             Mail::send($mailable);
         }
@@ -249,6 +286,152 @@ class Repository
             Notification::whereIn('assoc_id', $taskIds)->delete();
         }
     }
+
+    public function notifyParticipantsOnNote(Note $note): void
+    {
+        // Only discussion notes
+        if ($note->assocType !== PKPApplication::ASSOC_TYPE_QUERY) {
+            return;
+        }
+
+        // skip headnote initial email handled when query is created
+        if ($note->isHeadnote ?? false) {
+            return;
+        }
+
+        $task = EditorialTask::find($note->assocId);
+        if (!$task) {
+            return;
+        }
+
+        $submission = Repo::submission()->get($task->assocId);
+        if (!$submission) {
+            return;
+        }
+
+        $application = Application::get();
+        $request = $application->getRequest();
+        $context = $request->getContext();
+        if (!$context) {
+            return;
+        }
+
+        $sender = Repo::user()->get($note->userId ?? null);
+        if (!$sender) {
+            return;
+        }
+
+        $headNote = Repo::note()->getHeadNote($task->id);
+        $threadAnchorMessageId = $headNote?->messageId;
+        $title = $headNote?->title ?: $task->title;
+        $subject = $title
+            ? __('common.re') . ' ' . $title
+            : __('common.re');
+
+
+        $participantIds = $task->participants()
+            ->pluck('user_id')
+            ->all();
+
+        if (empty($participantIds)) {
+            return;
+        }
+
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+
+        $notificationManager = new NotificationManager();
+
+        // attachments for this note (if any)
+        $submissionFiles = Repo::submissionFile()
+            ->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
+            ->filterBySubmissionIds([$submission->getId()])
+            ->getMany();
+
+        // Stage -> mailable map (same as StageMailable)
+        $mailableMap = [
+            WORKFLOW_STAGE_ID_SUBMISSION => DiscussionSubmission::class,
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => DiscussionReview::class,
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => DiscussionReview::class,
+            WORKFLOW_STAGE_ID_EDITING => DiscussionCopyediting::class,
+            WORKFLOW_STAGE_ID_PRODUCTION => DiscussionProduction::class,
+        ];
+
+        if (!isset($mailableMap[$task->stageId])) {
+            return;
+        }
+
+        $mailableClass = $mailableMap[$task->stageId];
+
+        foreach ($participantIds as $userId) {
+            if ($userId === $sender->getId()) {
+                continue;
+            }
+
+            // clear previous "query activity" notifications for this user/query
+            Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)
+                ->withUserId($userId)
+                ->withType(Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY)
+                ->withContextId((int) $context->getId())
+                ->delete();
+
+            $recipient = Repo::user()->get($userId);
+            if (!$recipient) {
+                continue;
+            }
+
+            // create notification
+            $notification = $notificationManager->createNotification(
+                $userId,
+                Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                (int) $context->getId(),
+                PKPApplication::ASSOC_TYPE_QUERY,
+                $task->id,
+                Notification::NOTIFICATION_LEVEL_TASK
+            );
+
+            if (!$notification) {
+                continue;
+            }
+
+            // respect email notification settings
+            $blocked = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                $userId,
+                (int) $context->getId()
+            );
+
+            if (in_array(Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY, $blocked)) {
+                continue;
+            }
+
+            /** @var \PKP\mail\Mailable $mailable */
+            $mailable = new $mailableClass($context, $submission);
+
+            $mailable
+                ->sender($sender)
+                ->recipients([$recipient])
+                ->subject($subject)
+                ->body($note->contents)
+                ->allowUnsubscribe($notification)
+                ->allowCapturableReply(
+                    $note->messageId,
+                    $threadAnchorMessageId && $threadAnchorMessageId !== $note->messageId ? $threadAnchorMessageId : null,
+                    $threadAnchorMessageId ? [$threadAnchorMessageId] : []
+                );
+
+            $submissionFiles->each(
+                fn ($item) => $mailable->attachSubmissionFile(
+                    $item->getId(),
+                    $item->getData('name')
+                )
+            );
+
+            Mail::send($mailable);
+        }
+    }
+
 
     public function removeParticipantFromSubmissionTasks(int $submissionId, int $userId, int $contextId): void
     {

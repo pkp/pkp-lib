@@ -325,6 +325,7 @@ class EditorialTask extends Model
                 'userId' => $attributes['createdBy'] ?? $this->createdBy,
                 'contents' => $attributes[self::ATTRIBUTE_HEADNOTE],
                 'isHeadnote' => true,
+                'messageId' => Note::generateMessageId(),
             ]);
 
             unset($attributes[self::ATTRIBUTE_HEADNOTE]);

@@ -19,6 +19,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use PKP\core\PKPContainer;
 use PKP\plugins\interfaces\HasTaskScheduler;
 use PKP\plugins\PluginRegistry;
+use PKP\task\CheckEmail;
 use PKP\task\ProcessQueueJobs;
 use PKP\task\RemoveExpiredInvitations;
 use PKP\task\RemoveFailedJobs;
@@ -113,6 +114,13 @@ abstract class PKPScheduler
             ->twiceMonthly()
             ->name(UpdateRorRegistryDataset::class)
             ->withoutOverlapping();
+
+        $this
+            ->schedule
+            ->call(fn () => (new CheckEmail())->execute())
+            ->hourly()
+            ->name(CheckEmail::class);
+
 
         // We only load all plugins and register their scheduled tasks when running under the CLI
         // On the web based task runner the scheduled tasks must be registered before it starts running

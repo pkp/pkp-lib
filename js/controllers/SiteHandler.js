@@ -161,6 +161,7 @@
 				statusbar: false,
 				content_css: contentCSS,
 				browser_spellcheck: true,
+				contextmenu: false,
 				skin: 'tinymce-5',
 				license_key: 'gpl',
 				menubar: false,

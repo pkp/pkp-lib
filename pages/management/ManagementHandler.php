@@ -173,23 +173,23 @@ class ManagementHandler extends Handler
         ]);
 
         // Interact with the beacon (if enabled) and determine if a new version exists
-        $latestVersion = VersionCheck::checkIfNewVersionExists();
+        if (Config::getVar('general', 'show_upgrade_warning')) {
+            $latestVersion = VersionCheck::checkIfNewVersionExists();
+            if ($latestVersion) {
+                $currentVersion = VersionCheck::getCurrentDBVersion();
+                $templateMgr->assign([
+                    'newVersionAvailable' => true,
+                    'currentVersion' => $currentVersion->getVersionString(),
+                    'latestVersion' => $latestVersion,
+                ]);
 
-        // Display a warning message if there is a new version of OJS available
-        if (Config::getVar('general', 'show_upgrade_warning') && $latestVersion) {
-            $currentVersion = VersionCheck::getCurrentDBVersion();
-            $templateMgr->assign([
-                'newVersionAvailable' => true,
-                'currentVersion' => $currentVersion->getVersionString(),
-                'latestVersion' => $latestVersion,
-            ]);
+                $siteAdmins = Repo::user()->getCollector()
+                    ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN])
+                    ->getMany();
 
-            $siteAdmins = Repo::user()->getCollector()
-                ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN])
-                ->getMany();
-
-            $siteAdmin = $siteAdmins->first();
-            $templateMgr->assign('siteAdmin', $siteAdmin);
+                $siteAdmin = $siteAdmins->first();
+                $templateMgr->assign('siteAdmin', $siteAdmin);
+            }
         }
 
         $templateMgr->assign('pageTitle', __('manager.setup'));

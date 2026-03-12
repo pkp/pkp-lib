@@ -129,16 +129,16 @@ class AdminHandler extends Handler
         }
 
         // Interact with the beacon (if enabled) and determine if a new version exists
-        $latestVersion = VersionCheck::checkIfNewVersionExists();
-
-        // Display a warning message if there is a new application version available
-        if (Config::getVar('general', 'show_upgrade_warning') && $latestVersion) {
-            $currentVersion = VersionCheck::getCurrentDBVersion();
-            $templateMgr->assign([
-                'newVersionAvailable' => true,
-                'currentVersion' => $currentVersion,
-                'latestVersion' => $latestVersion,
-            ]);
+        if (Config::getVar('general', 'show_upgrade_warning')) {
+            $latestVersion = VersionCheck::checkIfNewVersionExists();
+            if ($latestVersion) {
+                $currentVersion = VersionCheck::getCurrentDBVersion();
+                $templateMgr->assign([
+                    'newVersionAvailable' => true,
+                    'currentVersion' => $currentVersion,
+                    'latestVersion' => $latestVersion,
+                ]);
+            }
         }
 
         return parent::initialize($request, $args);

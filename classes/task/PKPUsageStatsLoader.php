@@ -122,6 +122,7 @@ abstract class PKPUsageStatsLoader extends FileLoader
         if (!empty($jobs)) {
             Bus::chain($jobs)
                 ->catch(function (Throwable $e) {
+                    error_log('Usage stats job chain failed: ' . $e->getMessage());
                 })
                 ->dispatch();
 

@@ -435,6 +435,21 @@
 			],
 			"defaultLocaleKey": "default.submission.step.forTheEditors"
 		},
+		"funders": {
+			"type": "string",
+			"description": "Enable funding metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a funders during submission. `require` will require that the author enter funders during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},
+		"funderGrantValidation": {
+            "type": "boolean",
+            "description": "Enable funder grant validation.",
+            "validation": [
+                "nullable"
+            ]
+        },
 		"homepageImage": {
 			"type": "object",
 			"multilingual": true,

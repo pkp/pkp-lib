@@ -610,6 +610,7 @@ abstract class Context extends \PKP\core\DataObject
             'dataCitations',
             'disciplines',
             'fundingStatement',
+            'funders',
             'keywords',
             'rights',
             'source',

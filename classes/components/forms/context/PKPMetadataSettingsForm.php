@@ -215,6 +215,32 @@ class PKPMetadataSettingsForm extends FormComponent
                 ],
                 'value' => $context->getData('fundingStatement') ? $context->getData('fundingStatement') : Context::METADATA_DISABLE,
             ]))
+            ->addField(new FieldMetadataSetting('funders', [
+                'label' => __('manager.setup.metadata.funders'),
+
+                'description' => __('manager.setup.metadata.funders.description'),
+                'options' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.funders.enable')]
+                ],
+                'submissionOptions' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.funders.noRequest')],
+                    ['value' => Context::METADATA_REQUEST, 'label' => __('manager.setup.metadata.funders.request')],
+                    ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.funders.require')],
+                ],
+                'value' => $context->getData('funders') ? $context->getData('funders') : Context::METADATA_DISABLE,
+            ]))
+            ->addField(new FieldOptions('funderGrantValidation', [
+                'label' => __('manager.setup.metadata.funders.funderGrantValidation'),
+                'description' => __('manager.setup.metadata.funders.funderGrantValidation.description'),
+                'options' => [
+                    [
+                        'value' => 'true',
+                        'label' => __('manager.setup.metadata.funders.funderGrantValidation.enable')
+                    ]
+                ],
+                'value' => (bool)$context->getData('funderGrantValidation'),
+                'showWhen' => 'funders'
+            ]))
             ->addField(new FieldMetadataSetting('dataAvailability', [
                 'label' => __('submission.dataAvailability'),
                 'description' => __('manager.setup.metadata.dataAvailability.description'),

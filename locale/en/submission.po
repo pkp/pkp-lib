@@ -959,6 +959,63 @@ msgstr "For the Editors"
 msgid "submission.forReviewerSuggestion"
 msgstr "For Reviewer Suggestion"
 
+msgid "submission.funding"
+msgstr "Funding"
+
+msgid "submission.funders"
+msgstr "Funders"
+
+msgid "submission.funders.description"
+msgstr "This table allows users to add formal funding information, ensuring funders are properly credited and appear in the publication metadata."
+
+msgid "submission.funders.action.addFunder"
+msgstr "Add a new Funder"
+
+msgid "submission.funders.column.name"
+msgstr "Funder Name"
+
+msgid "submission.funders.emptyFunders"
+msgstr "No funders have been added."
+
+msgid "submission.funders.addFunder.title"
+msgstr "Add Funder"
+
+msgid "submission.funders.editFunder.title"
+msgstr "Edit Funder"
+
+msgid "submission.funders.funder"
+msgstr "Funder"
+
+msgid "submission.funders.funder.description"
+msgstr "Enter the full name of the institution below, avoiding any acronyms and select the name from the dropdown. (e.g. \"Simon Fraser University\")"
+
+msgid "submission.funders.funder.searchPhraseLabel"
+msgstr "Search for a funder by name"
+
+msgid "submission.funders.funder.typeTranslationNameInLanguageLabel"
+msgstr "Type the funder name in {$language}"
+
+msgid "submission.funders.funder.grants.label.name"
+msgstr "Funder Grants"
+
+msgid "submission.funders.funder.grants.label.description"
+msgstr "Add any grants associated with this funder (optional)."
+
+msgid "submission.funders.funder.grant.number"
+msgstr "Grant Number"
+
+msgid "submission.funders.funder.grant.name"
+msgstr "Grant Name"
+
+msgid "submission.funders.required"
+msgstr "Funders are required."
+
+msgid "submission.funders.grantNumberInvalid"
+msgstr "The given grant number could not be validated against the Funder's ROR ID."
+
+msgid "submission.funders.funderNameOrRorRequired"
+msgstr "Search and select a Funder or enter a Funder name"
+
 msgid "submission.galley"
 msgstr "Galley"
 

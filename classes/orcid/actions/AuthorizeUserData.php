@@ -206,7 +206,7 @@ class AuthorizeUserData
         $orcidAccessExpiresOn = Carbon::now();
         // expires_in field from the response contains the lifetime in seconds of the token
         // See https://members.orcid.org/api/get-oauthtoken
-        $orcidAccessExpiresOn->addSeconds($orcidResponse['expires_in']);
+        $orcidAccessExpiresOn->addSeconds((int)$orcidResponse['expires_in']);
 
         $data['orcid'] = $orcidUri;
         $data['orcidIsVerified'] = true;

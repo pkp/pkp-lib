@@ -152,7 +152,7 @@ class VerifyIdentityWithOrcid
         $orcidAccessExpiresOn = Carbon::now();
         // expires_in field from the response contains the lifetime in seconds of the token
         // See https://members.orcid.org/api/get-oauthtoken
-        $orcidAccessExpiresOn->addSeconds($response['expires_in']);
+        $orcidAccessExpiresOn->addSeconds((int)$response['expires_in']);
         // remove the access denied marker, because now the access was granted
         $this->identity->setData('orcidAccessDenied', null);
         $this->identity->setData('orcidAccessToken', $response['access_token']);

@@ -214,6 +214,24 @@ msgstr ""
 "Unable to update the ROR Registry dataset due to a checksum mismatch."
 " Expected checksum: {$expected}. Actual checksum: {$actual}"
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr "Unable to retrieve the ROR Registry dataset metadata. Unexpected HTTP status code: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr "Unable to retrieve the ROR Registry dataset metadata. No download file found in the API response."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "Unable to download the ROR Registry dataset ZIP file."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Unable to extract the ROR Registry dataset ZIP file."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr "Unable to find a JSON data file with schema version {$version} in the extracted ROR Registry dataset."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr "ROR Registry record with id \"{$id}\" is missing one or more required fields (id, names, status) and has been skipped."
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Usage statistics file loader task"
 

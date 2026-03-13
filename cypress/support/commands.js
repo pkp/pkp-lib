@@ -128,7 +128,7 @@ Cypress.Commands.add('createSubmission', (data, context) => {
 			cy.get('input[id="isEditedVolume-1"]').click();
 			break;
 	}
-	cy.get('input[id=privacyConsent]').click();
+	cy.get('input[name=privacyConsent]').click();
 	if ('submitterRole' in data) {
 		cy.get('input[name=userGroupId]').parent().contains(data.submitterRole).click();
 	} else cy.get('input[id=userGroupId]').click();
@@ -355,7 +355,7 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 	comments = comments || 'Here are my review comments';
 	cy.login(username, password, context);
 	cy.get('a').contains('View ' + title).click({force: true});
-	cy.get('input[id="privacyConsent"]').click();
+	cy.get('input[name="privacyConsent"]').click();
 	cy.get('button:contains("Accept Review, Continue to Step #2")').click();
 	cy.get('button:contains("Continue to Step #3")').click();
 	cy.wait(2000); // Give TinyMCE control time to load

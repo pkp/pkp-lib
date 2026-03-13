@@ -110,7 +110,7 @@ abstract class PKPScheduler
         $this
             ->schedule
             ->call(fn () => (new UpdateRorRegistryDataset())->execute())
-            ->twiceMonthly()
+            ->monthly()
             ->name(UpdateRorRegistryDataset::class)
             ->withoutOverlapping();
 

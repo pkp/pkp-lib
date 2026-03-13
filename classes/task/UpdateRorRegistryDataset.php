@@ -11,55 +11,19 @@
  *
  * @ingroup tasks
  *
- * @brief Class responsible for bi-weekly update of the ROR Registry tables in the database.
+ * @brief Class responsible for monthly update of the ROR Registry tables in the database.
  */
 
 /**
- * Mapping Ror data dump and OJS
+ * Mapping Ror JSON schema v2 data dump and OJS
  *
- *  0 id                      rors.ror
- * 29 names.types.label       ror_settings['locale' => 'en', 'setting_name' => 'name',           'setting_value' => 'name']
- * 30 names.types.ror_display
- * 31 ror_display_lang        ror_settings['locale' =>   '', 'setting_name' => 'default_locale', 'setting_value' => 'en']
- * 33 status                  ror_settings['locale' =>   '', 'setting_name' => 'is_active',      'setting_value' => '1']
- *
- * | index | ror registry                                        | ojs          |
- * |-------|-----------------------------------------------------|--------------|
- * | 0     | id                                                  | rors.ror     |
- * | 1     | admin.created.date                                  |              |
- * | 2     | admin.created.schema_version                        |              |
- * | 3     | admin.last_modified.date                            |              |
- * | 4     | admin.last_modified.schema_version                  |              |
- * | 5     | domains                                             |              |
- * | 6     | established                                         |              |
- * | 7     | external_ids.type.fundref.all                       |              |
- * | 8     | external_ids.type.fundref.preferred                 |              |
- * | 9     | external_ids.type.grid.all                          |              |
- * | 10    | external_ids.type.grid.preferred                    |              |
- * | 11    | external_ids.type.isni.all                          |              |
- * | 12    | external_ids.type.isni.preferred                    |              |
- * | 13    | external_ids.type.wikidata.all                      |              |
- * | 14    | external_ids.type.wikidata.preferred                |              |
- * | 15    | links.type.website                                  |              |
- * | 16    | links.type.wikipedia                                |              |
- * | 17    | locations.geonames_id                               |              |
- * | 18    | locations.geonames_details.continent_code           |              |
- * | 19    | locations.geonames_details.continent_name           |              |
- * | 20    | locations.geonames_details.country_code             |              |
- * | 21    | locations.geonames_details.country_name             |              |
- * | 22    | locations.geonames_details.country_subdivision_code |              |
- * | 23    | locations.geonames_details.country_subdivision_name |              |
- * | 24    | locations.geonames_details.lat                      |              |
- * | 25    | locations.geonames_details.lng                      |              |
- * | 26    | locations.geonames_details.name                     |              |
- * | 27    | names.types.acronym                                 |              |
- * | 28    | names.types.alias                                   |              |
- * | 29    | names.types.label                                   | ror_settings |
- * | 30    | names.types.ror_display                             | ror_settings |
- * | 31    | ror_display_lang                                    | ror_settings |
- * | 32    | relationships                                       |              |
- * | 33    | status                                              | ror_settings |
- * | 34    | types                                               |              |
+ * | json path                                  | ojs                                                                               |
+ * |--------------------------------------------|-----------------------------------------------------------------------------------|
+ * | id                                         | rors.ror                                                                          |
+ * | status                                     | rors.is_active                                                                    |
+ * | names[].value where types[] = ror_display  | ror_settings['locale' => lang, 'setting_name' => 'name', 'setting_value' => '…'] |
+ * | names[].value where types[] = label        | ror_settings['locale' => lang, 'setting_name' => 'name', 'setting_value' => '…'] |
+ * | names[].lang  where types[] = ror_display  | rors.display_locale                                                               |
  */
 
 namespace PKP\task;
@@ -68,44 +32,28 @@ use APP\core\Application;
 use DirectoryIterator;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use PKP\file\PrivateFileManager;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use Throwable;
 use ZipArchive;
 
 class UpdateRorRegistryDataset extends ScheduledTask
 {
     private PrivateFileManager $fileManager;
 
-    /** @var string API url for the ROR Registry dataset (redirects to the latest version). */
+    /** Zenodo API url for the ROR Registry dataset — always returns the latest version. */
     private string $rorDatasetUrl = 'https://zenodo.org/api/records/6347574';
 
-    /** @var string The file contains the following text in the name. */
-    private string $csvNameContains = 'ror-data.csv';
+    /** The target schema version of the JSON data dump. */
+    private int $targetSchemaVersion = 2;
 
-    /** @var string The prefix used for the temporary zip file and the extracted directory. */
+    /** The prefix used for the temporary zip file and the extracted directory. */
     private string $prefix = 'TemporaryRorRegistryCache';
 
-    /** @var array|string[] Mappings database vs CSV */
-    private array $dataMapping = [
-        'ror' => 'id',
-        'displayLocale' => 'ror_display_lang',
-        'displayName' => 'names.types.ror_display',
-        'isActive' => 'status',
-        'names' => 'names.types.label'
-    ];
-
-    /** @var array|int[] Indexes of mappings database vs CSV */
-    private array $dataMappingIndex = [];
-
-    /** @var string No language code available key in registry */
+    /** No language code available key in registry */
     private string $noLocale = 'no_lang_code';
-
-    /** @var string Name of temporary table */
-    private string $temporaryTable = 'rors_temporary';
 
     /** @copydoc ScheduledTask::getName() */
     public function getName(): string
@@ -121,9 +69,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
         $pathZipFile = $pathZipDir . '.zip';
 
         try {
-            $this->dropTemporaryTable();
             $this->cleanup([$pathZipFile, $pathZipDir]);
-            $this->createTemporaryTable();
 
             $downloadData = $this->getDownloadData();
             if (empty($downloadData)) {
@@ -134,15 +80,21 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 return false;
             }
 
-            $pathCsv = $this->getPathCsv($pathZipDir);
-            if (empty($pathCsv) || !$this->fileManager->fileExists($pathCsv)) {
+            $pathJson = $this->getPathJson($pathZipDir);
+            if (empty($pathJson) || !$this->fileManager->fileExists($pathJson)) {
+                $this->addExecutionLogEntry(
+                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound', [
+                        'version' => $this->targetSchemaVersion
+                    ]),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
                 return false;
             }
 
-            $this->processCsv($pathCsv);
+            $this->processJson($pathJson);
 
             return true;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -150,13 +102,19 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             return false;
         } finally {
-            $this->dropTemporaryTable();
-            $this->cleanup([$pathZipFile, $pathZipDir]);
+            try {
+                $this->cleanup([$pathZipFile, $pathZipDir]);
+            } catch (Throwable $e) {
+                $this->addExecutionLogEntry(
+                    $e->getMessage(),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
+            }
         }
     }
 
     /**
-     * Get download url
+     * Get download url and checksum from the Zenodo API.
      */
     private function getDownloadData(): array
     {
@@ -164,23 +122,32 @@ class UpdateRorRegistryDataset extends ScheduledTask
             $client = Application::get()->getHttpClient();
 
             $response = $client->request('GET', $this->rorDatasetUrl);
-            $responseArray = json_decode($response->getBody(), true);
 
-            if ($response->getStatusCode() !== 200 || json_last_error() !== JSON_ERROR_NONE || empty($responseArray)) {
+            if ($response->getStatusCode() !== 200) {
+                $this->addExecutionLogEntry(
+                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode', [
+                        'statusCode' => $response->getStatusCode()
+                    ]),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
                 return [];
             }
 
-            if (
-                !empty($responseArray['files'][0]['links']['self']) &&
-                !empty($responseArray['files'][0]['checksum'])
-            ) {
-                // Remove 'md5:' from the beginning of the checksum
-                $checksum = str_replace('md5:', '', $responseArray['files'][0]['checksum']);
-                $url = $responseArray['files'][0]['links']['self'];
-                return ['url' => $url, 'checksum' => $checksum];
+            $responseArray = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
+
+            $file = $responseArray['files'][0] ?? null;
+            if (empty($file['links']['self']) || empty($file['checksum'])) {
+                $this->addExecutionLogEntry(
+                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile'),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
+                return [];
             }
 
-            return [];
+            return [
+                'url' => $file['links']['self'],
+                'checksum' => str_replace('md5:', '', $file['checksum'])
+            ];
         } catch (GuzzleException | Exception $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
@@ -202,6 +169,10 @@ class UpdateRorRegistryDataset extends ScheduledTask
             // Download the file
             $client->request('GET', $downloadUrl, ['sink' => $pathZipFile]);
             if (!$this->fileManager->fileExists($pathZipFile)) {
+                $this->addExecutionLogEntry(
+                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.download'),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
                 return false;
             }
 
@@ -224,6 +195,10 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 $zip->close();
             }
             if (!$this->fileManager->fileExists($pathZipDir, 'dir')) {
+                $this->addExecutionLogEntry(
+                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.extract'),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
                 return false;
             }
 
@@ -239,14 +214,17 @@ class UpdateRorRegistryDataset extends ScheduledTask
     }
 
     /**
-     * Get path to csv file
+     * Get path to json file
      */
-    private function getPathCsv(string $pathZipDir): string
+    private function getPathJson(string $pathZipDir): string
     {
         $iterator = new DirectoryIterator($pathZipDir);
         foreach ($iterator as $fileInfo) {
             if (!$fileInfo->isDot()) {
-                if (str_contains($fileInfo->getFilename(), $this->csvNameContains)) {
+                if (
+                    $fileInfo->getExtension() === 'json' &&
+                    $this->hasSchemaVersion($fileInfo->getPathname(), $this->targetSchemaVersion)
+                ) {
                     return $fileInfo->getPathname();
                 }
             }
@@ -256,85 +234,129 @@ class UpdateRorRegistryDataset extends ScheduledTask
     }
 
     /**
-     * Process Csv file
+     * Check if a JSON file's first record matches the target schema version,
+     * by reading only the first few KB to avoid loading the full file.
+     * Uses admin.last_modified.schema_version, which reflects the file's schema format
+     * (admin.created.schema_version may still reference an older version).
+     *
+     * The admin block is typically within the first 500 bytes of the file.
+     * Reading up to 16 chunks of 4KB (64KB total) is a conservative safety margin
+     * in case ROR changes the field ordering within records.
      */
-    private function processCsv(string $pathCsv): void
+    private function hasSchemaVersion(string $pathJson, int $version): bool
     {
-        $isHeader = true;
-        $batchCounter = 0;
+        $handle = fopen($pathJson, 'r');
+        if ($handle === false) {
+            return false;
+        }
+
+        $maxChunks = 16;
+        $buffer = '';
+        for ($i = 0; $i < $maxChunks; $i++) {
+            $chunk = fread($handle, 4096);
+            if ($chunk === false || $chunk === '') {
+                break;
+            }
+            $buffer .= $chunk;
+            if (preg_match('/"last_modified"\s*:\s*\{[^}]*"schema_version"\s*:\s*"(\d+)/', $buffer, $matches)) {
+                fclose($handle);
+                return (int)$matches[1] === $version;
+            }
+        }
+
+        fclose($handle);
+        return false;
+    }
+
+    /**
+     * Process Json file
+     */
+    private function processJson(string $pathJson): void
+    {
+        $json = file_get_contents($pathJson);
+        if ($json === false) {
+            throw new Exception("Failed to read ROR JSON file: {$pathJson}");
+        }
+        $records = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+        unset($json);
+
         $batchSize = 5000;
         $batchRows = [];
-        if (($handle = fopen($pathCsv, 'r')) !== false) {
-            while (($rowCsv = fgetcsv($handle)) !== false) {
-                if ($isHeader) {
-                    foreach ($this->dataMapping as $keyDB => $keyCsv) {
-                        $this->dataMappingIndex[$keyDB] = array_search($keyCsv, $rowCsv, true);
-                    }
-                    $isHeader = false;
-                } else {
-                    $batchRows[] = $this->processRow($rowCsv);
 
-                    if ($batchCounter === $batchSize) {
-                        $this->processBatch($batchRows);
-                        $batchCounter = 0;
-                        $batchRows = [];
-                    }
-                }
-                $batchCounter++;
+        foreach ($records as $record) {
+            if (empty($record['id']) || empty($record['names']) || empty($record['status'])) {
+                $this->addExecutionLogEntry(
+                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields', [
+                        'id' => $record['id'] ?? ''
+                    ]),
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_WARNING
+                );
+                continue;
             }
-            fclose($handle);
 
-            // insert / update last batch
-            if ($batchCounter > 0) {
+            $batchRows[] = $this->processRow($record);
+
+            if (count($batchRows) >= $batchSize) {
                 $this->processBatch($batchRows);
+                $batchRows = [];
             }
+        }
+
+        if (!empty($batchRows)) {
+            $this->processBatch($batchRows);
         }
     }
 
     /**
-     * Process row
+     * Process record from JSON
      */
-    private function processRow(array $row): array
+    private function processRow(array $record): array
     {
-        // ror < id
-        $ror = $row[$this->dataMappingIndex['ror']];
+        // ror from id
+        $ror = $record['id'];
 
-        // display_locale : ror_display_lang
-        $displayLocale = (!empty($row[$this->dataMappingIndex['displayLocale']]))
-            ? $row[$this->dataMappingIndex['displayLocale']]
-            : $this->noLocale;
-
-        // is_active < status
-        $isActive = (strtolower($row[$this->dataMappingIndex['isActive']]) === 'active') ? 1 : 0;
+        // is_active from status
+        $isActive = (strtolower($record['status']) === 'active') ? 1 : 0;
 
         // search_phrase
         $searchPhrase = $ror;
 
-        // locale, name < names.types.label
-        // [["name"]["en"] => "label1"],["name"]["it"] => "label2"]] < "en: label1; it: label2"
-        $namesIn = $row[$this->dataMappingIndex['names']];
-        $namesOut = [];
-        if (!empty($namesIn)) {
-            $names = array_map('trim', explode(';', $namesIn));
-            for ($i = 0; $i < count($names); $i++) {
-                $name = array_map('trim', explode(':', $names[$i]));
-                if (count($name) === 2) {
-                    $namesOut[$name[0]] = trim($name[1]);
-                    $searchPhrase .= ' ' . $namesOut[$name[0]];
-                }
+        // Process names array to extract display name, locale, and all name variants
+        $displayLocale = $this->noLocale;
+        $displayName = '';
+        $namesByLocale = [];
+
+        foreach ($record['names'] as $nameEntry) {
+            $locale = $nameEntry['lang'] ?? $this->noLocale;
+            $name = $nameEntry['value'] ?? '';
+            $types = $nameEntry['types'] ?? [];
+
+            // Check if this is the ror_display name
+            if (in_array('ror_display', $types)) {
+                $displayLocale = $locale;
+                $displayName = $name;
+            }
+
+            // Collect all labels and ror_display names
+            if (in_array('label', $types) || in_array('ror_display', $types)) {
+                $namesByLocale[$locale] = $name;
+                $searchPhrase .= ' ' . $name;
             }
         }
 
-        if (empty($namesOut[$displayLocale])) {
-            $namesOut[$displayLocale] = $row[$this->dataMappingIndex['displayName']];
+        // Ensure display name is in the names array
+        if (!empty($displayName) && empty($namesByLocale[$displayLocale])) {
+            $namesByLocale[$displayLocale] = $displayName;
         }
 
         return [
-            'ror' => $ror,
-            'displayLocale' => $displayLocale,
-            'isActive' => $isActive,
-            'searchPhrase' => trim($searchPhrase),
-            'name' => $namesOut,
+            'rors' => [
+                'ror' => $ror,
+                'display_locale' => $displayLocale,
+                'is_active' => $isActive,
+                'search_phrase' => trim($searchPhrase),
+            ],
+            'names' => $namesByLocale,
         ];
     }
 
@@ -358,104 +380,43 @@ class UpdateRorRegistryDataset extends ScheduledTask
     }
 
     /**
-     * Create temporary table
-     */
-    private function createTemporaryTable(): void
-    {
-        Schema::create($this->temporaryTable, function (Blueprint $table) {
-            $table->comment('Rors temporary table');
-            $table->string('ror')->nullable(false);
-            $table->string('display_locale', 28)->nullable(false);
-            $table->smallInteger('is_active')->nullable(false)->default(1);
-            $table->mediumText('search_phrase')->nullable();
-            $table->string('locale', 28)->default('');
-            $table->string('setting_name', 255);
-            $table->mediumText('setting_value')->nullable();
-            $table->unique(['ror', 'locale', 'setting_name'], $this->temporaryTable . '_unique');
-        });
-    }
-
-    /**
-     * Drop temporary table
-     */
-    private function dropTemporaryTable(): void
-    {
-        Schema::dropIfExists($this->temporaryTable);
-    }
-
-    /**
-     * Execute query
+     * Upsert rors and ror_settings for a batch of rows.
      */
     private function processBatch(array $rows): void
     {
-        $values = [];
+        // upsert into rors
+        $rorsValues = array_column($rows, 'rors');
 
-        // insert into temporary table
+        DB::table('rors')->upsert($rorsValues, ['ror'], ['display_locale', 'is_active', 'search_phrase']);
+
+        // fetch ror_id for each ror in the batch
+        $rorStrings = array_column($rorsValues, 'ror');
+        $rorIdMap = DB::table('rors')
+            ->whereIn('ror', $rorStrings)
+            ->pluck('ror_id', 'ror');
+
+        // delete existing ror_settings for these rors and re-insert fresh, atomically
+        $settingsValues = [];
         foreach ($rows as $row) {
-            foreach ($row['name'] as $locale => $name) {
-                $values[] = [
-                    'ror' => $row['ror'],
-                    'display_locale' => $row['displayLocale'],
-                    'is_active' => $row['isActive'],
-                    'search_phrase' => $row['searchPhrase'],
+            $rorId = $rorIdMap[$row['rors']['ror']] ?? null;
+            if ($rorId === null) {
+                continue;
+            }
+            foreach ($row['names'] as $locale => $name) {
+                $settingsValues[] = [
+                    'ror_id' => $rorId,
                     'locale' => $locale,
                     'setting_name' => 'name',
-                    'setting_value' => $name
+                    'setting_value' => $name,
                 ];
             }
         }
 
-        DB::table($this->temporaryTable)->insert($values);
-
-        // table rors
-        $values = DB::table($this->temporaryTable . ' as tmp')
-            ->select('tmp.ror', 'tmp.display_locale', 'tmp.is_active', 'tmp.search_phrase')
-            ->distinct()
-            ->leftJoin('rors as r', 'tmp.ror', '=', 'r.ror')
-            ->get()
-            ->map(function ($item) {
-                return (array)$item;
-            })
-            ->all();
-
-        DB::table('rors')->upsert($values, ['ror'], ['display_locale', 'is_active', 'search_phrase']);
-
-        // remove settings/names that do not exist any more
-        $orphanedSettings = DB::table('ror_settings AS rs')
-            ->select('rs.ror_setting_id')
-            ->join('rors as r', 'rs.ror_id', '=', 'r.ror_id')
-            ->join($this->temporaryTable . ' as tmp1', 'tmp1.ror', '=', 'r.ror')
-            ->leftJoin($this->temporaryTable . ' AS tmp2', function ($join) {
-                $join
-                    ->on('tmp2.ror', '=', 'tmp1.ror')
-                    ->on('tmp2.locale', '=', 'rs.locale')
-                    ->on('tmp2.setting_name', '=', 'rs.setting_name');
-            })
-            ->whereNull('tmp2.locale')
-            ->distinct()
-            ->pluck('rs.ror_setting_id');
-        DB::table('ror_settings')->whereIn('ror_setting_id', $orphanedSettings)->delete();
-
-        // table ror_settings
-        $values = DB::table($this->temporaryTable . ' as tmp')
-            ->select('r.ror_id', 'tmp.locale', 'tmp.setting_name', 'tmp.setting_value')
-            ->join('rors as r', 'tmp.ror', '=', 'r.ror')
-            ->leftJoin('ror_settings as rs', function ($join) {
-                $join
-                    ->on('r.ror_id', '=', 'rs.ror_id')
-                    ->on('rs.locale', '=', 'tmp.locale')
-                    ->on('rs.setting_name', '=', 'tmp.setting_name');
-            })
-            ->distinct()
-            ->get()
-            ->map(function ($item) {
-                return (array)$item;
-            })
-            ->all();
-
-        DB::table('ror_settings')->upsert($values, ['ror_id', 'locale', 'setting_name'], ['setting_value']);
-
-        // truncate temporary table
-        DB::table($this->temporaryTable)->truncate();
+        DB::transaction(function () use ($rorIdMap, $settingsValues) {
+            DB::table('ror_settings')->whereIn('ror_id', $rorIdMap->values())->delete();
+            if (!empty($settingsValues)) {
+                DB::table('ror_settings')->insert($settingsValues);
+            }
+        });
     }
 }

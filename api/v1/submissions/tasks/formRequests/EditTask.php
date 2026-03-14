@@ -72,7 +72,7 @@ class EditTask extends FormRequest
                 Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
                 Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),
                 Rule::date()->format('Y-m-d'),
-                'after:today',
+                'after_or_equal:today',
             ],
             EditorialTask::ATTRIBUTE_HEADNOTE => ['sometimes', 'string'],
             EditorialTask::ATTRIBUTE_PARTICIPANTS => [
@@ -264,6 +264,13 @@ class EditTask extends FormRequest
                     $query->where('submission_id', $this->submission->getId());
                 })
             ]
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'dateDue.after_or_equal' => __('validation.after_or_equal'),
         ];
     }
 

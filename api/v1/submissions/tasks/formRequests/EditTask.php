@@ -171,6 +171,12 @@ class EditTask extends FormRequest
                         return true; // We allow absent creator when task is automatically created
                     }
 
+                    // If creator is a manager, we allow not to participate
+                    $creator = Repo::user()->get($creatorId);
+                    if ($creator && $creator->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->submission->getData('contextId'))) {
+                        return true;
+                    }
+
                     if (!in_array($this->getCreatorId(), $participantIds)) {
                         return $fail(__('submission.task.validation.error.participant.creator'));
                     }

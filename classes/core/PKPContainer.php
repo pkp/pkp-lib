@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
+use PKP\install\PKPInstall;
 use PKP\proxy\ProxyParser;
 use Throwable;
 
@@ -359,7 +360,8 @@ class PKPContainer extends Container
         // Database connection
         $driver = static::getDatabaseDriverName();
         $items['database']['default'] = $driver;
-        $items['database']['connections'][$driver] = [
+
+        $connection = array_merge([
             'driver' => $driver,
             'host' => Config::getVar('database', 'host'),
             'database' => Config::getVar('database', 'name'),
@@ -367,9 +369,13 @@ class PKPContainer extends Container
             'port' => Config::getVar('database', 'port'),
             'unix_socket' => Config::getVar('database', 'unix_socket'),
             'password' => Config::getVar('database', 'password'),
-            'charset' => Config::getVar('i18n', 'connection_charset', 'utf8'),
-            'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
-        ];
+        ], PKPInstall::resolveConnectionParams(
+            $driver,
+            Config::getVar('i18n', 'connection_charset'),
+            Config::getVar('database', 'collation')
+        ));
+
+        $items['database']['connections'][$driver] = $connection;
 
         // Auth
         $items['auth'] = [

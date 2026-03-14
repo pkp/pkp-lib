@@ -695,6 +695,13 @@ class EditorialTaskController extends PKPBaseController
             return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
         }
 
+        $currentUser = $this->getRequest()->getUser();
+        $participantIds = $task->participants->pluck('userId')->toArray();
+
+        if (!in_array($currentUser->getId(), $participantIds)) {
+            return response()->json(['error' => __('api.403.forbidden')], Response::HTTP_FORBIDDEN);
+        }
+
         $validated = $illuminateRequest->validated();
 
         $note = new Note($validated);
@@ -702,7 +709,6 @@ class EditorialTaskController extends PKPBaseController
         $note->refresh();
         $task = $note->assoc; /** @var EditorialTask $task */
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
-        $currentUser = $this->getRequest()->getUser();
         $submissionFiles = Repo::submissionFile()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
             ->getMany();
@@ -732,7 +738,6 @@ class EditorialTaskController extends PKPBaseController
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
-        $participantIds = $task->participants->pluck('userId')->toArray();
         $this->notifyParticipants($participantIds, $task, $note);
 
         $newFiles = Repo::submissionFile()->getCollector()

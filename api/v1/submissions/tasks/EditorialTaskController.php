@@ -1207,11 +1207,11 @@ class EditorialTaskController extends PKPBaseController
      * Log the change of task due date in the submission event log
      */
     protected function logDueDate(
-        Carbon        $oldDueDate,
-        Carbon        $newDueDate,
-        Submission    $submission,
+        Carbon $oldDueDate,
+        Carbon $newDueDate,
+        Submission $submission,
         EditorialTask $editorialTask,
-        User          $currentUser,
+        User $currentUser,
     ): void {
         if ($oldDueDate->eq($newDueDate)) {
             return;

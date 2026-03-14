@@ -103,6 +103,7 @@ class TaskResource extends JsonResource
                 'type' => $activity->getEventType(),
                 'date' => $activity->getDateLogged(),
                 'userFullName' => $activity->getData('userFullName'),
+                'userId' => $activity->getData('userId'),
             ];
         }
 

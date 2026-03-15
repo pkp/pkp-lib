@@ -749,6 +749,9 @@ msgstr "No data citations have been added."
 msgid "submission.dataCitations.required"
 msgstr "Data citations are required."
 
+msgid "submission.dataCitations.identifier.invalid"
+msgstr "\"{$value}\" is not a valid {$type} identifier."
+
 msgid "submission.comments.addComment"
 msgstr "Add Comment"
 

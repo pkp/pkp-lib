@@ -18,7 +18,6 @@ namespace PKP\dataCitation;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
 use PKP\core\traits\ModelWithSettings;
-use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -58,7 +57,45 @@ class DataCitation extends Model
     }
 
     /**
+     * Override fill to strip known base URLs from identifier before saving
+     * 
+     * @return static
+     * 
+     */
+    public function fill(array $attributes): static
+    {
+        if (!empty($attributes['identifier']) && !empty($attributes['identifierType'])) {
+            $identifierBaseUrls = self::getIdentifierBaseUrls();
+            if (isset($identifierBaseUrls[$attributes['identifierType']])) {
+                $attributes['identifier'] = preg_replace($identifierBaseUrls[$attributes['identifierType']], '', $attributes['identifier']);
+            }
+        }
+
+        return parent::fill($attributes);
+    }
+
+    /**
+     * Get the base URLs for identifier types that use URL formats.
+     * Used to strip the base URL before validation and storage.
+     * 
+     * @return array
+     * 
+     */
+    public static function getIdentifierBaseUrls(): array
+    {
+        return [
+            'DOI'    => '/^https?:\/\/(?:dx\.)?doi\.org\//i',
+            'PMID'   => '/^https?:\/\/pubmed\.ncbi\.nlm\.nih\.gov\//i',
+            'PMCID'  => '/^https?:\/\/(?:www\.)?ncbi\.nlm\.nih\.gov\/pmc\/articles\//i',
+            'Handle' => '/^https?:\/\/hdl\.handle\.net\//i',
+        ];
+    }
+
+    /**
      * Filter by publication ID
+     * 
+     * @return EloquentBuilder
+     * 
      */
     protected function scopeWithPublicationId(EloquentBuilder $builder, int $publicationId): EloquentBuilder
     {
@@ -67,6 +104,9 @@ class DataCitation extends Model
 
     /**
      * Order by seq
+     * 
+     * @return EloquentBuilder
+     * 
      */
     protected function scopeOrderBySeq(EloquentBuilder $builder): EloquentBuilder
     {

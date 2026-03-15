@@ -16,6 +16,7 @@ namespace PKP\dataCitation;
 use APP\core\Application;
 use APP\core\Request;
 use PKP\context\Context;
+use PKP\dataCitation\DataCitation;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -51,6 +52,7 @@ class Repository
     public function validate(?DataCitation $dataCitation, array $props): array
     {
         $schema = DataCitation::getSchemaName();
+        $errors = [];
 
         $validator = ValidatorFactory::make(
             $props,
@@ -67,7 +69,46 @@ class Repository
             ''
         );
 
-        $errors = [];
+        // Validate identifier format based on identifierType
+        // Note that Accession does not have a standard to validate against
+        $validator->after(function ($validator) use ($props) {
+            $identifierType = $props['identifierType'] ?? null;
+            $identifier = $props['identifier'] ?? null;
+
+            if (!$identifierType || !$identifier || $validator->errors()->get('identifier')) {
+                return;
+            }
+
+            $identifierRules = [
+                'DOI'    => '/^10[.][0-9]{4,}\/[^\s"<>]+/i',
+                'ARXIV'  => '/^(?:\d+\.\d+|[a-zA-Z.-]+\/\d+)/i',
+                'Handle' => '/^[0-9a-z]+(?:\.[0-9a-z]+)*\/.+/i',
+                'ISSN'   => '/^\d{4}-\d{3}[\dX]$/i',
+                'ISBN'   => '/^(?:97[89])?\d{9}[\dX]$/i',
+                'PMID'   => '/^\d+$/',
+                'PMCID'  => '/^PMC\d+$/i',
+                'UUID'   => '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i',
+                'ARK'    => '/^ark:\/\d{5,}(\/.+)+$/i',
+                'ECLI'   => '/^ECLI:[A-Z]{2}:[A-Z0-9.]+:\d{4}:[A-Z0-9.]+$/i',
+                'URI'    => '/^https?:\/\/.+/i',
+                'PURL'   => '/^https?:\/\/.+/i',
+            ];
+
+            $identifierBaseUrls = DataCitation::getIdentifierBaseUrls();
+
+            if (isset($identifierBaseUrls[$identifierType])) {
+                $identifier = preg_replace($identifierBaseUrls[$identifierType], '', $identifier);
+            }
+
+            if (isset($identifierRules[$identifierType])) {
+                if (!preg_match($identifierRules[$identifierType], $identifier)) {
+                    $validator->errors()->add('identifier', __('submission.dataCitations.identifier.invalid', [
+                        'type' => $identifierType,
+                        'value' => $identifier,
+                    ]));
+                }
+            }
+        });
 
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());

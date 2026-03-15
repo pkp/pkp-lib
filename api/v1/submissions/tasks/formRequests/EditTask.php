@@ -72,7 +72,7 @@ class EditTask extends FormRequest
                 Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
                 Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),
                 Rule::date()->format('Y-m-d'),
-                'after:today',
+                'after_or_equal:today',
             ],
             EditorialTask::ATTRIBUTE_HEADNOTE => ['sometimes', 'string'],
             EditorialTask::ATTRIBUTE_PARTICIPANTS => [
@@ -171,6 +171,12 @@ class EditTask extends FormRequest
                         return true; // We allow absent creator when task is automatically created
                     }
 
+                    // If creator is a manager, we allow not to participate
+                    $creator = Repo::user()->get($creatorId);
+                    if ($creator && $creator->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->submission->getData('contextId'))) {
+                        return true;
+                    }
+
                     if (!in_array($this->getCreatorId(), $participantIds)) {
                         return $fail(__('submission.task.validation.error.participant.creator'));
                     }
@@ -264,6 +270,13 @@ class EditTask extends FormRequest
                     $query->where('submission_id', $this->submission->getId());
                 })
             ]
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'dateDue.after_or_equal' => __('validation.after_or_equal'),
         ];
     }
 

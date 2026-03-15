@@ -29,6 +29,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
+use PKP\core\PKPQueueProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
 
@@ -108,6 +109,11 @@ class PKPContainer extends Container
                     config('queue.failed.table')
                 );
             }
+        );
+
+        $this->singleton(
+            'jobRunner',
+            fn ($app) => \PKP\queue\JobRunner::getInstance($app['pkpJobQueue'])
         );
 
         Facade::setFacadeApplication($this);
@@ -404,6 +410,72 @@ class PKPContainer extends Container
     public function isDownForMaintenance()
     {
         return PKPApplication::isUnderMaintenance();
+    }
+
+    /**
+     * Determine if the application is running in the console.
+     */
+    public function runningInConsole(?string $scriptPath = null): bool
+    {
+        if (strtolower(php_sapi_name() ?: '') === 'cli') {
+            return true;
+        }
+
+        if (!$scriptPath) {
+            return false;
+        }
+
+        if (mb_stripos($_SERVER['SCRIPT_NAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+
+        if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Flush the output buffer to ensure all output is sent to the client before any background
+     * task processing (e.g. job processing, schedule task running) to avoid any potential output
+     * buffering issues which may cause client page load time and performance degradation.
+     * 
+     * This should be called before the background tasks starts to process and only when there are
+     * background tasks available to process. 
+     */
+    public function flushOutputBuffer(): void
+    {
+        // Disable flushing output buffer for unit tests as PHPUnit is quite sensitive to output buffer 
+        // manipulation during tests. The root cause is The PHPUnit configuration has
+        // `beStrictAboutOutputDuringTests="true"` which makes PHPUnit very sensitive to any output
+        // buffer manipulation during tests and mark it as risky.
+        if ($this->runningUnitTests()) {
+            return;
+        }
+
+        // Force flush and close connection for non-blocking behavior
+        // and set headers to close connection and specify content length (if buffer exists)
+        if (!headers_sent()) {
+            header('Connection: close');
+            header('Content-Encoding: none');
+            if (ob_get_length() > 0) {
+                header('Content-Length: ' . ob_get_length());
+            }
+        }
+
+        // Flush output buffer and send response and allow script to continue if client disconnects.
+        // Flush and end ALL output buffer levels (if started) and also the system buffer.
+        ignore_user_abort(true);
+        while (ob_get_level() > 0) {
+            ob_end_flush();
+        }
+        flush();
+
+        // For PHP-FPM (Nginx/Apache with FPM): Explicitly finish FastCGI request
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        }
     }
 }
 

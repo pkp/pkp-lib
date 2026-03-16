@@ -117,6 +117,7 @@ import FieldAutosuggestPreset from '@/components/Form/fields/FieldAutosuggestPre
 import FieldBase from '@/components/Form/fields/FieldBase.vue';
 import FieldBaseAutosuggest from '@/components/Form/fields/FieldBaseAutosuggest.vue';
 import FieldColor from '@/components/Form/fields/FieldColor.vue';
+import FieldContrastColorPicker from '@/components/Form/fields/FieldContrastColorPicker.vue';
 import FieldControlledVocab from '@/components/Form/fields/FieldControlledVocab.vue';
 import FieldHtml from '@/components/Form/fields/FieldHtml.vue';
 import FieldMetadataSetting from '@/components/Form/fields/FieldMetadataSetting.vue';
@@ -235,6 +236,7 @@ VueRegistry.registerComponent(
 VueRegistry.registerComponent('PkpFieldBase', FieldBase);
 VueRegistry.registerComponent('PkpFieldBaseAutosuggest', FieldBaseAutosuggest);
 VueRegistry.registerComponent('PkpFieldColor', FieldColor);
+VueRegistry.registerComponent('PkpFieldContrastColorPicker', FieldContrastColorPicker);
 VueRegistry.registerComponent('PkpFieldControlledVocab', FieldControlledVocab);
 VueRegistry.registerComponent('PkpFieldHtml', FieldHtml);
 VueRegistry.registerComponent('PkpFieldOrcid', FieldOrcid);
@@ -266,6 +268,7 @@ VueRegistry.registerComponent('PkpFieldSlider', FieldSlider);
 // Required by the URN plugin, to be migrated at some point to pkp prefix
 VueRegistry.registerComponent('field-text', FieldText);
 VueRegistry.registerComponent('field-pub-id', FieldPubId);
+VueRegistry.registerComponent('field-contrast-color-picker', FieldContrastColorPicker);
 
 // Register ListPanel
 VueRegistry.registerComponent('PkpListPanel', ListPanel);

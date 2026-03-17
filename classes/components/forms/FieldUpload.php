@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/components/form/FieldUpload.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldUpload
@@ -29,6 +30,11 @@ class FieldUpload extends Field
      *  can be uploaded to: <api-path>/temporaryFiles.
      */
     public $options = [];
+
+    /**
+     * @var string URL to the uploaded file for display/download
+     */
+    public $fileUrl;
 
     /**
      * @copydoc Field::__construct()
@@ -80,6 +86,10 @@ class FieldUpload extends Field
         $config['options'] = $this->options;
         $config['uploadFileLabel'] = __('common.upload.addFile');
         $config['restoreLabel'] = __('common.upload.restore');
+
+        if ($this->fileUrl) {
+            $config['fileUrl'] = $this->fileUrl;
+        }
 
         return $config;
     }

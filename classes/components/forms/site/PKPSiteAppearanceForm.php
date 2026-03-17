@@ -15,6 +15,8 @@
 
 namespace PKP\components\forms\site;
 
+use APP\core\Application;
+use APP\file\PublicFileManager;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldUpload;
@@ -51,6 +53,16 @@ class PKPSiteAppearanceForm extends FormComponent
             ];
         }
 
+        $stylesheetValue = $site->getData('styleSheet');
+        $stylesheetUrl = null;
+        if ($stylesheetValue) {
+            $request = Application::get()->getRequest();
+            $publicFileManager = new PublicFileManager();
+            $stylesheetUrl = $request->getBaseUrl() . '/' .
+                $publicFileManager->getSiteFilesPath() . '/' .
+                $stylesheetValue['uploadName'];
+        }
+
         $this->addField(new FieldUploadImage('pageHeaderTitleImage', [
             'label' => __('manager.setup.logo'),
             'value' => $site->getData('pageHeaderTitleImage'),
@@ -74,7 +86,8 @@ class PKPSiteAppearanceForm extends FormComponent
             ]))
             ->addField(new FieldUpload('styleSheet', [
                 'label' => __('admin.settings.siteStyleSheet'),
-                'value' => $site->getData('styleSheet'),
+                'value' => $stylesheetValue,
+                'fileUrl' => $stylesheetUrl,
                 'options' => [
                     'url' => $temporaryFileApiUrl,
                     'acceptedFiles' => '.css',

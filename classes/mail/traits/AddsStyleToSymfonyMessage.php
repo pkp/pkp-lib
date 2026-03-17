@@ -31,8 +31,7 @@ trait AddsStyleToSymfonyMessage
             return;
         }
 
-        static $cssCache = [];
-        $css = $cssCache[$path] ??= (string) @file_get_contents($path);
+        $css = (string) @file_get_contents($path);
 
         if ($css === '') {
             return;

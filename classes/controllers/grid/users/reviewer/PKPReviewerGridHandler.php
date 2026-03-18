@@ -990,11 +990,6 @@ class PKPReviewerGridHandler extends GridHandler
 
     /**
      * Fetch the compiled body for a review reminder template (AJAX).
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
     public function fetchReviewReminderTemplateBody(array $args, PKPRequest $request): JSONMessage
     {

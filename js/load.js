@@ -91,6 +91,7 @@ import FilterSlider from '@/components/Filter/FilterSlider.vue';
 import FilterSliderMultirange from '@/components/Filter/FilterSliderMultirange.vue';
 import List from '@/components/List/List.vue';
 import ListItem from '@/components/List/ListItem.vue';
+import FormModal from '@/components/FormModal/FormModal.vue';
 import Modal from '@/components/Modal/Modal.vue';
 import MultilingualProgress from '@/components/MultilingualProgress/MultilingualProgress.vue';
 import Orderer from '@/components/Orderer/Orderer.vue';
@@ -206,6 +207,7 @@ VueRegistry.registerComponent(
 );
 VueRegistry.registerComponent('PkpList', List);
 VueRegistry.registerComponent('PkpListItem', ListItem);
+VueRegistry.registerComponent('PkpFormModal', FormModal);
 VueRegistry.registerComponent('PkpModal', Modal);
 VueRegistry.registerComponent('PkpMultilingualProgress', MultilingualProgress);
 VueRegistry.registerComponent('PkpOrderer', Orderer);

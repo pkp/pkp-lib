@@ -27,8 +27,7 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     use HasCamelCasing;
 
     public $timestamps = false;
-    public $incrementing = false;
-    protected $primaryKey = null;
+    protected $primaryKey = 'user_user_group_id';
     protected $fillable = ['userGroupId', 'userId', 'dateStart', 'dateEnd', 'masthead'];
     protected $casts = [
         'dateStart' => 'datetime',
@@ -104,6 +103,11 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     public function scopeWithMastheadOff(Builder $query): Builder
     {
         return $query->where('user_user_groups.masthead', 0);
+    }
+
+    public function scopeWithUserUserGroupId(Builder $query, int $userUserGroupId): Builder
+    {
+        return $query->where('user_user_groups.user_user_group_id', $userUserGroupId);
     }
 
     public function scopeSortBy(Builder $query, string $column, ?string $direction = 'asc')

@@ -44,6 +44,12 @@ msgstr "The apiToken could not be decoded because of the following error: {$erro
 msgid "api.400.requireEmailSubjectBody"
 msgstr "You must provide a subject and body for the email."
 
+msgid "api.400.invalidMastheadParameter"
+msgstr "Invalid masthead parameter."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "The masthead visibility for reviewer roles cannot be changed."
+
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "It is not possible to change the time this was created."
 

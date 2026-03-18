@@ -29,14 +29,17 @@ use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\mail\mailables\UserRoleEndNotify;
+use PKP\mail\mailables\UserRoleMastheadUpdateNotify;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\userGroup\UserGroup;
 use PKP\security\Validation;
+use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PKPUserController extends PKPBaseController
@@ -86,6 +89,10 @@ class PKPUserController extends PKPBaseController
         Route::put('{userId}/endRole/{userGroupId}', $this->endRole(...))
             ->name('user.endRole')
             ->whereNumber(['userId', 'userGroupId']);
+
+        Route::put('{userId}/masthead/{userUserGroupId}', $this->masthead(...))
+            ->name('user.masthead')
+            ->whereNumber(['userId', 'userUserGroupId']);
     }
 
     /**
@@ -350,6 +357,88 @@ class PKPUserController extends PKPBaseController
             'currentUserId' => $currentUser?->getId(),
             'isSiteAdmin' => Validation::isSiteAdmin(),
         ];
+        $mapped = $map->mapManyWithOptions(collect([$user]), $options)->first();
+        return response()->json($mapped, Response::HTTP_OK);
+    }
+
+    /**
+     * Update the masthead display status for a user in a specific user group.
+     */
+    public function masthead(Request $request): JsonResponse
+    {
+        // Ensure user exists
+        $userId = (int) $request->route('userId');
+        $user = Repo::user()->get($userId, true);
+        if (!$user) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Ensure UserUserGroup exists and belongs to the current context and user
+        $context = $request->attributes->get('context'); /** @var Context $context */
+        $userUserGroupId = (int) $request->route('userUserGroupId');
+        $userUserGroup = UserUserGroup::query()
+            ->withUserId($userId)
+            ->withContextId($context->getId())
+            ->withUserUserGroupId($userUserGroupId)
+            ->first();
+        if (!$userUserGroup) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($userUserGroup->userGroup->roleId === Role::ROLE_ID_REVIEWER) {
+            return response()->json([
+                'error' => __('api.400.reviewerMastheadCannotBeChanged')
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $masthead = $request->input('masthead');
+        if (isset($masthead) && !is_bool($masthead)) {
+            $masthead = PKPString::strictConvertToBoolean($masthead);
+        }
+        if (!is_bool($masthead)) {
+            return response()->json([
+                'error' => __('api.400.invalidMastheadParameter')
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $map = Repo::user()->getSchemaMap();
+        $currentUser = Application::get()->getRequest()->getUser();
+        $options = [
+            'currentUserId' => $currentUser?->getId(),
+            'isSiteAdmin' => Validation::isSiteAdmin(),
+        ];
+        // No change, return current state without sending email
+        if ($userUserGroup->masthead == $masthead) {
+            $mapped = $map->mapManyWithOptions(collect([$user]), $options)->first();
+            return response()->json($mapped, Response::HTTP_OK);
+        }
+
+        // Update via repository to ensure cache invalidation is handled
+        Repo::userGroup()->setUserUserGroupMasthead($userUserGroup, $masthead);
+
+        // Send email notification
+        $mailable = new UserRoleMastheadUpdateNotify($context, $userUserGroup);
+        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+
+        if (!$emailTemplate) {
+            $message = 'Email template ' . $mailable::getEmailTemplateKey() . ' not found. The migration script I11800_AddUserRoleMastheadUpdateEmail needs to be run.';
+            throw new Exception($message);
+        }
+
+        $locale = $context->getPrimaryLocale();
+        $mailable->sender($request->user())
+            ->recipients([$user])
+            ->setLocale($locale)
+            ->body($emailTemplate->getLocalizedData('body', $locale))
+            ->subject($emailTemplate->getLocalizedData('subject', $locale));
+        Mail::send($mailable);
+
+        // Return updated user model
+        $user = Repo::user()->get($userId, true);
         $mapped = $map->mapManyWithOptions(collect([$user]), $options)->first();
         return response()->json($mapped, Response::HTTP_OK);
     }

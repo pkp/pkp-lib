@@ -27,6 +27,7 @@ use PKP\controllers\grid\plugins\PluginGalleryGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\site\VersionDAO;
+use PKP\config\Config;
 use Throwable;
 
 class PluginGalleryDAO extends \PKP\db\DAO
@@ -53,29 +54,38 @@ class PluginGalleryDAO extends \PKP\db\DAO
      */
     public function getNewestCompatible(PKPApplication $application, ?string $category = null, ?string $search = null): array
     {
-        $doc = $this->_getDocument();
         $plugins = [];
+        $pluginGalleryConfig = json_decode(self::getPluginGalleryConfig());
 
-        foreach ($doc->getElementsByTagName('plugin') as $index => $element) {
-            $plugin = $this->_compatibleFromElement($element, $application);
-            // May be null if no compatible version exists; also
-            // apply search filters if any supplied.
-            if (
-                $plugin &&
-                ($category == '' || $category == PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
-                ($search == '' || Str::position(Str::lower(serialize($plugin)), Str::lower($search)) !== false)
-            ) {
-                $plugins[$index] = $plugin;
+        foreach ($pluginGalleryConfig as $galleryUrl) {
+            $doc = $this->_getDocument($galleryUrl);
+
+            foreach ($doc->getElementsByTagName('plugin') as $element) {
+                $plugin = $this->_compatibleFromElement($element, $application);
+                // May be null if no compatible version exists; also
+                // apply search filters if any supplied.
+                if (
+                    $plugin &&
+                    ($category == '' || $category == PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
+                    ($search == '' || Str::position(Str::lower(serialize($plugin)), Str::lower($search)) !== false)
+                ) {
+                    $plugins["{$plugin->getCategory()}/{$plugin->getProduct()}"] = $plugin;
+                }
             }
         }
 
-        return $plugins;
+        return array_values($plugins);
+    }
+
+    protected function getPluginGalleryConfig() : string
+    {
+        return Config::getVar('security', 'plugin_gallery_urls', '["' . static::PLUGIN_GALLERY_XML_URL . '"]');
     }
 
     /**
      * Get the external Plugin XML document
      */
-    protected function getExternalDocument(): ?string
+    protected function getExternalDocument(string $galleryUrl): ?string
     {
         $application = Application::get();
         $client = $application->getHttpClient();
@@ -85,7 +95,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
         try {
             $response = $client->request(
                 'GET',
-                static::PLUGIN_GALLERY_XML_URL,
+                $galleryUrl,
                 [
                     'query' => [
                         'application' => $application->getName(),
@@ -106,19 +116,19 @@ class PluginGalleryDAO extends \PKP\db\DAO
     /**
      * Get the cached Plugin XML document
      */
-    protected function getCachedDocument(): ?string
+    protected function getCachedDocument(string $galleryUrl): ?string
     {
-        return Cache::remember('pluginGallery', 60 * 60 * 24, fn () => $this->getExternalDocument());
+        return Cache::remember('pluginGallery-' . md5($galleryUrl), 60 * 60 * 24, fn () => $this->getExternalDocument($galleryUrl));
 
     }
 
     /**
      * Get the DOM document for the plugin gallery.
      */
-    private function _getDocument(): DOMDocument
+    private function _getDocument(string $galleryUrl): DOMDocument
     {
         $doc = new DOMDocument('1.0', 'utf-8');
-        $doc->loadXML($this->getCachedDocument());
+        $doc->loadXML($this->getCachedDocument($galleryUrl));
 
         return $doc;
     }

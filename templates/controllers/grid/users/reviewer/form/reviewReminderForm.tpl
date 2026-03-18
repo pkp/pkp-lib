@@ -13,7 +13,7 @@
 		$('#sendReminderForm').pkpHandler(
 			'$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler',
 			{ldelim}
-				templateUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.reviewer.PKPReviewerGridHandler' op='fetchReviewReminderTemplateBody' stageId=$stageId submissionId=$submissionId reviewAssignmentId=$reviewAssignmentId escape=false}
+				templateUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchReviewReminderTemplateBody' stageId=$stageId submissionId=$submissionId reviewAssignmentId=$reviewAssignmentId escape=false}
 			{rdelim}
 		);
 	{rdelim});

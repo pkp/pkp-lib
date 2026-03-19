@@ -259,7 +259,7 @@ class Repository
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());
         $author->setIncludeInBrowse(1);
-        $author->setOrcid($user->getOrcid());
+        $author->setVerifiedOrcidOAuthData($user->getAllData());
 
         Hook::call('Author::newAuthorFromUser', [$author, $user]);
 

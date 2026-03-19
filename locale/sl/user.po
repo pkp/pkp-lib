@@ -871,6 +871,7 @@ msgstr ""
 "Ta ORCID ni bil potrjen. Prosimo odstranite ta nepotrjen ORCID in prosite za "
 "potrditev s strani uporabnika/avtorja direktno."
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Ste prepričani, da želite trajno odstraniti to vlogo? S to akcijo boste "

@@ -870,6 +870,7 @@ msgstr ""
 msgid "orcid.field.deleteOrcidModal.title"
 msgstr "ORCID हटवा"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr "तुम्हाला ही भूमिका कायमची काढून टाकायची आहे का?"
 

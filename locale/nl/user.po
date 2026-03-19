@@ -911,6 +911,7 @@ msgstr ""
 msgid "user.futureRole.notification.message"
 msgstr "De geplande aanvang van uw rol is {$roleStartDate}"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Bent u zeker dat u deze rol definitief wilt verwijderen? Deze handeling zal "

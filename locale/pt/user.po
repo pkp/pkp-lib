@@ -849,6 +849,7 @@ msgstr ""
 "Pretende enviar um e-mail a este autor a solicitar a verificação do seu "
 "ORCID?"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Tem a certeza de que pretende remover permanentemente esta função? Esta "

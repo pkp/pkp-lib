@@ -906,6 +906,7 @@ msgstr "Ota ORCID-toiminto käyttöön koko sivustolla"
 msgid "orcid.field.verification.requested"
 msgstr "ORCID-vahvistusta on pyydetty!"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Haluatko varmasti poistaa tämän roolin pysyvästi? Tämä poistaa käyttäjän "

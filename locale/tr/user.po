@@ -882,6 +882,7 @@ msgstr ""
 msgid "user.disabledModal.description"
 msgstr "Mevcut Rolleriniz : {$roles}"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Bu rolü kalıcı olarak kaldırmak istediğinizden emin misiniz? Bu eylem, "

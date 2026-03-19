@@ -31,6 +31,7 @@ use PKP\identity\Identity;
 use PKP\plugins\Hook;
 use PKP\search\SubmissionSearch;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 
 /**
@@ -62,7 +63,7 @@ abstract class Collector implements CollectorInterface
     public string $orderDirection = 'DESC';
     public ?string $searchPhrase = null;
     public ?int $maxSearchKeywords = null;
-    public bool $allowAuthorSearch = false;
+
     public ?array $statuses = null;
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
@@ -464,20 +465,9 @@ abstract class Collector implements CollectorInterface
         // Search phrase
         if ($keywords->count()) {
             $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
-            if (!empty($this->assignedTo)) {
-                // Holds a single random row to check whether we have any assignment
-                $q->leftJoinSub(
-                    fn (Builder $q) => $q
-                        ->from('review_assignments', 'ra')
-                        ->whereIn('ra.reviewer_id', $this->assignedTo == self::UNASSIGNED ? [] : (array) $this->assignedTo)
-                        ->select(DB::raw('1 AS value'))
-                        ->limit(1),
-                    'any_assignment',
-                    'any_assignment.value',
-                    '=',
-                    DB::raw('1')
-                );
-            }
+            $assignedToIds = !empty($this->assignedTo) && $this->assignedTo !== self::UNASSIGNED
+                ? (array) $this->assignedTo
+                : [];
             // Builds the filters
             $q->where(
                 fn (Builder $q) => $keywords
@@ -491,14 +481,28 @@ abstract class Collector implements CollectorInterface
                                     ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
                                     ->where('sskl.keyword_text', '=', DB::raw('LOWER(?)'))->addBinding($keyword)
                                     ->whereColumn('s.submission_id', '=', 'sso.submission_id')
-                                // Don't permit reviewers to search on author names
+                                // Don't permit double-blind reviewers to search on author names
                                     ->when(
-                                        !empty($this->assignedTo) && !$this->allowAuthorSearch,
+                                        !empty($assignedToIds),
                                         fn (Builder $q) => $q
                                             ->where(
                                                 fn (Builder $q) => $q
-                                                    ->whereNull('any_assignment.value')
-                                                    ->orWhere('sso.type', '!=', SubmissionSearch::SUBMISSION_SEARCH_AUTHOR)
+                                                    ->where('sso.type', '!=', SubmissionSearch::SUBMISSION_SEARCH_AUTHOR)
+                                                    // Allow if user has a stage assignment on this submission
+                                                    ->orWhereExists(
+                                                        fn (Builder $q) => $q
+                                                            ->from('stage_assignments', 'sa_search')
+                                                            ->whereColumn('sa_search.submission_id', '=', 'sso.submission_id')
+                                                            ->whereIn('sa_search.user_id', $assignedToIds)
+                                                    )
+                                                    // Allow if user has no double-blind review on this submission
+                                                    ->orWhereNotExists(
+                                                        fn (Builder $q) => $q
+                                                            ->from('review_assignments', 'ra_search')
+                                                            ->whereColumn('ra_search.submission_id', '=', 'sso.submission_id')
+                                                            ->whereIn('ra_search.reviewer_id', $assignedToIds)
+                                                            ->where('ra_search.review_method', '=', ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS)
+                                                    )
                                             )
                                     )
                             )
@@ -525,17 +529,31 @@ abstract class Collector implements CollectorInterface
                                         Identity::IDENTITY_SETTING_FAMILYNAME,
                                         'orcid'
                                     ])
-                                // Don't permit reviewers to search on author names
+                                // Don't permit double-blind reviewers to search on author names
                                     ->when(
-                                        !empty($this->assignedTo) && !$this->allowAuthorSearch,
+                                        !empty($assignedToIds),
                                         fn (Builder $q) => $q
                                             ->where(
                                                 fn (Builder $q) => $q
-                                                    ->whereNull('any_assignment.value')
-                                                    ->orWhereNotIn('aus.setting_name', [
+                                                    ->whereNotIn('aus.setting_name', [
                                                         Identity::IDENTITY_SETTING_GIVENNAME,
                                                         Identity::IDENTITY_SETTING_FAMILYNAME
                                                     ])
+                                                    // Allow if user has a stage assignment on this submission
+                                                    ->orWhereExists(
+                                                        fn (Builder $q) => $q
+                                                            ->from('stage_assignments', 'sa_search2')
+                                                            ->whereColumn('sa_search2.submission_id', '=', 'p.submission_id')
+                                                            ->whereIn('sa_search2.user_id', $assignedToIds)
+                                                    )
+                                                    // Allow if user has no double-blind review on this submission
+                                                    ->orWhereNotExists(
+                                                        fn (Builder $q) => $q
+                                                            ->from('review_assignments', 'ra_search2')
+                                                            ->whereColumn('ra_search2.submission_id', '=', 'p.submission_id')
+                                                            ->whereIn('ra_search2.reviewer_id', $assignedToIds)
+                                                            ->where('ra_search2.review_method', '=', ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS)
+                                                    )
                                             )
                                     )
                                     ->where(DB::raw('LOWER(aus.setting_value)'), 'LIKE', $likePattern)

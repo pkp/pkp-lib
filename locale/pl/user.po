@@ -717,6 +717,7 @@ msgstr "Nazwa użytkownika lub adres e-mail"
 msgid "user.bioStatement"
 msgstr "Oświadczenie biograficzne"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Czy na pewno chcesz trwale usunąć tę rolę? Ta czynność spowoduje odebranie "

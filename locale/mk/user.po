@@ -838,6 +838,7 @@ msgstr ""
 msgid "orcid.field.deleteOrcidModal.title"
 msgstr "Избришете го ORCID"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Дали сте сигурни дека сакате трајно да ја отстраните оваа улога? Ова дејство "

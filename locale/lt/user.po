@@ -841,6 +841,7 @@ msgstr ""
 "Šis ORCID nebuvo patvirtintas. Pašalinkite šį nepatvirtintą ORCID ir "
 "paprašykite patvirtinimo tiesiogiai iš naudotojo / autoriaus."
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Ar tikrai norite visam laikui pašalinti šį vaidmenį? Šis veiksmas panaikins "

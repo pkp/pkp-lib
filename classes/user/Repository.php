@@ -511,7 +511,9 @@ class Repository
             ->withContextId($contextId)
             ->withUserIds($userIds)
             ->with(['userGroup']) // eagerload UserGroup entity
+            ->orderBy('user_user_groups.user_user_group_id', 'asc')
             ->get([
+                'user_user_groups.user_user_group_id',
                 'user_user_groups.user_id',
                 'user_user_groups.user_group_id',
                 'user_user_groups.date_start',
@@ -530,6 +532,7 @@ class Repository
                 'name' => $ug->getLocalizedData('name'),
                 'abbrev' => $ug->getLocalizedData('abbrev'),
                 'roleId' => (int) $ug->roleId,
+                'userUserGroupId' => (int) $a->userUserGroupId,
                 'showTitle' => (bool) $ug->showTitle,
                 'recommendOnly' => (bool) $ug->recommendOnly,
                 'permitSelfRegistration' => (bool) $ug->permitSelfRegistration,

@@ -888,6 +888,7 @@ msgstr ""
 "ORCID ini belum diverifikasi. Mohon hapus ORCID yang belum diverifikasi dan "
 "minta verifikasi dari pengguna/penulis secara langsung."
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Apakah Anda yakin ingin menghapus peran ini secara permanen? Tindakan ini "

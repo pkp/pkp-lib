@@ -903,6 +903,7 @@ msgstr "ORCID-Funktionalitäten aktivieren"
 msgid "orcid.field.verification.request"
 msgstr "Verifikation anfordern"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Sind Sie sicher, dass Sie diese Rolle dauerhaft entfernen wollen? Diese "

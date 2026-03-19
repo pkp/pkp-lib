@@ -682,6 +682,7 @@ msgstr "הצהרת ביוגרפיה"
 msgid "orcid.about.howAndWhy.title"
 msgstr "כיצד ומדוע אנו אוספים תעודות זהות של ORCID?"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr "האם אתה בטוח שאתה רוצה להסיר את התפקיד הזה לצמיתות?"
 

@@ -874,6 +874,7 @@ msgstr "Excluir ORCID"
 msgid "orcid.field.deleteOrcidModal.message"
 msgstr "Tem certeza de que deseja remover este ORCID?"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Tem certeza de que deseja remover permanentemente este papel? Esta ação "

@@ -780,6 +780,7 @@ msgstr "Gaitu {$fullName}"
 msgid "user.bioStatement"
 msgstr "Biografia"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Ziur rol hau betiko ezabatu nahi duzula? Ekintza honek erabiltzaileari rol "

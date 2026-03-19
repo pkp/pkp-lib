@@ -920,6 +920,7 @@ msgstr ""
 "Denne ORCID er ikke blevet verificeret. Fjern venligst den uverificerede "
 "ORCID og anmod om verifikation direkte fra brugeren/forfatteren."
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Er du sikker på, at du vil fjerne denne rolle permanent? Denne handling vil "

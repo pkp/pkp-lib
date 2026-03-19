@@ -980,6 +980,7 @@ msgstr ""
 "identifiant ORCID non vérifié et demander directement à l'utilisateur/auteur "
 "de le faire vérifier."
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Êtes-vous sûr de vouloir supprimer définitivement ce rôle ? Cette action "

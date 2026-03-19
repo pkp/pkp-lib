@@ -867,7 +867,7 @@ msgid "orcid.field.unverified.shouldRequest"
 msgstr "This ORCID has not been verified. Please remove this unverified ORCID and request verification from the user/author directly."
 
 msgid "user.removeRole.message"
-msgstr "Are you sure you want to permanently remove this role? This action will revoke the user's access to all information and permissions associated with this role."
+msgstr "Are you sure you want to remove this role? The user will lose access and permissions associated with it."
 
 msgid "user.futureRole.notification.message"
 msgstr "Your role is scheduled to begin on {$roleStartDate}"
@@ -889,3 +889,9 @@ msgstr "Bio Statement"
 
 msgid "user.removeRole.roleRemainMessage"
 msgstr "You cannot remove the role. At least one role must be assigned to the user."
+
+msgid "user.masthead.update.title"
+msgstr "Confirm masthead visibility change"
+
+msgid "user.masthead.update.message"
+msgstr "This will update whether this user appears on the journal masthead for the selected role. The user will be notified of this change."

@@ -945,7 +945,9 @@ Cypress.Commands.add('inviteUser', user => {
 	cy.get('.bg-primary').click();
 	cy.get('select[name="userGroupId"]').select(user.roles);
 	cy.get('#-dateStart-control').type(currentDate);
-	cy.get('#-masthead-control').select('Appear on the masthead');
+	if (!user.roles.includes('Reviewer')) {
+		cy.get('#-masthead-control').select('Appear on the masthead');
+	}
 	cy.contains('.pkpButton', 'Save And Continue').click();
 	cy.wait(2000);
 	cy.contains('button', 'Invite user to the role').click();

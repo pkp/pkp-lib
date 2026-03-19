@@ -768,6 +768,7 @@ msgstr "Bật chức năng ORCID"
 msgid "orcid.manager.siteWide.enabled"
 msgstr "Bật chức năng ORCID trên toàn trang web"
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Bạn có chắc chắn muốn xóa vĩnh viễn vai trò này không? Hành động này sẽ thu "

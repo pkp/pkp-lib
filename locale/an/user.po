@@ -840,6 +840,7 @@ msgstr ""
 "Este ORCID no s'ha verificau. L'elimine y solicite la verificación "
 "dreitament a l'usuario/a u a l'autor/a."
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Seguro que deseya eliminar permanentment este rol? Esta acción revocará lo "

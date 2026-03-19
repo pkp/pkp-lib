@@ -154,7 +154,8 @@
 						'image | pkpTags',
 				statusbar: false,
 				content_css: contentCSS,
-				browser_spellcheck: true
+				browser_spellcheck: true,
+				contextmenu: false
 			};
 
 			// Support image uploads

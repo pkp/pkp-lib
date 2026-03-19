@@ -107,11 +107,21 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         $reciever = $this->getMailableReceiver($locale);
 
+        $emailComposerValues = $this->getPayload()->emailComposer;
+
+        $emailSubject = $emailTemplate->getLocalizedData('subject', $locale);
+        $templateBody = $emailTemplate->getLocalizedData('body', $locale);
+
+        if (isset($emailComposerValues)) {
+            $emailSubject = $emailComposerValues['subject'] ?? $emailSubject;
+            $emailBody = $emailComposerValues['bodyTokenized'] ?? $templateBody;
+        }
+
         $mailable
             ->sender($inviter)
             ->recipients([$reciever])
-            ->subject($emailTemplate->getLocalizedData('subject', $locale))
-            ->body($emailTemplate->getLocalizedData('body', $locale));
+            ->subject($emailSubject)
+            ->body($emailBody);
 
         $this->setMailable($mailable);
 

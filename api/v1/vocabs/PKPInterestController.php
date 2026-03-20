@@ -26,6 +26,7 @@ use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\controlledVocab\ControlledVocabEntryMatch;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\security\authorization\PublicAccessPolicy;
 use PKP\user\interest\UserInterest;
 
 class PKPInterestController extends PKPBaseController
@@ -60,8 +61,8 @@ class PKPInterestController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        // No authorization required for public endpoint
-        return true;
+        $this->addPolicy(new PublicAccessPolicy());
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**

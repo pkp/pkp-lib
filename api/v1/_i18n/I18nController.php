@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
+use PKP\security\authorization\PublicAccessPolicy;
 
 class I18nController extends PKPBaseController
 {
@@ -56,8 +57,9 @@ class I18nController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        // No authorization required for publicly accessible endpoint
-        return true;
+        $this->setEnforceRestrictedSite(false);
+        $this->addPolicy(new PublicAccessPolicy());
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**

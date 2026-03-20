@@ -29,6 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPRoutingProvider;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\PublicAccessPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -122,6 +123,8 @@ class PKPStatsSushiController extends PKPBaseController
             }
 
             $this->addPolicy($rolePolicy);
+        } else {
+            $this->addPolicy(new PublicAccessPolicy());
         }
 
         return parent::authorize($request, $args, $roleAssignments);

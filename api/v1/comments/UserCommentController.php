@@ -31,6 +31,7 @@ use PKP\API\v1\comments\resources\UserCommentReportResource;
 use PKP\API\v1\comments\resources\UserCommentResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPString;
+use PKP\security\authorization\PublicAccessPolicy;
 use PKP\security\Role;
 use PKP\userComment\relationships\UserCommentReport;
 use PKP\userComment\UserComment;
@@ -119,8 +120,8 @@ class UserCommentController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        // No authorization required for public endpoint
-        return true;
+        $this->addPolicy(new PublicAccessPolicy());
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**

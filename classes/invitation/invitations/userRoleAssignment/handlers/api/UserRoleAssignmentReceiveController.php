@@ -31,7 +31,7 @@ use PKP\security\authorization\AnonymousUserPolicy;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\core\PKPRequest;
-use Validation;
+use PKP\security\Validation;
 
 class UserRoleAssignmentReceiveController extends ReceiveInvitationController
 {

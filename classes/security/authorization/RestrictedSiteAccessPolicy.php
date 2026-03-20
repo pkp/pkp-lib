@@ -75,7 +75,7 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy
      */
     private function _getLoginExemptions(): array
     {
-        $exemptions = ['user', 'login', 'help', 'header', 'sidebar', 'payment'];
+        $exemptions = ['user', 'login', 'help', 'header', 'sidebar', 'payment', 'invitation'];
         Hook::call('RestrictedSiteAccessPolicy::_getLoginExemptions', [[&$exemptions]]);
         return $exemptions;
     }

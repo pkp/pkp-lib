@@ -58,7 +58,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      * 
-     * @hook SubmissionFileStageAccessPolicy::effect [[$submission, $userRoles, $stageAssignments, $this->_fileStage, $this->_action, &$assignedFileStages]]
+     * @hook SubmissionFileStageAccessPolicy::effect ['submission' => $submission, 'userRoles' => $userRoles, 'stageAssignments' => $stageAssignments, 'fileStage' => $this->_fileStage, 'action' => $this->_action, 'assignedFileStages' => &$assignedFileStages]
      */
     public function effect(): int
     {
@@ -143,7 +143,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
         }
 
         // Give plugin a chance to override the submission file stage access policy
-        Hook::run('SubmissionFileStageAccessPolicy::effect', [$submission, $userRoles, $stageAssignments, $this->_fileStage, $this->_action, &$assignedFileStages]);
+        Hook::run('SubmissionFileStageAccessPolicy::effect', ['submission' => $submission, 'userRoles' => $userRoles, 'stageAssignments' => $stageAssignments, 'fileStage' => $this->_fileStage, 'action' => $this->_action, 'assignedFileStages' => &$assignedFileStages]);
 
         if (in_array($this->_fileStage, $assignedFileStages)) {
             $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_FILE_STAGES, $assignedFileStages);

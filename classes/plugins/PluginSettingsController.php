@@ -31,17 +31,17 @@ abstract class PluginSettingsController extends PKPBaseController
 
     public function getRouteGroupMiddleware(): array
     {
+        $middleware = ['has.user'];
         $roles = [Role::ROLE_ID_SITE_ADMIN];
 
         if (!$this->plugin->isSitePlugin()) {
+            $middleware[] = 'has.context';
             $roles[] = Role::ROLE_ID_MANAGER;
         }
 
-        return [
-            'has.user',
-            'has.context',
-            self::roleAuthorizer($roles),
-        ];
+        $middleware[] = self::roleAuthorizer($roles);
+
+        return $middleware;
     }
 
     public function getGroupRoutes(): void

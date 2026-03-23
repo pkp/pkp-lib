@@ -107,6 +107,15 @@ class PKPReviewerHandler extends Handler
             'submission' => $reviewSubmission,
         ]);
 
+        // Ensure Step 3 custom required validation script is loaded in the page header
+        if ((int)$reviewAssignment->getReviewFormId() > 0) {
+            $templateMgr->addJavaScript(
+                'reviewStep3Required',
+                $request->getBaseUrl() . '/lib/pkp/js/pages/reviewer/ReviewStep3Required.js',
+                ['contexts' => ['backend']]
+            );
+        }
+
         $templateMgr->setState([
             'pageInitConfig' => [
                 'reviewRoundHistories' => $reviewRoundHistories,

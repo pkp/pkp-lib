@@ -16,7 +16,9 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="reviewStep3Form" method="post" action="{url op="saveStep" path=$submission->getId() step="3"}">
+<form class="pkp_form" id="reviewStep3Form" method="post"
+    action="{url op="saveStep" path=$submission->getId() step="3"}"
+    aria-describedby="reviewStep3MessageBox">
 	<input type="hidden" name="isSave" />{* @see ReviewerReviewStep3FormHandler.js *}
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="reviewStep3FormNotification"}
@@ -67,10 +69,22 @@
 	{$additionalFormFields}
 
 	{capture assign="cancelUrl"}{url page="reviewer" op="submission" path=$submission->getId() step=2 escape=false}{/capture}
-	{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" modalStyle="primary" saveText="reviewer.submission.saveReviewForLater" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsClosed}
+	<div id="reviewStep3Actions">
+		{fbvFormButtons submitText="reviewer.submission.submitReview" confirmSubmit="reviewer.confirmSubmit" modalStyle="primary" saveText="reviewer.submission.saveReviewForLater" cancelText="navigation.goBack" cancelUrl=$cancelUrl cancelUrlTarget="_self" submitDisabled=$reviewIsClosed}
+	</div>
+
+	<div id="reviewStep3MessageBox" class="pkp_notification" style="display:none; margin-top:12px;">
+		{include
+			file="controllers/notification/inPlaceNotificationContent.tpl"
+			notificationId="reviewStep3MessageBoxContent"
+			notificationStyleClass="notifyError"
+			notificationTitle={"reviewer.submission.reviewFormResponse.form.responseRequired"|translate}
+			notificationContents={"reviewer.submission.reviewFormResponse.form.notFilledIn"|translate}
+		}
+	</div>
 {/fbvFormArea}
 
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+<!--<p><span class="formRequired">{translate key="common.requiredField"}</span></p>-->
 </form>
 
 <script>

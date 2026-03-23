@@ -16,7 +16,6 @@
 namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -38,12 +37,9 @@ class AddReviewerSuggestion extends FormRequest
     /**
      * @copydoc \PKP\validation\traits\HasMultilingualRule::primaryLocale()
      */
-    public function primaryLocale(): ?string 
+    public function primaryLocale(): ?string
     {
-        $submission = Repo::submission()->get($this->route('submissionId'));
-
-        return $submission?->getData('locale')
-            ?? Application::get()->getRequest()->getContext()->getSupportedDefaultSubmissionLocale();
+        return Application::get()->getRequest()->getContext()->getPrimaryLocale();
     }
 
     /**
@@ -51,7 +47,7 @@ class AddReviewerSuggestion extends FormRequest
      */
     public function allowedLocales(): array 
     {
-        return Application::get()->getRequest()->getContext()->getSupportedSubmissionLocales();
+        return Application::get()->getRequest()->getContext()->getSupportedFormLocales();
     }
 
     /**

@@ -228,7 +228,12 @@ abstract class PKPSubmissionHandler extends Handler
         ];
 
         if ($context->getData('reviewerSuggestionEnabled')) {
-            $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $formLocales);
+            $supportedFormLocales = collect($context->getSupportedFormLocaleNames())
+                ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+                ->sortBy('key')
+                ->values()
+                ->toArray();
+            $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $supportedFormLocales);
             $components[$reviewerSuggestionsListPanel->id] = $reviewerSuggestionsListPanel->getConfig();
         }
 

@@ -33,9 +33,12 @@ use DirectoryIterator;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\DB;
+use PKP\core\Core;
 use PKP\file\PrivateFileManager;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use Symfony\Component\JsonStreamer\JsonStreamReader;
+use Symfony\Component\TypeInfo\Type;
 use Throwable;
 use ZipArchive;
 
@@ -70,15 +73,16 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
         try {
             $this->cleanup([$pathZipFile, $pathZipDir]);
-
             $downloadData = $this->getDownloadData();
             if (empty($downloadData)) {
                 return false;
             }
 
+            $start = microtime(true);
             if (!$this->downloadAndExtract($downloadData['url'], $pathZipFile, $pathZipDir, $downloadData['checksum'])) {
                 return false;
             }
+            $this->addExecutionLogEntry('Download+extract: ' . round(microtime(true) - $start, 2) . 's', ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
             $pathJson = $this->getPathJson($pathZipDir);
             if (empty($pathJson) || !$this->fileManager->fileExists($pathJson)) {
@@ -91,7 +95,9 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 return false;
             }
 
+            $start = microtime(true);
             $this->processJson($pathJson);
+            $this->addExecutionLogEntry('processJson total: ' . round(microtime(true) - $start, 2) . 's', ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
             return true;
         } catch (Throwable $e) {
@@ -258,7 +264,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 break;
             }
             $buffer .= $chunk;
-            if (preg_match('/"last_modified"\s*:\s*\{[^}]*"schema_version"\s*:\s*"(\d+)/', $buffer, $matches)) {
+            if (preg_match('/"admin"\s*:\s*\{.*?"last_modified"\s*:\s*\{[^}]*"schema_version"\s*:\s*"(\d+)/s', $buffer, $matches)) {
                 fclose($handle);
                 return (int)$matches[1] === $version;
             }
@@ -273,38 +279,71 @@ class UpdateRorRegistryDataset extends ScheduledTask
      */
     private function processJson(string $pathJson): void
     {
-        $json = file_get_contents($pathJson);
-        if ($json === false) {
+        $cacheDir = $this->getCacheDir();
+        $this->fileManager->mkdirtree($cacheDir . '/readers');
+        $this->fileManager->mkdirtree($cacheDir . '/ghosts');
+
+        $reader = JsonStreamReader::create(
+            streamReadersDir: $cacheDir . '/readers',
+            lazyGhostsDir: $cacheDir . '/ghosts',
+        );
+
+        $resource = fopen($pathJson, 'r');
+        if ($resource === false) {
             throw new Exception("Failed to read ROR JSON file: {$pathJson}");
         }
-        $records = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
-        unset($json);
 
-        $batchSize = 5000;
-        $batchRows = [];
+        try {
+            $batchSize = 5000;
+            $batchRows = [];
+            $timeStreaming = 0.0;
+            $timeDb = 0.0;
 
-        foreach ($records as $record) {
-            if (empty($record['id']) || empty($record['names']) || empty($record['status'])) {
-                $this->addExecutionLogEntry(
-                    __('admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields', [
-                        'id' => $record['id'] ?? ''
-                    ]),
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_WARNING
-                );
-                continue;
+            $streamStart = microtime(true);
+            foreach ($reader->read($resource, Type::list(Type::array())) as $record) {
+                $timeStreaming += microtime(true) - $streamStart;
+
+                if (empty($record['id']) || empty($record['names']) || empty($record['status'])) {
+                    $this->addExecutionLogEntry(
+                        __('admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields', [
+                            'id' => $record['id'] ?? ''
+                        ]),
+                        ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_WARNING
+                    );
+                    $streamStart = microtime(true);
+                    continue;
+                }
+
+                $batchRows[] = $this->processRow($record);
+
+                if (count($batchRows) >= $batchSize) {
+                    $dbStart = microtime(true);
+                    $this->processBatch($batchRows);
+                    $timeDb += microtime(true) - $dbStart;
+                    $batchRows = [];
+                }
+
+                $streamStart = microtime(true);
             }
 
-            $batchRows[] = $this->processRow($record);
-
-            if (count($batchRows) >= $batchSize) {
+            if (!empty($batchRows)) {
+                $dbStart = microtime(true);
                 $this->processBatch($batchRows);
-                $batchRows = [];
+                $timeDb += microtime(true) - $dbStart;
             }
-        }
 
-        if (!empty($batchRows)) {
-            $this->processBatch($batchRows);
+            $this->addExecutionLogEntry('JSON streaming: ' . round($timeStreaming, 2) . 's, DB operations: ' . round($timeDb, 2) . 's', ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+        } finally {
+            fclose($resource);
         }
+    }
+
+    /**
+     * Get the cache directory for JsonStreamReader generated files.
+     */
+    private function getCacheDir(): string
+    {
+        return Core::getBaseDir() . '/cache/json_streamer';
     }
 
     /**

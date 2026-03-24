@@ -79,7 +79,7 @@ abstract class PKPOrcidWork
                 ]
             ],
             'journal-title' => [
-                'value' => $this->context->getName($publicationLocale) ?? $this->context->getName($this->context->getPrimaryLocale()),
+                'value' => $this->publication->getData('contextName', $publicationLocale) ?? $this->publication->getData('contextName', $this->context->getPrimaryLocale()),
             ],
             'short-description' => trim(strip_tags($this->publication->getLocalizedData('abstract', $publicationLocale))) ?? '',
 
@@ -215,10 +215,10 @@ abstract class PKPOrcidWork
         }
 
         // Add journal online ISSN, if it exists
-        if ($context->getData('onlineIssn')) {
+        if ($publication->getData('onlineIssn')) {
             $externalIds[] = [
                 'external-id-type' => 'issn',
-                'external-id-value' => $context->getData('onlineIssn'),
+                'external-id-value' => $publication->getData('onlineIssn'),
                 'external-id-relationship' => 'part-of'
             ];
         }

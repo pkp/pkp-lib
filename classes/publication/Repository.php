@@ -570,6 +570,10 @@ abstract class Repository
         $newPublication = clone $publication;
         $newPublication->stampModified();
 
+        if (!$newPublication->getData('datePublished')) {
+            $newPublication->stampContextIdentity();
+        }
+
         $this->setStatusOnPublish($newPublication);
 
         // Set the copyright and license information

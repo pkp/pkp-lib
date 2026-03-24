@@ -716,6 +716,9 @@ class PKPSubmissionController extends PKPBaseController
         $submissionId = Repo::submission()->add($submission, $publication, $request->getContext());
 
         $submission = Repo::submission()->get($submissionId);
+        $publication = $submission->getCurrentPublication();
+        $publication->stampContextIdentity();
+        Repo::publication()->edit($publication, []);
 
         // Assign submitter to submission
         Repo::stageAssignment()

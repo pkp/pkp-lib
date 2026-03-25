@@ -801,12 +801,14 @@ msgstr "Zjištěny duplicitní ORCiD pro přispěvatele."
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Zjištěny neověřené ORCiD pro přispěvatele."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Níže uveďte celý název instituce a vyvarujte se jakýchkoli zkratek. Vyberte "
 "název z rozbalovacího seznamu a kliknutím na tlačítko \"Přidat\" zahrňte "
 "příslušnost do svého profilu. (např. \"Univerzita Karlova\")"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Název institutu v {$language}"
 
@@ -858,12 +860,14 @@ msgstr "Všechny dostupné překlady"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} z {$total} jazyků je dokončeno"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Zadejte název institutu v {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "Jste si jisti?"
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Napište název instituce v {$language}"
 

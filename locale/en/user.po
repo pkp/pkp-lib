@@ -27,7 +27,7 @@ msgid "user.affiliations.description"
 msgstr ""
 "Enter the full name of the institution below, avoiding any acronyms. "
 "Select the name from the dropdown and click \"Add\" to include the "
-"affiliation in your profile. (e.g. \"Simon Fraser University\")"
+"affiliation in your profile (e.g. \"Simon Fraser University\")."
 
 msgid "user.affiliations.institution"
 msgstr "Institution"
@@ -51,10 +51,10 @@ msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} of {$total} languages completed"
 
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
-msgstr "Type the institute name in {$language}"
+msgstr "Type the institution name in {$language}"
 
 msgid "user.affiliations.translationNameInLanguage"
-msgstr "Institute name in {$language}"
+msgstr "Institution name in {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "Are you sure?"
@@ -63,13 +63,22 @@ msgid "user.affiliations.deleteModal.message"
 msgstr "The affiliation <strong>{$affiliation}</strong> will be deleted."
 
 msgid "user.affiliations.searchPhraseLabel"
-msgstr "Type the institute name in {$language}"
+msgstr "Type the institution name in {$language}"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Your search phrase could not be found"
 
 msgid "user.affiliations.primaryLocaleRequired"
 msgstr "The primary language {$primaryLocale} is required"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API Error"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr "The ROR API service is currently unavailable. Please refresh the page or try again later."
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr "The ROR API service in this installation is deprecated. Please contact your system administrator."
 
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."

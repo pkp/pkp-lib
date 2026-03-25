@@ -782,9 +782,11 @@ msgstr "Instituição"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "Todas as traduções disponíveis"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Indique o nome do instituto em {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Nome do instituto em {$language}"
 
@@ -809,12 +811,14 @@ msgstr "Clique para editar ou excluir"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} de {$total} idiomas concluídos"
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Indique o nome do instituto em {$language}"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Não foi possível encontrar a frase pesquisada"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Introduza o nome completo da instituição, evitando siglas. Selecione o nome "

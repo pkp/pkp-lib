@@ -2428,3 +2428,6 @@ msgstr "Save Order"
 
 msgid "common.order"
 msgstr "Order"
+
+msgid "common.openLinkNewTab"
+msgstr "Open link in a new tab."

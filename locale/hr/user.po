@@ -542,6 +542,7 @@ msgstr "Kliknite za uređivanje ili brisanje"
 msgid "user.authorization.shouldBeAnonymous"
 msgstr "Korisnik treba ostati anoniman. Trenutačno ste prijavljeni."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Unesite puni naziv ustanove u polje ispod, izbjegavajući kratice. Odaberite "
@@ -566,9 +567,11 @@ msgstr "Dostupni svi prijevodi"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Dovršeno {$count} od {$total} jezika"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Upišite ime ustanove na {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Ime ustanove na {$language}"
 
@@ -578,6 +581,7 @@ msgstr "Jeste li sigurni?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Pripadnost ustanovi <strong>{$affiliation}</strong> bit će obrisana."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Upišite naziv ustanove na {$language}"
 

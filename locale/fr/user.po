@@ -856,6 +856,7 @@ msgstr "Biographie courte"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} sur {$total} langues terminées"
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Saisissez le nom de l'établissement en {$language}"
 
@@ -924,9 +925,11 @@ msgstr "Cliquez pour modifier ou supprimer"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "Toutes les traductions disponibles"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Saisissez le nom de l'établissement en {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Nom de l'établissement en {$language}"
 
@@ -945,6 +948,7 @@ msgstr "La langue principale {$primaryLocale} est obligatoire"
 msgid "orcid.manager.settings.orcidClientId.error"
 msgstr "ID client non valide"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Entrez le nom complet de l'établissement ci-dessous, en évitant les "

@@ -743,6 +743,7 @@ msgstr "تم الكشف عن مُعرَّفات ORCiD غير مرخصة للمس
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "الوصول لمجريات العمل مقيد بالنسبة إلى طلبات التقديم غير المكتملة."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "أدخل الاسم الكامل للمؤسسة أدناه متجنبًا أي إختصارات. إختر الاسم من القائمة "
@@ -817,15 +818,18 @@ msgstr "أنقر للتحرير أو الحذف"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "كل الترجمات متاحة"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "إطبع اسم المؤسسة بـ {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "اسم المؤسسة بـ {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "هل أنت متأكد؟"
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "إطبع اسم المؤسسة بـ {$language}"
 

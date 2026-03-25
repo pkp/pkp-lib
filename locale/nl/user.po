@@ -720,6 +720,7 @@ msgstr "Gebruikersnaam of e-mailadres"
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Workflowtoegang voor onvolledige inzending is beperkt."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Vul de volledige naam van onderstaand instituut in, met vermijding van "
@@ -748,9 +749,11 @@ msgstr "Alle beschikbare vertalingen"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} van {$total} talen voltooid"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Vul de naam van het instituut in {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Naam van het instituut in {$language}"
 
@@ -760,6 +763,7 @@ msgstr "Bent u zeker?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "De affiliation <strong>{$affiliation}</strong> zal worden vernietigd."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Vul de naam van het instituut in {$language}"
 

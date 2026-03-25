@@ -850,6 +850,7 @@ msgstr ""
 "allerede sendt dig en e-mail med information om hvordan du validerer den "
 "ændrede e-mail."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Udfyld det fulde navn på institutionen nedenfor og undgå brug af akronymer. "
@@ -877,9 +878,11 @@ msgstr "Alle tilgængelige oversættelser"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} af {$total} sprog afsluttet"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Skriv instituttets navn på {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Institutnavn på {$language}"
 
@@ -889,6 +892,7 @@ msgstr "Er du sikker?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Tilhørsforholdet <strong>{$affiliation}</strong> vil blive slettet."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Skriv instituttets navn på {$language}"
 

@@ -856,6 +856,7 @@ msgstr "Поточні ролі: {$roles}"
 msgid "user.enabledModal.title"
 msgstr "Увімкнути {$fullName}"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Нижче введіть повну назву установи, уникаючи абревіатур. Виберіть ім’я зі "
@@ -884,9 +885,11 @@ msgstr "Усі доступні переклади"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Заповнено {$count} з {$total} мов"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Введіть назву установи мовою {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Назва установи мовою {$language}"
 
@@ -896,6 +899,7 @@ msgstr "Ви впевнені?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Місце роботи <strong>{$affiliation}</strong> буде видалено."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Введіть назву установи мовою {$language}"
 

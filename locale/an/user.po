@@ -21,6 +21,7 @@ msgstr "Totas las traduccions disponibles"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} de {$total} idiomas completaus"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Escriba lo nombre d'a institución en {$language}"
 
@@ -65,6 +66,7 @@ msgstr ""
 msgid "user.futureRole.notification.message"
 msgstr "Lo suyo rol ye programau pa empecipiar lo {$roleStartDate}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Nombre d'a institución en {$language}"
 
@@ -80,6 +82,7 @@ msgstr "(La tuya institución, p. eix. \"Universidat Simon Fraser\")"
 msgid "user.affiliations"
 msgstr "Afiliacions"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Introduzca lo nombre completo d'a institución contino, privando acronimos. "
@@ -104,6 +107,7 @@ msgstr "Ye seguro?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "S'eliminará l'afiliación <strong>{$affiliation}</strong>."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Escriba lo nombre d'a institución en {$language}"
 

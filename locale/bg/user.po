@@ -761,6 +761,7 @@ msgstr "Открити са неавтентифицирани ORCiD за сът
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Достъпът до работния процес за непълно подадени материали е ограничен."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Въведете пълното име на институцията по-долу, като избягвате всякакви "
@@ -771,6 +772,7 @@ msgstr ""
 msgid "user.affiliations.translationActionsAriaLabel"
 msgstr "Кликнете, за да редактирате или изтриете"
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Въведете името на институцията на {$language}"
 
@@ -858,6 +860,7 @@ msgstr "Всички налични преводи"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Завършени са {$count} от {$total} езика"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Въведете името на институцията на {$language}"
 
@@ -867,6 +870,7 @@ msgstr "Вашата фраза за търсене не можа да бъде 
 msgid "user.affiliations.primaryLocaleRequired"
 msgstr "Изисква се исписване на основния език - {$primaryLocale}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Име на институцията на {$language}"
 

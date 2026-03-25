@@ -755,6 +755,7 @@ msgstr "Tekijätiedot sisältävät vahvistamattomia ORCID-tunnuksia."
 msgid "orcid.invalidClient"
 msgstr "Virheelliset asiakkaan käyttäjätiedot (client)"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Kirjoita organisaation koko nimi alle ilman lyhenteitä. Valitse nimi "
@@ -782,9 +783,11 @@ msgstr "Kaikki käännökset saatavilla"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} / {$total} kielestä valmis"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Kirjoita organisaation nimi kielellä {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Organisaation nimi kielellä {$language}"
 
@@ -794,6 +797,7 @@ msgstr "Oletko varma?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Affiliaatio <strong>{$affiliation}</strong> poistetaan."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Kirjoita organisaation nimi kielellä {$language}"
 

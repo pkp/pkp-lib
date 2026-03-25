@@ -784,6 +784,7 @@ msgstr "Дополнительная информация"
 msgid "user.affiliations.translationDeleteActionLabel"
 msgstr "Удалить учреждение"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Введите название учреждения на {$language}"
 
@@ -810,6 +811,7 @@ msgstr "Все переводы доступны"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} из {$total} языков завершено"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Название института на {$language}"
 
@@ -819,6 +821,7 @@ msgstr "Вы уверены?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Аффилиация <strong>{$affiliation}</strong> будет удалена."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Введите название института на {$language}"
 
@@ -828,6 +831,7 @@ msgstr "Основной язык {$primaryLocale} обязателен"
 msgid "user.affiliations.institution"
 msgstr "Учреждение"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Введите полное название учреждения ниже, избегая аббревиатур. Выберите "

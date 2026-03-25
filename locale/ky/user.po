@@ -231,6 +231,7 @@ msgstr "Бул API ачкычты өчүрүүнү каалайсызбы?"
 msgid "user.hello"
 msgstr "Салам, "
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Төмөндө уюмдун толук атын акронимдерди колдонбой киргизиңиз. Төмөнкү "
@@ -249,9 +250,11 @@ msgstr "Бардык котормолор жеткиликтүү"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$total} тилдин ичинен {$count} толтурулду"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Уюмдун атын {$language} тилинде жазыңыз"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Уюмдун аты {$language} тилинде"
 
@@ -261,6 +264,7 @@ msgstr "Ишенимдүүбү?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Тиешелүүлүк <strong>{$affiliation}</strong> өчүрүлөт."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Уюмдун атын {$language} тилинде жазыңыз"
 

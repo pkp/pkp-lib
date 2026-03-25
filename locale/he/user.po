@@ -26,6 +26,7 @@ msgstr "השתייכויות ארגוניות"
 msgid "user.accountInformation"
 msgstr "פרטי חשבון"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "הכנס שם מלא של המוסד למטה, יש להימנע מראשי תיבות. בחר.י את השם מהטבלה והקש "
@@ -50,6 +51,7 @@ msgstr "לחץ כדי לערוך או למחוק"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "כל התרגומים זמינים"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "הקלד את שם המכון ב- {$language}"
 
@@ -227,6 +229,7 @@ msgstr "{$count} מתוך {$total} שפות שהושלמו"
 msgid "user.affiliations.deleteModal.message"
 msgstr "השיוך <strong>{$affiliation}</strong> יימחק."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "הקלד את שם המכון ב- {$language}"
 
@@ -712,6 +715,7 @@ msgstr "כתובת למשלוח דואר"
 msgid "user.myAccount"
 msgstr "החשבון שלי"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "שם המכון ב- {$language}"
 

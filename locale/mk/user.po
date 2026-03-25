@@ -796,6 +796,7 @@ msgstr "Кликнете за да уредите или избришете"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "Сите преводи се достапни"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Внесете го името на институтот на {$language}"
 
@@ -863,6 +864,7 @@ msgstr "Овозможи {$fullName}"
 msgid "user.bioStatement"
 msgstr "Био изјава"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Внесете го целосното име на институцијата подолу, избегнувајќи какви било "
@@ -872,12 +874,14 @@ msgstr ""
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Завршени се {$count} од {$total} јазици"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Име на институтот на {$language}"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "Припадноста <strong>{$affiliation}</strong> ќе биде избришана."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Внесете го името на институтот на {$language}"
 

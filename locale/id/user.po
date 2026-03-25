@@ -747,6 +747,7 @@ msgstr "Client secret tidak valid"
 msgid "orcid.manager.settings.orcidClientId.error"
 msgstr "Client ID Tidak Valid"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Masukkan nama lengkap institusi di bawah ini, hindari penggunaan singkatan. "
@@ -774,9 +775,11 @@ msgstr "Semua terjemahan tersedia"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} dari {$total} bahasa telah lengkap"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Ketik nama institusi dalam {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Nama institusi dalam {$language}"
 
@@ -786,6 +789,7 @@ msgstr "Apa anda yakin?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Institusi <strong>{$affiliation}</strong> akan dihapus."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Ketik nama institusi dalam {$language}"
 

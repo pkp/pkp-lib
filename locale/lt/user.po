@@ -61,6 +61,7 @@ msgstr "(Jūsų institucija, pvz., „Simon Fraser University“)"
 msgid "user.affiliations"
 msgstr "Institucijos"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Žemiau įveskite pilną institucijos pavadinimą, vengdami akronimų. "
@@ -89,9 +90,11 @@ msgstr "Visi vertimai prieinami"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} iš {$total} kalbų baigta"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Įveskite instituto pavadinimą {$language} kalba"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Instituto pavadinimas {$language} kalba"
 
@@ -101,6 +104,7 @@ msgstr "Ar tikrai?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Priskyrimas <strong>{$affiliation</strong> bus ištrintas."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Įveskite instituto pavadinimą {$language} kalba"
 

@@ -809,6 +809,7 @@ msgstr "Benutzer/innen-Name oder E-Mail"
 msgid "user.affiliations.translationActionsAriaLabel"
 msgstr "Anklicken, um zu bearbeiten oder zu löschen"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Geben Sie unterhalb den vollen Namen der Institution ein. Vermeiden Sie "
@@ -834,9 +835,11 @@ msgstr "Alle Übersetzungen verfügbar"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} von {$total} Sprachen komplett"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Geben Sie den Namen des Instituts in {$language} ein"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Name des Instituts in {$language}"
 
@@ -846,6 +849,7 @@ msgstr "Sind Sie sicher?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Die Affiliation <strong>{$affiliation}</strong> wird gelöscht."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Geben Sie den Namen des Instituts in {$language} ein"
 

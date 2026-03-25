@@ -610,6 +610,7 @@ msgstr "gömd"
 msgid "orcid.manager.settings.title"
 msgstr "ORCID API-Inställningar"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Ange institutionens fullständiga namn utan förkortningar nedan. Välj namnet "
@@ -658,9 +659,11 @@ msgstr "Klicka för att redigera eller ta bort"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "Alla tillgängliga översättningar"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Skriv in institutionens namn på {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Institutionens namn på {$language}"
 
@@ -670,6 +673,7 @@ msgstr "Är du säker?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Affilieringen <strong>{$affiliation}</strong> kommer tas bort."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Skriv in institutionens namn på {$language}"
 

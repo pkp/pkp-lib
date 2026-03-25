@@ -761,15 +761,18 @@ msgstr "Kliknite za urejanje ali brisanje"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} od {$total} jezikov je zaključenih"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Vpišite ime ustanove v jeziku {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Ime ustanove v jeziku {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "Ste prepričani?"
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Tip ustanove v jeziku {$language}"
 
@@ -795,6 +798,7 @@ msgstr ""
 "Do takrat lahko pregledate in posodobite svoj profil. Če mislite, da je to "
 "napaka, se prosimo obrnite na administratorja."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Spodaj vpišite polno ime ustanove, brez okrajšav. Izberite ime v spustnem "

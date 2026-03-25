@@ -771,6 +771,7 @@ msgstr "Geçersiz istemci kimliği"
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Tamamlanmamış gönderim için iş akışı erişimi kısıtlanmıştır."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Aşağıya kurumunuzun tam adını girin, kısaltmalardan kaçının. Açılır menüden "
@@ -801,15 +802,18 @@ msgstr "Kurum"
 msgid "user.affiliations.translationEditActionLabel"
 msgstr "Kurum adını düzenle"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "{$language} dilinde enstitü adını yazın"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "{$language} dilinde enstitü adı"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "Bağlı kuruluş <strong>{$affiliation}</strong> silinecek."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Kurum adını {$language} alanına yazın"
 

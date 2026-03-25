@@ -873,6 +873,7 @@ msgstr ""
 msgid "orcid.manager.context.enabled"
 msgstr "Habilitar la funcionalidad ORCID"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Introduzca el nombre completo de la institución a continuación, evitando "
@@ -901,9 +902,11 @@ msgstr "Todas las traducciones disponibles"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} de {$total} idiomas completados"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Escriba el nombre de la institución en {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Nombre de la institución en {$language}"
 
@@ -913,6 +916,7 @@ msgstr "¿Está seguro?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Se eliminará la afiliación <strong>{$affiliation}</strong>."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Escriba el nombre de la institución en {$language}"
 

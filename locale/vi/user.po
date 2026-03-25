@@ -790,6 +790,7 @@ msgid "user.removeRole.roleRemainMessage"
 msgstr ""
 "Bạn không thể xóa vai trò. Ít nhất một vai trò phải được gán cho người dùng."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Nhập tên đầy đủ của tổ chức bên dưới, tránh viết tắt. Chọn tên từ danh sách "
@@ -817,9 +818,11 @@ msgstr "Tất cả các bản dịch có sẵn"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} trên {$total} ngôn ngữ đã hoàn thành"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Nhập tên tổ chức bằng {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Tên tổ chức bằng {$language}"
 
@@ -829,6 +832,7 @@ msgstr "Bạn có chắc không?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Liên kết <strong>{$affiliation}</strong> sẽ bị xóa."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Nhập tên tổ chức bằng {$language}"
 

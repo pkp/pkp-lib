@@ -511,6 +511,7 @@ msgstr ""
 msgid "user.usernameOrEmail"
 msgstr "Korisničko ime ili mejl"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Unesite puni naziv institucije ispod, izbegavajući skraćenice. Izaberite "
@@ -544,9 +545,11 @@ msgstr "Svi dostupni prevodi"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Završeno {$count} od {$total} jezika"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Unesite naziv instituta na {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Naziv instituta na {$language}"
 
@@ -556,6 +559,7 @@ msgstr "Da li se sigurni?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Afilijacija <strong>{$affiliation}</strong> biće obrisana."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Unesite naziv institucije na {$language}"
 

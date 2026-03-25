@@ -709,9 +709,11 @@ msgstr "Itzulpen guztiak eskuragarri"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$total}-etik {$count} hizkuntza osatuta"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Idatzi erakundearen izena {$language} hizkuntzan"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Erakundearen izena {$language} hizkuntzan"
 
@@ -721,6 +723,7 @@ msgstr "Ziur zaude?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "<strong>{$affiliation}</strong> kidetza ezabatuko da."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Idatzi erakundearen izena {$language} hizkuntzan"
 
@@ -855,6 +858,7 @@ msgstr "Lan-fluxuaren sarbidea mugatuta dago osatu gabeko bidalketentzat."
 msgid "orcid.field.authorEmailModal.message.noAuthor"
 msgstr "Egilea sortu ondoren bidaliko da mezu elektronikoa."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Idatzi behean erakundearen izen osoa, akronimoak saihestuz. Hautatu izena "

@@ -830,6 +830,7 @@ msgstr ""
 "Des doublons d'identifiants ORCID pour des contributeur.trice.s ont été "
 "détectés."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Saisissez le nom complet de l'institution ci-dessous, en évitant les "
@@ -859,9 +860,11 @@ msgstr "Toutes traductions disponibles"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} de {$total} langues complétées"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Saisissez le nom de l'institut en {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Nom de l'institution en {$language}"
 
@@ -871,6 +874,7 @@ msgstr "Êtes-vous sûr ?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "L'affiliation <strong>{$affiliation}</strong> sera supprimée."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Saisissez le nom de l'institut en {$language}"
 

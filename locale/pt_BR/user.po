@@ -803,6 +803,7 @@ msgstr ""
 "Digite as duas letras que você gostaria de usar como avatar. Essas iniciais "
 "serão exibidas para representar você."
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Insira o nome completo da instituição abaixo, evitando quaisquer siglas. "
@@ -838,9 +839,11 @@ msgstr "Clique para editar ou excluir"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "Todas as traduções disponíveis"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Digite o nome do instituto em {$language}"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Nome do instituto em {$language}"
 
@@ -850,6 +853,7 @@ msgstr "Você tem certeza?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "A afiliação <strong>{$affiliation}</strong> será excluída."
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Digite o nome do instituto em {$language}"
 

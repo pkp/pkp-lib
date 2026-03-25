@@ -799,21 +799,25 @@ msgstr "Բոլոր թարգմանությունները մատչելի են"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "Ավարտված է {$count}-ը {$total} լեզուներից"
 
+#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Մուտքագրեք ինստիտուտի անունը {$language} -ում"
 
+#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Ստորև մուտքագրեք հաստատության լրիվ անվանումը՝ խուսափելով որևէ հապավումից: "
 "Ընտրեք անունը բացվող ցանկից և սեղմեք «Ավելացնել»՝ պատկանելությունը ձեր "
 "պրոֆիլում ներառելու համար, (օրինակ՝ \"Simon Fraser University\")"
 
+#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Հաստատության անունը {$language} -ում"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "<strong>{$affiliation}</strong> պատկանելությունը կջնջվի:"
 
+#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Մուտքագրեք հաստատության անունը {$language} -ով"
 

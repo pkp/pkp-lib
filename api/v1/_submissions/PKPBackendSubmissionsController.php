@@ -196,8 +196,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-
-        $genres = Repo::genre()->getByContextId($context->getId());
+        $genres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id');
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -231,7 +230,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-        $genres = Repo::genre()->getByContextId($context->getId());
+        $genres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id');
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -309,7 +308,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-        $genres = Repo::genre()->getByContextId($context->getId());
+        $genres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id');
 
 
         return response()->json([

@@ -33,7 +33,7 @@ class Genre extends Model
 
     protected $table = 'genres';
     protected $primaryKey = 'genre_id';
-    public    $timestamps = false;
+    public $timestamps = false;
     protected $guarded = ['genreId','id'];
 
     public function getSettingsTable(): string
@@ -95,22 +95,17 @@ class Genre extends Model
     
     protected static function booted(): void
     {
-        parent::booted();
-
-        // always order by seq
         static::addGlobalScope('orderBySeq', function (EloquentBuilder $builder) {
             $builder->orderBy('seq');
         });
 
-        // ensure seq is set on insert
-        static::creating(function ($genre) {
+        static::creating(function (self $genre) {
             if ($genre->getAttribute('seq') === null) {
-                $maxSeq = (int) self::where(
-                    'context_id',
-                    $genre->getAttribute('context_id')
-                )->max('seq');
+                $maxSeq = static::withoutGlobalScope('orderBySeq')
+                    ->where('context_id', $genre->getAttribute('context_id'))
+                    ->max('seq');
 
-                $genre->setAttribute('seq', $maxSeq + 1);
+                $genre->setAttribute('seq', ((int) $maxSeq) + 1);
             }
         });
     }
@@ -191,7 +186,8 @@ class Genre extends Model
      */
     public static function findById(int $id, ?int $contextId = null): ?self
     {
-        $query = self::where('genre_id', $id);
+        $query = static::withoutGlobalScope('orderBySeq')
+            ->where('genre_id', $id);
         if ($contextId !== null) {
             $query->withContext($contextId);
         }
@@ -203,8 +199,8 @@ class Genre extends Model
      */
     public static function findByKey(string $key, ?int $contextId = null): ?self
     {
-        $lowerKey = strtolower($key);
-        $query = self::where('entry_key', $lowerKey);
+        $query = static::withoutGlobalScope('orderBySeq')
+            ->where('entry_key', strtolower($key));
         if ($contextId !== null) {
             $query->withContext($contextId);
         }
@@ -227,7 +223,7 @@ class Genre extends Model
     protected function getDefaultKeys(): array
     {
         $xmlDao = new XMLDAO();
-        $data   = $xmlDao->parseStruct('registry/genres.xml', ['genre']);
+        $data = $xmlDao->parseStruct('registry/genres.xml', ['genre']);
         if (empty($data['genre'])) {
             return [];
         }

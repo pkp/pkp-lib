@@ -57,7 +57,6 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
@@ -334,8 +333,7 @@ class EditorialTaskController extends PKPBaseController
             ->getMany();
 
         $context = $this->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+        $fileGenres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id')->all();
         $activities = Repo::eventLog()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $taskIds)
             ->getMany();
@@ -680,8 +678,7 @@ class EditorialTaskController extends PKPBaseController
             ->getMany();
 
         $context = $this->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+        $fileGenres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id')->all();
         $activities = Repo::eventLog()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_QUERY, [$editTask->id])
             ->getMany();
@@ -749,8 +746,7 @@ class EditorialTaskController extends PKPBaseController
         Repo::eventLog()->add($eventLog);
 
         $context = $this->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+        $fileGenres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id')->all();
 
         $this->notifyParticipants($participantIds, $task, $note);
 

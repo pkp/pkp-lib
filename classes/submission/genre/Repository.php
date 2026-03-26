@@ -25,10 +25,11 @@ class Repository
     public function getByDependenceAndContextId(bool $dependentFilesOnly, int $contextId): Collection
     {
         return Genre::query()
-                    ->withEnabled()
-                    ->withContext($contextId)
-                    ->withDependent($dependentFilesOnly)
-                    ->get();
+            ->withEnabled()
+            ->withContext($contextId)
+            ->withDependent($dependentFilesOnly)
+            ->get()
+            ->keyBy('genre_id');
     }
 
     /**
@@ -37,10 +38,11 @@ class Repository
     public function getBySupplementaryAndContextId(bool $supplementaryFilesOnly, int $contextId): Collection
     {
         return Genre::query()
-                    ->withEnabled()
-                    ->withContext($contextId)
-                    ->withSupplementary($supplementaryFilesOnly)
-                    ->get();
+            ->withEnabled()
+            ->withContext($contextId)
+            ->withSupplementary($supplementaryFilesOnly)
+            ->get()
+            ->keyBy('genre_id');
     }
 
     /**
@@ -49,11 +51,12 @@ class Repository
     public function getPrimaryByContextId(int $contextId): Collection
     {
         return Genre::query()
-                    ->withEnabled()
-                    ->withContext($contextId)
-                    ->where('dependent', 0)
-                    ->where('supplementary', 0)
-                    ->get();
+            ->withEnabled()
+            ->withContext($contextId)
+            ->where('dependent', 0)
+            ->where('supplementary', 0)
+            ->get()
+            ->keyBy('genre_id');
     }
 
     /**
@@ -61,7 +64,7 @@ class Repository
      */
     public function getByContextId(int $contextId): Collection
     {
-        return Genre::withContext($contextId)->get();
+        return Genre::withContext($contextId)->get()->keyBy('genre_id');
     }
 
     /**
@@ -103,10 +106,11 @@ class Repository
     public function getRequiredToSubmit(int $contextId): Collection
     {
         return Genre::query()
-                    ->withEnabled()
-                    ->withContext($contextId)
-                    ->withRequired(true)
-                    ->get();
+            ->withEnabled()
+            ->withContext($contextId)
+            ->withRequired(true)
+            ->get()
+            ->keyBy('genre_id');
     }
 
     /**
@@ -137,17 +141,17 @@ class Repository
         }
 
         $rows = [];
-        $seq = 0;
+        $seq = 1;
         foreach ($data['genre'] as $entry) {
             $attrs = $entry['attributes'];
 
             $rows[] = [
-                'entry_key' => $attrs['key'],
+                'entry_key' => strtolower($attrs['key']),
                 'seq' => $seq,
                 'context_id' => $contextId,
                 'category' => (int) $attrs['category'],
-                'dependent' => $attrs['dependent'],
-                'supplementary' => $attrs['supplementary'],
+                'dependent' => (int) $attrs['dependent'],
+                'supplementary' => (int) $attrs['supplementary'],
                 'required' => $attrs['required'] ?? false,
                 'enabled' => 1,
             ];
@@ -155,17 +159,13 @@ class Repository
             $seq++;
         }
 
-        Genre::upsert(
-            $rows,
-            ['context_id', 'entry_key'],
-            ['seq', 'category', 'dependent', 'supplementary', 'required', 'enabled']
-        );
+        Genre::insert($rows);
 
         foreach ($data['genre'] as $entry) {
             $attrs = $entry['attributes'];
 
             $genre = Genre::findByKey($attrs['key'], $contextId);
-            if (! $genre) {
+            if (!$genre) {
                 continue;
             }
 
@@ -184,7 +184,7 @@ class Repository
     public function deleteSettingsByLocale(string $locale): void
     {
         DB::table('genre_settings')
-          ->where('locale', $locale)
-          ->delete();
+            ->where('locale', $locale)
+            ->delete();
     }
 }

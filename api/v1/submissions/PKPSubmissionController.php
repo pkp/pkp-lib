@@ -485,7 +485,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $userGroups = UserGroup::withContextIds($context->getId())->cursor();
 
-        $genres = Repo::genre()->getByContextId($context->getId());
+        $genres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id');
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -597,7 +597,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $anonymizeReviews = $this->anonymizeReviews($submission, $reviewAssignments);
 
-        $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
+        $genres = Repo::genre()->getByContextId($submission->getData('contextId'))->keyBy('genre_id');
 
 
         return response()->json(Repo::submission()->getSchemaMap()->map(

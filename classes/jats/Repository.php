@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\jats\exceptions\UnableToCreateJATSContentException;
-use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\submission\genre\Genre;
 use Throwable;
@@ -287,8 +286,7 @@ class Repository
         return Cache::remember($cacheKey, static::JATS_FILE_CACHE_LIFETIME, function () use ($publicationId, $submissionId) {
             $submission = Repo::submission()->get($submissionId);
             
-            $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-            $genres = $genreDao->getEnabledByContextId($submission->getData('contextId'));
+            $genres = Repo::genre()->getByContextId($submission->getData('contextId'))->where('enabled', true);
 
             $jatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
 

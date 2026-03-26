@@ -457,15 +457,15 @@ class FileUploadWizardHandler extends Handler
         ]);
 
         $context = $request->getContext();
+        $submission = $this->getSubmission();
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();
 
-        $fileGenres = Repo::genre()->getByContextId($context->getId());
+        $fileGenres = Repo::genre()->getByContextId($context->getId())->keyBy('genre_id');
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $fileGenres->all());
+            ->getSchemaMap($submission, $fileGenres->all())->map($submissionFile);
 
         $json = new JSONMessage(true, $form->fetch($request));
         $json->setGlobalEvent('submissionFile:added', $fileData);

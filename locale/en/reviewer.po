@@ -194,3 +194,6 @@ msgstr ""
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "The review was not completed."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr "Some required fields are not filled in. Please complete them before submitting your review."

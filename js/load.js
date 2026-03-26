@@ -151,6 +151,18 @@ import ListPanel from '@/components/ListPanel/ListPanel.vue';
 import UserInvitationManager from '@/managers/UserInvitationManager/UserInvitationManager.vue';
 import UserAccessManager from '@/managers/UserAccessManager/UserAccessManager.vue';
 
+// Page components (registered globally, resolved by name in Page.vue)
+import DashboardPage from '@/pages/dashboard/DashboardPage.vue';
+import ReviewerSubmissionPage from '@/pages/reviewerSubmission/ReviewerSubmissionPage.vue';
+import JobsPage from '@/pages/jobs/JobsPage.vue';
+import FailedJobsPage from '@/pages/jobs/FailedJobsPage.vue';
+import FailedJobDetailsPage from '@/pages/jobs/FailedJobDetailsPage.vue';
+import CounterReportsPage from '@/pages/counter/CounterReportsPage.vue';
+import UserInvitationPage from '@/pages/userInvitation/UserInvitationPage.vue';
+import AcceptInvitationPage from '@/pages/acceptInvitation/AcceptInvitationPage.vue';
+import UserCommentsPage from '@/pages/userComments/UserCommentsPage.vue';
+import RequestReviewRoundAuthorResponse from '@/pages/requestReviewRoundAuthorResponse/RequestReviewRoundAuthorResponse.vue';
+
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
@@ -284,6 +296,21 @@ VueRegistry.registerComponent('PkpListPanel', ListPanel);
 VueRegistry.registerComponent('UserInvitationManager', UserInvitationManager);
 // Register User Access Manager
 VueRegistry.registerComponent('UserAccessManager', UserAccessManager);
+
+// Register Page components (resolved by name in Page.vue)
+VueRegistry.registerComponent('DashboardPage', DashboardPage);
+VueRegistry.registerComponent('ReviewerSubmissionPage', ReviewerSubmissionPage);
+VueRegistry.registerComponent('JobsPage', JobsPage);
+VueRegistry.registerComponent('FailedJobsPage', FailedJobsPage);
+VueRegistry.registerComponent('FailedJobDetailsPage', FailedJobDetailsPage);
+VueRegistry.registerComponent('CounterReportsPage', CounterReportsPage);
+VueRegistry.registerComponent('UserInvitationPage', UserInvitationPage);
+VueRegistry.registerComponent('AcceptInvitationPage', AcceptInvitationPage);
+VueRegistry.registerComponent('UserCommentsPage', UserCommentsPage);
+VueRegistry.registerComponent(
+	'RequestReviewRoundAuthorResponse',
+	RequestReviewRoundAuthorResponse,
+);
 
 const pinia = createPinia();
 

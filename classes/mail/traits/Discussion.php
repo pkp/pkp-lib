@@ -16,17 +16,40 @@
 
 namespace PKP\mail\traits;
 
+use Illuminate\Mail\Mailables\Headers;
 use PKP\mail\variables\SubmissionEmailVariable;
 
 trait Discussion
 {
-    use Unsubscribe {
-        getRequiredVariables as getTraitRequiredVariables;
+    use Unsubscribe, CapturableReply {
+        Unsubscribe::getRequiredVariables as getTraitRequiredVariables;
+        Unsubscribe::headers as unsubscribeHeaders;
+        CapturableReply::headers as capturableReplyHeaders;
+    }
+
+    /**
+     * Merge the headers from the competing traits together.
+     */
+    public function headers(): Headers
+    {
+        $unsubscribeHeaders = $this->unsubscribeHeaders();
+        $capturableReplyHeaders = $this->capturableReplyHeaders();
+
+        if ($unsubscribeHeaders->messageId !== null) {
+            throw new \Exception('Unable to merge message IDs!');
+        }
+
+        return new Headers(
+            $capturableReplyHeaders->messageId,
+            array_merge($unsubscribeHeaders->references, $capturableReplyHeaders->references),
+            array_merge($unsubscribeHeaders->text, $capturableReplyHeaders->text)
+        );
     }
 
     protected function addFooter(string $locale): self
     {
         $this->setupUnsubscribeFooter($locale, $this->context);
+        $this->setupCapturableReply();
         return $this;
     }
 

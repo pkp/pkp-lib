@@ -92,7 +92,7 @@ class ReviewReminderForm extends Form
         $body = Mail::compileParams($template->getLocalizedData('body'), $data);
         $body = preg_replace(
             '/<a[^>]+href="[^"]*\{\$reviewAssignmentUrl\}[^"]*"[^>]*>.*?<\/a>/i',
-            'login to the {$reviewAssignmentUrl}',
+            __('emails.reviewRemind.reviewAssignmentUrlPlaceholder'),
             $body
         );
 
@@ -115,6 +115,7 @@ class ReviewReminderForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('emailVariables', [
             'passwordResetUrl' => __('common.url'),
+            'reviewAssignmentUrl' => __('emailTemplate.variable.recipient.reviewAssignmentUrl'),
         ]);
         return parent::fetch($request, $template, $display);
     }

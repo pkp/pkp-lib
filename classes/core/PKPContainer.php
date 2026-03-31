@@ -27,7 +27,7 @@ use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Http\Response;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Crypt;
-use PKP\core\LogServiceProvider as PKPLogServiceProvider;
+use PKP\core\PKPLogViewerServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
@@ -245,7 +245,8 @@ class PKPContainer extends Container
         $this->register(new MailServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
-        $this->register(new PKPLogServiceProvider($this));
+        $this->register(new \Illuminate\Log\LogServiceProvider($this));
+        $this->register(new PKPLogViewerServiceProvider($this));
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));

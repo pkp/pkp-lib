@@ -15,7 +15,7 @@
  * providing a web interface for viewing Laravel logs, server logs (Nginx, Apache),
  * and PHP logs.
  *
- * Uses the LoadHandler hook to intercept requests that OJS can't handle and
+ * Uses the LoadHandler hook to intercept requests that app can't handle and
  * attempts to route them through Laravel's routing system.
  */
 
@@ -25,12 +25,16 @@ use APP\core\Application;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Opcodes\LogViewer\Facades\LogViewer;
-use PKP\core\PKPPhpErrorLog;
 use PKP\core\PKPRoutingProvider;
 use PKP\config\Config;
+use PKP\logParser\PKPPhpErrorLog;
+use PKP\logParser\PKPScheduledTaskLog;
+use PKP\logParser\PKPUsageEventLog;
 use PKP\middleware\SiteAdminAuthorizer;
 use PKP\plugins\Hook;
+use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\Role;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
@@ -51,18 +55,18 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
     public function boot(): void
     {
         // Register hook to intercept unmatched routes BEFORE registering Log Viewer
-        // This ensures Laravel routes are tried when OJS can't handle the request
+        // This ensures Laravel routes are tried when app can't handle the request
         Hook::add('LoadHandler', $this->handleLaravelRoutes(...), Hook::SEQUENCE_CORE);
 
         $this->registerLogViewer();
     }
 
     /**
-     * Handle Laravel routes when OJS page router can't find a handler
+     * Handle Laravel routes when app page router can't find a handler
      *
-     * This hook intercepts requests before OJS tries to load page handlers.
+     * This hook intercepts requests before app tries to load page handlers.
      * It checks if the request matches a known Laravel route prefix (e.g., admin/log-viewer)
-     * and only then attempts Laravel dispatch. This prevents interference with normal OJS routing.
+     * and only then attempts Laravel dispatch. This prevents interference with normal APP routing.
      *
      * @param string $hookName The hook name
      * @param array $args Hook arguments: [&$page, &$op, &$sourceFile, &$handler]
@@ -79,13 +83,13 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
         $context = $request->getContext();
 
         if ($context !== null) {
-            return Hook::CONTINUE; // Context-level request, let OJS handle
+            return Hook::CONTINUE; // Context-level request, let app handle
         }
 
         // Check if this request could match a Laravel route
         // Log Viewer is at 'admin/log-viewer', so check for page='admin' and op starting with 'log-viewer'
         if (!$this->isLaravelRoutePath($page, $op)) {
-            return Hook::CONTINUE; // Not a Laravel route path, let OJS handle
+            return Hook::CONTINUE; // Not a Laravel route path, let app handle
         }
 
         // Try to dispatch through Laravel routes
@@ -131,7 +135,7 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
      * Registers Laravel package routes and attempts to match the current request.
      * If a route matches and returns a valid response (not 404), the response is sent.
      *
-     * The OJS URL structure is: /{contextPath}/{locale}/{page}/{op}/{args...}
+     * The app URL structure is: /{contextPath}/{locale}/{page}/{op}/{args...}
      * Laravel routes are registered relative to page/op (e.g., 'admin/log-viewer').
      * We need to modify the Laravel request path to match the route registration.
      *
@@ -149,12 +153,12 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
         PKPLogViewerServiceProvider::registerRoutesNow();
 
         try {
-            // Get the OJS request to extract page/op path
+            // Get the app request to extract page/op path
             $pkpRequest = Application::get()->getRequest();
             $router = $pkpRequest->getRouter(); /** @var \APP\core\PageRouter $router */
 
-            // Build the Laravel-compatible path from OJS page/op
-            // OJS URL: /index/en/admin/log-viewer -> Laravel path: admin/log-viewer
+            // Build the Laravel-compatible path from app page/op
+            // App URL: /index/en/admin/log-viewer -> Laravel path: admin/log-viewer
             $page = $router->getRequestedPage($pkpRequest);
             $op = $router->getRequestedOp($pkpRequest);
             $args = $router->getRequestedArgs($pkpRequest);
@@ -195,18 +199,18 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
                 ->then(fn($req) => app('router')->dispatch($req));
 
             // If we got a valid response (not 404), send it and exit
-            if ($response->getStatusCode() !== 404) {
+            if ($response->getStatusCode() !== Response::HTTP_NOT_FOUND) {
                 $response->send();
-                exit; // Stop execution to prevent OJS from modifying headers
+                exit; // Stop execution to prevent app from modifying headers
             }
         } catch (NotFoundHttpException $e) {
             // No Laravel route matched - this is an expectable case, not an error
         } catch (Throwable $e) {
-            // Log unexpected errors but don't crash - let OJS handle the request
+            // Log unexpected errors but don't crash - let app handle the request
             Log::error('Laravel route dispatch error: ' . $e->getMessage());
         }
 
-        return false; // Request not handled, let OJS continue
+        return false; // Request not handled, let app continue
     }
 
     /**
@@ -242,10 +246,11 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
             // Keys can be used to group/rename folders in the UI
             'include_files' => array_merge(
                 [
-                    // OJS Laravel logs in storage/logs
-                    '*.log',
-                    '**/*.log',
+                    // Laravel logs under files_dir/logs/
+                    storage_path('logs') . '/*.log',
                 ],
+                // files_dir log directories (scheduled tasks, usage stats)
+                $this->getFilesDirLogPaths(),
                 // Additional log paths from config.inc.php [logs] section
                 $this->getConfiguredLogPaths()
             ),
@@ -278,6 +283,38 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
         // This parser handles PHP error formats and exceptions with stack traces
         // Using 'php_fpm' key overrides the built-in PhpFpmLog parser (prepended to list)
         LogViewer::extend('php_fpm', PKPPhpErrorLog::class);
+
+        // Register custom log parsers for OJS-specific log types
+        LogViewer::extend('scheduled_tasks', PKPScheduledTaskLog::class);
+        LogViewer::extend('usage_stats', PKPUsageEventLog::class);
+    }
+
+    /**
+     * Get log paths from files_dir subdirectories
+     *
+     * Returns glob patterns for log directories under files_dir that are
+     * created on-demand by various app subsystems.
+     *
+     * @return array<int, string> Log paths for Log Viewer's include_files config
+     */
+    protected function getFilesDirLogPaths(): array
+    {
+        $paths = [];
+        $filesDir = Config::getVar('files', 'files_dir');
+
+        // Scheduled task execution logs
+        $scheduledTaskLogsDir = $filesDir . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
+        if (is_dir($scheduledTaskLogsDir)) {
+            $paths[] = $scheduledTaskLogsDir . '/*.log';
+        }
+
+        // Usage event logs
+        $usageEventLogsDir = $filesDir . '/usageStats/usageEventLogs';
+        if (is_dir($usageEventLogsDir)) {
+            $paths[] = $usageEventLogsDir . '/*.log';
+        }
+
+        return $paths;
     }
 
     /**
@@ -286,7 +323,7 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
      * Supported config options:
      *   nginx_error_log = /var/log/nginx/error.log
      *   apache_error_log = /var/log/apache2/error.log
-     *   php_fpm_log = /var/log/php-fpm.log
+     *   php_error_log = /var/log/php/error.log (falls back to ini_get('error_log') if not set)
      *   postgres_log = /var/log/postgresql/postgresql.log
      *   supervisor_log = /var/log/supervisor/supervisord.log
      *   http_access_log = /var/log/nginx/access.log
@@ -309,10 +346,13 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
             $paths[] = $apacheErrorLog;
         }
 
-        // PHP-FPM log
-        $phpFpmLog = Config::getVar('logs', 'php_fpm_log');
-        if ($phpFpmLog && file_exists($phpFpmLog)) {
-            $paths[] = $phpFpmLog;
+        // PHP error log - with fallback to ini_get('error_log')
+        $phpErrorLog = Config::getVar('logs', 'php_error_log');
+        if (!$phpErrorLog) {
+            $phpErrorLog = ini_get('error_log');
+        }
+        if ($phpErrorLog && file_exists($phpErrorLog)) {
+            $paths[] = $phpErrorLog;
         }
 
         // PostgreSQL log

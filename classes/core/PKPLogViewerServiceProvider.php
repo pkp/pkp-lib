@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Event;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Opcodes\LogViewer\Events\LogFileDeleted;
 use Opcodes\LogViewer\LogViewerServiceProvider;
+use PKP\plugins\Hook;
 
 class PKPLogViewerServiceProvider extends LogViewerServiceProvider
 {
@@ -65,12 +66,41 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
         $this->registerResources();
         $this->defineAssetPublishing();
         $this->defineDefaultGates();
+        $this->remapLaravelLocaleKeys();
         
         // IMPORTANT
         // configureMiddleware() and resetStateAfterOctaneRequest() are overridden to be empty
 
         Event::listen(LogFileDeleted::class, function ($event) {
             LogViewer::clearFileCache();
+        });
+    }
+
+    /**
+     * Remap Laravel locale keys to PKP equivalents
+     *
+     * Laravel packages (e.g., pagination) use keys like 'pagination.next' which don't exist
+     * in PKP's locale system. PKP has them as 'common.pagination.next' etc.
+     * Without this remap, every log viewer request floods the PHP error log with
+     * "Missing locale key" messages.
+     */
+    protected function remapLaravelLocaleKeys(): void
+    {
+        $remaps = [
+            'pagination.previous' => 'common.pagination.previous',
+            'pagination.next' => 'common.pagination.next',
+        ];
+
+        Hook::add('Locale::translate', function (string $hookName, array $args) use ($remaps): bool {
+            $value = &$args[0];
+            $key = $args[1];
+
+            if (isset($remaps[$key])) {
+                $value = __($remaps[$key]);
+                return Hook::ABORT;
+            }
+
+            return Hook::CONTINUE;
         });
     }
 
@@ -128,12 +158,12 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
     /**
      * Override: Skip HTTP Kernel middleware configuration
      *
-     * OJS doesn't use Laravel's HTTP Kernel - it has its own routing system.
+     * OJS/OMP/OPS doesn't use Laravel's HTTP Kernel - it has its own routing system.
      * Middleware is configured in PKPRoutingProvider instead.
      */
     protected function configureMiddleware(): void
     {
-        // Intentionally empty - OJS handles middleware via WebRouter and PKPRoutingProvider
+        // Intentionally empty - OJS/OMP/OPS handles middleware via WebRouter and PKPRoutingProvider
         // probably will have no impacts in future once moved to laravel routing for page/component
         // routing
     }
@@ -145,6 +175,6 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
      */
     protected function resetStateAfterOctaneRequest(): void
     {
-        // Intentionally empty - OJS doesn't use Octane
+        // Intentionally empty - OJS/OMP/OPS doesn't use Octane
     }
 }

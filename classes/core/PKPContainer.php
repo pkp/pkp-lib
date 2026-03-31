@@ -140,7 +140,7 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
-        $this->instance('path.storage', BASE_SYS_DIR . DIRECTORY_SEPARATOR . 'storage');
+        $this->instance('path.storage', Config::getVar('files', 'files_dir'));
         $this->instance('path.public', $this->basePath . DIRECTORY_SEPARATOR . 'public');
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, function () {

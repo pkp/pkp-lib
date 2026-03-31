@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/core/PKPPhpErrorLog.php
+ * @file classes/logParser/PKPPhpErrorLog.php
  *
  * Copyright (c) 2026 Simon Fraser University
  * Copyright (c) 2026 John Willinsky
@@ -19,15 +19,13 @@
  *   #0 /file(line): function()
  */
 
-namespace PKP\core;
+namespace PKP\logParser;
 
 use Opcodes\LogViewer\Logs\Log;
-use Opcodes\LogViewer\LogLevels\LaravelLogLevel;
 
 class PKPPhpErrorLog extends Log
 {
     public static string $name = 'PHP Error Log';
-    public static string $levelClass = LaravelLogLevel::class;
 
     // Flexible regex: captures [datetime] and everything after as message
     // The 's' flag allows . to match newlines for multiline stack traces
@@ -71,7 +69,25 @@ class PKPPhpErrorLog extends Log
             return 'ERROR';
         }
 
-        return 'ERROR'; // Default for unrecognized formats
+        // Check for keywords suggesting severity in the message body
+        if (preg_match('/\b(fatal|crash|segfault)\b/i', $message)) {
+            return 'CRITICAL';
+        }
+
+        if (preg_match('/\b(error)\b/i', $message)) {
+            return 'ERROR';
+        }
+
+        if (preg_match('/\b(warn|warning)\b/i', $message)) {
+            return 'WARNING';
+        }
+
+        if (preg_match('/\b(deprecated|deprecation)\b/i', $message)) {
+            return 'NOTICE';
+        }
+
+        // Default: unrecognized messages are NOTICE (informational, not errors)
+        return 'NOTICE';
     }
 
     /**

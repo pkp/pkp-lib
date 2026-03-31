@@ -50,7 +50,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
     /**
      * Global middleware stack for API routes
      */
-    protected static $globalMiddleware = [
+    protected static $globalApiMiddleware = [
         AllowCrossOrigin::class,
         SetupContextBasedOnRequestUrl::class,
         DecodeApiTokenWithValidation::class,
@@ -88,9 +88,9 @@ class PKPRoutingProvider extends RoutingServiceProvider
     /**
      * Get global middleware stack for API routes
      */
-    public static function getGlobalRouteMiddleware(): array
+    public static function getGlobalApiRouteMiddleware(): array
     {
-        return self::$globalMiddleware;
+        return self::$globalApiMiddleware;
     }
 
     /**
@@ -163,7 +163,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
      * but OJS doesn't use the full Laravel Foundation bootstrap. Required for
      * signed URL validation (e.g., Log Viewer file downloads).
      * 
-     * FIXME: Remove this after the intregration of laravel core bootstrapping mechanims
+     * FIXME: Remove this after the intregration of laravel core bootstrapping mechanism
      */
     protected function registerRequestSignatureMacros(): void
     {

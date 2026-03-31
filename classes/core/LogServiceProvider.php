@@ -75,7 +75,7 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
         $op = $args[1];
 
         // Only handle site-level requests (context = null means site-level)
-        $request = \APP\core\Application::get()->getRequest();
+        $request = Application::get()->getRequest();
         $context = $request->getContext();
 
         if ($context !== null) {
@@ -106,7 +106,7 @@ class LogServiceProvider extends \Illuminate\Log\LogServiceProvider
     protected function isLaravelRoutePath(string $page, string $op): bool
     {
         // Get configured route path (e.g., 'index/admin/log-viewer')
-        $routePath = config('log-viewer.route_path', 'index/admin/log-viewer');
+        $routePath = config('log-viewer.route_path');
         $parts = explode('/', trim($routePath, '/'));
 
         // Route path format: 'index/{page}/{op}' or 'index/{page}/{op}/...'

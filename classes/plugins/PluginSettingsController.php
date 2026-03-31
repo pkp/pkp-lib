@@ -62,4 +62,9 @@ abstract class PluginSettingsController extends PKPBaseController
         Route::get('', $this->get(...))->name("plugin.{$this->plugin->getName()}.settings.get");
         Route::put('', $this->edit(...))->name("plugin.{$this->plugin->getName()}.settings.edit");
     }
+
+    public function isSiteWide(): bool
+    {
+        return $this->plugin->isSitePlugin();
+    }
 }

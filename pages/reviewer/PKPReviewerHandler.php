@@ -98,7 +98,7 @@ class PKPReviewerHandler extends Handler
         if ((int)$reviewAssignment->getReviewFormId() > 0) {
             $templateMgr->addJavaScript(
                 'reviewStep3Required',
-                $request->getBaseUrl() . '/lib/pkp/js/pages/reviewer/ReviewStep3Required.js',
+                $request->getBaseUrl() . '/lib/pkp/js/pages/reviewer/reviewStep3Required.js',
                 ['contexts' => ['backend']]
             );
         }

@@ -53,7 +53,6 @@ class ReviewerSuggestionsForm extends FormComponent
             ->addField(new FieldText('familyName', [
                 'label' => __('user.familyName'),
                 'isMultilingual' => true,
-                'isRequired' => true,
             ]))
             ->addField(new FieldText('email', [
                 'label' => __('user.email'),

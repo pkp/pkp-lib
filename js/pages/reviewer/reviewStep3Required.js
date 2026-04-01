@@ -36,7 +36,12 @@
         $inputs.first().rules('add', { required: true });
       }
     });
-    
+
+    // When "Save for Later" is clicked, skip validation entirely
+    $form.find('[name="saveFormButton"]').on('click', function() {
+      validator.cancelSubmit = true;
+    });
+
     // This part is for the bottom warning box
     const $box = $form.find('#reviewStep3MessageBox');
     // Show warning box when validator detects invalid submit

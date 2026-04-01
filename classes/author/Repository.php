@@ -272,7 +272,7 @@ class Repository
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());
         $author->setIncludeInBrowse(1);
-        $author->setOrcid($user->getOrcid());
+        $author->setVerifiedOrcidOAuthData($author->getAllData());
         $author->setData('contributorType', ContributorType::PERSON->getName());
         $author->setContributorRoles(ContributorRole::query()
             ->withContextId($context->getId())

@@ -38,6 +38,7 @@ use PKP\components\forms\submission\PKPSubmissionFileForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\components\listPanels\ReviewerSuggestionsListPanel;
 use PKP\context\Context;
+use PKP\facades\Locale;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
@@ -228,7 +229,15 @@ abstract class PKPSubmissionHandler extends Handler
         ];
 
         if ($context->getData('reviewerSuggestionEnabled')) {
-            $supportedFormLocales = collect($context->getSupportedFormLocaleNames())
+            $supportedFormLocaleNames = $context->getSupportedFormLocaleNames();
+
+            // Ensure the site primary locale is available for reviewer name fields
+            $sitePrimaryLocale = $request->getSite()->getPrimaryLocale();
+            if (!isset($supportedFormLocaleNames[$sitePrimaryLocale])) {
+                $supportedFormLocaleNames[$sitePrimaryLocale] = Locale::getMetadata($sitePrimaryLocale)?->getDisplayName() ?? $sitePrimaryLocale;
+            }
+
+            $supportedFormLocales = collect($supportedFormLocaleNames)
                 ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
                 ->sortBy('key')
                 ->values()

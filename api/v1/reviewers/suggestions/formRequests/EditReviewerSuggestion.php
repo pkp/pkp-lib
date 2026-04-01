@@ -31,7 +31,7 @@ class EditReviewerSuggestion extends AddReviewerSuggestion
     {
         return [
             'familyName' => [
-                'required',
+                'sometimes',
             ],
             'givenName' => [
                 'required',

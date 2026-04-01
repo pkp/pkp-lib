@@ -89,13 +89,13 @@ class ReviewerSuggestionsListPanel extends ListPanel
     {
         $apiUrl = $this->getReviewerSuggestionsApiUrl();
 
-        $primaryLocale = $this->context->getPrimaryLocale();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
         $data = $this->getForm($apiUrl)->getConfig();
 
-        $data['primaryLocale'] = $primaryLocale;
-        $data['visibleLocales'] = [$primaryLocale];
+        $data['primaryLocale'] = $sitePrimaryLocale;
+        $data['visibleLocales'] = [$sitePrimaryLocale];
         $data['supportedFormLocales'] = collect($this->locales)
-            ->sortBy([fn (array $a, array $b) => $b['key'] === $primaryLocale ? 1 : -1])
+            ->sortBy([fn (array $a, array $b) => $b['key'] === $sitePrimaryLocale ? 1 : -1])
             ->values()
             ->toArray();
 

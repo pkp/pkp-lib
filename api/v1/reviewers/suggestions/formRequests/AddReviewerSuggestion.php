@@ -39,15 +39,22 @@ class AddReviewerSuggestion extends FormRequest
      */
     public function primaryLocale(): ?string
     {
-        return Application::get()->getRequest()->getContext()->getPrimaryLocale();
+        return Application::get()->getRequest()->getSite()->getPrimaryLocale();
     }
 
     /**
      * @copydoc \PKP\validation\traits\HasMultilingualRule::allowedLocales()
      */
-    public function allowedLocales(): array 
+    public function allowedLocales(): array
     {
-        return Application::get()->getRequest()->getContext()->getSupportedFormLocales();
+        $locales = Application::get()->getRequest()->getContext()->getSupportedFormLocales();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+
+        if (!in_array($sitePrimaryLocale, $locales)) {
+            $locales[] = $sitePrimaryLocale;
+        }
+
+        return $locales;
     }
 
     /**
@@ -68,8 +75,7 @@ class AddReviewerSuggestion extends FormRequest
                 Rule::exists('users', 'user_id'),
             ],
             'familyName' => [
-                'required',
-                // 'multilingual:en,fr_CA', // Alternative way to do multilingual validation, do not use HasMultilingualRule trait with this approach
+                'sometimes',
             ],
             'givenName' => [
                 'required',

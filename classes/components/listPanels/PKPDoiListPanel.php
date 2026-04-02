@@ -30,9 +30,6 @@ abstract class PKPDoiListPanel extends ListPanel
     /** @var int How many items to display on one page in this list */
     public $count = 30;
 
-    /** @var array Query parameters to pass if this list executes GET requests */
-    public $getParams = [];
-
     /** @var int Max number of items available to display in this list panel */
     public $itemsMax = 0;
 

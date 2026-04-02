@@ -373,4 +373,14 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         return $nodeCitations;
     }
+
+    /**
+     * Get the representation export filter group name
+     *
+     * @return string
+     */
+    public function getRepresentationExportFilterGroupName()
+    {
+        throw new Exception('Not implemented');
+    }
 }

@@ -13,11 +13,18 @@
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#declineReviewForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		// Copy competing interests from the still-live Step 1 form into this decline form.
+		$('#declineCompetingInterestOption').val($('input[name="competingInterestOption"]:checked').val() || 'noCompetingInterests');
+		var ciTextarea = $('textarea[name="reviewerCompetingInterests"]');
+		var ciEditor = (typeof tinymce !== 'undefined' && ciTextarea.length) ? tinymce.get(ciTextarea.attr('id')) : null;
+		$('#declineReviewerCompetingInterests').val(ciEditor ? ciEditor.getContent() : ciTextarea.val());
 	{rdelim});
 </script>
 
 <form class="pkp_form" id="declineReviewForm" method="post" action="{url op="saveDeclineReview" path=$submissionId|escape}">
 	{csrf}
+	<input type="hidden" id="declineCompetingInterestOption" name="competingInterestOption" value="">
+	<input type="hidden" id="declineReviewerCompetingInterests" name="reviewerCompetingInterests" value="">
 	<p>{translate key="reviewer.submission.declineReviewMessage"}</p>
 
 	{fbvFormArea id="declineReview"}

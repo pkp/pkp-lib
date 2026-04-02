@@ -244,6 +244,12 @@ class PKPReviewerHandler extends Handler
 
         $declineReviewMessage = $request->getUserVar('declineReviewMessage');
 
+        // Save competing interests declared on Step 1 before declining.
+        $competingInterests = $request->getUserVar('competingInterestOption') === 'hasCompetingInterests'
+            ? $request->getUserVar('reviewerCompetingInterests')
+            : null;
+        $reviewAssignment->setCompetingInterests($competingInterests);
+
         // Decline the review
         $reviewerAction = new ReviewerAction();
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION);

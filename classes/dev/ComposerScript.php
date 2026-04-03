@@ -35,6 +35,70 @@ class ComposerScript
     }
 
     /**
+     * A post-install-cmd custom composer script that publishes
+     * Laravel package assets (e.g., log-viewer) to the public directory.
+     */
+    public static function publishPackageAssets(): void
+    {
+        // dirname(__FILE__, 3) resolves to lib/pkp/ since this is called by Composer
+        // where Core::getBaseDir() / base_path() are not available.
+        $pkpBase = dirname(__FILE__, 3);
+        $appBase = dirname($pkpBase, 2);
+        $publicPath = $appBase . '/public';
+
+        // Load the canonical package registry from PublishPackageAssetsMigration
+        require_once $pkpBase . '/classes/migration/install/PublishPackageAssetsMigration.php';
+        $packages = \PKP\migration\install\PublishPackageAssetsMigration::getPublishablePackages();
+
+        foreach ($packages as $name => $config) {
+            $sourcePath = $appBase . '/' . $config['source'];
+            $destPath = $publicPath . '/' . $config['destination'];
+
+            if (!is_dir($sourcePath)) {
+                echo "Warning: source directory not found for package '{$name}': {$sourcePath}. Skipping asset publishing.\n";
+                continue;
+            }
+
+            if (!is_writable($publicPath)) {
+                echo "Warning: public/ directory is not writable. Skipping asset publishing for '{$name}'.\n";
+                continue;
+            }
+
+            if (!is_dir($destPath)) {
+                mkdir($destPath, 0755, true);
+            }
+
+            $iterator = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator($sourcePath, \RecursiveDirectoryIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::SELF_FIRST
+            );
+
+            $copied = 0;
+            foreach ($iterator as $item) {
+                /** @var \RecursiveDirectoryIterator $innerIterator */
+                $innerIterator = $iterator->getInnerIterator();
+                $subPath = $innerIterator->getSubPathname();
+                $itemDestPath = $destPath . DIRECTORY_SEPARATOR . $subPath;
+
+                if ($item->isDir()) {
+                    if (!is_dir($itemDestPath)) {
+                        mkdir($itemDestPath, 0755, true);
+                    }
+                } else {
+                    $parentDir = dirname($itemDestPath);
+                    if (!is_dir($parentDir)) {
+                        mkdir($parentDir, 0755, true);
+                    }
+                    copy($item->getPathname(), $itemDestPath);
+                    $copied++;
+                }
+            }
+
+            echo "Published {$copied} asset file(s) for package '{$name}'.\n";
+        }
+    }
+
+    /**
      * A post-install-cmd custom composer script that
      * creates languages.json from downloaded Weblate languages.csv.
      */

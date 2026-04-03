@@ -66,13 +66,17 @@
 		"fix": "PHP_CS_FIXER_IGNORE_ENV=1 ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes",
 		"post-install-cmd": [
 			"@isoFileCheck",
-			"@weblateFilesDownload"
+			"@weblateFilesDownload",
+			"@publishPackageAssets"
 		],
 		"isoFileCheck": [
 			"PKP\\dev\\ComposerScript::isoFileCheck"
 		],
 		"weblateFilesDownload": [
 			"PKP\\dev\\ComposerScript::weblateFilesDownload"
+		],
+		"publishPackageAssets": [
+			"PKP\\dev\\ComposerScript::publishPackageAssets"
 		]
 	},
 	"autoload": {

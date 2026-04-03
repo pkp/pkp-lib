@@ -26,6 +26,7 @@ namespace PKP\tools;
 use PKP\cliTool\CommandLineTool;
 use PKP\cliTool\traits\HasCommandInterface;
 use PKP\cliTool\traits\HasParameterList;
+use PKP\migration\install\PublishPackageAssetsMigration;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
@@ -50,17 +51,6 @@ class CommandPublishPackageAssets extends CommandLineTool
         'usage'   => 'Display usage information',
     ];
 
-    /**
-     * Registry of packages with publishable assets
-     * Each package defines source path (relative to base) and destination (relative to public/)
-     */
-    protected const PUBLISHABLE_PACKAGES = [
-        'log-viewer' => [
-            'source' => 'lib/pkp/lib/vendor/opcodesio/log-viewer/public',
-            'destination' => 'vendor/log-viewer',
-            'description' => 'Log Viewer web interface assets',
-        ],
-    ];
 
     /**
      * Which option will be called
@@ -351,7 +341,7 @@ class CommandPublishPackageAssets extends CommandLineTool
     {
         $available = [];
 
-        foreach (self::PUBLISHABLE_PACKAGES as $name => $config) {
+        foreach (PublishPackageAssetsMigration::getPublishablePackages() as $name => $config) {
             $sourcePath = base_path($config['source']);
             if (is_dir($sourcePath)) {
                 $available[$name] = $config;

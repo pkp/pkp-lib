@@ -33,10 +33,15 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
     protected array $allowedLocales = [];
 
     /**
+     * Whether the multilingual field is required
+     */
+    protected bool $required;
+
+    /**
      * Validation pass status
      */
     protected bool $passed;
-    
+
     /**
      * The validator instance.
      *
@@ -47,10 +52,11 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
     /**
      * Create a new instance
      */
-    public function __construct(?string $primaryLocale = null, array $allowedLocale = [])
+    public function __construct(?string $primaryLocale = null, array $allowedLocale = [], bool $required = true)
     {
         $this->primaryLocale = $primaryLocale;
         $this->allowedLocales = $allowedLocale;
+        $this->required = $required;
     }
  
     /**
@@ -74,18 +80,20 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $this->passed = true;
-        
-        // Should an array_filter needed to be applied ?
-        // This will cause disallowed locales with null value to get bypassed even though those
-        // locale with null value have no impact.
+
         $givenLocales = array_keys(array_filter($value));
 
-        if ($this->primaryLocale && !empty($this->primaryLocale) && !in_array($this->primaryLocale, $givenLocales)) {
-            $this->passed = false;
-            $this->validator->errors()->add(
-                "{$attribute}.{$this->primaryLocale}",
-                __('validator.required')
-            );
+        if ($this->primaryLocale && !in_array($this->primaryLocale, $givenLocales)) {
+            // Enforce primary locale only when:
+            // 1. Field is required, OR
+            // 2. Field is optional but some locale values ARE provided (partial data must include primary)
+            if ($this->required || !empty($givenLocales)) {
+                $this->passed = false;
+                $this->validator->errors()->add(
+                    "{$attribute}.{$this->primaryLocale}",
+                    __('validator.required')
+                );
+            }
         }
 
         $disallowedLocales = array_diff(

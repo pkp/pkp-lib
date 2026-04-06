@@ -75,9 +75,18 @@ trait HasMultilingualRule
                 array_push($rules[$input], 'array');
             }
 
+            $isRequired = in_array('required', $rules[$input]);
+
+            // Strip 'nullable' from multilingual rules — it conflicts with 'array' and not acceptable
+            // also given then multilingual fields are array always even if no locale data is provided/available
+            $rules[$input] = array_values(array_filter(
+                $rules[$input],
+                fn ($rule) => $rule !== 'nullable'
+            ));
+
             array_push(
                 $rules[$input],
-                new MultilingualInput($primaryLocale, $allowedLocale)
+                new MultilingualInput($primaryLocale, $allowedLocale, $isRequired)
             );
         }
 

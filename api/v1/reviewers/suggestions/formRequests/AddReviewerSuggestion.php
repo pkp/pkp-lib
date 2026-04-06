@@ -47,14 +47,7 @@ class AddReviewerSuggestion extends FormRequest
      */
     public function allowedLocales(): array
     {
-        $locales = Application::get()->getRequest()->getContext()->getSupportedFormLocales();
-        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
-
-        if (!in_array($sitePrimaryLocale, $locales)) {
-            $locales[] = $sitePrimaryLocale;
-        }
-
-        return $locales;
+        return Application::get()->getRequest()->getContext()->getSupportedFormLocales();
     }
 
     /**

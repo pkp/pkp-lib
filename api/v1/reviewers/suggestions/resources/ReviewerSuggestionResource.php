@@ -32,7 +32,7 @@ class ReviewerSuggestionResource extends JsonResource
             'id' => $this->id,
             'submissionId' => $this->submissionId,
             'suggestingUserId' => $this->suggestingUserId,
-            'familyName' => $this->familyName,
+            'familyName' => $this->familyName ?: (object) $this->familyName,
             'givenName' => $this->givenName,
             'fullName' => $this->fullname,
             'displayInitial' => $this->displayInitial,

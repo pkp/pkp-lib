@@ -605,6 +605,16 @@
 	word-break: break-word;
 }
 
+// Wrap long filenames in event log grids
+[id^="component-grid-eventlog-"] .gridRow .label {
+	word-break: break-word;
+}
+
+// Wrap long filenames in file grids
+.pkp_controllers_grid .pkp_linkaction_downloadFile {
+	word-break: break-word;
+}
+
 /* Fix strange grid float issue when placed inside subtabs */
 .pkpTabs--side .pkpTab .pkp_controllers_grid .header {
 	max-height: 3rem;

@@ -41,7 +41,7 @@
                 :key="file.id"
                 class="submissionWizard__reviewPanel__item__value"
             >
-                <a :href="file.url" class="submissionWizard__reviewPanel__fileLink">
+                <a :href="file.url" class="submissionWizard__reviewPanel__fileLink min-w-0">
                     <file
                         :document-type="file.documentType"
                         :name="localize(file.name)"

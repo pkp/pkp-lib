@@ -41,8 +41,20 @@
 
 	&.complete .pkpUploaderFilename,
 	&.complete .pkp_uploader_button_change {
-		display: block;
 		opacity: 1;
+	}
+
+	&.complete .pkpUploaderFilename {
+		display: flex;
+		align-items: center;
+	}
+
+	&.complete .pkp_uploader_button_change {
+		display: block;
+	}
+
+	.pkpUploaderFilename {
+		word-break: break-word;
 	}
 
 	&.error .pkpUploaderError,
@@ -111,9 +123,22 @@
 .complete {
 
 	 .pkp_uploader_drop_zone {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
 		border-style: solid;
 		background: @bg;
 		color: @text;
+	}
+
+	.pkp_uploader_details {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.pkp_uploader_button {
+		float: none;
+		flex-shrink: 0;
 	}
 
 	.pkpUploaderFilename:before {
@@ -121,6 +146,7 @@
 		content: @fa-var-check;
 		margin-right: 1em;
 		color: @yes;
+		vertical-align: middle;
 	}
 }
 

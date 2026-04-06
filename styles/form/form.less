@@ -207,6 +207,11 @@
 		// appear in the wrong space
 		display: block;
 
+		// Reserve space for the globe icon so input text doesn't overlap
+		input[type="text"] {
+			padding-inline-end: 2.5rem;
+		}
+
 		// Localization globe icon within TinyMce
 		&:after {
 			.fa();

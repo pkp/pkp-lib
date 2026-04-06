@@ -232,19 +232,23 @@ abstract class PKPSubmissionHandler extends Handler
         ];
 
         if ($context->getData('reviewerSuggestionEnabled')) {
-            $supportedFormLocaleNames = $context->getSupportedFormLocaleNames();
-
-            // Ensure the site primary locale is available for reviewer name fields
+            $supportedFormLocales = $context->getSupportedFormLocales();
             $sitePrimaryLocale = $request->getSite()->getPrimaryLocale();
-            if (!isset($supportedFormLocaleNames[$sitePrimaryLocale])) {
-                $supportedFormLocaleNames[$sitePrimaryLocale] = Locale::getMetadata($sitePrimaryLocale)?->getDisplayName() ?? $sitePrimaryLocale;
+            if (!isset($supportedFormLocales[$sitePrimaryLocale])) {
+                $supportedFormLocales[] = $sitePrimaryLocale;
             }
+            $supportedFormLocaleNames = Locale::getFormattedDisplayNames(
+                $supportedFormLocales,
+                null,
+                \PKP\i18n\LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
+            );
 
             $supportedFormLocales = collect($supportedFormLocaleNames)
                 ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
                 ->sortBy('key')
                 ->values()
                 ->toArray();
+            
             $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $supportedFormLocales);
             $components[$reviewerSuggestionsListPanel->id] = $reviewerSuggestionsListPanel->getConfig();
         }

@@ -222,7 +222,6 @@ class AboutContextHandler extends Handler
         $context = $request->getContext();
         $this->setupTemplate($request);
 
-
         $templateMgr->assign('submissionChecklist', $context->getLocalizedData('submissionChecklist'));
 
         // Get sections for this context
@@ -236,6 +235,7 @@ class AboutContextHandler extends Handler
             ->getCollector()
             ->filterByContextIds([$context->getId()])
             ->excludeEditorOnly(!$canSubmitAll)
+            ->excludeInactive()
             ->getMany()
             ->all();
 

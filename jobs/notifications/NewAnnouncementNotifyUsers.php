@@ -31,7 +31,7 @@ use PKP\notification\managerDelegate\AnnouncementNotificationManager;
 use PKP\notification\Notification;
 use PKP\user\User;
 
-class NewAnnouncementNotifyUsers extends BaseJob
+class NewAnnouncementNotifyUsers extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     use Batchable;
 
@@ -57,6 +57,14 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $this->announcementId = $announcementId;
         $this->locale = $locale;
         $this->sender = $sender;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     public function handle()

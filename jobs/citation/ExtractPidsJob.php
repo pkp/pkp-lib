@@ -22,15 +22,26 @@ use PKP\citation\pid\ExtractPidsHelper;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
-class ExtractPidsJob extends BaseJob
+class ExtractPidsJob extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     protected int $citationId;
 
-    public function __construct(int $citationId)
+    protected int $contextId;
+
+    public function __construct(int $citationId, int $contextId)
     {
         parent::__construct();
 
         $this->citationId = $citationId;
+        $this->contextId = $contextId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     /**

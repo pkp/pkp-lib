@@ -25,7 +25,7 @@ use PKP\context\ContextDAO;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
-class DepositContext extends BaseJob
+class DepositContext extends BaseJob  implements \PKP\queue\ContextAwareJob
 {
     protected int $contextId;
 
@@ -38,6 +38,14 @@ class DepositContext extends BaseJob
         parent::__construct();
 
         $this->contextId = $contextId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     /**

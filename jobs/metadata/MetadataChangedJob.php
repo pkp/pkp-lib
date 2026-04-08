@@ -23,7 +23,7 @@ use APP\facades\Repo;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
-class MetadataChangedJob extends BaseJob
+class MetadataChangedJob extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     /**
      * @var int The submission ID
@@ -39,6 +39,14 @@ class MetadataChangedJob extends BaseJob
         parent::__construct();
 
         $this->submissionId = $submissionId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return Repo::submission()->get($this->submissionId)->getData('contextId');
     }
 
     /**

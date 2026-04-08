@@ -16,9 +16,9 @@
 
 namespace PKP\task;
 
+use APP\core\Application;
 use PKP\config\Config;
 use PKP\core\PKPContainer;
-use PKP\queue\JobRunner;
 use PKP\scheduledTask\ScheduledTask;
 
 class ProcessQueueJobs extends ScheduledTask
@@ -69,8 +69,15 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        // Executes a limited number of jobs when processing a via web request mode
-        (new JobRunner($jobQueue))
+        // Will never run the job runner in CLI mode
+        if (PKPContainer::getInstance()->runningInConsole()) {
+            return true;
+        }
+
+        // Executes a limited number of jobs when processing a request
+        $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
+        $jobRunner
+            ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
             ->withMaxExecutionTimeConstrain()
             ->withMaxJobsConstrain()
             ->withMaxMemoryConstrain()

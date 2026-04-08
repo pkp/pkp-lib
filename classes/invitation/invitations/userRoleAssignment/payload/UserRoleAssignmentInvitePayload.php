@@ -56,11 +56,17 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
     public function getValidationRules(UserRoleAssignmentInvite $invitation, ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         $context = $invitation->getContext();
-        $allowedLocales = $context->getSupportedFormLocales();
         $primaryLocale = $context->getPrimaryLocale();
 
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->getSite();
+
+        // Ensure site primary locale is allowed for user name fields
+        $allowedLocales = $context->getSupportedFormLocales();
+        $sitePrimaryLocale = $site->getPrimaryLocale();
+        if (!in_array($sitePrimaryLocale, $allowedLocales)) {
+            $allowedLocales[] = $sitePrimaryLocale;
+        }
 
         $validationRules = [
             'givenName' => [

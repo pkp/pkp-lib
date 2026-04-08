@@ -14,6 +14,7 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Core;
@@ -175,6 +176,20 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         }
 
         $this->invitation->fillFromData($payload);
+
+        // Auto-populate site locale name fields from context primary if empty
+        $context = $this->invitation->getContext();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        $contextPrimaryLocale = $context->getPrimaryLocale();
+        if ($sitePrimaryLocale !== $contextPrimaryLocale) {
+            $invitationPayload = $this->invitation->getPayload();
+            foreach (['givenName', 'familyName', 'affiliation'] as $field) {
+                $data = $invitationPayload->$field;
+                if (is_array($data) && empty($data[$sitePrimaryLocale]) && !empty($data[$contextPrimaryLocale])) {
+                    $invitationPayload->$field = array_merge($data, [$sitePrimaryLocale => $data[$contextPrimaryLocale]]);
+                }
+            }
+        }
 
         $this->invitation->updatePayload(ValidationContext::VALIDATION_CONTEXT_REFINE);
 

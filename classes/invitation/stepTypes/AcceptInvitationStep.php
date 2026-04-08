@@ -203,14 +203,20 @@ class AcceptInvitationStep extends InvitationStepTypes
      */
     private function getFormLocals(Context $context): array
     {
-        $localeNames = $context->getSupportedFormLocaleNames();
-        $locales = [];
-        foreach ($localeNames as $key => $name) {
-            $locales[] = [
-                'key' => $key,
-                'label' => $name,
-            ];
+        // Ensure site primary locale is available for user name fields
+        $supportedFormLocales = $context->getSupportedFormLocales();
+        $sitePrimaryLocale = \APP\core\Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        if (!in_array($sitePrimaryLocale, $supportedFormLocales)) {
+            $supportedFormLocales[] = $sitePrimaryLocale;
         }
-        return $locales;
+        $localeNames = \PKP\facades\Locale::getFormattedDisplayNames(
+            $supportedFormLocales,
+            null,
+            \PKP\i18n\LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
+        );
+        return collect($localeNames)
+            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+            ->values()
+            ->toArray();
     }
 }

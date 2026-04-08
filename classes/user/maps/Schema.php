@@ -60,6 +60,7 @@ class Schema extends \PKP\core\maps\Schema
 
     /**
      * Map a collection of users with optional context
+     *
      * @see self::map
      */
     public function mapManyWithOptions(Enumerable $collection, array $options = []): Enumerable
@@ -125,7 +126,7 @@ class Schema extends \PKP\core\maps\Schema
             ->all();
 
         $currentUserId = $options['currentUserId'] ?? null;
-        $isSiteAdmin   = (bool)($options['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        $isSiteAdmin = (bool)($options['isSiteAdmin'] ?? Validation::isSiteAdmin());
         $options['isSiteAdmin'] = $isSiteAdmin;
 
         if (empty($userIds)) {
@@ -260,7 +261,7 @@ class Schema extends \PKP\core\maps\Schema
 
         return $output;
     }
-    
+
     /**
      * Decide if the current user can "log in as" the target user
      */

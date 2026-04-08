@@ -189,7 +189,7 @@ class UserForm extends Form
                 ->each(
                     function ($userGroupId) use ($mastheadUserGroupIds, $reviewerUserGroupIds) {
                         $masthead = in_array($userGroupId, $mastheadUserGroupIds) || in_array($userGroupId, $reviewerUserGroupIds);
-                        Repo::userGroup()->updateUserUserGroupMasthead($this->userId, $userGroupId, $masthead);
+                        Repo::userGroup()->updateActiveUserUserGroupMasthead($this->userId, $userGroupId, $masthead);
                     }
                 );
         }

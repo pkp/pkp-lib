@@ -20,8 +20,9 @@
 	</script>
 	{* This is a multilingual control. Enable popover display. *}
 	<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
-		<input type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{else}text{/if}" 
+		<input type="{if $FBV_isPassword}password{elseif $FBV_isTypeURL}url{else}text{/if}"
 			{$FBV_textInputParams}
+			placeholder="{$formLocales.$formLocale|escape}"
 			class="localizable {if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			{if $FBV_readonly} readonly="readonly"{/if}

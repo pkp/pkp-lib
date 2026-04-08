@@ -23,6 +23,7 @@
 		{strip}
 			{capture assign="localeDirection"}{locale_direction locale=$formLocale}{/capture}
 			<textarea id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}" {$FBV_textAreaParams}
+				placeholder="{$formLocales.$formLocale|escape}"
 				rows="{$FBV_rows|escape}"
 				cols="{$FBV_cols|escape}"
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{if $FBV_rich==="extended"} extendedRichContent{/if}{/if}"

@@ -86,7 +86,7 @@ class Form
         }
         $this->supportedLocales = $supportedLocales;
 
-        $this->defaultLocale = Locale::getLocale();
+        $this->defaultLocale = $this->requiredLocale;
 
         $this->_template = $template;
         $this->_data = [];
@@ -373,11 +373,7 @@ class Form
      */
     public function getDefaultFormLocale()
     {
-        $formLocale = $this->defaultLocale;
-        if (!isset($this->supportedLocales[$formLocale])) {
-            $formLocale = $this->requiredLocale;
-        }
-        return $formLocale;
+        return $this->requiredLocale;
     }
 
     /**
@@ -388,6 +384,7 @@ class Form
     public function setDefaultFormLocale($defaultLocale)
     {
         $this->defaultLocale = $defaultLocale;
+        $this->requiredLocale = $defaultLocale;
     }
 
     /**

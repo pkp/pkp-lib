@@ -36,9 +36,16 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     public function boot()
     {
         Validator::extend('multilingual', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
-            
             $parameters = collect($parameters);
-            $multilinngualInput = new MultilingualInput($parameters->shift(), $parameters->toArray());
+            $primaryLocale = $parameters->shift() ?: null;
+
+            $required = true;
+            if ($parameters->last() === 'optional') {
+                $required = false;
+                $parameters->pop();
+            }
+
+            $multilinngualInput = new MultilingualInput($primaryLocale, $parameters->toArray(), $required);
 
             $multilinngualInput
                 ->setValidator($validator)

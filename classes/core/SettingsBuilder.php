@@ -326,6 +326,23 @@ class SettingsBuilder extends Builder
             }
         });
 
+        // Initialize missing multilingual settings props to empty array.
+        // Use array_intersect to only target props that are BOTH multilingual AND settings
+        // (excludes computed attributes like fullName, displayInitial which are not in the settings table)
+        $multilingualSettingsProps = array_intersect(
+            $this->model->getMultilingualProps(),
+            $this->model->getSettings()
+        );
+        if (!empty($multilingualSettingsProps)) {
+            foreach ($rows as $row) {
+                foreach ($multilingualSettingsProps as $prop) {
+                    if (!isset($row->{$prop})) {
+                        $row->{$prop} = [];
+                    }
+                }
+            }
+        }
+
         // Include only specified columns
         foreach ($ids as $id) {
             $this->filterRow($rows[$id], $columns);

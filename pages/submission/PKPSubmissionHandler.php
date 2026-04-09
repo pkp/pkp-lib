@@ -38,6 +38,7 @@ use PKP\components\forms\submission\PKPSubmissionFileForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\components\listPanels\ReviewerSuggestionsListPanel;
 use PKP\context\Context;
+use PKP\facades\Locale;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
@@ -228,7 +229,24 @@ abstract class PKPSubmissionHandler extends Handler
         ];
 
         if ($context->getData('reviewerSuggestionEnabled')) {
-            $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $formLocales);
+            $supportedFormLocales = $context->getSupportedFormLocales();
+            $sitePrimaryLocale = $request->getSite()->getPrimaryLocale();
+            if (!isset($supportedFormLocales[$sitePrimaryLocale])) {
+                $supportedFormLocales[] = $sitePrimaryLocale;
+            }
+            $supportedFormLocaleNames = Locale::getFormattedDisplayNames(
+                $supportedFormLocales,
+                null,
+                \PKP\i18n\LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
+            );
+
+            $supportedFormLocales = collect($supportedFormLocaleNames)
+                ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+                ->sortBy('key')
+                ->values()
+                ->toArray();
+            
+            $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $supportedFormLocales);
             $components[$reviewerSuggestionsListPanel->id] = $reviewerSuggestionsListPanel->getConfig();
         }
 

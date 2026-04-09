@@ -140,7 +140,9 @@ class ReviewerSuggestion extends Model
     {
         return Attribute::make(
             get: fn () => collect($this->givenName)
-                ->map(fn ($givenName, $locale) => $givenName . ' ' . $this->familyName[$locale])
+                ->map(
+                    fn ($givenName, $locale) => trim($givenName . ' ' . ($this->familyName ? ($this->familyName[$locale] ?? '') : ''))
+                )
                 ->toArray()
         )->shouldCache();
     }

@@ -112,12 +112,11 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
             $contextPrimaryLocale = $context->getPrimaryLocale();
             if ($sitePrimaryLocale !== $contextPrimaryLocale) {
-                foreach ([&$givenName, &$familyName] as &$data) {
-                    if (is_array($data) && empty($data[$sitePrimaryLocale]) && !empty($data[$contextPrimaryLocale])) {
-                        $data[$sitePrimaryLocale] = $data[$contextPrimaryLocale];
+                foreach (['givenName', 'familyName'] as $field) {
+                    if (is_array($$field) && empty($$field[$sitePrimaryLocale]) && !empty($$field[$contextPrimaryLocale])) {
+                        $$field[$sitePrimaryLocale] = $$field[$contextPrimaryLocale];
                     }
                 }
-                unset($data);
             }
 
             $user->setGivenName($givenName, null);

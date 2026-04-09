@@ -132,19 +132,6 @@ class CreateReviewerForm extends ReviewerForm
         }
 
         $this->readUserVars($inputData);
-
-        // Auto-populate site locale name fields from context primary if empty
-        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
-        $contextPrimaryLocale = $this->requiredLocale;
-        if ($sitePrimaryLocale !== $contextPrimaryLocale) {
-            foreach (['givenName', 'familyName'] as $field) {
-                $data = $this->getData($field);
-                if (empty($data[$sitePrimaryLocale]) && !empty($data[$contextPrimaryLocale])) {
-                    $data[$sitePrimaryLocale] = $data[$contextPrimaryLocale];
-                    $this->setData($field, $data);
-                }
-            }
-        }
     }
 
     /**

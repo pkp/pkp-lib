@@ -347,6 +347,12 @@ class PKPString
             '</i>' => '</italic>',
             '<u>' => '<underline>',
             '</u>' => '</underline>',
+            '<b>' => '<bold>',
+            '</b>' => '</bold>',
+            '<i>' => '<italic>',
+            '</i>' => '</italic>',
+            '<u>' => '<underline>',
+            '</u>' => '</underline>',
         ];
 
         return str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);

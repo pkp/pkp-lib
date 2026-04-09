@@ -663,6 +663,46 @@ msgstr ""
 msgid "emailTemplate.variable.userRoleEnd.roleRemoved"
 msgstr "This is the name of the user role that has been removed"
 
+msgid "mailable.userRoleMastheadUpdateNotify.name"
+msgstr "User Role Masthead Visibility Update Notification"
+
+msgid "mailable.userRoleMastheadUpdateNotify.description"
+msgstr "The email notification sent to a user when their masthead visibility is updated for a role."
+
+msgid "emails.userRoleMastheadUpdateNotify.subject"
+msgstr "Your journal masthead visibility has been updated"
+
+msgid "emails.userRoleMastheadUpdateNotify.body"
+msgstr ""
+"<div class='email-container'>"
+"    <div class='email-header'>"
+"        <h2>Updated role masthead visibility</h2>"
+"    </div>"
+"    <div class='email-content'>"
+"        <p>Dear {$recipientName},</p>"
+"        <p>Your journal masthead visibility for the role {$roleNameAndDates} in {$contextName} has been updated.</p>"
+"        <p>New setting: {$appearOnMasthead}</p>"
+"        <p>If you have questions about this change, please contact the journal manager.</p>"
+"        <p>Kind regards,</p>"
+"        <p>{$contextName}</p>"
+"    </div>"
+"</div>"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates"
+msgstr "This is the name, start and end date of the user role the masthead visibility has been updated for"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.value"
+msgstr "{$roleName} ({$startDate} &ndash; {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.startDate"
+msgstr "{$roleName} (since {$startDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.endDate"
+msgstr "{$roleName} (until {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.appearOnMasthead"
+msgstr "Message if the user appears on the masthead for the role."
+
 msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
 msgstr "Ending at {$dateEnd}"
 

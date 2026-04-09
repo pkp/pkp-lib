@@ -253,6 +253,7 @@ class Repository
             mailables\UserCreated::class,
             mailables\UserRoleAssignmentInvitationNotify::class,
             mailables\UserRoleEndNotify::class,
+            mailables\UserRoleMastheadUpdateNotify::class,
             mailables\ValidateEmailContext::class,
             mailables\ValidateEmailSite::class,
             mailables\RequestReviewRoundAuthorResponse::class,

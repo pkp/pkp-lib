@@ -257,10 +257,9 @@ class Repository
     }
 
     /**
-     * Update UserUserGroup masthead status for a UserGroup the user is currently active in
-     *
+     * Update masthead status for a user's active UserUserGroup assignments in a given UserGroup
      */
-    public function updateUserUserGroupMasthead(int $userId, int $userGroupId, bool $masthead): void
+    public function updateActiveUserUserGroupMasthead(int $userId, int $userGroupId, bool $masthead): void
     {
         UserUserGroup::query()
             ->withUserId($userId)
@@ -271,6 +270,24 @@ class Repository
         $userGroup = UserGroup::find($userGroupId);
         if ($userGroup?->masthead) {
             self::forgetEditorialCache($userGroup->contextId);
+        }
+    }
+
+    /**
+     * Set masthead status for a specific UserUserGroup and clear the appropriate cache
+     */
+    public function setUserUserGroupMasthead(UserUserGroup $userUserGroup, bool $masthead): void
+    {
+        $userUserGroup->update(['masthead' => $masthead]);
+
+        $userGroup = UserGroup::find($userUserGroup->userGroupId);
+        if ($userGroup->masthead) {
+            $isEnded = $userUserGroup->dateEnd && !$userUserGroup->dateEnd->isFuture();
+            if ($isEnded) {
+                self::forgetEditorialHistoryCache($userGroup->contextId);
+            } else {
+                self::forgetEditorialCache($userGroup->contextId);
+            }
         }
     }
 

@@ -923,6 +923,7 @@ msgstr ""
 "Tento ORCID nebyl ověřen. Odstraňte prosím tento neověřený ORCID a požádejte "
 "o ověření přímo uživatele/autora."
 
+#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Opravdu chcete tuto roli trvale odebrat? Tato akce odebere uživateli přístup "

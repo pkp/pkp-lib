@@ -378,7 +378,3 @@ class PKPString
         return null;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPString', '\PKPString');
-}

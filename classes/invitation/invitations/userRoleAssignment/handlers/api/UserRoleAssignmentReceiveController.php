@@ -104,8 +104,24 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             $user->setUsername($this->invitation->getPayload()->username);
 
             // Set the base user fields (name, etc.)
-            $user->setGivenName($this->invitation->getPayload()->givenName, null);
-            $user->setFamilyName($this->invitation->getPayload()->familyName, null);
+            $givenName = $this->invitation->getPayload()->givenName;
+            $familyName = $this->invitation->getPayload()->familyName;
+
+            // Auto-populate site locale name fields from context primary if empty
+            $context = $this->invitation->getContext();
+            $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+            $contextPrimaryLocale = $context->getPrimaryLocale();
+            if ($sitePrimaryLocale !== $contextPrimaryLocale) {
+                foreach ([&$givenName, &$familyName] as &$data) {
+                    if (is_array($data) && empty($data[$sitePrimaryLocale]) && !empty($data[$contextPrimaryLocale])) {
+                        $data[$sitePrimaryLocale] = $data[$contextPrimaryLocale];
+                    }
+                }
+                unset($data);
+            }
+
+            $user->setGivenName($givenName, null);
+            $user->setFamilyName($familyName, null);
             $user->setEmail($this->invitation->getEmail());
             $user->setCountry($this->invitation->getPayload()->userCountry);
             $user->setAffiliation($this->invitation->getPayload()->affiliation, null);
@@ -176,20 +192,6 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         }
 
         $this->invitation->fillFromData($payload);
-
-        // Auto-populate site locale name fields from context primary if empty
-        $context = $this->invitation->getContext();
-        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
-        $contextPrimaryLocale = $context->getPrimaryLocale();
-        if ($sitePrimaryLocale !== $contextPrimaryLocale) {
-            $invitationPayload = $this->invitation->getPayload();
-            foreach (['givenName', 'familyName', 'affiliation'] as $field) {
-                $data = $invitationPayload->$field;
-                if (is_array($data) && empty($data[$sitePrimaryLocale]) && !empty($data[$contextPrimaryLocale])) {
-                    $invitationPayload->$field = array_merge($data, [$sitePrimaryLocale => $data[$contextPrimaryLocale]]);
-                }
-            }
-        }
 
         $this->invitation->updatePayload(ValidationContext::VALIDATION_CONTEXT_REFINE);
 

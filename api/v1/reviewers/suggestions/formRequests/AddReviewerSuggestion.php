@@ -39,7 +39,7 @@ class AddReviewerSuggestion extends FormRequest
      */
     public function primaryLocale(): ?string
     {
-        return Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        return Application::get()->getRequest()->getContext()->getPrimaryLocale();
     }
 
     /**
@@ -47,7 +47,12 @@ class AddReviewerSuggestion extends FormRequest
      */
     public function allowedLocales(): array
     {
-        return Application::get()->getRequest()->getContext()->getSupportedFormLocales();
+        $allowedLocales = Application::get()->getRequest()->getContext()->getSupportedFormLocales();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        if (!in_array($sitePrimaryLocale, $allowedLocales)) {
+            $allowedLocales[] = $sitePrimaryLocale;
+        }
+        return $allowedLocales;
     }
 
     /**

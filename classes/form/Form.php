@@ -373,7 +373,11 @@ class Form
      */
     public function getDefaultFormLocale()
     {
-        return $this->requiredLocale;
+        $formLocale = $this->defaultLocale;
+        if (!isset($this->supportedLocales[$formLocale])) {
+            $formLocale = $this->requiredLocale;
+        }
+        return $formLocale;
     }
 
     /**

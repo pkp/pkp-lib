@@ -220,7 +220,7 @@ class UserDetailsForm extends UserForm
             'minPasswordLength' => $site->getMinPasswordLength(),
             'source' => $request->getUserVar('source'),
             'userId' => $this->userId,
-            'formPrimaryLocale' => $this->getDefaultFormLocale(),
+            'sitePrimaryLocale' => $site->getPrimaryLocale(),
             'availableLocales' => $site->getSupportedLocaleNames(),
             'countries' => $countries,
             'userGroupUpdateOnly' => $this->userGroupUpdateOnly,

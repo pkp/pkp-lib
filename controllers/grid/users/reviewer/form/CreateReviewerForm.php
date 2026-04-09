@@ -103,7 +103,7 @@ class CreateReviewerForm extends ReviewerForm
         $this->setReviewerFormAction($advancedSearchAction);
         $site = $request->getSite();
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('formPrimaryLocale', $this->getDefaultFormLocale());
+        $templateMgr->assign('sitePrimaryLocale', $site->getPrimaryLocale());
         return parent::fetch($request, $template, $display);
     }
 

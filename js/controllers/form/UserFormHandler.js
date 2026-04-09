@@ -88,15 +88,15 @@
 		e.preventDefault();
 
 		var $form = this.getHtmlElement(),
-				givenName, familyName, fetchUrl, formPrimaryLocale;
+				givenName, familyName, fetchUrl, sitePrimaryLocale;
 
 		// Fetch entered names
-		formPrimaryLocale =
-				/** @type {string} */ ($('[name="formPrimaryLocale"]', $form).val());
+		sitePrimaryLocale =
+				/** @type {string} */ ($('[name="sitePrimaryLocale"]', $form).val());
 		givenName = /** @type {string} */ ($('[name="givenName[' +
-				formPrimaryLocale + ']"]', $form).val());
+				sitePrimaryLocale + ']"]', $form).val());
 		familyName = /** @type {string} */ ($('[name="familyName[' +
-				formPrimaryLocale + ']"]', $form).val());
+				sitePrimaryLocale + ']"]', $form).val());
 
 		// Replace dummy values in the URL with entered values
 		fetchUrl = this.fetchUsernameSuggestionUrl_.

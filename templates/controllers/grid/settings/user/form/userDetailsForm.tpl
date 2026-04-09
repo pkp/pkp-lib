@@ -26,7 +26,7 @@
 
 <form class="pkp_form" id="userDetailsForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUser"}">
 	{csrf}
-	<input type="hidden" id="formPrimaryLocale" name="formPrimaryLocale" value="{$formPrimaryLocale|escape}" />
+	<input type="hidden" id="sitePrimaryLocale" name="sitePrimaryLocale" value="{$sitePrimaryLocale|escape}" />
 	<div id="userDetailsFormContainer">
 		<div id="userDetails" class="full left">
 			{if !$userGroupUpdateOnly}

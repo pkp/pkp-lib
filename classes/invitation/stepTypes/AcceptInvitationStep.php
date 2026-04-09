@@ -134,7 +134,7 @@ class AcceptInvitationStep extends InvitationStepTypes
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
             ),
             [
                 'validateFields' => [
@@ -176,7 +176,7 @@ class AcceptInvitationStep extends InvitationStepTypes
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
             ),
             [
                 'validateFields' => [
@@ -196,27 +196,4 @@ class AcceptInvitationStep extends InvitationStepTypes
         return $step->getState();
     }
 
-    /**
-     * Get all form locals
-     * @param Context $context
-     * @return array
-     */
-    private function getFormLocals(Context $context): array
-    {
-        // Ensure site primary locale is available for user name fields
-        $supportedFormLocales = $context->getSupportedFormLocales();
-        $sitePrimaryLocale = \APP\core\Application::get()->getRequest()->getSite()->getPrimaryLocale();
-        if (!in_array($sitePrimaryLocale, $supportedFormLocales)) {
-            $supportedFormLocales[] = $sitePrimaryLocale;
-        }
-        $localeNames = \PKP\facades\Locale::getFormattedDisplayNames(
-            $supportedFormLocales,
-            null,
-            \PKP\i18n\LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
-        );
-        return collect($localeNames)
-            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
-            ->values()
-            ->toArray();
-    }
 }

@@ -17,7 +17,6 @@ namespace PKP\invitation\stepTypes;
 use APP\core\Application;
 use Exception;
 use PKP\components\forms\invitation\UserDetailsForm;
-use PKP\facades\Locale;
 use PKP\context\Context;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\sections\Email;
@@ -85,21 +84,7 @@ class SendInvitationStep extends InvitationStepTypes
      */
     private function invitationDetailsForm(Context $context): stdClass
     {
-        // Ensure site primary locale is available for user name fields
-        $supportedFormLocales = $context->getSupportedFormLocales();
-        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
-        if (!in_array($sitePrimaryLocale, $supportedFormLocales)) {
-            $supportedFormLocales[] = $sitePrimaryLocale;
-        }
-        $localeNames = Locale::getFormattedDisplayNames(
-            $supportedFormLocales,
-            null,
-            \PKP\i18n\LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
-        );
-        $locales = collect($localeNames)
-            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
-            ->values()
-            ->toArray();
+        $locales = $this->getFormLocales($context);
         $sections = new Sections(
             'userDetails',
             __('userInvitation.enterDetails.stepName'),

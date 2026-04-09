@@ -137,7 +137,7 @@ class CreateReviewerForm extends ReviewerForm
         $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
         $contextPrimaryLocale = $this->requiredLocale;
         if ($sitePrimaryLocale !== $contextPrimaryLocale) {
-            foreach (['givenName', 'familyName', 'preferredPublicName'] as $field) {
+            foreach (['givenName', 'familyName'] as $field) {
                 $data = $this->getData($field);
                 if (empty($data[$sitePrimaryLocale]) && !empty($data[$contextPrimaryLocale])) {
                     $data[$sitePrimaryLocale] = $data[$contextPrimaryLocale];

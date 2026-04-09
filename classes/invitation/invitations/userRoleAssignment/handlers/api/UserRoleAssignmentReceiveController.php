@@ -14,7 +14,6 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
-use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Core;
@@ -104,23 +103,8 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             $user->setUsername($this->invitation->getPayload()->username);
 
             // Set the base user fields (name, etc.)
-            $givenName = $this->invitation->getPayload()->givenName;
-            $familyName = $this->invitation->getPayload()->familyName;
-
-            // Auto-populate site locale name fields from context primary if empty
-            $context = $this->invitation->getContext();
-            $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
-            $contextPrimaryLocale = $context->getPrimaryLocale();
-            if ($sitePrimaryLocale !== $contextPrimaryLocale) {
-                foreach (['givenName', 'familyName'] as $field) {
-                    if (is_array($$field) && empty($$field[$sitePrimaryLocale]) && !empty($$field[$contextPrimaryLocale])) {
-                        $$field[$sitePrimaryLocale] = $$field[$contextPrimaryLocale];
-                    }
-                }
-            }
-
-            $user->setGivenName($givenName, null);
-            $user->setFamilyName($familyName, null);
+            $user->setGivenName($this->invitation->getPayload()->givenName, null);
+            $user->setFamilyName($this->invitation->getPayload()->familyName, null);
             $user->setEmail($this->invitation->getEmail());
             $user->setCountry($this->invitation->getPayload()->userCountry);
             $user->setAffiliation($this->invitation->getPayload()->affiliation, null);

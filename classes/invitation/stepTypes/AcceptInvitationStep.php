@@ -134,7 +134,7 @@ class AcceptInvitationStep extends InvitationStepTypes
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
             ),
             [
                 'validateFields' => [
@@ -176,7 +176,7 @@ class AcceptInvitationStep extends InvitationStepTypes
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
             ),
             [
                 'validateFields' => [
@@ -196,4 +196,21 @@ class AcceptInvitationStep extends InvitationStepTypes
         return $step->getState();
     }
 
+    /**
+     * Get all form locals
+     * @param Context $context
+     * @return array
+     */
+    private function getFormLocals(Context $context): array
+    {
+        $localeNames = $context->getSupportedFormLocaleNames();
+        $locales = [];
+        foreach ($localeNames as $key => $name) {
+            $locales[] = [
+                'key' => $key,
+                'label' => $name,
+            ];
+        }
+        return $locales;
+    }
 }

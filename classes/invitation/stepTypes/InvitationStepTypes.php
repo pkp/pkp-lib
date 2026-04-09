@@ -12,10 +12,7 @@
  */
 namespace PKP\invitation\stepTypes;
 
-use APP\core\Application;
 use PKP\context\Context;
-use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\user\User;
@@ -35,24 +32,4 @@ abstract class InvitationStepTypes
         return new UserRoleAssignmentInvite();
     }
 
-    /**
-     * Get form locales including the site primary locale.
-     */
-    protected function getFormLocales(Context $context): array
-    {
-        $supportedFormLocales = $context->getSupportedFormLocales();
-        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
-        if (!in_array($sitePrimaryLocale, $supportedFormLocales)) {
-            $supportedFormLocales[] = $sitePrimaryLocale;
-        }
-        $localeNames = Locale::getFormattedDisplayNames(
-            $supportedFormLocales,
-            null,
-            LocaleMetadata::LANGUAGE_LOCALE_WITHOUT
-        );
-        return collect($localeNames)
-            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
-            ->values()
-            ->toArray();
-    }
 }

@@ -84,7 +84,14 @@ class SendInvitationStep extends InvitationStepTypes
      */
     private function invitationDetailsForm(Context $context): stdClass
     {
-        $locales = $this->getFormLocales($context);
+        $localeNames = $context->getSupportedFormLocaleNames();
+        $locales = [];
+        foreach ($localeNames as $key => $name) {
+            $locales[] = [
+                'key' => $key,
+                'label' => $name,
+            ];
+        }
         $sections = new Sections(
             'userDetails',
             __('userInvitation.enterDetails.stepName'),

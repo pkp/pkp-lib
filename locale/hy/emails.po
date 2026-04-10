@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 11:50+0000\n"
+"PO-Revision-Date: 2026-04-10 05:34+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "hy/>\n"
@@ -737,3 +737,14 @@ msgstr ""
 "btn-accept'>Ընդունել հրավերը</a></p>        <p><a href='{$declineUrl}' "
 "class='btn btn-decline'>Մերժել հրավերը</a></p>        <p>Հարգանքներով,</"
 "p>        <p>{$contextName}</p>    </div></div>"
+
+msgid "mailable.userRoleMastheadUpdateNotify.name"
+msgstr "Օգտատիրոջ դերի վերնախորագրի տեսանելիության թարմացման ծանուցում"
+
+msgid "mailable.userRoleMastheadUpdateNotify.description"
+msgstr ""
+"Էլ․փոստի ծանուցում, որն ուղարկվում է օգտատիրոջը, երբ նրա վերնախորագրի "
+"տեսանելիությունը թարմացվում է դերի համար։"
+
+msgid "emails.userRoleMastheadUpdateNotify.subject"
+msgstr "Ձեր ամսագրի վերնախորագրի տեսանելիությունը թարմացվել է"

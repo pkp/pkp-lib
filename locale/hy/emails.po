@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-10 05:34+0000\n"
+"PO-Revision-Date: 2026-04-10 05:43+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "hy/>\n"
@@ -748,3 +748,32 @@ msgstr ""
 
 msgid "emails.userRoleMastheadUpdateNotify.subject"
 msgstr "Ձեր ամսագրի վերնախորագրի տեսանելիությունը թարմացվել է"
+
+msgid "emails.userRoleMastheadUpdateNotify.body"
+msgstr ""
+"<div class='email-container'>    <div class='email-header'>        <h2>Դերի "
+"վերնախորագրի տեսանելիությունը թարմացվել է</h2>    </div>    <div class"
+"='email-content'>        <p>Հարգելի {$recipientName},</p>        <p>Ձեր "
+"ամսագրի վերնախորագրի տեսանելիությունը այս դերի համար {$roleNameAndDates} "
+"սրանում {$contextName} թարմացվել է։</p>        <p>Նոր կարգավորումներն են: "
+"{$appearOnMasthead}</p>        <p>Եթե ունեք հարցեր այս փոփոխության "
+"վերաբերյալ, խնդրում ենք կապվել ամսագրի կառավարչի հետ։</p>        "
+"<p>Հարգանքով,</p>        <p>{$contextName}</p>    </div></div>"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates"
+msgstr ""
+"Սա այն օգտատիրոջ դերի անունը, սկզբի և ավարտի ամսաթիվն է, որի համար "
+"վերնախորագրի տեսանելիությունը թարմացվել է"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.value"
+msgstr "{$roleName} ({$startDate} &ndash; {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.startDate"
+msgstr "{$roleName} (since {$startDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.endDate"
+msgstr "{$roleName} (until {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.appearOnMasthead"
+msgstr ""
+"Հաղորդագրություն ուղարկիր, եթե օգտատերը հայտնվում է դերի վերնախորագրում։"

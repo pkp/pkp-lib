@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-11 16:00+0000\n"
+"PO-Revision-Date: 2026-04-11 19:34+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sr_Latn/>\n"
@@ -224,16 +224,16 @@ msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Zahtevaj reviziju od autora koja će biti tema narednih recenziranja."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "Revizije ne bi trebalo da budu predmet novog kruga recenzije."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "Revizije bi trebalo da budu predmet novog kruga recenzije."
 
 msgid "editor.review.dateAccepted"
 msgstr "Razmotri datume prihvatanja"
 
 msgid "editor.review.reviewsAdded"
-msgstr ""
+msgstr "Recenzije su dodate u sadržaj poruke."
 
 msgid "editor.review.noReviews"
 msgstr "Nema stručnih recenzija za uvoz"

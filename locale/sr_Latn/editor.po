@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-02 00:38+0000\n"
+"PO-Revision-Date: 2026-04-11 16:00+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sr_Latn/>\n"
@@ -50,40 +50,51 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Izmeni odluku"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "Nemate dozvolu da zabeležite ovu odluku za ovu prijavu."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Urednik nije prepoznat i možda nema dozvolu da zabeleži odluku o ovoj "
+"prijavi."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Ne možete poslati imejl sledećim primaocima: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Ovaj krug recenzije nije pronađen."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Naveden je krug recenzije, ali ova odluka se ne donosi u fazi recenzije."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Ovaj krug recenzije nije deo ove prijave."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Prijava nije u odgovarajućoj fazi radnog toka da bi se donela ova odluka."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Morate biti dodeljeni ovoj prijavi da biste mogli da zabeležite uredničku "
+"odluku."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Morate navesti ID kruga recenzije da biste mogli da donesete ovu odluku."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Preporuka ne može biti doneta ako u ovoj fazi nije dodeljen urednik koji "
+"može doneti konačnu odluku."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Odluka nije mogla biti doneta za ovu prijavu. ID prijave nedostaje ili se ne "
+"poklapa sa traženom prijavom."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
-msgstr ""
+msgstr "Ova odluka nije pronađena. Molimo navedite prepoznat tip odluke."
 
 msgid "editor.review.notInitiated"
 msgstr "Proces recenziranja još nije započet."
@@ -151,22 +162,22 @@ msgid "editor.review.unassignReviewer"
 msgstr "Otkaži recenzenta"
 
 msgid "editor.review.cancelReviewer"
-msgstr ""
+msgstr "Otkaži recenzenta"
 
 msgid "editor.review.reinstateReviewer"
-msgstr ""
+msgstr "Ponovo aktiviraj recenzenta"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Ponovo pošalji zahtev za recenziju"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Tip recenzije"
 
 msgid "editor.submissionReview.sendEmail"
-msgstr ""
+msgstr "Pošaljite obaveštenje imejlom autoru/autorima: {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr ""
+msgstr "Pošaljite obaveštenje imejlom uredniku/urednicima: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Ne šalji imejl autoru"
@@ -192,7 +203,7 @@ msgid "editor.submissionReview.editReview"
 msgstr "Uredi recenziju"
 
 msgid "editor.review.anonymousReviewer"
-msgstr ""
+msgstr "Anonimni recenzent"
 
 msgid "editor.review.personalMessageToReviewer"
 msgstr "Poruka koja će biti poslata recenzentu"
@@ -204,7 +215,7 @@ msgid "editor.review.uploadRevision"
 msgstr "Dodaj reviziju"
 
 msgid "editor.review.newReviewRound"
-msgstr ""
+msgstr "Zahtevaj novi krug recenzije"
 
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Zahtevaj reviziju od autora."
@@ -611,3 +622,9 @@ msgstr ""
 #~ "Javni identifikator '{$publicIdentifier}' već postoji i dodeljen je "
 #~ "drugom objektu istog tipa. Odaberite jedinstvene identifikatore za "
 #~ "objekte istog tipa u časopisu."
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Izaberite recenzenta iz predloga recenzenata"
+
+msgid "editor.review.importantDates.notice"
+msgstr "Rok za recenziju mora biti isti ili kasniji od roka za odgovor."

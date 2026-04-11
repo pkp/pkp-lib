@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-11 16:00+0000\n"
+"PO-Revision-Date: 2026-04-11 19:34+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/sr_Latn/>\n"
@@ -1102,3 +1102,34 @@ msgstr ""
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
 msgstr "Nije moguće preuzeti ZIP datoteku ROR Registry skupa podataka."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Nije moguće raspakovati ZIP datoteku ROR Registry skupa podataka."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Nije moguće pronaći JSON datoteku sa verzijom šeme {$version} u raspakovanom "
+"ROR Registry skupu podataka."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"Zapis ROR registra sa ID-jem \"{$id}\" nedostaje jedan ili više obaveznih "
+"polja (id, names, status) i biće preskočen."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Nije moguće pročitati verziju šeme iz ROR Registry JSON datoteke {$file}. "
+"Greška: {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Nijedan zapis nije obrađen iz ROR Registry skupa podataka. Skup podataka je "
+"možda prazan ili svi zapisi nisu prošli validaciju."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"Zapis ROR registra „{$id}” ima unos imena sa tipovima [{$types}] u kojem "
+"nedostaje obavezno polje „value” i biće preskočen."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr "Zapis ROR registra „{$id}” nema validno ime i biće preskočen."

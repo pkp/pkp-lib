@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2026-03-30 06:55+0000\n"
+"PO-Revision-Date: 2026-04-13 07:10+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "sl/>\n"
@@ -764,14 +764,12 @@ msgstr "{$count} od {$total} jezikov je zaključenih"
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Vpišite ime ustanove v jeziku {$language}"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Ime ustanove v jeziku {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "Ste prepričani?"
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Tip ustanove v jeziku {$language}"
 
@@ -871,7 +869,6 @@ msgstr ""
 "Ta ORCID ni bil potrjen. Prosimo odstranite ta nepotrjen ORCID in prosite za "
 "potrditev s strani uporabnika/avtorja direktno."
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Ste prepričani, da želite trajno odstraniti to vlogo? S to akcijo boste "
@@ -904,3 +901,24 @@ msgstr "Ta email bo poslan, ko bo ustvarjen uporabnik."
 
 msgid "user.login.activate.description"
 msgstr "Potrdite in aktivirajte svoj uporabniški račun"
+
+msgid "user.masthead.update.title"
+msgstr "Potrdite spremembo vidnosti kolofona"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"S tem se bo spremenilo, ali se ta uporabnik prikaže v kolofonu revije za "
+"izbrano vlogo. Uporabnik bo obveščen o tej spremembi."
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API napaka"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"ROR API je trenutno nedosegljiv. Prosimo obnovite stran ali poskusite "
+"kasneje."
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"ROR API servis pri tej namestitvi ne zastarel. Prosimo obrnite se na "
+"administratorja vašega sistema."

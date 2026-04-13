@@ -132,19 +132,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             $serializedRecommendationOptions[] = ['value' => $value, 'label' => $label];
         }
 
-        // Build a minimal submission object for the FileManager Vue component
         $stageId = $reviewAssignment->getStageId();
-        $submissionForVue = [
-            'id' => $submission->getId(),
-            'stages' => array_map(function ($sid) use ($stageId) {
-                return [
-                    'id' => $sid,
-                    'currentUserAssignedRoles' => $sid === $stageId
-                        ? [Role::ROLE_ID_REVIEWER]
-                        : [],
-                ];
-            }, Application::get()->getApplicationStages()),
-        ];
 
         // Serialize review form data for Vue
         $reviewFormData = null;
@@ -193,21 +181,22 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
         $templateMgr->assign([
             'reviewAssignment' => $reviewAssignment,
-            'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-            'reviewAssignmentId' => $reviewAssignment->getId(),
+            'reviewAssignmentData' => [
+                'id' => $reviewAssignment->getId(),
+                'submissionId' => $submission->getId(),
+                'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
+                'stageId' => $stageId,
+                'recommendationId' => $reviewAssignment->getReviewerRecommendationId(),
+                'dateCompleted' => $reviewAssignment->getDateCompleted(),
+                'cancelled' => $reviewAssignment->getCancelled(),
+            ],
             'reviewerRecommendationOptions' => $serializedRecommendationOptions,
-            'selectedRecommendationId' => $reviewAssignment->getReviewerRecommendationId(),
-            'submissionForVue' => $submissionForVue,
-            'stageId' => $stageId,
             'reviewFormData' => $reviewFormData,
             'reviewFormElementsData' => $reviewFormElementsData,
             'reviewFormResponsesData' => $reviewFormResponsesData,
-            'reviewIsClosed' => $reviewAssignment->getDateCompleted() || $reviewAssignment->getCancelled(),
             'reviewGuidelines' => $reviewGuidelines,
             'comments' => $this->getData('comments') ?? '',
             'commentsPrivate' => $this->getData('commentsPrivate') ?? '',
-            'saveStepUrl' => $request->url(null, 'reviewer', 'saveStep', [$submission->getId()], ['step' => 3]),
-            'cancelUrl' => $request->url(null, 'reviewer', 'submission', [$submission->getId()], ['step' => 2]),
             'tinyMCE' => ['skinUrl' => TemplateManager::getManager($request)->getTinyMceSkinUrl($request)],
         ]);
 

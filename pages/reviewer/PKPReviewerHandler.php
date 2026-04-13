@@ -32,11 +32,13 @@ use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\facades\Locale;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
+use PKP\reviewForm\ReviewFormElement;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
 use PKP\submission\reviewer\form\ReviewerReviewForm;
 use PKP\submission\reviewer\ReviewerAction;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPReviewerHandler extends Handler
 {
@@ -110,6 +112,20 @@ class PKPReviewerHandler extends Handler
             'GENRE_CATEGORY_DOCUMENT' => Genre::GENRE_CATEGORY_DOCUMENT,
             'GENRE_CATEGORY_ARTWORK' => Genre::GENRE_CATEGORY_ARTWORK,
             'GENRE_CATEGORY_SUPPLEMENTARY' => Genre::GENRE_CATEGORY_SUPPLEMENTARY,
+
+            // Submission file stages (needed for FileManager Vue component)
+            'SUBMISSION_FILE_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            'SUBMISSION_FILE_INTERNAL_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+            'SUBMISSION_FILE_REVIEW_ATTACHMENT' => SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+
+            // Review form element types
+            'REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD' => ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD,
+            'REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD' => ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD,
+            'REVIEW_FORM_ELEMENT_TYPE_TEXTAREA' => ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA,
+            'REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES' => ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES,
+            'REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS' => ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS,
+            'REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX' => ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX,
         ]);
 
         $templateMgr->assign([

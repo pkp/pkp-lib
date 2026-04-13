@@ -90,6 +90,7 @@ msgstr ""
 "Klik på filnavnene nedenfor for at downloade de filer, der er knyttet til "
 "denne indsendelse."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Skriv (eller indsæt) din bedømmelse i feltet nedenfor."
 

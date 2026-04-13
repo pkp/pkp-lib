@@ -62,6 +62,7 @@ msgstr "स्पर्धात्मक हितसंबंध"
 msgid "reviewer.submission.guidelines"
 msgstr "समीक्षणासाठी मार्गदर्शक तत्त्वे"
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "खालील फॉर्ममध्ये या सादरीकरणावरचे तुमचे समीक्षण टाइप करा (किंवा पेस्ट करा)."

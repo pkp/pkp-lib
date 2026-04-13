@@ -92,6 +92,7 @@ msgstr ""
 "Kliknij na nazwy plików widoczne poniżej, aby pobrać pliki powiązane ze "
 "zgłoszeniem."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Napisz (lub wklej) swoją recenzję w formularzu poniżej."
 

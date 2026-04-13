@@ -8,8 +8,8 @@
  * Show the step 3 review page
  *}
 
-<div id="reviewSubmissionForm3-{$uuid}">
-	<review-submission-form-3
+<div id="reviewerReviewStep3Form-{$uuid}">
+	<reviewer-review-step3-form
 		:review-assignment='{$reviewAssignmentData|json_encode}'
 		{if $reviewFormData}
 			:review-form='{$reviewFormData|json_encode}'
@@ -22,11 +22,11 @@
 		{if $reviewGuidelines}
 			:review-guidelines="{$reviewGuidelines|json_encode|escape}"
 		{/if}
-	></review-submission-form-3>
+	></reviewer-review-step3-form>
 </div>
 
 <script>
-	pkp.registry.init('reviewSubmissionForm3-{$uuid}', 'Page', {ldelim}
+	pkp.registry.init('reviewerReviewStep3Form-{$uuid}', 'Page', {ldelim}
 		tinyMCE: {$tinyMCE|json_encode}
 	{rdelim});
 </script>

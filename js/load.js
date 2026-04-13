@@ -169,7 +169,7 @@ import UserInvitationPage from '@/pages/userInvitation/UserInvitationPage.vue';
 import AcceptInvitationPage from '@/pages/acceptInvitation/AcceptInvitationPage.vue';
 import UserCommentsPage from '@/pages/userComments/UserCommentsPage.vue';
 import RequestReviewRoundAuthorResponse from '@/pages/requestReviewRoundAuthorResponse/RequestReviewRoundAuthorResponse.vue';
-import ReviewSubmissionForm3 from '@/pages/reviewerSubmission/forms/ReviewSubmissionForm3.vue';
+import ReviewerReviewStep3Form from '@/pages/reviewerSubmission/forms/ReviewerReviewStep3Form.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -338,7 +338,7 @@ VueRegistry.registerComponent(
 	'RequestReviewRoundAuthorResponse',
 	RequestReviewRoundAuthorResponse,
 );
-VueRegistry.registerComponent('ReviewSubmissionForm3', ReviewSubmissionForm3);
+VueRegistry.registerComponent('ReviewerReviewStep3Form', ReviewerReviewStep3Form);
 
 const pinia = createPinia();
 

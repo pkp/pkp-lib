@@ -92,6 +92,7 @@ msgstr ""
 "associats amb aquesta tramesa. Podeu revisar els fitxers en pantalla o bé "
 "imprimir-los."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Introduïu (o enganxeu) la revisió d'aquesta tramesa al formulari que hi ha a "

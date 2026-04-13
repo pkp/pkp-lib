@@ -87,7 +87,7 @@ msgstr ""
 "submission."
 
 msgid "reviewer.submission.reviewDescription"
-msgstr "Enter (or paste) your review of this submission into the form below."
+msgstr "Enter (or paste) your review of this submission."
 
 msgid "reviewer.submission.uploadDescription"
 msgstr ""

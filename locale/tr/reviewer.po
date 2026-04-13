@@ -91,6 +91,7 @@ msgstr ""
 "Bu gönderi ile ilgili dosyaları indirmek için aşağıdaki dosya adlarına "
 "tıklayınız."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Bu gönderi ile ilgili değerlendirmenizi aşağıdaki forma girin (veya "

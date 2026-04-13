@@ -89,6 +89,7 @@ msgstr ""
 "Klikněte na níže uvedené názvy souborů a stáhněte soubory spojené s tímto "
 "příspěvkem."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Vložte (nebo zkopírujte) vaši recenzi tohoto příspěvku do formuláře níže."

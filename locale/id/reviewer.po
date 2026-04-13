@@ -87,6 +87,7 @@ msgstr ""
 "Klik pada nama file di bawah ini untuk mengunduh file yang berhubungan "
 "dengan naskah ini."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Maukkan (atau paste) hasil review Anda atas naskah ini ke dalam borang di "

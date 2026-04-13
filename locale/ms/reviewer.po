@@ -87,6 +87,7 @@ msgstr ""
 "Klik pada nama fail di bawah untuk memuat turun fail yang berkaitan dengan "
 "penyerahan ini."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Masukkan (atau tampal) ulasan anda tentang penyerahan ini ke dalam borang di "

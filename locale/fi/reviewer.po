@@ -91,6 +91,7 @@ msgstr ""
 "Klikkaa tiedostonimiä alla ladataksesi tähän käsikirjoitukseen liittyvät "
 "tiedostot."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Kirjoita (tai liitä) arviosi tästä käsikirjoituksesta alla olevaan "

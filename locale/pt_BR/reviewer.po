@@ -92,6 +92,7 @@ msgstr ""
 "Clique nos nomes dos arquivos para baixá-los e revise os arquivos associados "
 "a esta submissão."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Informe seu parecer para esta submissão no formulário abaixo."
 

@@ -18,14 +18,18 @@ namespace PKP\security;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 use PKP\session\SessionDAO;
 use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
+use PKP\stageAssignment\StageAssignment;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
@@ -597,6 +601,63 @@ class Validation
 
         // There were no conflicting roles. Permit administration.
         return self::ADMINISTRATION_FULL;
+    }
+
+    /**
+     * Check if the user can edit another user stage assignment in the participants grid
+     *
+     * @return bool
+     */
+    public static function canEditParticipant(User $user, Submission $submission, StageAssignment $stageAssignment): bool
+    {
+        // Admins and managers always can edit stage participants
+        if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getContextId())) {
+            return true;
+        }
+
+        /**
+         * Check user's assignments within given submission and stage
+         * @var StageAssignmentDAO $stageAssignmentDao
+         */
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
+            $submission->getId(),
+            $user->getId(),
+            $stageAssignment->getStageId()
+        )->toArray();
+
+        if (empty($stageAssignments)) {
+            return false;
+        }
+
+        $userGroupIds = array_map(fn (StageAssignment $assignment) => $assignment->getUserGroupId(), $stageAssignments);
+        $userGroups = Repo::userGroup()->getCollector()->filterByUserGroupIds($userGroupIds)->getMany();
+
+        // Only editors are allowed to edit participants
+        $isEditor = false;
+        foreach ($userGroups as $userGroup) {
+            if ($userGroup->getRoleId() == Role::ROLE_ID_SUB_EDITOR) {
+                $isEditor = true;
+                break;
+            }
+        }
+
+        if (!$isEditor) {
+            return false;
+        }
+
+        // Don't allow to edit own assignments
+        if ($user->getId() === $stageAssignment->getUserId()) {
+            return false;
+        }
+
+        // Editors aren't allowed to edit managers' assignments
+        $editableUser = Repo::user()->getCollector()->filterByUserIds([$stageAssignment->getUserId()])->getMany()->first();
+        if ($editableUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $submission->getContextId())) {
+            return false;
+        }
+
+        return true;
     }
 }
 

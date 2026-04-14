@@ -28,6 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\site\VersionDAO;
+use PKP\config\Config;
 use Throwable;
 
 class PluginGalleryDAO extends \PKP\db\DAO
@@ -58,23 +59,32 @@ class PluginGalleryDAO extends \PKP\db\DAO
      */
     public function getNewestCompatible($application, $category = null, $search = null)
     {
-        $doc = $this->_getDocument();
         $plugins = [];
+        $pluginGalleryConfig = json_decode($config = self::getPluginGalleryConfig());
 
-        foreach ($doc->getElementsByTagName('plugin') as $index => $element) {
-            $plugin = $this->_compatibleFromElement($element, $application);
-            // May be null if no compatible version exists; also
-            // apply search filters if any supplied.
-            if (
-                $plugin &&
-                ($category == '' || $category == PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
-                ($search == '' || PKPString::strpos(PKPString::strtolower(serialize($plugin)), PKPString::strtolower($search)) !== false)
-            ) {
-                $plugins[$index] = $plugin;
+        foreach ($pluginGalleryConfig as $galleryUrl) {
+            $doc = $this->_getDocument($galleryUrl);
+
+            foreach ($doc->getElementsByTagName('plugin') as $element) {
+                $plugin = $this->_compatibleFromElement($element, $application);
+                // May be null if no compatible version exists; also
+                // apply search filters if any supplied.
+                if (
+                    $plugin &&
+                    ($category == '' || $category == PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
+                    ($search == '' || PKPString::strpos(PKPString::strtolower(serialize($plugin)), PKPString::strtolower($search)) !== false)
+                ) {
+                    $plugins["{$plugin->getCategory()}/{$plugin->getProduct()}"] = $plugin;
+                }
             }
         }
 
-        return $plugins;
+        return array_values($plugins);
+    }
+
+    protected function getPluginGalleryConfig() : string
+    {
+        return Config::getVar('security', 'plugin_gallery_urls', '["' . static::PLUGIN_GALLERY_XML_URL . '"]');
     }
 
     /**
@@ -82,7 +92,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
      *
      * @return ?string
      */
-    protected function getExternalDocument(): ?string
+    protected function getExternalDocument(string $galleryUrl): ?string
     {
         $application = Application::get();
         $client = $application->getHttpClient();
@@ -92,7 +102,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
         try {
             $response = $client->request(
                 'GET',
-                static::PLUGIN_GALLERY_XML_URL,
+                $galleryUrl,
                 [
                     'query' => [
                         'application' => $application->getName(),
@@ -115,12 +125,12 @@ class PluginGalleryDAO extends \PKP\db\DAO
      *
      * @return ?string
      */
-    protected function getCachedDocument(): ?string
+    protected function getCachedDocument(string $galleryUrl): ?string
     {
         $cacheManager = CacheManager::getManager();
         /** @var FileCache */
         $cache = $cacheManager->getCache(
-            'loadPluginsXML',
+            'loadPluginsXML' . md5($galleryUrl),
             Application::CONTEXT_SITE,
             function (FileCache $cache) {
                 $cache->setEntireCache($this->getExternalDocument());
@@ -132,7 +142,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
         // Checking if the cache is older than 1 day, or its null
         if ($cacheTime === null || (time() - $cacheTime > self::TTL_CACHE_SECONDS)) {
             // This cache is out of date; so, lets request a new version.
-            $response = $this->getExternalDocument();
+            $response = $this->getExternalDocument($galleryUrl);
 
             // The plugins.xml request wasnt empty, so lets replace it
             if ($response !== null) {
@@ -148,10 +158,10 @@ class PluginGalleryDAO extends \PKP\db\DAO
      *
      * @return DOMDocument
      */
-    private function _getDocument()
+    private function _getDocument($galleryUrl)
     {
         $doc = new DOMDocument('1.0', 'utf-8');
-        $doc->loadXML($this->getCachedDocument());
+        $doc->loadXML($this->getCachedDocument($galleryUrl));
 
         return $doc;
     }

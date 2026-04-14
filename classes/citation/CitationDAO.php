@@ -81,7 +81,7 @@ class CitationDAO extends \PKP\db\DAO
      * Import citations from a raw citation list of the particular publication.
      *
      * @param int $publicationId
-     * @param string $rawCitationList
+     * @param ?string $rawCitationList
      */
     public function importCitations($publicationId, $rawCitationList)
     {
@@ -95,7 +95,7 @@ class CitationDAO extends \PKP\db\DAO
 
         // Tokenize raw citations
         $citationTokenizer = new CitationListTokenizerFilter();
-        $citationStrings = $citationTokenizer->execute($rawCitationList);
+        $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
         // Instantiate and persist citations
         $importedCitations = [];

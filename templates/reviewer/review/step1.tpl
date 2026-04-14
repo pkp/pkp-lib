@@ -89,7 +89,7 @@
 		{fbvFormSection list=true}
 			{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 			{capture assign="privacyLabel"}{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}{/capture}
-			{fbvElement type="checkbox" id="privacyConsent" required=true value=1 label=$privacyLabel translate=false checked=$privacyConsent}
+			{fbvElement type="checkbox" id="dataCollectionCheck" name="privacyConsent" required=true value=1 label=$privacyLabel translate=false checked=$privacyConsent}
 		{/fbvFormSection}
 	{/if}
 

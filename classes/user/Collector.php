@@ -637,33 +637,22 @@ class Collector implements CollectorInterface
                     : array_values($this->orderLocales)
             );
             $sortedSettings = array_values($this->orderBy === self::ORDERBY_GIVENNAME ? $nameSettings : array_reverse($nameSettings));
-            $query->orderBy(
-                function (Builder $query) use ($sortedSettings, $locales): void {
-                    $query->fromSub(fn (Builder $query) => $query->from(null)->selectRaw(0), 'placeholder');
-                    $aliasesBySetting = [];
-                    foreach ($sortedSettings as $i => $setting) {
-                        $aliases = [];
-                        foreach ($locales as $j => $locale) {
-                            $aliases[] = $alias = "us_{$i}_{$j}";
-                            $query->leftJoin(
-                                "user_settings AS {$alias}",
-                                fn (JoinClause $join) => $join
-                                    ->on("{$alias}.user_id", '=', 'u.user_id')
-                                    ->where("{$alias}.setting_name", '=', $setting)
-                                    ->where("{$alias}.locale", '=', $locale)
-                            );
-                        }
-                        $aliasesBySetting[] = $aliases;
-                    }
-                    // Build a possibly long CONCAT(COALESCE(given_localeA, given_localeB, [...]), COALESCE(family_localeA, family_localeB, [...])
-                    $coalescedSettings = array_map(
-                        fn (array $aliases) => 'COALESCE(' . implode(', ', array_map(fn (string $alias) => "{$alias}.setting_value", $aliases)) . ", '')",
-                        $aliasesBySetting
-                    );
-                    $query->selectRaw('CONCAT(' . implode(', ', $coalescedSettings) . ')');
-                },
-                $this->orderDirection
-            );
+            // Build the ORDER BY using scalar correlated subqueries instead of LEFT JOINs,
+            // because MySQL does not allow references to outer query tables in JOIN ON clauses
+            // inside subqueries (Unknown column 'u.user_id' in 'on clause').
+            $coalesceParts = [];
+            $bindings = [];
+            foreach ($sortedSettings as $setting) {
+                $subqueries = [];
+                foreach ($locales as $locale) {
+                    $subqueries[] = '(SELECT `setting_value` FROM `user_settings` WHERE `user_id` = `u`.`user_id` AND `setting_name` = ? AND `locale` = ? LIMIT 1)';
+                    $bindings[] = $setting;
+                    $bindings[] = $locale;
+                }
+                $coalesceParts[] = 'COALESCE(' . implode(', ', $subqueries) . ", '')";
+            }
+            $direction = strtoupper($this->orderDirection) === 'DESC' ? 'DESC' : 'ASC';
+            $query->orderByRaw('CONCAT(' . implode(', ', $coalesceParts) . ') ' . $direction, $bindings);
         }
 
         return $this;

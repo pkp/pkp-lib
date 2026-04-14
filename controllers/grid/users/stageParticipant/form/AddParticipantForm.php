@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
@@ -102,7 +103,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     {
         $currentUser = Application::get()->getRequest()->getUser();
 
-        if ($currentUser->getId() === $userId && $userGroup->getRoleId() === Role::ROLE_ID_SUB_EDITOR) {
+        if ($currentUser->getId() == $userId && $userGroup->getRoleId() == Role::ROLE_ID_SUB_EDITOR) {
             return false;
         }
 
@@ -118,8 +119,19 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     {
         $currentUser = Application::get()->getRequest()->getUser();
 
-        if ($currentUser->getId() === $userId && $userGroup->getRoleId() === Role::ROLE_ID_SUB_EDITOR) {
+        if ($currentUser->getId() == $userId && $userGroup->getRoleId() == Role::ROLE_ID_SUB_EDITOR) {
             return false;
+        }
+
+        /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+
+        /** @var DAOResultFactory $result */
+        $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($this->_submission->getId(), $currentUser->getId(), $this->_stageId);
+        while ($currentUserStageAssignment = $result->next()) {
+            if ($currentUserStageAssignment->getRecommendOnly()) {
+                return false;
+            }
         }
 
         return in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
@@ -258,29 +270,31 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $submission = $this->getSubmission();
         $userGroup = Repo::userGroup()->get((int) $this->getData('userGroupId'));
         $userId = (int) $this->getData('userId');
-        $recommendOnly = $this->_isChangeRecommendOnlyAllowed($userGroup, $userId) ? (bool) $this->getData('recommendOnly') : false;
-        $canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroup, $userId) ? (bool) $this->getData('canChangeMetadata') : true;
+        $isChangeRecommendOnlyAllowed = $this->_isChangeRecommendOnlyAllowed($userGroup, $userId);
+        $isChangePermitMetadataAllowed = $this->_isChangePermitMetadataAllowed($userGroup, $userId);
+        $recommendOnly = (bool) $this->getData('recommendOnly');
+        $canChangeMetadata = $userGroup->getRoleId() == Role::ROLE_ID_MANAGER ? true : (bool) $this->getData('canChangeMetadata');
 
         // sanity check
         if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroup->getId())->get()->isNotEmpty()) {
-            $updated = false;
 
             if ($this->_assignmentId) {
                 /** @var StageAssignment $stageAssignment */
                 $stageAssignment = $stageAssignmentDao->getById($this->_assignmentId);
 
-                if ($stageAssignment) {
-                    $stageAssignment->setRecommendOnly($recommendOnly);
-                    $stageAssignment->setCanChangeMetadata($canChangeMetadata);
+                if ($stageAssignment && ($isChangeRecommendOnlyAllowed || $isChangePermitMetadataAllowed)) {
+                    if ($isChangeRecommendOnlyAllowed) {
+                        $stageAssignment->setRecommendOnly($recommendOnly);
+                    }
+                    if ($isChangePermitMetadataAllowed) {
+                        $stageAssignment->setCanChangeMetadata($canChangeMetadata);
+                    }
                     $stageAssignmentDao->updateObject($stageAssignment);
-                    $updated = true;
                 }
-            }
-
-            if (!$updated) {
-                // insert the assignment
+            } else {
                 $stageAssignment = $stageAssignmentDao->build($submission->getId(), $userGroup->getId(), $userId, $recommendOnly, $canChangeMetadata);
             }
+
         }
 
         parent::execute(...$functionParams);

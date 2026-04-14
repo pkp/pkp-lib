@@ -67,6 +67,9 @@ class StageParticipantGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $rowId = $this->getId();
+        $submission = $this->getSubmission();
+        $stageId = $this->getStageId();
+        $stageAssignment = $this->getData();
         if (!empty($rowId) && is_numeric($rowId)) {
             // Only add row actions if this is an existing row.
             $router = $request->getRouter();
@@ -86,23 +89,22 @@ class StageParticipantGridRow extends GridRow
                     )
                 );
 
-                $this->addAction(
-                    new LinkAction(
-                        'requestAccount',
-                        new AjaxModal(
-                            $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
-                            __('editor.submission.editStageParticipant'),
-                            'modal_edit_user'
-                        ),
-                        __('common.edit'),
-                        'edit_user'
-                    )
-                );
+                if (Validation::canEditParticipant($request->getUser(), $submission, $stageAssignment)) {
+                    $this->addAction(
+                        new LinkAction(
+                            'requestAccount',
+                            new AjaxModal(
+                                $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
+                                __('editor.submission.editStageParticipant'),
+                                'modal_edit_user'
+                            ),
+                            __('common.edit'),
+                            'edit_user'
+                        )
+                    );
+                }
             }
 
-            $submission = $this->getSubmission();
-            $stageId = $this->getStageId();
-            $stageAssignment = $this->getData();
             $userId = $stageAssignment->getUserId();
             $userGroupId = $stageAssignment->getUserGroupId();
             $context = $request->getContext();

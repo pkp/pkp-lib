@@ -19,7 +19,8 @@ describe('Plugins tests', function() {
         cy.wait('@getPluginList', {
             responseTimeout: 30000
         }).then((evt) => {
-            cy.readFile('cache/fc-loadPluginsXML-0.php');
+            // md5sum for "https://pkp.sfu.ca/ojs/xml/plugins.xml" is 992a9bcbeae5626ff255c1b4566fe51e
+            cy.readFile('cache/fc-loadPluginsXML992a9bcbeae5626ff255c1b4566fe51e-0.php');
         });
     });
 })

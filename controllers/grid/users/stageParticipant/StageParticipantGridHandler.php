@@ -120,7 +120,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
         );
     }
 
-
     /**
      * @copydoc CategoryGridHandler::initialize()
      *
@@ -342,13 +341,18 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $form = new AddParticipantForm($submission, $stageId, $assignmentId);
         $form->readInputData();
         if ($form->validate()) {
+            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+            $stageAssignment = $assignmentId ? $stageAssignmentDao->getById($assignmentId) : null;
+
+            if ($stageAssignment && !Validation::canEditParticipant($request->getUser(), $submission, $stageAssignment)) {
+                return new JSONMessage(true, $form->fetch($request));
+            }
+
             [$userGroupId, $userId, $stageAssignmentId] = $form->execute();
 
             $notificationMgr = new NotificationManager();
 
             // Check user group role id.
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-
             $userGroup = Repo::userGroup()->get($userGroupId);
             if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(

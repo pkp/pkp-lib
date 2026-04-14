@@ -1580,12 +1580,14 @@ class PKPTemplateManager extends Smarty
             $output .= 'pkp._piniaData = ' . json_encode($this->_piniaData) . ';';
         }
 
-
-
-        // add apiBaselUrl for useUrl composable
         $dispatcher = Application::get()->getDispatcher();
         $request = Application::get()->getRequest();
         $context = $request->getContext();
+
+        // Site-wide values that are not scoped to the currently selected context.
+        $output .= 'pkp.site = ' . json_encode([
+            'baseUrl' => $request->getBaseUrl(),
+        ]) . ';';
 
         $pageContext = [
             'app' => Application::get()->getName(),

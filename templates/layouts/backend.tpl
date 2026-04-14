@@ -18,8 +18,6 @@
 	{load_header context="backend"}
 	{load_stylesheet context="backend"}
 	{load_script context="backend"}
-	{* FIXME: Remove external Google Fonts dependency - icons will be embedded to the sciflow editor in near future *}
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0" />
 
 	<style type="text/css">
 		/* Prevent flash of unstyled content in some browsers */

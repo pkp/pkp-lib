@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
@@ -247,31 +247,31 @@ msgid "manager.dois.registration.viewError.title"
 msgstr "Poruka o grešci pri registraciji"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Prikaži zapis"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Poruka o uspešnoj registraciji"
 
 msgid "manager.dois.update.success"
-msgstr ""
+msgstr "DOI identifikatori su uspešno ažurirani"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Depozit DOI identifikatora"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Potreban je DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Neregistrovano"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Poslato"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Registrovano"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Greška"
 
 msgid "manager.dois.status.error.filterTitle"
 msgstr ""
@@ -1252,7 +1252,6 @@ msgstr ""
 "ispunjenosti označavanjem svakog pitanja pre nego autor nastavi sa procesom "
 "prijave."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 
@@ -3210,15 +3209,6 @@ msgstr ""
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
 
-#~ msgid "manager.setup.notifications.copyPrimaryContact"
-#~ msgstr "Pošalji kopiju glavnom kontaktu koji je naveden u 1. koraku."
-
-#~ msgid "manager.setup.reviewOptions.reviewTime"
-#~ msgstr "Predefinisani rokovi recenzenata"
-
-#~ msgid "manager.plugins.pluginGallery.date"
-#~ msgstr "Datum objavljivanja: {$date}"
-
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Zahtevajte od autora da u toku prijave članka potvrde izjavu o Konfliktu "
@@ -3234,3 +3224,12 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Morate <a href=\"#announcements/announcement-settings\">omogućiti "
 "obaveštenja</a>."
+
+#~ msgid "manager.setup.notifications.copyPrimaryContact"
+#~ msgstr "Pošalji kopiju glavnom kontaktu koji je naveden u 1. koraku."
+
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Predefinisani rokovi recenzenata"
+
+#~ msgid "manager.plugins.pluginGallery.date"
+#~ msgstr "Datum objavljivanja: {$date}"

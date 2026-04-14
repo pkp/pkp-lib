@@ -30,6 +30,7 @@ use PKP\db\DAORegistry;
 use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\facades\Locale;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
@@ -97,6 +98,9 @@ class PKPReviewerHandler extends Handler
             'EDITORIAL_TASK_STATUS_PENDING' => EditorialTaskStatus::PENDING->value,
             'EDITORIAL_TASK_STATUS_IN_PROGRESS' => EditorialTaskStatus::IN_PROGRESS->value,
             'EDITORIAL_TASK_STATUS_CLOSED' => EditorialTaskStatus::CLOSED->value,
+
+            // Editorial task log event types
+            'SUBMISSION_LOG_TASK_NOTE_POSTED' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
         ]);
 
         $templateMgr->assign([

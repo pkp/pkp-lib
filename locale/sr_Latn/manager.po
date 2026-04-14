@@ -274,7 +274,7 @@ msgid "manager.dois.status.error"
 msgstr "Greška"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Ima grešku"
 
 msgid "manager.dois.status.stale"
 msgstr ""

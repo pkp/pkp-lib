@@ -193,6 +193,7 @@ class PKPSubmissionFileController extends PKPBaseController
 
         $allowedFileStages = [
             SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
             SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
         ];
 
@@ -225,15 +226,16 @@ class PKPSubmissionFileController extends PKPBaseController
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $files = collect();
 
-        // Get review files assigned to this reviewer
-        if (in_array(SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, $fileStages)) {
+        // Get review files assigned to this reviewer (external or internal review)
+        $reviewFileStages = array_intersect($fileStages, [
+            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+        ]);
+        if (!empty($reviewFileStages)) {
             $files = $files->merge(
                 Repo::submissionFile()->getCollector()
                     ->filterByReviewIds([$reviewAssignment->getId()])
-                    ->filterByFileStages([
-                        SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
-                        SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
-                    ])
+                    ->filterByFileStages($reviewFileStages)
                     ->getMany()
             );
         }

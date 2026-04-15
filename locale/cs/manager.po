@@ -1,4 +1,4 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025, 2026.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 # Michal Jelínek <jelinek@synetix.cz>, 2026.
 msgid ""
@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-03-13 01:35+0000\n"
-"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"PO-Revision-Date: 2026-04-15 13:35+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
 "Language: cs\n"
@@ -1338,11 +1338,10 @@ msgstr ""
 "požádáni, aby před zahájením předkládání potvrdili, že jejich příspěvek "
 "splňuje všechny zde uvedené požadavky."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
-"Deaktivujte tuto sekce a nedovolte, aby do ní bylo možné odesílat nové "
-"příspěvky."
+"Označte tuto sekci jako neaktivní a zablokujte v ní možnost přidávání nových "
+"příspěvků."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Opravdu chcete tuto sekci deaktivovat?"

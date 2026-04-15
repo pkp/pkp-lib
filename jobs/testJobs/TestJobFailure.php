@@ -11,13 +11,14 @@ declare(strict_types=1);
  *
  * @class TestJobFailure
  *
- * @brief Example failed TestJob with a valid FQN (@see https://www.php.net/manual/pt_BR/language.namespaces.rules.php)
+ * @brief Example failed TestJob
  */
 
 namespace PKP\jobs\testJobs;
 
 use Exception;
 use Illuminate\Bus\Batchable;
+use PKP\config\Config;
 use PKP\job\models\Job;
 use PKP\jobs\BaseJob;
 
@@ -42,7 +43,7 @@ class TestJobFailure extends BaseJob
      */
     public function __construct()
     {
-        $this->connection = config('queue.default');
+        $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Job::TESTING_QUEUE;
     }
 

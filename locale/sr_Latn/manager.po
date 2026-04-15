@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-03-29 17:24+0000\n"
+"PO-Revision-Date: 2026-04-15 21:57+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
@@ -277,94 +277,113 @@ msgid "manager.dois.status.error.filterTitle"
 msgstr "Ima grešku"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Potrebna sinhronizacija"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI dodeljen"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Sve stavke kojima nedostaje DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Sve stavke kojima je dodeljen DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Sve stavke sa DOI-jem koje su objavljene, ali još nisu deponovane kod "
+"registracione agencije."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Sve stavke koje su dostavljene registracionoj agenciji."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Sve stavke koje su registrovane kod registracione agencije ili su ručno "
+"označene kao registrovane."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Sve stavke kod kojih je došlo do greške u procesu registracije."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Sve stavke koje su ponovo objavljene nakon poslednjeg deponovanja kod "
+"registracione agencije. Potrebno ih je ponovo dostaviti registracionoj "
+"agenciji kako bi se ažurirali njihovi metapodaci."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "Ažuriranje DOI-ja nije uspelo"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Neki DOI identifikatori nisu mogli da budu ažurirani"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Stavke su uspešno izvezene"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Stavke su uspešno označene kao registrovane"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Stavke su uspešno označene kao neregistrovane"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Stavke su uspešno označene kao da zahtevaju sinhronizaciju"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Stavkama su uspešno dodeljeni novi DOI-jevi"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Stavke su uspešno poslate na deponovanje"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Statusi DOI-ja"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"Upravljanje DOI-jevima je premešteno. Molimo pogledajte stranicu<a href=\""
+"{$doiManagementUrl}\">Upravljanje DOI-jevima</a> i stranicu<a href=\""
+"{$doiSettingsUrl}\">Podešavanja DOI-ja</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI-jevi ne mogu biti dodeljeni dok ne unesete svoj dodeljeni DOI prefiks.<a "
+"href=\"{$doiSettingsUrl}\">Dodajte DOI prefiks</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Pokušano je kreiranje DOI-ja, ali je DOI prefiks neophodan za ovaj kontekst "
+"da bi se DOI mogao kreirati."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Pre nego što se ova komponenta može obrisati, morate povezati sve povezane "
+"datoteke za prijavu sa drugom komponentom."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Izmeni instituciju"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "ROAR ID ove institucije (Research Organization Registry identifikator)."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "IP opsezi"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Važeće vrednosti uključuju IP adresu (npr. 142.58.103.1), IP opseg (npr. "
+"142.58.103.1 - 142.58.103.4), IP opseg sa džoker znakom „“ (npr. 142.58..*) "
+"i IP opseg sa CIDR zapisom (npr. 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Obriši instituciju"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Da li ste sigurni da želite da nastavite i obrišete ovu instituciju?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Nevažeći IP opseg"
 
 msgid "manager.publication.submissionStage"
 msgstr "Predaja"
@@ -382,22 +401,26 @@ msgid "manager.publication.emails"
 msgstr "Imejlovi"
 
 msgid "manager.publication.reviewerGuidance"
-msgstr ""
+msgstr "Smernice za recenzente"
 
 msgid "manager.publication.reviewReminders.success"
-msgstr ""
+msgstr "Detalji podsetnika za recenziju su ažurirani."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOI-jevi"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Sledeća greška je vraćena od strane {$registrationAgency} i sadrži detalje o "
+"uzroku greške:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Sledeća poruka je vraćena od strane {$registrationAgency} i sadrži detalje o "
+"registraciji:"
 
 msgid "manager.emails.addEmail"
-msgstr ""
+msgstr "Dodaj šablon"
 
 msgid "manager.emails.createEmail"
 msgstr "Napravi imejl"
@@ -424,13 +447,13 @@ msgid "manager.emails.emailTemplate"
 msgstr "Šablon imejla"
 
 msgid "manager.emails.emailTemplates"
-msgstr ""
+msgstr "Šabloni e-pošte"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Drugi šabloni"
 
 msgid "manager.emails.emailTemplate.contextRequired"
-msgstr ""
+msgstr "Morate navesti ID konteksta prilikom dodavanja šablona e-pošte."
 
 msgid "manager.emails.enabled"
 msgstr "Omogućite ovaj šablon imejla"
@@ -454,7 +477,7 @@ msgid "manager.emails"
 msgstr "Pripremljeni obrasci imejla"
 
 msgid "manager.emails.resetAll"
-msgstr ""
+msgstr "Resetuj sve"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -470,10 +493,10 @@ msgid "manager.emails.resetToDefault"
 msgstr "Vratite na početnu vrednost"
 
 msgid "manager.emails.sentFrom"
-msgstr ""
+msgstr "Poslato od"
 
 msgid "manager.emails.sentTo"
-msgstr ""
+msgstr "Poslato na"
 
 msgid "manager.export.usersToCsv.label"
 msgstr ""
@@ -3233,3 +3256,29 @@ msgstr ""
 
 #~ msgid "manager.plugins.pluginGallery.date"
 #~ msgstr "Datum objavljivanja: {$date}"
+
+msgid "manager.highlights.image"
+msgstr "Slika"
+
+msgid "manager.highlights.url.description"
+msgstr "Puni URL, uključujući https://, za dugme u isticanju."
+
+msgid "manager.highlights.edit"
+msgstr "Izmeni isticanje"
+
+msgid "manager.highlights.delete"
+msgstr "Obriši isticanje"
+
+msgid "manager.highlights.add"
+msgstr "Dodaj isticanje"
+
+msgid "manager.highlights.urlText"
+msgstr "Oznaka dugmeta"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Da li ste sigurni da želite da obrišete {$title}? Ova radnja se ne može "
+"poništiti."
+
+msgid "manager.highlights.urlText.description"
+msgstr "Oznaka, kao što je „Pročitaj više“, za dugme u isticanju."

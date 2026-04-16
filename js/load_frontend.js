@@ -64,21 +64,19 @@ import PkpAccordionItem from '@/frontend/components/PkpAccordion/PkpAccordionIte
 import PkpAccordionHeader from '@/frontend/components/PkpAccordion/PkpAccordionHeader.vue';
 import PkpAccordionContent from '@/frontend/components/PkpAccordion/PkpAccordionContent.vue';
 
-// Base Comments Components
-import BaseComments from '@/frontend/components/PkpComments/base/BaseComments.vue';
-import BaseCommentsShowMore from '@/frontend/components/PkpComments/base/BaseCommentsShowMore.vue';
-import BaseCommentsLogInto from '@/frontend/components/PkpComments/base/BaseCommentsLogInto.vue';
-import BaseCommentsMessageActions from '@/frontend/components/PkpComments/base/BaseCommentsMessageActions.vue';
-import BaseCommentsNew from '@/frontend/components/PkpComments/base/BaseCommentsNew.vue';
-import BaseCommentsNewInput from '@/frontend/components/PkpComments/base/BaseCommentsNewInput.vue';
-import BaseCommentsNewSubmit from '@/frontend/components/PkpComments/base/BaseCommentsNewSubmit.vue';
-import BaseCommentsNotificationMessageNeedsApproval from '@/frontend/components/PkpComments/base/BaseCommentsNotificationMessageNeedsApproval.vue';
-import BaseCommentsNotificationNotLatest from '@/frontend/components/PkpComments/base/BaseCommentsNotificationNotLatest.vue';
-import BaseScrollToCommentsAllComments from '@/frontend/components/PkpComments/base/BaseScrollToCommentsAllComments.vue';
-import BaseScrollToCommentsLogInto from '@/frontend/components/PkpComments/base/BaseScrollToCommentsLogInto.vue';
-import BaseCommentReportDialog from '@/frontend/components/PkpComments/base/BaseCommentReportDialog.vue';
-import BaseCommentReportDialogAuthor from '@/frontend/components/PkpComments/base/BaseCommentReportDialogAuthor.vue';
-import BaseCommentReportDialogReasonInput from '@/frontend/components/PkpComments/base/BaseCommentReportDialogReasonInput.vue';
+// PkpComments sub-components (for use in slot overrides)
+import PkpCommentsShowMore from '@/frontend/components/PkpComments/PkpCommentsShowMore.vue';
+import PkpCommentsLogInto from '@/frontend/components/PkpComments/PkpCommentsLogInto.vue';
+import PkpCommentsMessageActions from '@/frontend/components/PkpComments/PkpCommentsMessageActions.vue';
+import PkpCommentsNew from '@/frontend/components/PkpComments/PkpCommentsNew.vue';
+import PkpCommentsNewInput from '@/frontend/components/PkpComments/PkpCommentsNewInput.vue';
+import PkpCommentsNewSubmit from '@/frontend/components/PkpComments/PkpCommentsNewSubmit.vue';
+import PkpCommentsNotificationMessageNeedsApproval from '@/frontend/components/PkpComments/PkpCommentsNotificationMessageNeedsApproval.vue';
+import PkpCommentsNotificationNotLatest from '@/frontend/components/PkpComments/PkpCommentsNotificationNotLatest.vue';
+import PkpScrollToCommentsAllComments from '@/frontend/components/PkpComments/PkpScrollToCommentsAllComments.vue';
+import PkpScrollToCommentsLogInto from '@/frontend/components/PkpComments/PkpScrollToCommentsLogInto.vue';
+import PkpCommentReportDialogAuthor from '@/frontend/components/PkpComments/PkpCommentReportDialogAuthor.vue';
+import PkpCommentReportDialogReasonInput from '@/frontend/components/PkpComments/PkpCommentReportDialogReasonInput.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -121,48 +119,40 @@ VueRegistry.registerComponent('PkpAccordionItem', PkpAccordionItem);
 VueRegistry.registerComponent('PkpAccordionHeader', PkpAccordionHeader);
 VueRegistry.registerComponent('PkpAccordionContent', PkpAccordionContent);
 
-// Register Base Comments Components
-VueRegistry.registerComponent('BaseComments', BaseComments);
-VueRegistry.registerComponent('BaseCommentsLogInto', BaseCommentsLogInto);
+// Register PkpComments sub-components so theme plugins can use them in slot overrides
+VueRegistry.registerComponent('PkpCommentsLogInto', PkpCommentsLogInto);
 VueRegistry.registerComponent(
-	'BaseCommentsMessageActions',
-	BaseCommentsMessageActions,
+	'PkpCommentsMessageActions',
+	PkpCommentsMessageActions,
 );
-VueRegistry.registerComponent('BaseCommentsNew', BaseCommentsNew);
-VueRegistry.registerComponent('BaseCommentsNewInput', BaseCommentsNewInput);
-VueRegistry.registerComponent('BaseCommentsNewSubmit', BaseCommentsNewSubmit);
+VueRegistry.registerComponent('PkpCommentsNew', PkpCommentsNew);
+VueRegistry.registerComponent('PkpCommentsNewInput', PkpCommentsNewInput);
+VueRegistry.registerComponent('PkpCommentsNewSubmit', PkpCommentsNewSubmit);
 VueRegistry.registerComponent(
-	'BaseCommentsNotificationMessageNeedsApproval',
-	BaseCommentsNotificationMessageNeedsApproval,
-);
-VueRegistry.registerComponent(
-	'BaseCommentsNotificationNotLatest',
-	BaseCommentsNotificationNotLatest,
+	'PkpCommentsNotificationMessageNeedsApproval',
+	PkpCommentsNotificationMessageNeedsApproval,
 );
 VueRegistry.registerComponent(
-	'BaseScrollToCommentsAllComments',
-	BaseScrollToCommentsAllComments,
+	'PkpCommentsNotificationNotLatest',
+	PkpCommentsNotificationNotLatest,
 );
 VueRegistry.registerComponent(
-	'BaseScrollToCommentsLogInto',
-	BaseScrollToCommentsLogInto,
+	'PkpScrollToCommentsAllComments',
+	PkpScrollToCommentsAllComments,
 );
 VueRegistry.registerComponent(
-	'BaseCommentReportDialog',
-	BaseCommentReportDialog,
+	'PkpScrollToCommentsLogInto',
+	PkpScrollToCommentsLogInto,
 );
 VueRegistry.registerComponent(
-	'BaseCommentReportDialogAuthor',
-	BaseCommentReportDialogAuthor,
+	'PkpCommentReportDialogAuthor',
+	PkpCommentReportDialogAuthor,
 );
 VueRegistry.registerComponent(
-	'BaseCommentReportDialogReasonInput',
-	BaseCommentReportDialogReasonInput,
+	'PkpCommentReportDialogReasonInput',
+	PkpCommentReportDialogReasonInput,
 );
-VueRegistry.registerComponent(
-	'BaseCommentsShowMore',
-	BaseCommentsShowMore,
-);
+VueRegistry.registerComponent('PkpCommentsShowMore', PkpCommentsShowMore);
 
 const pinia = createPinia();
 

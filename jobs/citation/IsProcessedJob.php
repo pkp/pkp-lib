@@ -21,16 +21,24 @@ use PKP\citation\enum\CitationProcessingStatus;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
-class IsProcessedJob extends BaseJob
+class IsProcessedJob extends BaseJob implements \PKP\queue\ContextAwareJob
 {
-    protected int $contextId;
     protected int $citationId;
+    protected int $contextId;
 
-    public function __construct(int $contextId, int $citationId)
+    public function __construct(int $citationId, int $contextId)
     {
         parent::__construct();
-        $this->contextId = $contextId;
         $this->citationId = $citationId;
+        $this->contextId = $contextId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->contextId;
     }
 
     /**

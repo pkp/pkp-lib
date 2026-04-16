@@ -49,12 +49,12 @@ describe('Public Comments Tests', function() {
 
 			cy.contains('Version of Record 1.0')
 				.parent();
-			cy.get('.PkpComments__newInput').find('textarea')
+			cy.get('.PkpCommentsNewInput').find('textarea')
 				.should('be.visible').type(`${testCommentText} - ${index + 1}`);
-			cy.contains('button.PkpComments__newSubmit', 'Submit').click();
+			cy.contains('button.PkpCommentsNewSubmit', 'Submit').click();
 
 			// Verify that the user's comment is displayed to them along with note that the comment needs approval
-			cy.get('.PkpComments__notificationNeedsApproval')
+			cy.get('.PkpCommentsNotificationMessageNeedsApproval')
 				.should('contain.text', 'Your comment will be visible when the editor approves it')
 				.parent()
 				.find('.PkpComments__messageBody')
@@ -119,7 +119,7 @@ describe('Public Comments Tests', function() {
 			.and('contain.text', 'Please tell us why you want to report this comment');
 
 		cy.get('.PkpCommentReportDialog')
-			.find('.PkpCommentReportDialog__reasonInput')
+			.find('.PkpCommentReportDialogReasonInput')
 			.find('textarea')
 			.type(`${testReportText} - 1`);
 
@@ -228,15 +228,15 @@ describe('Public Comments Tests', function() {
 
 	it('should bring unauthenticated user through login flow before seeing comment form', () => {
 		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
-		cy.get('.PkpComments__newInput textarea').should('not.exist');
+		cy.get('.PkpCommentsNewInput textarea').should('not.exist');
 
-		cy.contains('.PkpScrollToComments__logInto', 'Log in to comment').click();
+		cy.contains('.PkpScrollToCommentsLogInto', 'Log in to comment').click();
 		cy.url().should('include', '/login');
 		cy.get('input[name="username"]').type('eostrom');
 		cy.get('input[name="password"]').type(Cypress.getPassword('eostrom'));
 		cy.get('button[type="submit"]').click();
 
-		cy.get('.PkpComments__newInput').find('textarea').should('exist');
+		cy.get('.PkpCommentsNewInput').find('textarea').should('exist');
 	});
 
 	it('should allow moderator to view a comment', () => {
@@ -377,7 +377,7 @@ describe('Public Comments Tests', function() {
 
 		cy.get('[role="menuitem"]:contains("Report")').click();
 
-		cy.get('.PkpCommentReportDialog__reasonInput')
+		cy.get('.PkpCommentReportDialogReasonInput')
 			.find('textarea')
 			.type(`${testReportText} - 2`);
 
@@ -506,7 +506,7 @@ describe('Public Comments Tests', function() {
 		// Check that discussion is closed on old version
 		cy.contains('Version of Record 1.0').click()
 			.parent()
-			.get('.PkpComments__notificationNotLatest')
+			.get('.PkpCommentsNotificationNotLatest')
 			.contains('Discussion is closed on this version, please comment on the latest version above.')
 			.should('be.visible');
 
@@ -514,7 +514,7 @@ describe('Public Comments Tests', function() {
 		cy.contains('Version of Record 1.1')
 			.click()
 			.parent()
-			.get('.PkpComments__newInput').find('textarea')
+			.get('.PkpCommentsNewInput').find('textarea')
 			.should('be.visible');
 
 		// Check that publication versions are displayed in correct order (latest version first)

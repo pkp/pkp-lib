@@ -17,8 +17,8 @@
 
 namespace PKP\security\authorization\internal;
 
-use APP\decision\Decision;
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -76,6 +76,7 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
                 if (
                     !$stageAssignment->getRecommendOnly() ||
                     $decision === Decision::NEW_EXTERNAL_ROUND ||
+                    $decision === Decision::NEW_INTERNAL_ROUND ||
                     Repo::decision()->isRecommendation($decision)
                 ) {
                     $isAllowed = true;
@@ -86,7 +87,7 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
                 $recommendatorsAvailableDecisions = Repo::decision()
                     ->getDecisionTypesMadeByRecommendingUsers($submission->getData('stageId'));
 
-                // if there is any decision that the recommending role is allowed to make, check if the current decision is within the allowed ones 
+                // if there is any decision that the recommending role is allowed to make, check if the current decision is within the allowed ones
                 if (!empty($recommendatorsAvailableDecisions)) {
                     $matches = array_filter($recommendatorsAvailableDecisions, function ($decisionInArray) use ($decisionType) {
                         return $decisionInArray->getDecision() === $decisionType->getDecision();

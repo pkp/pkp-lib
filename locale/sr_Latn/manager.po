@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-18 14:23+0000\n"
+"PO-Revision-Date: 2026-04-18 15:07+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -844,25 +844,30 @@ msgid "manager.affiliationAndSupport"
 msgstr "Sponzor"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI-jevi"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Podešavanje"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Registracija"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI prefiks"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Automatsko deponovanje"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Omogući automatsko deponovanje"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI registracija i metapodaci mogu se automatski deponovati kod izabrane "
+"registracione agencije svaki put kada se objavi stavka sa DOI-jem. "
+"Automatsko deponovanje će se odvijati u zakazanim intervalima, a status "
+"registracije svakog DOI-ja može se pratiti na stranici za upravljanje DOI-"
+"jima."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -871,40 +876,42 @@ msgstr ""
 "10.1234):"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI prefiks je obavezan i mora biti u sledećem formatu: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Automatsko dodeljivanje DOI-ja"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Kada treba dodeliti DOI radu?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Prilikom objavljivanja"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Nikad"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI prefiks"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Sadržaj časopisa"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "DOI prefiks je obavezan"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI sufiks"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI sufiks"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Prilagođeni obrazac DOI sufiksa"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Jedan ili više izabranih tipova DOI-ja nije dozvoljen za konfigurisanu DOI "
+"registracionu agenciju."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -916,45 +923,52 @@ msgstr "Koristite predviđene obrasce."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Nema – sufiksi moraju biti uneti ručno na <a href=\"{$doiManagementUrl}\""
+">stranici za upravljanje DOI-jima</a> i neće se automatski generisati"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Prilagođeni obrazac – (ne preporučuje se)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Registraciona agencija"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Izaberite registracionu agenciju koju želite da koristite za deponovanje DOI-"
+"ja."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Nijedna registraciona agencija nije omogućena"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI-jevi mogu se automatski generisati i deponovati kod registracione "
+"agencije. Da biste koristili ovu funkciju, pronađite i instalirajte dodatak "
+"odgovarajuće registracione agencije."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Nijedno"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Verzionisanje DOI-ja"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Ne možete izvršiti ovu operaciju bez omogućenih DOI-ja."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Postoji {$count} verzija."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Vidi sve"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI identifikatori za sve verzije"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI sadrži nevažeće znakove."
 
 msgid "manager.setup.publishing"
-msgstr ""
+msgstr "Detalji o objavljivanju"
 
 msgid "manager.setup.publishingDescription"
 msgstr ""
@@ -968,7 +982,7 @@ msgid "manager.setup.additionalContent.description"
 msgstr "Sve što unesete ovde biće prikazano na početnoj stranici."
 
 msgid "manager.setup.advanced"
-msgstr ""
+msgstr "Napredno"
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Napomena o autorskom pravu"
@@ -987,10 +1001,10 @@ msgstr ""
 "citatnih formata koje treba koristiti u prijavljenim člancima."
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Onemogući podnošenje radova"
 
 msgid "manager.setup.checklist"
-msgstr ""
+msgstr "Kontrolna lista"
 
 msgid "manager.setup.competingInterests"
 msgstr "Sukobi interesa"
@@ -1021,10 +1035,11 @@ msgid "manager.setup.information.descriptionTitle"
 msgstr "Opisi"
 
 msgid "manager.setup.layout.sidebar"
-msgstr ""
+msgstr "Bočna traka"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
+"Blok {$name} nije pronađen. Proverite da li je dodatak instaliran i omogućen."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Evidentiranje i revizija"
@@ -1034,6 +1049,7 @@ msgstr "Logo"
 
 msgid "manager.setup.noTemporaryFile"
 msgstr ""
+"Fajl koji ste otpremili nije pronađen. Pokušajte ponovo da ga otpremite."
 
 msgid "manager.setup.notifications"
 msgstr "Obaveštenja o predajama radova autora"
@@ -1042,37 +1058,43 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Pošalji kopiju na ovu imejl adresu"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Obavesti sve autore"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Ko treba da primi obaveštenje e-poštom kada se zabeleži urednička odluka?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Pošalji obaveštenje e-poštom svim autorima rada."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Pošalji obaveštenje e-poštom samo autorima koji su dodeljeni toku rada rada. "
+"Obično je to autor koji je izvršio podnošenje."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Obaveštenja"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Obavesti primarni kontakt"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Da, pošalji kopiju na {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Ne"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Obavesti bilo koga"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Kopija e-poruke sa potvrdom prijema rada biće poslata na sve e-mail adrese "
+"unete ovde. Više adresa razdvojiti zarezom. Primer: one@example."
+"com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Jedna ili više ovih e-mail adresa nije ispravna."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1080,19 +1102,21 @@ msgstr ""
 "članka. Možete kopije ove poruke poslati sledećim:"
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "Obavesti"
 
 msgid "manager.setup.notifyUsers.description"
-msgstr ""
+msgstr "Izaberite korisnike koji treba da prime vašu e-mail obaveštenje."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr ""
+msgstr "Pošaljite kopiju ove e-poruke meni na {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Pošalji e-poruku"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"Spremate se da pošaljete e-poruku {$total} korisnicima. Da li ste sigurni da "
+"želite da pošaljete ovu e-poruku?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1101,7 +1125,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Pošalji drugu e-poruku"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Politika \"Otvorenog pristupa\""
@@ -3375,3 +3399,15 @@ msgstr "Format YOP nije ispravan."
 
 msgid "manager.statistics.counterR5Report.settings.itemId"
 msgstr "ID rada"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID rada ne postoji."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Uključi podatke o nadređenom elementu"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Isključi mesečne detalje"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "E-poruke su uspešno stavljene u red za slanje pri najranijoj prilici."

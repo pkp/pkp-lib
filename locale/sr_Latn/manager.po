@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-15 21:57+0000\n"
+"PO-Revision-Date: 2026-04-18 14:22+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -499,10 +499,10 @@ msgid "manager.emails.sentTo"
 msgstr "Poslato na"
 
 msgid "manager.export.usersToCsv.label"
-msgstr ""
+msgstr "Izvezi u Excel/CSV"
 
 msgid "manager.export.usersToCsv.description"
-msgstr ""
+msgstr "Izaberite korisnike za izvoz u Excel/CSV datoteku."
 
 msgid "manager.filesBrowser"
 msgstr "Pregledač fajlova"
@@ -591,7 +591,7 @@ msgid "manager.payment.timestamp"
 msgstr "Datum uplate"
 
 msgid "manager.people.existingUserRequired"
-msgstr ""
+msgstr "Mora biti unet korisnik koji postoji."
 
 msgid "manager.people.confirmUnenroll"
 msgstr "Želite li da ukloniti ulogu ovom korisniku?"
@@ -701,7 +701,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Sačuvaj i kreiraj drugog"
 
 msgid "manager.people.signedInAs"
-msgstr ""
+msgstr "Trenutno ste prijavljeni kao {$username}"
 
 msgid "manager.people.signInAs"
 msgstr "Prijavi se kao"
@@ -751,6 +751,8 @@ msgstr "Pronađi korisnika po imenu"
 
 msgid "manager.representative.inUse"
 msgstr ""
+"Ne možete obrisati ovog predstavnika jer je dodeljen metapodacima tržišta za "
+"jedan ili više formata publikacije ovog rada."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Promeni"
@@ -774,43 +776,53 @@ msgid "manager.roles"
 msgstr "Uloge"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Statistika"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Geografska statistika"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Izaberite tip geografskih statistika korišćenja koje će se prikupljati. "
+"Detaljnije geografske statistike mogu značajno povećati veličinu vaše baze "
+"podataka i, u nekim retkim slučajevima, mogu ugroziti anonimnost vaših "
+"posetilaca."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Ne prikupljaj nikakve geografske podatke"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Prikupljaj zemlju posetioca"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Prikupljaj zemlju i region posetioca"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Prikupljaj zemlju, region i grad posetioca"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Institucionalna statistika"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Omogućite institucionalnu statistiku ako želite da prikupljate statistiku "
+"korišćenja po institucijama. Ako je omogućeno, biće potrebno da "
+"konfigurišete IP opsege za svaku instituciju koju želite da pratite."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Omogući institucionalnu statistiku"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Javni API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Da li ograničiti pristup API krajnjim tačkama za COUNTER SUSHI statistiku. "
+"Ako ova opcija nije označena, API će biti dostupan samo korisnicima sa "
+"administratorskom ili uredničkom (manager) ulogom."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Učini COUNTER SUSHI statistiku javno dostupnom"
 
 #, fuzzy
 msgid "manager.statistics.reports"
@@ -3282,3 +3294,81 @@ msgstr ""
 
 msgid "manager.highlights.urlText.description"
 msgstr "Oznaka, kao što je „Pročitaj više“, za dugme u isticanju."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Jezici veb-sajta"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Dodaj/ukloni jezike"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter RS"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Pogledajte <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/"
+"index.html\" target=\"_new\">COUNTER 5.0.3 dokumentaciju</a> za više "
+"informacija o svakom izveštaju."
+
+msgid "manager.image"
+msgstr "Slika"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 izveštaji"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Još uvek nema dostupnih COUNTER R5 statistika korišćenja."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Podešavanja izveštaja"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Datum početka"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datum treba da bude u formatu YYYY-MM-DD ili YYYY-MM. Najraniji mogući datum "
+"je {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Datum završetka"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Jezici za podnošenje radova"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metapodaci"
+
+msgid "manager.language.submission.form.description"
+msgstr "Izaberite jezike za podnošenje radova i metapodatke."
+
+msgid "manager.language.submission.from.error"
+msgstr "Mora biti izabran najmanje jedan jezik."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datum treba da bude u formatu YYYY-MM-DD ili YYYY-MM. Najkasniji mogući "
+"datum je {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Format datuma nije ispravan."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID korisnika"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tip metrike"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Atributi za prikaz"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Godina objavljivanja"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Lista ili opseg godina objavljivanja koji će biti vraćen u odgovoru, u "
+"formatu yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Format YOP nije ispravan."

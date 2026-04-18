@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-18 15:07+0000\n"
+"PO-Revision-Date: 2026-04-18 18:47+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -1169,40 +1169,47 @@ msgid "manager.setup.privacyStatement"
 msgstr "Izjava o privatnosti"
 
 msgid "manager.setup.dateTime"
-msgstr ""
+msgstr "Datum i vreme"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr ""
+msgstr "Formati datuma i vremena"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
+"Izaberite željeni format za datume i vreme. Prilagođeni format može se uneti "
+"pomoću posebnih <a href=\"https://www.php.net/manual/en/datetime.format."
+"php#refsect1-datetime.format-parameters\">znakova za formatiranje</a>."
 
 msgid "manager.setup.dateTime.longDate"
-msgstr ""
+msgstr "Datum"
 
 msgid "manager.setup.dateTime.shortDate"
-msgstr ""
+msgstr "Datum (kratki format)"
 
 msgid "manager.setup.dateTime.time"
-msgstr ""
+msgstr "Vreme"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr ""
+msgstr "Datum i vreme"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr ""
+msgstr "Datum i vreme (kratki format)"
 
 msgid "manager.setup.dateTime.custom"
-msgstr ""
+msgstr "Prilagođeno"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
+"Ova izjava će se prikazivati tokom registracije korisnika, podnošenja rada "
+"od strane autora i na javno dostupnoj stranici o privatnosti. U nekim "
+"jurisdikcijama ste zakonski obavezni da u ovoj politici privatnosti navedete "
+"kako rukujete korisničkim podacima."
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr ""
+msgstr "Podrazumevani rok za odgovor"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr ""
+msgstr "Podrazumevani rok za završetak"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr ""
@@ -1236,10 +1243,12 @@ msgstr ""
 "roka za za završetak recenzije:"
 
 msgid "manager.setup.reviewOptions.reviewMode"
-msgstr ""
+msgstr "Podrazumevani režim recenzije"
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
+"Prikaži link ka <button type=\"button\">kako obezbediti da su svi fajlovi "
+"anonimizovani</button> tokom otpremanja"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Odnos sa sponzorom i opis politike"
@@ -1267,35 +1276,50 @@ msgid "manager.setup.theme"
 msgstr "Tema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Institucije"
 
 msgid "manager.setup.theme.description"
 msgstr ""
 "Nove teme mogu biti instalirane korišćenjem \"Dodataka\" na vrhu stranice."
 
 msgid "manager.setup.theme.notFound"
-msgstr ""
+msgstr "Tema koju ste izabrali nije instalirana ili nije omogućena."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Sledeće se prikazuje autorima pre nego što započnu podnošenje rada. Navedite "
+"kratko objašnjenje procesa podnošenja kako bi autor znao šta da očekuje."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Sledeće se prikazuje autorima tokom koraka otpremanja fajlova. Navedite "
+"kratko objašnjenje koje fajlove se od autora očekuje da dostave uz svoj rad."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Sledeće se prikazuje autorima tokom koraka „saradnici“. Navedite kratko "
+"objašnjenje koje informacije autor treba da dostavi o sebi, koautorima i "
+"svim ostalim saradnicima."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Sledeće se prikazuje autorima tokom koraka „detalji“, kada se od njih traži "
+"da unesu naslov, apstrakt i druge ključne informacije o radu."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Sledeće se prikazuje autorima tokom koraka „Za urednike“, kada se od njih "
+"traži da navedu metapodatke kao što su ključne reči, komentari za urednika i "
+"druge informacije koje pomažu u uredničkoj proceni."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Sledeće se prikazuje autorima tokom poslednjeg koraka wizard-a za podnošenje "
+"kada se od njih traži da pregledaju sve informacije koje su uneli pre nego "
+"što pošalju svoj rad."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Uputstva za autore"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
@@ -1313,9 +1337,10 @@ msgstr ""
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
+"Označi ovaj deo kao neaktivan i onemogući podnošenje novih radova u njemu."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Da li ste sigurni da želite da deaktivirate ovaj deo?"
 
 msgid "manager.sections.confirmActivateSection"
 msgstr ""
@@ -3411,3 +3436,62 @@ msgstr "Isključi mesečne detalje"
 
 msgid "manager.setup.notifyUsers.queued"
 msgstr "E-poruke su uspešno stavljene u red za slanje pri najranijoj prilici."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minimalan broj potvrđenih recenzija koji je potreban"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimalan broj potvrđenih recenzija potreban za jedan rad"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Pošalji e-mail podsetnik pre ili posle zahteva za recenziju (ako recenzent "
+"još nije odgovorio na zahtev za recenziju) ili podsetnik za predaju "
+"recenzije (ako recenzent još nije predao recenziju)"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Autor može da predloži nekoliko potencijalnih recenzenata pre završetka "
+"podnošenja rada, čime se može ubrzati proces recenzije i obezbediti korisni "
+"uvid za urednički tim."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Sledeće se prikazuje autorima tokom koraka predloga recenzenata. Navedite "
+"kratko objašnjenje koje informacije autor treba da dostavi o potencijalnim "
+"recenzentima koje predlaže (npr. ime, institucija, e-mail i relevantnost)."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Postavi podsetnike za recenziju"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odgovor na zahtev za recenziju – pre isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odgovor na zahtev za recenziju – nakon isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Predaja recenzije – pre isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Predaja recenzije – nakon isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dana pre roka za predaju"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dana nakon roka za predaju"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Nijedno"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Podsetnik nije podešen"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Predlog recenzenata pri podnošenju rada"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Omogući autorima da predlože potencijalne recenzente tokom procesa "
+"podnošenja rada"

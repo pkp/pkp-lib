@@ -216,4 +216,20 @@ class DAO extends EntityDAO
             ->where('stage_id', '=', WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)
             ->pluck('reviewer_id');
     }
+
+    public function getExportableDOIsPeerReviewIds(int $contextId, ?array $submissionIds = null): array
+    {
+        return DB::table($this->table)
+            ->join('submissions', 'submissions.submission_id', '=', 'review_assignments.submission_id')
+            ->join('review_rounds', 'review_rounds.review_round_id', '=', 'review_assignments.review_round_id')
+            ->join('publications', 'publications.publication_id', '=', 'review_rounds.publication_id')
+            ->when($submissionIds, fn(Builder $q) => $q->whereIn('submissions.submission_id', $submissionIds))
+            ->whereNotNull('review_assignments.doi_id')
+            ->whereNotNull('review_assignments.date_completed')
+            ->whereNotNull('publications.doi_id')
+            ->where('submissions.context_id', $contextId)
+            ->where('is_review_publicly_visible', true)
+            ->pluck('review_assignments.review_id')
+            ->toArray();
+    }
 }

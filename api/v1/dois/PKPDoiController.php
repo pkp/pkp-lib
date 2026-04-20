@@ -418,6 +418,8 @@ class PKPDoiController extends PKPBaseController
         $validIds = Repo::publication()
             ->getExportableDOIsSubmissionIds($context->getId(), $context->getData(Context::SETTING_DOI_VERSIONING));
 
+        // Need a new method to get exportable publication IDs too?
+
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
             return response()->json([
@@ -437,6 +439,7 @@ class PKPDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+
         $agency = $context->getConfiguredDoiAgency();
         if ($agency === null) {
             return response()->json([
@@ -445,16 +448,34 @@ class PKPDoiController extends PKPBaseController
         }
 
         // Invoke IDoiRegistrationAgency::exportSubmissions
-        $responseData = $agency->exportSubmissions($submissions, $context);
+        $submissionsData = $agency->exportSubmissions($submissions, $context);
 
-        if (!empty($responseData['xmlErrors'])) {
+        $exportablePeerReviewIds = Repo::reviewAssignment()
+        ->getExportableDOIsPeerReviewIds($context->getId(), array_map(fn (Submission $submission)=>$submission->getId(), $submissions));
+
+        $peerReviewsData = $agency->exportPeerReviews(
+            array_map(fn ($exportablePeerReviewId)=>Repo::reviewAssignment()->get($exportablePeerReviewId), $exportablePeerReviewIds),
+        $context
+        );
+
+        if (!empty($peerReview['xmlErrors'])) {
             return response()->json([
                 'error' => __('api.dois.400.xmlExportFailed')
             ], Response::HTTP_BAD_REQUEST);
         }
 
+        $responseData = [
+            'temporaryFileIds' =>[]
+        ];
+
+        if (!empty($submissionsData)) {
+            $responseData['temporaryFileIds'][] = $submissionsData['temporaryFileId'];
+        }
+        if (!empty($peerReviewsData)) {
+            $responseData['temporaryFileIds'][] = $peerReviewsData['temporaryFileId'];
+        }
         return response()->json([
-            'temporaryFileId' => $responseData['temporaryFileId']
+            'temporaryFileIds' => $responseData['temporaryFileIds']
         ], Response::HTTP_OK);
     }
 

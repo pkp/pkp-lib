@@ -304,15 +304,20 @@ class Repository
             ->byUserId($reviewAssignment->getReviewerId())
             ->stillActive()
             ->get();
-        
+
         foreach ($invitationModels as $invitationModel) {
             $invitation = new ReviewerAccessInvite($invitationModel);
-            
+
             if ($invitation->getPayload()->reviewAssignmentId === $reviewAssignment->getId()) {
                 return $invitation;
             }
         }
 
         return null;
+    }
+
+    public function getExportableDOIsPeerReviewIds(int $contextId, ?array $submissionIds = null): array
+    {
+        return $this->dao->getExportableDOIsPeerReviewIds($contextId, $submissionIds);
     }
 }

@@ -863,4 +863,18 @@ class ReviewAssignment extends \PKP\core\DataObject
 
         return true;
     }
+
+    /**
+     * Helper method to fetch current DOI
+     */
+    public function getDoi(): ?string
+    {
+        $doiObject = $this->getData('doiObject');
+
+        if (empty($doiObject)) {
+            return null;
+        } else {
+            return $doiObject->getData('doi');
+        }
+    }
 }

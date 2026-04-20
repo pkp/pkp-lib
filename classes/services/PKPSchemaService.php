@@ -58,6 +58,8 @@ class PKPSchemaService
     public const SCHEMA_EMAIL_LOG = 'emailLog';
     public const SCHEMA_NAVIGATION_MENU = 'navigationMenu';
     public const SCHEMA_NAVIGATION_MENU_ITEM = 'navigationMenuItem';
+    public const SCHEMA_GENRE = 'genre';
+    
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];
@@ -695,3 +697,4 @@ class PKPSchemaService
         return $values;
     }
 }
+

@@ -22,7 +22,7 @@ use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\dataCitation\DataCitation;
 use PKP\services\PKPSchemaService;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 
 class Schema extends \PKP\core\maps\Schema
 {

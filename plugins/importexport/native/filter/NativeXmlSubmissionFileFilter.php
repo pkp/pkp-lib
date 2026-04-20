@@ -25,7 +25,7 @@ use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submissionFile\SubmissionFile;
 
 class NativeXmlSubmissionFileFilter extends NativeImportFilter
@@ -88,11 +88,10 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         // Build a cached list of genres by context ID by name
         if ($genreName) {
             if (!isset($genresByContextId[$context->getId()])) {
-                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-                $genres = $genreDao->getByContextId($context->getId());
-                while ($genre = $genres->next()) {
-                    foreach ($genre->getName(null) as $locale => $name) {
-                        $genresByContextId[$context->getId()][$name] = $genre;
+                $genres = Genre::withContext($context->getId())->get();
+                foreach ($genres as $genre) {
+                    foreach ($genre->getLocalizedData('name') as $locale => $name) {
+                       $genresByContextId[$context->getId()][$name] = $genre;
                     }
                 }
             }
@@ -101,7 +100,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 $errorOccurred = true;
             } else {
                 $genre = $genresByContextId[$context->getId()][$genreName];
-                $genreId = $genre->getId();
+                $genreId = $genre->getKey();
             }
         }
 

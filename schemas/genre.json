@@ -1,0 +1,60 @@
+{
+  "title": "Genre",
+  "description": "A Genre entry",
+  "type": "object",
+  "required": [
+    "entry_key",
+    "seq",
+    "context_id",
+    "category"
+  ],
+  "properties": {
+    "genre_id": {
+      "type": "integer",
+      "readOnly": true,
+      "origin": "primary"
+    },
+    "context_id": {
+      "type": "integer",
+      "origin": "primary"
+    },
+    "entry_key": {
+      "type": "string",
+      "origin": "primary"
+    },
+    "seq": {
+      "type": "integer",
+      "default": 0,
+      "origin": "primary"
+    },
+    "category": {
+      "type": "integer",
+      "origin": "primary"
+    },
+    "dependent": {
+      "type": "boolean",
+      "default": false,
+      "origin": "primary"
+    },
+    "supplementary": {
+      "type": "boolean",
+      "default": false,
+      "origin": "primary"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "origin": "primary"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true,
+      "origin": "primary"
+    },
+    "name": {
+      "type": "string",
+      "multilingual": true,
+      "origin": "setting"
+    }
+  }
+}

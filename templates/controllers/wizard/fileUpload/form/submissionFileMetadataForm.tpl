@@ -33,7 +33,7 @@
 		{/fbvFormSection}
 
 		{* Supplementary file metadata *}
-		{if $genre && $genre->getCategory() == PKP\submission\Genre::GENRE_CATEGORY_SUPPLEMENTARY}
+		{if $genre && $genre->category == $smarty.const.GENRE_CATEGORY_SUPPLEMENTARY}
 			{fbvFormSection}
 				{fbvElement label="common.description" type="textarea" id="description" value=$submissionFile->getData('description') multilingual=true}
 				{fbvElement label="submission.supplementary.creator" inline=true size=$fbvStyles.size.MEDIUM type="text" id="creator" value=$submissionFile->getData('creator') multilingual=true maxlength="255"}
@@ -47,7 +47,7 @@
 		{/if}
 
 		{* Artwork metadata *}
-		{if $genre && $genre->getCategory() == PKP\submission\Genre::GENRE_CATEGORY_ARTWORK}
+		{if $genre && $genre->category == $smarty.const.GENRE_CATEGORY_ARTWORK}
 			{fbvFormSection title="grid.artworkFile.caption" inline=true size=$fbvStyles.size.MEDIUM}
 				{fbvElement type="textarea" id="artworkCaption" height=$fbvStyles.height.SHORT value=$submissionFile->getData('caption')}
 			{/fbvFormSection}

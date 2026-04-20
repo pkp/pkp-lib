@@ -42,7 +42,7 @@ use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -414,20 +414,10 @@ abstract class Repository
             }
         }
 
-        // Clone data citations if any
-        $dataCitations = $publication->getData('dataCitations');
-        foreach ($dataCitations as $dataCitation) {
-            $data = $dataCitation->toArray();
-            unset($data['dataCitationId']);
-            $data['publicationId'] = $newPublication->getId();
-            $newDataCitation = DataCitation::create($data);
-        }
-
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), null, $genres->toArray());
+            ->getJatsFile($publication->getId(), null, $genres->all());
 
         if (!$jatsFile->isDefaultContent) {
             Repo::submissionFile()

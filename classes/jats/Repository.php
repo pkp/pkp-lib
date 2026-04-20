@@ -23,8 +23,8 @@ use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\jats\exceptions\UnableToCreateJATSContentException;
-use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\genre\Genre;
 use Throwable;
 
 class Repository
@@ -138,12 +138,12 @@ class Repository
         $context = Application::get()->getRequest()->getContext();
         $user = Application::get()->getRequest()->getUser();
 
-        /** @var GenreDAO */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        // If no genre has been set and there is only one genre possible, set it automatically
+        $genres = Genre::withEnabled()->withContext($context->getId())->get();
 
         // Check if a JATS file already exists
-        $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
+        $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->all());
+
 
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($fileName);
@@ -209,7 +209,7 @@ class Repository
         $this->clearPublicJatsCache($publicationId);
 
         // Return fresh JatsFile
-        return $this->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+        return $this->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
     }
 
     /**
@@ -286,8 +286,7 @@ class Repository
         return Cache::remember($cacheKey, static::JATS_FILE_CACHE_LIFETIME, function () use ($publicationId, $submissionId) {
             $submission = Repo::submission()->get($submissionId);
             
-            $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-            $genres = $genreDao->getEnabledByContextId($submission->getData('contextId'));
+            $genres = Repo::genre()->getByContextId($submission->getData('contextId'))->where('enabled', true);
 
             $jatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
 

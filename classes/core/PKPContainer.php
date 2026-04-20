@@ -480,6 +480,10 @@ class PKPContainer extends Container
         ];
 
         // Session manager
+        // session_lifetime is in days; clamp to minimum 1 day to avoid Laravel treating 0 as "immediately expired"
+        // For browser-close session expiration, use session_expire_on_close = On in config.inc.php
+        $sessionLifetime = max(1, (int) Config::getVar('general', 'session_lifetime', 30));
+
         $items['session'] = [
             'driver' => 'database',
             'table' => 'sessions',
@@ -487,7 +491,7 @@ class PKPContainer extends Container
             'path' => Config::getVar('general', 'session_cookie_path', $_request->getBasePath() . '/'),
             'domain' => $_request->getServerHost(false, false) ?: 'localhost', // FIXME: Do not store default early in bootstrap
             'secure' => Config::getVar('security', 'force_ssl', false),
-            'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
+            'lifetime' => $sessionLifetime * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],
             'expire_on_close' => Config::getVar('security', 'session_expire_on_close', false),
             'same_site' => Config::getVar('general', 'session_samesite', 'lax'),

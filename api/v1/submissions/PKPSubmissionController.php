@@ -19,7 +19,6 @@ namespace PKP\API\v1\submissions;
 
 use APP\author\Author;
 use APP\core\Application;
-use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
@@ -57,7 +56,6 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
-use PKP\decision\types\SendExternalReview;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
@@ -1454,19 +1452,9 @@ class PKPSubmissionController extends PKPBaseController
 
         $publication = Repo::publication()->get($publication->getId());
 
-        // Create VoR publication and associated review round when publishing a PMUR
-        $shouldCreatePMURReviewRound = filter_var($illuminateRequest->input('createPMURReviewRound'), FILTER_VALIDATE_BOOL);
-        if ($shouldCreatePMURReviewRound) {
-            try {
-                $this->createPMURReviewRound($submissionContext, $submission, $publication, Submission::STATUS_QUEUED);
-            } catch (\Exception $exception) {
-                return response()->json(['error' => $exception->getMessage()], Response::HTTP_BAD_REQUEST);
-            }
-        } else {
-            // Move the submission into the published queue
-            Repo::submission()->updateStatus($submission, Submission::STATUS_PUBLISHED);
-            Repo::submission()->updateCurrentPublication($submission);
-        }
+        // Move the submission into the published queue
+        Repo::submission()->updateStatus($submission, Submission::STATUS_PUBLISHED);
+        Repo::submission()->updateCurrentPublication($submission);
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -2567,49 +2555,4 @@ class PKPSubmissionController extends PKPBaseController
         return $publication;
     }
 
-    /**
-     * Creates a new, unpublished VoR publication and a new review round associated with the VoR.
-     * Used as part of a publish-review-curate model of publishing.
-     *
-     * Optionally triggered when publishing a PMUR.
-     *
-     * @param $submissionStatus The desired submission status to set, or null to determine from submission and publication data.
-     *
-     * @throws \Exception
-     */
-    private function createPMURReviewRound(Context $context, Submission $submission, Publication $publication, int $submissionStatus = null): void
-    {
-        $request = $this->getRequest();
-
-        // Create review round associated with PMUR and forward link to new VoR
-        $decisionType = new SendExternalReview();
-
-        $params = [
-            'decision' => Decision::EXTERNAL_REVIEW,
-            'submissionId' => $submission->getId(),
-            'publicationId' => $publication->getId(),
-            'dateDecided' => Core::getCurrentDate(),
-            'editorId' => $request->getUser()->getId(),
-            'stageId' => $decisionType->getStageId(),
-        ];
-
-        $errors = Repo::decision()->validate($params, $decisionType, $submission, $context);
-
-        if (!empty($errors)) {
-            throw new \Exception(__('publication.publishReviewCurate.errors.reviewCreationError'));
-        }
-
-        $decision = Repo::decision()->newDataObject($params);
-        Repo::decision()->add($decision);
-
-        // Create new publication as VOR based on just-published PMUR
-        $this->createNewPublicationVersionAndNotify(
-            $context,
-            $submission,
-            $publication,
-            VersionStage::VERSION_OF_RECORD,
-            false,
-            $submissionStatus
-        );
-    }
 }

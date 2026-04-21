@@ -307,9 +307,6 @@ class RegistrationForm extends Form
             return false;
         }
 
-        $request->getSession()->put('username', $user->getUsername());
-        $request->getSessionGuard()->updateSession($user->getId());
-
         // Save the selected roles or assign the Reader role if none selected
         if ($request->getContext() && !$this->getData('reviewerGroup')) {
             $defaultReaderGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_READER], $request->getContext()->getId(), true)->first();

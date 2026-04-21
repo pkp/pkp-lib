@@ -94,7 +94,7 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
         $key = 'localeUpdates1 day';
         $tableLocaleColumns = Cache::remember($key, DateInterval::createFromDateString('1 day'), function () {
             $tableLocaleColumns = [];
-            foreach (Schema::getTables() as $table) {
+            foreach (Schema::getTables(Schema::getCurrentSchemaName()) as $table) {
                 $columns = collect(Schema::getColumns($table['name']))->whereIn('name', ['primary_locale', 'locale']);
                 if ($columns->count() > 0) {
                     $tableLocaleColumns[$table['name']] = $columns;

@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-20 22:21+0000\n"
+"PO-Revision-Date: 2026-04-22 18:37+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "mk/>\n"
@@ -463,3 +463,11 @@ msgstr ""
 "Доделувањето на ORCiD ID на автор преку крајните точки Уреди/Додај автор не "
 "е дозволено. За да побарате од автор да го ажурира својот ORCID iD, "
 "користете ја крајната точка „orcid/requestAuthorVerification/{authorId}“."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Неважечки параметар за наслов на маст."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr ""
+"Видливоста на насловот на страницата за улогите на рецензентите не може да "
+"се промени."

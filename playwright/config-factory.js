@@ -37,12 +37,25 @@ module.exports = function createPlaywrightConfig({app}) {
 		timeout: 60_000,
 		expect: {timeout: 10_000},
 		use: {
-			baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:8000',
+			baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000',
 			actionTimeout: 10_000,
 			navigationTimeout: 30_000,
 			trace: 'retain-on-failure',
 			video: isCI ? 'retain-on-failure' : 'off',
 			screenshot: 'only-on-failure',
+		},
+		webServer: {
+			command: 'php -S 127.0.0.1:8000 -t .',
+			url: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000',
+			cwd: appRoot,
+			reuseExistingServer: !isCI,
+			timeout: 60_000,
+			stdout: 'pipe',
+			stderr: 'pipe',
+			env: {
+				...process.env,
+				APPLICATION_ENV: 'test',
+			},
 		},
 		projects: [
 			{

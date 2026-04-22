@@ -33,5 +33,12 @@ chdir(BASE_SYS_DIR);
 // System-wide functions
 require_once './lib/pkp/includes/functions.php';
 
+// Test-mode config redirection: APPLICATION_ENV=test → config.test.inc.php
+if (getenv('APPLICATION_ENV') === 'test') {
+	\PKP\config\Config::setConfigFileName(
+		\PKP\core\Core::getBaseDir() . '/config.test.inc.php'
+	);
+}
+
 // Initialize the application environment
 return new \APP\core\Application();

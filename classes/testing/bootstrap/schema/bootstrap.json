@@ -1,0 +1,105 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OJS test bootstrap spec",
+    "type": "object",
+    "required": ["journals"],
+    "additionalProperties": false,
+    "properties": {
+        "journals": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/journal" }
+        },
+        "users": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/user" }
+        }
+    },
+    "$defs": {
+        "journal": {
+            "type": "object",
+            "required": ["path", "name"],
+            "additionalProperties": true,
+            "properties": {
+                "path": { "type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$" },
+                "name": { "type": "object" },
+                "description": { "type": "object" },
+                "acronym": { "type": "object" },
+                "abbreviation": { "type": "object" },
+                "publisherInstitution": { "type": "string" },
+                "primaryLocale": { "type": "string" },
+                "supportedLocales": { "type": "array", "items": { "type": "string" } },
+                "country": { "type": "string", "minLength": 2, "maxLength": 2 },
+                "contact": {
+                    "type": "object",
+                    "properties": {
+                        "name": { "type": "string" },
+                        "email": { "type": "string" }
+                    }
+                },
+                "onlineIssn": { "type": "string" },
+                "printIssn": { "type": "string" },
+                "sections": { "type": "array", "items": { "$ref": "#/$defs/section" } },
+                "categories": { "type": "array", "items": { "$ref": "#/$defs/category" } },
+                "issues": { "type": "array", "items": { "$ref": "#/$defs/issue" } }
+            }
+        },
+        "section": {
+            "type": "object",
+            "required": ["abbrev", "title"],
+            "additionalProperties": true,
+            "properties": {
+                "abbrev": { "type": "object" },
+                "title": { "type": "object" },
+                "wordCount": { "type": "integer", "minimum": 0 },
+                "identifyType": { "type": "object" },
+                "abstractsNotRequired": { "type": "boolean" },
+                "editorRestricted": { "type": "boolean" },
+                "sectionEditors": { "type": "array", "items": { "type": "string" } }
+            }
+        },
+        "category": {
+            "type": "object",
+            "required": ["path", "title"],
+            "additionalProperties": false,
+            "properties": {
+                "path": { "type": "string" },
+                "title": { "type": "object" },
+                "children": { "type": "array", "items": { "$ref": "#/$defs/category" } }
+            }
+        },
+        "issue": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "volume": { "type": ["integer", "null"] },
+                "number": { "type": ["integer", "string", "null"] },
+                "year": { "type": ["integer", "null"] },
+                "title": { "type": "object" },
+                "description": { "type": "object" },
+                "published": { "type": "boolean" },
+                "showVolume": { "type": "boolean" },
+                "showNumber": { "type": "boolean" },
+                "showYear": { "type": "boolean" },
+                "showTitle": { "type": "boolean" }
+            }
+        },
+        "user": {
+            "type": "object",
+            "required": ["username"],
+            "additionalProperties": false,
+            "properties": {
+                "username": { "type": "string", "minLength": 1 },
+                "email": { "type": "string" },
+                "givenName": { "type": "string" },
+                "familyName": { "type": "string" },
+                "country": { "type": "string" },
+                "affiliation": { "type": "string" },
+                "locale": { "type": "string" },
+                "mustChangePassword": { "type": "boolean" },
+                "journal": { "type": "string" },
+                "roles": { "type": "array", "items": { "type": "string" } }
+            }
+        }
+    }
+}

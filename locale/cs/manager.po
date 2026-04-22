@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-04-15 13:35+0000\n"
+"PO-Revision-Date: 2026-04-22 05:22+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -3677,13 +3677,13 @@ msgid "manager.highlights.url.description"
 msgstr "Úplná adresa URL včetně adresy https:// pro tlačítko ve zvýraznění."
 
 msgid "manager.highlights.add"
-msgstr "Přidat zvýraznění"
+msgstr "Přidat zvýrazněněnou zprávu"
 
 msgid "manager.highlights.delete"
-msgstr "Smazat zvýraznění"
+msgstr "Smazat zvýrazněnou zprávu"
 
 msgid "manager.highlights.edit"
-msgstr "Editovat zvýraznění"
+msgstr "Editovat zvýrazněnou zprávu"
 
 msgid "manager.highlights.image"
 msgstr "Obrázek"
@@ -3780,7 +3780,7 @@ msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
 msgstr "Zahrnout i nadřazené podrobnosti"
 
 msgid "manager.setup.masthead"
-msgstr "Hlavička"
+msgstr "Tiráž"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validujte XML před exportem a registrací."
@@ -3800,13 +3800,13 @@ msgid "notification.submissionLocales"
 msgstr "Byly aktualizovány lokalizace příspěvku."
 
 msgid "settings.roles.masthead"
-msgstr "Zvažte roli v seznamu v záhlaví"
+msgstr "Zvažte roli v seznamu v tiráži"
 
 msgid "settings.roles.permitSettings"
 msgstr "Dovolte změny v Nastavení"
 
 msgid "manager.setup.appearance.editorialMasthead.description"
-msgstr "Definovat pořadí redakčních rolí v záhlaví pro veřejné zobrazení."
+msgstr "Definovat pořadí redakčních rolí v tiráži pro veřejné zobrazení."
 
 msgid "manager.language.websiteLanguages"
 msgstr "Jazyky webových stránek"
@@ -3861,7 +3861,7 @@ msgstr ""
 "Nastavení jazyka se nepodařilo uložit. Je třeba povolit všechny možnosti."
 
 msgid "manager.setup.editorialMasthead.order.description"
-msgstr "Definujte pořadí rolí v záhlaví pro veřejné zobrazení."
+msgstr "Definujte pořadí rolí v tiráži pro veřejné zobrazení."
 
 msgid "manager.setup.reviewOptions.reminders"
 msgstr "Nastavení připomenutí pro recenzi"

@@ -24,6 +24,7 @@
 
 namespace PKP\API\v1\_test;
 
+use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -31,6 +32,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\security\Validation;
 use PKP\testing\bootstrap\Processor\CategoryProcessor;
 use PKP\testing\bootstrap\Processor\IssueProcessor;
 use PKP\testing\bootstrap\Processor\JournalProcessor;
@@ -81,6 +83,22 @@ class PKPBootstrapController extends PKPBaseController
                 Response::HTTP_CONFLICT
             );
         }
+
+        // Context creation cascades through PKPContextService::add, which
+        // reads $request->getUser() to auto-assign the creator as journal
+        // manager. The bootstrap endpoint has no HTTP session, so
+        // impersonate the installer-created admin for the duration of the
+        // call. Safe because TestModeGate already gated entry to this
+        // endpoint on APPLICATION_ENV=test + a shared secret.
+        $admin = Repo::user()->dao->getByUsername('admin');
+        if (!$admin) {
+            return response()->json(
+                ['error' => 'Bootstrap requires an "admin" site administrator (created by the installer). None was found.'],
+                Response::HTTP_INTERNAL_SERVER_ERROR
+            );
+        }
+        $reason = null;
+        Validation::registerUserSession($admin, $reason);
 
         $ctx = new ScenarioContext();
         $journalProcessor = new JournalProcessor(

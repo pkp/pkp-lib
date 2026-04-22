@@ -10,13 +10,18 @@ const {BasePage} = require('./BasePage.js');
 exports.LoginPage = class LoginPage extends BasePage {
 	constructor(page) {
 		super(page);
-		this.username = page.getByLabel('Username');
-		this.password = page.getByLabel('Password');
-		this.signIn = page.getByRole('button', {name: 'Login'});
+		// Match the selectors the Cypress suite has used for years
+		// (lib/pkp/cypress/support/commands.js:login). Labels vary by
+		// locale; the input/form ids are stable.
+		this.username = page.locator('input#username');
+		this.password = page.locator('input#password');
+		this.signIn = page.locator('form#login button');
 	}
 
 	async goto() {
-		await this.page.goto('/login');
+		// OJS login URL includes the locale segment. 'en' is always
+		// available; specific baseline users can change it post-login.
+		await this.page.goto('/index.php/index/en/login');
 	}
 
 	async login(username, password) {

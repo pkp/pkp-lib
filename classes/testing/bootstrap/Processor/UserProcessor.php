@@ -21,6 +21,7 @@
 namespace PKP\testing\bootstrap\Processor;
 
 use APP\facades\Repo;
+use PKP\core\Core;
 use PKP\security\Validation;
 use PKP\testing\scenario\ScenarioContext;
 use PKP\testing\scenario\ScenarioProcessor;
@@ -71,8 +72,11 @@ class UserProcessor implements ScenarioProcessor
         $username = $userSpec['username'];
         $password = $this->derivePassword($username);
 
+        // Property is `userName` (camelCase, capital N) — see User DAO's
+        // primaryTableColumns map. Passing 'username' silently drops it
+        // and the INSERT fails the NOT NULL constraint.
         $user = Repo::user()->newDataObject([
-            'username' => $username,
+            'userName' => $username,
             'password' => Validation::encryptCredentials($username, $password),
             'email' => $userSpec['email'] ?? ($username . '@mailinator.com'),
             'givenName' => [
@@ -86,6 +90,10 @@ class UserProcessor implements ScenarioProcessor
                 ($userSpec['locale'] ?? 'en') => $userSpec['affiliation'] ?? '',
             ],
             'mustChangePassword' => !empty($userSpec['mustChangePassword']),
+            // date_registered is NOT NULL without a DB default; the normal
+            // UI registration form sets it via PKPInstall but Repo::user()->add
+            // does no defaulting.
+            'dateRegistered' => Core::getCurrentDate(),
         ]);
 
         $userId = Repo::user()->add($user);

@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-22 18:37+0000\n"
+"PO-Revision-Date: 2026-04-22 18:48+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "mk/>\n"
@@ -837,12 +837,10 @@ msgstr ""
 msgid "orcid.field.deleteOrcidModal.title"
 msgstr "Избришете го ORCID"
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
-"Дали сте сигурни дека сакате трајно да ја отстраните оваа улога? Ова дејство "
-"ќе го отповика пристапот на корисникот до сите информации и дозволи поврзани "
-"со оваа улога."
+"Дали сте сигурни дека сакате да ја отстраните оваа улога? Корисникот ќе го "
+"изгуби пристапот и дозволите поврзани со неа."
 
 msgid "user.futureRole.notification.message"
 msgstr "Вашата улога е закажана да започне на {$roleStartDate}"
@@ -950,3 +948,11 @@ msgid "user.affiliations.error.rorApiDeprecated"
 msgstr ""
 "Услугата ROR API во оваа инсталација е застарена. Ве молиме контактирајте го "
 "вашиот системски администратор."
+
+msgid "user.masthead.update.title"
+msgstr "Потврдете ја промената на видливоста на насловот на мавталото"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Ова ќе ажурира дали овој корисник се појавува на насловот на дневникот за "
+"избраната улога. Корисникот ќе биде известен за оваа промена."

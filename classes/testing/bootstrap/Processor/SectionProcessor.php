@@ -36,6 +36,12 @@ class SectionProcessor
         $sections = [];
         $editorsToAssign = [];
 
+        // ContextService::add installs a localised default "Articles"
+        // section on every new journal. Bootstrap specs are declarative —
+        // they should own the full section list — so clear the default
+        // before adding the spec's entries to avoid duplicate ARTs.
+        Repo::section()->deleteByContextId($contextId);
+
         foreach ($sectionSpecs as $spec) {
             $section = Repo::section()->newDataObject([
                 'contextId' => $contextId,

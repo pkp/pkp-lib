@@ -45,7 +45,13 @@ module.exports = function createPlaywrightConfig({app}) {
 			screenshot: 'only-on-failure',
 		},
 		webServer: {
-			command: 'php -S 127.0.0.1:8000 -t .',
+			// Seed config.test.inc.php from the template if missing, then
+			// start php -S. The seed is a one-time cold-boot concern —
+			// ConfigParser::updateConfig needs a file to read as its
+			// starting point, and Application's constructor reads config
+			// on first request. Subsequent runs reuse the file on disk.
+			command:
+				'sh -c "[ -f config.test.inc.php ] || cp config.TEMPLATE.inc.php config.test.inc.php; exec php -S 127.0.0.1:8000 -t ."',
 			url: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000',
 			cwd: appRoot,
 			reuseExistingServer: !isCI,

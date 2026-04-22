@@ -29,7 +29,7 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 		 * POSTs that don't carry a Bearer apiToken.
 		 */
 		async getCsrfToken() {
-			const res = await request.get('/api/v1/_csrf');
+			const res = await request.get('/index.php/index/api/v1/_csrf');
 			if (!res.ok()) {
 				throw new Error(`CSRF token request failed: ${res.status()} ${await res.text()}`);
 			}
@@ -47,7 +47,7 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 		 */
 		async login(username, password) {
 			const pw = password ?? getPassword(username);
-			const res = await request.post('/login/signIn', {
+			const res = await request.post('/index.php/index/login/signIn', {
 				form: {
 					username,
 					password: pw,
@@ -90,10 +90,14 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 		 */
 		async isBootstrapped(journalPath = 'publicknowledge') {
 			try {
-				const res = await request.get(`/${journalPath}`, {maxRedirects: 0});
-				// A live journal returns 200 (or 301 to index); a missing one
-				// returns 404 or redirects to /install.
-				return res.status() === 200 || res.status() === 301;
+				const res = await request.get(`/index.php/${journalPath}`, {
+					maxRedirects: 0,
+				});
+				// A live journal returns 200 or redirects (302/301) to its
+				// locale-prefixed home. A missing one 404s. Accept any 2xx
+				// or redirect as "journal exists".
+				const status = res.status();
+				return status === 200 || status === 301 || status === 302;
 			} catch {
 				return false;
 			}
@@ -113,13 +117,16 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 				);
 			}
 
-			const res = await request.post('/api/v1/_test/bootstrap', {
-				headers: {
-					'X-Test-Key': testApiKey,
-					'Content-Type': 'application/json',
+			const res = await request.post(
+				'/index.php/index/api/v1/_test/bootstrap',
+				{
+					headers: {
+						'X-Test-Key': testApiKey,
+						'Content-Type': 'application/json',
+					},
+					data: spec,
 				},
-				data: spec,
-			});
+			);
 
 			const bodyText = await res.text();
 			if (!res.ok()) {

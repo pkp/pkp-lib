@@ -169,4 +169,35 @@ class ScenarioContext
             'tag' => $tag,
         ];
     }
+
+    /**
+     * Phase E0: response for a context-scenario request that builds a
+     * scratch journal (or press/server). Primary manager is derived
+     * from the first user in the spec whose roles include 'manager'.
+     */
+    public function contextScenarioResponse(array $spec): array
+    {
+        $path = $spec['path'];
+        $journal = $this->idMap['journals'][$path]
+            ?? throw new \RuntimeException("ScenarioContext: no context recorded at path '{$path}'");
+
+        $primaryManager = null;
+        foreach ($spec['users'] ?? [] as $user) {
+            if (in_array('manager', $user['roles'] ?? [], true)) {
+                $primaryManager = ['username' => $user['username']];
+                break;
+            }
+        }
+
+        return [
+            'context' => [
+                'id' => $journal['id'],
+                'path' => $path,
+                'name' => $journal['name'] ?? null,
+                'primaryLocale' => $journal['primaryLocale'] ?? null,
+                'primaryManager' => $primaryManager,
+            ],
+            'tag' => $spec['tag'] ?? '',
+        ];
+    }
 }

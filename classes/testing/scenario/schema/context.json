@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Context (journal/press/server) scenario spec",
+    "type": "object",
+    "required": ["tag"],
+    "additionalProperties": false,
+    "properties": {
+        "tag": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "path": { "type": "string" },
+        "name": { "type": "object", "additionalProperties": true },
+        "description": { "type": "object", "additionalProperties": true },
+        "acronym": { "type": "object", "additionalProperties": true },
+        "abbreviation": { "type": "object", "additionalProperties": true },
+        "publisherInstitution": { "type": "string" },
+        "primaryLocale": { "type": "string" },
+        "supportedLocales": { "type": "array", "items": { "type": "string" } },
+        "country": { "type": "string" },
+        "contact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": { "type": "string" },
+                "email": { "type": "string" }
+            }
+        },
+        "users": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["username", "roles"],
+                "additionalProperties": false,
+                "properties": {
+                    "username": { "type": "string" },
+                    "roles": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+                }
+            }
+        }
+    }
+}

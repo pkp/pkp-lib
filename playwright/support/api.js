@@ -142,6 +142,46 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 		},
 
 		/**
+		 * Call the test-only journal scenario endpoint. Creates a scratch
+		 * journal (unique URL path, default sections + email templates +
+		 * user groups auto-installed) and optionally assigns bootstrapped
+		 * users to roles inside it. Use this from any test that needs to
+		 * mutate journal-level configuration — the bootstrapped
+		 * publicknowledge journal must stay read-only across the suite.
+		 *
+		 * @param {object} spec see lib/pkp/classes/testing/scenario/schema/context.json
+		 * @returns {Promise<{context: {id: number, path: string, name: object|null, primaryLocale: string|null, primaryManager: {username: string}|null}, tag: string}>}
+		 */
+		async createJournal(spec) {
+			if (!testApiKey) {
+				throw new Error(
+					'TEST_API_KEY env var is not set. Set it (same value on client and server) to call /api/v1/_test/scenarios/journal.',
+				);
+			}
+			const res = await request.post(
+				'/index.php/index/api/v1/_test/scenarios/journal',
+				{
+					headers: {
+						'X-Test-Key': testApiKey,
+						'Content-Type': 'application/json',
+					},
+					data: spec,
+				},
+			);
+			const bodyText = await res.text();
+			if (!res.ok()) {
+				throw new Error(
+					`createJournal failed: ${res.status()} — ${bodyText}`,
+				);
+			}
+			try {
+				return JSON.parse(bodyText);
+			} catch {
+				throw new Error(`createJournal returned non-JSON body: ${bodyText}`);
+			}
+		},
+
+		/**
 		 * Call the test-only bootstrap endpoint with a full spec.
 		 * Gated server-side by TestModeGate (APPLICATION_ENV=test + X-Test-Key).
 		 *

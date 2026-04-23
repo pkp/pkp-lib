@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-18 18:47+0000\n"
+"PO-Revision-Date: 2026-04-23 21:31+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -1343,19 +1343,23 @@ msgid "manager.sections.confirmDeactivateSection"
 msgstr "Da li ste sigurni da želite da deaktivirate ovaj deo?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Da li ste sigurni da želite da aktivirate ovu sekciju?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Uređivački zadaci"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Izaberite uredničke korisnike koji će biti automatski dodeljeni svim novim "
+"podnescima u ovoj sekciji."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Dodeli {$name} kao {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Izaberite uredničke korisnike koji će biti automatski dodeljeni svim novim "
+"podnescima u ovoj kategoriji."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Оpcije pristupa sajtu"
@@ -1367,7 +1371,7 @@ msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} нови)"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr ""
+msgstr "Registrovani korisnici"
 
 msgid "manager.users"
 msgstr "Korisnici"
@@ -1515,19 +1519,21 @@ msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Zvanično"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr ""
+msgstr "Ovaj dodatak razvija i održava tim Public Knowledge Project-a."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Recenzirano"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
 msgstr ""
+"Ovaj dodatak je pregledan i odobren od strane tima Public Knowledge "
+"Project-a."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Partner"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr ""
+msgstr "Ovaj dodatak obezbeđuje jedan od naših razvojnih partnera."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Osoba za održavanje"
@@ -1649,27 +1655,33 @@ msgstr "Podešavanja lokalizacije su sačuvana."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Postavka jezika nije mogla biti sačuvana. Za svaku opciju mora biti "
+"omogućena najmanje jedna jezička varijanta"
 
 msgid "notification.editedUser"
 msgstr "Korisnik je uređen."
 
 msgid "manager.distribution.license"
-msgstr ""
+msgstr "Licenca"
 
 msgid "manager.distribution.license.other"
-msgstr ""
+msgstr "URL druge licence"
 
 msgid "manager.distribution.licenseTerms"
-msgstr ""
+msgstr "Uslovi licence"
 
 msgid "manager.distribution.licenseTerms.description"
 msgstr ""
+"Unesite javne uslove licenciranja koje želite da prikažete uz objavljeni rad."
 
 msgid "manager.distribution.customHeaders"
-msgstr ""
+msgstr "Prilagođene oznake"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
+"Dodajte prilagođene HTML oznake, poznate i kao meta oznake, koje želite da "
+"budu umetnute u zaglavlje (head) svake stranice. Pre dodavanja oznaka ovde, "
+"konsultujte tehničkog savetnika."
 
 msgid "manager.paymentMethod"
 msgstr "Plaćanje"
@@ -1697,6 +1709,8 @@ msgstr "Dozvoli samostalnu registraciju korisnika"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
+"Ova uloga može samo da preporuči odluku recenzije i zahtevaće ovlašćenog "
+"urednika da zabeleži konačnu odluku."
 
 msgid "settings.roles.roleName"
 msgstr "Naziv uloge"
@@ -1741,7 +1755,7 @@ msgid "settings.roles.stageIdRequired"
 msgstr "Morate definisati fazu kojoj će biti dodeljena."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr ""
+msgstr "Dozvoli uređivanje metapodataka podneska."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
@@ -3495,3 +3509,29 @@ msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
 msgstr ""
 "Omogući autorima da predlože potencijalne recenzente tokom procesa "
 "podnošenja rada"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Kategorija ne postoji ili pripada drugom kontekstu. Uverite se da radite u "
+"odgovarajućem kontekstu i pokušajte ponovo."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Naslovna slika i datoteke sličice nisu pronađene. Možda su već obrisane. "
+"Pokušajte da ponovo učitate stranicu."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Instalirana verzija: {$version}"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Postavka jezika nije mogla biti sačuvana. Sve opcije moraju biti omogućene."
+
+msgid "notification.submissionLocales"
+msgstr "Jezici za podnesak su ažurirani."
+
+msgid "settings.roles.masthead"
+msgstr "Uključi u listu u zaglavlju (masthead) uloge"
+
+msgid "settings.roles.permitSettings"
+msgstr "Dozvoli izmene podešavanja"

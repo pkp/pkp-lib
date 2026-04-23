@@ -20,6 +20,7 @@
 
 namespace PKP\testing\scenario;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\user\User;
@@ -31,6 +32,9 @@ class ScenarioContext
         'journals' => [],
         'users' => [],
     ];
+
+    /** Phase 2: the single submission being built by a scenario request. */
+    private ?array $scenarioSubmission = null;
 
     /** Cache of resolved User objects keyed by username. */
     private array $userCache = [];
@@ -69,9 +73,11 @@ class ScenarioContext
     public function contextByPath(string $path): Context
     {
         if (!isset($this->contextCache[$path])) {
-            $context = Repo::context()->getByPath($path);
+            // OJS doesn't have Repo::context(); contexts (Journal/Press/Server)
+            // are DAO-fetched via the app's ContextDAO.
+            $context = Application::getContextDAO()->getByPath($path);
             if (!$context) {
-                throw new \RuntimeException("Scenario context cannot resolve journal '{$path}' — is it in the spec's journals section?");
+                throw new \RuntimeException("Scenario context cannot resolve journal '{$path}' — was it created by the bootstrap?");
             }
             $this->contextCache[$path] = $context;
         }
@@ -81,5 +87,86 @@ class ScenarioContext
     public function idMap(): array
     {
         return $this->idMap;
+    }
+
+    /**
+     * Phase 2: record the submission a submission-scenario is building.
+     * Later processors read these IDs instead of re-querying the DB.
+     */
+    public function recordSubmission(int $submissionId, int $firstPublicationId, int $contextId): void
+    {
+        $this->scenarioSubmission = [
+            'id' => $submissionId,
+            'firstPublicationId' => $firstPublicationId,
+            'contextId' => $contextId,
+            'participants' => [],
+            'decisions' => [],
+            'reviewRounds' => [],
+            'publications' => [],
+        ];
+    }
+
+    public function submissionId(): int
+    {
+        return $this->scenarioSubmission['id']
+            ?? throw new \RuntimeException('ScenarioContext: no submission recorded yet');
+    }
+
+    public function firstPublicationId(): int
+    {
+        return $this->scenarioSubmission['firstPublicationId']
+            ?? throw new \RuntimeException('ScenarioContext: no submission recorded yet');
+    }
+
+    public function submissionContextId(): int
+    {
+        return $this->scenarioSubmission['contextId']
+            ?? throw new \RuntimeException('ScenarioContext: no submission recorded yet');
+    }
+
+    public function recordParticipant(string $username, string $role, int $stageAssignmentId): void
+    {
+        $this->scenarioSubmission['participants'][] = [
+            'username' => $username,
+            'role' => $role,
+            'stageAssignmentId' => $stageAssignmentId,
+        ];
+    }
+
+    public function recordDecision(string $type, int $decisionId): void
+    {
+        $this->scenarioSubmission['decisions'][] = [
+            'type' => $type,
+            'id' => $decisionId,
+        ];
+    }
+
+    public function recordReviewRound(int $round, int $roundId, array $reviewers): void
+    {
+        $this->scenarioSubmission['reviewRounds'][] = [
+            'round' => $round,
+            'roundId' => $roundId,
+            'reviewers' => $reviewers,
+        ];
+    }
+
+    public function recordPublication(array $fragment): void
+    {
+        $this->scenarioSubmission['publications'][] = $fragment;
+    }
+
+    public function submissionResponse(string $tag): array
+    {
+        if ($this->scenarioSubmission === null) {
+            throw new \RuntimeException('ScenarioContext: no submission recorded');
+        }
+        return [
+            'submission' => ['id' => $this->scenarioSubmission['id']],
+            'publications' => $this->scenarioSubmission['publications'],
+            'participants' => $this->scenarioSubmission['participants'],
+            'decisions' => $this->scenarioSubmission['decisions'],
+            'reviewRounds' => $this->scenarioSubmission['reviewRounds'],
+            'tag' => $tag,
+        ];
     }
 }

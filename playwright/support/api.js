@@ -104,6 +104,44 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 		},
 
 		/**
+		 * Call the test-only submission scenario endpoint with a full spec.
+		 * Creates one submission with any combination of participants,
+		 * decisions, review rounds, and publications. Gated server-side
+		 * by TestModeGate (APPLICATION_ENV=test + X-Test-Key).
+		 *
+		 * @param {object} spec  see lib/pkp/classes/testing/scenario/schema/submission.json
+		 * @returns {Promise<object>} { submission, publications, participants, decisions, reviewRounds, tag }
+		 */
+		async createSubmission(spec) {
+			if (!testApiKey) {
+				throw new Error(
+					'TEST_API_KEY env var is not set. Set it (same value on client and server) to call /api/v1/_test/scenarios/submission.',
+				);
+			}
+			const res = await request.post(
+				'/index.php/index/api/v1/_test/scenarios/submission',
+				{
+					headers: {
+						'X-Test-Key': testApiKey,
+						'Content-Type': 'application/json',
+					},
+					data: spec,
+				},
+			);
+			const bodyText = await res.text();
+			if (!res.ok()) {
+				throw new Error(
+					`createSubmission failed: ${res.status()} — ${bodyText}`,
+				);
+			}
+			try {
+				return JSON.parse(bodyText);
+			} catch {
+				throw new Error(`createSubmission returned non-JSON body: ${bodyText}`);
+			}
+		},
+
+		/**
 		 * Call the test-only bootstrap endpoint with a full spec.
 		 * Gated server-side by TestModeGate (APPLICATION_ENV=test + X-Test-Key).
 		 *

@@ -18,14 +18,26 @@ exports.LoginPage = class LoginPage extends BasePage {
 		this.signIn = page.locator('form#login button');
 	}
 
-	async goto() {
-		// OJS login URL includes the locale segment. 'en' is always
-		// available; specific baseline users can change it post-login.
-		await this.page.goto('/index.php/index/en/login');
+	/**
+	 * OJS maintains per-context sessions; baseline users with journal-scoped
+	 * roles (editor, reviewer, copyeditor, …) must sign in inside that
+	 * journal's login to receive a session that works for its workflow
+	 * pages. 'index' is the site-level login — correct for admin and for
+	 * users doing cross-context work.
+	 *
+	 * @param {string} [contextPath='index']
+	 */
+	async goto(contextPath = 'index') {
+		await this.page.goto(`/index.php/${contextPath}/en/login`);
 	}
 
-	async login(username, password) {
-		await this.goto();
+	/**
+	 * @param {string} username
+	 * @param {string} password
+	 * @param {string} [contextPath='index']
+	 */
+	async login(username, password, contextPath = 'index') {
+		await this.goto(contextPath);
 		await this.username.fill(username);
 		await this.password.fill(password);
 		await this.signIn.click();

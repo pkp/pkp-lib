@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const {LoginPage} = require('../pages/LoginPage.js');
-const {getPassword} = require('../data/users.js');
+const {baselineUsers, getPassword} = require('../data/users.js');
 
 const AUTH_DIR = 'playwright/.auth';
 
@@ -48,10 +48,18 @@ exports.ensureAuthStateFor = async function ensureAuthStateFor(
 	try {
 		const page = await context.newPage();
 		const login = new LoginPage(page);
-		await login.login(username, getPassword(username));
-		// A successful login redirects away from /login. Wait for the
-		// redirect to settle before snapshotting cookies.
-		await page.waitForURL((url) => !url.pathname.endsWith('/login'), {
+		// Baseline users have journal-scoped roles; look up the journal so
+		// we sign in at that context's login URL. Admin / unknown users
+		// fall back to the site-level 'index' login.
+		const user = baselineUsers.find((u) => u.username === username);
+		const contextPath = user?.journal ?? 'index';
+		await login.login(username, getPassword(username), contextPath);
+		// A successful login redirects completely out of the /login tree
+		// (to the dashboard or journal home). A failed login re-renders
+		// the form at /login/signIn, which still contains "login" in the
+		// path — a loose "doesn't end with /login" check would pass for
+		// failed logins and silently save an unauthenticated session.
+		await page.waitForURL((url) => !url.pathname.includes('/login'), {
 			timeout: 10_000,
 		});
 		await context.storageState({path: authPath});

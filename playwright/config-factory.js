@@ -56,11 +56,20 @@ module.exports = function createPlaywrightConfig({app}) {
 			cwd: appRoot,
 			reuseExistingServer: !isCI,
 			timeout: 60_000,
-			stdout: 'pipe',
-			stderr: 'pipe',
+			// Silence the dev server's access log + "Failed to poll event"
+			// noise from PHP_CLI_SERVER_WORKERS so test output is readable.
+			// Playwright still surfaces HTTP errors via the failing test's
+			// trace and screenshot. When you need raw server logs, run
+			// `npm run test:e2e:serve` in another terminal and tail it.
+			stdout: 'ignore',
+			stderr: 'ignore',
 			env: {
 				...process.env,
 				APPLICATION_ENV: 'test',
+				// Run php -S with multiple workers so same-origin sub-requests
+				// (e.g. a page load fetching /api/...) don't deadlock the
+				// single-process dev server. Unix only; ignored on Windows.
+				PHP_CLI_SERVER_WORKERS: process.env.PHP_CLI_SERVER_WORKERS || '4',
 			},
 		},
 		projects: [

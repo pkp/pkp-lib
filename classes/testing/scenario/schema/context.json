@@ -17,6 +17,34 @@
         "country": { "type": "string" },
         "copyrightNotice": { "type": "object", "additionalProperties": true },
         "submitWithCategories": { "type": "boolean" },
+        "enableDois": { "type": "boolean" },
+        "doiPrefix": { "type": "string" },
+        "doiVersioning": { "type": "boolean" },
+        "enabledDoiTypes": { "type": "array", "items": { "type": "string" } },
+        "registrationAgency": { "type": "string" },
+        "onlineIssn": { "type": "string" },
+        "printIssn": { "type": "string" },
+        "plugins": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "enabled": { "type": "boolean" },
+                    "settings": {
+                        "type": "object",
+                        "additionalProperties": true
+                    }
+                }
+            }
+        },
+        "issues": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": true
+            }
+        },
         "contact": {
             "type": "object",
             "additionalProperties": false,

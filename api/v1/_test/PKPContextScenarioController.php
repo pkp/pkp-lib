@@ -94,6 +94,12 @@ abstract class PKPContextScenarioController extends PKPBaseController
                 if ($contextUser->appliesTo($spec)) {
                     $contextUser->run($spec, $ctx);
                 }
+                // App-specific post-create hook. OJS uses this to seed
+                // issues (an OJS-only concept). OMP/OPS ignore by default.
+                $contextId = $ctx->firstJournalId();
+                if ($contextId !== null) {
+                    $this->afterContextCreated($spec, $contextId);
+                }
             });
         } catch (\Throwable $e) {
             return response()->json([
@@ -105,6 +111,19 @@ abstract class PKPContextScenarioController extends PKPBaseController
         }
 
         return response()->json($ctx->contextScenarioResponse($spec), Response::HTTP_OK);
+    }
+
+    /**
+     * App-specific post-create hook. Default no-op; subclasses (e.g.
+     * OJS's JournalScenarioController) override to seed additional
+     * concepts that don't exist cross-app (issues for OJS).
+     *
+     * Runs inside the same DB transaction as ContextBuilderProcessor so
+     * any failure rolls the whole scenario back.
+     */
+    protected function afterContextCreated(array $spec, int $contextId): void
+    {
+        // no-op by default
     }
 
     /**

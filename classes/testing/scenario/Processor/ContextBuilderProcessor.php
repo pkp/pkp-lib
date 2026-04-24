@@ -25,6 +25,7 @@ namespace PKP\testing\scenario\Processor;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\core\Registry;
+use PKP\db\DAORegistry;
 use PKP\testing\scenario\ScenarioContext;
 use PKP\testing\scenario\ScenarioProcessor;
 
@@ -82,10 +83,22 @@ class ContextBuilderProcessor implements ScenarioProcessor
         // Scalar journal-level settings that specs may need to seed at
         // creation time (e.g. submitWithCategories to enable the wizard
         // Categories field without flipping it through the settings UI
-        // mid-test).
-        foreach (['submitWithCategories'] as $optionalScalar) {
+        // mid-test; DOI prefix + toggles to skip the multi-tab DOI
+        // Distribution settings UI).
+        foreach (['submitWithCategories', 'enableDois', 'doiPrefix', 'doiVersioning', 'registrationAgency', 'onlineIssn', 'printIssn'] as $optionalScalar) {
             if (array_key_exists($optionalScalar, $spec)) {
                 $data[$optionalScalar] = $spec[$optionalScalar];
+            }
+        }
+
+        // Array journal-level settings (e.g. enabledDoiTypes — which
+        // pubObject types auto-mint DOIs on publish). Default from the
+        // OJS context schema is ['publication'], which is already what
+        // our DOI tests want; pass through only when the test overrides
+        // explicitly.
+        foreach (['enabledDoiTypes'] as $optionalArray) {
+            if (array_key_exists($optionalArray, $spec) && is_array($spec[$optionalArray])) {
+                $data[$optionalArray] = $spec[$optionalArray];
             }
         }
 
@@ -113,6 +126,45 @@ class ContextBuilderProcessor implements ScenarioProcessor
         }
 
         $contextId = $context->getId();
+
+        // Optional plugin enablement + per-plugin settings. Some features
+        // (Crossref DOI registration, for one) require enabling a lazy-load
+        // plugin and dropping credentials into its settings before the UI
+        // will let you select it as the configured registration agency.
+        // Driving those through the web UI would be multi-step + flaky;
+        // seeding directly is the simpler path.
+        if (!empty($spec['plugins']) && is_array($spec['plugins'])) {
+            $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
+            foreach ($spec['plugins'] as $pluginName => $pluginCfg) {
+                if (!is_array($pluginCfg)) {
+                    continue;
+                }
+                // `enabled` flips the lazy-load plugin's per-context enabled
+                // flag (settings row keyed by 'enabled').
+                if (array_key_exists('enabled', $pluginCfg)) {
+                    $pluginSettingsDao->updateSetting(
+                        $contextId,
+                        $pluginName,
+                        'enabled',
+                        (bool)$pluginCfg['enabled'],
+                        'bool'
+                    );
+                }
+                // `settings` carries a plain name => value map, written to
+                // the same plugin_settings row. Used for Crossref's
+                // depositorName / depositorEmail / username / password
+                // without exposing test credentials in the UI.
+                foreach ($pluginCfg['settings'] ?? [] as $settingName => $settingValue) {
+                    $pluginSettingsDao->updateSetting(
+                        $contextId,
+                        $pluginName,
+                        $settingName,
+                        $settingValue,
+                        is_bool($settingValue) ? 'bool' : null
+                    );
+                }
+            }
+        }
 
         $ctx->recordJournal($path, [
             'id' => $contextId,

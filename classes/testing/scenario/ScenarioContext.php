@@ -58,6 +58,20 @@ class ScenarioContext
             ?? throw new \RuntimeException("Scenario context has no journal recorded for path '{$path}'");
     }
 
+    /**
+     * Return the ID of the first journal recorded during this scenario,
+     * or null if none has been created yet. Used by the shared
+     * PKPContextScenarioController's post-create hook to hand a
+     * freshly-built context ID to the OJS-specific subclass.
+     */
+    public function firstJournalId(): ?int
+    {
+        foreach ($this->idMap['journals'] as $fragment) {
+            return (int)($fragment['id'] ?? 0);
+        }
+        return null;
+    }
+
     public function userByUsername(string $username): User
     {
         if (!isset($this->userCache[$username])) {

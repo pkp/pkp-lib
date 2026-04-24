@@ -47,7 +47,7 @@ class ContextBuilderProcessor implements ScenarioProcessor
         $contactName = $spec['contact']['name'] ?? 'Test Contact';
         $contactEmail = $spec['contact']['email'] ?? 'test@example.com';
 
-        $context->setAllData([
+        $data = [
             'urlPath' => $path,
             'name' => $name,
             'description' => $spec['description'] ?? [],
@@ -64,7 +64,22 @@ class ContextBuilderProcessor implements ScenarioProcessor
             'supportName' => $contactName,
             'supportEmail' => $contactEmail,
             'enabled' => 1,
-        ]);
+        ];
+
+        // Optional multilingual journal-level settings that specs may
+        // need to seed directly (e.g. the copyrightNotice required for
+        // the submission wizard's copyright gate). Everything in this
+        // block is a plain <locale> => <string> map accepted by the
+        // context schema — tests pass only the locales they care
+        // about, everything else falls through to the Journal's
+        // schema default.
+        foreach (['copyrightNotice'] as $optional) {
+            if (isset($spec[$optional])) {
+                $data[$optional] = $spec[$optional];
+            }
+        }
+
+        $context->setAllData($data);
 
         // PKPContextService::add() pulls $currentUser from $request->getUser()
         // and assigns them as the context's first manager. We can't call

@@ -20,6 +20,7 @@ namespace PKP\API\v1\dois;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\galley\Galley;
+use APP\plugins\IDoiRegistrationAgency;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -45,6 +46,7 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 
 class PKPDoiController extends PKPBaseController
@@ -453,30 +455,52 @@ class PKPDoiController extends PKPBaseController
         $exportablePeerReviewIds = Repo::reviewAssignment()
         ->getExportableDOIsPeerReviewIds($context->getId(), array_map(fn (Submission $submission)=>$submission->getId(), $submissions));
 
-        $peerReviewsData = $agency->exportPeerReviews(
-            array_map(fn ($exportablePeerReviewId)=>Repo::reviewAssignment()->get($exportablePeerReviewId), $exportablePeerReviewIds),
-        $context
-        );
-
         if (!empty($peerReview['xmlErrors'])) {
             return response()->json([
                 'error' => __('api.dois.400.xmlExportFailed')
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $responseData = [
-            'temporaryFileIds' =>[]
-        ];
+        $temporaryFileIds = [];
 
         if (!empty($submissionsData)) {
-            $responseData['temporaryFileIds'][] = $submissionsData['temporaryFileId'];
+            $temporaryFileIds[] = $submissionsData['temporaryFileId'];
         }
-        if (!empty($peerReviewsData)) {
-            $responseData['temporaryFileIds'][] = $peerReviewsData['temporaryFileId'];
+
+        if (
+            in_array(Repo::doi()::TYPE_PEER_REVIEW, $agency->getAllowedDoiTypes()) &&
+            in_array(Repo::doi()::TYPE_PEER_REVIEW, $context->getData(Context::SETTING_ENABLED_DOI_TYPES))
+        ) {
+            $peerReviewsData = $this->getPeerReviewExports(
+                array_map(fn($exportablePeerReviewId) => Repo::reviewAssignment()->get($exportablePeerReviewId), $exportablePeerReviewIds),
+                $context,
+                $agency
+            );
+
+            if (!empty($peerReviewsData)) {
+                $temporaryFileIds[] = $peerReviewsData['temporaryFileId'];
+            }
         }
+
+
         return response()->json([
-            'temporaryFileIds' => $responseData['temporaryFileIds']
+            'temporaryFileIds' => $temporaryFileIds
         ], Response::HTTP_OK);
+    }
+
+
+    /**
+     * Prepare the Peer Review XML export for a list of submission IDs.
+     * This method should be implemented at the app level if peer review exports are applicable.
+     * @param ReviewAssignment[] $peerReviews - An array of submission IDs for which the associated Peer Review's XML export is being prepared.
+     * @param Context $context - The context in which the export is being performed.
+     * @param IDoiRegistrationAgency $agency - The DOI registration agency responsible for the export.
+     * @return array{ temporaryFileId: int|string,xmlErrors: array} - An array containing the temporary file ID and any XML errors encountered during export.
+     *
+     */
+    public function getPeerReviewExports(array $peerReviews, Context $context, IDoiRegistrationAgency $agency): array
+    {
+        return [];
     }
 
     /**

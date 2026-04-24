@@ -79,6 +79,16 @@ class ContextBuilderProcessor implements ScenarioProcessor
             }
         }
 
+        // Scalar journal-level settings that specs may need to seed at
+        // creation time (e.g. submitWithCategories to enable the wizard
+        // Categories field without flipping it through the settings UI
+        // mid-test).
+        foreach (['submitWithCategories'] as $optionalScalar) {
+            if (array_key_exists($optionalScalar, $spec)) {
+                $data[$optionalScalar] = $spec[$optionalScalar];
+            }
+        }
+
         $context->setAllData($data);
 
         // PKPContextService::add() pulls $currentUser from $request->getUser()

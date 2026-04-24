@@ -24,6 +24,7 @@
         "registrationAgency": { "type": "string" },
         "onlineIssn": { "type": "string" },
         "printIssn": { "type": "string" },
+        "enablePublicComments": { "type": "boolean" },
         "plugins": {
             "type": "object",
             "additionalProperties": {

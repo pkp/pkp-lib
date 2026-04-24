@@ -79,7 +79,7 @@ class DepositSubmission extends BaseJob
                 ->getExportableDOIsPeerReviewIds($this->context->getId(), [$this->submissionId]);
 
             foreach ($depositablePeerReviewIds as $peerReviewId) {
-                dispatch(new DepositPeerReview($peerReviewId, $this->context, $this->agency, [$this->submissionId]));
+                dispatch(new DepositPeerReview($peerReviewId, $this->context, $this->agency, $this->submissionId));
             }
         }
     }

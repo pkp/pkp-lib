@@ -1197,8 +1197,7 @@ abstract class Repository
         $assignments = Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
-            ->filterByCompleted(true)
-            ->getMany();
+            ->getMany()->toArray();
 
         foreach ($assignments as $assignment) {
             $pubId = $roundToPublication[$assignment->getReviewRoundId()] ?? null;

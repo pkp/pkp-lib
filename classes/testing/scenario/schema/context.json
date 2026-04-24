@@ -15,6 +15,7 @@
         "primaryLocale": { "type": "string" },
         "supportedLocales": { "type": "array", "items": { "type": "string" } },
         "country": { "type": "string" },
+        "copyrightNotice": { "type": "object", "additionalProperties": true },
         "contact": {
             "type": "object",
             "additionalProperties": false,

@@ -185,6 +185,96 @@ exports.SubmissionWizardPage = class SubmissionWizardPage extends BasePage {
 	}
 
 	/**
+	 * Set the "Comments for the Editor" TinyMCE rich-text field on the
+	 * "For the Editors" step. The underlying control id is
+	 * `commentsForTheEditors-commentsForTheEditors-control` (form id +
+	 * field id). Caller is responsible for being on the correct step.
+	 *
+	 * @param {string} html  HTML (plain text is fine; TinyMCE wraps it).
+	 */
+	async setCommentsForEditors(html) {
+		await setTinyMceContent(
+			this.page,
+			'commentsForTheEditors-commentsForTheEditors-control',
+			html,
+		);
+	}
+
+	/**
+	 * Open the "Change Submission Settings" modal by clicking the
+	 * `-linkButton` next to the "Submitting to the ... section in ..."
+	 * caption. Only rendered when the journal has 2+ supported submission
+	 * locales OR 2+ submittable sections (i.e., whenever there's
+	 * something to reconfigure post-start).
+	 */
+	async openReconfigureModal() {
+		await this.page
+			.locator('#submission-configuration button', {hasText: 'Change'})
+			.click();
+		// The modal title is "Change Submission Settings". Wait for the
+		// side-modal body to render — ModalManager tags the active one
+		// with [data-cy="active-modal"] like the Discussion Manager
+		// flows rely on.
+		await expect(
+			this.page
+				.locator('[data-cy="active-modal"]')
+				.getByRole('heading', {name: 'Change Submission Settings'}),
+		).toBeVisible();
+	}
+
+	/**
+	 * Inside the open reconfigure modal, pick the locale radio whose
+	 * label matches `localeLabel` (e.g. "French (Canada)"), optionally
+	 * switch the section radio, then click Save. Waits for the modal to
+	 * close before returning.
+	 *
+	 * The reconfigure form is the backend's `ReconfigureSubmission` —
+	 * it renders a `FieldOptions` (radio) named `locale` and, when the
+	 * journal has 2+ sections, another named `sectionId`. Labels come
+	 * from the localized locale name / section title.
+	 *
+	 * @param {Object} opts
+	 * @param {string} [opts.localeLabel]   visible radio label, e.g. 'French (Canada)'
+	 * @param {string} [opts.sectionLabel]  visible radio label, e.g. 'Reviews'
+	 */
+	async changeReconfigureSettings({localeLabel, sectionLabel} = {}) {
+		const modal = this.page.locator('[data-cy="active-modal"]');
+		if (localeLabel) {
+			await modal
+				.locator('label', {hasText: localeLabel})
+				.first()
+				.click();
+		}
+		if (sectionLabel) {
+			await modal
+				.locator('label', {hasText: sectionLabel})
+				.first()
+				.click();
+		}
+		await modal.getByRole('button', {name: 'Save', exact: true}).click();
+		// The modal detaches on save; the form title heading
+		// disappears with it. Wait on that rather than the zero-size
+		// wrapper.
+		await expect(
+			this.page
+				.locator('[data-cy="active-modal"]')
+				.getByRole('heading', {name: 'Change Submission Settings'}),
+		).toHaveCount(0, {timeout: 10_000});
+	}
+
+	/**
+	 * Extract the submission id from the wizard's URL. The wizard
+	 * mounts at `/submission?id=<id>#<step>`; this parses the `id`
+	 * query param. Returns null if we're not on a wizard URL.
+	 *
+	 * @returns {number|null}
+	 */
+	currentSubmissionId() {
+		const match = this.page.url().match(/[?&]id=(\d+)/);
+		return match ? Number(match[1]) : null;
+	}
+
+	/**
 	 * Click the primary Submit button and confirm the modal. Returns
 	 * once the "Submission complete" page is visible — the caller can
 	 * then assert on it.

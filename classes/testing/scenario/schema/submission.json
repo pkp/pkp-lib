@@ -19,7 +19,9 @@
                 "additionalProperties": false,
                 "properties": {
                     "user": { "type": "string" },
-                    "role": { "type": "string" }
+                    "role": { "type": "string" },
+                    "recommendOnly": { "type": "boolean" },
+                    "canChangeMetadata": { "type": "boolean" }
                 }
             }
         },

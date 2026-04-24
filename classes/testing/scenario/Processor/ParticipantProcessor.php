@@ -41,7 +41,9 @@ class ParticipantProcessor implements ScenarioProcessor
             $stageAssignment = Repo::stageAssignment()->build(
                 $submissionId,
                 (int)$userGroup->id,
-                $user->getId()
+                $user->getId(),
+                $participantSpec['recommendOnly'] ?? null,
+                $participantSpec['canChangeMetadata'] ?? null
             );
 
             $ctx->recordParticipant(

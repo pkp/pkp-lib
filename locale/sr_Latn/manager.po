@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-26 21:16+0000\n"
+"PO-Revision-Date: 2026-04-27 03:04+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2110,97 +2110,122 @@ msgid "manager.setup.metadata.source.request"
 msgstr "Zamolite autora da tokom podnošenja prijave dostavi URL izvora."
 
 msgid "manager.setup.metadata.source.require"
-msgstr ""
+msgstr "Zahtevajte od autora da pre prihvatanja podneska dostavi URL izvora."
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
+"Predmeti će biti ključne reči, ključne fraze ili klasifikacioni kodovi koji "
+"opisuju temu podneska."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr ""
+msgstr "Omogući metapodatke o predmetu"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr ""
+msgstr "Ne traži od autora predmete tokom podnošenja prijave."
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr ""
+msgstr "Zamolite autora da tokom podnošenja prijave navede predmete."
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr ""
+msgstr "Zahtevajte od autora da pre prihvatanja podneska navede predmete."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
+"Priroda ili žanr glavnog sadržaja podneska. Tip je obično „Tekst“, ali može "
+"biti i „Skup podataka“, „Slika“ ili bilo koji od <a target=\"_blank\" href="
+"\"https://www.dublincore.org/specifications/dublin-core/dcmi-terms/\">Dublin "
+"Core tipova</a>."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr ""
+msgstr "Omogući metapodatke o tipu"
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr ""
+msgstr "Ne traži od autora tip tokom podnošenja prijave."
 
 msgid "manager.setup.metadata.type.request"
-msgstr ""
+msgstr "Zamolite autora da tokom podnošenja prijave navede tip."
 
 msgid "manager.setup.metadata.type.require"
-msgstr ""
+msgstr "Zahtevajte od autora da pre prihvatanja podneska navede tip."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
+"Discipline su vrste studija ili grane znanja, kako ih definišu "
+"univerzitetski fakulteti i naučna društva."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr ""
+msgstr "Omogući metapodatke o disciplinama"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
+msgstr "Ne traži od autora discipline tokom podnošenja prijave."
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
+msgstr "Zamolite autora da tokom podnošenja prijave navede discipline."
 
 msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
+msgstr "Zahtevajte od autora da pre prihvatanja podneska navede disciplinе."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
+"Agencije koje pružaju podršku mogu navesti izvor finansiranja istraživanja "
+"ili druge institucionalne podrške koja je omogućila sprovođenje istraživanja."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr ""
+msgstr "Omogući metapodatke o agencijama koje pružaju podršku"
 
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr ""
+"Ne traži od autora podatke o agencijama koje pružaju podršku tokom "
+"podnošenja prijave."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
+"Zamolite autora da tokom podnošenja prijave navede sve agencije koje pružaju "
+"podršku."
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
+"Zahtevajte od autora da pre prihvatanja podneska navede sve agencije koje "
+"pružaju podršku."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
+"Prikupljajte reference podneska u posebnom polju. Ovo može biti neophodno "
+"radi usklađivanja sa servisima za praćenje citata, kao što je Crossref."
 
 msgid "manager.setup.metadata.citations.enable"
-msgstr ""
+msgstr "Omogući metapodatke o referencama"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr ""
+msgstr "Ne traži od autora reference tokom podnošenja prijave."
 
 msgid "manager.setup.metadata.citations.request"
-msgstr ""
+msgstr "Zamolite autora da tokom podnošenja prijave navede reference."
 
 msgid "manager.setup.metadata.citations.require"
-msgstr ""
+msgstr "Zahtevajte od autora da pre prihvatanja podneska navede reference."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Kratka izjava koja opisuje da li su autor(i) učinili svoje istraživačke "
+"podatke dostupnim i, ako jesu, gde ih čitaoci mogu pristupiti."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Omogući metapodatke o dostupnosti podataka"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Ne traži od autora izjavu o dostupnosti podataka tokom podnošenja prijave."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Zamolite autora da tokom podnošenja prijave dostavi izjavu o dostupnosti "
+"podataka."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Zahtevajte od autora da pre prihvatanja podneska dostavi izjavu o "
+"dostupnosti podataka."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Greške pri potvrđivanju"

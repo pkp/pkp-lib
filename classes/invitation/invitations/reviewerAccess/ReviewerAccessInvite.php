@@ -101,13 +101,18 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
 
     public function finalize(): void
     {
+        $this->invitationModel->markAs(InvitationStatus::ACCEPTED);
+    }
+
+    public function handleAccess(): void
+    {
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($this->invitationModel->contextId);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
             $this->_validateAccessKey();
-
-            $this->invitationModel->markAs(InvitationStatus::ACCEPTED);
+        } else {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
     }
 

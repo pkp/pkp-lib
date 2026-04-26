@@ -271,6 +271,11 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         ]);
         Repo::eventLog()->add($eventLog);
 
+        $accessInvitation = Repo::reviewAssignment()->getAccessInvitation($reviewAssignment);
+        if ($accessInvitation) {
+            $accessInvitation->finalize();
+        }
+
         parent::execute(...$functionParams);
     }
 

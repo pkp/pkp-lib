@@ -201,7 +201,7 @@ class PKPSessionGuard extends SessionGuard
         $cookie = new Cookie(
             name: $session->getName(),
             value: $session->getId(),
-            expire: $this->getCookieExpirationDate($config),
+            expire: static::getCookieExpirationDate($config),
             path: $config['path'],
             domain: $config['domain'],
             secure: $config['secure'] ?? false,
@@ -222,6 +222,13 @@ class PKPSessionGuard extends SessionGuard
 
         // update response header cookie values in formar [name=value]
         $response->headers->set('cookie', $headerCookies);
+
+        // Emit XSRF-TOKEN cookie so cross-tab clients see the rotated token.
+        // Pairs with EmitCsrfCookie middleware (API responses) — together they
+        // cover all rotation paths: this hook fires for page/component-route
+        // rotations (login, logout, signInAs, signOutAs); the middleware fires
+        // for API-route rotations and routine refresh.
+        $response->headers->setCookie(static::buildXsrfTokenCookie($session->token(), $config));
 
         if ($config['cookie_encryption']) {
             $pkpEncryptCookies = app()->make(\PKP\middleware\PKPEncryptCookies::class); /** @var \PKP\middleware\PKPEncryptCookies $pkpEncryptCookies */
@@ -293,12 +300,34 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
-     * Get the cookie lifetime in seconds.
+     * Compute the cookie expiry value from the session config.
      */
-    protected function getCookieExpirationDate(array $config): DateTimeInterface|int
+    public static function getCookieExpirationDate(array $config): DateTimeInterface|int
     {
         return $config['expire_on_close'] ? 0 : Date::instance(
             Carbon::now()->addRealMinutes($config['lifetime'])
+        );
+    }
+
+    /**
+     * Build the XSRF-TOKEN cookie that exposes the current session's CSRF
+     * token to first-party JS (read by pkp.getCsrfToken() on the client).
+     *
+     * httpOnly is intentionally false — first-party JS must be able to read
+     * the value.
+     */
+    public static function buildXsrfTokenCookie(string $token, array $config): Cookie
+    {
+        return new Cookie(
+            name: 'XSRF-TOKEN',
+            value: $token,
+            expire: static::getCookieExpirationDate($config),
+            path: $config['path'] ?? '/',
+            domain: $config['domain'] ?? null,
+            secure: $config['secure'] ?? false,
+            httpOnly: false,
+            raw: false,
+            sameSite: $config['same_site'] ?? null
         );
     }
 }

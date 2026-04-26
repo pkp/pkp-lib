@@ -26,7 +26,7 @@ class PKPEncryptCookies extends \Illuminate\Cookie\Middleware\EncryptCookies
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'XSRF-TOKEN',
     ];
 
     /**

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-23 21:31+0000\n"
+"PO-Revision-Date: 2026-04-26 21:16+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -1785,9 +1785,11 @@ msgstr "Drugo"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
+"<p>Ova datoteka biblioteke može biti dostupna za preuzimanje, ako je "
+"omogućen „Javni pristup“, na: <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr ""
+msgstr "Izaberite datoteke biblioteke za prilaganje"
 
 msgid "grid.action.addGenre"
 msgstr "Dodaj komponentu"
@@ -1802,43 +1804,60 @@ msgid "grid.action.restoreGenres"
 msgstr "Vrati komponente na osnovna podešavanja"
 
 msgid "manager.setup.genres.label"
-msgstr ""
+msgstr "Tip fajla"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
+"Ovo su zavisne datoteke, kao što su slike koje prikazuje HTML datoteka, i "
+"neće biti prikazane uz objavljeni sadržaj."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
+"Ovo su dopunske datoteke, kao što su skupovi podataka i istraživački "
+"materijali, i biće prikazane odvojeno od glavnih datoteka publikacije."
 
 msgid "manager.setup.genres.key"
-msgstr ""
+msgstr "Ključ"
 
 msgid "manager.setup.genres.key.description"
-msgstr ""
+msgstr "Opcioni kratki simbolički identifikator za ovaj žanr."
 
 msgid "manager.setup.genres.key.exists"
-msgstr ""
+msgstr "Ključ već postoji."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
+"Ključ može sadržati samo alfanumeričke znakove, donje crte i crtice, i mora "
+"počinjati i završavati alfanumeričkim znakom."
 
 msgid "manager.setup.genres.metatadata"
-msgstr ""
+msgstr "Metapodaci datoteke"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
+"Izaberite tip metapodataka koji ove datoteke mogu imati. „Dokument“ treba "
+"izabrati za glavne datoteke publikacije, kao što je PDF za preuzimanje, kako "
+"bi ove datoteke nasledile svoje metapodatke iz publikacije. U suprotnom, za "
+"većinu tipova datoteka izaberite „Dopunski sadržaj“. „Ilustracija“ je "
+"odgovarajuća za datoteke koje zahtevaju zasebne podatke o zaslugama, natpisu "
+"i licenci."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Obavezno uz podneske"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Da li bi najmanje jedna od ovih datoteka trebalo da bude obavezna uz svaki "
+"novi podnesak? Ako izaberete „da“, autori neće moći da pošalju podnesak dok "
+"ne učitaju najmanje jednu datoteku ovog tipa."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Da, zahtevaj da autori prilikom podnošenja učitaju jednu ili više ovih "
+"datoteka."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Ne, dozvoli nove podneske bez ovih datoteka."
 
 msgid "manager.settings.wizard"
 msgstr "Čarobnjak podešavanja"
@@ -1979,7 +1998,7 @@ msgid "manager.reviewFormElements.question"
 msgstr "Element"
 
 msgid "manager.reviewFormElements.description"
-msgstr ""
+msgstr "Opis"
 
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Рadio dugmići (možete odabrati samo jedan odgovor)"
@@ -2015,64 +2034,80 @@ msgid "manager.setup.metadata.submission"
 msgstr "Forma za prijavu"
 
 msgid "manager.setup.metadata.coverage"
-msgstr ""
+msgstr "Obuhvat"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
+"Obuhvat obično označava prostornu lokaciju dela (naziv mesta ili geografske "
+"koordinate), vremenski period (oznaku perioda, datum ili opseg datuma) ili "
+"jurisdikciju (npr. naziv administrativne jedinice)."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr ""
+msgstr "Omogući metapodatke o obuhvatu"
 
 msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
+msgstr "Ne traži metapodatke o obuhvatu od autora tokom podnošenja."
 
 msgid "manager.setup.metadata.coverage.request"
-msgstr ""
+msgstr "Zamolite autora da tokom podnošenja predloži metapodatke o obuhvatu."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
+"Zahtevajte od autora da pre prihvatanja njihovog podneska predloži "
+"metapodatke o obuhvatu."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
+"Ključne reči su obično fraze od jedne do tri reči koje se koriste za "
+"označavanje glavnih tema podneska."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr ""
+msgstr "Omogući metapodatke o ključnim rečima"
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
+msgstr "Ne traži ključne reči od autora tokom podnošenja."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr ""
+msgstr "Zamolite autora da tokom podnošenja predloži ključne reči."
 
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
+"Zahtevajte od autora da pre prihvatanja njihovog podneska predloži ključne "
+"reči."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
+"Bilo koja prava nad podneskom, što može uključivati prava intelektualne "
+"svojine (IPR), autorska prava i različita vlasnička prava."
 
 msgid "manager.setup.metadata.rights.enable"
-msgstr ""
+msgstr "Omogući metapodatke o pravima"
 
 msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
+msgstr "Ne traži od autora izjavu o pravima tokom podnošenja."
 
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
+"Zamolite autora da tokom podnošenja navede sva prethodna prava pristupa."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
+"Zahtevajte od autora da pre prihvatanja podneska otkrije sva prethodna prava "
+"pristupa."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
+"Izvor može biti identifikator, kao što je DOI, drugog dela ili resursa iz "
+"kojeg je podnesak izveden."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr ""
+msgstr "Omogući metapodatke o izvoru"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
+msgstr "Ne traži URL izvora od autora tokom podnošenja prijave."
 
 msgid "manager.setup.metadata.source.request"
-msgstr ""
+msgstr "Zamolite autora da tokom podnošenja prijave dostavi URL izvora."
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
@@ -3535,3 +3570,6 @@ msgstr "Uključi u listu u zaglavlju (masthead) uloge"
 
 msgid "settings.roles.permitSettings"
 msgstr "Dozvoli izmene podešavanja"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Definišite redosled uredničkih uloga u mastheadu za javni prikaz."

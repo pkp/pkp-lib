@@ -49,6 +49,34 @@ function uniqueTag() {
 }
 
 /**
+ * Click a Languages-grid checkbox and wait for the legacy AJAX
+ * `save-language-setting` round-trip to complete. We avoid asserting
+ * on the "Locale settings saved." toast because PKPNotificationManager
+ * persists trivial notifications to the database keyed by user id; two
+ * parallel tests running as the same baseline manager (dbarnes) share
+ * that row pool. Whichever browser polls /notification/fetchNotification
+ * first drains both notifications, so the slower test sees zero (toast
+ * never appears) and the faster test sees two (strict-mode locator
+ * resolves to multiple elements). Waiting on the network response is
+ * deterministic and immune to that cross-talk.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {import('@playwright/test').Locator} checkbox
+ * @param {string} expectedSetting  e.g. 'supportedLocales' / 'supportedFormLocales'
+ */
+async function toggleLanguageGridCheckbox(page, checkbox, expectedSetting) {
+	const saved = page.waitForResponse(
+		(res) =>
+			res.url().includes('save-language-setting') &&
+			res.url().includes(`setting=${expectedSetting}`) &&
+			res.status() === 200,
+		{timeout: 15_000},
+	);
+	await checkbox.click();
+	await saved;
+}
+
+/**
  * Open the Website settings page and navigate to Setup -> Languages.
  * The page is a Vue tab shell; Setup is a top-level tab whose panel
  * embeds the Languages sub-tab.
@@ -92,15 +120,15 @@ test.describe('Multilingual', () => {
 				await expect(uiLocale).toBeChecked();
 
 				// Uncheck — the legacy grid binds a click handler that
-				// POSTs to saveLanguageSetting over AJAX and surfaces a
-				// "Locale settings saved." toast. Use .click() (not
-				// .uncheck(), which asserts an immediate DOM-level state
-				// flip the handler doesn't deliver) and wait for the
-				// toast + the row re-render to unchecked.
-				await uiLocale.click();
-				await expect(
-					page.getByText('Locale settings saved.'),
-				).toBeVisible();
+				// POSTs to saveLanguageSetting over AJAX. Use .click()
+				// (not .uncheck(), which asserts an immediate DOM-level
+				// state flip the handler doesn't deliver) and wait for
+				// the network response + the row re-render to unchecked.
+				await toggleLanguageGridCheckbox(
+					page,
+					uiLocale,
+					'supportedLocales',
+				);
 				await expect(
 					page.locator('input[id^="select-cell-fr_CA-uiLocale"]'),
 				).not.toBeChecked();
@@ -112,12 +140,11 @@ test.describe('Multilingual', () => {
 				).not.toBeChecked();
 
 				// Re-enable and round-trip again.
-				await page
-					.locator('input[id^="select-cell-fr_CA-uiLocale"]')
-					.click();
-				await expect(
-					page.getByText('Locale settings saved.'),
-				).toBeVisible();
+				await toggleLanguageGridCheckbox(
+					page,
+					page.locator('input[id^="select-cell-fr_CA-uiLocale"]'),
+					'supportedLocales',
+				);
 				await expect(
 					page.locator('input[id^="select-cell-fr_CA-uiLocale"]'),
 				).toBeChecked();
@@ -154,16 +181,15 @@ test.describe('Multilingual', () => {
 				// form locale (used by multilingual form fields) stays
 				// on by default, so the masthead form's French tab must
 				// remain available. The legacy grid's click handler
-				// POSTs saveLanguageSetting; we wait on the toast +
-				// post-re-render state, not uncheck()'s DOM-level
-				// assertion.
+				// POSTs saveLanguageSetting; we wait on the AJAX
+				// response + post-re-render state, not uncheck()'s
+				// DOM-level assertion.
 				await openLanguagesGrid(page, context.path);
-				await page
-					.locator('input[id^="select-cell-fr_CA-uiLocale"]')
-					.click();
-				await expect(
-					page.getByText('Locale settings saved.'),
-				).toBeVisible();
+				await toggleLanguageGridCheckbox(
+					page,
+					page.locator('input[id^="select-cell-fr_CA-uiLocale"]'),
+					'supportedLocales',
+				);
 				await expect(
 					page.locator('input[id^="select-cell-fr_CA-uiLocale"]'),
 				).not.toBeChecked();

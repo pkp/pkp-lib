@@ -71,8 +71,18 @@ exports.ensureAuthStateFor = async function ensureAuthStateFor(
 		// the form at /login/signIn, which still contains "login" in the
 		// path — a loose "doesn't end with /login" check would pass for
 		// failed logins and silently save an unauthenticated session.
+		//
+		// waitUntil:'commit' fires as soon as the post-login navigation's
+		// response headers arrive — we only need the URL change, not a
+		// fully-loaded dashboard. Under parallel load the dashboard's
+		// long resource fan-out (FBV controllers, jQuery plugins, the
+		// reviewer-assignments XHR) can exceed the default 'load'
+		// signal's 10s budget, even though the URL itself is correct
+		// within hundreds of ms. Decoupling these stops auth.js from
+		// flaking when one PHP-CLI worker is busy serving another spec.
 		await page.waitForURL((url) => !url.pathname.includes('/login'), {
-			timeout: 10_000,
+			timeout: 15_000,
+			waitUntil: 'commit',
 		});
 		await context.storageState({path: authPath});
 	} finally {

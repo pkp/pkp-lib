@@ -10,12 +10,10 @@
  * @class SubmissionBuilderProcessor
  *
  * @brief Creates the submission + its first (bare) publication, creates
- *        the submitter's Author row, and assigns the submitter to
- *        submission stage as an author.
- *
- * Leaves the publication deliberately bare — PublicationsProcessor fills
- * in metadata / attributes / publish on the second pass so the concerns
- * stay separate.
+ *        the submitter's Author row, assigns the submitter to submission
+ *        stage as an author, and attaches a default Article Text file —
+ *        mirroring the field-shape produced by SubmissionFilesUploadForm
+ *        on a real wizard upload.
  *
  * Mirrors the happy-path shape of PKPSubmissionController::add, minus
  * auth/validation/user-group-disambiguation (not relevant in a
@@ -28,13 +26,17 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\author\contributorRole\ContributorType;
 use PKP\core\Core;
+use PKP\submissionFile\SubmissionFile;
+use PKP\testing\scenario\GenreLookup;
 use PKP\testing\scenario\ScenarioContext;
 use PKP\testing\scenario\ScenarioProcessor;
 use PKP\testing\scenario\UserGroupLookup;
-use PKP\userGroup\UserGroup;
 
 class SubmissionBuilderProcessor implements ScenarioProcessor
 {
+    /** Path of the bundled default Article Text PDF, relative to the OJS root. */
+    private const DEFAULT_ARTICLE_FIXTURE = 'lib/pkp/playwright/fixtures/files/default-article.pdf';
+
     public function appliesTo(array $spec): bool
     {
         // Always runs — a submission scenario isn't a submission without a submission.
@@ -90,9 +92,88 @@ class SubmissionBuilderProcessor implements ScenarioProcessor
         $freshPublication = Repo::publication()->get($publicationId);
         Repo::publication()->edit($freshPublication, ['primaryContactId' => $authorId]);
 
+        // Attach the default Article Text file. Mirrors
+        // SubmissionFilesUploadForm::execute() field-for-field — copy the
+        // bundled fixture into the canonical files-dir layout via the
+        // 'file' service, then build the SubmissionFile data object with
+        // the same fields the form sets and call
+        // Repo::submissionFile()->add($submissionFile).
+        $this->attachDefaultArticleFile($submission, $context, $submitter);
+
         $ctx->recordSubmission($submissionId, $publicationId, $context->getId());
 
         return [];
+    }
+
+    /**
+     * Copy the bundled default-article.pdf into the submission's files-dir
+     * tree and create the matching SubmissionFile + files row. Mirrors
+     * SubmissionFilesUploadForm::execute() field-for-field for the
+     * "new submission file" branch (no revisedFileId, no review-round
+     * association).
+     */
+    private function attachDefaultArticleFile(
+        \APP\submission\Submission $submission,
+        \PKP\context\Context $context,
+        \PKP\user\User $submitter
+    ): void {
+        $fixturePath = $this->resolveFixturePath();
+        $genre = GenreLookup::genreForKey($context->getId(), 'ARTICLE');
+
+        // Files-dir layout: {context-dir}/{contextId}/{submission-dir}/{submissionId}.
+        // Same call SubmissionFilesUploadForm uses; the leading slash on
+        // each dir is stripped by getSubmissionDir().
+        $submissionDir = Repo::submissionFile()->getSubmissionDir(
+            $context->getId(),
+            $submission->getId()
+        );
+        $extension = 'pdf';
+        $relativePath = $submissionDir . '/' . uniqid() . '.' . $extension;
+
+        // app('file')->add streams the source file into Flysystem at
+        // $relativePath, returns the new files.file_id.
+        $fileId = app()->get('file')->add($fixturePath, $relativePath);
+
+        // Build the SubmissionFile data object with the same field set
+        // SubmissionFilesUploadForm::execute() populates on a fresh upload
+        // (lines 215-228). assocType / assocId stay null for stage-1 files.
+        $submissionFile = Repo::submissionFile()->dao->newDataObject();
+        $submissionFile->setData('fileId', $fileId);
+        $submissionFile->setData('fileStage', SubmissionFile::SUBMISSION_FILE_SUBMISSION);
+        $submissionFile->setData(
+            'name',
+            'default-article.pdf',
+            $submission->getData('locale')
+        );
+        $submissionFile->setData('submissionId', $submission->getId());
+        $submissionFile->setData('uploaderUserId', $submitter->getId());
+        $submissionFile->setData('assocType', null);
+        $submissionFile->setData('assocId', null);
+        $submissionFile->setData('genreId', (int)$genre->getId());
+
+        Repo::submissionFile()->add($submissionFile);
+    }
+
+    /**
+     * Locate the bundled default-article.pdf fixture. The OJS root is two
+     * directories up from this file (lib/pkp/classes/testing/scenario/Processor)
+     * — actually four. Resolve via INDEX_FILE_LOCATION when available
+     * (set by index.php), else fall back to walking up from __DIR__.
+     */
+    private function resolveFixturePath(): string
+    {
+        $base = defined('INDEX_FILE_LOCATION')
+            ? dirname(INDEX_FILE_LOCATION)
+            : dirname(__DIR__, 6);
+
+        $path = $base . '/' . self::DEFAULT_ARTICLE_FIXTURE;
+        if (!is_readable($path)) {
+            throw new \RuntimeException(
+                "Default article fixture not readable at {$path}. "
+                . "Was the scenario endpoint run from outside an OJS install?"
+            );
+        }
+        return $path;
     }
 
     /**

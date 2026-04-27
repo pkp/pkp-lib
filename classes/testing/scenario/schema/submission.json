@@ -10,6 +10,8 @@
         "submitter": { "type": "string", "minLength": 1 },
         "section": { "type": "string", "minLength": 1 },
         "locale": { "type": "string" },
+        "submitted": { "type": "boolean" },
+        "commentsForEditor": { "type": "string" },
 
         "participants": {
             "type": "array",

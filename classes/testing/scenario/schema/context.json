@@ -25,6 +25,7 @@
         "onlineIssn": { "type": "string" },
         "printIssn": { "type": "string" },
         "enablePublicComments": { "type": "boolean" },
+        "publishingMode": { "type": "integer" },
         "plugins": {
             "type": "object",
             "additionalProperties": {

@@ -32,7 +32,7 @@ class IssueProcessor
     {
         $results = [];
         foreach ($issueSpecs as $spec) {
-            $issue = Repo::issue()->newDataObject([
+            $data = [
                 'journalId' => $contextId,
                 'volume' => $spec['volume'] ?? null,
                 'number' => $spec['number'] ?? null,
@@ -44,7 +44,16 @@ class IssueProcessor
                 'showNumber' => $spec['showNumber'] ?? 1,
                 'showYear' => $spec['showYear'] ?? 1,
                 'showTitle' => $spec['showTitle'] ?? 0,
-            ]);
+            ];
+            // Optional: per-issue access status (subscription-based access
+            // tests need to flag the issue as Subscription explicitly so
+            // IssueAction::subscriptionRequired returns true even if the
+            // surrounding journal is in subscription mode). Issue::ISSUE_ACCESS_OPEN=1,
+            // ISSUE_ACCESS_SUBSCRIPTION=2.
+            if (isset($spec['accessStatus'])) {
+                $data['accessStatus'] = $spec['accessStatus'];
+            }
+            $issue = Repo::issue()->newDataObject($data);
             $issueId = Repo::issue()->add($issue);
 
             if (!empty($spec['published'])) {

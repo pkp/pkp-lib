@@ -15,6 +15,16 @@
  *        mirroring the field-shape produced by SubmissionFilesUploadForm
  *        on a real wizard upload.
  *
+ * Optional spec fields handled here:
+ *   - commentsForEditor: copied to the submission's commentsForTheEditors
+ *     setting (the field key the wizard's "For the Editors" step writes).
+ *   - submitted: when true (default-true if the spec has decisions or
+ *     reviewRounds), Repo::submission()->submit() is invoked to mirror
+ *     the wizard's final Submit click — this fires SubmissionSubmitted
+ *     and converts a present commentsForTheEditors value into a Stage 1
+ *     "Comments for the Editor" discussion via
+ *     Repo::editorialTask()->addCommentsForEditorsQuery().
+ *
  * Mirrors the happy-path shape of PKPSubmissionController::add, minus
  * auth/validation/user-group-disambiguation (not relevant in a
  * test-gated endpoint).
@@ -99,6 +109,33 @@ class SubmissionBuilderProcessor implements ScenarioProcessor
         // the same fields the form sets and call
         // Repo::submissionFile()->add($submissionFile).
         $this->attachDefaultArticleFile($submission, $context, $submitter);
+
+        // commentsForEditor (spec key) → commentsForTheEditors (submission
+        // setting key). The setting is what Repo::submission()->submit()
+        // reads to decide whether to create the Stage 1 cover-note query.
+        if (!empty($spec['commentsForEditor'])) {
+            Repo::submission()->edit($submission, [
+                'commentsForTheEditors' => $spec['commentsForEditor'],
+            ]);
+            // Refresh in-memory copy so the submit() call below sees the
+            // setting on the submission it operates on.
+            $submission = Repo::submission()->get($submissionId);
+        }
+
+        // submit() converts a wizard-in-progress submission into a
+        // submitted one: clears submissionProgress, fires
+        // SubmissionSubmitted, and creates the cover-note discussion when
+        // commentsForTheEditors is set. Default-true ONLY when the
+        // scenario implies post-wizard editorial action (decisions or
+        // reviewRounds present) so existing draft-style fixtures don't
+        // shift shape. Tests that need a draft with decisions can opt
+        // out via `submitted: false`.
+        $shouldSubmit = $spec['submitted']
+            ?? (!empty($spec['decisions']) || !empty($spec['reviewRounds']));
+
+        if ($shouldSubmit) {
+            Repo::submission()->submit($submission, $context);
+        }
 
         $ctx->recordSubmission($submissionId, $publicationId, $context->getId());
 

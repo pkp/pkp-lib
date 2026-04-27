@@ -211,6 +211,26 @@ exports.baselineUsers = [
 		journal: 'publicknowledge',
 		roles: ['proofreader'],
 	},
+	{
+		// Non-privileged author user — exists so specs that need to exercise
+		// the author-side permission gate (Repo::submission()->canEditPublication
+		// for an AUTHOR-only stage assignment) have a functional login. The
+		// other publicknowledge users either bypass the gate via a manager/
+		// editor role (NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES) or have
+		// mustChangePassword=true so login redirects to the password-change
+		// form before reaching any workflow page. atester is the answer:
+		// author-only, password derives to 'atesteratester' via getPassword,
+		// no mustChangePassword. See author-edit-published.spec.js (row #43).
+		username: 'atester',
+		givenName: 'Author',
+		familyName: 'Tester',
+		email: 'atester@mailinator.com',
+		country: 'CA',
+		affiliation: 'Test Affiliation',
+		journal: 'publicknowledge',
+		roles: ['author'],
+		mustChangePassword: false,
+	},
 ];
 
 /**

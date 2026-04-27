@@ -1,4 +1,5 @@
 // @ts-check
+const path = require('path');
 const {test, expect} = require('../../../../playwright/support/fixtures.js');
 const {EditorialWorkflowPage} = require('../../../../playwright/pages/EditorialWorkflowPage.js');
 const submissionInReview = require('../../../../playwright/fixtures/scenarios/submission-in-review.js');
@@ -14,14 +15,10 @@ const submissionInReview = require('../../../../playwright/fixtures/scenarios/su
  *   - File uploads — Step 2 of the scenario-extensions plan attaches a
  *     default Article Text file to every seeded submission, so the
  *     review stage already has a file the editor can act on. The author
- *     side's revision-upload UI is the FileManager's legacy upload
- *     wizard (same affordance as galleys.spec.js drives via setInputFiles
- *     on an opacity-0 plupload input); we exercise the wizard's *gate*
- *     here (the "Upload revisions" button surfaces only after the
- *     review round flips to REVISIONS_REQUESTED) but defer the iframe-
- *     style file-pick — exercising the upload pipeline end-to-end is
- *     the dedicated job of galleys.spec.js, and adding a second copy
- *     here would duplicate that coverage.
+ *     side's revision-upload UI is the FileManager's legacy plupload
+ *     wizard (same affordance as galleys.spec.js drives via
+ *     setInputFiles on an opacity-0 plupload input); we drive the
+ *     wizard end-to-end here so the row covers the full author flow.
  *   - Email tokens — superseded by direct user logins. The author
  *     (`atester`, baseline P0 author user) just logs in.
  *
@@ -35,12 +32,16 @@ const submissionInReview = require('../../../../playwright/fixtures/scenarios/su
  *     and the review round status flips to
  *     REVIEW_ROUND_STATUS_REVISIONS_REQUESTED — that's the gate that
  *     surfaces the author-side "Upload revisions" button.
- *   - Author (atester) loads /dashboard/mySubmissions for the submission
- *     and sees the "Upload revisions" button in the review-stage panel,
- *     which proves the canEditFile gate flipped + the FileManager's
- *     getActionItems for SUBMISSION_FILE_REVIEW_REVISION fires (see
- *     workflowConfigAuthorOJS.js#217-244). Driving the upload wizard
- *     itself is deferred — see header comment.
+ *   - Author (atester) loads /dashboard/mySubmissions for the submission,
+ *     clicks "Upload revisions" to open the legacy fbv plupload wizard
+ *     (FileUploadWizardHandler), uploads the bundled
+ *     default-article.pdf via setInputFiles, walks Continue / Continue /
+ *     Complete (id=continueButton on every step per row #51 finding),
+ *     and the new file lands as a SUBMISSION_FILE_REVIEW_REVISION (15)
+ *     entry on the submission's files endpoint. That's the gate that
+ *     proves canEditFile + the FileManager's plupload pipeline are
+ *     wired all the way through the author's workflow — the legacy
+ *     framework's last sticky surface for the author role.
  *
  * Lives in lib/pkp because the decision flow + the decision-record
  * shape ship identically across OJS/OMP/OPS. Reuses the OJS
@@ -149,21 +150,91 @@ test.describe('Decision — request revisions', () => {
 		// REVISIONS_REQUESTED state, getActionItems pushes an
 		// "Upload revisions" WorkflowActionButton (workflow.uploadRevisions
 		// → "Upload revisions" — see workflowConfigAuthorOJS.js#229-242).
-		// The button only appears once the gate flips, so its mere
-		// presence is the single load-bearing assertion the row needs.
-		await expect(
-			authorPage
-				.getByRole('button', {name: 'Upload revisions', exact: true})
-				.first(),
-		).toBeVisible({timeout: 15_000});
+		const uploadButton = authorPage
+			.getByRole('button', {name: 'Upload revisions', exact: true})
+			.first();
+		await expect(uploadButton).toBeVisible({timeout: 15_000});
+
+		// --- Author drives the legacy plupload wizard --------------------
+		// The button opens FileUploadWizardHandler in a stacked modal —
+		// `useFileManagerActions.fileUpload` calls `openLegacyModal` with
+		// title `editor.submissionReview.uploadFile` ("Upload Review File").
+		// The wizard ships three fbv steps (Upload File → Review Details →
+		// Confirm); each step's primary advance button reuses
+		// `id=continueButton`, with the label flipping to "Complete" on
+		// the last step. Same pattern galleys.spec.js exercises against
+		// FileUploadWizardHandler from the editor side.
+		await uploadButton.click();
+		const wizard = authorPage
+			.getByRole('dialog', {name: 'Upload Review File'})
+			.first();
+		await expect(wizard).toBeVisible({timeout: 10_000});
+
+		// Step 1 — pick the genre (Article Text), then upload via the
+		// opacity-0 plupload <input type=file>. The "Change File"
+		// affordance only appears once the upload settles; wait for it
+		// before clicking Continue, otherwise the form posts with no file.
+		await wizard
+			.locator('select[name=genreId]')
+			.selectOption({label: 'Article Text'});
+		await wizard
+			.locator('input[type=file]')
+			.setInputFiles(revisionFixturePath());
+		await expect(wizard.getByText('Change File')).toBeVisible({
+			timeout: 15_000,
+		});
+		await wizard.locator('button#continueButton').click();
+
+		// Step 2 — Review Details. Name pre-filled from the filename
+		// (default-article.pdf); just click Continue.
+		await expect(wizard.getByText(/Name the file/i)).toBeVisible({
+			timeout: 10_000,
+		});
+		await wizard.locator('button#continueButton').click();
+
+		// Step 3 — Confirm. Same id, label is now "Complete".
+		await expect(wizard.getByText(/File Added/i)).toBeVisible({
+			timeout: 10_000,
+		});
+		await wizard.locator('button#continueButton').click();
+
+		await expect(wizard).toBeHidden({timeout: 15_000});
+
+		// REST: the new file lands as SUBMISSION_FILE_REVIEW_REVISION (15).
+		// The author session has access to its own revision files via the
+		// submissions/:id/files endpoint scoped by fileStages[].
+		const filesRes = await authorPage.request.get(
+			`/index.php/publicknowledge/api/v1/submissions/${submission.id}/files?fileStages[]=15`,
+		);
+		expect(filesRes.ok(), `GET files: ${filesRes.status()}`).toBe(true);
+		const filesBody = await filesRes.json();
+		const fileItems = filesBody.items || filesBody;
+		expect(fileItems.length).toBeGreaterThan(0);
+		expect(
+			fileItems.every(
+				(f) =>
+					f.fileStage === pkpConst.SUBMISSION_FILE_REVIEW_REVISION,
+			),
+		).toBe(true);
 	});
 });
 
+/**
+ * Resolve the bundled default-article.pdf fixture. Re-uses the same PDF
+ * the scenario-default-file flow uploads + galleys.spec.js exercises so
+ * we don't grow another fixture for a smoke-style assertion.
+ */
+function revisionFixturePath() {
+	return path.resolve(__dirname, '..', 'fixtures', 'files', 'default-article.pdf');
+}
+
 // Decision constants — match lib/pkp/classes/decision/Decision.php +
-// classes/submission/reviewRound/ReviewRound.php.
+// classes/submission/reviewRound/ReviewRound.php +
+// classes/submissionFile/SubmissionFile.php.
 const pkpConst = {
 	DECISION_PENDING_REVISIONS: 4,
 	REVIEW_ROUND_STATUS_REVISIONS_REQUESTED: 1,
+	SUBMISSION_FILE_REVIEW_REVISION: 15,
 };
 
 /**

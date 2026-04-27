@@ -313,8 +313,10 @@ class PKPSessionGuard extends SessionGuard
      * Build the XSRF-TOKEN cookie that exposes the current session's CSRF
      * token to first-party JS (read by pkp.getCsrfToken() on the client).
      *
-     * httpOnly is intentionally false — first-party JS must be able to read
-     * the value.
+     * The cookie is intentionally emitted plaintext regardless of
+     * cookie_encryption — see PKPEncryptCookies::$except for the rationale.
+     * httpOnly is intentionally false: first-party JS must read this value
+     * to populate the X-Csrf-Token request header.
      */
     public static function buildXsrfTokenCookie(string $token, array $config): Cookie
     {

@@ -23,6 +23,12 @@ class PKPEncryptCookies extends \Illuminate\Cookie\Middleware\EncryptCookies
     /**
      * The names of the cookies that should not be encrypted.
      *
+     * XSRF-TOKEN is plaintext by design: first-party JS must read it to
+     * populate the X-Csrf-Token header, and the same token is already
+     * rendered plaintext in the <meta name="csrf-token"> tag. Encrypting
+     * only the cookie buys no security but couples client and server to
+     * the encryption envelope format.
+     *
      * @var array<int, string>
      */
     protected $except = [

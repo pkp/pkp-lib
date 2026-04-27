@@ -2,6 +2,7 @@
 const base = require('@playwright/test');
 const {createApiClient} = require('./api.js');
 const {createScenarioClient} = require('./scenarios.js');
+const {createMailClient} = require('./mail.js');
 const {ensureAuthStateFor} = require('./auth.js');
 
 /**
@@ -11,6 +12,12 @@ const {ensureAuthStateFor} = require('./auth.js');
  *
  * Fixtures provided:
  *   pkpApi       — cross-app HTTP client (login, CSRF, context endpoints)
+ *   pkpMail      — Mailpit HTTP API wrapper. Tests that assert on mail
+ *                  sent during normal app requests destructure this
+ *                  fixture and call `clearAll()` / `inboxFor(email)` /
+ *                  `fullMessage(id)`. Scenario-seeding mail does NOT
+ *                  reach Mailpit — Mail::fake() in the scenario
+ *                  controllers discards it.
  *   scenarios    — SEAM for the forthcoming OJS test-scenario API; stub
  *                  today, one-file wire-up when the backend endpoints land.
  *   user         — option fixture; specs declare `test.use({user: 'dbarnes'})`.
@@ -45,6 +52,9 @@ exports.test = base.test.extend({
 
 	pkpApi: async ({request, baseURL}, use) => {
 		await use(createApiClient({request, baseURL}));
+	},
+	pkpMail: async ({request}, use) => {
+		await use(createMailClient({request}));
 	},
 	scenarios: async ({request, baseURL}, use) => {
 		await use(createScenarioClient({request, baseURL}));

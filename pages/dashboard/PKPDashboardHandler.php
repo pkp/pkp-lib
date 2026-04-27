@@ -47,6 +47,7 @@ use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submissionFile\enums\MediaVariantType;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -332,6 +333,10 @@ abstract class PKPDashboardHandler extends Handler
             'GENRE_CATEGORY_DOCUMENT ' => Genre::GENRE_CATEGORY_DOCUMENT,
             'GENRE_CATEGORY_ARTWORK' => Genre::GENRE_CATEGORY_ARTWORK,
             'GENRE_CATEGORY_SUPPLEMENTARY' => Genre::GENRE_CATEGORY_SUPPLEMENTARY,
+
+            // Media variant types
+            'MEDIA_VARIANT_TYPE_WEB' => MediaVariantType::WEB->value,
+            'MEDIA_VARIANT_TYPE_HIGH_RESOLUTION' => MediaVariantType::HIGH_RESOLUTION->value,
         ]);
 
         $this->setupIndex($request);

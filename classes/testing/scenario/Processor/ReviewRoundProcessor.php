@@ -60,7 +60,7 @@ class ReviewRoundProcessor
         $reviewerFragments = [];
 
         foreach ($roundSpec['reviewers'] ?? [] as $reviewerSpec) {
-            $fragment = $this->assignReviewer($reviewerSpec, $roundId, $submissionId, $contextId, $ctx);
+            $fragment = $this->assignReviewer($reviewerSpec, $roundId, $round, $submissionId, $contextId, $ctx);
             $reviewerFragments[] = $fragment;
         }
 
@@ -72,6 +72,7 @@ class ReviewRoundProcessor
     private function assignReviewer(
         array $reviewerSpec,
         int $roundId,
+        int $round,
         int $submissionId,
         int $contextId,
         ScenarioContext $ctx
@@ -88,7 +89,13 @@ class ReviewRoundProcessor
             'reviewRoundId' => $roundId,
             'stageId' => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
             'reviewMethod' => $method,
-            'round' => 1, // derived from round row below, but required on create
+            // Round number on the assignment must match the round it's
+            // attached to, otherwise updateReviewRoundStatus (called by
+            // Repo::reviewAssignment::add/edit) looks up the wrong round
+            // and overwrites its status — most visible in multi-round
+            // scenarios where round 1's REVISIONS_REQUESTED gets clobbered
+            // when round-2 reviewers are added.
+            'round' => $round,
             'dateAssigned' => $now,
             'dateNotified' => $now,
         ];

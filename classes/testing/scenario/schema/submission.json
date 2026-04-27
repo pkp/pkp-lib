@@ -13,6 +13,15 @@
         "submitted": { "type": "boolean" },
         "commentsForEditor": { "type": "string" },
 
+        "author": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "orcid": { "type": "string" },
+                "orcidIsVerified": { "type": "boolean" }
+            }
+        },
+
         "participants": {
             "type": "array",
             "items": {

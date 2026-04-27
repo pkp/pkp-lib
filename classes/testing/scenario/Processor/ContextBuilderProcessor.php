@@ -85,7 +85,7 @@ class ContextBuilderProcessor implements ScenarioProcessor
         // Categories field without flipping it through the settings UI
         // mid-test; DOI prefix + toggles to skip the multi-tab DOI
         // Distribution settings UI).
-        foreach (['submitWithCategories', 'enableDois', 'doiPrefix', 'doiVersioning', 'registrationAgency', 'onlineIssn', 'printIssn', 'enablePublicComments'] as $optionalScalar) {
+        foreach (['submitWithCategories', 'enableDois', 'doiPrefix', 'doiVersioning', 'registrationAgency', 'onlineIssn', 'printIssn', 'enablePublicComments', 'publishingMode'] as $optionalScalar) {
             if (array_key_exists($optionalScalar, $spec)) {
                 $data[$optionalScalar] = $spec[$optionalScalar];
             }

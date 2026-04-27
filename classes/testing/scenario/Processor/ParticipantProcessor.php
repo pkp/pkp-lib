@@ -46,6 +46,28 @@ class ParticipantProcessor implements ScenarioProcessor
                 $participantSpec['canChangeMetadata'] ?? null
             );
 
+            // Repo::stageAssignment()->build() is firstOr — when an existing
+            // row matches submission+userGroup+user it's returned as-is and
+            // any spec flags are silently dropped. The most common collision
+            // is the auto-author assignment SubmissionBuilderProcessor seeds
+            // for the submitter (default flags), where a later participant
+            // entry naming the same user as 'author' must win. Apply the
+            // spec's flags explicitly when they were specified and differ.
+            $flagUpdates = [];
+            if (array_key_exists('recommendOnly', $participantSpec)
+                && (bool)$stageAssignment->recommendOnly !== (bool)$participantSpec['recommendOnly']
+            ) {
+                $flagUpdates['recommendOnly'] = (bool)$participantSpec['recommendOnly'];
+            }
+            if (array_key_exists('canChangeMetadata', $participantSpec)
+                && (bool)$stageAssignment->canChangeMetadata !== (bool)$participantSpec['canChangeMetadata']
+            ) {
+                $flagUpdates['canChangeMetadata'] = (bool)$participantSpec['canChangeMetadata'];
+            }
+            if (!empty($flagUpdates)) {
+                $stageAssignment->update($flagUpdates);
+            }
+
             $ctx->recordParticipant(
                 $participantSpec['user'],
                 $participantSpec['role'],

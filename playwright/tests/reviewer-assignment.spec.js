@@ -125,22 +125,76 @@ test.describe('Reviewer assignment (UI)', () => {
 		await expect(anonymousRadio).toBeChecked();
 
 		// Due dates — the form pre-populates them from the journal's
-		// reviewResponseDueNumWeeks / reviewDueNumWeeks config. We just
-		// assert the values are non-empty (format is locale-dependent and
-		// not this test's concern). `name=` is stable across re-renders.
-		await expect(
-			reviewerForm.locator('input[name="responseDueDate"]'),
-		).not.toHaveValue('');
-		await expect(
-			reviewerForm.locator('input[name="reviewDueDate"]'),
-		).not.toHaveValue('');
+		// numWeeksPerResponse / numWeeksPerReview config. The bootstrap
+		// journal sets both to 4 so the response and review defaults
+		// land on the same day; legacy form-side validation ("Review
+		// due date must be greater or equal to response due date") then
+		// disables the submit. Push the review-due date out by a day to
+		// keep the pair strictly ordered, mirroring what an editor would
+		// do in the UI when the seeded defaults collide.
+		//
+		// The legacy jquery-ui datepicker setup wraps each date in two
+		// inputs: a visible one bound to the label, and a hidden
+		// `name="..."` alt-field carrying the canonical yy-mm-dd value
+		// the form posts back. Setting the visible input via fill()
+		// doesn't propagate to the alt-field — that's the datepicker's
+		// internal job. Drive it via $.datepicker.setDate so the alt
+		// input, the displayed input, and the form's onChange handlers
+		// (which gate the submit-button enable state) all observe the
+		// same single source of truth.
+		const responseDueHidden = reviewerForm.locator(
+			'input[name="responseDueDate"]',
+		);
+		const reviewDueHidden = reviewerForm.locator(
+			'input[name="reviewDueDate"]',
+		);
+		await expect(responseDueHidden).not.toHaveValue('');
+		await expect(reviewDueHidden).not.toHaveValue('');
+		const responseDueValue = await responseDueHidden.inputValue();
+		const reviewDueValue = await reviewDueHidden.inputValue();
+		if (responseDueValue === reviewDueValue) {
+			const bumped = new Date(responseDueValue);
+			bumped.setUTCDate(bumped.getUTCDate() + 1);
+			const bumpedIso = bumped.toISOString().slice(0, 10);
+			await page.evaluate((nextDate) => {
+				const altField = document.querySelector(
+					'input[name="reviewDueDate"]',
+				);
+				if (!altField) {
+					throw new Error('reviewDueDate alt-field not found');
+				}
+				// $.datepicker.setDate updates the display input, the alt
+				// field, and fires the onSelect callback the legacy form
+				// uses to re-evaluate validation. Hide the picker
+				// afterwards: the OJS legacy form binds focus →
+				// datepicker.show, and the modal stays focused on the
+				// input after setDate, so the dropdown latches open and
+				// blocks the submit button until dismissed.
+				const visibleId = altField.id.replace(/-altField$/, '');
+				const visible = document.getElementById(visibleId);
+				if (!visible) {
+					throw new Error(`reviewDueDate visible input ${visibleId} not found`);
+				}
+				const $ = window.jQuery || window.$;
+				$(visible).datepicker('setDate', nextDate);
+				$(visible).trigger('change');
+				$(visible).datepicker('hide');
+				visible.blur();
+			}, bumpedIso);
+			await expect(reviewDueHidden).toHaveValue(bumpedIso);
+		}
 
 		// Submit. The form's submit button is a legacy <button> whose
 		// label comes from `editor.submission.addReviewer`. Scope to the
 		// form so we don't collide with the modal title / outer opener.
-		await reviewerForm
-			.getByRole('button', {name: 'Add Reviewer', exact: true})
-			.click();
+		// Wait for the button to be enabled — the form's date-pair
+		// validator can briefly flip it off after a fill().
+		const submitButton = reviewerForm.getByRole('button', {
+			name: 'Add Reviewer',
+			exact: true,
+		});
+		await expect(submitButton).toBeEnabled({timeout: 5_000});
+		await submitButton.click();
 
 		// Wait for the modal to close and the reviewer-manager to re-render
 		// with the new row.

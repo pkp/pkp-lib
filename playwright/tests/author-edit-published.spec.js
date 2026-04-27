@@ -27,20 +27,15 @@ const submissionDraft = require('../../../../playwright/fixtures/scenarios/submi
  *     test 4 actually runs against. The deferred file's earlier note
  *     about "after the editor publishes" was inaccurate — Cypress test 6
  *     publishes only after these author-gate tests have already run.
- *   - Test 1 uses atester as the submitter, so SubmissionBuilder's
+ *   - Both tests use atester as the submitter, so SubmissionBuilder's
  *     auto-author StageAssignment lands with canChangeMetadata =
  *     UserGroup.permitMetadataEdit (false for the default Author group
- *     in registry/userGroups.xml) — exactly the disabled-Save default
- *     the Cypress test depends on.
- *   - Test 2 uses rvaca as the submitter and adds atester explicitly via
- *     `participants` with `canChangeMetadata: true`. Why a different
- *     submitter: SubmissionBuilder auto-creates an Author StageAssignment
- *     for the submitter with default flags, and the scenario
- *     ParticipantProcessor's `Repo::stageAssignment()->build()` is a
- *     `firstOr` — it returns an existing matching assignment without
- *     applying the spec's canChangeMetadata flag. Routing the submitter
- *     through rvaca lets atester's first stage assignment come from the
- *     spec, with canChangeMetadata=true preserved end-to-end.
+ *     in registry/userGroups.xml). Test 1 leaves that default in place
+ *     — exactly the disabled-Save case the Cypress test depends on.
+ *     Test 2 adds atester to `participants` with canChangeMetadata=true;
+ *     ParticipantProcessor now reconciles flags onto the auto-author
+ *     stage assignment (it used to silently drop the override on the
+ *     existing row), so the spec value wins end-to-end.
  *
  * Gate under test: Repo::submission()->canEditPublication is the single
  * source of truth used by the Vue workflow store
@@ -104,10 +99,11 @@ test.describe('Author edit-publication permission', () => {
 		const tag = uniqueTag(test.info(), 'cm-true');
 		const spec = submissionDraft({
 			tag,
-			// rvaca submits — see top-of-file note on the firstOr quirk.
-			submitter: 'rvaca',
-			// atester's Author stage assignment is created here, fresh,
-			// with the spec's canChangeMetadata=true preserved.
+			submitter: 'atester',
+			// atester's auto-author StageAssignment is created by
+			// SubmissionBuilder with the default canChangeMetadata=false;
+			// the participant entry below upgrades it to true. The
+			// reconciliation lives in ParticipantProcessor.
 			participants: [
 				{user: 'dbarnes', role: 'editor'},
 				{user: 'atester', role: 'author', canChangeMetadata: true},

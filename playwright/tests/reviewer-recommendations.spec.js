@@ -1,6 +1,7 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
 const {ensureAuthStateFor} = require('../support/auth.js');
+const submissionInReview = require('../../../../playwright/fixtures/scenarios/submission-in-review.js');
 
 /**
  * Reviewer-recommendation customisation — row #6 in
@@ -9,11 +10,14 @@ const {ensureAuthStateFor} = require('../support/auth.js');
  * Ports cypress/tests/integration/ReviewerRecommendation.cy.js.
  *
  * Covers config-only concerns (defaults render, CRUD custom, toggle
- * active). Skips the two tests that require an existing reviewer
- * assignment ("used recommendation can't be edited" and "inactive
- * recommendation not offered in review form") — those need a
- * submission in review which is a different scenario state; they'll
- * be covered by row #28 Reviewer completes review when E1/E2 land.
+ * active) plus the two scenarios that depend on a submission in review
+ * with the recommendation already in use:
+ *   - "Used recommendation can't be edited / deleted" — exercises the
+ *     `removable` attribute on ReviewerRecommendation, which gates the
+ *     row's More-Actions menu in the manager grid.
+ *   - "Inactive recommendation not offered in review form" — exercises
+ *     the dropdown on Step 3 of the reviewer wizard (the ReviewerForm
+ *     filters recommendations by status).
  */
 
 const DEFAULT_RECOMMENDATIONS = [
@@ -226,6 +230,212 @@ test.describe('Reviewer-recommendation customisation', () => {
 				await expect(checkbox).toBeChecked();
 			} finally {
 				await ctx.close();
+			}
+		},
+	);
+
+	test(
+		'a recommendation in use by a completed review cannot be edited or deleted',
+		{tag: '@regression'},
+		async ({pkpApi, browser, baseURL}) => {
+			const tag = uniqueTag();
+			// Scratch journal with the manager + the editor + the reviewer
+			// the seeded submission references. Without the latter two,
+			// ContextUserProcessor / ReviewRoundProcessor would point at
+			// users not assigned to this context's user groups.
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [
+					{username: 'dbarnes', roles: ['manager', 'editor']},
+					{username: 'rvaca', roles: ['author']},
+					{username: 'phudson', roles: ['reviewer']},
+				],
+			});
+
+			// Seed a submission against the SCRATCH journal that has phudson's
+			// review marked completed with recommendation 'accept'. This
+			// flips the corresponding recommendation row's `removable`
+			// attribute to false in the manager grid.
+			const submissionInReview = require('../../../../playwright/fixtures/scenarios/submission-in-review.js');
+			await pkpApi.createSubmission(
+				submissionInReview({
+					tag,
+					journal: context.path,
+					reviewers: [
+						{
+							user: 'phudson',
+							method: 'anonymous',
+							status: 'completed',
+							recommendation: 'accept',
+							comments: {
+								toEditor: 'Solid submission.',
+								toAuthor: 'Looks good.',
+							},
+						},
+					],
+				}),
+			);
+
+			const ctx = await browser.newContext({
+				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
+				baseURL,
+				reducedMotion: 'reduce',
+			});
+			try {
+				const page = await ctx.newPage();
+				await openReviewerRecommendations(page, context.path);
+
+				const manager = page.locator(
+					'[data-cy="reviewer-recommendation-manager"]',
+				);
+				// The recommendation 'accept' resolves server-side via
+				// ReviewRoundProcessor::RECOMMENDATION_KEYS to the
+				// reviewer.article.decision.accept default key — its English
+				// title is "Accept Submission".
+				const usedRow = manager.locator('tr', {hasText: 'Accept Submission'});
+				await expect(usedRow).toBeVisible();
+
+				// The DropdownActions component is rendered with `v-if="item.removable"`
+				// (lib/ui-library .../ReviewerRecommendationManager.vue) — when a
+				// review_assignments row references this recommendation, removable
+				// is false and the entire More-Actions trigger never mounts. So
+				// asserting the trigger button is absent covers Edit AND Delete.
+				await expect(
+					usedRow.getByRole('button', {name: /More Actions/i}),
+				).toHaveCount(0);
+
+				// Sanity: an unused row (Decline Submission, none seeded) still
+				// has its More-Actions trigger.
+				const unusedRow = manager.locator('tr', {
+					hasText: 'Decline Submission',
+				});
+				await expect(
+					unusedRow.getByRole('button', {name: /More Actions/i}),
+				).toHaveCount(1);
+			} finally {
+				await ctx.close();
+			}
+		},
+	);
+
+	test(
+		'an inactive recommendation does not appear in the review-completion form',
+		{tag: '@regression'},
+		async ({pkpApi, browser, baseURL}) => {
+			const tag = uniqueTag();
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [
+					{username: 'dbarnes', roles: ['manager', 'editor']},
+					{username: 'rvaca', roles: ['author']},
+					{username: 'phudson', roles: ['reviewer']},
+				],
+			});
+
+			// --- Manager step: deactivate "See Comments" via the UI -------
+			const managerCtx = await browser.newContext({
+				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
+				baseURL,
+				reducedMotion: 'reduce',
+			});
+			try {
+				const managerPage = await managerCtx.newPage();
+				await openReviewerRecommendations(managerPage, context.path);
+				const manager = managerPage.locator(
+					'[data-cy="reviewer-recommendation-manager"]',
+				);
+				const seeCommentsRow = manager.locator('tr', {
+					hasText: 'See Comments',
+				});
+				const checkbox = seeCommentsRow.locator('input[type="checkbox"]');
+				await expect(checkbox).toBeChecked();
+				await checkbox.click();
+				await managerPage
+					.locator(
+						'[role="dialog"]:has-text("Deactivate Reviewer Recommendation")',
+					)
+					.getByRole('button', {name: 'Yes'})
+					.click();
+				await expect(checkbox).not.toBeChecked();
+			} finally {
+				await managerCtx.close();
+			}
+
+			// --- Seed an in-review submission with phudson 'invited' ------
+			// 'invited' (not 'completed') so the reviewer wizard renders Step
+			// 1; we drive Steps 1+2 below to reach Step 3, where the
+			// recommendation select renders.
+			const submissionInReview = require('../../../../playwright/fixtures/scenarios/submission-in-review.js');
+			const {submission} = await pkpApi.createSubmission(
+				submissionInReview({
+					tag,
+					journal: context.path,
+					reviewers: [
+						{user: 'phudson', method: 'anonymous', status: 'invited'},
+					],
+				}),
+			);
+
+			// --- Reviewer step: drive the wizard to Step 3 ----------------
+			const reviewerCtx = await browser.newContext({
+				storageState: await ensureAuthStateFor(browser, 'phudson', {baseURL}),
+				baseURL,
+				reducedMotion: 'reduce',
+			});
+			try {
+				const reviewerPage = await reviewerCtx.newPage();
+				await reviewerPage.goto(
+					`/index.php/${context.path}/en/reviewer/submission/${submission.id}`,
+				);
+
+				// Step 1 — privacy consent + Accept Review.
+				const step1 = reviewerPage.locator('form#reviewStep1Form');
+				await expect(step1).toBeVisible({timeout: 15_000});
+				await step1.locator('input[name="privacyConsent"]').check();
+				await Promise.all([
+					reviewerPage.waitForURL(/\/reviewer\/submission\//, {
+						timeout: 15_000,
+					}),
+					reviewerPage
+						.getByRole('button', {
+							name: /Accept Review, Continue to Step #2/i,
+						})
+						.click(),
+				]);
+
+				// Step 2 — Continue.
+				const step2 = reviewerPage.locator('form#reviewStep2Form');
+				await expect(step2).toBeVisible({timeout: 15_000});
+				await Promise.all([
+					reviewerPage.waitForURL(/\/reviewer\/submission\//, {
+						timeout: 15_000,
+					}),
+					reviewerPage
+						.getByRole('button', {name: /Continue to Step #3/i})
+						.click(),
+				]);
+
+				// Step 3 — the dropdown under test.
+				const step3 = reviewerPage.locator('form#reviewStep3Form');
+				await expect(step3).toBeVisible({timeout: 15_000});
+
+				const select = step3.locator('select#reviewerRecommendationId');
+				await expect(select).toBeVisible();
+
+				const optionLabels = (
+					await select.locator('option').allTextContents()
+				).map((s) => s.trim());
+
+				// Active recommendations are present.
+				expect(optionLabels).toEqual(
+					expect.arrayContaining(['Accept Submission']),
+				);
+				// The disabled one is filtered out by
+				// Repo::reviewerRecommendation()->getRecommendationOptions(...)
+				// (withActive defaults to ACTIVE).
+				expect(optionLabels).not.toContain('See Comments');
+			} finally {
+				await reviewerCtx.close();
 			}
 		},
 	);

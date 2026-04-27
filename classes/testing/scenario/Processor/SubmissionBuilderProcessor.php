@@ -99,6 +99,28 @@ class SubmissionBuilderProcessor implements ScenarioProcessor
         $author->setData('contributorType', ContributorType::PERSON->getName());
         $authorId = Repo::author()->add($author);
 
+        // Optional `author` passthrough — fields the spec wants to seed on
+        // the just-created Author row that the public REST endpoints
+        // refuse to set (notably `orcid` / `orcidIsVerified`, which the
+        // Author validator hard-blocks via api.orcid.403.cannotUpdateAuthorOrcid
+        // — see Repository::validate). Tests that need a verified ORCID
+        // iD on the seeded contributor (e.g. the article-page reader
+        // assertion in row #55) call Repo::author()->edit() directly here
+        // to bypass that validator. Stay narrow: only fields explicitly
+        // listed below are recognised.
+        if (!empty($spec['author']) && is_array($spec['author'])) {
+            $authorEditParams = [];
+            foreach (['orcid', 'orcidIsVerified'] as $k) {
+                if (array_key_exists($k, $spec['author'])) {
+                    $authorEditParams[$k] = $spec['author'][$k];
+                }
+            }
+            if (!empty($authorEditParams)) {
+                $authorRow = Repo::author()->get($authorId);
+                Repo::author()->edit($authorRow, $authorEditParams);
+            }
+        }
+
         $freshPublication = Repo::publication()->get($publicationId);
         Repo::publication()->edit($freshPublication, ['primaryContactId' => $authorId]);
 

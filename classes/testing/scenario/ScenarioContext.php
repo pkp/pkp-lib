@@ -36,6 +36,14 @@ class ScenarioContext
     /** Phase 2: the single submission being built by a scenario request. */
     private ?array $scenarioSubmission = null;
 
+    /**
+     * Soft-fail warnings recorded by processors during the build. Emitted
+     * to the response body so test code can assert without the request
+     * itself failing — e.g. when a decision spec requests a notifyReviewers
+     * action against a decision type that has no such step.
+     */
+    private array $warnings = [];
+
     /** Cache of resolved User objects keyed by username. */
     private array $userCache = [];
 
@@ -155,6 +163,30 @@ class ScenarioContext
         ];
     }
 
+    /**
+     * Annotate the most recently recorded decision with its toEditor
+     * comment id + body, so test code can assert the row's existence
+     * + content without a dedicated read endpoint. Mirrors the way
+     * recordReviewRound returns reviewer ids.
+     */
+    public function recordEditorDecisionComment(int $decisionId, int $commentId, string $body): void
+    {
+        if (empty($this->scenarioSubmission['decisions'])) {
+            return;
+        }
+        $last = count($this->scenarioSubmission['decisions']) - 1;
+        if (($this->scenarioSubmission['decisions'][$last]['id'] ?? null) !== $decisionId) {
+            // Out-of-order recording shouldn't happen because the processor
+            // adds the comment immediately after the decision row, but be
+            // defensive — fall back to a top-level append.
+            return;
+        }
+        $this->scenarioSubmission['decisions'][$last]['toEditorComment'] = [
+            'id' => $commentId,
+            'body' => $body,
+        ];
+    }
+
     public function recordReviewRound(int $round, int $roundId, array $reviewers): void
     {
         $this->scenarioSubmission['reviewRounds'][] = [
@@ -169,6 +201,16 @@ class ScenarioContext
         $this->scenarioSubmission['publications'][] = $fragment;
     }
 
+    public function addWarning(string $message): void
+    {
+        $this->warnings[] = $message;
+    }
+
+    public function warnings(): array
+    {
+        return $this->warnings;
+    }
+
     public function submissionResponse(string $tag): array
     {
         if ($this->scenarioSubmission === null) {
@@ -180,6 +222,7 @@ class ScenarioContext
             'participants' => $this->scenarioSubmission['participants'],
             'decisions' => $this->scenarioSubmission['decisions'],
             'reviewRounds' => $this->scenarioSubmission['reviewRounds'],
+            'warnings' => $this->warnings,
             'tag' => $tag,
         ];
     }

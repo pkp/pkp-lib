@@ -36,7 +36,10 @@
                 "additionalProperties": false,
                 "properties": {
                     "type": { "type": "string" },
-                    "by": { "type": "string" }
+                    "by": { "type": "string" },
+                    "toAuthor": { "type": "string" },
+                    "toReviewers": { "type": ["string", "object"] },
+                    "toEditor": { "type": "string" }
                 }
             }
         },

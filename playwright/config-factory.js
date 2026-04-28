@@ -105,16 +105,22 @@ module.exports = function createPlaywrightConfig({app}) {
 			env: {
 				...process.env,
 				APPLICATION_ENV: 'test',
-				// Run php -S with multiple workers so same-origin sub-requests
-				// (e.g. a page load fetching /api/...) don't deadlock the
-				// single-process dev server. Each Playwright worker drives
-				// concurrent browser navigation + API calls, so this should
-				// scale roughly with the Playwright worker count. 16 is a
-				// safe default for workers=5 on a typical dev machine; the
-				// previous default of 4 saturated under workers=5 and made
-				// `GET /api/v1/submissions/{id}` queue past the 10s timeout
-				// that pkpApi clients use. Unix only; ignored on Windows.
-				PHP_CLI_SERVER_WORKERS: process.env.PHP_CLI_SERVER_WORKERS || '16',
+				// PHP_CLI_SERVER_WORKERS is officially experimental and has
+				// long-standing reports of workers dying silently under
+				// sustained concurrent load (fork-safety issues with pgsql
+				// + opcache). CI is currently failing exactly that way:
+				// workers vanish from the process table mid-request, no
+				// PHP fatal in error_log, no OOM (peak 3 GB / 16 GB RAM).
+				// We're temporarily forcing single-worker mode to test
+				// whether worker mode is the culprit. The historical
+				// reason for >1 was the same-origin sub-request deadlock
+				// (a PHP page making a curl call to its own server while
+				// the only worker is busy handling that page). For the
+				// OJS test paths exercised here that pattern is rare —
+				// if a deadlock surfaces we'll see a clear timeout on a
+				// specific request rather than this silent-death cascade.
+				// Override via the env var if you need >1 locally.
+				PHP_CLI_SERVER_WORKERS: process.env.PHP_CLI_SERVER_WORKERS || '1',
 			},
 		},
 		projects: [

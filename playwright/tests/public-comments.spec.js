@@ -1,6 +1,5 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
 const submissionPublished = require('../../../../playwright/fixtures/scenarios/submission-published.js');
 
 const SCRATCH_ISSUE = {volume: 1, number: '1', year: 2026};
@@ -87,7 +86,7 @@ test.describe('Public comments', () => {
 	test(
 		'manager enables public comments; reader posts; moderator approves; anonymous reader sees it',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, browser, baseURL, asUser}) => {
 			const tag = uniqueTag(test.info(), 'e2e');
 			const commentText = `Reader comment body ${tag}`;
 
@@ -127,20 +126,10 @@ test.describe('Public comments', () => {
 			// keyed on publicationId, not submissionId. A single fetch
 			// against the scratch journal's API (with dbarnes's session
 			// so the response includes currentPublicationId eagerly).
-			const moderatorCtx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {
-					baseURL,
-				}),
-				baseURL,
-			});
+			const moderatorCtx = await asUser('dbarnes');
 			// Reader context — phudson is a baseline user; any authenticated
 			// session satisfies HasUser middleware on the comment POST.
-			const readerCtx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'phudson', {
-					baseURL,
-				}),
-				baseURL,
-			});
+			const readerCtx = await asUser('phudson');
 			// Anonymous reader — no storageState, no session cookie.
 			const anonCtx = await browser.newContext({
 				baseURL,
@@ -270,8 +259,6 @@ test.describe('Public comments', () => {
 				}
 			} finally {
 				await anonCtx.close();
-				await readerCtx.close();
-				await moderatorCtx.close();
 			}
 		},
 	);

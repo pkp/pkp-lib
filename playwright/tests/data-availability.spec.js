@@ -1,6 +1,5 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
 const submissionPublished = require('../../../../playwright/fixtures/scenarios/submission-published.js');
 
 /**
@@ -64,7 +63,7 @@ test.describe('Data availability statements', () => {
 	test(
 		'manager enables the Data Availability Statement metadata and it persists on reload',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag(test.info(), 'enable');
 
 			// E0 scratch journal — the dataAvailability context flag is
@@ -75,120 +74,114 @@ test.describe('Data availability statements', () => {
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
 
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+
+			// Navigate to the workflow settings page and activate the
+			// Submission > Metadata sub-tab. Mirrors the tab navigation
+			// pattern from playwright/tests/wizard-config-reset.spec.js
+			// (the FieldMetadataSetting layout is shared across every
+			// field on that form).
+			await page.goto(
+				`/index.php/${context.path}/management/settings/workflow`,
+			);
+			await page.locator('#submission-button').click();
+			await page.locator('#metadata-button').click();
+
+			// The Data Availability field's "Enable" checkbox label
+			// comes from manager.setup.metadata.dataAvailability.enable.
+			// Wait for the field to render — the fieldset carries
+			// `.pkpFormField--metadata` and the unique label is the
+			// ready signal.
+			const enableLabel = page.locator('label', {
+				hasText: 'Enable data availability statement metadata',
 			});
-			try {
-				const page = await ctx.newPage();
+			await expect(enableLabel).toBeVisible({timeout: 15_000});
 
-				// Navigate to the workflow settings page and activate the
-				// Submission > Metadata sub-tab. Mirrors the tab navigation
-				// pattern from playwright/tests/wizard-config-reset.spec.js
-				// (the FieldMetadataSetting layout is shared across every
-				// field on that form).
-				await page.goto(
-					`/index.php/${context.path}/management/settings/workflow`,
-				);
-				await page.locator('#submission-button').click();
-				await page.locator('#metadata-button').click();
-
-				// The Data Availability field's "Enable" checkbox label
-				// comes from manager.setup.metadata.dataAvailability.enable.
-				// Wait for the field to render — the fieldset carries
-				// `.pkpFormField--metadata` and the unique label is the
-				// ready signal.
-				const enableLabel = page.locator('label', {
+			// Scope all subsequent interactions to the dataAvailability
+			// fieldset — the Metadata form has a stack of structurally
+			// identical fieldsets, and the "Enable" checkbox label is
+			// the only unique anchor to this one.
+			const daField = page.locator('fieldset.pkpFormField--metadata', {
+				has: page.locator('label', {
 					hasText: 'Enable data availability statement metadata',
-				});
-				await expect(enableLabel).toBeVisible({timeout: 15_000});
+				}),
+			});
+			await expect(daField).toBeVisible();
 
-				// Scope all subsequent interactions to the dataAvailability
-				// fieldset — the Metadata form has a stack of structurally
-				// identical fieldsets, and the "Enable" checkbox label is
-				// the only unique anchor to this one.
-				const daField = page.locator('fieldset.pkpFormField--metadata', {
+			// The feature is off by default on a fresh scratch journal
+			// (schema default is nullable/0 — see
+			// lib/pkp/schemas/context.json#dataAvailability). Tick the
+			// enable checkbox, then pick the "Request" option so the
+			// flag flips to `METADATA_REQUEST` (the middle of the three
+			// submissionOptions — enabled without requiring input).
+			const enableCheckbox = daField
+				.locator('input.pkpFormField--options__input[type="checkbox"]')
+				.first();
+			await expect(enableCheckbox).not.toBeChecked();
+			await enableCheckbox.check();
+
+			// Clicking the label flips the radio. The locale string
+			// matches manager.setup.metadata.dataAvailability.request.
+			const requestLabel = daField.locator('label', {
+				hasText: /Ask the author to provide a data availability statement/,
+			});
+			await expect(requestLabel).toBeVisible();
+			await requestLabel.click();
+
+			// Save the Metadata form. There's exactly one Save button
+			// per PKP form footer. Race the click with the PUT round-
+			// trip on the context endpoint — the Metadata settings
+			// form posts as POST + X-Http-Method-Override: PUT; once
+			// the success response lands we know the setting is
+			// persisted before any navigation.
+			const form = page.locator('form', {has: daField});
+			await Promise.all([
+				page.waitForResponse(
+					(res) =>
+						res.request().method() === 'POST' &&
+						/\/api\/v1\/contexts\/\d+/.test(res.url()) &&
+						res.ok(),
+					{timeout: 15_000},
+				),
+				form.getByRole('button', {name: 'Save', exact: true}).click(),
+			]);
+
+			// Reload the settings page and confirm the enable checkbox
+			// stays checked and the "Request" radio is selected. That's
+			// the round-trip that the Cypress source ended with
+			// `cy.get('#metadata [role="status"]').contains('Saved')`;
+			// we anchor on the persisted state because the Metadata
+			// form on this page doesn't consistently render a [role=status]
+			// toast (SettingsPage notification wiring varies per form).
+			await page.reload();
+			await page.locator('#submission-button').click();
+			await page.locator('#metadata-button').click();
+			await expect(enableLabel).toBeVisible({timeout: 15_000});
+
+			const daFieldAfterReload = page.locator(
+				'fieldset.pkpFormField--metadata',
+				{
 					has: page.locator('label', {
 						hasText: 'Enable data availability statement metadata',
 					}),
-				});
-				await expect(daField).toBeVisible();
-
-				// The feature is off by default on a fresh scratch journal
-				// (schema default is nullable/0 — see
-				// lib/pkp/schemas/context.json#dataAvailability). Tick the
-				// enable checkbox, then pick the "Request" option so the
-				// flag flips to `METADATA_REQUEST` (the middle of the three
-				// submissionOptions — enabled without requiring input).
-				const enableCheckbox = daField
+				},
+			);
+			await expect(
+				daFieldAfterReload
 					.locator('input.pkpFormField--options__input[type="checkbox"]')
-					.first();
-				await expect(enableCheckbox).not.toBeChecked();
-				await enableCheckbox.check();
-
-				// Clicking the label flips the radio. The locale string
-				// matches manager.setup.metadata.dataAvailability.request.
-				const requestLabel = daField.locator('label', {
-					hasText: /Ask the author to provide a data availability statement/,
-				});
-				await expect(requestLabel).toBeVisible();
-				await requestLabel.click();
-
-				// Save the Metadata form. There's exactly one Save button
-				// per PKP form footer. Race the click with the PUT round-
-				// trip on the context endpoint — the Metadata settings
-				// form posts as POST + X-Http-Method-Override: PUT; once
-				// the success response lands we know the setting is
-				// persisted before any navigation.
-				const form = page.locator('form', {has: daField});
-				await Promise.all([
-					page.waitForResponse(
-						(res) =>
-							res.request().method() === 'POST' &&
-							/\/api\/v1\/contexts\/\d+/.test(res.url()) &&
-							res.ok(),
-						{timeout: 15_000},
-					),
-					form.getByRole('button', {name: 'Save', exact: true}).click(),
-				]);
-
-				// Reload the settings page and confirm the enable checkbox
-				// stays checked and the "Request" radio is selected. That's
-				// the round-trip that the Cypress source ended with
-				// `cy.get('#metadata [role="status"]').contains('Saved')`;
-				// we anchor on the persisted state because the Metadata
-				// form on this page doesn't consistently render a [role=status]
-				// toast (SettingsPage notification wiring varies per form).
-				await page.reload();
-				await page.locator('#submission-button').click();
-				await page.locator('#metadata-button').click();
-				await expect(enableLabel).toBeVisible({timeout: 15_000});
-
-				const daFieldAfterReload = page.locator(
-					'fieldset.pkpFormField--metadata',
-					{
-						has: page.locator('label', {
-							hasText: 'Enable data availability statement metadata',
-						}),
-					},
-				);
-				await expect(
-					daFieldAfterReload
-						.locator('input.pkpFormField--options__input[type="checkbox"]')
-						.first(),
-				).toBeChecked();
-				// The submissionOptions radios render once the checkbox is
-				// on. Pick the radio by its value attribute — the options
-				// emit value="request" (Context::METADATA_REQUEST string
-				// constant).
-				await expect(
-					daFieldAfterReload
-						.locator('input[type="radio"][value="request"]')
-						.first(),
-				).toBeChecked();
-			} finally {
-				await ctx.close();
-			}
+					.first(),
+			).toBeChecked();
+			// The submissionOptions radios render once the checkbox is
+			// on. Pick the radio by its value attribute — the options
+			// emit value="request" (Context::METADATA_REQUEST string
+			// constant).
+			await expect(
+				daFieldAfterReload
+					.locator('input[type="radio"][value="request"]')
+					.first(),
+			).toBeChecked();
+		
 		},
 	);
 

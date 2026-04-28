@@ -45,7 +45,7 @@ test.describe('E0 · JournalScenarioController', () => {
 	test(
 		'assigned manager can log in and reach the journal settings',
 		{tag: '@smoke'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag();
 			const {context} = await pkpApi.createJournal({
 				tag,
@@ -59,25 +59,18 @@ test.describe('E0 · JournalScenarioController', () => {
 			// journal. Use asUser() helper to log dbarnes in (whose
 			// storage state was captured against the bootstrapped
 			// publicknowledge journal; session is journal-agnostic).
-			const {ensureAuthStateFor} = require('../support/auth.js');
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
-			});
+			const ctx = await asUser('dbarnes');
 
-			try {
-				const page = await ctx.newPage();
-				// Navigate into the scratch journal's manager settings.
-				// If the role assignment worked, the page renders; if
-				// not, OJS redirects to /login or 403s.
-				await page.goto(`/index.php/${context.path}/management/settings/context`);
-				await expect(page).not.toHaveURL(/\/login/);
-				// Landmark: the "Journal" / "Context" settings area
-				// renders a tab strip or at least a heading.
-				await expect(page.locator('body')).toBeVisible();
-			} finally {
-				await ctx.close();
-			}
+			const page = await ctx.newPage();
+			// Navigate into the scratch journal's manager settings.
+			// If the role assignment worked, the page renders; if
+			// not, OJS redirects to /login or 403s.
+			await page.goto(`/index.php/${context.path}/management/settings/context`);
+			await expect(page).not.toHaveURL(/\/login/);
+			// Landmark: the "Journal" / "Context" settings area
+			// renders a tab strip or at least a heading.
+			await expect(page.locator('body')).toBeVisible();
+		
 		},
 	);
 });

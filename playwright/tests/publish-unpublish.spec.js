@@ -155,21 +155,17 @@ async function expectArticleRendered({
 	submissionId,
 	expectedTitleFragment,
 }) {
-	const ctx = await browser.newContext({baseURL});
-	try {
-		const page = await ctx.newPage();
-		const resp = await page.goto(
-			`/index.php/publicknowledge/article/view/${submissionId}`,
-		);
-		expect(resp?.status()).toBe(200);
-		// Article template wraps the title in an <h1>; substring-match
-		// since the tag suffix is part of the full title.
-		await expect(page.locator('h1').first()).toContainText(
-			expectedTitleFragment,
-		);
-	} finally {
-		await ctx.close();
-	}
+	const ctx = await browser.newContext({baseURL});	const page = await ctx.newPage();
+	const resp = await page.goto(
+		`/index.php/publicknowledge/article/view/${submissionId}`,
+	);
+	expect(resp?.status()).toBe(200);
+	// Article template wraps the title in an <h1>; substring-match
+	// since the tag suffix is part of the full title.
+	await expect(page.locator('h1').first()).toContainText(
+		expectedTitleFragment,
+	);
+
 }
 
 /**
@@ -182,16 +178,12 @@ async function expectArticleRendered({
  * }} opts
  */
 async function expectArticleNotFound({browser, baseURL, submissionId}) {
-	const ctx = await browser.newContext({baseURL});
-	try {
-		const page = await ctx.newPage();
-		const resp = await page.goto(
-			`/index.php/publicknowledge/article/view/${submissionId}`,
-		);
-		expect(resp?.status()).toBe(404);
-	} finally {
-		await ctx.close();
-	}
+	const ctx = await browser.newContext({baseURL});	const page = await ctx.newPage();
+	const resp = await page.goto(
+		`/index.php/publicknowledge/article/view/${submissionId}`,
+	);
+	expect(resp?.status()).toBe(404);
+
 }
 
 /**

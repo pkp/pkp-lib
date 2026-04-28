@@ -1,7 +1,5 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
-
 /**
  * User invitation flow (multi-actor) — row #57 in
  * docs/e2e-playwright-migration.md.
@@ -115,7 +113,7 @@ test.describe('User invitation flow (multi-actor)', () => {
 	test(
 		'manager invites a new user; the invitee accepts via the email link, completes registration, and lands in the assigned role',
 		{tag: '@regression'},
-		async ({pkpApi, pkpMail, browser, baseURL}) => {
+		async ({pkpApi, pkpMail, browser, baseURL, asUser}) => {
 			const tag = uniqueTag();
 			const inviteeEmail = `invitee-${tag}@mailinator.com`;
 			const inviteeUsername = `invitee-${tag}`;
@@ -142,10 +140,7 @@ test.describe('User invitation flow (multi-actor)', () => {
 			// pre-empt than to debug.
 			await pkpMail.clearAll();
 
-			const managerCtx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
-			});
+			const managerCtx = await asUser('dbarnes');
 			let inviteeCtx;
 			try {
 				const managerPage = await managerCtx.newPage();
@@ -424,7 +419,6 @@ test.describe('User invitation flow (multi-actor)', () => {
 					{timeout: 20_000},
 				);
 			} finally {
-				await managerCtx.close();
 				if (inviteeCtx) {
 					await inviteeCtx.close();
 				}

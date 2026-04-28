@@ -72,17 +72,43 @@ async function loginDbarnes(page, contextPath) {
  * categoryForm's title (en) + path fields and Saves, then waits for
  * the row to appear in the tree table. Locators mirror
  * lib/pkp/cypress/support/commands.js#addCategory.
+ *
+ * When `parent` is provided, the parent's row's "More Actions" menu is
+ * opened and the "Add" menu item is clicked — this routes the form's
+ * action URL through `?parentCategoryId={parent.id}` (see
+ * lib/ui-library/src/managers/CategoryManager/categoryManagerStore.js
+ * → getCategoryForm). There is no parent dropdown on the form itself.
+ *
+ * The helper assumes the Categories admin is already loaded — the
+ * caller navigates to it once and reuses the page across multiple
+ * adds (matches Cypress's `addCategory` usage in
+ * 50-CreateCategories.cy.js, where the test stays on the page).
  */
-async function addCategory(page, contextPath, {title, path}) {
-	await page.goto(
-		`/index.php/${contextPath}/management/settings/context`,
-	);
-	await page.locator('#categories-button').click();
-	// category-manager Vue component mounts; wait for the Add
-	// Category button to be actionable.
-	const addBtn = page.getByRole('button', {name: 'Add Category'});
-	await expect(addBtn).toBeVisible({timeout: 15_000});
-	await addBtn.click();
+async function addCategory(page, {title, path, parent} = {}) {
+	if (parent) {
+		// Open the parent row's "More Actions" ellipsis menu.
+		// DropdownActions renders the trigger with aria-label =
+		// common.moreActions ("More Actions"); the menu items are
+		// PkpButton rendered inside headlessui's MenuItems. Action
+		// labels come from getItemActions() — first item is "Add"
+		// (common.add).
+		const parentRow = page.locator('tr', {hasText: parent}).first();
+		await expect(parentRow).toBeVisible({timeout: 15_000});
+		await parentRow
+			.getByRole('button', {name: 'More Actions'})
+			.click();
+		// MenuItems portal: headlessui's MenuItem with `as="template"`
+		// renders the inner PkpButton as the actual focusable element
+		// with role="menuitem". The "Add" label maps to common.add.
+		await page
+			.getByRole('menuitem', {name: 'Add', exact: true})
+			.first()
+			.click();
+	} else {
+		const addBtn = page.getByRole('button', {name: 'Add Category'});
+		await expect(addBtn).toBeVisible({timeout: 15_000});
+		await addBtn.click();
+	}
 
 	const form = page.locator('form.categories__categoryForm');
 	await expect(form).toBeVisible();
@@ -91,9 +117,25 @@ async function addCategory(page, contextPath, {title, path}) {
 	await form.getByRole('button', {name: 'Save'}).click();
 
 	// Form closes once save completes; the tree re-renders with the
-	// new row.
+	// new row. categoryManagerStore.categorySaved auto-expands the
+	// parent so child rows render without an extra toggle click.
 	await expect(
 		page.locator('tr', {hasText: title}),
+	).toBeVisible({timeout: 15_000});
+}
+
+/**
+ * Navigate to the Categories admin tab. Used by the nested-hierarchy
+ * test, which keeps the page on the categories grid across multiple
+ * `addCategory` calls (matches Cypress's 50-CreateCategories pattern).
+ */
+async function gotoCategoriesAdmin(page, contextPath) {
+	await page.goto(
+		`/index.php/${contextPath}/management/settings/context`,
+	);
+	await page.locator('#categories-button').click();
+	await expect(
+		page.getByRole('button', {name: 'Add Category'}),
 	).toBeVisible({timeout: 15_000});
 }
 
@@ -189,7 +231,8 @@ test.describe('Categories — wizard field rendering', () => {
 				// enough — the field renders once categories->count()
 				// is > 0, and the picker's behaviour (multi-select +
 				// tree expansion) isn't the feature this spec owns.
-				await addCategory(page, context.path, {
+				await gotoCategoriesAdmin(page, context.path);
+				await addCategory(page, {
 					title: categoryLabel,
 					path: categoryPath,
 				});
@@ -277,6 +320,208 @@ test.describe('Categories — wizard field rendering', () => {
 				);
 				// End-to-end Submit + assert-on-submission dropped
 				// pending file-upload (E1 / row #17). See spec header.
+			} finally {
+				await ctx.close();
+			}
+		},
+	);
+
+	test(
+		// Row #15 graduate (per
+		// docs/e2e-playwright-migration.md). Ports the nested-hierarchy
+		// half of cypress/tests/data/10-ApplicationSetup/50-CreateCategories.cy.js,
+		// which the original Categories.cy.js wizard tests (above) did
+		// not cover. Two patterns exercised here that the basic case
+		// doesn't:
+		//   1. parent → child → grandchild creation. The form has no
+		//      parent dropdown — child rows are created by clicking
+		//      the parent row's "More Actions" → "Add" entry, which
+		//      routes the form action through `?parentCategoryId={id}`
+		//      (see categoryManagerStore.js → getCategoryForm).
+		//   2. multiple siblings under the same parent (Engineering
+		//      under Applied Science alongside Computer Science).
+		// Wizard-side assertion uses the breadcrumb that
+		// PKPSubmissionHandler binds to the wizard via
+		// `Repo::category()->getBreadcrumbs($categories)` — the
+		// review panel renders the grandchild as
+		// "Applied Science > Computer Science > Computer Vision" via
+		// the `common.categorySeparator` template ("{$parent} > {$child}").
+		'manager creates a nested category hierarchy (parent → child → grandchild) and selects the grandchild during submission',
+		{tag: '@regression'},
+		async ({pkpApi, browser, baseURL}) => {
+			const tag = uniqueTag();
+			const pathSuffix = tag.slice(-8).toLowerCase();
+			// Unique titles so parallel workers don't collide on the
+			// "tr contains text" locator. Path values must also be
+			// unique because the categories table has a UNIQUE
+			// constraint on (context_id, path); E0 gives us a fresh
+			// context_id but parallel runs of *this* spec under the
+			// same worker would clash without the suffix.
+			const grandparent = `Applied Science ${tag}`;
+			const parent = `Computer Science ${tag}`;
+			const grandchild = `Computer Vision ${tag}`;
+			const sibling = `Engineering ${tag}`;
+
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [{username: 'dbarnes', roles: ['manager']}],
+				submitWithCategories: true,
+			});
+
+			const ctx = await browser.newContext({baseURL});
+			try {
+				const page = await ctx.newPage();
+				await loginDbarnes(page, context.path);
+
+				// Build the hierarchy. The Categories admin stays
+				// loaded across all four adds — categoryManagerStore
+				// auto-expands a parent after a child save, so each
+				// subsequent "Add via parent's More Actions" finds
+				// the latest parent row already rendered.
+				await gotoCategoriesAdmin(page, context.path);
+				await addCategory(page, {
+					title: grandparent,
+					path: `applied-science-${pathSuffix}`,
+				});
+				await addCategory(page, {
+					title: parent,
+					path: `comp-sci-${pathSuffix}`,
+					parent: grandparent,
+				});
+				await addCategory(page, {
+					title: grandchild,
+					path: `computer-vision-${pathSuffix}`,
+					parent: parent,
+				});
+				await addCategory(page, {
+					title: sibling,
+					path: `eng-${pathSuffix}`,
+					parent: grandparent,
+				});
+
+				// All four rows exist in the grid. The tree renders
+				// children only when the parent is expanded; the
+				// store auto-expands ancestors after each save, so
+				// the four rows are all visible at this point.
+				for (const title of [
+					grandparent,
+					parent,
+					grandchild,
+					sibling,
+				]) {
+					await expect(
+						page.locator('tr', {hasText: title}).first(),
+					).toBeVisible();
+				}
+
+				// Hierarchy assertion: the grandchild's name cell
+				// uses an indent style with `padding-inline-start`
+				// proportional to depth (CategoryManagerCellName.vue).
+				// Depth is 1 for top-level, 2 for child, 3 for
+				// grandchild — assert the grandchild's depth-keyed
+				// indent is greater than the grandparent's. The
+				// inline style is applied to the inner span.
+				const grandparentIndent = await page
+					.locator('tr', {hasText: grandparent})
+					.first()
+					.locator('span[style*="padding-inline-start"]')
+					.first()
+					.evaluate((el) => el.style.paddingInlineStart);
+				const grandchildIndent = await page
+					.locator('tr', {hasText: grandchild})
+					.first()
+					.locator('span[style*="padding-inline-start"]')
+					.first()
+					.evaluate((el) => el.style.paddingInlineStart);
+				const px = (s) => parseFloat(s);
+				expect(px(grandchildIndent)).toBeGreaterThan(
+					px(grandparentIndent),
+				);
+
+				// Run the wizard as the same manager and pick the
+				// grandchild. The picker is the same FieldAutosuggestPreset
+				// modal as the non-nested test above — it renders the
+				// breadcrumb label "Applied Science ... > Computer
+				// Science ... > Computer Vision ..." for the grandchild
+				// (categories map keyed by id, values are full
+				// breadcrumbs from Repo::category()->getBreadcrumbs).
+				const wizard = new SubmissionWizardPage(
+					page,
+					context.path,
+				);
+				await wizard.goto();
+				await wizard.start({title: `Nested-cats ${tag}`});
+				await wizard.continueStep();
+				await wizard.continueStep();
+				await wizard.continueStep();
+
+				const selectBtn = page.getByRole('button', {
+					name: 'Select Categories',
+				});
+				await expect(selectBtn).toBeVisible({timeout: 15_000});
+				await selectBtn.click();
+
+				const selectModal = page
+					.locator('[data-cy="active-modal"]')
+					.filter({
+						has: page.getByRole('heading', {
+							name: 'Select Categories',
+						}),
+					});
+				await expect(
+					selectModal.getByRole('heading', {
+						name: 'Select Categories',
+					}),
+				).toBeVisible({timeout: 15_000});
+
+				// The picker renders the tree as autosuggest items.
+				// Click the grandchild's label specifically (substring
+				// match on the unique tag is safe — only the grandchild
+				// row carries `Computer Vision ${tag}`). The breadcrumb
+				// formatting in the picker uses the same getBreadcrumbs
+				// output, but the visible label still contains the
+				// leaf title.
+				await selectModal
+					.locator('label', {hasText: grandchild})
+					.first()
+					.click();
+				await selectModal
+					.getByRole('button', {name: 'Save'})
+					.click();
+				await expect(
+					page.getByRole('heading', {
+						name: 'Select Categories',
+					}),
+				).toHaveCount(0, {timeout: 10_000});
+
+				// Advance to Review and assert the breadcrumb appears.
+				// The full path is the load-bearing assertion: it
+				// proves the grandchild was selected (not a sibling
+				// or its parent), and it proves the wizard binding
+				// resolves the breadcrumb via
+				// `Repo::category()->getBreadcrumbs` server-side.
+				await wizard.continueStep();
+				const categoriesReviewItem = page
+					.locator('.submissionWizard__reviewPanel')
+					.filter({
+						has: page.locator(
+							'.submissionWizard__reviewPanel__item__header',
+							{hasText: 'Categories'},
+						),
+					});
+				await expect(categoriesReviewItem).toBeVisible();
+				// `common.categorySeparator` = "{$parent} > {$child}".
+				// Three levels means the rendered breadcrumb is:
+				//   "{grandparent} > {parent} > {grandchild}".
+				await expect(categoriesReviewItem).toContainText(
+					`${grandparent} > ${parent} > ${grandchild}`,
+				);
+				// And the sibling Engineering must NOT have leaked
+				// into the selection — defensive guard against the
+				// picker accidentally selecting a parent or sibling.
+				await expect(categoriesReviewItem).not.toContainText(
+					sibling,
+				);
 			} finally {
 				await ctx.close();
 			}

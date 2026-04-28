@@ -155,7 +155,7 @@ async function expectArticleRendered({
 	submissionId,
 	expectedTitleFragment,
 }) {
-	const ctx = await browser.newContext({baseURL, reducedMotion: 'reduce'});
+	const ctx = await browser.newContext({baseURL});
 	try {
 		const page = await ctx.newPage();
 		const resp = await page.goto(
@@ -182,7 +182,7 @@ async function expectArticleRendered({
  * }} opts
  */
 async function expectArticleNotFound({browser, baseURL, submissionId}) {
-	const ctx = await browser.newContext({baseURL, reducedMotion: 'reduce'});
+	const ctx = await browser.newContext({baseURL});
 	try {
 		const page = await ctx.newPage();
 		const resp = await page.goto(

@@ -96,7 +96,6 @@ test.describe('ORCID integration', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -234,7 +233,6 @@ test.describe('ORCID integration', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -290,7 +288,6 @@ test.describe('ORCID integration', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -414,7 +411,6 @@ test.describe('ORCID integration', () => {
 			// Anonymous reader visits the article landing page — no auth.
 			const anon = await browser.newContext({
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await anon.newPage();

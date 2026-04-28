@@ -145,7 +145,6 @@ test.describe('User invitation flow (multi-actor)', () => {
 			const managerCtx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			let inviteeCtx;
 			try {
@@ -270,7 +269,6 @@ test.describe('User invitation flow (multi-actor)', () => {
 				// ----- Invitee side -----
 				inviteeCtx = await browser.newContext({
 					baseURL,
-					reducedMotion: 'reduce',
 				});
 				const inviteePage = await inviteeCtx.newPage();
 				await inviteePage.goto(acceptUrl);

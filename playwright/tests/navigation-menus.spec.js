@@ -1,5 +1,6 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
+const {waitForJQueryIdle} = require('../support/jquery.js');
 /**
  * Navigation menus — row #2 in docs/e2e-playwright-migration.md.
  *
@@ -66,6 +67,12 @@ async function openNavigationTab(page, journalPath) {
 			'#navigationMenuItemsGridContainer a.pkp_linkaction_addNavigationMenuItem',
 		),
 	).toBeVisible({timeout: 15_000});
+	// The link anchors render via AJAX before jQuery binds their click
+	// handlers; under workers=5 a click on `a.pkp_linkaction_addNavigationMenu`
+	// can land on the DOM element before the handler is bound, leaving
+	// the side modal unopened. Wait for jQuery to settle so the handler
+	// is in place.
+	await waitForJQueryIdle(page);
 }
 
 /**

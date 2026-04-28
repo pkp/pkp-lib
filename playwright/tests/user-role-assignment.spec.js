@@ -1,7 +1,5 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
-
 /**
  * Manager assigns a user to a role on Users & Roles — row #60 in
  * docs/e2e-playwright-migration.md.
@@ -85,7 +83,7 @@ test.describe('Users & Roles — assign user to a role', () => {
 	test(
 		'manager assigns an existing journal user to an additional role and sees a pending invitation',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, browser, asUser}) => {
 			const tag = uniqueTag();
 			const {context} = await pkpApi.createJournal({
 				tag,
@@ -99,163 +97,157 @@ test.describe('Users & Roles — assign user to a role', () => {
 				],
 			});
 
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
-			});
-			try {
-				const page = await ctx.newPage();
-				await page.goto(
-					`/index.php/${context.path}/management/settings/access`,
-				);
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			await page.goto(
+				`/index.php/${context.path}/management/settings/access`,
+			);
 
-				// Wait for the Users-and-Roles page to land; the user
-				// access table renders the seeded users via /api/v1/users.
-				await expect(
-					page.getByRole('heading', {name: 'Users & Roles'}),
-				).toBeVisible();
+			// Wait for the Users-and-Roles page to land; the user
+			// access table renders the seeded users via /api/v1/users.
+			await expect(
+				page.getByRole('heading', {name: 'Users & Roles'}),
+			).toBeVisible();
 
-				// Confirm phudson is in the user access table at baseline
-				// — the row contains "Paul Hudson" + "Reviewer".
-				const phudsonRow = page.locator('tr', {hasText: 'Paul Hudson'});
-				await expect(phudsonRow).toBeVisible();
-				await expect(phudsonRow).toContainText('Reviewer');
+			// Confirm phudson is in the user access table at baseline
+			// — the row contains "Paul Hudson" + "Reviewer".
+			const phudsonRow = page.locator('tr', {hasText: 'Paul Hudson'});
+			await expect(phudsonRow).toBeVisible();
+			await expect(phudsonRow).toContainText('Reviewer');
 
-				// Open phudson's More Actions menu. The button carries
-				// `aria-haspopup="menu"` reliably; the accessible name
-				// uses an unresolved translation key on scratch journals
-				// in some compile states, so anchor by attribute.
-				await phudsonRow
-					.locator('button[aria-haspopup="menu"]')
-					.click();
+			// Open phudson's More Actions menu. The button carries
+			// `aria-haspopup="menu"` reliably; the accessible name
+			// uses an unresolved translation key on scratch journals
+			// in some compile states, so anchor by attribute.
+			await phudsonRow
+				.locator('button[aria-haspopup="menu"]')
+				.click();
 
-				// The menu portal renders at the document root, hence the
-				// page-scoped getByRole. "Edit" routes to the editUser
-				// wizard (no Search step).
-				await page
-					.getByRole('menuitem', {name: 'Edit', exact: true})
-					.click();
+			// The menu portal renders at the document root, hence the
+			// page-scoped getByRole. "Edit" routes to the editUser
+			// wizard (no Search step).
+			await page
+				.getByRole('menuitem', {name: 'Edit', exact: true})
+				.click();
 
-				// editUser → /management/settings/user/{id}; the wizard
-				// renders directly into Step 1 ("Enter details"), with
-				// the user's email/given/family pre-rendered as
-				// read-only display blocks. The page-level h1 is empty
-				// in editUser mode (UserRoleAssignmentInviteUIController
-				// sets `pageTitle = ''` when `$user` is set), so anchor
-				// on the step-2 heading "STEP 1 - Enter details and
-				// invite for roles" (h2) which Vue renders once the
-				// page mounts.
-				await page.waitForURL(/\/management\/settings\/user\/\d+(\?|#|$)/);
-				await expect(
-					page.getByRole('heading', {
-						name: /STEP 1 - Enter details and invite for roles/,
-					}),
-				).toBeVisible();
-				// The role table renders the user's existing roles +
-				// the start-date / masthead controls. Anchor on the
-				// Journal Masthead columnheader before driving the form.
-				await expect(
-					page.getByRole('columnheader', {name: 'Journal Masthead'}),
-				).toBeVisible();
+			// editUser → /management/settings/user/{id}; the wizard
+			// renders directly into Step 1 ("Enter details"), with
+			// the user's email/given/family pre-rendered as
+			// read-only display blocks. The page-level h1 is empty
+			// in editUser mode (UserRoleAssignmentInviteUIController
+			// sets `pageTitle = ''` when `$user` is set), so anchor
+			// on the step-2 heading "STEP 1 - Enter details and
+			// invite for roles" (h2) which Vue renders once the
+			// page mounts.
+			await page.waitForURL(/\/management\/settings\/user\/\d+(\?|#|$)/);
+			await expect(
+				page.getByRole('heading', {
+					name: /STEP 1 - Enter details and invite for roles/,
+				}),
+			).toBeVisible();
+			// The role table renders the user's existing roles +
+			// the start-date / masthead controls. Anchor on the
+			// Journal Masthead columnheader before driving the form.
+			await expect(
+				page.getByRole('columnheader', {name: 'Journal Masthead'}),
+			).toBeVisible();
 
-				// Add Another Role appends an empty row to the
-				// userGroupsToAdd state with role/date/masthead controls.
-				await page
-					.getByRole('button', {name: 'Add Another Role', exact: true})
-					.click();
+			// Add Another Role appends an empty row to the
+			// userGroupsToAdd state with role/date/masthead controls.
+			await page
+				.getByRole('button', {name: 'Add Another Role', exact: true})
+				.click();
 
-				// Pick the new role by visible label (the user_group_id
-				// option values are scratch-journal-specific).
-				// `availableUserGroups` filters out roles phudson
-				// already holds, so "Reviewer" is excluded — Author is
-				// the canonical pick for an existing-reviewer test.
-				const newRoleSelect = page.locator('select[name="userGroupId"]');
-				await newRoleSelect.selectOption({label: 'Author'});
+			// Pick the new role by visible label (the user_group_id
+			// option values are scratch-journal-specific).
+			// `availableUserGroups` filters out roles phudson
+			// already holds, so "Reviewer" is excluded — Author is
+			// the canonical pick for an existing-reviewer test.
+			const newRoleSelect = page.locator('select[name="userGroupId"]');
+			await newRoleSelect.selectOption({label: 'Author'});
 
-				// Start date — the wizard uses HTML5 date input;
-				// today's ISO date keeps things deterministic.
-				const today = new Date().toISOString().split('T')[0];
-				await page.locator('input[name="dateStart"]').fill(today);
+			// Start date — the wizard uses HTML5 date input;
+			// today's ISO date keeps things deterministic.
+			const today = new Date().toISOString().split('T')[0];
+			await page.locator('input[name="dateStart"]').fill(today);
 
-				// Masthead — "Author" is not a reviewer role, so the
-				// FieldSelect renders with show/hide options. Pick
-				// "Appear on the masthead".
-				await page
-					.locator('select[name="masthead"]')
-					.last()
-					.selectOption({label: 'Appear on the masthead'});
+			// Masthead — "Author" is not a reviewer role, so the
+			// FieldSelect renders with show/hide options. Pick
+			// "Appear on the masthead".
+			await page
+				.locator('select[name="masthead"]')
+				.last()
+				.selectOption({label: 'Appear on the masthead'});
 
-				// Step 1 → Step 2 (email composer). The page's
-				// `updateInvitation` POST creates the invitation row
-				// (status=PENDING) and lets us pull the id later.
-				await page
-					.getByRole('button', {name: 'Save And Continue', exact: true})
-					.click();
+			// Step 1 → Step 2 (email composer). The page's
+			// `updateInvitation` POST creates the invitation row
+			// (status=PENDING) and lets us pull the id later.
+			await page
+				.getByRole('button', {name: 'Save And Continue', exact: true})
+				.click();
 
-				// Email step. The mailable's body is auto-loaded from
-				// the seeded UserRoleAssignmentInvitationNotify
-				// template, so we don't need to set anything in
-				// TinyMCE — submit drives `invitations/{id}/invite`
-				// which dispatches the email.
-				await expect(
-					page.getByRole('button', {
-						name: 'Invite user to the role',
-						exact: true,
-					}),
-				).toBeVisible();
-				await page
-					.getByRole('button', {name: 'Invite user to the role', exact: true})
-					.click();
+			// Email step. The mailable's body is auto-loaded from
+			// the seeded UserRoleAssignmentInvitationNotify
+			// template, so we don't need to set anything in
+			// TinyMCE — submit drives `invitations/{id}/invite`
+			// which dispatches the email.
+			await expect(
+				page.getByRole('button', {
+					name: 'Invite user to the role',
+					exact: true,
+				}),
+			).toBeVisible();
+			await page
+				.getByRole('button', {name: 'Invite user to the role', exact: true})
+				.click();
 
-				// Success dialog — reka-ui PkpDialog with the
-				// userInvitation.modal.title heading.
-				const sentDialog = page.getByRole('dialog', {name: 'Invitation Sent'});
-				await expect(sentDialog).toBeVisible({timeout: 15_000});
-				await expect(sentDialog).toContainText('phudson@mailinator.com');
+			// Success dialog — reka-ui PkpDialog with the
+			// userInvitation.modal.title heading.
+			const sentDialog = page.getByRole('dialog', {name: 'Invitation Sent'});
+			await expect(sentDialog).toBeVisible({timeout: 15_000});
+			await expect(sentDialog).toContainText('phudson@mailinator.com');
 
-				// REST sanity — the journal-scoped invitations
-				// endpoint should now list one PENDING userRoleAssignment
-				// invitation for phudson. We piggy-back dbarnes's
-				// authenticated browser context for the GET so we
-				// inherit the session cookie + CSRF surface.
-				const apiRes = await page.request.get(
-					`/index.php/${context.path}/api/v1/invitations/userRoleAssignment`,
-				);
-				expect(apiRes.ok()).toBeTruthy();
-				const body = await apiRes.json();
-				expect(Array.isArray(body.items)).toBeTruthy();
-				const phudsonInvite = body.items.find(
-					(i) => i.existingUser?.email === 'phudson@mailinator.com',
-				);
-				expect(phudsonInvite, 'pending invitation row for phudson').toBeTruthy();
-				expect(phudsonInvite.status).toBe('PENDING');
+			// REST sanity — the journal-scoped invitations
+			// endpoint should now list one PENDING userRoleAssignment
+			// invitation for phudson. We piggy-back dbarnes's
+			// authenticated browser context for the GET so we
+			// inherit the session cookie + CSRF surface.
+			const apiRes = await page.request.get(
+				`/index.php/${context.path}/api/v1/invitations/userRoleAssignment`,
+			);
+			expect(apiRes.ok()).toBeTruthy();
+			const body = await apiRes.json();
+			expect(Array.isArray(body.items)).toBeTruthy();
+			const phudsonInvite = body.items.find(
+				(i) => i.existingUser?.email === 'phudson@mailinator.com',
+			);
+			expect(phudsonInvite, 'pending invitation row for phudson').toBeTruthy();
+			expect(phudsonInvite.status).toBe('PENDING');
 
-				// And one of the userGroupsToAdd entries is the
-				// "Author" role we just picked — the resource serializes
-				// userGroupName per locale.
-				const userGroupNames = (phudsonInvite.userGroupsToAdd || []).map(
-					(g) => g.userGroupName,
-				);
-				expect(
-					userGroupNames.some((name) => /author/i.test(String(name))),
-					`userGroupsToAdd contains Author (got ${JSON.stringify(userGroupNames)})`,
-				).toBeTruthy();
+			// And one of the userGroupsToAdd entries is the
+			// "Author" role we just picked — the resource serializes
+			// userGroupName per locale.
+			const userGroupNames = (phudsonInvite.userGroupsToAdd || []).map(
+				(g) => g.userGroupName,
+			);
+			expect(
+				userGroupNames.some((name) => /author/i.test(String(name))),
+				`userGroupsToAdd contains Author (got ${JSON.stringify(userGroupNames)})`,
+			).toBeTruthy();
 
-				// User-side: the Users tab's Invitations panel mirrors
-				// the same pending row. Re-navigating to the access
-				// page (the dialog has a "View All Users" CTA but
-				// asserting on the URL is more robust than racing the
-				// dialog click) and checking the Invitations table
-				// header count flips from 0 to 1.
-				await page.goto(
-					`/index.php/${context.path}/management/settings/access`,
-				);
-				await expect(
-					page.getByRole('heading', {name: /^Invitations \(1\)$/}),
-				).toBeVisible({timeout: 15_000});
-			} finally {
-				await ctx.close();
-			}
+			// User-side: the Users tab's Invitations panel mirrors
+			// the same pending row. Re-navigating to the access
+			// page (the dialog has a "View All Users" CTA but
+			// asserting on the URL is more robust than racing the
+			// dialog click) and checking the Invitations table
+			// header count flips from 0 to 1.
+			await page.goto(
+				`/index.php/${context.path}/management/settings/access`,
+			);
+			await expect(
+				page.getByRole('heading', {name: /^Invitations \(1\)$/}),
+			).toBeVisible({timeout: 15_000});
+		
 		},
 	);
 });

@@ -1,6 +1,5 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
 const {setTinyMceContent} = require('../support/tinymce.js');
 
 /**
@@ -103,105 +102,99 @@ test.describe('Task and Discussion Templates', () => {
 	test(
 		'manager adds a task template for a given stage and it persists on reload',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag(test.info(), 'add');
 			const {context} = await pkpApi.createJournal({
 				tag,
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			await openTaskTemplatesTab(page, context.path);
+
+			const templateTitle = `E2E Template ${tag}`;
+			await clickAddTemplateForStage(page, 'Copyediting Stage');
+
+			// The form renders inside a reka-ui side-modal whose
+			// heading is `taskTemplates.addInStage` — the probe
+			// confirmed it resolves to "Add Task and Discussion
+			// Template in Copyediting Stage". ModalManager tags the
+			// top-most open side-modal with [data-cy="active-modal"];
+			// this settings page has no outer modal, so scoping to
+			// the active-modal wrapper is unambiguous.
+			const modal = page.locator('[data-cy="active-modal"]');
+			// The active-modal wrapper itself is zero-size (the reka
+			// DialogPortal lifts the actual content into an absolute
+			// overlay), so we wait on the title input that lives
+			// inside the mounted form instead of toBeVisible() on
+			// the wrapper.
+			const titleInput = modal.locator('#taskTemplate-title-control');
+			await expect(titleInput).toBeVisible({timeout: 10_000});
+
+			await titleInput.fill(templateTitle);
+
+			// The description is a FieldPreparedContent (TinyMCE
+			// under the hood) with controlId
+			// `taskTemplate-description-control` — driven via the
+			// shared setTinyMceContent helper so we don't fight the
+			// editor's event machinery.
+			await setTinyMceContent(
+				page,
+				'taskTemplate-description-control',
+				'<p>This is a test template description.</p>',
+			);
+
+			// Tick the auto-add-at-stage checkbox so the row is
+			// visibly marked after save. The field name comes from
+			// `addFieldCheckbox('include', ...)` in
+			// useTaskTemplateManagerForm.js.
+			await modal.locator('input[name="include"]').check();
+
+			await modal
+				.getByRole('button', {name: 'Save', exact: true})
+				.click();
+
+			// Wait for the modal to close (detach).
+			await expect(titleInput).toHaveCount(0, {timeout: 15_000});
+
+			// The new row appears under the Copyediting Stage group.
+			// The manager groups rows under `<th scope="rowgroup">`
+			// headers within the same `<tbody>`; we just assert the
+			// row with the template title exists anywhere in the
+			// table for now, and separately sanity-check via the
+			// auto-add checkbox that it's under Copyediting (only
+			// that row advertises `include` on the Copyediting stage
+			// under row group).
+			await expect(page.getByText(templateTitle)).toBeVisible({
+				timeout: 10_000,
 			});
-			try {
-				const page = await ctx.newPage();
-				await openTaskTemplatesTab(page, context.path);
 
-				const templateTitle = `E2E Template ${tag}`;
-				await clickAddTemplateForStage(page, 'Copyediting Stage');
+			// --- Reload and verify persistence ---
+			await page.reload();
+			// Re-activate the tab (reload may land on the first tab
+			// depending on hash handling).
+			await page.locator('#taskTemplates-button').click();
+			await expect(
+				page.getByRole('heading', {
+					name: 'Tasks and Discussions Templates',
+				}),
+			).toBeVisible({timeout: 15_000});
 
-				// The form renders inside a reka-ui side-modal whose
-				// heading is `taskTemplates.addInStage` — the probe
-				// confirmed it resolves to "Add Task and Discussion
-				// Template in Copyediting Stage". ModalManager tags the
-				// top-most open side-modal with [data-cy="active-modal"];
-				// this settings page has no outer modal, so scoping to
-				// the active-modal wrapper is unambiguous.
-				const modal = page.locator('[data-cy="active-modal"]');
-				// The active-modal wrapper itself is zero-size (the reka
-				// DialogPortal lifts the actual content into an absolute
-				// overlay), so we wait on the title input that lives
-				// inside the mounted form instead of toBeVisible() on
-				// the wrapper.
-				const titleInput = modal.locator('#taskTemplate-title-control');
-				await expect(titleInput).toBeVisible({timeout: 10_000});
-
-				await titleInput.fill(templateTitle);
-
-				// The description is a FieldPreparedContent (TinyMCE
-				// under the hood) with controlId
-				// `taskTemplate-description-control` — driven via the
-				// shared setTinyMceContent helper so we don't fight the
-				// editor's event machinery.
-				await setTinyMceContent(
-					page,
-					'taskTemplate-description-control',
-					'<p>This is a test template description.</p>',
-				);
-
-				// Tick the auto-add-at-stage checkbox so the row is
-				// visibly marked after save. The field name comes from
-				// `addFieldCheckbox('include', ...)` in
-				// useTaskTemplateManagerForm.js.
-				await modal.locator('input[name="include"]').check();
-
-				await modal
-					.getByRole('button', {name: 'Save', exact: true})
-					.click();
-
-				// Wait for the modal to close (detach).
-				await expect(titleInput).toHaveCount(0, {timeout: 15_000});
-
-				// The new row appears under the Copyediting Stage group.
-				// The manager groups rows under `<th scope="rowgroup">`
-				// headers within the same `<tbody>`; we just assert the
-				// row with the template title exists anywhere in the
-				// table for now, and separately sanity-check via the
-				// auto-add checkbox that it's under Copyediting (only
-				// that row advertises `include` on the Copyediting stage
-				// under row group).
-				await expect(page.getByText(templateTitle)).toBeVisible({
-					timeout: 10_000,
-				});
-
-				// --- Reload and verify persistence ---
-				await page.reload();
-				// Re-activate the tab (reload may land on the first tab
-				// depending on hash handling).
-				await page.locator('#taskTemplates-button').click();
-				await expect(
-					page.getByRole('heading', {
-						name: 'Tasks and Discussions Templates',
-					}),
-				).toBeVisible({timeout: 15_000});
-
-				// Wait for the templates list to hydrate post-reload.
-				// TaskTemplateManager shows a small spinner next to the
-				// heading while `isLoadingTemplates` is true; once the
-				// row is painted it's the stable ready signal.
-				await expect(page.getByText(templateTitle)).toBeVisible({
-					timeout: 15_000,
-				});
-			} finally {
-				await ctx.close();
-			}
+			// Wait for the templates list to hydrate post-reload.
+			// TaskTemplateManager shows a small spinner next to the
+			// heading while `isLoadingTemplates` is true; once the
+			// row is painted it's the stable ready signal.
+			await expect(page.getByText(templateTitle)).toBeVisible({
+				timeout: 15_000,
+			});
+		
 		},
 	);
 
 	test(
 		'manager applies a task template in the workflow — template content pre-fills the discussion form',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag(test.info(), 'apply');
 
 			// E0 scratch journal with dbarnes as manager; both dbarnes
@@ -214,164 +207,156 @@ test.describe('Task and Discussion Templates', () => {
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
 
-			const dbarnesCtx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {
-					baseURL,
-				}),
-				baseURL,
+			const dbarnesCtx = await asUser('dbarnes');
+
+			const page = await dbarnesCtx.newPage();
+
+			// --- Phase 1: create a task template in Submission
+			// stage via the settings UI. We need this template to
+			// exist in the journal the submission is created in —
+			// the apply-in-workflow fetch scopes templates by the
+			// submission's context.
+			await openTaskTemplatesTab(page, context.path);
+
+			const templateTitle = `Apply Template ${tag}`;
+			const templateDescription =
+				'Template description used to verify pre-fill';
+			await clickAddTemplateForStage(page, 'Submission Stage');
+
+			const modal = page.locator('[data-cy="active-modal"]');
+			const titleInput = modal.locator('#taskTemplate-title-control');
+			await expect(titleInput).toBeVisible({timeout: 10_000});
+
+			await titleInput.fill(templateTitle);
+			// Enable the task-info sub-form — the apply flow reads
+			// back dueInterval into a concrete dateDue on the task
+			// form. One-week interval keeps the computed date
+			// non-empty without pinning to a specific value.
+			await modal.locator('input[name="taskInfoAdd"]').check();
+			await modal
+				.locator('select[name="dueInterval"]')
+				.selectOption('P1W');
+			await setTinyMceContent(
+				page,
+				'taskTemplate-description-control',
+				`<p>${templateDescription}</p>`,
+			);
+			await modal
+				.getByRole('button', {name: 'Save', exact: true})
+				.click();
+			await expect(titleInput).toHaveCount(0, {timeout: 15_000});
+			await expect(page.getByText(templateTitle)).toBeVisible({
+				timeout: 10_000,
 			});
 
-			try {
-				const page = await dbarnesCtx.newPage();
-
-				// --- Phase 1: create a task template in Submission
-				// stage via the settings UI. We need this template to
-				// exist in the journal the submission is created in —
-				// the apply-in-workflow fetch scopes templates by the
-				// submission's context.
-				await openTaskTemplatesTab(page, context.path);
-
-				const templateTitle = `Apply Template ${tag}`;
-				const templateDescription =
-					'Template description used to verify pre-fill';
-				await clickAddTemplateForStage(page, 'Submission Stage');
-
-				const modal = page.locator('[data-cy="active-modal"]');
-				const titleInput = modal.locator('#taskTemplate-title-control');
-				await expect(titleInput).toBeVisible({timeout: 10_000});
-
-				await titleInput.fill(templateTitle);
-				// Enable the task-info sub-form — the apply flow reads
-				// back dueInterval into a concrete dateDue on the task
-				// form. One-week interval keeps the computed date
-				// non-empty without pinning to a specific value.
-				await modal.locator('input[name="taskInfoAdd"]').check();
-				await modal
-					.locator('select[name="dueInterval"]')
-					.selectOption('P1W');
-				await setTinyMceContent(
-					page,
-					'taskTemplate-description-control',
-					`<p>${templateDescription}</p>`,
-				);
-				await modal
-					.getByRole('button', {name: 'Save', exact: true})
-					.click();
-				await expect(titleInput).toHaveCount(0, {timeout: 15_000});
-				await expect(page.getByText(templateTitle)).toBeVisible({
-					timeout: 10_000,
-				});
-
-				// --- Phase 2: seed a stage-1 submission in the same
-				// scratch journal with dbarnes as an editor participant,
-				// then open the workflow page.
-				const submissionSpec = {
-					tag,
-					journal: context.path,
-					submitter: 'rvaca',
-					section: 'ART',
-					locale: 'en',
-					participants: [{user: 'dbarnes', role: 'editor'}],
-					publications: [
-						{
-							versionStage: 'AO',
-							metadata: {
-								title: {en: `Draft ${tag}`},
-								abstract: {
-									en: '<p>Draft submission for task-template apply test.</p>',
-								},
-								keywords: {en: ['testing', 'task-templates']},
+			// --- Phase 2: seed a stage-1 submission in the same
+			// scratch journal with dbarnes as an editor participant,
+			// then open the workflow page.
+			const submissionSpec = {
+				tag,
+				journal: context.path,
+				submitter: 'rvaca',
+				section: 'ART',
+				locale: 'en',
+				participants: [{user: 'dbarnes', role: 'editor'}],
+				publications: [
+					{
+						versionStage: 'AO',
+						metadata: {
+							title: {en: `Draft ${tag}`},
+							abstract: {
+								en: '<p>Draft submission for task-template apply test.</p>',
 							},
-							published: false,
+							keywords: {en: ['testing', 'task-templates']},
 						},
-					],
-				};
-				const {submission} = await pkpApi.createSubmission(submissionSpec);
+						published: false,
+					},
+				],
+			};
+			const {submission} = await pkpApi.createSubmission(submissionSpec);
 
-				await page.goto(
-					`/index.php/${context.path}/en/dashboard/editorial?workflowSubmissionId=${submission.id}`,
-				);
+			await page.goto(
+				`/index.php/${context.path}/en/dashboard/editorial?workflowSubmissionId=${submission.id}`,
+			);
 
-				// The Discussion Manager panel is embedded in the
-				// workflow page on every stage. Scroll into view and
-				// open the Add form.
-				const dm = page.locator('[data-cy="discussion-manager"]');
-				await expect(dm).toBeVisible({timeout: 20_000});
+			// The Discussion Manager panel is embedded in the
+			// workflow page on every stage. Scroll into view and
+			// open the Add form.
+			const dm = page.locator('[data-cy="discussion-manager"]');
+			await expect(dm).toBeVisible({timeout: 20_000});
 
-				await dm.getByRole('button', {name: 'Add', exact: true}).click();
+			await dm.getByRole('button', {name: 'Add', exact: true}).click();
 
-				// The form-modal opens on top of the workflow dialog.
-				// Scope to the top-most [data-cy="active-modal"], which
-				// ModalManager puts on the currently-open side-modal.
-				const formModal = page.locator('[data-cy="active-modal"]');
-				await expect(
-					formModal.locator('input[name="title"]'),
-				).toBeVisible({timeout: 15_000});
+			// The form-modal opens on top of the workflow dialog.
+			// Scope to the top-most [data-cy="active-modal"], which
+			// ModalManager puts on the currently-open side-modal.
+			const formModal = page.locator('[data-cy="active-modal"]');
+			await expect(
+				formModal.locator('input[name="title"]'),
+			).toBeVisible({timeout: 15_000});
 
-				// The template list renders as a `<ul role="list">` of
-				// clickable buttons with the template title — picking
-				// one fires a submission-scoped fetch that pre-populates
-				// the form (`setValuesFromTemplate` in
-				// useDiscussionManagerForm.js).
-				// Template prefix is "TASK - " / "DISCUSSION - " in the
-				// button label; match by substring on the title itself.
-				await formModal
-					.getByRole('button', {name: new RegExp(templateTitle)})
-					.first()
-					.click();
+			// The template list renders as a `<ul role="list">` of
+			// clickable buttons with the template title — picking
+			// one fires a submission-scoped fetch that pre-populates
+			// the form (`setValuesFromTemplate` in
+			// useDiscussionManagerForm.js).
+			// Template prefix is "TASK - " / "DISCUSSION - " in the
+			// button label; match by substring on the title itself.
+			await formModal
+				.getByRole('button', {name: new RegExp(templateTitle)})
+				.first()
+				.click();
 
-				// Title is pre-filled with the template name.
-				await expect(
-					formModal.locator('input[name="title"]'),
-				).toHaveValue(templateTitle, {timeout: 15_000});
+			// Title is pre-filled with the template name.
+			await expect(
+				formModal.locator('input[name="title"]'),
+			).toHaveValue(templateTitle, {timeout: 15_000});
 
-				// taskInfoAdd is checked — applying a task template
-				// flips the form to the task shape (see
-				// setValuesFromTemplate: setValue('taskInfoAdd',
-				// isTask.value)).
-				await expect(
-					formModal.locator('input[name="taskInfoAdd"]'),
-				).toBeChecked();
+			// taskInfoAdd is checked — applying a task template
+			// flips the form to the task shape (see
+			// setValuesFromTemplate: setValue('taskInfoAdd',
+			// isTask.value)).
+			await expect(
+				formModal.locator('input[name="taskInfoAdd"]'),
+			).toBeChecked();
 
-				// Due date is pre-populated (non-empty) from the
-				// template's dueInterval=P1W.
-				await expect(
-					formModal.locator('input[name="dateDue"]'),
-				).not.toHaveValue('', {timeout: 10_000});
+			// Due date is pre-populated (non-empty) from the
+			// template's dueInterval=P1W.
+			await expect(
+				formModal.locator('input[name="dateDue"]'),
+			).not.toHaveValue('', {timeout: 10_000});
 
-				// Description is pre-filled into the form's TinyMCE
-				// instance. Read the editor's live content back via the
-				// tinymce API — this matches setTinyMceContent's own
-				// primitive and avoids iframe-body scraping.
-				//
-				// The discussion form's control id follows the shared
-				// pattern `<formId>-<name>-control` with formId
-				// `discussionForm` (see
-				// lib/ui-library/src/managers/DiscussionManager/useDiscussionManagerForm.js
-				// initEmptyForm line). Poll — the editor applies the
-				// template content asynchronously after the fetch
-				// resolves, so a one-shot read can race ahead of the
-				// assignment.
-				await expect
-					.poll(
-						async () => {
-							return await page.evaluate(() => {
-								const ed = window.tinymce?.get?.(
-									'discussionForm-description-control',
-								);
-								return ed?.getContent({format: 'text'})?.trim() ?? null;
-							});
-						},
-						{
-							timeout: 10_000,
-							message:
-								'description TinyMCE should receive pre-filled template content',
-						},
-					)
-					.toContain(templateDescription);
-			} finally {
-				await dbarnesCtx.close();
-			}
+			// Description is pre-filled into the form's TinyMCE
+			// instance. Read the editor's live content back via the
+			// tinymce API — this matches setTinyMceContent's own
+			// primitive and avoids iframe-body scraping.
+			//
+			// The discussion form's control id follows the shared
+			// pattern `<formId>-<name>-control` with formId
+			// `discussionForm` (see
+			// lib/ui-library/src/managers/DiscussionManager/useDiscussionManagerForm.js
+			// initEmptyForm line). Poll — the editor applies the
+			// template content asynchronously after the fetch
+			// resolves, so a one-shot read can race ahead of the
+			// assignment.
+			await expect
+				.poll(
+					async () => {
+						return await page.evaluate(() => {
+							const ed = window.tinymce?.get?.(
+								'discussionForm-description-control',
+							);
+							return ed?.getContent({format: 'text'})?.trim() ?? null;
+						});
+					},
+					{
+						timeout: 10_000,
+						message:
+							'description TinyMCE should receive pre-filled template content',
+					},
+				)
+				.toContain(templateDescription);
+		
 		},
 	);
 });

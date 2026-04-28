@@ -1,7 +1,5 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
-
 /**
  * API smoke — row #47 in docs/e2e-playwright-migration.md.
  *
@@ -70,54 +68,46 @@ test.describe('API smoke', () => {
 	test(
 		'authenticated page exposes a CSRF token via window.pkp.currentUser',
 		{tag: '@regression'},
-		async ({browser, baseURL}) => {
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {
-					baseURL,
-				}),
-				baseURL,
-			});
-			try {
-				const page = await ctx.newPage();
-				// The profile page renders for every authenticated user
-				// regardless of context-scoped role. It carries the
-				// standard PKP template shell, which injects
-				// window.pkp.currentUser with csrfToken + id + roles
-				// (see PKPTemplateManager::getJavaScriptData).
-				await page.goto('/index.php/index/user/profile');
-				await expect(page).not.toHaveURL(/\/login/);
+		async ({asUser}) => {
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			// The profile page renders for every authenticated user
+			// regardless of context-scoped role. It carries the
+			// standard PKP template shell, which injects
+			// window.pkp.currentUser with csrfToken + id + roles
+			// (see PKPTemplateManager::getJavaScriptData).
+			await page.goto('/index.php/index/user/profile');
+			await expect(page).not.toHaveURL(/\/login/);
 
-				const currentUser = await page.evaluate(
-					() => window.pkp?.currentUser,
-				);
-				expect(currentUser, 'pkp.currentUser injected').toBeTruthy();
-				expect(currentUser.username).toBe('dbarnes');
-				// CSRF token format: a 32-char hex string (Laravel's
-				// random_bytes/Str::random on the session). Allow any
-				// non-empty string — the shape guarantee is "present &
-				// usable as X-Csrf-Token", not a specific length.
-				expect(
-					currentUser.csrfToken,
-					'csrfToken is a non-empty string',
-				).toMatch(/^[A-Za-z0-9]{16,}$/);
+			const currentUser = await page.evaluate(
+				() => window.pkp?.currentUser,
+			);
+			expect(currentUser, 'pkp.currentUser injected').toBeTruthy();
+			expect(currentUser.username).toBe('dbarnes');
+			// CSRF token format: a 32-char hex string (Laravel's
+			// random_bytes/Str::random on the session). Allow any
+			// non-empty string — the shape guarantee is "present &
+			// usable as X-Csrf-Token", not a specific length.
+			expect(
+				currentUser.csrfToken,
+				'csrfToken is a non-empty string',
+			).toMatch(/^[A-Za-z0-9]{16,}$/);
 
-				// Negative: the speculative REST endpoint
-				// lib/pkp/playwright/support/api.js targets
-				// (`pkpApi.getCsrfToken` → /index/api/v1/_csrf) does
-				// NOT exist. If the route is ever added (or removed),
-				// this probe catches the drift. Today it 404s.
-				const probe = await page.request.get(
-					'/index.php/index/api/v1/_csrf',
-				);
-				expect(
-					[404, 401, 403],
-					`Unexpected /api/v1/_csrf status ${probe.status()} ` +
-						'— if this endpoint starts returning 200, revisit ' +
-						'lib/pkp/playwright/support/api.js `getCsrfToken`.',
-				).toContain(probe.status());
-			} finally {
-				await ctx.close();
-			}
+			// Negative: the speculative REST endpoint
+			// lib/pkp/playwright/support/api.js targets
+			// (`pkpApi.getCsrfToken` → /index/api/v1/_csrf) does
+			// NOT exist. If the route is ever added (or removed),
+			// this probe catches the drift. Today it 404s.
+			const probe = await page.request.get(
+				'/index.php/index/api/v1/_csrf',
+			);
+			expect(
+				[404, 401, 403],
+				`Unexpected /api/v1/_csrf status ${probe.status()} ` +
+					'— if this endpoint starts returning 200, revisit ' +
+					'lib/pkp/playwright/support/api.js `getCsrfToken`.',
+			).toContain(probe.status());
+		
 		},
 	);
 
@@ -146,46 +136,38 @@ test.describe('API smoke', () => {
 	test(
 		'authenticated user lists submissions',
 		{tag: '@regression'},
-		async ({browser, baseURL}) => {
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {
-					baseURL,
-				}),
-				baseURL,
-			});
-			try {
-				const page = await ctx.newPage();
-				// Warm the session by navigating to a context page first
-				// — ensures the session cookies are present on the
-				// following in-page fetch.
-				await page.goto('/index.php/publicknowledge/dashboard/editorial');
-				await expect(page).not.toHaveURL(/\/login/);
+		async ({asUser}) => {
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			// Warm the session by navigating to a context page first
+			// — ensures the session cookies are present on the
+			// following in-page fetch.
+			await page.goto('/index.php/publicknowledge/dashboard/editorial');
+			await expect(page).not.toHaveURL(/\/login/);
 
-				// In-page fetch so cookies ride along. PKP's API context
-				// route + session cookie auth path is the same
-				// middleware flow every authenticated UI click
-				// exercises; asserting the endpoint returns a
-				// well-formed response body is the "API is reachable"
-				// smoke.
-				const result = await page.evaluate(async () => {
-					const r = await fetch(
-						'/index.php/publicknowledge/api/v1/submissions',
-						{headers: {Accept: 'application/json'}},
-					);
-					const j = await r.json();
-					return {status: r.status, body: j};
-				});
-				expect(result.status).toBe(200);
-				// The listing endpoint returns {items, itemsMax, ...}.
-				// Items may be empty for dbarnes depending on what other
-				// tests have seeded — we only assert the shape.
-				expect(result.body).toHaveProperty('items');
-				expect(Array.isArray(result.body.items)).toBe(true);
-				expect(result.body).toHaveProperty('itemsMax');
-				expect(typeof result.body.itemsMax).toBe('number');
-			} finally {
-				await ctx.close();
-			}
+			// In-page fetch so cookies ride along. PKP's API context
+			// route + session cookie auth path is the same
+			// middleware flow every authenticated UI click
+			// exercises; asserting the endpoint returns a
+			// well-formed response body is the "API is reachable"
+			// smoke.
+			const result = await page.evaluate(async () => {
+				const r = await fetch(
+					'/index.php/publicknowledge/api/v1/submissions',
+					{headers: {Accept: 'application/json'}},
+				);
+				const j = await r.json();
+				return {status: r.status, body: j};
+			});
+			expect(result.status).toBe(200);
+			// The listing endpoint returns {items, itemsMax, ...}.
+			// Items may be empty for dbarnes depending on what other
+			// tests have seeded — we only assert the shape.
+			expect(result.body).toHaveProperty('items');
+			expect(Array.isArray(result.body.items)).toBe(true);
+			expect(result.body).toHaveProperty('itemsMax');
+			expect(typeof result.body.itemsMax).toBe('number');
+		
 		},
 	);
 });

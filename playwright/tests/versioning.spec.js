@@ -180,43 +180,39 @@ async function expectReaderDefaultsToVersion({
 	expectedOtherVersionLabel,
 	v1PublicationId,
 }) {
-	const ctx = await browser.newContext({baseURL});
-	try {
-		const page = await ctx.newPage();
-		const resp = await page.goto(
-			`/index.php/publicknowledge/article/view/${submissionId}`,
-		);
-		expect(resp?.status()).toBe(200);
-		await expect(page.locator('h1').first()).toContainText(
-			expectedTitleFragment,
-		);
+	const ctx = await browser.newContext({baseURL});	const page = await ctx.newPage();
+	const resp = await page.goto(
+		`/index.php/publicknowledge/article/view/${submissionId}`,
+	);
+	expect(resp?.status()).toBe(200);
+	await expect(page.locator('h1').first()).toContainText(
+		expectedTitleFragment,
+	);
 
-		// Version picker — v2 is the current version (no link), v1 renders
-		// as a link in the .versions list. The label always includes
-		// "(Version of Record 1.0)".
-		const versions = page.locator('.versions');
-		await expect(versions).toBeVisible({timeout: 5_000});
-		const olderLink = versions.locator(
-			`a[href*="/version/${v1PublicationId}"]`,
-		);
-		await expect(olderLink).toHaveCount(1);
-		await expect(olderLink).toContainText(expectedOtherVersionLabel);
+	// Version picker — v2 is the current version (no link), v1 renders
+	// as a link in the .versions list. The label always includes
+	// "(Version of Record 1.0)".
+	const versions = page.locator('.versions');
+	await expect(versions).toBeVisible({timeout: 5_000});
+	const olderLink = versions.locator(
+		`a[href*="/version/${v1PublicationId}"]`,
+	);
+	await expect(olderLink).toHaveCount(1);
+	await expect(olderLink).toContainText(expectedOtherVersionLabel);
 
-		// Follow the v1 link; page should render v1 content with an
-		// outdated-version notice.
-		await olderLink.click();
-		await page.waitForURL(new RegExp(`/version/${v1PublicationId}($|\\?)`), {
-			timeout: 10_000,
-		});
-		await expect(page.locator('h1').first()).toContainText(
-			'Published article',
-		);
-		await expect(page.getByText(/outdated version/i).first()).toBeVisible({
-			timeout: 5_000,
-		});
-	} finally {
-		await ctx.close();
-	}
+	// Follow the v1 link; page should render v1 content with an
+	// outdated-version notice.
+	await olderLink.click();
+	await page.waitForURL(new RegExp(`/version/${v1PublicationId}($|\\?)`), {
+		timeout: 10_000,
+	});
+	await expect(page.locator('h1').first()).toContainText(
+		'Published article',
+	);
+	await expect(page.getByText(/outdated version/i).first()).toBeVisible({
+		timeout: 5_000,
+	});
+
 }
 
 /**
@@ -241,23 +237,19 @@ async function expectReaderHasOnlyVersion({
 	expectedTitleFragment,
 	excludedTitleFragment,
 }) {
-	const ctx = await browser.newContext({baseURL});
-	try {
-		const page = await ctx.newPage();
-		const resp = await page.goto(
-			`/index.php/publicknowledge/article/view/${submissionId}`,
-		);
-		expect(resp?.status()).toBe(200);
-		await expect(page.locator('h1').first()).toContainText(
-			expectedTitleFragment,
-		);
+	const ctx = await browser.newContext({baseURL});	const page = await ctx.newPage();
+	const resp = await page.goto(
+		`/index.php/publicknowledge/article/view/${submissionId}`,
+	);
+	expect(resp?.status()).toBe(200);
+	await expect(page.locator('h1').first()).toContainText(
+		expectedTitleFragment,
+	);
 
-		// v2 no longer listed in the version picker.
-		const versions = page.locator('.versions');
-		await expect(versions).not.toContainText(excludedTitleFragment);
-	} finally {
-		await ctx.close();
-	}
+	// v2 no longer listed in the version picker.
+	const versions = page.locator('.versions');
+	await expect(versions).not.toContainText(excludedTitleFragment);
+
 }
 
 /**

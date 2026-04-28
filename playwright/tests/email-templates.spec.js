@@ -1,8 +1,6 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
 const {setTinyMceContent} = require('../support/tinymce.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
-
 /**
  * Email templates — row #4 in docs/e2e-playwright-migration.md.
  *
@@ -146,181 +144,163 @@ test.describe('Email templates', () => {
 	test(
 		'admin toggles a default template from unrestricted to restricted with user groups',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag();
 			const {context} = await pkpApi.createJournal({
 				tag,
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
-			});
-			try {
-				const page = await ctx.newPage();
-				await openManageEmails(page, context.path);
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			await openManageEmails(page, context.path);
 
-				const mailable = 'Discussion (Production)';
+			const mailable = 'Discussion (Production)';
 
-				// Open the default template, flip to restricted, pick two
-				// user groups, save.
-				let templateModal = await openEmailTemplate(page, mailable, mailable);
-				await setUnrestricted(templateModal, false);
-				await templateModal
-					.locator('input[name="assignedUserGroupIds"]')
-					.nth(0)
-					.check({force: true});
-				await templateModal
-					.locator('input[name="assignedUserGroupIds"]')
-					.nth(1)
-					.check({force: true});
-				await saveTemplateModal(page);
+			// Open the default template, flip to restricted, pick two
+			// user groups, save.
+			let templateModal = await openEmailTemplate(page, mailable, mailable);
+			await setUnrestricted(templateModal, false);
+			await templateModal
+				.locator('input[name="assignedUserGroupIds"]')
+				.nth(0)
+				.check({force: true});
+			await templateModal
+				.locator('input[name="assignedUserGroupIds"]')
+				.nth(1)
+				.check({force: true});
+			await saveTemplateModal(page);
 
-				// Reload and verify the selection persisted.
-				await page.reload();
-				await expect(page.locator('li.listPanel__item').first()).toBeVisible();
-				templateModal = await openEmailTemplate(page, mailable, mailable);
-				await expect(
-					templateModal.locator('input[name="isUnrestricted"]:checked'),
-				).toHaveValue('false');
-				await expect(
-					templateModal.locator('input[name="assignedUserGroupIds"]').nth(0),
-				).toBeChecked();
-				await expect(
-					templateModal.locator('input[name="assignedUserGroupIds"]').nth(1),
-				).toBeChecked();
-			} finally {
-				await ctx.close();
-			}
+			// Reload and verify the selection persisted.
+			await page.reload();
+			await expect(page.locator('li.listPanel__item').first()).toBeVisible();
+			templateModal = await openEmailTemplate(page, mailable, mailable);
+			await expect(
+				templateModal.locator('input[name="isUnrestricted"]:checked'),
+			).toHaveValue('false');
+			await expect(
+				templateModal.locator('input[name="assignedUserGroupIds"]').nth(0),
+			).toBeChecked();
+			await expect(
+				templateModal.locator('input[name="assignedUserGroupIds"]').nth(1),
+			).toBeChecked();
+		
 		},
 	);
 
 	test(
 		'admin adds a new restricted custom template with body and two user groups',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag();
 			const {context} = await pkpApi.createJournal({
 				tag,
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
-			});
-			try {
-				const page = await ctx.newPage();
-				await openManageEmails(page, context.path);
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			await openManageEmails(page, context.path);
 
-				const mailable = 'Discussion (Production)';
-				const templateName = `Custom restricted ${tag}`;
+			const mailable = 'Discussion (Production)';
+			const templateName = `Custom restricted ${tag}`;
 
-				let templateModal = await openNewTemplateForMailable(page, mailable);
+			let templateModal = await openNewTemplateForMailable(page, mailable);
 
-				await templateModal
-					.locator('input[id^="editEmailTemplate-name-control-en"]')
-					.fill(templateName);
-				await templateModal
-					.locator('input[id^="editEmailTemplate-subject-control-en"]')
-					.fill(`Subject for ${tag}`);
-				await setTinyMceContent(
-					page,
-					'editEmailTemplate-body-control-en',
-					`<p>Body for ${tag}</p>`,
-				);
+			await templateModal
+				.locator('input[id^="editEmailTemplate-name-control-en"]')
+				.fill(templateName);
+			await templateModal
+				.locator('input[id^="editEmailTemplate-subject-control-en"]')
+				.fill(`Subject for ${tag}`);
+			await setTinyMceContent(
+				page,
+				'editEmailTemplate-body-control-en',
+				`<p>Body for ${tag}</p>`,
+			);
 
-				await setUnrestricted(templateModal, false);
-				// Cypress seeds the two "middle" user groups (indices 1 and 2)
-				// because the test on publicknowledge left index 0 assigned
-				// elsewhere; on a scratch journal nothing else is wired, so
-				// indices 0 and 1 are fine.
-				await templateModal
-					.locator('input[name="assignedUserGroupIds"]')
-					.nth(0)
-					.check({force: true});
-				await templateModal
-					.locator('input[name="assignedUserGroupIds"]')
-					.nth(1)
-					.check({force: true});
+			await setUnrestricted(templateModal, false);
+			// Cypress seeds the two "middle" user groups (indices 1 and 2)
+			// because the test on publicknowledge left index 0 assigned
+			// elsewhere; on a scratch journal nothing else is wired, so
+			// indices 0 and 1 are fine.
+			await templateModal
+				.locator('input[name="assignedUserGroupIds"]')
+				.nth(0)
+				.check({force: true});
+			await templateModal
+				.locator('input[name="assignedUserGroupIds"]')
+				.nth(1)
+				.check({force: true});
 
-				await saveTemplateModal(page);
+			await saveTemplateModal(page);
 
-				// Reload and verify the custom template persisted with both
-				// user groups still checked.
-				await page.reload();
-				await expect(page.locator('li.listPanel__item').first()).toBeVisible();
-				templateModal = await openEmailTemplate(page, mailable, templateName);
-				await expect(
-					templateModal.locator('input[name="isUnrestricted"]:checked'),
-				).toHaveValue('false');
-				await expect(
-					templateModal.locator('input[name="assignedUserGroupIds"]').nth(0),
-				).toBeChecked();
-				await expect(
-					templateModal.locator('input[name="assignedUserGroupIds"]').nth(1),
-				).toBeChecked();
-			} finally {
-				await ctx.close();
-			}
+			// Reload and verify the custom template persisted with both
+			// user groups still checked.
+			await page.reload();
+			await expect(page.locator('li.listPanel__item').first()).toBeVisible();
+			templateModal = await openEmailTemplate(page, mailable, templateName);
+			await expect(
+				templateModal.locator('input[name="isUnrestricted"]:checked'),
+			).toHaveValue('false');
+			await expect(
+				templateModal.locator('input[name="assignedUserGroupIds"]').nth(0),
+			).toBeChecked();
+			await expect(
+				templateModal.locator('input[name="assignedUserGroupIds"]').nth(1),
+			).toBeChecked();
+		
 		},
 	);
 
 	test(
 		'admin creates an unrestricted custom template and user-group options are hidden',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag();
 			const {context} = await pkpApi.createJournal({
 				tag,
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
-			});
-			try {
-				const page = await ctx.newPage();
-				await openManageEmails(page, context.path);
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			await openManageEmails(page, context.path);
 
-				const mailable = 'Discussion (Production)';
-				const templateName = `Custom unrestricted ${tag}`;
+			const mailable = 'Discussion (Production)';
+			const templateName = `Custom unrestricted ${tag}`;
 
-				let templateModal = await openNewTemplateForMailable(page, mailable);
+			let templateModal = await openNewTemplateForMailable(page, mailable);
 
-				await templateModal
-					.locator('input[id^="editEmailTemplate-name-control-en"]')
-					.fill(templateName);
-				await templateModal
-					.locator('input[id^="editEmailTemplate-subject-control-en"]')
-					.fill(`Subject for ${tag}`);
-				await setTinyMceContent(
-					page,
-					'editEmailTemplate-body-control-en',
-					`<p>Body for ${tag}</p>`,
-				);
+			await templateModal
+				.locator('input[id^="editEmailTemplate-name-control-en"]')
+				.fill(templateName);
+			await templateModal
+				.locator('input[id^="editEmailTemplate-subject-control-en"]')
+				.fill(`Subject for ${tag}`);
+			await setTinyMceContent(
+				page,
+				'editEmailTemplate-body-control-en',
+				`<p>Body for ${tag}</p>`,
+			);
 
-				await setUnrestricted(templateModal, true);
-				// User-group checkboxes are gated on isUnrestricted=false via
-				// FieldOptions's showWhen — with unrestricted=true they must
-				// not be in the DOM at all.
-				await expect(
-					templateModal.locator('input[name="assignedUserGroupIds"]'),
-				).toHaveCount(0);
+			await setUnrestricted(templateModal, true);
+			// User-group checkboxes are gated on isUnrestricted=false via
+			// FieldOptions's showWhen — with unrestricted=true they must
+			// not be in the DOM at all.
+			await expect(
+				templateModal.locator('input[name="assignedUserGroupIds"]'),
+			).toHaveCount(0);
 
-				await saveTemplateModal(page);
+			await saveTemplateModal(page);
 
-				await page.reload();
-				await expect(page.locator('li.listPanel__item').first()).toBeVisible();
-				templateModal = await openEmailTemplate(page, mailable, templateName);
-				await expect(
-					templateModal.locator('input[name="isUnrestricted"]:checked'),
-				).toHaveValue('true');
-				await expect(
-					templateModal.locator('input[name="assignedUserGroupIds"]'),
-				).toHaveCount(0);
-			} finally {
-				await ctx.close();
-			}
+			await page.reload();
+			await expect(page.locator('li.listPanel__item').first()).toBeVisible();
+			templateModal = await openEmailTemplate(page, mailable, templateName);
+			await expect(
+				templateModal.locator('input[name="isUnrestricted"]:checked'),
+			).toHaveValue('true');
+			await expect(
+				templateModal.locator('input[name="assignedUserGroupIds"]'),
+			).toHaveCount(0);
+		
 		},
 	);
 });

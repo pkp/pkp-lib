@@ -1,7 +1,6 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
 const {setTinyMceContent} = require('../support/tinymce.js');
-const {ensureAuthStateFor} = require('../support/auth.js');
 
 /**
  * Announcements CRUD — row #1 in docs/e2e-playwright-migration.md.
@@ -29,7 +28,7 @@ test.describe('Announcements', () => {
 	test(
 		'manager creates an announcement with TinyMCE body, edits it, then deletes it',
 		{tag: '@regression'},
-		async ({pkpApi, browser, baseURL}) => {
+		async ({pkpApi, asUser}) => {
 			const tag = uniqueTag();
 			const {context} = await pkpApi.createJournal({
 				tag,
@@ -37,72 +36,65 @@ test.describe('Announcements', () => {
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
 
-			const ctx = await browser.newContext({
-				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
-				baseURL,
-			});
-			try {
-				const page = await ctx.newPage();
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
 
-				await page.goto(
-					`/index.php/${context.path}/management/settings/announcements`,
-				);
-				await expect(
-					page.getByRole('button', {name: 'Add Announcement'}),
-				).toBeVisible();
+			await page.goto(
+				`/index.php/${context.path}/management/settings/announcements`,
+			);
+			await expect(
+				page.getByRole('button', {name: 'Add Announcement'}),
+			).toBeVisible();
 
-				// --- Create ---
-				await page
-					.getByRole('button', {name: 'Add Announcement'})
-					.click();
+			// --- Create ---
+			await page
+				.getByRole('button', {name: 'Add Announcement'})
+				.click();
 
-				const createDialog = page.getByRole('dialog');
-				const titleCreate = `Call for papers ${tag}`;
-				await createDialog
-					.locator('#announcement-title-control-en')
-					.fill(titleCreate);
-				await setTinyMceContent(
-					page,
-					'announcement-descriptionShort-control-en',
-					'<p>Short teaser for the CFP.</p>',
-				);
-				await createDialog.getByRole('button', {name: 'Save'}).click();
+			const createDialog = page.getByRole('dialog');
+			const titleCreate = `Call for papers ${tag}`;
+			await createDialog
+				.locator('#announcement-title-control-en')
+				.fill(titleCreate);
+			await setTinyMceContent(
+				page,
+				'announcement-descriptionShort-control-en',
+				'<p>Short teaser for the CFP.</p>',
+			);
+			await createDialog.getByRole('button', {name: 'Save'}).click();
 
-				const createdRow = page.locator(
-					'#announcements .listPanel__itemSummary',
-					{hasText: titleCreate},
-				);
-				await expect(createdRow).toBeVisible();
+			const createdRow = page.locator(
+				'#announcements .listPanel__itemSummary',
+				{hasText: titleCreate},
+			);
+			await expect(createdRow).toBeVisible();
 
-				// --- Edit ---
-				await createdRow.getByRole('button', {name: 'Edit'}).click();
-				const editDialog = page.getByRole('dialog');
-				const titleEdited = `${titleCreate} (edited)`;
-				await editDialog
-					.locator('#announcement-title-control-en')
-					.fill(titleEdited);
-				await editDialog.getByRole('button', {name: 'Save'}).click();
+			// --- Edit ---
+			await createdRow.getByRole('button', {name: 'Edit'}).click();
+			const editDialog = page.getByRole('dialog');
+			const titleEdited = `${titleCreate} (edited)`;
+			await editDialog
+				.locator('#announcement-title-control-en')
+				.fill(titleEdited);
+			await editDialog.getByRole('button', {name: 'Save'}).click();
 
-				const editedRow = page.locator(
-					'#announcements .listPanel__itemSummary',
-					{hasText: titleEdited},
-				);
-				await expect(editedRow).toBeVisible();
+			const editedRow = page.locator(
+				'#announcements .listPanel__itemSummary',
+				{hasText: titleEdited},
+			);
+			await expect(editedRow).toBeVisible();
 
-				// --- Delete ---
-				await editedRow.getByRole('button', {name: 'Delete'}).click();
-				await page
-					.getByRole('dialog')
-					.getByRole('button', {name: 'Yes'})
-					.click();
-				await expect(
-					page.locator('#announcements .listPanel__itemTitle', {
-						hasText: titleEdited,
-					}),
-				).toHaveCount(0);
-			} finally {
-				await ctx.close();
-			}
+			// --- Delete ---
+			await editedRow.getByRole('button', {name: 'Delete'}).click();
+			await page
+				.getByRole('dialog')
+				.getByRole('button', {name: 'Yes'})
+				.click();
+			await expect(
+				page.locator('#announcements .listPanel__itemTitle', {
+					hasText: titleEdited,
+				}),
+			).toHaveCount(0);
 		},
 	);
 });

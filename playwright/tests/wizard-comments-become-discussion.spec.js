@@ -99,13 +99,17 @@ test.describe('Submission wizard — comments for the editor', () => {
 
 			// Scope the assertion to the "For the Editors" review panel
 			// — the review page stacks one panel per wizard step, each
-			// with a heading matching its step name. Anchor by the h3
-			// "For the Editors" (optional locale parenthetical) so any
-			// other mentions of the comment elsewhere can't substitute.
+			// with a heading matching its step name. Multilingual journals
+			// (publicknowledge ships en + fr_CA in supportedSubmissionMetadataLocales
+			// per JournalProcessor) render one panel per locale; anchor on
+			// the English variant explicitly so the comment we typed
+			// (which only exists in English) is the load-bearing match.
 			const forTheEditorsPanel = page
 				.locator('.submissionWizard__reviewPanel')
 				.filter({
-					has: page.getByRole('heading', {name: /^For the Editors/}),
+					has: page.getByRole('heading', {
+						name: /^For the Editors \(English\)/,
+					}),
 				});
 			await expect(forTheEditorsPanel).toBeVisible({timeout: 15_000});
 

@@ -59,6 +59,13 @@ class ContextBuilderProcessor implements ScenarioProcessor
             'supportedLocales' => $supportedLocales,
             'supportedFormLocales' => $supportedLocales,
             'supportedSubmissionLocales' => $supportedLocales,
+            // Mirror supportedLocales onto the two arrays the publication
+            // validator + wizard's per-locale review panel read. Without
+            // these, a multilingual scratch journal silently rejects
+            // locale-specific metadata (see JournalProcessor for the same
+            // fix on the bootstrap path).
+            'supportedSubmissionMetadataLocales' => $supportedLocales,
+            'supportedAddedSubmissionLocales' => $supportedLocales,
             'country' => $spec['country'] ?? 'US',
             'contactName' => $contactName,
             'contactEmail' => $contactEmail,

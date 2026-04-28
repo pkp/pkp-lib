@@ -68,6 +68,14 @@ class JournalProcessor implements ScenarioProcessor
             'supportedLocales' => $spec['supportedLocales'] ?? ['en'],
             'supportedFormLocales' => $spec['supportedLocales'] ?? ['en'],
             'supportedSubmissionLocales' => $spec['supportedLocales'] ?? ['en'],
+            // Mirror supportedLocales onto the two arrays the publication
+            // validator + wizard's per-locale review panel actually read.
+            // PKPContextService::add defaults both to ['en'] if unset, which
+            // makes a multilingual journal silently reject locale-specific
+            // metadata (see Repo::publication()->validate intersecting against
+            // Submission::getPublicationLanguages($context->getSupportedSubmissionMetadataLocales())).
+            'supportedSubmissionMetadataLocales' => $spec['supportedLocales'] ?? ['en'],
+            'supportedAddedSubmissionLocales' => $spec['supportedLocales'] ?? ['en'],
             'country' => $spec['country'] ?? 'US',
             'contactName' => $spec['contact']['name'] ?? '',
             'contactEmail' => $spec['contact']['email'] ?? '',

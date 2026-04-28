@@ -1451,6 +1451,15 @@ msgstr "Please enter the Data Availability Statement."
 msgid "submission.form.name"
 msgstr "Name the file (e.g., Manuscript; Table 1)"
 
+msgid "submission.form.summaryOfChanges"
+msgstr "Summary of Changes (Amendment Notice)"
+
+msgid "submission.form.summaryOfChanges.description"
+msgstr "Describe the key changes made in this version - for example, corrected figures, updated data, or revised methodology. The editor will review this before it appears publicly."
+
+msgid "submission.files.amendmentNotice"
+msgstr "Amendment Notice"
+
 msgid "submission.form.replaceExisting"
 msgstr "Replacing an Existing File?"
 

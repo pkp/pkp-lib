@@ -107,8 +107,14 @@ module.exports = function createPlaywrightConfig({app}) {
 				APPLICATION_ENV: 'test',
 				// Run php -S with multiple workers so same-origin sub-requests
 				// (e.g. a page load fetching /api/...) don't deadlock the
-				// single-process dev server. Unix only; ignored on Windows.
-				PHP_CLI_SERVER_WORKERS: process.env.PHP_CLI_SERVER_WORKERS || '4',
+				// single-process dev server. Each Playwright worker drives
+				// concurrent browser navigation + API calls, so this should
+				// scale roughly with the Playwright worker count. 16 is a
+				// safe default for workers=5 on a typical dev machine; the
+				// previous default of 4 saturated under workers=5 and made
+				// `GET /api/v1/submissions/{id}` queue past the 10s timeout
+				// that pkpApi clients use. Unix only; ignored on Windows.
+				PHP_CLI_SERVER_WORKERS: process.env.PHP_CLI_SERVER_WORKERS || '16',
 			},
 		},
 		projects: [

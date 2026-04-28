@@ -279,6 +279,11 @@ abstract class PKPDashboardHandler extends Handler
             'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
             'SUBMISSION_FILE_DEPENDENT' => SubmissionFile::SUBMISSION_FILE_DEPENDENT,
             'SUBMISSION_FILE_BODY_TEXT' => SubmissionFile::SUBMISSION_FILE_BODY_TEXT,
+
+            'GENRE_CATEGORY_DOCUMENT' => Genre::GENRE_CATEGORY_DOCUMENT,
+            'GENRE_CATEGORY_ARTWORK' => Genre::GENRE_CATEGORY_ARTWORK,
+            'GENRE_CATEGORY_SUPPLEMENTARY' => Genre::GENRE_CATEGORY_SUPPLEMENTARY,
+
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
             // Reviewer selection types

@@ -44,92 +44,40 @@ class AuthorizeUserData
 
         $errorMessages = [];
 
-        // Test-mode shortcut: when APPLICATION_ENV=test and the request
-        // carries a `testFakeOrcid` query param (an ORCID iD like
-        // `0000-0001-2345-6789`, OR the special value `clear` to wipe a
-        // previously-set verified ORCID), bypass the live ORCID OAuth
-        // token exchange and either synthesise a token-response payload
-        // locally or clear the user's ORCID fields directly. The
-        // synthesised payload uses the same shape that the real
-        // sandbox.orcid.org `oauth/token` endpoint returns, so the
-        // downstream `targetOp` branches (register / profile / invitation)
-        // run unchanged. This exists solely so the Playwright suite can
-        // exercise the redirect_uri side of the handshake end-to-end
-        // without a fake OAuth server in the dev environment — there is
-        // no production code path that lands here, and the gate would
-        // 404 outside test mode anyway because `APPLICATION_ENV` is only
-        // set to `test` by the Playwright harness.
-        $testFakeOrcid = $this->request->getUserVar('testFakeOrcid');
-        $isTestMode = getenv('APPLICATION_ENV') === 'test'
-            && is_string($testFakeOrcid)
-            && $testFakeOrcid !== '';
+        // API Request: GetOAuth token and ORCID
+        try {
+            $tokenResponse = $httpClient->request(
+                'POST',
+                $url = OrcidManager::getApiPath($context) . OrcidManager::OAUTH_TOKEN_URL,
+                [
+                    'form_params' => [
+                        'code' => $this->request->getUserVar('code'),
+                        'grant_type' => 'authorization_code',
+                        'client_id' => OrcidManager::getClientId($context),
+                        'client_secret' => OrcidManager::getClientSecret($context),
+                    ],
+                    'headers' => ['Accept' => 'application/json'],
+                ]
+            );
 
-        if ($isTestMode && $testFakeOrcid === 'clear' && $this->request->getUserVar('targetOp') === 'profile') {
-            // Test-only cleanup path: wipe the verified ORCID off the
-            // currently-logged-in user so a subsequent test sees the
-            // unverified-state UI again. Mirrors the IdentityForm
-            // `removeOrcidId=true` branch without driving the modal.
-            $user = $this->request->getUser();
-            if ($user !== null) {
-                $user->setOrcid(null);
-                $user->setOrcidVerified(false);
-                OrcidManager::removeOrcidAccessToken($user);
-                Repo::user()->edit($user, ['orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn']);
+            if ($tokenResponse->getStatusCode() !== 200) {
+                error_log('ORCID token URL error: ' . $tokenResponse->getStatusCode() . ' (' . __FILE__ . ' line ' . __LINE__ . ', URL ' . $url . ')');
+                $orcid = null;
+                $orcidUri = null;
+                $accessToken = null;
+                $tokenData = [];
+                $errorMessages[] = 'ORCID authorization failed: ORCID token URL error: ' . $tokenResponse->getStatusCode();
+            } else {
+                $tokenData = json_decode($tokenResponse->getBody(), true);
+                $orcid = $tokenData['orcid'];
+                $orcidUri = (OrcidManager::isSandbox($context) ? OrcidManager::ORCID_URL_SANDBOX : OrcidManager::ORCID_URL) . $orcid;
+                $accessToken = $tokenData['access_token'];
             }
-            echo '<html><body><script>window.close();</script></body></html>';
-            return;
-        }
-
-        if ($isTestMode) {
-            $tokenData = [
-                'orcid' => $testFakeOrcid,
-                'access_token' => 'test-access-token-' . $testFakeOrcid,
-                'refresh_token' => 'test-refresh-token-' . $testFakeOrcid,
-                'expires_in' => 3600,
-                'scope' => OrcidManager::isMemberApiEnabled($context)
-                    ? OrcidManager::ORCID_API_SCOPE_MEMBER
-                    : OrcidManager::ORCID_API_SCOPE_PUBLIC,
-                'name' => 'Test User',
-            ];
-            $orcid = $tokenData['orcid'];
-            $orcidUri = (OrcidManager::isSandbox($context) ? OrcidManager::ORCID_URL_SANDBOX : OrcidManager::ORCID_URL) . $orcid;
-            $accessToken = $tokenData['access_token'];
-        } else {
-            // API Request: GetOAuth token and ORCID
-            try {
-                $tokenResponse = $httpClient->request(
-                    'POST',
-                    $url = OrcidManager::getApiPath($context) . OrcidManager::OAUTH_TOKEN_URL,
-                    [
-                        'form_params' => [
-                            'code' => $this->request->getUserVar('code'),
-                            'grant_type' => 'authorization_code',
-                            'client_id' => OrcidManager::getClientId($context),
-                            'client_secret' => OrcidManager::getClientSecret($context),
-                        ],
-                        'headers' => ['Accept' => 'application/json'],
-                    ]
-                );
-
-                if ($tokenResponse->getStatusCode() !== 200) {
-                    error_log('ORCID token URL error: ' . $tokenResponse->getStatusCode() . ' (' . __FILE__ . ' line ' . __LINE__ . ', URL ' . $url . ')');
-                    $orcid = null;
-                    $orcidUri = null;
-                    $accessToken = null;
-                    $tokenData = [];
-                    $errorMessages[] = 'ORCID authorization failed: ORCID token URL error: ' . $tokenResponse->getStatusCode();
-                } else {
-                    $tokenData = json_decode($tokenResponse->getBody(), true);
-                    $orcid = $tokenData['orcid'];
-                    $orcidUri = (OrcidManager::isSandbox($context) ? OrcidManager::ORCID_URL_SANDBOX : OrcidManager::ORCID_URL) . $orcid;
-                    $accessToken = $tokenData['access_token'];
-                }
-            } catch (ClientException $exception) {
-                $reason = $exception->getResponse()->getBody();
-                $message = "AuthorizeUserData::execute failed: {$reason}";
-                OrcidManager::logError($message);
-                $errorMessages[] = 'ORCID authorization failed: ' . $message;
-            }
+        } catch (ClientException $exception) {
+            $reason = $exception->getResponse()->getBody();
+            $message = "AuthorizeUserData::execute failed: {$reason}";
+            OrcidManager::logError($message);
+            $errorMessages[] = 'ORCID authorization failed: ' . $message;
         }
 
         switch ($this->request->getUserVar('targetOp')) {

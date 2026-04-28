@@ -27,16 +27,38 @@ exports.createMailClient = function ({mailpitUrl, request}) {
 
 	return {
 		/**
-		 * Delete every message in Mailpit's inbox. Call at the start of any
-		 * test that asserts on freshly-arrived mail; we don't auto-clear in
-		 * a beforeEach because not every test needs an empty inbox and the
-		 * extra HTTP roundtrip adds up across the full suite.
+		 * Delete every message in Mailpit's inbox.
+		 *
+		 * **Race warning** — Mailpit is shared across parallel workers.
+		 * Calling `clearAll()` while another worker is mid-flow can wipe
+		 * mail it just sent. Prefer `deleteForRecipient(email)` (scoped
+		 * delete) or filter-by-tag in the Subject when reading
+		 * (see `inboxFor` callers in issues.spec.js for the pattern).
+		 * Use `clearAll()` only in serial-mode specs or before the very
+		 * first send of a run.
 		 */
 		async clearAll() {
 			const res = await request.delete(`${base}/api/v1/messages`);
 			if (!res.ok()) {
 				throw new Error(
 					`Mailpit clearAll failed: ${res.status()} ${await res.text()}`,
+				);
+			}
+		},
+
+		/**
+		 * Delete every message addressed to `email` (matches To, Cc, and
+		 * Bcc — same semantics Mailpit's `to:` search uses). Safe under
+		 * parallel-worker load: workers operating on disjoint recipients
+		 * don't race.
+		 */
+		async deleteForRecipient(email) {
+			const res = await request.delete(
+				`${base}/api/v1/search?query=${encodeURIComponent('to:' + email)}`,
+			);
+			if (!res.ok()) {
+				throw new Error(
+					`Mailpit deleteForRecipient failed: ${res.status()} ${await res.text()}`,
 				);
 			}
 		},
@@ -53,6 +75,7 @@ exports.createMailClient = function ({mailpitUrl, request}) {
 		async inboxFor(email, {timeout = 10_000, poll = 250} = {}) {
 			const deadline = Date.now() + timeout;
 			let lastStatus = null;
+			let lastBodyPreview = null;
 			while (Date.now() < deadline) {
 				const res = await request.get(
 					`${base}/api/v1/messages?query=${encodeURIComponent('to:' + email)}`,
@@ -64,13 +87,19 @@ exports.createMailClient = function ({mailpitUrl, request}) {
 				}
 				const body = await res.json();
 				lastStatus = `total=${body.messages_count ?? body.total ?? 0}`;
+				// Capture a body slice so an unexpected response shape
+				// (Mailpit version drift; field rename) is recognisable
+				// from the timeout error rather than masquerading as
+				// "0 messages".
+				lastBodyPreview = JSON.stringify(body).slice(0, 200);
 				if (body.messages && body.messages.length > 0) {
 					return body.messages;
 				}
 				await new Promise((r) => setTimeout(r, poll));
 			}
 			throw new Error(
-				`No mail for ${email} within ${timeout}ms (last poll: ${lastStatus})`,
+				`No mail for ${email} within ${timeout}ms ` +
+					`(last poll: ${lastStatus}; body: ${lastBodyPreview})`,
 			);
 		},
 

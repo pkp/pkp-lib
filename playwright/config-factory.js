@@ -61,18 +61,14 @@ module.exports = function createPlaywrightConfig({app}) {
 				: {reducedMotion: 'reduce'},
 		},
 		webServer: {
-			// Seed config.test.inc.php from the template if missing, then
-			// start php -S. The seed is a one-time cold-boot concern —
-			// ConfigParser::updateConfig needs a file to read as its
-			// starting point, and Application's constructor reads config
-			// on first request. Subsequent runs reuse the file on disk.
-			//
-			// On fresh seed, point [email] at Mailpit (127.0.0.1:1025) so
-			// the pkpMail fixture sees test-action mail. Existing
-			// config.test.inc.php files are left untouched — adjust the
-			// email block manually if you want to opt in.
+			// Cold-boot seed of config.test.inc.php is delegated to
+			// lib/pkp/playwright/seed-test-config.sh — that script is
+			// idempotent (skips if the file exists), points [email] at
+			// Mailpit on 127.0.0.1:1025, and aborts with a clear error
+			// if any of its sed substitutions silently no-op (e.g.
+			// because config.TEMPLATE.inc.php drifted). Then start php -S.
 			command:
-				'sh -c "if [ ! -f config.test.inc.php ]; then cp config.TEMPLATE.inc.php config.test.inc.php; sed -i.bak -E \\"s/^default = sendmail$/default = smtp/; s/^; smtp = On$/smtp = On/; s/^; smtp_server = mail\\.example\\.com$/smtp_server = 127.0.0.1/; s/^; smtp_port = 25$/smtp_port = 1025/\\" config.test.inc.php && rm -f config.test.inc.php.bak; fi; exec php -S 127.0.0.1:8000 -t ."',
+				'sh lib/pkp/playwright/seed-test-config.sh && exec php -S 127.0.0.1:8000 -t .',
 			url: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000',
 			cwd: appRoot,
 			reuseExistingServer: !isCI,

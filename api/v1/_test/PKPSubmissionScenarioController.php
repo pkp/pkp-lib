@@ -29,7 +29,6 @@ use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
@@ -122,20 +121,27 @@ class PKPSubmissionScenarioController extends PKPBaseController
         $decisionProcessor = new DecisionProcessor($reviewRoundProcessor);
         $publicationsProcessor = new PublicationsProcessor();
 
+        // No DB::transaction wrapper — running each processor in its
+        // own implicit transaction lets Postgres release row locks as
+        // soon as each statement commits. Wrapping the whole scenario
+        // in a single transaction caused parallel-worker calls to
+        // serialize on the journals.seq UPDATE that fires inside
+        // ContextDAO::resequence (and several other multi-row writes).
+        // Trade-off — partial state on processor failure — is fine
+        // because each test uses its own scratch submission and the
+        // test DB is reset between runs.
         try {
             try {
-                DB::transaction(function () use ($spec, $ctx, $submissionBuilder, $participantProcessor, $decisionProcessor, $publicationsProcessor) {
-                    $submissionBuilder->run($spec, $ctx);
-                    if ($participantProcessor->appliesTo($spec)) {
-                        $participantProcessor->run($spec, $ctx);
-                    }
-                    if ($decisionProcessor->appliesTo($spec)) {
-                        $decisionProcessor->run($spec, $ctx);
-                    }
-                    if ($publicationsProcessor->appliesTo($spec)) {
-                        $publicationsProcessor->run($spec, $ctx);
-                    }
-                });
+                $submissionBuilder->run($spec, $ctx);
+                if ($participantProcessor->appliesTo($spec)) {
+                    $participantProcessor->run($spec, $ctx);
+                }
+                if ($decisionProcessor->appliesTo($spec)) {
+                    $decisionProcessor->run($spec, $ctx);
+                }
+                if ($publicationsProcessor->appliesTo($spec)) {
+                    $publicationsProcessor->run($spec, $ctx);
+                }
             } catch (\Throwable $e) {
                 return response()->json([
                     'error' => 'Scenario build failed',

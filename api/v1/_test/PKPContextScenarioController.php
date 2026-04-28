@@ -22,8 +22,10 @@
  * publicknowledge journal stays read-only for the rest of the suite.
  *
  * Gated by the TestModeGate middleware (APPLICATION_ENV === 'test' and
- * X-Test-Key header match). All work runs inside DB::transaction so any
- * processor failure rolls the whole scenario back.
+ * X-Test-Key header match). Each processor runs in its own implicit
+ * transaction so per-statement row locks release immediately — see the
+ * comment in context() for why we don't wrap the whole scenario in a
+ * single DB::transaction.
  */
 
 namespace PKP\API\v1\_test;
@@ -31,7 +33,6 @@ namespace PKP\API\v1\_test;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -92,47 +93,47 @@ abstract class PKPContextScenarioController extends PKPBaseController
         $sectionProcessor = new SectionProcessor();
         $categoryProcessor = new CategoryProcessor();
 
+        // No DB::transaction wrapper — running each processor in its
+        // own implicit transaction lets Postgres release row locks (in
+        // particular ContextDAO::resequence's per-row UPDATE on the
+        // journals table) as soon as each statement commits, instead
+        // of holding them until the end of a wide outer transaction.
+        // Under workers=5+ this prevents the queueing that pushed
+        // /scenarios/journal POSTs past the 10s API timeout. The
+        // trade-off — partial state on processor failure — is fine
+        // because each test uses its own scratch journal and the test
+        // DB is reset between runs.
         try {
-            DB::transaction(function () use ($spec, $ctx, $contextBuilder, $userAssignment, $sectionProcessor, $categoryProcessor) {
-                $contextBuilder->run($spec, $ctx);
-                $contextId = $ctx->journalId($spec['path']);
+            $contextBuilder->run($spec, $ctx);
+            $contextId = $ctx->journalId($spec['path']);
 
-                // Sections, if specified, replace the default
-                // ContextService-installed "Articles" section. Per-test
-                // scratch journals usually omit this and inherit the
-                // default; baseline bootstrap supplies a full list.
-                $editorsToAssign = [];
-                if (!empty($spec['sections'])) {
-                    $sectionResult = $sectionProcessor->run(
-                        $contextId,
-                        $spec['sections'],
-                        $spec['path']
-                    );
-                    $editorsToAssign = $sectionResult['editorsToAssign'] ?? [];
-                }
+            $editorsToAssign = [];
+            if (!empty($spec['sections'])) {
+                $sectionResult = $sectionProcessor->run(
+                    $contextId,
+                    $spec['sections'],
+                    $spec['path']
+                );
+                $editorsToAssign = $sectionResult['editorsToAssign'] ?? [];
+            }
 
-                // Users come BEFORE section-editor wiring so the
-                // SubEditorsDAO insert can resolve usernames to IDs.
-                if ($userAssignment->appliesTo($spec)) {
-                    $userAssignment->run($spec, $ctx);
-                }
+            if ($userAssignment->appliesTo($spec)) {
+                $userAssignment->run($spec, $ctx);
+            }
 
-                if (!empty($editorsToAssign)) {
-                    $sectionProcessor->assignSectionEditors(
-                        $contextId,
-                        $editorsToAssign,
-                        $ctx
-                    );
-                }
+            if (!empty($editorsToAssign)) {
+                $sectionProcessor->assignSectionEditors(
+                    $contextId,
+                    $editorsToAssign,
+                    $ctx
+                );
+            }
 
-                if (!empty($spec['categories'])) {
-                    $categoryProcessor->run($contextId, $spec['categories']);
-                }
+            if (!empty($spec['categories'])) {
+                $categoryProcessor->run($contextId, $spec['categories']);
+            }
 
-                // App-specific post-create hook. OJS uses this to seed
-                // issues (an OJS-only concept). OMP/OPS ignore by default.
-                $this->afterContextCreated($spec, $contextId);
-            });
+            $this->afterContextCreated($spec, $contextId);
         } catch (\Throwable $e) {
             return response()->json([
                 'error' => 'Scenario build failed',

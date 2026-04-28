@@ -68,21 +68,29 @@ module.exports = function createPlaywrightConfig({app}) {
 			// if any of its sed substitutions silently no-op (e.g.
 			// because config.TEMPLATE.inc.php drifted). Then start php -S.
 			//
-			// php -S writes its access log + worker errors to stderr.
-			// We pass `-d display_errors=stderr -d log_errors=On` so PHP
-			// runtime fatals/warnings land on the same stream, then merge
-			// stdout into stderr and append everything to /tmp/php-server.log.
-			// The CI workflow uploads that file as an artifact on failure;
-			// locally you can `tail -f /tmp/php-server.log` while tests run.
-			// memory_limit is bumped to 512M because publish-issue flows that
-			// fan out subscriber notifications can blow past PHP's 128M default.
+			// php -S writes its access log + worker errors to stderr;
+			// we append both streams to temp/php-server.log via the shell.
+			// `-d log_errors=On -d error_log=temp/php-server.log` doubles
+			// up: PHP runtime fatals/warnings land in the same file via
+			// PHP's own fopen, so even if Playwright's stdio handling on
+			// some runner mangles the shell redirect, fatals still get
+			// captured. display_errors=Off keeps errors from being
+			// duplicated through stderr. The CI workflow uploads this
+			// file as an artifact on failure; locally
+			// `tail -f temp/php-server.log` while tests run. `temp/` is
+			// in .gitignore so the file never ends up staged.
+			//
+			// memory_limit=512M because publish-issue flows that fan out
+			// subscriber notifications can blow past PHP's 128M default.
 			command:
 				'sh lib/pkp/playwright/seed-test-config.sh && '
+				+ 'mkdir -p temp && '
 				+ 'exec php '
-				+ '-d display_errors=stderr -d log_errors=On '
+				+ '-d log_errors=On -d error_log=temp/php-server.log '
+				+ '-d display_errors=Off '
 				+ '-d memory_limit=512M '
 				+ '-S 127.0.0.1:8000 -t . '
-				+ '>>/tmp/php-server.log 2>&1',
+				+ '>>temp/php-server.log 2>&1',
 			url: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000',
 			cwd: appRoot,
 			reuseExistingServer: !isCI,

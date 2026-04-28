@@ -59,7 +59,6 @@ test.describe('Reviewer-recommendation customisation', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -109,7 +108,6 @@ test.describe('Reviewer-recommendation customisation', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -196,7 +194,6 @@ test.describe('Reviewer-recommendation customisation', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -279,7 +276,6 @@ test.describe('Reviewer-recommendation customisation', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -336,7 +332,6 @@ test.describe('Reviewer-recommendation customisation', () => {
 			const managerCtx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const managerPage = await managerCtx.newPage();
@@ -380,7 +375,6 @@ test.describe('Reviewer-recommendation customisation', () => {
 			const reviewerCtx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'phudson', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const reviewerPage = await reviewerCtx.newPage();

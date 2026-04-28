@@ -76,7 +76,6 @@ test.describe('API smoke', () => {
 					baseURL,
 				}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -153,7 +152,6 @@ test.describe('API smoke', () => {
 					baseURL,
 				}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();

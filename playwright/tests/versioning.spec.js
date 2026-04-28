@@ -180,7 +180,7 @@ async function expectReaderDefaultsToVersion({
 	expectedOtherVersionLabel,
 	v1PublicationId,
 }) {
-	const ctx = await browser.newContext({baseURL, reducedMotion: 'reduce'});
+	const ctx = await browser.newContext({baseURL});
 	try {
 		const page = await ctx.newPage();
 		const resp = await page.goto(
@@ -241,7 +241,7 @@ async function expectReaderHasOnlyVersion({
 	expectedTitleFragment,
 	excludedTitleFragment,
 }) {
-	const ctx = await browser.newContext({baseURL, reducedMotion: 'reduce'});
+	const ctx = await browser.newContext({baseURL});
 	try {
 		const page = await ctx.newPage();
 		const resp = await page.goto(

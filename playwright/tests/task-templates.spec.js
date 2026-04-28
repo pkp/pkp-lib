@@ -112,7 +112,6 @@ test.describe('Task and Discussion Templates', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -220,7 +219,6 @@ test.describe('Task and Discussion Templates', () => {
 					baseURL,
 				}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 
 			try {

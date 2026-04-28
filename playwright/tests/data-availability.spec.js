@@ -78,7 +78,6 @@ test.describe('Data availability statements', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();
@@ -221,7 +220,7 @@ test.describe('Data availability statements', () => {
 
 			// Anonymous reader context — no storageState, no cookies.
 			// Reduced-motion to skip any theme-side animation.
-			const anon = await browser.newContext({baseURL, reducedMotion: 'reduce'});
+			const anon = await browser.newContext({baseURL});
 			try {
 				const page = await anon.newPage();
 				const resp = await page.goto(

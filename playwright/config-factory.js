@@ -43,6 +43,22 @@ module.exports = function createPlaywrightConfig({app}) {
 			trace: 'retain-on-failure',
 			video: isCI ? 'retain-on-failure' : 'off',
 			screenshot: 'only-on-failure',
+			// Force `prefers-reduced-motion: reduce` on every browser
+			// context — both the default one Playwright creates for the
+			// `page` fixture AND any manually-created context via
+			// `browser.newContext(...)`. The lib/ui-library modal/dialog
+			// styles collocate `@media (prefers-reduced-motion: reduce)`
+			// blocks that nullify slide/fade animations, saving
+			// ~300–450 ms per side-modal open or close (and removing
+			// parallel-load flake from animation timing). Setting this
+			// under `contextOptions` (rather than top-level
+			// `use.reducedMotion`) is the propagating form — see
+			// https://github.com/microsoft/playwright/issues/21133.
+			//
+			// `PLAYWRIGHT_KEEP_ANIMATIONS=1` opts out (debug only).
+			contextOptions: process.env.PLAYWRIGHT_KEEP_ANIMATIONS
+				? {}
+				: {reducedMotion: 'reduce'},
 		},
 		webServer: {
 			// Seed config.test.inc.php from the template if missing, then

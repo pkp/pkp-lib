@@ -132,7 +132,6 @@ test.describe('Public comments', () => {
 					baseURL,
 				}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			// Reader context — phudson is a baseline user; any authenticated
 			// session satisfies HasUser middleware on the comment POST.
@@ -141,12 +140,10 @@ test.describe('Public comments', () => {
 					baseURL,
 				}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			// Anonymous reader — no storageState, no session cookie.
 			const anonCtx = await browser.newContext({
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 
 			try {
@@ -300,7 +297,6 @@ test.describe('Public comments', () => {
 
 			const anonCtx = await browser.newContext({
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await anonCtx.newPage();

@@ -33,23 +33,6 @@ const {ensureAuthStateFor} = require('./auth.js');
  *                  test teardown.
  */
 exports.test = base.test.extend({
-	// Opt every page into the `prefers-reduced-motion: reduce` media
-	// query. The lib/ui-library modal/dialog styles collocate
-	// `@media (prefers-reduced-motion: reduce) { animation: none; }`
-	// rules alongside their animation definitions, so honouring the
-	// preference skips ~300–450 ms of fade/slide per side-modal open
-	// or close. Setting this at config-level `use.reducedMotion` is
-	// the Playwright-native way, but it's silently ignored in
-	// 1.59.1 — emulate per-page here instead until that fixes itself.
-	// Set PLAYWRIGHT_KEEP_ANIMATIONS=1 to leave animations on (useful
-	// for debugging animation-related visuals).
-	page: async ({page}, use) => {
-		if (!process.env.PLAYWRIGHT_KEEP_ANIMATIONS) {
-			await page.emulateMedia({reducedMotion: 'reduce'});
-		}
-		await use(page);
-	},
-
 	pkpApi: async ({request, baseURL}, use) => {
 		await use(createApiClient({request, baseURL}));
 	},
@@ -77,7 +60,6 @@ exports.test = base.test.extend({
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, username, {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			opened.push(ctx);
 			return ctx;

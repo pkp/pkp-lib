@@ -38,7 +38,6 @@ test.describe('Public user registration', () => {
 		async ({browser, baseURL}) => {
 			const ctx = await browser.newContext({
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 			try {
 				const page = await ctx.newPage();

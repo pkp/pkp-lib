@@ -63,7 +63,6 @@ test.describe('E0 · JournalScenarioController', () => {
 			const ctx = await browser.newContext({
 				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
 				baseURL,
-				reducedMotion: 'reduce',
 			});
 
 			try {

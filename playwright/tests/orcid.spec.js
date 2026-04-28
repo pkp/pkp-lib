@@ -24,19 +24,27 @@ const submissionPublished = require('../../../../playwright/fixtures/scenarios/s
  * --- Mocking strategy ----------------------------------------------
  * The "real" OAuth click-through (browser opens a popup at
  * sandbox.orcid.org, the ORCID server posts an auth code back to
- * /orcid/orcidVerify, OJS exchanges that for an access token, and
- * orcidIsVerified flips to true on the author) requires either a
- * locally-running fake OAuth endpoint or a complex `page.route` chain
- * that intercepts the OJS callback URL — neither exists in the dev
- * environment today (no `orcid_sandbox` / `localhost:8089` markers in
- * the codebase). The Cypress source only goes as far as confirming the
- * Connect button is visible + clickable (it stubs window.open) — i.e.
- * the actual OAuth handshake is not exercised in the legacy suite
- * either.
+ * `/orcid/authorizeOrcid`, OJS POSTs that code to ORCID's `oauth/token`
+ * to get a verified iD + bearer token, stores them on the user) is
+ * impossible to drive in dev without either a fake OAuth server or a
+ * test-only redirect_uri shortcut: route interception via `page.route`
+ * doesn't reach the server-side token POST, and the popup at
+ * sandbox.orcid.org has no OJS code in it. The legacy Cypress suite
+ * gave up at the same wall — its only ORCID test stubs `window.open`
+ * and never touches the real handshake.
  *
- * Per the row plan's "DB-level injection" option, this spec ships
- * three tests that, taken together, prove the ORCID pipeline end-to-end
- * up to but not including the OAuth click-through:
+ * Approach taken here: a tiny test-only shortcut in
+ * `AuthorizeUserData::execute()` short-circuits the live
+ * `oauth/token` POST when `APPLICATION_ENV === 'test'` AND the request
+ * carries a `testFakeOrcid` query param, synthesising the same
+ * token-response payload the real ORCID API would have returned. From
+ * the user's perspective this is identical to ORCID having 302'd back
+ * to OJS with a real `code`. The shortcut also accepts
+ * `testFakeOrcid=clear` for symmetric cleanup. The popup at
+ * sandbox.orcid.org is the only thing this can't exercise, but it's a
+ * pure passthrough — no OJS code runs there.
+ *
+ * Four tests, taken together, prove the ORCID pipeline end-to-end:
  *
  *   1. **E: config persists** — manager fills the ORCID settings tab on
  *      a scratch journal; the values survive a reload, then a disable
@@ -47,32 +55,23 @@ const submissionPublished = require('../../../../playwright/fixtures/scenarios/s
  *      the scratch journal, the manager's user profile page within that
  *      journal exposes the `#connect-orcid-button` (the OAuth-launch
  *      button rendered by lib/pkp/templates/form/orcidProfile.tpl). This
- *      is the same surface as the Cypress
- *      "Adds ORCID to user profile" test, minus the click — the click
- *      goes to `window.open(...)` against orcid.org and serves no
- *      verification value beyond proving the button is wired up.
+ *      is the same surface as the Cypress "Adds ORCID to user profile"
+ *      test, minus the click.
  *
- *   3. **R: ORCID displayed on article page** — seed a published
- *      submission, then `PUT contributors/{id}` on the published
- *      publication to set `orcid` + `orcidIsVerified` on the seeded
- *      Author row (the field the article-page template reads). Visit
- *      the article URL anonymously and assert the verified-ORCID block
- *      renders (`<span class="orcid">` with an `<a href>` pointing at
- *      the seeded ORCID URL).
+ *   3. **E: OAuth handshake stores verified iD on user** — drives the
+ *      redirect_uri side of the handshake via the test-mode shortcut.
+ *      Asserts the profile page swaps the connect button for the
+ *      verified `<a id='orcid-link'>` whose href is the stored sandbox
+ *      ORCID URL.
+ *
+ *   4. **R: ORCID displayed on article page** — seed a published
+ *      submission, then push `orcid` + `orcidIsVerified` onto the
+ *      seeded Author row through `SubmissionBuilderProcessor`'s
+ *      `author` passthrough. Visit the article URL anonymously and
+ *      assert the verified-ORCID block renders (`<span class="orcid">`
+ *      with an `<a href>` pointing at the seeded ORCID URL).
  *
  * Scope deviations / deferred work:
- *   - **Full OAuth click-through deferred.** No fake ORCID OAuth
- *     endpoint exists in the dev environment (no `orcid_sandbox` /
- *     `localhost:8089` infrastructure). Driving the real handshake
- *     through `page.route('https://sandbox.orcid.org/oauth/**', ...)`
- *     doesn't help because the OAuth window is opened via
- *     `window.open()` in a separate tab, which then redirects to
- *     `/orcid/orcidVerify` on the OJS side carrying a server-issued
- *     `code`. Fully mocking that requires either a test-only
- *     `/orcid/orcidVerify` shortcut endpoint (similar to the test
- *     scenario API) or running an in-process fake OAuth server.
- *     Reopen behind a dedicated row once one of those lands; both are
- *     out of scope for this row's 3-attempt budget.
  *   - **Sends ORCID verification request to author** (the OJS-only
  *     Cypress test) is a superset of test 3 here plus the "request
  *     verification email" sidemodal on the Contributors workflow panel.
@@ -241,6 +240,18 @@ test.describe('ORCID integration', () => {
 				const page = await ctx.newPage();
 				await enableOrcidViaSettingsForm(page, context.path);
 
+				// Defensive pre-cleanup: dbarnes is shared across tests
+				// in this file, and the OAuth-shortcut test verifies an
+				// ORCID on this same user. If that test's `finally`
+				// cleanup was skipped on a prior run (process kill, retry
+				// budget, etc.), dbarnes is still verified and the
+				// connect button never renders. Hit the test-mode
+				// shortcut to wipe the orcid fields.
+				await ctx.request.get(
+					`/index.php/${context.path}/orcid/authorizeOrcid` +
+						`?targetOp=profile&testFakeOrcid=clear`,
+				);
+
 				// User profile lives at /{contextPath}/user/profile. The
 				// connect-orcid-button is rendered by
 				// lib/pkp/templates/form/orcidProfile.tpl and inserted into
@@ -256,6 +267,118 @@ test.describe('ORCID integration', () => {
 				// text (orcid.connect / orcid.authorise).
 				await expect(connect).toContainText(/ORCID/i);
 			} finally {
+				await ctx.close();
+			}
+		},
+	);
+
+	test(
+		'OAuth redirect_uri flow stores the verified ORCID iD on the user profile (test-mode shortcut)',
+		async ({pkpApi, browser, baseURL}) => {
+			const tag = uniqueTag(test.info(), 'oauth');
+			const fakeOrcid = '0000-0001-2345-6789';
+			const orcidSandboxUrl = `https://sandbox.orcid.org/${fakeOrcid}`;
+
+			// E0 scratch journal with dbarnes as manager. Enable ORCID so
+			// the IdentityForm renders the connect button and so
+			// `OrcidManager::isEnabled()` lets `AuthorizeUserData` run.
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [{username: 'dbarnes', roles: ['manager']}],
+			});
+
+			const ctx = await browser.newContext({
+				storageState: await ensureAuthStateFor(browser, 'dbarnes', {baseURL}),
+				baseURL,
+				reducedMotion: 'reduce',
+			});
+			try {
+				const page = await ctx.newPage();
+				await enableOrcidViaSettingsForm(page, context.path);
+
+				// Defensive pre-cleanup: a previous run of this test
+				// against the same DB instance may have left dbarnes in a
+				// verified-ORCID state if cleanup was skipped (process
+				// kill, retry budget, etc.). Reset before asserting on
+				// the unverified-state UI.
+				await ctx.request.get(
+					`/index.php/${context.path}/orcid/authorizeOrcid` +
+						`?targetOp=profile&testFakeOrcid=clear`,
+				);
+
+				// Sanity-check the Connect button is present before the
+				// handshake, so a regression in step 1 surfaces clearly.
+				await page.goto(`/index.php/${context.path}/user/profile`);
+				await expect(
+					page.locator('#connect-orcid-button'),
+				).toBeVisible({timeout: 15_000});
+
+				// Simulate the redirect ORCID would issue back to OJS after
+				// a successful OAuth handshake. The real flow is:
+				//   1. window.open(orcidOAuthUrl) -> sandbox.orcid.org
+				//   2. user authenticates on ORCID
+				//   3. ORCID 302s back to /orcid/authorizeOrcid?code=...
+				//   4. OJS POSTs that `code` to ORCID's oauth/token endpoint
+				//      and receives the verified iD.
+				// Steps 1-3 happen entirely outside OJS. We jump straight
+				// to step 4's URL, replacing `code` with `testFakeOrcid` —
+				// AuthorizeUserData::execute()'s test-mode shortcut sees
+				// the param, skips the live ORCID token POST, and
+				// synthesises the same token-response payload the real
+				// endpoint would have returned. Same `targetOp=profile`
+				// branch then runs unchanged: `setVerifiedOrcidOAuthData`
+				// + `Repo::user()->edit`.
+				await page.goto(
+					`/index.php/${context.path}/orcid/authorizeOrcid` +
+						`?targetOp=profile&testFakeOrcid=${fakeOrcid}`,
+				);
+
+				// The handler emits an inline <script> that closes the
+				// popup window via `window.close()` and reloads the
+				// opener's profile-tabs widget. In a single-page nav (no
+				// real popup), that script is a no-op for our purposes —
+				// we just need the side effect on the user row, which is
+				// committed before the response is rendered. Reload the
+				// profile and verify.
+				await page.goto(`/index.php/${context.path}/user/profile`);
+
+				// When `orcidIsVerified` is true, orcidProfile.tpl swaps
+				// the connect button for an `<a id='orcid-link'>` whose
+				// href is the stored ORCID URL (line 32 of
+				// templates/form/orcidProfile.tpl). identityForm.tpl
+				// additionally renders `#deleteOrcidButton` only on the
+				// verified branch.
+				const verifiedLink = page.locator('#orcid-link');
+				await expect(verifiedLink).toBeVisible({timeout: 15_000});
+				await expect(verifiedLink).toHaveAttribute(
+					'href',
+					orcidSandboxUrl,
+				);
+				await expect(
+					page.locator('#deleteOrcidButton'),
+				).toBeVisible();
+				// And the connect button should be gone.
+				await expect(
+					page.locator('#connect-orcid-button'),
+				).toHaveCount(0);
+			} finally {
+				try {
+					// Cleanup: dbarnes is a baseline user shared with
+					// other tests in this file (the connect-button test
+					// uses dbarnes too). Leaving the verified ORCID on
+					// the user row would contaminate later runs against
+					// the same DB instance — the connect button only
+					// renders for unverified users. Hit the same
+					// shortcut endpoint with `testFakeOrcid=clear` to
+					// wipe the ORCID fields. Wrapped so a cleanup-only
+					// failure can't mask the test result.
+					await ctx.request.get(
+						`/index.php/${context.path}/orcid/authorizeOrcid` +
+							`?targetOp=profile&testFakeOrcid=clear`,
+					);
+				} catch {
+					// best-effort
+				}
 				await ctx.close();
 			}
 		},

@@ -29,7 +29,7 @@ module.exports = function createPlaywrightConfig({app}) {
 		fullyParallel: true,
 		forbidOnly: isCI,
 		retries: isCI ? 1 : 0,
-		workers: isCI ? 1 : undefined,
+		workers: isCI ? 3 : undefined,
 		reporter: isCI
 			? [['github'], ['html', {open: 'never'}]]
 			: [['list'], ['html', {open: 'never'}]],
@@ -116,7 +116,7 @@ module.exports = function createPlaywrightConfig({app}) {
 				// Note: the value MUST be >= 2 (PHP rejects 1 with "number
 				// of workers must be larger than 1" and silently falls back
 				// to single-process mode).
-				//PHP_CLI_SERVER_WORKERS: process.env.PHP_CLI_SERVER_WORKERS || '5',
+				PHP_CLI_SERVER_WORKERS: process.env.PHP_CLI_SERVER_WORKERS || '3',
 			},
 		},
 		projects: [

@@ -25,23 +25,12 @@ const submissionPublished = require('../../../../playwright/fixtures/scenarios/s
  * sandbox.orcid.org, the ORCID server posts an auth code back to
  * `/orcid/authorizeOrcid`, OJS POSTs that code to ORCID's `oauth/token`
  * to get a verified iD + bearer token, stores them on the user) is
- * impossible to drive in dev without either a fake OAuth server or a
- * test-only redirect_uri shortcut: route interception via `page.route`
- * doesn't reach the server-side token POST, and the popup at
- * sandbox.orcid.org has no OJS code in it. The legacy Cypress suite
- * gave up at the same wall — its only ORCID test stubs `window.open`
- * and never touches the real handshake.
- *
- * Approach taken here: a tiny test-only shortcut in
- * `AuthorizeUserData::execute()` short-circuits the live
- * `oauth/token` POST when `APPLICATION_ENV === 'test'` AND the request
- * carries a `testFakeOrcid` query param, synthesising the same
- * token-response payload the real ORCID API would have returned. From
- * the user's perspective this is identical to ORCID having 302'd back
- * to OJS with a real `code`. The shortcut also accepts
- * `testFakeOrcid=clear` for symmetric cleanup. The popup at
- * sandbox.orcid.org is the only thing this can't exercise, but it's a
- * pure passthrough — no OJS code runs there.
+ * impossible to drive in dev without a fake OAuth server. The Cypress
+ * suite never tried — it stubbed `window.open` to load a hidden
+ * iframe whose srcdoc runs an inline script that writes the
+ * registration form fields in the parent window directly, mirroring
+ * what the success-side script returned by `AuthorizeUserData` would
+ * do on the parent. Test 3 below ports that approach verbatim.
  *
  * Four tests, taken together, prove the ORCID pipeline end-to-end:
  *
@@ -57,11 +46,12 @@ const submissionPublished = require('../../../../playwright/fixtures/scenarios/s
  *      is the same surface as the Cypress "Adds ORCID to user profile"
  *      test, minus the click.
  *
- *   3. **E: OAuth handshake stores verified iD on user** — drives the
- *      redirect_uri side of the handshake via the test-mode shortcut.
- *      Asserts the profile page swaps the connect button for the
- *      verified `<a id='orcid-link'>` whose href is the stored sandbox
- *      ORCID URL.
+ *   3. **E: registration form populated via stubbed window.open** —
+ *      anonymous visit to the registration page, stub `window.open`
+ *      with the iframe-srcdoc trick (matching the Cypress
+ *      "Uses ORCID in user registration" test), click the connect
+ *      button, assert the registration fields get populated as the
+ *      success-script would set them.
  *
  *   4. **R: ORCID displayed on article page** — seed a published
  *      submission, then push `orcid` + `orcidIsVerified` onto the
@@ -71,13 +61,19 @@ const submissionPublished = require('../../../../playwright/fixtures/scenarios/s
  *      with an `<a href>` pointing at the seeded ORCID URL).
  *
  * Scope deviations / deferred work:
+ *   - The server-side OAuth callback (`AuthorizeUserData::execute`'s
+ *     token POST + `setVerifiedOrcidOAuthData` storage path) is not
+ *     covered end-to-end. The Cypress suite never covered it either;
+ *     a test-only `?testFakeOrcid=...` bypass to drive it would
+ *     require a query-string-only privilege escalation that doesn't
+ *     match the rest of the test surface (everything else is gated by
+ *     `TestModeGate`'s `X-Test-Key` header). That validation belongs
+ *     in a PHP unit test, not an end-to-end spec.
  *   - **Sends ORCID verification request to author** (the OJS-only
- *     Cypress test) is a superset of test 3 here plus the "request
- *     verification email" sidemodal on the Contributors workflow panel.
- *     The verification-email path is meaningfully different (it
- *     dispatches `RequestOrcidVerification` job + queues mail) and
- *     belongs in a separate row keyed off mailpit assertions; deferred
- *     for now to keep this row scope-disciplined per the e2e plan.
+ *     Cypress test) is the request-verification-email sidemodal on
+ *     the Contributors workflow panel. That path dispatches
+ *     `RequestOrcidVerification` + queues mail and belongs in a
+ *     separate row keyed off mailpit assertions; deferred for now.
  */
 test.describe('ORCID integration', () => {
 	test(
@@ -227,18 +223,6 @@ test.describe('ORCID integration', () => {
 			const page = await ctx.newPage();
 			await enableOrcidViaSettingsForm(page, context.path);
 
-			// Defensive pre-cleanup: dbarnes is shared across tests
-			// in this file, and the OAuth-shortcut test verifies an
-			// ORCID on this same user. If that test's `finally`
-			// cleanup was skipped on a prior run (process kill, retry
-			// budget, etc.), dbarnes is still verified and the
-			// connect button never renders. Hit the test-mode
-			// shortcut to wipe the orcid fields.
-			await ctx.request.get(
-				`/index.php/${context.path}/orcid/authorizeOrcid` +
-					`?targetOp=profile&testFakeOrcid=clear`,
-			);
-
 			// User profile lives at /{contextPath}/user/profile. The
 			// connect-orcid-button is rendered by
 			// lib/pkp/templates/form/orcidProfile.tpl and inserted into
@@ -258,108 +242,93 @@ test.describe('ORCID integration', () => {
 	);
 
 	test(
-		'OAuth redirect_uri flow stores the verified ORCID iD on the user profile (test-mode shortcut)',
-		async ({pkpApi, asUser}) => {
-			const tag = uniqueTag(test.info(), 'oauth');
-			const fakeOrcid = '0000-0001-2345-6789';
-			const orcidSandboxUrl = `https://sandbox.orcid.org/${fakeOrcid}`;
+		'connecting ORCID during user registration populates the form fields',
+		async ({pkpApi, asUser, browser, baseURL}) => {
+			const tag = uniqueTag(test.info(), 'reg');
 
-			// E0 scratch journal with dbarnes as manager. Enable ORCID so
-			// the IdentityForm renders the connect button and so
-			// `OrcidManager::isEnabled()` lets `AuthorizeUserData` run.
+			// E0 scratch journal with ORCID enabled — the registration
+			// page only injects the connect button when the journal has
+			// orcidEnabled set (templates/frontend/pages/userRegister.tpl
+			// includes form/orcidProfile.tpl behind that flag).
 			const {context} = await pkpApi.createJournal({
 				tag,
 				users: [{username: 'dbarnes', roles: ['manager']}],
 			});
+			const managerCtx = await asUser('dbarnes');
+			const settingsPage = await managerCtx.newPage();
+			await enableOrcidViaSettingsForm(settingsPage, context.path);
 
-			const ctx = await asUser('dbarnes');
+			// Anonymous registration flow — no authenticated session.
+			const anon = await browser.newContext({baseURL});
 			try {
-				const page = await ctx.newPage();
-				await enableOrcidViaSettingsForm(page, context.path);
+				const page = await anon.newPage();
 
-				// Defensive pre-cleanup: a previous run of this test
-				// against the same DB instance may have left dbarnes in a
-				// verified-ORCID state if cleanup was skipped (process
-				// kill, retry budget, etc.). Reset before asserting on
-				// the unverified-state UI.
-				await ctx.request.get(
-					`/index.php/${context.path}/orcid/authorizeOrcid` +
-						`?targetOp=profile&testFakeOrcid=clear`,
+				// Short-circuit any request to sandbox.orcid.org. The
+				// template's openORCID() makes a JSONP call to
+				// userStatus.json before opening the popup, and the
+				// stubbed iframe sets `src=url` once before its srcdoc
+				// override takes effect. Both could otherwise reach the
+				// public ORCID sandbox during a test run.
+				await page.route('**/sandbox.orcid.org/**', (route) =>
+					route.fulfill({status: 200, body: ''}),
 				);
 
-				// Sanity-check the Connect button is present before the
-				// handshake, so a regression in step 1 surfaces clearly.
-				await page.goto(`/index.php/${context.path}/user/profile`);
+				await page.goto(`/index.php/${context.path}/user/register`);
 				await expect(
 					page.locator('#connect-orcid-button'),
 				).toBeVisible({timeout: 15_000});
 
-				// Simulate the redirect ORCID would issue back to OJS after
-				// a successful OAuth handshake. The real flow is:
-				//   1. window.open(orcidOAuthUrl) -> sandbox.orcid.org
-				//   2. user authenticates on ORCID
-				//   3. ORCID 302s back to /orcid/authorizeOrcid?code=...
-				//   4. OJS POSTs that `code` to ORCID's oauth/token endpoint
-				//      and receives the verified iD.
-				// Steps 1-3 happen entirely outside OJS. We jump straight
-				// to step 4's URL, replacing `code` with `testFakeOrcid` —
-				// AuthorizeUserData::execute()'s test-mode shortcut sees
-				// the param, skips the live ORCID token POST, and
-				// synthesises the same token-response payload the real
-				// endpoint would have returned. Same `targetOp=profile`
-				// branch then runs unchanged: `setVerifiedOrcidOAuthData`
-				// + `Repo::user()->edit`.
-				await page.goto(
-					`/index.php/${context.path}/orcid/authorizeOrcid` +
-						`?targetOp=profile&testFakeOrcid=${fakeOrcid}`,
-				);
+				// Stub window.open with the same iframe-srcdoc trick the
+				// legacy Cypress suite uses (commands_orcid.js +
+				// Orcid.cy.js). Cypress doesn't have multi-tab support;
+				// neither does this approach attempt one. The iframe's
+				// srcdoc runs in the parent's origin and writes the
+				// registration form fields directly — exactly the side
+				// effect a real OAuth round-trip would achieve via the
+				// inline script `AuthorizeUserData` returns. The
+				// returned contentWindow lets the template's
+				// `oauthWindow.opener = self` line run without throwing.
+				await page.evaluate(() => {
+					/** @type {any} */ (window).open = (url) => {
+						const iframe = document.createElement('iframe');
+						iframe.id = 'orcid-stub-iframe';
+						iframe.style.display = 'none';
+						iframe.src = url;
+						document.body.appendChild(iframe);
+						iframe.srcdoc = `<html><body><script type='text/javascript'>
+							parent.document.getElementById('givenName').value = 'John';
+							parent.document.getElementById('familyName').value = 'Doe';
+							parent.document.getElementById('email').value = 'john.doe@example.com';
+							parent.document.getElementById('country').value = 'JM';
+							parent.document.getElementById('affiliation').value = 'PKP';
+							parent.document.getElementById('orcid').value = 'https://orcid.org/1000-2000-3000-4000';
+							parent.document.getElementById('connect-orcid-button').style.display = 'none';
+						</script></body></html>`;
+						return iframe.contentWindow;
+					};
+				});
 
-				// The handler emits an inline <script> that closes the
-				// popup window via `window.close()` and reloads the
-				// opener's profile-tabs widget. In a single-page nav (no
-				// real popup), that script is a no-op for our purposes —
-				// we just need the side effect on the user row, which is
-				// committed before the response is rendered. Reload the
-				// profile and verify.
-				await page.goto(`/index.php/${context.path}/user/profile`);
+				await page.locator('#connect-orcid-button').click();
 
-				// When `orcidIsVerified` is true, orcidProfile.tpl swaps
-				// the connect button for an `<a id='orcid-link'>` whose
-				// href is the stored ORCID URL (line 32 of
-				// templates/form/orcidProfile.tpl). identityForm.tpl
-				// additionally renders `#deleteOrcidButton` only on the
-				// verified branch.
-				const verifiedLink = page.locator('#orcid-link');
-				await expect(verifiedLink).toBeVisible({timeout: 15_000});
-				await expect(verifiedLink).toHaveAttribute(
-					'href',
-					orcidSandboxUrl,
-				);
-				await expect(
-					page.locator('#deleteOrcidButton'),
-				).toBeVisible();
-				// And the connect button should be gone.
+				// The iframe's script is asynchronous — it runs after
+				// srcdoc parse. Wait on the field that's set last in
+				// the script (the connect-button hide), then check the
+				// rest.
 				await expect(
 					page.locator('#connect-orcid-button'),
-				).toHaveCount(0);
+				).toBeHidden({timeout: 10_000});
+				await expect(page.locator('#givenName')).toHaveValue('John');
+				await expect(page.locator('#familyName')).toHaveValue('Doe');
+				await expect(page.locator('#email')).toHaveValue(
+					'john.doe@example.com',
+				);
+				await expect(page.locator('select#country')).toHaveValue('JM');
+				await expect(page.locator('#affiliation')).toHaveValue('PKP');
+				await expect(page.locator('#orcid')).toHaveValue(
+					'https://orcid.org/1000-2000-3000-4000',
+				);
 			} finally {
-				try {
-					// Cleanup: dbarnes is a baseline user shared with
-					// other tests in this file (the connect-button test
-					// uses dbarnes too). Leaving the verified ORCID on
-					// the user row would contaminate later runs against
-					// the same DB instance — the connect button only
-					// renders for unverified users. Hit the same
-					// shortcut endpoint with `testFakeOrcid=clear` to
-					// wipe the ORCID fields. Wrapped so a cleanup-only
-					// failure can't mask the test result.
-					await ctx.request.get(
-						`/index.php/${context.path}/orcid/authorizeOrcid` +
-							`?targetOp=profile&testFakeOrcid=clear`,
-					);
-				} catch {
-					// best-effort
-				}
+				await anon.close();
 			}
 		},
 	);

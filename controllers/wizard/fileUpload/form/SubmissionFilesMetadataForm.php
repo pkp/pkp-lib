@@ -136,7 +136,16 @@ class SubmissionFilesMetadataForm extends Form
      */
     public function getLocaleFieldNames(): array
     {
-        return ['name'];
+        return [
+            'name',
+            'summaryOfChanges',
+            'description',
+            'creator',
+            'publisher',
+            'source',
+            'subject',
+            'sponsor',
+        ];
     }
 
     /**
@@ -144,7 +153,7 @@ class SubmissionFilesMetadataForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['name', 'showButtons',
+        $this->readUserVars(['name', 'summaryOfChanges', 'showButtons',
             'artworkCaption', 'artworkCredit', 'artworkCopyrightOwner',
             'artworkCopyrightOwnerContact', 'artworkPermissionTerms',
             'creator', 'subject', 'description', 'publisher', 'sponsor', 'source', 'language', 'dateCreated',
@@ -162,14 +171,29 @@ class SubmissionFilesMetadataForm extends Form
         $reviewRound = $this->getReviewRound();
         /** @var GenreDAO */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genre = $genreDao->getById($this->getSubmissionFile()->getData('genreId'), $request->getContext()->getId());
+        $submissionFile = $this->getSubmissionFile();
+        $genre = $genreDao->getById($submissionFile->getData('genreId'), $request->getContext()->getId());
+
+        $supportedLocales = [];
+        foreach ($this->supportedLocales as $localeKey => $localeLabel) {
+            $supportedLocales[] = ['key' => $localeKey, 'label' => $localeLabel];
+        }
 
         $templateMgr->assign([
-            'submissionFile' => $this->getSubmissionFile(),
+            'submissionFile' => $submissionFile,
             'stageId' => $this->getStageId(),
             'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
-            'supportsDependentFiles' => Repo::submissionFile()->supportsDependentFiles($this->getSubmissionFile()),
+            'supportsDependentFiles' => Repo::submissionFile()->supportsDependentFiles($submissionFile),
             'genre' => $genre,
+            'tinyMceSkinUrl' => $templateMgr->getTinyMceSkinUrl($request),
+            'metadataMountConfig' => [
+                'submissionFile' => $submissionFile->_data,
+                'genreCategory' => (int) $genre?->getCategory(),
+                'supportedLocales' => $supportedLocales,
+                'primaryLocale' => $this->getDefaultFormLocale(),
+                // saveUrl is captured + injected by the .tpl via {url}.
+                'showButtons' => (bool) $this->getShowButtons(),
+            ],
         ]);
         return parent::fetch($request, $template, $display);
     }
@@ -182,6 +206,11 @@ class SubmissionFilesMetadataForm extends Form
         $props = [
             'name' => $this->getData('name'),
         ];
+
+        // Summary of changes: only persisted for Review Revision uploads.
+        if ($this->getSubmissionFile()->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
+            $props['summaryOfChanges'] = $this->getData('summaryOfChanges');
+        }
 
         // Artwork metadata
         $props = array_merge($props, [

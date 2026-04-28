@@ -39,6 +39,22 @@ test('installs OJS', async ({pkpApi}) => {
 	// default on a fresh DB.
 	test.setTimeout(300_000);
 
+	// Hard-stop if OJS_DB_HOST isn't local. The bootstrap seeds a known
+	// `admin` / `admin` login on the database to match Cypress's
+	// baseline; pointing this harness at a remote / shared / public DB
+	// would mint that login on something exposed. Local-only is a
+	// non-negotiable invariant.
+	const dbHost = (process.env.OJS_DB_HOST || '').trim();
+	const localHosts = new Set(['localhost', '127.0.0.1', '::1', '0.0.0.0']);
+	if (!localHosts.has(dbHost)) {
+		throw new Error(
+			`bootstrap refuses to install: OJS_DB_HOST=${JSON.stringify(dbHost)} ` +
+				'is not a local hostname. The Playwright bootstrap seeds an ' +
+				'admin/admin login that must never reach a non-local DB. Set ' +
+				'OJS_DB_HOST to localhost / 127.0.0.1 / ::1.',
+		);
+	}
+
 	if (await pkpApi.isInstalled()) {
 		test.info().annotations.push({
 			type: 'skip-reason',

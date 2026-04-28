@@ -90,6 +90,11 @@ class PKPSubmissionScenarioController extends PKPBaseController
         // internals see something sane. This is a workaround for an OJS
         // internal assumption, not a user-facing contract — tests still
         // think of the endpoint as context-agnostic.
+        //
+        // Stash + restore the prior `_context` so a residue can't leak to
+        // a sibling request handled by the same PHP-CLI worker process
+        // under workers=2 (mirrors the Registry::set/get save-restore
+        // pattern in ContextBuilderProcessor).
         $context = Application::getContextDAO()->getByPath($spec['journal'] ?? '');
         if (!$context) {
             return response()->json(
@@ -97,7 +102,9 @@ class PKPSubmissionScenarioController extends PKPBaseController
                 Response::HTTP_BAD_REQUEST
             );
         }
-        Application::get()->getRequest()->getRouter()->_context = $context;
+        $router = Application::get()->getRequest()->getRouter();
+        $previousRouterContext = $router->_context;
+        $router->_context = $context;
 
         // Do NOT call Validation::registerUserSession here — Playwright's
         // `request` fixture shares cookies with the browser context, so
@@ -116,28 +123,32 @@ class PKPSubmissionScenarioController extends PKPBaseController
         $publicationsProcessor = new PublicationsProcessor();
 
         try {
-            DB::transaction(function () use ($spec, $ctx, $submissionBuilder, $participantProcessor, $decisionProcessor, $publicationsProcessor) {
-                $submissionBuilder->run($spec, $ctx);
-                if ($participantProcessor->appliesTo($spec)) {
-                    $participantProcessor->run($spec, $ctx);
-                }
-                if ($decisionProcessor->appliesTo($spec)) {
-                    $decisionProcessor->run($spec, $ctx);
-                }
-                if ($publicationsProcessor->appliesTo($spec)) {
-                    $publicationsProcessor->run($spec, $ctx);
-                }
-            });
-        } catch (\Throwable $e) {
-            return response()->json([
-                'error' => 'Scenario build failed',
-                'message' => $e->getMessage(),
-                'class' => get_class($e),
-                'file' => $e->getFile() . ':' . $e->getLine(),
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+            try {
+                DB::transaction(function () use ($spec, $ctx, $submissionBuilder, $participantProcessor, $decisionProcessor, $publicationsProcessor) {
+                    $submissionBuilder->run($spec, $ctx);
+                    if ($participantProcessor->appliesTo($spec)) {
+                        $participantProcessor->run($spec, $ctx);
+                    }
+                    if ($decisionProcessor->appliesTo($spec)) {
+                        $decisionProcessor->run($spec, $ctx);
+                    }
+                    if ($publicationsProcessor->appliesTo($spec)) {
+                        $publicationsProcessor->run($spec, $ctx);
+                    }
+                });
+            } catch (\Throwable $e) {
+                return response()->json([
+                    'error' => 'Scenario build failed',
+                    'message' => $e->getMessage(),
+                    'class' => get_class($e),
+                    'file' => $e->getFile() . ':' . $e->getLine(),
+                ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
 
-        return response()->json($ctx->submissionResponse($spec['tag'] ?? ''), Response::HTTP_OK);
+            return response()->json($ctx->submissionResponse($spec['tag'] ?? ''), Response::HTTP_OK);
+        } finally {
+            $router->_context = $previousRouterContext;
+        }
     }
 
     /**

@@ -96,7 +96,7 @@ module.exports = function createPlaywrightConfig({app}) {
 			reuseExistingServer: !isCI,
 			timeout: 60_000,
 			// Shell redirection above already routes everything to the log
-			// file, so Playwright sees no streams to forward. This keeps
+			// file,so Playwright sees no streams to forward. This keeps
 			// `npx playwright test` output readable while still preserving
 			// the dev server's access log + "Failed to poll event" noise
 			// from PHP_CLI_SERVER_WORKERS in the file for diagnosis.

@@ -328,9 +328,9 @@ const pinia = createPinia();
 
 VueRegistry.attachPiniaInstance(pinia);
 
-function pkpCreateVueApp(createAppArgs) {
+function pkpCreateVueApp(createAppArgs, rootProps) {
 	// Initialize Vue
-	const vueApp = createApp(createAppArgs);
+	const vueApp = createApp(createAppArgs, rootProps);
 	vueApp.use(pinia);
 	vueApp.use(PrimeVue, {
 		unstyled: true,

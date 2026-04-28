@@ -67,17 +67,31 @@ module.exports = function createPlaywrightConfig({app}) {
 			// Mailpit on 127.0.0.1:1025, and aborts with a clear error
 			// if any of its sed substitutions silently no-op (e.g.
 			// because config.TEMPLATE.inc.php drifted). Then start php -S.
+			//
+			// php -S writes its access log + worker errors to stderr.
+			// We pass `-d display_errors=stderr -d log_errors=On` so PHP
+			// runtime fatals/warnings land on the same stream, then merge
+			// stdout into stderr and append everything to /tmp/php-server.log.
+			// The CI workflow uploads that file as an artifact on failure;
+			// locally you can `tail -f /tmp/php-server.log` while tests run.
+			// memory_limit is bumped to 512M because publish-issue flows that
+			// fan out subscriber notifications can blow past PHP's 128M default.
 			command:
-				'sh lib/pkp/playwright/seed-test-config.sh && exec php -S 127.0.0.1:8000 -t .',
+				'sh lib/pkp/playwright/seed-test-config.sh && '
+				+ 'exec php '
+				+ '-d display_errors=stderr -d log_errors=On '
+				+ '-d memory_limit=512M '
+				+ '-S 127.0.0.1:8000 -t . '
+				+ '>>/tmp/php-server.log 2>&1',
 			url: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8000',
 			cwd: appRoot,
 			reuseExistingServer: !isCI,
 			timeout: 60_000,
-			// Silence the dev server's access log + "Failed to poll event"
-			// noise from PHP_CLI_SERVER_WORKERS so test output is readable.
-			// Playwright still surfaces HTTP errors via the failing test's
-			// trace and screenshot. When you need raw server logs, run
-			// `npm run test:e2e:serve` in another terminal and tail it.
+			// Shell redirection above already routes everything to the log
+			// file, so Playwright sees no streams to forward. This keeps
+			// `npx playwright test` output readable while still preserving
+			// the dev server's access log + "Failed to poll event" noise
+			// from PHP_CLI_SERVER_WORKERS in the file for diagnosis.
 			stdout: 'ignore',
 			stderr: 'ignore',
 			env: {

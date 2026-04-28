@@ -133,7 +133,14 @@ async function gotoCategoriesAdmin(page, contextPath) {
 	await page.goto(
 		`/index.php/${contextPath}/management/settings/context`,
 	);
-	await page.locator('#categories-button').click();
+	// Wait explicitly for the Vue tabset to mount before clicking the
+	// Categories tab — under high parallel load the page-load promise
+	// resolves before the tab buttons exist, so a bare .click() on
+	// `#categories-button` polls a never-resolving locator and times
+	// out.
+	const tabButton = page.locator('#categories-button');
+	await expect(tabButton).toBeVisible({timeout: 30_000});
+	await tabButton.click();
 	await expect(
 		page.getByRole('button', {name: 'Add Category'}),
 	).toBeVisible({timeout: 15_000});

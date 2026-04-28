@@ -35,8 +35,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\testing\bootstrap\Processor\CategoryProcessor;
+use PKP\testing\bootstrap\Processor\SectionProcessor;
 use PKP\testing\scenario\Processor\ContextBuilderProcessor;
-use PKP\testing\scenario\Processor\ContextUserProcessor;
+use PKP\testing\scenario\Processor\UserAssignmentProcessor;
 use PKP\testing\scenario\ScenarioContext;
 
 abstract class PKPContextScenarioController extends PKPBaseController
@@ -86,20 +88,50 @@ abstract class PKPContextScenarioController extends PKPBaseController
 
         $ctx = new ScenarioContext();
         $contextBuilder = new ContextBuilderProcessor();
-        $contextUser = new ContextUserProcessor();
+        $userAssignment = new UserAssignmentProcessor();
+        $sectionProcessor = new SectionProcessor();
+        $categoryProcessor = new CategoryProcessor();
 
         try {
-            DB::transaction(function () use ($spec, $ctx, $contextBuilder, $contextUser) {
+            DB::transaction(function () use ($spec, $ctx, $contextBuilder, $userAssignment, $sectionProcessor, $categoryProcessor) {
                 $contextBuilder->run($spec, $ctx);
-                if ($contextUser->appliesTo($spec)) {
-                    $contextUser->run($spec, $ctx);
+                $contextId = $ctx->journalId($spec['path']);
+
+                // Sections, if specified, replace the default
+                // ContextService-installed "Articles" section. Per-test
+                // scratch journals usually omit this and inherit the
+                // default; baseline bootstrap supplies a full list.
+                $editorsToAssign = [];
+                if (!empty($spec['sections'])) {
+                    $sectionResult = $sectionProcessor->run(
+                        $contextId,
+                        $spec['sections'],
+                        $spec['path']
+                    );
+                    $editorsToAssign = $sectionResult['editorsToAssign'] ?? [];
                 }
+
+                // Users come BEFORE section-editor wiring so the
+                // SubEditorsDAO insert can resolve usernames to IDs.
+                if ($userAssignment->appliesTo($spec)) {
+                    $userAssignment->run($spec, $ctx);
+                }
+
+                if (!empty($editorsToAssign)) {
+                    $sectionProcessor->assignSectionEditors(
+                        $contextId,
+                        $editorsToAssign,
+                        $ctx
+                    );
+                }
+
+                if (!empty($spec['categories'])) {
+                    $categoryProcessor->run($contextId, $spec['categories']);
+                }
+
                 // App-specific post-create hook. OJS uses this to seed
                 // issues (an OJS-only concept). OMP/OPS ignore by default.
-                $contextId = $ctx->firstJournalId();
-                if ($contextId !== null) {
-                    $this->afterContextCreated($spec, $contextId);
-                }
+                $this->afterContextCreated($spec, $contextId);
             });
         } catch (\Throwable $e) {
             return response()->json([

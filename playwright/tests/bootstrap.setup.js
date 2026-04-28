@@ -13,8 +13,8 @@ const execFileAsync = promisify(execFile);
  * Two idempotent stages:
  *   1. install  — CLI spawn of tools/installTest.php, skipped if OJS
  *                 already responds outside of the install redirect.
- *   2. seed     — POST baseline spec to /api/v1/_test/bootstrap, skipped
- *                 if the publicknowledge journal already resolves.
+ *   2. seed     — POST baseline spec to /api/v1/_test/scenarios/journal,
+ *                 skipped if the publicknowledge journal already resolves.
  *
  * Auth is handled on-demand by the `storageState` fixture in
  * support/base-test.js (see support/auth.js::ensureAuthStateFor): each

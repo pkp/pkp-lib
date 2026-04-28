@@ -40,6 +40,27 @@
                 }
             }
         },
+        "sections": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["abbrev", "title"],
+                "additionalProperties": true,
+                "properties": {
+                    "abbrev": { "type": "object" },
+                    "title": { "type": "object" },
+                    "wordCount": { "type": "integer", "minimum": 0 },
+                    "identifyType": { "type": "object" },
+                    "abstractsNotRequired": { "type": "boolean" },
+                    "editorRestricted": { "type": "boolean" },
+                    "sectionEditors": { "type": "array", "items": { "type": "string" } }
+                }
+            }
+        },
+        "categories": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/category" }
+        },
         "issues": {
             "type": "array",
             "items": {
@@ -59,12 +80,32 @@
             "type": "array",
             "items": {
                 "type": "object",
-                "required": ["username", "roles"],
+                "required": ["username"],
                 "additionalProperties": false,
                 "properties": {
-                    "username": { "type": "string" },
-                    "roles": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+                    "username": { "type": "string", "minLength": 1 },
+                    "roles": { "type": "array", "items": { "type": "string" } },
+                    "password": { "type": "string", "minLength": 1 },
+                    "email": { "type": "string" },
+                    "givenName": { "type": "string" },
+                    "familyName": { "type": "string" },
+                    "country": { "type": "string" },
+                    "affiliation": { "type": "string" },
+                    "locale": { "type": "string" },
+                    "mustChangePassword": { "type": "boolean" }
                 }
+            }
+        }
+    },
+    "$defs": {
+        "category": {
+            "type": "object",
+            "required": ["path", "title"],
+            "additionalProperties": false,
+            "properties": {
+                "path": { "type": "string" },
+                "title": { "type": "object" },
+                "children": { "type": "array", "items": { "$ref": "#/$defs/category" } }
             }
         }
     }

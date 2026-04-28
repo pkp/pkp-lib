@@ -11,7 +11,9 @@
  *   everyone else  → username + username  (e.g. dbarnes → dbarnesdbarnes)
  *
  * Consumed by:
- *   - bootstrap.setup.js — POSTs the users list to /api/v1/_test/bootstrap
+ *   - bootstrap.setup.js — POSTs the users list (with passwords) inside
+ *                          the baseline journal spec to
+ *                          /api/v1/_test/scenarios/journal
  *   - support/auth.js    — iterates roles to save storageState files
  *   - feature specs      — rarely; prefer storageState over explicit login
  */

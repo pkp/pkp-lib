@@ -12,8 +12,8 @@
  * @brief Creates issues for one journal and optionally marks them published.
  *
  * Issues are OJS-specific; this processor lives in lib/pkp for layout
- * symmetry with the other bootstrap processors but is only exercised by
- * OJS's BootstrapController.
+ * symmetry with the other scenario processors but is only exercised by
+ * OJS's JournalScenarioController via afterContextCreated().
  */
 
 namespace PKP\testing\bootstrap\Processor;

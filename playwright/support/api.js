@@ -182,41 +182,17 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 		},
 
 		/**
-		 * Call the test-only bootstrap endpoint with a full spec.
-		 * Gated server-side by TestModeGate (APPLICATION_ENV=test + X-Test-Key).
+		 * Bootstrap is now a thin alias over `createJournal` — the same
+		 * `/scenarios/journal` endpoint accepts the baseline spec
+		 * (sections + categories + issues + users-with-passwords)
+		 * alongside the per-test scratch shape. Kept as a named method so
+		 * `bootstrap.setup.js` reads idiomatically.
 		 *
-		 * @param {object} spec  bootstrap spec body (journals, users, ...)
-		 * @returns {Promise<object>} ID map keyed by natural spec keys
+		 * @param {object} spec  see lib/pkp/classes/testing/scenario/schema/context.json
+		 * @returns {Promise<object>}
 		 */
 		async bootstrap(spec) {
-			if (!testApiKey) {
-				throw new Error(
-					'TEST_API_KEY env var is not set. Set it (same value on client and server) to call /api/v1/_test/bootstrap.',
-				);
-			}
-
-			const res = await request.post(
-				'/index.php/index/api/v1/_test/bootstrap',
-				{
-					headers: {
-						'X-Test-Key': testApiKey,
-						'Content-Type': 'application/json',
-					},
-					data: spec,
-				},
-			);
-
-			const bodyText = await res.text();
-			if (!res.ok()) {
-				throw new Error(
-					`Bootstrap failed: ${res.status()} — ${bodyText}`,
-				);
-			}
-			try {
-				return JSON.parse(bodyText);
-			} catch {
-				throw new Error(`Bootstrap returned non-JSON body: ${bodyText}`);
-			}
+			return this.createJournal(spec);
 		},
 	};
 };

@@ -12,8 +12,10 @@
  * @brief Creates sections for one journal and, if the spec lists
  *        section editor usernames, assigns them.
  *
- * Nested inside JournalProcessor. Section editor assignment is deferred
- * until UserProcessor has run — see BootstrapController's dispatch order.
+ * Invoked from PKPContextScenarioController. Section editor assignment
+ * is split into `run()` (creates sections, captures editor usernames)
+ * and `assignSectionEditors()` (resolves usernames once UserAssignment
+ * has run).
  */
 
 namespace PKP\testing\bootstrap\Processor;
@@ -68,8 +70,8 @@ class SectionProcessor
     }
 
     /**
-     * Assign sub-editors to sections once their User rows exist. Called by
-     * BootstrapController after UserProcessor runs.
+     * Assign sub-editors to sections once their User rows exist. Called
+     * by PKPContextScenarioController after UserAssignmentProcessor runs.
      */
     public function assignSectionEditors(int $contextId, array $editorsToAssign, ScenarioContext $ctx): void
     {

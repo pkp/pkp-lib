@@ -188,10 +188,11 @@ class SubmissionFilesMetadataForm extends Form
             'tinyMceSkinUrl' => $templateMgr->getTinyMceSkinUrl($request),
             'metadataMountConfig' => [
                 'submissionFile' => $submissionFile->_data,
-                'genreCategory' => (int) $genre?->getCategory(),
+                'genreCategory' => (int) $genre?->getCategory(), // will be removed once genreMetadataType is implemented by Media Files api changes
                 'supportedLocales' => $supportedLocales,
                 'primaryLocale' => $this->getDefaultFormLocale(),
-                // saveUrl is captured + injected by the .tpl via {url}.
+                'stageId' => $this->getStageId(),
+                'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
                 'showButtons' => (bool) $this->getShowButtons(),
             ],
         ]);

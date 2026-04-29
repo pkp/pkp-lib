@@ -27,13 +27,21 @@ const {SubmissionWizardPage} = require('../pages/SubmissionWizardPage.js');
  *   - No journal field-config mutation. Row #16 will cover "make
  *     metadata required" as a standalone feature.
  *   - No file upload. Row #17 will cover file upload end-to-end.
- *   - No "Submission complete" assertion. The assertion here is the
- *     forms re-mount with French locale controls — the UI contract
- *     the feature is actually about.
- *   - No English-alongside-French assertion (clicking the
- *     `.pkpFormLocales__locale` secondary-locale button to reveal the
- *     non-primary locale's fields inline). That's a generic multilingual
- *     form behaviour already covered by row #5 (`multilingual.spec.js`).
+ *   - No "Submission complete" assertion.
+ *   - English-alongside-French inline reveal (clicking the
+ *     `.pkpFormLocales__locale` secondary-locale button to expose the
+ *     non-primary locale's fields) is a generic multilingual form
+ *     behaviour covered by row #5 (`multilingual.spec.js`).
+ *   - Categories UI-language assertion (Categories label rendering in
+ *     UI locale regardless of submission locale) is covered by row
+ *     #15 (`categories.spec.js`), which exercises the wizard's
+ *     Categories field with submitWithCategories enabled.
+ *
+ * Two tests:
+ *   1. Locale switch re-renders Details forms with fr_CA controls.
+ *   2. Validation errors at Review re-render in the FR-locale review
+ *      panel ("Details (French (Canada))" + "This field is required.")
+ *      after the wizard's primary locale is fr_CA.
  */
 
 function uniqueTag() {
@@ -136,6 +144,83 @@ test.describe('Submission wizard — language change', () => {
 			await expect(titleFrTextarea).toHaveValue(
 				new RegExp(frenchTitle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
 			);
+		},
+	);
+
+	test(
+		'review-step validation errors render under FR-locale panels when submission locale is fr_CA',
+		{tag: '@regression'},
+		async ({page}) => {
+			const tag = uniqueTag();
+
+			const wizard = new SubmissionWizardPage(page);
+			await wizard.goto();
+			// Start with a tiny title so we can clear it and reach the
+			// Review step with a known required-field error. Picking
+			// Articles (the section with no extra metadata gates) keeps
+			// the only error path the Title field's required validation.
+			await wizard.start({title: `Lang-errors ${tag}`, section: 'Articles'});
+
+			// Switch the submission locale to fr_CA. After this, the
+			// Details step's primary form locale flips, and Review
+			// will render the locale-specific review panels keyed off
+			// "Details (French (Canada))" / "Details (English)".
+			await wizard.openReconfigureModal();
+			await wizard.changeReconfigureSettings({
+				localeLabel: 'French (Canada)',
+			});
+
+			// Walk to Details + clear the FR Title to force a
+			// required-field error at Review. The wizard auto-seeds the
+			// FR Title from the Start form's initial value because
+			// reconfigure with a single supported locale sets the
+			// primary form locale; clearing it gives Review a deterministic
+			// "missing in fr_CA" assertion.
+			await wizard.continueStep();
+			await wizard.clearTitle('fr_CA');
+
+			// Walk through Contributors + For the Editors to Review.
+			// The wizard's required-field validation runs only when
+			// Continue lands on Review; intermediate steps don't gate
+			// missing fr_CA title. (Row #10 already exercises EN-side
+			// validation; this test's value is the locale-prefixed
+			// review-panel headings.)
+			await wizard.continueStep(); // Details → Contributors
+			await wizard.continueStep(); // Contributors → For the Editors
+			await wizard.continueStep(); // For the Editors → Review
+
+			// Top-level errors banner mirrors row #10's EN flow but in
+			// the same UI locale (English; UI locale wasn't switched —
+			// only the submission's primary form locale changed). The
+			// per-panel review headings use the SUBMISSION locale's
+			// label as the suffix, so we anchor on
+			// "Details (French (Canada))".
+			await expect(page.getByText(/There are one or more problems/i)).toBeVisible({
+				timeout: 15_000,
+			});
+
+			const frDetailsPanel = page
+				.locator('.submissionWizard__reviewPanel')
+				.filter({has: page.getByRole('heading', {name: /Details \(French \(Canada\)\)/})});
+			await expect(frDetailsPanel).toHaveCount(1);
+			await expect(frDetailsPanel).toContainText('This field is required.');
+
+			// Conversely, the EN-locale review panel — which exists when
+			// supportedLocales includes en alongside fr_CA — must NOT
+			// carry the missing-title warning, since the EN title was
+			// never required (submission locale is fr_CA). Anchor by
+			// asserting the EN panel does not contain the same warning
+			// label. The bootstrap publicknowledge journal has
+			// supportedSubmissionLocales=['en','fr_CA'], so the EN
+			// panel will be present.
+			const enDetailsPanel = page
+				.locator('.submissionWizard__reviewPanel')
+				.filter({has: page.getByRole('heading', {name: /Details \(English\)/})});
+			if (await enDetailsPanel.count()) {
+				await expect(enDetailsPanel.first()).not.toContainText(
+					'This field is required.',
+				);
+			}
 		},
 	);
 });

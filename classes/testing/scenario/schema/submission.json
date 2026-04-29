@@ -18,7 +18,8 @@
             "additionalProperties": false,
             "properties": {
                 "orcid": { "type": "string" },
-                "orcidIsVerified": { "type": "boolean" }
+                "orcidIsVerified": { "type": "boolean" },
+                "email": { "type": "string" }
             }
         },
 

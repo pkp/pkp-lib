@@ -1,6 +1,7 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
 const submissionPublished = require('../../../../playwright/fixtures/scenarios/submission-published.js');
+const {EditorialWorkflowPage} = require('../../../../playwright/pages/EditorialWorkflowPage.js');
 
 /**
  * ORCID integration — row #55 in docs/e2e-playwright-migration.md
@@ -60,6 +61,17 @@ const submissionPublished = require('../../../../playwright/fixtures/scenarios/s
  *      assert the verified-ORCID block renders (`<span class="orcid">`
  *      with an `<a href>` pointing at the seeded ORCID URL).
  *
+ *   5. **E + M: editor requests ORCID verification on a contributor** —
+ *      the OJS-only Cypress test. With ORCID enabled on a scratch
+ *      journal and a published submission whose seeded author has no
+ *      ORCID iD yet, the editor opens Publication → Contributors →
+ *      Edit on the author row, clicks "Request verification" inside
+ *      FieldOrcid, confirms via the Yes/No PkpDialog, asserts the
+ *      button text flips to "ORCID Verification has been requested!"
+ *      and Mailpit's inbox for the author's address contains the
+ *      "Requesting ORCID record access" mail. Closes the deferred
+ *      OJS-only test from the audit.
+ *
  * Scope deviations / deferred work:
  *   - The server-side OAuth callback (`AuthorizeUserData::execute`'s
  *     token POST + `setVerifiedOrcidOAuthData` storage path) is not
@@ -69,11 +81,6 @@ const submissionPublished = require('../../../../playwright/fixtures/scenarios/s
  *     match the rest of the test surface (everything else is gated by
  *     `TestModeGate`'s `X-Test-Key` header). That validation belongs
  *     in a PHP unit test, not an end-to-end spec.
- *   - **Sends ORCID verification request to author** (the OJS-only
- *     Cypress test) is the request-verification-email sidemodal on
- *     the Contributors workflow panel. That path dispatches
- *     `RequestOrcidVerification` + queues mail and belongs in a
- *     separate row keyed off mailpit assertions; deferred for now.
  */
 test.describe('ORCID integration', () => {
 	test(
@@ -385,6 +392,129 @@ test.describe('ORCID integration', () => {
 			} finally {
 				await anon.close();
 			}
+		},
+	);
+
+	test(
+		'editor requests ORCID verification on a contributor and the email is dispatched',
+		async ({pkpApi, pkpMail, asUser}) => {
+			const tag = uniqueTag(test.info(), 'verify');
+			// Fresh email address per worker so parallel runs don't
+			// race on the same Mailpit inbox. We use this email instead
+			// of rvaca's baseline address so the assertion below is
+			// scoped to this test's send only.
+			const authorEmail = `orcid-verify-${tag}@mailinator.com`;
+
+			// Scratch journal seeded with two issues + dbarnes manager
+			// (so we can drive both Settings and the workflow page) and
+			// rvaca enrolled as author (so submissionPublished can use
+			// him as the submitter). ORCID is then enabled via the
+			// shared settings-form helper — the verification API
+			// requires `OrcidManager::isEnabled()` to return true.
+			const issue = {volume: 1, number: 1, year: 2026};
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [
+					{username: 'dbarnes', roles: ['manager', 'editor']},
+					{username: 'rvaca', roles: ['author']},
+				],
+				issues: [{...issue, published: true}],
+				// OrcidVariables::setupOrcidVariables calls
+				// Repo::user()->getByEmail($context->contactEmail)
+				// then dereferences ->getLocalizedSignature() on the
+				// result. Scratch journals default contactEmail to
+				// `test@example.com`, which no baseline user owns, so
+				// the mail dispatch crashes with a null deref. Point
+				// the contact at a real baseline user (dbarnes) to
+				// satisfy the lookup.
+				contact: {
+					name: 'Daniel Barnes',
+					email: 'dbarnes@mailinator.com',
+				},
+			});
+			const managerCtx = await asUser('dbarnes');
+			const settingsPage = await managerCtx.newPage();
+			await enableOrcidViaSettingsForm(settingsPage, context.path);
+
+			// Seed a published submission. submissionPublished's
+			// submitter defaults to rvaca; rvaca's email gets copied
+			// onto the auto-author row. We override that email to
+			// `authorEmail` via the SubmissionBuilderProcessor `author`
+			// passthrough so the Mailpit assertion is per-test scoped.
+			// The author has no orcid + orcidIsVerified=false, which is
+			// the precondition for FieldOrcid to render the
+			// "Request verification" affordance.
+			const spec = submissionPublished({tag, journal: context.path, issue});
+			spec.author = {email: authorEmail};
+			const {submission} = await pkpApi.createSubmission(spec);
+
+			// Wipe any leak from a previous run in the same DB lifetime
+			// (test DB is reset between cold-boot setups but kept warm
+			// across reruns) — scoped to this address only so parallel
+			// workers don't clobber each other's mail.
+			await pkpMail.deleteForRecipient(authorEmail);
+
+			// Drive the workflow page as dbarnes. The EditorialWorkflowPage
+			// POM mounts at /workflow/access/{id}; the helper
+			// `openPublicationPanel('Contributors')` clicks the
+			// Contributors link in the Publication side-nav.
+			const editorPage = settingsPage; // reuse dbarnes session
+			const workflow = new EditorialWorkflowPage(editorPage);
+			await workflow.goto(submission.id, {journalPath: context.path});
+			await workflow.openPublicationPanel('Contributors');
+
+			// The ContributorManager renders a ContributorsListPanel
+			// scoped by `data-cy="contributor-manager"`. The list row
+			// shows the contributor's display name + role badge but
+			// not the email address — anchor on the only row in the
+			// fresh submission instead. Edit PkpButton label is
+			// `common.edit` → "Edit" inside the row's item-actions slot.
+			const contributorManager = editorPage.locator(
+				'[data-cy="contributor-manager"]',
+			);
+			await expect(contributorManager).toBeVisible({timeout: 15_000});
+			const authorRow = contributorManager.locator('.listPanel__item').first();
+			await expect(authorRow).toBeVisible({timeout: 15_000});
+			await authorRow.getByRole('button', {name: 'Edit', exact: true}).click();
+
+			// ContributorsEditModal mounts as a side-modal; FieldOrcid
+			// renders inside it when isEnabled=true on the context.
+			// "Request verification" is the orcid.field.verification.request
+			// label rendered as the FieldOrcid's primary action button.
+			const requestBtn = editorPage.getByRole('button', {
+				name: 'Request verification',
+				exact: true,
+			});
+			await expect(requestBtn).toBeVisible({timeout: 15_000});
+			await requestBtn.click();
+
+			// Confirmation dialog is the useModal-emitted PkpDialog
+			// titled "Request ORCID verification" with Yes/No buttons.
+			// reka-ui scopes the dialog as role="dialog"; Yes is the
+			// primary action.
+			const confirmDialog = editorPage.getByRole('dialog', {
+				name: 'Request ORCID verification',
+			});
+			await expect(confirmDialog).toBeVisible({timeout: 10_000});
+			await confirmDialog
+				.getByRole('button', {name: 'Yes', exact: true})
+				.click();
+
+			// FieldOrcid flips its primary button label from
+			// "Request verification" to "ORCID Verification has been
+			// requested!" once verificationRequested is true.
+			await expect(
+				editorPage.getByRole('button', {
+					name: 'ORCID Verification has been requested!',
+				}),
+			).toBeVisible({timeout: 15_000});
+
+			// Mailpit assertion — the dispatch goes through
+			// RequestOrcidVerification with the
+			// `orcidRequestAuthorAuthorization` Mailable
+			// (subject: "Requesting ORCID record access").
+			const mail = await pkpMail.latestTo(authorEmail, {timeout: 20_000});
+			expect(mail.Subject).toMatch(/Requesting ORCID record access/i);
 		},
 	);
 });

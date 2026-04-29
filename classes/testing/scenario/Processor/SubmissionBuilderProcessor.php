@@ -110,7 +110,7 @@ class SubmissionBuilderProcessor implements ScenarioProcessor
         // listed below are recognised.
         if (!empty($spec['author']) && is_array($spec['author'])) {
             $authorEditParams = [];
-            foreach (['orcid', 'orcidIsVerified'] as $k) {
+            foreach (['orcid', 'orcidIsVerified', 'email'] as $k) {
                 if (array_key_exists($k, $spec['author'])) {
                     $authorEditParams[$k] = $spec['author'][$k];
                 }

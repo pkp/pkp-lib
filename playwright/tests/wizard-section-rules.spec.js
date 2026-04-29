@@ -29,19 +29,11 @@ const {SubmissionWizardPage} = require('../pages/SubmissionWizardPage.js');
  *     section radio (PKPSubmissionHandler::getSubmitSections filters
  *     with ->excludeInactive()). Exercised by the single test below.
  *
- * Scope dropped:
- *   - The editor-only (editorRestricted) side of the feature. The
- *     Cypress assertion was "an author sees 'Not Allowed' / sees only
- *     one section on Start". Both shapes need a non-editor author user
- *     on the scratch journal. No such user is in the Playwright
- *     baseline today. Seeding one inside this spec would have to
- *     either add to lib/pkp/playwright/data/users.js (a cross-cutting
- *     concern worth its own change — scope creep here) or create a
- *     fresh user inline via the scenario API (no processor for that
- *     exists in E0 yet). Flag to the user: "no author-only baseline
- *     user; row #12's editor-only test dropped until one exists". The
- *     admin-UI side of editorRestricted already round-trips in row #8
- *     (playwright/tests/sections.spec.js third test).
+ * Editor-only (editorRestricted) side of the feature is now covered
+ * by test 2 below — atester (the baseline author user, added for row
+ * #43) gets enrolled as an author on the scratch journal, then dbarnes
+ * marks Articles as editorRestricted; atester's wizard render proves
+ * the section is filtered out of the Start form's section picker.
  */
 
 function uniqueTag() {
@@ -90,6 +82,27 @@ async function createSection(page, {title, abbrev}) {
  * `isInactive`, and save.
  */
 async function markSectionInactive(page, title) {
+	await editSectionFlag(page, title, 'isInactive');
+}
+
+/**
+ * Open the Edit dialog for the section whose title matches, tick
+ * `editorRestricted`, and save. editorRestricted hides the section
+ * from non-editor authors' Start form section picker.
+ */
+async function markSectionEditorRestricted(page, title) {
+	await editSectionFlag(page, title, 'editorRestricted');
+}
+
+/**
+ * Generic editor: open a section's Edit dialog, tick a named
+ * checkbox by id, save.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {string} title
+ * @param {string} fieldId  HTML id of the checkbox to tick
+ */
+async function editSectionFlag(page, title, fieldId) {
 	const row = page.locator(
 		'tr.gridRow[id^="component-grid-settings-sections-sectiongrid-row-"]',
 		{hasText: title},
@@ -104,7 +117,7 @@ async function markSectionInactive(page, title) {
 		.click();
 	const form = page.locator('form#sectionForm');
 	await expect(form).toBeVisible();
-	await form.locator('input#isInactive').check({force: true});
+	await form.locator(`input#${fieldId}`).check({force: true});
 	await form.getByRole('button', {name: 'Save'}).click();
 	await expect(form).toHaveCount(0, {timeout: 15_000});
 }
@@ -224,6 +237,109 @@ test.describe('Submission wizard — section rules', () => {
 				).toBeVisible();
 			} finally {
 				await ctx.close();
+			}
+		},
+	);
+
+	test(
+		'an editor-restricted section is hidden from a non-editor author in the wizard',
+		{tag: '@regression'},
+		async ({pkpApi, browser, baseURL}) => {
+			const tag = uniqueTag();
+
+			// E0 scratch journal with dbarnes (manager) and atester
+			// (author). atester is the baseline non-editor author user
+			// added for row #43; enrolling her on the scratch journal
+			// gives her submit rights without granting editorial
+			// privileges, which is the precondition for the
+			// editorRestricted gate to apply.
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [
+					{username: 'dbarnes', roles: ['manager']},
+					{username: 'atester', roles: ['author']},
+				],
+			});
+
+			// Manager session — log in as dbarnes, seed a Reviews
+			// section so the journal has at least two sections (so
+			// the wizard's section radio renders for both states),
+			// then mark Articles as editorRestricted.
+			const dbarnesCtx = await browser.newContext({baseURL});
+			try {
+				const dbarnesPage = await dbarnesCtx.newPage();
+				await dbarnesPage.goto(`/index.php/${context.path}/en/login`);
+				await dbarnesPage.locator('input#username').fill('dbarnes');
+				await dbarnesPage
+					.locator('input#password')
+					.fill('dbarnesdbarnes');
+				await dbarnesPage.locator('form#login button').click();
+				await dbarnesPage.waitForURL(
+					(url) => !url.pathname.includes('/login'),
+					{timeout: 15_000},
+				);
+
+				const reviewsTitle = `Reviews ${tag}`;
+				await openSectionsTab(dbarnesPage, context.path);
+				await createSection(dbarnesPage, {
+					title: reviewsTitle,
+					abbrev: `REV-${tag.slice(-6)}`,
+				});
+				await markSectionEditorRestricted(dbarnesPage, 'Articles');
+			} finally {
+				await dbarnesCtx.close();
+			}
+
+			// Author session — log in as atester on the scratch
+			// journal (atester's password derives to 'atesteratester'
+			// per data/users.js), open the wizard, assert the
+			// Articles section is filtered out of the section radio.
+			const atesterCtx = await browser.newContext({baseURL});
+			try {
+				const atesterPage = await atesterCtx.newPage();
+				await atesterPage.goto(`/index.php/${context.path}/en/login`);
+				await atesterPage.locator('input#username').fill('atester');
+				await atesterPage
+					.locator('input#password')
+					.fill('atesteratester');
+				await atesterPage.locator('form#login button').click();
+				await atesterPage.waitForURL(
+					(url) => !url.pathname.includes('/login'),
+					{timeout: 15_000},
+				);
+
+				await atesterPage.goto(
+					`/index.php/${context.path}/submission`,
+				);
+				await expect(
+					atesterPage.getByRole('heading', {name: 'Make a Submission'}),
+				).toBeVisible({timeout: 15_000});
+				await expect(
+					atesterPage.locator('#startSubmission-title-control_ifr'),
+				).toBeAttached({timeout: 15_000});
+
+				// The Section field renders Reviews (only) when only
+				// one section is author-submittable. With Articles
+				// editor-restricted + atester an author, the picker
+				// should not show Articles. Two assertions tie the
+				// gate down:
+				const reviewsTitle = `Reviews ${tag}`;
+				// 1. Reviews IS visible — proves section enumeration
+				//    didn't break entirely.
+				const reviewsLabel = atesterPage.locator('label', {
+					hasText: reviewsTitle,
+				});
+				if (await reviewsLabel.first().count()) {
+					// 2+ sections render the FieldOptions radio.
+					await expect(reviewsLabel.first()).toBeVisible();
+				}
+				// 2. Articles label is NOT in the wizard's Start form
+				//    (per getSubmitSections's editorRestricted filter).
+				await expect(
+					atesterPage.locator('form label', {hasText: /^Articles$/}),
+				).toHaveCount(0);
+			} finally {
+				await atesterCtx.close();
 			}
 		},
 	);

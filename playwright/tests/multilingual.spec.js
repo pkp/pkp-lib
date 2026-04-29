@@ -1,5 +1,8 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
+const {setTinyMceContent} = require('../support/tinymce.js');
+const submissionInReview = require('../../../../playwright/fixtures/scenarios/submission-in-review.js');
+const {EditorialWorkflowPage} = require('../../../../playwright/pages/EditorialWorkflowPage.js');
 /**
  * Multilingual form fields — row #5 in docs/e2e-playwright-migration.md.
  *
@@ -32,12 +35,14 @@ const {test, expect} = require('../support/base-test.js');
  * too, but using a scratch journal keeps the suite immune to parallel
  * runs flipping each other's flag.
  *
- * Scope deviations:
- *   - The submission-metadata-in-French assertion (Cypress step 3) is
- *     dropped. It needs a submission scenario seeded against the
- *     scratch journal, and the existing submission-draft scenario
- *     fixture hard-codes journal='publicknowledge'. Deferred to a
- *     future row so row #5 stays scoped to journal-config.
+ * Three tests in total — the third covers Cypress step 3
+ * (submission-metadata-in-French) on a scratch journal. The audit's
+ * "blocked on author-baseline seed" claim was stale: the
+ * submission-in-review scenario fixture already accepts a `journal`
+ * override (added for row #6's reviewer-recommendations spec), so a
+ * fr_CA-supporting scratch journal can host an in-review submission
+ * whose Title & Abstract panel is then driven through the FR locale
+ * tab.
  */
 
 function uniqueTag() {
@@ -254,7 +259,101 @@ test.describe('Multilingual', () => {
 			await expect(
 				mastheadReloaded.locator('#masthead-acronym-control-fr_CA'),
 			).toHaveValue('JCP');
-		
+
+		},
+	);
+
+	test(
+		'editor enters a French publication title on an in-review submission and it round-trips via REST',
+		{tag: '@regression'},
+		async ({pkpApi, asUser}) => {
+			const tag = uniqueTag();
+			const frenchTitle = `Titre français ${tag}`;
+
+			// E0 scratch journal supporting both en + fr_CA. The
+			// submissionInReview fixture's `journal` override targets
+			// the scratch journal so the seeded submission lives there
+			// (otherwise the fixture defaults to publicknowledge).
+			const {context} = await pkpApi.createJournal({
+				tag,
+				supportedLocales: ['en', 'fr_CA'],
+				users: [{username: 'dbarnes', roles: ['manager']}],
+			});
+
+			const spec = submissionInReview({tag});
+			spec.journal = context.path;
+			const {submission} = await pkpApi.createSubmission(spec);
+
+			// dbarnes opens the workflow page for the seeded
+			// submission. Manager session is enough — Title & Abstract
+			// is editable for managers/editors on draft publications.
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			const workflow = new EditorialWorkflowPage(page);
+			await workflow.goto(submission.id, {journalPath: context.path});
+
+			// Don't gate on the modal wrapper itself: per patterns.md
+			// `[data-cy="active-modal"]` reports `visibility: hidden`
+			// during the open transition. The side-nav anchor + the
+			// inner heading are what we need.
+			const modal = page.locator('[data-cy="active-modal"]');
+			await modal
+				.locator('nav a')
+				.getByText('Title & Abstract', {exact: true})
+				.first()
+				.click();
+			await expect(
+				modal.getByRole('heading', {name: /Title & Abstract/}),
+			).toBeVisible({timeout: 20_000});
+
+			// Click the French (Canada) locale tab on the form's
+			// pkpFormLocales control. This switches the form's
+			// primary locale; subsequent setTinyMceContent on the
+			// FR control id targets the right field.
+			await modal
+				.locator('button.pkpFormLocales__locale', {hasText: 'French'})
+				.first()
+				.click();
+
+			// Set the FR title via TinyMCE. The control id pattern
+			// is `titleAbstract-title-control-{locale}`.
+			await setTinyMceContent(
+				page,
+				'titleAbstract-title-control-fr_CA',
+				frenchTitle,
+			);
+
+			// Save the form (race the publication PUT). Title &
+			// Abstract posts to the publication endpoint — same
+			// pattern row #27's working save uses.
+			await Promise.all([
+				page.waitForResponse(
+					(res) =>
+						/\/api\/v1\/submissions\/\d+\/publications\/\d+/.test(
+							res.url(),
+						) &&
+						res.ok() &&
+						['POST', 'PUT'].includes(res.request().method()),
+					{timeout: 20_000},
+				),
+				modal
+					.getByRole('button', {name: 'Save', exact: true})
+					.click(),
+			]);
+
+			// REST round-trip: fetch the publication and assert
+			// title.fr_CA carries the seeded French value.
+			const subResp = await page.request.get(
+				`/index.php/${context.path}/api/v1/submissions/${submission.id}`,
+			);
+			expect(subResp.ok()).toBeTruthy();
+			const subBody = await subResp.json();
+			const pubResp = await page.request.get(
+				`/index.php/${context.path}/api/v1/submissions/${submission.id}/publications/${subBody.currentPublicationId}`,
+			);
+			expect(pubResp.ok()).toBeTruthy();
+			const pub = await pubResp.json();
+			expect(pub.title?.fr_CA).toContain(frenchTitle);
 		},
 	);
 });

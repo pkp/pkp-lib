@@ -1,5 +1,6 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
+const submissionDraft = require('../../../../playwright/fixtures/scenarios/submission-draft.js');
 /**
  * API smoke — row #47 in docs/e2e-playwright-migration.md.
  *
@@ -36,7 +37,7 @@ const {test, expect} = require('../support/base-test.js');
  *      ApiProfileForm, a distinct concern from "API is reachable".
  *      Porting that form is a future row if we ever need it.
  *
- * Three tests:
+ * Four tests:
  *   1. CSRF token — authenticated page exposes
  *      `window.pkp.currentUser.csrfToken`. This is the canonical source
  *      for the X-Csrf-Token header every existing Playwright spec
@@ -56,6 +57,13 @@ const {test, expect} = require('../support/base-test.js');
  *      pagination-like shape). We don't assert a specific item count
  *      because each spec seeds its own submissions and parallel
  *      workers may have left traces.
+ *   4. Author-scoped /submissions — atester (the baseline non-editor
+ *      author user) lists submissions and the response includes a
+ *      seeded submission where atester is the submitter. Mirrors the
+ *      OJS-side Cypress source's "author sees exactly one item"
+ *      assertion, but with parallel-safe seeding (each worker seeds
+ *      its own tagged submission) and a substring assertion on the
+ *      title rather than item-count parity.
  *
  * Helper note: lib/pkp/playwright/support/api.js ships
  * `pkpApi.getCsrfToken()` pointing at `/index.php/index/api/v1/_csrf`
@@ -167,7 +175,57 @@ test.describe('API smoke', () => {
 			expect(Array.isArray(result.body.items)).toBe(true);
 			expect(result.body).toHaveProperty('itemsMax');
 			expect(typeof result.body.itemsMax).toBe('number');
-		
+
+		},
+	);
+
+	test(
+		'authenticated author lists their own submissions',
+		{tag: '@regression'},
+		async ({pkpApi, asUser}) => {
+			const tag = `apsmoke-w${test.info().parallelIndex}-${Math.random().toString(36).slice(2, 8)}`;
+			const titleEn = `Author smoke ${tag}`;
+
+			// Seed a draft submission with atester (baseline author)
+			// as the submitter. submissionDraft's auto-author seeding
+			// makes atester both the author of record + a Stage 1
+			// participant, so /api/v1/submissions surfaces it for
+			// her authenticated session.
+			const spec = submissionDraft({tag, submitter: 'atester'});
+			spec.publications = spec.publications || [{}];
+			spec.publications[0].metadata = {
+				...(spec.publications[0].metadata || {}),
+				title: {en: titleEn},
+			};
+			const {submission} = await pkpApi.createSubmission(spec);
+
+			const ctx = await asUser('atester');
+			const page = await ctx.newPage();
+			await page.goto(
+				'/index.php/publicknowledge/dashboard/mySubmissions',
+			);
+			await expect(page).not.toHaveURL(/\/login/);
+
+			// In-page fetch so the session cookies ride along.
+			const result = await page.evaluate(async () => {
+				const r = await fetch(
+					'/index.php/publicknowledge/api/v1/submissions',
+					{headers: {Accept: 'application/json'}},
+				);
+				const j = await r.json();
+				return {status: r.status, body: j};
+			});
+			expect(result.status).toBe(200);
+			expect(Array.isArray(result.body.items)).toBe(true);
+
+			// The seeded submission must surface in atester's listing.
+			// Anchor on the submission id rather than title to avoid
+			// race-with-other-tests false matches.
+			const ids = result.body.items.map((s) => s.id);
+			expect(
+				ids.includes(submission.id),
+				`atester should see submission id=${submission.id} in /submissions; got ids=${JSON.stringify(ids)}`,
+			).toBeTruthy();
 		},
 	);
 });

@@ -5,10 +5,9 @@
  * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Mounts the SubmissionFileMetadataForm Vue component.
+ * Mounts the FileMetadataForm Vue component.
  *}
 {assign var=metadataMountId value="submissionFileMetadata-"|cat:$submissionFile->getId()}
-{capture assign=metadataSaveUrl}{url component="api.file.ManageFileApiHandler" op="saveMetadata" submissionId=$submissionFile->getData('submissionId') stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$submissionFile->getData('fileStage') submissionFileId=$submissionFile->getId() escape=false}{/capture}
 
 <div id="{$metadataMountId}-container" data-submission-file-metadata-wrapper>
 	<div id="{$metadataMountId}" class="pkpForm"></div>
@@ -25,7 +24,6 @@
 			var mountId = {$metadataMountId|json_encode};
 			var containerId = mountId + '-container';
 			var rootProps = $.extend({ldelim}{rdelim}, {$metadataMountConfig|json_encode}, {ldelim}
-				saveUrl: {$metadataSaveUrl|json_encode},
 				onSaved: function() {ldelim}
 					$('#' + containerId).trigger('formSubmitted');
 				{rdelim},
@@ -35,7 +33,7 @@
 			{rdelim});
 
 			var app = pkp.pkpCreateVueApp(
-				pkp.controllers.SubmissionFileMetadataForm,
+				pkp.controllers.FileMetadataForm,
 				rootProps
 			);
 			app.mount('#' + mountId);

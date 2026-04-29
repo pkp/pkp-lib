@@ -399,6 +399,14 @@
 				"no_new_line"
 			]
 		},
+		"summaryOfChanges": {
+			"type": "string",
+			"multilingual": true,
+			"description": "Public-facing amendment notice describing what changed in this version of the publication.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"supportingAgencies": {
 			"type": "array",
 			"description": "Optional metadata that indicates the source of research funding or other institutional support.",

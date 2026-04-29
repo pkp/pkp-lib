@@ -1,6 +1,7 @@
 // @ts-check
 const {test, expect} = require('../support/base-test.js');
 const {SubmissionWizardPage} = require('../pages/SubmissionWizardPage.js');
+const {setTinyMceContent} = require('../support/tinymce.js');
 
 /**
  * Submission wizard — copyright gate — row #11 in
@@ -19,20 +20,25 @@ const {SubmissionWizardPage} = require('../pages/SubmissionWizardPage.js');
  * passthrough), so the setting lives only on that journal and can't
  * interfere with other parallel tests.
  *
- * Scope deviations:
- *   - French-locale assertion dropped; the English gate plus the
- *     copyright notice's literal text being present in the DOM prove
- *     the binding end-to-end. Locale switching in the wizard is
- *     row #13's concern.
- *   - "Submit succeeds → submission complete" deferred — proving a
- *     successful submit would require uploading an Article Text file
- *     (the default required-to-submit genre), which is its own
- *     migration row (#17 Filenames). This spec stops at "Submit
- *     button enables once the checkbox is ticked (once the residual
- *     file-missing gate is disregarded)" — the exact gate behaviour
- *     the Cypress source asserted on, proved via the canSubmit
- *     computed's two terms (isValid AND isConfirmed) by toggling the
- *     isConfirmed term on its own.
+ * Two tests:
+ *   1. EN UI + EN submission locale — the default path.
+ *   2. FR UI + FR submission locale — proves the locale-resolution
+ *      side of the same gate. The Confirmation form's blockquote
+ *      reads `$context->getLocalizedData('copyrightNotice')`, which
+ *      resolves to the user's UI locale (see ConfirmSubmission.php),
+ *      so to test the fr_CA copyrightNotice surface we must navigate
+ *      the wizard with a `/fr_CA/` URL prefix and walk it using the
+ *      FR button labels (Continuer / Soumettre / "Droit d'auteur").
+ *
+ * "Submit succeeds → submission complete" deferred — proving a
+ * successful submit would require uploading an Article Text file
+ * (the default required-to-submit genre), which is its own migration
+ * row (#17 Filenames). This spec stops at "Submit button enables
+ * once the checkbox is ticked (once the residual file-missing gate
+ * is disregarded)" — the exact gate behaviour the Cypress source
+ * asserted on, proved via the canSubmit computed's two terms
+ * (isValid AND isConfirmed) by toggling the isConfirmed term on its
+ * own.
  */
 
 function uniqueTag() {
@@ -172,6 +178,154 @@ test.describe('Submission wizard — copyright gate', () => {
 				// checkbox is wired to the gate — subsequent rows
 				// that actually reach submit (e.g. #17 happy-path)
 				// will rely on this wiring.
+				await copyrightCheckbox.uncheck();
+				await expect(copyrightCheckbox).not.toBeChecked();
+				await expect(submitBtn).toBeDisabled();
+			} finally {
+				await ctx.close();
+			}
+		},
+	);
+
+	test(
+		'copyright notice + checkbox gate render in fr_CA UI',
+		{tag: '@regression'},
+		async ({pkpApi, browser, baseURL}) => {
+			const tag = uniqueTag();
+			const copyrightEn = `Copyright EN ${tag}`;
+			const copyrightFr = `Droit d'auteur FR ${tag}`;
+
+			// Scratch journal supports both locales (so /fr_CA/ URLs
+			// resolve) and seeds copyrightNotice with both translations.
+			// dbarnes is manager so a single login carries through.
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [{username: 'dbarnes', roles: ['manager']}],
+				supportedLocales: ['en', 'fr_CA'],
+				copyrightNotice: {en: copyrightEn, fr_CA: copyrightFr},
+			});
+
+			const ctx = await browser.newContext({baseURL});
+			try {
+				const page = await ctx.newPage();
+				// Sign in via the EN login form (the FR login form is
+				// also valid but using the same EN entry as the
+				// sibling test minimises selector divergence; the
+				// session locale doesn't sticky from this page anyway
+				// — it's the URL prefix on subsequent navigations that
+				// drives UI rendering).
+				await page.goto(`/index.php/${context.path}/en/login`);
+				await page.locator('input#username').fill('dbarnes');
+				await page.locator('input#password').fill('dbarnesdbarnes');
+				await page.locator('form#login button').click();
+				await page.waitForURL(
+					(url) => !url.pathname.includes('/login'),
+					{timeout: 15_000},
+				);
+
+				// Switch the session UI locale to fr_CA via the
+				// canonical OJS endpoint — same hook the user-nav
+				// dropdown's "français" link calls. From this point on
+				// every page rendered for this session uses FR strings.
+				await page.goto(
+					`/index.php/index/user/setLocale/fr_CA`,
+				);
+				await page.goto(
+					`/index.php/${context.path}/submission`,
+				);
+
+				// Start form mounts in FR. Pick the FR submission locale
+				// radio (label "français (Canada)" because the wizard
+				// itself is now rendered in FR), seed the title via the
+				// existing TinyMCE helper, then click the FR Begin
+				// button ("Commencer la soumission" — the
+				// `submission.wizard.start` translation).
+				const frLocaleLabel = page.locator('label', {
+					hasText: 'français (Canada)',
+				});
+				await expect(frLocaleLabel.first()).toBeVisible({
+					timeout: 15_000,
+				});
+				await frLocaleLabel.first().click();
+
+				await setTinyMceContent(
+					page,
+					'startSubmission-title-control',
+					`Copyright FR ${tag}`,
+				);
+
+				// FR-locale scratch journals inherit FR defaults for
+				// submissionChecklist + privacyStatement (vs the
+				// EN-only sibling test where neither setting carries a
+				// rendered value). Both are required FieldOptions so
+				// the Start form's Begin button stays disabled until
+				// each is ticked. Click each once they're visible.
+				const frChecklist = page.locator('label', {
+					hasText: 'Oui, ma soumission répond à toutes ces exigences',
+				});
+				if (await frChecklist.first().isVisible().catch(() => false)) {
+					await frChecklist.first().click();
+				}
+				const frPrivacy = page.locator('label', {
+					hasText:
+						'Oui, j\'accepte que mes données soient collectées',
+				});
+				if (await frPrivacy.first().isVisible().catch(() => false)) {
+					await frPrivacy.first().click();
+				}
+
+				await page
+					.getByRole('button', {name: 'Commencer la soumission'})
+					.click();
+				await page.waitForURL(/\/submission\?id=\d+/i, {
+					timeout: 20_000,
+				});
+				await expect(page.locator('.submissionWizard')).toBeVisible();
+
+				// FR Continue label = "Continuer". Walk the four steps
+				// (Upload → Details → Contributors → For the Editors)
+				// to land on Review.
+				for (let i = 0; i < 4; i++) {
+					await page
+						.locator('.submissionWizard__footer')
+						.getByRole('button', {name: 'Continuer'})
+						.click();
+				}
+
+				// Confirmation panel — FR legend reads "Droit d'auteur"
+				// (anchored as a regex to handle apostrophe variants).
+				// The blockquote inside the confirmCopyright fieldset
+				// must contain the seeded fr_CA copyright text.
+				const confirmHeading = page.getByRole('heading', {
+					name: /Confirmation/i,
+				});
+				await confirmHeading.scrollIntoViewIfNeeded();
+				await expect(confirmHeading).toBeVisible({timeout: 15_000});
+
+				await expect(page.locator('blockquote')).toContainText(
+					copyrightFr,
+				);
+				// And conversely the EN copyright string MUST NOT leak
+				// into the FR-rendered blockquote.
+				await expect(page.locator('blockquote')).not.toContainText(
+					copyrightEn,
+				);
+
+				// FR submit label = "Soumettre". Same gate semantics:
+				// canSubmit = isValid AND isConfirmed.
+				const submitBtn = page
+					.locator('.submissionWizard__footer')
+					.getByRole('button', {name: 'Soumettre'});
+
+				const copyrightCheckbox = page
+					.locator('input[name="confirmCopyright"][type="checkbox"]')
+					.first();
+				await expect(copyrightCheckbox).not.toBeChecked();
+				await expect(submitBtn).toBeDisabled();
+
+				await copyrightCheckbox.check();
+				await expect(copyrightCheckbox).toBeChecked();
+
 				await copyrightCheckbox.uncheck();
 				await expect(copyrightCheckbox).not.toBeChecked();
 				await expect(submitBtn).toBeDisabled();

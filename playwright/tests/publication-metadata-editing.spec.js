@@ -29,13 +29,24 @@ const submissionInReview = require('../../../../playwright/fixtures/scenarios/su
  *   the draft publication has no public URL. The publish/unpublish flow
  *   and reader verification live in row #28 (publish-unpublish).
  *
- * Scope deviation — contributors:
- *   The roadmap's optional contributors test is dropped per the
- *   3-attempt budget — title/abstract/keywords together already exercise
- *   the two input idioms (TinyMCE + autosuggest) and the shared
- *   Save → [role=status] "Saved" round-trip, so a contributors variant
- *   adds dialog-plumbing coverage rather than net-new publication-panel
- *   coverage.
+ * A second test covers the Contributors panel — the most user-visible
+ * of the per-panel save surfaces — by adding a new author and
+ * verifying the publication's authors list round-trips via REST.
+ *
+ * Galleys is exercised end-to-end by row #51 (galleys.spec.js). The
+ * remaining two panels (Permissions, Issue) share the same `pkpForm`
+ * save infrastructure as Title & Abstract / Contributors and aren't
+ * separately tested here — the Permissions panel's `optIntoEdit`
+ * gate (FieldText with Override-then-edit semantics on
+ * copyrightHolder + copyrightYear) and the Issue panel's stacked-form
+ * Save targeting under the dashboard dialog turned out non-trivial
+ * to drive reliably from Playwright. The same field types are
+ * exercised across other rows (#11 wizard copyright covers
+ * copyrightNotice multilingual, #16 wizard config covers FieldText +
+ * required validation, #28 publish-unpublish exercises the Issue
+ * dropdown via `publishCurrentPanel`); the panel save infrastructure
+ * is proven by the Title & Abstract round-trip in test 1. Reopen if
+ * a regression surfaces on those panels' field-specific bindings.
  */
 test.describe('Publication metadata editing', () => {
 	test('editor updates publication title, abstract, and keywords; changes persist on reload', async ({
@@ -134,6 +145,101 @@ test.describe('Publication metadata editing', () => {
 		await expect(page.getByText(newTitle).first()).toBeVisible({
 			timeout: 15_000,
 		});
+	});
+
+	test('editor adds a new contributor via the Contributors panel', async ({
+		pkpApi,
+		asUser,
+	}) => {
+		const tag = uniqueTag(test.info(), 'contrib');
+		const spec = submissionInReview({tag});
+		const {submission} = await pkpApi.createSubmission(spec);
+
+		const givenName = `New${tag.replace(/[^a-z0-9]/gi, '')}`;
+		const familyName = `Contributor`;
+		const email = `contrib-${tag}@mailinator.com`.toLowerCase();
+
+		const ctx = await asUser('dbarnes');
+		const page = await ctx.newPage();
+		const workflow = new EditorialWorkflowPage(page);
+		await workflow.goto(submission.id);
+
+		const modal = page.locator('[data-cy="active-modal"]');
+		const sideNav = modal.locator('nav a');
+
+		// ContributorManager mounts under the Contributors side-nav
+		// entry; its container carries `data-cy="contributor-manager"`.
+		await sideNav.getByText('Contributors', {exact: true}).first().click();
+		const contributorManager = page.locator(
+			'[data-cy="contributor-manager"]',
+		);
+		await expect(contributorManager).toBeVisible({timeout: 10_000});
+
+		// "Add Contributor" opens ContributorsEditModal — a stacked
+		// SideModal. ModalManager's `data-cy="active-modal"` migrates to
+		// whichever side-modal is on top, so we anchor on the
+		// contributor form's email input directly (per the patterns.md
+		// note: the modal wrapper reports visibility:hidden during the
+		// open transition).
+		await contributorManager
+			.getByRole('button', {name: 'Add Contributor', exact: true})
+			.click();
+
+		const emailInput = page.locator('input[name="email"]').last();
+		await expect(emailInput).toBeVisible({timeout: 15_000});
+
+		// Fill multilingual + scalar fields. Multilingual ones follow
+		// `name-locale` (givenName-en, familyName-en); email + country
+		// are scalars.
+		await page.locator('input[name="givenName-en"]').last().fill(givenName);
+		await page.locator('input[name="familyName-en"]').last().fill(familyName);
+		await emailInput.fill(email);
+		await page.locator('select[name="country"]').last().selectOption('CA');
+
+		// `contributorRoles` is a FieldOptions (multi-checkbox group)
+		// with a required validator — at least one of Author /
+		// Translator must be ticked or the form refuses to submit. The
+		// inputs render as `name="contributorRoles[]"`; pick the first
+		// "Author"-labelled checkbox.
+		await page
+			.locator('label', {hasText: 'Author'})
+			.locator('input[type="checkbox"]')
+			.first()
+			.check({force: true});
+
+		// Save the contributor form. Race with the contributor POST —
+		// the publication's authors collection endpoint.
+		await Promise.all([
+			page.waitForResponse(
+				(res) =>
+					/\/api\/v1\/submissions\/\d+\/publications\/\d+\/contributors/.test(
+						res.url(),
+					) &&
+					res.ok(),
+				{timeout: 20_000},
+			),
+			page
+				.getByRole('button', {name: 'Save', exact: true})
+				.last()
+				.click(),
+		]);
+
+		// Modal closes; contributor list refreshes with the new row.
+		// The display name is the standard "Given Family" composite.
+		await expect(
+			contributorManager.getByText(`${givenName} ${familyName}`),
+		).toBeVisible({timeout: 15_000});
+
+		// REST round-trip: the publication's authors list now includes
+		// the new contributor.
+		const pub = await fetchCurrentPublication(page, submission.id);
+		const authors = pub.authors || [];
+		const match = authors.find(
+			(a) => (a.email || '').toLowerCase() === email,
+		);
+		expect(match, `author with email ${email} should exist`).toBeTruthy();
+		expect(match.givenName?.en).toBe(givenName);
+		expect(match.familyName?.en).toBe(familyName);
 	});
 });
 

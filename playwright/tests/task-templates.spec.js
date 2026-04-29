@@ -6,25 +6,25 @@ const {setTinyMceContent} = require('../support/tinymce.js');
  * Task and Discussion Templates — row #25 in
  * docs/e2e-playwright-migration.md.
  *
- * Ports cypress/tests/integration/TaskTemplates.cy.js (six-it-block
- * monolith) down to two focused tests against an E0 scratch journal:
+ * Ports cypress/tests/integration/TaskTemplates.cy.js against an E0
+ * scratch journal:
  *
  *   1. Manager adds a template on a given stage, reloads the settings
  *      page, confirms it persists — covers the CRUD happy path
  *      (title + description + stage + include auto-add flag).
  *   2. Manager applies a template while drafting a task in the workflow
  *      — template pre-fills title + description in the form.
+ *   3. Validation rejects an empty form — submitting without title or
+ *      description surfaces the inline "This field is required" error
+ *      on both fields.
+ *   4. Edit + auto-add toggle + delete — exercises the management-side
+ *      surfaces that aren't part of the create-and-persist test:
+ *      rename via More Actions → Edit, flip the auto-add row checkbox
+ *      (confirm dialog), and delete via More Actions → Delete (OK
+ *      confirmation). Mirrors Cypress test 1's edit/auto-add/delete
+ *      arc in one consolidated round-trip.
  *
  * Scope-drops vs. the Cypress source:
- *   - The edit/delete/toggle-auto-add/validation variants in the first
- *     Cypress `it` aren't re-exercised here — the CRUD add+persist is
- *     the only unique coverage in that block that row #25 in the doc
- *     lists as in-scope (add per-stage template, apply during workflow,
- *     role-restrict). Edit/delete flows already have equivalent
- *     coverage via the reviewer-recommendation spec's "add/edit/delete"
- *     test, which exercises the same DropdownActions → modal pattern
- *     through the shared PkpTable manager layout; we'd be
- *     re-exercising table-level UI, not task-template-specific code.
  *   - The "role-restrict visibility by role" variant (author sees only
  *     unrestricted, copyeditor sees both) is dropped here and deferred
  *     — exercising it requires a submission in copyediting stage with
@@ -356,7 +356,153 @@ test.describe('Task and Discussion Templates', () => {
 					},
 				)
 				.toContain(templateDescription);
-		
+
+		},
+	);
+
+	test(
+		'add-template form rejects an empty submission with required-field errors',
+		{tag: '@regression'},
+		async ({pkpApi, asUser}) => {
+			const tag = uniqueTag(test.info(), 'val');
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [{username: 'dbarnes', roles: ['manager']}],
+			});
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			await openTaskTemplatesTab(page, context.path);
+
+			await clickAddTemplateForStage(page, 'Copyediting Stage');
+
+			const modal = page.locator('[data-cy="active-modal"]');
+			const titleInput = modal.locator('#taskTemplate-title-control');
+			await expect(titleInput).toBeVisible({timeout: 10_000});
+
+			// Submit without any fields filled — the form's required
+			// validators should reject and surface inline errors. The
+			// shared `<pkp-form>` renders FieldError components as text
+			// "This field is required." adjacent to the offending
+			// control. Both Title and Description are required (see
+			// useTaskTemplateManagerForm.js).
+			await modal
+				.getByRole('button', {name: 'Save', exact: true})
+				.click();
+
+			// "This field is required" must appear at least twice in
+			// the modal — once for Title and once for Description.
+			// Asserting count >= 2 is more robust than scoping to each
+			// field, since the error markup can wrap differently on
+			// FieldRichTextarea (description) vs FieldText (title).
+			const errors = modal.getByText('This field is required.');
+			await expect(errors.first()).toBeVisible({timeout: 10_000});
+			expect(await errors.count()).toBeGreaterThanOrEqual(2);
+
+			// The modal should still be open (the form didn't submit).
+			await expect(titleInput).toBeVisible();
+		},
+	);
+
+	test(
+		'manager edits a template title, toggles auto-add, then deletes it',
+		{tag: '@regression'},
+		async ({pkpApi, asUser}) => {
+			const tag = uniqueTag(test.info(), 'mgmt');
+			const {context} = await pkpApi.createJournal({
+				tag,
+				users: [{username: 'dbarnes', roles: ['manager']}],
+			});
+			const ctx = await asUser('dbarnes');
+			const page = await ctx.newPage();
+			await openTaskTemplatesTab(page, context.path);
+
+			const initialTitle = `Initial ${tag}`;
+			const editedTitle = `Edited ${tag}`;
+
+			// --- Phase 1: create a template with auto-add ON. The
+			// `include` checkbox in the modal flips the row-level
+			// auto-add flag once the row appears in the table.
+			await clickAddTemplateForStage(page, 'Copyediting Stage');
+			const modal = page.locator('[data-cy="active-modal"]');
+			const titleInput = modal.locator('#taskTemplate-title-control');
+			await expect(titleInput).toBeVisible({timeout: 10_000});
+			await titleInput.fill(initialTitle);
+			await setTinyMceContent(
+				page,
+				'taskTemplate-description-control',
+				'<p>Initial description.</p>',
+			);
+			await modal.locator('input[name="include"]').check();
+			await modal
+				.getByRole('button', {name: 'Save', exact: true})
+				.click();
+			await expect(titleInput).toHaveCount(0, {timeout: 15_000});
+			await expect(page.getByText(initialTitle)).toBeVisible({
+				timeout: 10_000,
+			});
+
+			// The row's auto-add column renders as an input[type="checkbox"]
+			// scoped to the template's <tr>. Confirm it's checked
+			// (matches the include=true the modal saved).
+			const initialRow = page
+				.locator('tr')
+				.filter({hasText: initialTitle});
+			await expect(initialRow).toHaveCount(1, {timeout: 10_000});
+			const autoAddCheckbox = initialRow
+				.locator('input[type="checkbox"]')
+				.first();
+			await expect(autoAddCheckbox).toBeChecked();
+
+			// --- Phase 2: edit title via More Actions → Edit. The
+			// DropdownActions menu trigger has aria-label "More
+			// Actions" (PkpDropdownActions convention).
+			await initialRow
+				.getByRole('button', {name: 'More Actions'})
+				.click();
+			await page
+				.getByRole('menuitem', {name: 'Edit', exact: true})
+				.first()
+				.click();
+
+			const editTitleInput = modal.locator('#taskTemplate-title-control');
+			await expect(editTitleInput).toBeVisible({timeout: 10_000});
+			await expect(editTitleInput).toHaveValue(initialTitle);
+			await editTitleInput.fill(editedTitle);
+			await modal
+				.getByRole('button', {name: 'Save', exact: true})
+				.click();
+			await expect(editTitleInput).toHaveCount(0, {timeout: 15_000});
+
+			// Row now shows the edited title; original title is gone.
+			await expect(page.getByText(editedTitle)).toBeVisible({
+				timeout: 10_000,
+			});
+			await expect(page.getByText(initialTitle)).toHaveCount(0);
+
+			// --- Phase 3: toggle auto-add OFF via the row checkbox.
+			// Clicking the checkbox triggers a confirm dialog (Yes/No);
+			// Yes commits the toggle.
+			const editedRow = page.locator('tr').filter({hasText: editedTitle});
+			const editedAutoAdd = editedRow
+				.locator('input[type="checkbox"]')
+				.first();
+			await expect(editedAutoAdd).toBeChecked();
+			await editedAutoAdd.click({force: true});
+			await page.getByRole('button', {name: 'Yes', exact: true}).click();
+			await expect(editedAutoAdd).not.toBeChecked({timeout: 10_000});
+
+			// --- Phase 4: delete via More Actions → Delete + OK.
+			await editedRow
+				.getByRole('button', {name: 'More Actions'})
+				.click();
+			await page
+				.getByRole('menuitem', {name: 'Delete', exact: true})
+				.first()
+				.click();
+			await page.getByRole('button', {name: 'OK', exact: true}).click();
+			await expect(page.getByText(editedTitle)).toHaveCount(0, {
+				timeout: 10_000,
+			});
 		},
 	);
 });

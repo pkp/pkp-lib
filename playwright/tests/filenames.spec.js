@@ -232,6 +232,49 @@ test.describe('Filenames — upload sanitization round-trip', () => {
 				await expect(
 					listItem.getByText('What kind of file is this?'),
 				).toHaveCount(0);
+
+				// Download round-trip: hit the legacy
+				// `$$$call$$$/api/file/file-api/download-file`
+				// endpoint (mirrors Cypress's `Filenames.cy.js#15`)
+				// and assert the `Content-Disposition` header
+				// round-trips the non-ASCII filename via
+				// `filename*=UTF-8''…`. The encoded form is what
+				// browsers use to render the download dialog with
+				// the correct name.
+				const fileId = uploadedBody?.id;
+				const submissionId = uploadedBody?.submissionId;
+				expect(
+					fileId && submissionId,
+					'upload response carries file + submission ids',
+				).toBeTruthy();
+				// stageId=1 (submission stage) for OJS — same as the
+				// Cypress source. Per
+				// `lib/pkp/cypress/tests/integration/Filenames.cy.js`,
+				// the URL pattern is fixed.
+				const downloadUrl =
+					`/index.php/${context.path}/$$$call$$$/api/file/file-api/download-file` +
+					`?submissionFileId=${fileId}&submissionId=${submissionId}&stageId=1`;
+				const dlResp = await page.request.get(downloadUrl);
+				expect(
+					dlResp.ok(),
+					`download GET ${downloadUrl} → ${dlResp.status()}`,
+				).toBeTruthy();
+				const cd = dlResp.headers()['content-disposition'] || '';
+				// The header carries an RFC-5987 `filename*=UTF-8''…`
+				// segment whose value is the percent-encoded name.
+				// Assert (a) the segment exists and (b) decoding it
+				// yields the original uploaded filename.
+				const m = cd.match(/filename\*=UTF-8''([^;]+)/i);
+				expect(
+					m,
+					`Content-Disposition has filename*=UTF-8''…: ${cd}`,
+				).toBeTruthy();
+				// PKP's encoder uses form-style URL encoding
+				// (`+` for spaces) rather than strict RFC 3986
+				// (`%20`). decodeURIComponent treats `+` as a literal,
+				// so substitute spaces back in before decoding.
+				const decoded = decodeURIComponent(m[1].replace(/\+/g, ' '));
+				expect(decoded).toBe(uploadName);
 			} finally {
 				await ctx.close();
 			}

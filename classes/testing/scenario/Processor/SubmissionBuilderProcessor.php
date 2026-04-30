@@ -34,6 +34,8 @@ namespace PKP\testing\scenario\Processor;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
 use PKP\core\Core;
 use PKP\submissionFile\SubmissionFile;
@@ -97,6 +99,19 @@ class SubmissionBuilderProcessor implements ScenarioProcessor
         $author = Repo::author()->newAuthorFromUser($submitter, $submission, $context);
         $author->setData('publicationId', $publicationId);
         $author->setData('contributorType', ContributorType::PERSON->getName());
+        // Match the production wizard's contributor-role linkage. Without
+        // this the new Author row has an empty `contributorRoles` array
+        // and any UI surface that reads getContributorRoles() (the
+        // Contributors panel + listPanel cards) would render the author
+        // without their AUTHOR role chip.
+        $author->setContributorRoles(
+            ContributorRole::query()
+                ->withContextId($context->getId())
+                ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
+                ->limit(1)
+                ->get()
+                ->all()
+        );
         $authorId = Repo::author()->add($author);
 
         // Optional `author` passthrough — fields the spec wants to seed on

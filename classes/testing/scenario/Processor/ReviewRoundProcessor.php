@@ -21,10 +21,15 @@
 
 namespace PKP\testing\scenario\Processor;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\notification\NotificationManager;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\notification\Notification;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\SubmissionComment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
@@ -111,10 +116,32 @@ class ReviewRoundProcessor
         $assignmentId = Repo::reviewAssignment()->add($assignment);
         $assignment = Repo::reviewAssignment()->get($assignmentId);
 
+        // Mirror EditorAction::addReviewer side effects:
+        //   - REVIEW_ASSIGNMENT task notification for the reviewer
+        //   - SUBMISSION_LOG_REVIEW_ASSIGN event-log row
+        // Mail send + email_log entry are intentionally skipped (Mail::fake()
+        // would suppress them anyway).
+        $this->createReviewAssignmentNotification($reviewer->getId(), $contextId, $assignmentId);
+        $this->writeReviewAssignEventLog($assignment, $reviewer, $submissionId);
+
         $status = $reviewerSpec['status'] ?? 'invited';
         $statusEdits = $this->statusFieldEdits($status, $now, $reviewerSpec, $contextId);
         if (!empty($statusEdits)) {
             Repo::reviewAssignment()->edit($assignment, $statusEdits);
+        }
+
+        // Mirror PKPReviewerReviewStep3Form::execute side effects on
+        // completion (notify editors, remove the reviewer's task,
+        // SUBMISSION_LOG_REVIEW_READY event-log row).
+        // For terminal-but-not-completed states (declined / cancelled),
+        // production removes the task notification too — UnassignReviewerForm
+        // and the reviewer's decline button both clean it up.
+        if (in_array($status, ['completed', 'declined', 'cancelled'], true)) {
+            $this->removeReviewAssignmentNotification($assignmentId, $reviewer->getId());
+        }
+        if ($status === 'completed') {
+            $this->notifyEditorsOnCompletion($submissionId, $assignmentId);
+            $this->writeReviewReadyEventLog($assignment, $reviewer, $submissionId);
         }
 
         // Comments are written only on completed reviews; the processor
@@ -134,6 +161,124 @@ class ReviewRoundProcessor
             'status' => $status,
             'recommendation' => $reviewerSpec['recommendation'] ?? null,
         ];
+    }
+
+    /**
+     * Create the LEVEL_TASK NOTIFICATION_TYPE_REVIEW_ASSIGNMENT row that
+     * EditorAction::addReviewer creates for the reviewer. Lets the
+     * reviewer's dashboard surface the assignment as a task.
+     */
+    private function createReviewAssignmentNotification(int $reviewerId, int $contextId, int $assignmentId): void
+    {
+        $notificationManager = new NotificationManager();
+        $notificationManager->createNotification(
+            $reviewerId,
+            Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
+            $contextId,
+            Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+            $assignmentId,
+            Notification::NOTIFICATION_LEVEL_TASK
+        );
+    }
+
+    /**
+     * Remove the reviewer's REVIEW_ASSIGNMENT task notification — fired
+     * when the reviewer completes the review (PKPReviewerReviewStep3Form),
+     * declines (reviewer-side decline form), or is unassigned
+     * (UnassignReviewerForm). Idempotent.
+     */
+    private function removeReviewAssignmentNotification(int $assignmentId, int $reviewerId): void
+    {
+        Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $assignmentId)
+            ->withUserId($reviewerId)
+            ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT)
+            ->delete();
+    }
+
+    /**
+     * Mirror PKPReviewerReviewStep3Form::execute editor-notification loop:
+     * for each Manager / Sub-editor on the submission stage, create a
+     * NOTIFICATION_TYPE_REVIEWER_COMMENT row. Email sends are intentionally
+     * skipped (Mail::fake() would no-op and email_log rows aren't
+     * inspected by the test suite).
+     */
+    private function notifyEditorsOnCompletion(int $submissionId, int $assignmentId): void
+    {
+        $submission = Repo::submission()->get($submissionId);
+        $contextId = (int)$submission->getData('contextId');
+        $stageId = (int)$submission->getData('stageId');
+
+        $stageAssignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->withStageIds([$stageId])
+            ->whereHas('userGroup', function ($query) {
+                $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+            })
+            ->get();
+
+        $notificationManager = new NotificationManager();
+        $seen = [];
+        foreach ($stageAssignments as $stageAssignment) {
+            $userId = (int)$stageAssignment->userId;
+            if (isset($seen[$userId])) {
+                continue;
+            }
+            $seen[$userId] = true;
+            $notificationManager->createNotification(
+                $userId,
+                Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                $contextId,
+                Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                $assignmentId
+            );
+        }
+    }
+
+    /**
+     * Append a SUBMISSION_LOG_REVIEW_ASSIGN event-log row mirroring
+     * EditorAction::addReviewer (lines 121–135). Attributes to the admin
+     * user since the Processor runs out-of-session.
+     */
+    private function writeReviewAssignEventLog(ReviewAssignment $assignment, $reviewer, int $submissionId): void
+    {
+        $admin = Repo::user()->getByUsername('admin', true);
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submissionId,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN,
+            'userId' => $admin?->getId(),
+            'message' => 'log.review.reviewerAssigned',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'reviewAssignment' => $assignment->getId(),
+            'reviewerName' => $reviewer->getFullName(),
+            'submissionId' => $submissionId,
+            'stageId' => $assignment->getStageId(),
+            'round' => $assignment->getRound(),
+        ]);
+        Repo::eventLog()->add($eventLog);
+    }
+
+    /**
+     * Append a SUBMISSION_LOG_REVIEW_READY event-log row mirroring
+     * PKPReviewerReviewStep3Form::execute (lines 257–272).
+     */
+    private function writeReviewReadyEventLog(ReviewAssignment $assignment, $reviewer, int $submissionId): void
+    {
+        $admin = Repo::user()->getByUsername('admin', true);
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submissionId,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_READY,
+            'userId' => $admin?->getId(),
+            'message' => 'log.review.reviewReady',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'reviewAssignmentId' => $assignment->getId(),
+            'reviewerName' => $reviewer->getFullName(),
+            'submissionId' => $submissionId,
+            'round' => $assignment->getRound(),
+        ]);
+        Repo::eventLog()->add($eventLog);
     }
 
     /**

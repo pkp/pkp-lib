@@ -52,7 +52,7 @@ class OrcidHandler extends Handler
 
         $op = $request->getRequestedOp();
         $targetOp = $request->getUserVar('targetOp');
-        if ($op === 'authorize' && in_array($targetOp, ['profile', 'submit'])) {
+        if ($op === 'authorizeOrcid' && in_array($targetOp, ['profile', 'submit'])) {
             // ... but user must be logged in for authorize with profile or submit
             $this->addPolicy(new UserRequiredPolicy($request));
         }

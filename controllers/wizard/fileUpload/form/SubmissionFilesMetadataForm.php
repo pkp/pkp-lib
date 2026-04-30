@@ -185,7 +185,6 @@ class SubmissionFilesMetadataForm extends Form
             'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
             'supportsDependentFiles' => Repo::submissionFile()->supportsDependentFiles($submissionFile),
             'genre' => $genre,
-            'tinyMceSkinUrl' => $templateMgr->getTinyMceSkinUrl($request),
             'metadataMountConfig' => [
                 'submissionFile' => $submissionFile->_data,
                 'genreCategory' => (int) $genre?->getCategory(), // will be removed once genreMetadataType is implemented by Media Files api changes

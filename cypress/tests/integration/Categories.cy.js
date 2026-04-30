@@ -227,7 +227,7 @@ describe('Test category in submission dashboard', function() {
 	let authorName = '';
 
 	if (Cypress.env('defaultGenre') === 'Article Text') {
-		workflowMenu = 'Issue';
+		workflowMenu = 'Publication Settings';
 		authorName = 'Woods';
 	} else if (Cypress.env('defaultGenre') === 'Book Manuscript') {
 		workflowMenu = 'Catalog Entry';

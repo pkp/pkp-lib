@@ -1084,9 +1084,6 @@ class PKPTemplateManager extends Smarty
         // Set up required state properties
         $this->setState([
             'menu' => [],
-            'tinyMCE' => [
-                'skinUrl' => $this->getTinyMceSkinUrl($request),
-            ],
         ]);
 
         /**
@@ -1587,6 +1584,10 @@ class PKPTemplateManager extends Smarty
         // Site-wide values that are not scoped to the currently selected context.
         $output .= 'pkp.site = ' . json_encode([
             'baseUrl' => $request->getBaseUrl(),
+        ]) . ';';
+
+        $output .= 'pkp.tinyMCE = ' . json_encode([
+            'skinUrl' => $this->getTinyMceSkinUrl($request),
         ]) . ';';
 
         $pageContext = [

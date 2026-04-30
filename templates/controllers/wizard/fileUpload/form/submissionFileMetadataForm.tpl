@@ -14,13 +14,6 @@
 
 	<script type="text/javascript">
 		(function() {ldelim}
-			// FieldRichTextarea looks for the skin URL on pkp.tinyMCE.
-			// The main app sets it as $root state; our standalone mount
-			// doesn't see that, so populate the global fallback.
-			if (!pkp.tinyMCE) {ldelim}
-				pkp.tinyMCE = {ldelim}skinUrl: {$tinyMceSkinUrl|json_encode}{rdelim};
-			{rdelim}
-
 			var mountId = {$metadataMountId|json_encode};
 			var containerId = mountId + '-container';
 			var rootProps = $.extend({ldelim}{rdelim}, {$metadataMountConfig|json_encode}, {ldelim}

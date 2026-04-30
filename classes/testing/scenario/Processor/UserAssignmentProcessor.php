@@ -99,6 +99,10 @@ class UserAssignmentProcessor implements ScenarioProcessor
             // UI registration form sets it via PKPInstall but Repo::user()->add
             // does no defaulting.
             'dateRegistered' => Core::getCurrentDate(),
+            // Both production user-creation paths (RegistrationForm and
+            // UserRoleAssignmentReceiveController) default new users to
+            // having inline help visible. Match.
+            'inlineHelp' => 1,
         ]);
 
         Repo::user()->add($user);

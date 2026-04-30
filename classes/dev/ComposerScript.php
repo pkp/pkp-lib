@@ -36,7 +36,7 @@ class ComposerScript
 
     /**
      * A post-install-cmd custom composer script that publishes
-     * Laravel package assets (e.g., log-viewer) to the public directory.
+     * vendor package assets (e.g., log-viewer) to the public directory.
      */
     public static function publishPackageAssets(): void
     {
@@ -46,55 +46,26 @@ class ComposerScript
         $appBase = dirname($pkpBase, 2);
         $publicPath = $appBase . '/public';
 
-        // Load the canonical package registry from PublishPackageAssetsMigration
-        require_once $pkpBase . '/classes/migration/install/PublishPackageAssetsMigration.php';
-        $packages = \PKP\migration\install\PublishPackageAssetsMigration::getPublishablePackages();
+        // Manually load the publishable package classes — composer post-install
+        // runs before the OJS autoloader is registered.
+        $publishablePackageDir = $pkpBase . '/classes/core/publishablePackage';
+        require_once $publishablePackageDir . '/PublishablePackage.php';
+        require_once $publishablePackageDir . '/PublishablePackageRegistry.php';
+        require_once $publishablePackageDir . '/PackageAssetPublisher.php';
 
-        foreach ($packages as $name => $config) {
-            $sourcePath = $appBase . '/' . $config['source'];
-            $destPath = $publicPath . '/' . $config['destination'];
-
-            if (!is_dir($sourcePath)) {
-                echo "Warning: source directory not found for package '{$name}': {$sourcePath}. Skipping asset publishing.\n";
-                continue;
-            }
-
-            if (!is_writable($publicPath)) {
-                echo "Warning: public/ directory is not writable. Skipping asset publishing for '{$name}'.\n";
-                continue;
-            }
-
-            if (!is_dir($destPath)) {
-                mkdir($destPath, 0755, true);
-            }
-
-            $iterator = new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator($sourcePath, \RecursiveDirectoryIterator::SKIP_DOTS),
-                \RecursiveIteratorIterator::SELF_FIRST
+        foreach (\PKP\core\publishablePackage\PublishablePackageRegistry::all() as $package) {
+            $result = \PKP\core\publishablePackage\PackageAssetPublisher::publish(
+                $package,
+                $appBase,
+                $publicPath
             );
 
-            $copied = 0;
-            foreach ($iterator as $item) {
-                /** @var \RecursiveDirectoryIterator $innerIterator */
-                $innerIterator = $iterator->getInnerIterator();
-                $subPath = $innerIterator->getSubPathname();
-                $itemDestPath = $destPath . DIRECTORY_SEPARATOR . $subPath;
-
-                if ($item->isDir()) {
-                    if (!is_dir($itemDestPath)) {
-                        mkdir($itemDestPath, 0755, true);
-                    }
-                } else {
-                    $parentDir = dirname($itemDestPath);
-                    if (!is_dir($parentDir)) {
-                        mkdir($parentDir, 0755, true);
-                    }
-                    copy($item->getPathname(), $itemDestPath);
-                    $copied++;
-                }
-            }
-
-            echo "Published {$copied} asset file(s) for package '{$name}'.\n";
+            echo match ($result['reason']) {
+                null => 'Published ' . count($result['copied']) . " asset file(s) for package '{$package->name}'.\n",
+                'source_missing' => "Warning: source directory not found for package '{$package->name}': {$result['source']}. Skipping asset publishing.\n",
+                'public_not_writable' => "Warning: public/ directory is not writable. Skipping asset publishing for '{$package->name}'.\n",
+                default => "Warning: failed to publish '{$package->name}' ({$result['reason']}).\n",
+            };
         }
     }
 

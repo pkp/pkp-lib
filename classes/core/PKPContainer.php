@@ -29,6 +29,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Crypt;
 use PKP\core\PKPLogViewerServiceProvider;
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PDO;
@@ -152,7 +153,19 @@ class PKPContainer extends Container
 
                 public function report(Throwable $exception)
                 {
-                    error_log($exception->__toString());
+                    if (!$this->shouldReport($exception)) {
+                        return;
+                    }
+
+                    try {
+                        Log::error($exception->getMessage(), ['exception' => $exception]);
+                    } catch (Throwable $loggingException) {
+                        // Fall back to PHP's error log if Laravel logging itself fails
+                        // (e.g. log file not writable, channel misconfigured, or invoked
+                        // before the logging service provider is registered).
+                        error_log($exception->__toString());
+                        error_log('Logging failed: ' . $loggingException->__toString());
+                    }
                 }
 
                 public function render($request, Throwable $exception)

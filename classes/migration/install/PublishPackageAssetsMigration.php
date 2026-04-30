@@ -9,43 +9,24 @@
  *
  * @class PublishPackageAssetsMigration
  *
- * @brief Publish Laravel package assets (e.g., log-viewer) to the public directory
+ * @brief Publish vendor package assets (e.g., log-viewer) to the public directory.
  *
- * This migration copies frontend assets from vendor packages to public/vendor/
- * so they can be served as static files by the web server.
+ *   This migration iterates the canonical PublishablePackageRegistry and
+ *   delegates copy/remove operations to PackageAssetPublisher. The package
+ *   list is intentionally not stored on this class — see
+ *   PKP\core\publishablePackage\PublishablePackageRegistry.
  */
 
 namespace PKP\migration\install;
 
+use PKP\core\publishablePackage\PackageAssetPublisher;
+use PKP\core\publishablePackage\PublishablePackageRegistry;
 use PKP\migration\Migration;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 
 class PublishPackageAssetsMigration extends Migration
 {
     /**
-     * Get the registry of packages with publishable assets.
-     *
-     * Each package defines:
-     *   - source: path relative to base directory (vendor package public assets)
-     *   - destination: path relative to public/ directory
-     *   - description: human-readable description of the package assets
-     *
-     * @return array<string, array{source: string, destination: string, description: string}>
-     */
-    public static function getPublishablePackages(): array
-    {
-        return [
-            'log-viewer' => [
-                'source' => 'lib/pkp/lib/vendor/opcodesio/log-viewer/public',
-                'destination' => 'vendor/log-viewer',
-                'description' => 'Log Viewer web interface assets',
-            ],
-        ];
-    }
-
-    /**
-     * Publish all package assets to public directory
+     * Publish all registered package assets to the public directory.
      */
     public function up(): void
     {
@@ -57,86 +38,23 @@ class PublishPackageAssetsMigration extends Migration
             return;
         }
 
-        foreach (static::getPublishablePackages() as $name => $config) {
-            $sourcePath = $basePath . '/' . $config['source'];
-            $destPath = $publicPath . '/' . $config['destination'];
-
-            if (!is_dir($sourcePath)) {
-                error_log("PublishPackageAssetsMigration: Source directory not found for package '{$name}': {$sourcePath}");
-                continue;
+        foreach (PublishablePackageRegistry::all() as $package) {
+            $result = PackageAssetPublisher::publish($package, $basePath, $publicPath);
+            if ($result['reason'] !== null) {
+                error_log("PublishPackageAssetsMigration: skipped '{$package->name}' ({$result['reason']}: {$result['source']})");
             }
-
-            if (!is_dir($destPath)) {
-                mkdir($destPath, 0755, true);
-            }
-
-            $this->copyDirectory($sourcePath, $destPath);
         }
     }
 
     /**
-     * Remove published assets on downgrade
+     * Remove published assets on downgrade.
      */
     public function down(): void
     {
         $publicPath = base_path() . '/public';
 
-        foreach (static::getPublishablePackages() as $name => $config) {
-            $destPath = $publicPath . '/' . $config['destination'];
-
-            if (is_dir($destPath)) {
-                $this->removeDirectory($destPath);
-            }
+        foreach (PublishablePackageRegistry::all() as $package) {
+            PackageAssetPublisher::unpublish($package, $publicPath);
         }
-    }
-
-    /**
-     * Recursively copy a directory
-     */
-    protected function copyDirectory(string $source, string $destination): void
-    {
-        $directoryIterator = new RecursiveDirectoryIterator($source, RecursiveDirectoryIterator::SKIP_DOTS);
-        $iterator = new RecursiveIteratorIterator($directoryIterator, RecursiveIteratorIterator::SELF_FIRST);
-
-        foreach ($iterator as $item) {
-            /** @var RecursiveDirectoryIterator $innerIterator */
-            $innerIterator = $iterator->getInnerIterator();
-            $subPath = $innerIterator->getSubPathname();
-            $destPath = $destination . DIRECTORY_SEPARATOR . $subPath;
-
-            if ($item->isDir()) {
-                if (!is_dir($destPath)) {
-                    mkdir($destPath, 0755, true);
-                }
-            } else {
-                $parentDir = dirname($destPath);
-                if (!is_dir($parentDir)) {
-                    mkdir($parentDir, 0755, true);
-                }
-
-                copy($item->getPathname(), $destPath);
-            }
-        }
-    }
-
-    /**
-     * Recursively remove a directory
-     */
-    protected function removeDirectory(string $path): void
-    {
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
-            RecursiveIteratorIterator::CHILD_FIRST
-        );
-
-        foreach ($iterator as $item) {
-            if ($item->isDir()) {
-                rmdir($item->getPathname());
-            } else {
-                unlink($item->getPathname());
-            }
-        }
-
-        rmdir($path);
     }
 }

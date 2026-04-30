@@ -26,9 +26,9 @@ namespace PKP\tools;
 use PKP\cliTool\CommandLineTool;
 use PKP\cliTool\traits\HasCommandInterface;
 use PKP\cliTool\traits\HasParameterList;
-use PKP\migration\install\PublishPackageAssetsMigration;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
+use PKP\core\publishablePackage\PackageAssetPublisher;
+use PKP\core\publishablePackage\PublishablePackage;
+use PKP\core\publishablePackage\PublishablePackageRegistry;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
 use Symfony\Component\Console\Helper\Helper;
@@ -46,9 +46,9 @@ class CommandPublishPackageAssets extends CommandLineTool
      * Available CLI options/commands
      */
     protected const AVAILABLE_OPTIONS = [
-        'list'    => 'List packages with publishable assets',
+        'list' => 'List packages with publishable assets',
         'publish' => 'Publish package assets to public directory',
-        'usage'   => 'Display usage information',
+        'usage' => 'Display usage information',
     ];
 
 
@@ -131,11 +131,11 @@ class CommandPublishPackageAssets extends CommandLineTool
         // Calculate max width for alignment
         $maxWidth = max(array_map('strlen', array_keys($packages))) + 2;
 
-        foreach ($packages as $name => $config) {
-            $spacing = str_repeat(' ', $maxWidth - strlen($name));
-            $output->writeln("  <info>{$name}</info>{$spacing}{$config['description']}");
-            $output->writeln(str_repeat(' ', $maxWidth + 2) . "Source: {$config['source']}");
-            $output->writeln(str_repeat(' ', $maxWidth + 2) . "Destination: public/{$config['destination']}");
+        foreach ($packages as $package) {
+            $spacing = str_repeat(' ', $maxWidth - strlen($package->name));
+            $output->writeln("  <info>{$package->name}</info>{$spacing}{$package->description}");
+            $output->writeln(str_repeat(' ', $maxWidth + 2) . "Source: {$package->source}");
+            $output->writeln(str_repeat(' ', $maxWidth + 2) . "Destination: public/{$package->destination}");
             $output->writeln('');
         }
     }
@@ -169,11 +169,12 @@ class CommandPublishPackageAssets extends CommandLineTool
         // Check which packages are already published
         $alreadyPublished = [];
         $notPublished = [];
-        foreach ($packages as $name => $config) {
-            if ($this->isPackagePublished($name, $config)) {
-                $alreadyPublished[$name] = $config;
+        $publicPath = public_path();
+        foreach ($packages as $name => $package) {
+            if (PackageAssetPublisher::isPublished($package, $publicPath)) {
+                $alreadyPublished[$name] = $package;
             } else {
-                $notPublished[$name] = $config;
+                $notPublished[$name] = $package;
             }
         }
 
@@ -218,19 +219,23 @@ class CommandPublishPackageAssets extends CommandLineTool
         $totalSkipped = 0;
         $publishedPackages = [];
         $skippedPackages = [];
+        $basePath = base_path();
+        $publicPath = public_path();
 
-        foreach ($packages as $name => $config) {
+        foreach ($packages as $name => $package) {
             $output->writeln("<comment>Publishing assets for {$name}...</comment>");
 
-            $sourcePath = base_path($config['source']);
-            $destPath = public_path($config['destination']);
+            $result = PackageAssetPublisher::publish($package, $basePath, $publicPath, $force);
 
-            if (!is_dir($sourcePath)) {
-                $output->writeln("  <error>Source directory not found: {$sourcePath}</error>");
+            if ($result['reason'] === 'source_missing') {
+                $output->writeln("  <error>Source directory not found: {$result['source']}</error>");
                 continue;
             }
 
-            $result = $this->copyDirectory($sourcePath, $destPath, $force);
+            if ($result['reason'] !== null) {
+                $output->writeln("  <error>Failed to publish: {$result['reason']}</error>");
+                continue;
+            }
 
             foreach ($result['copied'] as $file) {
                 $output->writeln("  <info>Copied:</info> {$file}");
@@ -284,36 +289,6 @@ class CommandPublishPackageAssets extends CommandLineTool
     }
 
     /**
-     * Check if a package's assets are already published
-     *
-     * @param string $name Package name
-     * @param array $config Package configuration
-     *
-     * @return bool True if the package destination directory exists and has files
-     */
-    protected function isPackagePublished(string $name, array $config): bool
-    {
-        $destPath = public_path($config['destination']);
-
-        if (!is_dir($destPath)) {
-            return false;
-        }
-
-        // Check if destination has any files (not just empty directory)
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($destPath, RecursiveDirectoryIterator::SKIP_DOTS)
-        );
-
-        foreach ($iterator as $item) {
-            if ($item->isFile()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Prompt user for confirmation
      *
      * @param string $question The question to ask
@@ -333,74 +308,21 @@ class CommandPublishPackageAssets extends CommandLineTool
     }
 
     /**
-     * Get available packages that exist on the filesystem
+     * Get registered packages whose source directories exist on the filesystem.
      *
-     * @return array Filtered packages that have valid source directories
+     * @return array<string, PublishablePackage>
      */
     protected function getAvailablePackages(): array
     {
         $available = [];
 
-        foreach (PublishPackageAssetsMigration::getPublishablePackages() as $name => $config) {
-            $sourcePath = base_path($config['source']);
-            if (is_dir($sourcePath)) {
-                $available[$name] = $config;
+        foreach (PublishablePackageRegistry::all() as $name => $package) {
+            if (is_dir(base_path($package->source))) {
+                $available[$name] = $package;
             }
         }
 
         return $available;
-    }
-
-    /**
-     * Recursively copy a directory
-     *
-     * @param string $source Source directory path
-     * @param string $destination Destination directory path
-     * @param bool $force Overwrite existing files
-     *
-     * @return array{copied: string[], skipped: string[]} Lists of copied and skipped files
-     */
-    protected function copyDirectory(string $source, string $destination, bool $force = false): array
-    {
-        $copied = [];
-        $skipped = [];
-
-        // Create destination directory if it doesn't exist
-        if (!is_dir($destination)) {
-            mkdir($destination, 0755, true);
-        }
-
-        $directoryIterator = new RecursiveDirectoryIterator($source, RecursiveDirectoryIterator::SKIP_DOTS);
-        $iterator = new RecursiveIteratorIterator($directoryIterator, RecursiveIteratorIterator::SELF_FIRST);
-
-        foreach ($iterator as $item) {
-            /** @var RecursiveDirectoryIterator $innerIterator */
-            $innerIterator = $iterator->getInnerIterator();
-            $subPath = $innerIterator->getSubPathname();
-            $destPath = $destination . DIRECTORY_SEPARATOR . $subPath;
-
-            if ($item->isDir()) {
-                if (!is_dir($destPath)) {
-                    mkdir($destPath, 0755, true);
-                }
-            } else {
-                if (!$force && file_exists($destPath)) {
-                    $skipped[] = $subPath;
-                    continue;
-                }
-
-                // Ensure parent directory exists
-                $parentDir = dirname($destPath);
-                if (!is_dir($parentDir)) {
-                    mkdir($parentDir, 0755, true);
-                }
-
-                copy($item->getPathname(), $destPath);
-                $copied[] = $subPath;
-            }
-        }
-
-        return ['copied' => $copied, 'skipped' => $skipped];
     }
 
     /**
@@ -434,7 +356,7 @@ try {
     $tool = new CommandPublishPackageAssets($argv ?? []);
     $tool->execute();
 } catch (Throwable $exception) {
-    $output = new \PKP\cliTool\CommandInterface;
+    $output = new \PKP\cliTool\CommandInterface();
 
     if ($exception instanceof CommandInvalidArgumentException) {
         $output->errorBlock([$exception->getMessage()]);

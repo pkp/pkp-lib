@@ -146,10 +146,18 @@ class PublicationsProcessor implements ScenarioProcessor
         }
 
         $publication = Repo::publication()->get($publicationId);
-        // Pass `false` to skip the auto submission-status update —
-        // matches PKPSubmissionController::publishPublication
-        // (lib/pkp/api/v1/submissions/PKPSubmissionController.php:1442).
-        Repo::publication()->publish($publication, false);
+        // Use the default (null) submissionStatus arg so submission.status
+        // gets updated to reflect the just-published publication. The UI
+        // controller (PKPSubmissionController::publishPublication) passes
+        // `false` here, but that's because production reaches publish()
+        // after a chain of decisions that already advanced the
+        // submission's status. The Processor consolidates create →
+        // publish in one pass; without the auto-update the submission
+        // would be left at STATUS_QUEUED while the publication is
+        // PUBLISHED, and UI surfaces that read submission.status (e.g.
+        // the change-language affordance) wouldn't recognise the
+        // submission as published.
+        Repo::publication()->publish($publication);
 
         // After publish, production iterates stage_assignments and clears
         // canChangeMetadata on every AUTHOR role assignment — authors

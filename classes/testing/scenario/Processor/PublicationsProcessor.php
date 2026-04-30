@@ -24,6 +24,8 @@ namespace PKP\testing\scenario\Processor;
 
 use APP\facades\Repo;
 use APP\publication\enums\VersionStage;
+use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\testing\scenario\ScenarioContext;
 use PKP\testing\scenario\ScenarioProcessor;
 
@@ -144,7 +146,24 @@ class PublicationsProcessor implements ScenarioProcessor
         }
 
         $publication = Repo::publication()->get($publicationId);
-        Repo::publication()->publish($publication);
+        // Pass `false` to skip the auto submission-status update —
+        // matches PKPSubmissionController::publishPublication
+        // (lib/pkp/api/v1/submissions/PKPSubmissionController.php:1442).
+        Repo::publication()->publish($publication, false);
+
+        // After publish, production iterates stage_assignments and clears
+        // canChangeMetadata on every AUTHOR role assignment — authors
+        // lose metadata-edit after publish. Mirror that here so
+        // scenario-seeded published submissions reflect the same
+        // permission state.
+        $submissionId = Repo::publication()->get($publicationId)->getData('submissionId');
+        $authorAssignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->get();
+        foreach ($authorAssignments as $stageAssignment) {
+            $stageAssignment->canChangeMetadata = 0;
+            $stageAssignment->save();
+        }
     }
 
     /**

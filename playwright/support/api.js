@@ -6,7 +6,36 @@
  * endpoints live in playwright/support/ojs-api.js at the OJS root.
  */
 
+const fs = require('fs');
+const path = require('path');
 const {getPassword} = require('../data/users.js');
+
+/**
+ * Per-call timing for the scenario controllers. Gated behind
+ * `PKP_SCENARIO_TIMING=1` so it is a no-op during normal test runs.
+ *
+ * When enabled, each `createSubmission` / `createJournal` call appends a
+ * JSON line to `PKP_SCENARIO_TIMING_LOG` (default: repo root
+ * `.scenario-timing.log`). Lines look like:
+ *   {"ts":1730000000000,"endpoint":"submission","ms":342,"status":200,"tag":"foo","keys":["participants","decisions"]}
+ *
+ * Aggregate post-run with `jq` or a quick Node script. Workers append
+ * concurrently; POSIX write()s under PIPE_BUF are atomic so JSON lines
+ * don't interleave.
+ */
+const SCENARIO_TIMING_ENABLED = process.env.PKP_SCENARIO_TIMING === '1';
+const SCENARIO_TIMING_LOG =
+	process.env.PKP_SCENARIO_TIMING_LOG ||
+	path.resolve(__dirname, '..', '..', '..', '..', '.scenario-timing.log');
+
+function writeScenarioTiming(entry) {
+	if (!SCENARIO_TIMING_ENABLED) return;
+	try {
+		fs.appendFileSync(SCENARIO_TIMING_LOG, JSON.stringify(entry) + '\n');
+	} catch {
+		// Timing logs are best-effort; never fail a test on log write.
+	}
+}
 
 /**
  * @typedef {Object} ApiClientOpts
@@ -118,6 +147,7 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 					'TEST_API_KEY env var is not set. Set it (same value on client and server) to call /api/v1/_test/scenarios/submission.',
 				);
 			}
+			const t0 = Date.now();
 			const res = await request.post(
 				'/index.php/index/api/v1/_test/scenarios/submission',
 				{
@@ -128,6 +158,15 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 					data: spec,
 				},
 			);
+			const ms = Date.now() - t0;
+			writeScenarioTiming({
+				ts: t0,
+				endpoint: 'submission',
+				ms,
+				status: res.status(),
+				tag: spec?.tag,
+				keys: Object.keys(spec || {}),
+			});
 			const bodyText = await res.text();
 			if (!res.ok()) {
 				throw new Error(
@@ -158,6 +197,7 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 					'TEST_API_KEY env var is not set. Set it (same value on client and server) to call /api/v1/_test/scenarios/journal.',
 				);
 			}
+			const t0 = Date.now();
 			const res = await request.post(
 				'/index.php/index/api/v1/_test/scenarios/journal',
 				{
@@ -168,6 +208,15 @@ exports.createApiClient = function createApiClient({request, baseURL}) {
 					data: spec,
 				},
 			);
+			const ms = Date.now() - t0;
+			writeScenarioTiming({
+				ts: t0,
+				endpoint: 'journal',
+				ms,
+				status: res.status(),
+				tag: spec?.tag,
+				keys: Object.keys(spec || {}),
+			});
 			const bodyText = await res.text();
 			if (!res.ok()) {
 				throw new Error(

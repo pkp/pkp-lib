@@ -372,7 +372,7 @@ class EditorialTaskController extends PKPBaseController
         $oldParticipantIds = $editTask->participants->pluck('userId')->toArray();
         $headnote = $editTask->notes->where(fn (Note $note) => $note->isHeadnote == true)->first();
         $oldFiles = Repo::submissionFile()->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$headnote->id])
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$headnote?->id])
             ->getMany()
             ->toArray();
         $oldDueDate = $editTask->dateDue;

@@ -3293,7 +3293,13 @@ msgstr "Issue identification, including volume, number, year, and title"
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
 msgstr "The URL to the published issue"
 
-msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgid "emailTemplate.variable.task.dateDue"
+msgstr "The specific date by which the task should be finished"
+
+msgid "emailTemplate.variable.task.taskOwnerName"
+msgstr "The full name of the user responsible for the task"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
 msgstr "The year of the report"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"

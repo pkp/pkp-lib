@@ -24,6 +24,8 @@ namespace PKP\testing\scenario\Processor;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use Carbon\Carbon;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -53,6 +55,14 @@ class ReviewRoundProcessor
         'decline' => 'reviewer.article.decision.decline',
         'seeComments' => 'reviewer.article.decision.seeComments',
     ];
+
+    /**
+     * Defaults from PKP\controllers\grid\users\reviewer\form\traits\HasReviewDueDate.
+     * The UI's Add Reviewer form prefills these when the context's
+     * `numWeeksPerReview` / `numWeeksPerResponse` aren't configured.
+     */
+    private const REVIEW_SUBMIT_DEFAULT_DUE_WEEKS = 4;
+    private const REVIEW_RESPONSE_DEFAULT_DUE_WEEKS = 3;
 
     /**
      * @param array $roundSpec  Shape: ['reviewers' => [...]]
@@ -105,12 +115,16 @@ class ReviewRoundProcessor
             'dateNotified' => $now,
         ];
 
-        if (isset($reviewerSpec['responseDueDate'])) {
-            $createParams['dateResponseDue'] = $reviewerSpec['responseDueDate'];
-        }
-        if (isset($reviewerSpec['reviewDueDate'])) {
-            $createParams['dateDue'] = $reviewerSpec['reviewDueDate'];
-        }
+        // Always populate dateDue / dateResponseDue. The Add Reviewer
+        // form (HasReviewDueDate trait) computes these from the context's
+        // numWeeksPerReview / numWeeksPerResponse settings; without
+        // them set on the row, UI surfaces that compute "days
+        // overdue" render NULL → "overdue by 0 days".
+        $context = $this->resolveContext($contextId);
+        $createParams['dateDue'] = $reviewerSpec['reviewDueDate']
+            ?? $this->defaultReviewDueDate($context);
+        $createParams['dateResponseDue'] = $reviewerSpec['responseDueDate']
+            ?? $this->defaultResponseDueDate($context);
 
         $assignment = Repo::reviewAssignment()->newDataObject($createParams);
         $assignmentId = Repo::reviewAssignment()->add($assignment);
@@ -142,6 +156,18 @@ class ReviewRoundProcessor
         if ($status === 'completed') {
             $this->notifyEditorsOnCompletion($submissionId, $assignmentId);
             $this->writeReviewReadyEventLog($assignment, $reviewer, $submissionId);
+            // Editor confirms the review (PKPReviewerGridHandler::reviewRead).
+            // Production splits this from the reviewer's submit, but a
+            // 'completed' status in the spec means "fully done" — both
+            // halves landed. Set dateConsidered (the editor-side stamp)
+            // and write the SUBMISSION_LOG_REVIEW_CONFIRMED event log.
+            // The `considered` flag was already set to CONSIDERED by
+            // statusFieldEdits().
+            Repo::reviewAssignment()->edit(
+                Repo::reviewAssignment()->get($assignmentId),
+                ['dateConsidered' => $now]
+            );
+            $this->writeReviewConfirmedEventLog($assignment, $reviewer, $submissionId);
         }
 
         // Comments are written only on completed reviews; the processor
@@ -279,6 +305,70 @@ class ReviewRoundProcessor
             'round' => $assignment->getRound(),
         ]);
         Repo::eventLog()->add($eventLog);
+    }
+
+    /**
+     * Append a SUBMISSION_LOG_REVIEW_CONFIRMED event-log row mirroring
+     * the editor's "confirm review" flow in
+     * PKPReviewerGridHandler::reviewRead (lines 791–807). Production
+     * gates this on `$reviewAssignment->isRead()`; for a
+     * scenario-seeded "completed" status the editor is presumed to
+     * have read + confirmed, so we always write it.
+     */
+    private function writeReviewConfirmedEventLog(ReviewAssignment $assignment, $reviewer, int $submissionId): void
+    {
+        $admin = Repo::user()->getByUsername('admin', true);
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submissionId,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
+            'userId' => $admin?->getId(),
+            'message' => 'log.review.reviewConfirmed',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'editorName' => $admin?->getFullName(),
+            'submissionId' => $submissionId,
+            'round' => $assignment->getRound(),
+        ]);
+        Repo::eventLog()->add($eventLog);
+    }
+
+    /**
+     * Default `dateDue` (review submit deadline). Mirrors the UI's
+     * HasReviewDueDate trait — `today + numWeeksPerReview` (or 4 weeks
+     * if the context's setting is unconfigured).
+     */
+    private function defaultReviewDueDate(?Context $context): string
+    {
+        $numWeeks = (int)($context?->getData('numWeeksPerReview') ?? 0);
+        if ($numWeeks <= 0) {
+            $numWeeks = self::REVIEW_SUBMIT_DEFAULT_DUE_WEEKS;
+        }
+        return Carbon::today()->endOfDay()->addWeeks($numWeeks)->toDateTimeString();
+    }
+
+    /**
+     * Default `dateResponseDue` (reviewer's accept/decline deadline).
+     * Mirrors the UI's HasReviewDueDate trait — `today +
+     * numWeeksPerResponse` (or 3 weeks if the context's setting is
+     * unconfigured).
+     */
+    private function defaultResponseDueDate(?Context $context): string
+    {
+        $numWeeks = (int)($context?->getData('numWeeksPerResponse') ?? 0);
+        if ($numWeeks <= 0) {
+            $numWeeks = self::REVIEW_RESPONSE_DEFAULT_DUE_WEEKS;
+        }
+        return Carbon::today()->endOfDay()->addWeeks($numWeeks)->toDateTimeString();
+    }
+
+    /**
+     * Look up the context for the contextId carried on the
+     * ScenarioContext. Used for default-due-date computation.
+     */
+    private function resolveContext(int $contextId): ?Context
+    {
+        return app()->get('context')->get($contextId);
     }
 
     /**

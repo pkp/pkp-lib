@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-01 21:20+0000\n"
+"PO-Revision-Date: 2026-05-01 22:17+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2398,42 +2398,51 @@ msgstr "Prilagođena stranica"
 
 msgid "manager.navigationMenus.customPage.description"
 msgstr ""
+"Kreirajte prilagođenu stranicu na svom sajtu i povežite je sa navigacionim "
+"menijem."
 
 msgid "manager.navigationMenus.remoteUrl"
-msgstr ""
+msgstr "Udaljeni URL"
 
 msgid "manager.navigationMenus.remoteUrl.description"
 msgstr ""
+"Povežite na bilo koji URL na drugom sajtu, kao što je https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""
+"Povežite na stranicu koja prikazuje sadržaj „O časopisu“ u Podešavanjima > "
+"Časopis"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
+"Ovaj link će biti prikazan samo ako ste popunili odeljak „O časopisu“ u "
+"Podešavanjima > Časopis."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr ""
+msgstr "Link za stranicu koja prikazuje uputstva za podnošenje prijave."
 
 msgid "manager.navigationMenus.current.description"
-msgstr ""
+msgstr "Link za vaše trenutno izdanje."
 
 msgid "manager.navigationMenus.archives.description"
-msgstr ""
+msgstr "Link za arhivu brojeva."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr ""
+msgstr "Link ka stranici koja prikazuje vaše najave."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
+"Ovaj link će biti prikazan samo ako ste omogućili obaveštenja u "
+"Podešavanjima > Veb-sajt."
 
 msgid "manager.navigationMenus.login.description"
-msgstr ""
+msgstr "Link ka stranici za prijavu korisinika."
 
 msgid "manager.navigationMenus.register.description"
-msgstr ""
+msgstr "Link ka stranici za registraciju korisnika."
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr ""
+msgstr "Link ka uredničkoj korisničkoj tabli."
 
 msgid "manager.navigationMenus.profile.description"
 msgstr ""
@@ -3653,3 +3662,7 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "Naslovna slika publikacije {$id} nije izvezena jer fajl nije pronađen na "
 "putanji „{$path}“."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Link za stranicu koja prikazuje sve aktivne uredničke službe (masthead)."

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-27 03:04+0000\n"
+"PO-Revision-Date: 2026-05-01 21:00+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2231,124 +2231,152 @@ msgid "plugins.importexport.common.validationErrors"
 msgstr "Greške pri potvrđivanju"
 
 msgid "plugins.importexport.common.warningsEncountered"
-msgstr ""
+msgstr "Upozorenja na koja se naišlo:"
 
 msgid "plugins.importexport.common.errorsOccured"
-msgstr ""
+msgstr "Došlo je do grešaka:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
-msgstr ""
+msgstr "Nepoznat element {$param}"
 
 msgid "plugins.importexport.common.error.unknownGenre"
-msgstr ""
+msgstr "Nepoznat žanr {$param}"
 
 msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr ""
+msgstr "Nepoznato kodiranje {$param}"
 
 msgid "plugins.importexport.common.error.encodingError"
-msgstr ""
+msgstr "Sadržraj nije kodiran kao {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
+"Uvozna datoteka sadrži autora „{$authorName}“ sa korisničkom grupom "
+"„{$userGroupName}“. Ne postoji korisnička grupa sa ovim nazivom u ciljnoj "
+"instalaciji."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "Nedostaje Korisničkagrupa za ime autora {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
+"Autor {$authorName} nema ime na jeziku podneska ({$localeName}). Podnesak se "
+"ne može uvesti bez ovog podatka."
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr ""
+msgstr "Nepoznat otpremalac {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr ""
+msgstr "Privremena datoteka {$dest} nije mogla biti kreirana iz {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
+"Navedena veličina datoteke „{$expected}“ i stvarna veličina datoteke "
+"„{$actual}“ se ne podudaraju"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
+"Revizija „{$revisionId}“ za fajl podneska „{$fileId}“ bi stvorila duplikat "
+"zapisa"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr ""
+msgstr "Fajl podneska nije mogao biti uvezen"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"Fajl podneska {$id} je preskočen jer je povezan sa zapisom koji neće biti "
+"uvezen, kao što je recenzentski zadatak ili diskusija."
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr ""
+msgstr "Greške pri uvozu/izvozu:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
+"Uvezeni korisnik „{$username}“ nema lozinku. Proverite XML format uvoza. "
+"Korisnik nije uvezen."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
+"Lozinka uvezenog korisnika „{$username}“ nije mogla biti uvezena u "
+"postojećem obliku. Nova lozinka je poslata na korisnikov e-mail. Korisnik je "
+"uvezen."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
+"Uvezeni korisnik „{$username}“ ima lozinku u čistom tekstu koja nije važeća. "
+"Korisnik nije uvezen."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
+"Korisničko ime „{$username}“ i e-mail „{$email}“ ne odgovaraju istom "
+"postojećem korisniku."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testiranje"
 
 msgid "manager.navigationMenus.form.title"
-msgstr ""
+msgstr "Naslov"
 
 msgid "manager.navigationMenus.form.path"
-msgstr ""
+msgstr "Putanja"
 
 msgid "manager.navigationMenus"
-msgstr ""
+msgstr "Navigacija"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
+"<p>Ova stranica će biti dostupna na: <blockquote>{$pagesPath}</"
+"blockquote>... gde je %PATH% putanja uneta iznad. <strong>Napomena:\n"
+"</strong> Dve stranice ne mogu imati istu putanju. Korišćenje putanja koje "
+"su deo sistema može dovesti do gubitka pristupa važnim funkcijama.\n"
+"</p>"
 
 msgid "manager.navigationMenus.form.content"
-msgstr ""
+msgstr "Sadržaj"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
+"Polje „putanja“ mora da sadrži samo alfanumeričke znakove, kao i „.“, „/“, "
+"„-“ i „_“."
 
 msgid "manager.navigationMenus.form.duplicatePath"
-msgstr ""
+msgstr "Ova putanja već postoji za drugu stavku navigacionog menija."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr ""
+msgstr "Ovaj naslov već postoji za drugi navigacioni meni."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr ""
+msgstr "Naslov je obavezan"
 
 msgid "manager.navigationMenuItems"
-msgstr ""
+msgstr "Stavke navigacionog menija"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr ""
+msgstr "Dodeljene stavke menija"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr ""
+msgstr "Nedodeljene stavke menija"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr ""
+msgstr "Aktivne navigacione oblasti teme"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr ""
+msgstr "Izaberite navigacionu oblast"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr ""
+msgstr "Navigacioni meni je već dodeljen ovoj oblasti."
 
 msgid "manager.navigationMenus.form.url"
-msgstr ""
+msgstr "URL"
 
 msgid "manager.navigationMenus.form.customUrlError"
-msgstr ""
+msgstr "URL mora biti naveden"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr ""
+"Saznajte više o tome kada će ova stavka menija biti prikazana ili sakrivena."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
@@ -3598,3 +3626,24 @@ msgstr "Dozvoli izmene podešavanja"
 
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr "Definišite redosled uredničkih uloga u mastheadu za javni prikaz."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Revizija {$revision} fajla podneska {$id} je preskočena jer fajl nije "
+"pronađen na putanji „{$path}“."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr "Fajl podneska {$id} je preskočen jer nema važeću fazu fajla."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Autor {$authorName} nema naziv afilijacije na jeziku podneska ({$localeName})"
+". Podnesak se ne može uvesti bez ovog podatka."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "Fajl podneska {$id} je preskočen jer nema važeću reviziju."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Naslovna slika publikacije {$id} nije izvezena jer fajl nije pronađen na "
+"putanji „{$path}“."

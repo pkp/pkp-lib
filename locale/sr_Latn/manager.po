@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-02 20:23+0000\n"
+"PO-Revision-Date: 2026-05-02 21:08+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2559,64 +2559,66 @@ msgid "stats.dateRange"
 msgstr "Opseg datuma"
 
 msgid "stats.dateRange.allDates"
-msgstr ""
+msgstr "Svi datumi"
 
 msgid "stats.dateRange.apply"
-msgstr ""
+msgstr "Primeni"
 
 msgid "stats.dateRange.change"
-msgstr ""
+msgstr "Promeni opseg datuma"
 
 msgid "stats.dateRange.customRange"
-msgstr ""
+msgstr "Prilagođeni opseg"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr ""
+msgstr "Jedan od unetih datuma ne postoji."
 
 msgid "stats.dateRange.from"
-msgstr ""
+msgstr "Od"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
+"Unesite svaki datum u formatu YYYY-MM-DD. Na primer, ako želite datum 15. "
+"januar 2019, unesite 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
-msgstr ""
+msgstr "Format datuma nije ispravan. Unesite svaki datum u formatu YYYY-MM-DD."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr ""
+msgstr "Početni datum mora biti pre krajnjeg datuma."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr ""
+msgstr "Krajnji datum ne može biti kasniji od {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr ""
+msgstr "Početni datum ne može biti raniji od {$date}."
 
 msgid "stats.dateRange.last12Months"
-msgstr ""
+msgstr "Poslednjih 12 meseci"
 
 msgid "stats.dateRange.last30Days"
-msgstr ""
+msgstr "Poslednjih 30 dana"
 
 msgid "stats.dateRange.last90Days"
-msgstr ""
+msgstr "Poslednjih 90 dana"
 
 msgid "stats.dateRange.lastTwoYears"
-msgstr ""
+msgstr "Poslednje dve godine"
 
 msgid "stats.dateRange.lastYear"
-msgstr ""
+msgstr "Prošla godina"
 
 msgid "stats.dateRange.sinceDate"
-msgstr ""
+msgstr "Od {$date}"
 
 msgid "stats.dateRange.thisYear"
-msgstr ""
+msgstr "Od početka godine"
 
 msgid "stats.dateRange.to"
-msgstr ""
+msgstr "Do"
 
 msgid "stats.dateRange.untilDate"
-msgstr ""
+msgstr "Do {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""

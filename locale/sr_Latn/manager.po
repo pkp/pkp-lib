@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-02 21:08+0000\n"
+"PO-Revision-Date: 2026-05-02 23:13+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2622,171 +2622,187 @@ msgstr "Do {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
+"Procenat za izabrani vremenski opseg se računa na osnovu prijava koje su "
+"podnete u tom periodu i za koje je doneta konačna odluka.<br><br>Na primer, "
+"pretpostavimo da je u tom vremenskom opsegu podneto deset prijava. Četiri su "
+"prihvaćene, četiri odbijene, a dve još uvek čekaju konačnu "
+"odluku.<br><br>Stopa prihvatanja biće 50% (4 od 8 prijava), jer se dve "
+"prijave bez konačne odluke ne uračunavaju."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
+"Broj dana koji je potreban da većina prijava dobije prvu uredničku odluku, "
+"kao što su odbijanje bez recenzije ili slanje na recenziju.<br>\n"
+"<br>Ovi podaci pokazuju da 80% prijava dobije odluku u okviru navedenog "
+"broja dana.<br><br>Ova statistika pokušava da\n"
+" prikaže kada većina autora koji šalju rad u vaš časopis može da očekuje "
+"odluku."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Ovo uključuje prijave koje nisu uračunate u druge ukupne vrednosti, kao što "
+"su one koje su još u toku i one koje su verovatno uvezene."
 
 msgid "stats.descriptionForStat"
-msgstr ""
+msgstr "Opis za {$stat}"
 
 msgid "stats.editorialActivity"
-msgstr ""
+msgstr "Urednička aktivnost"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Primarni fajl"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Dodatni fajl"
 
 msgid "stats.fileViews"
-msgstr ""
+msgstr "Pregledi fajla"
 
 msgid "stats.html"
-msgstr ""
+msgstr "HTML"
 
 msgid "stats.monthly"
-msgstr ""
+msgstr "Mesečno"
 
 msgid "stats.pdf"
-msgstr ""
+msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Geolokacija obezbeđena od strane <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "O geolokaciji"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} do {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Sve {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Preuzmi fajlove"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Broj preuzimanja za svaki fajl."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Preuzmi Geographic"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Broj pregleda i preuzimanja za svaki grad, region ili državu."
 
 msgid "stats.region"
 msgstr "Region"
 
 msgid "stats.searchSubmissionDescription"
-msgstr ""
+msgstr "Pretraži prema naslovu, autoru i ID-u"
 
 msgid "stats.submissionsActive"
-msgstr ""
+msgstr "Aktivne prijave"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Vremenska linija"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Broj {$type} za svaki {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Preuzmi vremensku liniju"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Interval vremenske linije"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Tip vremenske linije"
 
 msgid "stats.total"
-msgstr ""
+msgstr "Ukupno"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Jedinstven"
 
 msgid "stats.totalWithinDateRange"
-msgstr ""
+msgstr "Ukupno u okviru izabranog vremenskog opsega"
 
 msgid "stats.trends"
-msgstr ""
+msgstr "Trendovi"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "nepoznato"
 
 msgid "stats.userStatistics"
-msgstr ""
+msgstr "Statistika korisnika"
 
 msgid "stats.name.submissionsReceived"
-msgstr ""
+msgstr "Primljene prijave"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Ostale prijave"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Prijave u toku"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Uvezene prijave"
 
 msgid "stats.name.submissionsAccepted"
-msgstr ""
+msgstr "Prihvaćene prijave"
 
 msgid "stats.name.submissionsDeclined"
-msgstr ""
+msgstr "Odbijene prijave"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Odbijene prijave (Odbijeno pre recenzije - desk reject)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Odbijene prijave (nakon recenzije)"
 
 msgid "stats.name.submissionsPublished"
-msgstr ""
+msgstr "Objavljene prijave"
 
 msgid "stats.name.daysToDecision"
-msgstr ""
+msgstr "Broj dana do prve uredničke odluke"
 
 msgid "stats.name.daysToAccept"
-msgstr ""
+msgstr "Broj dana do prihvatanja"
 
 msgid "stats.name.daysToReject"
-msgstr ""
+msgstr "Broj dana do odbijanja"
 
 msgid "stats.name.acceptanceRate"
-msgstr ""
+msgstr "Stopa prihvatanja"
 
 msgid "stats.name.declineRate"
-msgstr ""
+msgstr "Stopa odbijanja"
 
 msgid "stats.name.declinedDeskRate"
-msgstr ""
+msgstr "Stopa odbijanja pre recenzije"
 
 msgid "stats.name.declinedReviewRate"
-msgstr ""
+msgstr "Stopa odbijanja nakon recenzije"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Proces nije uspeo. Proverite dole greške/upozorenja."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Rezultati izvoza prijava"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Preuzmi izvezeni fajl"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Izvoz je uspešno završen."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Preuzmite izvezeni fajl putem dugmeta ispod."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Opšte stavke"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Neispravna konfiguracija filtera [{$filterName}]: {$filterCount} "
+"pojavljivanja. Treba da postoji samo jedno."
 
 msgid "plugins.importexport.common.cliError"
 msgstr ""

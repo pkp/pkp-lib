@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-02 20:17+0000\n"
+"PO-Revision-Date: 2026-05-02 20:23+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2523,40 +2523,40 @@ msgid "grid.category.parentCategory"
 msgstr "Nadređena kategorija"
 
 msgid "grid.category.removeText"
-msgstr ""
+msgstr "Da li ste sigurni da želite da uklonite ovu kategoriju?"
 
 msgid "grid.category.nameRequired"
-msgstr ""
+msgstr "Molimo vas unesite ime kategorije."
 
 msgid "grid.category.categoryDetails"
-msgstr ""
+msgstr "Detalji kategorije"
 
 msgid "stats.allUsers"
-msgstr ""
+msgstr "Svi korisnici"
 
 msgid "stats.city"
 msgstr "Grad"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Pregledi"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Preuzimanja"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Ukupni broj pregleda po datumu"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Ukupna preuzimanja po datumu"
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$count} ({$average}/year)"
 
 msgid "stats.daily"
-msgstr ""
+msgstr "Dnevno"
 
 msgid "stats.dateRange"
-msgstr ""
+msgstr "Opseg datuma"
 
 msgid "stats.dateRange.allDates"
 msgstr ""

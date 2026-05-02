@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-01 22:17+0000\n"
+"PO-Revision-Date: 2026-05-02 17:53+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2445,70 +2445,79 @@ msgid "manager.navigationMenus.dashboard.description"
 msgstr "Link ka uredničkoj korisničkoj tabli."
 
 msgid "manager.navigationMenus.profile.description"
-msgstr ""
+msgstr "Link ka korisničkog profila."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr ""
+msgstr "Link ka administratorskim alatima na nivou celog sajta."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr ""
+msgstr "Ovaj link će biti prikazan samo administratorskim korisnicima."
 
 msgid "manager.navigationMenus.logOut.description"
-msgstr ""
+msgstr "Link koji će odjaviti korisnika."
 
 msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr ""
+msgstr "Ovaj link će biti prikazan samo kada je korisnik prijavljen."
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr ""
+msgstr "Ovaj link će biti prikazan samo kada korisnik nije prijavljen."
 
 msgid "manager.navigationMenus.contact.description"
-msgstr ""
+msgstr "Povežite na stranicu koja prikazuje vaše kontakt informacije."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
+"Ovaj link će biti prikazan samo ako ste popunili kontakt informacije u "
+"Podešavanja > Kontakt."
 
 msgid "manager.navigationMenus.form.typeMissing"
-msgstr ""
+msgstr "Molimo izaberite tip navigacionog menija."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
+"Ovaj link će biti prikazan samo ako su plaćanja omogućena u Podešavanja > "
+"Distribucija > Plaćanja."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
+"Ovaj link će biti prikazan samo ako je korisnik prijavljen, ako su plaćanja "
+"omogućena u Podešavanja> Distribucija > Plaćanja i ako su pretplate obavezne "
+"u Podešavanja > Distribucija > Pristup."
 
 msgid "manager.navigationMenus.search.description"
-msgstr ""
+msgstr "Link ka stranici za pretraživanje."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr ""
+msgstr "Link ka stranici koja prikazuje vašu izjavu o privatnosti."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
+"Ovaj link će biti prikazan samo ako ste uneli izjavu o privatnosti u "
+"Podešavanja > Radni tok > Podnesci."
 
 msgid "grid.category.add"
-msgstr ""
+msgstr "Dodaj kategoriju"
 
 msgid "grid.category.edit"
-msgstr ""
+msgstr "Uredi kategoriju"
 
 msgid "grid.category.name"
-msgstr ""
+msgstr "Ime"
 
 msgid "grid.category.path"
-msgstr ""
+msgstr "Putanja"
 
 msgid "grid.category.urlWillBe"
-msgstr ""
+msgstr "URL kategorije će biti: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr ""
+msgstr "Putanja kategorije mora da se sastoji samo od slova i brojeva."
 
 msgid "grid.category.pathExists"
-msgstr ""
+msgstr "Putanja kategorije već postoji. Unesite jedinstvenu putanju."
 
 msgid "grid.category.description"
-msgstr ""
+msgstr "Opis"
 
 msgid "grid.category.parentCategory"
 msgstr ""
@@ -3666,3 +3675,6 @@ msgstr ""
 msgid "manager.navigationMenus.editorialMasthead.description"
 msgstr ""
 "Link za stranicu koja prikazuje sve aktivne uredničke službe (masthead)."
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Naslov stavke menija je obavezan."

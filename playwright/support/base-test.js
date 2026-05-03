@@ -39,21 +39,18 @@ const {ensureAuthStateFor} = require('./auth.js');
  */
 exports.test = base.test.extend({
 	baseURL: async ({}, use, testInfo) => {
-		// Per-worker routing: each parallel worker gets its own PHP server
-		// on port 8000 + parallelIndex. The webServer array in
-		// config-factory.js spawns matching ports.
+		// Per-worker routing: each parallel worker gets its own PHP
+		// server on port 8000 + parallelIndex. The webServer array
+		// in config-factory.js spawns matching ports.
 		//
-		// Override: PLAYWRIGHT_BASE_URL still works for "debug against an
-		// external server" use cases (e.g. point all workers at a manually-
-		// started PHP, or a remote staging URL). But — and this is
-		// important — we *ignore* PLAYWRIGHT_BASE_URL when it points at
-		// any 127.0.0.1/localhost port. That defends against a stale
-		// .env.playwright (the example used to set
-		// PLAYWRIGHT_BASE_URL=http://127.0.0.1:8000 by default; copies
-		// of that file linger after upgrades and would silently route
-		// every worker to the same port, defeating multi-server
-		// distribution). Only a clearly-external URL counts as an
-		// intentional override.
+		// Defensive: PLAYWRIGHT_BASE_URL was historically a documented
+		// knob in .env.playwright.example. It's been removed from the
+		// example, but stale .env.playwright copies on developer
+		// machines may still set it. We silently ignore those when
+		// the value points at any 127.0.0.1/localhost host — that's
+		// always the auto-spawn pattern, never an intentional
+		// override. An explicitly external URL (named host, https,
+		// non-loopback IP) is still honored for ad-hoc debug runs.
 		const envOverride = process.env.PLAYWRIGHT_BASE_URL;
 		if (envOverride && !/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/i.test(envOverride)) {
 			await use(envOverride);

@@ -99,7 +99,7 @@ module.exports = function createPlaywrightConfig({app}) {
 			// overrides this per-worker via the baseURL fixture in
 			// lib/pkp/playwright/support/base-test.js so each parallel
 			// worker hits its own dedicated PHP server.
-			baseURL: process.env.PLAYWRIGHT_BASE_URL || `http://127.0.0.1:${phpPorts[0]}`,
+			baseURL: `http://127.0.0.1:${phpPorts[0]}`,
 			actionTimeout: 20_000,
 			navigationTimeout: 45_000,
 			trace: 'retain-on-failure',
@@ -123,45 +123,37 @@ module.exports = function createPlaywrightConfig({app}) {
 				: {reducedMotion: 'reduce'},
 		},
 		// One PHP dev server per Playwright worker, each on its own port
-		// starting at 8000. The 1:1 worker→server pairing replaces the
-		// historical PHP_CLI_SERVER_WORKERS approach, which is Unix-only
-		// (the env var is ignored on Windows native — single-process
-		// php -S then deadlocks on same-origin sub-requests).
+		// starting at 8000. The 1:1 worker→server pairing — combined
+		// with bumped expect/action timeouts above — replaces the
+		// historical single-server + PHP_CLI_SERVER_WORKERS approach,
+		// which was Unix-only (the env var is ignored on Windows
+		// native).
 		//
-		// Cold-boot seed of config.test.inc.php is delegated to
-		// lib/pkp/playwright/seed-test-config.sh. The script is idempotent
-		// (line 13: `if [ -f config.test.inc.php ]; then exit 0; fi`), so
-		// running it from every webServer entry concurrently is safe — only
-		// the first invocation does work; subsequent ones short-circuit.
-		// The script aborts with a clear error if any of its sed
-		// substitutions silently no-op (e.g. because config.TEMPLATE.inc.php
-		// drifted) so the failure is "webServer didn't start" instead of
-		// "Mailpit asserts time out 10 minutes later".
+		// The launcher script `scripts/start-php-server.js` is a
+		// cross-platform Node entry that:
+		//   1. Seeds config.test.inc.php (idempotent — the helper in
+		//      scripts/seed-test-config.js).
+		//   2. Creates the per-port log dir.
+		//   3. spawns `php -S 127.0.0.1:<port>` with stdout/stderr
+		//      piped to temp/per-port-logs/<port>.log.
+		//   4. Forwards SIGINT/SIGTERM to PHP so Playwright's webServer
+		//      teardown actually stops the server.
 		//
-		// All servers append their access log + worker errors to a single
-		// temp/php-server.log. PHP prefixes each line with [PID], so
-		// per-server output remains greppable. `-d log_errors=On
-		// -d error_log=temp/php-server.log` doubles up: PHP runtime
-		// fatals/warnings land in the same file via PHP's own fopen,
-		// so even if Playwright's stdio handling mangles the shell
-		// redirect, fatals still get captured. display_errors=Off
-		// keeps errors from being duplicated through stderr. The CI
-		// workflow uploads this file as an artifact on failure; locally
-		// `tail -f temp/php-server.log` while tests run. `temp/` is in
-		// .gitignore.
+		// Doing this in Node — instead of the historical
+		// `sh seed-test-config.sh && mkdir -p ... && exec php ... >>file`
+		// shell command — means Windows users don't need Git Bash for
+		// the seed step.
 		//
-		// memory_limit=512M because publish-issue flows that fan out
-		// subscriber notifications can blow past PHP's 128M default.
+		// `-d log_errors=On -d error_log=temp/per-port-logs/<port>.log`
+		// (set inside start-php-server.js) doubles up the redirect: PHP
+		// runtime fatals/warnings land in the same file via PHP's own
+		// fopen, so even if stdio handling on some runner mangles the
+		// piped streams, fatals still get captured. display_errors=Off
+		// keeps errors from duplicating through stderr. memory_limit=512M
+		// because publish-issue flows that fan out subscriber
+		// notifications can blow past PHP's 128M default.
 		webServer: phpPorts.map((port) => ({
-			command:
-				'sh lib/pkp/playwright/seed-test-config.sh && '
-				+ 'mkdir -p temp/per-port-logs && '
-				+ 'exec php '
-				+ `-d log_errors=On -d error_log=temp/per-port-logs/${port}.log `
-				+ '-d display_errors=Off '
-				+ '-d memory_limit=512M '
-				+ `-S 127.0.0.1:${port} -t . `
-				+ `>>temp/per-port-logs/${port}.log 2>&1`,
+			command: `node lib/pkp/playwright/scripts/start-php-server.js ${port}`,
 			url: `http://127.0.0.1:${port}`,
 			cwd: appRoot,
 			// Reuse a server already listening on this port. Saves cold-boot
@@ -173,10 +165,12 @@ module.exports = function createPlaywrightConfig({app}) {
 			// silent corruption — visible in the trace.
 			reuseExistingServer: true,
 			timeout: 60_000,
-			// Shell redirection above already routes everything to the log
-			// file, so Playwright sees no streams to forward. This keeps
-			// `npx playwright test` output readable while still preserving
-			// the dev server's access log in the file for diagnosis.
+			// start-php-server.js pipes PHP's stdout/stderr into the
+			// per-port log file directly via fs.openSync — Playwright sees
+			// no useful streams from the Node launcher itself, so we
+			// ignore them. This keeps `npx playwright test` output
+			// readable while still preserving each server's full access
+			// log in temp/per-port-logs/<port>.log for diagnosis.
 			stdout: 'ignore',
 			stderr: 'ignore',
 			env: {

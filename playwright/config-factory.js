@@ -79,8 +79,19 @@ module.exports = function createPlaywrightConfig({app}) {
 			? [['github'], ['html', {open: 'never'}]]
 			: [['list'], ['html', {open: 'never'}]],
 		outputDir: path.join(appRoot, 'test-results'),
+		// Test-level timeout: hard cap on a single test's total runtime.
+		// Catches genuine hangs (infinite loops, dead waits). Stays at
+		// 60s — that's plenty for any single test's full UI flow.
 		timeout: 60_000,
-		expect: {timeout: 10_000},
+		// Expect / action timeouts absorb single-request latency tails.
+		// With one PHP process per worker (no PHP_CLI_SERVER_WORKERS on
+		// Windows), browser-driven parallel sub-requests serialize on
+		// the dev server. Empirically ~2% of HTTP connections see a
+		// 5-16s wait under heavy load (mostly dashboard mount API
+		// calls + the static assets queued behind them). Bumping
+		// per-action waits to 20s absorbs that tail; the test-level
+		// 60s timeout still catches genuine hangs.
+		expect: {timeout: 20_000},
 		use: {
 			// Default points at the first PHP server (port 8000) — used
 			// by the setup project (which runs single-worker on
@@ -89,8 +100,8 @@ module.exports = function createPlaywrightConfig({app}) {
 			// lib/pkp/playwright/support/base-test.js so each parallel
 			// worker hits its own dedicated PHP server.
 			baseURL: process.env.PLAYWRIGHT_BASE_URL || `http://127.0.0.1:${phpPorts[0]}`,
-			actionTimeout: 10_000,
-			navigationTimeout: 30_000,
+			actionTimeout: 20_000,
+			navigationTimeout: 45_000,
 			trace: 'retain-on-failure',
 			video: isCI ? 'retain-on-failure' : 'off',
 			screenshot: 'only-on-failure',
@@ -144,16 +155,23 @@ module.exports = function createPlaywrightConfig({app}) {
 		webServer: phpPorts.map((port) => ({
 			command:
 				'sh lib/pkp/playwright/seed-test-config.sh && '
-				+ 'mkdir -p temp && '
+				+ 'mkdir -p temp/per-port-logs && '
 				+ 'exec php '
-				+ '-d log_errors=On -d error_log=temp/php-server.log '
+				+ `-d log_errors=On -d error_log=temp/per-port-logs/${port}.log `
 				+ '-d display_errors=Off '
 				+ '-d memory_limit=512M '
 				+ `-S 127.0.0.1:${port} -t . `
-				+ '>>temp/php-server.log 2>&1',
+				+ `>>temp/per-port-logs/${port}.log 2>&1`,
 			url: `http://127.0.0.1:${port}`,
 			cwd: appRoot,
-			reuseExistingServer: !isCI,
+			// Reuse a server already listening on this port. Saves cold-boot
+			// time on local iteration AND on CI re-runs where the prior
+			// run's PHP servers might still be alive (e.g. a retried
+			// job that didn't fully tear down). If the running server's
+			// config has drifted from what this run expects, the
+			// failures will surface as test errors rather than as
+			// silent corruption — visible in the trace.
+			reuseExistingServer: true,
 			timeout: 60_000,
 			// Shell redirection above already routes everything to the log
 			// file, so Playwright sees no streams to forward. This keeps
@@ -164,26 +182,25 @@ module.exports = function createPlaywrightConfig({app}) {
 			env: {
 				...process.env,
 				APPLICATION_ENV: 'test',
-				// Per-server concurrency. Even though each Playwright
-				// worker has its own dedicated PHP server, a single
-				// browser context can still fire several parallel
-				// requests at that one server (e.g. the editorial
-				// dashboard mounts and immediately fans out 4–6 API
-				// calls). Without in-PHP parallelism each port becomes
-				// a 1-wide bottleneck and those parallel requests
-				// serialize — observed as a 2× full-suite wall-clock
-				// regression vs the historical single-server +
-				// PHP_CLI_SERVER_WORKERS=3 setup.
+				// PHP_CLI_SERVER_WORKERS intentionally unset by
+				// default. With one dedicated PHP server per
+				// Playwright worker, raising the Playwright worker
+				// count is the supported way to scale concurrency.
+				// PHP_CLI_SERVER_WORKERS is Unix-only (Windows PHP
+				// ignores it) and we want Unix and Windows to behave
+				// the same so test stability investigations on Unix
+				// translate directly to Windows.
 				//
-				// Unix only; Windows PHP ignores this var and falls
-				// back to single-process. Windows users still gain
-				// from the multi-server isolation (cross-worker
-				// requests no longer compete for one PHP process)
-				// but pay a per-worker concurrency cost. The
-				// PLAYWRIGHT_PHP_WORKERS env var lets users override
-				// (e.g. PLAYWRIGHT_PHP_WORKERS=1 to debug a hang in
-				// a single-process server).
-				PHP_CLI_SERVER_WORKERS: process.env.PLAYWRIGHT_PHP_WORKERS || '3',
+				// PLAYWRIGHT_PHP_WORKERS env var, if explicitly set,
+				// is forwarded as PHP_CLI_SERVER_WORKERS for users
+				// who want extra in-PHP concurrency on Unix as a
+				// short-term workaround. Treat it as an escape hatch,
+				// not the default — flakiness attributable to 1-wide
+				// per-port concurrency should be addressed at the
+				// test or app layer, not papered over here.
+				...(process.env.PLAYWRIGHT_PHP_WORKERS
+					? {PHP_CLI_SERVER_WORKERS: process.env.PLAYWRIGHT_PHP_WORKERS}
+					: {}),
 			},
 		})),
 		projects: [

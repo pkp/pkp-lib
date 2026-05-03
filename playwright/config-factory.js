@@ -164,9 +164,26 @@ module.exports = function createPlaywrightConfig({app}) {
 			env: {
 				...process.env,
 				APPLICATION_ENV: 'test',
-				// PHP_CLI_SERVER_WORKERS is intentionally NOT set — each
-				// Playwright worker has its own dedicated PHP server on a
-				// unique port, so no in-PHP parallelism is needed.
+				// Per-server concurrency. Even though each Playwright
+				// worker has its own dedicated PHP server, a single
+				// browser context can still fire several parallel
+				// requests at that one server (e.g. the editorial
+				// dashboard mounts and immediately fans out 4–6 API
+				// calls). Without in-PHP parallelism each port becomes
+				// a 1-wide bottleneck and those parallel requests
+				// serialize — observed as a 2× full-suite wall-clock
+				// regression vs the historical single-server +
+				// PHP_CLI_SERVER_WORKERS=3 setup.
+				//
+				// Unix only; Windows PHP ignores this var and falls
+				// back to single-process. Windows users still gain
+				// from the multi-server isolation (cross-worker
+				// requests no longer compete for one PHP process)
+				// but pay a per-worker concurrency cost. The
+				// PLAYWRIGHT_PHP_WORKERS env var lets users override
+				// (e.g. PLAYWRIGHT_PHP_WORKERS=1 to debug a hang in
+				// a single-process server).
+				PHP_CLI_SERVER_WORKERS: process.env.PLAYWRIGHT_PHP_WORKERS || '3',
 			},
 		})),
 		projects: [

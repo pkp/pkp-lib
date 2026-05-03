@@ -10,6 +10,14 @@ const {ensureAuthStateFor} = require('./auth.js');
  * fixtures on top; OMP/OPS do the same in their own repos.
  *
  * Fixtures provided:
+ *   baseURL      — overrides Playwright's built-in fixture. Each parallel
+ *                  worker gets its own dedicated PHP dev server on port
+ *                  8000 + parallelIndex (see config-factory.js webServer
+ *                  array). The default `use.baseURL` in the config still
+ *                  points at port 8000 for the setup project + as a
+ *                  fallback. PLAYWRIGHT_BASE_URL env var, if set, takes
+ *                  priority — useful when targeting an external server
+ *                  (e.g. for debugging against a manually-started PHP).
  *   pkpApi       — cross-app HTTP client (login, CSRF, context endpoints)
  *   pkpMail      — Mailpit HTTP API wrapper. Tests that assert on mail
  *                  sent during normal app requests destructure this
@@ -30,6 +38,20 @@ const {ensureAuthStateFor} = require('./auth.js');
  *                  test teardown.
  */
 exports.test = base.test.extend({
+	baseURL: async ({}, use, testInfo) => {
+		// Explicit env var overrides everything (debug / external server).
+		if (process.env.PLAYWRIGHT_BASE_URL) {
+			await use(process.env.PLAYWRIGHT_BASE_URL);
+			return;
+		}
+		// Otherwise, route this worker to its dedicated PHP server.
+		// parallelIndex is 0 for the setup project (single worker) and
+		// 0..N-1 for the main project's parallel workers; the
+		// webServer array spawns matching ports.
+		const port = 8000 + testInfo.parallelIndex;
+		await use(`http://127.0.0.1:${port}`);
+	},
+
 	pkpApi: async ({request, baseURL}, use) => {
 		await use(createApiClient({request, baseURL}));
 	},

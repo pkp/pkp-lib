@@ -39,15 +39,26 @@ const {ensureAuthStateFor} = require('./auth.js');
  */
 exports.test = base.test.extend({
 	baseURL: async ({}, use, testInfo) => {
-		// Explicit env var overrides everything (debug / external server).
-		if (process.env.PLAYWRIGHT_BASE_URL) {
-			await use(process.env.PLAYWRIGHT_BASE_URL);
+		// Per-worker routing: each parallel worker gets its own PHP server
+		// on port 8000 + parallelIndex. The webServer array in
+		// config-factory.js spawns matching ports.
+		//
+		// Override: PLAYWRIGHT_BASE_URL still works for "debug against an
+		// external server" use cases (e.g. point all workers at a manually-
+		// started PHP, or a remote staging URL). But — and this is
+		// important — we *ignore* PLAYWRIGHT_BASE_URL when it points at
+		// any 127.0.0.1/localhost port. That defends against a stale
+		// .env.playwright (the example used to set
+		// PLAYWRIGHT_BASE_URL=http://127.0.0.1:8000 by default; copies
+		// of that file linger after upgrades and would silently route
+		// every worker to the same port, defeating multi-server
+		// distribution). Only a clearly-external URL counts as an
+		// intentional override.
+		const envOverride = process.env.PLAYWRIGHT_BASE_URL;
+		if (envOverride && !/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/i.test(envOverride)) {
+			await use(envOverride);
 			return;
 		}
-		// Otherwise, route this worker to its dedicated PHP server.
-		// parallelIndex is 0 for the setup project (single worker) and
-		// 0..N-1 for the main project's parallel workers; the
-		// webServer array spawns matching ports.
 		const port = 8000 + testInfo.parallelIndex;
 		await use(`http://127.0.0.1:${port}`);
 	},

@@ -70,7 +70,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'loginMessage' => $request->getUserVar('loginMessage'),
-            'username' => $request->getSession()->get('email') ?? $request->getSession()->get('username'),
+            'username' => $request->getCookieVar('last_login_auth') ?? '',
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
         ]);

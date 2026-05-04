@@ -407,7 +407,7 @@ class PKPContainer extends Container
             'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => $sessionLifetime * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],
-            'expire_on_close' => false,
+            'expire_on_close' => Config::getVar('security', 'session_expire_on_close', false),
             'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
             'partitioned' => false,
             'encrypt' => false,

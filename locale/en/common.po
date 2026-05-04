@@ -270,12 +270,6 @@ msgstr "Click to upload files"
 msgid "common.selectedFile"
 msgstr "Selected File"
 
-msgid "common.size"
-msgstr "Size"
-
-msgid "common.supported"
-msgstr "Supported"
-
 msgid "common.warning"
 msgstr "Warning"
 
@@ -1035,12 +1029,6 @@ msgstr "Uploaded date"
 msgid "common.upload"
 msgstr "Upload"
 
-msgid "common.uploadFile"
-msgstr "Upload File"
-
-msgid "common.uploadFiles"
-msgstr "Upload Files"
-
 msgid "common.uploadFailed"
 msgstr "The file could not be uploaded or revised."
 
@@ -1055,6 +1043,12 @@ msgstr "Upload File"
 
 msgid "common.upload.addFile.description"
 msgstr "Upload a file from your computer."
+
+msgid "common.upload.addFiles"
+msgstr "Upload Files"
+
+msgid "common.upload.supportedFiles"
+msgstr "Supported"
 
 msgid "common.upload.restore"
 msgstr "Restore Original"

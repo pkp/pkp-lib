@@ -73,7 +73,6 @@ class LoginHandler extends Handler
             'username' => $request->getSession()->get('email') ?? $request->getSession()->get('username'),
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
-            'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
         ]);
 
         // For force_login_ssl with base_url[...]: make sure SSL used for login form
@@ -180,7 +179,6 @@ class LoginHandler extends Handler
             'username' => $username,
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
-            'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
             'error' => $error,
             'reason' => $reason,
         ]);

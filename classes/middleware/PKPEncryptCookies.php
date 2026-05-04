@@ -50,28 +50,11 @@ class PKPEncryptCookies extends \Illuminate\Cookie\Middleware\EncryptCookies
     /**
      * Encrypt the cookies on an outgoing response.
      *
-     * @param  \Symfony\Component\HttpFoundation\Response  $response
-     * @return \Symfony\Component\HttpFoundation\Response
+     * Overridden to widen visibility from protected to public,
+     * allowing PKPSessionGuard::updateSessionCookieToResponse() to call it directly.
      */
     public function encrypt(Response $response)
     {
-        foreach ($response->headers->getCookies() as $cookie) {
-            if ($this->isDisabled($cookie->getName())) {
-                continue;
-            }
-
-            $response->headers->setCookie($this->duplicate(
-                $cookie,
-                $this->encrypter->encrypt(
-                    CookieValuePrefix::create(
-                        $cookie->getName(),
-                        $this->encrypter->getKey()
-                    ) . $cookie->getValue(),
-                    static::serialized($cookie->getName())
-                )
-            ));
-        }
-
-        return $response;
+        return parent::encrypt($response);
     }
 }

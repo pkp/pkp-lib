@@ -28,14 +28,24 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
      */
     public function boot()
     {
-        register_shutdown_function(function () {
+        $currentWorkingDir = getcwd();
+
+        register_shutdown_function(function () use ($currentWorkingDir) {
+
+            // Restore the current working directory
+            // @see https://www.php.net/manual/en/function.register-shutdown-function.php#refsect1-function.register-shutdown-function-notes
+            chdir($currentWorkingDir);
 
             if (PKPSessionGuard::isSessionDisable()) {
                 return;
             }
 
             // need to make sure that all changes to session(via pull/put) are reflected in session storage
-            Application::get()->getRequest()->getSessionGuard()->getSession()->save();
+            try {
+                Application::get()->getRequest()->getSessionGuard()->getSession()->save();
+            } catch (\Throwable $e) {
+                error_log('Session save failed: ' . $e->getMessage());
+            }
         });
     }
 

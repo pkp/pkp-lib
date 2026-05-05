@@ -43,7 +43,6 @@ use PKP\logParser\PKPUsageEventLog;
 use PKP\middleware\SiteAdminAuthorizer;
 use PKP\plugins\Hook;
 use PKP\scheduledTask\ScheduledTaskHelper;
-use PKP\security\Role;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -70,11 +69,31 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             return Cache::driver(config('log-viewer.cache_driver'));
         });
 
-        if (!$this->app->bound(LogTypeRegistrar::class)) {
-            $this->app->singleton(LogTypeRegistrar::class, function () {
-                return new LogTypeRegistrar();
-            });
-        }
+        // Bind a LogTypeRegistrar that recognizes the configured PKP log filename
+        // (and its daily-rotation suffix) as Laravel format, in addition to the
+        // vendor's built-in 'laravel.log' / 'laravel-YYYY-MM-DD.log' matching.
+        $this->app->singleton(LogTypeRegistrar::class, function ($app) {
+            /** @var \PKP\core\PKPContainer $app */
+            return new class ($app->logFileName()) extends LogTypeRegistrar {
+                public function __construct(private readonly string $pkpLogFileName)
+                {
+                }
+
+                protected function isPossiblyLaravelLogFile(string $fileName): bool
+                {
+                    if (parent::isPossiblyLaravelLogFile($fileName)) {
+                        return true;
+                    }
+
+                    $base = pathinfo($this->pkpLogFileName, PATHINFO_FILENAME);
+                    return $fileName === $this->pkpLogFileName
+                        || (bool) preg_match(
+                            '/^' . preg_quote($base, '/') . '-\d{4}-\d{2}-\d{2}\.log$/',
+                            $fileName
+                        );
+                }
+            };
+        });
     }
 
     /**
@@ -102,8 +121,6 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             LogViewer::clearFileCache();
         });
 
-        // Authorization and custom log parsers
-        $this->configureAuthorization();
         $this->registerLogParsers();
     }
 
@@ -201,19 +218,6 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             'exclude_ip_from_identifiers' => false,
             'root_folder_prefix' => 'root',
         ]);
-    }
-
-    /**
-     * Configure authorization — only site admins can access
-     */
-    protected function configureAuthorization(): void
-    {
-        LogViewer::auth(function ($request) {
-            $pkpRequest = Application::get()->getRequest();
-            $user = $pkpRequest->getUser();
-
-            return $user && $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID);
-        });
     }
 
     /**
@@ -324,8 +328,12 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             }
 
             $modifiedRequest = $illuminateRequest->duplicate(
-                null, null, null, null, null,
-                array_merge($illuminateRequest->server->all(), [
+                query: null,
+                request: null,
+                attributes: null,
+                cookies: null,
+                files: null,
+                server: array_merge($illuminateRequest->server->all(), [
                     'REQUEST_URI' => $requestUri,
                     'PATH_INFO' => '/' . $laravelPath,
                 ])
@@ -334,7 +342,7 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             $response = (new Pipeline(app()))
                 ->send($modifiedRequest)
                 ->through(PKPRoutingProvider::getWebRouteMiddleware())
-                ->then(fn($req) => app('router')->dispatch($req));
+                ->then(fn ($req) => app('router')->dispatch($req));
 
             if ($response->getStatusCode() !== Response::HTTP_NOT_FOUND) {
                 $response->send();

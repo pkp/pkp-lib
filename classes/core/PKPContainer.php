@@ -27,7 +27,6 @@ use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Http\Response;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Crypt;
-use PKP\core\PKPLogViewerServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -101,9 +100,10 @@ class PKPContainer extends Container
      * @param string $driver The Laravel database driver name (mysql, mariadb, pgsql)
      * @param array $connectionConfig The connection configuration array to augment
      *
-     * @return array The augmented connection configuration array
-     * 
      * @throws Exception if SSL certificate path is not set in the config file
+     *
+     * @return array The augmented connection configuration array
+     *
      */
     public static function addDatabaseSslOptionsToConnection(string $driver, array $connectionConfig): array
     {
@@ -118,7 +118,7 @@ class PKPContainer extends Container
         if ($driver === 'pgsql') {
             $connectionConfig['sslmode'] = $verify ? 'verify-full' : 'require';
             $connectionConfig['sslrootcert'] = $capath;
-            
+
             return $connectionConfig;
         }
 
@@ -547,16 +547,16 @@ class PKPContainer extends Container
 
                 'single' => [
                     'driver' => 'single',
-                    'path' => storage_path('logs/laravel.log'),
+                    'path' => storage_path('logs/' . $this->logFileName()),
                     'level' => $logLevel,
                     'replace_placeholders' => true,
                 ],
 
                 'daily' => [
                     'driver' => 'daily',
-                    'path' => storage_path('logs/laravel.log'),
+                    'path' => storage_path('logs/' . $this->logFileName()),
                     'level' => $logLevel,
-                    'days' => 14,
+                    'days' => 30, // The number of previour log files that will be retained
                     'replace_placeholders' => true,
                 ],
 
@@ -590,7 +590,7 @@ class PKPContainer extends Container
                 ],
 
                 'emergency' => [
-                    'path' => storage_path('logs/laravel.log'),
+                    'path' => storage_path('logs/' . $this->logFileName()),
                 ],
             ],
         ];
@@ -719,6 +719,17 @@ class PKPContainer extends Container
     public function resourcePath(string $path = ''): string
     {
         return $this->basePath() . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the name of the application log file.
+     *
+     * Reads the [logs] log_file_name config; falls back to the per-app
+     * default ({Application::getName()}.log).
+     */
+    public function logFileName(): string
+    {
+        return Config::getVar('logs', 'log_file_name', Application::getName() . '.log');
     }
 
     /**

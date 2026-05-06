@@ -26,7 +26,7 @@ use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewRound\enums\PublicReviewStatus;
+use PKP\submission\reviewRound\PublicReviewStatusData;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class SubmissionPeerReviewSummaryResource extends JsonResource
@@ -72,33 +72,6 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
 
 
         $roundsStatusData = $this->getReviewRoundsStatusData($reviewAssignments, $reviewRounds);
-
-        if (empty($roundsStatusData)) {
-            return [
-                'dateStarted' => null,
-                'dateInProgress' => null,
-                'dateCompleted' => null,
-            ];
-        }
-
-        $lastRound = end($roundsStatusData);
-
-        $dateStarted = collect($roundsStatusData)
-            ->pluck('dateStarted')
-            ->filter()
-            ->sort()
-            ->first();
-
-        $dateInProgress = collect($roundsStatusData)
-            ->pluck('dateInProgress')
-            ->filter()
-            ->sort()
-            ->first();
-
-        return [
-            'dateStarted' => $dateStarted,
-            'dateInProgress' => $dateInProgress,
-            'dateCompleted' => $lastRound['dateCompleted'],
-        ];
+        return PublicReviewStatusData::fromRoundsData(collect($roundsStatusData))->toArray();
     }
 }

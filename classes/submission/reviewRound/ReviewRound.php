@@ -28,7 +28,6 @@ use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
-use PKP\submission\reviewRound\enums\PublicReviewStatus;
 
 class ReviewRound extends \PKP\core\DataObject
 {
@@ -361,68 +360,22 @@ class ReviewRound extends \PKP\core\DataObject
     /**
      * Gets public review status along with relevant dates.
      *
-     * `status` overview:
-     * - `notStarted`: No review assignments are present, or no present review assignments have been accepted yet
-     * - `inProgress`: At least one review assignment has been accepted
-     * - `complete`: All review assignments in round that were not declined or canceled have been completed
-     *
-     * Returned dates overview:
-     * - `dateStarted`: Oldest date a reviewer was assigned (helpful fallback when assignments present but not in progress)
-     * - `dateInProgress`: Oldest date a reviewer has accepted to complete a review (when in progress starts)
-     * - `dateComplete`: When the most recent review assignment has been completed if all assignments have been completed
-     *
-     * @param Enumerable<ReviewAssignment> $assignments Review assignments to include, typically only publicly visible ones
-     *
-     * @return array{status: PublicReviewStatus, dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}
+     * @param Enumerable<int, ReviewAssignment> $assignments Review assignments to include, typically only publicly visible ones
+     * @return PublicReviewStatusData
      */
-    public function getPublicReviewStatus(Enumerable $assignments): array
+    public function getPublicReviewStatusByAssignments(Enumerable $assignments): PublicReviewStatusData
     {
-        $eligibleAssignments = $assignments->filter(
-            fn (ReviewAssignment $reviewAssignment) => !$reviewAssignment->getDeclined() && !$reviewAssignment->getCancelled()
-        );
+        $assignmentsData = $assignments->map(function (ReviewAssignment $reviewAssignment) {
+            return [
+                'declined' => $reviewAssignment->getDeclined(),
+                'cancelled' => $reviewAssignment->getCancelled(),
+                'dateAssigned' => $reviewAssignment->getDateAssigned(),
+                'dateConfirmed' => $reviewAssignment->getDateConfirmed(),
+                'dateCompleted' => $reviewAssignment->getDateCompleted(),
+            ];
+        });
 
-        // Oldest date assigned
-        $dateStarted = $assignments
-            ->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateAssigned())
-            ->filter()
-            ->sort()
-            ->first();
-
-        // Oldest date confirmed
-        $dateInProgress = $eligibleAssignments
-            ->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateConfirmed())
-            ->filter()
-            ->sort()
-            ->first();
-
-        $isNotStarted = $eligibleAssignments->isEmpty();
-        $isComplete = $eligibleAssignments->every(fn(ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateCompleted() !== null);
-        $isInProgress = $dateInProgress !== null;
-
-        $dateCompleted = null;
-
-        if ($isNotStarted) {
-            $status = PublicReviewStatus::NotStarted;
-        } elseif ($isComplete) {
-            $status = PublicReviewStatus::Complete;
-
-            // Most recent date completed
-            $dateCompleted = $eligibleAssignments
-                ->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateCompleted())
-                ->sort()
-                ->last();
-        } elseif ($isInProgress) {
-            $status = PublicReviewStatus::InProgress;
-        } else {
-            $status = PublicReviewStatus::NotStarted;
-        }
-
-        return [
-            'status' => $status,
-            'dateStarted' => $dateStarted,
-            'dateInProgress' => $dateInProgress,
-            'dateCompleted' => $dateCompleted,
-        ];
+        return PublicReviewStatusData::fromAssignmentsData($assignmentsData);
     }
 
     /*

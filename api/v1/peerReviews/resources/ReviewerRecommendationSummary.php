@@ -141,15 +141,12 @@ trait ReviewerRecommendationSummary
         /** @var ReviewRound $reviewRound */
         foreach ($reviewRounds as $roundId => $reviewRound) {
             $roundAssignments = $assignmentsByRound->get($roundId, collect());
-            $publicStatus = $reviewRound->getPublicReviewStatus($roundAssignments);
+            $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($roundAssignments);
 
             $roundsData[] = [
                 'roundId' => $reviewRound->getId(),
                 'round' => $reviewRound->getRound(),
-                'status' => $publicStatus['status']->value,
-                'dateStarted' => $publicStatus['dateStarted'],
-                'dateInProgress' => $publicStatus['dateInProgress'],
-                'dateCompleted' => $publicStatus['dateCompleted'],
+                ...$reviewStatusData->toArray(),
             ];
         }
 

@@ -17,8 +17,6 @@
 namespace PKP\plugins;
 
 use PKP\core\Registry;
-use ReflectionClass;
-use ReflectionFunction;
 use Throwable;
 
 class Hook
@@ -171,37 +169,8 @@ class Hook
                      *
                      * @see https://github.com/pkp/pkp-lib/discussions/9083
                     */
-                    $pluginDirectories = [realpath(BASE_SYS_DIR . '/' . PKP_LIB_PATH . '/plugins'), realpath(BASE_SYS_DIR . '/plugins')];
-                    foreach ($e->getTrace() as $stackFrame) {
-                        // If the code was implemented inside a plugin class, let the hook flow continue
-                        if (is_subclass_of($class = $stackFrame['class'] ?? null, Plugin::class)) {
-                            error_log("Plugin {$class} failed to handle the hook {$hookName}\n{$e}");
-                            continue 2;
-                        }
-
-                        // Avoid fatal errors due to parse failures during autoload.
-                        if ((string) $stackFrame['function'] ?? '' == 'Composer\Autoload\{closure}') {
-                            continue;
-                        }
-
-                        // Attempt to recover the file where the callback was implemented
-                        $filename = ($class ? (new ReflectionClass($class))->getFileName() : null)
-                            ?? (($function = $stackFrame['function'] ?? null) ? (new ReflectionFunction($function))->getFileName() : null)
-                            ?? $stackFrame['file']
-                            ?? null;
-                        if (!$filename) {
-                            continue;
-                        }
-
-                        // If the code was implemented inside a plugin folder, let the hook flow continue
-                        $filename = realpath($filename);
-                        foreach ($pluginDirectories as $pluginDirectory) {
-                            if (strpos($filename, $pluginDirectory) === 0) {
-                                $pieces = explode(DIRECTORY_SEPARATOR, substr($filename, strlen($pluginDirectory) + 1));
-                                error_log("Plugin {$pieces[0]}/{$pieces[1]} failed to handle the hook {$hookName}\n{$e}");
-                                continue 3;
-                            }
-                        }
+                    if (PluginFailureHandler::logIfPluginFailure($e, "failed to handle the hook {$hookName}")) {
+                        continue;
                     }
 
                     throw $e;

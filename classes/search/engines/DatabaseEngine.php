@@ -140,7 +140,7 @@ class DatabaseEngine extends ScoutEngine
                                     ->from('controlled_vocabs AS cv')
                                     ->join('controlled_vocab_entries AS cve', 'cv.controlled_vocab_id', 'cve.controlled_vocab_id')
                                     ->join('controlled_vocab_entry_settings AS cves', 'cve.controlled_vocab_entry_id', 'cves.controlled_vocab_entry_id')
-                                    ->where('cv.assoc_type', ASSOC_TYPE_PUBLICATION)
+                                    ->where('cv.assoc_type', Application::ASSOC_TYPE_PUBLICATION)
                                     ->whereColumn('cv.assoc_id', 'p.publication_id')
                                     ->where('cv.symbolic', ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT)
                                     ->where('cves.setting_value', $subject)

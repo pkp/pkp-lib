@@ -2439,7 +2439,7 @@ msgstr ""
 "Require the author to provide a funding statement before accepting their submission."
 
 msgid "manager.setup.metadata.plainLanguageSummary"
-msgstr "Plain language summary"
+msgstr "Plain Language Summary"
 
 msgid "manager.setup.metadata.plainLanguageSummary.description"
 msgstr "A short summary of the submission intended for a general audience."

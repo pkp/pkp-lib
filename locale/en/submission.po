@@ -49,7 +49,7 @@ msgid "ror.displayLocaleRequired"
 msgstr "ROR display locale is required."
 
 msgid "submission.plainLanguageSummary"
-msgstr "Plain language summary"
+msgstr "Plain Language Summary"
 
 msgid "submission.authors.label"
 msgstr "Authors"

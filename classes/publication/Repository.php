@@ -44,6 +44,7 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -1162,12 +1163,11 @@ abstract class Repository
      * Get review-related DOI data grouped by publication ID.
      *
      * @param int[] $publicationIds
-     *
-     * @throws \Exception
+     * @param bool $onlyPubliclyVisibleReviews - Boolean indicating if only publicly visible reviews should be considered.
      *
      * @return array<int, array<array{pubObjectType: string, pubObjectId: int, doiObject: Doi|null}>>
      */
-    public function getReviewDoiItemsGroupedByPublication(array $publicationIds): array
+    public function getReviewDoiItemsGroupedByPublication(array $publicationIds, bool $onlyPubliclyVisibleReviews = false): array
     {
         if (empty($publicationIds)) {
             return [];
@@ -1191,12 +1191,17 @@ abstract class Repository
         $result = array_fill_keys($publicationIds, []);
 
         // ReviewAssignments with DOIs
+        /** @var ReviewAssignment[] $assignments */
         $assignments = Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
             ->getMany()->toArray();
 
         foreach ($assignments as $assignment) {
+            if ($onlyPubliclyVisibleReviews && !$assignment->getIsReviewPubliclyVisible()) {
+                continue;
+            }
+
             $pubId = $roundToPublication[$assignment->getReviewRoundId()] ?? null;
             if ($pubId !== null) {
                 $result[$pubId][] = [

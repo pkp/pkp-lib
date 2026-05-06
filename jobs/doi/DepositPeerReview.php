@@ -14,7 +14,7 @@
  * @brief Job to deposit peer review DOI and metadata to the configured registration agency
  */
 
-namespace pkp\jobs\doi;
+namespace PKP\jobs\doi;
 
 use APP\facades\Repo;
 use APP\plugins\IDoiRegistrationAgency;

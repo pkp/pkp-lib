@@ -242,7 +242,7 @@ msgstr ""
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
-"The metadata for this item has not been submitted to {$registrationAgency}."
+"Some metadata for this item has not been submitted to {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
 msgstr "This item cannot be deposited until it has been published."

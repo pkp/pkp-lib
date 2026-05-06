@@ -451,16 +451,6 @@ class PKPDoiController extends PKPBaseController
 
         // Invoke IDoiRegistrationAgency::exportSubmissions
         $submissionsData = $agency->exportSubmissions($submissions, $context);
-
-        $exportablePeerReviewIds = Repo::reviewAssignment()
-        ->getExportableDOIsPeerReviewIds($context->getId(), array_map(fn (Submission $submission)=>$submission->getId(), $submissions));
-
-        if (!empty($peerReview['xmlErrors'])) {
-            return response()->json([
-                'error' => __('api.dois.400.xmlExportFailed')
-            ], Response::HTTP_BAD_REQUEST);
-        }
-
         $temporaryFileIds = [];
 
         if (!empty($submissionsData)) {
@@ -471,6 +461,9 @@ class PKPDoiController extends PKPBaseController
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $agency->getAllowedDoiTypes()) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $context->getData(Context::SETTING_ENABLED_DOI_TYPES))
         ) {
+            $exportablePeerReviewIds = Repo::reviewAssignment()
+                ->getExportableDOIsPeerReviewIds($context->getId(), array_map(fn (Submission $submission)=>$submission->getId(), $submissions));
+
             $peerReviewsData = $this->getPeerReviewExports(
                 array_map(fn($exportablePeerReviewId) => Repo::reviewAssignment()->get($exportablePeerReviewId), $exportablePeerReviewIds),
                 $context,

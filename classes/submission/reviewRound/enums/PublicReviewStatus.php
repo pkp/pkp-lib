@@ -18,7 +18,10 @@ namespace PKP\submission\reviewRound\enums;
 
 enum PublicReviewStatus: string
 {
+    /** No review assignments are present, or no present review assignments have been accepted yet */
     case NotStarted = 'notStarted';
+    /** At least one review assignment has been accepted */
     case InProgress = 'inProgress';
+    /** All review assignments in round that were not declined or canceled have been completed */
     case Complete = 'complete';
 }

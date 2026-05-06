@@ -85,7 +85,7 @@ class PeerReviewController extends PKPBaseController
                 ->whereNumber('submissionId');
 
             Route::get('summary', $this->getManySubmissionPeerReviewSummary(...))
-                ->name('eerReviews.open.submissions.summary.getMany');
+                ->name('peerReviews.open.submissions.summary.getMany');
         });
     }
     /**

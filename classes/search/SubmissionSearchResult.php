@@ -19,6 +19,7 @@ use Laravel\Scout\Builder;
 use PKP\core\PKPRequest;
 use PKP\db\DBResultRange;
 use PKP\plugins\Hook;
+use PKP\plugins\PluginFailureHandler;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
@@ -67,16 +68,26 @@ class SubmissionSearchResult
     }
 
     /**
-     * @see Illuminate\Database\Eloquent\HasCollection.
+     * @see \Illuminate\Database\Eloquent\HasCollection.
      *
      * @param $models PKPSubmission[]
+     *
+     * @hook SubmissionSearchResult::newCollection [[$models, &$itemDecorators]]
      */
-    public function newCollection(array $models = [])
+    public function newCollection(array $models = []): LazyCollection
     {
         $contextCache = [];
         $sectionCache = [];
 
-        return LazyCollection::make(function () use ($models, &$contextCache, &$sectionCache) {
+        /**
+         * @var callable[] $itemDecorators Expects a callable to be added in the shape of fn (array: $item): array,
+         *  where `$item` is the yielded array from the generator and returns the modified item
+         */
+        $itemDecorators = [];
+
+        Hook::call('SubmissionSearchResult::newCollection', [$models, &$itemDecorators]);
+
+        $collection = LazyCollection::make(function () use ($models, &$contextCache, &$sectionCache) {
             foreach ($models as $data) {
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
                 $submission = Repo::submission()->get($submissionId);
@@ -103,5 +114,24 @@ class SubmissionSearchResult
                 ];
             }
         });
+
+        // Apply all hook-based decorators
+        foreach ($itemDecorators as $decorate) {
+            if (is_callable($decorate)) {
+                $collection = $collection->map(function (array $item) use ($decorate): array {
+                    try {
+                        return $decorate($item);
+                    } catch (\Throwable $e) {
+                        if (PluginFailureHandler::logIfPluginFailure($e, 'failed to decorate a SubmissionSearchResult item')) {
+                            return $item;
+                        }
+
+                        throw $e;
+                    }
+                });
+            }
+        }
+
+        return $collection;
     }
 }

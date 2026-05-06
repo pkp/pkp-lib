@@ -160,16 +160,13 @@ class PublicationPeerReviewResource extends JsonResource
             /** @var ?AuthorResponse $currentRoundResponse */
             $currentRoundResponse = $roundResponses->get($roundId)?->first();
 
-            $publicStatus = $reviewRound->getPublicReviewStatus($assignments);
+            $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($assignments);
 
             $roundsData->add([
                 'displayText' => $roundDisplayText,
                 'roundId' => $reviewRound->getData('id'),
                 'originalPublicationId' => $reviewRound->getPublicationId(),
-                'status' => $publicStatus['status']->value,
-                'dateStarted' => $publicStatus['dateStarted'],
-                'dateInProgress' => $publicStatus['dateInProgress'],
-                'dateCompleted' => $publicStatus['dateCompleted'],
+                ...$reviewStatusData->toArray(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
                 'authorResponse' => $currentRoundResponse ? (new ReviewRoundAuthorResponseResource($currentRoundResponse))->resolve() : null,
             ]);

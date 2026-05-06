@@ -18,12 +18,16 @@ use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
 
     public string $schema = PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT;
+
+    /** @var array<int,int>|null Lazily-loaded map of reviewerRecommendationId => type for the current context. */
+    protected ?array $recommendationTypeMap = null;
 
     /**
      * Map the Review Assignment
@@ -115,6 +119,12 @@ class Schema extends \PKP\core\maps\Schema
                 case 'status':
                     $output[$prop] = $item->getStatus();
                     break;
+                case 'reviewerRecommendationType':
+                    $recommendationId = $item->getData('reviewerRecommendationId');
+                    $output[$prop] = $recommendationId
+                        ? ($this->getRecommendationTypeMap()[$recommendationId] ?? null)
+                        : null;
+                    break;
                 case '_href':
                     $output[$prop] = $this->getApiUrl('_submissions/reviewAssignments/' . $item->getId());
                     break;
@@ -129,5 +139,22 @@ class Schema extends \PKP\core\maps\Schema
         ksort($output);
 
         return $this->withExtensions($output, $item);
+    }
+
+    /**
+     * Build (and memoize) the [reviewerRecommendationId => type] map for the
+     * current context, so a collection of review assignments can be mapped
+     * with a single query rather than one per assignment.
+     */
+    protected function getRecommendationTypeMap(): array
+    {
+        if ($this->recommendationTypeMap === null) {
+            $this->recommendationTypeMap = ReviewerRecommendation::query()
+                ->withContextId($this->context->getId())
+                ->get()
+                ->mapWithKeys(fn (ReviewerRecommendation $r) => [$r->getKey() => (int) $r->type])
+                ->all();
+        }
+        return $this->recommendationTypeMap;
     }
 }

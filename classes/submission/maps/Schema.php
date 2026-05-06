@@ -32,6 +32,7 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
@@ -74,6 +75,9 @@ class Schema extends \PKP\core\maps\Schema
 
     /** Workflow stage files associated with submissions. */
     public ?Enumerable $submissionStageFiles = null;
+
+    /** @var array<int,int>|null Lazily-loaded map of reviewerRecommendationId => type for the current context. */
+    protected ?array $recommendationTypeMap = null;
     /**
      * Get extra property names used in the submissions list
      *
@@ -690,6 +694,9 @@ class Schema extends \PKP\core\maps\Schema
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
                 'reviewerRecommendationId' => $reviewAssignment->getReviewerRecommendationId(),
+                'reviewerRecommendationType' => $reviewAssignment->getReviewerRecommendationId()
+                    ? ($this->getRecommendationTypeMap()[$reviewAssignment->getReviewerRecommendationId()] ?? null)
+                    : null,
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
@@ -703,6 +710,23 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         return $reviews;
+    }
+
+    /**
+     * Build (and memoize) the [reviewerRecommendationId => type] map for the
+     * current context, so a batch of submissions can be mapped without
+     * issuing a query per review assignment.
+     */
+    protected function getRecommendationTypeMap(): array
+    {
+        if ($this->recommendationTypeMap === null) {
+            $this->recommendationTypeMap = ReviewerRecommendation::query()
+                ->withContextId($this->context->getId())
+                ->get()
+                ->mapWithKeys(fn (ReviewerRecommendation $r) => [$r->getKey() => (int) $r->type])
+                ->all();
+        }
+        return $this->recommendationTypeMap;
     }
 
     /**

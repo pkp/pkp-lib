@@ -1047,9 +1047,6 @@ msgstr "Upload a file from your computer."
 msgid "common.upload.addFiles"
 msgstr "Upload Files"
 
-msgid "common.upload.supportedFiles"
-msgstr "Supported"
-
 msgid "common.upload.restore"
 msgstr "Restore Original"
 

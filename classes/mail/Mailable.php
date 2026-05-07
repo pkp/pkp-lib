@@ -302,6 +302,16 @@ class Mailable extends IlluminateMailable
             );
         }
 
+        $configDefaultEnvelopeSender = Config::getVar('email', 'default_envelope_sender');
+        $configNameSender = Config::getVar('email', 'smtp_name');
+        if (Config::getVar('email', 'force_default_envelope_sender') && $configDefaultEnvelopeSender) {
+            if($configNameSender) {
+                return parent::from($configDefaultEnvelopeSender, $configNameSender);
+            }else{
+                return parent::from($configDefaultEnvelopeSender, $name);
+            }
+        }
+        
         return parent::from($address, $name);
     }
 

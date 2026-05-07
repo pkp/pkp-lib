@@ -316,8 +316,12 @@ class Repository
         return null;
     }
 
-    public function getExportableDOIsPeerReviewIds(int $contextId, ?array $submissionIds = null): array
+    /** @copydoc DAO::getExportableDOIsPeerReviewIds()
+     *
+     * @return array - Array of exportable peer review IDs.
+     */
+    public function getExportableDOIsPeerReviewIds(int $contextId, bool $doiVersioning, ?array $submissionIds = null): array
     {
-        return $this->dao->getExportableDOIsPeerReviewIds($contextId, $submissionIds);
+        return $this->dao->getExportableDOIsPeerReviewIds($contextId, $doiVersioning, $submissionIds);
     }
 }

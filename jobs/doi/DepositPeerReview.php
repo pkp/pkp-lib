@@ -25,8 +25,7 @@ use PKP\jobs\BaseJob;
 class DepositPeerReview extends BaseJob
 {
     protected int $reviewId;
-    protected int $submissionId;
-
+    protected ?int $submissionId;
     protected Context $context;
 
     /**
@@ -38,7 +37,7 @@ class DepositPeerReview extends BaseJob
      * Create a new job instance.
      *
      */
-    public function __construct(int $reviewId, Context $context, IDoiRegistrationAgency $agency, $submissionId = null)
+    public function __construct(int $reviewId, Context $context, IDoiRegistrationAgency $agency, ?int $submissionId = null)
     {
         parent::__construct();
 
@@ -51,7 +50,7 @@ class DepositPeerReview extends BaseJob
     public function handle(): void
     {
         $depositablePeerReviewIds = Repo::reviewAssignment()
-            ->getExportableDOIsPeerReviewIds($this->context->getId(), [$this->submissionId]);
+            ->getExportableDOIsPeerReviewIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
 
         $exportable = in_array($this->reviewId, $depositablePeerReviewIds);
 

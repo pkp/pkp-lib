@@ -308,6 +308,14 @@ class SettingsBuilder extends Builder
         return $this->model->getSchemaName();
     }
 
+    /**
+     * Checks if setting is multilingual
+     */
+    public function isMultilingual(string $settingName): bool
+    {
+        return in_array($settingName, $this->model->getMultilingualProps());
+    }
+
     /*
      * Augment model with data from the settings table
      */
@@ -401,14 +409,6 @@ class SettingsBuilder extends Builder
                 unset($row->{$property});
             }
         }
-    }
-
-    /**
-     * Checks if setting is multilingual
-     */
-    protected function isMultilingual(string $settingName): bool
-    {
-        return in_array($settingName, $this->model->getMultilingualProps());
     }
 
     /**

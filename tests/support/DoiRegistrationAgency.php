@@ -85,4 +85,14 @@ class DoiRegistrationAgency implements IDoiRegistrationAgency
     {
         return [];
     }
+
+    public function exportPeerReviews(array $reviewAssignments, Context $context): array
+    {
+        return [];
+    }
+
+    public function depositPeerReviews(array $peerReviews, Context $context): array
+    {
+       return [];
+    }
 }

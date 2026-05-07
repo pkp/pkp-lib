@@ -159,6 +159,9 @@ class SubmissionFileAccessPolicy extends ContextPolicy
 
                 // 3h) ...or the file is a representation (galley/publication format)...
                 $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_PROOF));
+
+                // 3i) ...or the file is a media file
+                $authorFileAccessOptionsPolicy->addPolicy(new SubmissionFileStageRequiredPolicy($request, $submissionFileId, SubmissionFile::SUBMISSION_FILE_MEDIA));
             }
 
             // Add the rules from 3)

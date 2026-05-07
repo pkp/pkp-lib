@@ -631,6 +631,7 @@ abstract class Repository
             // Authors only have read access
             if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ || $hasEditorialAssignment) {
                 $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_PROOF;
+                $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_MEDIA;
             }
 
             if ($hasEditorialAssignment) {

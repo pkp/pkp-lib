@@ -1,5 +1,6 @@
 {
 	"require": {
+		"altcha-org/altcha": "0.1.4",
 		"ralouphie/getallheaders": "*",
 		"wikimedia/less.php": "3.*",
 		"phpmailer/phpmailer": "6.*",

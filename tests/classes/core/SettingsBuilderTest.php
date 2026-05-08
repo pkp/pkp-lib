@@ -273,7 +273,7 @@ class SettingsBuilderTest extends PKPTestCase
 
     public function testUpdateNonMultilingualSettingUpsertAndEmptyString(): void
     {
-        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1]);
+        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1], 'test_id');
 
         // First, upsert a non-multilingual string setting.
         TestSettingsSchemaModel::find($modelId)->update(['nonlocSetting' => 'foo']);

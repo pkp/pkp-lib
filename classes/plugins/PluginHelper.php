@@ -24,8 +24,10 @@ use Illuminate\Support\Arr;
 use PharData;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
+use PKP\install\PKPInstall;
 use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
@@ -156,9 +158,16 @@ class PluginHelper
      */
     protected function _getConnectionParams(): array
     {
+        $driver = PKPContainer::getDatabaseDriverName(Config::getVar('database', 'driver'));
+        
+        ['charset' => $connectionCharset] = PKPInstall::resolveConnectionParams(
+            $driver,
+            Config::getVar('i18n', 'connection_charset')
+        );
+
         return [
-            'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
-            'databaseDriver' => Config::getVar('database', 'driver'),
+            'connectionCharset' => $connectionCharset,
+            'databaseDriver' => $driver,
             'databaseHost' => Config::getVar('database', 'host'),
             'databasePort' => Config::getVar('database', 'port'),
             'unixSocket' => Config::getVar('database', 'unix_socket'),

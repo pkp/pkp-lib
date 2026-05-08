@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\invitation;
 
+use APP\core\Application;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
@@ -84,5 +85,21 @@ class AcceptUserDetailsForm extends FormComponent
                 'size' => 'large',
             ]));
 
+    }
+
+    /**
+     * @copydoc FormComponent::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        $config['primaryLocale'] = $sitePrimaryLocale;
+        $config['visibleLocales'] = [$sitePrimaryLocale];
+        $config['supportedFormLocales'] = collect($config['supportedFormLocales'])
+            ->sortBy([fn (array $a, array $b) => $b['key'] === $sitePrimaryLocale ? 1 : -1])
+            ->values()
+            ->toArray();
+        return $config;
     }
 }

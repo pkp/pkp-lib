@@ -114,7 +114,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
                     $context->getData('urlPath'),
                     'emailTemplates'
                 ),
-            'primaryLocale' => $context->getData('primaryLocale'),
+            'primaryLocale' => $request->getSite()->getPrimaryLocale(),
             'invitationType' => 'userRoleAssignment',
             'invitationPayload' => $invitationPayload,
             'invitationMode' => $invitationMode,
@@ -195,7 +195,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
                     $context->getData('urlPath'),
                     'emailTemplates'
                 ),
-            'primaryLocale' => $context->getData('primaryLocale'),
+            'primaryLocale' => $request->getSite()->getPrimaryLocale(),
             'invitationType' => 'userRoleAssignment',
             'invitationPayload' => $invitationPayload,
             'invitationMode' => $invitationMode,

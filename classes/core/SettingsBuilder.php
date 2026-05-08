@@ -135,8 +135,14 @@ class SettingsBuilder extends Builder
             fn (mixed $value, string $key) => in_array(Str::camel($key), $this->model->getSettings())
         );
 
-
-        $id = parent::insertGetId($primaryValues->toArray(), $sequence);
+        // Default to the model's PK column when no sequence is given. Without
+        // this, parent falls back to 'id' which breaks on PostgreSQL for any
+        // model whose primary key is not literally 'id' (RETURNING "id" →
+        // undefined column). Most of the ModelWithSettings consumers use <entity>_id as PK.
+        $id = parent::insertGetId(
+            $primaryValues->toArray(),
+            $sequence ?? $this->model->getKeyName()
+        );
 
         if ($settingValues->isEmpty()) {
             return $id;
@@ -238,6 +244,7 @@ class SettingsBuilder extends Builder
      * Overrides Illuminate\Database\Query\Builder to support settings in select queries
      *
      * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  mixed  $values
      * @param  string  $boolean
      * @param  bool  $not
      *
@@ -269,6 +276,7 @@ class SettingsBuilder extends Builder
      * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
      * @param  mixed  $values
      * @param  string  $boolean
+     * 
      * @return $this
      */
     public function whereNotIn($column, $values, $boolean = 'and')

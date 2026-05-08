@@ -43,6 +43,7 @@ class SettingsBuilderTest extends PKPTestCase
             $table->bigInteger('parent_id')->nullable();
         });
         Schema::create('test_settings_schema_entity_settings', function (Blueprint $table) {
+            $table->bigIncrements('test_settings_schema_entity_setting_id');
             $table->bigInteger('test_id');
             $table->foreign('test_id')->references('test_id')->on('test_settings_schema_entity')->onDelete('cascade');
             $table->string('locale', 14)->default('');
@@ -58,6 +59,7 @@ class SettingsBuilderTest extends PKPTestCase
             $table->bigInteger('parent_id')->nullable();
         });
         Schema::create('test_settings_pure_entity_settings', function (Blueprint $table) {
+            $table->bigIncrements('test_settings_pure_entity_setting_id');
             $table->bigInteger('test_id');
             $table->foreign('test_id')->references('test_id')->on('test_settings_pure_entity')->onDelete('cascade');
             $table->string('locale', 14)->default('');
@@ -190,7 +192,7 @@ class SettingsBuilderTest extends PKPTestCase
 
     public function testSchemaBasedNonMultilingualEmptyArrayUpdatesNotDeletes(): void
     {
-        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1]);
+        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1], 'test_id');
         DB::table('test_settings_schema_entity_settings')->insert([
             'test_id' => $modelId,
             'locale' => '',
@@ -613,7 +615,7 @@ class SettingsBuilderTest extends PKPTestCase
     public function testGetModelsInitializesMissingMultilingualSettingToEmptyArray(): void
     {
         // Insert a primary row with NO settings rows at all.
-        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1]);
+        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1], 'test_id');
 
         $model = TestSettingsSchemaModel::find($modelId);
 
@@ -671,7 +673,7 @@ class SettingsBuilderTest extends PKPTestCase
 
     private function seedSchemaModel(array $titleByLocale): int
     {
-        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1]);
+        $modelId = DB::table('test_settings_schema_entity')->insertGetId(['parent_id' => 1], 'test_id');
         foreach ($titleByLocale as $locale => $value) {
             DB::table('test_settings_schema_entity_settings')->insert([
                 'test_id' => $modelId,
@@ -685,7 +687,7 @@ class SettingsBuilderTest extends PKPTestCase
 
     private function seedPureModel(array $familyNameByLocale): int
     {
-        $modelId = DB::table('test_settings_pure_entity')->insertGetId(['parent_id' => 1]);
+        $modelId = DB::table('test_settings_pure_entity')->insertGetId(['parent_id' => 1], 'test_id');
         foreach ($familyNameByLocale as $locale => $value) {
             DB::table('test_settings_pure_entity_settings')->insert([
                 'test_id' => $modelId,

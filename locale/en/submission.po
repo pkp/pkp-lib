@@ -3363,6 +3363,29 @@ msgstr "Major Revision"
 msgid "publication.revisionSignificance.minor"
 msgstr "Minor Revision"
 
+msgid "publication.placement"
+msgstr "Placement"
+
+msgid "publication.publicationTiming"
+msgstr "Publication Timing"
+
+msgid "publication.versionAndUpdates"
+msgstr "Version and Updates"
+
+msgid "publication.display"
+msgstr "Display"
+
+msgid "publication.access"
+msgstr "Access"
+
+msgid "publication.insertContent.empty"
+msgstr "No saved summaries found for this submission's review revisions."
+
+msgid "publication.summaryOfChanges.description"
+msgstr ""
+"This will appear publicly as the version amendment notice. Ensure it "
+"accurately reflects the changes made in this version before publishing."
+
 msgid "publication.updateType.label"
 msgstr "Update Type"
 

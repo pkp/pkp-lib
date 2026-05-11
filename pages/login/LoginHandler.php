@@ -70,10 +70,9 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'loginMessage' => $request->getUserVar('loginMessage'),
-            'username' => $request->getSession()->get('email') ?? $request->getSession()->get('username'),
+            'username' => $request->getCookieVar('last_login_auth') ?? '',
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
-            'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
         ]);
 
         // For force_login_ssl with base_url[...]: make sure SSL used for login form
@@ -180,7 +179,6 @@ class LoginHandler extends Handler
             'username' => $username,
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
-            'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
             'error' => $error,
             'reason' => $reason,
         ]);

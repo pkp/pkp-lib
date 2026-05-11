@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-11 21:21+0000\n"
+"PO-Revision-Date: 2026-05-11 23:28+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -331,13 +331,13 @@ msgid "common.delete"
 msgstr "Briši"
 
 msgid "common.deleting"
-msgstr ""
+msgstr "Brisanje"
 
 msgid "common.deleteSelection"
 msgstr "Brisanje izbora"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Poništi izbor"
 
 msgid "common.designation"
 msgstr "Oznaka"
@@ -346,7 +346,7 @@ msgid "common.description"
 msgstr "Opis"
 
 msgid "common.details"
-msgstr ""
+msgstr "Detalji"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; izraženo u {$dpi} DPI/PPI"
@@ -355,10 +355,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} piksela"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Ne, odbaci nesačuvane izmene"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Isključeno"
 
 msgid "common.disable"
 msgstr "Onemogući"
@@ -379,22 +379,22 @@ msgid "common.downloadPdf"
 msgstr "Preuzmi PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Preuzmi izveštaj"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Prevucite i otpustite fajlove ovde."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Ili otpremite fajlove"
 
 msgid "common.edit"
 msgstr "Izmeni"
 
 msgid "common.editItem"
-msgstr ""
+msgstr "Uredi {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Šabloni imejla"
 
 msgid "common.enable"
 msgstr "Omogući"

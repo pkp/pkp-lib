@@ -1637,6 +1637,9 @@ msgstr "Homepage"
 msgid "manager.plugins.pluginGallery.summary"
 msgstr "Summary"
 
+msgid "manager.plugins.pluginGallery.locales.notInSupportedFormat"
+msgstr "Not in supported format"
+
 msgid "manager.plugins.pluginGallery.status"
 msgstr "Status"
 

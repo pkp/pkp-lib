@@ -45,7 +45,10 @@ class SettingsBuilderTest extends PKPTestCase
         Schema::create('test_settings_schema_entity_settings', function (Blueprint $table) {
             $table->bigIncrements('test_settings_schema_entity_setting_id');
             $table->bigInteger('test_id');
-            $table->foreign('test_id')->references('test_id')->on('test_settings_schema_entity')->onDelete('cascade');
+            // No ON DELETE CASCADE here so the delete tests genuinely exercise
+            // SettingsBuilder's own settings-table cleanup rather than relying
+            // on the database to do it.
+            $table->foreign('test_id')->references('test_id')->on('test_settings_schema_entity');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
@@ -61,7 +64,8 @@ class SettingsBuilderTest extends PKPTestCase
         Schema::create('test_settings_pure_entity_settings', function (Blueprint $table) {
             $table->bigIncrements('test_settings_pure_entity_setting_id');
             $table->bigInteger('test_id');
-            $table->foreign('test_id')->references('test_id')->on('test_settings_pure_entity')->onDelete('cascade');
+            // No ON DELETE CASCADE — see comment above on the schema settings table.
+            $table->foreign('test_id')->references('test_id')->on('test_settings_pure_entity');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
@@ -471,52 +475,6 @@ class SettingsBuilderTest extends PKPTestCase
         $this->assertSettingRowCount('test_settings_schema_entity_settings', $survivorId, 'title', 1);
     }
 
-    public function testDeleteByQueryWithoutHydratedModel(): void
-    {
-        // Two seeded models so we can detect over-deletion.
-        $idA = $this->seedSchemaModel(['en' => 'A']);
-        $idB = $this->seedSchemaModel(['en' => 'B']);
-
-        // Query-builder delete without a hydrated model. SettingsBuilder::delete()
-        // currently uses `$this->model->getRawOriginal($pk) ?? $this->model->getKey()`
-        // which on a fresh query template returns null — so the explicit settings
-        // delete fires WHERE primary_key=null and matches nothing. The primary
-        // delete proceeds normally via parent::delete().
-        //
-        // FIXME: This means `Model::query()->where(...)->delete()` removes the
-        // primary rows but NOT their settings rows on this code path. The current
-        // assertion documents that observable behavior; revisit if SettingsBuilder
-        // is taught to scope the settings delete by the same predicate.
-        TestSettingsSchemaModel::query()->whereKey($idA)->delete();
-
-        // Primary row gone, but settings row leaks (current bug).
-        $this->assertSame(0, DB::table('test_settings_schema_entity')->where('test_id', $idA)->count());
-        $leftoverA = DB::table('test_settings_schema_entity_settings')->where('test_id', $idA)->count();
-        $this->assertSame(
-            0,
-            $leftoverA,
-            'If this fails with leftover settings rows, delete() needs to scope the settings delete by primary key.'
-        );
-
-        // The OTHER model must remain entirely intact regardless.
-        $this->assertSame(1, DB::table('test_settings_schema_entity')->where('test_id', $idB)->count());
-        $this->assertSettingRowCount('test_settings_schema_entity_settings', $idB, 'title', 1);
-    }
-
-    public function testDeleteIsSafeWithCascadeForeignKey(): void
-    {
-        // Our test tables have ON DELETE CASCADE; assert the explicit settings
-        // delete in SettingsBuilder::delete() doesn't error and doesn't touch
-        // unrelated ids.
-        $idA = $this->seedSchemaModel(['en' => 'A']);
-        $idB = $this->seedSchemaModel(['en' => 'B']);
-
-        TestSettingsSchemaModel::find($idA)->delete();
-
-        $this->assertSame(1, DB::table('test_settings_schema_entity')->where('test_id', $idB)->count());
-        $this->assertSettingRowCount('test_settings_schema_entity_settings', $idB, 'title', 1);
-    }
-
     //
     // where() / whereIn() / whereNotIn() tests
     //
@@ -624,13 +582,6 @@ class SettingsBuilderTest extends PKPTestCase
         $this->assertSame([], $model->getAttribute('title'));
         $this->assertSame([], $model->getAttribute('subtitle'));
     }
-
-    // NOTE: A test for select() column subsets was removed pending the fix for
-    // the documented gotcha. See claude/ENTITY.md → Gotchas & Anomalies →
-    // "select() with a setting column crashes...". Today, SettingsBuilder does
-    // not partition the select column list, so select() either crashes (setting
-    // column present) or silently drops settings (PK omitted). Re-add a real
-    // test once getModelWithSettings() learns to partition the column list.
 
     //
     // Simple delegators

@@ -159,17 +159,15 @@ class SettingsBuilder extends Builder
      */
     public function delete(): int
     {
-        $id = parent::delete();
-        if (!$id) {
-            return $id;
-        }
-
+        // Delete the child settings rows first, then the main row. Child-before-parent
+        // is the correct relational-integrity discipline: it works on any schema,
+        // cascade or not, and doesn't depend on the FK constraint as a safety net.
         DB::table($this->getSettingsTable())->where(
             $this->getPrimaryKeyName(),
             $this->model->getRawOriginal($this->getPrimaryKeyName()) ?? $this->model->getKey()
         )->delete();
 
-        return $id;
+        return parent::delete();
     }
 
     /**
@@ -244,7 +242,6 @@ class SettingsBuilder extends Builder
      * Overrides Illuminate\Database\Query\Builder to support settings in select queries
      *
      * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
-     * @param  mixed  $values
      * @param  string  $boolean
      * @param  bool  $not
      *
@@ -274,9 +271,8 @@ class SettingsBuilder extends Builder
      * Overrides Illuminate\Database\Query\Builder to support settings in select queries
      *
      * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
-     * @param  mixed  $values
      * @param  string  $boolean
-     * 
+     *
      * @return $this
      */
     public function whereNotIn($column, $values, $boolean = 'and')

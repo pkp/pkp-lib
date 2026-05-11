@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2026-05-11 21:21+0000\n"
+"PO-Revision-Date: 2026-05-11 23:28+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/sr_Latn/>\n"
@@ -773,3 +773,34 @@ msgstr ""
 "časopisa.</p>        <p>Srdačan pozdrav,</p>        <p>{$contextName}</"
 "p>       </div>\n"
 "</div>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr ""
+"Vaše ime će biti prikazano u impresumu časopisa {$contextName} kao "
+"{$sectionName}."
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Već dodeljene uloge</h2></p>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Ovo je ime primaoca poziva"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Ovo je ime pošiljaoca poziva"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Ovo je uloga pošiljaoca poziva"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Ovaj deo opisuje uloge koje korisnik već ima."
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Ovo je URL za prihvatanje poziva"
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Nove dodeljene uloge</h2><p>"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Ovaj deo opisuje uloge koje će korisniku biti dodeljene nakon prihvatanja "
+"poziva"

@@ -337,6 +337,7 @@
 		"seq": {
 			"type": "integer",
 			"default": 0,
+			"apiSummary": true,
 			"validation": [
 				"nullable"
 			]

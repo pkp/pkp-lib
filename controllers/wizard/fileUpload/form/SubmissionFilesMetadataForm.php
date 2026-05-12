@@ -207,8 +207,12 @@ class SubmissionFilesMetadataForm extends Form
             'name' => $this->getData('name'),
         ];
 
-        // Summary of changes: only persisted for Review Revision uploads.
-        if ($this->getSubmissionFile()->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
+        // Summary of changes: only persisted for Review Revision uploads (external/internal).
+        $reviewRevisionFileStages = [
+            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+        ];
+        if (in_array($this->getSubmissionFile()->getData('fileStage'), $reviewRevisionFileStages)) {
             $props['summaryOfChanges'] = $this->getData('summaryOfChanges');
         }
 

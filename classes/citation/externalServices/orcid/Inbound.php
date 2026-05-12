@@ -40,6 +40,8 @@ class Inbound
      */
     public function getAuthor(array $author): ?array
     {
+        $this->statusCode = 200;
+
         $response = ExternalServicesHelper::apiRequest(
             $this->url . '/' . urlencode(Orcid::removePrefix($author['orcid'])),
             ['headers' => ['mailto' => $this->contactEmail]]

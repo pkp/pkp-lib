@@ -17,8 +17,8 @@
 namespace PKP\citation\pid;
 
 use PKP\citation\Citation;
-use PKP\pid\Doi;
 use PKP\pid\Arxiv;
+use PKP\pid\Doi;
 use PKP\pid\Handle;
 use PKP\pid\Url;
 use PKP\pid\Urn;

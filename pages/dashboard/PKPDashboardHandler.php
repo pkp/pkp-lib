@@ -25,10 +25,10 @@ use APP\template\TemplateManager;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\components\forms\citation\CitationRawEditForm;
 use PKP\components\forms\citation\CitationStructuredEditForm;
-use PKP\components\forms\decision\LogReviewerResponseForm;
-use PKP\components\forms\publication\ContributorForm;
 use PKP\components\forms\dataCitation\DataCitationEditForm;
+use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\funder\FunderEditForm;
+use PKP\components\forms\publication\ContributorForm;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -47,8 +47,8 @@ use PKP\submission\DashboardView;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submissionFile\SubmissionFile;
 use PKP\submissionFile\enums\MediaVariantType;
+use PKP\submissionFile\SubmissionFile;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -338,6 +338,7 @@ abstract class PKPDashboardHandler extends Handler
             'SUBMISSION_LOG_TASK_NOTE_POSTED' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
 
             'citationProcessingStatus' => [
+                'FAILED' => CitationProcessingStatus::FAILED->value,
                 'NOT_PROCESSED' => CitationProcessingStatus::NOT_PROCESSED->value,
                 'PID_EXTRACTED' => CitationProcessingStatus::PID_EXTRACTED->value,
                 'CROSSREF' => CitationProcessingStatus::CROSSREF->value,

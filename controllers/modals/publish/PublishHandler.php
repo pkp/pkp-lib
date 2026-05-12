@@ -99,10 +99,11 @@ class PublishHandler extends Handler
         $primaryLocale = $submissionContext->getPrimaryLocale();
         $allowedLocales = $submissionContext->getSupportedSubmissionLocales();
         $errors = Repo::publication()->validatePublish($this->publication, $this->submission, $allowedLocales, $primaryLocale);
+        $warnings = Repo::publication()->validatePublishWarnings($this->publication, $this->submission, $allowedLocales, $primaryLocale);
 
         $publicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $this->submission->getId() . '/publications/' . $this->publication->getId() . '/publish');
 
-        $publishForm = new PublishForm($publicationApiUrl, $this->publication, $submissionContext, $errors);
+        $publishForm = new PublishForm($publicationApiUrl, $this->publication, $submissionContext, $errors, $warnings);
 
         $settingsData = [
             'components' => [

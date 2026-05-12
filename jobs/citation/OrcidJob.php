@@ -3,8 +3,8 @@
 /**
  * @file jobs/citation/OrcidJob.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OrcidJob
@@ -72,13 +72,16 @@ class OrcidJob extends BaseJob
 
             if (empty($authorChanged)) {
                 switch ($service->statusCode) {
-                    case '404':
+                    case 404:
                         $author['orcid'] = '';
                         break;
-                    case '408':
-                    case '504':
+                    case 408:
+                    case 504:
                         throw new JobException(__('admin.job.failed.connection.externalService', [
                             'statusCode' => $service->statusCode]));
+                    case 429:
+                        $this->release(60);
+                        return;
                 }
                 $authorsChanged[] = $author;
                 continue;

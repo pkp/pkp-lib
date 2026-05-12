@@ -3,8 +3,8 @@
 /**
  * @file jobs/citation/OpenAlexJob.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OpenAlexJob
@@ -59,11 +59,14 @@ class OpenAlexJob extends BaseJob
 
         if (empty($citationChanged)) {
             switch ($service->statusCode) {
-                case '408':
-                case '504':
+                case 408:
+                case 504:
                     throw new JobException(__('admin.job.failed.connection.externalService', [
                         'statusCode' => $service->statusCode]));
-                case '404':
+                case 429:
+                    $this->release(60);
+                    return;
+                case 404:
                 default:
                     return;
             }

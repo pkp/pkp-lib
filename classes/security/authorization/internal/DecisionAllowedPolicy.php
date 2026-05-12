@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/DecisionAllowedPolicy.php
  *
@@ -17,6 +18,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -69,17 +71,23 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
                 if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                     continue;
                 }
-                if (Repo::decision()->isRecommendation($decisionType->getDecision()) && $stageAssignment->getRecommendOnly()) {
+
+                $decision = $decisionType->getDecision();
+                if (
+                    !$stageAssignment->getRecommendOnly() ||
+                    $decision === Decision::NEW_EXTERNAL_ROUND ||
+                    $decision === Decision::NEW_INTERNAL_ROUND ||
+                    Repo::decision()->isRecommendation($decision)
+                ) {
                     $isAllowed = true;
-                } elseif (!$stageAssignment->getRecommendOnly()) {
-                    $isAllowed = true;
+                    break;
                 }
 
                 // Check whether there is a decision that a recommending role can make on the stage the submission is in.
                 $recommendatorsAvailableDecisions = Repo::decision()
                     ->getDecisionTypesMadeByRecommendingUsers($submission->getData('stageId'));
-                
-                // if there is any decision that the recommending role is allowed to make, check if the current decision is within the allowed ones 
+
+                // if there is any decision that the recommending role is allowed to make, check if the current decision is within the allowed ones
                 if (!empty($recommendatorsAvailableDecisions)) {
                     $matches = array_filter($recommendatorsAvailableDecisions, function ($decisionInArray) use ($decisionType) {
                         return $decisionInArray->getDecision() === $decisionType->getDecision();

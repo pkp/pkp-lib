@@ -67,6 +67,11 @@ class EditorialTaskEmailVariable extends Variable
             return '';
         }
         $taskOwner = Repo::user()->get($this->editorialTask->participants->where('isResponsible', true)->pluck('userId')->first());
+
+        if (!$taskOwner) {
+            return '';
+        }
+
         return htmlspecialchars($taskOwner->getFullName());
     }
 

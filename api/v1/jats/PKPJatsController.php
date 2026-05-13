@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\middleware\DecodeApiTokenWithValidation;
 use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
@@ -39,6 +40,7 @@ use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\internal\PublicationIsSubmissionPolicy;
 use PKP\security\authorization\internal\PublicationRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
 
@@ -283,6 +285,28 @@ class PKPJatsController extends PKPBaseController
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
+        }
+
+        // Enforce context-level restrictArticleAccess if the context requires
+        // readers to log in for open-access content redirect anonymous
+        // browser requests to the login page, return JSON 403 when an API token
+        // was sent but didn't authenticate anyone.
+        //
+        // $illuminateRequest->user() covers session-authenticated requests
+        // (resolver set by DecodeApiTokenWithValidation before it bails on routes
+        // without `has.user`). resolveApiUser() covers token-authenticated requests
+        // on this public route, where the middleware skips JWT decoding.
+        $context = $this->getRequest()->getContext();
+        $authenticatedUser = $illuminateRequest->user()
+            ?? DecodeApiTokenWithValidation::resolveApiUser($illuminateRequest);
+
+        if ($context && $context->getData('restrictArticleAccess') && !$authenticatedUser) {
+            if (DecodeApiTokenWithValidation::getApiToken($illuminateRequest) !== null) {
+                return response()->json([
+                    'error' => __('user.authorization.restrictedSiteAccess'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+            Validation::redirectLogin();
         }
 
         $isPublished = $publication->getData('status') == PKPPublication::STATUS_PUBLISHED;

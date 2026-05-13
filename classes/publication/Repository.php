@@ -304,11 +304,6 @@ abstract class Repository
 
     /**
      * Perform validations that should be treated as warnings instead of errors.
-     * @param Publication $publication
-     * @param Submission $submission
-     * @param array $allowedLocales
-     * @param string $primaryLocale
-     * @return array
      */
     public function validatePublishWarnings(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
     {

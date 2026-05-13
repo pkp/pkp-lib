@@ -11,6 +11,16 @@
 
 {assign var="uuid" value=""|uniqid|escape}
 <div id="publish-{$uuid}" class="pkpWorkflow__publishModal">
+  {if $publishWarnings}
+    <div class="pkpNotification pkpNotification--warning">
+      <strong>{translate key="publication.publish.warning"}</strong>
+        <ul class="list-disc ml-4">
+          {foreach from=$publishWarnings item=warning}
+            <li>{$warning}</li>
+          {/foreach}
+        </ul>
+    </div>
+  {/if}
   <pkp-form v-bind="components.{APP\components\forms\publication\PublishForm::FORM_PUBLISH}" @set="set" />
 	<script type="text/javascript">
 		pkp.registry.init('publish-{$uuid}', 'Container', {$publishData|json_encode});

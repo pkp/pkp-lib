@@ -100,10 +100,9 @@ class PublishHandler extends Handler
         $allowedLocales = $submissionContext->getSupportedSubmissionLocales();
         $errors = Repo::publication()->validatePublish($this->publication, $this->submission, $allowedLocales, $primaryLocale);
         $warnings = Repo::publication()->validatePublishWarnings($this->publication, $this->submission, $allowedLocales, $primaryLocale);
-
         $publicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getPath(), 'submissions/' . $this->submission->getId() . '/publications/' . $this->publication->getId() . '/publish');
 
-        $publishForm = new PublishForm($publicationApiUrl, $this->publication, $submissionContext, $errors, $warnings);
+        $publishForm = new PublishForm($publicationApiUrl, $this->publication, $submissionContext, $errors);
 
         $settingsData = [
             'components' => [
@@ -112,7 +111,10 @@ class PublishHandler extends Handler
         ];
 
         $templateMgr->registerClass(PublishForm::class, PublishForm::class);
-        $templateMgr->assign('publishData', $settingsData);
+        $templateMgr->assign([
+            'publishData' => $settingsData,
+            'publishWarnings' => $warnings,
+        ]);
 
         return $templateMgr->fetchJson('controllers/modals/publish/publish.tpl');
     }

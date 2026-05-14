@@ -471,9 +471,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $context = $this->getRequest()->getContext();
         $user = $request->getUser();
 
-        if ($user->hasRole([Role::ROLE_ID_AUTHOR], $context->getId())) {
-            $userId = $request->getUser()->getId();
-            $collector->assignedTo([$userId]);
+        if (!$this->canAccessAllSubmissions()) {
+            $collector->assignedTo([$user->getId()]);
         }
 
         $submissions = $collector->getMany()->all();

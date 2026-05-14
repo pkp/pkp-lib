@@ -579,6 +579,11 @@ abstract class Repository
      */
     public function canPreview(?User $user, Submission $submission): bool
     {
+        // Incomplete submissions cannot be previewed.
+        if ($submission->getData('submissionProgress')) {
+            return false;
+        }
+
         if ($this->_roleCanPreview($user, $submission)) {
             return true;
         }

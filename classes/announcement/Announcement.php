@@ -389,7 +389,7 @@ class Announcement extends Model
         $extension = pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION);
         if ($extension === 'jpeg') {
   		$extension = 'jpg';
-	}
+	} 
 	$fileManager = new FileManager();
         $extensionFromMimeType = $fileManager->getImageExtension(
             PKPString::mime_content_type($temporaryFile->getFilePath())

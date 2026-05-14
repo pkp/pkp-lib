@@ -14,7 +14,9 @@
 
 namespace PKP\editorialTask;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -28,6 +30,7 @@ use PKP\core\traits\ModelWithSettings;
 use PKP\note\Note;
 use PKP\note\SaveNoteWithFiles;
 use PKP\notification\Notification;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class EditorialTask extends Model
 {
@@ -414,6 +417,8 @@ class EditorialTask extends Model
         // Check whether a headnote already exists
         $headnote = $this->notes()->where('is_headnote', true)->first();
 
+        $this->compileDescription($headnote);
+
         if (!$headnote) {
             return $this->notes()->save($this->headnote);
         }
@@ -424,5 +429,63 @@ class EditorialTask extends Model
         ]);
 
         return $headnote;
+    }
+
+    /**
+     * Compile the description using email template variables.
+     */
+    protected function compileDescription(?Note $headnote = null): void
+    {
+        if (is_null($headnote)) {
+            $headnote = $this->headnote;
+        }
+
+        $submission = Repo::submission()->get((int) $this->assocId);
+        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
+
+        $userIds = $this->participants->pluck('userId')->all();
+        $users = Repo::user()->getCollector()->filterByUserIds($userIds)
+            ->getMany();
+
+        $sender = null;
+        $recipients = [];
+        foreach ($users as $user) {
+            if ($user->getId() == $headnote->userId) {
+                $sender = $user;
+                continue;
+            }
+            $recipients[] = $user;
+        }
+
+        $mailable = (new TemplateVariables($this, $submission, $context))
+            ->sender($sender)
+            ->recipients($recipients)
+            ->body($this->headnote->contents);
+
+        $mailable->setData();
+
+        if ($this->anonymizeAuthors($submission)) {
+            unset($mailable->viewData['authors'], $mailable->viewData['authorsShort']);
+        }
+
+        $this->headnote->contents = $mailable->render();
+    }
+
+    /**
+     * Check if the authors of the submission should be anonymized for the current user
+     * keeping simple, do that if user has a reviewer role with a double anonymous method
+     */
+    protected function anonymizeAuthors(Submission $submission): bool
+    {
+        $user = Application::get()->getRequest()?->getUser();
+        if (!$user) {
+            return false;
+        }
+
+        return Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([(int) $submission->getId()])
+            ->filterByReviewerIds([$user->getId()])
+            ->filterByReviewMethods([ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])
+            ->getCount() > 0;
     }
 }

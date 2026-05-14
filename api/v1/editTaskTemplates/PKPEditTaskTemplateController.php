@@ -28,6 +28,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Template;
+use PKP\editorialTask\TemplateVariables;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -57,6 +58,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
             Route::post('', $this->add(...));
             Route::put('{templateId}', $this->update(...))->whereNumber('templateId');
             Route::delete('{templateId}', $this->delete(...))->whereNumber('templateId');
+            Route::get('variables', $this->getVariables(...));
         });
 
         Route::middleware([
@@ -284,4 +286,15 @@ class PKPEditTaskTemplateController extends PKPBaseController
         );
     }
 
+    /**
+     * Get available email template variables with their description
+     */
+    public function getVariables(Request $illuminateRequest): JsonResponse
+    {
+        $dataDescriptions = TemplateVariables::getDataDescriptions();
+
+        return response()->json([
+            $dataDescriptions,
+        ], Response::HTTP_OK);
+    }
 }

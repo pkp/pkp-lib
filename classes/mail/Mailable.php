@@ -42,11 +42,13 @@ use PKP\context\Context;
 use PKP\context\LibraryFile;
 use PKP\context\LibraryFileDAO;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\DecisionEmailVariable;
+use PKP\mail\variables\EditorialTaskEmailVariable;
 use PKP\mail\variables\QueuedPaymentEmailVariable;
 use PKP\mail\variables\RecipientEmailVariable;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
@@ -319,6 +321,8 @@ class Mailable extends IlluminateMailable
      * Method's implementation is required for Mailable to be sent according to Laravel docs
      *
      * @see \Illuminate\Mail\Mailable::send(), https://laravel.com/docs/7.x/mail#writing-mailables
+     *
+     * @hook Mailable::build ['mailable' => $this]
      */
     public function build(): self
     {
@@ -379,7 +383,7 @@ class Mailable extends IlluminateMailable
     {
         $this->subject ??= ''; // Allow email with empty subject if not set
         $withoutTagViewData = collect($this->viewData)
-            ->map(fn(mixed $viewableData) => is_string($viewableData) ? strip_tags($viewableData) : $viewableData)
+            ->map(fn (mixed $viewableData) => is_string($viewableData) ? strip_tags($viewableData) : $viewableData)
             ->toArray();
 
         $subject = app('mailer')->compileParams($this->subject, $withoutTagViewData);
@@ -413,6 +417,7 @@ class Mailable extends IlluminateMailable
                 ReviewAssignment::class => ReviewAssignmentEmailVariable::class,
                 QueuedPayment::class => QueuedPaymentEmailVariable::class,
                 Site::class => SiteEmailVariable::class,
+                EditorialTask::class => EditorialTaskEmailVariable::class,
             ];
     }
 

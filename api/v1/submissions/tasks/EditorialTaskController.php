@@ -371,10 +371,10 @@ class EditorialTaskController extends PKPBaseController
         $currentUser = $this->getRequest()->getUser();
         $oldParticipantIds = $editTask->participants->pluck('userId')->toArray();
         $headnote = $editTask->notes->where(fn (Note $note) => $note->isHeadnote == true)->first();
-        $oldFiles = Repo::submissionFile()->getCollector()
+        $oldFiles = $headnote ? Repo::submissionFile()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$headnote->id])
             ->getMany()
-            ->toArray();
+            ->toArray() : [];
         $oldDueDate = $editTask->dateDue;
         $oldOwner = $editTask->participants->where('isResponsible', true)->first();
 

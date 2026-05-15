@@ -87,6 +87,7 @@ msgstr ""
 "Faga clic nos nomes de arquivos de abaixo para descargar os ficheiros "
 "asociados a este envío."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Insira (ou pegue) a súa revisión deste envío no seguinte formulario."
 

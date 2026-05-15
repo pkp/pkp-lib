@@ -90,6 +90,7 @@ msgstr ""
 "Egin klik beheko fitxategi izenen gainean bidalketa honekin lotutako "
 "fitxategiak deskargatzeko."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Sartu (edo itsatsi) bidalketaren ebaluazioa beheko inprimakian."
 

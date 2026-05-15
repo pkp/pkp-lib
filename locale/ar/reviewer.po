@@ -88,6 +88,7 @@ msgstr "هذا الناشر لم يضع أي إرشادات تحكيم بعد."
 msgid "reviewer.submission.downloadDescription"
 msgstr "أنقر على أسماء الملفات المتعلقة بطلب النشر هذا أدناه لتزيلها."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "أدخل (أو إلصق) تحكيمك لطلب النشر هذا في النموذج أدناه."
 

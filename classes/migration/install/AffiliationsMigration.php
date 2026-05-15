@@ -27,6 +27,7 @@ class AffiliationsMigration extends Migration
     {
         Schema::create('author_affiliations', function (Blueprint $table) {
             $table->comment('Author affiliations');
+            
             $table->bigInteger('author_affiliation_id')->autoIncrement();
             $table->bigInteger('author_id');
             $table->string('ror')->nullable();

@@ -30,7 +30,7 @@ use PKP\jobs\citation\ExtractPidsJob;
 use PKP\jobs\citation\IsProcessedJob;
 use PKP\jobs\citation\OpenAlexJob;
 use PKP\jobs\citation\OrcidJob;
-use PKP\pid\Doi;
+use PKP\citation\pid\Doi;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -341,11 +341,11 @@ class Repository
         $contactEmail = $context->getContactEmail();
 
         $jobs = [
-            new ExtractPidsJob($context->getId(), $citation->getId()),
-            new CrossrefJob($context->getId(), $citation->getId(), $contactEmail),
-            new OpenAlexJob($context->getId(), $citation->getId(), $contactEmail),
-            new OrcidJob($context->getId(), $citation->getId(), $contactEmail),
-            new IsProcessedJob($context->getId(), $citation->getId())
+            new ExtractPidsJob($citation->getId(), $context->getId()),
+            new CrossrefJob($citation->getId(), $contactEmail, $context->getId()),
+            new OpenAlexJob($citation->getId(), $contactEmail, $context->getId()),
+            new OrcidJob($citation->getId(), $contactEmail, $context->getId()),
+            new IsProcessedJob($citation->getId(), $context->getId()),
         ];
 
         Bus::chain($jobs)

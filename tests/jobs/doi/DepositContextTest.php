@@ -45,6 +45,16 @@ class DepositContextTest extends PKPTestCase
     }
 
     /**
+     * Test job is a proper context aware job instance and getContextId returns expected value
+     */
+    public function testUnserializationGetProperContextId(): void
+    {
+        $job = unserialize($this->serializedJobData);
+        $this->assertInstanceOf(\PKP\queue\ContextAwareJob::class, $job);
+        $this->assertIsInt($job->getContextId());
+    }
+
+    /**
      * Ensure that a serialized job can be unserialized and executed
      */
     public function testRunSerializedJob(): void

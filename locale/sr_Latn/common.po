@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-11 23:28+0000\n"
+"PO-Revision-Date: 2026-05-15 22:05+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -456,22 +456,22 @@ msgstr ""
 "procesa. Kontaktirajte administratora za podršku."
 
 msgid "common.filter"
-msgstr ""
+msgstr "Filteri"
 
 msgid "common.filterAdd"
-msgstr ""
+msgstr "Dodaj filter: {$filterTitle}"
 
 msgid "common.filterRemove"
-msgstr ""
+msgstr "Obriši filter: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Pronađi šablon"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formatiranje"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geografski"
 
 msgid "common.go"
 msgstr "Idi"
@@ -501,13 +501,13 @@ msgid "common.inProgress"
 msgstr "U toku"
 
 msgid "common.insert"
-msgstr ""
+msgstr "Unesi"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Unesi sadržaj"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Pronađi sadržaj za unos"
 
 msgid "common.itemsPerPage"
 msgstr "Elemenata po stranici"
@@ -516,7 +516,7 @@ msgid "common.keywords"
 msgstr "Ključne reči"
 
 msgid "common.label"
-msgstr ""
+msgstr "Oznaka"
 
 msgid "common.language"
 msgstr "Jezik"
@@ -525,22 +525,22 @@ msgid "common.languages"
 msgstr "Jezici"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Poslednji put sačuvano {$when}"
 
 msgid "common.lastActivity"
-msgstr ""
+msgstr "Poslednja aktivnost je zabeležena {$date}."
 
 msgid "common.less"
 msgstr "Manje"
 
 msgid "common.lessThan"
-msgstr ""
+msgstr "{$value} ili manje"
 
 msgid "common.lessThanOnly"
-msgstr ""
+msgstr "manje od"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Nastavi da radiš"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -2258,3 +2258,12 @@ msgstr "Promeni jezik"
 
 msgid "common.yesContinue"
 msgstr "Da, nastavite"
+
+msgid "common.filtersClear"
+msgstr "Obriši filtere"
+
+msgid "common.highlights"
+msgstr "Istaknuto"
+
+msgid "common.highlight"
+msgstr "Istakni"

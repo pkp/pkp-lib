@@ -1684,6 +1684,12 @@ msgid "manager.plugins.versionFileNotFound"
 msgstr ""
 "El archivo version.xml no se pudo encontrar en el directorio de módulos"
 
+msgid "manager.plugins.incompatiblePlugin.application"
+msgstr "La versión del módulo no es compatible con esta aplicación"
+
+msgid "manager.plugins.incompatiblePlugin.version"
+msgstr "La versión del módulo no es compatible con la versión de esta aplicación"
+
 msgid "notification.localeEnabled"
 msgstr "Configuración regional habilitada."
 

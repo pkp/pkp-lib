@@ -3676,3 +3676,6 @@ msgstr "Submit Your Response to Reviewer Feedback"
 
 msgid "editor.submission.reviewRound.responseWasSubmitted"
 msgstr "A response was submitted by {$userFullName}"
+
+msgid "publication.publish.warning"
+msgstr "The following issues were found, but will not prevent publishing"

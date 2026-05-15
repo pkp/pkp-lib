@@ -63,6 +63,23 @@ class DepositSubmission extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        $this->agency->depositSubmissions([$submission], $this->context);
+        $submissionDepositResults = $this->agency->depositSubmissions([$submission], $this->context);
+
+        if($submissionDepositResults['hasErrors']) {
+            throw new JobException($submissionDepositResults['responseMessage']);
+        }
+
+        // Deposit Submission's associated Peer Review if Peer Review DOIs are enabled in Context and Agency
+        if (
+            in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->agency->getAllowedDoiTypes()) &&
+            in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->context->getData(Context::SETTING_ENABLED_DOI_TYPES))
+        ) {
+            $depositablePeerReviewIds = Repo::reviewAssignment()
+                ->getExportableDOIsPeerReviewIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
+
+            foreach ($depositablePeerReviewIds as $peerReviewId) {
+                dispatch(new DepositPeerReview($peerReviewId, $this->context, $this->agency, $this->submissionId));
+            }
+        }
     }
 }

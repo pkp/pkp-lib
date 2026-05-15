@@ -289,4 +289,13 @@ class Repository
     {
         return $this->dao->getExternalReviewerIdsByCompletedYear($contextId, $year);
     }
+
+    /** @copydoc DAO::getExportableDOIsPeerReviewIds()
+     *
+     * @return array - Array of exportable peer review IDs.
+     */
+    public function getExportableDOIsPeerReviewIds(int $contextId,  bool $doiVersioning, ?array $submissionIds = null): array
+    {
+        return $this->dao->getExportableDOIsPeerReviewIds($contextId, $doiVersioning, $submissionIds);
+    }
 }

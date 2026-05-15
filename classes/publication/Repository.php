@@ -44,6 +44,7 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
@@ -1148,10 +1149,8 @@ abstract class Repository
      * Get review-related DOI data grouped by publication ID.
      *
      * @param int[] $publicationIds
-     *
-     * @throws \Exception
-     *
      * @return array<int, array<array{pubObjectType: string, pubObjectId: int, doiObject: Doi|null}>>
+     * @throws \Exception
      */
     public function getReviewDoiItemsGroupedByPublication(array $publicationIds): array
     {
@@ -1176,10 +1175,10 @@ abstract class Repository
         $result = array_fill_keys($publicationIds, []);
 
         // ReviewAssignments with DOIs
+        /** @var ReviewAssignment[] $assignments */
         $assignments = Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
-            ->filterByCompleted(true)
             ->getMany();
 
         foreach ($assignments as $assignment) {

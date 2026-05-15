@@ -20,6 +20,7 @@ namespace PKP\API\v1\dois;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\galley\Galley;
+use APP\plugins\IDoiRegistrationAgency;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -45,6 +46,7 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 
 class PKPDoiController extends PKPBaseController
@@ -417,7 +419,6 @@ class PKPDoiController extends PKPBaseController
 
         $validIds = Repo::publication()
             ->getExportableDOIsSubmissionIds($context->getId(), $context->getData(Context::SETTING_DOI_VERSIONING));
-
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
             return response()->json([
@@ -437,6 +438,7 @@ class PKPDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+
         $agency = $context->getConfiguredDoiAgency();
         if ($agency === null) {
             return response()->json([
@@ -445,17 +447,57 @@ class PKPDoiController extends PKPBaseController
         }
 
         // Invoke IDoiRegistrationAgency::exportSubmissions
-        $responseData = $agency->exportSubmissions($submissions, $context);
+        $submissionsData = $agency->exportSubmissions($submissions, $context);
 
-        if (!empty($responseData['xmlErrors'])) {
+        if (!empty($submissionsData['xmlErrors'])) {
             return response()->json([
                 'error' => __('api.dois.400.xmlExportFailed')
             ], Response::HTTP_BAD_REQUEST);
         }
 
+        $temporaryFileIds = [];
+
+        if (!empty($submissionsData)) {
+            $temporaryFileIds[] = $submissionsData['temporaryFileId'];
+        }
+
+        if (
+            in_array(Repo::doi()::TYPE_PEER_REVIEW, $agency->getAllowedDoiTypes()) &&
+            in_array(Repo::doi()::TYPE_PEER_REVIEW, $context->getData(Context::SETTING_ENABLED_DOI_TYPES))
+        ) {
+            $submissionIds = array_map(fn(Submission $submission) => $submission->getId(), $submissions);
+            $peerReviewsData = $this->getPeerReviewExports($submissionIds, $context, $agency);
+
+            if (!empty($peerReviewsData['xmlErrors'])) {
+                return response()->json([
+                    'error' => __('api.dois.400.xmlExportFailed')
+                ], Response::HTTP_BAD_REQUEST);
+            }
+
+            if (!empty($peerReviewsData)) {
+                $temporaryFileIds[] = $peerReviewsData['temporaryFileId'];
+            }
+        }
+
+
         return response()->json([
-            'temporaryFileId' => $responseData['temporaryFileId']
+            'temporaryFileIds' => $temporaryFileIds
         ], Response::HTTP_OK);
+    }
+
+
+    /**
+     * Prepare the associated Peer Review DOI XML export for a list of submission IDs.
+     * This method should be implemented at the app level if peer review DOIs are supported.
+     * @param array $submissionIds - ID of the submissions for which the associated Peer Review DOI XML export should be generated.
+     * @param Context $context - The context in which the export is being performed.
+     * @param IDoiRegistrationAgency $agency - The DOI registration agency responsible for the export.
+     * @return array{ temporaryFileId: int|string, xmlErrors: array } - An array containing the temporary file ID and any XML errors encountered during export.
+     *
+     */
+    public function getPeerReviewExports(array $submissionIds, Context $context, IDoiRegistrationAgency $agency): array
+    {
+        return [];
     }
 
     /**

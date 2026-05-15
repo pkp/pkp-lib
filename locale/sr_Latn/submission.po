@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-03-04 16:43+0000\n"
+"PO-Revision-Date: 2026-05-15 22:05+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -577,6 +577,7 @@ msgstr "\"{$userFullName}\" ({$username}) je dodeljen predaji kao {$userGroupNam
 
 msgid "submission.event.participantRemoved"
 msgstr ""
+"„{$userFullName}“ ({$username}) je uklonjen/a iz uloge {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Povratak na log dešavanja"

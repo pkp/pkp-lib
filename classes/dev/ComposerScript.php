@@ -35,6 +35,41 @@ class ComposerScript
     }
 
     /**
+     * A post-install-cmd custom composer script that publishes
+     * vendor package assets (e.g., log-viewer) to the public directory.
+     */
+    public static function publishPackageAssets(): void
+    {
+        // dirname(__FILE__, 3) resolves to lib/pkp/ since this is called by Composer
+        // where Core::getBaseDir() / base_path() are not available.
+        $pkpBase = dirname(__FILE__, 3);
+        $appBase = dirname($pkpBase, 2);
+        $publicPath = $appBase . '/public';
+
+        // Manually load the publishable package classes — composer post-install
+        // runs before the OJS autoloader is registered.
+        $publishablePackageDir = $pkpBase . '/classes/core/publishablePackage';
+        require_once $publishablePackageDir . '/PublishablePackage.php';
+        require_once $publishablePackageDir . '/PublishablePackageRegistry.php';
+        require_once $publishablePackageDir . '/PackageAssetPublisher.php';
+
+        foreach (\PKP\core\publishablePackage\PublishablePackageRegistry::all() as $package) {
+            $result = \PKP\core\publishablePackage\PackageAssetPublisher::publish(
+                $package,
+                $appBase,
+                $publicPath
+            );
+
+            echo match ($result['reason']) {
+                null => 'Published ' . count($result['copied']) . " asset file(s) for package '{$package->name}'.\n",
+                'source_missing' => "Warning: source directory not found for package '{$package->name}': {$result['source']}. Skipping asset publishing.\n",
+                'public_not_writable' => "Warning: public/ directory is not writable. Skipping asset publishing for '{$package->name}'.\n",
+                default => "Warning: failed to publish '{$package->name}' ({$result['reason']}).\n",
+            };
+        }
+    }
+
+    /**
      * A post-install-cmd custom composer script that
      * creates languages.json from downloaded Weblate languages.csv.
      */

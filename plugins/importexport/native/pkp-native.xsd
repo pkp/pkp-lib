@@ -386,7 +386,7 @@
 	<element name="agencies">
 		<complexType>
 			<sequence>
-				<element name="keyword" type="pkp:ControlledVocabEntryType" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="agency" type="pkp:ControlledVocabEntryType" minOccurs="1" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="locale" type="string"/>
 		</complexType>
@@ -402,7 +402,7 @@
 	<element name="disciplines">
 		<complexType>
 			<sequence>
-				<element name="keyword" type="pkp:ControlledVocabEntryType" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="discipline" type="pkp:ControlledVocabEntryType" minOccurs="1" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="locale" type="string"/>
 		</complexType>
@@ -410,7 +410,7 @@
 	<element name="subjects">
 		<complexType>
 			<sequence>
-				<element name="keyword" type="pkp:ControlledVocabEntryType" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="subject" type="pkp:ControlledVocabEntryType" minOccurs="1" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="locale" type="string"/>
 		</complexType>

@@ -35,7 +35,14 @@ class FieldText extends Field
     /** @var string A prefix to display before the input value */
     public $prefix = '';
 
-    /** @var string|null The HTML autocomplete attribute. Defaults to 'off' for password fields in the frontend. */
+    /** 
+     * HTML autocomplete attribute. Pass 'off' to trigger the hardened suppression profile in the Vue component 
+     * (emits autocomplete="new-password" for password inputs plus vendor opt-out data-* attributes 
+     * for 1Password, LastPass, Bitwarden, and Dashlane). Other values (e.g. 'email', 'current-password') 
+     * are passed through unchanged.
+     * 
+     * @var string|null
+     */
     public ?string $autocomplete = null;
 
     /**

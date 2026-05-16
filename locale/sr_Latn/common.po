@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-16 21:23+0000\n"
+"PO-Revision-Date: 2026-05-17 00:54+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -1212,13 +1212,15 @@ msgid "form.errorGoTo"
 msgstr "Skoči na sledeću grešku"
 
 msgid "form.errorOne"
-msgstr ""
+msgstr "Molimo ispravite jednu grešku."
 
 msgid "form.errorMany"
-msgstr ""
+msgstr "Molimo ispravite {$count} grešaka."
 
 msgid "form.errors"
 msgstr ""
+"Obrazac nije sačuvan jer je došlo do {$count} greške/grešaka. Ispravite "
+"greške i pokušajte ponovo."
 
 msgid "form.errorsOccurred"
 msgstr "Došlo je do grešaka prilikom obrade forme"
@@ -1244,6 +1246,8 @@ msgstr "Formular nije ispravno unet."
 
 msgid "form.csrfInvalid"
 msgstr ""
+"Obrazac nije mogao da se pošalje. Možda ste odjavljeni. Ponovo učitajte "
+"stranicu i pokušajte ponovo."
 
 msgid "form.fileRequired"
 msgstr "Neophodno je dodavanje fajla"
@@ -1252,16 +1256,16 @@ msgid "form.required"
 msgstr "(* Obavezno)"
 
 msgid "form.requirePrimaryLocale"
-msgstr ""
+msgstr "Ovo polje morate popuniti na jeziku {$language}."
 
 msgid "form.requireId"
-msgstr ""
+msgstr "Morate da priložite validan ID."
 
 msgid "form.resubmit"
 msgstr "Ponovno slanje"
 
 msgid "form.saved"
-msgstr ""
+msgstr "Sačuvano"
 
 msgid "form.saveToUpload"
 msgstr "Koristite \"sačuvaj\" kako biste dodali fajl."
@@ -1277,7 +1281,7 @@ msgstr ""
 "Nesipravna slika je dostavljena, podržani formati su .png, .gif ili .jpg."
 
 msgid "form.multilingualLabel"
-msgstr ""
+msgstr "{$label} u {$localeName}"
 
 msgid "form.multilingualProgress"
 msgstr ""
@@ -2289,3 +2293,9 @@ msgstr "({$text})"
 
 msgid "common.loaded"
 msgstr "Učitano"
+
+msgid "form.errorSummaryOne"
+msgstr "1 greška pronađena! Molimo vas ispravite grešku pre nego što nastavite."
+
+msgid "form.errorSummaryMany"
+msgstr "Otkriveno je {$count} grešaka! Ispravite greške pre nego što nastavite."

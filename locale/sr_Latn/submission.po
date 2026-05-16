@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-15 22:05+0000\n"
+"PO-Revision-Date: 2026-05-16 20:22+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -593,12 +593,15 @@ msgstr "Obriši unos u logu."
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Imejl o odluci poslat je za {$recipientCount} recenzenta/recenzenata sa "
+"naslovom „{$subject}“."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Incijalna prijava članka kompletirana."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$username} je prihvatio/la uslove autorskih prava za prijavu „{$filename}“."
 
 #, fuzzy
 msgid "submission.event.fileRevised"
@@ -651,9 +654,13 @@ msgstr "Ažuriran fajl recenzirane verzije"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} je poslao/la podsetnik korisniku {$recipientName} u vezi sa "
+"njegovim zadatkom recenzije"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Automatski imejl sa podsetnikom poslat je korisniku {$recipientName} u vezi "
+"sa njegovim zadatkom recenzije"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Imejl je poslat:"
@@ -663,6 +670,8 @@ msgstr "Vidi imejl"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"Autorima je sada dozvoljeno da uređuju metapodatke kada je prijava u fazi "
+"{stage}."
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""

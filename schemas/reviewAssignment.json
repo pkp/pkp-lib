@@ -194,6 +194,15 @@
 				"nullable"
 			]
 		},
+		"reviewerRecommendationType": {
+			"type": "integer",
+			"description": "Machine-readable type of the reviewer recommendation (1=approved, 2=notApproved, 3=revisionsRequested, 4=withComments). Null if no recommendation has been made.",
+			"apiSummary": true,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"requestResent": {
 			"type": "boolean",
 			"description": "Whether the review request was resent to the reviewer",

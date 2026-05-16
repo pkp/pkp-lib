@@ -622,10 +622,6 @@ abstract class Repository
         }
         $submissionId = $this->dao->insert($submission);
         $submission = Repo::submission()->get($submissionId);
-        $stageId = (int) $submission->getData('stageId');
-        if ($stageId > 0) {
-            Repo::editorialTask()->autoCreateFromTemplates($submission, $stageId);
-        }
 
         $publication->setData('submissionId', $submission->getId());
 
@@ -679,6 +675,16 @@ abstract class Repository
 
         if ($submission->getData('commentsForTheEditors')) {
             Repo::editorialTask()->addCommentsForEditorsQuery($submission);
+        }
+
+        // Auto-create editorial tasks for the submission stage now that the
+        // submission has actually been submitted (and a publication exists).
+        // Other stages are handled on stage entry by DecisionType. Submissions
+        // created without going through the wizard (e.g. imports) intentionally
+        // do not generate these tasks.
+        $stageId = (int) $submission->getData('stageId');
+        if ($stageId > 0) {
+            Repo::editorialTask()->autoCreateFromTemplates($submission, $stageId);
         }
     }
 

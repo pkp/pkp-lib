@@ -458,9 +458,17 @@ class EditorialTask extends Model
         }
 
         $mailable = (new TemplateVariables($this, $submission, $context))
-            ->sender($sender)
-            ->recipients($recipients)
             ->body($this->headnote->contents);
+
+        // System-created tasks (e.g. auto-created from templates) have no
+        // participants and no headnote author, so there is no sender or
+        // recipient. Leave those variables unset rather than crash.
+        if ($sender) {
+            $mailable->sender($sender);
+        }
+        if (!empty($recipients)) {
+            $mailable->recipients($recipients);
+        }
 
         $mailable->setData();
 

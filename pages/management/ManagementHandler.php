@@ -98,8 +98,9 @@ class ManagementHandler extends Handler
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         // The "settings" operation is off limits to managers who don't have access to settings,
-        // EXCEPT for the "announcements" area, which was moved out of settings without changing its URL.
-        if ($request->getRequestedOp() == 'settings' && $request->getRequestedArgs() != ['announcements']) {
+        // EXCEPT for the "announcements" and "userComments" areas, which were moved out of settings without changing their URL.
+        $requestedArgs = $request->getRequestedArgs();
+        if ($request->getRequestedOp() == 'settings' && $requestedArgs != ['announcements'] && $requestedArgs != ['userComments']) {
             $this->addPolicy(new CanAccessSettingsPolicy());
         }
         return parent::authorize($request, $args, $roleAssignments);

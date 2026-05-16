@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-16 20:22+0000\n"
+"PO-Revision-Date: 2026-05-16 21:23+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -884,7 +884,7 @@ msgid "common.uploadedBy"
 msgstr "Otpremljeno od strane {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Otpremljeno od strane {$name} {$date}"
 
 msgid "common.component"
 msgstr "Komponenta"
@@ -894,15 +894,19 @@ msgstr "Nezapočeto"
 
 msgid "common.unknownError"
 msgstr ""
+"Došlo je do neočekivane greške. Ponovo učitajte stranicu i pokušajte ponovo."
 
 msgid "common.unread"
 msgstr "Nije pročitano"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Nesačuvane izmene"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Pronađene su nesačuvane izmene od {$when}. Ovo se može desiti ako izgubite "
+"vezu sa serverom tokom rada. Vraćanje tih izmena može prepisati sve izmene "
+"koje ste napravili nakon tog trenutka. Da li želite da ih sada vratite?"
 
 msgid "common.untitled"
 msgstr "Bez naslova"
@@ -924,19 +928,19 @@ msgid "common.up"
 msgstr "Gore"
 
 msgid "common.addFile"
-msgstr ""
+msgstr "Dodaj fajl"
 
 msgid "common.upload.addFile"
 msgstr "Dostavi fajl"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Otpremite fajl sa računara."
 
 msgid "common.upload.restore"
-msgstr ""
+msgstr "Vrati original"
 
 msgid "common.upload.thumbnailPreview"
-msgstr ""
+msgstr "Pregled trenutno izabrane slike."
 
 msgid "common.upload.changeFile"
 msgstr "Izmeni fajl"
@@ -951,16 +955,16 @@ msgid "common.user"
 msgstr "Korisnik"
 
 msgid "common.user.nonexistent"
-msgstr ""
+msgstr "[nepostojeći korisnik]"
 
 msgid "common.view"
 msgstr "Pogledaj"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Pogledaj grešku"
 
 msgid "common.viewWithName"
-msgstr ""
+msgstr "Pogledaj {$name}"
 
 msgid "common.viewProfile"
 msgstr "Pogledaj profil"
@@ -990,7 +994,7 @@ msgid "common.count"
 msgstr "Prebroj"
 
 msgid "common.publicAccess"
-msgstr ""
+msgstr "javni pristup"
 
 msgid "debug.databaseQueries"
 msgstr "Broj upita baze podataka"
@@ -1026,28 +1030,30 @@ msgid "email.addAttachment"
 msgstr "Dodaj prilog"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Priloži fajlove prijave"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Priloži datoteke koje je autor otpremio u fazi prijave."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Priloži fajlove otpremljene tokom toka prijave, kao što su revizije ili "
+"fajlovi za recenziju."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "fajlovi iz biblioteke"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Priloži fajlove iz biblioteke"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Priloži fajlove iz prijava i biblioteka izdavača."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Priloži fajlove recenzije"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Priloži fajlove koje su otpremili recenzenti"
 
 msgid "email.addBccRecipient"
 msgstr "Dodaj 'Bcc' nevidljivu kopiju"
@@ -1062,7 +1068,7 @@ msgid "email.attachments"
 msgstr "Prilozi"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Fajl {$fileName} nije mogao da se priloži."
 
 msgid "email.bcc"
 msgstr "BCC - nevidljiva kopija"
@@ -1078,6 +1084,9 @@ msgstr "CC - kopija"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Da li ste sigurni da želite da promenite jezik na {$localeName} za "
+"sastavljanje ovog imejla? Sve izmene koje ste napravili u naslovu i sadržaju "
+"imejla biće izgubljene."
 
 msgid "email.compose"
 msgstr "Pošalji imejl"
@@ -1092,6 +1101,8 @@ msgstr ""
 
 msgid "email.compose.error"
 msgstr ""
+"Došlo je do problema pri slanju e-poruke. Pokušajte ponovo kasnije ili "
+"kontaktirajte sistemskog administratora."
 
 msgid "email.email"
 msgstr "Imejl"
@@ -1151,49 +1162,54 @@ msgid "form.dataHasChanged"
 msgstr "Podaci u formi su promenjeni, da li ipak želite da nastavite?"
 
 msgid "form.disallowedLocales"
-msgstr ""
+msgstr "Dozvoljeni su samo sledeći jezici: {$languages}."
 
 msgid "form.disallowedProp"
-msgstr ""
+msgstr "Ovo svojstvo nije dopušteno."
 
 msgid "form.dropzone.dictDefaultMessage"
-msgstr ""
+msgstr "Prevucite datoteke ovde da biste ih otpremili"
 
 msgid "form.dropzone.dictFallbackMessage"
 msgstr ""
+"Vaš pregledač ne podržava otpremanje fajlova prevlačenjem i otpuštanjem."
 
 msgid "form.dropzone.dictFallbackText"
-msgstr ""
+msgstr "Koristite alternativni obrazac ispod za otpremanje fajlova."
 
 msgid "form.dropzone.dictFileTooBig"
 msgstr ""
+"Fajl je prevelik ({{filesize}} MB). Fajlovi veći od {{maxFilesize}} MB ne "
+"mogu da se otpreme."
 
 msgid "form.dropzone.dictInvalidFileType"
-msgstr ""
+msgstr "Fajlovi ovog tipa ne mogu biti otpremljeni."
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
+"Server je odgovorio sa kodom {{statusCode}}. Ako se problem nastavi, "
+"kontaktirajte sistemskog administratora."
 
 msgid "form.dropzone.dictCancelUpload"
-msgstr ""
+msgstr "Otkaži otpremanje"
 
 msgid "form.dropzone.dictUploadCanceled"
-msgstr ""
+msgstr "Otkaži otpremanje"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr ""
+msgstr "Da li ste sigurni da želite da otkažete ovo otpremanje?"
 
 msgid "form.dropzone.dictRemoveFile"
-msgstr ""
+msgstr "Izbriši fajl"
 
 msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr ""
+msgstr "Ne možete više otpremati fajlove."
 
 msgid "form.errorA11y"
-msgstr ""
+msgstr "Idi na {$fieldLabel}: {$errorMessage}"
 
 msgid "form.errorGoTo"
-msgstr ""
+msgstr "Skoči na sledeću grešku"
 
 msgid "form.errorOne"
 msgstr ""
@@ -2267,3 +2283,9 @@ msgstr "Istaknuto"
 
 msgid "common.highlight"
 msgstr "Istakni"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Učitano"

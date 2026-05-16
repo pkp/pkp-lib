@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-15 22:05+0000\n"
+"PO-Revision-Date: 2026-05-16 20:22+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sr_Latn/>\n"
@@ -606,13 +606,13 @@ msgid "editor.decision.emailSkipped"
 msgstr "Ovaj korak je preskočen i imejl neće biti poslat."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Zabeleži odluku"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Preskoči ovaj imejl"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Došlo je do problema u koraku „{$stepName}“."
 
 #~ msgid "editor.review.NotifyAuthorAccept"
 #~ msgstr "Obavesti autora da je njegov rad prihvaćen."
@@ -662,3 +662,35 @@ msgstr "Sažetak"
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Ista institucija kao autor"
+
+msgid "editor.review.logResponse"
+msgstr "Zabeleži odgovor"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Potrebno je odabrati odgovor"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ako vas recenzent kontaktira putem imejla ili na drugi način, možete "
+"zabeležiti njegov odgovor umesto njega"
+
+msgid "editor.review.allSections"
+msgstr "Urednički obrazac prikazuje sve sekcije recenzije"
+
+msgid "editor.review.logResponse.for"
+msgstr "Zabeleži odgovor za"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzent je prihvatio poziv za recenziranje"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzent je odbio poziv za recenziranje"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Zabeleži odgovor u ime recenzenta"
+
+msgid "editor.review.download"
+msgstr "Preuzmi obrazac za recenziju"
+
+msgid "editor.review.authorOnly"
+msgstr "Prikazane sekcije samo za autore"

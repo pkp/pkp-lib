@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-15 22:05+0000\n"
+"PO-Revision-Date: 2026-05-16 20:22+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -570,10 +570,10 @@ msgid "common.more"
 msgstr "Više"
 
 msgid "common.moreThan"
-msgstr ""
+msgstr "{$value} ili više"
 
 msgid "common.moreThanOnly"
-msgstr ""
+msgstr "Više od"
 
 msgid "common.noneAssigned"
 msgstr "Nije dodeljeno"
@@ -582,16 +582,16 @@ msgid "common.none"
 msgstr "Ne postoji"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Ništa nije odabrano"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Nije navedeno"
 
 msgid "common.no"
 msgstr "Ne"
 
 msgid "common.noItemsFound"
-msgstr ""
+msgstr "Nisu pronađene stavke."
 
 msgid "common.noComments"
 msgstr "Nema komentara"
@@ -609,7 +609,7 @@ msgid "common.note"
 msgstr "Napomena"
 
 msgid "common.noTemporaryFile"
-msgstr ""
+msgstr "Otpremljena datoteka nije pronađena. Pokušajte da je ponovo otpremite."
 
 msgid "common.notes"
 msgstr "Napomene"
@@ -629,7 +629,7 @@ msgid "common.noMatches"
 msgstr "Nema odgovarajućih"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} više"
 
 msgid "common.off"
 msgstr "Isključeno"
@@ -647,10 +647,10 @@ msgid "common.order"
 msgstr "Redosled"
 
 msgid "common.orderUp"
-msgstr ""
+msgstr "Pomeri {$itemTitle} naviše"
 
 msgid "common.orderDown"
-msgstr ""
+msgstr "Pomeri {$itemTitle} naniže"
 
 msgid "common.originalFileName"
 msgstr "Originalno ime fajla"
@@ -665,22 +665,22 @@ msgid "common.overdue"
 msgstr "Prekoračen"
 
 msgid "common.override"
-msgstr ""
+msgstr "Prepriši"
 
 msgid "common.pagination"
-msgstr ""
+msgstr "{$start}–{$end} od {$total}"
 
 msgid "common.pagination.label"
-msgstr ""
+msgstr "Prikaži dodatne stranice"
 
 msgid "common.pagination.goToPage"
-msgstr ""
+msgstr "Idi na {$page}"
 
 msgid "common.pagination.next"
-msgstr ""
+msgstr "Sledeća stranica"
 
 msgid "common.pagination.previous"
-msgstr ""
+msgstr "Prethodna stranica"
 
 msgid "common.pageNumber"
 msgstr "Strana {$pageNumber}"
@@ -728,7 +728,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Pročitaj više o {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Ponovno povezivanje"
 
 msgid "common.record"
 msgstr "Zapiši"
@@ -755,7 +755,7 @@ msgid "common.remove"
 msgstr "Ukloni"
 
 msgid "common.removeItem"
-msgstr ""
+msgstr "Ukloni {$item}"
 
 msgid "common.removeSelection"
 msgstr "Uklanjanje izbora"
@@ -776,10 +776,10 @@ msgid "common.reset"
 msgstr "Resetuj"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Krug {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Uloga"
 
 msgid "common.saveAndContinue"
 msgstr "Sačuvaj i nastavi"
@@ -791,22 +791,22 @@ msgid "common.save"
 msgstr "Sačuvaj"
 
 msgid "common.saving"
-msgstr ""
+msgstr "Čuvanje"
 
 msgid "common.search"
 msgstr "Traži"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Pretraga fraze"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Pretraživanje"
 
 msgid "common.searchQuery"
 msgstr "Upit za pretragu"
 
 msgid "common.clearSearch"
-msgstr ""
+msgstr "Obriši frazu za pretragu"
 
 msgid "common.second"
 msgstr "Sekunda/i"
@@ -815,7 +815,7 @@ msgid "common.selectAll"
 msgstr "Označi sve"
 
 msgid "common.selectedPrefix"
-msgstr ""
+msgstr "Odabrano:"
 
 msgid "common.selectNone"
 msgstr "Označi ništa"
@@ -824,16 +824,16 @@ msgid "common.select"
 msgstr "Izaberite"
 
 msgid "common.selectWithName"
-msgstr ""
+msgstr "Odaberi {$name}"
 
 msgid "common.sendEmail"
 msgstr "Pošalji imejl"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Prikaži sve korake"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} koraka"
 
 msgid "common.size"
 msgstr "Veličina"
@@ -851,7 +851,7 @@ msgid "common.subjects"
 msgstr "Subjekti"
 
 msgid "common.submenu"
-msgstr ""
+msgstr "Podmeni"
 
 msgid "common.subtitle"
 msgstr "Podnaslov"
@@ -860,16 +860,16 @@ msgid "common.suggest"
 msgstr "Predloži"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Prebaci na"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Prebaci na {$name}"
 
 msgid "common.title"
 msgstr "Naslov"
 
 msgid "common.titleSeparator"
-msgstr ""
+msgstr " | "
 
 msgid "common.top"
 msgstr "Gore"
@@ -881,7 +881,7 @@ msgid "common.type"
 msgstr "Tip"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Otpremljeno od strane {$name}"
 
 msgid "common.uploadedByAndWhen"
 msgstr ""

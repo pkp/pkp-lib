@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-17 17:08+0000\n"
+"PO-Revision-Date: 2026-05-18 02:50+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -1508,48 +1508,63 @@ msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Pošaljite imejl autorima da ih obavestite da je njihov rad poslat u novi "
+"krug recenzije. Ovaj imejl neće biti poslat dok odluka ne bude zabeležena."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "Izaberite fajlove koje treba poslati u fazu lekture."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Izaberite fajlove koje treba poslati na recenziju."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Izaberite fajlove koje treba poslati u fazu produkcije."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Zahtevaj reviziju"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"Autor mora dostaviti izmene pre nego što ovaj rad bude prihvaćen za "
+"objavljivanje."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} je zatražio/la izmene za ovaj rad."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Zatražene revizije"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Zatražene su izmene za rad „{$title}“. Sva obaveštenja su poslata, osim onih "
+"koja ste izabrali da preskočite."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Pošaljite imejl autorima da ih obavestite da su neophodne izmene pre nego "
+"što ovaj rad bude prihvaćen za objavljivanje. Uključite sve detalje koji su "
+"autoru potrebni za izmenu rada. Po potrebi, obavezno anonimizujte sve "
+"komentare recenzenata. Ovaj imejl neće biti poslat dok odluka ne bude "
+"zabeležena."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Otkažite krug recenzija"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Otkažite trenutni krug recenzije i vratite rad u prethodni krug recenzije. "
+"Ako je ovo prvi krug recenzije, biće vraćen u fazu podnošenja."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} je otkazao/la krug recenzije."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Otkazan je zadnji krug recenzije."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"Krug recenzije za rad „{$title}“ je otkazan. Sva obaveštenja su poslata, "
+"osim onih koja ste izabrali da preskočite."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""

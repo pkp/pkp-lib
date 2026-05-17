@@ -66,8 +66,15 @@ class EditorialTaskEmailVariable extends Variable
         if ($this->editorialTask->type !== EditorialTaskType::TASK->value) {
             return '';
         }
-        $taskOwner = Repo::user()->get($this->editorialTask->participants->where('isResponsible', true)->pluck('userId')->first());
 
+        // System-created tasks (e.g. auto-created from templates) have no
+        // participants, so there is no responsible owner to resolve.
+        $ownerUserId = $this->editorialTask->participants->where('isResponsible', true)->pluck('userId')->first();
+        if (!$ownerUserId) {
+            return '';
+        }
+
+        $taskOwner = Repo::user()->get((int) $ownerUserId);
         if (!$taskOwner) {
             return '';
         }
@@ -81,6 +88,12 @@ class EditorialTaskEmailVariable extends Variable
     protected function getDueDate(): string
     {
         if ($this->editorialTask->type !== EditorialTaskType::TASK->value) {
+            return '';
+        }
+
+        // Auto-created tasks may come from a template without a due interval,
+        // leaving dateDue unset.
+        if (!$this->editorialTask->dateDue) {
             return '';
         }
 

@@ -416,10 +416,6 @@ abstract class Plugin
     protected function _registerTemplateResource($inCore = false)
     {
         if ($templatePath = $this->getTemplatePath($inCore)) {
-            // Register the plugin's template path to render blade views and components
-            $fileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $fileViewFinder */
-            $fileViewFinder->addLocation(app()->basePath($templatePath));
-
             // Auto register the plugin's view namespace and component class namespace
             $this->_registerTemplateViewNamespace($this->getTemplateViewNamespace(), $inCore);
             $this->_registerViewComponentNamespace($this->getComponentClassNamespace());

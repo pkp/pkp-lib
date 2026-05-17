@@ -1314,6 +1314,16 @@ msgstr "Users are assigned to stages of the workflow by user group. Any user ass
 msgid "editor.submission.removeStageParticipant"
 msgstr "Remove Participant"
 
+msgid "editor.submission.removeStageParticipant.email.body"
+msgstr ""
+"\n"
+"\t\t\t{$userName}:<br />\n"
+"<br />\n"
+"You have been removed as a participant in the &quot;{$submissionTitle}&quot; submission, "
+"on the {$contextName}.<br />\n"
+"<br />\n"
+"{$senderName}<br />{$senderEmail}"
+
 msgid "editor.submission.removeStageParticipant.description"
 msgstr "You are about to remove this participant from <strong>all</strong> stages."
 

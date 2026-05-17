@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-17 16:14+0000\n"
+"PO-Revision-Date: 2026-05-17 16:28+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -1421,43 +1421,58 @@ msgstr "Obavesti recenzente"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Pošaljite imejl recenzentima kako biste im zahvalili na recenziji i "
+"obavestili ih da je doneta odluka. Svakom recenzentu biće poslat zasebni "
+"imejl radi zaštite njihove anonimnosti. Izraz {$recipientName} može se "
+"koristiti u imejlu za bezbedno uključivanje imena svakog recenzenta."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Pošaljite imejl dodeljenim recenzentima da ih obavestite da je njihov "
+"zadatak recenzije otkazan."
 
 msgid "editor.submission.decision.accept"
-msgstr ""
+msgstr "Prihvati prijavu"
 
 msgid "editor.submission.decision.accept.description"
-msgstr ""
+msgstr "Ova prijava biće prihvaćena za objavljivanje i poslata na lekturu."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} je prihvatio/la ovu prijavu i poslao/la je u fazu lekture."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Prijava prihvaćena"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Rad „{$title}“ prihvaćen je za objavljivanje i poslat u fazu lekture. Sva "
+"obaveštenja su poslata, osim onih koja ste izabrali da preskočite."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Pošaljite imejl autorima da ih obavestite da je njihov rad prihvaćen za "
+"objavljivanje. Ovaj imejl neće biti poslat dok odluka ne bude zabeležena."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Pošaljite imejl autorima da ih obavestite da je krug recenzije zatvoren. "
+"Ovaj imejl neće biti poslat dok odluka ne bude zabeležena."
 
 msgid "editor.submission.decision.decline"
 msgstr "Odbij predati članak"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Ovaj će rad biti odbijen za objavljivanje. Faza recenzije će biti zatvorena, "
+"a rad će biti arhiviran."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} odbio/la je ovaj rad."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Rad je odbijen"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""

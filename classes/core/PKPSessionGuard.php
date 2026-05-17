@@ -150,10 +150,20 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * @copydoc \Illuminate\Auth\SessionGuard::updateSession($id)
+     *
+     * Overridden to preserve Laravel 11's behavior. Laravel 12's
+     * SessionGuard::updateSession() calls $session->regenerate(true), which
+     * additionally rotates the CSRF `_token` and breaks flows where a
+     * form is rendered and submitted across an auth-state transition (e.g.
+     * post-registration auto-login, sign-in-as across pre-opened tabs). The
+     * inlined `migrate(true)` rotates the session id without touching `_token`.
+     *
+     * See https://github.com/pkp/pkp-lib/issues/12606
      */
     public function updateSession($id)
     {
-        parent::updateSession($id);
+        $this->session->put($this->getName(), $id);
+        $this->session->migrate(true); // instead of `->regenerate(true)`, use `->migrate(true)`
 
         $this->updateLaravelSession($this->getSession());
 

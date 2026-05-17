@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-17 16:52+0000\n"
+"PO-Revision-Date: 2026-05-18 02:50+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -1521,16 +1521,16 @@ msgid "navigation.skip.description"
 msgstr ""
 
 msgid "navigation.skip.announcements"
-msgstr ""
+msgstr "Preskoči na obaveštenja"
 
 msgid "navigation.skip.main"
-msgstr ""
+msgstr "Preskoči na glavni sadržaj"
 
 msgid "navigation.skip.nav"
-msgstr ""
+msgstr "Pređi na glavni navigacioni meni"
 
 msgid "navigation.skip.footer"
-msgstr ""
+msgstr "Pređi na podnožje sajta"
 
 msgid "navigation.stepNumber"
 msgstr "{$step}. korak"
@@ -1554,7 +1554,7 @@ msgid "navigation.viewFrontend"
 msgstr "Pogledaj sajt"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "institucije"
 
 msgid "notification.addedAuditor"
 msgstr "Revizor dodat."
@@ -1569,7 +1569,7 @@ msgid "notification.reviewAcknowledged"
 msgstr "Recenzija obeležena kao primljena k znanju. Imejl nije poslat."
 
 msgid "notification.reviewerThankedEmail"
-msgstr ""
+msgstr "Imejl zahvalnice poslat je recenzentu."
 
 msgid "notification.updatedReviewFiles"
 msgstr "Recenzentski fajlovi su dodati."
@@ -1596,7 +1596,7 @@ msgid "notification.confirmSuccess"
 msgstr "Uspešno ste se pretplatili."
 
 msgid "notification.email"
-msgstr ""
+msgstr "Ne želim primati imejlove o ovakvim obaveštenjima."
 
 msgid "notification.noneExist"
 msgstr "Nemate obaveštenja."
@@ -1640,7 +1640,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Metapodaci predaje su sačuvani."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr ""
+msgstr "Pošaljite imejl o ovome svim registrovanim korisnicima."
 
 msgid "search.author"
 msgstr "Autori"
@@ -2305,3 +2305,12 @@ msgstr "1 greška pronađena! Molimo vas ispravite grešku pre nego što nastavi
 
 msgid "form.errorSummaryMany"
 msgstr "Otkriveno je {$count} grešaka! Ispravite greške pre nego što nastavite."
+
+msgid "navigation.reviewAssignments"
+msgstr "Moja recenzentska zaduženja"
+
+msgid "navigation.dashboards"
+msgstr "Kontrolna tabla urednika"
+
+msgid "navigation.mySubmissions"
+msgstr "moje prijave kao autora"

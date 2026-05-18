@@ -39,7 +39,7 @@ abstract class I9707_WeblateUILocales extends Migration
         $cacheKey = 'localeUpdates1 day';
         $tableLocaleColumns = Cache::remember($cacheKey, DateInterval::createFromDateString('1 day'), function () {
             $tableLocaleColumns = [];
-            foreach (Schema::getTables() as $table) {
+            foreach (Schema::getTables(Schema::getCurrentSchemaName()) as $table) {
                 $columns = collect(Schema::getColumns($table['name']))->whereIn('name', ['primary_locale', 'locale']);
                 if ($columns->count() > 0) {
                     $tableLocaleColumns[$table['name']] = $columns;

@@ -801,7 +801,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         }
 
         // Convert settings where only setting_type column is available
-        $tables = collect(Schema::getTables())->pluck('name')->toArray();
+        $tables = collect(Schema::getTables(Schema::getCurrentSchemaName()))->pluck('name')->toArray();
         foreach ($tables as $tableName) {
             if (substr($tableName, -9) !== '_settings' || in_array($tableName, $processedTables)) {
                 continue;

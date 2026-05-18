@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-18 02:50+0000\n"
+"PO-Revision-Date: 2026-05-18 13:47+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -31,9 +31,11 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nema podnesenih recenzija niti recenzija koje urednik razmatra."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
+"Jedan ili više recenzenata propustili su rok. Urednički tim je obavešten i "
+"pobrinuće se da recenzije budu završene. Trenutno nije potrebna nikakva "
+"akcija sa vaše strane. Bićete obavešteni kada odluka bude doneta."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Podneti kao"
@@ -1568,15 +1570,21 @@ msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Krug recenzije može se otkazati samo ako nijedan povezani recenzent nema "
+"završenu ili podnetu recenziju."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Ponovo pošalji na recenziju"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"Autor mora dostaviti izmene koje će biti poslate u novi krug recenzije pre "
+"nego što ovaj rad bude prihvaćen za objavljivanje."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} je zatražio/la izmene za ovaj rad koje treba poslati u novi "
+"krug recenzije."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr ""

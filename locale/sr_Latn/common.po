@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-18 13:47+0000\n"
+"PO-Revision-Date: 2026-05-18 16:36+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -2027,127 +2027,134 @@ msgid "validator.alpha_num"
 msgstr "Ovo može sadržati samo slova i brojeve."
 
 msgid "validator.array"
-msgstr ""
+msgstr "Ovo nije važeći niz."
 
 msgid "validator.before"
-msgstr ""
+msgstr "Ovaj datum mora biti pre {$date}."
 
 msgid "validator.between.numeric"
-msgstr ""
+msgstr "Ovo mora biti između {$min} i {$max}."
 
 msgid "validator.between.file"
-msgstr ""
+msgstr "Ovo mora biti između {$min} i {$max} kilobajta."
 
 msgid "validator.between.string"
-msgstr ""
+msgstr "Ovo mora imati između {$min} i {$max} znakova."
 
 msgid "validator.between.array"
-msgstr ""
+msgstr "Ovo mora sadržati između {$min} i {$max} stavki."
 
 msgid "validator.boolean"
-msgstr ""
+msgstr "Ovo polje mora biti tačno ili netačno."
 
 msgid "validator.confirmed"
-msgstr ""
+msgstr "Potvrda za ovo polje se ne poklapa."
 
 msgid "validator.country"
-msgstr ""
+msgstr "Ovo nije važeća zemlja."
 
 msgid "validator.country.regex"
 msgstr ""
+"Ovo nije važeća država. Država mora biti jedna od dvocifrenih međunarodnih "
+"kodova. Pogledajte sve kodove na https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
-msgstr ""
+msgstr "Ovo nije važeća valuta."
 
 msgid "validator.date"
-msgstr ""
+msgstr "Ovo nije važeći datum."
 
 msgid "validator.date_format"
-msgstr ""
+msgstr "Ovo se ne poklapa sa formatom {$format}."
 
 msgid "validator.different"
-msgstr ""
+msgstr "{$attribute} i {$other} moraju biti različiti."
 
 msgid "validator.digits"
-msgstr ""
+msgstr "Ovo mora imati {$digits} cifara."
 
 msgid "validator.digits_between"
-msgstr ""
+msgstr "Ovo mora imati između {$min} i {$max} cifara."
 
 msgid "validator.email"
-msgstr ""
+msgstr "Ovo nije važeća imejl adresa."
 
 msgid "validator.exists"
-msgstr ""
+msgstr "Odabrani {$attribute} je nevažeći."
 
 msgid "validator.filled"
-msgstr ""
+msgstr "Ovo polje je obavezno."
 
 msgid "validator.image"
-msgstr ""
+msgstr "Ovo mora biti slika."
 
 msgid "validator.in"
-msgstr ""
+msgstr "Odabrani {$attribute} je nevažeći."
 
 msgid "validator.integer"
-msgstr ""
+msgstr "Ovo nije važeći ceo broj."
 
 msgid "validator.ip"
-msgstr ""
+msgstr "Ovo nije važeća IP adresa."
 
 msgid "validator.issn"
-msgstr ""
+msgstr "Ovo nije važeći ISSN."
 
 msgid "validator.json"
-msgstr ""
+msgstr "Ovo nije važeći JSON niz."
 
 msgid "validator.locale"
-msgstr ""
+msgstr "Ovaj jezik nije prihvaćen."
 
 msgid "validator.localeExpected"
 msgstr ""
+"Ovo polje je višejezično. Za svaki podržani jezik moraju biti navedene "
+"zasebne vrednosti."
 
 msgid "validator.localeKey"
 msgstr ""
+"Jezici moraju biti navedeni pomoću koda lokalizacije. Primeri: en_US, fr_CA, "
+"sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
-msgstr ""
+msgstr "Ovo ne može da bude veće od {$max}."
 
 msgid "validator.max.file"
-msgstr ""
+msgstr "Ovo ne može biti veće od {$max} kilobajta."
 
 msgid "validator.max.string"
-msgstr ""
+msgstr "Ovo ne može imati više od {$max} znakova."
 
 msgid "validator.max.array"
-msgstr ""
+msgstr "Ovo ne može imati više od {$max} stavki."
 
 msgid "validator.mimes"
-msgstr ""
+msgstr "Ovo mora biti fajl tipa {$values}."
 
 msgid "validator.min.numeric"
-msgstr ""
+msgstr "Ovo mora da bude najmanje {$min}."
 
 msgid "validator.min.file"
-msgstr ""
+msgstr "Ovo mora imati najmanje {$min} kilobajta."
 
 msgid "validator.min.string"
-msgstr ""
+msgstr "Ovo mora imati najmanje {$min} znakova."
 
 msgid "validator.min.array"
-msgstr ""
+msgstr "Ovo mora sadržati najmanje {$min} stavki."
 
 msgid "validator.not_in"
-msgstr ""
+msgstr "Izabrani {$attribute} nije važeći."
 
 msgid "validator.numeric"
-msgstr ""
+msgstr "Ovo nije važeći broj."
 
 msgid "validator.orcid"
-msgstr ""
+msgstr "Ovo nije važeći ORCID."
 
 msgid "validator.present"
-msgstr ""
+msgstr "Polje {$attribute} mora biti prisutno."
 
 msgid "validator.regex"
 msgstr ""
@@ -2341,3 +2348,6 @@ msgstr "Recenzija predata dana"
 
 msgid "showAll"
 msgstr "Prikaži sve"
+
+msgid "validator.date.comparison"
+msgstr "Priloženi datumi za poređenje nisu važeći."

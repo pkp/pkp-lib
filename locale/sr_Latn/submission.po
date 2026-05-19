@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-18 13:47+0000\n"
+"PO-Revision-Date: 2026-05-19 15:16+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -1587,10 +1587,13 @@ msgstr ""
 "krug recenzije."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Zatražene revizije"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Zatražene su izmene za rad „{$title}“. Zabeležena je odluka da se izmene "
+"pošalju u novi krug recenzije. Sva obaveštenja su poslata, osim onih koja "
+"ste izabrali da preskočite."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
@@ -1790,6 +1793,8 @@ msgstr "Preporuka je poslata"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Vaša preporuka je zabeležena, a urednik/urednici koji donose odluku su "
+"obavešteni."
 
 msgid "editor.submission.recommend.revisions"
 msgstr "Preporuči izmene"
@@ -1928,7 +1933,7 @@ msgid "submission.documents"
 msgstr "Dokumenti predaje"
 
 msgid "notification.type.editorAssign"
-msgstr ""
+msgstr "Dodeljeni ste kao urednik za rad „{$title}“."
 
 msgid "notification.type.copyeditorRequest"
 msgstr "Zamoljeni ste da pregledate probnu kopiju za \"{$title}\"."
@@ -1955,13 +1960,13 @@ msgid "notification.type.editorDecisionResubmit"
 msgstr "Ponovo pošalji na recenziju."
 
 msgid "notification.type.editorDecisionNewRound"
-msgstr ""
+msgstr "Novi krug recenzija je započet."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Predati članak je odbijen."
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr ""
+msgstr "Odbijena prijava je reaktivirana."
 
 msgid "notification.uploadedResponse"
 msgstr "Odgovor je dostavljen."
@@ -1972,16 +1977,17 @@ msgstr ""
 "Dodajte urednika koristeći link \"Učesnici\"."
 
 msgid "notification.type.submissionNewVersion"
-msgstr ""
+msgstr "Nova verzija prijave je kreirana"
 
 msgid "notification.type.revertDecline"
-msgstr ""
+msgstr "Odluka o odbijanju ove prijave je poništena."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Dodati fajlovi recenzenta"
 
 msgid "grid.reviewAttachments.send.title"
 msgstr ""
+"Izaberite recenzentske fajlove koje želite da podelite sa autorom/autorima"
 
 msgid "submission.productionReady"
 msgstr "Knjiga je dostupna"
@@ -2001,6 +2007,8 @@ msgstr ""
 
 msgid "log.review.reviewUnconsidered"
 msgstr ""
+"{$editorName} je označio/la recenziju kruga {$round} za prijavu "
+"{$submissionId} kao nerazmatranu."
 
 msgid "log.review.reviewReinstated"
 msgstr ""
@@ -2009,36 +2017,43 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Ponovo je poslat zahtev za recenziju u krugu {$round} recenzentu "
+"{$reviewerName} za prijavu {$submissionId}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
+"Urednik {$editorName} je potvrdio recenziju za krug {$round} prijave "
+"{$submissionId}."
 
 msgid "log.review.reviewReady"
 msgstr ""
+"{$reviewerName} je završio/la recenziju za krug {$round} prijave "
+"{$submissionId}."
 
 msgid "submission.review.status.awaitingResponse"
-msgstr ""
+msgstr "Čeka se odgovor recenzenta."
 
 msgid "submission.review.status.declined"
-msgstr ""
+msgstr "Recenzent je odbio zahtev za recenziju."
 
 msgid "submission.review.status.responseOverdue"
-msgstr ""
+msgstr "Recenzent je propustio rok za odgovor."
 
 msgid "submission.review.status.reviewOverdue"
-msgstr ""
+msgstr "Recenzent je propustio rok za recenziju."
 
 msgid "submission.review.status.accepted"
-msgstr ""
+msgstr "Recenzija je prihvaćena."
 
 msgid "submission.review.status.received"
-msgstr ""
+msgstr "Recenzent je poslao svoju recenziju."
 
 msgid "submission.review.status.complete"
-msgstr ""
+msgstr "Recenzija je završena."
 
 msgid "submission.review.status.thanked"
 msgstr ""
+"Ova recenzija je završena i recenzent je dobio zahvalnicu za svoj doprinos."
 
 msgid "submission.document"
 msgstr "Dokument"
@@ -2103,16 +2118,16 @@ msgid "submission.copyright"
 msgstr "Autorska prava"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Da, slažem se sa izjavom o autorskim pravima."
 
 msgid "submission.copyrightHolder"
 msgstr "Nosilac autorskih prava"
 
 msgid "submission.copyrightHolder.other"
-msgstr ""
+msgstr "Prilagođena izjava o autorskim pravima"
 
 msgid "submission.copyrightOther"
-msgstr ""
+msgstr "Izjava o autorskim pravima"
 
 msgid "submission.copyrightYear"
 msgstr "Godina autorskog prava"
@@ -2195,21 +2210,61 @@ msgstr ""
 
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">\n"
+"<img alt=\"Creative Commons licenca\" src=\"\n"
+"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Ovo delo je "
+"licencirano pod\n"
+" <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">Creative Commons Autorstvo-Nekomercijalno-Bez prerada 3.0\n"
+" Unported licencom</a>.</p>"
 
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">"
+"\n"
+"<img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by-nc/3"
+".0/88x31.png\" /></a><p>Ovo delo je licencirano pod\n"
+" <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+">Creative Commons Autorstvo-Nekomercijalno 3.0 Unported licencom\n"
+"</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">\n"
+"<img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Ovo delo je licencirano pod\n"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">Creative Commons Autorstvo-Nekomercijalno-Deliti pod istim uslovima3.0 "
+"Unported licencom</a>.</p>"
 
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">"
+"\n"
+"<img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by-nd/3"
+".0/88x31.png\" /></a><p>Ovo delo je licencirano pod\n"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+">Creative Commons Autorstvo-Bez prerada 3.0 Unported licencom\n"
+"</a>.</p>"
 
+#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
+"<img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Ovo delo je licencirano pod <\n"
+"a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+">Creative Commons Autorstvo 3.0 Unported licencom</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Licenca Creative Commons\" src=\"//i.creativecommons.org/l/by/ 3."
+"0/88x31.png\" /></a><p>Ovo je delo licencirano pod licencom <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 Neprenesena licenca</a>.</p"
 
 msgid "submission.queries.submission"
 msgstr "Pred recenzentske diskusije"
@@ -2242,10 +2297,12 @@ msgid "submission.query.addNote"
 msgstr "Dodaj poruku"
 
 msgid "submission.query.leaveQuery"
-msgstr ""
+msgstr "Napustite diskusiju"
 
 msgid "submission.query.leaveQuery.confirm"
 msgstr ""
+"Ako napustite ovu diskusiju, više nećete dobijati obaveštenja o novim "
+"porukama. Da li želite da napustite diskusiju?"
 
 msgid "grid.action.openNoteForm"
 msgstr "Dodaj odgovor u diskusiju"
@@ -2267,10 +2324,12 @@ msgstr ""
 "\"{$submissionTitle}\"."
 
 msgid "submission.query.participantTitle"
-msgstr ""
+msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
 msgstr ""
+"Morate dodeliti najmanje jednog učesnika ovoj prijavi pre pokretanja "
+"diskusije."
 
 msgid "submission.list.infoCenter"
 msgstr ""
@@ -3060,3 +3119,41 @@ msgstr "Lektorisani fajlovi"
 
 msgid "editor.submission.reviewerSuggestions"
 msgstr "Recenzenti koje je prelozio autor"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Trenutni jezik prijave:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Promeni"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Promeni jezik prijave na"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Ovo je primarni jezik prijave. Promena ovoga uticaće na prijavu i unete "
+"metapodatke"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Pre promene jezika prijave, obavezno popunite sledeća polja "
+"metapodataka kako biste očuvali integritet sistema. Takođe, imajte u vidu da "
+"će podaci o saradnicima i nazivi fajlova biti kopirani iz prethodno unetih "
+"podataka.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Unesite naslov prijave ovde na jeziku {$language}. Naslov možete formatirati "
+"po potrebi"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Preporučuje se uključivanje apstrakta na jeziku {$language}. To pomaže da "
+"sadržaj bude pristupačan."
+
+msgid "submission.review.status.viewed"
+msgstr "Urednik je video recenziju."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Možete ažurirati ovu diskusiju tokom {$allowedEditTimeNoticeLimit} minuta."

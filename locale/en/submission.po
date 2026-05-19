@@ -2772,7 +2772,7 @@ msgid "publication.mediaFiles.delete"
 msgstr "Delete media file?"
 
 msgid "publication.mediaFiles.description"
-msgstr "Upload media files in bulk, including high-resolution versions. After uploading, link each file to its web or high resolution counterpart by cliking Manually Link Media from the More Actions dropdown, or use Batch Link Media to link multiple files at once."
+msgstr "Upload media files in bulk, including high-resolution versions. After uploading, link each file to its web or high resolution counterpart by clicking Manually Link Media from the More Actions dropdown, or use Batch Link Media to link multiple files at once."
 
 msgid "publication.mediaFiles.linkHighResolutionVersion"
 msgstr "Link High-Resolution Version"

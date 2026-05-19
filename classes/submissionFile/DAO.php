@@ -287,6 +287,9 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * Retrieve file by public ID or submissionFileId
      *
+     * Returns null for a non-numeric $bestId that is not a publisher ID
+     * (rather than raising a TypeError from the int-typed get()).
+     *
      * @param string|int $bestId Publisher id or submissionFileId
      */
     public function getByBestId(
@@ -299,8 +302,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             $submissionFile = $this->getByPubId('publisher-id', $bestId, $submissionId, null);
         }
 
-        if (!isset($submissionFile)) {
-            $submissionFile = $this->get($bestId);
+        if (!isset($submissionFile) && ctype_digit((string) $bestId)) {
+            $submissionFile = $this->get((int) $bestId);
         }
 
         if (
@@ -309,7 +312,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
                 $submissionFile->getData('fileStage'),
                 [
                     SubmissionFile::SUBMISSION_FILE_PROOF,
-                    SubmissionFile::SUBMISSION_FILE_DEPENDENT
+                    SubmissionFile::SUBMISSION_FILE_DEPENDENT,
+                    SubmissionFile::SUBMISSION_FILE_MEDIA,
                 ]
             )
         ) {

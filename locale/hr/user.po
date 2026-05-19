@@ -2,13 +2,14 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
 # Petra Cacic <petracacic3@gmail.com>, 2025.
 # Iva Vidović <iva.vidovic@srce.hr>, 2025.
+# Franjo <fpehar@unizd.hr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-08-29 21:32+0000\n"
-"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
+"PO-Revision-Date: 2026-05-19 23:25+0000\n"
+"Last-Translator: Franjo <fpehar@unizd.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hr/>\n"
 "Language: hr\n"
@@ -601,3 +602,6 @@ msgstr ""
 
 msgid "user.preferredAvatarInitials"
 msgstr "Inicijali avatara po izboru"
+
+msgid "user.login.activate.description"
+msgstr "Potvrdite i aktivirajte svoj korisnički račun"

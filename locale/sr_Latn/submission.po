@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-19 15:16+0000\n"
+"PO-Revision-Date: 2026-05-19 20:13+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -2332,58 +2332,63 @@ msgstr ""
 "diskusije."
 
 msgid "submission.list.infoCenter"
-msgstr ""
+msgstr "Dnevnik aktivnosti i beleške"
 
 msgid "submission.list.empty"
-msgstr ""
+msgstr "Nema pronađenih prijava."
 
 msgid "submission.list.responseDue"
-msgstr ""
+msgstr "Rok za odgovor: {$date}"
 
 msgid "submission.list.reviewAssignment"
-msgstr ""
+msgstr "Zaduženje za recenziju"
 
 msgid "submission.list.reviewDue"
-msgstr ""
+msgstr "Rok za recenziju: {$date}"
 
 msgid "submission.list.reviewComplete"
-msgstr ""
+msgstr "Recenzija predata"
 
 msgid "submission.list.reviewCancelled"
-msgstr ""
+msgstr "Recenzija otkazana"
 
 msgid "submission.list.confirmDelete"
-msgstr ""
+msgstr "Obrisati prijavu?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Vidi sve prijave"
 
 msgid "submission.list.viewSubmission"
-msgstr ""
+msgstr "Pogledaj prijavu"
 
 msgid "submission.list.reviewsCompleted"
-msgstr ""
+msgstr "Zadate recenzije završene"
 
 msgid "submission.list.revisionsSubmitted"
-msgstr ""
+msgstr "Recenzije predate"
 
 msgid "submission.list.copyeditsSubmitted"
-msgstr ""
+msgstr "Lektorisani fajlovi su predati"
 
 msgid "submission.list.galleysCreated"
-msgstr ""
+msgstr "Galije za produkciju su kreirane"
 
 msgid "submission.list.filesPrepared"
-msgstr ""
+msgstr "Fajlovi su pripremljeni"
 
 msgid "submission.list.discussions"
-msgstr ""
+msgstr "Otvorene diskusije"
 
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""
+"Dodeljeno vam je više uloga za ovu prijavu. Da li želite da pristupite <a "
+"href=\"{$urlAuthorWorkflow}\">autorskom toku rada</a> ili <a href=\""
+"{$urlEditorialWorkflow}\">uredničkom toku rada</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
 msgstr ""
+"Dodeljena vam je urednička uloga za ovu prijavu. Da li želite da pristupite "
+"<a href=\"{$urlEditorialWorkflow}\">uredničkom toku rada</a>?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr ""
@@ -3157,3 +3162,6 @@ msgstr "Urednik je video recenziju."
 msgid "submission.query.allowedEditTime"
 msgstr ""
 "Možete ažurirati ovu diskusiju tokom {$allowedEditTimeNoticeLimit} minuta."
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Vidi sažetak prijave"

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/Steps.php
  *
@@ -87,11 +88,14 @@ class Steps
         );
         /** @var StageAssignment $stageAssignment */
         while ($stageAssignment = $result->next()) {
-            $userIds[] = (int) $stageAssignment->getUserId();
+            $userIds[] = $stageAssignment->getUserId();
         }
         $users = [];
-        foreach (array_unique($userIds) as $authorUserId) {
-            $users[] = Repo::user()->get($authorUserId);
+        foreach (array_unique($userIds) as $userId) {
+            $user = Repo::user()->get($userId);
+            if ($user) {
+                $users[] = $user;
+            }
         }
 
         return $users;
@@ -108,7 +112,10 @@ class Steps
     {
         $reviewers = [];
         foreach ($reviewAssignments as $reviewAssignment) {
-            $reviewers[] = Repo::user()->get((int) $reviewAssignment->getReviewerId());
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            if ($reviewer) {
+                $reviewers[] = $reviewer;
+            }
         }
         return $reviewers;
     }
@@ -122,8 +129,11 @@ class Steps
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
         $userIds = $stageAssignmentDao->getDecidingEditorIds($this->submission->getId(), $this->decisionType->getStageId());
         $users = [];
-        foreach (array_unique($userIds) as $authorUserId) {
-            $users[] = Repo::user()->get($authorUserId);
+        foreach (array_unique($userIds) as $editorUserId) {
+            $editor = Repo::user()->get($editorUserId);
+            if ($editor) {
+                $users[] = $editor;
+            }
         }
 
         return $users;

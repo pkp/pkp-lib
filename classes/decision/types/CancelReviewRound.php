@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/CancelReviewRound.php
  *
@@ -226,8 +227,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
 
         $reviewAssignments = $this->getReviewAssignments($submission->getId(), $reviewRound->getId(), DecisionType::REVIEW_ASSIGNMENT_ACTIVE);
 
-        if (count($reviewAssignments)) {
-            $reviewers = $steps->getReviewersFromAssignments($reviewAssignments);
+        if (count($reviewAssignments) && $reviewers = $steps->getReviewersFromAssignments($reviewAssignments)) {
             $mailable = new ReviewerUnassign($context, $submission, null, $fakeDecision);
             $steps->addStep((new Email(
                 $this->ACTION_NOTIFY_REVIEWERS,

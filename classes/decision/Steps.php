@@ -85,8 +85,11 @@ class Steps
             ->all();
 
         $users = [];
-        foreach (array_unique($userIds) as $authorUserId) {
-            $users[] = Repo::user()->get($authorUserId);
+        foreach (array_unique($userIds) as $userId) {
+            $user = Repo::user()->get($userId);
+            if ($user) {
+                $users[] = $user;
+            }
         }
 
         return $users;
@@ -103,7 +106,10 @@ class Steps
     {
         $reviewers = [];
         foreach ($reviewAssignments as $reviewAssignment) {
-            $reviewers[] = Repo::user()->get((int) $reviewAssignment->getReviewerId());
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            if ($reviewer) {
+                $reviewers[] = $reviewer;
+            }
         }
         return $reviewers;
     }
@@ -123,8 +129,11 @@ class Steps
             ->all();
 
         $users = [];
-        foreach (array_unique($userIds) as $authorUserId) {
-            $users[] = Repo::user()->get($authorUserId);
+        foreach (array_unique($userIds) as $editorUserId) {
+            $editor = Repo::user()->get($editorUserId);
+            if ($editor) {
+                $users[] = $editor;
+            }
         }
 
         return $users;

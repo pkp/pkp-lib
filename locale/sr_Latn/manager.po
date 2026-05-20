@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-20 12:30+0000\n"
+"PO-Revision-Date: 2026-05-20 15:11+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2912,75 +2912,83 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Ovaj časopis sprovodi recenziju sa anonimnim recenzentima. Vaše ime i imena "
+"vaših koautora biće vidljivi recenzentima, dok će identiteti recenzenata "
+"ostati anonimni."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Ovaj časopis sprovodi otvorenu recenziju. Recenzenti će videti vaše ime i "
+"afilijaciju, kao i imena i afilijacije vaših koautora. Takođe, vi ćete "
+"videti imena i afilijacije recenzenata."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Puno ime pošaljioca"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Imejl adresa pošaljioca"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Imejl potpis pošaljioca"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Puno ime primarnog kontakta veb stranice"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Imejl primarnog kontakta web stranice"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Imejl potpis sajta za automatizovane imejlove"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "Urednici dodeljeni ovoj prijavi koji mogu doneti odluku"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Naslov prijave"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Jedinstveni IDbroj prijave"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Apstrakt prijave"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Imena autora u skraćenom obliku, npr. „Barnes, et al“"
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Puna imena autora"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "URL autora ka prijavi"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "URL do prijave u uredničkom (backend) interfejsu"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "URL do objavljene prijave"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "URL do prijave u čarobnjaku za predaju"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Imena autora dodeljenih toku rada na prijavi. Obično je to autor koji je "
+"izvršio predaju"
 
 msgid "emailTemplate.variable.passwordResetUrl"
-msgstr ""
+msgstr "Heširani URL koji se šalje korisniku radi potvrde resetovanja lozinke"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nova nasumična korisnička lozinka"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Recenzent je ponovo dodeljen"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Ponovo pošaljite zahtev za recenziju recenzentu"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Puno ime korisnika koji je otpremio fajl prijave"
 
 msgid "emailTemplate.variable.announcementTitle"
 msgstr ""

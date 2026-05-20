@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-20 15:11+0000\n"
+"PO-Revision-Date: 2026-05-20 20:00+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2991,46 +2991,46 @@ msgid "emailTemplate.variable.submitterName"
 msgstr "Puno ime korisnika koji je otpremio fajl prijave"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Naslov obaveštenja"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Kratak opis obaveštenja"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "URL ka obaveštenju"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Broj prijava primljenih ovog meseca"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Broj odbijenih prijava"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Broj prihvaćenih prijava"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Broj prijava koje nisu uključene u druge ukupne vrednosti"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Ukupni broj primljenih prijava"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Mesec izveštaja"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Godina izveštaja"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Identifikacija izdanja, uključujući svesku, broj, godinu i naslov"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL do objavljenog broja"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Godina izveštaja"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Link do stranice uredničke aktivnosti"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
@@ -3714,3 +3714,6 @@ msgstr ""
 
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "Naslov stavke menija je obavezan."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Link ka validaciji imejl naloga"

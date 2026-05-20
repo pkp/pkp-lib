@@ -17,9 +17,12 @@ namespace PKP\migration\install;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PKP\migration\HasContextNameHelper;
 
 class UserCommentsMigration extends Migration
 {
+    use HasContextNameHelper;
+
     /**
      * Run the migration.
      */
@@ -40,9 +43,19 @@ class UserCommentsMigration extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->index(['publication_id'], 'user_comments_publication_id');
+            $table->foreign('publication_id')
+                ->references('publication_id')
+                ->on('publications')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('context_id')
+                ->references($this->getContextTableKey())
+                ->on($this->getContextTableName())
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->index(['publication_id', 'context_id'], 'user_comments_publication_context');
-            $table->index(['is_approved'], 'user_comments_is_approved');
         });
 
         Schema::create('user_comment_reports', function (Blueprint $table) {

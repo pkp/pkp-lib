@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file I11326_UserComments.php
+ * @file classes/migration/upgrade/v3_6_0/I11326_UserComments.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky

@@ -119,6 +119,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
         // Allow themes to override plugin template files via view name aliasing
         Hook::add('View::resolveName', $this->_overridePluginTemplates(...));
 
+        // Allow themes to override component classes via class name aliasing
+        Hook::add('Component::resolveClass', $this->_overrideComponentClass(...));
+
         return true;
     }
 

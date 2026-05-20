@@ -66,6 +66,7 @@ use PKP\site\VersionDAO;
 use PKP\template\PKPTemplateResource;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
@@ -586,6 +587,64 @@ abstract class Plugin
         $viewPath = preg_replace('#^templates/#', '', $path);
         $viewPath = str_replace('/', '.', $viewPath);
         return $this->getName() . '::' . $viewPath;
+    }
+
+    /**
+     * Component class override hook handler.
+     *
+     * Class-resolution analog of _overridePluginTemplates(). Only handles
+     * un-prefixed component tags; prefixed tags (<x-pluginname::foo />) are
+     * resolved by Laravel's findClassByComponent before guessClassName runs,
+     * so they never reach this hook.
+     *
+     * @param string $hookName 'Component::resolveClass'
+     * @param array  $args     [$component, &$overrideClass]
+     *
+     * @return int Hook::CONTINUE
+     */
+    public function _overrideComponentClass($hookName, $args)
+    {
+        $component = $args[0];
+        $overrideClass = &$args[1];
+
+        // Prefixed lookups are handled natively — don't intercept.
+        if (str_contains($component, '::')) {
+            return Hook::CONTINUE;
+        }
+
+        // 'inheritance-test-class' → 'InheritanceTestClass'. Mirrors
+        // \Illuminate\View\Compilers\ComponentTagCompiler::formatClassName().
+        $shortName = collect(explode('.', $component))
+            ->map(fn ($p) => ucfirst(Str::camel($p)))
+            ->implode('\\');
+
+        if ($found = $this->_findOverriddenComponentClass($shortName)) {
+            $overrideClass = $found;
+        }
+
+        return Hook::CONTINUE;
+    }
+
+    /**
+     * Recursive lookup for a theme-provided component class.
+     *
+     * Convention: plugins/themes/{theme}/classes/components/{ShortName}.php
+     * (matches Plugin::getComponentClassNamespace()).
+     *
+     * @return class-string|null
+     */
+    protected function _findOverriddenComponentClass(string $shortName): ?string
+    {
+        $candidate = $this->getComponentClassNamespace() . '\\' . $shortName;
+        if (class_exists($candidate)) {
+            return $candidate;
+        }
+
+        if ($this instanceof ThemePlugin && $this->parent) {
+            return $this->parent->_findOverriddenComponentClass($shortName);
+        }
+
+        return null;
     }
 
     /**

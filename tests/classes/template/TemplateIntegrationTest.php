@@ -74,12 +74,22 @@ class TemplateIntegrationTest extends PKPTestCase
     {
         // Remove any hooks we registered
         Hook::clear('View::resolveName');
+        Hook::clear('Component::resolveClass');
+
+        // Unregister any test autoloaders.
+        foreach ($this->registeredAutoloaders as $loader) {
+            spl_autoload_unregister($loader);
+        }
+        $this->registeredAutoloaders = [];
 
         // Clear singleton
         Registry::delete('templateManager');
 
         parent::tearDown();
     }
+
+    /** @var array<callable> Autoloaders registered by registerTestClass(), cleared in tearDown. */
+    private array $registeredAutoloaders = [];
 
     private static function removeDirectoryStatic(string $dir): void
     {
@@ -876,6 +886,242 @@ class TemplateIntegrationTest extends PKPTestCase
         // Note: This would need registered hints to work, so just verify it doesn't return null for unknown namespace
         $result = $method->invoke($mockTheme, 'someplugin::template');
         $this->assertNull($result, 'Unknown namespace without hints should return null');
+    }
+
+    // =========================================================================
+    // SECTION 10: Theme Override of Component Classes (Component::resolveClass)
+    // =========================================================================
+
+    /**
+     * Write a tiny PHP file declaring the given class and register a per-test
+     * autoloader that maps the FQCN to that file. Cleared in tearDown().
+     *
+     * @param string $fqcn       Fully-qualified class name, e.g. 'CompTestX\\Theme\\Components\\Foo'.
+     * @param string $classBody  Everything between the class name and the closing brace's
+     *                           opening (e.g. 'extends \Illuminate\View\Component { public string $marker = "..."; }').
+     *                           Pass an empty string for a trivial empty class.
+     */
+    private function registerTestClass(string $fqcn, string $classBody = '{}'): void
+    {
+        $lastBackslash = strrpos($fqcn, '\\');
+        $namespace = substr($fqcn, 0, $lastBackslash);
+        $shortName = substr($fqcn, $lastBackslash + 1);
+
+        $file = self::$testTemplateDir . '/_classes/' . str_replace('\\', '_', $fqcn) . '.php';
+        @mkdir(dirname($file), 0777, true);
+        file_put_contents($file, "<?php\nnamespace {$namespace};\nclass {$shortName} {$classBody}\n");
+
+        $loader = function ($class) use ($fqcn, $file) {
+            if ($class === $fqcn && !class_exists($fqcn, false)) {
+                require_once $file;
+            }
+        };
+        spl_autoload_register($loader);
+        $this->registeredAutoloaders[] = $loader;
+    }
+
+    /**
+     * Like createMockTheme(), but also lets the test control the component
+     * class namespace returned by getComponentClassNamespace(). The default
+     * implementation uses get_class($this), which returns something like
+     * "class@anonymous..." for anonymous mocks and is unusable here.
+     */
+    private function createMockThemeWithComponentNamespace(string $path, string $name, string $componentNamespace): \PKP\plugins\ThemePlugin
+    {
+        return new class($path, $name, $componentNamespace) extends \PKP\plugins\ThemePlugin {
+            private string $mockPath;
+            private string $mockName;
+            private string $mockComponentNamespace;
+
+            public function __construct(string $path, string $name, string $componentNamespace)
+            {
+                $this->mockPath = $path;
+                $this->mockName = $name;
+                $this->mockComponentNamespace = $componentNamespace;
+            }
+
+            public function register($category, $path, $mainContextId = null): bool { return true; }
+            public function init(): void {}
+            public function getPluginPath(): string { return $this->mockPath; }
+            public function getName(): string { return $this->mockName; }
+            public function getDisplayName(): string { return 'Mock Theme: ' . $this->mockName; }
+            public function getDescription(): string { return 'Mock theme for testing'; }
+            public function getComponentClassNamespace(): string { return $this->mockComponentNamespace; }
+        };
+    }
+
+    /**
+     * Construct a ComponentTagCompiler instance that reflects the current
+     * BladeCompiler state (class component aliases and namespaces).
+     */
+    private function buildComponentTagCompiler(array $extraNamespaces = []): \PKP\core\blade\ComponentTagCompiler
+    {
+        $bladeCompiler = app('blade.compiler');
+        return new \PKP\core\blade\ComponentTagCompiler(
+            $bladeCompiler->getClassComponentAliases(),
+            array_merge($bladeCompiler->getClassComponentNamespaces(), $extraNamespaces),
+            $bladeCompiler,
+        );
+    }
+
+    /**
+     * Theme handler returns its own FQCN for an un-prefixed component.
+     */
+    public function testAliasThemeOverridesComponentClass(): void
+    {
+        $ns = 'CompTest1\\Theme\\Components';
+        $this->registerTestClass($ns . '\\Layout');
+
+        $theme = $this->createMockThemeWithComponentNamespace(
+            'cache/t_template_test/themes/comptest1',
+            'comptest1',
+            $ns,
+        );
+        Hook::add('Component::resolveClass', [$theme, '_overrideComponentClass']);
+
+        $result = $this->buildComponentTagCompiler()->guessClassName('layout');
+
+        $this->assertSame($ns . '\\Layout', $result);
+    }
+
+    /**
+     * Without a theme override, un-prefixed lookup falls through to the
+     * application namespace (APP\view\components\). The on-disk artifact
+     * InheritanceTestClass under classes/view/components/ is used as the
+     * existence anchor.
+     */
+    public function testNoAliasComponentClassFallsThroughToAppThenPkp(): void
+    {
+        // No Hook::add — confirms the fallback path runs.
+        $result = $this->buildComponentTagCompiler()->guessClassName('inheritance-test-class');
+
+        $this->assertSame('APP\\view\\components\\InheritanceTestClass', $result);
+    }
+
+    /**
+     * Regression guard: `<x-pluginname::widget />` still resolves to the
+     * plugin's registered component class via findClassByComponent. The new
+     * hook only intercepts un-prefixed lookups.
+     */
+    public function testAliasPluginPrefixedComponentClassUnaffected(): void
+    {
+        $ns = 'CompTest3\\Plugin\\Components';
+        $this->registerTestClass($ns . '\\Widget');
+
+        $result = $this->buildComponentTagCompiler(['comptest3plugin' => $ns])
+            ->componentClass('comptest3plugin::widget');
+
+        $this->assertSame($ns . '\\Widget', $result);
+    }
+
+    /**
+     * Defensive: explicit `app::` and `pkp::` prefixes are not shadowed by
+     * a theme override class with a matching basename. The handler short-
+     * circuits on '::', mirroring _viewNameToOverridePath's exemption.
+     */
+    public function testNoAliasAppPrefixedComponentNotShadowedByTheme(): void
+    {
+        $ns = 'CompTest4\\Theme\\Components';
+        // Same basename as an APP-prefixed component the theme would shadow if asked.
+        $this->registerTestClass($ns . '\\InheritanceTestClass');
+
+        $theme = $this->createMockThemeWithComponentNamespace(
+            'cache/t_template_test/themes/comptest4',
+            'comptest4',
+            $ns,
+        );
+        Hook::add('Component::resolveClass', [$theme, '_overrideComponentClass']);
+
+        // Drive the handler directly with an `app::`-prefixed component name.
+        // We don't go through componentClass() because findClassByComponent for
+        // 'app::' is broken by an unrelated trailing-backslash bug; the goal
+        // here is to verify the HANDLER skips prefixed inputs.
+        $overrideClass = null;
+        $theme->_overrideComponentClass('Component::resolveClass', ['app::inheritance-test-class', &$overrideClass]);
+
+        $this->assertNull($overrideClass, 'Theme must not shadow app:: or pkp:: prefixed components');
+    }
+
+    /**
+     * Parent-theme recursion in _findOverriddenComponentClass.
+     * Child theme has no Foo; parent theme does → parent class is returned.
+     */
+    public function testAliasParentThemeOverridesComponentClass(): void
+    {
+        $parentNs = 'CompTest5\\Parent\\Components';
+        $childNs  = 'CompTest5\\Child\\Components';
+        $this->registerTestClass($parentNs . '\\Widget');
+        // Deliberately do NOT register a Widget under $childNs.
+
+        $parentTheme = $this->createMockThemeWithComponentNamespace(
+            'cache/t_template_test/themes/comptest5parent',
+            'comptest5parent',
+            $parentNs,
+        );
+        $childTheme = $this->createMockThemeWithComponentNamespace(
+            'cache/t_template_test/themes/comptest5child',
+            'comptest5child',
+            $childNs,
+        );
+        $childTheme->parent = $parentTheme;
+
+        Hook::add('Component::resolveClass', [$childTheme, '_overrideComponentClass']);
+
+        $result = $this->buildComponentTagCompiler()->guessClassName('widget');
+
+        $this->assertSame($parentNs . '\\Widget', $result);
+    }
+
+    /**
+     * Regression guard for the original bug at ComponentTagCompiler.php:37:
+     * the fallback for a non-existent class must return a well-formed FQCN
+     * (so Laravel's caller correctly detects "no class" and falls through
+     * to anonymous-component resolution).
+     */
+    public function testNoAliasFallbackReturnsFqcn(): void
+    {
+        $result = $this->buildComponentTagCompiler()->guessClassName('definitely-not-a-real-component');
+
+        $this->assertSame('APP\\view\\components\\DefinitelyNotARealComponent', $result);
+    }
+
+    /**
+     * End-to-end: a Blade template containing `<x-foo />` (no prefix)
+     * compiles and renders the theme's class output.
+     */
+    public function testAliasComponentClassResolvedAtCompile(): void
+    {
+        $ns = 'CompTest7\\Theme\\Components';
+        $this->registerTestClass(
+            $ns . '\\Greeting',
+            <<<'PHP'
+            extends \Illuminate\View\Component
+            {
+                public string $marker = 'theme-override-active';
+
+                public function render(): \Illuminate\Contracts\View\View
+                {
+                    return view('test::comp_test_7_view');
+                }
+            }
+            PHP,
+        );
+
+        // Inner view rendered by the component class.
+        $this->createTemplate('comp_test_7_view.blade', 'MARK={{ $marker }}');
+        // Parent that uses the un-prefixed component.
+        $this->createTemplate('comp_test_7_parent.blade', '<x-greeting />');
+
+        $theme = $this->createMockThemeWithComponentNamespace(
+            'cache/t_template_test/themes/comptest7',
+            'comptest7',
+            $ns,
+        );
+        Hook::add('Component::resolveClass', [$theme, '_overrideComponentClass']);
+
+        $result = view('test::comp_test_7_parent')->render();
+
+        $this->assertStringContainsString('MARK=theme-override-active', $result);
     }
 
     /**

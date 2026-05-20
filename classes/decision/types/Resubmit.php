@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/Resubmit.php
  *
@@ -160,8 +161,7 @@ class Resubmit extends DecisionType
             ));
         }
 
-        if (count($reviewAssignments)) {
-            $reviewers = $steps->getReviewersFromAssignments($reviewAssignments);
+        if (count($reviewAssignments) && $reviewers = $steps->getReviewersFromAssignments($reviewAssignments)) {
             $mailable = new DecisionNotifyReviewer($context, $submission, $fakeDecision);
             $steps->addStep(
                 (new Email(

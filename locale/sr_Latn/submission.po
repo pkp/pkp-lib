@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-19 20:13+0000\n"
+"PO-Revision-Date: 2026-05-20 12:30+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -2391,10 +2391,10 @@ msgstr ""
 "<a href=\"{$urlEditorialWorkflow}\">uredničkom toku rada</a>?"
 
 msgid "submission.list.incompleteSubmissionNotice"
-msgstr ""
+msgstr "Ova prijava mora biti dovršena pre nego što je urednik razmotri."
 
 msgid "submission.list.currentStage"
-msgstr ""
+msgstr "Trenutno je u {$stage} fazi."
 
 msgid "submission.list.activity"
 msgstr "Aktivnost"
@@ -2479,85 +2479,87 @@ msgid "submission.wizard.sectionClosed"
 msgstr "Sekcija je zatvorena"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Započni slanje"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Pokretanje nove prijave"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Došlo je do greške i nismo mogli da sačuvamo vašu prijavu. Možda je došlo do "
+"prekida veze."
 
 msgid "grid.category.categories"
-msgstr ""
+msgstr "Kategorije"
 
 msgid "catalog.sortBy.titleAsc"
-msgstr ""
+msgstr "Naslov (A-Z)"
 
 msgid "catalog.sortBy.titleDesc"
-msgstr ""
+msgstr "Naslov (Z-A)"
 
 msgid "catalog.sortBy.datePublishedAsc"
-msgstr ""
+msgstr "Datum objavljivanja (prvo najstariji)"
 
 msgid "catalog.sortBy.datePublishedDesc"
-msgstr ""
+msgstr "Datum objavljivanja (prvo najnoviji)"
 
 msgid "category.category"
-msgstr ""
+msgstr "Kategorije"
 
 msgid "category.coverImage"
-msgstr ""
+msgstr "Naslovna strana"
 
 msgid "submission.submit.placement.categories"
-msgstr ""
+msgstr "Kategorije"
 
 msgid "submission.currentCoverImage"
-msgstr ""
+msgstr "Trenutna slika"
 
 msgid "catalog.category.noItems"
-msgstr ""
+msgstr "Još uvek ništa nije objavljeno u ovoj kategoriji."
 
 msgid "catalog.category.subcategories"
-msgstr ""
+msgstr "Potkategorije"
 
 msgid "publication.contributors"
-msgstr ""
+msgstr "Saradnici"
 
 msgid "publication.createVersion"
-msgstr ""
+msgstr "Kreiraj novu verziju"
 
 msgid "publication.datePublished.errorFormat"
-msgstr ""
+msgstr "Datum mora biti formatiran YYYY-MM-DD, kao što na primer 2019-01-01."
 
 msgid "publication.event.versionCreated"
-msgstr ""
+msgstr "Nova verzija je kreirana."
 
 msgid "publication.publicationLicense"
-msgstr ""
+msgstr "Dozvole i objavljivanje podataka"
 
 msgid "publication.status.scheduled"
-msgstr ""
+msgstr "Zakazano"
 
 msgid "publication.status.unpublished"
-msgstr ""
+msgstr "Neobjavljeno"
 
 msgid "publication.titleAbstract"
-msgstr ""
+msgstr "Naslov i apstrakt"
 
 msgid "publication.unschedule"
-msgstr ""
+msgstr "Ukloni iz rasporeda"
 
 msgid "publication.urlPath"
-msgstr ""
+msgstr "URL putanja"
 
 msgid "publication.urlPath.description"
-msgstr ""
+msgstr "Opciona putanja koja će se koristiti u URL-u umesto ID-a."
 
 msgid "publication.urlPath.duplicate"
-msgstr ""
+msgstr "URL putanja je već bila korišćena i ne može se ponovo koristiti."
 
 msgid "publication.urlPath.numberInvalid"
-msgstr ""
+msgstr "URL putanja ne može biti broj."
 
 msgid "publication.version.all"
 msgstr "Sve verzije"

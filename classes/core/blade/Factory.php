@@ -86,6 +86,23 @@ class Factory extends \Illuminate\View\Factory
     }
 
     /**
+     * Check whether a view exists, honoring plugin template overrides.
+     *
+     * Laravel's default exists() asks FileViewFinder directly, bypassing the
+     * View::resolveName hook. That means @includeIf and view()->first() can't
+     * see views that exist only as plugin/theme overrides (registered via
+     * replaceNamespace, not as global view paths). Routing through
+     * resolveViewName() fixes that and reuses its cache for the follow-up make().
+     *
+     * @param  string  $view
+     * @return bool
+     */
+    public function exists($view)
+    {
+        return parent::exists($this->resolveViewName($view));
+    }
+
+    /**
      * Call the composer for a given view.
      *
      * Fires composers for both the aliased name AND the original name,

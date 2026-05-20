@@ -956,38 +956,6 @@ class TemplateIntegrationTest extends PKPTestCase
     // path list). The setUp()'s prependLocation() puts self::$testTemplateDir
     // itself on the default list, which simulates the core/app path for
     // fall-through tests.
-    //
-    // Manual anti-regression procedure (validated 2026-05-17; run again before merging):
-    //   1. In lib/pkp/classes/core/blade/Factory.php, comment out the
-    //      `if ($scoped = $this->maybeScopedResolution($original))` block
-    //      in resolveViewName(). Expected failures:
-    //         #1  testScopedResolverFindsPluginsOwnTemplate
-    //         #4  testCrossPluginIsolationViaUnnamespacedInclude
-    //         #7  testNestedPluginScopeFollowsTopOfStack
-    //         #8  testScopedCacheIsContextKeyed
-    //         #10 testScopedResolverWorksFromComposerCallingViewFromPhp
-    //         #11 testScopedResolverForSmartyInclude
-    //      Tests 2/3/5/6/9 still pass: they exercise hook override, default
-    //      fall-through, core context, or explicit-namespace paths that
-    //      don't depend on the scoped branch. Restore.
-    //   2. In lib/pkp/classes/core/blade/ComponentTagCompiler.php, replace
-    //      the body of guessAnonymousComponentUsingNamespaces() with just
-    //      `return parent::guessAnonymousComponentUsingNamespaces($viewFactory, $component);`
-    //      Expected failures: #12 testAnonymousComponentResolvesToPluginAtCompileTime,
-    //      #14 testCrossPluginIsolationForAnonymousComponents. Restore.
-    //   3. In lib/pkp/classes/core/blade/ComponentTagCompiler.php, remove the
-    //      Case 1 plugin-class pre-step from guessClassName(). Expected
-    //      failure: #16 testClassBasedComponentResolvesToPluginAtCompileTime.
-    //      Restore.
-    //   4. With everything restored, all 46 tests pass.
-    //
-    // Note: test #6 (testHookOverrideBeatsScopedFallback) does NOT fail when
-    // scoped is simply disabled -- the hook fires first regardless, so the
-    // override path wins either way. Test #6 instead guards the HOOK > SCOPED
-    // ordering invariant: swap the order in resolveViewName() (run scoped
-    // before the hook block) and test #6 fails because pluginA's local file
-    // would shadow the hook override. That swap is the mutation it protects
-    // against -- not the disable-scoped mutation.
 
     // -- 11.A — Runtime stack (Factory scoped resolver) --
 
@@ -1248,5 +1216,213 @@ class TemplateIntegrationTest extends PKPTestCase
         $result = $this->getTemplateManager()->fetch('t16::uses_t16');
 
         $this->assertStringContainsString('PluginATestComponent:m_t16', $result);
+    }
+
+    // =========================================================================
+    // SECTION 12: Parent → Child Theme Inheritance
+    // =========================================================================
+    //
+    // Verifies that Plugin::_findOverriddenTemplate() (lib/pkp/classes/plugins/Plugin.php:551-571)
+    // correctly walks a child theme → parent theme chain via the public $parent
+    // property when the child is the active theme. The recursion uses absolute
+    // file_exists() against the plugin path, so it is independent of Laravel's
+    // unnamespaced FileViewFinder::$paths list -- the leak surface closed in
+    // pkp/pkp-lib#12684.
+    //
+    // Each test creates a parent/child theme pair under self::$testTemplateDir,
+    // registers both namespaces with the view finder, builds anonymous
+    // ThemePlugin mocks (createMockTheme), and manually wires $child->parent
+    // = $parent (mimicking ThemePlugin::setParent() at line 757 without going
+    // through PluginRegistry).
+    //
+    // The active theme is simulated by which mock's _overridePluginTemplates is
+    // registered as a View::resolveName listener -- ThemePlugin::register() at
+    // line 109 only registers the hook for the active theme, so registering
+    // ONLY the child's hook simulates "child active" and ONLY the parent's
+    // simulates "child inactive".
+    //
+    // Scope is parent → child for now; grandchild (3-level) is a follow-up.
+
+    /**
+     * Helper for SECTION 12: create a parent/child theme pair under self::$testTemplateDir,
+     * register both Laravel view namespaces (absolute paths), build anonymous ThemePlugin
+     * mocks, and wire $child->parent = $parent.
+     *
+     * Mock paths are absolute so _findOverriddenTemplate's file_exists() works
+     * regardless of CWD.
+     *
+     * @return array{0: \PKP\plugins\ThemePlugin, 1: \PKP\plugins\ThemePlugin} [parentMock, childMock]
+     */
+    private function createThemePair(string $parentNs, string $childNs): array
+    {
+        $parentRoot = self::$testTemplateDir . '/' . $parentNs;
+        $childRoot = self::$testTemplateDir . '/' . $childNs;
+
+        if (!is_dir($parentRoot . '/templates')) {
+            mkdir($parentRoot . '/templates', 0777, true);
+        }
+        if (!is_dir($childRoot . '/templates')) {
+            mkdir($childRoot . '/templates', 0777, true);
+        }
+
+        view()->addNamespace($parentNs, $parentRoot . '/templates');
+        view()->addNamespace($childNs, $childRoot . '/templates');
+
+        $parent = $this->createMockTheme($parentRoot, $parentNs);
+        $child = $this->createMockTheme($childRoot, $childNs);
+        $child->parent = $parent;
+
+        return [$parent, $child];
+    }
+
+    /**
+     * Helper for SECTION 12: write a template file under a theme's templates directory.
+     */
+    private function writeThemeTemplate(string $themeNs, string $relativeFilePath, string $content): void
+    {
+        $path = self::$testTemplateDir . '/' . $themeNs . '/templates/' . $relativeFilePath;
+        $dir = dirname($path);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        file_put_contents($path, $content);
+    }
+
+    // -- 12.A — Baseline: child not active, parent's file renders --
+
+    public function testParentActiveChildInactiveRendersParentBlade(): void
+    {
+        // Both themes exist on disk with same-named .blade files. Only the parent's
+        // override hook is registered (simulating "parent is the active theme,
+        // child is inactive" -- ThemePlugin::register() at line 109 gates the
+        // hook registration on isActive()). Child's file must not be reachable.
+        [$parent, $child] = $this->createThemePair('p_s12t1', 'c_s12t1');
+        $this->writeThemeTemplate('p_s12t1', 'page.blade', 'PARENT_BLADE_s12t1');
+        $this->writeThemeTemplate('c_s12t1', 'page.blade', 'CHILD_BLADE_s12t1');
+
+        Hook::add('View::resolveName', [$parent, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_BLADE_s12t1', $result);
+        $this->assertStringNotContainsString('CHILD_BLADE_s12t1', $result);
+    }
+
+    public function testParentActiveChildInactiveRendersParentSmarty(): void
+    {
+        // Smarty equivalent of testParentActiveChildInactiveRendersParentBlade.
+        [$parent, $child] = $this->createThemePair('p_s12t2', 'c_s12t2');
+        $this->writeThemeTemplate('p_s12t2', 'page.tpl', 'PARENT_SMARTY_s12t2');
+        $this->writeThemeTemplate('c_s12t2', 'page.tpl', 'CHILD_SMARTY_s12t2');
+
+        Hook::add('View::resolveName', [$parent, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_SMARTY_s12t2', $result);
+        $this->assertStringNotContainsString('CHILD_SMARTY_s12t2', $result);
+    }
+
+    // -- 12.B — Override: child active, child has its own file --
+
+    public function testChildOverridesParentBladeWithBlade(): void
+    {
+        // Same-engine override. _findOverriddenTemplate's first file_exists()
+        // check ($child/templates/page.blade at line 556) hits, returns the
+        // child's namespaced name without recursing into the parent.
+        [$parent, $child] = $this->createThemePair('p_s12t3', 'c_s12t3');
+        $this->writeThemeTemplate('p_s12t3', 'page.blade', 'PARENT_BLADE_s12t3');
+        $this->writeThemeTemplate('c_s12t3', 'page.blade', 'CHILD_BLADE_s12t3');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_BLADE_s12t3', $result);
+        $this->assertStringNotContainsString('PARENT_BLADE_s12t3', $result);
+    }
+
+    public function testChildOverridesParentSmartyWithSmarty(): void
+    {
+        // Same-engine override for Smarty. _findOverriddenTemplate's second
+        // file_exists() check ($child/templates/page.tpl at line 561) hits.
+        [$parent, $child] = $this->createThemePair('p_s12t4', 'c_s12t4');
+        $this->writeThemeTemplate('p_s12t4', 'page.tpl', 'PARENT_SMARTY_s12t4');
+        $this->writeThemeTemplate('c_s12t4', 'page.tpl', 'CHILD_SMARTY_s12t4');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_SMARTY_s12t4', $result);
+        $this->assertStringNotContainsString('PARENT_SMARTY_s12t4', $result);
+    }
+
+    public function testChildOverridesParentSmartyWithBlade(): void
+    {
+        // Cross-engine: parent has .tpl only, child upgrades to .blade. Child's
+        // .blade is hit on the first file_exists() check before .tpl is consulted.
+        [$parent, $child] = $this->createThemePair('p_s12t5', 'c_s12t5');
+        $this->writeThemeTemplate('p_s12t5', 'page.tpl', 'PARENT_SMARTY_s12t5');
+        $this->writeThemeTemplate('c_s12t5', 'page.blade', 'CHILD_BLADE_s12t5');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_BLADE_s12t5', $result);
+        $this->assertStringNotContainsString('PARENT_SMARTY_s12t5', $result);
+    }
+
+    public function testChildOverridesParentBladeWithSmarty(): void
+    {
+        // Cross-engine, the trickier direction: parent has .blade, child has .tpl
+        // only. _findOverriddenTemplate must NOT prefer parent's .blade over
+        // child's .tpl -- it checks child's .blade (miss), then child's .tpl
+        // (hit), and returns BEFORE recursing into the parent. Regression guard
+        // for the engine-precedence ordering.
+        [$parent, $child] = $this->createThemePair('p_s12t6', 'c_s12t6');
+        $this->writeThemeTemplate('p_s12t6', 'page.blade', 'PARENT_BLADE_s12t6');
+        $this->writeThemeTemplate('c_s12t6', 'page.tpl', 'CHILD_SMARTY_s12t6');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_SMARTY_s12t6', $result);
+        $this->assertStringNotContainsString('PARENT_BLADE_s12t6', $result);
+    }
+
+    // -- 12.C — Fallback: child active, only parent has the file (recursion path) --
+
+    public function testChildActiveFallsThroughToParentBlade(): void
+    {
+        // Child has no override. _findOverriddenTemplate's two file_exists()
+        // checks miss on the child, the `$this instanceof ThemePlugin && $this->parent`
+        // guard at line 566 passes, and the recursion `$this->parent->_findOverriddenTemplate($path)`
+        // returns the parent's namespaced view name.
+        [$parent, $child] = $this->createThemePair('p_s12t7', 'c_s12t7');
+        $this->writeThemeTemplate('p_s12t7', 'page.blade', 'PARENT_BLADE_s12t7');
+        // Child intentionally has NO page file.
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_BLADE_s12t7', $result);
+    }
+
+    public function testChildActiveFallsThroughToParentSmarty(): void
+    {
+        // Smarty equivalent of the recursion path.
+        [$parent, $child] = $this->createThemePair('p_s12t8', 'c_s12t8');
+        $this->writeThemeTemplate('p_s12t8', 'page.tpl', 'PARENT_SMARTY_s12t8');
+        // Child intentionally has NO page file.
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_SMARTY_s12t8', $result);
     }
 }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-18 16:36+0000\n"
+"PO-Revision-Date: 2026-05-20 12:30+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sr_Latn/>\n"
@@ -2157,73 +2157,77 @@ msgid "validator.present"
 msgstr "Polje {$attribute} mora biti prisutno."
 
 msgid "validator.regex"
-msgstr ""
+msgstr "Ovo nije ispravno formatirano."
 
 msgid "validator.required"
-msgstr ""
+msgstr "Ovo polje je obavezno."
 
 msgid "validator.required_if"
-msgstr ""
+msgstr "Ovo polje je obavezno kad je {$other} {$value}."
 
 msgid "validator.required_unless"
-msgstr ""
+msgstr "Ovo polje je obavezno osim ako je {$other} {$values}."
 
 msgid "validator.required_with"
-msgstr ""
+msgstr "Ovo polje je obavezno ako je pristuno {$values}."
 
 msgid "validator.required_with_all"
-msgstr ""
+msgstr "Ovo polje je obavezno ako je pristuno {$values}."
 
 msgid "validator.required_without"
-msgstr ""
+msgstr "Ovo polje je obavezno kada {$values} nije prisutno."
 
 msgid "validator.required_without_all"
 msgstr ""
+"Ovo polje je obavezno kada nijedna od vrednosti {$values} nije prisutna."
 
 msgid "validator.same"
-msgstr ""
+msgstr "{$attribute} i {$other} moraju da se podudaraju."
 
 msgid "validator.size.numeric"
-msgstr ""
+msgstr "Ovo mora biti {$size}."
 
 msgid "validator.size.file"
-msgstr ""
+msgstr "Ovo mora biti {$size} kilobajta."
 
 msgid "validator.size.string"
-msgstr ""
+msgstr "Ovo mora sadržati {$size} znakova."
 
 msgid "validator.size.array"
-msgstr ""
+msgstr "Ovo mora sadržati {$size} elemenata."
 
 msgid "validator.string"
-msgstr ""
+msgstr "Ovo nije važeći niz."
 
 msgid "validator.timezone"
-msgstr ""
+msgstr "Ovo nije važeća vremenska zona."
 
 msgid "validator.unique"
-msgstr ""
+msgstr "$attribute} je već zauzet."
 
 msgid "validator.url"
-msgstr ""
+msgstr "Ovo nije validan URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Nije dopušten novi red."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Dozvoljene su samo HTML oznake [{$tags}]."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
+"Filter ({$displayName}) podržava input {$inputTypeName} - {$typeofInput}"
 
 msgid "filter.error.missingRequirements"
 msgstr ""
+"Pokušavate da pokrenete transformaciju koju ne podržava vaše instalacijsko "
+"okruženje."
 
 msgid "filter.import.error.couldNotImportNode"
-msgstr ""
+msgstr "Nije moguće uvesti XML čvor"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Nepoznata naredba {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2351,3 +2355,24 @@ msgstr "Prikaži sve"
 
 msgid "validator.date.comparison"
 msgstr "Priloženi datumi za poređenje nisu važeći."
+
+msgid "common.viewMoreDetails"
+msgstr "Pogledaj više detalja"
+
+msgid "common.openLinkNewTab"
+msgstr "Otvori link u novom tabu."
+
+msgid "common.refreshingData"
+msgstr "Osvežavanje podataka"
+
+msgid "validator.multilingual"
+msgstr "Višejezični uslov za ovo polje nije ispunjen."
+
+msgid "common.sandbox"
+msgstr "Aplikacija radi u sandbox režimu."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Ne"

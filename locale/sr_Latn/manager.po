@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-02 23:13+0000\n"
+"PO-Revision-Date: 2026-05-20 12:30+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -2805,100 +2805,110 @@ msgstr ""
 "pojavljivanja. Treba da postoji samo jedno."
 
 msgid "plugins.importexport.common.cliError"
-msgstr ""
+msgstr "GREŠKA:"
 
 msgid "plugins.importexport.common.error.unknownContext"
-msgstr ""
+msgstr "Navedena putanja časopisa, \"{$contextPath}\", ne postoji."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Proces nije uspeo da analizira autore"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Proces nije uspeo da analizira publikacije"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Svi komentari iz završenih recenzija. Imena recenzenata su skrivena za "
+"anonimne recenzije"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Imena i afilijacije autora prijave."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL za stranicu na kojoj korisnik može da vrati izgubljenu lozinku"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "URL za pregled svih prijava dodeljenih korisniku"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "URL preko kog korisnik može da vidi i uredi svoj profil"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Ime odluke koja je doneta"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Opis odluke koja je doneta"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Faza uredničkog toka rada u kojoj je ova odluka doneta"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Krug recenzije u kojem je ova odluka doneta, ako je odluka povezana sa fazom "
+"recenzije"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Predmet diskusije"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Sadržaj nove diskusije ili odgovora"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Lista prijava sa nerešenim zadacima"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Broj prijava dodeljenih ovom uredniku"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Puno ime primaoca ili svih primalaca"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Korisničko ime primaoca ili svih primalaca"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Datum kog recenzija treba da bude završena"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Datum kog bi recenzent trebalo da prihvati ili odbije zadatak"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "URL za zadatak recenzije"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Preporučena odluka, kao što je Prihvati prijavu"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datum kog je ova recenzija dodeljena"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "vrsta recenzije, kao što je anonimna, dvostruko anonimna ili otvorena"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Preporuka recenzenta, kao što je Prihvati prijavu ili Odbij"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Krug recenzije, kao što je Krug 1 ili Krug 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Fajlovi koje je otpremio recenzent"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Ime recenzenta"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
+"Opis podrazumevanog metoda recenzije, kao što je dvostruko anonimni ili "
+"otvoreni"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Ovaj časopis sprovodi dvostruko anonimnu recenziju. Recenzenti neće videti "
+"nikakve identifikacione podatke o vama ili vašim koautorima. Takođe, nećete "
+"znati ko je recenzirao vaš rad niti ćete direktno komunicirati sa "
+"recenzentima."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""

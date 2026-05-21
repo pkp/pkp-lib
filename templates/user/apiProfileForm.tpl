@@ -18,6 +18,8 @@
 <form class="pkp_form" id="apiProfileForm" method="post" action="{url op="saveAPIProfile"}" enctype="multipart/form-data">
 	{csrf}
 
+	{call_hook name="Templates::APIKey::BeforeFields"}
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="apiProfileNotification"}
 
 	{fbvFormSection title="user.apiKey"}

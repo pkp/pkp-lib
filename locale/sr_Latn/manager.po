@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-21 13:43+0000\n"
+"PO-Revision-Date: 2026-05-21 19:35+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -3333,186 +3333,216 @@ msgstr "Diskusija (Podnesak)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Ovaj imejl se šalje kada se u fazi podnošenja kreira ili odgovori na "
+"diskusiju."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Rasprava (Recenzija)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Ovaj imejl se šalje kada se u fazi recenzije kreira ili odgovori na "
+"diskusiju."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Diskusija (Lektura)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Ovaj imejl se šalje kada se u fazi lekture kreira ili odgovori na diskusiju."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Diskusija (Produkcija)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Ovaj imejl se šalje kada se u fazi produkcije kreira ili odgovori na "
+"diskusiju."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Obaveštenje o revidiranoj verziji"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
+"Ovaj imejl se automatski šalje dodeljenom uredniku kada autor postavi "
+"revidiranu verziju članka."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Nova najava"
 
 msgid "mailable.announcementNotify.description"
-msgstr ""
+msgstr "Ovaj imejl se šalje kada se kreira nova najava."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Obaveštenje o statističkom izveštaju"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Uredi obaveštenje o recenziji"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Ovaj imejl automatski obaveštava recenzenta kada su se detalji njegovog "
+"zadatka recenzije izmenili."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Obaveštenje urednicima o komentaru recenzenta"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Ovaj imejl se automatski šalje dodeljenim urednicima kada recenzent napavi "
+"preporuku za recenziju"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Izvor autentifikacije"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Rad je vraćen na recenziju"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora da je njegov podnesak vraćen u fazu recenzije."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Rad vraćen u fazu prijave"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
-msgstr ""
+msgstr "Ovaj mejl obaveštava autora da je njegov rad vraćen u fazu prijave."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Upravljaj imejlovima"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Dodajte i uređujte šablone</a> za sve imejlove koje "
+"sistem šalje.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Dodajte i uređujte šablone koje želite da budu dostupne korisniku prilikom "
+"slanja ovog imejla. Podrazumevani šablon će se automatski učitati, a "
+"korisnik će moći brzo da učita bilo koji drugi šablon koji ovde dodate."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Šabloni"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Uredi šablon"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Ukloni šablon"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Da li ste sigurni da želite da izbrišete šablon <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Resetuj šablon"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Da li ste sigurni da želite da vratite naslov i sadržaj na podrazumevane "
+"vrednosti za šablon <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Pretražuj po imenu ili opisu"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Unesite kratak kako biste lakše pronašli ovaj šablon."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Nova prijava"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Konfigurišite imejl obaveštenja koja se šalju kada se izvrši novo podnošenje."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Ko bi trebalo da primi imejl kada je novo slanje podneska završeno."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Nemoj slati imejl."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Šalji imejl samo autoru koji je poslao podnesak."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Pošalji imejl."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Uredničke odluke"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Konfigurišite imejl obaveštenja koja se šalju autorima kada se evidentira "
+"urednička odluka."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Za urednike"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Konfigurišite imejl obaveštenja koja se šalju urednicima."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Urednička statistika"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Da li slati mesečni imejl urednicima sa uredničkom statistikom časopisa, kao "
+"što su stope prihvatanja i odbijanja. Urednici se mogu odjaviti sa ovog "
+"imejla iz svog korisničkog profila."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Šalji mesečni imejl urednicima."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Nemoj salti imejl urednicima."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Da li treba tražiti od autora koji vrši podnošenje da izabere kategoriju "
+"prilikom kreiranja novog podneska?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Da, dodajte polje kategorija u čarobnjak za podnošenje."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Ne, ne prikazuj ovo polje autorima."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Zatraži lekturu"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Urednik dodeljen"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Spremno za produkciju"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "SIstem"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Verzija je kreirana"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Recenzija završena"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Recenzija je uređena"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Zahvalnica za slanje podneska drugim autorima"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Urednik je dodeljen (automatski)"
 
 msgid "mailable.editorAssigned.description"
-msgstr ""
+msgstr "Ovaj imejl se šale uredniku kada mu je automatski dodeljen podnesak."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Dodeli urednika"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Potreban je urednik podnesku"
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
@@ -3523,7 +3553,7 @@ msgid "manager.setup.masthead"
 msgstr "Uprava"
 
 msgid "plugins.importexport.common.validation"
-msgstr ""
+msgstr "Validiraj XML pre izvoza i registracije."
 
 msgid "manager.announcements.notEnabled"
 msgstr ""
@@ -3776,3 +3806,19 @@ msgstr "Naslov stavke menija je obavezan."
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Link ka validaciji imejl naloga"
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzenti će biti prikazani u standardizovanom formatu kako bi se održala "
+"ujednačenost i obezbedila laka prepoznatljivost u ovom odeljku."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Definišite redosled uredničkih uloga za javni prikaz."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Molimo navedite uredničku istoriju, uključujući puno ime i prezime, "
+"afilijaciju i datume početka i završetka mandata svakog urednika."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Poziv za promenu imejl adrese"

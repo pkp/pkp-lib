@@ -56,9 +56,9 @@ trait NotifyAuthors
      */
     protected function sendAuthorEmail(Mailable $mailable, EmailData $email, User $editor, Submission $submission, Context $context)
     {
-        $recipients = array_map(function ($userId) {
-            return Repo::user()->get($userId);
-        }, $this->getAssignedAuthorIds($submission));
+        $recipients = array_filter(
+            array_map(fn ($userId) => Repo::user()->get($userId), $this->getAssignedAuthorIds($submission))
+        );
 
         $mailable = $this->addEmailDataToMailable($mailable, $editor, $email);
 

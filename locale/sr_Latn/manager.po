@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-21 01:45+0000\n"
+"PO-Revision-Date: 2026-05-21 13:43+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -3043,238 +3043,293 @@ msgstr ""
 "želi ponovo da pošalje zahtev."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Opozovi recenzenta"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr ""
+msgstr "Ovaj imejl se šalje kada urednik opozove recenzenta."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Potvrdi imejl adresu (sajt)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Ovaj imejl se automatski šalje novom korisniku kada se registruje na sajtu, "
+"ako podešavanja zahtevaju potvrdu imejl adrese."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Obavesti ostale autore"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Ovaj imejl se šalje kako bi se autori prijave koji nisu dodeljeni kao "
+"učesnici obavestili da je doneta odluka. Obično su to svi ostali autori osim "
+"autora koji je izvršio podnošenje."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Kopija imejl poruke koja je poslata autoru koji je izvršio podnošenje"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Obavesti recenzente o odluci"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Ovaj imejl urednik šalje recenzentu kako bi ga obavestio da je doneta odluka "
+"u vezi sa radom koji je recenzirao."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Kratak opis ove odluke koji bi trebalo da se podeli u imejlu koji se šalje "
+"recenzentima o ovoj odluci"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Odlučili smo da prihvatimo ovaj rad bez revizija."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Odlučili smo da odbijemo ovaj rad."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Pozvali smo autore da podnesu revizije."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
-msgstr ""
+msgstr "Pozvali smo autore da podnesu revidiranu verziju na dalju recenziju."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Pozvani recenzent prijave je otkazan."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Prijava je prihvaćena"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora da je njegov rad prihvaćen za objavljivanje."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Rad je vraćen na lekturu"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
-msgstr ""
+msgstr "Ovaj imejl obaveštava autora kada je njegov rad vraćen u fazu lekture."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Rad je vraćen iz lekture"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
-msgstr ""
+msgstr "Ovaj imejl obaveštava autora da je njegov rad vraćen iz faze lekture."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Krug recenzije je otkazan"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora da je krug recenzije za njegov rad otkazan."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Rad je odbijen"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
-msgstr ""
+msgstr "Ovaj imejl obaveštava autora da mu je rad odbijen nakon recenzije."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Rad je odbijen (pre recenzije)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Pokrenut je novi krug recenzije"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora da je započet novi krug recenzije za njegov rad."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Zatražene revizije"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autoa o odluci da zatraži revizije tokom recenzije."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Ponovo pošalji na recenziju"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora o odluci \"revidiraj i ponovo pošalji\" u vezi "
+"s njegovom prijavom."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Ponovo aktiviraj odbijenu prijavu"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora da je prethodna odluka o odbijanju rada nakon "
+"recenzije poništena."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Ponovo akitivranje prijave odbijeno je bez recenzije"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora da se prethodna odluka o odbijanju njegovog "
+"podneska bez recenzije povlači."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Poslato na recenziju"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
-msgstr ""
+msgstr "Ovaj imejl obaveštava autor da se njegov rad šalje u fazu recenzije."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Poslato na produkciju"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
-msgstr ""
+msgstr "Ovaj imejl obaveštava autora da se njihov rad šalje u fazu produkcije."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Rad je prihvaćen (bez recenzije)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Ovaj imejl obaveštava autora da se njegov rad direktno šalje u fazu lekture "
+"i da neće biti recenziran."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Data je preporuka"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Ova poruka obaveštava glavnog urednika ili urednika sekcije da je data "
+"urednička preporuka u vezi sa jednim od podnesaka koji su im dodeljeni. Ova "
+"poruka se koristi kada urednik može samo da preporuči uredničku odluku i "
+"kada je potrebno da ovlašćeni urednik evidentira uredničke odluke. Ova "
+"opcija može biti izabrana prilikom dodeljivanja učesnika podnesku."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Potvrda recenzije"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
+"Ovaj imejl se automatski šalje kada recenzent prihvati zahtev za recenziju"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Odbijanje recenzije"
 
 msgid "mailable.reviewDecline.description"
-msgstr ""
+msgstr "Ovaj imejl šalje recenzet kada odbija zahtev za recenziju"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Podsetnik za recenziju"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Ovaj imejl šalje urednik da podseti recenzenta na rok za slanje recenzije."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Podsetnik za recenziju (automatski)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
+"Ovaj imejl se automatski šalje kada recenzent nije završio recenziju u "
+"okviru zadatog roka."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Zahvalnica za recenziju"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Ovaj imejl šalje urednik recenzentu da potvrdi da je njegova recenzija "
+"primljena i da mu se zahvali na doprinosu."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Rok za odgovor na recenziju je istekao (automatski)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
+"Ovaj imejl se automatski šalje kada recenzetu rok da odgovori na zahtev za "
+"recenziju istekne."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Zahtev za recenziju"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
+"Ovaj imejl šalje urednika sekcije recenzentu zahteva da recenzent prihvati "
+"ili odbije zadatak recenzije rada. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Naknadni zahtev za recenziju"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
+"Ovaj imejl urednika recenzentu zahteva da recenzent prihvati ili odbije "
+"zahtev za recenziju rada za dodatni krug recenzije. Pruža informacije o "
+"radu, kao što su naslov i apstrakt, rok za predaju recenzije i kako "
+"pristupiti samom podnesku."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Trenutno objavljivanje rada nedostaje"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Podređeni element podneska {$child} nije uspeo da se obradi"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Urednički podsetnik"
 
 msgid "mailable.editorialReminder.description"
-msgstr ""
+msgstr "Poslat je automatski imejl urednicima sa neizvršenim zadacima"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Potvrda ponovnog postavljanja lozinke"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
+"Ovaj imejl se šalje registrovanom korisniku kada informišu da su zaboravili "
+"lozinku ili da ne mogu da se prijave. Pruža URL koji mogu da prate kako bi "
+"postavili novu lozinku."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Korisnik je registrovan"
 
 msgid "mailable.userRegister.description"
 msgstr ""
+"Ovaj imejl se šalje novoregistrovanom korisniku kada ga urednički menadžer "
+"kreira kroz podešavanja korisnika. Imejl treba da mu poželi dobrodošlicu u "
+"sistem i da mu dostavi korisničko ime i lozinku."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Registracija recenzenta"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
+"Ovaj imejl se šalje novoregistrovanom recenzentu da mu poželi dobrodošlica u "
+"sistem i da mu se pruže informacije o njegovom korisničkom imenu i lozinki."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Podnesak sačuvan za kasnije"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Automatski imejl koji se šalje autorima kada sačuvaju svoj podnesak da bi ga "
+"kasnije dovršili"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Potvrda podneska"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
+"Ovaj imejl se automatski šalje autoru kada izvrši podnošenje. Sadrži "
+"informacije o praćenju podneska kroz urednički proces i zahvaljuje autoru na "
+"podnesku."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Potvrda podneska (drugi autori)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
+"Ovaj imejl se automatski šalje autorima navedenim na podnesku koji nisu "
+"autor koji je izvršio podnošenje."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Diskusija (Podnesak)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""

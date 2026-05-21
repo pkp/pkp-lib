@@ -1731,7 +1731,7 @@ msgid "notification.confirmSuccess"
 msgstr "You have been successfully subscribed."
 
 msgid "notification.email"
-msgstr "Do not send me an email for these types of notifications."
+msgstr "Enable these types of emails.."
 
 msgid "notification.noneExist"
 msgstr "You have no notifications at this time."

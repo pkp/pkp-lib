@@ -22,6 +22,7 @@
 namespace PKP\tests\classes\template;
 
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use PKP\core\Registry;
 use PKP\plugins\Hook;
@@ -62,6 +63,11 @@ class TemplateIntegrationTest extends PKPTestCase
 
         // Clear the TemplateManager singleton for clean state
         Registry::delete('templateManager');
+
+        // Clear Factory state ($resolved, $aliases, $scopedResolved, $renderingStack)
+        // so scoped-fallback tests (SECTION 11) can't leak cross-context resolutions
+        // from one test to the next.
+        app('view')->clearResolvedCache();
 
         // Register namespace with Laravel's view system
         view()->addNamespace('test', self::$testTemplateDir);
@@ -170,6 +176,41 @@ class TemplateIntegrationTest extends PKPTestCase
                 return 'Mock theme for testing';
             }
         };
+    }
+
+    /**
+     * Helper for SECTION 11 (scoped-fallback resolver): create a plugin-style
+     * templates directory under self::$testTemplateDir, register it as a Laravel
+     * view namespace (NOT on the default path list), and register the same
+     * $viewNamespace composer Plugin::_registerTemplateViewNamespace() does.
+     *
+     * Returns the absolute path of the plugin's templates directory.
+     */
+    private function registerTestPluginNamespace(string $ns): string
+    {
+        $dir = self::$testTemplateDir . '/' . $ns . '/templates';
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        view()->addNamespace($ns, $dir);
+        View::composer($ns . '::*', fn ($view) => $view->with('viewNamespace', $ns));
+        return $dir;
+    }
+
+    /**
+     * Helper for SECTION 11: write a file under a plugin's templates directory,
+     * creating any missing subdirectories. Path is relative to the plugin's
+     * templates directory (e.g. 'components/widget.blade' or 'partial.tpl').
+     */
+    private function createTestPluginTemplate(string $ns, string $relativePath, string $content): void
+    {
+        $dir = self::$testTemplateDir . '/' . $ns . '/templates';
+        $path = $dir . '/' . $relativePath;
+        $parent = dirname($path);
+        if (!is_dir($parent)) {
+            mkdir($parent, 0777, true);
+        }
+        file_put_contents($path, $content);
     }
 
     // =========================================================================
@@ -898,5 +939,688 @@ class TemplateIntegrationTest extends PKPTestCase
             }
         }
         @rmdir($dir);
+    }
+
+    // =========================================================================
+    // SECTION 11: Scoped Fallback Resolver (pkp/pkp-lib#12684)
+    // =========================================================================
+    //
+    // Verifies the Option B "scoped fallback resolver" implementation:
+    //  - Runtime stack scoping for @include / view() / Smarty {include}
+    //    (PKP\core\blade\Factory + PKP\core\blade\View)
+    //  - Compile-time source-path scoping for <x-foo /> components
+    //    (PKP\core\blade\ComponentTagCompiler — both anonymous and class-based)
+    //
+    // Each test creates plugin-style subdirectories under self::$testTemplateDir
+    // and registers them as Laravel view namespaces ONLY (not on the default
+    // path list). The setUp()'s prependLocation() puts self::$testTemplateDir
+    // itself on the default list, which simulates the core/app path for
+    // fall-through tests.
+
+    // -- 11.A — Runtime stack (Factory scoped resolver) --
+
+    /**
+     * Test the scoped fallback resolves an unnamespaced @include from inside a
+     * plugin to that plugin's own file.
+     */
+    public function testScopedResolverFindsPluginsOwnTemplate(): void
+    {
+        $this->registerTestPluginNamespace('t01');
+        $this->createTestPluginTemplate('t01', 'parent.blade', 'P:@include("partial_t01")');
+        $this->createTestPluginTemplate('t01', 'partial_t01.blade', 'plugin_partial_t01');
+
+        $result = $this->getTemplateManager()->fetch('t01::parent');
+
+        $this->assertStringContainsString('plugin_partial_t01', $result);
+    }
+
+    /**
+     * Test the scoped fallback falls through to a core/default-path file when
+     * the calling plugin lacks the named template.
+     */
+    public function testScopedResolverFallsThroughToCoreWhenPluginMissesFile(): void
+    {
+        $this->registerTestPluginNamespace('t02');
+        $this->createTestPluginTemplate('t02', 'parent.blade', 'P:@include("partial_t02")');
+        $this->createTemplate('partial_t02.blade', 'core_partial_t02');
+
+        $result = $this->getTemplateManager()->fetch('t02::parent');
+
+        $this->assertStringContainsString('core_partial_t02', $result);
+    }
+
+    /**
+     * Test an unresolvable @include surfaces a "View [name] not found" error
+     * loudly rather than silently rendering nothing.
+     */
+    public function testScopedResolverThrowsWhenNothingMatches(): void
+    {
+        $this->registerTestPluginNamespace('t03');
+        $this->createTestPluginTemplate('t03', 'parent.blade', 'P:@include("nonexistent_t03")');
+
+        // FileViewFinder throws InvalidArgumentException but Blade's CompilerEngine
+        // wraps render-time exceptions in Illuminate\View\ViewException. Match on
+        // the unwrapped message text instead of pinning the exception type.
+        $this->expectException(\Throwable::class);
+        $this->expectExceptionMessageMatches('/View \[nonexistent_t03\] not found/');
+
+        $this->getTemplateManager()->fetch('t03::parent');
+    }
+
+    /**
+     * Test the headline #12684 leak fix for includes: pluginA's unnamespaced
+     * @include must not resolve to pluginB's same-named file.
+     */
+    public function testCrossPluginIsolationViaUnnamespacedInclude(): void
+    {
+        $this->registerTestPluginNamespace('t04_a');
+        $this->registerTestPluginNamespace('t04_b');
+        $this->createTestPluginTemplate('t04_a', 'parent.blade', 'P:@include("components.widget_t04")');
+        $this->createTestPluginTemplate('t04_a', 'components/widget_t04.blade', 'from_t04_a');
+        $this->createTestPluginTemplate('t04_b', 'components/widget_t04.blade', 'from_t04_b');
+
+        $result = $this->getTemplateManager()->fetch('t04_a::parent');
+
+        $this->assertStringContainsString('from_t04_a', $result);
+        $this->assertStringNotContainsString('from_t04_b', $result);
+    }
+
+    /**
+     * Test a core (unnamespaced) parent's @include does not pick up a
+     * same-named plugin file.
+     *
+     * Core-context isolation: no plugin namespace on the stack means no
+     * scoped fallback.
+     */
+    public function testCoreContextDoesNotPickUpPluginTemplate(): void
+    {
+        $this->registerTestPluginNamespace('t05');
+        $this->createTestPluginTemplate('t05', 'partial_t05.blade', 'plugin_t05_should_NOT_render');
+        $this->createTemplate('parent_t05.blade', 'P:@include("partial_t05")');
+        $this->createTemplate('partial_t05.blade', 'core_t05_wins');
+
+        $result = $this->renderView('parent_t05');
+
+        $this->assertStringContainsString('core_t05_wins', $result);
+        $this->assertStringNotContainsString('plugin_t05_should_NOT_render', $result);
+    }
+
+    /**
+     * Test a View::resolveName hook override wins over the scoped fallback even
+     * when the caller plugin has a local file of the same name.
+     *
+     * Regression guard for the hook-before-scoped ordering invariant.
+     */
+    public function testHookOverrideBeatsScopedFallback(): void
+    {
+        $this->registerTestPluginNamespace('t06');
+        $this->createTestPluginTemplate('t06', 'parent.blade', 'P:@include("partial_t06")');
+        $this->createTestPluginTemplate('t06', 'partial_t06.blade', 'plugin_t06_should_NOT_render');
+        $this->createTemplate('override_t06.blade', 'override_t06_wins');
+
+        Hook::add('View::resolveName', function ($hookName, $args) {
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
+            if ($viewName === 'partial_t06') {
+                $overrideViewName = 'test::override_t06';
+            }
+            return Hook::CONTINUE;
+        });
+
+        $result = $this->getTemplateManager()->fetch('t06::parent');
+
+        $this->assertStringContainsString('override_t06_wins', $result);
+        $this->assertStringNotContainsString('plugin_t06_should_NOT_render', $result);
+    }
+
+    /**
+     * Test the scoped fallback follows the TOP of the rendering stack across
+     * cross-plugin includes.
+     *
+     * pluginA -> pluginB::wrapper -> @include('inner') must pick pluginB's
+     * inner, not pluginA's.
+     */
+    public function testNestedPluginScopeFollowsTopOfStack(): void
+    {
+        $this->registerTestPluginNamespace('t07_a');
+        $this->registerTestPluginNamespace('t07_b');
+        $this->createTestPluginTemplate('t07_a', 'parent.blade', 'A:@include("t07_b::wrapper")');
+        $this->createTestPluginTemplate('t07_b', 'wrapper.blade', 'B-wrap:@include("inner_t07")');
+        $this->createTestPluginTemplate('t07_a', 'inner_t07.blade', 'from_t07_a_inner');
+        $this->createTestPluginTemplate('t07_b', 'inner_t07.blade', 'from_t07_b_inner');
+
+        $result = $this->getTemplateManager()->fetch('t07_a::parent');
+
+        $this->assertStringContainsString('from_t07_b_inner', $result);
+        $this->assertStringNotContainsString('from_t07_a_inner', $result);
+    }
+
+    /**
+     * Test the scoped cache is keyed by (callerNs, name), not just name.
+     *
+     * The same unnamespaced view name must resolve differently per calling
+     * plugin within the same request.
+     */
+    public function testScopedCacheIsContextKeyed(): void
+    {
+        $this->registerTestPluginNamespace('t08_a');
+        $this->registerTestPluginNamespace('t08_b');
+        $this->createTestPluginTemplate('t08_a', 'parent.blade', 'A:@include("shared_t08")');
+        $this->createTestPluginTemplate('t08_b', 'parent.blade', 'B:@include("shared_t08")');
+        $this->createTestPluginTemplate('t08_a', 'shared_t08.blade', 'shared_t08_from_a');
+        $this->createTestPluginTemplate('t08_b', 'shared_t08.blade', 'shared_t08_from_b');
+
+        $tm = $this->getTemplateManager();
+        $resultA = $tm->fetch('t08_a::parent');
+        $resultB = $tm->fetch('t08_b::parent');
+
+        $this->assertStringContainsString('shared_t08_from_a', $resultA);
+        $this->assertStringContainsString('shared_t08_from_b', $resultB);
+        $this->assertStringNotContainsString('shared_t08_from_b', $resultA);
+        $this->assertStringNotContainsString('shared_t08_from_a', $resultB);
+    }
+
+    /**
+     * Test an explicit pluginNs:: reference bypasses the scoped fallback and
+     * resolves to that namespace regardless of caller scope.
+     */
+    public function testExplicitlyNamespacedReferencesBypassScoping(): void
+    {
+        $this->registerTestPluginNamespace('t09_a');
+        $this->registerTestPluginNamespace('t09_b');
+        $this->createTestPluginTemplate('t09_a', 'parent.blade', 'A:@include("t09_b::partial_t09")');
+        $this->createTestPluginTemplate('t09_a', 'partial_t09.blade', 'should_not_pick_t09_a');
+        $this->createTestPluginTemplate('t09_b', 'partial_t09.blade', 'explicit_t09_b_wins');
+
+        $result = $this->getTemplateManager()->fetch('t09_a::parent');
+
+        $this->assertStringContainsString('explicit_t09_b_wins', $result);
+        $this->assertStringNotContainsString('should_not_pick_t09_a', $result);
+    }
+
+    /**
+     * Test the scoped fallback engages for view() calls made from PHP inside a
+     * composer firing mid-render.
+     *
+     * Stack top is the parent view name when the composer runs, so the
+     * fallback still identifies the calling plugin.
+     */
+    public function testScopedResolverWorksFromComposerCallingViewFromPhp(): void
+    {
+        $this->registerTestPluginNamespace('t10');
+        $this->createTestPluginTemplate('t10', 'parent.blade', 'P:{{ $extra }}');
+        $this->createTestPluginTemplate('t10', 'partial_t10.blade', 'composer_php_view_t10');
+
+        View::composer('t10::parent', function ($view) {
+            $view->with('extra', view('partial_t10')->render());
+        });
+
+        $result = $this->getTemplateManager()->fetch('t10::parent');
+
+        $this->assertStringContainsString('composer_php_view_t10', $result);
+    }
+
+    // -- 11.B — Smarty parity --
+
+    /**
+     * Test the scoped fallback also engages for Smarty {include} inside a
+     * plugin's .tpl template.
+     *
+     * SmartyTemplate::_subTemplateRender routes through Factory::resolveViewName,
+     * so plugin self-includes work in Smarty for free.
+     */
+    public function testScopedResolverForSmartyInclude(): void
+    {
+        $this->registerTestPluginNamespace('t11');
+        $this->createTestPluginTemplate('t11', 'parent.tpl', 'P:{include file="partial_t11.tpl"}');
+        $this->createTestPluginTemplate('t11', 'partial_t11.tpl', 'smarty_partial_t11');
+
+        $result = $this->getTemplateManager()->fetch('t11::parent');
+
+        $this->assertStringContainsString('smarty_partial_t11', $result);
+    }
+
+    // -- 11.C — Anonymous component compile-time scoping --
+
+    /**
+     * Test an unnamespaced <x-foo /> anonymous component inside a plugin
+     * template resolves to that plugin's component at compile time.
+     */
+    public function testAnonymousComponentResolvesToPluginAtCompileTime(): void
+    {
+        $this->registerTestPluginNamespace('t12');
+        $this->createTestPluginTemplate('t12', 'uses_t12.blade', 'P:<x-widget_t12 />');
+        $this->createTestPluginTemplate('t12', 'components/widget_t12.blade', 'plugin_anon_widget_t12');
+
+        $result = $this->getTemplateManager()->fetch('t12::uses_t12');
+
+        $this->assertStringContainsString('plugin_anon_widget_t12', $result);
+    }
+
+    /**
+     * Test an unnamespaced <x-foo /> falls through to a core anonymous
+     * component when the calling plugin does not own it.
+     */
+    public function testAnonymousComponentFallsThroughToCore(): void
+    {
+        $this->registerTestPluginNamespace('t13');
+        $this->createTestPluginTemplate('t13', 'uses_t13.blade', 'P:<x-widget_t13 />');
+        $this->createTemplate('components/widget_t13.blade', 'core_anon_widget_t13');
+
+        $result = $this->getTemplateManager()->fetch('t13::uses_t13');
+
+        $this->assertStringContainsString('core_anon_widget_t13', $result);
+    }
+
+    /**
+     * Test the headline #12684 leak fix for components: pluginA's <x-foo />
+     * must not resolve to pluginB's same-named anonymous component.
+     */
+    public function testCrossPluginIsolationForAnonymousComponents(): void
+    {
+        $this->registerTestPluginNamespace('t14_a');
+        $this->registerTestPluginNamespace('t14_b');
+        $this->createTestPluginTemplate('t14_a', 'uses_t14.blade', 'P:<x-widget_t14 />');
+        $this->createTestPluginTemplate('t14_a', 'components/widget_t14.blade', 'anon_t14_from_a');
+        $this->createTestPluginTemplate('t14_b', 'components/widget_t14.blade', 'anon_t14_from_b');
+
+        $result = $this->getTemplateManager()->fetch('t14_a::uses_t14');
+
+        $this->assertStringContainsString('anon_t14_from_a', $result);
+        $this->assertStringNotContainsString('anon_t14_from_b', $result);
+    }
+
+    /**
+     * Test an unresolvable <x-foo /> throws "Unable to locate a class or view
+     * for component" rather than rendering nothing.
+     */
+    public function testAnonymousComponentFailsLoudlyWhenNothingMatches(): void
+    {
+        $this->registerTestPluginNamespace('t15');
+        $this->createTestPluginTemplate('t15', 'uses_t15.blade', 'P:<x-nonexistent_t15 />');
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessageMatches('/Unable to locate a class or view for component \[nonexistent_t15\]/');
+
+        $this->getTemplateManager()->fetch('t15::uses_t15');
+    }
+
+    // -- 11.D — Class-based component compile-time scoping (Case 1) --
+
+    /**
+     * Test an unnamespaced class-based <x-foo /> inside a plugin template
+     * resolves to that plugin's component class via the Case 1 pre-step in
+     * guessClassName() -- no explicit pluginNs:: prefix required.
+     */
+    public function testClassBasedComponentResolvesToPluginAtCompileTime(): void
+    {
+        $this->registerTestPluginNamespace('t16');
+        Blade::componentNamespace(
+            'PKP\\tests\\classes\\template\\testComponents',
+            't16'
+        );
+        $this->createTestPluginTemplate('t16', 'uses_t16.blade', '<x-plugin-a-test-component marker="m_t16" />');
+
+        $result = $this->getTemplateManager()->fetch('t16::uses_t16');
+
+        $this->assertStringContainsString('PluginATestComponent:m_t16', $result);
+    }
+
+    // =========================================================================
+    // SECTION 12: Parent → Child Theme Inheritance
+    // =========================================================================
+    //
+    // Verifies that Plugin::_findOverriddenTemplate() (lib/pkp/classes/plugins/Plugin.php:551-571)
+    // correctly walks a child theme → parent theme chain via the public $parent
+    // property when the child is the active theme. The recursion uses absolute
+    // file_exists() against the plugin path, so it is independent of Laravel's
+    // unnamespaced FileViewFinder::$paths list -- the leak surface closed in
+    // pkp/pkp-lib#12684.
+    //
+    // Each test creates a parent/child theme pair under self::$testTemplateDir,
+    // registers both namespaces with the view finder, builds anonymous
+    // ThemePlugin mocks (createMockTheme), and manually wires $child->parent
+    // = $parent (mimicking ThemePlugin::setParent() at line 757 without going
+    // through PluginRegistry).
+    //
+    // The active theme is simulated by which mock's _overridePluginTemplates is
+    // registered as a View::resolveName listener -- ThemePlugin::register() at
+    // line 109 only registers the hook for the active theme, so registering
+    // ONLY the child's hook simulates "child active" and ONLY the parent's
+    // simulates "child inactive".
+    //
+    // Scope is parent → child for now; grandchild (3-level) is a follow-up.
+
+    /**
+     * Helper for SECTION 12: create a parent/child theme pair under self::$testTemplateDir,
+     * register both Laravel view namespaces (absolute paths), build anonymous ThemePlugin
+     * mocks, and wire $child->parent = $parent.
+     *
+     * Mock paths are absolute so _findOverriddenTemplate's file_exists() works
+     * regardless of CWD.
+     *
+     * @return array{0: \PKP\plugins\ThemePlugin, 1: \PKP\plugins\ThemePlugin} [parentMock, childMock]
+     */
+    private function createThemePair(string $parentNs, string $childNs): array
+    {
+        $parentRoot = self::$testTemplateDir . '/' . $parentNs;
+        $childRoot = self::$testTemplateDir . '/' . $childNs;
+
+        if (!is_dir($parentRoot . '/templates')) {
+            mkdir($parentRoot . '/templates', 0777, true);
+        }
+        if (!is_dir($childRoot . '/templates')) {
+            mkdir($childRoot . '/templates', 0777, true);
+        }
+
+        view()->addNamespace($parentNs, $parentRoot . '/templates');
+        view()->addNamespace($childNs, $childRoot . '/templates');
+
+        $parent = $this->createMockTheme($parentRoot, $parentNs);
+        $child = $this->createMockTheme($childRoot, $childNs);
+        $child->parent = $parent;
+
+        return [$parent, $child];
+    }
+
+    /**
+     * Helper for SECTION 12: write a template file under a theme's templates directory.
+     */
+    private function writeThemeTemplate(string $themeNs, string $relativeFilePath, string $content): void
+    {
+        $path = self::$testTemplateDir . '/' . $themeNs . '/templates/' . $relativeFilePath;
+        $dir = dirname($path);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        file_put_contents($path, $content);
+    }
+
+    // -- 12.A — Baseline: child not active, parent's file renders --
+
+    /**
+     * Test only the active (parent) theme's hook fires; child's same-named
+     * Blade file is unreachable.
+     *
+     * Mirrors ThemePlugin::register() gating hook registration on isActive().
+     */
+    public function testParentActiveChildInactiveRendersParentBlade(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t1', 'c_s12t1');
+        $this->writeThemeTemplate('p_s12t1', 'page.blade', 'PARENT_BLADE_s12t1');
+        $this->writeThemeTemplate('c_s12t1', 'page.blade', 'CHILD_BLADE_s12t1');
+
+        Hook::add('View::resolveName', [$parent, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_BLADE_s12t1', $result);
+        $this->assertStringNotContainsString('CHILD_BLADE_s12t1', $result);
+    }
+
+    /**
+     * Test only the active (parent) theme's hook fires for Smarty templates.
+     *
+     * Smarty equivalent of testParentActiveChildInactiveRendersParentBlade.
+     */
+    public function testParentActiveChildInactiveRendersParentSmarty(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t2', 'c_s12t2');
+        $this->writeThemeTemplate('p_s12t2', 'page.tpl', 'PARENT_SMARTY_s12t2');
+        $this->writeThemeTemplate('c_s12t2', 'page.tpl', 'CHILD_SMARTY_s12t2');
+
+        Hook::add('View::resolveName', [$parent, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_SMARTY_s12t2', $result);
+        $this->assertStringNotContainsString('CHILD_SMARTY_s12t2', $result);
+    }
+
+    // -- 12.B — Override: child active, child has its own file --
+
+    /**
+     * Test child theme's Blade override wins over parent's same-named Blade
+     * template.
+     *
+     * _findOverriddenTemplate's Blade check on the child hits before recursing.
+     */
+    public function testChildOverridesParentBladeWithBlade(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t3', 'c_s12t3');
+        $this->writeThemeTemplate('p_s12t3', 'page.blade', 'PARENT_BLADE_s12t3');
+        $this->writeThemeTemplate('c_s12t3', 'page.blade', 'CHILD_BLADE_s12t3');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_BLADE_s12t3', $result);
+        $this->assertStringNotContainsString('PARENT_BLADE_s12t3', $result);
+    }
+
+    /**
+     * Test child theme's Smarty override wins over parent's same-named Smarty
+     * template.
+     *
+     * _findOverriddenTemplate's Smarty check on the child hits before recursing.
+     */
+    public function testChildOverridesParentSmartyWithSmarty(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t4', 'c_s12t4');
+        $this->writeThemeTemplate('p_s12t4', 'page.tpl', 'PARENT_SMARTY_s12t4');
+        $this->writeThemeTemplate('c_s12t4', 'page.tpl', 'CHILD_SMARTY_s12t4');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_SMARTY_s12t4', $result);
+        $this->assertStringNotContainsString('PARENT_SMARTY_s12t4', $result);
+    }
+
+    /**
+     * Test cross-engine override: child upgrades parent's .tpl to .blade.
+     */
+    public function testChildOverridesParentSmartyWithBlade(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t5', 'c_s12t5');
+        $this->writeThemeTemplate('p_s12t5', 'page.tpl', 'PARENT_SMARTY_s12t5');
+        $this->writeThemeTemplate('c_s12t5', 'page.blade', 'CHILD_BLADE_s12t5');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_BLADE_s12t5', $result);
+        $this->assertStringNotContainsString('PARENT_SMARTY_s12t5', $result);
+    }
+
+    /**
+     * Test cross-engine override: child's .tpl wins over parent's .blade.
+     *
+     * Regression guard for engine-precedence ordering inside
+     * _findOverriddenTemplate -- the child's .tpl hit must return BEFORE the
+     * recursion ever reaches the parent's .blade.
+     */
+    public function testChildOverridesParentBladeWithSmarty(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t6', 'c_s12t6');
+        $this->writeThemeTemplate('p_s12t6', 'page.blade', 'PARENT_BLADE_s12t6');
+        $this->writeThemeTemplate('c_s12t6', 'page.tpl', 'CHILD_SMARTY_s12t6');
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('CHILD_SMARTY_s12t6', $result);
+        $this->assertStringNotContainsString('PARENT_BLADE_s12t6', $result);
+    }
+
+    // -- 12.C — Fallback: child active, only parent has the file (recursion path) --
+
+    /**
+     * Test child theme without its own copy falls through to parent's Blade
+     * template via _findOverriddenTemplate recursion through $this->parent.
+     */
+    public function testChildActiveFallsThroughToParentBlade(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t7', 'c_s12t7');
+        $this->writeThemeTemplate('p_s12t7', 'page.blade', 'PARENT_BLADE_s12t7');
+        // Child intentionally has NO page file.
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_BLADE_s12t7', $result);
+    }
+
+    /**
+     * Test child theme falls through to parent's Smarty template.
+     *
+     * Smarty equivalent of the recursion path.
+     */
+    public function testChildActiveFallsThroughToParentSmarty(): void
+    {
+        [$parent, $child] = $this->createThemePair('p_s12t8', 'c_s12t8');
+        $this->writeThemeTemplate('p_s12t8', 'page.tpl', 'PARENT_SMARTY_s12t8');
+        // Child intentionally has NO page file.
+
+        Hook::add('View::resolveName', [$child, '_overridePluginTemplates']);
+
+        $result = $this->getTemplateManager()->fetch('page');
+
+        $this->assertStringContainsString('PARENT_SMARTY_s12t8', $result);
+    }
+
+    // =========================================================================
+    // SECTION 13: Factory::exists() override (pkp/pkp-lib#12684 follow-up)
+    // =========================================================================
+    //
+    // Vendor Illuminate\View\Factory::exists() asks FileViewFinder directly,
+    // bypassing both the View::resolveName hook AND maybeScopedResolution().
+    // PKP\core\blade\Factory::exists() routes through resolveViewName() first
+    // so @includeIf, @includeFirst, view()->exists(), and view()->first() see
+    // plugin-namespace templates and hook overrides.
+
+    /**
+     * Test @includeIf resolves to the calling plugin's own template via the
+     * scoped fallback.
+     *
+     * Without the Factory::exists() override the include silently no-ops.
+     */
+    public function testIncludeIfFindsPluginOwnTemplate(): void
+    {
+        $this->registerTestPluginNamespace('t13a');
+        $this->createTestPluginTemplate('t13a', 'parent.blade', 'P:@includeIf("components.widget_t13a")');
+        $this->createTestPluginTemplate('t13a', 'components/widget_t13a.blade', 'plugin_widget_t13a');
+
+        $result = $this->getTemplateManager()->fetch('t13a::parent');
+
+        $this->assertStringContainsString('plugin_widget_t13a', $result);
+    }
+
+    /**
+     * Test @includeIf honors a View::resolveName listener for a name that has
+     * no file on the default paths.
+     *
+     * Confirms the exists() override gives hook overrides a chance even when
+     * the original name is otherwise unresolvable.
+     */
+    public function testIncludeIfRespectsHookOverride(): void
+    {
+        $this->registerTestPluginNamespace('t13b_provider');
+        $this->createTestPluginTemplate('t13b_provider', 'override_t13b.blade', 'hook_provided_t13b');
+        // Core template as the caller so there is no plugin scope on the stack.
+        $this->createTemplate('parent_t13b.blade', 'P:@includeIf("phantom_t13b")');
+
+        Hook::add('View::resolveName', function ($hookName, $args) {
+            $viewName = $args[0];
+            $overrideViewName = &$args[1];
+            if ($viewName === 'phantom_t13b') {
+                $overrideViewName = 't13b_provider::override_t13b';
+            }
+            return Hook::CONTINUE;
+        });
+
+        $result = $this->renderView('parent_t13b');
+
+        $this->assertStringContainsString('hook_provided_t13b', $result);
+    }
+
+    /**
+     * Test @includeFirst selects a plugin-scoped candidate when the earlier
+     * entries do not exist.
+     *
+     * Vendor Factory::first() picks via exists(); the override makes
+     * plugin-namespaced files visible to that walk.
+     */
+    public function testIncludeFirstPicksPluginNamespacedFallback(): void
+    {
+        $this->registerTestPluginNamespace('t13c');
+        $this->createTestPluginTemplate('t13c', 'parent.blade', 'P:@includeFirst(["missing_t13c", "components.widget_t13c"])');
+        $this->createTestPluginTemplate('t13c', 'components/widget_t13c.blade', 'plugin_first_pick_t13c');
+
+        $result = $this->getTemplateManager()->fetch('t13c::parent');
+
+        $this->assertStringContainsString('plugin_first_pick_t13c', $result);
+    }
+
+    /**
+     * Test view()->exists() returns true for a plugin-scoped template when
+     * probed mid-render from inside that plugin's render.
+     *
+     * Composers fire mid-render so the rendering stack top is the parent's
+     * namespace, which is what the scoped fallback needs to engage.
+     */
+    public function testViewExistsReturnsTrueForPluginScopedTemplate(): void
+    {
+        $this->registerTestPluginNamespace('t13d');
+        $this->createTestPluginTemplate('t13d', 'parent.blade', 'P:rendered');
+        $this->createTestPluginTemplate('t13d', 'components/probe_t13d.blade', 'unused');
+
+        $captured = null;
+        View::composer('t13d::parent', function ($view) use (&$captured) {
+            $captured = view()->exists('components.probe_t13d');
+        });
+
+        $this->getTemplateManager()->fetch('t13d::parent');
+
+        $this->assertTrue($captured, 'view()->exists() should see the plugin-scoped template during a plugin render');
+    }
+
+    /**
+     * Test view()->exists() returns false outside a plugin render.
+     *
+     * Empty rendering stack -> no scoped namespace -> override must not
+     * produce false positives.
+     */
+    public function testViewExistsReturnsFalseWhenNoCallerScope(): void
+    {
+        $this->registerTestPluginNamespace('t13e');
+        $this->createTestPluginTemplate('t13e', 'components/orphan_t13e.blade', 'irrelevant');
+
+        $this->assertFalse(view()->exists('components.orphan_t13e'));
+    }
+
+    /**
+     * Test @includeIf from a core (unnamespaced) parent does NOT pick up a
+     * plugin-only template.
+     *
+     * Core-context isolation: the scoped fallback only engages when the
+     * rendering stack top is plugin-namespaced.
+     */
+    public function testIncludeIfFromCoreTemplateDoesNotLeakIntoPlugin(): void
+    {
+        $this->registerTestPluginNamespace('t13f');
+        $this->createTestPluginTemplate('t13f', 'components/leaked_t13f.blade', 'plugin_t13f_should_NOT_appear');
+        $this->createTemplate('parent_t13f.blade', 'core_parent_t13f[@includeIf("components.leaked_t13f")]end');
+
+        $result = $this->renderView('parent_t13f');
+
+        $this->assertStringContainsString('core_parent_t13f', $result);
+        $this->assertStringContainsString('end', $result);
+        $this->assertStringNotContainsString('plugin_t13f_should_NOT_appear', $result);
     }
 }

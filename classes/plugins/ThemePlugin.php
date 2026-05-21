@@ -83,7 +83,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * A null value indicates that no lookup has occurred. If no options are set,
      * the lookup will assign an empty array.
      *
-     * @var null|array; $_optionValues
+     * @var null|array $_optionValues
      */
     protected $_optionValues = null;
 

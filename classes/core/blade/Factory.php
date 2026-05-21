@@ -181,6 +181,24 @@ class Factory extends \Illuminate\View\Factory
     }
 
     /**
+     * Check whether a view exists, honoring plugin template overrides and
+     * the scoped fallback.
+     *
+     * Vendor exists() asks FileViewFinder directly, bypassing the
+     * View::resolveName hook AND maybeScopedResolution(). That means
+     * @includeIf, @includeFirst, view()->exists(), and view()->first() can't
+     * see views that exist only under a plugin's namespace hint or that a
+     * theme/plugin claims via the override hook. Routing through
+     * resolveViewName() closes that gap; parent::exists() then resolves the
+     * namespaced name through findNamespacedView() and finds the file.
+     * See pkp/pkp-lib#12684.
+     */
+    public function exists($view)
+    {
+        return parent::exists($this->resolveViewName($view));
+    }
+
+    /**
      * Override viewInstance() to return PKP\core\blade\View so the rendering
      * stack push/pop happens during render. No service-provider binding needed
      * because every View in Laravel is constructed through this method.

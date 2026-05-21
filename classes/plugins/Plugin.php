@@ -132,7 +132,9 @@ abstract class Plugin
 
         Hook::add('Installer::postInstall', $this->installFilters(...));
 
-        $this->_registerTemplateResource();
+        if (!is_a($this, ThemePlugin::class)) {
+            $this->_registerTemplateResource();
+        }
         return true;
     }
 
@@ -384,7 +386,7 @@ abstract class Plugin
 
     /**
      * Get the view namespace of this plugin's templates for blade views and components
-     * 
+     *
      * Default it set to the plugin name but
      * plugin can override this method to return a different view namespace
      */
@@ -395,7 +397,7 @@ abstract class Plugin
 
     /**
      * Get the blade view component class namespace of this plugin's
-     * 
+     *
      * Default it set to the `PLUGIN_NAMESPACE\classes\components`
      * plugin can override this method to return a different view namespace
      */
@@ -439,14 +441,14 @@ abstract class Plugin
     protected function _registerTemplateViewNamespace(string $viewNamespace, bool $inCore = false): void
     {
         $templatePath = $this->getTemplatePath($inCore);
-        
+
         if (!$templatePath) {
             throw new \Exception('unable to resolve the template path');
         }
 
         // Set or replace(if already set) the plugin's view namespace same as plugin name
         view()->replaceNamespace($viewNamespace, app()->basePath($templatePath));
-            
+
         // Make sure to set the view namespace always available for plugins view
         View::composer(
             "{$viewNamespace}::*",

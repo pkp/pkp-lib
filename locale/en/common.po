@@ -516,6 +516,9 @@ msgstr "Fullscreen"
 msgid "common.fullscreenOff"
 msgstr "Fullscreen Off"
 
+msgid "common.exitFullscreen"
+msgstr "Exit fullscreen"
+
 msgid "common.false"
 msgstr "False"
 

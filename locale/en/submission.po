@@ -2990,6 +2990,18 @@ msgstr "JATS XML"
 msgid "publication.bodyText"
 msgstr "Body Text"
 
+msgid "publication.bodyText.documentPanel"
+msgstr "Document Edit"
+
+msgid "publication.bodyText.selectedElement"
+msgstr "Selected Element"
+
+msgid "publication.bodyText.outline"
+msgstr "Document Outline"
+
+msgid "publication.bodyText.references.dragHint"
+msgstr "Drag references into the editor to place an in-text citation."
+
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
 

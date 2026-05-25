@@ -1,4 +1,4 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025, 2026.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 # Michal Jelínek <jelinek@synetix.cz>, 2026.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-03-13 01:35+0000\n"
+"PO-Revision-Date: 2026-05-04 12:02+0000\n"
 "Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -266,7 +266,7 @@ msgid "manager.dois.status.needsDoi"
 msgstr "Potřebuje DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr "Registrace zrušena"
+msgstr "Nezaregistrováno"
 
 msgid "manager.dois.status.submitted"
 msgstr "Odesláno"
@@ -1338,11 +1338,10 @@ msgstr ""
 "požádáni, aby před zahájením předkládání potvrdili, že jejich příspěvek "
 "splňuje všechny zde uvedené požadavky."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
-"Deaktivujte tuto sekce a nedovolte, aby do ní bylo možné odesílat nové "
-"příspěvky."
+"Označte tuto sekci jako neaktivní a zablokujte v ní možnost přidávání nových "
+"příspěvků."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Opravdu chcete tuto sekci deaktivovat?"
@@ -3675,13 +3674,13 @@ msgid "manager.highlights.url.description"
 msgstr "Úplná adresa URL včetně adresy https:// pro tlačítko ve zvýraznění."
 
 msgid "manager.highlights.add"
-msgstr "Přidat zvýraznění"
+msgstr "Přidat zvýrazněněnou zprávu"
 
 msgid "manager.highlights.delete"
-msgstr "Smazat zvýraznění"
+msgstr "Smazat zvýrazněnou zprávu"
 
 msgid "manager.highlights.edit"
-msgstr "Editovat zvýraznění"
+msgstr "Editovat zvýrazněnou zprávu"
 
 msgid "manager.highlights.image"
 msgstr "Obrázek"
@@ -3778,7 +3777,7 @@ msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
 msgstr "Zahrnout i nadřazené podrobnosti"
 
 msgid "manager.setup.masthead"
-msgstr "Hlavička"
+msgstr "Tiráž"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validujte XML před exportem a registrací."
@@ -3798,13 +3797,13 @@ msgid "notification.submissionLocales"
 msgstr "Byly aktualizovány lokalizace příspěvku."
 
 msgid "settings.roles.masthead"
-msgstr "Zvažte roli v seznamu v záhlaví"
+msgstr "Zvažte roli v seznamu v tiráži"
 
 msgid "settings.roles.permitSettings"
 msgstr "Dovolte změny v Nastavení"
 
 msgid "manager.setup.appearance.editorialMasthead.description"
-msgstr "Definovat pořadí redakčních rolí v záhlaví pro veřejné zobrazení."
+msgstr "Definovat pořadí redakčních rolí v tiráži pro veřejné zobrazení."
 
 msgid "manager.language.websiteLanguages"
 msgstr "Jazyky webových stránek"
@@ -3859,7 +3858,7 @@ msgstr ""
 "Nastavení jazyka se nepodařilo uložit. Je třeba povolit všechny možnosti."
 
 msgid "manager.setup.editorialMasthead.order.description"
-msgstr "Definujte pořadí rolí v záhlaví pro veřejné zobrazení."
+msgstr "Definujte pořadí rolí v tiráži pro veřejné zobrazení."
 
 msgid "manager.setup.reviewOptions.reminders"
 msgstr "Nastavení připomenutí pro recenzi"

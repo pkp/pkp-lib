@@ -4,13 +4,14 @@
 # Emma U <emmaupkp@gmail.com>, 2024.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
 # Ralf Weber <ralf@weberr.de>, 2025.
+# Raphael Thiele <rthiele1@uni-koeln.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2026-02-06 20:38+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-05-07 10:48+0000\n"
+"Last-Translator: Raphael Thiele <rthiele1@uni-koeln.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
 "Language: de\n"
@@ -2986,7 +2987,7 @@ msgid "submission.list.viewSubmissionSummary"
 msgstr "Zusammenfassung der Einreichung anzeigen"
 
 msgid "submission.list.completeSubmission"
-msgstr "Vollständige Einreichung"
+msgstr "Einreichung vervollständigen"
 
 msgid "submission.wizard.cancel.confirmation"
 msgstr ""

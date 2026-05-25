@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-09 19:49+0000\n"
+"PO-Revision-Date: 2026-04-22 05:22+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
 "Language: cs\n"
@@ -356,16 +356,16 @@ msgstr "Při nahrávání tohoto obrázku došlo k chybě."
 
 msgid "api.highlights.400.noOrderData"
 msgstr ""
-"Zvýrazněnou objednávku nelze uložit, protože nebyly nalezeny žádné informace "
-"o objednávce."
+"Pořadí zvýrazněných zpráv nelze uložit, protože nebyly nalezeny žádné "
+"informace o řazení."
 
 msgid "api.highlights.400.orderHighlightNotFound"
 msgstr ""
-"Pořadí zvýraznění nebylo možné uložit, protože jedno nebo více zvýraznění "
-"nebylo nalezeno."
+"Pořadí zvýrazněných zpráv nebylo možné uložit, protože jedna nebo více "
+"zvýrazněných zpráv nebyly nalezeny."
 
 msgid "api.highlights.404.highlightNotFound"
-msgstr "Požadované zvýraznění nebylo nalezeno."
+msgstr "Požadovaná zvýrazněná zpráva nebyla nalezena."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "K této položce nelze přiřadit DOI."
@@ -443,7 +443,7 @@ msgstr ""
 "použijte koncový bod „orcid/requestAuthorVerification/{authorId}“."
 
 msgid "api.400.invalidMastheadParameter"
-msgstr "Neplatný parametr v hlavičce."
+msgstr "Neplatný parametr v tiráži."
 
 msgid "api.400.reviewerMastheadCannotBeChanged"
 msgstr "Viditelnost záhlaví pro role recenzentů nelze změnit."

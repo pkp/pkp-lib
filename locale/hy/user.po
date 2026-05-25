@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-26 06:48+0000\n"
+"PO-Revision-Date: 2026-04-10 05:43+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -902,12 +902,10 @@ msgstr ""
 "Այս ORCID-ը չի հաստատվել: Խնդրում ենք հեռացնել այս չստուգված ORCID-ը և "
 "հաստատել վեվերականությունը ուղղակիորեն օգտատիրոջից/հեղինակից:"
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
-"Իսկապե՞ս ուզում եք ընդմիշտ հեռացնել այս դերը: Այս գործողությունը կչեղարկի "
-"օգտատիրոջ մուտքը այս դերի հետ կապված բոլոր տեղեկություններին և "
-"թույլտվություններին:"
+"Վստա՞հ եք, որ ուզում եք հեռացնել այս դերը: Օգտատերը կկորցնի դրան կապված "
+"մուտքը և թույլտվությունները:"
 
 msgid "user.disabledModal.title"
 msgstr "Անջատել {$fullName}"
@@ -948,3 +946,11 @@ msgid "user.affiliations.error.rorApiDeprecated"
 msgstr ""
 "Այս տեղադրման ROR API ծառայությունը հնացած է։ Խնդրում ենք կապվել ձեր "
 "համակարգի ադմինիստրատորի հետ։"
+
+msgid "user.masthead.update.title"
+msgstr "Հաստատեք վերնախորագրի տեսանելիության փոփոխությունը"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Սա կթարմացնի, թե արդյոք այս օգտատերը ընտրված դերի համար հայտնվում է ամսագրի "
+"վերնախորագրում: Օգտատերը կտեղեկացվի այս փոփոխության մասին:"

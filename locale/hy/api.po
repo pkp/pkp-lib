@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-15 00:22+0000\n"
+"PO-Revision-Date: 2026-04-10 05:34+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hy/"
 ">\n"
@@ -439,3 +439,9 @@ msgstr ""
 "վերագրելը թույլատրելի չէ: Հեղինակից իր ORCID iD-ն թարմացնելու խնդրանքով "
 "դիմելու համար, խնդրում ենք օգտագործել \"orcid/requestAuthorVerification/"
 "{authorId}\" վերջնակետը:"
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "Գրախոսի դերերի վերնախորագրի տեսանելիությունը չի կարող փոխվել։"
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Անվավեր վերնախորագրի պարամետր։"

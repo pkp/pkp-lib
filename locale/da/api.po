@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025, 2026.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2025-12-15 12:57+0000\n"
+"PO-Revision-Date: 2026-04-10 06:30+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
 "\n"
@@ -443,3 +443,9 @@ msgstr ""
 "At tildele en forfatters ORCiD ID via rediger/tilføj forfatter endpoints er "
 "ikke tilladt. Brug venligst \"orcid/requestAuthorVerification/{authorId}\" "
 "endpoint for at bede en forfatter om at opdatere deres ORCiD ID."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Ugyldig kolofon-parameter."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "Visningen af bedømmerroller i kolofonen kan ikke ændres."

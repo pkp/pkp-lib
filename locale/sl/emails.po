@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2026-03-02 17:44+0000\n"
+"PO-Revision-Date: 2026-04-13 07:10+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/sl/>\n"
@@ -39,7 +39,6 @@ msgstr "Ta email se avtomatično pošlje avtorju, ko odda prispevek."
 msgid "emails.reviewAck.subject"
 msgstr "Zahvala za recenzijo prispevka"
 
-#, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -88,7 +87,6 @@ msgstr ""
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Vaš prispevek je bil poslal v recenzijo"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
@@ -248,11 +246,9 @@ msgstr ""
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Vaš prispevek je bil zavrnjen"
 
-#, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
-"\n"
-"\t\t\t{$authors}:<br />\n"
+"{$authors}:<br />\n"
 "<br />\n"
 "V uredništvu revije {$contextName} smo sprejeli odločitev glede vašega "
 "prispevka &quot;{$submissionTitle}&quot;.<br />\n"
@@ -712,3 +708,40 @@ msgstr ""
 
 msgid "emails.userRoleAssignmentInvitationNotify.subject"
 msgstr "Povabljeni ste bili za prevzem nove vloge v uredniškem procesu"
+
+msgid "mailable.userRoleMastheadUpdateNotify.name"
+msgstr "Obvestilo o spremembi vidnosti vloge uporabnika"
+
+msgid "mailable.userRoleMastheadUpdateNotify.description"
+msgstr ""
+"To obvestilo se pošlje uporabniku, če se spremeni vidnost vloge uporabnika."
+
+msgid "emails.userRoleMastheadUpdateNotify.body"
+msgstr ""
+"<div class='email-container'>    <div class='email-header'>        "
+"<h2>Sprememba vidnosti vloge v kolofonu</h2>    </div>    <div class='email-"
+"content'>        <p>Spoštovni {$recipientName},</p>        <p>Vidnost vaše "
+"vloge {$roleNameAndDates} pri reviji {$contextName} se je spremenila.</"
+"p>        <p>Nova nastavitev: {$appearOnMasthead}</p>        <p>Če imate "
+"glede te spremembe kakšno vprašanje, se obrnite za upravljalca revije.</"
+"p>        <p>S spoštovanjem,</p>        <p>{$contextName}</p>    </div></div>"
+
+msgid "emails.userRoleMastheadUpdateNotify.subject"
+msgstr "Vidnost kolofona vaše revije se je spremenila"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates"
+msgstr ""
+"To je ime, datum začetka in datum konca vloge uporabnika, za katero je bila "
+"posodobljena vidnost v kolofonu"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.value"
+msgstr "{$roleName} ({$startDate} &ndash; {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.startDate"
+msgstr "{$roleName} (since {$startDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.endDate"
+msgstr "{$roleName} (until {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.appearOnMasthead"
+msgstr "Sporočilo, če se uporabnik prikaže v kolofonu za to vlogo."

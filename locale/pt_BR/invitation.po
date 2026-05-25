@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-30 14:34+0000\n"
+"PO-Revision-Date: 2026-05-14 16:11+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/invitation/pt_BR/>\n"
@@ -181,7 +181,9 @@ msgstr ""
 "Para grupos de usuários adicionados, é necessário informar uma data de início"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Para grupos de usuários adicionados, é necessário informar um cabeçalho"
+msgstr ""
+"Para os grupos de usuários adicionados, é necessário definir a visibilidade "
+"no expediente"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Essa operação de convite falhou"
@@ -327,10 +329,10 @@ msgid "invitation.cancelInvite.title"
 msgstr "Cancelar convite"
 
 msgid "invitation.masthead.show"
-msgstr "Aparecer no cabeçalho"
+msgstr "Exibir no expediente"
 
 msgid "invitation.masthead.hidden"
-msgstr "Não aparece no cabeçalho"
+msgstr "Não exibir no expediente"
 
 msgid "userInvitation.cancel.message"
 msgstr "Tem certeza de que deseja cancelar este convite?"

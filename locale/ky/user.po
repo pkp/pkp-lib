@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"PO-Revision-Date: 2026-05-08 07:14+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ky/>"
 "\n"
@@ -231,12 +231,11 @@ msgstr "Бул API ачкычты өчүрүүнү каалайсызбы?"
 msgid "user.hello"
 msgstr "Салам, "
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Төмөндө уюмдун толук атын акронимдерди колдонбой киргизиңиз. Төмөнкү "
 "тизмеден атын тандап, \"Кошуу\" баскычын басыңыз, профилиңизге тиешелүүлүктү "
-"кошуу үчүн. (мисалы: \"Simon Fraser University\")"
+"кошуу үчүн (мисалы: \"Simon Fraser University\")."
 
 msgid "user.affiliations.translationDeleteActionLabel"
 msgstr "Уюмду өчүрүү"

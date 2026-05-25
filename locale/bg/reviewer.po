@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2025.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2026-04-14 07:43+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/bg/>\n"
@@ -198,3 +198,8 @@ msgstr "Това са файлове, които сте прикачили за�
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Рецензията не е завършена."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Някои задължителни полета не са попълнени. Моля, попълнете ги, преди да "
+"изпратите рецензията си."

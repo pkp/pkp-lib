@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-26 10:27+0000\n"
+"PO-Revision-Date: 2026-04-14 07:43+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg/>\n"
@@ -1087,4 +1087,65 @@ msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
 msgstr ""
 "Невъзможно е да се актуализира системния регистър на набора от данни от ROR "
 "поради несъответствие в контролната сума. Очаквана контролна сума: "
-"{$expected}. Действителна контролна сума: {$actual}"
+"{$expected}. Действителна контролна сума: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Невъзможно е да се извлекат метаданните от набора от данни на регистъра ROR. "
+"Неочакван HTTP код за състояние: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Не може да се отвори ZIP файлът с набора от данни от регистъра ROR. Код на "
+"грешката: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Не може да се намери JSON файл с данни с версия на схемата {$version} в "
+"извлечения набор от данни на ROR регистъра."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Не са обработени записи от набора от данни на регистъра ROR. Наборът от "
+"данни може да е празен или всички записи не са преминали валидация."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"Записът в системния регистър ROR „{$id}“ няма валидно име и е пропуснат."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Не може да се провери контролната сума на изтегления ZIP файл с набор от "
+"данни от системния регистър ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Не е възможно да се провери ZIP файлът с набора от данни от системния "
+"регистър ROR: неподдържан алгоритъм за контролна сума. Поддържат се само MD5 "
+"и SHA256."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Неуспешно извличане на метаданните от набора от данни на регистъра ROR. В "
+"отговора на API не е намерен файл за изтегляне."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "Не може да се изтегли ZIP файлът с набор от данни от регистъра ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Не може да се извлече ZIP файлът с набора от данни от регистъра ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"Записът в системния регистър ROR с идентификатор „{$id}“ е пропуснат без "
+"едно или повече задължителни полета (идентификатор, имена, статус)."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Не може да се прочете версията на схемата от JSON файла {$file} на ROR "
+"системния регистър. Грешка: {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"Записът в системния регистър ROR „{$id}“ съдържа име с типове [{$types}], в "
+"което липсва задължителното поле „стойност“ и е пропуснат."

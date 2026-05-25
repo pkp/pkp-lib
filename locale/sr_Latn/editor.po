@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-04-02 00:38+0000\n"
+"PO-Revision-Date: 2026-05-21 13:43+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sr_Latn/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
-msgstr "Da li želite da trajno obrišete predaje?"
+msgstr "Da li želite da trajno obrišete predaju?"
 
 msgid "editor.activityLog"
 msgstr "Dnevnik aktivnosti"
@@ -50,40 +50,51 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Izmeni odluku"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "Nemate dozvolu da zabeležite ovu odluku za ovu prijavu."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Urednik nije prepoznat i možda nema dozvolu da zabeleži odluku o ovoj "
+"prijavi."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Ne možete poslati imejl sledećim primaocima: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Ovaj krug recenzije nije pronađen."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Naveden je krug recenzije, ali ova odluka se ne donosi u fazi recenzije."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Ovaj krug recenzije nije deo ove prijave."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Prijava nije u odgovarajućoj fazi radnog toka da bi se donela ova odluka."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Morate biti dodeljeni ovoj prijavi da biste mogli da zabeležite uredničku "
+"odluku."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Morate navesti ID kruga recenzije da biste mogli da donesete ovu odluku."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Preporuka ne može biti doneta ako u ovoj fazi nije dodeljen urednik koji "
+"može doneti konačnu odluku."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Odluka nije mogla biti doneta za ovu prijavu. ID prijave nedostaje ili se ne "
+"poklapa sa traženom prijavom."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
-msgstr ""
+msgstr "Ova odluka nije pronađena. Molimo navedite prepoznat tip odluke."
 
 msgid "editor.review.notInitiated"
 msgstr "Proces recenziranja još nije započet."
@@ -151,22 +162,22 @@ msgid "editor.review.unassignReviewer"
 msgstr "Otkaži recenzenta"
 
 msgid "editor.review.cancelReviewer"
-msgstr ""
+msgstr "Otkaži recenzenta"
 
 msgid "editor.review.reinstateReviewer"
-msgstr ""
+msgstr "Ponovo aktiviraj recenzenta"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Ponovo pošalji zahtev za recenziju"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Tip recenzije"
 
 msgid "editor.submissionReview.sendEmail"
-msgstr ""
+msgstr "Pošaljite obaveštenje imejlom autoru/autorima: {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr ""
+msgstr "Pošaljite obaveštenje imejlom uredniku/urednicima: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Ne šalji imejl autoru"
@@ -192,7 +203,7 @@ msgid "editor.submissionReview.editReview"
 msgstr "Uredi recenziju"
 
 msgid "editor.review.anonymousReviewer"
-msgstr ""
+msgstr "Anonimni recenzent"
 
 msgid "editor.review.personalMessageToReviewer"
 msgstr "Poruka koja će biti poslata recenzentu"
@@ -204,7 +215,7 @@ msgid "editor.review.uploadRevision"
 msgstr "Dodaj reviziju"
 
 msgid "editor.review.newReviewRound"
-msgstr ""
+msgstr "Zahtevaj novi krug recenzije"
 
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Zahtevaj reviziju od autora."
@@ -213,16 +224,16 @@ msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Zahtevaj reviziju od autora koja će biti tema narednih recenziranja."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "Revizije ne bi trebalo da budu predmet novog kruga recenzije."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "Revizije bi trebalo da budu predmet novog kruga recenzije."
 
 msgid "editor.review.dateAccepted"
 msgstr "Razmotri datume prihvatanja"
 
 msgid "editor.review.reviewsAdded"
-msgstr ""
+msgstr "Recenzije su dodate u sadržaj poruke."
 
 msgid "editor.review.noReviews"
 msgstr "Nema stručnih recenzija za uvoz"
@@ -261,16 +272,16 @@ msgid "editor.review.requestAccepted"
 msgstr "Zahtev prihvaćen"
 
 msgid "editor.review.requestDeclined"
-msgstr ""
+msgstr "Zahtev je odbijen"
 
 msgid "editor.review.requestCancelled"
-msgstr ""
+msgstr "Zahtev je otkazan"
 
 msgid "editor.review.requestDeclined.tooltip"
-msgstr ""
+msgstr "Recenzent je odbio ovaj zahtev za recenzijom."
 
 msgid "editor.review.requestCancelled.tooltip"
-msgstr ""
+msgstr "Urednik je otkazao ovaj zahtev za recenziju."
 
 msgid "editor.review.revertDecision"
 msgstr "Opovrgni odluku"
@@ -291,10 +302,10 @@ msgid "editor.review.reviewSubmitted"
 msgstr "Recenzija predata"
 
 msgid "editor.review.reviewerThanked"
-msgstr ""
+msgstr "Recenzentu je upućena zahvalnica"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Zahtev je ponovo poslat"
 
 msgid "editor.review.reviewerComments"
 msgstr "Komentari recenzenata"
@@ -304,9 +315,10 @@ msgstr "Rangiranje recenzenta"
 
 msgid "editor.review.rateReviewer.description"
 msgstr ""
+"Ocenite kvalitet dostavljene recenzije. Ova ocena se ne deli sa recenzentom."
 
 msgid "editor.review.reviewerRating.none"
-msgstr ""
+msgstr "Nema ocene"
 
 msgid "editor.review.mustSelect"
 msgstr "Morate odabrati recenzenta"
@@ -319,9 +331,13 @@ msgstr "Došlo je do greške prilikom brisanja recenzenta, pokušajte ponovo."
 
 msgid "editor.review.errorReinstatingReviewer"
 msgstr ""
+"Došlo je do greške pri ponovnom aktiviranju recenzenta. Molimo pokušajte "
+"ponovo."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Došlo je do greške pri slanju zahteva recenzentu da ponovo razmotri poziv za "
+"recenziju. Molimo pokušajte ponovo."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Uključi korisnika u ovu grupu recenzenata"
@@ -343,9 +359,11 @@ msgstr ""
 
 msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
+"Diskusija ne može biti kreirana sa izabranim učesnicima jer bi to ugrozilo "
+"anonimnost procesa recenzije."
 
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr ""
+msgstr "Izabrani učesnik nije dodeljen ovoj fazi."
 
 msgid "editor.submission.schedulePublication"
 msgstr "Dodeli za objavljivanje"
@@ -420,19 +438,19 @@ msgid "editor.submissionReview.recordDecision"
 msgstr "Zabeleži odluku urednika"
 
 msgid "editor.submissionReview.recordRecommendation"
-msgstr ""
+msgstr "Zabeleži uredničku preporuku"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr ""
+msgstr "Obavesti urednike"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr ""
+msgstr "Ne šalji urednicima imejl."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr ""
+msgstr "Kreirajte diskusiju o recenziji za ovu preporuku."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr ""
+msgstr "Ne kreiraj diskusiju o recenziji."
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""
@@ -495,6 +513,7 @@ msgstr ""
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr ""
+"Da li ste sigurni da želite da opozovete odluku o odbijanju ove prijave?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Javni identifikator '{$publicIdentifier}' ne sme biti broj."
@@ -503,94 +522,97 @@ msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Šema {$pattern} nije dozvoljena za javni identifikator."
 
 msgid "reviewer.list.filterRating"
-msgstr ""
+msgstr "Ocenjeno najmanje sa"
 
 msgid "reviewer.list.activeReviews"
-msgstr ""
+msgstr "{$count} aktivno"
 
 msgid "reviewer.list.activeReviewsDescription"
-msgstr ""
+msgstr "Aktivne recenzije koje su trenutno dodeljene"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Ovaj recenzent je završio recenziju u prethodnom krugu."
 
 msgid "reviewer.list.completedReviews"
-msgstr ""
+msgstr "Recenzije završene"
 
 msgid "reviewer.list.declinedReviews"
-msgstr ""
+msgstr "Zahtevi za recenziju odbijeni"
 
 msgid "reviewer.list.cancelledReviews"
-msgstr ""
+msgstr "Zahtevi za recenziju otkazani"
 
 msgid "reviewer.list.reviewerRating"
-msgstr ""
+msgstr "Ocena recenzenta:{$rating}"
 
 msgid "reviewer.list.daysSinceLastAssignment"
-msgstr ""
+msgstr "pre {$days} dana"
 
 msgid "reviewer.list.daySinceLastAssignment"
-msgstr ""
+msgstr "juče"
 
 msgid "reviewer.list.daysSinceLastAssignmentDescription"
-msgstr ""
+msgstr "Dani od poslednje dodeljene recenzije"
 
 msgid "reviewer.list.averageCompletion"
-msgstr ""
+msgstr "Prosečan broj dana za završetak recenzije"
 
 msgid "reviewer.list.neverAssigned"
-msgstr ""
+msgstr "Nikad dodeljeno"
 
 msgid "reviewer.list.reassign"
-msgstr ""
+msgstr "Ponovo dodeli"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Ponovo dodeli {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr ""
+msgstr "Ovaj recenzent je već dodeljen ovom krugu recenzije."
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
+"Ovaj recenzent je zaključan jer mu je dodeljena uloga koja omogućava uvid u "
+"identitet autora. Ne može se garantovati anonimna recenzija. Da li ipak "
+"želite da ga otključate?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
-msgstr ""
+msgstr "Otključaj"
 
 msgid "reviewer.list.reviewInterests"
-msgstr ""
+msgstr "Interesi za recenziranje"
 
 msgid "reviewer.list.biography"
-msgstr ""
+msgstr "Biografija"
 
 msgid "reviewer.list.empty"
-msgstr ""
+msgstr "Nisu pronađeni recenzenti"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Dodeljen ranijem krugu"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Poništi odluku"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Da li ste sigurni da želite da otkažete ovu odluku?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Završite sledeće korake da biste doneli ovu odluku"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Nemojte preskočiti ovaj imejl"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Ovaj korak je preskočen i imejl neće biti poslat."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Zabeleži odluku"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Preskoči ovaj imejl"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Došlo je do problema u koraku „{$stepName}“."
 
 #~ msgid "editor.review.NotifyAuthorAccept"
 #~ msgstr "Obavesti autora da je njegov rad prihvaćen."
@@ -611,3 +633,64 @@ msgstr ""
 #~ "Javni identifikator '{$publicIdentifier}' već postoji i dodeljen je "
 #~ "drugom objektu istog tipa. Odaberite jedinstvene identifikatore za "
 #~ "objekte istog tipa u časopisu."
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Izaberite recenzenta iz predloga recenzenata"
+
+msgid "editor.review.importantDates.notice"
+msgstr "Rok za recenziju mora biti isti ili kasniji od roka za odgovor."
+
+msgid "editor.review.reviewViewed"
+msgstr "Recenzija pregledana"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Došlo je do greške pri dodavanju recenzenta jer rok za recenziju mora biti "
+"jednak ili kasniji od roka za odgovor."
+
+msgid "editor.submission.search"
+msgstr "Pretraži prijave, ID, autore, ključne reči itd."
+
+msgid "editor.submission.days"
+msgstr "Dani"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dana u fazi"
+
+msgid "editor.submission.viewSummary"
+msgstr "Sažetak"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Ista institucija kao autor"
+
+msgid "editor.review.logResponse"
+msgstr "Zabeleži odgovor"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Potrebno je odabrati odgovor"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ako vas recenzent kontaktira putem imejla ili na drugi način, možete "
+"zabeležiti njegov odgovor umesto njega"
+
+msgid "editor.review.allSections"
+msgstr "Urednički obrazac prikazuje sve sekcije recenzije"
+
+msgid "editor.review.logResponse.for"
+msgstr "Zabeleži odgovor za"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzent je prihvatio poziv za recenziranje"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzent je odbio poziv za recenziranje"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Zabeleži odgovor u ime recenzenta"
+
+msgid "editor.review.download"
+msgstr "Preuzmi obrazac za recenziju"
+
+msgid "editor.review.authorOnly"
+msgstr "Prikazane sekcije samo za autore"

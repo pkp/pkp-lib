@@ -1,10 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-12 14:02+0000\n"
+"PO-Revision-Date: 2026-04-17 11:27+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -1352,11 +1352,10 @@ msgstr ""
 "Հեղինակներին խնդրում ենք հաստատել, որ իրենց ներկայացումը համապատասխանում է "
 "այստեղ նշված ցանկացած պահանջին, նախքան իրենց ներկայացումը սկսելը:"
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
-"Ապաակտիվացրեք այս բաժինը և թույլ մի տվեք, որ դրանում նոր ներկայացումներ "
-"արվեն:"
+"Նշեք այս բաժինը որպես ոչ ակտիվ և թույլ մի տվեք, որ դրանում նոր "
+"ներկայացումներ արվեն:"
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Վստա՞հ եք, որ ցանկանում եք անջատել այս բաժինը:"

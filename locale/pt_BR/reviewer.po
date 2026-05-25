@@ -1,11 +1,11 @@
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2025.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-11 20:40+0000\n"
+"PO-Revision-Date: 2026-05-13 18:25+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/reviewer/pt_BR/>\n"
@@ -202,3 +202,8 @@ msgstr "Esses arquivos foram enviados a você para avaliação"
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "A avaliação não foi concluída."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Alguns campos obrigatórios não foram preenchidos. Por favor, complete-os "
+"antes de enviar sua avaliação."

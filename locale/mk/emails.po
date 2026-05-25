@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-01 17:45+0000\n"
+"PO-Revision-Date: 2026-04-22 18:48+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/mk/>\n"
@@ -739,3 +739,43 @@ msgid "mailable.userRoleAssignmentInvitationNotify.description"
 msgstr ""
 "Оваа е-пошта е испратена до корисниците кои се поканети да добијат одредени "
 "улоги"
+
+msgid "mailable.userRoleMastheadUpdateNotify.name"
+msgstr ""
+"Известување за ажурирање на видливоста на насловот на улогата на корисникот"
+
+msgid "mailable.userRoleMastheadUpdateNotify.description"
+msgstr ""
+"Известувањето по е-пошта испратено до корисникот кога видливоста на неговиот "
+"наслов на маст за улогата е ажурирана."
+
+msgid "emails.userRoleMastheadUpdateNotify.subject"
+msgstr "Видливоста на насловот на вашиот дневник е ажурирана"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates"
+msgstr ""
+"Ова е името, датумот на почеток и крај на корисничката улога за која е "
+"ажурирана видливоста на насловот на мастот"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.value"
+msgstr "{$roleName} ({$startDate} &ndash; {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.startDate"
+msgstr "{$roleName} (од {$startDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.endDate"
+msgstr "{$roleName} (до {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.appearOnMasthead"
+msgstr "Порака ако корисникот се појави на насловот за улогата."
+
+msgid "emails.userRoleMastheadUpdateNotify.body"
+msgstr ""
+"<div class='email-container'> <div class='email-header'> <h2>Ажурирана "
+"видливост на насловот на маст-страницата на улогата</h2> </div> <div class"
+"='email-content'> <p>Почитуван/а {$recipientName},</p> <p>Видливоста на "
+"насловот на маст-страницата на вашиот дневник за улогата {$roleNameAndDates} "
+"во {$contextName} е ажурирана.</p> <p>Нова поставка: {$appearOnMasthead}</p> "
+"<p>Доколку имате прашања во врска со оваа промена, ве молиме контактирајте "
+"го менаџерот на дневникот.</p> <p>Со почит,</p> <p>{$contextName}</p> "
+"</div></div>"

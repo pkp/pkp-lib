@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2025.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"PO-Revision-Date: 2026-04-22 18:37+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/mk/>\n"
@@ -196,3 +196,8 @@ msgstr "Овие датотеки ви беа испратени на прегл
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Рецензијата не беше завршена."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Некои задолжителни полиња не се пополнети. Ве молиме пополнете ги пред да ја "
+"поднесете вашата рецензија."

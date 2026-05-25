@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-26 10:27+0000\n"
+"PO-Revision-Date: 2026-04-14 07:43+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/bg/>\n"
@@ -743,3 +743,49 @@ msgstr ""
 "href='{$acceptUrl}' class='btn btn-accept'>Приемам поканата</a></p> <p><a "
 "href='{$declineUrl}' class='btn btn-decline'>Отказвам поканата</a></p> <p>С "
 "уважение,</p> <p>{$contextName</p> </div></div>"
+
+msgid "mailable.userRoleMastheadUpdateNotify.description"
+msgstr ""
+"Имейл известието, изпращано до потребител, когато видимостта колонтитула ("
+"заглавната страница) се актуализира за дадена роля."
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates"
+msgstr ""
+"Това е името, началната и крайната дата на потребителската роля, за която е "
+"актуализирана видимостта на колонтитула (заглавната страница)"
+
+msgid "emails.userRoleMastheadUpdateNotify.body"
+msgstr ""
+"<div class='email-container'>    <div class='email-header'>        "
+"<h2>Актуализирана видимост на колонтитула (заглавната страница) за ролята</"
+"h2>    </div>    <div class='email-content'>        <p>Dear "
+"{$recipientName},</p>        <p>Видимоста на колонтитула (заглавната "
+"страница) на вашата роля {$roleNameAndDates} в {$contextName} беше "
+"актуализирана.</p>        <p>Новите данни са: {$appearOnMasthead}</p>        "
+"<p>Ако имате въпроси относно тази промяна, моля, свържете се с мениджъра на "
+"списанието.</p>        <p>С уважение,</p>        <p>{$contextName}</p>    "
+"</div></div>"
+
+msgid "mailable.userRoleMastheadUpdateNotify.name"
+msgstr ""
+"Известие за актуализация на видимостта на колонтитула (заглавната страница) "
+"с потребителска роля"
+
+msgid "emails.userRoleMastheadUpdateNotify.subject"
+msgstr ""
+"Видимостта на колонтитула (заглавната страница) на вашето списание е "
+"актуализирана"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.value"
+msgstr "БГ: {$roleName} ({$startDate} &ndash; {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.startDate"
+msgstr "{$roleName} (от {$startDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.endDate"
+msgstr "{$roleName} (до {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.appearOnMasthead"
+msgstr ""
+"Съобщение, ако потребителят се показва в колонтитула (заглавната страница) "
+"за ролята."

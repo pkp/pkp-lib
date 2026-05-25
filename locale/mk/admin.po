@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-17 20:05+0000\n"
+"PO-Revision-Date: 2026-04-22 18:39+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
@@ -1101,4 +1101,63 @@ msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
 msgstr ""
 "Не може да се ажурира збирот на податоци од регистарот ROR поради "
 "несовпаѓање на контролната сума. Очекувана контролна сума: {$expected}. "
-"Вистинска контролна сума: {$actual}"
+"Вистинска контролна сума: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"На записот од регистарот ROR со ID „{$id}“ му недостасуваат едно или повеќе "
+"задолжителни полиња (ID, имиња, статус) и е прескокнат."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Не може да се извлече ZIP-датотеката со податоци од регистарот ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Не може да се преземат метаподатоците од базата на податоци на регистарот "
+"ROR. Не е пронајдена датотека за преземање во одговорот на API."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Не може да се потврди контролната сума на преземената ZIP-датотека од ROR "
+"регистарот."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Не може да се потврди ZIP-датотеката со податоци од регистарот ROR: "
+"неподдржан алгоритам за проверка. Поддржани се само MD5 и SHA256."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Не може да се преземат метаподатоците од базата на податоци на регистарот "
+"ROR. Неочекуван HTTP код за статус: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "Не може да се преземе ZIP-датотеката со податоци од регистарот ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Не може да се отвори ZIP-датотеката со податоци од регистарот ROR. Код за "
+"грешка: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Не може да се пронајде JSON датотека со податоци со верзија на шемата "
+"{$version} во извлечениот сет на податоци од регистарот ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Не може да се прочита верзијата на шемата од JSON датотеката {$file} на "
+"регистарот ROR. Грешка: {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Не се обработени записи од базата на податоци на регистарот ROR. Збирот на "
+"податоци може да е празен или сите записи да не ја поминале валидацијата."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"Записот во регистарот ROR „{$id}“ има запис за име со типови [{$types}] на "
+"кои им недостасува потребното поле „вредност“ и е прескокнат."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr "Записот „{$id}“ во регистарот ROR нема валидно име и е прескокнат."

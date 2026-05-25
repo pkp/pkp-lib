@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-25 08:19+0000\n"
+"PO-Revision-Date: 2026-04-22 05:22+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/cs/>\n"
@@ -43,8 +43,7 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMand
 msgstr "U přidaných skupin uživatelů je třeba zadat datum zahájení"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr ""
-"Pro přidané skupiny uživatelů je třeba zadat titulní stránku (úvodní text)"
+msgstr "Pro přidané skupiny uživatelů je třeba zadat tiráž"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Tato operace s pozvánkou se nezdařila"

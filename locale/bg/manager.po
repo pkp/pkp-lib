@@ -1,8 +1,8 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024, 2025.
+# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024, 2025, 2026.
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-11-05 13:52+0000\n"
+"PO-Revision-Date: 2026-04-18 21:18+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -1357,11 +1357,10 @@ msgstr ""
 "От авторите се иска да потвърдят, че тяхната работа отговаря на "
 "изискванията, посочени тук, преди да започнат подаването."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
-"Деактивиране на тази секция и няма да се правят нови заявки за материали в "
-"нея."
+"Деактивиране на тази секция и съответно няма да се добавят нови заявки за "
+"материали в нея."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Сигурни ли сте, че искате да деактивирате тази секция?"

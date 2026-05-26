@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-26 09:53+0000\n"
+"PO-Revision-Date: 2026-05-26 09:57+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/pl/>\n"
@@ -48,3 +48,31 @@ msgstr "{$step} - Wyszukaj użytkownika"
 
 msgid "userInvitation.searchUser.nextButtonLabel"
 msgstr "Wyszukaj użytkownika"
+
+msgid "invitation.step"
+msgstr "KROK"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Wprowadź dane"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Wprowadź dane"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} – Wprowadź dane i zaproś osoby do pełnienia określonych ról"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Zapisz i kontynuuj"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Wprowadź dane"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Wprowadź dane"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Wprowadź swoje dane, takie jak adres e-mail, afiliacja itp. Zgodnie z "
+"przepisami RODO tylko Ty możesz edytować te informacje. Możesz również "
+"zdecydować, czy chcesz, aby te informacje były widoczne w Twoim profilu dla "
+"redaktora."

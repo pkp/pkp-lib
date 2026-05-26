@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-26 09:57+0000\n"
+"PO-Revision-Date: 2026-05-26 09:59+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/pl/>\n"
@@ -76,3 +76,9 @@ msgstr ""
 "przepisami RODO tylko Ty możesz edytować te informacje. Możesz również "
 "zdecydować, czy chcesz, aby te informacje były widoczne w Twoim profilu dla "
 "redaktora."
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Zweryfikuj i zaproś do ról"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Zweryfikuj i zaproś do ról"

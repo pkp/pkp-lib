@@ -25,20 +25,30 @@
 				{rdelim}
 			{rdelim});
 
+			// Drop the old mount first so TinyMCE doesn't clash on remount.
+			pkp.fileMetadataApps = pkp.fileMetadataApps || {ldelim}{rdelim};
+			var previousApp = pkp.fileMetadataApps[mountId];
+			if (previousApp) {ldelim}
+				try {ldelim} previousApp.unmount(); {rdelim} catch (e) {ldelim} {rdelim}
+			{rdelim}
+
 			var app = pkp.pkpCreateVueApp(
 				pkp.controllers.FileMetadataForm,
 				rootProps
 			);
+			pkp.fileMetadataApps[mountId] = app;
 			app.mount('#' + mountId);
 
-			// Unmount on DOM detach so TinyMCE editors are removed from
-			// the global registry before the next mount reuses their ids.
+			// Catch the case where the modal closes without re-running this script.
 			var mountEl = document.getElementById(mountId);
 			if (mountEl && typeof MutationObserver !== 'undefined') {ldelim}
 				var observer = new MutationObserver(function() {ldelim}
 					if (!document.body.contains(mountEl)) {ldelim}
 						observer.disconnect();
-						try {ldelim} app.unmount(); {rdelim} catch (e) {ldelim} {rdelim}
+						if (pkp.fileMetadataApps[mountId] === app) {ldelim}
+							try {ldelim} app.unmount(); {rdelim} catch (e) {ldelim} {rdelim}
+							delete pkp.fileMetadataApps[mountId];
+						{rdelim}
 					{rdelim}
 				{rdelim});
 				observer.observe(document.body, {ldelim}childList: true, subtree: true{rdelim});

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-20 12:30+0000\n"
+"PO-Revision-Date: 2026-05-26 12:37+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -1069,11 +1069,10 @@ msgstr "Dodatna prečišćavanja"
 msgid "submission.submit.submissionLocale"
 msgstr "Jezik predaje"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
 "Ovaj časopis prihvata predaje radova na više jezika. Odaberite primarni "
-"jezik predaj iz menija."
+"jezik rada iz menija."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Dokumenti predaje"
@@ -1305,13 +1304,12 @@ msgstr "Zahteva se revizija."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Izmene su poslate i potrebna je odluka."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
+"Od autora su zatražene izmene koje će biti upućene u novi krug recenzije."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr ""
+msgstr "Izmene su predate. Potrebno je kreirati novi krug recenzije."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Poslato na spoljašnju recenziju."
@@ -1331,9 +1329,8 @@ msgstr "Čeka se odgovor od recenzenata."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Dostavljene su nove recenzije."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Recenzije su završene."
+msgstr "Recenzije su potvrđene i potrebna je odluka."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Recenzija je prekoračila rok."
@@ -2591,7 +2588,6 @@ msgstr ""
 "Ovo je pregled i još uvek nije objavljen. <a href=\"{$url}\">Prikaži "
 "prijavu</a>“ ✅"
 
-#, fuzzy
 msgid "author.submit.noFiles"
 msgstr "Fajlovi nisu dodati uz ovu prijavu."
 

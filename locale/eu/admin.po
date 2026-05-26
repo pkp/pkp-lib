@@ -1,11 +1,12 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
+# Informatikaria <informatikaria@ueu.eus>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-10-29 13:17+0000\n"
-"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"PO-Revision-Date: 2026-05-26 10:12+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
 "Language: eu\n"
@@ -173,7 +174,7 @@ msgstr ""
 "dituzula?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr ""
+msgstr "Ezabatu programatutako atazen erregistroak"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr "Ezabatu exekutatu diren zeregin programatuen erregistro (log) guztiak."
@@ -1083,3 +1084,19 @@ msgstr ""
 "Exekutatu zerrendatik programatutako zeregin jakin bat edo erabili --name "
 "zeregin zehatz bat exekutatzeko. Ezarri --no-scroll parametroa zerrenda osoa "
 "ikusteko scrollik gabe."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Ezin izan da ROR Erregistroaren datu-multzoa eguneratu checksum-ak bat ez "
+"datozelako. Espero zen checksum-a: {$expected}. Benetako checksum-a: "
+"{$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Ezin izan da deskargatutako ROR Erregistroaren datu-multzoaren ZIP "
+"fitxategiaren checksum-a egiaztatu."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Ezin izan da {$version} eskema-bertsioa duen JSON datu-fitxategirik aurkitu "
+"erauzitako ROR Erregistroaren datu-multzoan."

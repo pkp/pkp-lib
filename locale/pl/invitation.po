@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-26 09:59+0000\n"
+"PO-Revision-Date: 2026-05-26 10:01+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/pl/>\n"
@@ -82,3 +82,13 @@ msgstr "Zweryfikuj i zaproś do ról"
 
 msgid "userInvitation.sendMail.stepName"
 msgstr "Zweryfikuj i zaproś do ról"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Jeśli znasz imię użytkownika, możesz wprowadzić te dane. Użytkownik może "
+"jednak zmienić te dane."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Jeśli znasz nazwisko użytkownika, możesz wprowadzić te dane. Użytkownik może "
+"jednak zmienić te dane."

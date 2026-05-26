@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-26 12:37+0000\n"
+"PO-Revision-Date: 2026-05-26 16:34+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -41,11 +41,11 @@ msgid "submission.submit.availableUserGroups"
 msgstr "Podneti kao"
 
 msgid "submission.submit.availableUserGroupsDescription"
-msgstr "Izaberite ulogu koja najbolje opisuje vaš doprinos ovoj prijavi."
+msgstr "Izaberite ulogu koja najbolje opisuje vaš doprinos ovom radu."
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
-"Izaberite uredničku ulogu ako želite da sami uredite i objavite ovu prijavu."
+"Izaberite uredničku ulogu ako želite da sami uredite i objavite ovaj rad."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Uslovi za predaju članka"
@@ -56,7 +56,7 @@ msgstr ""
 "Morate pročitati i potvrditi da ste zadovoljili uslove pre nastavka prijave."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr "Da, moja prijava ispunjava sve ove uslove."
+msgstr "Da, moj rad ispunjava sve ove uslove."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Predaja je završena"
@@ -448,7 +448,7 @@ msgid "submission.attachedFile"
 msgstr "Pridodati fajlovi"
 
 msgid "submission.backToSubmissionEditing"
-msgstr "Povratak na uređivanje prijave"
+msgstr "Povratak na uređivanje rada"
 
 msgid "submission.changeComments"
 msgstr "Promeni u"
@@ -471,7 +471,7 @@ msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
-msgstr "Sledeće reference su izdvojene i biće povezane sa metapodacima prijave."
+msgstr "Sledeće reference su izdvojene i biće povezane sa metapodacima rada."
 
 msgid "submission.parsedAndSaveCitations"
 msgstr "Izvoji i sačuvaj reference"
@@ -534,7 +534,7 @@ msgid "submission.coverage"
 msgstr "Informacija o široj oblasti"
 
 msgid "submission.details"
-msgstr "Detalji prijave"
+msgstr "Detalji rada"
 
 msgid "submission.done"
 msgstr "Gotovo"
@@ -603,7 +603,7 @@ msgstr "Incijalna prijava članka kompletirana."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$username} je prihvatio/la uslove autorskih prava za prijavu „{$filename}“."
+"{$username} je prihvatio/la uslove autorskih prava za rad „{$filename}“."
 
 #, fuzzy
 msgid "submission.event.fileRevised"
@@ -672,12 +672,12 @@ msgstr "Vidi imejl"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
-"Autorima je sada dozvoljeno da uređuju metapodatke kada je prijava u fazi "
+"Autorima je sada dozvoljeno da uređuju metapodatke kada je rad u fazi "
 "{stage}."
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""
-"Autorima sada nije dozvoljeno da uređuju metapodatke kada je prijava u fazi "
+"Autorima sada nije dozvoljeno da uređuju metapodatke kada je rad u fazi "
 "{stage}."
 
 msgid "submission.files"
@@ -911,7 +911,7 @@ msgid "submission.notes.expandNotes"
 msgstr "Proširi beleške"
 
 msgid "submission.notes.noSubmissionNotes"
-msgstr "Nema beleški o prijavi"
+msgstr "Nema beleški o radu"
 
 msgid "submission.notes.removeUploadedFile"
 msgstr "Ukloni postavljen fajl"
@@ -1086,7 +1086,7 @@ msgstr "Upravljaj zavisnim dokumentima"
 msgid "submission.upload.instructions"
 msgstr ""
 "Otpremite sve fajlove koji će uredničkom timu biti potrebni za evaluaciju "
-"vaše prijave."
+"vašeg rada."
 
 msgid "submission.upload.percentComplete"
 msgstr "Otpremanje: {$percent}% završeno"
@@ -1401,13 +1401,13 @@ msgstr "Dozvoli uređivanje metapodataka"
 
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
-"Da li ste sigurni da želite da autorima ove prijave bude onemogućeno "
-"uređivanje metapodataka prijave u toj fazi?"
+"Da li ste sigurni da želite da autorima ovog rada bude onemogućeno "
+"uređivanje metapodataka rada u toj fazi?"
 
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
-"Da li ste sigurni da želite da autorima ove prijave bude omogućeno "
-"uređivanje metapodataka prijave u toj fazi?"
+"Da li ste sigurni da želite da autorima ovog rada bude omogućeno uređivanje "
+"metapodataka rada u toj fazi?"
 
 msgid "editor.submission.decision"
 msgstr "Odluka"
@@ -1432,17 +1432,16 @@ msgstr ""
 "zadatak recenzije otkazan."
 
 msgid "editor.submission.decision.accept"
-msgstr "Prihvati prijavu"
+msgstr "Prihvati rad"
 
 msgid "editor.submission.decision.accept.description"
-msgstr "Ova prijava biće prihvaćena za objavljivanje i poslata na lekturu."
+msgstr "Ovaj rad biće prihvaćen za objavljivanje i poslat na lekturu."
 
 msgid "editor.submission.decision.accept.log"
-msgstr ""
-"{$editorName} je prihvatio/la ovu prijavu i poslao/la je u fazu lekture."
+msgstr "{$editorName} je prihvatio/la ovaj rad i poslao/la ga u fazu lekture."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr "Prijava prihvaćena"
+msgstr "Rad je prihvaćen"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
@@ -1596,26 +1595,25 @@ msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
 "Pošaljite imejl autorima kako biste ih obavestili da je potrebno da izvrše "
 "izmene i da revidiranu verziju pošalju na novi krug recenzije. Uključite sve "
-"detalje koji su autoru potrebni kako bi mogao da izvrši reviziju svoje "
-"prijave. Vodite računa, tamo gde je prikladno, da komentari recenzenata budu "
-"anonimni."
+"detalje koji su autoru potrebni kako bi mogao da izvrši reviziju svog rada. "
+"Vodite računa, tamo gde je prikladno, da komentari recenzenata budu anonimni."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Pošalji na recenziju"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr "Ova prijava je spremna da bude poslata na stručnu recenziju."
+msgstr "Ova rad je spreman da bude poslat na stručnu recenziju."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr "{$editorName} je prosledio/la ovu prijavu u fazu recenzije."
+msgstr "{$editorName} je prosledio/la ovaj rad u fazu recenzije."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Poslato za recenziju"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
-"Prijava, {$title}, poslata je u fazu recenzije. Autor je obavešten, osim ako "
-"ste izabrali da preskočite slanje tog imejla."
+"Rad, {$title}, poslat je u fazu recenzije. Autor je obavešten, osim ako ste "
+"izabrali da preskočite slanje tog imejla."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Novi krug recenzije"
@@ -1624,97 +1622,96 @@ msgid "editor.submission.decision.sendToProduction"
 msgstr "Pošalji u produkciju"
 
 msgid "editor.submission.decision.sendToProduction.description"
-msgstr "Pošaljite ovu prijavu u fazu produkcije radi pripreme za objavljivanje."
+msgstr "Pošaljite ovaj rad u fazu produkcije radi pripreme za objavljivanje."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr "{$editorName} je prosledio/la ovu prijavu u fazu produkcije."
+msgstr "{$editorName} je prosledio/la ovaj rad u fazu produkcije."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Poslato u produkciju"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
-"Prijava, {$title}, je poslata u fazu produkcije. Autor je obavešten, osim "
-"ako ste izabrali da preskočite slanje tog imejla."
+"Rad, {$title}, je poslat u fazu produkcije. Autor je obavešten, osim ako ste "
+"izabrali da preskočite slanje tog imejla."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
-"Pošaljite imejl autorima kako biste ih obavestili da je ova prijava poslata "
-"u fazu produkcije. Ovaj imejl neće biti poslat dok odluka ne bude zabeležena."
+"Pošaljite imejl autorima kako biste ih obavestili da je ovaj rad poslata u "
+"fazu produkcije. Ovaj imejl neće biti poslat dok odluka ne bude zabeležena."
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Otkaži lekturu"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr "Pošaljite ovu prijavu natrag u fazu lekture."
+msgstr "Pošaljite ovaj rad natrag u fazu lekture."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr "{$editorName} je prosledio/la ovu prijavu natrag iz faze lekture."
+msgstr "{$editorName} je prosledio/la ovaj rad natrag iz faze lekture."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Vraćeno nazad iz lekture"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"Prijava, {$title}, je vraćena iz faze lekture. Autor je obavešten, osim ako "
-"ste izabrali da preskočite slanje tog imejla."
+"Rad, {$title}, je vraćen iz faze lekture. Autor je obavešten, osim ako ste "
+"izabrali da preskočite slanje tog imejla."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Pošaljite imejl autorima kako biste ih obavestili da je lektura otkazana i "
-"da će njihova prijava proći kroz dalju uredničku reviziju."
+"da će njihov rad proći kroz dalju uredničku reviziju."
 
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Vraćeno na lekturu"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr "Vratite ovu prijavu  u fazu lekture."
+msgstr "Vratite ovaj rad  u fazu lekture."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr "{$editorName} je prosledio/la ovu prijavu nazad u fazu lekture."
+msgstr "{$editorName} je prosledio/la ovaj rad nazad u fazu lekture."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Vraćeno u fazu lektorisanja"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
-"Prijava, {$title}, je vraćena u fazu lektorisanja. Autor je obavešten, osim "
-"ako ste izabrali da preskočite slanje tog imejla."
+"Rad, {$title}, je vraćen u fazu lektorisanja. Autor je obavešten, osim ako "
+"ste izabrali da preskočite slanje tog imejla."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
-"Pošaljite imejl autorima kako biste ih obavestili da je ova prijava vraćena "
-"u fazu lektorisanja. Objasnite zašto je donesena ova odluka i informišite "
-"autora o daljoj obradi koja će biti potrebna pre nego što prijava bude "
-"spremna za produkciju."
+"Pošaljite imejl autorima kako biste ih obavestili da je ovaj rad vraćen u "
+"fazu lektorisanja. Objasnite zašto je donesena ova odluka i informišite "
+"autora o daljoj obradi koja će biti potrebna pre nego što rad bude spreman "
+"za produkciju."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Prihvati i preskoči recenziju"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
-"Prihvatite ovu prijavu za objavljivanje i preskočite fazu recenzije. Ova "
-"odluka će poslati prijavu u fazu lektorisanja."
+"Prihvatite ovaj rad za objavljivanje i preskočite fazu recenzije. Ova odluka "
+"će poslati rad u fazu lektorisanja."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
-"{$editorName} je preskočio/la fazu recenzije i prosledio/la ovu prijavu u "
-"fazu lektorisanja."
+"{$editorName} je preskočio/la fazu recenzije i prosledio/la ovaj rad u fazu "
+"lektorisanja."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Recenzija preskočena"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
-"Prijava, {$title}, je preskočila fazu recenzije i poslata je u fazu "
-"lektorisanja. Autor je obavešten, osim ako ste izabrali da preskočite slanje "
-"tog imejla."
+"Rad, {$title}, je preskočio fazu recenzije i poslat je u fazu lektorisanja. "
+"Autor je obavešten, osim ako ste izabrali da preskočite slanje tog imejla."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
-"Pošaljite imejl autorima kako biste ih obavestili da je ova prijava "
-"prihvaćena za objavljivanje i poslata u fazu lektorisanja bez recenzije. "
-"Ovaj imejl neće biti poslat dok odluka ne bude zabeležena."
+"Pošaljite imejl autorima kako biste ih obavestili da je ovaj rad prihvaćen "
+"za objavljivanje i poslat u fazu lektorisanja bez recenzije. Ovaj imejl neće "
+"biti poslat dok odluka ne bude zabeležena."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Pošalji na internu recenziju"
@@ -1742,23 +1739,23 @@ msgstr ""
 "slanje tog imejla."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr "{$editorName} je opozvao/la odluku o odbijanju ove prijave."
+msgstr "{$editorName} je opozvao/la odluku o odbijanju ovog rada."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr "Prijava je ponovo aktivirana"
+msgstr "Rad je ponovo aktiviran"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr "Prijava, {$title}, je sada aktivna i nalazi se u fazi recenzije."
+msgstr "Rad, {$title}, je sada aktivan i nalazi se u fazi recenzije."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
 "Pošaljite imejl autorima kako biste ih obavestili da je prethodna odluka o "
-"odbijanju ove prijave poništena. Objasnite zašto je odluka poništena i "
-"obavestite ih da li se očekuje da prijava bude podvrgnuta daljoj recenziji."
+"odbijanju ovog rada poništena. Objasnite zašto je odluka poništena i "
+"obavestite ih da li se očekuje da rad bude podvrgnut daljoj recenziji."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
-"Prijava, {$title}, je sada aktivna u fazi prijave. Autor je obavešten, osim "
+"Rad, {$title}, je sada aktivan u fazi podnošenja. Autor je obavešten, osim "
 "ako ste izabrali da preskočite slanje tog imejla."
 
 msgid "editor.submission.decision.noDecisionsAvailable"
@@ -1777,8 +1774,7 @@ msgstr "Preporuči prihvatanje"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
-"Preporučite da ova prijava bude prihvaćena za objavljivanje i poslata na "
-"lekturu."
+"Preporučite da ovaj rad bude prihvaćen za objavljivanje i poslata na lekturu."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
@@ -2671,7 +2667,7 @@ msgid "author.affiliationRorAndNameEmpty"
 msgstr "Molimo vas priložite  ROR afilijaciju ili ime bar jedne afilijacije."
 
 msgid "author.affiliationNamePrimaryLocaleMissing"
-msgstr "Molimo navedite naziv afilijacije na primarnom jeziku prijave."
+msgstr "Molimo navedite naziv afilijacije na primarnom jeziku rada."
 
 msgid "submission.forReviewerSuggestion"
 msgstr "Za predlog recenzenta"
@@ -2683,19 +2679,19 @@ msgid "ror.displayLocaleRequired"
 msgstr "Lokalizacija prikaza ROR-a je obavezna."
 
 msgid "submission.author.list"
-msgstr "Lista autora prijave"
+msgstr "Lista autora rada"
 
 msgid "submission.authors.label"
 msgstr "Autori"
 
 msgid "submission.wizard.submissionCancelled"
-msgstr "Prijava je otkazana"
+msgstr "Rad je otkazan"
 
 msgid "submission.wizard.submissionCancel"
-msgstr "Otkaži prijavu"
+msgstr "Otkaži rad"
 
 msgid "submission.wizard.submissionCancelled.description"
-msgstr "Prijava je otkazana, svi povezani podaci su obrisani."
+msgstr "Rad je otkazan, svi povezani podaci su obrisani."
 
 msgid "editor.submission.roundStatus.recommendationMadeByYou"
 msgstr "Dali ste preporuku."

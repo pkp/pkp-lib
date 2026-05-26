@@ -3398,6 +3398,12 @@ msgstr ""
 "This will appear publicly as the version amendment notice. Ensure it "
 "accurately reflects the changes made in this version before publishing."
 
+msgid "publication.categories.description"
+msgstr "Assign categories to help organize and filter this publication."
+
+msgid "publication.coverImage.description"
+msgstr "Upload an image to represent this publication."
+
 msgid "publication.updateType.label"
 msgstr "Update Type"
 

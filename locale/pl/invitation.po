@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-26 09:51+0000\n"
+"PO-Revision-Date: 2026-05-26 09:53+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/pl/>\n"
@@ -39,3 +39,12 @@ msgstr ""
 
 msgid "userInvitation.searchField.description"
 msgstr "e.g. aeinstein@example.com lub aeinstein lub 0000-0002-1825-0097"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Wyszukaj użytkownika"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Wyszukaj użytkownika"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Wyszukaj użytkownika"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-21 13:43+0000\n"
+"PO-Revision-Date: 2026-05-26 12:37+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sr_Latn/>\n"
@@ -29,10 +29,10 @@ msgid "editor.submission.workflowDecision.submission"
 msgstr "Odluka je zabeležena"
 
 msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Prijava odbijena."
+msgstr "Rad odbijen."
 
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Prijava je prihvaćena."
+msgstr "Rad je prihvaćen."
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Rad je objavljen."
@@ -71,8 +71,7 @@ msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
 msgstr "Ovaj krug recenzije nije deo ove prijave."
 
 msgid "editor.submission.workflowDecision.invalidStage"
-msgstr ""
-"Prijava nije u odgovarajućoj fazi radnog toka da bi se donela ova odluka."
+msgstr "Rad nije u odgovarajućoj fazi radnog toka da bi se donela ova odluka."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
@@ -185,9 +184,8 @@ msgstr "Ne šalji imejl autoru"
 msgid "editor.submissionReview.open"
 msgstr "Otvorena"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Slepa"
+msgstr "Anonimni recenzent / Otkriven autor"
 
 #, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"

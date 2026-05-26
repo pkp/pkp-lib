@@ -50,6 +50,9 @@ trait Recipient
     public function recipients(array $recipients, ?string $locale = null): Mailable
     {
         $to = [];
+
+        // Filter out any empty values
+        $recipients = array_filter($recipients);
         foreach ($recipients as $recipient) {
             if (!is_a($recipient, Identity::class)) {
                 throw new InvalidArgumentException('Expecting an array consisting of instances of ' . Identity::class . ' to be passed to ' . static::class . '::' . __FUNCTION__);

@@ -579,7 +579,7 @@ class PKPRequest
 
         // Attempts to retrieve a logged user
         if (Validation::isLoggedIn()) {
-            $user = Repo::user()->get($this->getSessionGuard()->getUserId());
+            $user = Repo::user()->get($this->getSessionGuard()->getUserId(), true);
         }
 
         return $user;
@@ -787,6 +787,7 @@ class PKPRequest
 
     /**
      * Get the path of the referer URL.
+     *
      * @return string|null The referer path along with any available query params, or null if the referer is not set.
      */
     public function getRefererPath(): ?string

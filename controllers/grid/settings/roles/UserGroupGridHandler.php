@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/roles/UserGroupGridHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupGridHandler
@@ -25,6 +25,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\settings\roles\form\UserGroupForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
+use PKP\core\VirtualArrayIterator;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -185,7 +186,7 @@ class UserGroupGridHandler extends GridHandler
             $stageIdFilter = $filter['selectedStageId'];
         }
 
-        $builder = UserGroup::withContextIds($contextId);
+        $builder = UserGroup::withContextIds([$contextId]);
 
         if (!empty($roleIdFilter)) {
             $builder->withRoleIds([$roleIdFilter]);
@@ -199,12 +200,16 @@ class UserGroupGridHandler extends GridHandler
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
         $perPage = $rangeInfo->getCount();
         $page = max(1, $rangeInfo->getPage());
+        $totalCount = $builder->count();
         $offset = ($page - 1) * $perPage;
 
-        $builder->offset($offset)->limit($perPage);
+        $pageResults = $builder->offset($offset)
+            ->limit($perPage)
+            ->get()
+            ->all();
 
         // results
-        return $builder->get()->all();
+        return new VirtualArrayIterator($pageResults, $totalCount, $page, $perPage);
     }
 
     /**

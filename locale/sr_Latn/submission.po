@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-05-27 10:11+0000\n"
+"PO-Revision-Date: 2026-05-27 10:49+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -2432,19 +2432,20 @@ msgstr "Proveravanje prijave"
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
 "Dodajte informacije koje smatrate da urednici treba da znaju prilikom "
-"ocenjivanja vaše prijave."
+"ocenjivanja vašeg rada."
 
+#, fuzzy
 msgid "submission.wizard.confirm"
 msgstr "Molimo potvrdite sledeće pre nego što pošaljete prijavu."
 
 msgid "submission.wizard.title"
-msgstr "Pošaljite prijavu"
+msgstr "Pošaljite rad"
 
 msgid "submission.wizard.titleWithStep"
-msgstr "Pošaljite prijavu: {$step}"
+msgstr "Pošaljite rad: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr "Za ovu prijavu nisu dodati nijedni autori."
+msgstr "Za ovaj rad nisu dodati nijedni autori."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr "Nedostaje ime na {$language} za jednog ili više autora."
@@ -2460,7 +2461,7 @@ msgstr "Sačuvano za kasnije"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
-"Detalji vaše prijave su sačuvani u našem sistemu, ali prijava još nije "
+"Detalji vašeg podnetog rada su sačuvani u našem sistemu, ali rad još nije "
 "poslata na razmatranje. Možete se vratiti i završiti slanje prijave u bilo "
 "kom trenutku prateći link ispod."
 
@@ -2996,7 +2997,7 @@ msgid "dashboard.reviewAssignment.statusComplete.title"
 msgstr "Recenziju potvrdio urednik"
 
 msgid "submission.wizard.noReviewerSuggestions"
-msgstr "Za ovu prijavu nisu predloženi recenzenti."
+msgstr "Za ovaj rad nisu predloženi recenzenti."
 
 msgid "submission.list.completeSubmission"
 msgstr "Završi prijavu"

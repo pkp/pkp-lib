@@ -2823,7 +2823,7 @@ msgid "publication.mediaFiles.upload"
 msgstr "Upload Media File"
 
 msgid "publication.mediaFiles.upload.description"
-msgstr "Upload image or multimedia files in bulk. The system will auto-link them to your HTML galley using matching filenames. You can manually adjust or link files later if needed."
+msgstr "Upload image or multimedia files in bulk. You can manually adjust or link files later if needed."
 
 msgid "publication.mediaFiles.upload.variantTypeWeb"
 msgstr "Web resolution"

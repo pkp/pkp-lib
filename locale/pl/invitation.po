@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-27 10:42+0000\n"
+"PO-Revision-Date: 2026-05-27 11:01+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/pl/>\n"
@@ -352,3 +352,82 @@ msgstr ""
 "już użytkownikiem, zostaniesz przekierowany z powrotem do pulpitu "
 "nawigacyjnego. Jeśli nie, musisz otworzyć wiadomość e-mail z zaproszeniem, "
 "aby ponownie rozpocząć proces."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "W przypadku dodanych grup użytkowników należy podać nagłówek"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"W elemencie o indeksie {$attribute} znaleziono nieoczekiwane właściwości: "
+"{$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"Identyfikator {reviewAssignmentId} nie odpowiada żadnemu ważnemu zleceniu "
+"recenzji"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Tego zaproszenia nie można anulować"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr ""
+"Nie można podać jednocześnie adresu e-mail i identyfikatora użytkownika."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Dostęp do tego atrybutu nie jest dozwolony dla obecnych użytkowników"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Atrybut nie może być dostępny dla nieistniejących użytkowników"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Ten atrybut musi mieć wartość równą dzisiejszej dacie lub późniejszej"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Pole :attribute jest niedozwolone"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} – Zmiana adresu e-mail udostępnionego użytkownikowi"
+
+msgid "userInvitation.modal.title"
+msgstr "Zaproszenie wysłane"
+
+msgid "userInvitation.modal.button"
+msgstr "Wyświetl wszystkich użytkowników"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Usuń rolę"
+
+msgid "invitation.email.description"
+msgstr "e.g. aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Po przyjęciu zaproszenia użytkownik zostanie przekierowany do serwisu ORCID, "
+"gdzie będzie mógł zweryfikować swoje konto, jeśli wyrazi taką chęć."
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Anulowanie zaproszenia"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr ""
+"Zaproszenie nie zostało zaakceptowane. Jesteś zalogowany jako inny "
+"użytkownik."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Wyloguj się i zaloguj się na właściwym koncie, aby przyjąć to zaproszenie."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Konto użytkownika jest obecnie zablokowane."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Zgoda na przetwarzanie danych osobowych"
+
+msgid "invitation.unavailable.title"
+msgstr "Zaproszenie niedostępne"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"To zaproszenie nie jest już dostępne. Być może zostało już przyjęte, "
+"odrzucone lub straciło ważność. W celu uzyskania dalszej pomocy prosimy o "
+"kontakt z redaktorem czasopisma."

@@ -1,14 +1,14 @@
 # Aitor Renobales <aitor.renobales@ehu.eus>, 2022.
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023.
-# Informatikaria <informatikaria@ueu.eus>, 2023.
+# Informatikaria <informatikaria@ueu.eus>, 2023, 2026.
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-10-29 16:00+0000\n"
-"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"PO-Revision-Date: 2026-05-27 06:58+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
 "Language: eu\n"
@@ -920,7 +920,7 @@ msgstr ""
 "erregistro-agentziarentzat."
 
 msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
+msgstr "Hautatu aplikazioak DOI bat sortzen duenean erabiliko den formatua."
 
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr ""
@@ -1335,9 +1335,10 @@ msgstr ""
 "eskatzen zaie baieztatzeko beren bidalketak hemen zehaztutako baldintza "
 "guztiak betetzen dituela bidalketa hasi aurretik."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
-msgstr "Desaktibatu atal hau eta ez utzi bidalketa berririk bertara egiten."
+msgstr ""
+"Markatu atal hau desaktibatuta bezala eta ez utzi bidalketa berririk bertara "
+"egiten."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Ziur zaude atal hau desaktibatu nahi duzula?"

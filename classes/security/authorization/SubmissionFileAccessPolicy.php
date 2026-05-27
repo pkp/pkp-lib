@@ -79,6 +79,11 @@ class SubmissionFileAccessPolicy extends ContextPolicy
         $this->addPolicy(new SubmissionRequiredPolicy($request, $args, $submissionParameterName));
         $this->addPolicy(new SubmissionFileMatchesSubmissionPolicy($request, $submissionFileId));
 
+        // Get stageId once with proper type casting for all role-specific policies below.
+        // An empty string from a URL parameter must become null, not 0, to satisfy ?int type hints.
+        $rawStageId = $request->getUserVar('stageId');
+        $stageId = ($rawStageId !== null && $rawStageId !== '') ? (int) $rawStageId : null;
+
         // Authors, managers and series editors potentially have
         // access to submission files. We'll have to define
         // differentiated policies for those roles in a policy set.
@@ -90,7 +95,6 @@ class SubmissionFileAccessPolicy extends ContextPolicy
             $adminPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             $adminPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SITE_ADMIN, $roleAssignments[Role::ROLE_ID_SITE_ADMIN]));
             // A valid workflow stage needs to be in the authorized objects for most file operations
-            $stageId = (int) $request->getUserVar('stageId');
             $adminPolicy->addPolicy(new WorkflowStageRequiredPolicy($stageId));
             $fileAccessPolicy->addPolicy($adminPolicy);
         }
@@ -104,7 +108,6 @@ class SubmissionFileAccessPolicy extends ContextPolicy
             $managerFileAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             $managerFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER]));
 
-            $stageId = $request->getUserVar('stageId'); // WORKFLOW_STAGE_ID_...
             $managerFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $submissionFileId, $stageId));
             $managerFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
             $managerFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_MANAGER, $roleAssignments[Role::ROLE_ID_MANAGER], $stageId));
@@ -122,7 +125,6 @@ class SubmissionFileAccessPolicy extends ContextPolicy
             $authorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_AUTHOR, $roleAssignments[Role::ROLE_ID_AUTHOR]));
 
             // 2) ...if they are assigned to the workflow stage as an author.  Note: This loads the application-specific policy class.
-            $stageId = $request->getUserVar('stageId');
             $authorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
             $authorFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $submissionFileId, $stageId));
             $authorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_AUTHOR, $roleAssignments[Role::ROLE_ID_AUTHOR], $stageId));
@@ -212,7 +214,6 @@ class SubmissionFileAccessPolicy extends ContextPolicy
 
             // 2) ... but only if they have been assigned to the submission workflow as an assistant.
             // Note: This loads the application-specific policy class
-            $stageId = $request->getUserVar('stageId');
             $contextAssistantFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
             $contextAssistantFileAccessPolicy->addPolicy(new SubmissionFileMatchesWorkflowStageIdPolicy($request, $submissionFileId, $stageId));
             $contextAssistantFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_ASSISTANT, $roleAssignments[Role::ROLE_ID_ASSISTANT], $stageId));
@@ -241,7 +242,6 @@ class SubmissionFileAccessPolicy extends ContextPolicy
             $subEditorFileAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_SUB_EDITOR, $roleAssignments[Role::ROLE_ID_SUB_EDITOR]));
 
             // 2) ... but only if they have been assigned as a subeditor to the requested submission ...
-            $stageId = $request->getUserVar('stageId');
             $subEditorFileAccessPolicy->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
             $subEditorFileAccessPolicy->addPolicy(new UserAccessibleWorkflowStageRequiredPolicy($request));
             $subEditorFileAccessPolicy->addPolicy(new AssignedStageRoleHandlerOperationPolicy($request, Role::ROLE_ID_SUB_EDITOR, $roleAssignments[Role::ROLE_ID_SUB_EDITOR], $stageId));

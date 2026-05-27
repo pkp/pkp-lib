@@ -81,6 +81,7 @@ msgstr ""
 msgid "reviewer.submission.downloadDescription"
 msgstr ""
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 

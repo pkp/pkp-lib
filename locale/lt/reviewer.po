@@ -107,6 +107,7 @@ msgstr "Šis leidėjas nepateikė jokių gairių recenzentui."
 msgid "reviewer.submission.downloadDescription"
 msgstr "Norėdami atsisiųsti šio straipsnio failus paspauskite jų pavadinimus."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Pateikite (įklijuokite) savo recenziją į žemiau pateiktą formą."
 

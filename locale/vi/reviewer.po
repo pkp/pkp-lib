@@ -86,6 +86,7 @@ msgid "reviewer.submission.downloadDescription"
 msgstr ""
 "Nhấp vào tên tệp dưới đây để tải xuống các tệp liên quan đến bài nộp này."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Nhập (hoặc dán) đánh giá của bạn về bài nộp này vào biểu mẫu bên dưới."
 

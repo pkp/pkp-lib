@@ -50,11 +50,12 @@ class SubmissionFilesMetadataForm extends Form
             $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
         }
 
-        $submissionLocale = $submissionFile->getData('submissionLocale');
-        $publicationLanguageNames = Repo::submission()->get($submissionFile->getData('submissionId'))->getPublicationLanguageNames();
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
+        $submissionLocale = $submission->getData('locale');
 
-        $localeNames = Application::get()->getRequest()->getContext()->getSupportedSubmissionMetadataLocaleNames() + $publicationLanguageNames + $submissionFile->getLanguageNames();
-        ksort($localeNames);
+        $localeNames = collect(Application::get()->getRequest()->getContext()->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
+            ->sortKeys()
+            ->toArray();
 
         parent::__construct($template, true, $submissionLocale, $localeNames);
 

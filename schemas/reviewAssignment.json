@@ -45,7 +45,7 @@
 		},
 		"dateConsidered": {
 			"type": "string",
-			"description": "Date when the editor confirmed the review",
+			"description": "Date the editor confirmed the review",
 			"validation": [
 				"date:Y-m-d H:i:s",
 				"nullable"
@@ -54,7 +54,7 @@
 		},
 		"dateAcknowledged": {
 			"type": "string",
-			"description": "Date editor was familiarized with the review",
+			"description": "Date the editor acknowledged the review",
 			"validation": [
 				"date:Y-m-d H:i:s",
 				"nullable"
@@ -144,12 +144,12 @@
 		},
 		"declined": {
 			"type": "boolean",
-			"description": "Whether review assignment was declined by tge reviewer",
+			"description": "Whether review assignment was declined by the reviewer",
 			"apiSummary": true
 		},
 		"id": {
 			"type": "integer",
-			"description": "The id of this review assignment",
+			"description": "The ID of this review assignment",
 			"readOnly": true,
 			"apiSummary": true
 		},
@@ -186,7 +186,7 @@
 		},
 		"reminderWasAutomatic": {
 			"type": "boolean",
-			"description": "Whether the reminder for the reviewer about the assignment was send automatically",
+			"description": "Whether the assignment reminder for the reviewer was sent automatically",
 			"apiSummary": true
 		},
 		"reviewerFullName": {
@@ -197,12 +197,11 @@
 		},
 		"reviewerId": {
 			"type": "integer",
-			"description": "reviewer's unique ID",
+			"description": "Reviewer's unique ID",
 			"apiSummary": true,
 			"validation": [
 				"nullable"
 			]
-
 		},
 		"reviewFormId": {
 			"type": "integer",
@@ -265,7 +264,7 @@
 		"publicationTitle": {
 			"type": "string",
 			"multilingual": true,
-			"description": "The title of the associated with the current publication",
+			"description": "The title of the associated publication",
 			"readOnly": true
 		},
 		"orcidReviewPutCode": {

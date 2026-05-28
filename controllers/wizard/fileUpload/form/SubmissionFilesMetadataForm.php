@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
@@ -53,7 +54,12 @@ class SubmissionFilesMetadataForm extends Form
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
         $submissionLocale = $submission->getData('locale');
 
-        $localeNames = collect(Application::get()->getRequest()->getContext()->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
+        $context = Application::get()->getRequest()->getContext();
+        $locales = $submission->getPublicationLanguages(
+            $context->getSupportedSubmissionMetadataLocales(),
+            $submissionFile->getLanguages()
+        );
+        $localeNames = collect(Locale::getSubmissionLocaleDisplayNames($locales))
             ->sortKeys()
             ->toArray();
 

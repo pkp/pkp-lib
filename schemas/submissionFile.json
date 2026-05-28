@@ -123,7 +123,7 @@
 		},
 		"genreId": {
 			"type": "integer",
-			"description": "The genre id of this file",
+			"description": "The genre ID of this file",
 			"apiSummary": true
 		},
 		"genreMetadataType": {
@@ -134,14 +134,14 @@
 		},
 		"genreName": {
 			"type": "string",
-			"description": "The genre name of this file, suc as Article Text or Data Set.",
+			"description": "The genre name of this file, such as Article Text or Data Set.",
 			"isMultilingual": true,
 			"apiSummary": true,
 			"readOnly": true
 		},
 		"genreIsDependent": {
 			"type": "boolean",
-			"description": "Whether or not this is a dependent file, such as images displayed by a HTML file, that are be displayed with published content.",
+			"description": "Whether or not this is a dependent file, such as images displayed by an HTML file, that are displayed with published content.",
 			"apiSummary": true,
 			"readOnly": true
 		},

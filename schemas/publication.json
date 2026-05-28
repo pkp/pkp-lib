@@ -447,7 +447,7 @@
 		},
 		"type": {
 			"type": "string",
-			"description": "Optional metadata that describes the type of the submission and usually matches on of the [Dublin Core Types](http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary).",
+			"description": "Optional metadata that describes the type of the submission and usually matches one of the [Dublin Core Types](http://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary).",
 			"multilingual": true,
 			"validation": [
 				"nullable"

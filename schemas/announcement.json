@@ -115,7 +115,7 @@
 		"typeId": {
 			"type": "integer",
 			"origin": "primary",
-			"description": "(Optional) One of the announcement type ids.",
+			"description": "(Optional) One of the announcement type IDs.",
 			"apiSummary": true,
 			"validation": [
 				"nullable"

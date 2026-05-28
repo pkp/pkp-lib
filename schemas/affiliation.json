@@ -7,19 +7,19 @@
 	"properties": {
 		"id": {
 			"type": "integer",
-			"description": "The unique id of affiliation in the database.",
+			"description": "The unique ID of an affiliation in the database.",
 			"readOnly": true,
 			"apiSummary": true
 		},
 		"authorId": {
 			"type": "integer",
-			"description": "The author to which this affiliation is associated with.",
+			"description": "The author with which this affiliation is associated.",
 			"writeDisabledInApi": true,
 			"apiSummary": true
 		},
 		"ror": {
 			"type": "string",
-			"description": "The [ROR](https://ror.org/) id of this institution.",
+			"description": "The [ROR](https://ror.org/) ID of this institution.",
 			"apiSummary": true,
 			"validation": [
 				"nullable",

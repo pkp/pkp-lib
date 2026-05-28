@@ -198,6 +198,15 @@
 				"nullable"
 			]
 		},
+		"summaryOfChanges": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"description": "Free-text summary of what changed in this revision. Shown on Review Revision uploads only.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"revisions": {
 			"type": "array",
 			"readOnly": true,

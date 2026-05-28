@@ -50,11 +50,12 @@ class SubmissionFilesMetadataForm extends Form
             $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
         }
 
-        $submissionLocale = $submissionFile->getData('submissionLocale');
-        $publicationLanguageNames = Repo::submission()->get($submissionFile->getData('submissionId'))->getPublicationLanguageNames();
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
+        $submissionLocale = $submission->getData('locale');
 
-        $localeNames = Application::get()->getRequest()->getContext()->getSupportedSubmissionMetadataLocaleNames() + $publicationLanguageNames + $submissionFile->getLanguageNames();
-        ksort($localeNames);
+        $localeNames = collect(Application::get()->getRequest()->getContext()->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
+            ->sortKeys()
+            ->toArray();
 
         parent::__construct($template, true, $submissionLocale, $localeNames);
 
@@ -136,7 +137,16 @@ class SubmissionFilesMetadataForm extends Form
      */
     public function getLocaleFieldNames(): array
     {
-        return ['name'];
+        return [
+            'name',
+            'summaryOfChanges',
+            'description',
+            'creator',
+            'publisher',
+            'source',
+            'subject',
+            'sponsor',
+        ];
     }
 
     /**
@@ -144,7 +154,7 @@ class SubmissionFilesMetadataForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['name', 'showButtons',
+        $this->readUserVars(['name', 'summaryOfChanges', 'showButtons',
             'artworkCaption', 'artworkCredit', 'artworkCopyrightOwner',
             'artworkCopyrightOwnerContact', 'artworkPermissionTerms',
             'creator', 'subject', 'description', 'publisher', 'sponsor', 'source', 'language', 'dateCreated',
@@ -162,14 +172,29 @@ class SubmissionFilesMetadataForm extends Form
         $reviewRound = $this->getReviewRound();
         /** @var GenreDAO */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genre = $genreDao->getById($this->getSubmissionFile()->getData('genreId'), $request->getContext()->getId());
+        $submissionFile = $this->getSubmissionFile();
+        $genre = $genreDao->getById($submissionFile->getData('genreId'), $request->getContext()->getId());
+
+        $supportedLocales = [];
+        foreach ($this->supportedLocales as $localeKey => $localeLabel) {
+            $supportedLocales[] = ['key' => $localeKey, 'label' => $localeLabel];
+        }
 
         $templateMgr->assign([
-            'submissionFile' => $this->getSubmissionFile(),
+            'submissionFile' => $submissionFile,
             'stageId' => $this->getStageId(),
             'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
-            'supportsDependentFiles' => Repo::submissionFile()->supportsDependentFiles($this->getSubmissionFile()),
+            'supportsDependentFiles' => Repo::submissionFile()->supportsDependentFiles($submissionFile),
             'genre' => $genre,
+            'metadataMountConfig' => [
+                'submissionFile' => $submissionFile->_data,
+                'genreCategory' => (int) $genre?->getCategory(), // will be removed once genreMetadataType is implemented by Media Files api changes
+                'supportedLocales' => $supportedLocales,
+                'primaryLocale' => $this->getDefaultFormLocale(),
+                'stageId' => $this->getStageId(),
+                'reviewRoundId' => $reviewRound ? $reviewRound->getId() : null,
+                'showButtons' => (bool) $this->getShowButtons(),
+            ],
         ]);
         return parent::fetch($request, $template, $display);
     }
@@ -182,6 +207,15 @@ class SubmissionFilesMetadataForm extends Form
         $props = [
             'name' => $this->getData('name'),
         ];
+
+        // Summary of changes: only persisted for Review Revision uploads (external/internal).
+        $reviewRevisionFileStages = [
+            SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+            SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,
+        ];
+        if (in_array($this->getSubmissionFile()->getData('fileStage'), $reviewRevisionFileStages)) {
+            $props['summaryOfChanges'] = $this->getData('summaryOfChanges');
+        }
 
         // Artwork metadata
         $props = array_merge($props, [

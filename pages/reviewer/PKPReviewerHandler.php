@@ -32,6 +32,7 @@ use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\facades\Locale;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
+use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
 use PKP\submission\reviewer\form\ReviewerReviewForm;
@@ -101,6 +102,10 @@ class PKPReviewerHandler extends Handler
 
             // Editorial task log event types
             'SUBMISSION_LOG_TASK_NOTE_POSTED' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
+
+            'GENRE_CATEGORY_DOCUMENT' => Genre::GENRE_CATEGORY_DOCUMENT,
+            'GENRE_CATEGORY_ARTWORK' => Genre::GENRE_CATEGORY_ARTWORK,
+            'GENRE_CATEGORY_SUPPLEMENTARY' => Genre::GENRE_CATEGORY_SUPPLEMENTARY,
         ]);
 
         $templateMgr->assign([

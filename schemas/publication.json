@@ -399,6 +399,14 @@
 				"no_new_line"
 			]
 		},
+		"summaryOfChanges": {
+			"type": "string",
+			"multilingual": true,
+			"description": "Public-facing amendment notice describing what changed in this version of the publication.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"supportingAgencies": {
 			"type": "array",
 			"description": "Optional metadata that indicates the source of research funding or other institutional support.",
@@ -443,6 +451,14 @@
 			"multilingual": true,
 			"validation": [
 				"nullable"
+			]
+		},
+		"updateType": {
+			"type": "string",
+			"description": "The type of update represented by this publication version (e.g. addendum, correction, retraction). One of the UpdateType enumeration values.",
+			"apiSummary": true,
+			"validation": [
+				"in:addendum,clarification,correction,corrigendum,erratum,expression_of_concern,new_edition,new_version,partial_retraction,removal,retraction,withdrawal"
 			]
 		},
 		"urlPath": {

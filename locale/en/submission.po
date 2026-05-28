@@ -1451,6 +1451,15 @@ msgstr "Please enter the Data Availability Statement."
 msgid "submission.form.name"
 msgstr "Name the file (e.g., Manuscript; Table 1)"
 
+msgid "submission.form.summaryOfChanges"
+msgstr "Summary of Changes (Amendment Notice)"
+
+msgid "submission.form.summaryOfChanges.description"
+msgstr "Describe the key changes made in this version - for example, corrected figures, updated data, or revised methodology. The editor will review this before it appears publicly."
+
+msgid "submission.files.amendmentNotice"
+msgstr "Amendment Notice"
+
 msgid "submission.form.replaceExisting"
 msgstr "Replacing an Existing File?"
 
@@ -2814,7 +2823,7 @@ msgid "publication.mediaFiles.upload"
 msgstr "Upload Media File"
 
 msgid "publication.mediaFiles.upload.description"
-msgstr "Upload image or multimedia files in bulk. The system will auto-link them to your HTML galley using matching filenames. You can manually adjust or link files later if needed."
+msgstr "Upload image or multimedia files in bulk. You can manually adjust or link files later if needed."
 
 msgid "publication.mediaFiles.upload.variantTypeWeb"
 msgstr "Web resolution"
@@ -3365,6 +3374,80 @@ msgstr "Major Revision"
 
 msgid "publication.revisionSignificance.minor"
 msgstr "Minor Revision"
+
+msgid "publication.placement"
+msgstr "Placement"
+
+msgid "publication.publicationTiming"
+msgstr "Publication Timing"
+
+msgid "publication.versionAndUpdates"
+msgstr "Version and Updates"
+
+msgid "publication.display"
+msgstr "Display"
+
+msgid "publication.access"
+msgstr "Access"
+
+msgid "publication.insertContent.empty"
+msgstr "No saved summaries found for this submission's review revisions."
+
+msgid "publication.summaryOfChanges.description"
+msgstr ""
+"This will appear publicly as the version amendment notice. Ensure it "
+"accurately reflects the changes made in this version before publishing."
+
+msgid "publication.categories.description"
+msgstr "Assign categories to help organize and filter this publication."
+
+msgid "publication.coverImage.description"
+msgstr "Upload an image to represent this publication."
+
+msgid "publication.updateType.label"
+msgstr "Update Type"
+
+msgid "publication.updateType.description"
+msgstr ""
+"Select the type that best describes this version. Defaults to \"New Version\" "
+"for standard revisions - change only if this version corrects an error, "
+"adds content, or represents another specific update type."
+
+msgid "publication.updateType.addendum"
+msgstr "Addendum"
+
+msgid "publication.updateType.clarification"
+msgstr "Clarification"
+
+msgid "publication.updateType.correction"
+msgstr "Correction"
+
+msgid "publication.updateType.corrigendum"
+msgstr "Corrigendum"
+
+msgid "publication.updateType.erratum"
+msgstr "Erratum"
+
+msgid "publication.updateType.expressionOfConcern"
+msgstr "Expression of Concern"
+
+msgid "publication.updateType.newEdition"
+msgstr "New Edition"
+
+msgid "publication.updateType.newVersion"
+msgstr "New Version"
+
+msgid "publication.updateType.partialRetraction"
+msgstr "Partial Retraction"
+
+msgid "publication.updateType.removal"
+msgstr "Removal"
+
+msgid "publication.updateType.retraction"
+msgstr "Retraction"
+
+msgid "publication.updateType.withdrawal"
+msgstr "Withdrawal"
 
 msgid "submission.submit.creditRoles.degrees.lead"
 msgstr "Lead"

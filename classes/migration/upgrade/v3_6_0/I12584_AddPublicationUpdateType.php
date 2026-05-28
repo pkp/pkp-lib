@@ -25,7 +25,7 @@ class I12584_AddPublicationUpdateType extends Migration
     {
         Schema::table('publications', function (Blueprint $table) {
             $table->enum('update_type', array_column(UpdateType::cases(), 'value'))
-                ->nullable();
+                ->default(UpdateType::NEW_VERSION->value);
         });
     }
 

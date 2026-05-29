@@ -3,20 +3,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2024-09-16 10:48+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2026-05-29 11:30+0000\n"
+"Last-Translator: Amalie Ask <amalie.v.ask@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/emails/nb_NO/>\n"
-"Language: nb\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-#, fuzzy
 msgid "emails.submissionAck.subject"
-msgstr "Vi har mottatt innleveringen din"
+msgstr "Takk for innleveringen din til {$contextName}"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -40,9 +39,8 @@ msgstr ""
 "Denne e-posten sendes automatisk til en forfatter når vedkommende sender inn "
 "sin innlevering."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Bekreftelse på fullført fagfellevurdering"
+msgstr "Takk for din vurdering"
 
 msgid "emails.reviewAck.body"
 msgstr ""
@@ -90,9 +88,8 @@ msgstr ""
 "\n"
 "{$messageToSubmittingAuthor}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Redaktørens beslutning"
+msgstr "Innleveringen din har blitt sendt til fagfellevurdering"
 
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -104,7 +101,7 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "Redaktørens beslutning"
+msgstr "Neste steg i publiseringen av din innlevering"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
@@ -116,7 +113,9 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "Redaktørens beslutning"
+msgstr ""
+"Din innlevering har blitt fagfellevurdert og vi ber deg om å sende inn "
+"revidert versjon"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -128,7 +127,9 @@ msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
-msgstr "Redaktørens beslutning"
+msgstr ""
+"Din innlevering har blitt fagfellevurdert - vennligst revider og send inn på "
+"nytt"
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"

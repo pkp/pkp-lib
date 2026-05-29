@@ -25,6 +25,7 @@ use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Validation;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class UserGridRow extends GridRow
 {
@@ -157,20 +158,32 @@ class UserGridRow extends GridRow
                         )
                     );
                 }
-                $this->addAction(
-                    new LinkAction(
-                        'remove',
-                        new RemoteActionConfirmationModal(
-                            $request->getSession(),
-                            __('manager.people.confirmRemove'),
-                            __('common.remove'),
-                            $router->url($request, null, null, 'removeUser', null, $actionArgs),
-                            'negative'
-                        ),
-                        __('grid.action.remove'),
-                        'delete'
-                    )
-                );
+
+                // Check if this user has any active user group assignments for this context.
+                $hasActiveUserGroups = UserGroup::query()
+                    ->withContextIds($request->getContext()->getId())
+                    ->whereHas('userUserGroups', function ($query) use ($element) {
+                        $query->withUserId($element->getId())
+                            ->withActive();
+                    })
+                    ->exists();
+                // If user has any active user groups then provide the option to remove user.
+                if ($hasActiveUserGroups) {
+                    $this->addAction(
+                        new LinkAction(
+                            'remove',
+                            new RemoteActionConfirmationModal(
+                                $request->getSession(),
+                                __('manager.people.confirmRemove'),
+                                __('common.remove'),
+                                $router->url($request, null, null, 'removeUser', null, $actionArgs),
+                                'negative'
+                            ),
+                            __('grid.action.remove'),
+                            'delete'
+                        )
+                    );
+                }
 
                 $canAdminister = Validation::getAdministrationLevel($this->getId(), $request->getUser()->getId()) === Validation::ADMINISTRATION_FULL;
                 if (

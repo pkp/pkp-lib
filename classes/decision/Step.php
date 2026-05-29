@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/Step.php
  *
@@ -51,5 +52,14 @@ abstract class Step
         $config->errors = new stdClass();
 
         return $config;
+    }
+
+    /**
+     * Indicate if a step is valid.
+     * Child classes may override this method to perform additional validation checks.
+     */
+    public function isValidStep(): bool
+    {
+        return true;
     }
 }

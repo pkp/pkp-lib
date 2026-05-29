@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/traits/NotifyAuthors.php
  *
@@ -62,6 +63,8 @@ trait NotifyAuthors
             return Repo::user()->get($userId);
         }, $this->getAssignedAuthorIds($submission));
 
+        $recipients = array_filter($recipients);
+
         $mailable = $this->addEmailDataToMailable($mailable, $editor, $email);
 
         Mail::send($mailable->recipients($recipients, $email->locale));
@@ -86,6 +89,7 @@ trait NotifyAuthors
 
             $mailable = new DecisionNotifyOtherAuthors($context, $submission, $assignedAuthors);
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+
             $mailable
                 ->sender($editor)
                 ->subject($email->subject)

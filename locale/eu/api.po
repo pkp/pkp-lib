@@ -2,7 +2,7 @@
 # Informatikaria <informatikaria@ueu.eus>, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-27 06:58+0000\n"
+"PO-Revision-Date: 2026-05-29 08:28+0000\n"
 "Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/api/eu/>"
 "\n"
@@ -26,4 +26,4 @@ msgid "api.400.routeNotDefined"
 msgstr "Ez da API ibilbiderik eman."
 
 msgid "api.417.routeResponseIsNull"
-msgstr "Ezin izan da jaso esperotako erantzunik jaso."
+msgstr "Ezin izan da esperotako erantzunik jaso."

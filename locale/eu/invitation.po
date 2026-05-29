@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-03 06:52+0000\n"
-"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"PO-Revision-Date: 2026-05-29 07:24+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/eu/>\n"
 "Language: eu\n"
@@ -404,3 +404,24 @@ msgid "userInvitation.searchField"
 msgstr ""
 "Bilatu erabiltzaile bat helbide elektronikoaren, erabiltzaile-izenaren edo "
 "ORCID iDaren arabera. Sartu bakarra hasteko!"
+
+#, fuzzy
+msgid "invitation.decline.confirm"
+msgstr "Berretsi gonbidapena baztertzea"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Baztertu gonbidapena"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Ziur al zaude gonbidapen hau baztertu nahi duzula? Berretsi baztertzea "
+"beheko botoian klik eginez."
+
+msgid "invitation.unavailable.title"
+msgstr "Gonbidapena ez dago eskuragarria"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Gonbidapen hau ez dago eskuragarri jada. Baliteke dagoeneko onartu, baztertu "
+"edo iraungi izana. Mesedez, jarri harremanetan aldizkariaren "
+"kudeatzailearekin laguntza gehiago behar izanez gero."

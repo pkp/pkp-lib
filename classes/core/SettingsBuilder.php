@@ -135,8 +135,14 @@ class SettingsBuilder extends Builder
             fn (mixed $value, string $key) => in_array(Str::camel($key), $this->model->getSettings())
         );
 
-
-        $id = parent::insertGetId($primaryValues->toArray(), $sequence);
+        // Default to the model's PK column when no sequence is given. Without
+        // this, parent falls back to 'id' which breaks on PostgreSQL for any
+        // model whose primary key is not literally 'id' (RETURNING "id" →
+        // undefined column). Most of the ModelWithSettings consumers use <entity>_id as PK.
+        $id = parent::insertGetId(
+            $primaryValues->toArray(),
+            $sequence ?? $this->model->getKeyName()
+        );
 
         if ($settingValues->isEmpty()) {
             return $id;
@@ -153,17 +159,15 @@ class SettingsBuilder extends Builder
      */
     public function delete(): int
     {
-        $id = parent::delete();
-        if (!$id) {
-            return $id;
-        }
-
+        // Delete the child settings rows first, then the main row. Child-before-parent
+        // is the correct relational-integrity discipline: it works on any schema,
+        // cascade or not, and doesn't depend on the FK constraint as a safety net.
         DB::table($this->getSettingsTable())->where(
             $this->getPrimaryKeyName(),
             $this->model->getRawOriginal($this->getPrimaryKeyName()) ?? $this->model->getKey()
         )->delete();
 
-        return $id;
+        return parent::delete();
     }
 
     /**
@@ -238,6 +242,7 @@ class SettingsBuilder extends Builder
      * Overrides Illuminate\Database\Query\Builder to support settings in select queries
      *
      * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  mixed  $values
      * @param  string  $boolean
      * @param  bool  $not
      *
@@ -260,6 +265,21 @@ class SettingsBuilder extends Builder
         );
 
         return $this;
+    }
+
+    /**
+     * Add a "where not in" clause to the query.
+     * Overrides Illuminate\Database\Query\Builder to support settings in select queries
+     *
+     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  mixed  $values
+     * @param  string  $boolean
+     *
+     * @return $this
+     */
+    public function whereNotIn($column, $values, $boolean = 'and')
+    {
+        return $this->whereIn($column, $values, $boolean, true);
     }
 
     /**
@@ -292,6 +312,14 @@ class SettingsBuilder extends Builder
     public function getSchemaName(): ?string
     {
         return $this->model->getSchemaName();
+    }
+
+    /**
+     * Checks if setting is multilingual
+     */
+    public function isMultilingual(string $settingName): bool
+    {
+        return in_array($settingName, $this->model->getMultilingualProps());
     }
 
     /*
@@ -377,14 +405,6 @@ class SettingsBuilder extends Builder
                 unset($row->{$property});
             }
         }
-    }
-
-    /**
-     * Checks if setting is multilingual
-     */
-    protected function isMultilingual(string $settingName): bool
-    {
-        return in_array($settingName, $this->model->getMultilingualProps());
     }
 
     /**

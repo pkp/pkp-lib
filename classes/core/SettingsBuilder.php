@@ -271,6 +271,7 @@ class SettingsBuilder extends Builder
      * Overrides Illuminate\Database\Query\Builder to support settings in select queries
      *
      * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  mixed  $values
      * @param  string  $boolean
      *
      * @return $this

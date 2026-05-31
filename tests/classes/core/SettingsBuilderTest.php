@@ -452,7 +452,7 @@ class SettingsBuilderTest extends PKPTestCase
         $modelId = $this->seedSchemaModel([
             'en' => 'English',
             'fr_CA' => 'Français',
-            'de_DE' => 'Deutsch',
+            'de' => 'Deutsch',
         ]);
         $this->assertSettingRowCount('test_settings_schema_entity_settings', $modelId, 'title', 3);
 

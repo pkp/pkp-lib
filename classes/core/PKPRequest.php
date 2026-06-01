@@ -661,7 +661,9 @@ class PKPRequest
             $secondPart = $defaultSecond;
         }
 
-        if (empty($monthPart) || empty($dayPart) || empty($yearPart)) {
+        if (filter_var($monthPart, FILTER_VALIDATE_INT, ['min_range' => 1, 'max_range' => 12]) === false ||
+            filter_var($dayPart, FILTER_VALIDATE_INT, ['min_range' => 1, 'max_range' => 31]) === false ||
+            filter_var($yearPart, FILTER_VALIDATE_INT) === false) {
             return null;
         }
         return mktime($hourPart, $minutePart, $secondPart, $monthPart, $dayPart, $yearPart);

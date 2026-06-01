@@ -24,11 +24,9 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Console\Kernel;
-use Illuminate\Http\Response;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Facade;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PDO;
@@ -144,59 +142,7 @@ class PKPContainer extends Container
         $this->instance('path.storage', Config::getVar('files', 'files_dir'));
         $this->instance('path.public', $this->basePath . DIRECTORY_SEPARATOR . 'public');
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
-        $this->singleton(ExceptionHandler::class, function () {
-            return new class () implements ExceptionHandler {
-                public function shouldReport(Throwable $exception)
-                {
-                    return true;
-                }
-
-                public function report(Throwable $exception)
-                {
-                    if (!$this->shouldReport($exception)) {
-                        return;
-                    }
-
-                    try {
-                        Log::error($exception->getMessage(), ['exception' => $exception]);
-                    } catch (Throwable $loggingException) {
-                        // Fall back to PHP's error log if Laravel logging itself fails
-                        // (e.g. log file not writable, channel misconfigured, or invoked
-                        // before the logging service provider is registered).
-                        error_log($exception->__toString());
-                        error_log('Logging failed: ' . $loggingException->__toString());
-                    }
-                }
-
-                public function render($request, Throwable $exception)
-                {
-                    $pkpRouter = Application::get()->getRequest()->getRouter();
-
-                    if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
-                        if ($exception instanceof \Illuminate\Validation\ValidationException) {
-                            return response()
-                                ->json($exception->errors(), $exception->status);
-                        }
-
-                        return response()->json(
-                            [
-                                'error' => $exception->getMessage()
-                            ],
-                            in_array($exception->getCode(), array_keys(Response::$statusTexts))
-                                ? $exception->getCode()
-                                : Response::HTTP_INTERNAL_SERVER_ERROR
-                        );
-                    }
-
-                    return null;
-                }
-
-                public function renderForConsole($output, Throwable $exception)
-                {
-                    echo (string) $exception;
-                }
-            };
-        });
+        $this->singleton(ExceptionHandler::class, PKPExceptionHandler::class);
 
         $this->singleton(
             KernelContract::class,

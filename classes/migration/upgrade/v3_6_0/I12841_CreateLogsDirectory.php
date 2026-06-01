@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_6_0;
 
 use PKP\config\Config;
+use PKP\core\PKPContainer;
 use PKP\file\FileManager;
 use PKP\migration\Migration;
 
@@ -23,7 +24,7 @@ class I12841_CreateLogsDirectory extends Migration
     public function up(): void
     {
         $filesDir = Config::getVar('files', 'files_dir');
-        $logsDir = $filesDir . '/logs';
+        $logsDir = $filesDir . '/' . PKPContainer::LOG_DIRECTORY;
 
         if (!file_exists($logsDir)) {
             $fileManager = new FileManager();

@@ -25,10 +25,10 @@ use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Http\Response;
-use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PDO;
@@ -100,9 +100,10 @@ class PKPContainer extends Container
      * @param string $driver The Laravel database driver name (mysql, mariadb, pgsql)
      * @param array $connectionConfig The connection configuration array to augment
      *
-     * @return array The augmented connection configuration array
-     * 
      * @throws Exception if SSL certificate path is not set in the config file
+     *
+     * @return array The augmented connection configuration array
+     *
      */
     public static function addDatabaseSslOptionsToConnection(string $driver, array $connectionConfig): array
     {
@@ -117,7 +118,7 @@ class PKPContainer extends Container
         if ($driver === 'pgsql') {
             $connectionConfig['sslmode'] = $verify ? 'verify-full' : 'require';
             $connectionConfig['sslrootcert'] = $capath;
-            
+
             return $connectionConfig;
         }
 
@@ -140,6 +141,8 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
+        $this->instance('path.storage', Config::getVar('files', 'files_dir'));
+        $this->instance('path.public', $this->basePath . DIRECTORY_SEPARATOR . 'public');
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, function () {
             return new class () implements ExceptionHandler {
@@ -150,7 +153,19 @@ class PKPContainer extends Container
 
                 public function report(Throwable $exception)
                 {
-                    error_log($exception->__toString());
+                    if (!$this->shouldReport($exception)) {
+                        return;
+                    }
+
+                    try {
+                        Log::error($exception->getMessage(), ['exception' => $exception]);
+                    } catch (Throwable $loggingException) {
+                        // Fall back to PHP's error log if Laravel logging itself fails
+                        // (e.g. log file not writable, channel misconfigured, or invoked
+                        // before the logging service provider is registered).
+                        error_log($exception->__toString());
+                        error_log('Logging failed: ' . $loggingException->__toString());
+                    }
                 }
 
                 public function render($request, Throwable $exception)
@@ -168,8 +183,8 @@ class PKPContainer extends Container
                                 'error' => $exception->getMessage()
                             ],
                             in_array($exception->getCode(), array_keys(Response::$statusTexts))
-                            ? $exception->getCode()
-                            : Response::HTTP_INTERNAL_SERVER_ERROR
+                                ? $exception->getCode()
+                                : Response::HTTP_INTERNAL_SERVER_ERROR
                         );
                     }
 
@@ -237,13 +252,13 @@ class PKPContainer extends Container
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new LaravelEventServiceProvider($this));
         $this->register(new EventServiceProvider($this));
-        $this->register(new LogServiceProvider($this));
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new PKPQueueProvider($this));
         $this->register(new MailServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
+        $this->register(new \Illuminate\Log\LogServiceProvider($this));
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
@@ -436,6 +451,8 @@ class PKPContainer extends Container
             'cipher' => PKPAppKey::getCipher(),
             'timezone' => Config::getVar('general', 'timezone', 'UTC'),
             'env' => Config::getVar('general', 'app_env', 'production'),
+            'debug' => Config::getVar('debug', 'show_stacktrace', false),
+            'url' => $_request->getBaseUrl(),
         ];
 
         // Database connection
@@ -514,9 +531,64 @@ class PKPContainer extends Container
         ];
 
         // Logging
-        $items['logging']['channels']['errorlog'] = [
-            'driver' => 'errorlog',
-            'level' => 'debug',
+        $logLevel = Config::getVar('logs', 'log_level', 'error');
+        $items['logging'] = [
+            'default' => Config::getVar('logs', 'log_channel', 'stack'),
+            'channels' => [
+                'stack' => [
+                    'driver' => 'stack',
+                    'channels' => ['daily', 'errorlog'],
+                    'ignore_exceptions' => false,
+                ],
+
+                'single' => [
+                    'driver' => 'single',
+                    'path' => storage_path('logs/' . $this->logFileName()),
+                    'level' => $logLevel,
+                    'replace_placeholders' => true,
+                ],
+
+                'daily' => [
+                    'driver' => 'daily',
+                    'path' => storage_path('logs/' . $this->logFileName()),
+                    'level' => $logLevel,
+                    'days' => 30, // The number of previour log files that will be retained
+                    'replace_placeholders' => true,
+                ],
+
+                'stderr' => [
+                    'driver' => 'monolog',
+                    'level' => $logLevel,
+                    'handler' => \Monolog\Handler\StreamHandler::class,
+                    'formatter' => \Monolog\Formatter\LineFormatter::class,
+                    'with' => [
+                        'stream' => 'php://stderr',
+                    ],
+                    'processors' => [\Monolog\Processor\PsrLogMessageProcessor::class],
+                ],
+
+                'syslog' => [
+                    'driver' => 'syslog',
+                    'level' => $logLevel,
+                    'facility' => LOG_USER,
+                    'replace_placeholders' => true,
+                ],
+
+                'errorlog' => [
+                    'driver' => 'errorlog',
+                    'level' => $logLevel,
+                    'replace_placeholders' => true,
+                ],
+
+                'null' => [
+                    'driver' => 'monolog',
+                    'handler' => \Monolog\Handler\NullHandler::class,
+                ],
+
+                'emergency' => [
+                    'path' => storage_path('logs/' . $this->logFileName()),
+                ],
+            ],
         ];
 
         // Mail Service
@@ -607,6 +679,57 @@ class PKPContainer extends Container
     public function path(string $path = ''): string
     {
         return $this->basePath($path);
+    }
+
+    /**
+     * Get the path to the storage directory
+     */
+    public function storagePath(string $path = ''): string
+    {
+        return $this->get('path.storage') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the public directory
+     */
+    public function publicPath(string $path = ''): string
+    {
+        return $this->basePath() . DIRECTORY_SEPARATOR . 'public' . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the config directory
+     */
+    public function configPath(string $path = ''): string
+    {
+        return $this->get('path.config') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the resource
+     */
+    public function resourcePath(string $path = ''): string
+    {
+        return $this->basePath() . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the name of the application log file.
+     *
+     * Reads the [logs] log_file_name config; falls back to the per-app
+     * default ({Application::getName()}.log).
+     */
+    public function logFileName(): string
+    {
+        return Config::getVar('logs', 'log_file_name', Application::getName() . '.log');
+    }
+
+    /**
+     * Get the current locale
+     */
+    public function getLocale(): string
+    {
+        return \PKP\facades\Locale::getLocale();
     }
 
     /**

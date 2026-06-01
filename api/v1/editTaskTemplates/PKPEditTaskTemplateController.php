@@ -149,7 +149,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $user = $request->getUser();
 
         $collector = Template::query()
-            ->byContextId((int) $context->getId())
+            ->withContextId((int) $context->getId())
             ->with('userGroups');
 
         $queryParams = $this->_processAllowedParams($illuminateRequest->query(), [
@@ -165,25 +165,25 @@ class PKPEditTaskTemplateController extends PKPBaseController
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'search':
-                    $collector->filterBySearch((string) $val);
+                    $collector->withSearch((string) $val);
                     break;
                 case 'title':
-                    $collector->filterByTitleLike((string) $val);
+                    $collector->withTitleLike((string) $val);
                     break;
                 case 'type':
                     $type = (int) $val;
                     if (in_array($type, array_column(EditorialTaskType::cases(), 'value'), true)) {
-                        $collector->filterByType($type);
+                        $collector->withType($type);
                     }
                     break;
                 case 'stageId':
-                    $collector->filterByStageId((int) $val);
+                    $collector->withStageId((int) $val);
                     break;
 
                 case 'include':
                     $bool = filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
                     if ($bool !== null) {
-                        $collector->filterByInclude($bool);
+                        $collector->withInclude($bool);
                     }
                     break;
 
@@ -228,7 +228,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $id = (int) $request->route('templateId');
 
         $template = Template::query()
-            ->byContextId($contextId)
+            ->withContextId($contextId)
             ->find($id);
 
         if (!$template) {
@@ -264,7 +264,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $id = (int) $illuminateRequest->route('templateId');
 
         $template = Template::query()
-            ->byContextId($contextId)
+            ->withContextId($contextId)
             ->find($id);
 
         if (!$template) {

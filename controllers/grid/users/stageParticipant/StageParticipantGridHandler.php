@@ -31,6 +31,9 @@ use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Template;
+use PKP\editorialTask\TemplateVariables;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
@@ -40,6 +43,7 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\UserGroup;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
@@ -595,20 +599,31 @@ class StageParticipantGridHandler extends CategoryGridHandler
      */
     public function fetchTemplateBody($args, $request)
     {
-        $templateKey = $request->getUserVar('template');
+        $templateId = $request->getUserVar('template');
         $context = $request->getContext();
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
-        if ($template && Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
+        $user = $request->getUser();
+        $template = Template::with('userGroups')->withContextId($context->getId())->find($templateId);
+        if ($template && Repo::editorialTask()->isTemplateAccessibleToUser($template, $user)) {
             $submission = $this->getSubmission();
-            $mailable = $this->getStageMailable($context, $submission);
-            $mailable->sender($request->getUser());
-            $data = $mailable->getData();
-
+            $mailable = new TemplateVariables($template->promote($submission), $submission, $context);
+            $mailable->sender($user);
             $notifyForm = new PKPStageParticipantNotifyForm($submission->getId(), Application::ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE));
+
+            $templateKey = '';
+            foreach (EditorialTask::getTitleLocalizedStrings($context) as $key => $map) {
+                foreach ($map as $localizedTitle) {
+                    error_log($localizedTitle);
+                    if ($template->title == $localizedTitle) {
+                        $templateKey = $key;
+                        break 2;
+                    }
+                }
+            }
+
             return new JSONMessage(
                 true,
                 [
-                    'body' => Mail::compileParams($template->getLocalizedData('body'), $data),
+                    'body' => Mail::compileParams($template->description, $mailable->getData()),
                     'variables' => $notifyForm->getEmailVariableNames($templateKey),
                 ]
             );

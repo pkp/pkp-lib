@@ -67,7 +67,7 @@ class AboutContextHandler extends Handler
     {
         $mastheadUserGroups = UserGroup::withContextIds([$context->getId()])
             ->masthead(true)
-            ->excludeRoles([Role::ROLE_ID_REVIEWER])
+            ->excludeRoleIds([Role::ROLE_ID_REVIEWER])
             ->get();
 
         $savedOrder = (array) $context->getData('mastheadUserGroupIds');

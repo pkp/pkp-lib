@@ -162,7 +162,7 @@ class PKPInstall extends Installer
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
             $dirsToCreate[] = 'usageStats';
-            $dirsToCreate[] = 'logs';
+            $dirsToCreate[] = PKPContainer::LOG_DIRECTORY;
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $this->getParam('filesDir') . '/' . $dirName;

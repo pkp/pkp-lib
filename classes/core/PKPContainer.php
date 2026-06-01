@@ -38,6 +38,11 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
+     * The directory name, under the storage (files) directory, where application logs are written
+     */
+    public const LOG_DIRECTORY = 'logs';
+
+    /**
      * Define if the app currently runing the unit test
      */
     private bool $isRunningUnitTest = false;
@@ -490,27 +495,33 @@ class PKPContainer extends Container
 
         // Logging
         $logLevel = Config::getVar('logs', 'log_level', 'error');
+        $stackChannels = Str::of(Config::getVar('logs', 'log_stacks', 'daily,errorlog'))
+            ->explode(',')
+            ->map(fn (string $channel) => trim($channel))
+            ->filter()
+            ->values()
+            ->all();
         $items['logging'] = [
             'default' => Config::getVar('logs', 'log_channel', 'stack'),
             'channels' => [
                 'stack' => [
                     'driver' => 'stack',
-                    'channels' => ['daily', 'errorlog'],
+                    'channels' => $stackChannels ?: ['daily', 'errorlog'],
                     'ignore_exceptions' => false,
                 ],
 
                 'single' => [
                     'driver' => 'single',
-                    'path' => storage_path('logs/' . $this->logFileName()),
+                    'path' => $this->logFilePath(),
                     'level' => $logLevel,
                     'replace_placeholders' => true,
                 ],
 
                 'daily' => [
                     'driver' => 'daily',
-                    'path' => storage_path('logs/' . $this->logFileName()),
+                    'path' => $this->logFilePath(),
                     'level' => $logLevel,
-                    'days' => 30, // The number of previour log files that will be retained
+                    'days' => (int) Config::getVar('logs', 'log_daily_days', 30), // The number of previous log files that will be retained
                     'replace_placeholders' => true,
                 ],
 
@@ -544,7 +555,7 @@ class PKPContainer extends Container
                 ],
 
                 'emergency' => [
-                    'path' => storage_path('logs/' . $this->logFileName()),
+                    'path' => $this->logFilePath(),
                 ],
             ],
         ];
@@ -680,6 +691,14 @@ class PKPContainer extends Container
     public function logFileName(): string
     {
         return Config::getVar('logs', 'log_file_name', Application::getName() . '.log');
+    }
+
+    /**
+     * Get the absolute path to the application log file under the storage log directory.
+     */
+    public function logFilePath(): string
+    {
+        return $this->storagePath(self::LOG_DIRECTORY . '/' . $this->logFileName());
     }
 
     /**

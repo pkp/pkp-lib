@@ -32,6 +32,7 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class Repository
 {
@@ -198,9 +199,9 @@ class Repository
         $contextId = (int) $submission->getData('contextId');
 
         $templates = Template::query()
-            ->byContextId($contextId)
-            ->filterByStageId($stageId)
-            ->filterByInclude(true)
+            ->withContextId($contextId)
+            ->withStageId($stageId)
+            ->withInclude(true)
             ->get();
 
         foreach ($templates as $template) {
@@ -273,5 +274,27 @@ class Repository
             ->whereIn('edit_task_id', $taskIds)
             ->where('user_id', $userId)
             ->delete();
+    }
+
+    /**
+     * Check if the given template is accessible by the given user
+     */
+    public function isTemplateAccessibleToUser(Template $template, User $user): bool
+    {
+        if (!$template->restrictToUserGroups) {
+            return true;
+        }
+
+        $userGroupIds = UserGroup::withUserIds([$user->getId()])
+            ->withContextIds([$template->contextId])
+            ->pluck((new UserGroup())->getPrimaryKeyName())
+            ->toArray();
+
+        $template->loadMissing('userGroups');
+
+        return $template->userGroups()
+            ->whereIn('user_group_id', $userGroupIds)
+            ->exists();
+
     }
 }

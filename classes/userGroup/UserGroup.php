@@ -26,6 +26,25 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 
+/**
+ * @mixin EloquentBuilder
+ *
+ * @method EloquentBuilder|static withContextIds(int|array $contextIds)
+ * @method EloquentBuilder|static withUserGroupIds(int|array $userGroupIds)
+ * @method EloquentBuilder|static withRoleIds(array $roleIds)
+ * @method EloquentBuilder|static withStageIds(array $stageIds)
+ * @method EloquentBuilder|static excludeRoleIds(int|array $roleIds)
+ * @method EloquentBuilder|static withUserIds(array $userIds)
+ * @method EloquentBuilder|static withPublicationIds(array $publicationIds)
+ * @method EloquentBuilder|static isDefault(bool $isDefault)
+ * @method EloquentBuilder|static permitSelfRegistration(bool $permitSelfRegistration)
+ * @method EloquentBuilder|static permitMetadataEdit(bool $permitMetadataEdit)
+ * @method EloquentBuilder|static masthead(bool $masthead)
+ * @method EloquentBuilder|static isRecommendOnly(bool $isRecommendOnly)
+ * @method EloquentBuilder|static orderByRoleId()
+ * @method EloquentBuilder|static orderById()
+ * @method EloquentBuilder|static withActiveUserCount(?int $contextId = null)
+ */
 class UserGroup extends Model
 {
     use ModelWithSettings;
@@ -101,7 +120,7 @@ class UserGroup extends Model
         return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
     }
 
-    protected function scopeWithContextIds(EloquentBuilder $builder, $contextIds): EloquentBuilder
+    protected function scopeWithContextIds(EloquentBuilder $builder, int|array $contextIds): EloquentBuilder
     {
         if (empty($contextIds)) {
             return $builder;
@@ -135,7 +154,7 @@ class UserGroup extends Model
     /**
      * Scope a query to filter by user group IDs.
      */
-    protected function scopeWithUserGroupIds(EloquentBuilder $builder, $userGroupIds): EloquentBuilder
+    protected function scopeWithUserGroupIds(EloquentBuilder $builder, int|array $userGroupIds): EloquentBuilder
     {
         if (!is_array($userGroupIds)) {
             $userGroupIds = [$userGroupIds];
@@ -157,14 +176,6 @@ class UserGroup extends Model
     }
 
     /**
-     * Scope a query to exclude certain role IDs.
-     */
-    protected function scopeExcludeRoles(EloquentBuilder $builder, array $excludeRoles): EloquentBuilder
-    {
-        return $builder->whereNotIn('role_id', $excludeRoles);
-    }
-
-    /**
      * Scope a query to filter by stage IDs.
      */
     protected function scopeWithStageIds(EloquentBuilder $builder, $stageIds): EloquentBuilder
@@ -180,7 +191,7 @@ class UserGroup extends Model
     /**
      * Scope a query to exclude role ids.
      */
-    protected function scopeExcludeRoleIds(EloquentBuilder $builder, $roleIds): EloquentBuilder
+    protected function scopeExcludeRoleIds(EloquentBuilder $builder, int|array $roleIds): EloquentBuilder
     {
         if (!is_array($roleIds)) {
             $roleIds = [$roleIds];

@@ -30,6 +30,17 @@ use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
 
+/**
+ * @mixin Builder
+ *
+ * @method Builder|static withContextId(int $contextId)
+ * @method Builder|static withStageId(int $stageId)
+ * @method Builder|static withInclude(bool $include)
+ * @method Builder|static withType(int $type)
+ * @method Builder|static withTitleLike(string $title)
+ * @method Builder|static withSearch(string $phrase)
+ * @method Builder|static withUserGroupsAccess(?array $userGroupIds)
+ */
 class Template extends Model
 {
     use ModelWithSettings;
@@ -115,7 +126,7 @@ class Template extends Model
     /**
      * Scope: filter by context_id
      */
-    public function scopeByContextId($query, int $contextId)
+    public function scopeWithContextId($query, int $contextId)
     {
         return $query->where('context_id', $contextId);
     }
@@ -131,7 +142,7 @@ class Template extends Model
     /**
      * Scope: filter by stage_id
      */
-    public function scopeFilterByStageId(Builder $query, int $stageId): Builder
+    public function scopeWithStageId(Builder $query, int $stageId): Builder
     {
         return $query->where('stage_id', $stageId);
     }
@@ -139,9 +150,25 @@ class Template extends Model
     /**
      * Scope: filter by include flag
      */
-    public function scopeFilterByInclude(Builder $query, bool $include): Builder
+    public function scopeWithInclude(Builder $query, bool $include): Builder
     {
         return $query->where('include', $include);
+    }
+
+    /**
+     * Identify which user groups have access to the template
+     */
+    public function scopeWithUserGroupAccess(Builder $query, array $userGroupIds): Builder
+    {
+        return $query->when(
+            !empty($userGroupIds),
+            fn ($query) =>
+            $query->whereHas(
+                'userGroups',
+                fn ($subQuery) =>
+                $subQuery->whereIn('user_group_id', $userGroupIds)
+            )->orWhere('restrict_to_user_groups', false)
+        );
     }
 
     /**
@@ -178,7 +205,7 @@ class Template extends Model
     /**
      * Scope: filter by  type
      */
-    public function scopeFilterByType(Builder $q, int $type): Builder
+    public function scopeWithType(Builder $q, int $type): Builder
     {
         return $q->where('type', $type);
     }
@@ -186,7 +213,7 @@ class Template extends Model
     /**
      * Scope: filter by title LIKE
      */
-    public function scopeFilterByTitleLike(Builder $query, string $title): Builder
+    public function scopeWithTitleLike(Builder $query, string $title): Builder
     {
         $title = trim($title);
         if ($title === '') {
@@ -206,7 +233,7 @@ class Template extends Model
      * - name, description (settings)
      * Also supports "task" / "discussion" keyword to constrain by type.
      */
-    public function scopeFilterBySearch(Builder $query, string $phrase): Builder
+    public function scopeWithSearch(Builder $query, string $phrase): Builder
     {
         $phrase = trim($phrase);
         if ($phrase === '') {

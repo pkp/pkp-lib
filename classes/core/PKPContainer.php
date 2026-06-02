@@ -559,6 +559,14 @@ class PKPContainer extends Container
                 'emergency' => [
                     'path' => $this->logFilePath(),
                 ],
+
+                // ORCID writes to its own file; OrcidManager::getLogLevel() does the
+                // filtering, so this channel passes everything (level => debug).
+                'orcid' => [
+                    'driver' => 'single',
+                    'path' => $this->logFilePath(\PKP\orcid\OrcidManager::LOG_FILE),
+                    'level' => 'debug',
+                ],
             ],
         ];
 

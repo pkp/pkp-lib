@@ -1059,7 +1059,8 @@ class Schema extends \PKP\core\maps\Schema
     {
         return $stageAssignments->isNotEmpty() && $stageAssignments->contains(
             fn (StageAssignment $stageAssignment) =>
-            !$stageAssignment->recommendOnly
+            !$stageAssignment->recommendOnly &&
+            in_array($stageAssignment->userGroup?->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
         );
     }
 

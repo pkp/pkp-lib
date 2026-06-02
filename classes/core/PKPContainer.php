@@ -577,7 +577,10 @@ class PKPContainer extends Container
                 'orcid' => [
                     'driver' => 'single',
                     'path' => $this->logFilePath(\PKP\orcid\OrcidManager::LOG_FILE),
-                    'level' => 'debug',
+                    'level' => 'debug', // intentionally to debug and let ORCID Manager filter out unwanted levels
+                    'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
                 ],
             ],
         ];
@@ -718,9 +721,9 @@ class PKPContainer extends Container
     /**
      * Get the absolute path to the application/given log file under the storage log directory.
      */
-    public function logFilePath(?string $logFileName = null): string
+    public function logFilePath(?string $logFileName = null, ?string $logDirName = null): string
     {
-        return $this->storagePath(self::LOG_DIRECTORY . '/' . ($logFileName ?? $this->logFileName()));
+        return $this->storagePath(($logDirName ?? self::LOG_DIRECTORY) . '/' . ($logFileName ?? $this->logFileName()));
     }
 
     /**

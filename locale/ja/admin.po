@@ -22,10 +22,10 @@ msgid "admin.adminFunctions"
 msgstr "管理機能"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "キャッシュの削除"
 
 msgid "admin.deleteCache.description"
-msgstr ""
+msgstr "システム内のキャッシュファイルを削除します。通常は、表示が崩れた場合や翻訳・テンプレートを変更した後に実行します。"
 
 msgid "admin.clearDataCache"
 msgstr "データキャッシュのクリア"
@@ -74,7 +74,7 @@ msgid "admin.expireSessions"
 msgstr "ユーザーセッションの破棄"
 
 msgid "admin.expireSessions.description"
-msgstr ""
+msgstr "現在ログイン中のユーザーセッションをすべて破棄します。実行後、ユーザーは再ログインが必要になります。"
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -161,10 +161,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "スケジュールされたタスク実行ログをクリア"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "実行済みのスケジュールタスク処理ログをすべて削除します。"
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "タスクログを削除"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "予約済み投稿の発行"
@@ -336,10 +336,10 @@ msgid "admin.systemInformation"
 msgstr "システム情報"
 
 msgid "admin.systemInformation.description"
-msgstr ""
+msgstr "OJS本体、サーバー、PHP、データベースなどのバージョンと設定情報を確認できます。"
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "システム情報を表示"
 
 msgid "admin.versionBuild"
 msgstr "ビルド"
@@ -584,34 +584,34 @@ msgid "admin.cli.tool.jobs.mean.those"
 msgstr ""
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "キューには合計 <strong>{$total}</strong> 件のジョブがあります。"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "失敗したジョブは合計 <strong>{$total}</strong> 件あります。"
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "キュー内のジョブを表示"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "ジョブ"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "失敗したジョブ"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "失敗したジョブの詳細"
 
 msgid "navigation.tools.jobs.description"
-msgstr ""
+msgstr "システム内のキュー済みジョブを確認し、失敗した処理を追跡します。"
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "ジョブを表示"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "失敗したジョブを表示"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "失敗したジョブの詳細を表示"
 
 msgid "admin.job.failed.list.attribute"
 msgstr ""
@@ -777,3 +777,4 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr ""
+

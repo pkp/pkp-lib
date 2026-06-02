@@ -210,6 +210,7 @@ class PKPContainer extends Container
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
         $this->register(new \Illuminate\Log\LogServiceProvider($this));
+        $this->register(new \Illuminate\Log\Context\ContextServiceProvider($this));
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
@@ -489,6 +490,12 @@ class PKPContainer extends Container
             ->filter()
             ->values()
             ->all();
+
+        // Optional Monolog formatter for the formatter-capable channels (single, daily,
+        // stderr, syslog). A null formatter falls back to Laravel's default LineFormatter
+        $logFormatter = Config::getVar('logs', 'log_formatter');
+        $logFormatter = ($logFormatter && class_exists($logFormatter)) ? $logFormatter : null;
+
         $items['logging'] = [
             'default' => Config::getVar('logs', 'log_channel', 'stack'),
             'channels' => [
@@ -503,25 +510,30 @@ class PKPContainer extends Container
                     'path' => $this->logFilePath(),
                     'level' => $logLevel,
                     'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
                 ],
 
                 'daily' => [
                     'driver' => 'daily',
                     'path' => $this->logFilePath(),
                     'level' => $logLevel,
-                    'days' => (int) Config::getVar('logs', 'log_daily_days', 30), // The number of previous log files that will be retained
+                    'days' => (int) Config::getVar('logs', 'log_daily_days', 30),
                     'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
                 ],
 
                 'stderr' => [
                     'driver' => 'monolog',
                     'level' => $logLevel,
                     'handler' => \Monolog\Handler\StreamHandler::class,
-                    'formatter' => \Monolog\Formatter\LineFormatter::class,
                     'with' => [
                         'stream' => 'php://stderr',
                     ],
                     'processors' => [\Monolog\Processor\PsrLogMessageProcessor::class],
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
                 ],
 
                 'syslog' => [
@@ -529,6 +541,8 @@ class PKPContainer extends Container
                     'level' => $logLevel,
                     'facility' => LOG_USER,
                     'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
                 ],
 
                 'errorlog' => [
@@ -682,11 +696,11 @@ class PKPContainer extends Container
     }
 
     /**
-     * Get the absolute path to the application log file under the storage log directory.
+     * Get the absolute path to the application/given log file under the storage log directory.
      */
-    public function logFilePath(): string
+    public function logFilePath(?string $logFileName = null): string
     {
-        return $this->storagePath(self::LOG_DIRECTORY . '/' . $this->logFileName());
+        return $this->storagePath(self::LOG_DIRECTORY . '/' . ($logFileName ?? $this->logFileName()));
     }
 
     /**

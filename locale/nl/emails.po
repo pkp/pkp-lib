@@ -324,9 +324,11 @@ msgstr ""
 "Dit e-mailbericht wordt verzonden wanneer een gebruiker een nieuwe discussie "
 "start of reageert op een bestaande discussie"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Je inzending is teruggestuurd voor het corrigeren van de tekst"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Beste {$recipientName},</p><p>Je inzending, {$submissionTitle}, is "
@@ -340,9 +342,11 @@ msgstr ""
 "verdere assistentie nodig hebben.</p><p>Met vriendelijke "
 "groet,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Je inzending is teruggezonden voor recensie"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Beste {$recipientName},</p><p>Je inzending, {$submissionTitle}, is "

@@ -1574,6 +1574,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Annuller bedømmelsesrunde"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Annuller den igangværende bedømmelsesrunde og send indsendelsen tilbage til "
@@ -1674,6 +1675,7 @@ msgstr ""
 "blevet sendt til produktionstrinnet. Denne e-mail vil ikke blive sendt, før "
 "afgørelsen er registreret."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Annuller manuskriptredigering"
 
@@ -1700,26 +1702,32 @@ msgstr ""
 "er blevet annulleret, og at deres indsendelse vil undergå yderligere "
 "redaktionel bedømmelse."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Tilbage til manuskriptredigering"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Send denne indsendelse tilbage til manuskriptredigeringstrinnet."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName} sendte denne indsendelse tilbage til "
 "manuskriptredigeringstrinnet."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Sendt tilbage til manuskriptredigering"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Indsendelsen, {$title}, blev sendt tilbage til manuskriptredigeringstrinnet. "
 "Forfatteren er blevet underrettet, medmindre du har valgt at springe den e-"
 "mail over."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Send en e-mail til forfatterne for at informere dem om, at deres indsendelse "

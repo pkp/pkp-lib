@@ -3150,9 +3150,11 @@ msgstr ""
 "Tämä sähköposti ilmoittaa kirjoittajalle, että hänen käsikirjoituksensa on "
 "hyväksytty julkaistavaksi."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Käsikirjoitus lähetetty takaisin tekniseen toimitukseen"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
@@ -3462,17 +3464,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Tunnistuslähde"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Käsikirjoitus lähetetty takaisin arviointiin"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
 "käsikirjoituksensa on lähetetty takaisin arviointivaiheeseen."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Käsikirjoitus lähetetty takaisin käsikirjoitusvaiheeseen"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "

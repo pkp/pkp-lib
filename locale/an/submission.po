@@ -1740,6 +1740,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancelar ronda de revisión"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Cancelar la ronda de revisión actual y tornar lo ninvio a la zaguera ronda "
@@ -1833,6 +1834,7 @@ msgstr ""
 "ha pasau a la fase de producción. Este correu electronico no se ninviará "
 "dica que se rechistre la decisión."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Cancelar la corrección"
 
@@ -1857,23 +1859,29 @@ msgstr ""
 "cancelau la corrección y que la suya ninvio se sozmeterá a unatra revisión "
 "editorial."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Retornar a edición"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Retornar este ninvio a la fase d'edición."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} ha retornau este ninvio a la fase d'edición."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Retornau a edición"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Lo ninvio, {$title}, s'ha retornau a la fase d'edición. L'autor/a ha estau "
 "notificau, de no estar que haiga decidiu omitir lo correu electronico."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Ninviar un correu electronico a los autors/as pa informar-les que la "

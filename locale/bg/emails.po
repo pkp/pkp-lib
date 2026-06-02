@@ -310,10 +310,12 @@ msgstr ""
 "Този имейл се изпраща, когато потребител създаде нова дискусия или отговори "
 "на съществуваща дискусия"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr ""
 "Изпратените материали са върнати обратно в кръга за предпечатна подготовка"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Уважаеми {$recipientName},</p><p>Вашите материали, \"{$submissionTitle}\""
@@ -326,9 +328,11 @@ msgstr ""
 "p><p>Ние ще се свържем с вас, ако имаме нужда от допълнителна помощ.</"
 "p><p>Сърдечни поздрави,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Изпратените материали са върнати в кръга за рецензиране"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Уважаеми {$recipientName},</p><p>Вашите подадени материали, \""

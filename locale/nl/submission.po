@@ -1580,6 +1580,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Annuleer reviewronde"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Annuleer de huidige reviewronde en stuur de inzending terug naar de laatste "
@@ -1677,6 +1678,7 @@ msgstr ""
 "naar de productiefase is gestuurd. Deze e-mail wordt pas verzonden nadat de "
 "beslissing is vastgelegd."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Redactiefase annuleren"
 
@@ -1700,24 +1702,30 @@ msgstr ""
 "Stuur een e-mail naar de auteurs om hen te laten weten dat het redigeren is "
 "geannuleerd en dat hun inzending verder zal worden beoordeeld."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Terug naar redactie"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Stuur deze inzending terug naar de redactiefase."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} heeft deze inzending teruggestuurd naar de redactiefase."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Teruggestuurd naar redactie"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "De inzending, {$title}, is teruggestuurd naar de redactiefase. De auteur is "
 "op de hoogte gesteld, tenzij u ervoor heeft gekozen deze e-mail over te "
 "slaan."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Stuur een e-mail naar de auteurs om hen te laten weten dat deze inzending is "

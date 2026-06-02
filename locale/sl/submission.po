@@ -1555,6 +1555,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Prekliči recenzijski krog"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Prekličite trenutni recenzijski krog in prispevek prestavite nazaj v "
@@ -1648,6 +1649,7 @@ msgstr ""
 "Pošljite email avtorjem z obvestilom, da je bil ta prispevek premaknjen v "
 "fazo produkcije. Email na bo poslan, dokler odločitev ne bo zabeležena."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Prekliči fazo lektoriranje"
 
@@ -1670,23 +1672,29 @@ msgstr ""
 "Pošljite email avtorjem z obvestilom, da je bila faza lektorranja preklicana "
 "in da bo šel prispevek ponovno v fazo recenzije."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Nazaj v fazo lektoriranja"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Premakni ta prispevek nazaj v fazo lektoriranja."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} je premaknil ta prispevek nazaj v fazo lektoriranja."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Premaknjeno nazaj v fazo lektoriranja"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Prispevek, {$title}, je bil premaknjen nazaj v fazo lektoriranja. Avtor je "
 "bil obveščen, razen, če ste določili, da se ta email izpusti."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Pošljite avtorjem email z obvestilom, da je bil ta prispevek premaknjen "

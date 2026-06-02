@@ -3127,9 +3127,11 @@ msgstr ""
 "Email ini memberitahukan penulis bahwa naskah mereka telah diterima untuk "
 "diterbitkan."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Naskah Dikirimkan Kembali ke Copyedit"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Email ini memberitahukan penulis bahwa naskah mereka telah dikirimkan "
@@ -3433,17 +3435,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Sumber autentikasi"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Naskah Dikirimkan Kembali untuk Direview"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Email ini memberikan notifikasi kepada penulis bahwa naskah mereka telah "
 "dikirimkan kembali ke tahap review."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Naskah Dikirimkan Kembali ke Tahap Pengiriman"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Email ini memberikan notifikasi kepada penulis bahwa naskah mereka telah "

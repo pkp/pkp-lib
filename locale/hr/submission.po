@@ -1549,6 +1549,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Otkaži krug pregleda"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Otkažite trenutačni krug recenzije i vratite rad na prethodni krug "
@@ -1641,6 +1642,7 @@ msgstr ""
 "Pošaljite e-poruku autorima da ih obavijestite da je ovaj rad poslan u fazu "
 "proizvodnje. Ova e-poruka neće biti poslana dok se odluka ne zabilježi."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Odustani od uređivanja"
 
@@ -1663,23 +1665,29 @@ msgstr ""
 "Pošaljite e-mail autorima kako biste ih obavijestili da je lektura otkazana "
 "i da će njihova prijava proći daljnju uredničku recenziju."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Natrag na kopiranje"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Pošaljite ovaj rad natrag u fazu lekture."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} je poslao ovaj rad natrag u fazu lekture."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Poslano Natrag u fazu uređivanja"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Rad, {$title}, je poslan natrag u fazu lekture. Autor je obaviješten, osim "
 "ako niste odlučili preskočiti tu e-poruku."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Pošaljite e-poruku autorima kako biste ih obavijestili da je ovaj rad poslan "

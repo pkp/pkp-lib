@@ -298,9 +298,11 @@ msgstr ""
 "Цей електронний лист надсилається, коли користувач створює нове обговорення "
 "або відповідає на наявне обговорення"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Ваше подання було повернуто на літературне редагування"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Шановний(на) {$recipientName}!</p><p>Ваше подання \"{$submissionTitle}\" "
@@ -313,9 +315,11 @@ msgstr ""
 ">інформаційної панелі подання</a>.</p><p>Ми зв’яжеться з вами, якщо нам "
 "знадобиться додаткова допомога.</p><p>З повагою,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Ваше подання повернуто на рецензування"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Шановний(на) {$recipientName}!</p><p>Ваше подання \"{$submissionTitle}\" "

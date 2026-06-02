@@ -1566,6 +1566,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancelar Ronda de Revisão"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Cancele a ronda de revisão atual e envie a submissão de volta para a última "
@@ -1662,6 +1663,7 @@ msgstr ""
 "enviada para a etapa de produção. Este e-mail não será enviado antes da "
 "decisão ficar registada."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Cancelar Edição de Texto"
 
@@ -1685,24 +1687,30 @@ msgstr ""
 "Envie um e-mail para os autores para que saibam que a edição de texto foi "
 "cancelada e a submissão passará por uma nova revisão editorial."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Voltar para Edição de texto"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Envie esta submissão de volta para a etapa de edição de texto."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName} enviou esta submissão de volta para a etapa de edição de texto."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Enviar de volta para Edição de texto"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "A submissão {$title} foi enviada de volta para a etapa de edição de texto. O "
 "autor foi notificado, a menos que tenha optado por ignorar esse e-mail."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para informá-los de que esta submissão foi "

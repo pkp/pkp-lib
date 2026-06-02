@@ -1581,6 +1581,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Спиране кръг (етап) на рецензиране"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Отмяна на текущия кръг на реценциране и изпращене на материалите обратно към "
@@ -1679,6 +1680,7 @@ msgstr ""
 "продукционен етап. Този имейл няма да бъде изпратен, докато решението не "
 "бъде записано."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Кръгът (етапа) на стилова корекция е отменен"
 
@@ -1706,25 +1708,31 @@ msgstr ""
 "отменено и подадените материали ще бъдат подложени на допълнителна "
 "редакционна проверка."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Обратно към етапа на стилово редактиране"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Изпращане на тези материали обратно към етапа на стилово редактиране."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName} изпрати тези материали обратно към етапа на стилово "
 "редактиране."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Изпращане обратно към етапа на стилово редактиране"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Материалът {$title} беше изпратен обратно към етапа на стилово редактиране. "
 "Авторът е уведомен, освен ако не сте избрали да пропуснете този имейл."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Изпратете имейл до авторите, за да ги уведомите, че тeзи материали са "

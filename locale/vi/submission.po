@@ -1542,6 +1542,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Hủy vòng đánh giá"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Hủy vòng đánh giá hiện tại và gửi bài nộp trở lại vòng đánh giá trước đó. "
@@ -1635,6 +1636,7 @@ msgstr ""
 "đoạn sản xuất. Email này sẽ không được gửi cho đến khi quyết định được ghi "
 "lại."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Hủy chỉnh sửa"
 
@@ -1657,23 +1659,29 @@ msgstr ""
 "Gửi email cho tác giả để thông báo rằng việc chỉnh sửa bị hủy bỏ và bài nộp "
 "của họ sẽ trải qua thêm quá trình xem xét biên tập."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Quay lại chỉnh sửa"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Gửi bài nộp này trở lại giai đoạn chỉnh sửa."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} đã gửi bài nộp này trở lại giai đoạn chỉnh sửa."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Đã gửi lại để chỉnh sửa"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Bài nộp, {$title}, đã được gửi lại giai đoạn chỉnh sửa. Tác giả đã được "
 "thông báo, trừ khi bạn chọn bỏ qua email đó."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Gửi email cho tác giả để thông báo rằng bài nộp này đã được gửi lại giai "

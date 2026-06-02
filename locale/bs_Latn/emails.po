@@ -159,15 +159,19 @@ msgstr ""
 msgid "discussion.notification.description"
 msgstr ""
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr ""
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr ""
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 

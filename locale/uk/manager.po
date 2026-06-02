@@ -3147,9 +3147,11 @@ msgstr ""
 "Цей електронний лист повідомляє автора про те, що його подання прийнято до "
 "опублікування."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Подання повернуто на літературне редагування"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Цей електронний лист повідомляє автора про те, що його подання повернуто на "
@@ -3458,17 +3460,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Джерело автентифікації"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Подання повернуто на рецензування"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Цей електронний лист повідомляє автора про те, що його подання повернуто на "
 "стадію рецензування."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Подання повернуто на стадію подачі"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Цей електронний лист повідомляє автора про те, що його подання повернуто на "

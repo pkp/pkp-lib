@@ -3078,9 +3078,11 @@ msgstr ""
 "Email này thông báo cho tác giả rằng bài nộp của họ đã được chấp nhận để "
 "xuất bản."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Bài nộp đã gửi lại giai đoạn chỉnh sửa"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Email này thông báo cho tác giả rằng bài nộp của họ đã được gửi lại giai "
@@ -3380,17 +3382,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Nguồn xác thực"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Bài nộp đã gửi lại để đánh giá"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Email này thông báo cho tác giả rằng bài nộp của họ đã được gửi lại giai "
 "đoạn đánh giá."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Bài nộp đã gửi lại giai đoạn nộp bài"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Email này thông báo cho tác giả rằng bài nộp của họ đã được gửi lại giai "

@@ -999,6 +999,7 @@ msgstr "Çapa Göndər"
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr ""
 
@@ -1916,6 +1917,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Baxış yuvarlaqını ləğv edin"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "İcmalın cari turunu ləğv edin və təqdimatı nəzərdən keçirin son turuna "
@@ -1966,15 +1968,19 @@ msgstr ""
 "Kopyalamağın ləğv olunduğunu bildirmək üçün müəlliflərə bir e-poçt göndərin "
 "və onların təqdim edilməsi sonrakı redaksiya nəzərdən keçiriləcəkdir."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 
@@ -2536,6 +2542,7 @@ msgstr "Bütün tövsiyələr hazırdır və bir qərara ehtiyac var."
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Kopyalama ləğv edin"
 
@@ -2545,6 +2552,7 @@ msgstr ""
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 

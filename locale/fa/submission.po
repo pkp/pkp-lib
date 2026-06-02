@@ -1553,6 +1553,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "لغو دور داوری"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "دور فعلی داوری را لغو کنید و ارسال را به آخرین دور داوری، ارسال کنید. اگر "
@@ -1648,6 +1649,7 @@ msgstr ""
 "مرحله تولید، ارسال شده است. این ایمیل تا زمانی که تصمیم، ثبت نشود، ارسال "
 "نخواهد شد."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "لغو ویرایش فنی"
 
@@ -1672,23 +1674,29 @@ msgstr ""
 "فنی، لغو شده است و دست نوشته ارسالی آنها تحت بررسی و داوری ادیتوریال بیشتری "
 "قرار خواهد گرفت."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "بازگشت به ویرایش فنی"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "این دست نوشته ارسالی را به مرحله ویرایش فنی برگردانید."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} این دست نوشته ارسالی را به مرحله ویرایش فنی برگرداند."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "به ویرایش فنی، بازگشت داده شد"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "دست نوشته ارسالی، {$title}، به مرحله ویرایش فنی بازگردانده شد. به مؤلف "
 "(نویسنده) اطلاع داده شده است؛ مگر اینکه شما بخواهید آن ایمیل را رد کنید."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "برای مؤلفین (نویسندگان) ایمیل ارسال کنید تا بدانند که این ارسال به مرحله "

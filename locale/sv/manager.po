@@ -3065,9 +3065,11 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att bidraget har accepterats."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Bidraget har skickats tillbaka till manusredigering"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
@@ -3382,17 +3384,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Autentiseringskälla"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Bidraget har skickats tillbaka till granskning"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
 "tillbaka till granskningssteget."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Bidraget har skickats tillbaka till inskickat"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "

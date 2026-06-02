@@ -1579,6 +1579,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Скасувати раунд рецензування"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Скасуйте поточний раунд рецензування та надішліть подання назад до "
@@ -1675,6 +1676,7 @@ msgstr ""
 "надіслано на стадію виробництва. Цей електронний лист не буде надіслано, "
 "доки рішення не буде записано."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Скасувати літературне редагування"
 
@@ -1698,24 +1700,30 @@ msgstr ""
 "Надішліть електронний лист авторам, щоб повідомити їх, що літературне "
 "редагування скасовано, а їхнє подання пройде подальшу редакційну перевірку."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Повернутися до літературного редагування"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Повернути це подання на стадію літературного редагування."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName} повернув(-ла) це подання на стадію літературного редагування."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Повернуто на літературне редагування"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Подання \"{$title}\" було повернуто на стадію літературного редагування. "
 "Автора було сповіщено, якщо ви не вирішили пропустити цей електронний лист."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Надішліть електронний лист авторам, щоб повідомити їх, що це подання було "

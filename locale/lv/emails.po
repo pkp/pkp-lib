@@ -72,9 +72,11 @@ msgstr ""
 "Šis e-pasts tiek nosūtīts, kad lietotājs izveido jaunu diskusiju vai atbild "
 "uz esošo diskusiju"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Jūsu iesniegtais materiāls ir nosūtīts atpakaļ uz literāro rediģēšanu"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Jūsu iesniegtais materiāls ir nosūtīts uz atkārtotu recenzēšanu"
 
@@ -356,6 +358,7 @@ msgstr ""
 "<p>Ar cieņu</p>\n"
 "<p>{$signature}</p>\n"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>{$recipientName}!</p><p>Jūsu iesniegtais materiāls {$submissionTitle} ir "
@@ -368,6 +371,7 @@ msgstr ""
 "materiālu vadības paneļa</a>.</p><p>Mēs sazināsimies ar Jums, ja mums būs "
 "nepieciešama papildu palīdzība.</p><p>Ar cieņu</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>{$recipientName}!</p><p>Jūsu iesniegtais materiāls {$submissionTitle} ir "

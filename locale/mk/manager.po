@@ -3149,9 +3149,11 @@ msgstr ""
 "Овој емаил го известува авторот дека нивниот поднесок е прифатен за "
 "објавување."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Поднесокот е испратен назад кон Уредување"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Овој емаил го известува авторот дека нивниот поднесок е вратен во фазата на "
@@ -3460,17 +3462,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Извор за автентикација"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Поднесокот е испратен назад на рецензија"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Овој емаил го известува авторот дека неговиот поднесок е вратен во фазата на "
 "рецензија."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Поднесокот е испратен назад до поднесување"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Овој емаил го известува авторот дека неговиот поднесок е вратен во фазата на "

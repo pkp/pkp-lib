@@ -3091,9 +3091,11 @@ msgstr ""
 "Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas priimtas "
 "publikuoti."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Pateikimas išsiųstas atgal redagavimui"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas buvo "
@@ -3399,17 +3401,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Tapatybės nustatymo šaltinis"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Pateikimas išsiųstas atgal peržiūrai"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas grąžintas į "
 "peržiūros etapą."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Pateikimas išsiųstas atgal į pateikimo skyrių"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas grąžintas į "

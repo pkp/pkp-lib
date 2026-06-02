@@ -3073,9 +3073,11 @@ msgstr ""
 "Бұл электрондық хат авторға жұмыстарының жарияланымға қабылданғаны туралы "
 "хабарлайды."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Материал өңдеуге қайтарылды"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Бұл электрондық хат авторға жұмыстарының өңдеуге қайтарылғаны туралы "
@@ -3370,17 +3372,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Материал қайта қарауға жіберілді"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Бұл электрондық хат авторға олардың материалы қайта қарау кезеңіне "
 "жіберілгенін хабарлайды."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Материал кері жіберілді"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Бұл электрондық хат авторға олардың материалы жіберу кезеңіне қайтарылғаны "

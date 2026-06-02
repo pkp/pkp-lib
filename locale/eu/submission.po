@@ -1571,6 +1571,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Ezeztatu berrikuspen-erronda"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Utzi uneko berrikuspen-erronda eta bidali bidalketa azken berrikuspen-"
@@ -1665,6 +1666,7 @@ msgstr ""
 "dela jakinarazteko. Mezu elektroniko hau ez da bidaliko erabakia "
 "erregistratu arte."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Ezeztatu edizioa"
 
@@ -1687,23 +1689,29 @@ msgstr ""
 "Bidali mezu elektroniko bat egileei jakinarazteko edizioa bertan behera utzi "
 "dela eta euren bidalketak berrikuspen editorial gehiago jasango duela."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Ediziora itzuli"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Bidali bidalketa hau edizio-fasera berriro."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName}-ek bidalketa hau edizio-fasera bidali du berriro."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Ediziora itzulia"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "{$title} bidalketa edizio-fasera itzuli da. Egileari jakinarazi zaio, mezu "
 "elektroniko hori saltatzea erabaki ez baduzu behintzat."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Bidali mezu elektroniko bat egileei bidalketa hau edizio-fasera itzuli dela "

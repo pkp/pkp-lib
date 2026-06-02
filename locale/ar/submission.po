@@ -1528,6 +1528,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "إلغاء جولة التحكيم"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "إلغاء جولة التحكيم الحالية وإعادة طلب التقديم إلى جولة التحكيم الأخيرة. إن "
@@ -1619,6 +1620,7 @@ msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب التقديم هذا قد أُرسل إلى "
 "مرحلة الإنتاج. لن يتم إرسال هذا البريد الإلكتروني حتى يتم تسجيل القرار."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "إلغاء التدقيق"
 
@@ -1641,23 +1643,29 @@ msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بإلغاء التدقيق وبأن طلب تقديمهم "
 "سيخضع للمزيد من مراجعات التحرير."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "إعادة إلى التدقيق"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "أرجع طلب التقديم هذا إلى مرحلة التدقيق."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} أعاد طلب التقديم هذا إلى مرحلة التدقيق."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "أُعيد إلى التدقيق"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "طلب التقديم، {$title}، قد أُعيد إلى مرحلة التدقيق. تم إخطار المؤلف ، إلا إذا "
 "اخترت تخطي هذا البريد الإلكتروني."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب التقديم هذا قد أُعيد إلى "

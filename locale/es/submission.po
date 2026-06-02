@@ -1583,6 +1583,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancelar ronda de revisión"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Cancelar la ronda de revisión actual y devolver el envío a la última ronda "
@@ -1678,6 +1679,7 @@ msgstr ""
 "envío ha pasado a la fase de producción. Este correo electrónico no se "
 "enviará hasta que se registre la decisión."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Cancelar la corrección"
 
@@ -1702,23 +1704,29 @@ msgstr ""
 "cancelado la corrección y de que su envío se someterá a otra revisión "
 "editorial."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Retornar a edición"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Retornar este envío a la fase de edición."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} ha retornado este envío a la fase de edición."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Retornado a edición"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "El envío, {$title}, se ha retornado a la fase de edición. El autor/a ha sido "
 "notificado, a menos que haya decidido omitir el correo electrónico."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Enviar un correo electrónico a los autores/as para informarles de que la "

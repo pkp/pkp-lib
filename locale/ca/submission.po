@@ -1570,6 +1570,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancel·lar la ronda de revisió"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Cancel·lar la ronda de revisió actual i retornar la tramesa a la ronda de "
@@ -1661,6 +1662,7 @@ msgstr ""
 "tramesa s'ha enviat a la fase de producció. Aquest correu electrònic no "
 "s'enviarà fins que s'hagi registrat la decisió."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Cancel·lar la correcció"
 
@@ -1684,24 +1686,30 @@ msgstr ""
 "cancel·lat l'edició i que la seva tramesa es sotmetrà a una altra revisió "
 "editorial."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Retornar a edició"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Retornar la tramesa a la fase d'edició."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} ha retornat la tramesa a la fase d'edició."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Retornat a edició"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "La tramesa {$title} s'ha retornat a la fase d'edició. S'ha enviat una "
 "notificació a l'autor/a, a no ser que hagueu decidit ometre el correu "
 "electrònic."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 

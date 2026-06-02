@@ -310,9 +310,11 @@ msgstr ""
 "Это письмо отправляется, когда пользователь создает новое обсуждение или "
 "отвечает в существующем обсуждении"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Ваш материал был возвращён на литературное редактирование"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Здравствуйте, {$recipientName}!</p><p>Ваш материал «{$submissionTitle}» "
@@ -327,9 +329,11 @@ msgstr ""
 "свяжемся с Вами, если нам понадобится дополнительная помощь.</p><p>С "
 "уважением,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Ваш материал был возвращён на рецензирование"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Здравствуйте, {$recipientName}!</p><p>Ваш материал «{$submissionTitle}» "

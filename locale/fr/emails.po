@@ -304,9 +304,11 @@ msgstr ""
 "Ce courriel est envoyé lorsqu'un utilisateur crée une nouvelle discussion ou "
 "répond à une discussion existante"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Votre soumission a été renvoyée pour édition"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>{$recipientName},</p><p>Votre soumission, « {$submissionTitle} » a été "
@@ -320,9 +322,11 @@ msgstr ""
 "de bord de soumission</a>.</p><p>Nous vous contacterons si nous avons besoin "
 "de votre aide.</p><p>Cordialement,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Votre soumission a été renvoyée pour évaluation"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>{$recipientName},</p><p>Votre soumission, « {$submissionTitle} », a été "

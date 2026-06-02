@@ -3362,9 +3362,11 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "Бул электрондук кат авторго тапшырмасы жарыяланууга кабыл алынганын билдирет."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Тапшырма кайра корректордук түзөтүүгө жөнөтүлдү"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Бул электрондук кат авторго тапшырмасы корректордук түзөтүү этабына кайра "
@@ -3655,17 +3657,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Аутентификация булагы"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Тапшырма кайра рецензияга жөнөтүлдү"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Бул электрондук кат авторго тапшырмасы кайра рецензия этабына жөнөтүлгөнүн "
 "билдирет."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Тапшырма кайра тапшырма этабына жөнөтүлдү"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Бул электрондук кат авторго тапшырмасы кайра тапшырма этабына жөнөтүлгөнүн "

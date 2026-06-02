@@ -268,9 +268,11 @@ msgid "discussion.notification.description"
 msgstr "このメールは、ユーザーが新しいディスカッションを作成したり、既存のディスカッ"
 "ションに返信したりしたときに送信されます"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "投稿は原稿整理に送り返されました"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>{$recipientName} 様</p><p>ご提出いただいた投稿「{$submissionTitle}」は原稿"
@@ -282,9 +284,11 @@ msgstr ""
 "らにサポートが必要な場合はご連絡いたします。</p><p>よろしくお願いいたします。"
 "</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "投稿は査読に返送されました"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>{$recipientName} 様</p><p>ご提出いただいた投稿「{$submissionTitle}」は、査"

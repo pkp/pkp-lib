@@ -695,6 +695,7 @@ msgstr ""
 "kas autoram būs nepieciešama, lai uzlabotu iesniegto darbu. Vajadzības "
 "gadījumā neaizmirstiet anonimizēt visus recenzentu komentārus."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Atcelt literāro rediģēšanu"
 
@@ -721,6 +722,7 @@ msgstr ""
 msgid "editor.submission.decision.sendToProduction.log"
 msgstr "{$editorName} nosūtīja šo materiālu uz izstrādes posmu."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Atgriezties pie literārās rediģēšanas"
 
@@ -732,12 +734,14 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.description"
 msgstr "Nosūtīt šo materiālu atpakaļ no literārās rediģēšanas posma."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Nosūtīt šo materiālu atpakaļ uz literārās rediģēšanas posmu."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Nosūtīts atpakaļ no literārās rediģēšanas"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Nosūtīts atpakaļ uz literāro rediģēšanu"
 
@@ -746,6 +750,7 @@ msgstr ""
 "Materiāls \"{$title}\" tika nosūtīts atpakaļ no literārās rediģēšanas posma. "
 "Autors ir informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Materiāls {$title} tika nosūtīts atpakaļ uz literārās rediģēšanas posmu. "
@@ -756,6 +761,7 @@ msgstr ""
 "{$editorName} ir nosūtījis šo materiālu atpakaļ no literārās rediģēšanas "
 "posma."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName} nosūtīja šo materiālu atpakaļ uz literārās rediģēšanas posmu."
@@ -967,6 +973,7 @@ msgstr ""
 "Parasti tiek izmantots, lai identificētu datnes formātu (piemēram, PDF, HTML "
 "u. c.)."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Nosūtīt autoriem e-pastu, lai informētu, ka šis materiāls vēlreiz nosūtīts "
@@ -1864,6 +1871,7 @@ msgstr "Atlasiet datnes, kas jānosūta recenzēšanai."
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Atcelt recenzēšanas kārtu"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Atcelt pašreizējo recenzēšanas kārtu un nosūtīt iesniegto materiālu atpakaļ "

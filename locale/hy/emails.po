@@ -302,9 +302,11 @@ msgstr ""
 "Այս նամակն ուղարկվում է, երբ օգտատերը ստեղծում է նոր քննարկում կամ "
 "պատասխանում առկա քննարկմանը"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Ձեր ներկայացումը հետ է ուղարկվել սրբագրման"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Հարգելի {$recipientName},</p><p>Ձեր ներկայացումը, \"{$submissionTitle}\", "
@@ -317,9 +319,11 @@ msgstr ""
 "հետ, եթե մեզ անհրաժեշտ լինի լրացուցիչ "
 "օգնություն:</p><p>Հարգանքով,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Ձեր ներկայացումը հետ է ուղարկվել վերանայման"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Հարգելի {$recipientName},</p><p>Ձեր ներկայացումը՝ \"{$submissionTitle}\", "

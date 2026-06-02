@@ -3157,9 +3157,11 @@ msgstr ""
 "Այս էլ․ նամակը ծանուցում է հեղինակին, որ ներկայացումն ընդունվել է "
 "հրապարակման համար:"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Ներկայացումը հետ է ուղարկվել սրբագրման"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Այս նամակը ծանուցում է հեղինակին, որ ներկայացումը հետ է ուղարկվել սրբագրման "
@@ -3467,17 +3469,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Նույնականացման աղբյուր"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Ներկայացումն հետ է ուղարկվել վերանայման"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը հետ է ուղարկվել "
 "վերանայման փուլ:"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Ներկայացումը հետ է ուղարկվել ներկայացման"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Այս էլ․ նամակը տեղեկացնում է հեղինակին, որ ներկայացումը հետ է ուղարկվել "

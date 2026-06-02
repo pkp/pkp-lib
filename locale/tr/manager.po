@@ -3093,9 +3093,11 @@ msgstr ""
 "Bu e-posta, yazarın başvurusunun yayımlanmak üzere kabul edildiğini "
 "bildirmek için gönderilir."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Başvuru, Dizgi Aşamasına Geri Gönderildi"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Bu e-posta, yazarın başvurusunun dizgi aşamasına geri gönderildiğini "
@@ -3414,17 +3416,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Kimlik Doğrulama Kaynağı"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Başvuru Yeniden Hakemlik Aşamasına Gönderildi"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Bu e-posta, yazarın başvurusunun yeniden hakemlik aşamasına gönderildiğini "
 "bildirmek için otomatik olarak gönderilir."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Başvuru Yeniden Başvuru Aşamasına Gönderildi"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Bu e-posta, yazarın başvurusunun yeniden başvuru aşamasına gönderildiğini "

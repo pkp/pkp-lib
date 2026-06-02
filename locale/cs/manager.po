@@ -3091,9 +3091,11 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "Tento e-mail oznamuje autorovi, že jeho příspěvek byl přijat k publikaci."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Příspěvek byl zaslán zpět k závěrečným úpravám"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
@@ -3394,17 +3396,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Zdroj ověření"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Příspěvek byl poslán zpět do recenzní fáze"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
 "recenzního řízení."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Příspěvek odeslán zpět do fáze podání"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "

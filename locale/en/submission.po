@@ -1785,7 +1785,7 @@ msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancel Review Round"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
-msgstr "Cancel the current round of review and send the submission back to the last round of review. If this is the first review round, it will be sent back to the submission stage."
+msgstr "Cancel the current round of review and send the submission back to the last round of review. If this is the first review round, it will be moved to the submission stage."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr "{$editorName} cancelled the review round."
@@ -1854,7 +1854,7 @@ msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that this submission has been sent to the production stage. This email will not be sent until the decision is recorded."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr "Cancel Copyediting"
+msgstr "Move to Review"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
 msgstr "Send this submission back from the copyediting stage."
@@ -1872,22 +1872,22 @@ msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that copyediting is cancelled and their submission will undergo further editorial review."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr "Back To Copyediting"
+msgstr "Move To Copyediting"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr "Send this submission back to the copyediting stage."
+msgstr "Send this submission to the copyediting stage."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr "{$editorName} sent this submission back to the copyediting stage."
+msgstr "{$editorName} moved this submission to the copyediting stage."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr "Sent Back to Copyediting"
+msgstr "Moved to Copyediting"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "The submission, {$title}, was sent back to the copyediting stage. The author has been notified, unless you chose to skip that email."
+msgstr "The submission, {$title}, was moved to the copyediting stage. The author has been notified, unless you chose to skip that email."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
-msgstr "Send an email to the authors to let them know that this submission has been sent back to the copyediting stage. Explain why this decision was made and inform the author of what further editing will be required before this submission is ready for production."
+msgstr "Send an email to the authors to let them know that this submission has been moved to the copyediting stage. Explain why this decision was made and inform the author of what further editing will be required before this submission is ready for production."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Accept and Skip Review"

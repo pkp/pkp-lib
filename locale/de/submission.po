@@ -1615,6 +1615,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Gutachtenrunde abbrechen"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Die aktuelle Gutachtenrunde abbrechen und die Einreichung zurück in die "
@@ -1716,6 +1717,7 @@ msgstr ""
 "ihre Einreichung zur Produktionsphase geschickt wurde. Diese E-Mail wird "
 "erst versandt, wenn die Entscheidung festgehalten wurde."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Lektorat abbrechen"
 
@@ -1741,24 +1743,30 @@ msgstr ""
 "das Lektorat abgebrochen wurde und ihre Einreichung weitere Begutachtungen "
 "durchlaufen wird."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Zurück zum Lektorat"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Diese Einreichung zurück ins Lektorat schicken."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} hat diese Einreichung in das Lektorat zurückgeschickt."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "In das Lektorat zurückgeschickt"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Die Einreichung {$title} wurde in das Lektorat zurückgeschickt. Die Autor/"
 "innen wurden benachrichtigt, sofern Sie diese E-Mail nicht übersprungen "
 "haben."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "

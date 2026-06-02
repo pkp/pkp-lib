@@ -1556,6 +1556,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Umferð ritrýni hætt"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Hætta við núverandi umferð ritrýni og senda innsendingu aftur í fyrri "
@@ -1647,6 +1648,7 @@ msgstr ""
 "Senda höfundi tölvupóst með tilkynningu um að innsendingin hafi verið send á "
 "framleiðslustig."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Textatækni hætt"
 
@@ -1668,15 +1670,19 @@ msgstr ""
 "Senda tölvupóst til höfunda(r) með upplýsingum um að textatækniferli hafi "
 "verið hætt og að innsending þeirra krefjist frekari yfirferðar frá ritstjórn."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Til baka í textatækniferli"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Senda þessa innsendingu til baka í textatækniferli."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} hefur sent þessa innsendingu til baka í textatækniferli."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Til baka á stig textatækni"
 
@@ -1684,6 +1690,7 @@ msgstr "Til baka á stig textatækni"
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Innsendingin {$title} var send til baka í textatækniferli."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Senda tölvupóst til höfunda með upplýsingum um að innsendingin hafi verið "

@@ -2940,9 +2940,11 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "อีเมลนี้แจ้งให้ผู้แต่งทราบว่าการส่งงานของพวกเขาได้รับการยอมรับเพื่อตีพิมพ์"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "การส่งงานถูกส่งกลับไปยังขั้นตอนการตรวจสำเนา"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "อีเมลนี้แจ้งให้ผู้แต่งทราบว่าการส่งงานของพวกเขาถูกส่งกลับไปยังขั้นตอนการตรวจส"
@@ -3205,15 +3207,19 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "แหล่งการยืนยันตัวตน"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "ส่งบทความกลับไปยังขั้นตอนการทบทวน"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr "อีเมลนี้จะแจ้งผู้เขียนว่าบทความของพวกเขาถูกส่งกลับไปยังขั้นตอนการทบทวน"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "ส่งบทความกลับไปยังขั้นตอนการส่ง"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr "อีเมลนี้จะแจ้งผู้เขียนว่าบทความของพวกเขาถูกส่งกลับไปยังขั้นตอนการส่ง"
 

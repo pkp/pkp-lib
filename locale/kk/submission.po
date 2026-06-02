@@ -1548,6 +1548,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 
@@ -1635,6 +1636,7 @@ msgstr ""
 "Авторларға бұл материалдың шығару кезеңіне жіберілгенін хабарлау үшін "
 "электрондық хат жіберіңіз."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr ""
 
@@ -1653,15 +1655,19 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Өңдеуге қайта оралу"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Бұл материалды өңдеу кезеңіне қайта жіберіңіз."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} бұл материалды өңдеу кезеңіне қайта жіберді."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Өңдеуге қайта жіберілді"
 
@@ -1669,6 +1675,7 @@ msgstr "Өңдеуге қайта жіберілді"
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "{$title} материал өңдеу кезеңіне қайта жіберілді."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Авторларға бұл материалдың өңдеу кезеңіне қайтарылғанын хабарлау үшін "

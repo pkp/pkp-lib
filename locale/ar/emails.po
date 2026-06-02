@@ -271,9 +271,11 @@ msgstr ""
 "هذا البريد الالكتروني يُرسل عندما ينشئ المستخدم مناقشة جديدة أو يرد على "
 "مناقشة موجودة"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "طلب تقديمك قد تمت إعادته إلى مرحلة التدقيق الإملائي"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>عزيزي {$recipientName}،</p><p>طلب تقديمك، \"{$submissionTitle}\"، قد تمت "
@@ -285,9 +287,11 @@ msgstr ""
 ">دفة قيادة طلب التقديم</a>.</p><p>سنتواصل معك إذا كنا بحاجة إلى أي مساعدة "
 "إضافية.</p><p>أطيب التحايا،</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "طلب تقديمك قد تمت إعادته إلى مرحلة التحكيم"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>عزيزي {$recipientName}،</p><p>طلب تقديمك، \"{$submissionTitle}\"، قد تمت "

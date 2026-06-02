@@ -281,9 +281,11 @@ msgstr ""
 "Ova e-poruka se šalje kada korisnik započne novu raspravu ili odgovori na "
 "postojeću"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Vaš je rad vraćen na uređivanje"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Poštovani/Poštovana {$recipientName},</p><p>Vaš je rad, \""
@@ -295,9 +297,11 @@ msgstr ""
 "p><p>Kontaktirat ćemo Vas ako nam bude potrebna dodatna pomoć.</p><p>Srdačan "
 "pozdrav,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Vaš je rad vraćen na recenziju"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Poštovani/Poštovana {$recipientName},</p><p>Vaš je rad, \""

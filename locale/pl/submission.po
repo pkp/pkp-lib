@@ -1556,6 +1556,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Anuluj rundę recenzji"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Anuluj bieżącą rundę recenzji i cofnij tekst do poprzedniego etapu zbierania "
@@ -1649,6 +1650,7 @@ msgstr ""
 "Wyślij email do autorów z powiadomieniem o wysłaniu zgłoszenia do etapu "
 "produkcji."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Odeślij z etapu Korekty"
 
@@ -1670,15 +1672,19 @@ msgstr ""
 "Wyślij email do autorów z informacją, że etap korekty został anulowany i "
 "zgłoszenie będzie ponownie rozpatrzone przez redakcję."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Powrót do korekty"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Odeślij zgłoszenie z powrotem do etapu Korekty."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} odesłał zgłoszenie do etapu Korekty."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Odesłane powtórnie do Korekty"
 
@@ -1686,6 +1692,7 @@ msgstr "Odesłane powtórnie do Korekty"
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Zgłoszenie: {$title} zostało odesłane ponownie do Korekty."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Wyślij e-mail do autorów, aby poinformować ich, że zgłoszenie zostało "

@@ -301,6 +301,17 @@ abstract class Repository
         return $errors;
     }
 
+
+    /**
+     * Perform validations that should be treated as warnings instead of errors.
+     */
+    public function validatePublishWarnings(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
+    {
+        $warnings = [];
+        Hook::call('Publication::validatePublishWarnings', [&$warnings, $publication, $submission, $allowedLocales, $primaryLocale]);
+        return $warnings;
+    }
+
     /**
      * @copydoc DAO::insert()
      *

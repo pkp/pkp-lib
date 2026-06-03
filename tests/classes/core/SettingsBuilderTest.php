@@ -182,6 +182,7 @@ class SettingsBuilderTest extends PKPTestCase
         $rows = $this->getSettingRows('test_settings_schema_entity_settings', $modelId, 'title');
         $this->assertCount(1, $rows);
         $this->assertSame('en', $rows[0]->locale);
+        $this->assertSame('English', $rows[0]->setting_value);
     }
 
     public function testSchemaBasedUnmentionedSettingPreserved(): void
@@ -209,6 +210,24 @@ class SettingsBuilderTest extends PKPTestCase
         $rows = $this->getSettingRows('test_settings_schema_entity_settings', $modelId, 'jsonSetting');
         $this->assertCount(1, $rows, 'Non-multilingual array setting must be updated, not deleted, when given []');
         $this->assertSame('[]', $rows[0]->setting_value);
+    }
+
+    public function testSchemaBasedMixedLocaleUpdateAndDelete(): void
+    {
+        $modelId = $this->seedSchemaModel(['en' => 'English', 'fr_CA' => 'Français']);
+
+        // One call: update `en`, delete `fr_CA`. Both must take effect.
+        TestSettingsSchemaModel::find($modelId)->update([
+            'title' => [
+                'en' => 'Updated',
+                'fr_CA' => null,
+            ],
+        ]);
+
+        $rows = $this->getSettingRows('test_settings_schema_entity_settings', $modelId, 'title');
+        $this->assertCount(1, $rows, 'fr_CA row must be deleted while en remains');
+        $this->assertSame('en', $rows[0]->locale);
+        $this->assertSame('Updated', $rows[0]->setting_value);
     }
 
     public function testUpdateReturnsAffectedPrimaryRowCount(): void
@@ -359,6 +378,35 @@ class SettingsBuilderTest extends PKPTestCase
         $this->assertCount(1, $rows, 'fr_CA row must be deleted while en remains');
         $this->assertSame('en', $rows[0]->locale);
         $this->assertSame('Updated', $rows[0]->setting_value);
+    }
+
+    public function testNonSchemaUnmentionedSettingPreserved(): void
+    {
+        $modelId = $this->seedPureModel(['en' => 'English', 'fr_CA' => 'Français']);
+
+        // Update only a non-settings column; settings rows must be untouched.
+        TestSettingsPureModel::find($modelId)->update(['parent_id' => 99]);
+
+        $this->assertSettingRowCount('test_settings_pure_entity_settings', $modelId, 'familyName', 2);
+    }
+
+    public function testNonSchemaNonMultilingualEmptyArrayUpdatesNotDeletes(): void
+    {
+        // Direct pure-path analogue of the Funder `grants` scenario (pkp/pkp-lib#12658):
+        // passing [] for a non-multilingual setting must write the value, not wipe the row.
+        $modelId = DB::table('test_settings_pure_entity')->insertGetId(['parent_id' => 1], 'test_id');
+        DB::table('test_settings_pure_entity_settings')->insert([
+            'test_id' => $modelId,
+            'locale' => '',
+            'setting_name' => 'metadata',
+            'setting_value' => json_encode(['existing' => 'data']),
+        ]);
+
+        TestSettingsPureModel::find($modelId)->update(['metadata' => []]);
+
+        $rows = $this->getSettingRows('test_settings_pure_entity_settings', $modelId, 'metadata');
+        $this->assertCount(1, $rows, 'Non-multilingual array setting must be updated, not deleted, when given []');
+        $this->assertSame('[]', $rows[0]->setting_value);
     }
 
     //
@@ -710,7 +758,7 @@ class TestSettingsPureModel extends Model
 
     public function getSettings(): array
     {
-        return ['familyName'];
+        return ['familyName', 'metadata'];
     }
 
     public function getMultilingualProps(): array
@@ -722,6 +770,10 @@ class TestSettingsPureModel extends Model
     {
         return [
             'family_name' => 'string',
+            // Non-multilingual array setting — mirrors a real-world prop like
+            // Funder `grants` (pkp/pkp-lib#12658). Used to assert that `[]` on a
+            // non-multilingual setting is written as a value, not a clear signal.
+            'metadata' => 'array',
         ];
     }
 }

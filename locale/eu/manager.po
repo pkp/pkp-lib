@@ -3128,9 +3128,11 @@ msgstr ""
 "Mezu elektroniko honen bidez, egileari jakinarazten zaio bidalketa "
 "argitaratzeko onartu dela."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Bidalketa edizio-fasera itzuli da"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
@@ -3444,17 +3446,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Autentifikazio iturria"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Bidalketa berrikuspenera itzuli da"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
 "berrikuspen-fasera itzuli dela."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Bidalketa bidalketa-fasera itzuli da"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "

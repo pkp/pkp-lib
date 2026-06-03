@@ -3088,9 +3088,11 @@ msgstr ""
 "ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ ავტორთან „მასალის მიღების“ "
 "საბოლოო გადაწყვეტილების შესახებ."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "წარდგენა გაიგზავნა უკან კოპირების რედაქტირებაზე"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "ეს ელფოსტა აცნობებს ავტორს, რომ მათი გაგზავნა დაბრუნდა კოპირების "
@@ -3385,16 +3387,20 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "წარდგენა გაიგზავნა უკან განხილვაზე"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "ეს ელფოსტა აცნობებს ავტორს, რომ მათი წარდგენა დაბრუნდა განხილვის ეტაპზე."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "წარდგენა გაგზავნილია უკან წარდგენაზე"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "ეს ელფოსტა აცნობებს ავტორს, რომ მათი გაგზავნა კვლავ გაგზავნილია წარდგენის "

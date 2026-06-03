@@ -3185,9 +3185,11 @@ msgstr ""
 "Este correo electrónico notifica al autor/a que su envío ha sido aceptado "
 "para su publicación."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Se ha retornado el envío a Edición"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Este correo electrónico notifica al autor/a que su envío ha sido retornado a "
@@ -3496,17 +3498,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Fuente de autenticación"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "El envío se ha retornado a la fase de revisión"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Este correo electrónico notifica al autor/a que su envío se ha retornado a "
 "la fase de revisión."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "El envío se ha retornado a la fase de envío"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Este correo electrónico notifica al autor/a que su envío se ha retornado a "

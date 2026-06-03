@@ -3383,11 +3383,11 @@ msgstr ""
 "publication."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr "Submission Sent Back to Copyediting"
+msgstr "Submission Moved to Copyediting"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
-"This email notifies the author that their submission has been sent back to "
+"This email notifies the author that their submission has been moved to "
 "the copyediting stage."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
@@ -3678,19 +3678,19 @@ msgid "manager.people.authSource"
 msgstr "Authentication source"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "Submission Sent Back to Review"
+msgstr "Submission moved to Review"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
-"This email notifies the author that their submission has been sent back to "
+"This email notifies the author that their submission has been sent to "
 "the review stage."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "Submission Sent Back to Submission"
+msgstr "Submission moved to Submission"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
-"This email notifies the author that their submission has been sent back to "
+"This email notifies the author that their submission has been moved to "
 "the submission stage."
 
 msgid "manager.manageEmails"

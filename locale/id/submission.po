@@ -1553,6 +1553,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Membatalkan Putaran Review"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Membatalkan putaran review dan mengirimkan kembali naskah ke putaran review "
@@ -1647,6 +1648,7 @@ msgstr ""
 "naskah telah dikirim ke tahap produksi. Email tidak akan dikirim hingga "
 "keputusan dibuat."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Membatalkan Copyedit"
 
@@ -1670,23 +1672,29 @@ msgstr ""
 "copyedit dibatalkan dan naskah mereka akan melalui review editorial lebih "
 "lanjut."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Kembali Ke Copyedit"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Mengirimkan naskah ini kembali ke tahap copyedit."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} mengirimkan naskah ini kembali ke tahap copyedit."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Dikirim Kembali ke Copyedit"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Naskah, {$title}, dikirim kembali ke tahap copyedit. Penulis telah "
 "diberitahu, kecuali jika anda memilih untuk melewati email tersebut."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Mengirimkan email kepada penulis untuk memberitahukan bahwa naskah ini telah "

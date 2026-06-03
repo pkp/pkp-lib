@@ -1552,6 +1552,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Otkažite krug recenzija"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Otkažite trenutni krug recenzije i vratite rad u prethodni krug recenzije. "
@@ -1645,6 +1646,7 @@ msgstr ""
 "Pošaljite imejl autorima kako biste ih obavestili da je ova prijava poslata "
 "u fazu produkcije. Ovaj imejl neće biti poslat dok odluka ne bude zabeležena."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Otkaži lekturu"
 
@@ -1667,23 +1669,29 @@ msgstr ""
 "Pošaljite imejl autorima kako biste ih obavestili da je lektura otkazana i "
 "da će njihova prijava proći kroz dalju uredničku reviziju."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Vraćeno na lekturu"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Vratite ovu prijavu  u fazu lekture."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} je prosledio/la ovu prijavu nazad u fazu lekture."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Vraćeno u fazu lektorisanja"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Prijava, {$title}, je vraćena u fazu lektorisanja. Autor je obavešten, osim "
 "ako ste izabrali da preskočite slanje tog imejla."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Pošaljite imejl autorima kako biste ih obavestili da je ova prijava vraćena "

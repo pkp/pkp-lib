@@ -1560,6 +1560,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Չեղարկել գրախոսման փուլը"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Չեղարկեք գրախոսման ընթացիկ փուլը և ներկայացումը ուղարկեք վերանայման վերջին "
@@ -1657,6 +1658,7 @@ msgstr ""
 "ուղարկվել է արտադրության փուլ: Այս նամակը չի ուղարկվի մինչև որոշումը "
 "չգրանցվի:"
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Չեղարկել գրական խմբագրումը"
 
@@ -1680,23 +1682,29 @@ msgstr ""
 "Նամակ ուղարկեք հեղինակներին՝ տեղեկացնելով, որ գրական խմբագրումը չեղարկված է, "
 "և նրանց նյութը կենթարկվի հետագա խմբագրական վերանայման:"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Վերադարձ Դեպի գրական սրբագրմանը"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Ուղարկեք այս ներկայացումը հետ գրական սրբագրման փուլ:"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} -ն այս ներկայացումը հետ ուղարկեց գրական սրբագրման փուլ:"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Հետ ուղարկեք գրական սրբագրման"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Ներկայացումը՝ {$title}, հետ է ուղարկվել գրական սրբագրման փուլ: Հեղինակը "
 "ծանուցվել է, եթե դուք չեք որոշել բաց թողնել այդ էլ. նամակը։"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Նամակ ուղարկեք հեղինակներին, որպեսզի նրանք իմանան, որ այս ներկայացումը հետ է "

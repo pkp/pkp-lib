@@ -310,9 +310,11 @@ msgstr ""
 "Bu e-posta, bir kullanıcı yeni bir tartışma oluşturduğunda veya mevcut bir "
 "tartışmaya yanıt verdiğinde gönderilir"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Aday makaleniz redaksiyon aşamasına geri gönderildi"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Sayın {$recipientName},</p> <p>\"{$submissionTitle}\" başlıklı aday "
@@ -326,9 +328,11 @@ msgstr ""
 "<p>İlaveten bir desteğe ihtiyaç duymamız durumunda sizinle iletişime "
 "geçeceğiz.</p> <p>Saygılarımla,</p> <p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Aday makaleniz değerlendirme aşamasına geri gönderildi"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Sayın {$recipientName},</p> <p>\"{$submissionTitle}\" başlıklı aday "

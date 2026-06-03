@@ -3030,9 +3030,11 @@ msgstr "طلب التقديم مقبول"
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr "هذا البريد الالكتروني يُبلغ المؤلف بقبول طلب تقديمه للنشر."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "طلب التقديم أُعيد إلى التدقيق"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التدقيق."
 
@@ -3317,15 +3319,19 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "مصدر المصادقة"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "طلب التقديم أُعيد إلى التحكيم"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التحكيم."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "طلب التقديم أُعيد إلى التقديم"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التقديم."
 

@@ -1611,6 +1611,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Annuler le cycle d'évaluation"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Annuler le cycle d'évaluation en cours et renvoyer la soumission au cycle "
@@ -1746,15 +1747,19 @@ msgstr ""
 "est annulée et que leur soumission doit faire l'objet d'une nouvelle "
 "évaluation éditoriale."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Retour à la révision"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Renvoyer cette soumission à l'étape de révision."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} a renvoyé cette soumission à l'étape de révision."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Renvoyé à l'étape de révision"
 

@@ -298,9 +298,11 @@ msgstr ""
 "Ovaj imejl se šalje kada korisnik kreira novu diskusiju ili odgovori na "
 "postojeću diskusiju"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Vaša prijava je vraćena na lekturu"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Poštovani/a {$recipientName},</p><p>Vaša prijava „{$submissionTitle}“ je "
@@ -313,9 +315,11 @@ msgstr ""
 "prijave</a>.</p><p>Kontaktiraćemo vas ukoliko bude potrebna dodatna pomoć.</"
 "p><p>Srdačan pozdrav,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Vaša prijava je vraćena na recenziju"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Poštovani/a {$recipientName},</p><p>Vaša prijava „{$submissionTitle}“ je "

@@ -1559,6 +1559,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Avbryt granskningsomgång"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Avbryt nuvarande granskningsomgång och skicka bidraget till den förra "
@@ -1653,6 +1654,7 @@ msgstr ""
 "Skicka ett e-postmeddelande för att meddela författarna att deras bidrag har "
 "skickats till produktionssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Avbryt manusredigering"
 
@@ -1676,15 +1678,19 @@ msgstr ""
 "manusredigeringen har avbrutits och deras bidrag kommer genomgå ytterligare "
 "redaktionell granskning."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Tillbaka till manusredigeringssteget"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Skicka tillbaka bidraget till manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} skickade tillbaka bidraget till manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Skickad tillbaka till manusredigeringssteget"
 
@@ -1692,6 +1698,7 @@ msgstr "Skickad tillbaka till manusredigeringssteget"
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "Bidraget {$title} har skickats tillbaka manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna för att meddela dem att deras "

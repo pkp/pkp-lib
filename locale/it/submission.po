@@ -1582,6 +1582,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Annulla il round di revisione"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Annulla il round di revisione in corso e manda indietro la proposta "
@@ -1675,6 +1676,7 @@ msgstr ""
 "Invia un'email agli autori per informarli che la proposta è stata inviata "
 "alla fase di produzione."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Annulla il Copyediting"
 
@@ -1693,15 +1695,19 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Torna al Copyediting"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Rimandare questa proposta alla fase di copyediting."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} ha rimandato questa proposta alla fase di copyediting."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Reinviato al Copyediting"
 
@@ -1709,6 +1715,7 @@ msgstr "Reinviato al Copyediting"
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "La proposta, {$title}, è stata rimandata alla fase di copyediting."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Invia un'email agli autori per informarli che la proposta è stata rimandata "

@@ -2811,9 +2811,11 @@ msgstr ""
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 
@@ -3072,15 +3074,19 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 

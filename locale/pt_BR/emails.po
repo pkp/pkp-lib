@@ -309,9 +309,11 @@ msgstr ""
 "Este e-mail é enviado quando um usuário cria uma nova discussão ou responde "
 "a uma discussão existente"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Sua submissão foi enviada de volta para edição de texto"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Prezado(a) {$recipientName},</p><p>Sua submissão \"{$submissionTitle}\" "
@@ -325,9 +327,11 @@ msgstr ""
 "contato com você se precisarmos de mais "
 "ajuda.</p><p>Atenciosamente,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Sua submissão foi enviada de volta para avaliação"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Prezado (a) {$recipientName},</p><p>Sua submissão \"{$submissionTitle}\" "

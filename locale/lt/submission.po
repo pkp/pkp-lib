@@ -1658,6 +1658,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Atšaukti peržiūros raundą"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Atšaukti dabartinį peržiūros etapą ir grąžinti pateiktą darbą į paskutinį "
@@ -1746,6 +1747,7 @@ msgstr ""
 "Išsiųskite autoriams el. laišką, kad šis pateikimas buvo išsiųstas į gamybos "
 "etapą. Šis el. laiškas nebus išsiųstas, kol nebus užregistruotas sprendimas."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Atšaukti kopijavimą"
 
@@ -1765,23 +1767,29 @@ msgstr ""
 "Išsiųskite autoriams el. laišką, kad praneštumėte, jog redagavimas atšauktas "
 "ir jų pateiktas darbas bus papildomai peržiūrimas redaktoriaus."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Grįžti į kopijavimą"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Grąžinkite šį darbą redagavimo etapui."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} grąžino šį darbą redagavimo etapui."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Išsiųsta atgal redagavimui"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Pateiktas darbas, {$title}, buvo grąžintas redagavimo etapui. Autorius buvo "
 "informuotas, nebent pasirinkote praleisti tą el. laišką."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Išsiųskite autoriams el. laišką, kad praneštumėte, jog šis darbas grąžintas "

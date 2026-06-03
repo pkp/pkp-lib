@@ -268,9 +268,11 @@ msgstr ""
 "Denne e-posten sendes når en bruker starter en ny diskusjon eller svarer på "
 "et eksisterende diskusjonsinnlegg."
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr ""
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>{$recipientName},</p><p>Din innlevering, {$submissionTitle}, har blitt "

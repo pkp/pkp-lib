@@ -1558,6 +1558,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 
@@ -1627,6 +1628,7 @@ msgstr ""
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr ""
 
@@ -1645,21 +1647,27 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 

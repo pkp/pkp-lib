@@ -3121,9 +3121,11 @@ msgstr ""
 "Ta wiadomość e-mail powiadamia autora, że jego zgłoszenie zostało przyjęte "
 "do publikacji."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Zgłoszenie odesłano do korekty"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Ta wiadomość e-mail powiadamia autora, że jego zgłoszenie odesłano do "
@@ -3435,17 +3437,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Źródło uwierzytelnienia"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Cofnięcie zgłoszenia do recenzowania"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Ta wiadomość e-mail to powiadomienie dla autora, wysyłane przez redaktora po "
 "decyzji o cofnięciu zgłoszenia do recenzowania."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Cofnięcie zgłoszenia do kompletacji"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Ta wiadomość e-mail to powiadomienie dla autora, wysyłane przez redaktora po "

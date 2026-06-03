@@ -1580,6 +1580,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Отменить раунд рецензирования"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Отменить текущий раунд рецензирования и вернуть материал обратно на "
@@ -1678,6 +1679,7 @@ msgstr ""
 "отправлен на этап подготовки к публикации. Это письмо не будет отправлено до "
 "тех пор, пока решение не будет записано в системе."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Отменить литературное редактирование"
 
@@ -1703,25 +1705,31 @@ msgstr ""
 "редактирование отменено, и их материал будет проходить дальнейшее "
 "рецензирование."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Назад на этап литературного редактирования"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Отправить этот материал назад на этап литературного редактирования."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName} отправил(а) этот материал назад на этап литературного "
 "редактирования."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Отправлен назад на этап литературного редактирования"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Материал «{$title}» был отправлен назад на этап литературного "
 "редактирования. Автор был уведомлен, если вы не решили пропустить это письмо."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Отправить электронное письмо авторам, чтобы сообщить им, что материал был "

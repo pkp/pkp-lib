@@ -326,9 +326,11 @@ msgstr ""
 "Diese E-Mail wird gesendet, wenn ein/e Benutzer/in eine neue Diskussion "
 "erstellt oder auf eine bestehende Diskussion antwortet"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Ihr Beitrag wurde an das Lektorat zurückgeschickt"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Guten Tag {$recipientName},</p><p>Ihre Einreichung \"{$submissionTitle}\" "
@@ -343,9 +345,11 @@ msgstr ""
 "wir weitere Unterstützung benötigen.</p><p>Mit freundlichen "
 "Grüßen</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Ihr Beitrag wurde zurück zum Gutachten geschickt"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Guten Tag {$recipientName},</p><p>ihr Beitrag {$submissionTitle} wurde "

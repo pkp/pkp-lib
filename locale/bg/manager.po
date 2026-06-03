@@ -3209,10 +3209,12 @@ msgstr ""
 "Този имейл уведомява автора, че подадените материали са приети за "
 "публикуване."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr ""
 "Подадените материали са изпратени обратно към етапа на стилово редактиране"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Този имейл уведомява автора, че техните подадени материали са изпратени "
@@ -3523,18 +3525,22 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Източник на удостоверяване"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Подадените материали са изпратени обратно към етапа на рецензиране"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Този имейл уведомява автора, че техните подадени материали са изпратени "
 "обратно към етапа на рецензиране."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr ""
 "Подадените материали са изпратени обратно към етапа на подаване на материали"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Този имейл уведомява автора, че техните подадени материали са изпратени "

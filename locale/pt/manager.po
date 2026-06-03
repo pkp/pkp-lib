@@ -3147,9 +3147,11 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "Este e-mail notifica o autor que a sua submissão foi aceite para publicação."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Submissão enviada de volta para Edição de Texto"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
@@ -3454,17 +3456,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Fonte de autenticação"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Submissão enviada de volta para Revisão"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
 "etapa de revisão."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Submissão enviada de volta para Submissão"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "

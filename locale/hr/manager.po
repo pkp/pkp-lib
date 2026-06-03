@@ -3097,9 +3097,11 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "Ova e-poruka obavještava autora da je njegov rad prihvaćen za objavljivanje."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Rad je poslan na lekturu"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr "Ova e-poruka obavještava autora da je njegov rad poslan u fazu lekture."
 
@@ -3400,17 +3402,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Izvor provjere autentičnosti"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Rad je poslan natrag na recenziju"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Ova poruka e-pošte obavještava autora da je njegov rad poslan natrag u fazu "
 "recenzije."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Rad vraćen u fazu prijave"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr "Ovaj e-mail obavještava autora da je njegov rad vraćen u fazu prijave."
 

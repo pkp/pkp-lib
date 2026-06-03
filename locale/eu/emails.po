@@ -305,9 +305,11 @@ msgstr ""
 "Mezu elektroniko hau erabiltzaile batek eztabaida berri bat sortzen duenean "
 "edo eztabaida bati erantzuten dionean bidaltzen da"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Zure bidalketa edizio-fasera itzuli da"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>{$recipientName} agurgarria:</p><p>Zure bidalketa, \"{$submissionTitle}\""
@@ -320,9 +322,11 @@ msgstr ""
 "panela</a> baliatuta.</p><p>Laguntza gehiagorik behar izanez gero, zurekin "
 "harremanetan jarriko gara.</p><p>Adeitasunez,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Zure bidalketa ebaluazio-fasera itzuli da"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>{$recipientName} agurgarria:</p><p>Zure bidalketa, \"{$submissionTitle}\""

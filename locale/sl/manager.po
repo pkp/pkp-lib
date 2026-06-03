@@ -3106,9 +3106,11 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "Ta email obvešča avtorje, da je bil njihov prispevek sprejet za objavo."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Prispevek vrnjen nazaj v fazo lektoriranja"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
@@ -3406,17 +3408,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Vir avtentikacije"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Prispevek vrnjen nazaj v fazo recenzije"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "
 "recenzije."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Prispevek vrnjen v fazo oddaje"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Ta email obvešča avtorje, da je bil njihov prispevek vrnjen nazaj v fazo "

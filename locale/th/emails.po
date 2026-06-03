@@ -276,6 +276,7 @@ msgstr ""
 ">แดชบอร์ดการส่งงานของคุณ</a></p><p>หากมีคำถามใด ๆ เกี่ยวกับการมอบหมายงาน "
 "โปรดติดต่อ {$contactName} ที่ {$contactEmail}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "การส่งของคุณถูกส่งกลับไปยังขั้นตอนการตรวจสำเนา"
 
@@ -293,6 +294,7 @@ msgstr ""
 "<p>ขอแสดงความนับถือ,</p>\n"
 "<p>{$signature}</p>\n"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>เรียน คุณ {$recipientName},</p><p>การส่งของคุณ, {$submissionTitle}, "
@@ -304,9 +306,11 @@ msgstr ""
 "/a></p><p>เราจะติดต่อคุณหากต้องการความช่วยเหลือเพิ่มเติม</p><p>ขอแสดงความนับถ"
 "ือ,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "การส่งของคุณถูกส่งกลับไปยังการรีวิว"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>เรียนคุณ {$recipientName},</p><p>บทความของคุณ, {$submissionTitle}, "

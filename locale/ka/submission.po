@@ -1547,6 +1547,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 
@@ -1634,6 +1635,7 @@ msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ ეს წარდგენა გაიგზავნა "
 "წარმოების ეტაპზე."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr ""
 
@@ -1652,15 +1654,19 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "დაბრუნება კოპირების რედაქტირებაზე"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "გააგზავნეთ ეს წარდგენა კოპირების რედაქტირების ეტაპზე."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName}-მა ეს გაგზავნა დააბრუნა კოპირების რედაქტირების ეტაპზე."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "გაგზავნილია უკან კოპირების რედაქტირებაზე"
 
@@ -1668,6 +1674,7 @@ msgstr "გაგზავნილია უკან კოპირები�
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr "წარდგენა, {$title}, დაბრუნდა კოპირების რედაქტირების ეტაპზე."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "გაუგზავნეთ ელფოსტა ავტორებს, რათა აცნობონ, რომ ეს წარდგენა დაბრუნდა "

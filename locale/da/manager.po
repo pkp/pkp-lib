@@ -3164,9 +3164,11 @@ msgstr ""
 "Denne e-mail informerer forfatteren om, at deres indsendelse er blevet "
 "accepteret til publicering."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Indsendelse sendt tilbage til manuskriptredigering"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
@@ -3475,17 +3477,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Godkendelseskilde"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Indsendelse sendt tilbage til bedømmelse"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "
 "blevet sendt tilbage til bedømmelsestrinnet."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Indsendelse sendt tilbage til indsendelsestrinnet"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Denne e-mail informerer forfatteren om, at vedkommendes indsendelse er "

@@ -3239,9 +3239,11 @@ msgstr ""
 "Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung zur "
 "Veröffentlichung angenommen wurde."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Einreichung wurde ins Lektorat zurückgeschickt"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung in das "
@@ -3562,17 +3564,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Authentifizierungsquelle"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Einreichung zurück zur Begutachtung geschickt"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Diese E-Mail informiert Autor/innen, dass ihre Einreichung zur Begutachtung "
 "zurückgeschickt wurde."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Einreichung zurück zur Einreichungsphase geschickt"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Diese E-Mail benachrichtigt Autor/innen, dass ihre Einreichung zurück in die "

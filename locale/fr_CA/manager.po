@@ -3258,9 +3258,11 @@ msgstr ""
 "Le courriel notifie l'auteur-e que la soumission a été acceptée pour "
 "publication."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Soumission renvoyée à la révision"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Ce courriel notifie l'auteur-e que sa soumission a été renvoyée à l'étape de "
@@ -3607,17 +3609,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Source de l'authentification"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Soumission renvoyée à l'étape d'évaluation"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Ce courriel avise l'auteur-trice que sa soumission a été renvoyée à l'étape "
 "d'évaluation."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Soumission renvoyée à l'étape de soumission"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Ce courriel avise l'auteur-trice que sa soumission a été renvoyée à l'étape "

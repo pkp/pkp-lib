@@ -1607,6 +1607,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Annuler le cycle d'évaluation"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Annuler le cycle d'évaluation en cours et renvoyer la soumission au cycle "
@@ -1707,6 +1708,7 @@ msgstr ""
 "été envoyée à l'étape de production. Ce courriel ne sera pas envoyé avant "
 "que la décision n'ait été enregistrée."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Annuler l'édition"
 
@@ -1731,24 +1733,30 @@ msgstr ""
 "annulée et que leur soumission fera l'objet d'une nouvelle révision "
 "éditoriale."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Revenir à l'étape d'édition"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Renvoyer cette soumission à l'étape d'édition."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} a renvoyé cette soumission à l'étape d'édition."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Renvoyée à l'étape d'édition"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "La soumission, « {$title} », a été renvoyée à l'étape d'édition. Une "
 "notification a été envoyée à l'auteur·e, à moins que vous n'ayez choisi "
 "d'ignorer ce courriel."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Envoyer un courriel aux auteur·e·s pour les informer que cette soumission a "

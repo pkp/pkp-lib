@@ -291,9 +291,11 @@ msgstr ""
 "Email này được gửi khi người dùng tạo một cuộc thảo luận mới hoặc trả lời "
 "một cuộc thảo luận hiện có"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "Bài nộp của bạn đã được gửi lại để chỉnh sửa"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>Kính gửi {$recipientName},</p><p>Bài nộp của bạn, {$submissionTitle}, đã "
@@ -306,9 +308,11 @@ msgstr ""
 "của bạn.</p><p>Chúng tôi sẽ liên hệ với bạn nếu cần thêm trợ giúp.</"
 "p><p>Trân trọng,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "Bài nộp của bạn đã được gửi lại để đánh giá"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>Kính gửi {$recipientName},</p><p>Bài nộp của bạn, {$submissionTitle}, đã "

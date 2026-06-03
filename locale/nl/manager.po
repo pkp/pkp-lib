@@ -3202,9 +3202,11 @@ msgstr ""
 "Deze e-mail informeert de auteur dat zijn inzending is geaccepteerd voor "
 "publicatie."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Inzending teruggestuurd naar Copyediting"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Deze e-mail informeert de auteur dat zijn inzending is teruggestuurd naar de "
@@ -3522,17 +3524,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Authenticatiebron"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Voor review teruggezonden inzending"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Deze e-mail bericht de auteur dat de inzending is teruggestuurd naar de "
 "recensiefase."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "De inzending is teruggezonden naar de inzendingsprocedure"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Deze e-mail bericht de auteur dat de inzending is teruggezonden naar de "

@@ -3175,9 +3175,11 @@ msgstr "Материал принят"
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr "Это письмо уведомляет автора о том, что материал принят к публикации."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Материал отправлен обратно на литературное редактирование"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Это письмо уведомляет автора о том, что его материал отправлен обратно на "
@@ -3486,17 +3488,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Источник авторизации"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Материал отправлен обратно на рецензирование"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Это письмо уведомляет автора о том, что его материал отправлен обратно на "
 "этап рецензирования."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Материал отправлен обратно на этап отправки"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Это письмо уведомляет автора о том, что его материал был отправлен обратно "

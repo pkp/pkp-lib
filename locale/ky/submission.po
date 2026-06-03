@@ -1937,6 +1937,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Рецензия айлампасын жокко чыгаруу"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Учурдагы рецензия айлампасын жокко чыгарып, материалды мурунку рецензия "
@@ -2025,6 +2026,7 @@ msgstr ""
 "Авторлорго материалдары продакшн стадиясына жөнөтүлгөнүн кабарлоо үчүн "
 "электрондук кат жөнөтүңүз. Бул кат чечим жазылганга чейин жөнөтүлбөйт."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Тексттик редакцияны жокко чыгаруу"
 
@@ -2051,23 +2053,29 @@ msgstr ""
 "Авторлорго тексттик редакция жокко чыгарылганын жана материал кошумча "
 "редакциялык кароодон өтөрүн кабарлоо үчүн электрондук кат жөнөтүңүз."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Тексттик редакцияга кайтаруу"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Бул материалды тексттик редакция стадиясына кайтаруу."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} бул материалды тексттик редакция стадиясына кайтарды."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Тексттик редакцияга кайтарылды"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Материал, {$title}, тексттик редакция стадиясына кайтарылды. Авторго "
 "кабарланды, сиз электрондук катты өткөрүп жибергениңизден башкасы."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Авторлорго материал тексттик редакция стадиясына кайтарылганын кабарлоо үчүн "

@@ -1555,6 +1555,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Zrušit kolo recenzí"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Zrušení aktuálního kola recenze a odeslání příspěvku zpět do předchozího "
@@ -1649,6 +1650,7 @@ msgstr ""
 "odeslán do produkční fáze. Tento e-mail bude odeslán až po zaevidování "
 "rozhodnutí."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Zrušit copyediting"
 
@@ -1671,23 +1673,29 @@ msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že copyediting je zrušen a "
 "jejich příspěvky budou podrobeny další redakční úpravě."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Zpět do fáze copyeditingu"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Poslat tento příspěvek zpět do fáze konečných úprav."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr "{$editorName} poslal/a tento příspěvek zpět do fáze finálních úprav."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Posláno zpět do fáze finálních úprav"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Příspěvek {$title} byl odeslán zpět do fáze finálních úprav. Autor byl "
 "informován, pokud jste se nerozhodli tento e-mail přeskočit."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Pošlete autorům e-mail, ve kterém jim oznámíte, že tento příspěvek byl "

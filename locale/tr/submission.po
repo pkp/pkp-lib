@@ -1545,6 +1545,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Değerlendirme Turunu İptal Et"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Geçerli değerlendirme turunu iptal edin ve bir önceki değerlendirme turuna "
@@ -1631,6 +1632,7 @@ msgstr ""
 "Makalenin üretim aşamasına gönderildiğini bildirmek için yazarlara e-posta "
 "gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Son Kopya Düzenlemeyi İptal Et"
 
@@ -1653,23 +1655,29 @@ msgstr ""
 "Yazarlara, son kopya düzenlemenin iptal edildiğini ve aday makalenin tekrar "
 "değerlendirmeden geçeceğini bildirmek için e-posta gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Son Kopya Düzenlemeye Geri Dön"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Aday makaleyi son kopya düzenleme aşamasına geri gönderin."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName}, aday makaleyi son kopya düzenleme aşamasına geri gönderdi."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Son Kopya Düzenlemeye Geri Gönderildi"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale, son kopya düzenleme aşamasına geri gönderildi."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara, makalenin son kopya düzenleme aşamasına geri gönderildiğini "

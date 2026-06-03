@@ -1565,6 +1565,7 @@ msgstr ""
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Peru arviointikierros"
 
+#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Peru nykyinen arviointikierros ja lähetä käsikirjoitus takaisin edelliselle "
@@ -1663,6 +1664,7 @@ msgstr ""
 "lähetetty tuotantovaiheeseen. Tätä sähköpostia ei lähetetä ennen kuin päätös "
 "on tallennettu."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Peru tekninen toimittaminen"
 
@@ -1690,27 +1692,33 @@ msgstr ""
 "toimittamisen työvaihe on peruttu ja että heidän käsikirjoitustaan "
 "arvioidaan edelleen."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Takaisin tekniseen toimittamiseen"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr ""
 "Lähetä tämä käsikirjoitus takaisin teknisen toimittamisen työvaiheeseen."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
 "{$editorName} lähetti tämän käsikirjoituksen takaisin teknisen toimittamisen "
 "työvaiheeseen."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Lähetetty takaisin tekniseen toimittamiseen"
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "Käsikirjoitus {$title} lähetettiin takaisin tekniseen toimittamiseen. "
 "Kirjoittajalle on ilmoitettu asiasta, ellet päättänyt ohittaa tätä "
 "sähköpostiviestiä."
 
+#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Lähetä kirjoittajille sähköpostiviesti, jossa kerrot, että tämä "

@@ -108,9 +108,11 @@ msgstr ""
 "जेव्हा वापरकर्ता नव्याने चर्चा सुरू करतो किंवा अस्तित्वात असलेल्या चर्चेला "
 "उत्तर देतो तेव्हा हा ई-मेल पाठवला जातो"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.subject"
 msgstr "तुमचे सादरीकरण पुन्हा कॉपीएडिटिंगसाठी पाठवण्यात आले आहे"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.subject"
 msgstr "तुमचे सादरीकरण समीक्षणाच्या टप्प्यावर परत पाठवण्यात आले आहे"
 
@@ -386,6 +388,7 @@ msgstr ""
 "कामांबद्दल तुम्हाला काही प्रश्न असल्यास, कृपया {$contactName} शी "
 "{$contactEmail} वर संपर्क साधा.</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 "<p>प्रिय {$recipientName},</p><p>तुमचे सादरीकरण, \"{$submissionTitle}\", "
@@ -398,6 +401,7 @@ msgstr ""
 "a> वरून माझ्याशी संपर्क साधा.</p><p>आम्हाला आणखी मदत हवी असल्यास आम्ही "
 "तुमच्याशी संपर्क साधू.</p><p>विनम्र,</p><p>{$signature}</p>"
 
+#, fuzzy
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 "<p>प्रिय {$recipientName},</p><p>तुमचे सादरीकरण, \"{$submissionTitle}\", "

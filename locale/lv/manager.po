@@ -3125,9 +3125,11 @@ msgstr ""
 "Šajā e-pastā autors tiek informēts, ka viņa iesniegtais materiāls ir "
 "pieņemts publicēšanai."
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Materiāls nosūtīts atpakaļ uz literāro rediģēšanu"
 
+#, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
 "Šajā e-pastā autors tiek informēts par to, ka viņa materiāls ir nosūtīts "
@@ -3431,17 +3433,21 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Autentifikācijas avots"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Materiāls nosūtīts atpakaļ recenzēšanai"
 
+#, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
 "Šajā e-pastā autors tiek informēts par to, ka viņa materiāls ir nosūtīts "
 "atpakaļ uz recenzēšanas posmu."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Materiāls nosūtīts atpakaļ uz materiāla iesniegšanu"
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Šajā e-pastā autors tiek informēts par to, ka viņa materiāls ir nosūtīts "

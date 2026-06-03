@@ -60,6 +60,7 @@ class Collector implements CollectorInterface, ViewsCount
     public ?string $orderBySubmissionIdDirection = null;
     public ?array $publicationIds = null;
     public ?bool $isPubliclyVisible = null;
+    public ?bool $isConfirmedByEditor = null;
     public ?array $doiIds = null;
     public ?bool $isAccepted = false;
 
@@ -174,11 +175,21 @@ class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
-     * Filter review assignments based on their publicly visibility.
+     * Filter review assignments based on their public visibility.
      */
     public function filterByIsPubliclyVisible(?bool $isPubliclyVisible): static
     {
         $this->isPubliclyVisible = $isPubliclyVisible;
+        return $this;
+    }
+
+    /**
+     * Filter review assignments on whether they've been confirmed by an editor.
+     * A review is considered confirmed by an editor if it has either a date_considered or a date_acknowledged
+     */
+    public function filterByIsConfirmedByEditor(?bool $isConfirmedByEditor): static
+    {
+        $this->isConfirmedByEditor = $isConfirmedByEditor;
         return $this;
     }
 
@@ -480,6 +491,15 @@ class Collector implements CollectorInterface, ViewsCount
                                 ->where('s.stage_id', '<>', WORKFLOW_STAGE_ID_SUBMISSION)
                         )
                 )
+        );
+
+        $q->when(
+            !is_null($this->isConfirmedByEditor),
+            fn (Builder $q) => $q->where(
+                fn (Builder $q) => $this->isConfirmedByEditor
+                    ? $q->whereNotNull('ra.date_considered')->orWhereNotNull('ra.date_acknowledged')
+                    : $q->whereNull('ra.date_considered')->whereNull('ra.date_acknowledged')
+            )
         );
 
         $q->when(

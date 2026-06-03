@@ -47,6 +47,7 @@ class PublicationPeerReviewSummaryResource extends JsonResource
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterByIsPubliclyVisible(true)
             ->filterByIsAccepted(true)
+            ->filterByIsConfirmedByEditor(true)
             ->filterByPublicationIds($allAssociatedPublicationIds)
             ->getMany();
 

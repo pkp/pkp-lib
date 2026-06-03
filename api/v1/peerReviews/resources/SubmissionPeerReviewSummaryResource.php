@@ -41,6 +41,7 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->filterByIsPubliclyVisible(true)
+            ->filterByIsConfirmedByEditor(true)
             ->filterByIsAccepted(true)
             ->getMany();
 

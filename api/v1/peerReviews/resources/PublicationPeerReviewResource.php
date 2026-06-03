@@ -139,6 +139,7 @@ class PublicationPeerReviewResource extends JsonResource
             ->filterByReviewRoundIds($roundIds)
             ->filterByIsPubliclyVisible(true)
             ->filterByIsAccepted(true)
+            ->filterByIsConfirmedByEditor(true)
             ->getMany();
 
         $reviewsGroupedByRoundId = $reviewAssignments

@@ -56,7 +56,12 @@ trait EntityUpdate
      */
     public function updateSettings(array $props, int $modelId, $schema = null): void
     {
-        $schemaService = app()->get('schema'); /** @var PKPSchemaService $schemaService */
+        // SettingsBuilder needs the caller's ORIGINAL input after the upsert pass:
+        // sanitize() strips empty multilingual arrays, erasing the clear-intent signal.
+        $originalProps = $props;
+
+        /** @var PKPSchemaService $schemaService */
+        $schemaService = app()->get('schema');
         $schemaName = $this->getSchemaName();
 
         if (is_null($schema)) {
@@ -64,7 +69,7 @@ trait EntityUpdate
         }
 
         if ($schemaName) {
-            $props = $schemaService->sanitize($this->getSchemaName(), $props);
+            $props = $schemaService->sanitize($schemaName, $props);
         }
 
         $deleteSettings = [];
@@ -77,7 +82,9 @@ trait EntityUpdate
             }
 
             if (!empty($propSchema->multilingual)) {
-
+                if (!is_array($props[$propName])) {
+                    continue;
+                }
                 foreach ($props[$propName] as $localeKey => $localeValue) {
                     // Delete rows with a null value
                     if (is_null($localeValue)) {
@@ -119,12 +126,47 @@ trait EntityUpdate
             }
         }
 
-        // Entity DAO passes all properties for the update and removes all that aren't set
-        if (count($deleteSettings) && is_a($this, EntityDAO::class)) {
+        // Entity DAO passes all properties for the update and removes all that aren't set.
+        // So backed by this behavior, caller passed the FULL sanitized prop set. Anything in
+        // $deleteSettings was intentionally absent and should be removed.
+        if ($this instanceof EntityDAO && !empty($deleteSettings)) {
             DB::table($this->getSettingsTable())
                 ->where($this->getPrimaryKeyName(), '=', $modelId)
                 ->whereIn('setting_name', $deleteSettings)
                 ->delete();
+
+            return;
+        }
+
+        // SettingsBuilder path: caller passed only the keys they want changed.
+        // "Missing in $props" means "leave alone", NOT "delete". The only delete
+        // signal is an explicit empty array (or null) on a multilingual setting
+        // in the ORIGINAL caller input — sanitize() strips empty multilingual
+        // arrays when entity is backed by corresponding JSON schema,
+        // so $props/$deleteSettings cannot be relied upon here.
+        if ($this instanceof \PKP\core\SettingsBuilder) {
+            $explicitClears = [];
+            foreach ($originalProps as $propName => $value) {
+                if (!$this->isSetting($propName)) {
+                    continue;
+                }
+                if ($value !== [] && $value !== null) {
+                    continue;
+                }
+                if (!$this->isMultilingual($propName)) {
+                    // Non-multilingual settings: an empty array is a value, not
+                    // a clear-all signal. The upsert pass already wrote it.
+                    continue;
+                }
+                $explicitClears[] = $propName;
+            }
+
+            if (!empty($explicitClears)) {
+                DB::table($this->getSettingsTable())
+                    ->where($this->getPrimaryKeyName(), '=', $modelId)
+                    ->whereIn('setting_name', $explicitClears)
+                    ->delete();
+            }
         }
     }
 }

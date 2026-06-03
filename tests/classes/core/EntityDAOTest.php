@@ -20,13 +20,13 @@ namespace PKP\tests\classes\core;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PKP\core\EntityDAO;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\core\DataObject;
+use PKP\core\EntityDAO;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
-use PHPUnit\Framework\Attributes\CoversMethod;
 
-#[CoversMethod(EntityDAO::class, '_insert')]
+#[CoversClass(EntityDAO::class)]
 class EntityDAOTest extends PKPTestCase
 {
     public static function setUpBeforeClass(): void
@@ -74,6 +74,10 @@ class EntityDAOTest extends PKPTestCase
                     },
                     "nonlocalizedSettingString": {
                         "type": "string"
+                    },
+                    "multilingualSettingString": {
+                        "type": "string",
+                        "multilingual": true
                     }
                 }
             }');
@@ -169,5 +173,45 @@ class EntityDAOTest extends PKPTestCase
 
         // Store the data object to the DB
         $testEntityDao->insert($testEntity);
+    }
+
+    /**
+     * Regression test for the EntityDAO branch of EntityUpdate::updateSettings().
+     *
+     * EntityDAO callers pass the FULL sanitized prop set on every update — anything
+     * absent from $props was intentionally removed by the caller and must be
+     * deleted from the settings table. This must continue to work after the trait
+     * grew a SettingsBuilder branch with different semantics.
+     */
+    public function testEntityDaoUpdateRemovesMissingMultilingual()
+    {
+        $testEntityDao = app(TestEntityDAO::class);
+
+        $testEntity = new DataObject();
+        $testEntity->setData('parentId', 2);
+        $testEntity->setData('integerColumn', 3);
+        $testEntity->setData('multilingualSettingString', ['en' => 'English', 'fr_CA' => 'Français']);
+        $testEntityDao->insert($testEntity);
+        $insertedId = $testEntity->getId();
+
+        $rowCount = \Illuminate\Support\Facades\DB::table('test_entity_settings')
+            ->where('test_id', $insertedId)
+            ->where('setting_name', 'multilingualSettingString')
+            ->count();
+        self::assertSame(2, $rowCount);
+
+        // Drop the multilingual prop entirely from the data object's _data array.
+        // EntityDAO::_update() will pass the full remaining prop set; the trait
+        // must treat the missing prop as a delete signal.
+        unset($testEntity->_data['multilingualSettingString']);
+        $testEntityDao->update($testEntity);
+
+        $rowCount = \Illuminate\Support\Facades\DB::table('test_entity_settings')
+            ->where('test_id', $insertedId)
+            ->where('setting_name', 'multilingualSettingString')
+            ->count();
+        self::assertSame(0, $rowCount, 'EntityDAO update must delete settings rows when the prop is absent from $props');
+
+        $testEntityDao->delete($testEntity);
     }
 }

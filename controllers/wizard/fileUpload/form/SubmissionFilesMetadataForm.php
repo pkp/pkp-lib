@@ -145,7 +145,6 @@ class SubmissionFilesMetadataForm extends Form
     {
         return [
             'name',
-            'summaryOfChanges',
             'description',
             'creator',
             'publisher',

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-05-27 10:42+0000\n"
+"PO-Revision-Date: 2026-06-04 16:02+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/nb_NO/>\n"
@@ -956,3 +956,62 @@ msgstr ""
 "Oppdateringen av ROR-register-datasettet kunne ikke gjennomføres pga. en "
 "uoverensstemmende kontrollsum. Forventet kontrollsum: {$expected}. Faktisk "
 "kontrollsum: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"ZIP-filen med ROR-register-datasett kan ikke bekreftes: "
+"kontrollsumsalgoritmen støttes ikke. Kun MD5 og SHA256 støttes."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"ROR-register-posten \"{$id}\" har et navn med typer [{$types}], som mangler "
+"det påkrevde 'verdi'-felt og ble hoppet over."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Bruk hjemmesiden som plattform for alle tidsskrift."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Kan ikke lese skjemaversjonen fra ROR-register-JSON-filen {$file}. Feil: "
+"{$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Kan ikke finne JSON-datafilen med skjemaversjon {$version} i det utpakkede "
+"ROR-register-datasettet."
+
+#, fuzzy
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Kontrollsummen i den nedlastede ROR-register-datasæt ZIP-filen kan ikke "
+"bekreftes."
+
+#, fuzzy
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Kan ikke hente ut ROR-register-datasettets metadata. Ingen nedlastingsfil "
+"funnet i API-svaret."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "ZIP-filen med ROR-register-datasettet kan ikke lastes ned."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr "ZIP-filen med ROR-register-datasett kan ikke åpnes. Feilkode: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "ZIP-filen med ROR-register-datasett kan ikke pakkes ut."
+
+#, fuzzy
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"ROR-register-poster med id \"{$id}\" mangler ett eller flere påkrevde felter "
+"(id, navn, status) og ble hoppet over."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Ingen poster fra ROR-register-datasettet ble behandlet. Enten er datasettet "
+"tomt, eller så feilet alle postene valideringen."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"ROR-register-posten \"{$id}\" har ikke et gyldig navn og ble hoppet over."

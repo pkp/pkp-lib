@@ -251,15 +251,6 @@ class DAO extends EntityDAO
     {
         $submission = Repo::submission()->get($id);
 
-        // Delete publications
-        $publications = Repo::publication()->getCollector()
-            ->filterBySubmissionIds([$id])
-            ->getMany();
-
-        foreach ($publications as $publication) {
-            Repo::publication()->delete($publication);
-        }
-
         // Delete submission files.
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
@@ -278,6 +269,15 @@ class DAO extends EntityDAO
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao->deleteBySubmissionId($id);
+
+        // Delete publications
+        $publications = Repo::publication()->getCollector()
+            ->filterBySubmissionIds([$id])
+            ->getMany();
+
+        foreach ($publications as $publication) {
+            Repo::publication()->delete($publication);
+        }
 
         Repo::editorialTask()->deleteBySubmissionId($id);
 

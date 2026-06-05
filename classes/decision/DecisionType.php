@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\context\LibraryFileDAO;
+use PKP\publication\PKPPublication;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
@@ -217,10 +218,9 @@ abstract class DecisionType
                 /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $newStageId);
-                $decisionPublicationId = $decision->getData('publicationId');
 
                 if (!is_a($reviewRound, ReviewRound::class)) {
-                    $this->createReviewRound($submission, $newStageId, 1, $decisionPublicationId);
+                    $this->createReviewRound($submission, $newStageId, 1);
                 } else {
                     $reviewRoundDao->updateStatus($reviewRound, null);
                 }
@@ -508,14 +508,16 @@ abstract class DecisionType
     /**
      * Create a review round in a review stage
      */
-    protected function createReviewRound(Submission $submission, int $stageId, ?int $round = 1, ?int $publicationId = null)
+    protected function createReviewRound(Submission $submission, int $stageId, ?int $round = 1)
     {
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 
+        $publicationId = $this->getLatestUnPublishedPublicationId($submission);
+
         $reviewRound = $reviewRoundDao->build(
             $submission->getId(),
-            $publicationId ?? $submission->getCurrentPublication()->getId(),
+            $publicationId,
             $stageId,
             $round,
             ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS
@@ -546,5 +548,16 @@ abstract class DecisionType
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         return $genreDao->getByContextId($contextId)->toAssociativeArray();
+    }
+
+    /**
+     * Gets latest unpublished publication for a submission. Returns null if no submissions meet the criteria.
+     */
+    protected function getLatestUnPublishedPublicationId(Submission $submission): ?int
+    {
+        return $submission->getData('publications')
+            ->filter(fn ($publication) => $publication->getData('status') !== PKPPublication::STATUS_PUBLISHED)
+            ->reduce(fn ($a, $b) => $a && $a->getId() > $b->getId() ? $a : $b)
+            ?->getId();
     }
 }

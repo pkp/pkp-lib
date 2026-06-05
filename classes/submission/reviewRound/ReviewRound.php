@@ -90,15 +90,16 @@ class ReviewRound extends \PKP\core\DataObject
     /**
      * Get publication ID
      */
-    public function getPublicationId(): int
+    public function getPublicationId(): ?int
     {
-        return (int) $this->getData('publicationId');
+        $publicationId = $this->getData('publicationId');
+        return $publicationId === null ? null : (int) $publicationId;
     }
 
     /**
      * Set publication ID
      */
-    public function setPublicationId(int $publicationId): void
+    public function setPublicationId(?int $publicationId): void
     {
         $this->setData('publicationId', $publicationId);
     }

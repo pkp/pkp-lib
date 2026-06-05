@@ -36,7 +36,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * @param ?int $status One of the ReviewRound::REVIEW_ROUND_STATUS_* constants.
      *
      */
-    public function build(int $submissionId, int $publicationId, int $stageId, int $round, ?int $status = null): ?ReviewRound
+    public function build(int $submissionId, ?int $publicationId, int $stageId, int $round, ?int $status = null): ?ReviewRound
     {
         // If one exists, fetch and return.
         $reviewRound = $this->getReviewRound($submissionId, $stageId, $round);
@@ -92,7 +92,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
 				(?, ?, ?, ?, ?)',
             [
                 (int)$reviewRound->getSubmissionId(),
-                (int)$reviewRound->getPublicationId(),
+                $reviewRound->getPublicationId(),
                 (int)$reviewRound->getStageId(),
                 (int)$reviewRound->getRound(),
                 (int)$reviewRound->getStatus()
@@ -111,18 +111,10 @@ class ReviewRoundDAO extends \PKP\db\DAO
     public function updateObject($reviewRound)
     {
         $returner = $this->update(
-            'UPDATE	review_rounds
-			SET	status = ?
-			WHERE	submission_id = ? AND
-			    publication_id = ? AND
-				stage_id = ? AND
-				round = ?',
+            'UPDATE review_rounds SET status = ? WHERE review_round_id = ?',
             [
-                (int)$reviewRound->getStatus(),
-                (int)$reviewRound->getSubmissionId(),
-                (int)$reviewRound->getPublicationId(),
-                (int)$reviewRound->getStageId(),
-                (int)$reviewRound->getRound()
+                (int) $reviewRound->getStatus(),
+                (int) $reviewRound->getId(),
             ]
         );
 
@@ -136,7 +128,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a review round
-     * FIXME: Should probably use publication ID by default in future
      *
      * @param int $submissionId
      * @param int $stageId One of the Stage_id_* constants.
@@ -406,6 +397,17 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
+     * Update the publication ID for a review round.
+     */
+    public function updatePublicationId(int $reviewRoundId, ?int $publicationId): void
+    {
+        $this->update(
+            'UPDATE review_rounds SET publication_id = ? WHERE review_round_id = ?',
+            [$publicationId, $reviewRoundId]
+        );
+    }
+
+    /**
      * Delete review rounds by submission ID.
      *
      * @param int $submissionId
@@ -481,7 +483,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
         $reviewRound->setId((int)$row['review_round_id']);
         $reviewRound->setSubmissionId((int)$row['submission_id']);
-        $reviewRound->setPublicationId((int)$row['publication_id']);
+        $reviewRound->setPublicationId($row['publication_id'] === null ? null : (int) $row['publication_id']);
         $reviewRound->setStageId((int)$row['stage_id']);
         $reviewRound->setRound((int)$row['round']);
         $reviewRound->setStatus((int)$row['status']);

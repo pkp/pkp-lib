@@ -127,7 +127,8 @@ class PublicationPeerReviewResource extends JsonResource
         // i.e., the "newest," most up-to-date publication.
         if (in_array($publication->getId(), $this->claimedPublicationIds)) {
             $reviewRoundsKeyedById = $reviewRoundsKeyedById->filter(
-                fn (ReviewRound $round) => $round->getPublicationId() !== $publication->getId()
+                // `ReviewRound`s fetched above by publication ID, so no null check required on `getPublicationId()`
+                fn (ReviewRound $round) => (int) $round->getPublicationId() !== $publication->getId()
             );
         }
 
@@ -166,7 +167,8 @@ class PublicationPeerReviewResource extends JsonResource
             $roundsData->add([
                 'displayText' => $roundDisplayText,
                 'roundId' => $reviewRound->getData('id'),
-                'originalPublicationId' => $reviewRound->getPublicationId(),
+                // `ReviewRound`s fetched above by publication ID, so no null check required on `getPublicationId()`
+                'originalPublicationId' => (int) $reviewRound->getPublicationId(),
                 ...$reviewStatusData->toArray(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
                 'authorResponse' => $currentRoundResponse ? (new ReviewRoundAuthorResponseResource($currentRoundResponse))->resolve() : null,

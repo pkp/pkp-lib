@@ -126,7 +126,7 @@ class ExportableUsersGridHandler extends GridHandler
         $cellProvider = new DataObjectGridCellProvider();
         $this->addColumn(
             new GridColumn(
-                'username',
+                'userName',
                 'user.username',
                 null,
                 null,

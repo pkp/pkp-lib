@@ -45,6 +45,7 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
 use PKP\submissionFile\SubmissionFile;
@@ -478,6 +479,8 @@ abstract class Repository
                 Repo::submissionFile()->add($newMediaFile);
             }
         }
+
+        $this->setReviewPublicationAssociations($newPublication, $submission);
 
         $newPublication = Repo::publication()->get($newPublication->getId());
 
@@ -1176,7 +1179,8 @@ abstract class Repository
 
         $roundToPublication = [];
         foreach ($reviewRounds->toArray() as $round) {
-            $roundToPublication[$round->getId()] = $round->getPublicationId();
+            // `ReviewRound`s fetched above by publication ID, so no null check required on `getPublicationId()`
+            $roundToPublication[$round->getId()] = (int) $round->getPublicationId();
         }
         $roundIds = array_keys($roundToPublication);
 
@@ -1232,5 +1236,35 @@ abstract class Repository
             ->filterWithSourcePublicationIds()
             ->getIds();
 
+    }
+
+    /**
+     * Associate existing review round with null publicaiton assocation to the newly created publication version.
+     */
+    protected function setReviewPublicationAssociations(Publication $newPublication, Submission $submission): void
+    {
+        // Start with check if any review rounds do not have publication associations, if they all do, nothing to do here
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+        /** @var Collection<int, ReviewRound> $reviewRounds */
+        $reviewRounds = collect($reviewRoundDao->getBySubmissionId($submission->getId())->toArray());
+        $roundsWithoutPublicationAssociation = $reviewRounds
+            ->filter(fn (ReviewRound $reviewRound) => $reviewRound->getPublicationId() === null);
+
+        if ($roundsWithoutPublicationAssociation->count() === 0) {
+            return;
+        }
+
+        // Check how many review rounds do not have any publication associations
+        if ($roundsWithoutPublicationAssociation->count() > 1) {
+            // Too many null associations to reliably do anything, will need to be handled manually by the user in the UI.
+            return;
+        }
+
+        // In the case of a single, null publication association review round,
+        // associate it with the newly created publication version.
+        $reviewRound = $roundsWithoutPublicationAssociation->first();
+        $reviewRoundDao->updatePublicationId($reviewRound->getId(), $newPublication->getId());
     }
 }

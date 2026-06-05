@@ -65,7 +65,19 @@ trait ReviewRoundAuthorResponseCommonValidator
             function (Validator $validator) {
                 // Only run this validation if all initial checks in `rules` passed
                 if (!$validator->errors()->count()) {
-                    $publication = Repo::publication()->get($this->reviewRound->getPublicationId());
+                    // The review round may not yet be associated with a publication
+                    // e.g. pending re-association after a new publication version is created.
+                    // In this case, fall back to the submission's current publication.
+                    $publicationId = $this->reviewRound->getPublicationId();
+                    $publication = $publicationId !== null
+                        ? Repo::publication()->get($publicationId)
+                        : Repo::submission()->get($this->reviewRound->getSubmissionId())?->getCurrentPublication();
+
+                    if (!$publication) {
+                        $validator->errors()->add('associatedAuthorIds', __('api.404.resourceNotFound'));
+                        return;
+                    }
+
                     $allAuthors = $publication->getData('authors');
                     $associatedAuthorIds = $this->input('associatedAuthorIds');
 

@@ -221,9 +221,6 @@ abstract class Repository
         }
         $decision->setData('dateDecided', Core::getCurrentDate());
         $submission = Repo::submission()->get($decision->getData('submissionId'));
-        if (!$decision->getData('publicationId')) {
-            $decision->setData('publicationId', $submission->getCurrentPublication()->getId());
-        }
 
         $id = $this->dao->insert($decision);
         Hook::call('Decision::add', [$decision]);

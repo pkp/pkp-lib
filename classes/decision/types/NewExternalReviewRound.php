@@ -111,9 +111,8 @@ class NewExternalReviewRound extends DecisionType
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         /** @var ReviewRound $reviewRound */
         $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $this->getNewStageId($submission, $decision->getData('reviewRoundId')));
-        $decisionPublicationId = $decision->getData('publicationId');
 
-        $this->createReviewRound($submission, $this->getStageId(), $reviewRound->getRound() + 1, $decisionPublicationId);
+        $this->createReviewRound($submission, $this->getStageId(), $reviewRound->getRound() + 1);
 
         parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 

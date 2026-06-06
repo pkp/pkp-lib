@@ -44,6 +44,8 @@ class Doi extends BasePid
         'doi.org',
         'doi.org:',
         'dx.doi.org',
-        'dx.doi.org:'
+        'dx.doi.org:',
+        'https://dx.doi.org/',
+        'http://dx.doi.org/'
     ];
 }

@@ -18,12 +18,12 @@
 namespace PKP\services\queryBuilders;
 
 use APP\facades\Repo;
-use PKP\publication\PKPPublication;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
+use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 
 abstract class PKPStatsEditorialQueryBuilder
@@ -172,20 +172,6 @@ abstract class PKPStatsEditorialQueryBuilder
         $q->select(DB::raw('COUNT(DISTINCT s.submission_id) as count'));
 
         return $q->get()->first()->count;
-    }
-
-    /**
-     * Get the count of submissions by one or more status
-     *
-     * @param int|array $status One or more of PKPSubmission::STATUS_*
-     *
-     * @return int
-     */
-    public function countByStatus($status)
-    {
-        return $this->_getObject()
-            ->whereIn('s.status', (array) $status)
-            ->getCountForPagination();
     }
 
     /**

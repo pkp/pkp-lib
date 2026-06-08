@@ -87,39 +87,4 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
             }
         }
     }
-
-    /**
-     * Delete an submission tombstone setting.
-     *
-     * @param int $tombstoneId
-     * @param string $name
-     * @param string $locale optional
-     *
-     * @return int Affected row count
-     */
-    public function deleteSetting($tombstoneId, $name, $locale = null)
-    {
-        $params = [(int) $tombstoneId, $name];
-        $sql = 'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ?';
-        if ($locale !== null) {
-            $params[] = $locale;
-            $sql .= ' AND locale = ?';
-        }
-        return $this->update($sql, $params);
-    }
-
-    /**
-     * Delete all settings for an submission tombstone.
-     *
-     * @param int $tombstoneId
-     *
-     * @return int Affected row count
-     */
-    public function deleteSettings($tombstoneId)
-    {
-        return $this->update(
-            'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ?',
-            [(int) $tombstoneId]
-        );
-    }
 }

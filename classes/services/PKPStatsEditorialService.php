@@ -364,22 +364,6 @@ class PKPStatsEditorialService
     }
 
     /**
-     * Get a count of the submissions with one or more statuses
-     *
-     * Date restrictions will not be applied. It will return the count of
-     * all submissions with the passed statuses.
-     *
-     * @param int|array $statuses One or more PKPSubmission::STATUS_*
-     * @param array $args See self::getQueryBuilder()
-     *
-     * @return int
-     */
-    public function countByStatus($statuses, $args = [])
-    {
-        return $this->getQueryBuilder($args)->countByStatus((array) $statuses);
-    }
-
-    /**
      * Get a count of the submissions which are skipped by the other statistics
      *
      * Date restrictions will not be applied. It will return the count of

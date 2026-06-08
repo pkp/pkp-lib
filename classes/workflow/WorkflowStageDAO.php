@@ -18,7 +18,6 @@
 namespace PKP\workflow;
 
 use APP\core\Application;
-use APP\submission\Submission;
 
 class WorkflowStageDAO extends \PKP\db\DAO
 {
@@ -108,38 +107,5 @@ class WorkflowStageDAO extends \PKP\db\DAO
         }
 
         return $stageMapping;
-    }
-
-    /**
-     * Returns an array containing data for rendering the stage workflow tabs
-     * for a submission.
-     */
-    public static function getStageStatusesBySubmission(Submission $submission, array $stagesWithDecisions, array $stageNotifications): array
-    {
-        $currentStageId = $submission->getData('stageId');
-        $workflowStages = self::getWorkflowStageKeysAndPaths();
-
-        foreach ($workflowStages as $stageId => $stageData) {
-            $foundState = false;
-            // If we have not found a state, and the current stage being examined is below the current submission stage, and there have been
-            // decisions for this stage, but no notifications outstanding, mark it as complete.
-            if (!$foundState && $stageId <= $currentStageId && (in_array($stageId, $stagesWithDecisions) || $stageId == WORKFLOW_STAGE_ID_PRODUCTION) && !$stageNotifications[$stageId]) {
-                $workflowStages[$currentStageId]['statusKey'] = 'submission.complete';
-            }
-
-            // If this is an old stage with no notifications, this was a skipped/not initiated stage.
-            if (!$foundState && $stageId < $currentStageId && !$stageNotifications[$stageId]) {
-                $foundState = true;
-                // Those are stages not initiated, that were skipped, like review stages.
-            }
-
-            // Finally, if this stage has outstanding notifications, or has no decision yet, mark it as initiated.
-            if (!$foundState && $stageId <= $currentStageId && (!in_array($stageId, $stagesWithDecisions) || $stageNotifications[$stageId])) {
-                $workflowStages[$currentStageId]['statusKey'] = 'submission.initiated';
-                $foundState = true;
-            }
-        }
-
-        return $workflowStages;
     }
 }

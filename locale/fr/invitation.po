@@ -19,45 +19,10 @@ msgstr ""
 "L'invitation ne peut pas être envoyée car vous n'avez défini aucun "
 "changement de groupe d'utilisateur/ices"
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Veuillez fournir un nom d'utilisateur"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Veuillez fournir une affiliation"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Veuillez fournir un pays"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Veuillez fournir un prénom"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Veuillez fournir un nom de famille"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr ""
-"Veuillez fournir une date de début pour les groupes d'utilisateur/ices "
-"ajoutés"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Au moins un groupe d'utilisateur/ices à ajouter doit être défini"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Au moins un groupe d'utilisateur/ices à supprimer doit être défini"
-
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
 "Lorsqu'une invitation comporte un identifiant utilisateur ({$userId}), l'"
 "utilisateur/ice correspondant/e doit exister."
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Les rôles utilisateur supprimés ne peuvent pas être définis pour des "
-"utilisateur/ices inexistant/es."
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr ""
-"Les groupes d'utilisateur/ices fournis contiennent des entrées en double."
 
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
@@ -69,32 +34,18 @@ msgstr ""
 "Il existe déjà un/e utilisateur/ice avec le nom d'utilisateur {$username}. "
 "Veuillez en essayer un autre."
 
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Veuillez fournir un mot de passe"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr ""
-"Veuillez fournir un identifiant de groupe d'utilisateur/ices pour les "
-"groupes d'utilisateur/ices ajoutés"
-
 msgid "invitation.header"
 msgstr "Invitations en cours"
 
 msgid "invitation.tableHeader.name"
 msgstr "Nom"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Un comité doit être mentionné pour les nouveaux groupes"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Ce type d'invitation n'a pas de modèle de courriel renseigné"
 
-msgid "invitation.validation.required"
-msgstr "Le champ {$attribute} est requis."
-
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"L'identifiant {reviewAssignmentId} ne correspond à aucune sollicitation "
+"L'identifiant {$reviewAssignmentId} ne correspond à aucune sollicitation "
 "d'évaluation"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
@@ -111,12 +62,6 @@ msgstr "Inviter à un rôle"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "Inviter une personne à accepter un rôle"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Renseigner les détails"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Vérifier et lancer l'invitation"
 
 msgid "userInvitation.searchUser.nextButtonLabel"
 msgstr "Chercher"
@@ -159,21 +104,11 @@ msgstr ""
 "Vous ne pouvez pas fournir à la fois le courriel et l'identifiant "
 "utilisateur/ice."
 
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr ""
-"Les utilisateur/ices existantes ne sont pas autorisées à accéder à cet "
-"attribut"
-
 msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
 msgstr "Une valeur est requise pour '{$primaryLocale}'"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Rechercher une personne"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr ""
-"Les utilisateur/ices non-existantes ne sont pas autorisées à accéder à cet "
-"attribut"
 
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Rechercher une personne"
@@ -184,17 +119,11 @@ msgstr ""
 "accepter un rôle. Si l'utilisateur/ice existe déjà, vous pouvez consulter "
 "ses informations et l'inviter à accepter des rôles supplémentaires."
 
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "La valeur de l'attribut doit être égale ou postérieure à aujourd'hui"
-
 msgid "userInvitation.searchField.description"
 msgstr "Exemple : aeinstein@example.com ou aeinstein ou 0000-0002-1825-0097"
 
 msgid "invitation.role.dateStart"
 msgstr "Date de début"
-
-msgid "invitation.role.dateEnd"
-msgstr "Date de fin"
 
 msgid "invitation.role.addRole.button"
 msgstr "Ajouter un autre rôle"
@@ -359,9 +288,6 @@ msgid "invitation.cancelInvite.message"
 msgstr ""
 "Annuler l'invitation envoyée à {$givenName} {$familyName} désactivera le "
 "lien d'acceptation dans le courriel. Voici les détails de l'invitation : "
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Modifier le rôle"
 
 msgid "userInvitation.cancel.goBack"
 msgstr "Retour"

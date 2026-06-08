@@ -14,12 +14,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "O grupo de utilizador foi atribuído ao utilizador convidado"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "Não se podem remover funções de utilizadores que não existam."
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Os grupos de utilizadores fornecidos contêm entradas duplicadas."
-
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
 "Já existe um utilizador com o nome de utilizador {$username}. Experimente "
@@ -30,21 +24,8 @@ msgstr ""
 "Quando um convite tiver um e-mail ({$email}) atribuído, este e-mail não "
 "poderá estar a ser utilizado por outro utilizador."
 
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "É necessário fornecer uma palavra-passe"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "É necessário fornecer o apelido"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr ""
-"Para grupos de utilizadores adicionais, é necessário fornecer um cabeçalho"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Não se definiu um e-mail para este tipo de convite"
-
-msgid "invitation.validation.required"
-msgstr "O campo {$attribute} é de preenchimento obrigatório."
 
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
@@ -53,7 +34,7 @@ msgstr ""
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"O ID {reviewAssignmentId} não corresponde a uma atribuição de revisão válida"
+"O ID {$reviewAssignmentId} não corresponde a uma atribuição de revisão válida"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Este convite não pode ser cancelado"
@@ -70,43 +51,15 @@ msgstr "Convidar utilizador a assumir um papel"
 msgid "userInvitation.searchUser.nextButtonLabel"
 msgstr "Procurar utilizador"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Deve definir pelo menos um grupo de utilizadores a adicionar"
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "O convite não pode ser enviado porque não definiu nenhuma alteração no grupo "
 "de utilizadores"
 
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "É necessário fornecer uma afiliação"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Deve definir pelo menos um grupo de utilizadores a eliminar"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "É necessário fornecer um país"
-
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
 "Quando um convite tem um ID de utilizador ({$userId}) atribuído, o "
 "utilizador correspondente deve existir."
-
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "É necessário fornecer um nome de utilizador"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "É necessário fornecer um nome"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr ""
-"Para grupos de utilizadores adicionais, é necessário fornecer um ID de grupo "
-"de utilizadores"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr ""
-"Para grupos de utilizadores adicionais, é necessário fornecer uma data de "
-"início"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Não foi possível completar o convite"
@@ -126,23 +79,8 @@ msgstr ""
 "É necessário fornecer um valor para a configuração de língua "
 "'{$primaryLocale}'"
 
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "O acesso a este atributo não é permitido aos utilizadores existentes"
-
 msgid "invitation.step"
 msgstr "PASSO"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "O atributo não pode ser acedido para utilizadores inexistentes"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Introduzir detalhes"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "Este atributo deve ter um valor igual ou posterior ao de hoje"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Rever e convidar para papeis"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Procurar utilizador"
@@ -170,9 +108,6 @@ msgstr "Guardar e continuar"
 
 msgid "invitation.role.selectRole"
 msgstr "Selecionar uma nova função"
-
-msgid "invitation.role.dateEnd"
-msgstr "Data limite"
 
 msgid "userInvitation.roleTable.role"
 msgstr "Função"
@@ -280,9 +215,6 @@ msgstr "Aparecer no cabeçalho editorial"
 
 msgid "invitation.masthead.hidden"
 msgstr "Não consta no cabeçalho"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Modificar função"
 
 msgid "invitation.management.options"
 msgstr "Opções de gestão de convites"

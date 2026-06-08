@@ -14,15 +14,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Se ha asignado el grupo de usuarios al usuario invitado"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Se debe definir al menos un grupo de usuarios para eliminar"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Debe definirse al menos un grupo de usuarios para agregar"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "No se pueden remover roles de un usuario/a que no existe."
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "No se puede enviar la invitación porque no hubo cambios en el grupo de "
@@ -33,26 +24,6 @@ msgstr ""
 "Cuando una invitación tiene un ID de usuario/a ({$userId}) asignado, ese "
 "usuario/a debe existir."
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Se debe proporcionar un nombre de usuario"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Se debe proporcionar una contraseña"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Se debe proporcionar una afiliación"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Se debe proporcionar un país"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Se debe proporcionar un apellido"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr ""
-"Para los grupos de usuarios agregados, se debe proporcionar una fecha de "
-"inicio"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "No se ha definido un correo electrónico para este tipo de invitación"
 
@@ -62,9 +33,6 @@ msgstr "No se pudo completar la invitación"
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "El grupo de usuarios con ID {$userGroupId} no existe"
 
-msgid "invitation.validation.required"
-msgstr "El campo {$attribute} es obligatorio."
-
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
 "Se encontraron propiedades inesperadas en el elemento con índice "
@@ -72,7 +40,7 @@ msgstr ""
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"El ID {reviewAssignmentId} no corresponde a una asignación de revisión válida"
+"El ID {$reviewAssignmentId} no corresponde a una asignación de revisión válida"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Esta invitación no puede ser cancelada"
@@ -81,17 +49,6 @@ msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr ""
 "No se permite ingresar el correo electrónico y el ID de usuario al mismo "
 "tiempo."
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "No se permite acceder a este atributo en usuarios existentes"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "No se permite acceder a este atributo en usuarios que no existen"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr ""
-"Este atributo debe tener un valor con fecha igual o posterior a la fecha "
-"actual"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "No se permite el uso del campo :attribute"
@@ -111,14 +68,8 @@ msgstr "Asignar un rol mediante invitación"
 msgid "invitation.wizard.pageTitle"
 msgstr "Invitar al usuario/a a asumir un rol"
 
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Ingresar datos"
-
 msgid "userInvitation.searchUser.stepName"
 msgstr "Buscar usuario/a"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Revisar y enviar invitación para asignar los roles"
 
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Buscar usuario/a"
@@ -150,9 +101,6 @@ msgstr "Fecha de inicio"
 msgid "userInvitation.enterDetails.stepLabel"
 msgstr "{$step} - Ingresar datos y enviar invitación para asignar los roles"
 
-msgid "invitation.role.dateEnd"
-msgstr "Fecha límite"
-
 msgid "invitation.role.addRole.button"
 msgstr "Añadir otro rol"
 
@@ -171,9 +119,6 @@ msgstr "Revisar y enviar invitación para asignar los roles"
 msgid "userInvitation.sendMail.nextButtonLabel"
 msgstr "Invitar al usuario/a a asumir el rol"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Los grupos de usuarios proporcionados contienen entradas duplicadas."
-
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
 "Ya existe un usuario/a con el nombre de usuario {$username}, intente con uno "
@@ -183,17 +128,6 @@ msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
 "Cuando una invitación tiene asignado el correo electrónico ({$email}), este "
 "no debe estar en uso por otro usuario/a."
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Se debe proporcionar un nombre"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Para los grupos de usuarios agregados, se debe proporcionar un ID"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr ""
-"Para los grupos de usuarios agregados, se debe proporcionar una cabecera "
-"editorial"
 
 msgid "userInvitation.sendMail.stepLabel"
 msgstr "{$step} - Modificar el correo electrónico compartido con el usuario/a"
@@ -286,9 +220,6 @@ msgstr "Cancelar invitación"
 
 msgid "invitation.masthead.hidden"
 msgstr "No aparecer en la cabecera editorial"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Modificar rol"
 
 msgid "userInvitation.cancel.message"
 msgstr "¿Está seguro/a de que desea cancelar esta invitación?"

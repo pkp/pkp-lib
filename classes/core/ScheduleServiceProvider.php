@@ -84,7 +84,15 @@ class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvi
                     }
                     
                     $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
-                    $scheduler->registerPluginSchedules();
+
+                    // Plugin schedule registration resolves the context from the current request
+                    // in the web mode via getEnabledProducts(null) -> PKPRouter::getContext(),
+                    // can throw exception at non context path, this add guard against that.
+                    try {
+                        $scheduler->registerPluginSchedules();
+                    } catch (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $exception) {
+                        error_log('Skipped plugin schedule registration in the web based task runner; the current request context could not be resolved: ' . $exception->getMessage());
+                    }
 
                     // Flush the output buffer to send the response to the client before
                     // running scheduled tasks, preventing page load delays.

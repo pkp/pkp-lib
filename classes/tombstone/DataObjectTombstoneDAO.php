@@ -86,12 +86,6 @@ class DataObjectTombstoneDAO extends DAO
      */
     public function deleteById(int $tombstoneId, ?int $assocType = null, ?int $assocId = null): int
     {
-        $tombstone = $this->getById($tombstoneId, $assocType, $assocId);
-        if (!$tombstone) {
-            // Did not exist
-            return 0;
-        }
-
         return DB::table('data_object_tombstones')
             ->where('tombstone_id', '=', $tombstoneId)
             ->delete();

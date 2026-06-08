@@ -14,27 +14,9 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Användargruppen tilldelas den inbjudna användaren"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "Roller kan inte tas bort för användare som inte finns."
-
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
 "Det finns redan en användare med användarnamnet {$username}. Välj ett annat."
-
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Ett användarnamn måste anges"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Ett lösenord måste anges"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Ett land måste anges"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Ett efternamn måste anges"
-
-msgid "invitation.validation.required"
-msgstr "Fältet {$attribute} är obligatoriskt."
 
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
@@ -47,19 +29,10 @@ msgstr "Den här inbjudan kan inte avbrytas"
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Du kan inte ange både e-postadress och användar-ID samtidigt."
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Minst en användargrupp måste vara definierad för att kunna läggas till"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Minst en användargrupp som ska tas bort måste vara definierad"
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "Inbjudan kan inte skickas eftersom du inte har definierat några ändringar av "
 "användargrupper"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "De angivna användargrupperna innehåller dubbletter."
 
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
@@ -71,18 +44,6 @@ msgstr ""
 "När en inbjudan har en e-postadress ({$email}) kopplad till sig får den inte "
 "redan användas av en annan användare."
 
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "En affiliering måste anges"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Ett förnamn måste anges"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Ett användargrupps-ID måste anges för tillagda användargrupper"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Ett startdatum måste anges för tillagda användargrupper"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Den här typen av inbjudan har ingen e-postmall definierad"
 
@@ -93,12 +54,7 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotE
 msgstr "Det angivna användargrupps-ID:t {$userGroupId} finns inte"
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
-msgstr "ID:t {reviewAssignmentId} motsvarar inte en giltig granskningsuppgift"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr ""
-"Det här attributet måste ha ett värde som är lika med eller senare än dagens "
-"datum"
+msgstr "ID:t {$reviewAssignmentId} motsvarar inte en giltig granskningsuppgift"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Fältet :attribute är förbjudet"
@@ -114,9 +70,6 @@ msgstr "Bjud in till en roll"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "Bjud in användare till en roll"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Ange uppgifter"
 
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Sök användare"
@@ -141,9 +94,6 @@ msgstr "Välj en ny roll"
 
 msgid "invitation.role.dateStart"
 msgstr "Startdatum"
-
-msgid "invitation.role.dateEnd"
-msgstr "Slutdatum"
 
 msgid "invitation.role.addRole.button"
 msgstr "Lägg till ytterligare roll"
@@ -276,9 +226,6 @@ msgstr "Visa på redaktionssidan"
 
 msgid "invitation.masthead.hidden"
 msgstr "Visas inte på redaktionssidan"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Redigera roll"
 
 msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
 msgstr "Ett värde för språket '{$primaryLocale}' är obligatoriskt"

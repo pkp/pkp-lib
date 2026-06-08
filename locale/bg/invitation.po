@@ -17,21 +17,14 @@ msgstr ""
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"Идентификаторът {reviewAssignmentId} не съответства на валидно задание за "
+"Идентификаторът {$reviewAssignmentId} не съответства на валидно задание за "
 "рецензия"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Тази покана не може да бъде отменена"
 
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr ""
-"Този атрибут трябва да има стойност, равна на или по-късна от днешна дата"
-
 msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
 msgstr "Изисква се стойност за език '{$primaryLocale}'"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Атрибутът няма достъп за съществуващи потребители"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Полето на този атрибут е забранено"
@@ -41,9 +34,6 @@ msgstr "СТЪПКА"
 
 msgid "userInvitation.roleTable.role"
 msgstr "Роля"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Достъпът до атрибута не е разрешен за несъществуващи потребители"
 
 msgid "invitation.header"
 msgstr "Покани"
@@ -62,9 +52,6 @@ msgstr "Въвеждане на детайли"
 
 msgid "acceptInvitation.userDetails.stepName"
 msgstr "Въвеждане на детайли"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Преглед и покана за роли"
 
 msgid "userInvitation.sendMail.stepName"
 msgstr "Преглед и покана за роли"
@@ -95,9 +82,6 @@ msgstr "Изберете нова роля"
 
 msgid "invitation.role.dateStart"
 msgstr "Начална дата"
-
-msgid "invitation.role.dateEnd"
-msgstr "Крайна дата"
 
 msgid "userInvitation.sendMail.nextButtonLabel"
 msgstr "Поканете потребител за ролята"
@@ -234,15 +218,6 @@ msgstr "Да се отмени ли процесът на покана за ро
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Потребителската група се присвоява на поканения потребител"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Трябва да бъде дефинирана поне една потребителска група за премахване"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Трябва да се предостави парола"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Трябва да се предостави държава"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Този тип покана няма дефиниран начин за изпращане"
 
@@ -254,15 +229,9 @@ msgstr ""
 "Предоставеният идентификатор на потребителска група {$userGroupId} не "
 "съществува"
 
-msgid "invitation.validation.required"
-msgstr "Полето {$attribute} е задължително."
-
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr ""
 "Не можете да предоставите едновременно имейл и потребителски идентификатор."
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Въвеждане на детайли"
 
 msgid "userInvitation.searchField.description"
 msgstr "напр. aeinstein@example.com или aeinstein или 0000-0002-1825-0097"
@@ -323,9 +292,6 @@ msgstr "Отмяна на поканата"
 msgid "invitation.masthead.hidden"
 msgstr "Не се показва на заглавната страница"
 
-msgid "invitation.role.modifyRole.button"
-msgstr "Промяна на роля"
-
 msgid "userInvitation.cancel.message"
 msgstr "Сигурни ли сте, че искате да отмените тази покана?"
 
@@ -372,21 +338,10 @@ msgstr ""
 msgid "acceptInvitation.privacyConsent"
 msgstr "Съгласие за поверителност"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Трябва да бъде дефинирана поне една потребителска група за добавяне"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Премахването на потребителски роли не може да бъде дефинирано за "
-"несъществуващи потребители."
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "Поканата не може да бъде изпратена, защото не сте дефинирали никакви промени "
 "в потребителската група"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Предоставените потребителски групи съдържат дублирани записи."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
@@ -401,30 +356,6 @@ msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
 "Когато към поканата е присвоен имейл адрес ({$email}), този имейл адрес не "
 "трябва да се използва от друг потребител."
-
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Трябва да се предостави потребителско име"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Трябва да се предостави институционална принадлежност"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Трябва да се предостави собствено име"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Трябва да се предостави фамилно име"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr ""
-"За добавени потребителски групи трябва да се предостави идентификатор на "
-"потребителска група"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "За добавени потребителски групи трябва да се посочи начална дата"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr ""
-"За добавени потребителски групи трябва да се предостави заглавна страница"
 
 msgid "invitation.unavailable.title"
 msgstr "Поканата не е налична"

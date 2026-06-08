@@ -28,7 +28,7 @@ class Pmcid extends BasePid
 
     /** @copydoc BasePid::validationRegexes */
     public const validationRegexes = [
-        '/^PMC\d+$/i'
+        '/^PMC\d+$/'
     ];
 
     /** @copydoc BasePid::prefix */
@@ -40,7 +40,6 @@ class Pmcid extends BasePid
     /** @copydoc BasePid::alternatePrefixes */
     public const alternatePrefixes = [
         'pmcid',
-        'pmc',
         'pmc:',
     ];
 }

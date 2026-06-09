@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/steps/Email.php
  *
@@ -47,7 +48,7 @@ class Email extends Step
         $this->attachers = $attachers;
         $this->locales = $locales;
         $this->mailable = $mailable;
-        $this->recipients = $recipients;
+        $this->recipients = array_filter($recipients, fn ($recipient) => $recipient instanceof User && !$recipient->getDisabled());
     }
 
     /**
@@ -169,5 +170,11 @@ class Email extends Step
         }
 
         return $variables;
+    }
+
+    /** @copydoc Step::isValidStep() */
+    public function isValidStep(): bool
+    {
+        return !empty($this->recipients);
     }
 }

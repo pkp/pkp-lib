@@ -215,7 +215,12 @@ class APIRouter extends PKPRouter
         [$baseUrl, $context] = $this->_urlGetBaseAndContext($request, $newContext);
         $additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
 
-        return $this->_urlFromParts($baseUrl, [$context, 'api', Application::API_VERSION, $endpoint], $additionalParameters, $anchor, $escape);
+        // Only include the context in the path info if it is set. When the base URL is
+        // overridden via base_url[context] the context is null; including it would create
+        // an empty path segment and thus a double slash in the URL (pkp/pkp-lib#12767).
+        $pathInfoArray = [...($context ? [$context] : []), 'api', Application::API_VERSION, $endpoint];
+
+        return $this->_urlFromParts($baseUrl, $pathInfoArray, $additionalParameters, $anchor, $escape);
     }
 
     /**

@@ -1193,7 +1193,9 @@ abstract class Repository
         /** @var ReviewAssignment[] $assignments */
         $assignments = Repo::reviewAssignment()
             ->getCollector()
+            ->filterByIsConfirmedByEditor(true)
             ->filterByReviewRoundIds($roundIds)
+            ->filterByIsPubliclyVisible(true)
             ->getMany();
 
         foreach ($assignments as $assignment) {

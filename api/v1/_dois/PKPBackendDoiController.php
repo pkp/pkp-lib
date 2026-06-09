@@ -159,6 +159,12 @@ class PKPBackendDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        if (!$reviewAssignment->getIsReviewPubliclyVisible()) {
+            return response()->json([
+                'error' => __('api.dois.reviews.422.cannotAssignDoi')
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT, $illuminateRequest->input());
         $doi = Repo::doi()->get((int) $params['doiId']);
         if (!$doi) {

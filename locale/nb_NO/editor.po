@@ -1,18 +1,19 @@
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/editor/nb_NO/>\n"
+"PO-Revision-Date: 2026-06-09 10:41+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/editor/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Er du sikker på at du vil slette denne innleveringen for alltid?"
@@ -52,18 +53,25 @@ msgstr ""
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Redaktøren ble ikke gjenkjent og har muligvis ikke tillatelse til å ta en "
+"beslutning angående denne innleveringen."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Du kan ikke sende e-post til følgende mottakere: {$names}."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Denne gjennomgangsrunden ble ikke funnet."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"En gjennomgangsrunde pågår, men denne avgjørelsen er ikke tatt under en "
+"vurderingsfase."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Denne gjennomgangsrunden er ikke en del av denne innleveringen."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""

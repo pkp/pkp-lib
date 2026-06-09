@@ -19,10 +19,12 @@
 namespace PKP\publication;
 
 use APP\author\Author;
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\enums\VersionStage;
 use Illuminate\Support\Str;
 use PKP\author\contributorRole\ContributorType;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
@@ -51,6 +53,36 @@ class PKPPublication extends \PKP\core\DataObject
     public function getDefaultLocale(): ?string
     {
         return $this->getData('locale');
+    }
+
+    /** Get the context this publication belongs to. */
+    protected function getStampingContext(): Context
+    {
+        $submission = Repo::submission()->get((int) $this->getData('submissionId'));
+        return Application::getContextDAO()->getById($submission->getData('contextId'));
+    }
+
+    /**
+     * Stamp the context identity metadata onto the publication, so later context changes do not
+     * rewrite already-published metadata. The base stamps the fields common to all apps; apps
+     * override to add their own (e.g. ISSN), passing the context through to avoid reloading it.
+     */
+    public function stampContextIdentity(?Context $context = null): void
+    {
+        $context ??= $this->getStampingContext();
+        $this->setData('contextName', $context->getName());
+        $this->setData('contextPrimaryLocale', $context->getPrimaryLocale());
+    }
+
+    /**
+     * Clear the stamped identity fields so a new major version is re-stamped on publish.
+     * Apps override to clear their own additional fields (e.g. ISSN in OJS).
+     */
+    public function clearIdentityMetadata(): void
+    {
+        $this->setData('contextName', null);
+        $this->setData('contextPrimaryLocale', null);
+        $this->setData('publisherLocation', null);
     }
 
     /**

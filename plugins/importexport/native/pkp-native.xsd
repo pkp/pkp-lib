@@ -289,6 +289,10 @@
 			<element ref="pkp:authors" minOccurs="0" maxOccurs="1" />
 			<element ref="pkp:representation" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:citations" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- Stamped identity fields: frozen at publication time -->
+			<element name="contextName" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<element name="contextPrimaryLocale" type="string" minOccurs="0" maxOccurs="1" />
+			<element name="publisherLocation" type="string" minOccurs="0" maxOccurs="1" />
 		</sequence>
 		<attribute name="date_submitted" type="date" use="optional" />
 		<attribute name="date_published" type="date" use="optional" />
@@ -375,14 +379,6 @@
 			<element name="source" type="string" minOccurs="0"/>
 		</sequence>
 	</complexType>
-	<element name="contextName">
-		<complexType>
-			<sequence>
-				<element name="contextName" type="string" minOccurs="1" maxOccurs="unbounded" />
-			</sequence>
-			<attribute name="locale" type="string" />
-		</complexType>
-	</element>
 	<element name="keywords">
 		<complexType>
 			<sequence>

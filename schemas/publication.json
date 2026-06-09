@@ -20,13 +20,6 @@
 				"nullable"
 			]
 		},
-		"plainLanguageSummary": {
-			"type": "string",
-			"multilingual": true,
-			"validation": [
-				"nullable"
-			]
-		},
 		"authors": {
 			"type": "array",
 			"description": "A list of the authors for this publication.",
@@ -81,7 +74,14 @@
 		"contextName": {
 			"type": "string",
 			"multilingual": true,
-			"apiSummary": true,
+			"writeDisabledInApi": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"contextPrimaryLocale": {
+			"type": "string",
+			"writeDisabledInApi": true,
 			"validation": [
 				"nullable"
 			]
@@ -100,10 +100,6 @@
 			"validation": [
 				"nullable"
 			]
-		},
-		"country": {
-			"type": "string",
-			"validation": ["country"]
 		},
 		"coverage": {
 			"type": "string",
@@ -200,13 +196,6 @@
 				}
 			}
 		},
-		"doiObject": {
-			"type": "object",
-			"description": "An object representing the DOI for this publication.",
-			"apiSummary": true,
-			"readOnly": true,
-			"$ref": "#/definitions/Doi"
-		},
 		"doiId": {
 			"type": "integer",
 			"description": "The ID of the DOI to assign to this publication.",
@@ -214,6 +203,13 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"doiObject": {
+			"type": "object",
+			"description": "An object representing the DOI for this publication.",
+			"apiSummary": true,
+			"readOnly": true,
+			"$ref": "#/definitions/Doi"
 		},
 		"fullTitle": {
 			"type": "string",
@@ -292,6 +288,13 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+		"plainLanguageSummary": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"prefix": {
 			"type": "string",
 			"description": "A prefix to be prepended to the title. In English, words such as \"The\" and \"A\" are commonly entered in the prefix instead of the title.",
@@ -316,6 +319,7 @@
 		},
 		"publisherLocation": {
 			"type": "string",
+			"writeDisabledInApi": true,
 			"validation": ["nullable"]
 		},
 		"reviewDoiItems": {

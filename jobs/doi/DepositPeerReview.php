@@ -16,6 +16,7 @@
 
 namespace PKP\jobs\doi;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\plugins\IDoiRegistrationAgency;
 use PKP\context\Context;
@@ -25,8 +26,8 @@ use PKP\jobs\BaseJob;
 class DepositPeerReview extends BaseJob
 {
     protected int $reviewId;
-    protected ?int $submissionId;
-    protected Context $context;
+    protected int $submissionId;
+    protected int $contextId;
 
     /**
      * @var IDoiRegistrationAgency The configured DOI registration agency
@@ -37,20 +38,23 @@ class DepositPeerReview extends BaseJob
      * Create a new job instance.
      *
      */
-    public function __construct(int $reviewId, Context $context, IDoiRegistrationAgency $agency, ?int $submissionId = null)
+    public function __construct(int $reviewId, int $contextId, IDoiRegistrationAgency $agency, int $submissionId)
     {
         parent::__construct();
 
         $this->reviewId = $reviewId;
-        $this->context = $context;
         $this->agency = $agency;
         $this->submissionId = $submissionId;
+        $this->contextId = $contextId;
     }
 
     public function handle(): void
     {
+        /** @var Context $context */
+        $context = Application::getContextDAO()->getById($this->contextId);
+
         $depositablePeerReviewIds = Repo::reviewAssignment()
-            ->getExportableDOIsPeerReviewIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
+            ->getExportableDOIsPeerReviewIds($context->getId(), $context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
 
         $exportable = in_array($this->reviewId, $depositablePeerReviewIds);
 
@@ -63,10 +67,6 @@ class DepositPeerReview extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        $result = $this->agency->depositPeerReviews([$peerReview], $this->context);
-
-        if ($result['hasErrors']) {
-            throw new JobException($result['responseMessage']);
-        }
+        $this->agency->depositPeerReviews([$peerReview], $context);
     }
 }

@@ -466,3 +466,6 @@ msgstr "The request is missing a value for `authorReviewResponse`."
 
 msgid "api.reviewRound.422.reviewAssignments"
 msgstr "This review round has review assignments that needs to be completed before a response can be requested from the Author."
+
+msgid "api.dois.reviews.422.cannotAssignDoi"
+msgstr "Cannot assign a DOI to review that is not publicly visible."

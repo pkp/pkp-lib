@@ -316,7 +316,8 @@ class Repository
         return null;
     }
 
-    /** @copydoc DAO::getExportableDOIsPeerReviewIds()
+    /**
+     * @copydoc DAO::getExportableDOIsPeerReviewIds()
      *
      * @return array - Array of exportable peer review IDs.
      */

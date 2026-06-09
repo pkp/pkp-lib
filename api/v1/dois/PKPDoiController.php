@@ -46,7 +46,6 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 
 class PKPDoiController extends PKPBaseController
@@ -438,7 +437,6 @@ class PKPDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-
         $agency = $context->getConfiguredDoiAgency();
         if ($agency === null) {
             return response()->json([
@@ -465,7 +463,7 @@ class PKPDoiController extends PKPBaseController
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $agency->getAllowedDoiTypes()) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $context->getData(Context::SETTING_ENABLED_DOI_TYPES))
         ) {
-            $submissionIds = array_map(fn(Submission $submission) => $submission->getId(), $submissions);
+            $submissionIds = array_map(fn (Submission $submission) => $submission->getId(), $submissions);
             $peerReviewsData = $this->getPeerReviewExports($submissionIds, $context, $agency);
 
             if (!empty($peerReviewsData['xmlErrors'])) {
@@ -479,25 +477,36 @@ class PKPDoiController extends PKPBaseController
             }
         }
 
-
         return response()->json([
             'temporaryFileIds' => $temporaryFileIds
         ], Response::HTTP_OK);
     }
 
-
     /**
      * Prepare the associated Peer Review DOI XML export for a list of submission IDs.
-     * This method should be implemented at the app level if peer review DOIs are supported.
-     * @param array $submissionIds - ID of the submissions for which the associated Peer Review DOI XML export should be generated.
+     *
+     * @param array $submissionIds - IDs of the submissions for which the associated Peer Review DOI XML export should be generated.
      * @param Context $context - The context in which the export is being performed.
      * @param IDoiRegistrationAgency $agency - The DOI registration agency responsible for the export.
+     *
      * @return array{ temporaryFileId: int|string, xmlErrors: array } - An array containing the temporary file ID and any XML errors encountered during export.
      *
      */
-    public function getPeerReviewExports(array $submissionIds, Context $context, IDoiRegistrationAgency $agency): array
+    private function getPeerReviewExports(array $submissionIds, Context $context, IDoiRegistrationAgency $agency): array
     {
-        return [];
+        $exportablePeerReviewIds = Repo::reviewAssignment()
+            ->getExportableDOIsPeerReviewIds($context->getId(), $context->getData(Context::SETTING_DOI_VERSIONING), $submissionIds);
+
+        if (empty($exportablePeerReviewIds)) {
+            return [];
+        }
+
+        $peerReviews = array_map(
+            fn ($exportablePeerReviewId) => Repo::reviewAssignment()->get($exportablePeerReviewId),
+            $exportablePeerReviewIds
+        );
+
+        return $agency->exportPeerReviews($peerReviews, $context);
     }
 
     /**

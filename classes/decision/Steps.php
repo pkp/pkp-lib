@@ -44,13 +44,19 @@ class Steps
      *
      * @param bool $prepend Pass true to add this step before other steps
      */
-    public function addStep(Step $step, bool $prepend = false)
+    public function addStep(Step $step, bool $prepend = false): bool
     {
+        if (!$step->isValidStep()) {
+            return false;
+        }
+
         if ($prepend) {
             array_unshift($this->steps, $step);
         } else {
             $this->steps[$step->id] = $step;
         }
+
+        return true;
     }
 
     /**
@@ -85,8 +91,11 @@ class Steps
             ->all();
 
         $users = [];
-        foreach (array_unique($userIds) as $authorUserId) {
-            $users[] = Repo::user()->get($authorUserId);
+        foreach (array_unique($userIds) as $userId) {
+            $user = Repo::user()->get($userId);
+            if ($user) {
+                $users[] = $user;
+            }
         }
 
         return $users;
@@ -103,7 +112,10 @@ class Steps
     {
         $reviewers = [];
         foreach ($reviewAssignments as $reviewAssignment) {
-            $reviewers[] = Repo::user()->get((int) $reviewAssignment->getReviewerId());
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            if ($reviewer) {
+                $reviewers[] = $reviewer;
+            }
         }
         return $reviewers;
     }
@@ -124,7 +136,10 @@ class Steps
 
         $users = [];
         foreach (array_unique($userIds) as $authorUserId) {
-            $users[] = Repo::user()->get($authorUserId);
+            $user = Repo::user()->get($authorUserId);
+            if ($user) {
+                $users[] = $user;
+            }
         }
 
         return $users;

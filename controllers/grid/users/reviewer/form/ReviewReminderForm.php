@@ -21,8 +21,10 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -154,7 +156,7 @@ class ReviewReminderForm extends Form
         $templateKey = $this->getData('templateKey') ?: $mailable::getEmailTemplateKey();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
         if ($template === null) {
-            throw new \Exception("Selected email template with key $templateKey not found.");
+            throw new \Exception("Selected email template with key {$templateKey} not found.");
         }
         $mailable
             ->subject($template->getLocalizedData('subject'))
@@ -199,10 +201,8 @@ class ReviewReminderForm extends Form
 
     /**
      * Get the mailable for this form, populated with necessary data for template variable replacement.
-     *
-     * @return ReviewRemind
      */
-    public function getReviewRemindMailable($context)
+    public function getReviewRemindMailable(Context $context): ReviewRemind
     {
         $reviewAssignment = $this->getReviewAssignment();
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
@@ -215,7 +215,10 @@ class ReviewReminderForm extends Form
         return $mailable;
     }
 
-    public function getDefaultTemplate($context)
+    /**
+     * Get the default review reminder template for this context.
+     */
+    public function getDefaultTemplate(Context $context): EmailTemplate
     {
         $mailable = $this->getReviewRemindMailable($context);
         $templateKey = $mailable::getEmailTemplateKey();
@@ -224,17 +227,15 @@ class ReviewReminderForm extends Form
         // Handle missing template case, showing an error message,
         // since the default template is required for the form to work properly.
         if ($defaultTemplate === null) {
-            throw new \Exception("Default email template with key $templateKey not found for context " . $contextId);
+            throw new \Exception("Default email template with key {$templateKey} not found for context " . $contextId);
         }
         return $defaultTemplate;
     }
 
     /**
      * Get available email templates for this form, with the default template as the first option.
-     *
-     * @return array
      */
-    public function getEmailTemplates()
+    public function getEmailTemplates(): array
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();

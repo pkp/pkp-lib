@@ -362,7 +362,12 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
                 if (Hook::run('PKPApplication::execute::catch', ['throwable' => $t]) !== Hook::ABORT) {
                     // No hook handler took ownership; report through Laravel's
                     // exception handler so it lands in the configured log channel.
-                    app(ExceptionHandler::class)->report($t);
+                    // When PHP's error_log is an active channel, the re-thrown exception
+                    // below is already recorded there by PHP's native fatal handler, so reporting
+                    // it here too would duplicate the entry, so skip logging in PHP's error_log
+                    if (!app()->usesErrorLogChannel()) {
+                        app(ExceptionHandler::class)->report($t);
+                    }
                     throw $t;
                 }
             }

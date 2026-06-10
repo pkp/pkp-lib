@@ -378,17 +378,6 @@ class Validation
     }
 
     /**
-     * Check if the user is logged in as a different user.
-     *
-     *
-     * @deprecated 3.4
-     */
-    public static function isLoggedInAs(): bool
-    {
-        return (bool) static::loggedInAs();
-    }
-
-    /**
      * Shortcut for checking authorization as site admin.
      *
      * @return bool
@@ -396,95 +385,6 @@ class Validation
     public static function isSiteAdmin()
     {
         return self::isAuthorized(Role::ROLE_ID_SITE_ADMIN);
-    }
-
-    /**
-     * Check whether a user is allowed to administer another user.
-     *
-     * @param int $administeredUserId User ID of user to potentially administer
-     * @param int $administratorUserId User ID of user who wants to do the administrating
-     *
-     * @return bool True IFF the administration operation is permitted
-     *
-     * @deprecated 3.4 Use the method getAdministrationLevel and checked against the ADMINISTRATION_* constants
-     */
-    public static function canAdminister($administeredUserId, $administratorUserId)
-    {
-        // You can administer yourself
-        if ($administeredUserId == $administratorUserId) {
-            return true;
-        }
-
-        $siteContextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
-
-        // check if administered user is site admin
-        $isAdministeredUserSiteAdmin = UserGroup::query()
-            ->withContextIds($siteContextId)
-            ->withRoleIds(Role::ROLE_ID_SITE_ADMIN)
-            ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
-                $query->withUserId($administeredUserId)
-                    ->withActive();
-            })
-            ->exists();
-
-        if ($isAdministeredUserSiteAdmin) {
-            return false;
-        }
-
-        // check if administrator user is site admin
-        $isAdministratorUserSiteAdmin = UserGroup::query()
-            ->withContextIds($siteContextId)
-            ->withRoleIds(Role::ROLE_ID_SITE_ADMIN)
-            ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
-                $query->withUserId($administratorUserId)
-                    ->withActive();
-            })
-            ->exists();
-
-        if ($isAdministratorUserSiteAdmin) {
-            return true;
-        }
-
-        // Get contexts where administered user has roles
-        $administeredUserContexts = UserGroup::query()
-            ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
-                $query->withUserId($administeredUserId)
-                    ->withActive();
-            })
-            ->get()
-            ->map(fn ($userGroup) => $userGroup->contextId)
-            ->unique()
-            ->values()
-            ->toArray();
-
-        // get contexts where administrator user has manager role
-        $administratorManagerContexts = UserGroup::query()
-            ->withRoleIds(Role::ROLE_ID_MANAGER)
-            ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
-                $query->withUserId($administratorUserId)
-                    ->withActive();
-            })
-            ->get()
-            ->map(fn ($userGroup) => $userGroup->contextId)
-            ->unique()
-            ->values()
-            ->toArray();
-
-        // check for conflicting contexts
-        $conflictingContexts = array_diff($administeredUserContexts, $administratorManagerContexts);
-
-        if (!empty($conflictingContexts)) {
-            // found conflicting contexts: disqualified
-            return false;
-        }
-
-        // Make sure the administering user has a manager role somewhere
-        if (empty($administratorManagerContexts)) {
-            return false;
-        }
-
-        // There were no conflicting roles. Permit administration.
-        return true;
     }
 
     /**

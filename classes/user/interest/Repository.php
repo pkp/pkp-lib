@@ -16,39 +16,11 @@ namespace PKP\user\interest;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\user\User;
-use PKP\user\interest\UserInterest;
 use PKP\controlledVocab\ControlledVocabEntry;
+use PKP\user\User;
 
 class Repository
 {
-    /**
-     * Get all interests for all users in the system
-     */
-    public function getAllInterests(?string $filter = null): array
-    {
-        $controlledVocab = Repo::controlledVocab()->build(
-            UserInterest::CONTROLLED_VOCAB_INTEREST,
-            Application::ASSOC_TYPE_SITE,
-            Application::SITE_CONTEXT_ID,
-        );
-
-        return ControlledVocabEntry::query()
-            ->withControlledVocabId($controlledVocab->id)
-            ->when(
-                $filter,
-                fn ($query) => $query->withSetting('name', $filter)
-            )
-            ->get()
-            ->sortBy(UserInterest::CONTROLLED_VOCAB_INTEREST)
-            ->mapWithKeys(
-                fn(ControlledVocabEntry $controlledVocabEntry, int $id) => [
-                    $id => collect($controlledVocabEntry->name)->first()
-                ]
-            )
-            ->toArray();
-    }
-
     /**
      * Get user reviewing interests. (Cached in memory for batch fetches.)
      */
@@ -56,7 +28,7 @@ class Repository
     {
         return ControlledVocabEntry::query()
             ->whereHas(
-                "controlledVocab",
+                'controlledVocab',
                 fn ($query) => $query
                     ->withSymbolics([UserInterest::CONTROLLED_VOCAB_INTEREST])
                     ->withAssoc(
@@ -64,10 +36,10 @@ class Repository
                         Application::SITE_CONTEXT_ID,
                     )
             )
-            ->whereHas("userInterest", fn ($query) => $query->withUserId($user->getId()))
+            ->whereHas('userInterest', fn ($query) => $query->withUserId($user->getId()))
             ->get()
             ->mapWithKeys(
-                fn(ControlledVocabEntry $controlledVocabEntry, int $id) => [
+                fn (ControlledVocabEntry $controlledVocabEntry, int $id) => [
                     $id => collect($controlledVocabEntry->name)->first()
                 ]
             )
@@ -117,11 +89,11 @@ class Repository
         UserInterest::query()->withUserId($user->getId())->delete();
 
         $newInterestIds = collect(
-                array_diff(
-                    $interests,
-                    $currentInterests->pluck('name')->flatten()->toArray()
-                )
+            array_diff(
+                $interests,
+                $currentInterests->pluck('name')->flatten()->toArray()
             )
+        )
             ->map(fn (string $interest): string => trim($interest))
             ->unique()
             ->map(
@@ -132,14 +104,14 @@ class Repository
                     ],
                 ])->id
             );
-        
+
         collect($currentInterests->pluck('id'))
             ->merge($newInterestIds)
             ->each(fn ($interestId) => UserInterest::create([
                 'userId' => $user->getId(),
                 'controlledVocabEntryId' => $interestId,
             ]));
-        
+
         Repo::controlledVocab()->resequence($controlledVocab->id);
     }
 }

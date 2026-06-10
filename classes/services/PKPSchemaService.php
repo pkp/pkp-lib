@@ -81,6 +81,7 @@ class PKPSchemaService
      * @hook Schema::get::before::
      * @hook Schema::get::before::
      * @hook Schema::get::before::
+     * @hook Schema::get::before::
      */
     public function get($schemaName, $forceReload = false)
     {
@@ -243,28 +244,6 @@ class PKPSchemaService
         }
 
         return $multilingualProps;
-    }
-
-    /**
-     * Retrieves properties of the schema of certain origin
-     *
-     * @param string $schemaName One of the SCHEMA_... constants
-     * @param string $attributeOrigin one of the Schema::ATTRIBUTE_ORIGIN_* constants
-     *
-     * @return array List of property names
-     */
-    public function getPropsByAttributeOrigin(string $schemaName, string $attributeOrigin): array
-    {
-        $schema = $this->get($schemaName);
-
-        $propsByOrigin = [];
-        foreach ($schema->properies as $propName => $propSchema) {
-            if (!empty($propSchema->origin) && $propSchema->origin == $attributeOrigin) {
-                $propsByOrigin[] = $propName;
-            }
-        }
-
-        return $propsByOrigin;
     }
 
     /**

@@ -18,8 +18,6 @@
 
 namespace PKP\submission;
 
-use APP\facades\Repo;
-
 class SubmissionComment extends \PKP\core\DataObject
 {
     public const COMMENT_TYPE_PEER_REVIEW = 1;
@@ -126,42 +124,6 @@ class SubmissionComment extends \PKP\core\DataObject
     public function setAuthorId($authorId)
     {
         $this->setData('authorId', $authorId);
-    }
-
-    /**
-     * get author name
-     *
-     * @return string
-     */
-    public function getAuthorName()
-    {
-        // Reference used to set if not already fetched
-        $authorFullName = & $this->getData('authorFullName');
-
-        if (!isset($authorFullName)) {
-            $user = Repo::user()->get($this->getAuthorId(), true);
-            $authorFullName = $user->getFullName();
-        }
-
-        return $authorFullName ? $authorFullName : '';
-    }
-
-    /**
-     * get author email
-     *
-     * @return string
-     */
-    public function getAuthorEmail()
-    {
-        // Reference used to set if not already fetched
-        $authorEmail = & $this->getData('authorEmail');
-
-        if (!isset($authorEmail)) {
-            $user = Repo::user()->get($this->getAuthorId(), true);
-            return $user->getEmail();
-        }
-
-        return $authorEmail ? $authorEmail : '';
     }
 
     /**

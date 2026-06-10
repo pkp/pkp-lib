@@ -21,7 +21,6 @@ use APP\submission\Submission;
 use DOMDocument;
 use DOMElement;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\submissionFile\SubmissionFile;
@@ -101,8 +100,12 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
         $submissionNode->setAttribute('submission_progress', $submission->getData('submissionProgress'));
         $submissionNode->setAttribute('current_publication_id', $submission->getData('currentPublicationId'));
 
-        $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
-        $submissionNode->setAttribute('stage', WorkflowStageDAO::getPathFromId($submission->getData('stageId')));
+        // The DONE stage has no native-XML path and isn't part of the export schema so use PRODUCTION.
+        $stageId = $submission->getData('stageId');
+        if ($stageId == WORKFLOW_STAGE_ID_DONE) {
+            $stageId = WORKFLOW_STAGE_ID_PRODUCTION;
+        }
+        $submissionNode->setAttribute('stage', WorkflowStageDAO::getPathFromId($stageId));
 
         $this->addIdentifiers($doc, $submissionNode, $submission);
         $this->addFiles($doc, $submissionNode, $submission);

@@ -76,11 +76,7 @@ class PKPSchemaService
      * @return object
      *
      * @hook Schema::get::(schemaName) [[schema]]
-     * @hook Schema::get::
-     * @hook Schema::get::before::
-     * @hook Schema::get::before::
-     * @hook Schema::get::before::
-     * @hook Schema::get::before::
+     * @hook Schema::get::before::(schemaName) [&$forceReload]
      * @hook Schema::get::before::
      */
     public function get($schemaName, $forceReload = false)

@@ -1,0 +1,374 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PKP pkp-lib/invitation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-01 21:05+0000\n"
+"PO-Revision-Date: 2026-06-01 21:05+0900\n"
+"Last-Translator: PKP Japanese translators\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "追加するユーザーグループを少なくとも1つ指定してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "このユーザーグループは招待対象ユーザーにすでに割り当てられています。"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "削除するユーザーグループを少なくとも1つ指定してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "存在しないユーザーから役割を削除することはできません。"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr "ユーザーグループの変更が指定されていないため、招待を送信できません。"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "指定されたユーザーグループに重複があります。"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "ユーザー名 {$username} はすでに使用されています。別のユーザー名を指定してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr "招待にユーザーID（{$userId}）が指定されている場合、該当するユーザーが存在している必要があります。"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr "招待にメールアドレス（{$email}）が指定されている場合、そのメールアドレスは他のユーザーで使用されていてはいけません。"
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "ユーザー名を入力してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "パスワードを入力してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "所属を入力してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "国を入力してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "名を入力してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "姓を入力してください。"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "追加するユーザーグループにはユーザーグループIDが必要です。"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "追加するユーザーグループには開始日が必要です。"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "追加するユーザーグループには誌面掲載設定が必要です。"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "この招待種別には送信用メールが定義されていません。"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "招待操作に失敗しました。"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "指定されたユーザーグループID {$userGroupId} は存在しません。"
+
+msgid "invitation.validation.required"
+msgstr "{$attribute} フィールドは必須です。"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr "インデックス {$attribute} の項目に予期しないプロパティがあります: {$properties}。"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "ID {reviewAssignmentId} は有効な査読割当を示していません。"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "この招待はキャンセルできません。"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "メールアドレスとユーザーIDを同時に指定することはできません。"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "既存ユーザーに対してこの属性へアクセスすることは許可されていません。"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "存在しないユーザーに対してこの属性へアクセスすることは許可されていません。"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "この属性には本日以降の日付を指定してください。"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr ":attribute フィールドは禁止されています。"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "ロケール '{$primaryLocale}' の値が必要です。"
+
+msgid "invitation.step"
+msgstr "ステップ"
+
+msgid "invitation.header"
+msgstr "招待"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "役割に招待"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "ユーザーを役割に招待"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "詳細を入力"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "確認して役割に招待"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "ユーザー検索"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - ユーザー検索"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "ユーザーを検索"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr "ユーザーが存在しない場合は、役割への招待を送信できます。既存ユーザーの場合は、ユーザー情報を確認し、追加の役割へ招待できます。"
+
+msgid "userInvitation.searchField.description"
+msgstr "例: aeinstein@example.com、aeinstein、0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "詳細を入力"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - 詳細を入力して役割に招待"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "保存して続行"
+
+msgid "invitation.role.selectRole"
+msgstr "新しい役割を選択"
+
+msgid "invitation.role.dateStart"
+msgstr "開始日"
+
+msgid "invitation.role.dateEnd"
+msgstr "終了日"
+
+msgid "invitation.role.addRole.button"
+msgstr "別の役割を追加"
+
+msgid "userInvitation.roleTable.role"
+msgstr "役割"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "開始日"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "終了日"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "確認して役割に招待"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "ユーザーをこの役割に招待"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - ユーザーに送信するメールを編集"
+
+msgid "userInvitation.modal.title"
+msgstr "招待を送信しました"
+
+msgid "userInvitation.modal.button"
+msgstr "すべてのユーザーを表示"
+
+msgid "invitation.role.removeRole.button"
+msgstr "役割を削除"
+
+msgid "invitation.email.description"
+msgstr "例: aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr "招待を承諾すると、希望に応じてORCIDでアカウント確認を行うためにリダイレクトされます。"
+
+msgid "invitation.givenName.description"
+msgstr "ユーザーの名が分かる場合は入力できます。この情報は後でユーザーが変更できます。"
+
+msgid "invitation.familyName.description"
+msgstr "ユーザーの姓が分かる場合は入力できます。この情報は後でユーザーが変更できます。"
+
+msgid "invitation.decline.confirm"
+msgstr "招待辞退の確認"
+
+msgid "invitation.decline.confirm.title"
+msgstr "招待を辞退"
+
+msgid "invitation.decline.confirm.description"
+msgstr "この招待を辞退してもよろしいですか？下のボタンをクリックして辞退を確定してください。"
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "ORCID iDを確認"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - ORCID iDを確認"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "保存して続行"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "保存して続行"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "詳細を入力"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - 詳細を入力"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr "メールアドレス、所属などの詳細を入力してください。GDPRに準拠し、この情報は本人のみが変更できます。また、この情報を編集者向けプロフィールに表示するかどうかを選択できます。"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "保存して続行"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "招待承諾ユーザー詳細フォーム"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "アカウント管理のため、以下の詳細情報を入力してください。"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "確認してアカウントを作成"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - 確認してアカウントを作成"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "ORCID確認をスキップ"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "ORCID iDを確認"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "大文字、小文字、数字を組み合わせて使用できます。"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr "6文字以上で、大文字、小文字、数字、記号を組み合わせて使用できます。"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "はい、{$url} に従ってデータが収集・保存されることに同意します。"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "プライバシー声明"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "名、またはファーストネームです。個人名のうち本人を識別する部分です。"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr "姓、ファミリーネーム、またはラストネームです。多くの場合、家族を示す名称です。"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "所属している機関です。"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "所属機関が所在する国です。"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "所属国"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "アカウント詳細"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "ユーザー詳細"
+
+msgid "acceptInvitation.modal.button"
+msgstr "すべての投稿を表示"
+
+msgid "invitation.tableHeader.name"
+msgstr "名前"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "検索条件を少なくとも1つ入力してください。"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "{$name} のユーザー詳細を表示しています。"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "招待をキャンセル"
+
+msgid "invitation.cancelInvite.title"
+msgstr "招待をキャンセル"
+
+msgid "invitation.cancelInvite.message"
+msgstr "{$givenName} {$familyName} に送信した招待をキャンセルすると、メールで送信された承諾リンクは無効になります。招待の詳細は以下の通りです: "
+
+msgid "invitation.masthead.show"
+msgstr "誌面情報に表示"
+
+msgid "invitation.masthead.hidden"
+msgstr "誌面情報に表示しない"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "役割を変更"
+
+msgid "invitation.management.options"
+msgstr "招待管理オプション"
+
+msgid "userInvitation.cancel.message"
+msgstr "この招待をキャンセルしてもよろしいですか？"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "戻る"
+
+msgid "userInvitation.status.invited"
+msgstr "{$date} に招待済み"
+
+msgid "userInvitation.edit.title"
+msgstr "招待を編集"
+
+msgid "userInvitation.edit.message"
+msgstr "既存の招待を編集するか新しい役割を追加すると、現在の招待はキャンセルされ、新しい招待が送信されます。続行してもよろしいですか？"
+
+msgid "validation.after_or_equal"
+msgstr "開始日は本日以降の日付にしてください。"
+
+msgid "invitation.removeRoles"
+msgstr "ユーザーを役割から削除しました"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "プライバシー声明を読み、同意したことを確認してください。"
+
+msgid "acceptInvitation.cancel.message"
+msgstr "キャンセルしてもよろしいですか？ここでキャンセルすると役割承諾手続きが停止し、再開するには招待メールからやり直す必要があります。既存ユーザーの場合はダッシュボードに戻ります。未登録ユーザーの場合は、手続きを再開するために招待メールへアクセスする必要があります。"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "役割招待の手続きをキャンセルしますか？"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "招待手続きをキャンセル"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "招待を承諾できません。別のユーザーとしてログインしています。"
+
+msgid "acceptInvitation.authorization.message"
+msgstr "この招待を承諾するには、ログアウトして正しいアカウントでサインインしてください。"
+
+msgid "userInvitation.searchField"
+msgstr "メールアドレス、ユーザー名、またはORCID iDでユーザーを検索します。開始するにはいずれか1つのみ入力してください。"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "このユーザーは現在無効です。"
+
+msgid "userInvitation.user.disableMessage"
+msgstr "このユーザーは無効化されています。無効な状態では役割を割り当てられません。役割に招待するには、先にユーザーを有効化してください。"
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "プライバシー同意"
+
+msgid "invitation.unavailable.title"
+msgstr "招待は利用できません"
+
+msgid "invitation.unavailable.description"
+msgstr "この招待は現在利用できません。すでに承諾、辞退、または期限切れになっている可能性があります。詳しくはジャーナル管理者にお問い合わせください。"

@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
+msgstr ""
 
 msgid "common.currentStyleSheet"
 msgstr "現在のスタイルシート"
@@ -29,7 +29,7 @@ msgid "about.aboutSite"
 msgstr "このサイトについて"
 
 msgid "about.contact"
-msgstr "連絡先"
+msgstr "雑誌の連絡先"
 
 msgid "about.contact.email"
 msgstr "メールアドレス"
@@ -152,12 +152,10 @@ msgid "common.all"
 msgstr "すべて"
 
 msgid "common.alphaList"
-msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+msgstr ""
 
 msgid "common.titleSmallWords"
 msgstr ""
-"of a the and an or nor but is if then else when at from by on off for in out "
-"over to into with"
 
 msgid "common.alreadyAssigned"
 msgstr "任命済"
@@ -348,7 +346,7 @@ msgid "common.details"
 msgstr "詳細"
 
 msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+msgstr ""
 
 msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} ピクセル"
@@ -434,10 +432,10 @@ msgid "common.file"
 msgstr "ファイル"
 
 msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
+msgstr ""
 
 msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
+msgstr ""
 
 msgid "common.fileName"
 msgstr "ファイル名"
@@ -488,7 +486,7 @@ msgid "common.hour"
 msgstr "時"
 
 msgid "common.id"
-msgstr "ID"
+msgstr ""
 
 msgid "common.import"
 msgstr "インポート"
@@ -545,7 +543,7 @@ msgid "common.commaListSeparator"
 msgstr "、 "
 
 msgid "common.semicolonListSeparator"
-msgstr "; "
+msgstr ""
 
 msgid "common.manage"
 msgstr "管理"
@@ -599,7 +597,7 @@ msgid "common.notApplicable"
 msgstr "適用しない"
 
 msgid "common.notApplicableShort"
-msgstr "N/A"
+msgstr ""
 
 msgid "common.notAvailable"
 msgstr "利用できません"
@@ -637,7 +635,7 @@ msgid "common.on"
 msgstr "オン"
 
 msgid "common.ok"
-msgstr "OK"
+msgstr ""
 
 msgid "common.options"
 msgstr "オプション"
@@ -685,7 +683,7 @@ msgid "common.pageNumber"
 msgstr "{$pageNumber}ページ"
 
 msgid "common.percentage"
-msgstr "{$percentage}%"
+msgstr ""
 
 msgid "common.plugin"
 msgstr "プラグイン"
@@ -715,10 +713,10 @@ msgid "common.queue.long.active"
 msgstr "処理中の投稿物"
 
 msgid "common.range"
-msgstr "{$min}-{$max}"
+msgstr ""
 
 msgid "common.re"
-msgstr "Re:"
+msgstr ""
 
 msgid "common.readMore"
 msgstr "もっと読む"
@@ -869,7 +867,7 @@ msgid "common.title"
 msgstr "タイトル"
 
 msgid "common.titleSeparator"
-msgstr " | "
+msgstr ""
 
 msgid "common.top"
 msgstr "トップ"
@@ -952,13 +950,13 @@ msgid "common.upload.dragFile"
 msgstr "ここにファイルをドラッグアンドドロップしてアップロードを開始します"
 
 msgid "common.url"
-msgstr "URL"
+msgstr ""
 
 msgid "common.user"
 msgstr "ユーザー"
 
 msgid "common.user.nonexistent"
-msgstr "[Nonexistent user]"
+msgstr ""
 
 msgid "common.view"
 msgstr "閲覧"
@@ -979,7 +977,7 @@ msgid "common.width"
 msgstr "幅"
 
 msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
+msgstr ""
 
 msgid "common.year"
 msgstr "年"
@@ -1073,7 +1071,7 @@ msgid "email.attachmentNotFound"
 msgstr "ファイル {$fileName} を添付できませんでした。"
 
 msgid "email.bcc"
-msgstr "BCC"
+msgstr ""
 
 msgid "email.bccSender"
 msgstr "このメールを自分のメールアドレス（{$address}）にコピーする"
@@ -1082,7 +1080,7 @@ msgid "email.body"
 msgstr "本文"
 
 msgid "email.cc"
-msgstr "CC"
+msgstr ""
 
 msgid "email.confirmSwitchLocale"
 msgstr "このメールを作成するために {$localeName} に変更してもよろしいでしょうか。メー"
@@ -1147,7 +1145,7 @@ msgid "email.bodyRequired"
 msgstr "メールの本文を入力してください。"
 
 msgid "email.to"
-msgstr "To"
+msgstr ""
 
 msgid "form.url.invalid"
 msgstr "指定された URL は無効です。 確認して、もう一度やり直してください。"
@@ -1443,7 +1441,7 @@ msgid "navigation.breadcrumbLabel"
 msgstr "現在のページ:"
 
 msgid "navigation.breadcrumbSeparator"
-msgstr "/"
+msgstr ""
 
 msgid "navigation.tools"
 msgstr "ツール"
@@ -1491,13 +1489,13 @@ msgid "navigation.login"
 msgstr "ログイン"
 
 msgid "navigation.nextPage"
-msgstr "&gt;&gt;"
+msgstr ""
 
 msgid "navigation.nextStep"
 msgstr "次のステップ"
 
 msgid "navigation.previousPage"
-msgstr "&lt;&lt;"
+msgstr ""
 
 msgid "navigation.previousStep"
 msgstr "前のステップ"
@@ -1539,7 +1537,7 @@ msgid "navigation.stepNumber"
 msgstr "ステップ {$step}"
 
 msgid "navigation.submissions"
-msgstr "投稿物"
+msgstr "投稿"
 
 msgid "navigation.system"
 msgstr "システム"
@@ -1832,7 +1830,7 @@ msgid "notification.editStageParticipant"
 msgstr "段階の課題が変更されました。"
 
 msgid "notification.type.newAnnouncement"
-msgstr "新しいお知らせ。"
+msgstr "新しいお知らせが作成された。"
 
 msgid "notification.type.reviewAssignment"
 msgstr "査読待機中。"
@@ -2225,10 +2223,10 @@ msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "不明なコマンド {$command}"
 
 msgid "common.withForwardSlash"
-msgstr "{$item}/{$afterSlash}"
+msgstr ""
 
 msgid "common.categorySeparator"
-msgstr "{$parent} > {$child}"
+msgstr ""
 
 msgid "notification.addedAuthor"
 msgstr "著者が追加されました。"
@@ -2256,3 +2254,97 @@ msgstr "サンドボックスモードで動作するアプリケーション。
 
 msgid "showAll"
 msgstr "すべて表示"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr ""
+
+msgid "common.moreActions"
+msgstr "その他の操作"
+
+msgid "common.editorialMasthead"
+msgstr ""
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr ""
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr ""
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+
+msgid "common.editorialHistory"
+msgstr ""
+
+msgid "common.editorialHistory.page"
+msgstr ""
+
+msgid "common.editorialHistory.page.description"
+msgstr ""
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr ""
+
+msgid "common.assignments"
+msgstr "割り当て"
+
+msgid "common.changeLanguage"
+msgstr "言語を変更"
+
+msgid "common.yesContinue"
+msgstr "はい、続行します"
+
+msgid "common.filtersClear"
+msgstr "フィルターをクリア"
+
+msgid "common.showingXofX"
+msgstr "<strong>{$start}〜{$finish}</strong>件目 / 全{$total}件"
+
+msgid "common.inParenthesis"
+msgstr ""
+
+msgid "common.loaded"
+msgstr "読み込み済み"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+
+msgid "form.errorSummaryMany"
+msgstr ""
+
+msgid "navigation.dashboards"
+msgstr "編集ダッシュボード"
+
+msgid "navigation.reviewAssignments"
+msgstr "査読者としての割り当て"
+
+msgid "navigation.mySubmissions"
+msgstr "著者としての投稿"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr ""
+
+msgid "reviewer.submission.submittedOn"
+msgstr ""
+
+msgid "validator.date.comparison"
+msgstr ""
+
+msgid "validator.multilingual"
+msgstr ""
+
+msgid "common.fromUntil"
+msgstr ""
+
+msgid "common.numero"
+msgstr "No."
+
+msgid "common.refreshingData"
+msgstr "データを更新中"
+
+msgid "common.viewMoreDetails"
+msgstr "詳細を表示"
+
+msgid "common.openLinkNewTab"
+msgstr "新しいタブでリンクを開く"
+

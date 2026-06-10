@@ -25,7 +25,7 @@ msgid "default.groups.plural.productionEditor"
 msgstr "制作編集者"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdE"
+msgstr ""
 
 msgid "default.groups.name.copyeditor"
 msgstr "原稿整理者"
@@ -34,7 +34,7 @@ msgid "default.groups.plural.copyeditor"
 msgstr "原稿整理者"
 
 msgid "default.groups.abbrev.copyeditor"
-msgstr "CE"
+msgstr ""
 
 msgid "default.groups.name.proofreader"
 msgstr "校正者"
@@ -43,7 +43,7 @@ msgid "default.groups.plural.proofreader"
 msgstr "校正者"
 
 msgid "default.groups.abbrev.proofreader"
-msgstr "PR"
+msgstr ""
 
 msgid "default.groups.name.designer"
 msgstr "デザイナー"
@@ -61,7 +61,7 @@ msgid "default.groups.plural.internalReviewer"
 msgstr "内部査読者"
 
 msgid "default.groups.abbrev.internalReviewer"
-msgstr "IR"
+msgstr ""
 
 msgid "default.groups.name.marketing"
 msgstr "マーケティングおよびセールスコーディネーター"
@@ -70,7 +70,7 @@ msgid "default.groups.plural.marketing"
 msgstr "マーケティングおよびセールスコーディネーター"
 
 msgid "default.groups.abbrev.marketing"
-msgstr "MS"
+msgstr ""
 
 msgid "default.groups.name.funding"
 msgstr "資金コーディネーター"
@@ -79,7 +79,7 @@ msgid "default.groups.plural.funding"
 msgstr "資金コーディネーター"
 
 msgid "default.groups.abbrev.funding"
-msgstr "FC"
+msgstr ""
 
 msgid "default.groups.name.indexer"
 msgstr "索引作製者"
@@ -88,7 +88,7 @@ msgid "default.groups.plural.indexer"
 msgstr "索引作製者"
 
 msgid "default.groups.abbrev.indexer"
-msgstr "IND"
+msgstr ""
 
 msgid "default.groups.name.layoutEditor"
 msgstr "レイアウトエディタ"
@@ -97,7 +97,7 @@ msgid "default.groups.plural.layoutEditor"
 msgstr "レイアウトエディタ"
 
 msgid "default.groups.abbrev.layoutEditor"
-msgstr "LE"
+msgstr ""
 
 msgid "default.groups.name.author"
 msgstr "著者"
@@ -106,7 +106,7 @@ msgid "default.groups.plural.author"
 msgstr "著者"
 
 msgid "default.groups.abbrev.author"
-msgstr "AU"
+msgstr ""
 
 msgid "default.groups.name.translator"
 msgstr "翻訳者"
@@ -115,7 +115,7 @@ msgid "default.groups.plural.translator"
 msgstr "翻訳者"
 
 msgid "default.groups.abbrev.translator"
-msgstr "Trans"
+msgstr ""
 
 msgid "default.groups.name.reader"
 msgstr "購読者"
@@ -124,7 +124,7 @@ msgid "default.groups.plural.reader"
 msgstr "購読者"
 
 msgid "default.groups.abbrev.reader"
-msgstr "Read"
+msgstr ""
 
 msgid "default.genres.other"
 msgstr "その他"
@@ -191,3 +191,13 @@ msgstr ""
 "身の研究分野に精通しており、かつ本研究との間に利益相反のない研究者をお選びく"
 "ださい。本機能は、査読の質と効率を高め、著者および編集委員会の双方にとって、"
 "より円滑な査読プロセスを実現することを目的としています。</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "編集委員"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "編集委員"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "編集委員"
+

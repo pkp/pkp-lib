@@ -262,25 +262,25 @@ msgid "metadata.property.validationMessage.publisher-name"
 msgstr "適切な出版社名を入力してください。"
 
 msgid "metadata.property.displayName.isbn"
-msgstr "ISBN"
+msgstr ""
 
 msgid "metadata.property.validationMessage.isbn"
 msgstr "有効なISBN(9桁あるいは13桁)を入力してください。"
 
 msgid "metadata.property.displayName.issn"
-msgstr "Print ISSN"
+msgstr ""
 
 msgid "metadata.property.validationMessage.issn"
 msgstr "適切なPrint ISSNを入力してください。"
 
 msgid "metadata.property.displayName.eissn"
-msgstr "eISSN"
+msgstr ""
 
 msgid "metadata.property.validationMessage.eissn"
 msgstr "適切なeISSNを入力してください。"
 
 msgid "metadata.property.displayName.doi"
-msgstr "DOI"
+msgstr ""
 
 msgid "metadata.property.validationMessage.doi"
 msgstr "適切なDOIを入力してください。"
@@ -292,19 +292,19 @@ msgid "metadata.property.validationMessage.publisher-id"
 msgstr "適切なカスタムIDを入力して下さい。"
 
 msgid "metadata.property.displayName.coden"
-msgstr "CODEN"
+msgstr ""
 
 msgid "metadata.property.validationMessage.coden"
 msgstr "適切なCODENを入力してください。"
 
 msgid "metadata.property.displayName.sici"
-msgstr "SICI"
+msgstr ""
 
 msgid "metadata.property.validationMessage.sici"
 msgstr "適切なSICIを入力してください。"
 
 msgid "metadata.property.displayName.pmid"
-msgstr "PMID"
+msgstr ""
 
 msgid "metadata.property.validationMessage.pmid"
 msgstr "適切なPMIDを入力してください。"
@@ -388,7 +388,7 @@ msgid "metadata.property.displayName.abstract"
 msgstr "要旨"
 
 msgid "common.queue.long.submissionsUnassigned"
-msgstr "未処理"
+msgstr "未処理の投稿物"
 
 msgid "common.queue.long.myAssigned"
 msgstr "担当投稿"
@@ -460,7 +460,7 @@ msgid "submission.parsedCitations"
 msgstr "抽出された参考文献"
 
 msgid "submission.parsedCitations.DOI"
-msgstr "DOI"
+msgstr ""
 
 msgid "submission.parsedCitations.description"
 msgstr "以下の参考文献が抽出されており、投稿メタデータにリンクされます。"
@@ -727,7 +727,7 @@ msgid "submission.versions"
 msgstr "バージョン"
 
 msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$version})"
+msgstr ""
 
 msgid "submission.outdatedVersion"
 msgstr ""
@@ -1126,10 +1126,10 @@ msgid "submission.nameRequired"
 msgstr "このアイテムには名前が必要です。"
 
 msgid "submission.date.mmdd"
-msgstr "MM-DD"
+msgstr ""
 
 msgid "submission.date.yyyymmdd"
-msgstr "YYYY-MM-DD"
+msgstr ""
 
 msgid "submission.submit.contributorRole"
 msgstr "寄稿者の役割"
@@ -2602,3 +2602,431 @@ msgstr "査読者を候補する理由"
 msgid "reviewerSuggestion.suggestionReason.description"
 msgstr "この査読者を推薦する理由と、利益相反の可能性があるかどうかを記載してください"
 "。"
+
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Send an email to the assigned reviewers to let them know that their review "
+"assignment is cancelled."
+
+msgid "author.authorNotFound"
+msgstr ""
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+
+msgid "publication.editorEditWarning"
+msgstr ""
+
+msgid "ror.nameRequired"
+msgstr ""
+
+msgid "ror.displayLocaleRequired"
+msgstr ""
+
+msgid "submission.wizard.submissionCancelled"
+msgstr ""
+
+msgid "submission.wizard.submissionCancel"
+msgstr ""
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr ""
+
+msgid "submission.review.status.viewed"
+msgstr ""
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr ""
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr ""
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr ""
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr ""
+
+msgid "submission.list.completeSubmission"
+msgstr ""
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+
+msgid "submission.dashboard.view.assigned"
+msgstr "自分に割り当てられた投稿"
+
+msgid "submission.dashboard.view.active"
+msgstr "進行中の投稿"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "編集者の対応待ち"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "投稿段階のすべて"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "外部査読中のすべて"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "査読段階のすべて"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "査読依頼が必要"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "査読待ち"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "査読結果提出済み"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "査読期限超過"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "コピー編集段階のすべて"
+
+msgid "submission.dashboard.view.production"
+msgstr "制作段階のすべて"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "公開予定"
+
+msgid "submission.dashboard.view.published"
+msgstr "公開済み"
+
+msgid "submission.dashboard.view.declined"
+msgstr "却下"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "修正依頼中"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "著者修正版提出済み"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "未完了の投稿"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "すべての割り当て"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "保留中"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "完了／辞退"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "すべての査読割り当て"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "自分の対応が必要"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "アーカイブ済み"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "辞退"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "完了"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "公開済み"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr ""
+
+msgid "submission.stage.scheduledForPublication"
+msgstr ""
+
+msgid "submission.stage.published"
+msgstr ""
+
+msgid "publication.jats"
+msgstr ""
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr ""
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr ""
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+
+msgid "publication.jats.lastModified"
+msgstr ""
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+
+msgid "submission.files.content.error"
+msgstr ""
+
+msgid "submission.localeNotSupported"
+msgstr ""
+
+msgid "dashboard.reviewersAssigned"
+msgstr "査読者割り当て済み"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "査読進捗 {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "フィルターを適用"
+
+msgid "dashboard.startNewSubmission"
+msgstr "新規投稿を開始"
+
+msgid "dashboard.assignReviewers"
+msgstr "査読者を割り当てる"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr ""
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr ""
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr ""
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr ""
+
+msgid "dashboard.revisionRequested"
+msgstr ""
+
+msgid "dashboard.submitRevisions"
+msgstr ""
+
+msgid "workflow.uploadRevisions"
+msgstr ""
+
+msgid "dashboard.actions.respondToRequest"
+msgstr ""
+
+msgid "dashboard.actions.finishReview"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+
+msgid ""
+"dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "The review was completed on {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr ""
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr ""
+
+msgid "dashboard.declinedDuringStage"
+msgstr ""
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr ""
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr ""
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr ""
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr ""
+
+msgid "workflow.stageNotStarted"
+msgstr ""
+
+msgid "workflow.submissionInFutureStage"
+msgstr ""
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr ""
+
+msgid "workflow.reviewRoundN"
+msgstr ""
+
+msgid "fileManager.submissionFilesDescription"
+msgstr ""
+
+msgid "fileManager.revisionsUploaded"
+msgstr ""
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+
+msgid "fileManager.filesForReview"
+msgstr ""
+
+msgid "fileManager.filesForReviewDescription"
+msgstr ""
+
+msgid "fileManager.copyeditedFiles"
+msgstr ""
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr ""
+
+msgid "reviewerManager.reviewerStatus"
+msgstr ""
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr ""
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr ""
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr ""
+

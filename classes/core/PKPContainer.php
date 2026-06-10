@@ -43,6 +43,11 @@ class PKPContainer extends Container
     public const LOG_DIRECTORY = 'logs';
 
     /**
+     * The application log filename, written under the storage logs directory
+     */
+    public const LOG_FILE_NAME = 'app.log';
+
+    /**
      * Define if the app currently runing the unit test
      */
     private bool $isRunningUnitTest = false;
@@ -484,12 +489,6 @@ class PKPContainer extends Container
 
         // Logging
         $logLevel = Config::getVar('logs', 'log_level', 'error');
-        $stackChannels = Str::of(Config::getVar('logs', 'log_stacks', 'daily,errorlog'))
-            ->explode(',')
-            ->map(fn (string $channel) => trim($channel))
-            ->filter()
-            ->values()
-            ->all();
 
         // Optional Monolog formatter for the formatter-capable channels (single, daily,
         // stderr, syslog). A null formatter falls back to Laravel's default LineFormatter
@@ -501,7 +500,10 @@ class PKPContainer extends Container
             'channels' => [
                 'stack' => [
                     'driver' => 'stack',
-                    'channels' => $stackChannels ?: ['daily', 'errorlog'],
+                    'channels' => array_values(array_filter(array_map(
+                        'trim',
+                        explode(',', Config::getVar('logs', 'log_stacks', 'single'))
+                    ))),
                     'ignore_exceptions' => false,
                 ],
 
@@ -696,22 +698,33 @@ class PKPContainer extends Container
     }
 
     /**
-     * Get the name of the application log file.
-     *
-     * Reads the [logs] log_file_name config; falls back to the per-app
-     * default ({Application::getName()}.log).
+     * Get the absolute path to the application/given log file under the storage log directory.
      */
-    public function logFileName(): string
+    public function logFilePath(string $logFileName = self::LOG_FILE_NAME, string $logDirName = self::LOG_DIRECTORY): string
     {
-        return Config::getVar('logs', 'log_file_name', Application::getName() . '.log');
+        return $this->storagePath($logDirName . '/' . $logFileName);
     }
 
     /**
-     * Get the absolute path to the application/given log file under the storage log directory.
+     * Whether PHP's error_log is an active logging destination (directly or via the stack).
      */
-    public function logFilePath(?string $logFileName = null, ?string $logDirName = null): string
+    public function usesErrorLogChannel(): bool
     {
-        return $this->storagePath(($logDirName ?? self::LOG_DIRECTORY) . '/' . ($logFileName ?? $this->logFileName()));
+        $channel = Config::getVar('logs', 'log_channel', 'stack');
+
+        if ($channel === 'errorlog') {
+            return true;
+        }
+
+        if ($channel !== 'stack') {
+            return false;
+        }
+
+        return in_array(
+            'errorlog',
+            array_map('trim', explode(',', Config::getVar('logs', 'log_stacks', 'single'))),
+            true
+        );
     }
 
     /**

@@ -25,8 +25,6 @@ use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\orcid\OrcidManager;
-use Illuminate\Support\Facades\View;
-use PKP\core\PKPContainer;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
@@ -58,7 +56,7 @@ class AboutContextHandler extends Handler
      * @param \PKP\core\PKPRequest $request
      */
     public function index($args, $request)
-    {   
+    {
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $templateMgr->display('frontend/pages/about.tpl');

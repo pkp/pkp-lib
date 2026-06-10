@@ -50,10 +50,12 @@ class DiscussionSubmission extends Mailable
     ];
 
     protected Context $context;
+    protected Submission $submission;
 
     public function __construct(Context $context, Submission $submission)
     {
         parent::__construct([$context, $submission]);
         $this->context = $context;
+        $this->submission = $submission;
     }
 }

@@ -24,6 +24,8 @@ use PKP\mail\variables\RecipientEmailVariable;
 
 trait Recipient
 {
+    protected array $recipients = [];
+
     /**
      * @copydoc Illuminate\Mail\Mailable::setAddress()
      *
@@ -68,6 +70,7 @@ trait Recipient
 
         $this->setAddress($to);
         $this->variables[] = new RecipientEmailVariable($recipients, $this);
+        $this->recipients = $recipients;
         return $this;
     }
 }

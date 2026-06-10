@@ -603,6 +603,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => 'workflow.review.externalReview',
             WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
             WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production',
+            WORKFLOW_STAGE_ID_DONE => 'submission.done',
         };
     }
 
@@ -619,6 +620,8 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => '#e08914',
             WORKFLOW_STAGE_ID_EDITING => '#006798',
             WORKFLOW_STAGE_ID_PRODUCTION => '#00b28d',
+            // PR_TODO: What colour should be used here?
+            WORKFLOW_STAGE_ID_DONE => '#555555',
         };
     }
 
@@ -733,6 +736,7 @@ define('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
 define('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
 define('WORKFLOW_STAGE_ID_EDITING', 4);
 define('WORKFLOW_STAGE_ID_PRODUCTION', 5);
+define('WORKFLOW_STAGE_ID_DONE', 6);
 
 /* TextArea insert tag variable types used to change their display when selected */
 define('INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT', 'PLAIN_TEXT');

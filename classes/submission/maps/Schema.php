@@ -1061,6 +1061,28 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
+        // Done is excluded from getApplicationStages() because it has no stage assignments,
+        // but a submission resting in Done still needs an active stage entry so the UI can
+        // resolve its current stage.
+        if ($submission->getData('stageId') == WORKFLOW_STAGE_ID_DONE) {
+            // Reuse the roles the current user already has across the submission's other stages.
+            $currentUserAssignedRoles = collect($stages)
+                ->pluck('currentUserAssignedRoles')
+                ->flatten()
+                ->unique()
+                ->values()
+                ->all();
+
+            $stages[WORKFLOW_STAGE_ID_DONE] = [
+                'id' => WORKFLOW_STAGE_ID_DONE,
+                'label' => __($workflowStageDao->getTranslationKeyFromId(WORKFLOW_STAGE_ID_DONE)),
+                'isActiveStage' => true,
+                'editorAssigned' => false,
+                'currentUserAssignedRoles' => $currentUserAssignedRoles,
+                'uploadedFilesCount' => null,
+            ];
+        }
+
         return $stages;
     }
 

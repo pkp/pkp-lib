@@ -60,6 +60,9 @@ class Decision extends DataObject
     public const BACK_FROM_COPYEDITING = 30;
     public const CANCEL_REVIEW_ROUND = 31;
     public const CANCEL_INTERNAL_REVIEW_ROUND = 32;         // OMP Specific
+    public const MOVE_TO_DONE = 33;
+    public const RETURN_TO_WORKFLOW = 34;
+    public const RETURN_TO_DONE = 35;
 
 
     /**

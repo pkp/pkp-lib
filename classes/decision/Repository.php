@@ -89,6 +89,21 @@ abstract class Repository
     }
 
     /**
+     * Whether a submission has ever been moved into the Done stage.
+     *
+     * NB: A MOVE_TO_DONE or RETURN_TO_DONE in the decision history means
+     * the submission has previously been in the DONE stage.
+     * This is required for a Return to Done decision from an active stage.
+     */
+    public function hasDoneHistory(int $submissionId): bool
+    {
+        return $this->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByDecisionTypes([Decision::MOVE_TO_DONE, Decision::RETURN_TO_DONE])
+            ->getCount() > 0;
+    }
+
+    /**
      * Get an instance of the map class for mapping
      * decisions to their schema
      */

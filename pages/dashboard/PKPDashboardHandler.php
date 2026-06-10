@@ -262,6 +262,9 @@ abstract class PKPDashboardHandler extends Handler
             'DECISION_BACK_FROM_COPYEDITING' => Decision::BACK_FROM_COPYEDITING,
             'DECISION_NEW_EXTERNAL_ROUND' => Decision::NEW_EXTERNAL_ROUND,
             'DECISION_BACK_FROM_PRODUCTION' => Decision::BACK_FROM_PRODUCTION,
+            'DECISION_MOVE_TO_DONE' => Decision::MOVE_TO_DONE,
+            'DECISION_RETURN_TO_WORKFLOW' => Decision::RETURN_TO_WORKFLOW,
+            'DECISION_RETURN_TO_DONE' => Decision::RETURN_TO_DONE,
 
             'DECISION_RECOMMEND_ACCEPT' => Decision::RECOMMEND_ACCEPT,
             'DECISION_RECOMMEND_DECLINE' => Decision::RECOMMEND_DECLINE,

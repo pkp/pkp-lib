@@ -79,10 +79,13 @@ class WorkflowStageDAO extends \PKP\db\DAO
             WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
             WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
             WORKFLOW_STAGE_ID_EDITING,
-            WORKFLOW_STAGE_ID_PRODUCTION
+            WORKFLOW_STAGE_ID_PRODUCTION,
+            WORKFLOW_STAGE_ID_DONE
         ])
             ->mapWithKeys(fn (int $stageId) => [$stageId => Application::getWorkflowStageName($stageId)])
             ->toArray();
+        // Done is intentionally absent from getApplicationStages(); filtered callers
+        // therefore exclude it, while unfiltered callers (e.g. label lookups) include it.
         if ($filtered) {
             $applicationStages = Application::getApplicationStages();
             return array_intersect_key($stageMapping, array_flip($applicationStages));

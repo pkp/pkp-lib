@@ -1889,6 +1889,51 @@ msgstr "The submission, {$title}, was moved to the copyediting stage. The author
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that this submission has been moved to the copyediting stage. Explain why this decision was made and inform the author of what further editing will be required before this submission is ready for production."
 
+msgid "editor.submission.decision.moveToDone"
+msgstr "Move to Done"
+
+msgid "editor.submission.decision.moveToDone.description"
+msgstr "This submission has been moved to the Done stage."
+
+msgid "editor.submission.decision.moveToDone.log"
+msgstr "{$editorName} moved this submission to the Done stage."
+
+msgid "editor.submission.decision.moveToDone.completed"
+msgstr "Moved to Done"
+
+msgid "editor.submission.decision.moveToDone.completed.description"
+msgstr "The submission, {$title}, was moved to the Done stage because its first Version of Record was published."
+
+msgid "editor.submission.decision.returnToWorkflow"
+msgstr "Return to Workflow"
+
+msgid "editor.submission.decision.returnToWorkflow.description"
+msgstr "Return this submission to the workflow stage it occupied before it was moved to Done."
+
+msgid "editor.submission.decision.returnToWorkflow.log"
+msgstr "{$editorName} returned this submission to the workflow."
+
+msgid "editor.submission.decision.returnToWorkflow.completed"
+msgstr "Returned to Workflow"
+
+msgid "editor.submission.decision.returnToWorkflow.completed.description"
+msgstr "The submission, {$title}, was returned to the workflow."
+
+msgid "editor.submission.decision.returnToDone"
+msgstr "Return to Done"
+
+msgid "editor.submission.decision.returnToDone.description"
+msgstr "Return this submission to the Done stage."
+
+msgid "editor.submission.decision.returnToDone.log"
+msgstr "{$editorName} returned this submission to the Done stage."
+
+msgid "editor.submission.decision.returnToDone.completed"
+msgstr "Returned to Done"
+
+msgid "editor.submission.decision.returnToDone.completed.description"
+msgstr "The submission, {$title}, was returned to the Done stage."
+
 msgid "editor.submission.decision.skipReview"
 msgstr "Accept and Skip Review"
 
@@ -3327,7 +3372,6 @@ msgstr "Select incomplete submissions to be deleted."
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Delete Incomplete Submissions"
 
-<<<<<<< HEAD
 msgid "publication.sendToTextEditor.label"
 msgstr "To which version would you like to send this file?"
 

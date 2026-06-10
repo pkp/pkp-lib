@@ -948,6 +948,44 @@ abstract class Repository
     }
 
     /**
+     * Always resolves to an editor to attribute a system-initiated decision to
+     * (e.g. the cron-triggered move-to-done, which runs with no acting user).
+     *
+     */
+    public function resolveSystemEditorId(Submission $submission): int
+    {
+        // Prefer an editor assigned to the submission (earliest assignment).
+        $assignedEditorId = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER])
+            ->orderBy('stage_assignments.stage_assignment_id')
+            ->value('stage_assignments.user_id');
+        if ($assignedEditorId) {
+            return (int) $assignedEditorId;
+        }
+
+        // Fall back to a journal manager.
+        $managerId = Repo::user()->getCollector()
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->filterByRoleIds([Role::ROLE_ID_MANAGER])
+            ->getIds()
+            ->first();
+        if ($managerId) {
+            return $managerId;
+        }
+
+        // Terminal fallback: a site administrator *should* always exists on a functioning install.
+        $adminId = Repo::user()->getCollector()
+            ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN])
+            ->getIds()
+            ->first();
+        if (!$adminId) {
+            throw new \RuntimeException("No editor, manager, or site administrator could be resolved for submission ID {$submission->getId()}.");
+        }
+
+        return $adminId;
+    }
+
+    /**
      * Returns a Collection of mapped dashboard views
      */
     protected function mapDashboardViews(Collection $types, Context $context, User $user, bool $canAccessUnassignedSubmission, array $selectedRoleIds = []): Collection
@@ -1155,7 +1193,7 @@ abstract class Repository
 
                     $collector = Repo::submission()->getCollector()
                         ->filterByContextIds([$context->getId()])
-                        ->filterByStatus([PKPSubmission::STATUS_PUBLISHED]);
+                        ->filterByStageIds([WORKFLOW_STAGE_ID_DONE]);
                     return new DashboardView(
                         $key,
                         __('submission.dashboard.view.published'),
@@ -1164,7 +1202,7 @@ abstract class Repository
                             ? $collector
                             : $collector->assignedTo([$user->getId()], $assignedWithRoles),
                         $canAccessUnassignedSubmission ? null : 'assigned',
-                        ['status' => [PKPSubmission::STATUS_PUBLISHED], 'assignedWithRoles' => $assignedWithRoles]
+                        ['stageIds' => [WORKFLOW_STAGE_ID_DONE], 'assignedWithRoles' => $assignedWithRoles]
                     );
                 case DashboardView::TYPE_DECLINED:
                     $assignedWithRoles = $canAccessUnassignedSubmission ? null : $selectedRoleIds;
@@ -1398,16 +1436,22 @@ abstract class Repository
             return Submission::STATUS_DECLINED;
         }
 
-        // Any published publication sends the submission to the "published" queue.
+        // Only a published VoR sends the submission to the "published" queue.
         foreach ($publications as $publication) {
-            if ($publication->getData('status') == Publication::STATUS_PUBLISHED) {
+            if (
+                $publication->getData('status') == Publication::STATUS_PUBLISHED &&
+                $publication->getData('versionStage') === VersionStage::finalVersionStage()->value
+            ) {
                 return Submission::STATUS_PUBLISHED;
             }
         }
 
-        // If there is a "scheduled" publication, the status will be "queued".
+        // If there is a "scheduled" VoR publication, the status will be "queued".
         foreach ($publications as $publication) {
-            if ($publication->getData('status') == Publication::STATUS_SCHEDULED) {
+            if (
+                $publication->getData('status') == Publication::STATUS_SCHEDULED &&
+                $publication->getData('versionStage') === VersionStage::finalVersionStage()->value
+            ) {
                 return Submission::STATUS_SCHEDULED;
             }
         }

@@ -58,6 +58,17 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
             ->get();
 
         if ($stageAssignments->isEmpty()) {
+            // Done stage has no stage-based assignments. Allow editors/managers who are
+            // assigned to this submission in any other stage to make decisions.
+            if ($submission->getData('stageId') === WORKFLOW_STAGE_ID_DONE) {
+                $hasEditorAssignment = StageAssignment::withSubmissionIds([$submission->getId()])
+                    ->withUserId($this->user->getId())
+                    ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                    ->exists();
+                if ($hasEditorAssignment) {
+                    return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+                }
+            }
             $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
             if ($canAccessUnassignedSubmission) {

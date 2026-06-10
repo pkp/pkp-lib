@@ -19,6 +19,7 @@ namespace PKP\API\v1\submissions;
 
 use APP\author\Author;
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
@@ -70,6 +71,7 @@ use PKP\publication\helpers\PublicationVersionInfoResource;
 use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
+use PKP\security\authorization\internal\DecisionAllowedPolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
@@ -121,6 +123,7 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'addDecision',
+        'returnToDone',
         'getPublicationDataAvailabilityForm',
         'getPublicationMetadataForm',
         'getPublicationIdentifierForm',
@@ -248,6 +251,10 @@ class PKPSubmissionController extends PKPBaseController
 
             Route::post('{submissionId}/decisions', $this->addDecision(...))
                 ->name('submission.decision.add')
+                ->whereNumber('submissionId');
+
+            Route::post('{submissionId}/returnToDone', $this->returnToDone(...))
+                ->name('submission.returnToDone')
                 ->whereNumber('submissionId');
 
             Route::delete('{submissionId}', $this->delete(...))
@@ -425,6 +432,11 @@ class PKPSubmissionController extends PKPBaseController
         if ($actionName === 'addDecision') {
             $this->addPolicy(new SubmissionCompletePolicy($request, $args));
             $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));
+        }
+
+        if ($actionName === 'returnToDone') {
+            $this->addPolicy(new SubmissionCompletePolicy($request, $args));
+            $this->addPolicy(new DecisionAllowedPolicy($request->getUser()));
         }
 
         if (in_array(
@@ -1452,8 +1464,10 @@ class PKPSubmissionController extends PKPBaseController
 
         $publication = Repo::publication()->get($publication->getId());
 
-        // Move the submission into the published queue
-        Repo::submission()->updateStatus($submission, Submission::STATUS_PUBLISHED);
+        // Re-fetch submission after publish() — it may have moved to Done inside publish(),
+        // and the stale instance would overwrite stageId on the next dao->update() call.
+        $submission = Repo::submission()->get($submission->getId());
+        Repo::submission()->updateStatus($submission);
         Repo::submission()->updateCurrentPublication($submission);
 
         /** @var GenreDAO $genreDao */
@@ -1960,6 +1974,43 @@ class PKPSubmissionController extends PKPBaseController
         // related to that round are deleted. In such cases, we return the
         // original Decision object rather than fetching it from the data store.
         $decision = Repo::decision()->get($decisionId) ?? $decision;
+
+        return response()->json(Repo::decision()->getSchemaMap()->map($decision), Response::HTTP_OK);
+    }
+
+    /**
+     * Return a submission from an active workflow stage back to the Done stage.
+     *
+     * NB: Bypasses DecisionStageValidPolicy so it can be called from any active stage.
+     * Validates eligibility server-side: submission must have a MOVE_TO_DONE or
+     * RETURN_TO_DONE in history and must not currently be in Done.
+     */
+    public function returnToDone(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+
+        if ($submission->getData('stageId') === WORKFLOW_STAGE_ID_DONE) {
+            return response()->json([
+                'error' => __('api.submissions.403.alreadyInDone'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        if (!Repo::decision()->hasDoneHistory($submission->getId())) {
+            return response()->json([
+                'error' => __('api.submissions.403.noMoveToDoneHistory'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $returnToDone = Repo::decision()->newDataObject([
+            'decision' => Decision::RETURN_TO_DONE,
+            'submissionId' => $submission->getId(),
+            'editorId' => $request->getUser()->getId(),
+            'stageId' => $submission->getData('stageId'),
+        ]);
+        $decisionId = Repo::decision()->add($returnToDone);
+
+        $decision = Repo::decision()->get($decisionId);
 
         return response()->json(Repo::decision()->getSchemaMap()->map($decision), Response::HTTP_OK);
     }

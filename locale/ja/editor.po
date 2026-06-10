@@ -598,3 +598,55 @@ msgstr "著者と同じ所属機関"
 
 msgid "editor.submission.findAndSelectReviewerFromSuggestions"
 msgstr "査読者候補から査読者を選択してください"
+
+msgid "editor.review.importantDates.notice"
+msgstr "査読期限は回答期限以降の日付にしてください。"
+
+msgid "editor.review.reviewViewed"
+msgstr "査読を表示済み"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr "査読期限は回答期限以降の日付である必要があるため、査読者の追加中にエラーが発生しました。"
+
+msgid "editor.submission.search"
+msgstr "投稿、ID、著者、キーワードなどを検索"
+
+msgid "editor.submission.days"
+msgstr "日数"
+
+msgid "editor.submission.daysInStage"
+msgstr "段階内の日数"
+
+msgid "editor.submission.viewSummary"
+msgstr "概要"
+
+msgid "editor.review.logResponse.for"
+msgstr "回答を記録: "
+
+msgid "editor.review.logResponse"
+msgstr "回答を記録"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "回答を選択してください。"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "査読者が査読依頼を承諾しました。"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "査読者が査読依頼を辞退しました。"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "査読者に代わって回答を記録します。"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr "査読者からメールなどで連絡があった場合、その回答を代理で記録できます。"
+
+msgid "editor.review.download"
+msgstr "査読フォームをダウンロード"
+
+msgid "editor.review.authorOnly"
+msgstr "著者専用セクションを表示"
+
+msgid "editor.review.allSections"
+msgstr "編集者フォームですべての査読セクションを表示"
+

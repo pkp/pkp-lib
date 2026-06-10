@@ -395,8 +395,13 @@ class PKPRequest
     public function getProtocol(): string
     {
         if (!isset($this->_protocol)) {
-            $this->_protocol = (!isset($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) != 'on') ? 'http' : 'https';
-            Hook::call('Request::getProtocol', [&$this->_protocol]);
+            // If defined, priorizes X-Forwarded-Proto header (#6851)
+            if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+                $this->_protocol = strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']);
+            } else {
+                $this->_protocol = (!isset($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) != 'on') ? 'http' : 'https';
+                Hook::call('Request::getProtocol', [&$this->_protocol]);
+            }
         }
         return $this->_protocol;
     }

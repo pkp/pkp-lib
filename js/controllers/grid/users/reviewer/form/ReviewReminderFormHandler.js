@@ -10,7 +10,7 @@
  *
  * @brief Handle the review reminder form (template selection / ajax submit).
  */
-(function ($) {
+(function($) {
 
 	/** @type {Object} */
 	$.pkp.controllers.grid.users.reviewer =
@@ -74,17 +74,18 @@
 	 */
 	$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler.
 			prototype.updateTemplate_ = function (formElement, jsonData) {
-		var $form = this.getHtmlElement();
-		var processedJsonData = this.handleJson(jsonData);
+		var $form = this.getHtmlElement(),
+			    processedJsonData = this.handleJson(jsonData),
+				content, body, $textarea, editor;
 		if (!processedJsonData.status) {
 			return false;
 		}
 
-		var content = jsonData.content || {};
-		var body = content.body || '';
+		content = jsonData.content || {};
+		body = content.body || '';
 
-		var $textarea = $form.find('textarea[name="message"]');
-		var editor = tinyMCE.EditorManager.get($textarea.attr('id'));
+		$textarea = $form.find('textarea[name="message"]');
+		editor = tinyMCE.EditorManager.get($textarea.attr('id'));
 
 		if (content.variables) {
 			$textarea.attr('data-variables', JSON.stringify(content.variables));
@@ -99,4 +100,4 @@
 		return processedJsonData.status;
 	};
 
-})(jQuery);
+}(jQuery));

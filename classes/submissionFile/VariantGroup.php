@@ -17,6 +17,7 @@ namespace PKP\submissionFile;
 use APP\facades\Repo;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class VariantGroup extends Model
 {
@@ -28,68 +29,59 @@ class VariantGroup extends Model
     protected $guarded = [];
 
     /**
-     * Maximum number of files allowed in a single variant group.
-     */
-    public const MAX_GROUP_SIZE = 2;
-
-    /**
      * Link two media submission files into a variant group and propagate metadata from primary to secondary.
      *
-     * @throws \Exception on validation failure (group conflict, capacity)
+     * If either file already belongs to a different variant group, it is unlinked from it first,
+     * leaving its former sibling ungrouped.
+     *
+     * @return int[] submissionFileIds of affected files
      */
-    public static function link(SubmissionFile $primaryFile, SubmissionFile $secondaryFile, int $submissionId): void
+    public static function link(SubmissionFile $primaryFile, SubmissionFile $secondaryFile, int $submissionId): array
     {
         $primaryGroupId = $primaryFile->getData('variantGroupId');
         $secondaryGroupId = $secondaryFile->getData('variantGroupId');
 
         // Already in the same group
         if ($primaryGroupId && $secondaryGroupId && $primaryGroupId === $secondaryGroupId) {
-            return;
+            return [$primaryFile->getId(), $secondaryFile->getId()];
         }
 
-        // Both in different groups
-        if ($primaryGroupId && $secondaryGroupId && $primaryGroupId !== $secondaryGroupId) {
-            throw new \Exception(__('api.submissionFiles.400.filesInDifferentGroups'));
-        }
+        return DB::transaction(function () use ($primaryFile, $secondaryFile, $submissionId, $primaryGroupId, $secondaryGroupId) {
+            $affectedFileIds = [];
 
-        // Check capacity on existing groups
-        foreach (array_filter([$primaryGroupId, $secondaryGroupId]) as $groupId) {
-            $count = Repo::submissionFile()
-                ->getCollector()
-                ->filterBySubmissionIds([$submissionId])
-                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_MEDIA])
-                ->filterByVariantGroupIds([$groupId])
-                ->getMany()
-                ->count();
-
-            if ($count >= static::MAX_GROUP_SIZE) {
-                throw new \Exception(__('api.submissionFiles.400.variantGroupAtCapacity'));
+            // Dissolve existing groups; former siblings become ungrouped
+            if ($primaryGroupId) {
+                $affectedFileIds = array_merge($affectedFileIds, static::unlink($primaryFile, $submissionId));
             }
-        }
+            if ($secondaryGroupId) {
+                $affectedFileIds = array_merge($affectedFileIds, static::unlink($secondaryFile, $submissionId));
+            }
 
-        // Create or reuse group
-        if (!$primaryGroupId && !$secondaryGroupId) {
+            $primaryFile = Repo::submissionFile()->get($primaryFile->getId());
+            $secondaryFile = Repo::submissionFile()->get($secondaryFile->getId());
+
             $variantGroup = static::create([]);
             $variantGroupId = $variantGroup->getKey();
             Repo::submissionFile()->edit($primaryFile, ['variantGroupId' => $variantGroupId]);
             Repo::submissionFile()->edit($secondaryFile, ['variantGroupId' => $variantGroupId]);
-        } elseif ($primaryGroupId) {
-            Repo::submissionFile()->edit($secondaryFile, ['variantGroupId' => $primaryGroupId]);
-        } else {
-            Repo::submissionFile()->edit($primaryFile, ['variantGroupId' => $secondaryGroupId]);
-        }
 
-        // Apply common fields from primary to secondary
-        $primaryFile = Repo::submissionFile()->get($primaryFile->getId());
-        $allData = $primaryFile->getAllData();
-        $commonMediaFileFields = Repo::submissionFile()->getCommonMediaFileFields();
+            // Apply common fields from primary to secondary
+            $primaryFile = Repo::submissionFile()->get($primaryFile->getId());
+            $allData = $primaryFile->getAllData();
+            $commonMediaFileFields = Repo::submissionFile()->getCommonMediaFileFields();
 
-        $sharedData = array_intersect_key($allData, array_flip($commonMediaFileFields));
+            $sharedData = array_intersect_key($allData, array_flip($commonMediaFileFields));
 
-        if (!empty($sharedData)) {
-            $secondaryFile = Repo::submissionFile()->get($secondaryFile->getId());
-            Repo::submissionFile()->edit($secondaryFile, $sharedData);
-        }
+            if (!empty($sharedData)) {
+                $secondaryFile = Repo::submissionFile()->get($secondaryFile->getId());
+                Repo::submissionFile()->edit($secondaryFile, $sharedData);
+            }
+
+            $affectedFileIds[] = $primaryFile->getId();
+            $affectedFileIds[] = $secondaryFile->getId();
+
+            return array_values(array_unique($affectedFileIds));
+        });
     }
 
     /**

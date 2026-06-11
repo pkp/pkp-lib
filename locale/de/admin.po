@@ -2,13 +2,14 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023, 2026.
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
 # Ralf Weber <ralf@weberr.de>, 2025.
+# Emma U <emmaupkp@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2026-02-06 20:38+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-06-11 16:32+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/de/"
 ">\n"
 "Language: de\n"

@@ -1,7 +1,7 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-11 09:25+0000\n"
+"PO-Revision-Date: 2026-06-11 12:51+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
@@ -53,28 +53,30 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "Oppslaget du søkte etter ble ikke funnet."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "Institutionen du etterspurte, ble ikke funnet."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Følgende språk støttes ikke: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr ""
+msgstr "Du kan ikke redigere et emnes DOI, som ikke fins i denne konteksten."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Publikasjonstypen ble ikke gjenkjent."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Dette sluttpunktet er ikke tilgjengelig fra det nettstedsomfattende "
+"navnerommet, og må forespørres for en gitt kontekst."
 
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "DOI-en du etterspurte ble ikke funnet."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "Publikasjonsobjektet du etterspurte ble ikke funnet."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Indsendelsen du etterspurte, ble ikke funnet."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -368,3 +370,6 @@ msgstr "Ugyldig forfatter-vennlig parameter."
 
 msgid "api.400.routeNotDefined"
 msgstr "Ingen API-rute ble angitt."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "En DOI kan ikke tildeles dette elementet."

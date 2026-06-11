@@ -16,7 +16,6 @@
 
 namespace PKP\tombstone;
 
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 
@@ -87,13 +86,14 @@ class DataObjectTombstoneDAO extends DAO
      */
     public function deleteById(int $tombstoneId, ?int $assocType = null, ?int $assocId = null): int
     {
-        return DB::table('data_object_tombstones AS dot')
-            ->where('dot.tombstone_id', '=', $tombstoneId)
-            ->when(!is_null($assocType) || !is_null($assocId), fn (Builder $qb) => $qb->join('data_object_tombstone_oai_set_objects AS dotoso', function (Builder $qb) use ($assocType, $assocId) {
-                $qb->on('dot.tombstone_id', 'dotoso.tombstone_id')
-                    ->when(!is_null($assocType), fn (Builder $qb) => $qb->where('dotoso.assoc_type', $assocType))
-                    ->when(!is_null($assocId), fn (Builder $qb) => $qb->where('dotoso.assoc_id', $assocId));
-            }))
+        $tombstone = $this->getById($tombstoneId, $assocType, $assocId);
+        if (!$tombstone) {
+            // Did not exist
+            return 0;
+        }
+
+        return DB::table('data_object_tombstones')
+            ->where('tombstone_id', '=', $tombstoneId)
             ->delete();
     }
 

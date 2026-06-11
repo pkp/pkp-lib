@@ -9,8 +9,6 @@
  *
  * @class ModelWithSettings
  *
- * @ingroup core_traits
- *
  * @brief A trait for Eloquent Model classes that can be used with entities that have a settings table.
  *
  */
@@ -24,7 +22,6 @@ use Illuminate\Support\Str;
 use PKP\core\casts\MultilingualSettingAttribute;
 use PKP\core\maps\Schema;
 use PKP\core\SettingsBuilder;
-use PKP\facades\Locale;
 use PKP\services\PKPSchemaService;
 use stdClass;
 
@@ -235,7 +232,7 @@ trait ModelWithSettings
      * that same camelCase key, so their cast must be keyed camelCase too.
      *
      * Everything else keeps HasCamelCasing's snake_case behaviour:
-     *  - primary-table columns are stored snake_case and must snake to match;
+     *  - primary-table columns are stored snake_case and must be snake_case to match
      *  - multilingual props cast via the inbound-only MultilingualSettingAttribute,
      *    which fires on the snake-cased set path (and is not applied on read), so
      *    their cast key must stay snake_case to keep firing on write.

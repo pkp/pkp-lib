@@ -284,12 +284,6 @@ msgstr "Both files must have a variant type assigned before they can be linked."
 msgid "api.submissionFiles.422.cannotLinkSameVariantType"
 msgstr "Files with the same variant type cannot be linked."
 
-msgid "api.submissionFiles.400.variantGroupAtCapacity"
-msgstr "The variant group already has the maximum number of files."
-
-msgid "api.submissionFiles.400.filesInDifferentGroups"
-msgstr "The files belong to different variant groups and cannot be linked."
-
 msgid "api.submissionFiles.422.targetNotInSubmission"
 msgstr "The target file does not belong to this submission."
 

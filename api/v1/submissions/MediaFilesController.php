@@ -380,9 +380,8 @@ class MediaFilesController extends PKPBaseController
                         ) {
                             throw new AuthorizationException(__('api.403.unauthorized'));
                         }
-                        VariantGroup::link($primaryFile, $secondaryFile, $submission->getId());
-                        $affectedFileIds[] = $primaryFile->getId();
-                        $affectedFileIds[] = $secondaryFile->getId();
+                        $linkIds = VariantGroup::link($primaryFile, $secondaryFile, $submission->getId());
+                        $affectedFileIds = array_merge($affectedFileIds, $linkIds);
                     }
                 }
             });
@@ -405,7 +404,7 @@ class MediaFilesController extends PKPBaseController
     }
 
     /**
-     * Link a media file to another, creating or joining a variant group.
+     * Link a media file to another, creating a variant group and replacing any existing links of both files.
      */
     public function link(LinkMediaFile $illuminateRequest): JsonResponse
     {
@@ -434,8 +433,7 @@ class MediaFilesController extends PKPBaseController
             if ($targetFile === null) {
                 $affectedFileIds = VariantGroup::unlink($sourceFile, $submission->getId());
             } else {
-                VariantGroup::link($sourceFile, $targetFile, $submission->getId());
-                $affectedFileIds = [$sourceFile->getId(), $targetFile->getId()];
+                $affectedFileIds = VariantGroup::link($sourceFile, $targetFile, $submission->getId());
             }
         } catch (\Exception $e) {
             return response()->json([

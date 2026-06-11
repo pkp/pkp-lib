@@ -1,15 +1,16 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-01-05 22:40+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2026-06-11 09:25+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/nb_NO/>\n"
-"Language: nb\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -736,3 +737,30 @@ msgstr ""
 
 msgid "orcid.displayName"
 msgstr "ORCID-profil programtillegg"
+
+msgid "user.affiliations.translation"
+msgstr "Mer informasjon"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klikk for å redigere eller slette"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Fyll ut institusjonens fulle navn nedenfor og unngå akronymer. Velg navnet "
+"fra nedtrekksmenyen og klikk \"Tilføy\" for å inkludere tilknytningen i "
+"profilen din (f.eks. Simon Fraser universitetet)."
+
+msgid "user.affiliations.institution"
+msgstr "Institusjon"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Rediger institusjonsnavnet"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Fjern institusjon"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Alle tilgjengelige oversettelser"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Søket ditt ga ingen resultater"

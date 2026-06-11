@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-11 09:25+0000\n"
+"PO-Revision-Date: 2026-06-11 12:51+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
@@ -2597,3 +2597,12 @@ msgstr "Et ROR-navn er påkrevd."
 
 msgid "ror.displayLocaleRequired"
 msgstr "ROR-visningsspråk er påkrevd."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Innsendingen er annulert"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Innsendingen er avbrutt, og alle tilknyttede data er slettet."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Annuller innsendelsen"

@@ -87,7 +87,6 @@ class DataObjectTombstoneDAO extends DAO
      */
     public function deleteById(int $tombstoneId, ?int $assocType = null, ?int $assocId = null): int
     {
-        error_log("HERE: assocType {$assocType}, assocId {$assocId}");
         return DB::table('data_object_tombstones AS dot')
             ->where('dot.tombstone_id', '=', $tombstoneId)
             ->when(!is_null($assocType) || !is_null($assocId), fn (Builder $qb) => $qb->join('data_object_tombstone_oai_set_objects AS dotoso', function (Builder $qb) use ($assocType, $assocId) {

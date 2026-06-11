@@ -1,12 +1,13 @@
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # "My L. Bjørnflaten" <myl@uio.no>, 2024.
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-04-08 14:20+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2026-06-11 09:25+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -2348,3 +2349,6 @@ msgstr "Forfatter redigert."
 #, fuzzy
 msgid "common.highlights"
 msgstr "Høydepunkter"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Vis <a href=\"{$url}\">Redaksjonell historikk</a>"

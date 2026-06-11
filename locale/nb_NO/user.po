@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-11 09:25+0000\n"
+"PO-Revision-Date: 2026-06-11 12:51+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/nb_NO/>\n"
@@ -764,3 +764,19 @@ msgstr "Alle tilgjengelige oversettelser"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Søket ditt ga ingen resultater"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API-feil"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"ROR API-tjenesten er for øyeblikket utilgjengelig. Vennligst oppdater siden "
+"eller prøv på nytt senere."
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Primærspråket {$primaryLocale} er påkrevd"
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"ROR API-tjenesten i denne installasjonen er utdatert. Vennligst kontakt "
+"systemadministratoren."

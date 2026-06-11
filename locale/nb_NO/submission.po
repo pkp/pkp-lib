@@ -1,13 +1,14 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
 # Aysa Ekanger <aysa.ekanger@uit.no>, 2026.
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-05-11 14:04+0000\n"
-"Last-Translator: Aysa Ekanger <aysa.ekanger@uit.no>\n"
+"PO-Revision-Date: 2026-06-11 09:25+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -2574,3 +2575,25 @@ msgstr "Innleveringsfil"
 
 msgid "submission.authors.label"
 msgstr "Forfattere"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Advarsel: Denne versjonen har blitt publisert. Hvis du redigerer den, kan "
+"det påvirke det publiserte innholdet."
+
+msgid "author.authorNotFound"
+msgstr "Forfatteren med denne tilknytningen ble ikke funnet."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Vennligst oppgi en ROR-tilknytning eller minst ett tilknytningsforhold."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Vennligst oppgi tilknytning i den primære språkinnstillingen for "
+"innsendingen."
+
+msgid "ror.nameRequired"
+msgstr "Et ROR-navn er påkrevd."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR-visningsspråk er påkrevd."

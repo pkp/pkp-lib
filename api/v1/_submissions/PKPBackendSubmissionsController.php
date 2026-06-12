@@ -86,6 +86,18 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 ]),
             ]);
 
+        // The frontend sends POST instead of DELETE for bulk deletion.
+        // Accept both methods until the frontend is corrected.
+        Route::post('', $this->bulkDeleteIncompleteSubmissions(...))
+            ->name('_submission.incomplete.delete.post')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_AUTHOR,
+                ]),
+            ]);
+
         Route::delete('{submissionId}', $this->delete(...))
             ->name('_submission.delete')
             ->middleware([

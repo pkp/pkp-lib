@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-12 08:06+0000\n"
+"PO-Revision-Date: 2026-06-12 10:29+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/nb_NO/>\n"
@@ -230,9 +230,11 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Revisjoner bør ikke bli gjenstand for en ny runde med fagfellevurdering."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Revisjoner bør ikke bli gjenstand for en ny runde med fagfellevurderinger."
 
 msgid "editor.review.dateAccepted"
 msgstr "Dato fagfellevurderingen ble mottatt"
@@ -631,3 +633,7 @@ msgstr ""
 
 #~ msgid "editor.submissionReview.blind"
 #~ msgstr "Blind"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Vurderingsfristen for vurdering må være større enn, eller lik svarfristen."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-12 08:06+0000\n"
+"PO-Revision-Date: 2026-06-12 10:29+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/nb_NO/>\n"
@@ -255,3 +255,39 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Diverse innstillinger"
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Kan ikke lese config-filen, ellers så ligger ikke filen i forventet sti. "
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Sett verdien for `app_key` under `generelt`-delen i `config.inc.php`-filen "
+"til {$key}."
+
+#, fuzzy
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Vennligst legg til konfigurasjonsvariabelen `app_key` under `generell`-delen "
+"manuelt, eller kjør kommandoen `php lib/pkp/tools/appKey.php configure` for "
+"å sette den fra CLI."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr "Config-variablen `app_key` er ikke definert i `general`-seksjonen. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr "Config-variablen `app_key` er allerede definert i `general`-seksjonen. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Kunne ikke analysere konfigurasjonsfilen."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Kan ikke skrive inn app key-variabelen i konfigurasjonsfilen."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Ikke-støttet chiffer eller feil nøkkellengde. Støttede chiffer er: "
+"{$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "Kan ikke skrive inn app key i konfigurasjonsfilen."

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-04 16:02+0000\n"
+"PO-Revision-Date: 2026-06-12 10:29+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/nb_NO/>\n"
@@ -980,10 +980,9 @@ msgstr ""
 "Kan ikke finne JSON-datafilen med skjemaversjon {$version} i det utpakkede "
 "ROR-register-datasettet."
 
-#, fuzzy
 msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
 msgstr ""
-"Kontrollsummen i den nedlastede ROR-register-datasæt ZIP-filen kan ikke "
+"Kontrollsummen i den nedlastede ROR-register-datasett ZIP-filen kan ikke "
 "bekreftes."
 
 #, fuzzy

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-11 09:25+0000\n"
+"PO-Revision-Date: 2026-06-12 08:06+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
@@ -133,7 +133,7 @@ msgid "common.add"
 msgstr "Legg til"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Legg til kopi/blindkopi"
 
 msgid "common.addFiles"
 msgstr "Legg til filer"
@@ -2352,3 +2352,32 @@ msgstr "Høydepunkter"
 
 msgid "about.editorialMasthead.linkToEditorialHistory"
 msgstr "Vis <a href=\"{$url}\">Redaksjonell historikk</a>"
+
+#, fuzzy
+msgid "common.editorialMasthead"
+msgstr "Redaksjonell topptekst"
+
+#, fuzzy
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Antall fagfeller i det foregående året"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Antall fagfeller de seneste årene"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Redaktørene verdsetter innsatsen til fagfellene for {$year}, oppført "
+"nedenfor."
+
+#, fuzzy
+msgid "common.editorialHistory"
+msgstr "Redaksjonell historikk"
+
+msgid "common.editorialHistory.page"
+msgstr "Redaksjonell historikk"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Denne delen viser tidligere bidragsytere."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Vis {$name}s ORCID-profil"

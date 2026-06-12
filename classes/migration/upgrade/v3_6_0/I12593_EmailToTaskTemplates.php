@@ -16,12 +16,12 @@
 namespace PKP\migration\upgrade\v3_6_0;
 
 use APP\core\Application;
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\migration\Migration;
 
 class I12593_EmailToTaskTemplates extends Migration
 {
@@ -234,7 +234,6 @@ class I12593_EmailToTaskTemplates extends Migration
 
     /**
      * Reverse the migration.
-     * Downgrade is not supported because the original email template rows have been deleted.
      */
     public function down(): void
     {

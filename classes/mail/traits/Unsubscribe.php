@@ -20,10 +20,16 @@ use APP\core\Application;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use Exception;
 use Illuminate\Mail\Mailables\Headers;
+use PKP\context\Context;
+use PKP\db\DAORegistry;
 use PKP\mail\Mailable;
 use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
+use PKP\mail\variables\SubmissionEmailVariable;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 trait Unsubscribe
 {
@@ -61,10 +67,8 @@ trait Unsubscribe
 
     /**
      * Setup footer with unsubscribe link if notification is deliberately set with self::allowUnsubscribe()
-     *
-     * @param null|mixed $localeKey
      */
-    protected function setupUnsubscribeFooter(string $locale, $context, $localeKey = null): void
+    protected function setupUnsubscribeFooter(string $locale, Context $context, ?string $localeKey = null, ?Submission $submission = null): void
     {
         if (!isset($this->notification)) {
             return;
@@ -81,6 +85,15 @@ trait Unsubscribe
                 $context
             ),
         ]);
+
+        // Check if any of recipients has a reviewer role with a double-blind review
+        $anonymizeAuthors = $this->requiresAnonymization($submission);
+        if ($anonymizeAuthors) {
+            $this->addData([
+                SubmissionEmailVariable::AUTHORS => '',
+                SubmissionEmailVariable::AUTHORS_SHORT => '',
+            ]);
+        }
     }
 
     /**
@@ -148,5 +161,37 @@ trait Unsubscribe
     protected static function getRequiredVariables(): array
     {
         return static::$requiredVariables;
+    }
+
+    /**
+     * @return bool Whether footer variables, which disclose authors, require anonymization
+     */
+    protected function requiresAnonymization(?Submission $submission = null): bool
+    {
+        $anonymizeAuthors = false;
+        if (!$submission) {
+            return $anonymizeAuthors;
+        }
+
+        /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+        $recipientIds = [];
+        foreach ($this->recipients as $recipient) {
+            $recipientIds[] = $recipient->getId();
+        }
+
+        foreach ($reviewAssignments as $reviewAssignment) {
+            if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
+                continue;
+            }
+
+            if (in_array($reviewAssignment->getReviewerId(), $recipientIds)) {
+                $anonymizeAuthors = true;
+                break;
+            }
+        }
+
+        return $anonymizeAuthors;
     }
 }

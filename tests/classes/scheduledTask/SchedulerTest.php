@@ -22,7 +22,9 @@
 
 namespace PKP\tests\classes\scheduledTask;
 
+use APP\core\Application;
 use APP\scheduler\Scheduler;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Console\Events\ScheduledTaskFailed;
 use Illuminate\Console\Events\ScheduledTaskFinished;
@@ -39,6 +41,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PKP\core\PKPContainer;
 use PKP\core\Registry;
+use PKP\core\ScheduleServiceProvider;
 use PKP\plugins\GenericPlugin;
 use PKP\plugins\interfaces\HasTaskScheduler;
 use PKP\plugins\PluginRegistry;
@@ -54,6 +57,7 @@ use Symfony\Component\Console\Output\BufferedOutput;
 #[CoversClass(PKPScheduler::class)]
 #[CoversClass(Scheduler::class)]
 #[CoversClass(ScheduleTaskRunner::class)]
+#[CoversClass(ScheduleServiceProvider::class)]
 class SchedulerTest extends PKPTestCase
 {
     protected function tearDown(): void
@@ -332,6 +336,179 @@ class SchedulerTest extends PKPTestCase
     }
 
     //
+    // Group E: ScheduleServiceProvider shutdown guard + atomic interval claim
+    //
+
+    /**
+     * When the request context cannot be resolved (a non-context path such as
+     * /aws, a bot probe or a broken link), the web based task runner must bail without
+     * throwing and without claiming the interval, so a later valid request still runs it.
+     */
+    public function testShutdownRunnerBailsAndDoesNotClaimIntervalOnUnresolvableContext(): void
+    {
+        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
+
+        // A first path segment that is not a real journal makes PKPRouter::getContext()
+        // throw NotFoundHttpException, reproducing the #12833 trigger.
+        $this->mockRequest('nonexistentContext12833/index/index');
+
+        // Precondition: the chosen path really does make getContext() throw.
+        $threw = false;
+        try {
+            Application::get()->getRequest()->getContext();
+        } catch (\Throwable $e) {
+            $threw = true;
+        }
+        $this->assertTrue($threw, 'Test setup: the chosen path must make getContext() throw.');
+
+        $provider = new ScheduleServiceProvider(PKPContainer::getInstance());
+
+        // The shutdown runner must swallow the throw (no fatal at request shutdown)...
+        $this->invokeShutdownRunner($provider, time(), 60);
+
+        // ...and must NOT have claimed the interval, so the next valid request can still run.
+        $this->assertNull(
+            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
+            'An unresolvable request context must not consume the task runner interval.'
+        );
+    }
+
+    /**
+     * The interval claim must be atomic and once-per-interval: the first caller wins and
+     * any concurrent caller within the interval is rejected. This is the guard that keeps
+     * a burst of requests after an interval boundary from each spinning up a task runner.
+     */
+    public function testIntervalClaimIsAtomicOncePerInterval(): void
+    {
+        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
+
+        $this->assertTrue(
+            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), 60),
+            'The first request in an interval must win the claim.'
+        );
+        $this->assertFalse(
+            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), 60),
+            'A concurrent request within the same interval must lose the claim.'
+        );
+    }
+
+    /**
+     * task_runner_interval = 0 ("run on every request") must still work: Cache::add() treats
+     * a <= 0 TTL as "do not store" and returns false, so the runner floors the TTL at 1 second.
+     */
+    public function testIntervalClaimTtlIsFlooredForZeroInterval(): void
+    {
+        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
+        $this->assertFalse(
+            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), 0),
+            'A zero TTL must not store (documents why the runner floors the interval).'
+        );
+
+        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
+        $this->assertTrue(
+            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), max(1, 0)),
+            'Flooring the TTL at 1 second keeps the runner working when the interval is 0.'
+        );
+    }
+
+    /**
+     * With a resolvable request context (site context here), the runner must pass the context
+     * guard, atomically claim the interval, and invoke the scheduler. The CLI console guard is
+     * bypassed via a proxied partial-mock container whose runningInConsole() returns false, so
+     * the production code is exercised unchanged.
+     */
+    public function testShutdownRunnerClaimsIntervalAndRunsOnResolvableContext(): void
+    {
+        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
+
+        // Site context: getContext() returns null (no throw), so the context guard passes.
+        $this->mockRequest();
+
+        $scheduler = Mockery::mock(Scheduler::class);
+        $scheduler->shouldReceive('registerPluginSchedules')->once();
+        $scheduler->shouldReceive('runWebBasedScheduleTaskRunner')->once();
+        app()->instance(Scheduler::class, $scheduler);
+
+        // Proxied partial mock: forwards everything to the real container except the CLI guard.
+        $app = Mockery::mock(PKPContainer::getInstance());
+        $app->shouldReceive('runningInConsole')->andReturn(false);
+
+        $provider = new ScheduleServiceProvider($app);
+        $this->invokeShutdownRunner($provider, time(), 60);
+
+        $this->assertNotNull(
+            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
+            'A resolvable context must claim the interval and run.'
+        );
+    }
+
+    /**
+     * Anything that throws while registering/running schedules at request shutdown must be
+     * swallowed (logged, not fatal), since the response has already been flushed.
+     */
+    public function testShutdownRunnerSwallowsRunnerFailure(): void
+    {
+        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
+
+        $this->mockRequest();
+
+        $scheduler = Mockery::mock(Scheduler::class);
+        $scheduler->shouldReceive('registerPluginSchedules')->andThrow(new Exception('boom'));
+        $scheduler->shouldReceive('runWebBasedScheduleTaskRunner')->never();
+        app()->instance(Scheduler::class, $scheduler);
+
+        $app = Mockery::mock(PKPContainer::getInstance());
+        $app->shouldReceive('runningInConsole')->andReturn(false);
+
+        $provider = new ScheduleServiceProvider($app);
+
+        // Must not propagate the throwable out of the shutdown handler.
+        $this->invokeShutdownRunner($provider, time(), 60);
+
+        $this->assertTrue(true);
+    }
+
+    /**
+     * The interval claim must self-expire after the interval so the next cycle can re-claim it,
+     * giving the once-per-interval cadence. FileStore reads time via Carbon::now(), so the expiry
+     * is driven deterministically with Carbon::setTestNow().
+     */
+    public function testIntervalClaimExpiresAndIsReclaimableNextInterval(): void
+    {
+        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
+
+        $start = Carbon::create(2026, 1, 1, 0, 0, 0);
+        Carbon::setTestNow($start);
+
+        $this->assertTrue(
+            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', $start->timestamp, 60),
+            'The first claim within a fresh interval must win.'
+        );
+        $this->assertFalse(
+            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', $start->timestamp, 60),
+            'A second claim within the same interval must lose.'
+        );
+        $this->assertSame(
+            $start->timestamp,
+            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
+            'The stored timestamp must be readable while the claim is live.'
+        );
+
+        // Advance past the interval: the claim expires, the key reads as null, and it is re-claimable.
+        Carbon::setTestNow($start->copy()->addSeconds(61));
+        $this->assertNull(
+            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
+            'An expired claim must read as null.'
+        );
+        $this->assertTrue(
+            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', Carbon::now()->timestamp, 60),
+            'After expiry the next interval must be re-claimable.'
+        );
+
+        Carbon::setTestNow();
+    }
+
+    //
     // Helpers
     //
 
@@ -342,6 +519,15 @@ class SchedulerTest extends PKPTestCase
     {
         $method = new ReflectionMethod($runner, 'runEvent');
         $method->invoke($runner, $event);
+    }
+
+    /**
+     * Invoke the protected ScheduleServiceProvider shutdown runner directly.
+     */
+    private function invokeShutdownRunner(ScheduleServiceProvider $provider, int $currentTimestamp, int $taskRunnerInterval): void
+    {
+        $method = new ReflectionMethod($provider, 'runWebBasedScheduleTaskRunnerOnShutdown');
+        $method->invoke($provider, $currentTimestamp, $taskRunnerInterval);
     }
 
     /**

@@ -1,7 +1,7 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-11 12:51+0000\n"
+"PO-Revision-Date: 2026-06-12 08:06+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
@@ -120,10 +120,10 @@ msgstr ""
 "valgte rollene."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr ""
+msgstr "Dette er ikke en standard e-postmal for en kjent e-postadresse."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Dette er ikke en gyldig kontekst."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "E-postmalen du ba om, ble ikke funnet."
@@ -373,3 +373,36 @@ msgstr "Ingen API-rute ble angitt."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "En DOI kan ikke tildeles dette elementet."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Du oppga en ugyldig «eventType», {$eventType}, for forfatterens "
+"e-postadresser."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Uthevingen du ba om finnes ikke."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Markeringsrekkefølgen kunne ikke lagres da det ikke ble funnet noen "
+"informasjon om rekkefølgen."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Du kan ikke utføre denne operasjonen når ORCID-funksjonaliteten er "
+"deaktivert."
+
+#, fuzzy
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Det er ikke tillatt å tildele en forfatters ORCiD-ID via endepunktene for "
+"redigering/legg til forfatter. For å be en forfatter om å oppdatere sin "
+"ORCID-ID, bruk endepunktet \"orcid/requestAuthorVerification/{authorId}\"."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Forfatteren du etterspurte, ble ikke funnet"
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Kunne ikke lagre rekkefølgen på markeringene fordi én eller flere av "
+"markeringene ikke ble funnet."

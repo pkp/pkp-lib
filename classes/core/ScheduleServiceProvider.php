@@ -14,15 +14,15 @@
 
 namespace PKP\core;
 
-use Carbon\Carbon;
-use PKP\config\Config;
 use APP\core\Application;
-use PKP\core\PKPContainer;
 use APP\scheduler\Scheduler;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\ServiceProvider;
+use PKP\config\Config;
+use Throwable;
 
 class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -32,7 +32,7 @@ class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvi
     public function boot()
     {
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
-            
+
             // After the resolving to \Illuminate\Console\Scheduling\Schedule::class
             // need to register all the schedules into the scheduler
             $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
@@ -47,61 +47,91 @@ class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvi
             $taskRunnerInterval = Config::getVar('schedule', 'task_runner_interval', 60);
             $lastRunTimestamp = Cache::get('schedule::taskRunner::lastRunAt') ?? 0;
             $currentTimestamp = Carbon::now()->timestamp;
-            
+
             if ($currentTimestamp - $lastRunTimestamp > $taskRunnerInterval) {
-                
+
                 if (!$this->app->runningInConsole()) {
                     $this->booted(fn () => $this->app->make(Schedule::class));
                 }
 
-                Cache::forget('schedule::taskRunner::lastRunAt');
-                Cache::put('schedule::taskRunner::lastRunAt', $currentTimestamp, 3600);
                 $currentWorkingDir = getcwd();
 
-                register_shutdown_function(function () use ($currentWorkingDir) {
-                    
+                register_shutdown_function(function () use ($currentWorkingDir, $currentTimestamp, $taskRunnerInterval) {
+
                     // restore the current working directory
                     // see: https://www.php.net/manual/en/function.register-shutdown-function.php#refsect1-function.register-shutdown-function-notes
                     chdir($currentWorkingDir);
 
-                    // As this runs at the current request's end but the 'register_shutdown_function' registered
-                    // at the service provider's registration time at application initial bootstrapping,
-                    // need to check the maintenance status within the 'register_shutdown_function'
-                    if (Application::get()->isUnderMaintenance()) {
-                        return;
-                    }
-    
-                    // Application is set to sandbox mode and will not run any schedule tasks
-                    if (Config::getVar('general', 'sandbox', false)) {
-                        error_log('Application is set to sandbox mode and will not run any schedule tasks');
-                        return;
-                    }
-    
-                    // We only want to web based task runner for the web request life cycle
-                    // not in any CLI based request life cycle
-                    if ($this->app->runningInConsole()) {
-                        return;
-                    }
-                    
-                    $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
-                    
-                    // Plugin schedule registration resolves the context from the current request
-                    // in the web mode via getEnabledProducts(null) -> PKPRouter::getContext(),
-                    // can throw exception at non context path, this add guard against that.
-                    try {
-                        $scheduler->registerPluginSchedules();
-                    } catch (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $exception) {
-                        error_log('Skipped plugin schedule registration in the web based task runner; the current request context could not be resolved: ' . $exception->getMessage());
-                    }
-
-                    // Flush the output buffer to send the response to the client before
-                    // running scheduled tasks, preventing page load delays.
-                    // This replicates behavior from the legacy Acron plugin.
-                    PKPContainer::getInstance()->flushOutputBuffer();
-
-                    $scheduler->runWebBasedScheduleTaskRunner();
+                    $this->runWebBasedScheduleTaskRunnerOnShutdown($currentTimestamp, $taskRunnerInterval);
                 });
             }
+        }
+    }
+
+    /**
+     * Run the web based schedule task runner at the end of the current request.
+     *
+     * Invoked from the register_shutdown_function() registered in boot(); extracted as a
+     * method so the #12833 guard (unresolved request context) and the atomic interval claim
+     * can be exercised by tests.
+     *
+     * @param int $currentTimestamp   Timestamp captured when the request booted.
+     * @param int $taskRunnerInterval Configured [schedule] task_runner_interval, in seconds.
+     */
+    protected function runWebBasedScheduleTaskRunnerOnShutdown(int $currentTimestamp, int $taskRunnerInterval): void
+    {
+        // Resolve the request context first. On a invalid path (e.g. non context or site level)
+        // PKPRouter::getContext() throws a NotFoundHttpException, e.g. the web task runner
+        // must not be initiated
+        try {
+            Application::get()->getRequest()->getContext();
+        } catch (Throwable $e) {
+            return;
+        }
+
+        // do not run any task via task runner when app is under maintenance
+        // if needed, that should be manually and explicitly invoked/initiated
+        if (Application::get()->isUnderMaintenance()) {
+            return;
+        }
+
+        // Application is set to sandbox mode and will not run any schedule tasks
+        if (Config::getVar('general', 'sandbox', false)) {
+            error_log('Application is set to sandbox mode and will not run any schedule tasks');
+            return;
+        }
+
+        // We only want to web based task runner for the web request life cycle
+        // not in any CLI based request life cycle
+        if ($this->app->runningInConsole()) {
+            return;
+        }
+
+        // this is conditional and atomic write which stores the value and returns `true` ONLY IF the key
+        // doesn't already exist (or is expired). If the key is already live, it writes nothing and returns
+        // false. so exactly one of any concurrent requests after an interval boundary wins and the rest
+        // return from here, e.g. preventing a thundering herd of task runners.
+        // NOTE: `$ttl` must be above 0 as 0 treats as `do not store` will result in task
+        // runner disabled entirely
+        if (!Cache::add('schedule::taskRunner::lastRunAt', $currentTimestamp, max(1, $taskRunnerInterval))) {
+            return;
+        }
+
+        // Everything below runs after the response is flushed, so any failure here is pure log
+        // noise and must never surface as a fatal to the already-served client.
+        try {
+            $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
+
+            $scheduler->registerPluginSchedules();
+
+            // Flush the output buffer to send the response to the client before
+            // running scheduled tasks, preventing page load delays.
+            // This replicates behavior from the legacy Acron plugin.
+            PKPContainer::getInstance()->flushOutputBuffer();
+
+            $scheduler->runWebBasedScheduleTaskRunner();
+        } catch (Throwable $e) {
+            error_log('Web-based schedule task runner failed during request shutdown: ' . $e->getMessage());
         }
     }
 

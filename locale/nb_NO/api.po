@@ -1,7 +1,7 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-12 08:06+0000\n"
+"PO-Revision-Date: 2026-06-12 10:29+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
@@ -406,3 +406,13 @@ msgid "api.highlights.400.orderHighlightNotFound"
 msgstr ""
 "Kunne ikke lagre rekkefølgen på markeringene fordi én eller flere av "
 "markeringene ikke ble funnet."
+
+#, fuzzy
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Dette endepunktet er ikke tilgjengelig fra det nettstedsomfattende "
+"navnerommet, og må forespurt for en gitt kontekst."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Du kan ikke gjøre endringer i forfattere på innsendinger du ikke er tildelt."

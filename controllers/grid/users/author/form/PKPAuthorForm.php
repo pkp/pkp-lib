@@ -293,6 +293,9 @@ class PKPAuthorForm extends Form
 
         $affiliation = Repo::affiliation()->newDataObject();
         foreach ($oldAffiliation as $locale => $name) {
+            if (trim($name ?? '') === '') {
+                continue;
+            }
             $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
             if ($ror) {
                 $affiliation->setRor($ror->getRor());

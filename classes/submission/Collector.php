@@ -24,6 +24,7 @@ use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\doi\Doi;
@@ -659,23 +660,30 @@ abstract class Collector implements CollectorInterface, ViewsCount
                 fn (Builder $q) => $keywords
                     ->map(
                         fn (string $keyword) => $q
-                        // Look for matches on the indexed data
-                            ->orWhereExists(
-                                fn (Builder $query) => $query
-                                    ->from('publications', 'p')
-                                    ->join('publication_settings AS ps', 'ps.publication_id', '=', 'p.publication_id')
-                                    ->whereIn('ps.setting_name', ['title', 'abstract'])
-                                    ->whereColumn('s.submission_id', '=', 'p.submission_id')
-                                    ->where('ps.setting_value', 'like', '%keyword%')
-                            )
-                        // Search on the publication title
+                        // Search on the publication title or abstract
                             ->orWhereIn(
                                 's.submission_id',
                                 fn (Builder $query) => $query
                                     ->select('p.submission_id')->from('publications AS p')
                                     ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
-                                    ->where('ps.setting_name', '=', 'title')
+                                    ->whereIn('ps.setting_name', ['title', 'abstract'])
                                     ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)
+                                    ->addBinding($keyword)
+                            )
+                        // Search on the publication keywords, subjects, or discipline
+                            ->orWhereIn(
+                                's.submission_id',
+                                fn (Builder $query) => $query
+                                    ->select('p.submission_id')->from('publications AS p')
+                                    ->join('controlled_vocabs AS cv', function (Builder $q) {
+                                        $q->on('p.publication_id', '=', 'cv.assoc_id')
+                                            ->where('cv.assoc_type', ASSOC_TYPE_PUBLICATION)
+                                            ->whereIn('cv.symbolic', [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT]);
+                                    })
+                                    ->join('controlled_vocab_entries AS cve', 'cve.controlled_vocab_id', 'cv.controlled_vocab_id')
+                                    ->join('controlled_vocab_entry_settings AS cves', 'cves.controlled_vocab_entry_id', 'cve.controlled_vocab_entry_id')
+                                    ->where('cves.setting_name', 'name')
+                                    ->where(DB::raw('LOWER(cves.setting_value)'), 'LIKE', $likePattern)
                                     ->addBinding($keyword)
                             )
                         // Search on the author name and ORCID

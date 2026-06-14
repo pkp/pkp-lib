@@ -1,10 +1,10 @@
-# "M. Ali" <vorteem@gmail.com>, 2025.
+# "M. Ali" <vorteem@gmail.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2025-03-16 20:28+0000\n"
+"PO-Revision-Date: 2026-06-14 17:47+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "ar/>\n"
@@ -193,3 +193,6 @@ msgstr "البيانات الوصفية للمقالة"
 
 msgid "reviewer.submission.reviewRound.attachments.description"
 msgstr "تلك هي الملفات التي أرفقتها جنبًا إلى جنب مع تحكيمك"
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr "بعض الحقول المطلوبة غير معبأة. يرجى إكمالها قبل تسليم تحكيمك."

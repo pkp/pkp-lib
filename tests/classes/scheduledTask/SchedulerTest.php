@@ -60,8 +60,23 @@ use Symfony\Component\Console\Output\BufferedOutput;
 #[CoversClass(ScheduleServiceProvider::class)]
 class SchedulerTest extends PKPTestCase
 {
+    /** @var resource Temp file backing error_log for the duration of each test. */
+    protected $tmpErrorLog;
+    protected string $originalErrorLog;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->originalErrorLog = ini_get('error_log');
+        $this->tmpErrorLog = tmpfile();
+        ini_set('error_log', stream_get_meta_data($this->tmpErrorLog)['uri']);
+    }
+
     protected function tearDown(): void
     {
+        ini_set('error_log', $this->originalErrorLog);
+
         // The plugin registry is process-global; clear it so nothing leaks even
         // though each test method already runs in its own process.
         Registry::delete('plugins');

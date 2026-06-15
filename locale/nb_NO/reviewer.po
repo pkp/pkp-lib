@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-12 10:29+0000\n"
+"PO-Revision-Date: 2026-06-15 12:08+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/reviewer/nb_NO/>\n"
@@ -171,3 +171,33 @@ msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
 msgstr ""
 "Enkelte obligatoriske felt er ikke utfylt. Vennligst fyll dem ut før du "
 "sender inn vurderingen din."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Tidligere gjennomganger"
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Runde {$round} Gjennomgang sendt inn av deg for"
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Fagfelles kommentarer"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Til redaktører og forfattere"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Kun for redaktører"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Kommentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Årsak til avslag sendt på e-post"
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Ingen grunn ble gitt for avslaget på invitasjonen til vurdering."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Dato for avvisning"

@@ -1,7 +1,7 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-12 10:29+0000\n"
+"PO-Revision-Date: 2026-06-15 12:08+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
@@ -33,7 +33,7 @@ msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Det er ikke mulig å endre tidspunkt for når dette ble opprettet."
 
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "Et DOI-prefiks er nødvendig for å generere DOI-er."
 
 msgid "api.403.unauthorized"
 msgstr "Du er ikke autorisert for adgang til den forespurte ressursen."
@@ -78,29 +78,45 @@ msgstr "Publikasjonsobjektet du etterspurte ble ikke funnet."
 msgid "api.dois.404.submissionNotFound"
 msgstr "Indsendelsen du etterspurte, ble ikke funnet."
 
+#, fuzzy
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
+"Upubliserte elementer kan ikke eksporteres/deponeres. Vennligst fjern "
+"merkingen for upubliserte elementer og prøv på nytt."
 
 msgid "api.dois.400.creationFailed"
-msgstr ""
+msgstr "En feil oppstod og DOI-objektet kunne ikke opprettes."
 
 msgid "api.dois.400.xmlExportFailed"
 msgstr ""
+"Det opstod en feil med XML-valideringen, og XML-en kunne ikke eksporteres."
 
+#, fuzzy
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
+"Det opstod en feil, og noen av de innsendte postene ble ikke markert som "
+"registrert."
 
+#, fuzzy
 msgid "api.dois.400.depositFailed"
 msgstr ""
+"Noen poster ble ikke deponert på riktig måte. Vennligst sjekk de enkelte "
+"objektene for å se deres spesifikke feilmeldinger."
 
+#, fuzzy
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr ""
+msgstr "Ingen gyldige publikasjonsobjekter ble inkludert i forespørselen."
 
+#, fuzzy
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
+"Et eller flere ugyldige puklikasjonsobjekter ble lagt ved forespørselen."
 
+#, fuzzy
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"Den nåværende konfigurerte plugin-modulen må være en plugin for "
+"registreringsbyrå."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
@@ -416,3 +432,6 @@ msgstr ""
 msgid "api.orcid.403.editWithoutPermission"
 msgstr ""
 "Du kan ikke gjøre endringer i forfattere på innsendinger du ikke er tildelt."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "Synligheten av toppteksten for fagfelleroller kan ikke endres."

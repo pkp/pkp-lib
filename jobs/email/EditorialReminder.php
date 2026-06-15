@@ -77,7 +77,7 @@ class EditorialReminder extends BaseJob
 
         $submissionIds = Repo::submission()
             ->getCollector()
-            ->assignedTo([$this->editorId])
+            ->assignedTo([$this->editorId], [Role::ROLE_ID_SUB_EDITOR])
             ->filterByContextIds([$this->contextId])
             ->filterByStatus([Submission::STATUS_QUEUED])
             ->filterByIncomplete(false)

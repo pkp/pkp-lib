@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2026-06-15 12:08+0000\n"
+"PO-Revision-Date: 2026-06-15 12:55+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/emails/nb_NO/>\n"
@@ -518,3 +518,38 @@ msgstr "Bekreft forespørsel om endring av e-postadresse for kontoen"
 msgid "emails.changeProfileEmailInvitationNotify.description"
 msgstr ""
 "Denne e-posten sendes til brukere som ber om endring av e-postadressen sin."
+
+msgid "orcid.orcidRequestUpdateScope.name"
+msgstr "orcidRequestUpdateScope"
+
+msgid "emails.orcidRequestUpdateScope.description"
+msgstr "Denne e-posten sendes for å forespørre API OAuth scope for ORCID."
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Du har blitt invitert til nye roller"
+
+#, fuzzy
+msgid "emails.orcidRequestUpdateScope.subject"
+msgstr "Forespør oppdatert tilgang til ORCID-poster"
+
+#, fuzzy
+msgid "emailTemplate.variable.authorOrcidUrl"
+msgstr "ORCID OAuth-autorisasjonslenke"
+
+msgid "emailTemplate.variable.orcidAboutUrl"
+msgstr "URL til siden om ORCID"
+
+msgid "orcid.orcidCollectAuthorId.name"
+msgstr "orcidCollectAuthorId"
+
+#, fuzzy
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Bruker invitert til rolle-varsel"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Denne e-posten sendes til brukere som blir invitert til å påta seg visse "
+"roller"
+
+msgid "orcid.orcidRequestAuthorAuthorization.name"
+msgstr "orcidRequestAuthorAuthorization"

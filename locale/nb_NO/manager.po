@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-12 10:29+0000\n"
+"PO-Revision-Date: 2026-06-15 12:55+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -264,10 +264,11 @@ msgid "manager.dois.registration.viewError.title"
 msgstr "Registreringsfeilmelding"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Vis oppføring"
 
+#, fuzzy
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Melding om vellykket registrering"
 
 msgid "manager.dois.update.success"
 msgstr "Oppdatering av DOI-er var vellykket"

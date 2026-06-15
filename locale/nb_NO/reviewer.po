@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:08+0000\n"
+"PO-Revision-Date: 2026-06-15 12:55+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/reviewer/nb_NO/>\n"
@@ -201,3 +201,9 @@ msgstr "Ingen grunn ble gitt for avslaget på invitasjonen til vurdering."
 
 msgid "reviewer.submission.reviewRound.reviewDeclineDate"
 msgstr "Dato for avvisning"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikkelmetadata"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"

@@ -1,7 +1,7 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-15 12:08+0000\n"
+"PO-Revision-Date: 2026-06-15 12:55+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
@@ -120,6 +120,8 @@ msgstr ""
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"Du kan ikke ta, eller anbefale en avgjørelse for denne innsendingen, fordi "
+"den allerede er publisert."
 
 msgid "api.emails.400.missingBody"
 msgstr "Du må oppgi en e-post som skal sendes."
@@ -226,6 +228,8 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Din forespørsel var ikke gyldig. TimelineInterval skal være 'dag' eller "
+"'måned'."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -255,8 +259,9 @@ msgstr ""
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Du må angi et filstadie."
 
+#, fuzzy
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "Filstadiet du oppga er ikke gyldig."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
@@ -264,6 +269,7 @@ msgstr ""
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Du må oppgi en vurderingsrunde-ID når du flytter en fil til dette filstadiet."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""

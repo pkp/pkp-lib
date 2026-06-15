@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-12 10:29+0000\n"
+"PO-Revision-Date: 2026-06-15 12:08+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/nb_NO/>\n"
@@ -787,3 +787,25 @@ msgstr "Brukeren bør være anonym. Du er for øyeblikket logget inn."
 
 msgid "user.login.activate.description"
 msgstr "Bekreft og aktiver din brukerkonto"
+
+#, fuzzy
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Tilgang til arbeidsflyt for ufullstendige innsendinger er begrenset."
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} av {$total} språk fullført"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Skriv institusjonens navn på {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Institusjonsnavn på {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Er du sikker?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Tilknytningen <strong>{$affiliation}</strong> vil bli slettet."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Skriv institusjonens navn på {$language}"

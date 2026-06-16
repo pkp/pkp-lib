@@ -3029,9 +3029,6 @@ msgstr "Converting…"
 msgid "publication.bodyText.import.uploadingImages"
 msgstr "Uploading images…"
 
-msgid "publication.bodyText.import.saveFailed"
-msgstr "The document could not be saved before uploading an image."
-
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
 

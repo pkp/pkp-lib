@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:08+0000\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/nb_NO/>\n"
@@ -574,7 +574,7 @@ msgid "reviewer.list.reassign"
 msgstr "Oppnevn på nytt"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Tildel {$name} på nytt"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Denne fagfellen er allerede oppnevnt til å vurdere dette bidraget."
@@ -598,31 +598,32 @@ msgid "reviewer.list.empty"
 msgstr "Ingen fagfeller funnet"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Tilordnet en tidligere runde"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Opphev beslutning"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Er du sikker på at du vil oppheve denne avgjørelsen?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Fullfør følgende trinn for å ta denne avgjørelsen"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Ikke hopp over denne e-posten"
 
+#, fuzzy
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Dette trinnet er hoppet over, og derfor blir ingen e-post sendt."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Registrer beslutning"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Hopp over e-posten"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Det oppsto et problem med trinnet {$stepName}."
 
 #~ msgid "reviewer.list.itemsOfTotal"
 #~ msgstr "{$count} av {$total} fagfeller"
@@ -643,3 +644,42 @@ msgstr ""
 #, fuzzy
 msgid "editor.submission.findAndSelectReviewerFromSuggestions"
 msgstr "Velg en fagfelle fra listen over foreslåtte fagfeller"
+
+#, fuzzy
+msgid "editor.review.download"
+msgstr "Last ned evalueringsskjemaet"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Samme institusjon som forfatteren"
+
+msgid "editor.review.logResponse.for"
+msgstr "Registrer svar for"
+
+msgid "editor.review.logResponse"
+msgstr "Registrer svar"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Et svar må velges"
+
+#, fuzzy
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Fagfellen har godtatt vuderingsinvitasjonen"
+
+#, fuzzy
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Fagfellen har avvist vurderingsinvitasjonen"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registrer svaret på vegne av fagfellen"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Hvis fagfellen kontakter deg via e-post eller på andre måter, kan du "
+"registrere svaret deres for dem"
+
+msgid "editor.review.authorOnly"
+msgstr "Seksjoner som kun angår forfattere vises"
+
+#, fuzzy
+msgid "editor.review.allSections"
+msgstr "Redaktørens skjema viser alle seksjoner om vurdering"

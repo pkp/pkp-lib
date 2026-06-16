@@ -1,7 +1,7 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-15 12:55+0000\n"
+"PO-Revision-Date: 2026-06-16 07:20+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
@@ -350,8 +350,9 @@ msgstr ""
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
 
+#, fuzzy
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Den mislykkede oppgaven ble slettet fra oversikten."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Ordforrådet {$vocab} støttes ikke."
@@ -441,3 +442,36 @@ msgstr ""
 
 msgid "api.400.reviewerMastheadCannotBeChanged"
 msgstr "Synligheten av toppteksten for fagfelleroller kan ikke endres."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Innleveringen for denne vurderingsoppgaven ble ikke funnet."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "De eneste gyldige verdiene er 'akseptere' og 'avslå'"
+
+msgid "api.409.resourceActionConflict"
+msgstr "Kunne ikke fullføre den tiltenkte handlingen på ressursen."
+
+#, fuzzy
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Finner ikke fagfellen oppnevn for oppgaven"
+
+msgid "api.submission.400.invalidId"
+msgstr "Ugyldig ID: «{$id}» oppgitt."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Den angitte delen finnes ikke."
+
+#, fuzzy
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Forespørselen mangler den nødvendige søkeparameteren «ids». Vennligst oppgi "
+"«ID-ene» for innsendingene du ønsker å slette."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Skjema for publikasjonsidentifikatorer er utilgjengelig siden det ikke "
+"finnes noen aktiverte identifikatorer."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Ror-en du etterspurte, ble ikke funnet."

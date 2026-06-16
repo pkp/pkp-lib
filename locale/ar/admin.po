@@ -2,7 +2,7 @@
 # "M. Ali" <vorteem@gmail.com>, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-16 07:20+0000\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -1018,3 +1018,27 @@ msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
 msgstr ""
 "يتعذر التحقق من الملف المضغوط لسجل ROR: خوارزمي فحص السلامة غير مدعومة. فقط "
 "MD5 و SHA256 مدعومتان."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "يتعذر استخراج الملف المضغوط لسجل بيانات ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"تتعذر قراءة إصدار ملف سجل بيانات ROR الذي يصيغة JSON {$file}. الخطأ: "
+"{$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "يتعذر تنزيل الملف المضغوط لسجل بيانات ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr "يتعذر فتح الملف المضغوط لسجل بيانات ROR. رمز الخطأ: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"يتعذر العثور على ملف بيانات JSON ذي المخطط الذي بالإصدار {$version} في ROR "
+"المستخرج."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"سجل توثيق ROR ذي المُعرَّف \"{$id}\" يقتقد إلى واحد أو أكثر من حقوله "
+"المطلوبة (المعرف، الأسماء، الحالة) ولقد تمت."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:08+0000\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
@@ -611,7 +611,7 @@ msgid "submission.event.submissionSubmitted"
 msgstr "Første steg av innlevering ferdig."
 
 msgid "submission.event.copyrightAgreed"
-msgstr ""
+msgstr "{$filename} ({$username}) godtok opphavsrettsvilkårene for innsending."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -700,7 +700,7 @@ msgstr ""
 "Filopplasteren blir registrert når filen opprettes, og denne kan ikke endres."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Først utgitt"
 
 #, fuzzy
 msgid "submission.forTheEditors"
@@ -2610,3 +2610,7 @@ msgstr "Annuller innsendelsen"
 #, fuzzy
 msgid "submission.author.list"
 msgstr "Innleveringens forfattere"
+
+#, fuzzy
+msgid "submission.forReviewerSuggestion"
+msgstr "Forslag fra fagfelle"

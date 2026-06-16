@@ -26,6 +26,7 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
@@ -92,6 +93,13 @@ class ReviewerAction
                 'declined' => $decline,
                 'dateConfirmed' => Core::getCurrentDate(),
             ]);
+
+            if ($decline) {
+                $accessInvitation = Repo::reviewAssignment()->getAccessInvitation($reviewAssignment);
+                if ($accessInvitation) {
+                    $accessInvitation->updateStatus(InvitationStatus::DECLINED);
+                }
+            }
 
             // Add log
             $eventLog = Repo::eventLog()->newDataObject([

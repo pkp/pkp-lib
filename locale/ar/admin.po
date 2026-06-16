@@ -1,8 +1,8 @@
 # M. Ali <vorteem@gmail.com>, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-28 06:51+0000\n"
+"PO-Revision-Date: 2026-06-16 07:20+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -1000,3 +1000,21 @@ msgstr "تطهير سجلات المهام المجدولة"
 
 msgid "admin.clearTemplateCache"
 msgstr "حذف خبء القوالب"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr "يتعذر التحقق من سلامة الملف المضغوط لسجل بيانات ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"يتعذر تحديث بيانات سجل ROR بسبب عدم تطابق فحص السلامة. نتيجة الفحص المتوقعة "
+"هي: {$expected}. النتيجة الفعلية هي: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"يتعذر استرجاع البيانات الوصفية لسجل بيانات ROR. ترميز حالة HTTP غير متوقع: "
+"{$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"يتعذر التحقق من الملف المضغوط لسجل ROR: خوارزمي فحص السلامة غير مدعومة. فقط "
+"MD5 و SHA256 مدعومتان."

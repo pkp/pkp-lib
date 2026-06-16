@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 07:20+0000\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -3663,3 +3663,27 @@ msgstr "Etiketten, for eksempel \"Les mer\", for knappen i uthevingen."
 
 msgid "manager.highlights.urlText"
 msgstr "Knappetikett"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Legg til/fjern språk"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Rapportinnstillinger"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Nettsidespråk"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Innleveringsspråk"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadata"
+
+msgid "manager.language.submission.form.description"
+msgstr "Velg innleverings- og metadataspråk."
+
+msgid "manager.language.submission.from.error"
+msgstr "Du må velge minst ett språk."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Startdato"

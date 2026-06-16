@@ -965,6 +965,9 @@ msgstr "Items with DOIs"
 msgid "doi.manager.settings.doiPrefix.required"
 msgstr "A DOI prefix is required"
 
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "A DOI suffix pattern is required."
+
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI Format"
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/services/PKPContextService.php
  *
@@ -22,13 +23,12 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
-use Illuminate\Contracts\Validation\Validator;
 use PKP\announcement\AnnouncementTypeDAO;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DAOResultIterator;
@@ -324,7 +324,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                     if (!in_array($props['primaryLocale'], $newSupportedLocales)) {
                         $validator->errors()->add('primaryLocale', __('admin.contexts.form.primaryLocaleNotSupported'));
                     }
-                // Or check against the $allowedLocales
+                    // Or check against the $allowedLocales
                 } elseif (!in_array($props['primaryLocale'], $allowedLocales)) {
                     $validator->errors()->add('primaryLocale', __('admin.contexts.form.primaryLocaleNotSupported'));
                 }
@@ -433,6 +433,47 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
                 if ($enableDois && empty($props[Context::SETTING_DOI_PREFIX])) {
                     $validator->errors()->add(Context::SETTING_DOI_PREFIX, __('doi.manager.settings.doiPrefix.required'));
+                }
+            });
+        }
+
+        // Disallow empty custom DOI suffix patterns when the custom pattern type is selected
+        if (
+            isset($props[Context::SETTING_DOI_SUFFIX_TYPE]) ||
+            isset($props[Context::SETTING_ENABLED_DOI_TYPES]) ||
+            isset($props[Repo::doi()::CUSTOM_PUBLICATION_PATTERN]) ||
+            isset($props[Repo::doi()::CUSTOM_REPRESENTATION_PATTERN])
+        ) {
+            $context = Application::get()->getRequest()->getContext();
+            $validator->after(function ($validator) use ($context, $props) {
+                $suffixType = $props[Context::SETTING_DOI_SUFFIX_TYPE]
+                    ?? $context?->getData(Context::SETTING_DOI_SUFFIX_TYPE);
+                $enabledTypes = $props[Context::SETTING_ENABLED_DOI_TYPES]
+                    ?? $context?->getData(Context::SETTING_ENABLED_DOI_TYPES)
+                    ?? [];
+
+                if ($suffixType !== Repo::doi()::SUFFIX_CUSTOM_PATTERN) {
+                    return;
+                }
+
+                if (
+                    in_array(Repo::doi()::TYPE_PUBLICATION, $enabledTypes) &&
+                    empty($props[Repo::doi()::CUSTOM_PUBLICATION_PATTERN])
+                ) {
+                    $validator->errors()->add(
+                        Repo::doi()::CUSTOM_PUBLICATION_PATTERN,
+                        __('doi.manager.settings.doiSuffixPattern.required')
+                    );
+                }
+
+                if (
+                    in_array(Repo::doi()::TYPE_REPRESENTATION, $enabledTypes) &&
+                    empty($props[Repo::doi()::CUSTOM_REPRESENTATION_PATTERN])
+                ) {
+                    $validator->errors()->add(
+                        Repo::doi()::CUSTOM_REPRESENTATION_PATTERN,
+                        __('doi.manager.settings.doiSuffixPattern.required')
+                    );
                 }
             });
         }

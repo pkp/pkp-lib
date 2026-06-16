@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2026-06-15 12:55+0000\n"
+"PO-Revision-Date: 2026-06-16 07:20+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/emails/nb_NO/>\n"
@@ -553,3 +553,13 @@ msgstr ""
 
 msgid "orcid.orcidRequestAuthorAuthorization.name"
 msgstr "orcidRequestAuthorAuthorization"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Denne delen beskriver rollene brukeren allerede har."
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Dette er \"Godta invitasjon\"-nettadressen"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Dette er nettadressen som brukes til å avslå invitasjonen"

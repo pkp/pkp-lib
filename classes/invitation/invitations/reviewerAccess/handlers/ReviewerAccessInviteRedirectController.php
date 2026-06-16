@@ -56,7 +56,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
             ]
         );
 
-        $this->getInvitation()->finalize();
+        $this->getInvitation()->handleAccess();
 
         $request->redirectUrl($url);
     }

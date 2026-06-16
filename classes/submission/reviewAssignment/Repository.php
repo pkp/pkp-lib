@@ -19,6 +19,9 @@ use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
+use PKP\invitation\models\InvitationModel;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\reviewForm\ReviewFormResponseDAO;
@@ -213,11 +216,16 @@ class Repository
 
         $this->updateReviewRoundStatus($reviewAssignment);
 
+        $accessInvitation = $this->getAccessInvitation($reviewAssignment);
+        if ($accessInvitation) {
+            $accessInvitation->updateStatus(InvitationStatus::CANCELLED);
+        }
+
         Hook::call('ReviewAssignment::delete', [$reviewAssignment]);
     }
 
     /**
-     * Delete a collection of announcements
+     * Delete a collection of review assignments
      */
     public function deleteMany(Collector $collector)
     {
@@ -234,11 +242,8 @@ class Repository
         // using reviewAssignmentCollector to fetch ids of all review assignments for the context
         $reviewAssignmentCollector = $this->getCollector();
         $reviewAssignmentCollector->filterByContextIds([$contextId]);
-        $reviewAssignmentIds = $reviewAssignmentCollector->getIds();
 
-        foreach ($reviewAssignmentIds as $reviewAssignmentId) {
-            $this->dao->deleteById($reviewAssignmentId);
-        }
+        $this->deleteMany($reviewAssignmentCollector);
 
         // delete review rounds associated with this context
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -287,5 +292,26 @@ class Repository
     public function getExternalReviewerIdsByCompletedYear(int $contextId, string $year): Collection
     {
         return $this->dao->getExternalReviewerIdsByCompletedYear($contextId, $year);
+    }
+
+    /**
+     * Get the access invitation for a review assignment, if it exists.
+     */
+    public function getAccessInvitation(ReviewAssignment $reviewAssignment): ?ReviewerAccessInvite
+    {
+        $invitationModels = InvitationModel::byType(ReviewerAccessInvite::INVITATION_TYPE)
+            ->byUserId($reviewAssignment->getReviewerId())
+            ->stillActive()
+            ->get();
+        
+        foreach ($invitationModels as $invitationModel) {
+            $invitation = new ReviewerAccessInvite($invitationModel);
+            
+            if ($invitation->getPayload()->reviewAssignmentId === $reviewAssignment->getId()) {
+                return $invitation;
+            }
+        }
+
+        return null;
     }
 }

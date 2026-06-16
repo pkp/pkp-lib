@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:55+0000\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/nb_NO/>\n"
@@ -489,9 +489,11 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"Sletting av en nøkkel vil trekke tilbake tilgangen til alle programmer som "
+"bruker den."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Er du sikker på at du vil slette denne API-nøkkelen?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -508,12 +510,15 @@ msgstr ""
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"Kan ikke fullføre forespørselen om tilbakestilling av passord fordi "
+"{$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Skriv inn nytt passord."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Passordet har blitt oppdatert. Vennligst logg inn med det nye passordet."
 
 #~ msgid "user.biography.description"
 #~ msgstr "(F.eks. institutt og stilling)"
@@ -814,3 +819,137 @@ msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
 msgstr ""
 "Det er begrenset hvorvidt forslag fra anmelder kan legges til, oppdateres "
 "eller slettes for fullførte innsendinger."
+
+msgid "orcid.unauthenticated"
+msgstr "(uautorisert)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Du blir nå automatisk sendt tilbake til {$contextName}."
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Klient-ID er ugyldig, vennligst sjekk inndataene dine"
+
+#, fuzzy
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Ugyldig klienthemmelighet"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Aktiver ORCID-funksjonalitet for hele nettsiden"
+
+#, fuzzy
+msgid "user.masthead.update.title"
+msgstr "Bekreft endringer i visning i topptekst"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Slett ORCID"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Denne ORCID-en er ikke bekreftet. Fjern denne ubekreftede ORCID-en og be "
+"brukeren/forfatteren direkte om bekreftelse."
+
+msgid "user.disabledModal.title"
+msgstr "Deaktiver {$fullName}"
+
+msgid "orcid.field.verification.request"
+msgstr "Be om verifisering"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID-verifisering ble forespurt!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Send bekreftelses-e-post på nytt"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Be om ORCID-verifisering"
+
+#, fuzzy
+msgid "orcid.invalidClient"
+msgstr "Ugyldige legitimasjonsopplysninger"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Ugyldig klient-id"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Er du sikker på at du vil fjerne denne rollen? Brukeren vil miste tilganger "
+"og tillatelser knyttet til den."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "Du kan ikke fjerne denne rollen. Brukeren må ha minst én rolle."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Frem til da kan du sjekke og oppdatere profilen din. Hvis du mener dette er "
+"en feil, kan du kontakte administratoren."
+
+msgid "user.enabledModal.title"
+msgstr "Aktiver {$fullName}"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "E-posten sendes når forfatteren er opprettet."
+
+msgid "orcid.manager.settings.saved"
+msgstr "Innstillingene er lagret"
+
+msgid "orcid.manager.settings.city"
+msgstr "By"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Konfigurert i henhold til tidskriftet"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Klient-ID er gyldig"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Klienthemmelighet er gyldig"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr ""
+"Klienthemmelighet er ugyldig, vennligst sjekk dine legitimeringsoplysningene"
+
+#, fuzzy
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Det er oppdaget duplikat-ORCiD for noen bidragsytere."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Det ble oppdaget uautentiserte ORCiD-er for bidragsytere."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Aktiver ORCID-funksjonalitet"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Vil du sende en e-post til denne forfatteren med en forespørsel om at de "
+"bekrefter ORCID-en sin?"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Er du sikker på at du vil fjerne denne ORCID-en?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Rollen din har planlagt oppstart den {$roleStartDate}"
+
+msgid "user.disabledModal.description"
+msgstr "Nåværende roller: {$roles}"
+
+msgid "user.bioStatement"
+msgstr "Kort biografi"
+
+#, fuzzy
+msgid "user.pendingEmailChange"
+msgstr ""
+"Du har bedt om å endre e-postadressen din til «{$pendingEmail}». Vi har "
+"allerede sendt deg en e-post med instruksjoner om hvordan du validerer den "
+"endrede e-postadressen."
+
+#, fuzzy
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID-funksjonalitet kan eventuelt aktiveres og konfigureres på "
+"nettstedsnivå for alle tidsskrifter/presser/servere. Hvis aktivert, vil "
+"dette overstyre all kontekstnivåpålogging og bruke følgende "
+"påloggingsinformasjon for alle tidsskrifter/presser/servere på denne "
+"installasjonen."

@@ -942,7 +942,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         )
                         ->whereColumn('rr.round', '=', 'agrr.current_round')
                         ->whereColumn('rr.stage_id', '=', 'agrr.stage_id')
-                        ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED)
+                        ->whereIn('rr.status', [ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED, ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW])
                 )
         );
 

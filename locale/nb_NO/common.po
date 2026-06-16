@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:55+0000\n"
+"PO-Revision-Date: 2026-06-16 07:20+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
@@ -341,8 +341,9 @@ msgstr "Sletter"
 msgid "common.deleteSelection"
 msgstr "Slett valgte"
 
+#, fuzzy
 msgid "common.deselect"
-msgstr ""
+msgstr "Fravelg"
 
 msgid "common.designation"
 msgstr "Betegnelse"
@@ -360,10 +361,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} pixles"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Nei, forkast ulagrede endringer"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Frakoblet"
 
 msgid "common.disable"
 msgstr "Slå av"
@@ -387,10 +388,10 @@ msgid "common.downloadReport"
 msgstr "Last ned rapport"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Dra og slipp filer her."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Eller last opp en fil"
 
 msgid "common.edit"
 msgstr "Rediger"
@@ -399,7 +400,7 @@ msgid "common.editItem"
 msgstr "Rediger {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "E-postmaler"
 
 msgid "common.enable"
 msgstr "Slå på"

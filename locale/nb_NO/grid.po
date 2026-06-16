@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-12 08:06+0000\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/nb_NO/>\n"
@@ -706,7 +706,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Velg en type..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Vis"
 
 msgid "author.users.contributor.name"
 msgstr "Navn"
@@ -728,3 +728,22 @@ msgstr "Endre bidragsyter"
 
 #~ msgid "grid.genres.title"
 #~ msgstr "Sjangre"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Vis i toppteksten"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Når brukeren er aktivert, vil de få tilgang til nettstedet igjen, og du vil "
+"kunne invitere dem til roller etter behov."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Vær oppmerksom på at når en bruker er deaktivert, vil du ikke kunne legge "
+"vedkommende til i noen roller før den er aktivert igjen."
+
+msgid "grid.user.remove"
+msgstr "Fjern bruker"
+
+msgid "grid.user.logInAs"
+msgstr "Logg inn som"

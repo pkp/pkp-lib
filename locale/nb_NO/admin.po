@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 12:00+0000\n"
+"PO-Revision-Date: 2026-06-16 14:49+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/nb_NO/>\n"
@@ -1022,3 +1022,62 @@ msgstr ""
 
 msgid "admin.job.processLogFile.fileNotFound"
 msgstr "Filen {$file} eksisterer ikke."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Vis AppKey-bruksparametrene"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Legg til app_key config-variablen i config.inc.php-filen."
+
+#, fuzzy
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"En gyldig APP-nøkkel er allerede angitt i konfigurasjonsfilen. For å "
+"overskrive, send flagget --force med kommandoen."
+
+#, fuzzy
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Send en jobb for å automatisk fjerne utløpte invitasjoner"
+
+#, fuzzy
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Valider den gjeldende app key, hvis det finnes en i config-filen"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Generer en ny app key og erstatt den i config-filen. Bruk markeringen --show "
+"for kun å vise og --force for å overskrive en eksisterende, gyldig app key."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Mente du én av følgende?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Generert App Key: {$appKey}"
+
+#, fuzzy
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Variabelen `app_key` finnes allerede under `general`-delen i "
+"konfigurasjonsfilen. Kjør kommandoen `php lib/pkp/tools/appKey.php generate` "
+"for å angi en ny appnøkkel."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Ingen app-nøkkel angitt i config-filen."
+
+#, fuzzy
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Ugyldig app key-sett, chiffer som ikke støttes eller feil nøkkellengde. "
+"Støttede chiffer er: {$ciphers}."
+
+#, fuzzy
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App key ble innstilt riktig i config-filen."
+
+#, fuzzy
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Ingen nøkkelvariabel kalt `app_key` er definert i `general`-delen av "
+"konfigurasjonsfilen. Vennligst oppdater konfigurasjonsfilens generelle del "
+"og legg til linjen `app_key = ` eller kjør kommandoen `php lib/pkp/tools/"
+"appKey.php configure` for å angi den."

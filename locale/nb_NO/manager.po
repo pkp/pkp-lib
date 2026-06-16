@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:55+0000\n"
+"PO-Revision-Date: 2026-06-16 07:20+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -369,11 +369,15 @@ msgstr "ROR"
 msgid "manager.institutions.form.ror.description"
 msgstr "Research Organization Registry ID for denne institusjonen."
 
+#, fuzzy
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "IP-områder"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Gyldige verdier inkluderer IP-adresse (fx 142.58.103.1), IP-område (fx 142.58"
+".103.1-142.58.103.4), IP-område med trunkering '*' (fx 142.58.*.*) og IP-"
+"område med CIDR (fx 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
 msgstr "Slett institusjon"
@@ -382,7 +386,7 @@ msgid "manager.institutions.confirmDelete"
 msgstr "Er du sikker på at du vil slette institusjonen?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Ugyldig IP-område"
 
 msgid "manager.publication.submissionStage"
 msgstr "Innlevering"
@@ -414,6 +418,8 @@ msgstr "Følgende feil ble returnert av {$registrationAgency}:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Følgende melding ble sendt tilbake av {$registrationAgency} og inneholder "
+"detaljer om registreringen:"
 
 msgid "manager.emails.addEmail"
 msgstr "Legg til e-postmal"
@@ -3650,3 +3656,10 @@ msgstr ""
 msgid "manager.highlights.confirmDelete"
 msgstr ""
 "Er du sikker på at du vil slette {$title}? Denne handlingen kan ikke angres."
+
+#, fuzzy
+msgid "manager.highlights.urlText.description"
+msgstr "Etiketten, for eksempel \"Les mer\", for knappen i uthevingen."
+
+msgid "manager.highlights.urlText"
+msgstr "Knappetikett"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 07:20+0000\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
@@ -510,10 +510,10 @@ msgid "common.insert"
 msgstr ""
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Sett inn innhold"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Finn innhold som kan settes inn"
 
 msgid "common.itemsPerPage"
 msgstr "Elementer per side"
@@ -522,7 +522,7 @@ msgid "common.keywords"
 msgstr "Nøkkelord"
 
 msgid "common.label"
-msgstr ""
+msgstr "Etikett"
 
 msgid "common.language"
 msgstr "Språk"
@@ -547,7 +547,7 @@ msgid "common.lessThanOnly"
 msgstr "Mindre enn"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Fortsett arbeidet"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -589,7 +589,7 @@ msgid "common.none"
 msgstr "Ingen"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Ingen valgt"
 
 #, fuzzy
 msgid "common.noneProvided"
@@ -636,8 +636,9 @@ msgstr "Informert: {$dateNotified}"
 msgid "common.noMatches"
 msgstr "Ingen treff"
 
+#, fuzzy
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} fler"
 
 msgid "common.off"
 msgstr "Av"
@@ -736,7 +737,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Les mer om {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Gjenoppretter forbindelse"
 
 msgid "common.record"
 msgstr "Journalfør"
@@ -784,7 +785,7 @@ msgid "common.reset"
 msgstr "Tilbakestill"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Runde {$round}"
 
 msgid "common.role"
 msgstr "Rolle"

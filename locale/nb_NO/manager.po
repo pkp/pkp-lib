@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 12:00+0000\n"
+"PO-Revision-Date: 2026-06-16 14:49+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -3687,3 +3687,56 @@ msgstr "Du må velge minst ett språk."
 
 msgid "manager.statistics.counterR5Report.settings.startDate"
 msgstr "Startdato"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datoen skal være i formatet ÅÅÅÅ-MM-DD eller ÅÅÅÅ-MM. Tidligste mulige dato "
+"er {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publiseringsår"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"En liste eller et intervall med publikasjonsår som skal returneres som svar "
+"i formatet åååå|åååå|åååå-åååå."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Sluttdato"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datoen skal være i formatet ÅÅÅÅ-MM-DD eller ÅÅÅÅ-MM. Tidligste mulige dato "
+"er {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Datoformatet er ugyldig."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Bruker-ID"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metrikktype"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Egenskaper som skal vises"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Publiseringsårformatet er ikke gyldig."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Innsendings-ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Innsendings-ID-en finnes ikke."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Inkluder overordnede detaljer"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Ekskluder månedlige detaljer"

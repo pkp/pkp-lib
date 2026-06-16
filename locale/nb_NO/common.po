@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 12:00+0000\n"
+"PO-Revision-Date: 2026-06-16 14:49+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
@@ -805,11 +805,12 @@ msgstr "Lagrer"
 msgid "common.search"
 msgstr "Søk"
 
+#, fuzzy
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Søkefrase"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Søker"
 
 msgid "common.searchQuery"
 msgstr "Søkeord"
@@ -839,7 +840,7 @@ msgid "common.sendEmail"
 msgstr "Send e-post"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Vis alle steg"
 
 #, fuzzy
 msgid "common.showingSteps"
@@ -2392,3 +2393,6 @@ msgstr "Opgaver"
 
 msgid "common.changeLanguage"
 msgstr "Bytt språk"
+
+msgid "common.showingXofX"
+msgstr "Viser <strong>{$start} til {$finish}</strong> av {$total}"

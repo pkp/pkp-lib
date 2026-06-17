@@ -3011,6 +3011,24 @@ msgstr "Document Outline"
 msgid "publication.bodyText.references.dragHint"
 msgstr "Drag references into the editor to place an in-text citation."
 
+msgid "publication.bodyText.import.importing"
+msgstr "Importing document"
+
+msgid "publication.bodyText.import.failed"
+msgstr "Import failed"
+
+msgid "publication.bodyText.import.downloading"
+msgstr "Downloading document…"
+
+msgid "publication.bodyText.import.loadingConverter"
+msgstr "Loading converter…"
+
+msgid "publication.bodyText.import.converting"
+msgstr "Converting…"
+
+msgid "publication.bodyText.import.uploadingImages"
+msgstr "Uploading images…"
+
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
 

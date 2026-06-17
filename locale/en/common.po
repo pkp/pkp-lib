@@ -442,6 +442,9 @@ msgstr "{$width}&times;{$height} pixels"
 msgid "common.discardChanges"
 msgstr "No, discard unsaved changes"
 
+msgid "common.dismiss"
+msgstr "Dismiss"
+
 msgid "common.disconnected"
 msgstr "Disconnected"
 

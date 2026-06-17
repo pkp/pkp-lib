@@ -26,8 +26,8 @@ use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\queue\JobRunner;
-use PKP\queue\WorkerConfiguration;
 use PKP\queue\PKPQueueDatabaseConnector;
+use PKP\queue\WorkerConfiguration;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
 {
@@ -155,8 +155,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         }
 
         Queue::failing(function (JobFailed $event) {
-            error_log($event->exception->__toString());
-
+            // Exception logging for a failed job is handled centrally by
+            // PKPExceptionHandler::report() (Illuminate\Queue\Worker::runJob() -> report()),
+            // which honors the [logs] log_exception switch. Here we only persist the
+            // durable failed_jobs record.
             app('queue.failer')->log(
                 $event->connectionName,
                 $event->job->getQueue(),

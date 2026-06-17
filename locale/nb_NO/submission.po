@@ -1,5 +1,5 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
-# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # Aysa Ekanger <aysa.ekanger@uit.no>, 2026.
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
 "PO-Revision-Date: 2026-06-17 15:59+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -1565,7 +1565,7 @@ msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Send til fagfellevurering"
 
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Denne innleveringen er klar til å sendes til fagfelleurdering."

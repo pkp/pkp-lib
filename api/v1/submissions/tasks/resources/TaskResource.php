@@ -104,6 +104,15 @@ class TaskResource extends JsonResource
                 'date' => $activity->getDateLogged(),
                 'userFullName' => $activity->getLocalizedData('userFullName'),
                 'userId' => $activity->getData('userId'),
+                'settings' => array_intersect_key(
+                    $activity->getAllData(),
+                    array_flip([
+                        'fileId',
+                        'filename',
+                        'stageId',
+                        'submissionFileId',
+                    ])
+                ),
             ];
         }
 

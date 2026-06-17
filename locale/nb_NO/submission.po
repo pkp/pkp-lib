@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-16 12:00+0000\n"
+"PO-Revision-Date: 2026-06-17 15:59+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
@@ -1570,14 +1570,18 @@ msgstr ""
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Denne innleveringen er klar til å sendes til fagfelleurdering."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} sendte denne innsendingen til vurderingsstadiet."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Sendt til vurdering"
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"Innsendingen, {$title}, er sendt til vurderingsfasen. Forfatteren har blitt "
+"varslet, med mindre du valgte å hoppe over den e-posten."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Ny runde fagfellevurdering"
@@ -1585,35 +1589,51 @@ msgstr "Ny runde fagfellevurdering"
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Send til produksjon"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Send innleveringen til produksjonsfasen for å klargjøre den for publisering."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} sendte denne innsendingen til produksjonsfasen."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Sendt til produksjonsstadiet"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"Innsendingen, {$title}, ble sendt til produksjonsfasen. Forfatteren har "
+"blitt varslet, med mindre du valgte å hoppe over den e-posten."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Send en e-post til forfatterne for å gi dem beskjed om at bidraget er sendt "
+"til produksjonsfasen. Denne e-posten vil ikke bli sendt før avgjørelsen er "
+"registrert."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Avbryt manusredigering"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Send bidraget tilbake til manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"{$editorName} har sendt dette bidraget tilbake fra "
+"manuskriptredigeringstrinnet."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Sendt tilbake fra manusredigering"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"Innsendingen, {$title}, ble sendt tilbake fra manusredigeringstrinnet. "
+"Forfatteren har blitt varslet, med mindre du valgte å hoppe over den "
+"e-posten."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -1677,13 +1697,14 @@ msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} omgjorde beslutningen om å avvise innsendelsen."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Bidraget er reaktivert"
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "Bidraget {$title} er nå en aktiv innsending i fagfelletrinnet."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""

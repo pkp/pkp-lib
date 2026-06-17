@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 14:49+0000\n"
+"PO-Revision-Date: 2026-06-17 15:59+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
@@ -2396,3 +2396,13 @@ msgstr "Bytt språk"
 
 msgid "common.showingXofX"
 msgstr "Viser <strong>{$start} til {$finish}</strong> av {$total}"
+
+#, fuzzy
+msgid "navigation.dashboards"
+msgstr "Redaktørens oversikt"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mine opgaver som fagfelle"
+
+msgid "navigation.mySubmissions"
+msgstr "Mine bidrag som forfatter"

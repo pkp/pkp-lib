@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-17 15:59+0000\n"
+"PO-Revision-Date: 2026-06-18 21:33+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
@@ -1839,8 +1839,9 @@ msgstr "Fagfelle avbrutt."
 msgid "notification.reinstatedReviewer"
 msgstr "Fagfelle gjenopptatt."
 
+#, fuzzy
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Forespørsel om å revurdere vurderingsoppgaven ble sendt."
 
 msgid "notification.addedStageParticipant"
 msgstr "Bruker lagt til som deltaker på et bestemt stadie."
@@ -1950,7 +1951,7 @@ msgstr ""
 "ditt via redaksjonen."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Ukentlig e-post om utestående oppgaver"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1974,19 +1975,28 @@ msgid "notification.removedNavigationMenu"
 msgstr "Navigasjonsmenyen ble fjernet"
 
 msgid "notification.unsubscribeNotifications.success"
-msgstr ""
+msgstr "Du har blitt avmeldt"
 
+#, fuzzy
 msgid "notification.unsubscribeNotifications.error"
-msgstr ""
+msgstr "Vi kunne ikke avmelde deg"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
+"Velg e-postene du ikke lenger ønsker å motta på {$email} fra {$contextName}."
 
+#, fuzzy
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
+"Du kan når som helst abonnere på e-postvarsler på nytt fra <a href=\""
+"{$profileNotificationUrl}\">brukerprofilen din</a>."
 
+#, fuzzy
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
+"E-postadressen {$email} er avmeldt. Vi vil ikke lenger sende deg disse e-"
+"postene. Du kan abonnere på e-postvarsler på nytt når som helst fra <a href="
+"\"{$profileNotificationUrl}\">brukerprofilen</a> din."
 
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
@@ -2209,23 +2219,30 @@ msgstr "Denne {$attribute} er allerede opptatt."
 msgid "validator.url"
 msgstr "Dette er ikke en gyldig URL."
 
+#, fuzzy
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Ingen ny linje tillatt."
 
+#, fuzzy
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Kun [{$tags}] html tags er tillatt."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
+"Filteret ({$displayName}) understøtter input {$inputTypeName} - "
+"{$typeofInput} angitt"
 
+#, fuzzy
 msgid "filter.error.missingRequirements"
 msgstr ""
+"Prøver å kjøre en transformasjon som ikke støttes i installasjonsmiljøet "
+"ditt."
 
 msgid "filter.import.error.couldNotImportNode"
-msgstr ""
+msgstr "Kunne ikke importere XML-node"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Ukjent kommando {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2406,3 +2423,31 @@ msgstr "Mine opgaver som fagfelle"
 
 msgid "navigation.mySubmissions"
 msgstr "Mine bidrag som forfatter"
+
+msgid "common.viewMoreDetails"
+msgstr "Se flere detaljer"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Vurdering godtatt den"
+
+msgid "validator.multilingual"
+msgstr "Flerspråklighetskravet er ikke oppfylt for dette feltet."
+
+#, fuzzy
+msgid "common.sandbox"
+msgstr "Programmet kjører i sandkassemodus."
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Vurdering innsendt den"
+
+msgid "common.openLinkNewTab"
+msgstr "Åpne lenke i en ny fane."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Nr."
+
+msgid "common.refreshingData"
+msgstr "Oppdaterer data"

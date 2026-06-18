@@ -49,9 +49,10 @@ class OpenReviewComponent
             'openReview.fullReview',
             'openReview.noCommentsAvailable',
             'openReview.readReview',
+            'openReview.hideReview',
             'openReview.readResponse',
             'openReview.hideResponse',
-            'publication.versionStage.versionOfRecord',
+            'openReview.sortByReviewRound',
             'common.pagination.previous',
             'common.pagination.next',
             'submission.reviewRound.authorResponse',
@@ -60,6 +61,10 @@ class OpenReviewComponent
             'openReview.status',
             'openReview.statusInProgress',
             'openReview.statusCompleted',
+            'openReview.roundStatusCompleted',
+            'openReview.roundStatusInProgress',
+            'openReview.roundNumber',
+            'openReview.reviewDate',
             'openReview.dataNotAvailable',
             'openReview.inProgressTitle',
             'openReview.inProgressDescription',
@@ -75,7 +80,8 @@ class OpenReviewComponent
             'openReview.seeFullRecord',
             'openReview.recommendationItemSeparator',
             'openReview.authorAffiliationSeparator',
-            'common.inParenthesis'
+            'common.inParenthesis',
+            'common.commaListSeparator',
         ];
     }
 

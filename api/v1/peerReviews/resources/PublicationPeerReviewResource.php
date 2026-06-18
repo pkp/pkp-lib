@@ -166,6 +166,7 @@ class PublicationPeerReviewResource extends JsonResource
 
             $roundsData->add([
                 'displayText' => $roundDisplayText,
+                'versionString' => $publication->getData('versionString'),
                 'roundId' => $reviewRound->getData('id'),
                 // `ReviewRound`s fetched above by publication ID, so no null check required on `getPublicationId()`
                 'originalPublicationId' => (int) $reviewRound->getPublicationId(),
@@ -214,6 +215,7 @@ class PublicationPeerReviewResource extends JsonResource
             }
 
             $isReviewOpen = $assignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
+            $reviewer = $isReviewOpen ? Repo::user()->get($assignment->getReviewerId()) : null;
             /** @var ReviewerRecommendation $recommendation */
             $recommendation = $this->availableReviewerRecommendations->get($assignment->getReviewerRecommendationId());
 
@@ -221,7 +223,9 @@ class PublicationPeerReviewResource extends JsonResource
                 'id' => $assignment->getData('id'),
                 'reviewerId' => $isReviewOpen ? $assignment->getReviewerId() : null,
                 'reviewerFullName' => $isReviewOpen ? $assignment->getReviewerFullName() : null,
-                'reviewerAffiliation' => $isReviewOpen ? Repo::user()->get($assignment->getReviewerId())->getLocalizedAffiliation() : null,
+                'reviewerAffiliation' => $isReviewOpen ? $reviewer?->getLocalizedAffiliation() : null,
+                'reviewerOrcid' => $isReviewOpen ? $reviewer?->getOrcid() : null,
+                'reviewerHasVerifiedOrcid' => $isReviewOpen ? (bool) $reviewer?->hasVerifiedOrcid() : false,
                 'dateCompleted' => $assignment->getDateCompleted(),
                 'isReviewOpen' => $isReviewOpen,
                 // Localized text description of the reviewer recommendation (Accept Submission, Decline Submission, etc.)

@@ -198,6 +198,9 @@ msgstr "The review was not completed."
 msgid "openReview.sortBy"
 msgstr "Sort by:"
 
+msgid "openReview.sortByReviewRound"
+msgstr "Review Round"
+
 msgid "openReview.sortByReviewerName"
 msgstr "Reviewer Name"
 
@@ -213,6 +216,9 @@ msgstr "No review comments available."
 msgid "openReview.readReview"
 msgstr "Read Review"
 
+msgid "openReview.hideReview"
+msgstr "Hide Review"
+
 msgid "openReview.title"
 msgstr "Peer Review"
 
@@ -224,6 +230,18 @@ msgstr "In progress since {$date}"
 
 msgid "openReview.statusCompleted"
 msgstr "Completed on {$date}"
+
+msgid "openReview.roundStatusCompleted"
+msgstr "Completed"
+
+msgid "openReview.roundStatusInProgress"
+msgstr "In progress"
+
+msgid "openReview.roundNumber"
+msgstr "Round {$number}"
+
+msgid "openReview.reviewDate"
+msgstr "Review Date: {$date}"
 
 msgid "openReview.dataNotAvailable"
 msgstr "Peer review data is not available"

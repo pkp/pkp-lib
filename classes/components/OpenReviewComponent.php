@@ -52,7 +52,7 @@ class OpenReviewComponent
             'openReview.hideReview',
             'openReview.readResponse',
             'openReview.hideResponse',
-            'publication.versionStage.versionOfRecord',
+            'openReview.sortByReviewRound',
             'common.pagination.previous',
             'common.pagination.next',
             'submission.reviewRound.authorResponse',
@@ -80,7 +80,8 @@ class OpenReviewComponent
             'openReview.seeFullRecord',
             'openReview.recommendationItemSeparator',
             'openReview.authorAffiliationSeparator',
-            'common.inParenthesis'
+            'common.inParenthesis',
+            'common.commaListSeparator',
         ];
     }
 

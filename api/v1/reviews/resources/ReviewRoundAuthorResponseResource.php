@@ -39,6 +39,8 @@ class ReviewRoundAuthorResponseResource extends JsonResource
             'associatedAuthors' => array_map(fn (Author $author) => [
                 'id' => $author->getId(),
                 'fullName' => $author->getFullName(),
+                'orcid' => $author->getOrcid(),
+                'hasVerifiedOrcid' => (bool) $author->hasVerifiedOrcid(),
             ], $associatedAuthors),
             'submittedByUser' => [
                 'id' => $user->getId(),

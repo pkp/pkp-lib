@@ -198,6 +198,9 @@ msgstr "The review was not completed."
 msgid "openReview.sortBy"
 msgstr "Sort by:"
 
+msgid "openReview.sortByReviewRound"
+msgstr "Review Round"
+
 msgid "openReview.sortByReviewerName"
 msgstr "Reviewer Name"
 

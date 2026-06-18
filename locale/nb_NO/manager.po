@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-17 15:59+0000\n"
+"PO-Revision-Date: 2026-06-18 21:33+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -2574,10 +2574,10 @@ msgid "stats.downloads"
 msgstr "Visninger av nummerets oppsett"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Total antal visninger etter dato"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Totalt antall nedlastinger etter dato"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
@@ -2683,11 +2683,12 @@ msgstr "Beskrivelse av {$stat}"
 msgid "stats.editorialActivity"
 msgstr "Redaksjonell aktivitet"
 
+#, fuzzy
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Hovedfil"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Tilleggsfil"
 
 msgid "stats.fileViews"
 msgstr "Filvisninger"
@@ -2706,7 +2707,7 @@ msgid "stats.geographic.ccAttribution"
 msgstr "Geo-lokasjon levert av<a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Om geolokalisering"
 
 msgid "stats.downloadReport.betweenDates"
 msgstr "{$startDate} til {$endDate}"
@@ -2748,16 +2749,16 @@ msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr "Last ned tidslinje"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Tidslinjeintervall"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Tidslinjetype"
 
 msgid "stats.total"
 msgstr "Total"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Unik"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Totalt innenfor datoperioden"
@@ -2766,7 +2767,7 @@ msgid "stats.trends"
 msgstr "Trender"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "Ukjent"
 
 msgid "stats.userStatistics"
 msgstr "Brukerstatistikk"
@@ -3743,3 +3744,39 @@ msgstr "Ekskluder månedlige detaljer"
 
 msgid "settings.roles.permitSettings"
 msgstr "Tillat endringer i innstillinger"
+
+#, fuzzy
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Definer rekkefølgen på roller i redaksjonell topptekst til offentlig "
+"fremvisning."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Innsendingsfilen {$id} ble hoppet over fordi den ikke har en gyldig "
+"revidering."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Innsendingsfilen {$id} ble hoppet over fordi den ikke har et gyldig "
+"filstadium."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Forsidebildet av publikasjonen {$id} ble ikke eksportert, da filen ikke ble "
+"funnet i stien \"{$path}\"."
+
+#, fuzzy
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Lenke til en side som viser alle aktive redaksjonelle tjenester."
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Tittelen på menyelementet er obligatorisk."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Revidering {$revision} av bidragsfilen {$id} ble hoppet over fordi filen "
+"ikke ble funnet i banen «{$path}»."

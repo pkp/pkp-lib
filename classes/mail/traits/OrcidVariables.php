@@ -47,6 +47,7 @@ trait OrcidVariables
         $request = Application::get()->getRequest();
         $dispatcher = Application::get()->getDispatcher();
         $principalContact = Repo::user()->getByEmail($context->getData('contactEmail'));
+        $principalContactSignature = $principalContact?->getLocalizedSignature() ?? $context->getContactName();
 
         $this->addData([
             self::$authorOrcidUrl => $oauthUrl,
@@ -56,8 +57,9 @@ trait OrcidVariables
                 newContext: $context->getPath(),
                 handler: 'orcid',
                 op: 'about',
-                urlLocaleForPage: ''),
-            self::$principalContactSignature => $principalContact->getLocalizedSignature(),
+                urlLocaleForPage: ''
+            ),
+            self::$principalContactSignature => $principalContactSignature,
         ]);
     }
 }

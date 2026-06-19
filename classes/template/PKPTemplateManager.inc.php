@@ -205,12 +205,26 @@ class PKPTemplateManager extends Smarty {
 			}
 
 			// Register recaptcha on relevant pages
-			if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_register')) {
+			if (Config::getVar('captcha', 'recaptcha')) {
+				$contexts = [];
+
+				if (Config::getVar('captcha', 'captcha_on_register')) {
+					array_push($contexts, 'frontend-user-register', 'frontend-user-registerUser');
+				}
+
+				if (Config::getVar('captcha', 'captcha_on_login')) {
+					array_push($contexts, 'frontend-login-index', 'frontend-login-signIn');
+				}
+
+				if (Config::getVar('captcha', 'captcha_on_password_reset')) {
+					array_push($contexts, 'frontend-login-lostPassword');
+				}
+
 				$this->addJavaScript(
 					'recaptcha',
 					'https://www.recaptcha.net/recaptcha/api.js?hl=' . substr(AppLocale::getLocale(),0,2),
 					[
-						'contexts' => ['frontend-user-register', 'frontend-user-registerUser'],
+						'contexts' => $contexts,
 					]
 				);
 			}

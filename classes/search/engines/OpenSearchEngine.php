@@ -168,7 +168,7 @@ class OpenSearchEngine extends ScoutEngine
                         ...($builder->query ? ['must' => [
                             'multi_match' => [
                                 'query' => $builder->query,
-                                'fields' => ['titles.*', 'abstracts.*', 'bodies.*', 'authors.*'],
+                                'fields' => ['titles.*^4', 'abstracts.*^2', 'bodies.*', 'authors.*^5'],
                             ],
                         ]] : []),
                         'filter' => &$filter,

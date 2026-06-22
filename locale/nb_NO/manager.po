@@ -1,6 +1,6 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
-# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # "My L. Bjørnflaten" <myl@uio.no>, 2024.
 # Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
 "PO-Revision-Date: 2026-06-22 07:01+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -3025,10 +3025,10 @@ msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Antall bidrag mottatt denne måneden"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Antall avviste innleveringer"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Antall aksepterte innleveringer"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
@@ -3084,7 +3084,7 @@ msgstr ""
 "nettsiden, når innstillingene krever validering av e-postadresse."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Send beskjed til andre forfattere"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""

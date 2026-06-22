@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-18 21:33+0000\n"
+"PO-Revision-Date: 2026-06-22 07:01+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -3000,28 +3000,29 @@ msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nytt tilfeldig passord"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Fagfelle gjeninnsatt"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Send forespørsel om gjennomgang på nytt til fagfelle"
 
+#, fuzzy
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Det fulle navnet til en bruker som lastet opp en innsendingsfil"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Kunngjøringens tittel"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Kort beskrivelse av kunngjøringen"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "Kunngjøringens URL"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Antall bidrag mottatt denne måneden"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
 msgstr ""
@@ -3029,59 +3030,73 @@ msgstr ""
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr ""
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Antall innleveringer som ikke telles med i andre sammenlagte summer"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Totalt antall mottatte bidrag"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Måneden for rapporten"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Året for rapporten"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Opplysninger om nummeret: volum, nummer, år og tittel"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL-en til den publiserte utgaven"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Året for rapporten"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Lenken til redaksjonell aktivitet"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Denne e-posten sendes når en fagfelle som ikke lenger er oppnevnt, "
+"gjeninnsettes av en redaktør."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Denne e-posten sendes av en redaktør til en fagfelle som har avslått en "
+"vurderingsforespørsel, når redaktøren ønsker å sende forespørselen på nytt."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Fagfelle fjernet"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr ""
+msgstr "Denne e-posten sendes når en redaktør fjerner en fagfelle."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Valider e-post (nettsted)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Denne e-posten sendes automatisk til en ny bruker som registrerer seg på "
+"nettsiden, når innstillingene krever validering av e-postadresse."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
 msgstr ""
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Denne e-posten sendes for å varsle forfattere som ikke er registrert som "
+"bidragsytere på en innsending, om at det er tatt en avgjørelse. Vanligvis "
+"gjelder dette alle andre enn korresponderende forfatter."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "En kopi av e-posten sendt til forfatteren som sendte inn bidraget"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Varsle fagfellene om avgjørelsen"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -3176,26 +3191,39 @@ msgstr ""
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Sendt til Produksjon"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Denne e-posten varsler forfatteren om at vedkommendes bidrag sendes til "
+"produksjonsfasen."
 
+#, fuzzy
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bidrag akseptert (uten fagfellevurdering)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Denne e-posten varsler forfatteren om at vedkommendes bidrag sendes direkte "
+"til manusredigeringsstadiet og blir ikke fagfellevurdert."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Anbefaling gitt"
 
+#, fuzzy
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Denne meldingen varsler en ansvarlig redaktør eller seksjonsredaktør om at "
+"det er gitt en redaksjonell anbefaling angående et av deres tildelte bidrag. "
+"Denne meldingen brukes når en redaktør kun har lov til å anbefale en "
+"redaksjonell avgjørelse og krever at en autorisert redaktør registrerer "
+"redaksjonelle avgjørelser. Dette alternativet kan velges når deltakere "
+"tildeles et bidrag."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Bekreft vudering"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3205,7 +3233,7 @@ msgstr ""
 "ferdigstilt innen angitt frist."
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Avslå vurdering"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
@@ -3216,8 +3244,11 @@ msgstr ""
 msgid "mailable.reviewRemind.name"
 msgstr "Påminnelse om fagfellevurdering"
 
+#, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Denne e-posten sendes av en redaktør for å minne en fagfelle om at fristen "
+"for å levere vurdering går ut."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Påminnelse om fagfellevurdering (automatisk)"
@@ -3230,13 +3261,16 @@ msgstr ""
 "Arbeidsflyt > Fagfellevurdering"
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Bekreftelse på vurdering"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Denne e-posten sendes av en redaktør til en fagfelle for å bekrefte at "
+"vedkommendes vurdering er mottatt og for å takke fagfellen for arbeidet."
 
+#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Svar for vurdering forfalt (automatisert)"
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
@@ -3260,7 +3294,7 @@ msgstr ""
 "valgt i Tidsskriftoppsett, Trinn 2."
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Forespørsel om videre evaluering"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
@@ -3271,8 +3305,9 @@ msgstr ""
 "fagfellevurderingsprosess er valgt under  Innstillinger > Arbeidsflyt > "
 "Fagfellevurdering."
 
+#, fuzzy
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Bidragets nåværende publikasjon mangler"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
@@ -3780,3 +3815,6 @@ msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
 "Revidering {$revision} av bidragsfilen {$id} ble hoppet over fordi filen "
 "ikke ble funnet i banen «{$path}»."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Lenke for å validere en e-postkonto"

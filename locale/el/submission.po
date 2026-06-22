@@ -1221,7 +1221,7 @@ msgid "submission.form.name"
 msgstr "Όνομα αρχείου (π.χ., Χειρόγραφο· Πίνακας 1)"
 
 msgid "submission.form.replaceExisting"
-msgstr ""
+msgstr "Αντικατάσταση υπάρχοντος αρχείου;"
 
 msgid "workflow.review.internalReview"
 msgstr "Εσωτερική Κρίση"

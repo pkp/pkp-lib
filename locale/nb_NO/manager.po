@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 10:16+0000\n"
+"PO-Revision-Date: 2026-06-22 11:18+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -1401,8 +1401,11 @@ msgstr ""
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Tildel {$name} som {$role}"
 
+#, fuzzy
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Velg brukerne med redaksjonell rolle som automatisk skal tilordnes alle nye "
+"bidrag i denne kategorien."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Tilganger"
@@ -1717,6 +1720,8 @@ msgstr "Språkpakkeinnstillingene lagret."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Språkinnstillingen kunne ikke lagres. Minst ett språk må være aktivert for "
+"hvert alternativ"
 
 msgid "notification.editedUser"
 msgstr "Bruker redigert."
@@ -2277,20 +2282,28 @@ msgstr "Be forfatteren om å angi referanser under innleveringen."
 msgid "manager.setup.metadata.citations.require"
 msgstr "Krev at forfatteren oppgir referanser før innleveringen godkjennes."
 
+#, fuzzy
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"En kort beskrivelse av hvorvidt forfatteren(e) har gjort forskningsdataene "
+"sine tilgjengelige, og i så fall hvor leserne kan få tilgang til dem."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Aktiver metadata for tilgjengelighetserklæring"
 
+#, fuzzy
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Ikke be om en datatilgjengeligheterklæring fra forfatteren under innsending."
 
 msgid "manager.setup.metadata.dataAvailability.request"
-msgstr ""
+msgstr "Be forfatteren om en datatilgjengelighetsærklæring under innsending."
 
+#, fuzzy
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Krev at forfatteren legger ved en datatilgjengelighetserklæring før bidraget "
+"godtas."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Valideringsfeil:"
@@ -2320,7 +2333,7 @@ msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Ukjent brukergruppe {$param}"
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "UserGroup mangler forfatternavn {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
@@ -2851,20 +2864,21 @@ msgstr "Avvisningsprosent før vurdering / gjennomgang"
 msgid "stats.name.declinedReviewRate"
 msgstr "Avvisningsprosent etter vurdering / gjennomgang"
 
+#, fuzzy
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Prosessen mislyktes. Se feil/advarsler nedenfor."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Resultat av bidragseksport"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Last ned eksportert fil"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Eksporten er ferdig."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Last ned den eksporterte filen fra knappen under."
 
 msgid "plugins.importexport.native.common.any"
 msgstr ""
@@ -3893,3 +3907,44 @@ msgstr ""
 "Forfatteren kan foreslå flere potensielle fagfeller før innsendingen "
 "fullføres, noe som kan effektivisere vurderingsprosessen og gi verdifulle "
 "innspill til redaksjonen."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Fant ikke filene for forsidebildet og miniatyrbildet. De kan allerede være "
+"slettet. Prøv å laste inn siden på nytt."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Installert versjon: {$version}"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Gi forfattere mulighet til å foreslå potensielle fagfeller under "
+"innsendingsprosessen"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Følgende vises til forfatterne i trinnet hvor det kan foreslås fagfeller. "
+"Forklar kort hvilke opplysninger forfatteren bør oppgi om seg selv, "
+"medforfattere og eventuelle andre bidragsytere."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Språkinnstillingen kunne ikke lagres. Alle alternativer må aktiveres."
+
+#, fuzzy
+msgid "notification.submissionLocales"
+msgstr "Innsendingsspråk er oppdatert."
+
+msgid "settings.roles.masthead"
+msgstr "Overvei rolle i kolofonoversikten"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Kategorien finnes ikke, eller tilhører en annen kontekst. Vennligst "
+"kontrollerer at du arbeider i riktig kontekst og prøv igjen."
+
+#, fuzzy
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Forfatteren {$authorName} har ikke et tilknytningsnavn på innsendingens "
+"språk, {$localeName}. Innsendingen kan ikke importeres uten disse "
+"opplysningene."

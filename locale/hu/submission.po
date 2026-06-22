@@ -2978,3 +2978,6 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Beküldési fájl"
+
+msgid "reviewer.competingInterests"
+msgstr "Összeférhetetlenség"

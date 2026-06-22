@@ -3312,3 +3312,6 @@ msgstr "L'auteur(trice) de cette affiliation n'a pu être trouvé(e)."
 
 msgid "submission.forReviewerSuggestion"
 msgstr "Suggestion d'évaluateur(trice)s"
+
+msgid "reviewer.competingInterests"
+msgstr "Intérêts divergents"

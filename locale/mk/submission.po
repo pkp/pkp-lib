@@ -3197,3 +3197,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Рецензијата беше завршена на {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Судир на интереси"

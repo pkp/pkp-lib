@@ -2421,3 +2421,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Фајл предаје"
 
+
+msgid "reviewer.competingInterests"
+msgstr "Сукоб  интереса"

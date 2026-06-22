@@ -21,3 +21,6 @@ msgstr "כיצד לצטט"
 
 msgid "submission.supplementary.publisher"
 msgstr "מוציא לאור"
+
+msgid "reviewer.competingInterests"
+msgstr "ניגודי אינטרסים"

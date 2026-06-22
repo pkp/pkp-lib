@@ -2913,3 +2913,6 @@ msgstr ""
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Slett utferdige innsendinger"
+
+msgid "reviewer.competingInterests"
+msgstr "Interessekonflikter"

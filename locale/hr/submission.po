@@ -3135,3 +3135,6 @@ msgstr "Ove datoteke bit će proslijeđene za objavu"
 
 msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
 msgstr "Odaberite nedovršene prijave za brisanje."
+
+msgid "reviewer.competingInterests"
+msgstr "Sukob interesa"

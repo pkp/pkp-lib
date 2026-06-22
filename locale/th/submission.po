@@ -2399,3 +2399,6 @@ msgstr "คุณต้องอัปโหลดไฟล์อย่างน
 
 msgid "publication.version"
 msgstr "เวอร์ชัน {$version}"
+
+msgid "reviewer.competingInterests"
+msgstr "ผลประโยชน์ทับซ้อน"

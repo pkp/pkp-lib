@@ -3019,3 +3019,6 @@ msgstr ""
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr ""
 
+
+msgid "reviewer.competingInterests"
+msgstr "利害の競合"

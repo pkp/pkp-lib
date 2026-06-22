@@ -3263,3 +3263,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Рецензування завершено {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Конфлікт інтересів"

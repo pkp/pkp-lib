@@ -2323,3 +2323,6 @@ msgstr "Nepodarilo sa nájsť autora pre túto afiliáciu."
 
 msgid "author.affiliationRorAndNameEmpty"
 msgstr "Uveďte, prosím, príslušnosť k ROR alebo aspoň jeden názov príslušnosti."
+
+msgid "reviewer.competingInterests"
+msgstr "Konflikt záujmov"

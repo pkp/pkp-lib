@@ -2515,3 +2515,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Arquivo de envío"
 
+
+msgid "reviewer.competingInterests"
+msgstr "Conflito de intereses"

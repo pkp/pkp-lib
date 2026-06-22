@@ -3245,3 +3245,6 @@ msgid "dashboard.minimumConfirmedReviewsNotMet"
 msgstr ""
 "Het minimum aantal goedgekeurde recensies is nog niet bereikt. Wilt u nog "
 "steeds doorgaan met deze redactionele beslissing?"
+
+msgid "reviewer.competingInterests"
+msgstr "Strijdige belangen"

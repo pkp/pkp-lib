@@ -2750,3 +2750,6 @@ msgstr ""
 
 msgid "submission.list.completeSubmission"
 msgstr "Rematar lo ninvio"
+
+msgid "reviewer.competingInterests"
+msgstr "Conflicto d'intereses"

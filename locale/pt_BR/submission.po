@@ -3634,3 +3634,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "A avaliação foi concluída em {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Conflito de Interesses"

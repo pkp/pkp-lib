@@ -3239,3 +3239,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Bedømmelsen blev færdiggjort d. {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Konkurrerende interesser"

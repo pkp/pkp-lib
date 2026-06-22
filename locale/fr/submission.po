@@ -3421,3 +3421,6 @@ msgstr ""
 "Vous ne pouvez pas accéder à cette soumission en tant que directeur /ice de "
 "la revue, car vous êtes évaluateur/ice. Pour la consulter, rendez-vous dans «"
 " Attributions d'évaluations »"
+
+msgid "reviewer.competingInterests"
+msgstr "Conflits d'intérêts"

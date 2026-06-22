@@ -2402,3 +2402,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "فایلی پێشکەشکردن"
 
+
+msgid "reviewer.competingInterests"
+msgstr "بەرژەوەندییە ڕکابەرەکان"

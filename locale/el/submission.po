@@ -2754,3 +2754,6 @@ msgstr "Προγραμματισμένες για δημοσίευση"
 
 msgid "submission.stage.published"
 msgstr "Δημοσιευμένες"
+
+msgid "reviewer.competingInterests"
+msgstr "Αντικρουόμενα συμφέροντα"

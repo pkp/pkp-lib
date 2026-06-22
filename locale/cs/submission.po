@@ -3241,3 +3241,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Recenze byla dokončena dne {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Střet zájmů"

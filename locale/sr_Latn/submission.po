@@ -3161,3 +3161,6 @@ msgstr ""
 
 msgid "submission.list.viewSubmissionSummary"
 msgstr "Vidi sažetak prijave"
+
+msgid "reviewer.competingInterests"
+msgstr "Sukob  interesa"

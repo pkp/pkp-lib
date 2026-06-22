@@ -2721,3 +2721,6 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Si prega di rivelare qualsiasi interesse concorrente che l'autore possa "
 "avere con il soggetto della ricerca."
+
+msgid "reviewer.competingInterests"
+msgstr "Interessi concorrenziali"

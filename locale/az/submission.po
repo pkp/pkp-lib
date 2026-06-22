@@ -2576,3 +2576,6 @@ msgstr "Zəhmət olmasa etibarlı bir uzaq URL daxil edin (http:// daxil)."
 
 msgid "submission.wizard.sectionClosed"
 msgstr "Bölmə bağlandı"
+
+msgid "reviewer.competingInterests"
+msgstr "Maraqların ziddiyyəti"

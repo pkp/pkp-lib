@@ -3213,3 +3213,6 @@ msgid "dashboard.minimumConfirmedReviewsNotMet"
 msgstr ""
 "किमान आवश्यक समीक्षणांची संख्या पूर्ण झालेली नाही. तरीही तुम्हाला याकरता "
 "संपादकीय निर्णय घेऊन पुढे जायचे आहे का?"
+
+msgid "reviewer.competingInterests"
+msgstr "संभाव्य हितसंबंध"

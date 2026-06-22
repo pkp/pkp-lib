@@ -15,3 +15,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr ""
 
+
+msgid "reviewer.competingInterests"
+msgstr ""

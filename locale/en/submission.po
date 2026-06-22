@@ -2773,3 +2773,6 @@ msgstr "Select incomplete submissions to be deleted."
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Delete Incomplete Submissions"
+
+msgid "reviewer.competingInterests"
+msgstr "Competing Interests"

@@ -2816,3 +2816,6 @@ msgstr "Llista d'autors/ores de la tramesa"
 
 msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Retornat a revisió."
+
+msgid "reviewer.competingInterests"
+msgstr "Conflicte d’interessos"

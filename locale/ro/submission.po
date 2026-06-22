@@ -2577,3 +2577,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Fișier înregistrare manuscris"
 
+
+msgid "reviewer.competingInterests"
+msgstr "Interesele concurente"

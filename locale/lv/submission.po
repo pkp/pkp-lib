@@ -2679,3 +2679,6 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Lūdzu, informējiet par jebkādu interešu konfliktu, kas varētu pastāvēt starp "
 "autoru un pētījuma subjektu."
+
+msgid "reviewer.competingInterests"
+msgstr "Interešu konflikts"

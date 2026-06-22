@@ -16,3 +16,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "सबमिशन फ़ाइल"
 
+
+msgid "reviewer.competingInterests"
+msgstr "प्रतिस्पर्धी रुचियां"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 09:54+0000\n"
+"PO-Revision-Date: 2026-06-22 10:09+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -3879,3 +3879,10 @@ msgstr "Slett markering"
 #, fuzzy
 msgid "manager.highlights.edit"
 msgstr "Rediger markering"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Foreslå fagfeller ved innlevering"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimum antall bekreftede vurderinger som kreves for en innlevering"

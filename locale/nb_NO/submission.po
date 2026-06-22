@@ -1,13 +1,14 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
-# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # Aysa Ekanger <aysa.ekanger@uit.no>, 2026.
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-05-11 14:04+0000\n"
-"Last-Translator: Aysa Ekanger <aysa.ekanger@uit.no>\n"
+"PO-Revision-Date: 2026-06-22 07:01+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -610,7 +611,7 @@ msgid "submission.event.submissionSubmitted"
 msgstr "Første steg av innlevering ferdig."
 
 msgid "submission.event.copyrightAgreed"
-msgstr ""
+msgstr "{$filename} ({$username}) godtok opphavsrettsvilkårene for innsending."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -699,7 +700,7 @@ msgstr ""
 "Filopplasteren blir registrert når filen opprettes, og denne kan ikke endres."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Først utgitt"
 
 #, fuzzy
 msgid "submission.forTheEditors"
@@ -1564,19 +1565,23 @@ msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Send til fagfellevurering"
 
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Denne innleveringen er klar til å sendes til fagfelleurdering."
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} sendte denne innsendingen til vurderingsstadiet."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Sendt til vurdering"
 
+#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"Innsendingen, {$title}, er sendt til vurderingsfasen. Forfatteren har blitt "
+"varslet, med mindre du valgte å hoppe over den e-posten."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Ny runde fagfellevurdering"
@@ -1584,35 +1589,51 @@ msgstr "Ny runde fagfellevurdering"
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Send til produksjon"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Send innleveringen til produksjonsfasen for å klargjøre den for publisering."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} sendte denne innsendingen til produksjonsfasen."
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Sendt til produksjonsstadiet"
 
+#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"Innsendingen, {$title}, ble sendt til produksjonsfasen. Forfatteren har "
+"blitt varslet, med mindre du valgte å hoppe over den e-posten."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Send en e-post til forfatterne for å gi dem beskjed om at bidraget er sendt "
+"til produksjonsfasen. Denne e-posten vil ikke bli sendt før avgjørelsen er "
+"registrert."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Avbryt manusredigering"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Send bidraget tilbake til manusredigeringssteget."
 
+#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"{$editorName} har sendt dette bidraget tilbake fra "
+"manuskriptredigeringstrinnet."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Sendt tilbake fra manusredigering"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"Innsendingen, {$title}, ble sendt tilbake fra manusredigeringstrinnet. "
+"Forfatteren har blitt varslet, med mindre du valgte å hoppe over den "
+"e-posten."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -1676,13 +1697,14 @@ msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} omgjorde beslutningen om å avvise innsendelsen."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Bidraget er reaktivert"
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "Bidraget {$title} er nå en aktiv innsending i fagfelletrinnet."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -1703,42 +1725,55 @@ msgstr ""
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Anbefal at dette bidraget blir akseptert for publisering og sendt til "
+"manusedigering."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} anbefalte at dette bidraget aksepteres og sendt videre til "
+"manusredigering."
 
+#, fuzzy
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Anbefaling sendt inn"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Din anbefaling er registrert og ansvarlig(e) redaktør(er) har blitt "
+"informert."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Anbefal revidering"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Anbefal at forfatteren bes om å gjøre revideringer før dette bidraget godtas "
+"for publisering."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} anbefalte å forespørre revideringer."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Anbefal å sende inn på nytt for vurdering"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Anbefal at forfatteren bes om å sende inn revisjoner til ny vurderingsrunde."
 
+#, fuzzy
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"$editorName} anbefalte at det forespørres revisjoner, og at disse "
+"revisjonene sendes til vurdering."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Anbefal avslag"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Anbefal at bidraget avvises."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} anbefalte at bidraget avvises."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Legg inn din anbefaling"
@@ -1754,6 +1789,8 @@ msgstr "Anbefalinger: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Du kan ikke komme med en anbefaling, før en redaktør tildeles oppgaven og "
+"får tillatelse til å registrere en beslutning."
 
 msgid "editor.submission.recommendation"
 msgstr "Anbefaling"
@@ -1927,6 +1964,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Forespørselen om gjennomgang i runde {$round} sendt på nytt til "
+"{$reviewerName} for bidrag {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2027,7 +2066,7 @@ msgid "submission.copyright"
 msgstr "Opphavsrett"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Ja, jeg godtar opphavsrettserklæringen."
 
 msgid "submission.copyrightHolder"
 msgstr "Rettighetshaver"
@@ -2309,18 +2348,23 @@ msgstr "Dager siden siste aktivitet"
 msgid "submission.list.assignEditor"
 msgstr "Oppnevn redaktør"
 
+#, fuzzy
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Dette bidraget er allerede innsendt. Vennligst sjekk <a href=\"{$url}\""
+">innleveringens dashboard</a>."
 
 #, fuzzy
 msgid "submission.wizard.beforeStart"
 msgstr "Før du begynner"
 
+#, fuzzy
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Velg kun kategoriene som passer for bidraget ditt."
 
+#, fuzzy
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Endre innstillinger for innsendinger"
 
 msgid "submission.wizard.completeSteps"
 msgstr "Fullfør stegene for å lage en innsendelse"
@@ -2337,8 +2381,9 @@ msgstr ""
 "Det er en eller flere feil som må rettes før du kan sende inn. Gå gjennom "
 "opplysningene nedenfor og foreta de forespurte endringene."
 
+#, fuzzy
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Sjekk innsendingen din"
 
 #, fuzzy
 msgid "submission.wizard.commentsForTheEditor.description"
@@ -2346,8 +2391,9 @@ msgstr ""
 "Legg til informasjon som du mener vår redaksjon bør vite når de evaluerer "
 "innleveringen din."
 
+#, fuzzy
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Vennligst bekreft følgende, før du sender inn bidraget."
 
 #, fuzzy
 msgid "submission.wizard.title"
@@ -2362,34 +2408,42 @@ msgid "submission.wizard.noContributors"
 msgstr "Det er ikke lagt til noen bidragsytere til denne innleveringen."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr ""
+msgstr "Fornavnet på en eller flere bidragsytere mangler på {$language}."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Ikke tillatt"
 
+#, fuzzy
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Personvernrelatert samtykke"
 
+#, fuzzy
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Lagret til senere bruk"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Detaljene relatert til bidraget til ditt er lagret i systemet vårt, men det "
+"er ennå ikke sendt inn til vurdering. Du kan når som helst gå tilbake for å "
+"fullføre innsendingen ved å følge lenken nedenfor."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "Vi har sendt en kopi av denne lenken til deg på {$email}."
 
+#, fuzzy
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Seksjon lukket"
 
 msgid "submission.wizard.start"
 msgstr "Start innlevering"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Starter en ny innsending"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Det oppsto en feil, og vi kunne ikke lagre innsendingen din. Du kan ha blitt "
+"frakoblet."
 
 msgid "grid.category.categories"
 msgstr "Kategorier"
@@ -2480,8 +2534,11 @@ msgstr "Antall ord: {$count}/{$limit}"
 msgid "doi.incorrectStaleStatus"
 msgstr ""
 
+#, fuzzy
 msgid "doi.submission.notPublished"
 msgstr ""
+"Kunne ikke markere DOI-en som er registrert for {$pubObjectTitle}. Bidraget "
+"må være publisert før status kan oppdateres."
 
 msgid "submission.viewingPreview"
 msgstr ""
@@ -2496,7 +2553,7 @@ msgid "author.submit.confirmation"
 msgstr "Bekreftelse"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Sender inn på <strong>{$language}</strong>."
 
 #, fuzzy
 msgid "submission.wizard.submittingToSection"
@@ -2504,6 +2561,8 @@ msgstr "Innlevering til tidsskriftseksjon: <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Sender inn til seksjonen <strong>{$section}</strong> på "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2533,20 +2592,23 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Kontaktperson for redaksjonell korrespondanse."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Erklæring om datatilgjengelighet"
 
+#, fuzzy
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Oppgi om du har tilgjengeliggjort dokumentasjon som støtter dette arbeidet, "
+"og i så fall hvor og hvordan den kan gjenfinnes"
 
 #, fuzzy
 msgid "submission.files.required.genre"
 msgstr "Du må laste opp minst en {$genre}-fil."
 
 msgid "submission.files.required.genres"
-msgstr ""
+msgstr "Du må laste opp minst én av hver av følgende filtyper: {$genres}."
 
 msgid "publication.version"
-msgstr ""
+msgstr "Versjon {$version}"
 
 #~ msgid "submission.upload.fairCopy"
 #~ msgstr "Last opp endelig versjon"
@@ -2574,3 +2636,280 @@ msgstr "Innleveringsfil"
 
 msgid "submission.authors.label"
 msgstr "Forfattere"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Advarsel: Denne versjonen har blitt publisert. Hvis du redigerer den, kan "
+"det påvirke det publiserte innholdet."
+
+msgid "author.authorNotFound"
+msgstr "Forfatteren med denne tilknytningen ble ikke funnet."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Vennligst oppgi en ROR-tilknytning eller minst ett tilknytningsforhold."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Vennligst oppgi tilknytning i den primære språkinnstillingen for "
+"innsendingen."
+
+msgid "ror.nameRequired"
+msgstr "Et ROR-navn er påkrevd."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR-visningsspråk er påkrevd."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Innsendingen er annulert"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Innsendingen er avbrutt, og alle tilknyttede data er slettet."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Annuller innsendelsen"
+
+#, fuzzy
+msgid "submission.author.list"
+msgstr "Innleveringens forfattere"
+
+#, fuzzy
+msgid "submission.forReviewerSuggestion"
+msgstr "Forslag fra fagfelle"
+
+#, fuzzy
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Navnet på tilknytningen mangler i {$language} for én eller flere "
+"tilknytninger for én eller flere av bidragsyterne."
+
+msgid "author.competingInterests"
+msgstr "Konkurrerende interesser"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Er du sikker på at du vil avbryte denne innsendingen? Dette vil slette "
+"innsendingen og alle tilhørende data. Denne handlingen kan ikke angres."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Ingen fagfeller er foreslått for denne innsendingen."
+
+msgid "submission.dashboard.view.declined"
+msgstr "Avvist"
+
+#, fuzzy
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Revideringer forespurt fra forfatteren skal tas til en ny vurderingsrunde"
+
+msgid "submission.review.status.viewed"
+msgstr "Redaktøren har sett vurderingen."
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Se bidragets sammendrag"
+
+msgid "submission.list.completeSubmission"
+msgstr "Fullfør innsendingen"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Tildelt meg"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktive innsendinger"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Mangler redaktør"
+
+#, fuzzy
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Alt i innsendingsfasen"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Alt i fagfellevurdering"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Alt i vurderingsfasen"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Avventer vuderinger"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Vurderinger sendt inn"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Vurderinger forsinket"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Alle på manusredigeringstrinnet"
+
+#, fuzzy
+msgid "submission.dashboard.view.production"
+msgstr "Alle på produksjonsfasen"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Planlagt for publisering"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publisert"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Revideringer forespurt"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Forfatters revideringer sendt inn"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Ufullstendige innsendelser"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Alle tildelinger"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Avventer"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Ferdig / Avvist"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Alle oppgaver"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Handling kreves av meg"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arkivert"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Avvist"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Ferdigstilt"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publisert"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Vurdering (Runde {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Planlagt for publisering"
+
+msgid "submission.stage.published"
+msgstr "Publisert"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Bekreft sletting av JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Du er i ferd med å fjerne den eksisterende JATS XML-filen fra denne "
+"publikasjonen. Er du sikker?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Slett JATS-fil"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Denne JATS-filen er automatisk genereret ut fra indsendingens metadata"
+
+msgid "publication.jats.lastModified"
+msgstr "Sist endret den {$modificationDate} av {$username}"
+
+#, fuzzy
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Det oppstod en feil i prosessen med å opprette standard JATS-innhold. "
+"Vennligst sørg for at JatsTemplate-programtillegget er installert."
+
+msgid "submission.files.content.error"
+msgstr "Innholdet i innsendingsfilen «{$fileName}» kunne ikke hentes ut."
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Vennligst oppgi eventuelle konkurrerende interesser denne forfatteren måtte "
+"ha i forskningsobjektet."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Begrunnelse for å foreslå fagfelle"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Vennligst forklar hvorfor du anbefaler denne fagfellen og oppgi om det er "
+"noen potensielle interessekonflikter."
+
+#, fuzzy
+msgid "dashboard.reviewersAssigned"
+msgstr "Fagfeller tildelt"
+
+#, fuzzy
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Vurdering oppdatert"
+
+msgid "dashboard.applyFilters"
+msgstr "Bruk filtre"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Begynn en ny innsending"
+
+msgid "dashboard.assignReviewers"
+msgstr "Tildel fagfeller"
+
+#, fuzzy
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Revideringer forspurt fra forfatter"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Ny vurderingsrunde skal opprettes"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revidering forespurt"
+
+msgid "dashboard.submitRevisions"
+msgstr "Send inn revideringer"
+
+msgid "workflow.uploadRevisions"
+msgstr "Last opp revideringer"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Svar på forespørsel"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Gjør ferdig vurdering"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Vennligst godta eller avslå denne forespørselen innen {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Forespørsel avslått den {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Vurdering sendt inn den {$date}"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Skal publiseres i nummer {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Manusredigerte filer lastet opp: {$count}"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Mangler vurderinger"
+
+#, fuzzy
+msgid "submission.localeNotSupported"
+msgstr ""
+"Bidragets språk ({$language}) er ikke et av de støttede innsendingsspråkene. "
+"Du kan fortsatt redigere innsendingsdetaljene, men nye innsendinger med "
+"dette språket godtas ikke for øyeblikket."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Slett utferdige innsendinger"

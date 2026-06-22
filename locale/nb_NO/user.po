@@ -1,15 +1,16 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-01-05 22:40+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2026-06-16 14:49+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/nb_NO/>\n"
-"Language: nb\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -488,9 +489,11 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"Sletting av en nøkkel vil trekke tilbake tilgangen til alle programmer som "
+"bruker den."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Er du sikker på at du vil slette denne API-nøkkelen?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -507,12 +510,15 @@ msgstr ""
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"Kan ikke fullføre forespørselen om tilbakestilling av passord fordi "
+"{$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Skriv inn nytt passord."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Passordet har blitt oppdatert. Vennligst logg inn med det nye passordet."
 
 #~ msgid "user.biography.description"
 #~ msgstr "(F.eks. institutt og stilling)"
@@ -736,3 +742,220 @@ msgstr ""
 
 msgid "orcid.displayName"
 msgstr "ORCID-profil programtillegg"
+
+msgid "user.affiliations.translation"
+msgstr "Mer informasjon"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klikk for å redigere eller slette"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Fyll ut institusjonens fulle navn nedenfor og unngå akronymer. Velg navnet "
+"fra nedtrekksmenyen og klikk \"Tilføy\" for å inkludere tilknytningen i "
+"profilen din (f.eks. Simon Fraser universitetet)."
+
+msgid "user.affiliations.institution"
+msgstr "Institusjon"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Rediger institusjonsnavnet"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Fjern institusjon"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Alle tilgjengelige oversettelser"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Søket ditt ga ingen resultater"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API-feil"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"ROR API-tjenesten er for øyeblikket utilgjengelig. Vennligst oppdater siden "
+"eller prøv på nytt senere."
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Primærspråket {$primaryLocale} er påkrevd"
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"ROR API-tjenesten i denne installasjonen er utdatert. Vennligst kontakt "
+"systemadministratoren."
+
+#, fuzzy
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Brukeren bør være anonym. Du er for øyeblikket logget inn."
+
+msgid "user.login.activate.description"
+msgstr "Bekreft og aktiver din brukerkonto"
+
+#, fuzzy
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Tilgang til arbeidsflyt for ufullstendige innsendinger er begrenset."
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} av {$total} språk fullført"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Skriv institusjonens navn på {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Institusjonsnavn på {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Er du sikker?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Tilknytningen <strong>{$affiliation}</strong> vil bli slettet."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Skriv institusjonens navn på {$language}"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Det er begrenset hvorvidt forslag fra anmelder kan legges til, oppdateres "
+"eller slettes for fullførte innsendinger."
+
+msgid "orcid.unauthenticated"
+msgstr "(uautorisert)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Du blir nå automatisk sendt tilbake til {$contextName}."
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Klient-ID er ugyldig, vennligst sjekk inndataene dine"
+
+#, fuzzy
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Ugyldig klienthemmelighet"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Aktiver ORCID-funksjonalitet for hele nettsiden"
+
+#, fuzzy
+msgid "user.masthead.update.title"
+msgstr "Bekreft endringer i visning i topptekst"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Slett ORCID"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Denne ORCID-en er ikke bekreftet. Fjern denne ubekreftede ORCID-en og be "
+"brukeren/forfatteren direkte om bekreftelse."
+
+msgid "user.disabledModal.title"
+msgstr "Deaktiver {$fullName}"
+
+msgid "orcid.field.verification.request"
+msgstr "Be om verifisering"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID-verifisering ble forespurt!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Send bekreftelses-e-post på nytt"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Be om ORCID-verifisering"
+
+#, fuzzy
+msgid "orcid.invalidClient"
+msgstr "Ugyldige legitimasjonsopplysninger"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Ugyldig klient-id"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Er du sikker på at du vil fjerne denne rollen? Brukeren vil miste tilganger "
+"og tillatelser knyttet til den."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "Du kan ikke fjerne denne rollen. Brukeren må ha minst én rolle."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Frem til da kan du sjekke og oppdatere profilen din. Hvis du mener dette er "
+"en feil, kan du kontakte administratoren."
+
+msgid "user.enabledModal.title"
+msgstr "Aktiver {$fullName}"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "E-posten sendes når forfatteren er opprettet."
+
+msgid "orcid.manager.settings.saved"
+msgstr "Innstillingene er lagret"
+
+msgid "orcid.manager.settings.city"
+msgstr "By"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Konfigurert i henhold til tidskriftet"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Klient-ID er gyldig"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Klienthemmelighet er gyldig"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr ""
+"Klienthemmelighet er ugyldig, vennligst sjekk dine legitimeringsoplysningene"
+
+#, fuzzy
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Det er oppdaget duplikat-ORCiD for noen bidragsytere."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Det ble oppdaget uautentiserte ORCiD-er for bidragsytere."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Aktiver ORCID-funksjonalitet"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Vil du sende en e-post til denne forfatteren med en forespørsel om at de "
+"bekrefter ORCID-en sin?"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Er du sikker på at du vil fjerne denne ORCID-en?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Rollen din har planlagt oppstart den {$roleStartDate}"
+
+msgid "user.disabledModal.description"
+msgstr "Nåværende roller: {$roles}"
+
+msgid "user.bioStatement"
+msgstr "Kort biografi"
+
+#, fuzzy
+msgid "user.pendingEmailChange"
+msgstr ""
+"Du har bedt om å endre e-postadressen din til «{$pendingEmail}». Vi har "
+"allerede sendt deg en e-post med instruksjoner om hvordan du validerer den "
+"endrede e-postadressen."
+
+#, fuzzy
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID-funksjonalitet kan eventuelt aktiveres og konfigureres på "
+"nettstedsnivå for alle tidsskrifter/presser/servere. Hvis aktivert, vil "
+"dette overstyre all kontekstnivåpålogging og bruke følgende "
+"påloggingsinformasjon for alle tidsskrifter/presser/servere på denne "
+"installasjonen."
+
+#, fuzzy
+msgid "user.masthead.update.message"
+msgstr ""
+"Dette vil oppdatere om denne brukeren vises i journalens topptekst for den "
+"valgte rollen. Brukeren vil bli varslet om denne endringen."

@@ -1,11 +1,12 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
+# Informatikaria <informatikaria@ueu.eus>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-10-29 13:17+0000\n"
-"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"PO-Revision-Date: 2026-05-29 07:12+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
 "Language: eu\n"
@@ -173,7 +174,7 @@ msgstr ""
 "dituzula?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr ""
+msgstr "Ezabatu programatutako atazen erregistroak"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr "Ezabatu exekutatu diren zeregin programatuen erregistro (log) guztiak."
@@ -279,6 +280,8 @@ msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Log-fitxategiak prozesatuko dituzten eta estatistika-datuak gordeko dituzten "
+"atzeko planoko lanak abiarazi dira."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache bertsioa"
@@ -1083,3 +1086,72 @@ msgstr ""
 "Exekutatu zerrendatik programatutako zeregin jakin bat edo erabili --name "
 "zeregin zehatz bat exekutatzeko. Ezarri --no-scroll parametroa zerrenda osoa "
 "ikusteko scrollik gabe."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Ezin izan da ROR Erregistroaren datu-multzoa eguneratu checksum-ak bat ez "
+"datozelako. Espero zen checksum-a: {$expected}. Benetako checksum-a: "
+"{$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Ezin izan da deskargatutako ROR Erregistroaren datu-multzoaren ZIP "
+"fitxategiaren checksum-a egiaztatu."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Ezin izan da {$version} eskema-bertsioa duen JSON datu-fitxategirik aurkitu "
+"erauzitako ROR Erregistroaren datu-multzoan."
+
+#, fuzzy
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"ROR erregistroko \"{$id}\" erregistroak \"{$types}\" motako izen-sarrera bat "
+"du, baina ez du beharrezko 'value' eremua, eta baztertu egin da."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"\"{$id}\" IDa duen ROR erregistroari derrigorrezko eremu bat edo gehiago "
+"falta zaizkio (id, names, status), eta baztertua izan da."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Ezin izan dira ROR erregistroko datu-multzoaren metadatuak eskuratu. Ez da "
+"deskarga-fitxategirik aurkitu APIaren erantzunean."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Ezin izan da ROR Registry datu-multzoaren ZIP fitxategia egiaztatu: checksum "
+"algoritmoa ez da onartzen. MD5 eta SHA256 soilik onartzen dira."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Ezin izan dira ROR erregistroko datu-multzoaren metadatuak eskuratu. "
+"Ustekabeko HTTP egoera-kodea: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr ""
+"Ezin izan da ROR erregistroko datu-multzoaren ZIP fitxategia deskargatu."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Ezin izan da ROR erregistroko datu-multzoaren ZIP fitxategia ireki. Errore-"
+"kodea: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Ezin izan da ROR erregistroko datu-multzoaren ZIP fitxategia erauzi."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Ezin izan da eskema-bertsioa irakurri {$file} ROR erregistroko JSON "
+"fitxategitik. Errorea: {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Ez da erregistrorik prozesatu ROR erregistroko datu-multzotik. Datu-multzoa "
+"hutsik egon daiteke edo erregistro guztien balidazioak huts egin du."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"ROR erregistroko \"{$id}\" erregistroak ez du baliozko izenik eta baztertua "
+"izan da."

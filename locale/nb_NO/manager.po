@@ -1,17 +1,18 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
-# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # "My L. Bjørnflaten" <myl@uio.no>, 2024.
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-08-20 21:11+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2026-06-22 13:45+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
-"Language: nb\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -198,6 +199,9 @@ msgstr "Eksporter DOI-er"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Du er i ferd med å eksportere DOI-metadataposter for {$count} element(er) "
+"for {$registrationAgency}. Er du sikker på at du vil eksportere disse "
+"postene?"
 
 msgid "manager.dois.actions.assign.label"
 msgstr "Tildel DOI-er"
@@ -211,8 +215,14 @@ msgstr ""
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Deponer alle DOI-er"
 
+#, fuzzy
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Du er i ferd med å planlegge innlevering av alle utestående DOI-"
+"metadataposter hos {$registrationAgency}. Kun publiserte elementer med en "
+"DOI vil bli innlevert. Statusen til hvert element vil bli oppdatert når et "
+"svar mottas. Er du sikker på at du vil planlegge innleveringer for alle "
+"disse elementene?"
 
 msgid "manager.dois.actions.description"
 msgstr "Utfør handling for {$count} valgte element(er)."
@@ -254,10 +264,11 @@ msgid "manager.dois.registration.viewError.title"
 msgstr "Registreringsfeilmelding"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Vis oppføring"
 
+#, fuzzy
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Melding om vellykket registrering"
 
 msgid "manager.dois.update.success"
 msgstr "Oppdatering av DOI-er var vellykket"
@@ -297,18 +308,27 @@ msgstr "Alle elementer er blitt tildelt DOI"
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Alle elementer med en DOI som er publisert, men ennå ikke sendt inn til et "
+"registreringsbyrå."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Alle elementer som er sendt inn til et registreringsbyrå."
 
+#, fuzzy
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Alle elementer som er registrert hos et registreringsbyrå, eller manuelt "
+"merket som registrert."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Alle elementer som har støtt på en feil i registreringsprosessen."
 
+#, fuzzy
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Alle elementer som har blitt publisert på nytt siden de sist ble sendt inn "
+"til et registreringsbyrå. De må sendes inn på nytt til registreringsbyrået "
+"for å oppdatere metadatapostene sine."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI-oppdatering mislyktes"
@@ -316,38 +336,54 @@ msgstr "DOI-oppdatering mislyktes"
 msgid "manager.dois.update.partialFailure"
 msgstr "Noen DOI(-er) kunne ikke oppdateres"
 
+#, fuzzy
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Elementer er eksportert"
 
+#, fuzzy
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Elementer ble merket som registrert"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Elementer ble markert som uregistrerte"
 
+#, fuzzy
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Elementer ble markert som \"må synkroniseres\""
 
+#, fuzzy
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Elementer fikk tildelt nye DOI-er"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Elementer ble sendt til deponering"
 
 msgid "manager.dois.help.statuses.title"
 msgstr "DOI-statuser"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI-håndtering er flyttet. Vennligst se sidene om <a href=\""
+"{$doiManagementUrl}\">DOI management</a> and <a href=\"{$doiSettingsUrl}\""
+">DOI settings</a>."
 
+#, fuzzy
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI-er kan ikke tildeles med mindre du oppgir ditt personlige DOI-prefiks. "
+"<a href=\"{$doiSettingsUrl}\">Legg til DOI-prefiks</a>."
 
+#, fuzzy
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Prøvde å opprette en DOI, men et DOI-prefiks kreves for at konteksten skal "
+"kunne opprette en."
 
+#, fuzzy
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Før dette objektet kan slettes, må du knytte alle relaterte innsendingsfiler "
+"til et annet objekt."
 
 msgid "manager.institutions.edit"
 msgstr "Rediger institusjon"
@@ -358,11 +394,15 @@ msgstr "ROR"
 msgid "manager.institutions.form.ror.description"
 msgstr "Research Organization Registry ID for denne institusjonen."
 
+#, fuzzy
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "IP-områder"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Gyldige verdier inkluderer IP-adresse (fx 142.58.103.1), IP-område (fx 142.58"
+".103.1-142.58.103.4), IP-område med trunkering '*' (fx 142.58.*.*) og IP-"
+"område med CIDR (fx 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
 msgstr "Slett institusjon"
@@ -371,7 +411,7 @@ msgid "manager.institutions.confirmDelete"
 msgstr "Er du sikker på at du vil slette institusjonen?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Ugyldig IP-område"
 
 msgid "manager.publication.submissionStage"
 msgstr "Innlevering"
@@ -403,6 +443,8 @@ msgstr "Følgende feil ble returnert av {$registrationAgency}:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Følgende melding ble sendt tilbake av {$registrationAgency} og inneholder "
+"detaljer om registreringen:"
 
 msgid "manager.emails.addEmail"
 msgstr "Legg til e-postmal"
@@ -868,7 +910,7 @@ msgstr ""
 "eks. 10.1234):"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI-prefikset er obligatorisk og må være i følgende format: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
 msgstr "Automatisk tildeling av DOI"
@@ -878,7 +920,7 @@ msgid "doi.manager.settings.doiCreationTime.description"
 msgstr "Når skal en innlevering tildeles en DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Ved publisering"
 
 msgid "doi.manager.settings.doiCreationTime.never"
 msgstr "Aldri"
@@ -889,8 +931,9 @@ msgstr "DOI-prefiks"
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidsskriftets innhold"
 
+#, fuzzy
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Det er obligatorisk å ha DOI-prefiks"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI-suffiks"
@@ -899,10 +942,13 @@ msgid "doi.manager.settings.doiSuffix.pattern"
 msgstr "DOI-suffiks"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Egendefinert DOI-suffiksmønster"
 
+#, fuzzy
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Én eller flere valgte DOI-typer er ikke tillatt for det konfigurerte DOI-"
+"registreringsbyrået."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -1355,8 +1401,11 @@ msgstr ""
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Tildel {$name} som {$role}"
 
+#, fuzzy
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Velg brukerne med redaksjonell rolle som automatisk skal tilordnes alle nye "
+"bidrag i denne kategorien."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Tilganger"
@@ -1671,6 +1720,8 @@ msgstr "Språkpakkeinnstillingene lagret."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Språkinnstillingen kunne ikke lagres. Minst ett språk må være aktivert for "
+"hvert alternativ"
 
 msgid "notification.editedUser"
 msgstr "Bruker redigert."
@@ -2231,20 +2282,28 @@ msgstr "Be forfatteren om å angi referanser under innleveringen."
 msgid "manager.setup.metadata.citations.require"
 msgstr "Krev at forfatteren oppgir referanser før innleveringen godkjennes."
 
+#, fuzzy
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"En kort beskrivelse av hvorvidt forfatteren(e) har gjort forskningsdataene "
+"sine tilgjengelige, og i så fall hvor leserne kan få tilgang til dem."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Aktiver metadata for tilgjengelighetserklæring"
 
+#, fuzzy
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Ikke be om en datatilgjengeligheterklæring fra forfatteren under innsending."
 
 msgid "manager.setup.metadata.dataAvailability.request"
-msgstr ""
+msgstr "Be forfatteren om en datatilgjengelighetsærklæring under innsending."
 
+#, fuzzy
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Krev at forfatteren legger ved en datatilgjengelighetserklæring før bidraget "
+"godtas."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Valideringsfeil:"
@@ -2274,7 +2333,7 @@ msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Ukjent brukergruppe {$param}"
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "UserGroup mangler forfatternavn {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
@@ -2557,10 +2616,10 @@ msgid "stats.downloads"
 msgstr "Visninger av nummerets oppsett"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Total antal visninger etter dato"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Totalt antall nedlastinger etter dato"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
@@ -2666,11 +2725,12 @@ msgstr "Beskrivelse av {$stat}"
 msgid "stats.editorialActivity"
 msgstr "Redaksjonell aktivitet"
 
+#, fuzzy
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Hovedfil"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Tilleggsfil"
 
 msgid "stats.fileViews"
 msgstr "Filvisninger"
@@ -2689,7 +2749,7 @@ msgid "stats.geographic.ccAttribution"
 msgstr "Geo-lokasjon levert av<a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Om geolokalisering"
 
 msgid "stats.downloadReport.betweenDates"
 msgstr "{$startDate} til {$endDate}"
@@ -2731,16 +2791,16 @@ msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr "Last ned tidslinje"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Tidslinjeintervall"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Tidslinjetype"
 
 msgid "stats.total"
 msgstr "Total"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Unik"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Totalt innenfor datoperioden"
@@ -2749,7 +2809,7 @@ msgid "stats.trends"
 msgstr "Trender"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "Ukjent"
 
 msgid "stats.userStatistics"
 msgstr "Brukerstatistikk"
@@ -2804,26 +2864,30 @@ msgstr "Avvisningsprosent før vurdering / gjennomgang"
 msgid "stats.name.declinedReviewRate"
 msgstr "Avvisningsprosent etter vurdering / gjennomgang"
 
+#, fuzzy
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Prosessen mislyktes. Se feil/advarsler nedenfor."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Resultat av bidragseksport"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Last ned eksportert fil"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Eksporten er ferdig."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Last ned den eksporterte filen fra knappen under."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Generiske elementer"
 
+#, fuzzy
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Feil i filterinnstillingene [{$filterName}]: {$filterCount} forekomster. Det "
+"bør kun være en."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "FEIL:"
@@ -2832,139 +2896,177 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Den spesifiserte tidsskriftsstien \"{$contextPath}\" eksisterer ikke."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
+#, fuzzy
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Prosessen klarte ikke å analysere forfatterne"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Prosessen klarte ikke å analysere publikasjoner"
 
+#, fuzzy
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Alle kommentarer fra ferdigstilte vurderinger. Fagfellers navn skjules for "
+"anonyme vurderinger"
 
+#, fuzzy
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Navnene og tilknytningene til forfatterne av bidraget."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL-en til en side hvor brukeren kan gjenopprette passord"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "URL-en for å se alle innsendinger tildelt en bruker"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr ""
+"URL-adressen til en side, hvor en bruker kan se og redigere profilen sin"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Navnet på avgjørelsen som ble tatt"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "En beskrivelse av avgjørelsen som ble tatt"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Fasen i den redaksjonelle arbeidsflyten denne beslutningen ble tatt i"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Vurderingsrunden denne beslutningen ble tatt i, om beslutningen er relatert "
+"til en vurderingsfase"
 
+#, fuzzy
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Temaet for diskujonen"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Innholdet til en ny diskusjon, eller et svar"
 
+#, fuzzy
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "En liste over innleveringer med utestående oppgaver"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Antall bidrag tildelt denne redaktøren"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Mottakerens, eller mottakernes fulle navn"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Mottakerens eller alle mottakernes brukernavn"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Dato hvor vurderingen burde værte ferdig"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Dato hvor fagfellen burde godta, eller avslå oppgaven"
 
+#, fuzzy
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "URL-en til vurderingsoppgaven"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Den anbefalte avgjørelsen, for eksempel Godta innsending"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datoen hvor denne vurderingen ble tildelt"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Type vurdering, for eksempel anonym, dobbelt anonym eller åpen"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Fagfellens anbefaling, for eksempel Godta innsending eller Avslå"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Vurderingsrunden, for eksempel Runde 1, eller Runde 2"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Filene fagfellen har lastet opp"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Fagfellens navn"
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
+"En beskrivelse av standard vurderingsmetode, for eksempel dobbel anonym "
+"eller åpen"
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Dette tidsskriftet utfører dobbelt anonym fagfellevurderinger. Fagfellene "
+"vil ikke se noen identifiserende opplysninger om deg eller dine "
+"medforfattere. På samme måte vil du ikke vite hvem som vurderte bidraget "
+"ditt, og du vil ikke høre direkte fra fagfellene."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Dette tidsskriftet gjennomfører fagfellevurdering med «anonyme fagfeller». "
+"Navnet ditt og navnet til medforfatterne dine vil være synlige for "
+"fagfellene, men deres identiteter vil forbli anonyme."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Dette tidsskriftet gjennomfører åpen fagfellevurdering. Anmelderne vil se "
+"navnet ditt og tilknytningen din, samt navnene og tilknytningene til dine "
+"medforfattere. På samme måte vil du se navnene og tilknytningene til "
+"anmelderne."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Avsenderens fulle navn"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Avsenders e-postadresse"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Avsenders e-postsignatur"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Nettstedets primærkontakt sitt fulle navn"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Nettstedets primærkontakt sin e-postadresse"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Nettsidens e-postsignatur for automatiserte e-poster"
 
+#, fuzzy
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
+"Redaktørene som er tildelt denne innsendingen og som kan ta en avgjørelse"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Bidragets tittel"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Bidragets unike ID-nummer"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Bidragets sammendrag"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Forfatternes navn i en kort streng, som «Barnes m.fl.»"
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Forfatternes fulle navn"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Forfatters URL til bidraget"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr ""
@@ -2982,88 +3084,103 @@ msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nytt tilfeldig passord"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Fagfelle gjeninnsatt"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Send forespørsel om gjennomgang på nytt til fagfelle"
 
+#, fuzzy
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Det fulle navnet til en bruker som lastet opp en innsendingsfil"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Kunngjøringens tittel"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Kort beskrivelse av kunngjøringen"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "Kunngjøringens URL"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Antall bidrag mottatt denne måneden"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Antall avviste innleveringer"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Antall aksepterte innleveringer"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Antall innleveringer som ikke telles med i andre sammenlagte summer"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Totalt antall mottatte bidrag"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Måneden for rapporten"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Året for rapporten"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Opplysninger om nummeret: volum, nummer, år og tittel"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL-en til den publiserte utgaven"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Året for rapporten"
 
+#, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Lenken til redaksjonell aktivitet"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Denne e-posten sendes når en fagfelle som ikke lenger er oppnevnt, "
+"gjeninnsettes av en redaktør."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Denne e-posten sendes av en redaktør til en fagfelle som har avslått en "
+"vurderingsforespørsel, når redaktøren ønsker å sende forespørselen på nytt."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Fagfelle fjernet"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr ""
+msgstr "Denne e-posten sendes når en redaktør fjerner en fagfelle."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Valider e-post (nettsted)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Denne e-posten sendes automatisk til en ny bruker som registrerer seg på "
+"nettsiden, når innstillingene krever validering av e-postadresse."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Send beskjed til andre forfattere"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Denne e-posten sendes for å varsle forfattere som ikke er registrert som "
+"bidragsytere på en innsending, om at det er tatt en avgjørelse. Vanligvis "
+"gjelder dette alle andre enn korresponderende forfatter."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "En kopi av e-posten sendt til forfatteren som sendte inn bidraget"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Varsle fagfellene om avgjørelsen"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -3158,26 +3275,39 @@ msgstr ""
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Sendt til Produksjon"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Denne e-posten varsler forfatteren om at vedkommendes bidrag sendes til "
+"produksjonsfasen."
 
+#, fuzzy
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bidrag akseptert (uten fagfellevurdering)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Denne e-posten varsler forfatteren om at vedkommendes bidrag sendes direkte "
+"til manusredigeringsstadiet og blir ikke fagfellevurdert."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Anbefaling gitt"
 
+#, fuzzy
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Denne meldingen varsler en ansvarlig redaktør eller seksjonsredaktør om at "
+"det er gitt en redaksjonell anbefaling angående et av deres tildelte bidrag. "
+"Denne meldingen brukes når en redaktør kun har lov til å anbefale en "
+"redaksjonell avgjørelse og krever at en autorisert redaktør registrerer "
+"redaksjonelle avgjørelser. Dette alternativet kan velges når deltakere "
+"tildeles et bidrag."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Bekreft vudering"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3187,7 +3317,7 @@ msgstr ""
 "ferdigstilt innen angitt frist."
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Avslå vurdering"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
@@ -3198,8 +3328,11 @@ msgstr ""
 msgid "mailable.reviewRemind.name"
 msgstr "Påminnelse om fagfellevurdering"
 
+#, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Denne e-posten sendes av en redaktør for å minne en fagfelle om at fristen "
+"for å levere vurdering går ut."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Påminnelse om fagfellevurdering (automatisk)"
@@ -3212,13 +3345,16 @@ msgstr ""
 "Arbeidsflyt > Fagfellevurdering"
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Bekreftelse på vurdering"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Denne e-posten sendes av en redaktør til en fagfelle for å bekrefte at "
+"vedkommendes vurdering er mottatt og for å takke fagfellen for arbeidet."
 
+#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Svar for vurdering forfalt (automatisert)"
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
@@ -3242,7 +3378,7 @@ msgstr ""
 "valgt i Tidsskriftoppsett, Trinn 2."
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Forespørsel om videre evaluering"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
@@ -3253,20 +3389,23 @@ msgstr ""
 "fagfellevurderingsprosess er valgt under  Innstillinger > Arbeidsflyt > "
 "Fagfellevurdering."
 
+#, fuzzy
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Bidragets nåværende publikasjon mangler"
 
+#, fuzzy
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Bidragets fil {$child} kunne ikke behandles"
 
+#, fuzzy
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Redaksjonell påminnelse"
 
 msgid "mailable.editorialReminder.description"
-msgstr ""
+msgstr "En automatisk e-post me uavsluttede oppgaver er sendt til redaktørene"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Bekreft nullstilling av passord"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3275,7 +3414,7 @@ msgstr ""
 "lenke brukeren kan følge for å fornye passordet sitt."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Bruker opprettet"
 
 #, fuzzy
 msgid "mailable.userRegister.description"
@@ -3284,18 +3423,22 @@ msgstr ""
 "brukere av nettstedet, og gir dem opplysning om brukernavn og passord."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Fagfelleregister"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
 "Denne e-posten sendes til nyregistrerte fagfeller for å ønske dem velkommen "
 "til systemet og tildele dem brukernavn og passord."
 
+#, fuzzy
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Bidrag lagret for senere bruk"
 
+#, fuzzy
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"En automatisk e-post sendt til forfattere når de mellomlagrer en "
+"innlevering, for å fullføre den senere"
 
 #, fuzzy
 msgid "mailable.submissionAck.name"
@@ -3310,7 +3453,7 @@ msgstr ""
 "redaksjonelle prosessen og takker forfatteren for bidraget."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Bekreftelse på innsending (andre forfattere)"
 
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
@@ -3320,31 +3463,40 @@ msgstr ""
 "plattformen."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Diskusjon (bidrag)"
 
+#, fuzzy
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"innsendingsfasen."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Diskusjon (vurdering)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"vurderingsfasen."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Diskusjon (manusredigering)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"manusredigeringsfasen."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Diskusjon (produksjon)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"produksjonsfasen."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Varsel om revidert versjon"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3352,19 +3504,22 @@ msgstr ""
 "en revidert versjon av en artikkel."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Ny kunngjøring"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Denne e-posten blir sendt når et nytt oppslag opprettes."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Kunngjøring om statistikkrapport"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Varsel om redigering av vurdering"
 
+#, fuzzy
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Denne e-posten varsler automatisk fagfellen når detaljer rundt "
+"vurderingsoppgaven deres er endret."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr ""
@@ -3639,3 +3794,198 @@ msgstr ""
 msgid "manager.highlights.confirmDelete"
 msgstr ""
 "Er du sikker på at du vil slette {$title}? Denne handlingen kan ikke angres."
+
+#, fuzzy
+msgid "manager.highlights.urlText.description"
+msgstr "Etiketten, for eksempel \"Les mer\", for knappen i uthevingen."
+
+msgid "manager.highlights.urlText"
+msgstr "Knappetikett"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Legg til/fjern språk"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Rapportinnstillinger"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Nettsidespråk"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Innleveringsspråk"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadata"
+
+msgid "manager.language.submission.form.description"
+msgstr "Velg innleverings- og metadataspråk."
+
+msgid "manager.language.submission.from.error"
+msgstr "Du må velge minst ett språk."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Startdato"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datoen skal være i formatet ÅÅÅÅ-MM-DD eller ÅÅÅÅ-MM. Tidligste mulige dato "
+"er {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publiseringsår"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"En liste eller et intervall med publikasjonsår som skal returneres som svar "
+"i formatet åååå|åååå|åååå-åååå."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Sluttdato"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datoen skal være i formatet ÅÅÅÅ-MM-DD eller ÅÅÅÅ-MM. Tidligste mulige dato "
+"er {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Datoformatet er ugyldig."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Bruker-ID"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metrikktype"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Egenskaper som skal vises"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Publiseringsårformatet er ikke gyldig."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Innsendings-ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Innsendings-ID-en finnes ikke."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Inkluder overordnede detaljer"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Ekskluder månedlige detaljer"
+
+msgid "settings.roles.permitSettings"
+msgstr "Tillat endringer i innstillinger"
+
+#, fuzzy
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Definer rekkefølgen på roller i redaksjonell topptekst til offentlig "
+"fremvisning."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Innsendingsfilen {$id} ble hoppet over fordi den ikke har en gyldig "
+"revidering."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Innsendingsfilen {$id} ble hoppet over fordi den ikke har et gyldig "
+"filstadium."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Forsidebildet av publikasjonen {$id} ble ikke eksportert, da filen ikke ble "
+"funnet i stien \"{$path}\"."
+
+#, fuzzy
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Lenke til en side som viser alle aktive redaksjonelle tjenester."
+
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Tittelen på menyelementet er obligatorisk."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Revidering {$revision} av bidragsfilen {$id} ble hoppet over fordi filen "
+"ikke ble funnet i banen «{$path}»."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Lenke for å validere en e-postkonto"
+
+#, fuzzy
+msgid "manager.highlights.url.description"
+msgstr ""
+"Den fullstendige URL-en, inkludert https://, for knappen i det markerte "
+"området."
+
+#, fuzzy
+msgid "manager.highlights.delete"
+msgstr "Slett markering"
+
+#, fuzzy
+msgid "manager.highlights.edit"
+msgstr "Rediger markering"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Foreslå fagfeller ved innlevering"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimum antall bekreftede vurderinger som kreves for en innlevering"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Forfatteren kan foreslå flere potensielle fagfeller før innsendingen "
+"fullføres, noe som kan effektivisere vurderingsprosessen og gi verdifulle "
+"innspill til redaksjonen."
+
+msgid "manager.categories.form.removeCoverImageFileNotFound"
+msgstr ""
+"Fant ikke filene for forsidebildet og miniatyrbildet. De kan allerede være "
+"slettet. Prøv å laste inn siden på nytt."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Installert versjon: {$version}"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Gi forfattere mulighet til å foreslå potensielle fagfeller under "
+"innsendingsprosessen"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Følgende vises til forfatterne i trinnet hvor det kan foreslås fagfeller. "
+"Forklar kort hvilke opplysninger forfatteren bør oppgi om seg selv, "
+"medforfattere og eventuelle andre bidragsytere."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Språkinnstillingen kunne ikke lagres. Alle alternativer må aktiveres."
+
+#, fuzzy
+msgid "notification.submissionLocales"
+msgstr "Innsendingsspråk er oppdatert."
+
+msgid "settings.roles.masthead"
+msgstr "Overvei rolle i kolofonoversikten"
+
+msgid "manager.categories.form.removeCoverImageOnDifferentContextNowAllowed"
+msgstr ""
+"Kategorien finnes ikke, eller tilhører en annen kontekst. Vennligst "
+"kontrollerer at du arbeider i riktig kontekst og prøv igjen."
+
+#, fuzzy
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Forfatteren {$authorName} har ikke et tilknytningsnavn på innsendingens "
+"språk, {$localeName}. Innsendingen kan ikke importeres uten disse "
+"opplysningene."

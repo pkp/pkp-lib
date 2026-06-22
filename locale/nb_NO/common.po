@@ -1,12 +1,13 @@
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # "My L. Bjørnflaten" <myl@uio.no>, 2024.
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-04-08 14:20+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2026-06-18 21:33+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -132,7 +133,7 @@ msgid "common.add"
 msgstr "Legg til"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Legg til kopi/blindkopi"
 
 msgid "common.addFiles"
 msgstr "Legg til filer"
@@ -340,8 +341,9 @@ msgstr "Sletter"
 msgid "common.deleteSelection"
 msgstr "Slett valgte"
 
+#, fuzzy
 msgid "common.deselect"
-msgstr ""
+msgstr "Fravelg"
 
 msgid "common.designation"
 msgstr "Betegnelse"
@@ -359,10 +361,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} pixles"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Nei, forkast ulagrede endringer"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Frakoblet"
 
 msgid "common.disable"
 msgstr "Slå av"
@@ -386,10 +388,10 @@ msgid "common.downloadReport"
 msgstr "Last ned rapport"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Dra og slipp filer her."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Eller last opp en fil"
 
 msgid "common.edit"
 msgstr "Rediger"
@@ -398,7 +400,7 @@ msgid "common.editItem"
 msgstr "Rediger {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "E-postmaler"
 
 msgid "common.enable"
 msgstr "Slå på"
@@ -508,10 +510,10 @@ msgid "common.insert"
 msgstr ""
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Sett inn innhold"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Finn innhold som kan settes inn"
 
 msgid "common.itemsPerPage"
 msgstr "Elementer per side"
@@ -520,7 +522,7 @@ msgid "common.keywords"
 msgstr "Nøkkelord"
 
 msgid "common.label"
-msgstr ""
+msgstr "Etikett"
 
 msgid "common.language"
 msgstr "Språk"
@@ -545,7 +547,7 @@ msgid "common.lessThanOnly"
 msgstr "Mindre enn"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Fortsett arbeidet"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -587,7 +589,7 @@ msgid "common.none"
 msgstr "Ingen"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Ingen valgt"
 
 #, fuzzy
 msgid "common.noneProvided"
@@ -634,8 +636,9 @@ msgstr "Informert: {$dateNotified}"
 msgid "common.noMatches"
 msgstr "Ingen treff"
 
+#, fuzzy
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} fler"
 
 msgid "common.off"
 msgstr "Av"
@@ -734,7 +737,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Les mer om {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Gjenoppretter forbindelse"
 
 msgid "common.record"
 msgstr "Journalfør"
@@ -782,7 +785,7 @@ msgid "common.reset"
 msgstr "Tilbakestill"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Runde {$round}"
 
 msgid "common.role"
 msgstr "Rolle"
@@ -802,11 +805,12 @@ msgstr "Lagrer"
 msgid "common.search"
 msgstr "Søk"
 
+#, fuzzy
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Søkefrase"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Søker"
 
 msgid "common.searchQuery"
 msgstr "Søkeord"
@@ -836,7 +840,7 @@ msgid "common.sendEmail"
 msgstr "Send e-post"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Vis alle steg"
 
 #, fuzzy
 msgid "common.showingSteps"
@@ -1835,8 +1839,9 @@ msgstr "Fagfelle avbrutt."
 msgid "notification.reinstatedReviewer"
 msgstr "Fagfelle gjenopptatt."
 
+#, fuzzy
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Forespørsel om å revurdere vurderingsoppgaven ble sendt."
 
 msgid "notification.addedStageParticipant"
 msgstr "Bruker lagt til som deltaker på et bestemt stadie."
@@ -1946,7 +1951,7 @@ msgstr ""
 "ditt via redaksjonen."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Ukentlig e-post om utestående oppgaver"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1970,19 +1975,28 @@ msgid "notification.removedNavigationMenu"
 msgstr "Navigasjonsmenyen ble fjernet"
 
 msgid "notification.unsubscribeNotifications.success"
-msgstr ""
+msgstr "Du har blitt avmeldt"
 
+#, fuzzy
 msgid "notification.unsubscribeNotifications.error"
-msgstr ""
+msgstr "Vi kunne ikke avmelde deg"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
+"Velg e-postene du ikke lenger ønsker å motta på {$email} fra {$contextName}."
 
+#, fuzzy
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
+"Du kan når som helst abonnere på e-postvarsler på nytt fra <a href=\""
+"{$profileNotificationUrl}\">brukerprofilen din</a>."
 
+#, fuzzy
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
+"E-postadressen {$email} er avmeldt. Vi vil ikke lenger sende deg disse e-"
+"postene. Du kan abonnere på e-postvarsler på nytt når som helst fra <a href="
+"\"{$profileNotificationUrl}\">brukerprofilen</a> din."
 
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
@@ -2205,23 +2219,30 @@ msgstr "Denne {$attribute} er allerede opptatt."
 msgid "validator.url"
 msgstr "Dette er ikke en gyldig URL."
 
+#, fuzzy
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Ingen ny linje tillatt."
 
+#, fuzzy
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Kun [{$tags}] html tags er tillatt."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
+"Filteret ({$displayName}) understøtter input {$inputTypeName} - "
+"{$typeofInput} angitt"
 
+#, fuzzy
 msgid "filter.error.missingRequirements"
 msgstr ""
+"Prøver å kjøre en transformasjon som ikke støttes i installasjonsmiljøet "
+"ditt."
 
 msgid "filter.import.error.couldNotImportNode"
-msgstr ""
+msgstr "Kunne ikke importere XML-node"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Ukjent kommando {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2348,3 +2369,85 @@ msgstr "Forfatter redigert."
 #, fuzzy
 msgid "common.highlights"
 msgstr "Høydepunkter"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Vis <a href=\"{$url}\">Redaksjonell historikk</a>"
+
+#, fuzzy
+msgid "common.editorialMasthead"
+msgstr "Redaksjonell topptekst"
+
+#, fuzzy
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Antall fagfeller i det foregående året"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Antall fagfeller de seneste årene"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Redaktørene verdsetter innsatsen til fagfellene for {$year}, oppført "
+"nedenfor."
+
+#, fuzzy
+msgid "common.editorialHistory"
+msgstr "Redaksjonell historikk"
+
+msgid "common.editorialHistory.page"
+msgstr "Redaksjonell historikk"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Denne delen viser tidligere bidragsytere."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Vis {$name}s ORCID-profil"
+
+msgid "common.moreActions"
+msgstr "Flere handlinger"
+
+msgid "common.assignments"
+msgstr "Opgaver"
+
+msgid "common.changeLanguage"
+msgstr "Bytt språk"
+
+msgid "common.showingXofX"
+msgstr "Viser <strong>{$start} til {$finish}</strong> av {$total}"
+
+#, fuzzy
+msgid "navigation.dashboards"
+msgstr "Redaktørens oversikt"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mine opgaver som fagfelle"
+
+msgid "navigation.mySubmissions"
+msgstr "Mine bidrag som forfatter"
+
+msgid "common.viewMoreDetails"
+msgstr "Se flere detaljer"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Vurdering godtatt den"
+
+msgid "validator.multilingual"
+msgstr "Flerspråklighetskravet er ikke oppfylt for dette feltet."
+
+#, fuzzy
+msgid "common.sandbox"
+msgstr "Programmet kjører i sandkassemodus."
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Vurdering innsendt den"
+
+msgid "common.openLinkNewTab"
+msgstr "Åpne lenke i en ny fane."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Nr."
+
+msgid "common.refreshingData"
+msgstr "Oppdaterer data"

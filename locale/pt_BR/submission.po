@@ -1,5 +1,5 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
-# Diego Abadan <diego@lepidus.com.br>, 2022.
+# Diego Abadan <diego@lepidus.com.br>, 2022, 2026.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 # Téssio Fechine <tessiof@gmail.com>, 2024.
@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2025-07-03 23:19+0000\n"
-"Last-Translator: Andre Moura Melgarejo <melgarejo.andre@gmail.com>\n"
+"PO-Revision-Date: 2026-05-28 20:06+0000\n"
+"Last-Translator: Diego Abadan <diego@lepidus.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -3335,7 +3335,7 @@ msgid "submission.reviewerSuggestions"
 msgstr "Sugestões do Avaliador"
 
 msgid "submission.list.completeSubmission"
-msgstr "Submissão completa"
+msgstr "Completar submissão"
 
 msgid "submission.dashboard.view.reviewsSubmitted"
 msgstr "Avaliações enviadas"

@@ -1,18 +1,19 @@
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/editor/nb_NO/>\n"
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/editor/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Er du sikker på at du vil slette denne innleveringen for alltid?"
@@ -48,40 +49,58 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Endre avgjørelse"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "Du har ikke tillatelse til å ta en beslutning om denne innsendelsen."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Redaktøren ble ikke gjenkjent og har muligvis ikke tillatelse til å ta en "
+"beslutning angående denne innleveringen."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Du kan ikke sende e-post til følgende mottakere: {$names}."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Denne gjennomgangsrunden ble ikke funnet."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"En gjennomgangsrunde pågår, men denne avgjørelsen er ikke tatt under en "
+"vurderingsfase."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Denne gjennomgangsrunden er ikke en del av denne innleveringen."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Innsendingen er ikke på riktig stadium i arbeidsflyten til å ta denne "
+"avgjørelsen."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Du må være tildelt denne innleveringen for å kunne ta en redaksjonell "
+"avgjørelse."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr ""
+msgstr "En evalueringsrunde-ID må oppgis for å kunne ta denne avgjørelsen."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"En anbefaling kan ikke gis med mindre en redaktør som kan ta en endelig "
+"avgjørelse, er tilknyttet denne fasen."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"En avgjørelse om denne innsendingen kunne ikke tas. Innsendings-ID-en "
+"mangler eller samsvarer ikke med den forespurte innsendingen."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Denne avgjørelsen ble ikke funnet. Vennligst oppgi en bekreftet "
+"avgjørelsestype."
 
 msgid "editor.review.notInitiated"
 msgstr "Fagfellevurderingen har ikke startet."
@@ -154,8 +173,9 @@ msgstr "Avslutt fagfellevurdering for fagfelle"
 msgid "editor.review.reinstateReviewer"
 msgstr "Gjenoppnevn fagfelle"
 
+#, fuzzy
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Send gjennomgangsforespørsel på nytt"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Type vurdering"
@@ -212,9 +232,11 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Revisjoner bør ikke bli gjenstand for en ny runde med fagfellevurdering."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Revisjoner bør ikke bli gjenstand for en ny runde med fagfellevurderinger."
 
 msgid "editor.review.dateAccepted"
 msgstr "Dato fagfellevurderingen ble mottatt"
@@ -552,7 +574,7 @@ msgid "reviewer.list.reassign"
 msgstr "Oppnevn på nytt"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Tildel {$name} på nytt"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Denne fagfellen er allerede oppnevnt til å vurdere dette bidraget."
@@ -576,31 +598,32 @@ msgid "reviewer.list.empty"
 msgstr "Ingen fagfeller funnet"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Tilordnet en tidligere runde"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Opphev beslutning"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Er du sikker på at du vil oppheve denne avgjørelsen?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Fullfør følgende trinn for å ta denne avgjørelsen"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Ikke hopp over denne e-posten"
 
+#, fuzzy
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Dette trinnet er hoppet over, og derfor blir ingen e-post sendt."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Registrer beslutning"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Hopp over e-posten"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Det oppsto et problem med trinnet {$stepName}."
 
 #~ msgid "reviewer.list.itemsOfTotal"
 #~ msgstr "{$count} av {$total} fagfeller"
@@ -613,3 +636,50 @@ msgstr ""
 
 #~ msgid "editor.submissionReview.blind"
 #~ msgstr "Blind"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Vurderingsfristen for vurdering må være større enn, eller lik svarfristen."
+
+#, fuzzy
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Velg en fagfelle fra listen over foreslåtte fagfeller"
+
+#, fuzzy
+msgid "editor.review.download"
+msgstr "Last ned evalueringsskjemaet"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Samme institusjon som forfatteren"
+
+msgid "editor.review.logResponse.for"
+msgstr "Registrer svar for"
+
+msgid "editor.review.logResponse"
+msgstr "Registrer svar"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Et svar må velges"
+
+#, fuzzy
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Fagfellen har godtatt vuderingsinvitasjonen"
+
+#, fuzzy
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Fagfellen har avvist vurderingsinvitasjonen"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registrer svaret på vegne av fagfellen"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Hvis fagfellen kontakter deg via e-post eller på andre måter, kan du "
+"registrere svaret deres for dem"
+
+msgid "editor.review.authorOnly"
+msgstr "Seksjoner som kun angår forfattere vises"
+
+#, fuzzy
+msgid "editor.review.allSections"
+msgstr "Redaktørens skjema viser alle seksjoner om vurdering"

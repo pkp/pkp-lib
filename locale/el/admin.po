@@ -1,20 +1,21 @@
 # Jonas Raoni Soares da Silva <weblate@raoni.org>, 2021.
 # Manolis Saldaris <omanos@gmail.com>, 2022.
+# Theodoros Theodoropoulos <bujam1@yahoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2022-05-27 08:26+0000\n"
-"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
-"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"el_GR/>\n"
-"Language: el_GR\n"
+"PO-Revision-Date: 2026-06-22 11:18+0000\n"
+"Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
+"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/el/>"
+"\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Ονομασία ρύθμισης"
@@ -26,16 +27,18 @@ msgid "admin.adminFunctions"
 msgstr "Λειτουργίες διαχείρισης"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Διαγραφή προσωρινών αρχείων cache"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Διαγράψτε τα προσωρινά αρχεία αποθήκευσης από το σύστημα. Αυτό θα πρέπει να "
+"γίνεται μόνο σε περιβάλλοντα ανάπτυξης."
 
 msgid "admin.clearDataCache"
-msgstr "Διαγραφή κρυφής μνήμης δεδομένων"
+msgstr "Διαγραφή προσωρινών αρχείων (cache) δεδομένων"
 
 msgid "admin.clearTemplateCache"
-msgstr "Διαγραφή κρυφής μνήμης προτύπων"
+msgstr "Διαγραφή προσωρινών αρχείων (cache) προτύπων"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
@@ -149,7 +152,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "Η ενέργεια δεν δημιούργησε κανένα αρχείο καταγραφής."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Καταχώριση DOI στον επιλεγμένο φορέα καταχώρισης"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -157,13 +160,15 @@ msgstr ""
 "κατεβάσετε το αρχείο καταγραφής της εγκατάστασης εδώ: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
-msgstr ""
+msgstr "Αποστολή email σε κάθε επιμελητή για υπενθύμιση των εκκρεμοτήτων τους"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Εντοπισμός επιμελητών προς υπενθύμιση για το περιοδικό {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Ξεκίνησαν {$count} εργασίες για την αποστολή υπενθυμίσεων μέσω email από τη "
+"συντακτική ομάδα στους χρήστες {$userIds} για το περιοδικό {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -179,7 +184,7 @@ msgstr ""
 "εργασιών που έχουν εκτελεστεί."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Διαγραφή αρχείων καταγραφής εργασιών"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Δημοσίευση των προγραμματισμένων για δημοσίευση υποβολών"
@@ -188,79 +193,102 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Υπενθύμιση αξιολόγησης"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Ειδοποίηση Αναφοράς Συντακτικής Ομάδας"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Υπενθύμιση λήξης συνδρομής"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Διαγραφή μη επικυρωμένων χρηστών των οποίων η αρχική αίτηση έχει λήξει"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Διαγραφή πολύ παλαιότερων αποτυχημένων εργασιών από τη λίστα των "
+"αποτυχημένων εργασιών."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Επεξεργασία εργασιών στην ουρά αναμονής"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Ενημέρωση βάσης DB-IP city lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Η μετονομασία του αρχείου της βάσης DB-IP city lite από {$sourceFilename} σε "
+"{$targetFilename} απέτυχε."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Εργασία φόρτωσης αρχείων στατιστικών χρήσης"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Ο φάκελλος {$directory} δεν είναι κενός. Αυτό μπορεί να υποδηλώνει μια "
+"διαδικασία που απέτυχε προηγουμένως ή μια διαδικασία που εκτελείται "
+"ταυτόχρονα. Το αρχείο αυτό θα υποβληθεί εκ νέου σε επεξεργασία, αυτόματα."
 
 msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Δεν ήταν δυνατό το άνοιγμα του αρχείου {$file} και απορρίφθηκε."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Το αρχείο {$file} είναι σε παλιά μορφή αρχείου καταγραφής και δεν μπορεί να "
+"υποβληθεί σε επεξεργασία, ως εκ τούτου, θα μεταφερθεί ξανά στον κατάλογο "
+"stage."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Παραλείφθηκε το αρχείο καταγραφής {$file}, καθώς τα στατιστικά στοιχεία για "
+"τον συγκεκριμένο μήνα έχουν ήδη υπολογιστεί. Για να υπολογίσετε εκ νέου τα "
+"στατιστικά στοιχεία ενός προηγούμενου μήνα, πρέπει να επαναφέρετε όλα τα "
+"αρχεία καταγραφής του συγκεκριμένου μήνα και να χρησιμοποιήσετε το εργαλείο "
+"CLI για να επανεπεξεργαστείτε τα στατιστικά στοιχεία."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"Η γραμμή {$lineNumber} στο αρχείο καταγραφής {$file} έχει λάθος μορφή και, "
+"ως εκ τούτου, θα παραλειφθεί."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Μη έγκυρη καταχώριση στη γραμμή {$lineNumber} του αρχείου καταγραφής {$file}:"
+" {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "Η ώρα δεν αποτελεί έγκυρη ημερομηνία."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Το αναγνωριστικό (ID) του περιοδικού δεν είναι ακέραιος αριθμός."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Το αναγνωριστικό (ID) της υποβολής δεν είναι ακέραιος αριθμός."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Το αναγνωριστικό (ID) της εκπροσώπησης δεν είναι ακέραιος αριθμός."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr ""
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Ο τύπος αρχείου δεν υποστηρίζεται."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "Η χώρα δεν είναι μια ακολουθία δύο αλφαβητικών χαρακτήρων."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "Η περιοχή δεν αποτελείται από έως τρεις αλφαριθμητικούς χαρακτήρες."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr ""
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Παρουσιάστηκε σφάλμα κατά την επεξεργασία του αρχείου καταγραφής {$file} στη "
+"γραμμή {$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Οι εργασίες παρασκηνίου που θα επεξεργαστούν τα αρχεία καταγραφής και θα "
+"αποθηκεύσουν τα στατιστικά στοιχεία έχουν ήδη ξεκινήσει."
 
 msgid "admin.server.apacheVersion"
 msgstr "Έκδοση Apache"
@@ -305,10 +333,10 @@ msgid "admin.settings.restrictBulkEmails"
 msgstr "Περιορισμός σε μαζικά μηνύματα ηλ. ταχυδρομείου"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Απενεργοποίηση Ρόλων"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Μόνο ένας διαχειριστής έχει δικαίωμα να τροποποιήσει αυτή τη ρύθμιση."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Γλώσσα ιστοτόπου"
@@ -352,9 +380,11 @@ msgstr "Πληροφορίες συστήματος"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Εμφάνιση πληροφοριών σχετικά με την έκδοση και τις ρυθμίσεις της εφαρμογής "
+"και του διακομιστή."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Εμφάνιση Πληροφοριών Συστήματος"
 
 msgid "admin.versionBuild"
 msgstr "Έκδοση"
@@ -416,12 +446,18 @@ msgstr "Φορτωτής αρχείων"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Δεν ήταν δυνατή η αποσυμπίεση του αρχείου. Δεν ήταν δυνατό να ανοιχτεί το "
+"αρχείο gz {$filePath} με τη συνάρτηση gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Δεν ήταν δυνατή η αποσυμπίεση του αρχείου. Δεν ήταν δυνατό να ανοιχτεί το "
+"αρχείο {$filePath} με τη συνάρτηση fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Δεν ήταν δυνατή η αποσυμπίεση του αρχείου. Δεν ήταν δυνατή η ανάγνωση του "
+"αρχείου gz {$file} με τη συνάρτηση gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
@@ -463,7 +499,7 @@ msgid "admin.cli.tool.usage.title"
 msgstr ""
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "εντολή [ορίσματα]"
 
 msgid "admin.cli.tool.available.commands"
 msgstr ""
@@ -820,3 +856,94 @@ msgstr ""
 #~ msgstr ""
 #~ "Μη έγκυρος τύπος αρχείου εικόνας λογοτύπου. Αποδεκτοί τύποι αρχείων είναι "
 #~ "οι .gif, .jpg, ή .png."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Ενημέρωση της προσωρινής μνήμης του συνόλου δεδομένων του μητρώου ROR"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Απενεργοποίηση των συγκεντρωτικών στατιστικών των αξιολογητών"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Στατιστικά αξιολογητή"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Σε μια εγκατάσταση πολλαπλών περιοδικών, τα στατιστικά στοιχεία των "
+"αξιολογητών, όπως ο αριθμός των υποβληθέντων σχολίων, μπορούν να "
+"εμφανίζονται είτε ξεχωριστά για κάθε περιοδικό, είτε συγκεντρωτικά."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Αδυναμία ενημέρωσης του συνόλου δεδομένων του Μητρώου ROR λόγω ασυμφωνίας "
+"στο checksum. Αναμενόμενο checksum: {$expected}. Πραγματικό checksum: "
+"{$actual}."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Το αρχείο {$filename} μετακινήθηκε στο φάκελο αποστολής."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Αδυναμία ανάκτησης των μεταδεδομένων του συνόλου δεδομένων του Μητρώου ROR. "
+"Μη αναμενόμενος κωδικός κατάστασης HTTP: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr ""
+"Δεν είναι δυνατή η λήψη του αρχείου ZIP με το σύνολο δεδομένων του Μητρώου "
+"ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Δεν είναι δυνατό το άνοιγμα του αρχείου ZIP με το σύνολο δεδομένων του "
+"Μητρώου ROR. Κωδικός σφάλματος: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr ""
+"Δεν είναι δυνατή η αποσυμπίεση του αρχείου ZIP με το σύνολο δεδομένων του "
+"Μητρώου ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"Στην εγγραφή του Μητρώου ROR με αναγνωριστικό «{$id}» λείπουν ένα ή "
+"περισσότερα υποχρεωτικά πεδία (id, names, status) και έχει παραλειφθεί."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"Η εγγραφή «{$id}» στο Μητρώο ROR δεν έχει έγκυρο όνομα και έχει παραλειφθεί."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Δεν ήταν δυνατή η εύρεση αρχείου δεδομένων JSON με έκδοση σχήματος {$version}"
+" στο εξαγόμενο σύνολο δεδομένων του Μητρώου ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Αδυναμία επαλήθευσης του checksum του αρχείου ZIP για το σύνολο δεδομένων "
+"του Μητρώου ROR που κατέβηκε."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Αδυναμία επαλήθευσης του αρχείου ZIP με το σύνολο δεδομένων του Μητρώου ROR: "
+"ο αλγόριθμος του checksum δεν υποστηρίζεται. Υποστηρίζονται μόνο οι "
+"αλγόριθμοι MD5 και SHA256."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Αδυναμία ανάκτησης των μεταδεδομένων του συνόλου δεδομένων του Μητρώου ROR. "
+"Δεν εντοπίστηκε αρχείο λήψης στην απάντηση του API."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Δεν είναι δυνατή η ανάγνωση της έκδοσης του σχήματος από το αρχείο JSON "
+"{$file} του Μητρώου ROR. Σφάλμα: {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Δεν κατέστη δυνατό να επεξεργαστούν οι εγγραφές από το σύνολο δεδομένων του "
+"Μητρώου ROR. Το σύνολο δεδομένων ενδέχεται να είναι κενό ή όλες οι εγγραφές "
+"να απέτυχαν στον έλεγχο εγκυρότητας."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"Η εγγραφή «{$id}» στο Μητρώο ROR περιέχει μια καταχώριση ονόματος με τύπους "
+"[{$types}], στην οποία λείπει το υποχρεωτικό πεδίο «value», και ως εκ τούτου "
+"έχει παραλειφθεί."

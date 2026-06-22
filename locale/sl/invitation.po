@@ -1,0 +1,423 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-06-16 12:00+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/sl/>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Za dodajanje mora biti določena vsaj ena skupina uporabnikov"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Uporabniška skupina je dodeljena povabljenemu uporabniku"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Določiti morate vsaj eno skupino uporabnikov, ki jo želite odstraniti"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Vlog uporabnikov ni mogoče odstraniti za neobstoječe uporabnike."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "V navedenih skupinah uporabnikov so podvojeni vnosi."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "Uporabnik z imenom {$username} že obstaja. Poskusite z drugim."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Če je povabilu dodeljen e-poštni naslov ({$email}), ta naslov ne sme biti že "
+"v uporabi pri drugem uporabniku."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Geslo mora biti vnešeno"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Ime je obvezno"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Priimek je obvezen"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Za dodane uporabniške skupine mora biti določen začetni datum"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Za dodane uporabniške skupine mora biti določen kolofon"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Ta vrsta vabila nima definirane možnosti pošiljanja po pošti"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Pošiljanje povabila ni uspelo"
+
+msgid "invitation.validation.required"
+msgstr "Polje {$attribute} je obvezno."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Prišlo je do nepričakovane vrednosti atributa {$attribute}: {$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "ID {reviewAssignmentId} ne ustreza veljavni recenzijski zahtevi"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Povabila ni možno preklicati"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Ne morete hkrati vnesti e-poštnega naslova in uporabniškega imena."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Dostop do tega atributa ni dovoljen za neobstoječe uporabnike"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Vrednost atributa mora biti danes ali kasneje"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Polje :attribute je prepovedano"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Potrebna je vrednost za jezik '{$primaryLocale}'"
+
+msgid "invitation.step"
+msgstr "KORAK"
+
+msgid "invitation.header"
+msgstr "Povabila"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Povabilo k vlogi"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Vnesite podrobnosti"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Preglejte in povabite za vloge"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Išči uporabnika"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Išči uporabnika"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Vnestie podrobnosti"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Vnesite podrobnosti in povabite k vlogi"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Shrani in nadaljuj"
+
+msgid "invitation.role.selectRole"
+msgstr "Izberite novo vlogo"
+
+msgid "invitation.role.dateEnd"
+msgstr "Končni datum"
+
+msgid "invitation.role.addRole.button"
+msgstr "Dodajo dodatno vlogo"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Vloga"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Začetni datum"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Končni datum"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Preglejte in povabite k vlogam"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Spremenite email deljen z uporabnikom"
+
+msgid "userInvitation.modal.title"
+msgstr "Povabilo je bilo poslano"
+
+msgid "userInvitation.modal.button"
+msgstr "Poglej vse uporabnike"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Odstrani vlogo"
+
+msgid "invitation.email.description"
+msgstr "npr. aeinstein@example.com"
+
+msgid "invitation.decline.confirm"
+msgstr "Potrdi zavrnitev povabila"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Zavrni povabilo"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Ali ste prepričani, da želite zavrniti to povabilo? Zavrnitev potrdite s "
+"klikom na spodnji gumb."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Preveri ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Preveri ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Shrani in nadaljuj"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Vnesite podrobnosti"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Vnesite podrobnosti"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Shrani in nadaljuj"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Obrazec s podatki o uporabniku za sprejem povabila"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Prosimo, da nam posredujete naslednje podatke, da bomo lažje upravljali z "
+"vašim računom"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Preglej in potrdi račun"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Preskoči preverjanje ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Preveri ORCID iD"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Biti mora dolgo vsaj 6 znakov in lahko vsebuje kombinacijo velikih črk, "
+"malih črk, številk in simbolov"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Da, soglašam, da se moji podatki zbirajo in shranjujejo v skladu s {$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Izjava o varstvu osebnih podatkov"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Priimek je tisti del osebnega imena, ki se večinoma deduje in označuje "
+"družino."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "To je organizacija, s katero ste povezani"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "To je država, v kateri se nahaja ustanova, s katero ste povezani"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Država ustanove"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Podrobnosti računa"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Podrobnosti uporabnika"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Poglej vse prispevke"
+
+msgid "invitation.tableHeader.name"
+msgstr "Ime"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Vnesite vsaj en iskalni pogoj."
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Prekliči povabilo"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Prekliči povabilo"
+
+msgid "invitation.masthead.show"
+msgstr "Objava v kolofonu"
+
+msgid "invitation.masthead.hidden"
+msgstr "Ni objavljeno v kolofonu"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Spremeni vlogo"
+
+msgid "userInvitation.cancel.message"
+msgstr "Ali res želite preklicati to povabilo?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Pojdi nazaj"
+
+msgid "userInvitation.status.invited"
+msgstr "Datum povabila {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Uredi povabilo"
+
+msgid "validation.after_or_equal"
+msgstr "Začetni datum mora biti večji ali enak današnjemu"
+
+msgid "invitation.removeRoles"
+msgstr "Uporabnik je bil odstranjen z vloge"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Prosimo, da potrdite, da ste prebrali in se strinjate z izjavo o varovanju "
+"podatkov"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Prekini postopek povabila k vlogi?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Prekini postopek povabila"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Povabilo ni bilo sprejeto. Prijavljeni ste kot drug uporabnik."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Prosimo, odjavite se in se prijavite s pravim računom, da sprejmete to "
+"povabilo."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Poiščite uporabnika po e-poštnem naslovu, uporabniškem imenu ali ORCID iD. "
+"Za začetek vnesite le enega od teh podatkov!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Uporabnik je trenutno onemogočen."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Uporabnik je bil onemogočen. Dokler je onemogočen, mu ne morete dodeliti "
+"vloge. Najprej ga omogočite, da ga boste lahko povabili v vlogo."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Soglasje k varstvu osebnih podatkov"
+
+msgid "invitation.unavailable.title"
+msgstr "Povabilo ni na voljo"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"To povabilo ni več na voljo. Morda je bilo že sprejeto, zavrnjeno ali pa je "
+"potekel njegov rok veljavnosti. Za dodatno pomoč se obrnite na urednika "
+"revije."
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Preklic povabila poslanega osebi {$givenName} {$familyName} bo deaktiviralo "
+"povezava za potrditev poslano po e-pošti,. Tukaj so podrobnosti povabila: "
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Vabila ni mogoče poslati, ker niste določili nobenih sprememb v skupinah "
+"uporabnikov"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Za povabilo z uporabniškim ID-jem ({$userId}), mora ustrezni uporabnik "
+"obstajati."
+
+msgid "invitation.role.dateStart"
+msgstr "Začetni datum"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Povabite uporabnika k vlogi"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Išči uporabnika"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Povabite uporabnika k vlogi"
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Vnesite uporabniško ime"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Ustanova mora biti določena"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Državo morate določiti"
+
+msgid "userInvitation.searchField.description"
+msgstr "npr. aeinstein@example.com ali aeinstein ali 0000-0002-1825-0097"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Navedeni ID uporabniške skupine {$userGroupId} ne obstaja"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Dostop do tega atributa ni dovoljen za obstoječe uporabnike"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Za dodane uporabniške skupine mora biti določen ID uporabniške skupine"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Ob sprejetju povabila bo uporabnik preusmerjen na spletno stran ORCID, kjer "
+"bo lahko po želji potrdil svoj račun."
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Shrani in nadaljuj"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Preglej in potrdi račun"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Lahko gre za kombinacijo velikih črk, malih črk ali številk"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Če poznate ime uporabnika, lahko vnesete te podatke. Vendar pa lahko "
+"uporabnik te podatke spremeni."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Če poznate priimek uporabnika, lahko vnesete te podatke. Vendar pa lahko "
+"uporabnik te podatke spremeni."
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"To je tisti del osebnega imena, ki identificira osebo, znano tudi kot ime "
+"ali krstno ime."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Gledate podrobnosti uporabnika {$name}"
+
+msgid "invitation.management.options"
+msgstr "Možnosti za upravljanje vabil"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Če uporabnik ne obstaja, ga lahko povabite, da prevzame vloge. Če uporabnik "
+"že obstaja v sistemu, si lahko ogledate njegove podatke in ga povabite, da "
+"prevzame dodatne vloge."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Vnesite svoje podatke, kot so e-poštni naslov, ustanovo itd. V skladu z "
+"uredbo GDPR lahko te podatke spreminjate le vi. Prav tako lahko izberete, "
+"ali želite, da so ti podatki v vašem profilu vidni uredniku."
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Če spremenite obstoječe povabilo ali dodate novo vlogo, bo trenutno povabilo "
+"preklicano in bo poslano novo. Ali ste prepričani, da želite nadaljevati?"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Ali ste prepričani, da želite preklicati? Če prekličete zdaj, se bo postopek "
+"sprejema vloge ustavil in boste morali začeti znova od povabilnega e-"
+"sporočila, da vlogo ponovno sprejmete. Če ste že registriran uporabnik, se "
+"boste vrnili na nadzorno ploščo. Če niste, boste morali odpreti povabilno e-"
+"sporočilo, da postopek začnete znova."

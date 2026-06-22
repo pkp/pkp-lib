@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 12:04+0000\n"
+"PO-Revision-Date: 2026-06-22 12:09+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -3012,26 +3012,35 @@ msgstr ""
 "medforfattere. På samme måte vil du ikke vite hvem som vurderte bidraget "
 "ditt, og du vil ikke høre direkte fra fagfellene."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Dette tidsskriftet gjennomfører fagfellevurdering med «anonyme fagfeller». "
+"Navnet ditt og navnet til medforfatterne dine vil være synlige for "
+"fagfellene, men deres identiteter vil forbli anonyme."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Dette tidsskriftet gjennomfører åpen fagfellevurdering. Anmelderne vil se "
+"navnet ditt og tilknytningen din, samt navnene og tilknytningene til dine "
+"medforfattere. På samme måte vil du se navnene og tilknytningene til "
+"anmelderne."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Avsenderens fulle navn"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Avsenders e-postadresse"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Avsenders e-postsignatur"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Nettstedets primærkontakt sitt fulle navn"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Nettstedets primærkontakt sin e-postadresse"
 
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr ""

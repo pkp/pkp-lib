@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2026-06-19 12:52+0000\n"
+"PO-Revision-Date: 2026-06-22 07:01+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/common/el/"
 ">\n"
@@ -1057,13 +1057,13 @@ msgstr ""
 "αναθεωρήσεις ή άλλα αρχεία προς έλεγχο."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Αρχεία Βιβλιοθήκης"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Προσθήκη Αρχείων Βιβλιοθήκης"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Επισύναψη αρχείων από τις Βιβλιοθήκες Υποβολών και Εκδόσεων."
 
 msgid "email.addAttachment.reviewFiles.attach"
 msgstr "Επισύναψη Αρχείων από Επιμελητές"
@@ -1936,13 +1936,13 @@ msgid "user.authorization.invalidReviewRound"
 msgstr "Μη έγκυρος γύρος αξιολόγησης."
 
 msgid "user.authorization.invalidQuery"
-msgstr ""
+msgstr "Μη έγκυρη συνομιλία."
 
 msgid "user.authorization.unauthorizedNote"
-msgstr ""
+msgstr "Δεν έχετε πρόσβαση σε αυτό το μήνυμα της συνομιλίας."
 
 msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr ""
+msgstr "Δεν έχετε πρόσβαση σε αυτή την ανάθεση για αξιολόγηση."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
@@ -2034,9 +2034,14 @@ msgstr ""
 
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
+"Παρουσιάστηκε ένα απροσδόκητο σφάλμα και δεν καταφέραμε να διαγράψουμε τη "
+"διεύθυνση ηλεκτρονικού ταχυδρομείου {$email}. Μπορείτε να διαγραφείτε από "
+"όλες τις ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου από το <a href=\""
+"{$profileNotificationUrl}\">προφίλ χρήστη</a> ή να επικοινωνήσετε μαζί μας "
+"για βοήθεια."
 
 msgid "notification.unsubscribeNotifications"
-msgstr ""
+msgstr "Απεγγραφή"
 
 msgid "list.viewMore"
 msgstr "Προβολή πρόσθετων πληροφοριών για το {$name}"
@@ -2045,13 +2050,13 @@ msgid "list.viewLess"
 msgstr "Απόκρυψη πρόσθετων πληροφοριών για το {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Εμφάνιση όλων"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Σύμπτυξη όλων"
 
 msgid "validation.invalidOption"
-msgstr ""
+msgstr "Αυτή η επιλογή δεν είναι έγκυρη."
 
 msgid "validator.accepted"
 msgstr "Αποδεχτείτε αυτό το αντικείμενο .."
@@ -2071,6 +2076,8 @@ msgstr ""
 
 msgid "validator.alpha_dash_period"
 msgstr ""
+"Αυτό μπορεί να περιέχει μόνο γράμματα, αριθμούς, παύλες, κάτω παύλες και "
+"τελείες."
 
 msgid "validator.alpha_num"
 msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα και αριθμοί."
@@ -2100,10 +2107,14 @@ msgid "validator.confirmed"
 msgstr "Η επιβεβαίωση για αυτό το πεδίο δεν ταιριάζει."
 
 msgid "validator.country"
-msgstr ""
+msgstr "Μη έγκυρη χώρα."
 
 msgid "validator.country.regex"
 msgstr ""
+"Αυτή η χώρα δεν είναι έγκυρη. Η χώρα πρέπει να αντιστοιχεί σε έναν από τους "
+"διεθνείς κωδικούς δύο γραμμάτων. Δείτε όλους τους κωδικούς στη διεύθυνση "
+"https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Δεν είναι έγκυρο αυτό το νόμισμα."
@@ -2253,28 +2264,30 @@ msgid "validator.timezone"
 msgstr "Δεν είναι έγκυρη η ζώνη ώρας."
 
 msgid "validator.unique"
-msgstr ""
+msgstr "Το {$attribute} έχει ήδη χρησιμοποιηθεί."
 
 msgid "validator.url"
 msgstr "Μη έγκυρο URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Δεν επιτρέπεται νέα γραμμή."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Επιτρέπονται μόνο οι ετικέτες HTML [{$tags}]."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
 
 msgid "filter.error.missingRequirements"
 msgstr ""
+"Προσπαθείτε να εκτελέσετε μια μετατροπή που δεν υποστηρίζεται στο περιβάλλον "
+"εγκατάστασής σας."
 
 msgid "filter.import.error.couldNotImportNode"
 msgstr ""
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Άγνωστη εντολή {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2419,3 +2432,21 @@ msgstr "Πίνακας Ελέγχου Επιμελητή"
 
 msgid "navigation.mySubmissions"
 msgstr "Οι Υποβολές μου ως Συγγραφέας"
+
+msgid "common.sandbox"
+msgstr "Η εφαρμογή εκτελείται σε προστατευμένη λειτουργία."
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "showAll"
+msgstr "Εμφάνιση Όλων"
+
+msgid "showLess"
+msgstr "Εμφάνιση Λιγότερων"
+
+msgid "validator.date.comparison"
+msgstr "Οι ημερομηνίες που δόθηκαν για σύγκριση δεν είναι έγκυρες."
+
+msgid "validator.multilingual"
+msgstr "Η απαίτηση για πολυγλωσσικότητα δεν ικανοποιείται για αυτό το πεδίο."

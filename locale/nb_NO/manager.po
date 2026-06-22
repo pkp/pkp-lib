@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 07:01+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2026-06-22 07:05+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -3309,17 +3309,19 @@ msgstr ""
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "Bidragets nåværende publikasjon mangler"
 
+#, fuzzy
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Bidragets fil {$child} kunne ikke behandles"
 
+#, fuzzy
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Redaksjonell påminnelse"
 
 msgid "mailable.editorialReminder.description"
-msgstr ""
+msgstr "En automatisk e-post me uavsluttede oppgaver er sendt til redaktørene"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Bekreft nullstilling av passord"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3328,7 +3330,7 @@ msgstr ""
 "lenke brukeren kan følge for å fornye passordet sitt."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Bruker opprettet"
 
 #, fuzzy
 msgid "mailable.userRegister.description"
@@ -3337,7 +3339,7 @@ msgstr ""
 "brukere av nettstedet, og gir dem opplysning om brukernavn og passord."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Fagfelleregister"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""

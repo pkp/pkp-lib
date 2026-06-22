@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 11:58+0000\n"
+"PO-Revision-Date: 2026-06-22 12:00+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -2996,10 +2996,13 @@ msgid "emailTemplate.variable.review.files"
 msgstr "Filene fagfellen har lastet opp"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Fagfellens navn"
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
+"En beskrivelse av standard vurderingsmetode, for eksempel dobbel anonym "
+"eller åpen"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""

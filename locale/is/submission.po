@@ -2661,3 +2661,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Innsendingarskrá"
 
+
+msgid "reviewer.competingInterests"
+msgstr "Hagsmunaárekstrar"

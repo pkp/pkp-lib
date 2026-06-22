@@ -3327,6 +3327,7 @@ msgstr "Select incomplete submissions to be deleted."
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Delete Incomplete Submissions"
 
+<<<<<<< HEAD
 msgid "publication.sendToTextEditor.label"
 msgstr "To which version would you like to send this file?"
 
@@ -3792,3 +3793,6 @@ msgstr "A response was submitted by {$userFullName}"
 
 msgid "publication.publish.warning"
 msgstr "The following issues were found, but will not prevent publishing"
+
+msgid "reviewer.competingInterests"
+msgstr "Competing Interests"

@@ -2357,3 +2357,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Datoteka s prilogom"
 
+
+msgid "reviewer.competingInterests"
+msgstr "Sukob interesa"

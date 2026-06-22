@@ -3154,3 +3154,6 @@ msgstr ""
 msgid "submission.query.allowedEditTime"
 msgstr ""
 "Бул талкууну **{$allowedEditTimeNoticeLimit} мүнөт** ичинде жаңырта аласыз."
+
+msgid "reviewer.competingInterests"
+msgstr "Атаандаш кызыкчылыктар"

@@ -3167,3 +3167,6 @@ msgstr "Đã bị từ chối trong giai đoạn {$stageName}."
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Phản biện đã được hoàn thành vào {$ date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Xung đột lợi ích"

@@ -3197,3 +3197,6 @@ msgstr ""
 
 msgid "fileManager.revisionsUploadedDescription"
 msgstr "Fitxategi hauek egileak bidali ditu berrikuspenak eskatu ondoren"
+
+msgid "reviewer.competingInterests"
+msgstr "Interes-gatazka"

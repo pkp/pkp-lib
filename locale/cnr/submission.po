@@ -24,3 +24,6 @@ msgstr "Dajte preporuku"
 
 msgid "submission.wizard.completeSteps"
 msgstr "Dovršite korake za izradu prijave"
+
+msgid "reviewer.competingInterests"
+msgstr "Sukob interesa"

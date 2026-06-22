@@ -3197,3 +3197,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Değerlendirme {$date} tarihinde tamamlanmıştır."
+
+msgid "reviewer.competingInterests"
+msgstr "Çıkar Çelişkisi"

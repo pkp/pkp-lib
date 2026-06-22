@@ -3283,3 +3283,6 @@ msgstr "Seleccione los envíos incompletos que serán eliminados."
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Eliminar envíos incompletos"
+
+msgid "reviewer.competingInterests"
+msgstr "Conflicto de intereses"

@@ -14,3 +14,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr ""
 
+
+msgid "reviewer.competingInterests"
+msgstr "Ашиг сонирхлын зөрчил"

@@ -3153,3 +3153,6 @@ msgstr ""
 
 msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
 msgstr "Pasirinkite nepilnai pateiktus duomenis, kuriuos norite ištrinti."
+
+msgid "reviewer.competingInterests"
+msgstr "Dominančios sritys"

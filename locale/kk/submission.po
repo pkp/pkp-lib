@@ -2653,3 +2653,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Мақала файлы"
 
+
+msgid "reviewer.competingInterests"
+msgstr "Көзқарастар қарама-қайшылығы"

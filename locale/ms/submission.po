@@ -2531,3 +2531,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Fail Penyerahan"
 
+
+msgid "reviewer.competingInterests"
+msgstr "Konflik Kepentingan"

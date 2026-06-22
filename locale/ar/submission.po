@@ -3120,3 +3120,6 @@ msgstr "تحذير: هذا الإصدار قد تم نشره. تعديله قد 
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "تم إكمال التحكيم في {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "مصالح تنافسية"

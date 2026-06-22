@@ -2318,3 +2318,6 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "投稿檔案"
 
+
+msgid "reviewer.competingInterests"
+msgstr "利益衝突"

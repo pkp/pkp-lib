@@ -3239,3 +3239,6 @@ msgstr "Arviointi valmistunut {$date}"
 msgid "dashboard.reviewAssignment.statusReceived.description"
 msgstr ""
 "Arviointi valmistui {$date}, ja sen suositus oli: <b>{$recommendation}</b>"
+
+msgid "reviewer.competingInterests"
+msgstr "Sidonnaisuudet"

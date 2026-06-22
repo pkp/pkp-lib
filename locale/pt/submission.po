@@ -3232,3 +3232,6 @@ msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Este revisor não concluiu a sua avaliação. A resposta era esperada em "
 "<b>{$date}.</b>"
+
+msgid "reviewer.competingInterests"
+msgstr "Conflito de Interesses"

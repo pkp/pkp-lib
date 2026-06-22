@@ -3183,3 +3183,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Proses review selesai pada {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Konflik Kepentingan"

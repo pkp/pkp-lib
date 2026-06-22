@@ -3316,3 +3316,6 @@ msgstr "ROR display Sprache ist erforderlich."
 
 msgid "fileManager.revisionsUploaded"
 msgstr "Hochgeladene Überarbeitungen"
+
+msgid "reviewer.competingInterests"
+msgstr "Interessenkonflikte"

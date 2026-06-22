@@ -3234,3 +3234,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Վերանայումն ավարտվել է {$date} -ին"
+
+msgid "reviewer.competingInterests"
+msgstr "Շահերի բախում"

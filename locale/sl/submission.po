@@ -3203,3 +3203,6 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Recenzija je bila končana dne {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Nasprotujoči interesi"

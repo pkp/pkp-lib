@@ -2672,3 +2672,6 @@ msgstr "Bidragsfil"
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Tillbaka till inskickat-steget"
+
+msgid "reviewer.competingInterests"
+msgstr "Intressekonflikter"

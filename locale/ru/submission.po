@@ -3253,3 +3253,6 @@ msgstr "Пожалуйста, примите или отклоните этот 
 
 msgid "dashboard.reviewAssignment.declined"
 msgstr "Запрос отклонён {$date}"
+
+msgid "reviewer.competingInterests"
+msgstr "Конфликт интересов"

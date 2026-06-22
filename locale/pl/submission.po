@@ -2995,3 +2995,6 @@ msgstr "Zgłoszenie zostało przekazane do kolejnej rundy oceny"
 
 msgid "workflow.submissionInFutureStage"
 msgstr "Zgłoszenie znajduje się obecnie na etapie {$stage}."
+
+msgid "reviewer.competingInterests"
+msgstr "Zainteresowania badawcze"

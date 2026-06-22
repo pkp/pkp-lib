@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 07:05+0000\n"
+"PO-Revision-Date: 2026-06-22 09:54+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -308,18 +308,27 @@ msgstr "Alle elementer er blitt tildelt DOI"
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Alle elementer med en DOI som er publisert, men ennå ikke sendt inn til et "
+"registreringsbyrå."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Alle elementer som er sendt inn til et registreringsbyrå."
 
+#, fuzzy
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Alle elementer som er registrert hos et registreringsbyrå, eller manuelt "
+"merket som registrert."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Alle elementer som har støtt på en feil i registreringsprosessen."
 
+#, fuzzy
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Alle elementer som har blitt publisert på nytt siden de sist ble sendt inn "
+"til et registreringsbyrå. De må sendes inn på nytt til registreringsbyrået "
+"for å oppdatere metadatapostene sine."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI-oppdatering mislyktes"
@@ -327,38 +336,54 @@ msgstr "DOI-oppdatering mislyktes"
 msgid "manager.dois.update.partialFailure"
 msgstr "Noen DOI(-er) kunne ikke oppdateres"
 
+#, fuzzy
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Elementer er eksportert"
 
+#, fuzzy
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Elementer ble merket som registrert"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Elementer ble markert som uregistrerte"
 
+#, fuzzy
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Elementer ble markert som \"må synkroniseres\""
 
+#, fuzzy
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Elementer fikk tildelt nye DOI-er"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Elementer ble sendt til deponering"
 
 msgid "manager.dois.help.statuses.title"
 msgstr "DOI-statuser"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI-håndtering er flyttet. Vennligst se sidene om <a href=\""
+"{$doiManagementUrl}\">DOI management</a> and <a href=\"{$doiSettingsUrl}\""
+">DOI settings</a>."
 
+#, fuzzy
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI-er kan ikke tildeles med mindre du oppgir ditt personlige DOI-prefiks. "
+"<a href=\"{$doiSettingsUrl}\">Legg til DOI-prefiks</a>."
 
+#, fuzzy
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Prøvde å opprette en DOI, men et DOI-prefiks kreves for at konteksten skal "
+"kunne opprette en."
 
+#, fuzzy
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Før dette objektet kan slettes, må du knytte alle relaterte innsendingsfiler "
+"til et annet objekt."
 
 msgid "manager.institutions.edit"
 msgstr "Rediger institusjon"
@@ -885,7 +910,7 @@ msgstr ""
 "eks. 10.1234):"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI-prefikset er obligatorisk og må være i følgende format: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
 msgstr "Automatisk tildeling av DOI"
@@ -895,7 +920,7 @@ msgid "doi.manager.settings.doiCreationTime.description"
 msgstr "Når skal en innlevering tildeles en DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Ved publisering"
 
 msgid "doi.manager.settings.doiCreationTime.never"
 msgstr "Aldri"
@@ -906,8 +931,9 @@ msgstr "DOI-prefiks"
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidsskriftets innhold"
 
+#, fuzzy
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Det er obligatorisk å ha DOI-prefiks"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI-suffiks"
@@ -916,10 +942,13 @@ msgid "doi.manager.settings.doiSuffix.pattern"
 msgstr "DOI-suffiks"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Egendefinert DOI-suffiksmønster"
 
+#, fuzzy
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Én eller flere valgte DOI-typer er ikke tillatt for det konfigurerte DOI-"
+"registreringsbyrået."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -3346,11 +3375,15 @@ msgstr ""
 "Denne e-posten sendes til nyregistrerte fagfeller for å ønske dem velkommen "
 "til systemet og tildele dem brukernavn og passord."
 
+#, fuzzy
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Bidrag lagret for senere bruk"
 
+#, fuzzy
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"En automatisk e-post sendt til forfattere når de mellomlagrer en "
+"innlevering, for å fullføre den senere"
 
 #, fuzzy
 msgid "mailable.submissionAck.name"
@@ -3365,7 +3398,7 @@ msgstr ""
 "redaksjonelle prosessen og takker forfatteren for bidraget."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Bekreftelse på innsending (andre forfattere)"
 
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
@@ -3375,31 +3408,40 @@ msgstr ""
 "plattformen."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Diskusjon (bidrag)"
 
+#, fuzzy
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"innsendingsfasen."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Diskusjon (vurdering)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"vurderingsfasen."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Diskusjon (manusredigering)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"manusredigeringsfasen."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Diskusjon (produksjon)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Denne e-posten sendes når en diskusjon opprettes eller besvares i "
+"produksjonsfasen."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Varsel om revidert versjon"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3407,19 +3449,22 @@ msgstr ""
 "en revidert versjon av en artikkel."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Ny kunngjøring"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Denne e-posten blir sendt når et nytt oppslag opprettes."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Kunngjøring om statistikkrapport"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Varsel om redigering av vurdering"
 
+#, fuzzy
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Denne e-posten varsler automatisk fagfellen når detaljer rundt "
+"vurderingsoppgaven deres er endret."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr ""
@@ -3820,3 +3865,17 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Lenke for å validere en e-postkonto"
+
+#, fuzzy
+msgid "manager.highlights.url.description"
+msgstr ""
+"Den fullstendige URL-en, inkludert https://, for knappen i det markerte "
+"området."
+
+#, fuzzy
+msgid "manager.highlights.delete"
+msgstr "Slett markering"
+
+#, fuzzy
+msgid "manager.highlights.edit"
+msgstr "Rediger markering"

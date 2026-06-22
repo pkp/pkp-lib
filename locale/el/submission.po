@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-22 12:09+0000\n"
+"PO-Revision-Date: 2026-06-22 13:45+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/el/>\n"
@@ -2631,10 +2631,10 @@ msgid "submission.submissionFile"
 msgstr "Αρχείο υποβολής"
 
 msgid "submission.dashboard.view.needsReviews"
-msgstr "Χρειάζεται αξιολογήσεις"
+msgstr "Χρειάζονται αξιολογήσεις"
 
 msgid "submission.dashboard.view.needsEditor"
-msgstr "Χρειάζεται επιμελητή"
+msgstr "Χρειάζονται επιμελητή"
 
 msgid "submission.dashboard.view.submissionStageAll"
 msgstr "Όλα στο στάδιο υποβολής"
@@ -2652,19 +2652,19 @@ msgid "ror.displayLocaleRequired"
 msgstr "Απαιτείται ρύθμιση τοπικών παραμέτρων για την εμφάνιση του ROR."
 
 msgid "submission.dashboard.view.reviewAll"
-msgstr "Όλα σε στάδιο αξιολόγησης"
+msgstr "Σε στάδιο αξιολόγησης"
 
 msgid "submission.dashboard.view.reviewsOverdue"
 msgstr "Αξιολογήσεις σε εκκρεμότητα"
 
 msgid "submission.dashboard.view.copyediting"
-msgstr "Όλα σε στάδιο τυπογραφικού δοκιμίου"
+msgstr "Σε στάδιο τυπογραφικού δοκιμίου"
 
 msgid "submission.dashboard.view.production"
-msgstr "Όλα σε στάδιο παραγωγής"
+msgstr "Σε στάδιο παραγωγής"
 
 msgid "submission.dashboard.view.published"
-msgstr "Δημοσιευμένα"
+msgstr "Δημοσιευμένες"
 
 msgid "ror.nameRequired"
 msgstr "Απαιτείται ένα όνομα ROR."
@@ -2691,7 +2691,7 @@ msgid "submission.dashboard.view.active"
 msgstr "Ενεργές υποβολές"
 
 msgid "submission.dashboard.view.reviewExternal"
-msgstr "Όλα σε ομότιμη αξιολόγηση"
+msgstr "Σε ομότιμη αξιολόγηση"
 
 msgid "submission.dashboard.view.awaitingReviews"
 msgstr "Σε αναμονή αξιολογήσεων"
@@ -2739,3 +2739,18 @@ msgstr ""
 
 msgid "submission.reviewerSuggestions"
 msgstr "Προτάσεις Αξιολογητή"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Αναθεώρηση (Γύρος {$round})"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Απορριφθείσες"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Ανατεθειμένα σε εμένα"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Προγραμματισμένες για δημοσίευση"
+
+msgid "submission.stage.published"
+msgstr "Δημοσιευμένες"

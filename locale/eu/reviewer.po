@@ -1,10 +1,10 @@
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
-# Informatikaria <informatikaria@ueu.eus>, 2025.
+# Informatikaria <informatikaria@ueu.eus>, 2025, 2026.
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-25 11:46+0000\n"
-"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"PO-Revision-Date: 2026-05-27 06:48+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
 "Language: eu\n"
@@ -202,3 +202,8 @@ msgstr "Fitxategi hauek ebaluatzeko bidali zitzaizkizun"
 
 msgid "reviewer.submission.reviewRound.info.modal.title"
 msgstr "Erronda {$round} Ebaluazioa bidalita honentzat: {$submittedOn}"
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Ez dira nahitaezko zenbait eremu bete. Mesedez, bete itzazu zure ebaluazioa "
+"bidali aurretik."

@@ -1,18 +1,19 @@
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2020-10-19 09:01+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/reviewer/nb_NO/>\n"
+"PO-Revision-Date: 2026-06-15 12:55+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/reviewer/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "Trinn 1: Forespørsel"
@@ -125,10 +126,84 @@ msgstr "Kun for redaktør"
 
 msgid "submission.comments.sendCopyToReviewers"
 msgstr ""
+"Send en kopi av denne e-postvarslingen i blindkopi til følgende fagfeller."
 
 msgid "submission.comments.sendToReviewers"
-msgstr ""
+msgstr "Send til fagfeller"
 
 msgid "user.authorization.submissionReviewer"
 msgstr ""
 "Denne brukeren er ikke satt opp som fagfelle for det forespurte dokumentet."
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Runde {$round} bedømmelse innsendt den {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Les evalueringsrunde {$round}"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Sammendrag"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Nøkkelord"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Generell informasjon"
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Filvedlegg"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Dette er filer som du la ved din bedømmelse"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Filer til bedømmelse"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Disse filene ble sendt til deg for bedømmelse"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Vurderingen ble ikke fullført."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Enkelte obligatoriske felt er ikke utfylt. Vennligst fyll dem ut før du "
+"sender inn vurderingen din."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Tidligere gjennomganger"
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Runde {$round} Gjennomgang sendt inn av deg for"
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Fagfelles kommentarer"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Til redaktører og forfattere"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Kun for redaktører"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Kommentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Årsak til avslag sendt på e-post"
+
+#, fuzzy
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Ingen grunn ble gitt for avslaget på invitasjonen til vurdering."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Dato for avvisning"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikkelmetadata"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"

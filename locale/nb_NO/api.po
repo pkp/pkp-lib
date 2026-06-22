@@ -1,21 +1,22 @@
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-30 01:41+0000\n"
-"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/api/nb_NO/>\n"
+"PO-Revision-Date: 2026-06-16 07:20+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/api/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Parameteret {$param} er ikke støttet."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "Egenskapen {$prop} kan ikke endres."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -26,13 +27,13 @@ msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "API token kunne ikke dekodes pga følgende feil: {error}"
 
 msgid "api.400.requireEmailSubjectBody"
-msgstr ""
+msgstr "Du må oppgi emne og brødtekst for e-posten."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Det er ikke mulig å endre tidspunkt for når dette ble opprettet."
 
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "Et DOI-prefiks er nødvendig for å generere DOI-er."
 
 msgid "api.403.unauthorized"
 msgstr "Du er ikke autorisert for adgang til den forespurte ressursen."
@@ -52,52 +53,70 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "Oppslaget du søkte etter ble ikke funnet."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "Institutionen du etterspurte, ble ikke funnet."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Følgende språk støttes ikke: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr ""
+msgstr "Du kan ikke redigere et emnes DOI, som ikke fins i denne konteksten."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Publikasjonstypen ble ikke gjenkjent."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Dette sluttpunktet er ikke tilgjengelig fra det nettstedsomfattende "
+"navnerommet, og må forespørres for en gitt kontekst."
 
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "DOI-en du etterspurte ble ikke funnet."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "Publikasjonsobjektet du etterspurte ble ikke funnet."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Indsendelsen du etterspurte, ble ikke funnet."
 
+#, fuzzy
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
+"Upubliserte elementer kan ikke eksporteres/deponeres. Vennligst fjern "
+"merkingen for upubliserte elementer og prøv på nytt."
 
 msgid "api.dois.400.creationFailed"
-msgstr ""
+msgstr "En feil oppstod og DOI-objektet kunne ikke opprettes."
 
 msgid "api.dois.400.xmlExportFailed"
 msgstr ""
+"Det opstod en feil med XML-valideringen, og XML-en kunne ikke eksporteres."
 
+#, fuzzy
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
+"Det opstod en feil, og noen av de innsendte postene ble ikke markert som "
+"registrert."
 
+#, fuzzy
 msgid "api.dois.400.depositFailed"
 msgstr ""
+"Noen poster ble ikke deponert på riktig måte. Vennligst sjekk de enkelte "
+"objektene for å se deres spesifikke feilmeldinger."
 
+#, fuzzy
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr ""
+msgstr "Ingen gyldige publikasjonsobjekter ble inkludert i forespørselen."
 
+#, fuzzy
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
+"Et eller flere ugyldige puklikasjonsobjekter ble lagt ved forespørselen."
 
+#, fuzzy
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"Den nåværende konfigurerte plugin-modulen må være en plugin for "
+"registreringsbyrå."
 
 msgid "api.emails.400.missingBody"
 msgstr "Du må oppgi en e-post som skal sendes."
@@ -114,10 +133,10 @@ msgstr ""
 "valgte rollene."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr ""
+msgstr "Dette er ikke en standard e-postmal for en kjent e-postadresse."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Dette er ikke en gyldig kontekst."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "E-postmalen du ba om, ble ikke funnet."
@@ -200,6 +219,8 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Din forespørsel var ikke gyldig. TimelineInterval skal være 'dag' eller "
+"'måned'."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -229,8 +250,9 @@ msgstr ""
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Du må angi et filstadie."
 
+#, fuzzy
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "Filstadiet du oppga er ikke gyldig."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
@@ -238,6 +260,7 @@ msgstr ""
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Du må oppgi en vurderingsrunde-ID når du flytter en fil til dette filstadiet."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""
@@ -318,8 +341,9 @@ msgstr ""
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
 
+#, fuzzy
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Den mislykkede oppgaven ble slettet fra oversikten."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Ordforrådet {$vocab} støttes ikke."
@@ -341,3 +365,104 @@ msgstr ""
 
 #~ msgid "api.submissions.unknownError"
 #~ msgstr "Det oppsto en feil. Gjenoppfrisk skjermbildet og forsøk igjen."
+
+#, fuzzy
+msgid "api.400.invalidMastheadParameter"
+msgstr "Ugyldig kolofon-parameter."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Det oppstod en feil ved opplasting av dette bildet."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Kan ikke behandle API-forespørsel."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Kan ikke motta forventede svar."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Ugyldig forfatter-vennlig parameter."
+
+msgid "api.400.routeNotDefined"
+msgstr "Ingen API-rute ble angitt."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "En DOI kan ikke tildeles dette elementet."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Du oppga en ugyldig «eventType», {$eventType}, for forfatterens "
+"e-postadresser."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Uthevingen du ba om finnes ikke."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Markeringsrekkefølgen kunne ikke lagres da det ikke ble funnet noen "
+"informasjon om rekkefølgen."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Du kan ikke utføre denne operasjonen når ORCID-funksjonaliteten er "
+"deaktivert."
+
+#, fuzzy
+msgid "api.orcid.403.cannotUpdateAuthorOrcid"
+msgstr ""
+"Det er ikke tillatt å tildele en forfatters ORCiD-ID via endepunktene for "
+"redigering/legg til forfatter. For å be en forfatter om å oppdatere sin "
+"ORCID-ID, bruk endepunktet \"orcid/requestAuthorVerification/{authorId}\"."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Forfatteren du etterspurte, ble ikke funnet"
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Kunne ikke lagre rekkefølgen på markeringene fordi én eller flere av "
+"markeringene ikke ble funnet."
+
+#, fuzzy
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Dette endepunktet er ikke tilgjengelig fra det nettstedsomfattende "
+"navnerommet, og må forespurt for en gitt kontekst."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Du kan ikke gjøre endringer i forfattere på innsendinger du ikke er tildelt."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "Synligheten av toppteksten for fagfelleroller kan ikke endres."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Innleveringen for denne vurderingsoppgaven ble ikke funnet."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "De eneste gyldige verdiene er 'akseptere' og 'avslå'"
+
+msgid "api.409.resourceActionConflict"
+msgstr "Kunne ikke fullføre den tiltenkte handlingen på ressursen."
+
+#, fuzzy
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Finner ikke fagfellen oppnevn for oppgaven"
+
+msgid "api.submission.400.invalidId"
+msgstr "Ugyldig ID: «{$id}» oppgitt."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Den angitte delen finnes ikke."
+
+#, fuzzy
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Forespørselen mangler den nødvendige søkeparameteren «ids». Vennligst oppgi "
+"«ID-ene» for innsendingene du ønsker å slette."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Skjema for publikasjonsidentifikatorer er utilgjengelig siden det ikke "
+"finnes noen aktiverte identifikatorer."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Ror-en du etterspurte, ble ikke funnet."

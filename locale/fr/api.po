@@ -1,6 +1,6 @@
 # Deleted User <noreply+532@weblate.org>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2026.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 # Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>, 2026.
 msgid ""
@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-03-13 16:14+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"PO-Revision-Date: 2026-06-01 12:40+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fr/>"
 "\n"
 "Language: fr\n"
@@ -485,3 +485,11 @@ msgstr ""
 "Vous ne pouvez pas assigner un identifiant ORCID via les endpoints Edit/Add "
 "Author. Pour demander aux auteur/ices d'actualiser leur identifiant ORCID, "
 "merci d'utiliser le endpoint \"orcid/requestAuthorVerification/{authorId}\"."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Paramètre d'équipe éditoriale invalide."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr ""
+"La vue sur l'équipe éditoriale par les rôles d'évaluation ne peut pas être "
+"modifiée."

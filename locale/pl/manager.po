@@ -1,13 +1,13 @@
 # rl <biuro@fimagis.pl>, 2022, 2023.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
 # Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
-# Adam <koleszka2006@hotmail.com>, 2025.
+# Adam <koleszka2006@hotmail.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2025-11-17 07:31+0000\n"
+"PO-Revision-Date: 2026-05-26 08:57+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -3777,7 +3777,7 @@ msgid "settings.roles.permitSettings"
 msgstr "Zezwalaj na zmiany w ustawieniach"
 
 msgid "settings.roles.masthead"
-msgstr "Consider role in masthead list"
+msgstr "Uwzględnij tę pozycję w stopce redakcyjnej"
 
 msgid "manager.statistics.counterR5Reports"
 msgstr "Raporty Conters R5"

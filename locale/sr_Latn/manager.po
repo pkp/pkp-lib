@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-21 19:35+0000\n"
+"PO-Revision-Date: 2026-05-26 18:32+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sr_Latn/>\n"
@@ -356,7 +356,7 @@ msgstr ""
 msgid "manager.genres.alertDelete"
 msgstr ""
 "Pre nego što se ova komponenta može obrisati, morate povezati sve povezane "
-"datoteke za prijavu sa drugom komponentom."
+"fajlove rada sa drugom komponentom."
 
 msgid "manager.institutions.edit"
 msgstr "Izmeni instituciju"
@@ -1844,9 +1844,9 @@ msgstr "Obavezno uz podneske"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
-"Da li bi najmanje jedna od ovih datoteka trebalo da bude obavezna uz svaki "
-"novi podnesak? Ako izaberete „da“, autori neće moći da pošalju podnesak dok "
-"ne učitaju najmanje jednu datoteku ovog tipa."
+"Da li bi najmanje jedan od ovih fajlova trebalo da bude obavezan uz svaki "
+"novi rad? Ako izaberete „da“, autori neće moći da pošalju rad dok ne učitaju "
+"najmanje jedan fajl ovog tipa."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
@@ -2094,17 +2094,17 @@ msgstr ""
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
-"Izvor može biti identifikator, kao što je DOI, drugog dela ili resursa iz "
-"kojeg je podnesak izveden."
+"Izvor može biti ID, kao što je DOI, drugog dela ili resursa iz kojeg je rad "
+"izveden."
 
 msgid "manager.setup.metadata.source.enable"
 msgstr "Omogući metapodatke o izvoru"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr "Ne traži URL izvora od autora tokom podnošenja prijave."
+msgstr "Ne traži URL izvora od autora tokom podnošenja rada."
 
 msgid "manager.setup.metadata.source.request"
-msgstr "Zamolite autora da tokom podnošenja prijave dostavi URL izvora."
+msgstr "Zamolite autora da tokom podnošenja rada dostavi URL izvora."
 
 msgid "manager.setup.metadata.source.require"
 msgstr "Zahtevajte od autora da pre prihvatanja podneska dostavi URL izvora."
@@ -2118,10 +2118,10 @@ msgid "manager.setup.metadata.subjects.enable"
 msgstr "Omogući metapodatke o predmetu"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Ne traži od autora predmete tokom podnošenja prijave."
+msgstr "Ne traži od autora predmete tokom podnošenja rada."
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr "Zamolite autora da tokom podnošenja prijave navede predmete."
+msgstr "Zamolite autora da tokom podnošenja rada navede predmete."
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr "Zahtevajte od autora da pre prihvatanja podneska navede predmete."
@@ -2137,10 +2137,10 @@ msgid "manager.setup.metadata.type.enable"
 msgstr "Omogući metapodatke o tipu"
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr "Ne traži od autora tip tokom podnošenja prijave."
+msgstr "Ne traži od autora tip tokom podnošenja rada."
 
 msgid "manager.setup.metadata.type.request"
-msgstr "Zamolite autora da tokom podnošenja prijave navede tip."
+msgstr "Zamolite autora da tokom podnošenja rada navede tip."
 
 msgid "manager.setup.metadata.type.require"
 msgstr "Zahtevajte od autora da pre prihvatanja podneska navede tip."
@@ -2154,10 +2154,10 @@ msgid "manager.setup.metadata.disciplines.enable"
 msgstr "Omogući metapodatke o disciplinama"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "Ne traži od autora discipline tokom podnošenja prijave."
+msgstr "Ne traži od autora discipline tokom podnošenja rada."
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr "Zamolite autora da tokom podnošenja prijave navede discipline."
+msgstr "Zamolite autora da tokom podnošenja rada navede discipline."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr "Zahtevajte od autora da pre prihvatanja podneska navede disciplinе."
@@ -2173,11 +2173,11 @@ msgstr "Omogući metapodatke o agencijama koje pružaju podršku"
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr ""
 "Ne traži od autora podatke o agencijama koje pružaju podršku tokom "
-"podnošenja prijave."
+"podnošenja rada."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
-"Zamolite autora da tokom podnošenja prijave navede sve agencije koje pružaju "
+"Zamolite autora da tokom podnošenja rada navede sve agencije koje pružaju "
 "podršku."
 
 msgid "manager.setup.metadata.agencies.require"
@@ -2194,10 +2194,10 @@ msgid "manager.setup.metadata.citations.enable"
 msgstr "Omogući metapodatke o referencama"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Ne traži od autora reference tokom podnošenja prijave."
+msgstr "Ne traži od autora reference tokom podnošenja rada."
 
 msgid "manager.setup.metadata.citations.request"
-msgstr "Zamolite autora da tokom podnošenja prijave navede reference."
+msgstr "Zamolite autora da tokom podnošenja rada navede reference."
 
 msgid "manager.setup.metadata.citations.require"
 msgstr "Zahtevajte od autora da pre prihvatanja podneska navede reference."
@@ -2211,12 +2211,11 @@ msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr "Omogući metapodatke o dostupnosti podataka"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
-msgstr ""
-"Ne traži od autora izjavu o dostupnosti podataka tokom podnošenja prijave."
+msgstr "Ne traži od autora izjavu o dostupnosti podataka tokom podnošenja rada."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
-"Zamolite autora da tokom podnošenja prijave dostavi izjavu o dostupnosti "
+"Zamolite autora da tokom podnošenja rada dostavi izjavu o dostupnosti "
 "podataka."
 
 msgid "manager.setup.metadata.dataAvailability.require"
@@ -2259,8 +2258,8 @@ msgstr "Nedostaje Korisničkagrupa za ime autora {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
-"Autor {$authorName} nema ime na jeziku podneska ({$localeName}). Podnesak se "
-"ne može uvesti bez ovog podatka."
+"Autor {$authorName} nema ime na jeziku rada ({$localeName}). Rad se ne može "
+"uvesti bez ovog podatka."
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Nepoznat otpremalac {$param}"
@@ -2416,7 +2415,7 @@ msgstr ""
 "Podešavanjima > Časopis."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr "Link za stranicu koja prikazuje uputstva za podnošenje prijave."
+msgstr "Link za stranicu koja prikazuje uputstva za podnošenje rada."
 
 msgid "manager.navigationMenus.current.description"
 msgstr "Link za vaše trenutno izdanje."
@@ -2433,7 +2432,7 @@ msgstr ""
 "Podešavanjima > Veb-sajt."
 
 msgid "manager.navigationMenus.login.description"
-msgstr "Link ka stranici za prijavu korisinika."
+msgstr "Link ka stranici za rad korisinika."
 
 msgid "manager.navigationMenus.register.description"
 msgstr "Link ka stranici za registraciju korisnika."
@@ -2619,26 +2618,26 @@ msgstr "Do {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"Procenat za izabrani vremenski opseg se računa na osnovu prijava koje su "
-"podnete u tom periodu i za koje je doneta konačna odluka.<br><br>Na primer, "
-"pretpostavimo da je u tom vremenskom opsegu podneto deset prijava. Četiri su "
-"prihvaćene, četiri odbijene, a dve još uvek čekaju konačnu "
-"odluku.<br><br>Stopa prihvatanja biće 50% (4 od 8 prijava), jer se dve "
-"prijave bez konačne odluke ne uračunavaju."
+"Procenat za izabrani vremenski opseg se računa na osnovu rada koje su "
+"podneti u tom periodu i za koje je doneta konačna odluka.<br><br>Na primer, "
+"pretpostavimo da je u tom vremenskom opsegu podneto deset radova. Četiri su "
+"prihvaćena, četiri odbijena, a dva još uvek čekaju konačnu "
+"odluku.<br><br>Stopa prihvatanja biće 50% (4 od 8 radova), jer se dva rada "
+"bez konačne odluke ne uračunavaju."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
-"Broj dana koji je potreban da većina prijava dobije prvu uredničku odluku, "
+"Broj dana koji je potreban da većina radova dobije prvu uredničku odluku, "
 "kao što su odbijanje bez recenzije ili slanje na recenziju.<br>\n"
-"<br>Ovi podaci pokazuju da 80% prijava dobije odluku u okviru navedenog "
-"broja dana.<br><br>Ova statistika pokušava da\n"
+"<br>Ovi podaci pokazuju da 80% radova dobije odluku u okviru navedenog broja "
+"dana.<br><br>Ova statistika pokušava da\n"
 " prikaže kada većina autora koji šalju rad u vaš časopis može da očekuje "
 "odluku."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
-"Ovo uključuje prijave koje nisu uračunate u druge ukupne vrednosti, kao što "
-"su one koje su još u toku i one koje su verovatno uvezene."
+"Ovo uključuje radove koje nisu uračunati u druge ukupne vrednosti, kao što "
+"su oni koje su još u toku i oni koje su verovatno uvezeni."
 
 msgid "stats.descriptionForStat"
 msgstr "Opis za {$stat}"
@@ -2695,7 +2694,7 @@ msgid "stats.searchSubmissionDescription"
 msgstr "Pretraži prema naslovu, autoru i ID-u"
 
 msgid "stats.submissionsActive"
-msgstr "Aktivne prijave"
+msgstr "Aktivni radovi"
 
 msgid "stats.timeline"
 msgstr "Vremenska linija"
@@ -2731,31 +2730,31 @@ msgid "stats.userStatistics"
 msgstr "Statistika korisnika"
 
 msgid "stats.name.submissionsReceived"
-msgstr "Primljene prijave"
+msgstr "Primljeni radovi"
 
 msgid "stats.name.submissionsSkipped"
-msgstr "Ostale prijave"
+msgstr "Ostali radovi"
 
 msgid "stats.name.submissionsInProgress"
-msgstr "Prijave u toku"
+msgstr "Radovi u toku"
 
 msgid "stats.name.submissionsImported"
-msgstr "Uvezene prijave"
+msgstr "Uvezeni radovi"
 
 msgid "stats.name.submissionsAccepted"
-msgstr "Prihvaćene prijave"
+msgstr "Prihvaćeni radovi"
 
 msgid "stats.name.submissionsDeclined"
-msgstr "Odbijene prijave"
+msgstr "Odbijeni radovi"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Odbijene prijave (Odbijeno pre recenzije - desk reject)"
+msgstr "Odbijeni radovi (Odbijeno pre recenzije - desk reject)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Odbijene prijave (nakon recenzije)"
+msgstr "Odbijeni radovi (nakon recenzije)"
 
 msgid "stats.name.submissionsPublished"
-msgstr "Objavljene prijave"
+msgstr "Objavljeni radovi"
 
 msgid "stats.name.daysToDecision"
 msgstr "Broj dana do prve uredničke odluke"
@@ -2782,7 +2781,7 @@ msgid "plugins.importexport.native.processFailed"
 msgstr "Proces nije uspeo. Proverite dole greške/upozorenja."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr "Rezultati izvoza prijava"
+msgstr "Rezultati izvoza radova"
 
 msgid "plugins.importexport.native.export.download.results"
 msgstr "Preuzmi izvezeni fajl"
@@ -2822,13 +2821,13 @@ msgstr ""
 "anonimne recenzije"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr "Imena i afilijacije autora prijave."
+msgstr "Imena i afilijacije autora rada."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL za stranicu na kojoj korisnik može da vrati izgubljenu lozinku"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "URL za pregled svih prijava dodeljenih korisniku"
+msgstr "URL za pregled svih radova dodeljenih korisniku"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL preko kog korisnik može da vidi i uredi svoj profil"
@@ -2854,10 +2853,10 @@ msgid "emailTemplate.variable.discussion.content"
 msgstr "Sadržaj nove diskusije ili odgovora"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr "Lista prijava sa nerešenim zadacima"
+msgstr "Lista radova sa nerešenim zadacima"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr "Broj prijava dodeljenih ovom uredniku"
+msgstr "Broj radova dodeljenih ovom uredniku"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Puno ime primaoca ili svih primalaca"
@@ -2875,7 +2874,7 @@ msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "URL za zadatak recenzije"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr "Preporučena odluka, kao što je Prihvati prijavu"
+msgstr "Preporučena odluka, kao što je Prihvati rad"
 
 msgid "emailTemplate.variable.review.assignedDate"
 msgstr "Datum kog je ova recenzija dodeljena"
@@ -2884,7 +2883,7 @@ msgid "emailTemplate.variable.review.method"
 msgstr "vrsta recenzije, kao što je anonimna, dvostruko anonimna ili otvorena"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr "Preporuka recenzenta, kao što je Prihvati prijavu ili Odbij"
+msgstr "Preporuka recenzenta, kao što je Prihvati rad ili Odbij"
 
 msgid "emailTemplate.variable.review.round"
 msgstr "Krug recenzije, kao što je Krug 1 ili Krug 2"
@@ -2938,16 +2937,16 @@ msgid "emailTemplate.variable.site.siteSignature"
 msgstr "Imejl potpis sajta za automatizovane imejlove"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr "Urednici dodeljeni ovoj prijavi koji mogu doneti odluku"
+msgstr "Urednici dodeljeni ovom radu koji mogu doneti odluku"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "Naslov prijave"
+msgstr "Naslov rada"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr "Jedinstveni IDbroj prijave"
+msgstr "Jedinstveni IDbroj rada"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "Apstrakt prijave"
+msgstr "Apstrakt rada"
 
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Imena autora u skraćenom obliku, npr. „Barnes, et al“"
@@ -2956,20 +2955,20 @@ msgid "emailTemplate.variable.submission.authors"
 msgstr "Puna imena autora"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr "URL autora ka prijavi"
+msgstr "URL autora ka radu"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "URL do prijave u uredničkom (backend) interfejsu"
+msgstr "URL do rada u uredničkom (backend) interfejsu"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr "URL do objavljene prijave"
+msgstr "URL do objavljenog rada"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr "URL do prijave u čarobnjaku za predaju"
+msgstr "URL do rada u čarobnjaku za predaju"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
-"Imena autora dodeljenih toku rada na prijavi. Obično je to autor koji je "
+"Imena autora dodeljenih toku rada na članku. Obično je to autor koji je "
 "izvršio predaju"
 
 msgid "emailTemplate.variable.passwordResetUrl"
@@ -2985,7 +2984,7 @@ msgid "mailable.reviewerResendRequest.name"
 msgstr "Ponovo pošaljite zahtev za recenziju recenzentu"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr "Puno ime korisnika koji je otpremio fajl prijave"
+msgstr "Puno ime korisnika koji je otpremio fajl rada"
 
 msgid "emailTemplate.variable.announcementTitle"
 msgstr "Naslov obaveštenja"
@@ -2997,19 +2996,19 @@ msgid "emailTemplate.variable.announcementUrl"
 msgstr "URL ka obaveštenju"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr "Broj prijava primljenih ovog meseca"
+msgstr "Broj radova primljenih ovog meseca"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr "Broj odbijenih prijava"
+msgstr "Broj odbijenih radova"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr "Broj prihvaćenih prijava"
+msgstr "Broj prihvaćenih radova"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr "Broj prijava koje nisu uključene u druge ukupne vrednosti"
+msgstr "Broj radova koje nisu uključeni u druge ukupne vrednosti"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr "Ukupni broj primljenih prijava"
+msgstr "Ukupni broj primljenih radova"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "Mesec izveštaja"
@@ -3058,9 +3057,9 @@ msgstr "Obavesti ostale autore"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
-"Ovaj imejl se šalje kako bi se autori prijave koji nisu dodeljeni kao "
-"učesnici obavestili da je doneta odluka. Obično su to svi ostali autori osim "
-"autora koji je izvršio podnošenje."
+"Ovaj imejl se šalje kako bi se autori rada koji nisu dodeljeni kao učesnici "
+"obavestili da je doneta odluka. Obično su to svi ostali autori osim autora "
+"koji je izvršio podnošenje."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Kopija imejl poruke koja je poslata autoru koji je izvršio podnošenje"
@@ -3094,10 +3093,10 @@ msgstr "Pozvali smo autore da podnesu revidiranu verziju na dalju recenziju."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr "Pozvani recenzent prijave je otkazan."
+msgstr "Pozvani recenzent rada je otkazan."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr "Prijava je prihvaćena"
+msgstr "Rad je prihvaćen"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
@@ -3153,10 +3152,10 @@ msgstr "Ponovo pošalji na recenziju"
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
 "Ovaj imejl obaveštava autora o odluci \"revidiraj i ponovo pošalji\" u vezi "
-"s njegovom prijavom."
+"s njegovim radom."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr "Ponovo aktiviraj odbijenu prijavu"
+msgstr "Ponovo aktiviraj odbijeni rad"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
@@ -3164,7 +3163,7 @@ msgstr ""
 "recenzije poništena."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr "Ponovo akitivranje prijave odbijeno je bez recenzije"
+msgstr "Ponovo akitivranje rada odbijeno je bez recenzije"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
@@ -3197,10 +3196,10 @@ msgstr "Data je preporuka"
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 "Ova poruka obaveštava glavnog urednika ili urednika sekcije da je data "
-"urednička preporuka u vezi sa jednim od podnesaka koji su im dodeljeni. Ova "
+"urednička preporuka u vezi sa jednim od radova koji su im dodeljeni. Ova "
 "poruka se koristi kada urednik može samo da preporuči uredničku odluku i "
 "kada je potrebno da ovlašćeni urednik evidentira uredničke odluke. Ova "
-"opcija može biti izabrana prilikom dodeljivanja učesnika podnesku."
+"opcija može biti izabrana prilikom dodeljivanja učesnika radu."
 
 msgid "mailable.reviewConfirm.name"
 msgstr "Potvrda recenzije"
@@ -3303,12 +3302,12 @@ msgstr ""
 "sistem i da mu se pruže informacije o njegovom korisničkom imenu i lozinki."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr "Podnesak sačuvan za kasnije"
+msgstr "Rad sačuvan za kasnije"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
-"Automatski imejl koji se šalje autorima kada sačuvaju svoj podnesak da bi ga "
-"kasnije dovršili"
+"Automatski imejl koji se šalje autorima kada sačuvaju svoju da bi je kasnije "
+"dovršili"
 
 msgid "mailable.submissionAck.name"
 msgstr "Potvrda podneska"
@@ -3328,7 +3327,7 @@ msgstr ""
 "autor koji je izvršio podnošenje."
 
 msgid "mailable.discussionSubmission.name"
-msgstr "Diskusija (Podnesak)"
+msgstr "Diskusija (Rad)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
@@ -3400,8 +3399,7 @@ msgstr "Rad je vraćen na recenziju"
 
 #, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
-msgstr ""
-"Ovaj imejl obaveštava autora da je njegov podnesak vraćen u fazu recenzije."
+msgstr "Ovaj imejl obaveštava autora da je njegov rad vraćen u fazu recenzije."
 
 #, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
@@ -3453,7 +3451,7 @@ msgid "manager.emailTemplate.name.description"
 msgstr "Unesite kratak kako biste lakše pronašli ovaj šablon."
 
 msgid "manager.newSubmission"
-msgstr "Nova prijava"
+msgstr "Nov rad"
 
 msgid "manager.newSubmission.description"
 msgstr ""
@@ -3466,7 +3464,7 @@ msgid "manager.submissionAck.off"
 msgstr "Nemoj slati imejl."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr "Šalji imejl samo autoru koji je poslao podnesak."
+msgstr "Šalji imejl samo autoru koji je poslao rad."
 
 msgid "manager.submissionAck.allAuthors"
 msgstr "Pošalji imejl."
@@ -3539,7 +3537,7 @@ msgid "mailable.editorAssigned.name"
 msgstr "Urednik je dodeljen (automatski)"
 
 msgid "mailable.editorAssigned.description"
-msgstr "Ovaj imejl se šale uredniku kada mu je automatski dodeljen podnesak."
+msgstr "Ovaj imejl se šale uredniku kada mu je automatski dodeljen rad."
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Dodeli urednika"
@@ -3768,7 +3766,7 @@ msgstr ""
 "Postavka jezika nije mogla biti sačuvana. Sve opcije moraju biti omogućene."
 
 msgid "notification.submissionLocales"
-msgstr "Jezici za podnesak su ažurirani."
+msgstr "Jezici za rad su ažurirani."
 
 msgid "settings.roles.masthead"
 msgstr "Uključi u listu u zaglavlju (masthead) uloge"
@@ -3789,8 +3787,8 @@ msgstr "Fajl podneska {$id} je preskočen jer nema važeću fazu fajla."
 
 msgid "plugins.importexport.common.error.missingAffiliationName"
 msgstr ""
-"Autor {$authorName} nema naziv afilijacije na jeziku podneska ({$localeName})"
-". Podnesak se ne može uvesti bez ovog podatka."
+"Autor {$authorName} nema naziv afilijacije na jeziku rada ({$localeName}). "
+"Rad se ne može uvesti bez ovog podatka."
 
 msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
 msgstr "Fajl podneska {$id} je preskočen jer nema važeću reviziju."

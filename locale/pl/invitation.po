@@ -1,2 +1,433 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-05-27 11:01+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Użytkownik został wyłączony. Nie można przypisać mu roli, dopóki jest "
+"wyłączony. Aby zaprosić go do roli, należy najpierw włączyć jego konto."
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Zaproś do pełnienia roli"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Zaproś użytkownika do objęcia roli"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Dodaj użytkownika do roli"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Jeśli użytkownik nie istnieje, możesz zaprosić go do objęcia określonych "
+"ról. Jeśli użytkownik już istnieje w systemie, możesz wyświetlić jego dane i "
+"zaprosić go do objęcia dodatkowych ról."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Wyszukaj użytkownika według adresu e-mail, nazwy użytkownika lub "
+"identyfikatora ORCID. Wpisz tylko jedną z tych informacji, aby rozpocząć!"
+
+msgid "userInvitation.searchField.description"
+msgstr "e.g. aeinstein@example.com lub aeinstein lub 0000-0002-1825-0097"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Wyszukaj użytkownika"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Wyszukaj użytkownika"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Wyszukaj użytkownika"
+
+msgid "invitation.step"
+msgstr "KROK"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Wprowadź dane"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Wprowadź dane"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} – Wprowadź dane i zaproś osoby do pełnienia określonych ról"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Zapisz i kontynuuj"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Wprowadź dane"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Wprowadź dane"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Wprowadź swoje dane, takie jak adres e-mail, afiliacja itp. Zgodnie z "
+"przepisami RODO tylko Ty możesz edytować te informacje. Możesz również "
+"zdecydować, czy chcesz, aby te informacje były widoczne w Twoim profilu dla "
+"redaktora."
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Zweryfikuj i zaproś do ról"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Zweryfikuj i zaproś do ról"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Jeśli znasz imię użytkownika, możesz wprowadzić te dane. Użytkownik może "
+"jednak zmienić te dane."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Jeśli znasz nazwisko użytkownika, możesz wprowadzić te dane. Użytkownik może "
+"jednak zmienić te dane."
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Może to być kombinacja wielkich liter, małych liter lub cyfr"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Powinno składać się z co najmniej 6 znaków i może zawierać kombinację "
+"wielkich liter, małych liter, cyfr i znaków specjalnych"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Należy zdefiniować co najmniej jedną grupę użytkowników do dodania"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "W podanych grupach użytkowników znajdują się zduplikowane wpisy."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Jeśli do zaproszenia przypisano adres e-mail ({$email}), adres ten nie może "
+"być już używany przez innego użytkownika."
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Należy podać afiliację"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "W tym typie zaproszenia nie zdefiniowano adresu e-mail"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"W przypadku dodawania grup użytkowników należy podać identyfikator grupy "
+"użytkowników"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Grupa użytkowników została przypisana do zaproszonego użytkownika"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Należy zdefiniować co najmniej jedną grupę użytkowników do usunięcia"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Nie można zdefiniować ról użytkowników dla użytkowników, którzy nie istnieją."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Zaproszenie nie może zostać wysłane, ponieważ nie zdefiniowano żadnych zmian "
+"w grupach użytkowników"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Istnieje już użytkownik o nazwie użytkownika {$username}. Spróbuj podać inną "
+"nazwę."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Jeśli zaproszeniu przypisano identyfikator użytkownika ({$userId}), to "
+"użytkownik ten musi istnieć."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Należy podać nazwę użytkownika"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Należy podać hasło"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Należy podać kraj"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Należy podać imię"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Należy podać nazwisko"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "W przypadku dodawanych grup użytkowników należy podać datę rozpoczęcia"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Operacja wysyłania zaproszenia nie powiodła się"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Podany identyfikator grupy użytkowników {$userGroupId} nie istnieje"
+
+msgid "invitation.validation.required"
+msgstr "Pole {$attribute} jest wymagane."
+
+msgid "invitation.header"
+msgstr "Zaproszenia"
+
+msgid "invitation.role.selectRole"
+msgstr "Wybierz nową rolę"
+
+msgid "invitation.role.dateStart"
+msgstr "Data rozpoczęcia"
+
+msgid "invitation.role.dateEnd"
+msgstr "Data zakończenia"
+
+msgid "invitation.role.addRole.button"
+msgstr "Dodaj kolejną rolę"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rola"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Data rozpoczęcia"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Data zakończenia"
+
+msgid "invitation.decline.confirm"
+msgstr "Potwierdź odrzucenie zaproszenia"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Odrzuć zaproszenie"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Czy na pewno chcesz odrzucić to zaproszenie? Potwierdź odrzucenie, klikając "
+"przycisk poniżej."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Weryfikuj ORCID ID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Weryfikuj ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Zapisz i kontynuuj"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Zapisz i kontynuuj"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Zapisz i kontynuuj"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Formularz danych użytkownika przyjmującego zaproszenie"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Prosimy o podanie poniższych danych, abyśmy mogli lepiej zarządzać Państwa "
+"kontem"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Przejrzyj i załóż konto"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} – Przejrzyj i załóż konto"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Pomiń weryfikację ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Weryfikuj ORCID iD"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Tak, wyrażam zgodę na gromadzenie i przechowywanie moich danych zgodnie z "
+"{$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Oświadczenie o ochronie prywatności"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Nazywane również imieniem lub imieniem własnym, jest to ta część imienia i "
+"nazwiska, która pozwala zidentyfikować daną osobę."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Nazwisko to ta część imienia i nazwiska, która jest zazwyczaj dziedziczna i "
+"wskazuje na przynależność do danej rodziny."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "To jest instytucja, z którą jesteś powiązany"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr ""
+"Jest to kraj, w którym znajduje się instytucja, z którą jesteś powiązany"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Kraj afiliacji"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Szczegóły konta"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Dane użytkownika"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Zobacz wszystkie zgłoszenia"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Podaj co najmniej jedno kryterium wyszukiwania."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Wyświetlasz dane użytkownika {$name}"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Anuluj zaproszenie"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Anuluj zaproszenie"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Anulowanie zaproszenia wysłanego do {$givenName} {$familyName} spowoduje "
+"dezaktywację linku do potwierdzenia, który został wysłany pocztą "
+"elektroniczną. Oto szczegóły zaproszenia: "
+
+msgid "invitation.masthead.hidden"
+msgstr "Nie pojawia się w stopce redakcyjnej"
+
+msgid "invitation.masthead.show"
+msgstr "Pojawia się w stopce redakcyjnej"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modyfikuj rolę"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Wróć"
+
+msgid "userInvitation.status.invited"
+msgstr "Zaproszony {$date}"
+
+msgid "invitation.management.options"
+msgstr "Opcje zarządzania zaproszeniami"
+
+msgid "userInvitation.cancel.message"
+msgstr "Czy na pewno chcesz anulować to zaproszenie?"
+
+msgid "userInvitation.edit.title"
+msgstr "Edytuj zaproszenie"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Jeśli edytujesz istniejące zaproszenie lub dodasz nową rolę, obecne "
+"zaproszenie zostanie anulowane, a nowe zostanie wysłane. Czy na pewno chcesz "
+"to zrobić?"
+
+msgid "validation.after_or_equal"
+msgstr "Data rozpoczęcia powinna być późniejsza lub równa dzisiejszej"
+
+msgid "invitation.removeRoles"
+msgstr "Użytkownik został usunięty z roli"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Proszę potwierdzić, że zapoznałeś się z polityką prywatności i wyrażasz na "
+"nią zgodę"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Czy anulować proces zaproszenia do roli?"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Czy na pewno chcesz anulować? Anulowanie w tym momencie przerwie proces "
+"przyjmowania roli i będziesz musiał rozpocząć go od nowa, korzystając z "
+"wiadomości e-mail z zaproszeniem, aby ponownie przyjąć rolę. Jeśli jesteś "
+"już użytkownikiem, zostaniesz przekierowany z powrotem do pulpitu "
+"nawigacyjnego. Jeśli nie, musisz otworzyć wiadomość e-mail z zaproszeniem, "
+"aby ponownie rozpocząć proces."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "W przypadku dodanych grup użytkowników należy podać nagłówek"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"W elemencie o indeksie {$attribute} znaleziono nieoczekiwane właściwości: "
+"{$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"Identyfikator {reviewAssignmentId} nie odpowiada żadnemu ważnemu zleceniu "
+"recenzji"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Tego zaproszenia nie można anulować"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr ""
+"Nie można podać jednocześnie adresu e-mail i identyfikatora użytkownika."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Dostęp do tego atrybutu nie jest dozwolony dla obecnych użytkowników"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Atrybut nie może być dostępny dla nieistniejących użytkowników"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Ten atrybut musi mieć wartość równą dzisiejszej dacie lub późniejszej"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Pole :attribute jest niedozwolone"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} – Zmiana adresu e-mail udostępnionego użytkownikowi"
+
+msgid "userInvitation.modal.title"
+msgstr "Zaproszenie wysłane"
+
+msgid "userInvitation.modal.button"
+msgstr "Wyświetl wszystkich użytkowników"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Usuń rolę"
+
+msgid "invitation.email.description"
+msgstr "e.g. aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Po przyjęciu zaproszenia użytkownik zostanie przekierowany do serwisu ORCID, "
+"gdzie będzie mógł zweryfikować swoje konto, jeśli wyrazi taką chęć."
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Anulowanie zaproszenia"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr ""
+"Zaproszenie nie zostało zaakceptowane. Jesteś zalogowany jako inny "
+"użytkownik."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Wyloguj się i zaloguj się na właściwym koncie, aby przyjąć to zaproszenie."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Konto użytkownika jest obecnie zablokowane."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Zgoda na przetwarzanie danych osobowych"
+
+msgid "invitation.unavailable.title"
+msgstr "Zaproszenie niedostępne"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"To zaproszenie nie jest już dostępne. Być może zostało już przyjęte, "
+"odrzucone lub straciło ważność. W celu uzyskania dalszej pomocy prosimy o "
+"kontakt z redaktorem czasopisma."

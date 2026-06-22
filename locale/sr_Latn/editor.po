@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-21 13:43+0000\n"
+"PO-Revision-Date: 2026-05-26 16:34+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sr_Latn/>\n"
@@ -29,10 +29,10 @@ msgid "editor.submission.workflowDecision.submission"
 msgstr "Odluka je zabeležena"
 
 msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Prijava odbijena."
+msgstr "Rad odbijen."
 
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Prijava je prihvaćena."
+msgstr "Rad je prihvaćen."
 
 msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Rad je objavljen."
@@ -50,12 +50,11 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Izmeni odluku"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr "Nemate dozvolu da zabeležite ovu odluku za ovu prijavu."
+msgstr "Nemate dozvolu da zabeležite ovu odluku za ovaj rad."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
-"Urednik nije prepoznat i možda nema dozvolu da zabeleži odluku o ovoj "
-"prijavi."
+"Urednik nije prepoznat i možda nema dozvolu da zabeleži odluku o ovom radu."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr "Ne možete poslati imejl sledećim primaocima: {$names}."
@@ -68,15 +67,14 @@ msgstr ""
 "Naveden je krug recenzije, ali ova odluka se ne donosi u fazi recenzije."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr "Ovaj krug recenzije nije deo ove prijave."
+msgstr "Ovaj krug recenzije nije deo ove prijave.."
 
 msgid "editor.submission.workflowDecision.invalidStage"
-msgstr ""
-"Prijava nije u odgovarajućoj fazi radnog toka da bi se donela ova odluka."
+msgstr "Rad nije u odgovarajućoj fazi radnog toka da bi se donela ova odluka."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
-"Morate biti dodeljeni ovoj prijavi da biste mogli da zabeležite uredničku "
+"Morate biti dodeljeni ovom radu da biste mogli da zabeležite uredničku "
 "odluku."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
@@ -90,8 +88,8 @@ msgstr ""
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
-"Odluka nije mogla biti doneta za ovu prijavu. ID prijave nedostaje ili se ne "
-"poklapa sa traženom prijavom."
+"Odluka nije mogla biti doneta za ovaj rad. ID rada nedostaje ili se ne "
+"poklapa sa traženim radom."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr "Ova odluka nije pronađena. Molimo navedite prepoznat tip odluke."
@@ -185,9 +183,8 @@ msgstr "Ne šalji imejl autoru"
 msgid "editor.submissionReview.open"
 msgstr "Otvorena"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Slepa"
+msgstr "Anonimni recenzent / Otkriven autor"
 
 #, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
@@ -512,8 +509,7 @@ msgstr ""
 "više kompletna i da fajl nije spreman za objavljivanje."
 
 msgid "editor.submission.revertDeclineDescription"
-msgstr ""
-"Da li ste sigurni da želite da opozovete odluku o odbijanju ove prijave?"
+msgstr "Da li ste sigurni da želite da opozovete odluku o odbijanju ovog rada?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Javni identifikator '{$publicIdentifier}' ne sme biti broj."
@@ -649,7 +645,7 @@ msgstr ""
 "jednak ili kasniji od roka za odgovor."
 
 msgid "editor.submission.search"
-msgstr "Pretraži prijave, ID, autore, ključne reči itd."
+msgstr "Pretraži radove, ID, autore, ključne reči itd."
 
 msgid "editor.submission.days"
 msgstr "Dani"

@@ -1,11 +1,11 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025, 2026.
 # Ivan <salarysalo@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2025-05-28 14:51+0000\n"
+"PO-Revision-Date: 2026-06-15 12:08+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -988,7 +988,7 @@ msgid "submission.reviewMetadata"
 msgstr "Перегляд метаданих"
 
 msgid "submission.review"
-msgstr "Рецензування"
+msgstr "Рецензія"
 
 msgid "submission.reviewAndSubmit"
 msgstr "Розгляд і відправка"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2026-06-22 07:01+0000\n"
+"PO-Revision-Date: 2026-06-22 07:05+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/el/"
 ">\n"
@@ -60,14 +60,13 @@ msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Ενημέρωση σχετικά με την υποβολή σας"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Απόφαση Επιμελητή"
+msgstr "Η υποβολή σας έχει αποσταλεί για αξιολόγηση"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -95,9 +94,10 @@ msgstr ""
 "<br />\n"
 "Σύνδεσμος υποβολής: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "Απόφαση Επιμελητή"
+msgstr ""
+"Η υποβολή σας έχει εξεταστεί και σας προτρέπουμε να υποβάλετε τις διορθώσεις "
+"σας"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -109,9 +109,10 @@ msgstr ""
 "<br />\n"
 "Η απόφασή μας είναι: Απαιτούνται αναθεωρήσεις"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
-msgstr "Απόφαση Επιμελητή"
+msgstr ""
+"Η υποβολή σας έχει εξεταστεί και σας παρακαλούμε να την αναθεωρήσετε και να "
+"την υποβάλετε εκ νέου"
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"

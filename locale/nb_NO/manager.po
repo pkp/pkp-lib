@@ -2983,8 +2983,9 @@ msgstr "Datoen hvor denne vurderingen ble tildelt"
 msgid "emailTemplate.variable.review.method"
 msgstr "Type vurdering, for eksempel anonym, dobbelt anonym eller åpen"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Fagfellens anbefaling, for eksempel Godta innsending eller Avslå"
 
 msgid "emailTemplate.variable.review.round"
 msgstr ""

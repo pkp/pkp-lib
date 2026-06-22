@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 11:19+0000\n"
+"PO-Revision-Date: 2026-06-22 11:57+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -2883,8 +2883,11 @@ msgstr "Last ned den eksporterte filen fra knappen under."
 msgid "plugins.importexport.native.common.any"
 msgstr "Generiske elementer"
 
+#, fuzzy
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Feil i filterinnstillingene [{$filterName}]: {$filterCount} forekomster. Det "
+"bør kun være en."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "FEIL:"
@@ -2893,76 +2896,92 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Den spesifiserte tidsskriftsstien \"{$contextPath}\" eksisterer ikke."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
+#, fuzzy
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Prosessen klarte ikke å analysere forfatterne"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Prosessen klarte ikke å analysere publikasjoner"
 
+#, fuzzy
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Alle kommentarer fra ferdigstilte vurderinger. Fagfellers navn skjules for "
+"anonyme vurderinger"
 
+#, fuzzy
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Navnene og tilknytningene til forfatterne av bidraget."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL-en til en side hvor brukeren kan gjenopprette passord"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "URL-en for å se alle innsendinger tildelt en bruker"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr ""
+"URL-adressen til en side, hvor en bruker kan se og redigere profilen sin"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Navnet på avgjørelsen som ble tatt"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "En beskrivelse av avgjørelsen som ble tatt"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Fasen i den redaksjonelle arbeidsflyten denne beslutningen ble tatt i"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Vurderingsrunden denne beslutningen ble tatt i, om beslutningen er relatert "
+"til en vurderingsfase"
 
+#, fuzzy
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Temaet for diskujonen"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Innholdet til en ny diskusjon, eller et svar"
 
+#, fuzzy
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "En liste over innleveringer med utestående oppgaver"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Antall bidrag tildelt denne redaktøren"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Mottakerens, eller mottakernes fulle navn"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Mottakerens eller alle mottakernes brukernavn"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Dato hvor vurderingen burde værte ferdig"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Dato hvor fagfellen burde godta, eller avslå oppgaven"
 
+#, fuzzy
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "URL-en til vurderingsoppgaven"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Den anbefalte avgjørelsen, for eksempel Godta innsending"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datoen hvor denne vurderingen ble tildelt"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Type vurdering, for eksempel anonym, dobbelt anonym eller åpen"
 
 msgid "emailTemplate.variable.review.recommendation"
 msgstr ""

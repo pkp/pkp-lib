@@ -15,23 +15,27 @@
 
 namespace PKP\tests\classes\queue;
 
-use Mockery;
-use PKP\tests\PKPTestCase;
-use PKP\plugins\Hook;
-use PKP\plugins\PluginRegistry;
-use PKP\core\Registry;
-use PKP\db\DAORegistry;
-use PKP\plugins\PluginSettingsDAO;
-use PKP\config\Config;
-use PKP\job\models\Job as PKPJobModel;
-use PKP\jobs\testJobs\CliWorkerTestJobWithHook;
 use APP\core\Application;
+use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\config\Config;
+use PKP\core\PKPQueueProvider;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\job\models\Job as PKPJobModel;
+use PKP\jobs\testJobs\CliWorkerTestJobWithHook;
+use PKP\jobs\testJobs\CliWorkerTestJobWithHookNoContext;
+use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
+use PKP\plugins\PluginSettingsDAO;
+use PKP\services\PKPSchemaService;
+use PKP\tests\PKPTestCase;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(PluginRegistry::class)]
 #[CoversClass(Hook::class)]
+#[CoversClass(PKPQueueProvider::class)]
 class PKPCliPluginLoadingTest extends PKPTestCase
 {
     protected $tmpErrorLog;
@@ -43,6 +47,12 @@ class PKPCliPluginLoadingTest extends PKPTestCase
     public static bool $pluginRegistered = false;
     public static bool $pluginEnabled = false;
     public static bool $hookFired = false;
+
+    /**
+     * The id of the live CLI context observed at the moment the worker hook fires (null = no context).
+     * Captured inside a running job to assert what plugin code would resolve mid-execution.
+     */
+    public static ?int $cliContextIdAtHookFire = null;
 
     protected function setUp(): void
     {
@@ -63,6 +73,7 @@ class PKPCliPluginLoadingTest extends PKPTestCase
         self::$pluginRegistered = false;
         self::$pluginEnabled = false;
         self::$hookFired = false;
+        self::$cliContextIdAtHookFire = null;
     }
 
     protected function tearDown(): void
@@ -73,6 +84,7 @@ class PKPCliPluginLoadingTest extends PKPTestCase
 
         // Clean up test hooks
         Hook::clear('PKPCliPluginLoadingTest::workerHook');
+        Hook::clear('Schema::get::context');
 
         // Clean up test jobs
         PKPJobModel::query()->onQueue(PKPJobModel::TESTING_QUEUE)->delete();
@@ -168,6 +180,25 @@ class PKPCliPluginLoadingTest extends PKPTestCase
     }
 
     /**
+     * Run $callback with PHPUnit's "running unit tests" flag temporarily OFF so that the REAL plugin
+     * loading block inside PKPQueueProvider::Queue::before executes (it is gated by
+     * `!app()->runningUnitTests()`). The flag is always restored, even on failure.
+     *
+     * NOTE: with the guard off, PluginRegistry::loadCategory('generic'|'pubIds', true, $contextId) runs
+     * real loadFromDatabase plugin loading against the test database. Side effects are isolated by
+     * #[RunTestsInSeparateProcesses]. This is intentional for the end-to-end reconcile assertion below.
+     */
+    protected function withRealPluginLoading(callable $callback): mixed
+    {
+        app()->unsetRunningUnitTests();
+        try {
+            return $callback();
+        } finally {
+            app()->setRunningUnitTests();
+        }
+    }
+
+    /**
      * Test that a plugin registered for a context has its hooks fire
      * when a ContextAwareJob is processed via CLI worker.
      *
@@ -176,7 +207,7 @@ class PKPCliPluginLoadingTest extends PKPTestCase
     public function testPluginRegistersAndHookFiresForContextAwareJob(): void
     {
         // Step 1: Create test plugin that checks getEnabled() and registers hook
-        $plugin = new class extends \PKP\plugins\GenericPlugin {
+        $plugin = new class () extends \PKP\plugins\GenericPlugin {
             public function register($category, $path, $mainContextId = null): bool
             {
                 $success = parent::register($category, $path, $mainContextId);
@@ -258,7 +289,7 @@ class PKPCliPluginLoadingTest extends PKPTestCase
     public function testPluginDisabledForContextDoesNotRegisterHooks(): void
     {
         // Step 1: Create test plugin that checks getEnabled() before registering hooks
-        $plugin = new class extends \PKP\plugins\GenericPlugin {            
+        $plugin = new class () extends \PKP\plugins\GenericPlugin {
             public function register($category, $path, $mainContextId = null): bool
             {
                 $success = parent::register($category, $path, $mainContextId);
@@ -330,5 +361,227 @@ class PKPCliPluginLoadingTest extends PKPTestCase
 
         // Verify: Hook did NOT fire
         $this->assertFalse(self::$hookFired, 'Hook should NOT have fired for disabled plugin');
+    }
+
+    //
+    // Coverage added for the #9345 CLI mechanism updates. The mechanism now (PKPQueueProvider::boot):
+    //   - loads BOTH `generic` AND `pubIds` with enabledOnly=true in Queue::before,
+    //   - sets the CLI context before the job runs (so plugin code resolves it mid-execution), and
+    //   - force-reloads the `context` schema + rebuilds the Context object after plugins load
+    //     (reconcileCliContextAfterPluginLoad).
+    //
+    // NOTE on a testing boundary: the committedContextId/contextCommitted state and the daemon relaunch
+    // decision live on the PKPQueueProvider instance that Laravel BOOTS (PKPContainer::registerConfigured-
+    // Providers, the `new PKPQueueProvider($this)` whose Queue::before/Looping closures capture $this).
+    // PKPContainer::register() never stores that instance and app('pkpJobQueue') is a different singleton,
+    // so a real worker run's commit state is not observable here — the relaunch decision is covered
+    // directly in PKPLoopingContextChangeTest. Likewise, enabledOnly=true switches discovery to
+    // loadFromDatabase (disabled plugins' register() no longer runs); that requires installed-version
+    // fixtures and is not asserted here.
+    //
+
+    /**
+     * P1 — pubIds parity: the mechanism now loads the `pubIds` category alongside `generic`. Verify a
+     * pubIds-category plugin registers and its hook fires when a context-aware job runs via the worker.
+     * (Lightweight GenericPlugin subclass aliased into the pubIds path — subclassing PKPPubIdPlugin's
+     * large abstract surface adds nothing to a hook-fire assertion.)
+     */
+    public function testPubIdPluginRegistersAndHookFiresForContextAwareJob(): void
+    {
+        $plugin = new class () extends \PKP\plugins\GenericPlugin {
+            public function register($category, $path, $mainContextId = null): bool
+            {
+                $success = parent::register($category, $path, $mainContextId);
+
+                if (!$success || !$this->getEnabled($mainContextId)) {
+                    return $success;
+                }
+
+                \PKP\tests\classes\queue\PKPCliPluginLoadingTest::$pluginRegistered = true;
+                \PKP\tests\classes\queue\PKPCliPluginLoadingTest::$pluginEnabled = true;
+
+                Hook::add('PKPCliPluginLoadingTest::workerHook', function (string $hookName, ...$args) {
+                    \PKP\tests\classes\queue\PKPCliPluginLoadingTest::$hookFired = true;
+                    return Hook::CONTINUE;
+                });
+
+                return $success;
+            }
+
+            public function getName(): string
+            {
+                return 'testCliPubId';
+            }
+
+            public function getDisplayName(): string
+            {
+                return 'Test CLI PubId Plugin';
+            }
+
+            public function getDescription(): string
+            {
+                return 'Test pubIds plugin for CLI worker integration tests';
+            }
+        };
+
+        class_alias($plugin::class, 'APP\\plugins\\pubIds\\testCliPubId\\TestCliPubIdPlugin');
+
+        $this->setupMockContextForId(42);
+        $this->setupMockPluginSettingsDAOForContexts([42]);
+
+        // Pre-register under the pubIds category (the second category Queue::before now loads).
+        PluginRegistry::loadPlugin('pubIds', 'testCliPubId', 42);
+
+        $this->assertTrue(self::$pluginRegistered, 'pubIds plugin should have registered');
+        $this->assertTrue(self::$pluginEnabled, 'pubIds plugin should be enabled for context');
+
+        $hooks = Hook::getHooks('PKPCliPluginLoadingTest::workerHook');
+        $this->assertNotNull($hooks, 'Hook should be registered before job dispatch');
+
+        dispatch(new CliWorkerTestJobWithHook(42));
+        $this->processNextTestJob();
+
+        $this->assertTrue(self::$hookFired, 'pubIds plugin hook should have fired during job execution');
+    }
+
+    /**
+     * P2 — the CLI context is live and equals the job's context DURING execution. Queue::before sets the
+     * context before the job runs (this part runs even under the unit-test guard), so plugin code firing
+     * mid-job resolves the job's context via Application::getCliContext(). This is the core #9345
+     * guarantee; the existing tests only checked a boolean.
+     */
+    public function testCliContextIsLiveAndMatchesJobDuringExecution(): void
+    {
+        $this->setupMockContextForId(42);
+
+        // Probe the live CLI context at the exact moment the job fires the hook.
+        Hook::add('PKPCliPluginLoadingTest::workerHook', function (string $hookName, ...$args) {
+            self::$cliContextIdAtHookFire = Application::get()->getCliContext()?->getId();
+            self::$hookFired = true;
+            return Hook::CONTINUE;
+        });
+
+        dispatch(new CliWorkerTestJobWithHook(42));
+        $this->processNextTestJob();
+
+        $this->assertTrue(self::$hookFired, 'Hook should have fired during job execution');
+        $this->assertSame(
+            42,
+            self::$cliContextIdAtHookFire,
+            'CLI context must be live and equal the job context while the job runs'
+        );
+    }
+
+    /**
+     * P3 — site/null-context job: a site-level plugin's hook still fires, and the worker establishes NO
+     * CLI context (Queue::before only sets the context for context-aware jobs). Contrast with P2. Uses
+     * the non-context-aware CliWorkerTestJobWithHookNoContext fixture.
+     */
+    public function testSiteLevelJobFiresHookWithoutEstablishingCliContext(): void
+    {
+        $plugin = new class () extends \PKP\plugins\GenericPlugin {
+            public function register($category, $path, $mainContextId = null): bool
+            {
+                $success = parent::register($category, $path, $mainContextId);
+
+                if (!$success) {
+                    return $success;
+                }
+
+                // A non-lazy/site-wide plugin registers its hooks unconditionally (no per-context gate).
+                \PKP\tests\classes\queue\PKPCliPluginLoadingTest::$pluginRegistered = true;
+
+                Hook::add('PKPCliPluginLoadingTest::workerHook', function (string $hookName, ...$args) {
+                    \PKP\tests\classes\queue\PKPCliPluginLoadingTest::$hookFired = true;
+                    \PKP\tests\classes\queue\PKPCliPluginLoadingTest::$cliContextIdAtHookFire = Application::get()->getCliContext()?->getId();
+                    return Hook::CONTINUE;
+                });
+
+                return $success;
+            }
+
+            public function getName(): string
+            {
+                return 'testCliSite';
+            }
+
+            public function getDisplayName(): string
+            {
+                return 'Test CLI Site Plugin';
+            }
+
+            public function getDescription(): string
+            {
+                return 'Test site-level plugin for CLI worker integration tests';
+            }
+        };
+
+        class_alias($plugin::class, 'APP\\plugins\\generic\\testCliSite\\TestCliSitePlugin');
+
+        // Site-level registration (mainContextId = null).
+        PluginRegistry::loadPlugin('generic', 'testCliSite', null);
+        $this->assertTrue(self::$pluginRegistered, 'Site plugin should have registered');
+
+        dispatch(new CliWorkerTestJobWithHookNoContext());
+        $this->processNextTestJob();
+
+        $this->assertTrue(self::$hookFired, 'Site plugin hook should fire for a site-level job');
+        $this->assertNull(
+            self::$cliContextIdAtHookFire,
+            'A null/site-level job must NOT establish a CLI context'
+        );
+        $this->assertNull(
+            Application::get()->getCliContext(),
+            'CLI context must remain unset after a site-level job'
+        );
+    }
+
+    /**
+     * P4 — end-to-end reconcile through the REAL Queue::before. A plugin can extend the `context` schema
+     * via the Schema::get::context hook; because the schema is cached before plugins load,
+     * reconcileCliContextAfterPluginLoad() must force-reload it after loadCategory. This drives that path
+     * through an actual processed job (guard bypassed), unlike PKPContextSchemaReloadTest which invokes
+     * reconcile in isolation.
+     */
+    public function testRealQueueBeforeReconcilesContextSchemaForContextAwareJob(): void
+    {
+        $pluginProp = 'i9345CliPluginLoadingContextProp';
+        $schemaService = app()->get('schema');
+
+        // Prime the cache with the plugin-less context schema (as the early getById in Queue::before would).
+        $initial = $schemaService->get(PKPSchemaService::SCHEMA_CONTEXT);
+        $this->assertFalse(
+            isset($initial->properties->{$pluginProp}),
+            'Custom property must be absent before the plugin hook registers'
+        );
+
+        // A plugin registers its Schema::get::context hook (as PlagiarismPlugin does for iThenticate).
+        Hook::add('Schema::get::context', function (string $hookName, array $params) use ($pluginProp): bool {
+            $schema = &$params[0];
+            $schema->properties->{$pluginProp} = (object) ['type' => 'string', 'validation' => ['nullable']];
+            return Hook::CONTINUE;
+        });
+
+        // A plain cache hit must still be stale (the bug condition the reconcile fixes).
+        $this->assertFalse(
+            isset($schemaService->get(PKPSchemaService::SCHEMA_CONTEXT)->properties->{$pluginProp}),
+            'Cache hit must not re-fire the hook, so the property stays absent until reconcile'
+        );
+
+        $this->setupMockContextForId(42);
+
+        // Run the REAL Queue::before block (loadCategory + reconcile) by processing an actual job.
+        $this->withRealPluginLoading(function () {
+            dispatch(new CliWorkerTestJobWithHook(42));
+            $this->processNextTestJob();
+        });
+
+        // After the job, reconcile must have force-reloaded the context schema so the plugin prop appears.
+        $this->assertTrue(
+            isset($schemaService->get(PKPSchemaService::SCHEMA_CONTEXT)->properties->{$pluginProp}),
+            'Real Queue::before must reconcile (force-reload) the context schema so the plugin prop appears'
+        );
+
+        Hook::clear('Schema::get::context');
     }
 }

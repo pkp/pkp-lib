@@ -3,15 +3,18 @@
 declare(strict_types=1);
 
 /**
- * @file jobs/testJobs/CliWorkerTestJobWithHook.php
+ * @file jobs/testJobs/CliWorkerTestJobWithHookNoContext.php
  *
  * Copyright (c) 2026 Simon Fraser University
  * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class CliWorkerTestJobWithHook
+ * @class CliWorkerTestJobWithHookNoContext
  *
- * @brief Test job for CLI worker integration tests - fires hooks during execution
+ * @brief Site-level (non context-aware) counterpart of CliWorkerTestJobWithHook for CLI worker
+ *   integration tests. It deliberately does NOT implement ContextAwareJob, so Queue::before commits
+ *   the worker to the null/site context and skips reconcileCliContextAfterPluginLoad(). Fires the same
+ *   PKPCliPluginLoadingTest::workerHook during execution.
  */
 
 namespace PKP\jobs\testJobs;
@@ -21,9 +24,8 @@ use PKP\config\Config;
 use PKP\job\models\Job;
 use PKP\jobs\BaseJob;
 use PKP\plugins\Hook;
-use PKP\queue\ContextAwareJob;
 
-class CliWorkerTestJobWithHook extends BaseJob implements ContextAwareJob
+class CliWorkerTestJobWithHookNoContext extends BaseJob
 {
     use Batchable;
 
@@ -33,30 +35,18 @@ class CliWorkerTestJobWithHook extends BaseJob implements ContextAwareJob
     public $tries = 1;
 
     /**
-     * The context ID for this job
-     */
-    public int $contextId;
-
-    /**
      * Initialize the job
      */
-    public function __construct(int $contextId)
+    public function __construct()
     {
         $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Job::TESTING_QUEUE;
-        $this->contextId = $contextId;
-    }
-
-    /**
-     * Get the context ID for this job
-     */
-    public function getContextId(): int
-    {
-        return $this->contextId;
     }
 
     /**
      * Handle the queue job execution - fires the test hook
+     *
+     * @hook PKPCliPluginLoadingTest::workerHook
      */
     public function handle(): void
     {

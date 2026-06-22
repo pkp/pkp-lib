@@ -18,7 +18,6 @@ namespace PKP\jobs\testJobs;
 
 use Illuminate\Bus\Batchable;
 use PKP\core\Core;
-
 use APP\facades\Repo;
 use PKP\queue\ContextAwareJob;
 use PKP\config\Config;

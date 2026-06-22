@@ -1020,6 +1020,12 @@ msgstr "Number of seconds to rest between jobs[default : '{$default}']"
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Run the worker deamon for test queue"
 
+msgid "admin.cli.tool.jobs.work.option.noSelfRestart.description"
+msgstr ""
+"Do not let the worker relaunch itself when the next job belongs to a "
+"different context; exit instead and leave the restart to a process supervisor "
+"and/or the scheduler"
+
 msgid "admin.scheduledTask.removeExpiredInvitations"
 msgstr "Dispatch a job to automatically remove expired Invitations"
 

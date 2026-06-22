@@ -184,11 +184,6 @@ abstract class PKPRouter
      */
     public function getContext(PKPRequest $request, bool $forceReload = false): ?Context
     {
-        // If the app currently run on CLI, return the on CLI context if set
-        if (app()->runningInConsole() && ($cliContext = Application::get()->getCliContext())) {
-            return $cliContext;
-        }
-
         if ($forceReload || !isset($this->_context)) {
             // Retrieve the requested context path (this validates the path)
             $path = $this->getRequestedContextPath($request);
@@ -196,6 +191,14 @@ abstract class PKPRouter
             // Resolve the path to the context
             /** @deprecated 3.5 The usage of "_" as a site context has been deprecated */
             if (in_array($path, [Application::SITE_CONTEXT_PATH, '', '_'])) {
+                
+                // Before setting the context as site level (e.g. null)
+                // If the app currently run on CLI, return the on CLI context ONLY IF set
+                // as in the CLI, `getRequestedContextPath` always resolve to site level
+                if (app()->runningInConsole() && Application::get()->getCliContext()) {
+                    return Application::get()->getCliContext();
+                }
+
                 $this->_context = null;
             } else {
                 // FIXME: Can't just use Application::get()->getContextDAO() without test breakage
@@ -207,6 +210,15 @@ abstract class PKPRouter
 
                 // If the context couldn't be retrieved, it's a 404 error.
                 if (!$this->_context) {
+
+                    // Before throwing exception at unable to resolve context
+                    // If the app currently run on CLI, return the on CLI context ONLY IF set
+                    // as in the CLI, context is either resolve to site level or not able to resolve 
+                    // which result the exception as NOT FOUND .
+                    if (app()->runningInConsole() && Application::get()->getCliContext()) {
+                        return Application::get()->getCliContext();
+                    }
+
                     throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
             }

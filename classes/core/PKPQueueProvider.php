@@ -15,26 +15,28 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use Illuminate\Queue\Events\Looping;
-use Illuminate\Database\PostgresConnection;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
+use Illuminate\Queue\Events\Looping;
 use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
 use Illuminate\Queue\Worker;
 use Illuminate\Queue\WorkerOptions;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
+use PKP\context\ContextDAO;
 use PKP\job\models\Job as PKPJobModel;
+use PKP\plugins\PluginRegistry;
 use PKP\queue\JobRunner;
-use PKP\queue\WorkerConfiguration;
 use PKP\queue\PKPQueueDatabaseConnector;
-use Throwable;
+use PKP\queue\WorkerConfiguration;
+use PKP\services\PKPSchemaService;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
 {
@@ -44,9 +46,24 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     protected ?string $queue = null;
 
     /**
-     * Whether the site is a multi-context site
+     * Context whose plugins/hooks/schema this worker loaded in Queue::before. `null` (site level) is a
+     * first-class value, so pair it with $contextCommitted; the Looping listener compares the next
+     * job's context against this to decide when to quit and relaunch for a clean per-context process.
      */
-    protected bool $isMultiContextSite = false;
+    protected ?int $committedContextId = null;
+
+    /**
+     * Whether this worker has committed to a context yet (processed its first job and loaded plugins).
+     * Distinguishes "no job processed yet" from "committed to the null/site context".
+     */
+    protected bool $contextCommitted = false;
+
+    /**
+     * Whether the daemon should relaunch itself after a context-change quit. Set true ONLY by the
+     * Looping listener on a context change — never for other stop reasons (signals, queue:restart,
+     * --max-jobs/--max-time, memory, --stop-when-empty), which exit gracefully for the supervisor.
+     */
+    protected static bool $relaunchOnContextChange = false;
 
     /**
      * Set a specific queue to target to run the associated jobs
@@ -64,8 +81,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     public function applyJobContextAwareFilter(
         EloquentBuilder|QueryBuilder $jobQuery,
         ?int $contextId = null
-    ): EloquentBuilder|QueryBuilder
-    {
+    ): EloquentBuilder|QueryBuilder {
         if (DB::connection() instanceof PostgresConnection) {
             // Failed to cast payload to jsonb because it contains PHP-serialized objects
             // with null bytes (\u0000) which PostgreSQL's jsonb parser rejects.
@@ -113,10 +129,28 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     }
 
     /**
-     * Run the queue worker via an infinite loop daemon
+     * Run the queue worker via an infinite loop daemon.
+     *
+     * Plugins load once per process for the first job's context; the worker quits on a context change
+     * (see the Looping listener; null/site is first-class) so a fresh process re-bootstraps for the new
+     * context. With $selfRestart and pcntl it re-execs ITSELF in place; otherwise the supervisor and/or
+     * the scheduled ProcessQueueJobs task handle recovery, as before.
      */
-    public function runJobsViaDaemon(string $connection, string $queue, array $workerOptions = []): void
+    public function runJobsViaDaemon(string $connection, string $queue, array $workerOptions = [], bool $selfRestart = true): void
     {
+        // Clear any stale value so only a context-change during THIS daemon run can trigger a relaunch.
+        static::$relaunchOnContextChange = false;
+
+        // Capture relaunch info now, before any job runs: absolutise the script path (argv[0]) and
+        // remember the launch CWD, because a job may chdir() and pcntl_exec() keeps the current CWD.
+        // (PHP interpreter flags like php -d/-c are not in $_SERVER['argv'], so they are not preserved
+        // across re-exec — configure them via php.ini/env when relying on self-restart.)
+        $launchCwd = getcwd();
+        $relaunchArgv = $_SERVER['argv'] ?? [];
+        if (isset($relaunchArgv[0])) {
+            $relaunchArgv[0] = realpath($relaunchArgv[0]) ?: $relaunchArgv[0];
+        }
+
         $worker = $this->app->get('queue.worker'); /** @var \Illuminate\Queue\Worker $worker */
 
         $worker
@@ -126,6 +160,24 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 $queue,
                 $this->getWorkerOptions($workerOptions)
             );
+
+        // Daemon loop exited. If it quit because the next job changed context, re-exec a fresh,
+        // identical process (pcntl_exec keeps the same PID and never returns on success) so
+        // plugins/hooks/schema re-bootstrap for the new context. If pcntl is missing or the exec
+        // fails, just exit 0 (unchanged) and let the supervisor / ProcessQueueJobs task recover.
+        if ($selfRestart && static::$relaunchOnContextChange && function_exists('pcntl_exec') && $relaunchArgv) {
+            static::$relaunchOnContextChange = false;
+
+            // Restore the launch directory so a relative script path in argv[0] still resolves.
+            if ($launchCwd !== false) {
+                @chdir($launchCwd);
+            }
+            // Re-run the original invocation (php <jobs.php> work <original options>) with an
+            // absolute script path. Environment is inherited from the current process.
+            pcntl_exec(PHP_BINARY, $relaunchArgv);
+
+            // Reaching here means pcntl_exec failed; fall through to a normal return (exit 0).
+        }
     }
 
     /**
@@ -158,16 +210,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function boot()
     {
-        if (!Application::isUnderMaintenance()) {
-            try {
-                $this->isMultiContextSite = DB::table(Application::getContextDAO()->tableName)
-                    ->where('enabled', 1)
-                    ->count() > 1;
-            } catch (Throwable $e) {
-                $this->isMultiContextSite = false;
-            }
-        }
-
         if (Config::getVar('queues', 'job_runner', true)) {
             $currentWorkingDir = getcwd();
             register_shutdown_function(function () use ($currentWorkingDir) {
@@ -237,7 +279,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         // We will only register the payload creator if the application is not under maintenance
         // to prevent any unintended DB access.
         if (!Application::get()->isUnderMaintenance()) {
-            Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
+            Queue::createPayloadUsing(function (string $connection, string $queue, array $payload) {
                 // If a `context_id` already exists, will not try to set a new one.
                 if (array_key_exists('context_id', $payload)) {
                     return [];
@@ -253,7 +295,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             });
         }
 
-        Queue::before(function(JobProcessing $event) {
+        Queue::before(function (JobProcessing $event) {
             // Set the context for current CLI session if available right before job start processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
             if (!app()->runningInConsole() || Application::get()->isUnderMaintenance()) {
@@ -262,9 +304,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
             $contextId = $event->job->payload()['context_id'] ?? null;
 
+            $contextDao = Application::getContextDAO();
+
             // Validate if the context exists
             if ($contextId) {
-                $contextDao = Application::getContextDAO();
                 $context = $contextDao->getById($contextId);
 
                 if (!$context) {
@@ -276,21 +319,35 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     );
                 }
 
+                // Set the CLI context before plugins load. loadCategory() already passes $contextId to
+                // each plugin's register(), so this mainly serves the job runtime: code reading
+                // $request->getContext() resolves via the getCliContext() fallback in PKPRouter. Re-set
+                // per job — Queue::after clears it after each one, while the reconcile below runs once per worker.
                 Application::get()->setCliContext($context);
             }
 
-            // Load generic plugins once per worker lifecycle.
-            // The Looping listener ensures the worker quits on context change,
-            // so plugins only need to be loaded once per process.
-            // Skip when running unit tests to avoid unintended side effects.
-            static $pluginsLoaded = false;
-            if (!$pluginsLoaded && !app()->runningUnitTests()) {
-                \PKP\plugins\PluginRegistry::loadCategory('generic', false, $contextId);
-                $pluginsLoaded = true;
+            // Load the context's enabled generic + pubIds plugins once per worker, mirroring
+            // Dispatcher::dispatch(). The Looping listener keeps a worker single-context, so one load
+            // per process suffices. Skipped under unit tests to avoid unintended side effects.
+            if (!$this->contextCommitted && !app()->runningUnitTests()) {
+                PluginRegistry::loadCategory('generic', true, $contextId);
+                PluginRegistry::loadCategory('pubIds', true, $contextId);
+
+                // Commit the context whose plugins just loaded (from the actual job, not the Looping
+                // peek — avoids a first-job peek/pop race) so Looping can detect a later context change.
+                $this->committedContextId = $contextId !== null ? (int) $contextId : null;
+                $this->contextCommitted = true;
+
+                // Plugins may extend the `context` schema via Schema::get::context (e.g. plagiarism's
+                // iThenticate settings), but the schema + Context object above were built before they
+                // registered. Mirror Dispatcher::dispatch(): reload them so the job sees the full set.
+                if ($contextId) {
+                    $this->reconcileCliContextAfterPluginLoad($contextDao, (int) $contextId);
+                }
             }
         });
 
-        Queue::after(function(JobProcessed $event) {
+        Queue::after(function (JobProcessed $event) {
             // Clear the context for current CLI session if available when job finish the processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
             if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
@@ -298,55 +355,85 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             }
         });
 
-        // This listener will check the next job in the queue before processing the current job,
-        // if the next job belongs to a different context, it will signal the worker to quit after
-        // finishing the current job, so that the worker can be restarted with the correct context.
+        // Peek the next job before popping it: if its context differs from the one this worker
+        // committed to in Queue::before, quit so a fresh process re-bootstraps (runJobsViaDaemon()
+        // relaunches in place). `null`/site is first-class, so any change relaunches; not gated on
+        // multi-context. Daemon-only — run/scheduler/web JobRunner never fire Looping.
         $this->app['events']->listen(Looping::class, function (Looping $event) {
 
             if (!app()->runningInConsole() || app()->runningUnitTests()) {
                 return true;
             }
 
-            if (!$this->isMultiContextSite) {
-                return true;
+            if (!$this->nextJobChangesContext($event->connectionName, $event->queue)) {
+                return true; // Same context (or nothing to compare yet) — keep processing.
             }
 
-            static $lockedContextId = null;
-
-            // Peek at next job WITHOUT popping (no lock, no reserve, no attempt increment)
-            $nextJob = DB::table('jobs')
-                ->where('queue', $event->queue)
-                ->where(fn(QueryBuilder $query) => $query->whereNull('reserved_at')
-                    ->orWhere('reserved_at', '<=', now()->subSeconds(90)))
-                ->orderBy('id', 'asc')
-                ->first();
-
-            if (!$nextJob) {
-                return true; // No jobs available, continue looping
-            }
-
-            $payload = json_decode($nextJob->payload, true);
-            $nextContextId = $payload['context_id'] ?? null;
-
-            // Non-context-aware jobs don't affect locking
-            if ($nextContextId === null) {
-                return true;
-            }
-
-            // First context-aware job sets the locked context
-            if ($lockedContextId === null) {
-                $lockedContextId = $nextContextId;
-                return true;
-            }
-
-            // Different context detected - quit BEFORE popping
-            if ($nextContextId && $nextContextId !== $lockedContextId) {
-                app('queue.worker')->shouldQuit = true;
-                return false; // Skip this iteration, pauseWorker() will check shouldQuit and exit
-            }
-
-            return true;
+            // Context change — set the relaunch flag (only this branch does) and quit before popping;
+            // runJobsViaDaemon() then re-execs a fresh worker for the new context.
+            static::$relaunchOnContextChange = true;
+            app('queue.worker')->shouldQuit = true;
+            return false; // pauseWorker() will see shouldQuit and exit the loop.
         });
+    }
+
+    /**
+     * Peek (no pop/lock/reserve) at the next job for the connection/queue and report whether its
+     * context differs from the one this worker committed to in Queue::before. `null`/site is
+     * first-class, so any change counts; not gated on multi-context. Extracted from the Looping
+     * listener for testability (daemon-only — run/scheduler/web JobRunner never fire Looping).
+     *
+     * @return bool true if the worker should quit to re-bootstrap for the new context; false when it
+     *   hasn't committed yet, there is no next job, or the next job shares the committed context.
+     */
+    protected function nextJobChangesContext(string $connectionName, string $queue): bool
+    {
+        // Nothing processed yet → no committed context to compare against.
+        if (!$this->contextCommitted) {
+            return false;
+        }
+
+        // Mirror DatabaseQueue's availability predicate (available + reserved-but-expired) using the
+        // connection's retry_after, so the peek matches the job the worker will actually pop.
+        $retryAfter = (int) (config("queue.connections.{$connectionName}.retry_after") ?? 60);
+        $now = now()->getTimestamp();
+        $reservedExpiredBefore = $now - $retryAfter;
+
+        $nextJob = DB::table('jobs')
+            ->where('queue', $queue)
+            ->where(fn (QueryBuilder $query) => $query
+                ->where(fn (QueryBuilder $available) => $available
+                    ->whereNull('reserved_at')
+                    ->where('available_at', '<=', $now))
+                ->orWhere('reserved_at', '<=', $reservedExpiredBefore))
+            ->orderBy('id', 'asc')
+            ->first();
+
+        if (!$nextJob) {
+            return false; // No next job to compare against; keep looping.
+        }
+
+        $payload = json_decode($nextJob->payload, true);
+        $nextContextId = isset($payload['context_id']) ? (int) $payload['context_id'] : null;
+
+        return $nextContextId !== $this->committedContextId;
+    }
+
+    /**
+     * Reconcile the CLI context's schema and object after context-scoped plugins have loaded.
+     *
+     * Plugins can extend the `context` schema via Schema::get::context, but Queue::before caches the
+     * schema and builds the Context object before they register. Mirror Dispatcher::dispatch():
+     * force-reload the schema and rebuild the object so the job sees the complete set.
+     */
+    protected function reconcileCliContextAfterPluginLoad(ContextDAO $contextDao, int $contextId): void
+    {
+        // Re-fire the Schema::get::context hook now that the context-scoped plugin hooks exist.
+        app()->get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
+
+        // Rebuild the Context object from the now-enriched schema. getById performs no object
+        // caching, so this returns a fresh object that includes the plugin-added settings.
+        Application::get()->setCliContext($contextDao->getById($contextId));
     }
 
     /**

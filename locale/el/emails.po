@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2026-06-22 07:05+0000\n"
+"PO-Revision-Date: 2026-06-22 07:06+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/el/"
 ">\n"
@@ -124,9 +124,8 @@ msgstr ""
 "<br />\n"
 "Η απόφασή μας είναι: Επανυποβολή για αξιολόγηση"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
-msgstr "Απόφαση Επιμελητή"
+msgstr "Η υποβολή σας δεν έγινε δεκτή"
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"

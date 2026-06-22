@@ -136,13 +136,8 @@ class Validation
         $session->invalidate();
         $session->regenerateToken();
 
-        // Store last login identifier in a cookie for login page auto-fill
-        $sessionLifetime = max(1, (int) Config::getVar('general', 'session_lifetime', 30));
-        $request->setCookieVar(
-            'last_login_auth',
-            $user->getEmail() ?? $user->getUsername(),
-            time() + ($sessionLifetime * 24 * 60 * 60)
-        );
+        $session->put('username', $user->getUsername());
+        $session->put('email', $user->getEmail());
 
         $request->getSessionGuard()->updateSession(null);
 

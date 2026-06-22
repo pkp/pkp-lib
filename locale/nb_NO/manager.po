@@ -2991,8 +2991,9 @@ msgstr "Fagfellens anbefaling, for eksempel Godta innsending eller Avslå"
 msgid "emailTemplate.variable.review.round"
 msgstr "Vurderingsrunden, for eksempel Runde 1, eller Runde 2"
 
+#, fuzzy
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Filene fagfellen har lastet opp"
 
 msgid "emailTemplate.variable.review.name"
 msgstr ""

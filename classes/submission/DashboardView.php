@@ -50,6 +50,10 @@ class DashboardView
     public const TYPE_REVIEWER_ASSIGNMENTS_PUBLISHED = 'reviewer-assignments-published';
     public const TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED = 'reviewer-assignments-archived';
 
+    // Not a TYPE_* constant on purpose so getTypes() skips it - keeps search out of the side nav menu and views count.
+    // The editorial dashboard pulls it in separately via Repository::getSearchView().
+    public const VIEW_SEARCH = 'search';
+
     // The number of submissions in the view
     protected int $count = 0;
 

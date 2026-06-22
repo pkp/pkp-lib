@@ -903,6 +903,43 @@ abstract class Repository
     }
 
     /**
+     * Free-text search view for the editorial dashboard.
+     *
+     * Same role logic as the "active" view but with no status/stage filter, so it searches
+     * everything the user can reach - managers/admins across the whole context, sub-editors and
+     * assistants only their assigned submissions (via the 'assigned' op).
+     */
+    public function getSearchView(Context $context, User $user, array $selectedRoleIds = []): DashboardView
+    {
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        $roles = $roleDao->getByUserId($user->getId(), $context->getId());
+        $roleIds = [];
+        foreach ($roles as $role) {
+            $roleIds[] = $role->getRoleId();
+        }
+        if ($selectedRoleIds) {
+            $roleIds = array_values(array_intersect($roleIds, $selectedRoleIds));
+        }
+
+        $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $roleIds));
+        $assignedWithRoles = $canAccessUnassignedSubmission ? null : $selectedRoleIds;
+
+        $collector = Repo::submission()->getCollector()
+            ->filterByContextIds([$context->getId()]);
+
+        return new DashboardView(
+            DashboardView::VIEW_SEARCH,
+            __('search.searchResults'),
+            [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
+            $canAccessUnassignedSubmission
+                ? $collector
+                : $collector->assignedTo([$user->getId()], $assignedWithRoles),
+            $canAccessUnassignedSubmission ? null : 'assigned',
+            $canAccessUnassignedSubmission ? [] : ['assignedWithRoles' => $assignedWithRoles],
+        );
+    }
+
+    /**
      * Return a collection of all existing Versions
      * for the submission's publications
      *

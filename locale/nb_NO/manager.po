@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 12:09+0000\n"
+"PO-Revision-Date: 2026-06-22 13:45+0000\n"
 "Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -3043,28 +3043,30 @@ msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "Nettstedets primærkontakt sin e-postadresse"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Nettsidens e-postsignatur for automatiserte e-poster"
 
+#, fuzzy
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
+"Redaktørene som er tildelt denne innsendingen og som kan ta en avgjørelse"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Bidragets tittel"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Bidragets unike ID-nummer"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Bidragets sammendrag"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Forfatternes navn i en kort streng, som «Barnes m.fl.»"
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Forfatternes fulle navn"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Forfatters URL til bidraget"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr ""

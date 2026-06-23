@@ -46,6 +46,6 @@ class TestJobSuccess extends BaseJob
      */
     public function handle(): void
     {
-
+        error_log("TestJobSuccess processed for no context");
     }
 }

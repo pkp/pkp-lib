@@ -313,10 +313,13 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 if (!$context) {
                     $jobName = $event->job->payload()['displayName'] ?? 'Unknown';
 
-                    // Fail the job immediately with a meaningful exception
-                    throw new \RuntimeException(
+                    // The job's context no longer exists (e.g. the journal was deleted after the job was
+                    // enqueued) and won't reappear, so retrying is pointless. Fail it immediately.
+                    $event->job->fail(new \RuntimeException(
                         "Job execution failed: Invalid context_id {$contextId}. The context does not exist in the database for job: {$jobName}."
-                    );
+                    ));
+
+                    return;
                 }
 
                 // Set the CLI context before plugins load. loadCategory() already passes $contextId to

@@ -12,20 +12,20 @@
 
 namespace PKP\tests\classes\queue;
 
-use Mockery;
-use PKP\config\Config;
-use PKP\db\DAORegistry;
-use PKP\context\Context;
 use APP\core\Application;
-use PKP\tests\PKPTestCase;
-use PKP\core\PKPQueueProvider;
-use PKP\jobs\testJobs\TestJobFailure;
-use PKP\job\models\Job as PKPJobModel;
-use Illuminate\Queue\Events\JobProcessing;
-use PHPUnit\Framework\Attributes\CoversClass;
 use Illuminate\Contracts\Queue\Job as JobContract;
+use Illuminate\Queue\Events\JobProcessing;
+use Mockery;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\config\Config;
+use PKP\context\Context;
+use PKP\core\PKPQueueProvider;
+use PKP\db\DAORegistry;
+use PKP\job\models\Job as PKPJobModel;
+use PKP\jobs\testJobs\TestJobFailure;
 use PKP\jobs\testJobs\TestJobSuccess;
+use PKP\tests\PKPTestCase;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(PKPQueueProvider::class)]
@@ -33,7 +33,7 @@ class PKPQueueEventTest extends PKPTestCase
 {
     protected $tmpErrorLog;
     protected string $originalErrorLog;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -47,7 +47,7 @@ class PKPQueueEventTest extends PKPTestCase
     protected function tearDown(): void
     {
         ini_set('error_log', $this->originalErrorLog);
-        
+
         Application::get()->clearCliContext();
         Mockery::close();
 
@@ -90,6 +90,32 @@ class PKPQueueEventTest extends PKPTestCase
     }
 
     /**
+     * Setup mock context DAO whose getById() returns null for the given id (context does not exist)
+     */
+    protected function setupMissingContextForId(int $contextId): void
+    {
+        $contextDao = Application::get()->getContextDAO();
+
+        $mockDao = $this->getMockBuilder($contextDao::class)
+            ->onlyMethods(['getById'])
+            ->getMock();
+
+        $mockDao->expects($this->any())
+            ->method('getById')
+            ->with($contextId)
+            ->willReturn(null);
+
+        DAORegistry::registerDAO(
+            match (Application::get()->getName()) {
+                'ojs2' => 'JournalDAO',
+                'omp' => 'PressDAO',
+                'ops' => 'ServerDAO',
+            },
+            $mockDao
+        );
+    }
+
+    /**
      * Process the next job in test queue via queue worker
      */
     protected function processNextTestJob(): void
@@ -113,7 +139,7 @@ class PKPQueueEventTest extends PKPTestCase
         Application::get()->setCliContext(42);
         $this->assertEquals($mockContext->getId(), Application::get()->getCliContext()->getId());
 
-        dispatch(new TestJobFailure);
+        dispatch(new TestJobFailure());
 
         $this->processNextTestJob();
 
@@ -132,7 +158,7 @@ class PKPQueueEventTest extends PKPTestCase
         Application::get()->setCliContext(41);
         $this->assertEquals($mockContext->getId(), Application::get()->getCliContext()->getId());
 
-        dispatch(new TestJobSuccess);
+        dispatch(new TestJobSuccess());
 
         $this->processNextTestJob();
 
@@ -161,5 +187,33 @@ class PKPQueueEventTest extends PKPTestCase
         $payload = $event->job->payload();
         $this->assertArrayHasKey('context_id', $payload);
         $this->assertEquals(1, $payload['context_id']);
+    }
+
+    /**
+     * Test that the Queue::before listener fails the job IMMEDIATELY (no retries) when its context_id no
+     * longer resolves to a context (e.g. the journal was deleted after the job was enqueued). The
+     * listener calls $event->job->fail() rather than throwing, so the job goes straight to failed_jobs.
+     */
+    public function testInvalidContextIdFailsJobImmediately(): void
+    {
+        $this->setupMissingContextForId(999999);
+
+        $failedWith = null;
+        $mockJob = Mockery::mock(JobContract::class);
+        $mockJob->shouldReceive('payload')->andReturn([
+            'displayName' => 'TestJob',
+            'context_id' => 999999,
+        ]);
+        $mockJob->shouldReceive('fail')->once()->with(Mockery::on(function ($e) use (&$failedWith) {
+            $failedWith = $e;
+            return $e instanceof \RuntimeException;
+        }));
+
+        // Dispatching the event directly invokes the registered Queue::before listener, which fails the
+        // job in place (no throw to surface).
+        app('events')->dispatch(new JobProcessing('database', $mockJob));
+
+        $this->assertInstanceOf(\RuntimeException::class, $failedWith);
+        $this->assertStringContainsString('Invalid context_id 999999', $failedWith->getMessage());
     }
 }

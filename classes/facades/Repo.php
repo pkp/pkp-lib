@@ -37,6 +37,7 @@ use PKP\dataCitation\Repository as DataCitationRepository;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\editorialTask\Repository as EditorialTaskRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
+use PKP\funder\Repository as FunderRepository;
 use PKP\highlight\Repository as HighlightRepository;
 use PKP\institution\Repository as InstitutionRepository;
 use PKP\invitation\repositories\Repository as InvitationRepository;
@@ -106,6 +107,11 @@ class Repo
     public static function emailTemplate(): EmailTemplateRepository
     {
         return app(EmailTemplateRepository::class);
+    }
+
+    public static function funder(): FunderRepository
+    {
+        return app(FunderRepository::class);
     }
 
     public static function category(): CategoryRepository

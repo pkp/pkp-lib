@@ -20,7 +20,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
-use PKP\dataCitation\DataCitation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 
@@ -177,6 +176,13 @@ class Schema extends \PKP\core\maps\Schema
                         $retVal = null;
                     }
                     $output[$prop] = $retVal;
+                    break;
+                case 'funders':
+                    $data = [];
+                    foreach ($publication->getData('funders') as $funder) {
+                        $data[] = Repo::funder()->getSchemaMap()->map($funder);
+                    }
+                    $output[$prop] = $data;
                     break;
                 case 'reviewDoiItems':
                     $reviewDoiItemsByPub = $this->getReviewDoiItemsCache($publication);

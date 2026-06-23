@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/services/PKPContextService.php
  *
@@ -24,8 +25,8 @@ use APP\services\queryBuilders\ContextQueryBuilder;
 use Illuminate\Support\Arr;
 use PKP\announcement\Announcement;
 use PKP\announcement\AnnouncementTypeDAO;
-use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
@@ -51,10 +52,10 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\submission\GenreDAO;
-use PKP\userGroup\Repository as UserGroupRepository;
-use PKP\validation\ValidatorFactory;
-use PKP\userGroup\UserGroup;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\Repository as UserGroupRepository;
+use PKP\userGroup\UserGroup;
+use PKP\validation\ValidatorFactory;
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -435,14 +436,55 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             });
         }
 
+        $context = Application::get()->getRequest()->getContext();
+
         // Disallow empty DOI Prefix when enableDois is true
         if (isset($props[Context::SETTING_ENABLE_DOIS]) || isset($props[Context::SETTING_DOI_PREFIX])) {
-            $context = Application::get()->getRequest()->getContext();
             $validator->after(function ($validator) use ($context, $props) {
                 $enableDois = $props[Context::SETTING_ENABLE_DOIS] ?? $context->getData(Context::SETTING_ENABLE_DOIS);
 
                 if ($enableDois && empty($props[Context::SETTING_DOI_PREFIX])) {
                     $validator->errors()->add(Context::SETTING_DOI_PREFIX, __('doi.manager.settings.doiPrefix.required'));
+                }
+            });
+        }
+
+        // Disallow empty custom DOI suffix patterns when the custom pattern type is selected
+        if (
+            isset($props[Context::SETTING_DOI_SUFFIX_TYPE]) ||
+            isset($props[Context::SETTING_ENABLED_DOI_TYPES]) ||
+            isset($props[Repo::doi()::CUSTOM_PUBLICATION_PATTERN]) ||
+            isset($props[Repo::doi()::CUSTOM_REPRESENTATION_PATTERN])
+        ) {
+            $validator->after(function ($validator) use ($context, $props) {
+                $suffixType = $props[Context::SETTING_DOI_SUFFIX_TYPE]
+                    ?? $context?->getData(Context::SETTING_DOI_SUFFIX_TYPE);
+                $enabledTypes = $props[Context::SETTING_ENABLED_DOI_TYPES]
+                    ?? $context?->getData(Context::SETTING_ENABLED_DOI_TYPES)
+                    ?? [];
+
+                if ($suffixType !== Repo::doi()::SUFFIX_CUSTOM_PATTERN) {
+                    return;
+                }
+
+                if (
+                    in_array(Repo::doi()::TYPE_PUBLICATION, $enabledTypes) &&
+                    empty($props[Repo::doi()::CUSTOM_PUBLICATION_PATTERN])
+                ) {
+                    $validator->errors()->add(
+                        Repo::doi()::CUSTOM_PUBLICATION_PATTERN,
+                        __('doi.manager.settings.doiSuffixPattern.required')
+                    );
+                }
+
+                if (
+                    in_array(Repo::doi()::TYPE_REPRESENTATION, $enabledTypes) &&
+                    empty($props[Repo::doi()::CUSTOM_REPRESENTATION_PATTERN])
+                ) {
+                    $validator->errors()->add(
+                        Repo::doi()::CUSTOM_REPRESENTATION_PATTERN,
+                        __('doi.manager.settings.doiSuffixPattern.required')
+                    );
                 }
             });
         }

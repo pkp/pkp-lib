@@ -192,7 +192,7 @@ class UserGroupGridHandler extends GridHandler
         }
 
         if (!empty($stageIdFilter)) {
-            $builder->scopeWithStageIds([$stageIdFilter]);
+            $builder->withStageIds([$stageIdFilter]);
         }
 
         // pagination

@@ -1725,6 +1725,12 @@ msgstr "version.xml in plugin directory contains invalid data."
 msgid "manager.plugins.versionFileNotFound"
 msgstr "version.xml not found in plugin directory"
 
+msgid "manager.plugins.incompatiblePlugin.application"
+msgstr "The plugin version is not compatible with this application"
+
+msgid "manager.plugins.incompatiblePlugin.version"
+msgstr "The plugin version is not compatible with this application version"
+
 msgid "notification.localeEnabled"
 msgstr "Locale enabled."
 

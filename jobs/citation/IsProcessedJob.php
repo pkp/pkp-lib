@@ -26,11 +26,11 @@ class IsProcessedJob extends BaseJob implements \PKP\queue\ContextAwareJob
     protected int $citationId;
     protected int $contextId;
 
-    public function __construct(int $citationId, int $contextId)
+    public function __construct(int $contextId, int $citationId)
     {
         parent::__construct();
-        $this->citationId = $citationId;
         $this->contextId = $contextId;
+        $this->citationId = $citationId;
     }
 
     /**

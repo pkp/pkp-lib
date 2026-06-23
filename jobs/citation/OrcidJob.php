@@ -28,12 +28,12 @@ class OrcidJob extends BaseJob implements \PKP\queue\ContextAwareJob
     protected string $contactEmail = '';
     protected int $contextId;
 
-    public function __construct(int $citationId, string $contactEmail, int $contextId)
+    public function __construct(int $contextId, int $citationId, string $contactEmail)
     {
         parent::__construct();
+        $this->contextId = $contextId;
         $this->citationId = $citationId;
         $this->contactEmail = $contactEmail;
-        $this->contextId = $contextId;
     }
 
     /**

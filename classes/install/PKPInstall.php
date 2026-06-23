@@ -87,6 +87,7 @@ class PKPInstall extends Installer
         // Map valid config options to Illuminate database drivers
         $driver = PKPContainer::getDatabaseDriverName(strtolower($this->getParam('databaseDriver')));
 
+        // Charset/collation derive from the single [database] collation setting (pkp/pkp-lib#11563).
         $config = FacadesConfig::get('database');
         $config['default'] = $driver;
         $config['connections'][$driver] = [
@@ -97,9 +98,7 @@ class PKPInstall extends Installer
             'database' => $this->getParam('databaseName'),
             'username' => $this->getParam('databaseUsername'),
             'password' => $this->getParam('databasePassword'),
-            'charset' => 'utf8',
-            'collation' => 'utf8_general_ci',
-        ];
+        ] + PKPContainer::getDatabaseConnectionCharsetConfig($driver);
         FacadesConfig::set('database', $config);
 
         // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
@@ -109,6 +108,13 @@ class PKPInstall extends Installer
         app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
 
         $result = parent::preInstall();
+
+        // Warn (non-blocking) about a database charset/encoding problem — a non-UTF8
+        // PostgreSQL database, or (when installing over existing data) a charset mix.
+        // See pkp/pkp-lib#11563.
+        if ($warning = PKPContainer::getDatabaseCharsetWarning($driver)) {
+            $this->log($warning);
+        }
 
         if ($this->getParam('timeZone')) {
             $this->initializeDatabaseTimeZone($this->getParam('timeZone'));
@@ -192,6 +198,25 @@ class PKPInstall extends Installer
     public function createConfig()
     {
         $request = Application::get()->getRequest();
+
+        // The single [database] collation setting drives charset/collation (pkp/pkp-lib#11563).
+        // Record the effective collation explicitly so the installed config is self-documenting.
+        $driver = PKPContainer::getDatabaseDriverName(strtolower($this->getParam('databaseDriver')));
+        $charsetCollation = PKPContainer::getDatabaseCharsetCollation($driver);
+
+        $database = [
+            'driver' => $this->getParam('databaseDriver'),
+            'host' => $this->getParam('databaseHost'),
+            'username' => $this->getParam('databaseUsername'),
+            'password' => $this->getParam('databasePassword'),
+            'name' => $this->getParam('databaseName'),
+        ];
+
+        // PostgreSQL has no per-connection collation, so it is not written for pgsql.
+        if ($charsetCollation['collation'] !== null) {
+            $database['collation'] = $charsetCollation['collation'];
+        }
+
         return $this->updateConfig(
             [
                 'general' => [
@@ -202,16 +227,9 @@ class PKPInstall extends Installer
                     'allowed_hosts' => json_encode([$request->getServerHost(null, false)]),
                     'time_zone' => $this->getParam('timeZone')
                 ],
-                'database' => [
-                    'driver' => $this->getParam('databaseDriver'),
-                    'host' => $this->getParam('databaseHost'),
-                    'username' => $this->getParam('databaseUsername'),
-                    'password' => $this->getParam('databasePassword'),
-                    'name' => $this->getParam('databaseName')
-                ],
+                'database' => $database,
                 'i18n' => [
                     'locale' => $this->getParam('locale'),
-                    'connection_charset' => 'utf8',
                 ],
                 'files' => [
                     'files_dir' => $this->getParam('filesDir')

@@ -49,7 +49,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
             case Notification::NOTIFICATION_TYPE_NEW_QUERY:
                 $user = $headNote->user;
                 return __('submission.query.new', [
-                    'creatorName' => $user->getFullName(),
+                    'creatorName' => $user?->getFullName() ?? __('mailable.system'),
                     'noteContents' => Str::limit(PKPString::html2text($headNote->contents), 200),
                     'noteTitle' => Str::limit($query->title, 200),
                 ]);

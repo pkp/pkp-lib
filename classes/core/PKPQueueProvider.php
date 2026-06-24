@@ -155,10 +155,8 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         }
 
         Queue::failing(function (JobFailed $event) {
-            // Exception logging for a failed job is handled centrally by
-            // PKPExceptionHandler::report() (Illuminate\Queue\Worker::runJob() -> report()),
-            // which honors the [logs] log_exception switch. Here we only persist the
-            // durable failed_jobs record.
+            error_log($event->exception->__toString());
+            
             app('queue.failer')->log(
                 $event->connectionName,
                 $event->job->getQueue(),

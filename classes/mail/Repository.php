@@ -112,13 +112,12 @@ class Repository
             'name' => $class::getName(),
             'supportsTemplates' => $class::getSupportsTemplates(),
             'toRoleIds' => $class::getToRoleIds(),
-            'canAssignUserGroupToTemplates' => $this->isGroupsAssignableToTemplates($class),
         ];
     }
 
     /**
      * Get a full description of a mailable's properties, including any
-     * assigned email templates that are accessible to user.
+     * assigned email templates.
      */
     public function describeMailable(string $class, int $contextId): array
     {
@@ -134,19 +133,17 @@ class Repository
 
             $defaultTemplate = Repo::emailTemplate()->getByKey($contextId, $class::getEmailTemplateKey());
 
-            $request = Application::get()->getRequest();
-            $user = $request->getUser();
-
-            // Limit templates to only those accessible to the user's user group(s)
-            $userAccessibleTemplates = Repo::emailTemplate()->filterTemplatesByUserAccess(
-                collect(array_merge([$defaultTemplate], $templates->values()->toArray())),
-                $user,
-                $contextId
-            );
 
             $data['emailTemplates'] = Repo::emailTemplate()
                 ->getSchemaMap()
-                ->summarizeMany($userAccessibleTemplates, $class)
+                ->summarizeMany(
+                    collect(
+                        array_merge(
+                            [$defaultTemplate],
+                            $templates->values()->toArray()
+                        )
+                    )
+                )
                 ->values();
         }
 
@@ -186,18 +183,6 @@ class Repository
         }
         return true;
     }
-
-
-    /**
-     * Check if the templates of a given mailable can be assigned to specific groups.
-     *
-     * @param Mailable|string $mailable - Mailable class or qualified string referencing the class
-     */
-    public function isGroupsAssignableToTemplates(Mailable|string $mailable): bool
-    {
-        return !in_array(Mailable::FROM_SYSTEM, $mailable::getFromRoleIds()) && !in_array(Mailable::GROUP_OTHER, $mailable::getGroupIds());
-    }
-
     /**
      * Get the mailables used in this app
      */

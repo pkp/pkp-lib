@@ -46,6 +46,9 @@ ini_set('xdebug.show_exception_trace', '0');
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 
+// reduce noise in console by setting to ignore E_DEPRECATED and E_USER_DEPRECATED
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
 // Set up minimal PKP application environment
 require_once 'lib/pkp/includes/bootstrap.php';
 

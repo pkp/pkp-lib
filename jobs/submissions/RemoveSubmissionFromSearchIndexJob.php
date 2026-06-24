@@ -19,9 +19,10 @@ declare(strict_types=1);
 namespace PKP\jobs\submissions;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\jobs\BaseJob;
 
-class RemoveSubmissionFromSearchIndexJob extends BaseJob
+class RemoveSubmissionFromSearchIndexJob extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     /**
      * The submission id of the targeted submission to delete
@@ -39,6 +40,14 @@ class RemoveSubmissionFromSearchIndexJob extends BaseJob
         parent::__construct();
 
         $this->submissionId = $submissionId;
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return Repo::submission()->get($this->submissionId)->getData('contextId');
     }
 
     /**

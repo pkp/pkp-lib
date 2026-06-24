@@ -20,7 +20,6 @@ use APP\core\Application;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
-use PKP\config\Config;
 use Throwable;
 
 class PKPExceptionHandler implements ExceptionHandler
@@ -42,26 +41,14 @@ class PKPExceptionHandler implements ExceptionHandler
             return;
         }
 
-        if (Config::getVar('logs', 'log_exception', true)) {
-            try {
-                Log::error($exception->getMessage(), ['exception' => $exception]);
-            } catch (Throwable $loggingException) {
-                // Fall back to PHP's error log if Laravel logging itself fails
-                // (e.g. log file not writable, channel misconfigured, or invoked
-                // before the logging service provider is registered).
-                error_log($exception->__toString());
-                error_log('Logging failed: ' . $loggingException->__toString());
-            }
-            return;
-        }
-
-        // log_exception is disabled: keep the exception out of the configured log
-        // channel. On CLI (queue/scheduler) there is no PHP native fatal handler to
-        // record the throwable, so write it to PHP's error_log; on the web path the
-        // re-thrown exception is already recorded there by the native handler, so
-        // writing here too would duplicate the entry.
-        if (app()->runningInConsole()) {
+        try {
+            Log::error($exception->getMessage(), ['exception' => $exception]);
+        } catch (Throwable $loggingException) {
+            // Fall back to PHP's error log if Laravel logging itself fails
+            // (e.g. log file not writable, channel misconfigured, or invoked
+            // before the logging service provider is registered).
             error_log($exception->__toString());
+            error_log('Logging failed: ' . $loggingException->__toString());
         }
     }
 

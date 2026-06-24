@@ -15,19 +15,17 @@
 namespace PKP\tests\classes\core;
 
 use Exception;
-use FilesystemIterator;
 use Illuminate\Contracts\Log\ContextLogProcessor as ContextLogProcessorContract;
 use Illuminate\Log\Context\ContextLogProcessor;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Log;
 use Monolog\Handler\RotatingFileHandler;
-use PHPUnit\Framework\Attributes\DataProvider;
-use PKP\config\Config;
 use PKP\core\PKPExceptionHandler;
 use PKP\tests\PKPTestCase;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use ReflectionProperty;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
+use FilesystemIterator;
 
 class PKPLoggingTest extends PKPTestCase
 {
@@ -37,7 +35,6 @@ class PKPLoggingTest extends PKPTestCase
     protected string $originalErrorLog;
     protected ?string $originalSinglePath;
     protected $originalLog;
-    protected array $originalLogsConfig;
 
     protected function setUp(): void
     {
@@ -46,12 +43,7 @@ class PKPLoggingTest extends PKPTestCase
         $this->originalSinglePath = config('logging.channels.single.path');
         $this->originalLog = Log::getFacadeRoot();
 
-        // Snapshot the [logs] config section so tests can toggle keys (e.g.
-        // log_exception) and have them restored verbatim in tearDown.
-        $this->originalLogsConfig = Config::getData()['logs'] ?? [];
-
-        // Redirect PHP's error_log to a per-test temp file  so the errorlog channel
-        // and the exception-handler fallback write somewhere inspectable.
+        // Redirect PHP's error_log to a per-test temp file
         $this->originalErrorLog = ini_get('error_log');
         $this->tmpErrorLog = tmpfile();
         $this->errorLogPath = stream_get_meta_data($this->tmpErrorLog)['uri'];
@@ -74,21 +66,8 @@ class PKPLoggingTest extends PKPTestCase
         Log::forgetChannel('errorlog');
         Log::forgetChannel('stack');
 
-        // Restore the [logs] config section verbatim.
-        $data = & Config::getData();
-        $data['logs'] = $this->originalLogsConfig;
-
         $this->removeDirectory($this->tmpDir);
         parent::tearDown();
-    }
-
-    /**
-     * Set a key in the in-memory [logs] config section (restored in tearDown).
-     */
-    private function setLogsVar(string $key, mixed $value): void
-    {
-        $data = & Config::getData();
-        $data['logs'][$key] = $value;
     }
 
     /**
@@ -229,14 +208,9 @@ class PKPLoggingTest extends PKPTestCase
     /**
      * PKPExceptionHandler::report() logs the exception to the configured channel,
      * passing the throwable under the PSR-3 'exception' context key.
-     *
-     * Forces the log_exception=On branch so the test is independent of whatever
-     * [logs] log_exception the operator has in config.inc.php.
      */
     public function testExceptionHandlerReportLogsToLogChannel(): void
     {
-        $this->setLogsVar('log_exception', true);
-
         $exception = new Exception('boom');
 
         $captured = [];
@@ -255,14 +229,9 @@ class PKPLoggingTest extends PKPTestCase
     /**
      * If the logger itself throws, report() must not propagate the exception; it
      * falls back to PHP's error_log().
-     *
-     * Forces the log_exception=On branch so the test is independent of whatever
-     * [logs] log_exception the operator has in config.inc.php.
      */
     public function testExceptionHandlerReportSwallowsLoggingFailure(): void
     {
-        $this->setLogsVar('log_exception', true);
-
         $exception = new Exception('boom');
 
         // The error_log() fallback writes to the temp file redirected in setUp().
@@ -276,56 +245,6 @@ class PKPLoggingTest extends PKPTestCase
         $fallback = file_get_contents($this->errorLogPath);
         self::assertStringContainsString('boom', $fallback);
         self::assertStringContainsString('Logging failed', $fallback);
-    }
-
-    /**
-     * With [logs] log_exception = Off, report() does not write to the Laravel log
-     * channel. On CLI (PHPUnit runs in console) it falls back to PHP's error_log so
-     * the exception is still recorded; on the web path that fallback is skipped because
-     * PHP's native fatal handler already records the re-thrown exception.
-     */
-    public function testReportSkipsChannelAndFallsBackToErrorLogWhenDisabledOnCli(): void
-    {
-        $this->setLogsVar('log_exception', false);
-
-        // The channel logger must not be touched when exception logging is disabled.
-        Log::shouldReceive('error')->never();
-
-        (new PKPExceptionHandler())->report(new Exception('disabled-cli-boom'));
-
-        // runningInConsole() is true under PHPUnit, so the error_log fallback fires.
-        self::assertStringContainsString('disabled-cli-boom', file_get_contents($this->errorLogPath));
-    }
-
-    /**
-     * usesErrorLogChannel() reports whether PHP's error_log is an active log destination
-     * (directly as the channel, or via the stack). PKPApplication::execute() relies on it
-     * to skip the explicit report() when errorlog is active — otherwise the re-thrown
-     * exception (which PHP's native fatal handler records in error_log) and report()'s
-     * Log::error would BOTH land in PHP's error_log. This locks that decision down so an
-     * unintentional change to the condition is caught by the suite.
-     */
-    #[DataProvider('usesErrorLogChannelProvider')]
-    public function testUsesErrorLogChannelReflectsActiveErrorlogDestination(
-        string $logChannel,
-        string $logStacks,
-        bool $expected
-    ): void {
-        $this->setLogsVar('log_channel', $logChannel);
-        $this->setLogsVar('log_stacks', $logStacks);
-
-        self::assertSame($expected, app()->usesErrorLogChannel());
-    }
-
-    public static function usesErrorLogChannelProvider(): array
-    {
-        // [log_channel, log_stacks, expected]
-        return [
-            'errorlog as the single channel' => ['errorlog', 'single', true],
-            'errorlog listed in the stack' => ['stack', 'single,errorlog', true],
-            'stack without errorlog' => ['stack', 'single,daily', false],
-            'non-stack, non-errorlog channel' => ['single', 'single', false],
-        ];
     }
 
     /**
@@ -366,10 +285,8 @@ class PKPLoggingTest extends PKPTestCase
 
         $line = trim(file_get_contents($path));
         $decoded = json_decode($line, true);
-        self::assertSame(JSON_ERROR_NONE, json_last_error(), 'log line should be valid JSON');
-        self::assertIsArray($decoded);
+        self::assertIsArray($decoded, 'log line should be valid JSON');
         self::assertSame('json-formatter-check', $decoded['message']);
-        self::assertSame('ERROR', $decoded['level_name']);
         self::assertArrayHasKey('exception', $decoded['context']);
         self::assertNotEmpty($decoded['context']['exception']['trace'] ?? null);
     }

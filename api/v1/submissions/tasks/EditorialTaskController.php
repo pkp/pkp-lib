@@ -896,7 +896,7 @@ class EditorialTaskController extends PKPBaseController
         /**
          * If task/discussion is created for the review stage, we must also include reviewers
          * include only reviewers with an active assignment - not declined, not cancelled and for submissions which aren't published
-         * get only the latest review round of the active review from every reviewer.
+         * get reviews from all review rounds from every reviewer.
          * Also, don't show reviewer participants if the current user has only reviewer role
          */
         if (in_array($stageId, Application::get()->getReviewStages()) && !($roleReviewer && $reviewerIsOnlyRole)) {
@@ -954,25 +954,9 @@ class EditorialTaskController extends PKPBaseController
             ->filterByIsAccessibleByReviewer(true)
             ->getMany();
 
-        // Filter review assignments by latest review round by reviewer
-        $filteredReviewAssignments = [];
-        foreach ($reviewAssignments as $reviewAssignment) { /** @var ReviewAssignment $reviewAssignment */
-            $reviewerId = $reviewAssignment->getReviewerId();
-
-            if (!array_key_exists($reviewerId, $filteredReviewAssignments)) {
-                $filteredReviewAssignments[$reviewerId] = $reviewAssignment;
-                continue;
-            }
-
-            // Compare review rounds, keep the latest one
-            if ($reviewAssignment->getReviewRoundId() > $filteredReviewAssignments[$reviewerId]->getReviewRoundId()) {
-                $filteredReviewAssignments[$reviewerId] = $reviewAssignment;
-            }
-        }
-
         // Retrieve participants from review assignments
         $includedReviewAssignments = collect();
-        foreach ($filteredReviewAssignments as $reviewAssignment) { /** @var ReviewAssignment $reviewAssignment */
+        foreach ($reviewAssignments as $reviewAssignment) { /** @var ReviewAssignment $reviewAssignment */
 
             // Check whether participant should be anonymized
             $excludeParticipant = false;
@@ -995,8 +979,8 @@ class EditorialTaskController extends PKPBaseController
             $reviewerId = $reviewAssignment->getReviewerId();
             if (!$users->has($reviewerId)) {
                 $users->put($reviewerId, Repo::user()->get($reviewerId));
-                $includedReviewAssignments->push($reviewAssignment);
             }
+            $includedReviewAssignments->push($reviewAssignment);
         }
 
         return ['users' => $users, 'reviewAssignments' => $includedReviewAssignments];

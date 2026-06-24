@@ -33,6 +33,7 @@ class EditorialTaskParticipantResource extends JsonResource
 
         $user = $users->first(fn (User $user) => $user->getId() === $this->userId);
         $userAssignments = $stageAssignments->where('userId', $this->userId);
+        $reviewAssignmentsForUser = $reviewAssignments->where(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewerId() == $this->userId);
 
         // Identify participant roles
         $roles = [];
@@ -50,7 +51,7 @@ class EditorialTaskParticipantResource extends JsonResource
 
             // Get the name for the reviewer role if it exists
             if (
-                $reviewAssignments->isNotEmpty() &&
+                $reviewAssignmentsForUser->isNotEmpty() &&
                 $userGroup->roleId === Role::ROLE_ID_REVIEWER &&
                 is_null($reviewerRoleName)
             ) {
@@ -78,16 +79,13 @@ class EditorialTaskParticipantResource extends JsonResource
             }
         }
 
-        $reviewMethod = null;
-        if ($reviewAssignments->isNotEmpty()) {
-            $reviewAssignmentsForUser = $reviewAssignments->first(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewerId() == $this->userId);
-            if ($reviewAssignmentsForUser) {
-                $roles[Role::ROLE_ID_REVIEWER] = $reviewerRoleName;
-                $reviewMethods = $reviewAssignments->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewMethod())->unique();
-                $reviewMethod = $reviewMethods->first(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) ??
-                    $reviewMethods->first(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS) ??
-                    $reviewMethods->firstWhere(fn () => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN);
-            }
+        if ($reviewAssignmentsForUser->isNotEmpty()) {
+            $roles[Role::ROLE_ID_REVIEWER] = $reviewerRoleName;
+            $reviews = $reviewAssignmentsForUser->map(fn (ReviewAssignment $reviewAssignment) => [
+                'reviewId' => $reviewAssignment->getId(),
+                'reviewRound' => $reviewAssignment->getRound(),
+                'reviewMethod' => $reviewAssignment->getReviewMethod(),
+            ])->sortBy('reviewRound')->toArray();
         }
 
         $groupedRoles = [];
@@ -98,7 +96,7 @@ class EditorialTaskParticipantResource extends JsonResource
             ];
 
             if ($roleId == Role::ROLE_ID_REVIEWER) {
-                $role['reviewMethod'] = $reviewMethod;
+                $role['reviews'] = array_values($reviews ?? []);
             }
             $groupedRoles[] = $role;
         }

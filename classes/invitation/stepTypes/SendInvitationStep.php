@@ -18,6 +18,8 @@ use APP\core\Application;
 use Exception;
 use PKP\components\forms\invitation\UserDetailsForm;
 use PKP\context\Context;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\sections\Email;
 use PKP\invitation\sections\Form;
@@ -84,14 +86,15 @@ class SendInvitationStep extends InvitationStepTypes
      */
     private function invitationDetailsForm(Context $context): stdClass
     {
-        $localeNames = $context->getSupportedFormLocaleNames();
-        $locales = [];
-        foreach ($localeNames as $key => $name) {
-            $locales[] = [
-                'key' => $key,
-                'label' => $name,
-            ];
+        $supportedFormLocales = $context->getSupportedFormLocales();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        if (!in_array($sitePrimaryLocale, $supportedFormLocales)) {
+            $supportedFormLocales[] = $sitePrimaryLocale;
         }
+        $locales = collect(Locale::getFormattedDisplayNames($supportedFormLocales, null, LocaleMetadata::LANGUAGE_LOCALE_WITHOUT))
+            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+            ->values()
+            ->toArray();
         $sections = new Sections(
             'userDetails',
             __('userInvitation.enterDetails.stepName'),

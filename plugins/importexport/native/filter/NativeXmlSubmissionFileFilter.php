@@ -152,7 +152,14 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         }
 
         if ($sourceSubmissionFileId = $node->getAttribute('source_submission_file_id')) {
-            $submissionFile->setData('sourceSubmissionFileId', $sourceSubmissionFileId);
+            $mappedId = $deployment->getSubmissionFileDBId((int) $sourceSubmissionFileId);
+
+            if ($mappedId) {
+                $submissionFile->setData('sourceSubmissionFileId', $mappedId);
+            } else {
+                $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSourceMissing', ['id' => $sourceSubmissionFileId]));
+            }
+            
         }
 
         if ($terms = $node->getAttribute('terms')) {

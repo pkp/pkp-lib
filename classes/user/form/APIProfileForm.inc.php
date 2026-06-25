@@ -88,7 +88,7 @@ class APIProfileForm extends BaseProfileForm {
 		if ($apiKeyEnabled && !is_null($this->getData('generateApiKey'))) {
 			$secret = Config::getVar('security', 'api_key_secret', '');
 			if ($secret) {
-				$user->setData('apiKey', sha1(time()));
+				$user->setData('apiKey', bin2hex(random_bytes(32)));
 			}
 		}
 

@@ -66,7 +66,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
             $request->getContext()->getData('urlPath'),
             'announcement',
             'view',
-            $this->_announcement->getAttribute('announcementId')
+            $this->_announcement->id
         );
     }
 

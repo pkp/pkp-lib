@@ -26,8 +26,8 @@ use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\queue\JobRunner;
-use PKP\queue\WorkerConfiguration;
 use PKP\queue\PKPQueueDatabaseConnector;
+use PKP\queue\WorkerConfiguration;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
 {
@@ -156,7 +156,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
         Queue::failing(function (JobFailed $event) {
             error_log($event->exception->__toString());
-
+            
             app('queue.failer')->log(
                 $event->connectionName,
                 $event->job->getQueue(),

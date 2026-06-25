@@ -17,11 +17,12 @@ namespace PKP\orcid;
 use APP\author\Author;
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\config\Config;
+use Illuminate\Support\Facades\Log;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\jobs\orcid\RevokeOrcidToken;
 use PKP\user\User;
+use Psr\Log\LogLevel;
 
 class OrcidManager
 {
@@ -56,6 +57,7 @@ class OrcidManager
     public const API_MEMBER_SANDBOX = 'memberSandbox';
     public const LOG_LEVEL_ERROR = 'ERROR';
     public const LOG_LEVEL_INFO = 'INFO';
+    public const LOG_FILE = 'orcid.log';
 
     /**
      * Check if ORCID is configured at the site-level of the application.
@@ -324,7 +326,7 @@ class OrcidManager
         if (self::getLogLevel() !== self::LOG_LEVEL_INFO) {
             return;
         }
-        self::writeLog($message, self::LOG_LEVEL_INFO);
+        self::writeLog($message, LogLevel::INFO);
     }
 
     /**
@@ -335,7 +337,7 @@ class OrcidManager
         if (self::getLogLevel() !== self::LOG_LEVEL_ERROR) {
             return;
         }
-        self::writeLog($message, self::LOG_LEVEL_ERROR);
+        self::writeLog($message, LogLevel::ERROR);
     }
 
     /**
@@ -343,9 +345,7 @@ class OrcidManager
      */
     private static function writeLog(string $message, string $level): void
     {
-        $fineStamp = date('Y-m-d H:i:s') . substr(microtime(), 1, 4);
-        $logFilePath = Config::getVar('files', 'files_dir') . '/orcid.log';
-        error_log("{$fineStamp} {$level} {$message}\n", 3, $logFilePath);
+        Log::channel('orcid')->log($level, $message);
     }
 
     /**

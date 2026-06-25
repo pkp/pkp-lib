@@ -15,9 +15,11 @@
 
 namespace PKP\scheduledTask;
 
+use Illuminate\Support\Facades\Log;
 use PKP\config\Config;
-use PKP\core\Core;
-use PKP\file\PrivateFileManager;
+use PKP\core\PKPContainer;
+use Psr\Log\LogLevel;
+use Illuminate\Log\Logger;
 
 abstract class ScheduledTask
 {
@@ -37,6 +39,11 @@ abstract class ScheduledTask
     private ScheduledTaskHelper $helper;
 
     /**
+     * On-demand Laravel logger writing to this task's per-process execution log file.
+     */
+    private ?Logger $logger = null;
+
+    /**
      * Constructor.
      *
      * @param array $args The task arguments
@@ -45,28 +52,11 @@ abstract class ScheduledTask
     {
         $this->processId = uniqid();
 
-        // Check the scheduled task execution log folder.
-        $fileMgr = new PrivateFileManager();
-
-        $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
-        $classNameParts = explode('\\', $this::class); // Separate namespace info from class name
-
-        $this->executionLogFile = "{$scheduledTaskFilesPath}/"
-            . end($classNameParts)
-            . '-'
-            . $this->getProcessId()
-            . '-'
-            . date('Ymd')
-            . '.log';
-
-        if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
-            $success = $fileMgr->mkdirtree($scheduledTaskFilesPath);
-            if (!$success) {
-                // files directory wrong configuration?
-                assert(false);
-                $this->executionLogFile = '';
-            }
-        }
+        // The parent directory is auto-created by Monolog's StreamHandler on first write.
+        $this->executionLogFile = PKPContainer::getInstance()->logFilePath(
+            $this->getExecutionLogFileName(),
+            ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR
+        );
     }
 
     /**
@@ -98,6 +88,43 @@ abstract class ScheduledTask
     }
 
     /**
+     * The task's short (un-namespaced) class name, used for both the log file
+     * name and the on-demand channel name.
+     */
+    private function getShortClassName(): string
+    {
+        $parts = explode('\\', $this::class);
+        return end($parts);
+    }
+
+    /**
+     * File name for this task's per-process execution log,
+     * e.g. "EditorialReminders-66ab12cd9f3e1-20260603.log".
+     */
+    protected function getExecutionLogFileName(): string
+    {
+        return $this->getShortClassName() . '-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
+    }
+
+    /**
+     * Get the on-demand logger that writes to this task's per-process execution
+     * log file. Built once per task instance and memoized.
+     */
+    private function getLogger(): Logger
+    {
+        if ($this->logger === null) {
+            $this->logger = Log::build([
+                'driver' => 'single',
+                'path' => $this->executionLogFile,
+                'level' => 'debug',
+                'locking' => true,
+            ]);
+        }
+
+        return $this->logger;
+    }
+
+    /**
      * Add an entry into the execution log.
      *
      * @param string $message A translated message.
@@ -105,27 +132,18 @@ abstract class ScheduledTask
      */
     public function addExecutionLogEntry(string $message, ?string $type = null): void
     {
-        $logFile = $this->executionLogFile;
-
-        if (!$message) {
+        if (!$message || !$this->executionLogFile) {
             return;
         }
-        $date = '[' . Core::getCurrentDate() . '] ';
 
-        if ($type) {
-            $log = $date . '[' . __($type) . '] ' . $message;
-        } else {
-            $log = $date . $message;
-        }
+        $level = match ($type) {
+            ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR => LogLevel::ERROR,
+            ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_WARNING => LogLevel::WARNING,
+            ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE => LogLevel::NOTICE,
+            default => LogLevel::INFO,
+        };
 
-        $fp = fopen($logFile, 'ab');
-        if (flock($fp, LOCK_EX)) {
-            fwrite($fp, $log . PHP_EOL);
-            flock($fp, LOCK_UN);
-        } else {
-            throw new \Exception("Couldn't lock the file.");
-        }
-        fclose($fp);
+        $this->getLogger()->log($level, $message);
     }
 
     /**

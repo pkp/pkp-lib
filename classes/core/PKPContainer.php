@@ -24,8 +24,6 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Console\Kernel;
-use Illuminate\Http\Response;
-use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Facade;
@@ -39,6 +37,16 @@ use Throwable;
 
 class PKPContainer extends Container
 {
+    /**
+     * The directory name, under the storage (files) directory, where application logs are written
+     */
+    public const LOG_DIRECTORY = 'logs';
+
+    /**
+     * The application log filename, written under the storage logs directory
+     */
+    public const LOG_FILE_NAME = 'app.log';
+
     /**
      * Define if the app currently runing the unit test
      */
@@ -100,9 +108,10 @@ class PKPContainer extends Container
      * @param string $driver The Laravel database driver name (mysql, mariadb, pgsql)
      * @param array $connectionConfig The connection configuration array to augment
      *
-     * @return array The augmented connection configuration array
-     * 
      * @throws Exception if SSL certificate path is not set in the config file
+     *
+     * @return array The augmented connection configuration array
+     *
      */
     public static function addDatabaseSslOptionsToConnection(string $driver, array $connectionConfig): array
     {
@@ -117,7 +126,7 @@ class PKPContainer extends Container
         if ($driver === 'pgsql') {
             $connectionConfig['sslmode'] = $verify ? 'verify-full' : 'require';
             $connectionConfig['sslrootcert'] = $capath;
-            
+
             return $connectionConfig;
         }
 
@@ -140,48 +149,10 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
+        $this->instance('path.storage', Config::getVar('files', 'files_dir'));
+        $this->instance('path.public', $this->basePath . DIRECTORY_SEPARATOR . 'public');
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
-        $this->singleton(ExceptionHandler::class, function () {
-            return new class () implements ExceptionHandler {
-                public function shouldReport(Throwable $exception)
-                {
-                    return true;
-                }
-
-                public function report(Throwable $exception)
-                {
-                    error_log($exception->__toString());
-                }
-
-                public function render($request, Throwable $exception)
-                {
-                    $pkpRouter = Application::get()->getRequest()->getRouter();
-
-                    if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
-                        if ($exception instanceof \Illuminate\Validation\ValidationException) {
-                            return response()
-                                ->json($exception->errors(), $exception->status);
-                        }
-
-                        return response()->json(
-                            [
-                                'error' => $exception->getMessage()
-                            ],
-                            in_array($exception->getCode(), array_keys(Response::$statusTexts))
-                            ? $exception->getCode()
-                            : Response::HTTP_INTERNAL_SERVER_ERROR
-                        );
-                    }
-
-                    return null;
-                }
-
-                public function renderForConsole($output, Throwable $exception)
-                {
-                    echo (string) $exception;
-                }
-            };
-        });
+        $this->singleton(ExceptionHandler::class, PKPExceptionHandler::class);
 
         $this->singleton(
             KernelContract::class,
@@ -237,13 +208,14 @@ class PKPContainer extends Container
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new LaravelEventServiceProvider($this));
         $this->register(new EventServiceProvider($this));
-        $this->register(new LogServiceProvider($this));
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new PKPQueueProvider($this));
         $this->register(new MailServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
+        $this->register(new \Illuminate\Log\LogServiceProvider($this));
+        $this->register(new \Illuminate\Log\Context\ContextServiceProvider($this));
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
@@ -436,6 +408,8 @@ class PKPContainer extends Container
             'cipher' => PKPAppKey::getCipher(),
             'timezone' => Config::getVar('general', 'timezone', 'UTC'),
             'env' => Config::getVar('general', 'app_env', 'production'),
+            'debug' => Config::getVar('debug', 'show_stacktrace', false),
+            'url' => $_request->getBaseUrl(),
         ];
 
         // Database connection
@@ -514,9 +488,91 @@ class PKPContainer extends Container
         ];
 
         // Logging
-        $items['logging']['channels']['errorlog'] = [
-            'driver' => 'errorlog',
-            'level' => 'debug',
+        $logLevel = Config::getVar('logs', 'log_level', 'error');
+
+        // Optional Monolog formatter for the formatter-capable channels (single, daily,
+        // stderr, syslog). A null formatter falls back to Laravel's default LineFormatter
+        $logFormatter = Config::getVar('logs', 'log_formatter');
+        $logFormatter = ($logFormatter && class_exists($logFormatter)) ? $logFormatter : null;
+
+        $items['logging'] = [
+            'default' => Config::getVar('logs', 'log_channel', 'stack'),
+            'channels' => [
+                'stack' => [
+                    'driver' => 'stack',
+                    'channels' => array_values(array_filter(array_map(
+                        'trim',
+                        explode(',', Config::getVar('logs', 'log_stacks', 'single'))
+                    ))),
+                    'ignore_exceptions' => false,
+                ],
+
+                'single' => [
+                    'driver' => 'single',
+                    'path' => $this->logFilePath(),
+                    'level' => $logLevel,
+                    'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
+                ],
+
+                'daily' => [
+                    'driver' => 'daily',
+                    'path' => $this->logFilePath(),
+                    'level' => $logLevel,
+                    'days' => (int) Config::getVar('logs', 'log_daily_days', 30),
+                    'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
+                ],
+
+                'stderr' => [
+                    'driver' => 'monolog',
+                    'level' => $logLevel,
+                    'handler' => \Monolog\Handler\StreamHandler::class,
+                    'with' => [
+                        'stream' => 'php://stderr',
+                    ],
+                    'processors' => [\Monolog\Processor\PsrLogMessageProcessor::class],
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
+                ],
+
+                'syslog' => [
+                    'driver' => 'syslog',
+                    'level' => $logLevel,
+                    'facility' => LOG_USER,
+                    'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
+                ],
+
+                'errorlog' => [
+                    'driver' => 'errorlog',
+                    'level' => $logLevel,
+                    'replace_placeholders' => true,
+                ],
+
+                'null' => [
+                    'driver' => 'monolog',
+                    'handler' => \Monolog\Handler\NullHandler::class,
+                ],
+
+                'emergency' => [
+                    'path' => $this->logFilePath(),
+                ],
+
+                // ORCID writes to its own file; OrcidManager::getLogLevel() does the
+                // filtering, so this channel passes everything (level => debug).
+                'orcid' => [
+                    'driver' => 'single',
+                    'path' => $this->logFilePath(\PKP\orcid\OrcidManager::LOG_FILE),
+                    'level' => 'debug', // intentionally to debug and let ORCID Manager filter out unwanted levels
+                    'replace_placeholders' => true,
+                    'formatter' => $logFormatter,
+                    'formatter_with' => ['includeStacktraces' => true],
+                ],
+            ],
         ];
 
         // Mail Service
@@ -607,6 +663,76 @@ class PKPContainer extends Container
     public function path(string $path = ''): string
     {
         return $this->basePath($path);
+    }
+
+    /**
+     * Get the path to the storage directory
+     */
+    public function storagePath(string $path = ''): string
+    {
+        return $this->get('path.storage') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the public directory
+     */
+    public function publicPath(string $path = ''): string
+    {
+        return $this->basePath() . DIRECTORY_SEPARATOR . 'public' . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the config directory
+     */
+    public function configPath(string $path = ''): string
+    {
+        return $this->get('path.config') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the resource
+     */
+    public function resourcePath(string $path = ''): string
+    {
+        return $this->basePath() . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the absolute path to the application/given log file under the storage log directory.
+     */
+    public function logFilePath(string $logFileName = self::LOG_FILE_NAME, string $logDirName = self::LOG_DIRECTORY): string
+    {
+        return $this->storagePath($logDirName . '/' . $logFileName);
+    }
+
+    /**
+     * Whether PHP's error_log is an active logging destination (directly or via the stack).
+     */
+    public function usesErrorLogChannel(): bool
+    {
+        $channel = Config::getVar('logs', 'log_channel', 'stack');
+
+        if ($channel === 'errorlog') {
+            return true;
+        }
+
+        if ($channel !== 'stack') {
+            return false;
+        }
+
+        return in_array(
+            'errorlog',
+            array_map('trim', explode(',', Config::getVar('logs', 'log_stacks', 'single'))),
+            true
+        );
+    }
+
+    /**
+     * Get the current locale
+     */
+    public function getLocale(): string
+    {
+        return \PKP\facades\Locale::getLocale();
     }
 
     /**

@@ -21,6 +21,7 @@ use DateTime;
 use DateTimeZone;
 use Exception;
 use GuzzleHttp\Client;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MariaDbConnection;
 use Illuminate\Database\MySqlConnection;
@@ -359,7 +360,9 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
                 $dispatcher->dispatch($this->getRequest());
             } catch (\Throwable $t) {
                 if (Hook::run('PKPApplication::execute::catch', ['throwable' => $t]) !== Hook::ABORT) {
-                    // No hook handler took ownership; throw again
+                    // No hook handler took ownership; report through Laravel's
+                    // exception handler so it lands in the configured log channel.
+                    app(ExceptionHandler::class)->report($t);
                     throw $t;
                 }
             }

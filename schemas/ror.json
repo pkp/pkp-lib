@@ -1,6 +1,6 @@
 {
 	"title": "Ror",
-	"description": "Ror is an institution on ror.org, this table is a cache of the data dump.",
+	"description": "ROR is an institution on ror.org; this table is a cache of the data dump.",
 	"required": [
 		"ror",
 		"displayLocale",
@@ -16,13 +16,13 @@
 		},
 		"id": {
 			"type": "integer",
-			"description": "The unique id of ror in the database.",
+			"description": "The unique ID of this ROR record in the database.",
 			"readOnly": true,
 			"apiSummary": true
 		},
 		"ror": {
 			"type": "string",
-			"description": "The [ROR](https://ror.org/) id of this institution.",
+			"description": "The [ROR](https://ror.org/) ID of this institution.",
 			"apiSummary": true,
 			"validation": [
 				"nullable",
@@ -39,12 +39,12 @@
 		},
 		"isActive": {
 			"type": "boolean",
-			"description": "Whether this organisation is active or inactive.",
+			"description": "Whether this institution is active or inactive.",
 			"apiSummary": true
 		},
 		"searchPhrase": {
 			"type": "string",
-			"description": "Search phrase for lookups, consists of ROR iD and all names.",
+			"description": "Search phrase for lookups, which consists of ROR ID and all names.",
 			"writeOnly": true,
 			"validation": [
 				"nullable"

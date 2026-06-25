@@ -35,14 +35,14 @@ class ReviewerSuggestionResource extends JsonResource
             'familyName' => $this->familyName ?: (object) $this->familyName,
             'givenName' => $this->givenName,
             'fullName' => $this->fullname,
-            'displayInitial' => $this->displayInitial,
+            'displayInitials' => $this->displayInitials,
             'email' => $this->email,
             'orcidId' => $this->orcidId,
             'affiliation' => $this->affiliation,
             'suggestionReason' => $this->suggestionReason,
             'approvedAt' => $this->approvedAt,
             'existingUserId' => $this->existingUser?->getId(),
-            'existingReviewerRole' => $this->existingReviewerRole,
+            'hasExistingReviewerRole' => $this->hasExistingReviewerRole,
             'reviewerId' => $this->reviewerId,
         ];
 

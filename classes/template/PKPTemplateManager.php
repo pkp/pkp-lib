@@ -254,6 +254,9 @@ class PKPTemplateManager extends Smarty
                 if (Config::getVar('captcha', 'captcha_on_login')) {
                     array_push($contexts, 'frontend-login-index', 'frontend-login-signIn');
                 }
+                if (Config::getVar('captcha', 'captcha_on_lost_password')) {
+                    array_push($contexts, 'frontend-login-lostPassword', 'frontend-login-requestResetPassword');
+                }
                 if (count($contexts)) {
                     $this->addJavaScript(
                         'recaptcha',

@@ -98,21 +98,15 @@ class Email extends Section
 
         $emailTemplates = collect();
         if ($this->mailable::getEmailTemplateKey()) {
-            $user = $request->getUser();
-
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $this->mailable::getEmailTemplateKey());
-            if ($emailTemplate && Repo::emailTemplate()->isTemplateAccessibleToUser($user, $emailTemplate, $context->getId())) {
+            if ($emailTemplate) {
                 $emailTemplates->add($emailTemplate);
             }
             Repo::emailTemplate()
                 ->getCollector($context->getId())
                 ->alternateTo([$this->mailable::getEmailTemplateKey()])
                 ->getMany()
-                ->each(function (EmailTemplate $template) use ($context, $user, $emailTemplates) {
-                    if(Repo::emailTemplate()->isTemplateAccessibleToUser($user, $template, $context->getId())) {
-                        $emailTemplates->add($template);
-                    }
-                });
+                ->each(fn (EmailTemplate $e) => $emailTemplates->add($e));
         }
 
         return Repo::emailTemplate()->getSchemaMap()->mapMany($emailTemplates)->toArray();

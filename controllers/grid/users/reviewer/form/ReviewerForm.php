@@ -520,26 +520,17 @@ class ReviewerForm extends Form
      */
     protected function getEmailTemplates(): array
     {
-        $contextId = Application::get()->getRequest()->getContext()->getId();
-
         $defaultTemplate = Repo::emailTemplate()->getByKey(
             Application::get()->getRequest()->getContext()->getId(),
             ReviewRequest::getEmailTemplateKey()
         );
-
-        $user = Application::get()->getRequest()->getUser();
-        if ($defaultTemplate && Repo::emailTemplate()->isTemplateAccessibleToUser($user, $defaultTemplate, $contextId)) {
-            $templateKeys = [ReviewRequest::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
-        }
-
+        $templateKeys = [ReviewRequest::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
         $alternateTemplates = Repo::emailTemplate()->getCollector(Application::get()->getRequest()->getContext()->getId())
             ->alternateTo([ReviewRequest::getEmailTemplateKey()])
             ->getMany();
 
         foreach ($alternateTemplates as $alternateTemplate) {
-            if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $alternateTemplate, $contextId)) {
-                $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
-            }
+            $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
         }
 
         return $templateKeys;

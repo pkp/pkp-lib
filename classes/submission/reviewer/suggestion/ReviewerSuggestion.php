@@ -16,11 +16,11 @@ namespace PKP\submission\reviewer\suggestion;
 
 use APP\facades\Repo;
 use Carbon\Carbon;
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use PKP\core\traits\ModelWithSettings;
 use PKP\security\Role;
 
@@ -97,7 +97,7 @@ class ReviewerSuggestion extends Model
     {
         return [
             'fullName',
-            'displayInitial',
+            'displayInitials',
             'familyName',
             'givenName',
             'affiliation',
@@ -110,7 +110,7 @@ class ReviewerSuggestion extends Model
      */
     public function isApproved(): bool
     {
-        return $this->approvedAt ? true : false;
+        return (bool)$this->approvedAt;
     }
 
     /**
@@ -150,7 +150,7 @@ class ReviewerSuggestion extends Model
     /**
      * Get the display initial
      */
-    protected function displayInitial(): Attribute
+    protected function displayInitials(): Attribute
     {
         return Attribute::make(
             get: fn () => collect($this->fullName)
@@ -162,7 +162,6 @@ class ReviewerSuggestion extends Model
                     )
                 )
                 ->toArray()
-
         )->shouldCache();
     }
 
@@ -179,7 +178,7 @@ class ReviewerSuggestion extends Model
     /**
      * If this suggestion already has a review role when already there is an existing user association
      */
-    protected function existingReviewerRole(): Attribute
+    protected function hasExistingReviewerRole(): Attribute
     {
         return Attribute::make(
             get: fn () => (bool)$this->existingUser?->hasRole(
@@ -247,8 +246,7 @@ class ReviewerSuggestion extends Model
         Carbon $approvedAtTimestamp,
         ?int $reviewerId = null,
         ?int $approverId = null
-    ): bool
-    {
+    ): bool {
         return (bool)$this->update([
             'approvedAt' => $approvedAtTimestamp,
             'reviewerId' => $reviewerId,

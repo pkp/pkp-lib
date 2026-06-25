@@ -113,7 +113,7 @@ class APIProfileForm extends BaseProfileForm
         $apiKeyAction = (int)$this->getData('apiKeyAction');
 
         $user->setData('apiKeyEnabled', $apiKeyAction === self::API_KEY_NEW ? 1 : null);
-        $user->setData('apiKey', $apiKeyAction === self::API_KEY_NEW ? sha1(time()) : null);
+        $user->setData('apiKey', $apiKeyAction === self::API_KEY_NEW ? bin2hex(random_bytes(32)) : null);
 
         $this->setData('apiKeyAction', (int)!$apiKeyAction);
 

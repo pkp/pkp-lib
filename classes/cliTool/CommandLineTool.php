@@ -57,7 +57,7 @@ class CommandLineTool
     /** @var \PKP\user\User the user provided */
     public ?User $user = null;
 
-    public function __construct($argv = [])
+    public function __construct($argv = [], $loadPlugins = true)
     {
         // Initialize the request object with a page router
         $application = Application::get();
@@ -68,8 +68,10 @@ class CommandLineTool
         $router->setApplication($application);
         $request->setRouter($router);
 
-        // Initialize the locale and load generic plugins.
-        PluginRegistry::loadCategory('generic');
+        if ($loadPlugins) {
+            // Initialize the locale and load generic plugins.
+            PluginRegistry::loadCategory('generic');
+        }
 
         $this->argv = isset($argv) && is_array($argv) ? $argv : [];
 

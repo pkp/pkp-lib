@@ -345,7 +345,7 @@ class Repository
             new CrossrefJob($context->getId(), $citation->getId(), $contactEmail),
             new OpenAlexJob($context->getId(), $citation->getId(), $contactEmail),
             new OrcidJob($context->getId(), $citation->getId(), $contactEmail),
-            new IsProcessedJob($context->getId(), $citation->getId())
+            new IsProcessedJob($context->getId(), $citation->getId()),
         ];
 
         Bus::chain($jobs)

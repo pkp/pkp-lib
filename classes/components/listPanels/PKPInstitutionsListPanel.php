@@ -28,9 +28,6 @@ class PKPInstitutionsListPanel extends ListPanel
     /** Form for adding or editing an institution */
     public ?PKPInstitutionForm $form = null;
 
-    /**Query parameters to pass if this list executes GET requests  */
-    public array $getParams = [];
-
     /** Max number of items available to display in this list panel  */
     public int $itemsMax = 0;
 

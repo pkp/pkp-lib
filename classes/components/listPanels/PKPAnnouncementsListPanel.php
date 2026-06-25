@@ -26,9 +26,6 @@ class PKPAnnouncementsListPanel extends ListPanel
     /** @param \PKP\components\forms\announcement\PKPAnnouncementForm Form for adding or editing an email template */
     public $form = null;
 
-    /** @var array Query parameters to pass if this list executes GET requests  */
-    public $getParams = [];
-
     /** @var int Max number of items available to display in this list panel  */
     public $itemsMax = 0;
 

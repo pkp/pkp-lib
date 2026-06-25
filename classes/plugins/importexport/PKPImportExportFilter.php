@@ -88,4 +88,16 @@ abstract class PKPImportExportFilter extends PersistableFilter
 
         return $currentFilter;
     }
+
+    /**
+     * Get the import filter for a given element.
+     *
+     * @param string $elementName Name of XML element
+     *
+     * @return Filter
+     */
+    public function getImportFilter($elementName)
+    {
+        return new Exception('Not implemented');
+    }
 }

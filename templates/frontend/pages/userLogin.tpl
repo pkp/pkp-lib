@@ -16,6 +16,8 @@
 		{translate key="user.login"}
 	</h1>
 
+	{call_hook name="Templates::Login::BeforeForm"}
+
 	<p>
 		{translate key="common.requiredField"}
 	</p>
@@ -112,6 +114,8 @@
 			</div>
 		</fieldset>
 	</form>
+
+	{call_hook name="Templates::Login::AfterForm"}
 </div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

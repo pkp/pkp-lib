@@ -41,11 +41,7 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
             }
 
             // need to make sure that all changes to session(via pull/put) are reflected in session storage
-            try {
-                Application::get()->getRequest()->getSessionGuard()->getSession()->save();
-            } catch (\Throwable $e) {
-                error_log('Session save failed: ' . $e->getMessage());
-            }
+            Application::get()->getRequest()->getSessionGuard()->getSession()->save();
         });
     }
 

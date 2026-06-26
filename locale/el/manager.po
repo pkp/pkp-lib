@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-26 12:02+0000\n"
+"PO-Revision-Date: 2026-06-26 12:27+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1100,33 +1100,46 @@ msgstr "Ειδοποίηση όλων των συγγραφέων"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Ποιος θα πρέπει να λαμβάνει ειδοποιητικό email όταν προκύπτει μια απόφαση "
+"της συντακτικής επιτροπής;"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
+"Αποστολή ειδοποίησης μέσω ηλεκτρονικού ταχυδρομείου σε όλους τους συγγραφείς "
+"της υποβολής."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Αποστολή ειδοποίησης μέσω ηλεκτρονικού ταχυδρομείου στους συγγραφείς που "
+"έχουν εμπλοκή στη ροή εργασιών της υποβολής. Συνήθως, πρόκειται για τον "
+"συγγραφέα που υποβάλλει την εργασία."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Ειδοποιήσεις"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Ειδοποίηση του κύριου υπεύθυνου επικοινωνίας"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Ναι, αποστολή αντιγράφου στο {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Όχι"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Ενημέρωση Όλων"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Θα σταλεί ένα αντίγραφο του μηνύματος ηλεκτρονικού ταχυδρομείου επιβεβαίωσης "
+"της υποβολής σε όλες τις διευθύνσεις ηλεκτρονικού ταχυδρομείου που "
+"καταχωρούνται εδώ. Διαχωρίστε τις πολλαπλές διευθύνσεις ηλεκτρονικού "
+"ταχυδρομείου με κόμμα. Παράδειγμα: one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
 msgstr ""
+"Μία ή περισσότερες από τις διευθύνσεις ηλεκτρονικού ταχυδρομείου δεν είναι "
+"έγκυρες."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1136,19 +1149,21 @@ msgstr ""
 "μηνύματος μπορεί να αποσταλεί ως εξής:"
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "Ειδοποίηση"
 
 msgid "manager.setup.notifyUsers.description"
-msgstr ""
+msgstr "Επιλέξτε τους χρήστες στους οποίους θα σταλεί η ειδοποίηση μέσω email."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr ""
+msgstr "Να μου σταλεί ένα αντίγραφο αυτού του email στη διεύθυνση {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Αποστολή Email"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"Πρόκειται να στείλετε ένα email σε {$total} χρήστες. Σίγουρα θέλετε να "
+"στείλετε αυτό το email;"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1157,7 +1172,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Αποστολή άλλου email"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Πολιτική Ανοικτής Πρόσβασης"
@@ -1282,11 +1297,10 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Προεπιλεγμένη Λειτουργία Αξιολόγησης"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Προσθέστε έναν σύνδεσμο για την <button type=\"button\">Εξασφάλιση τυφλής "
-"κρίσης</button> κατά τη μεταφόρτωση"
+"Παρουσιάστε έναν σύνδεσμο για το <button type=\"button\">πώς θα διασφαλίσετε "
+"ότι όλα τα αρχεία θα ανωνυμοποιηθούν</button> κατά το ανέβασμα"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Σχέσεις Χορηγών και Περιγραφή Πολιτικής"
@@ -3693,3 +3707,38 @@ msgstr "Έτος Έκδοσης"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Εξαίρεση Μηνιαίων Στοιχείων"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Τα email έχουν προστεθεί με επιτυχία στην ουρά για αποστολή το συντομότερο "
+"δυνατό."
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Υποβολή Αξιολόγησης - Πριν από τις"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Υποβολή Αξιολόγησης – Μετά από τις"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} ημέρες πριν την ημερομηνία λήξης"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Κανένα"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Δεν έχει οριστεί υπενθύμιση"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Αποστολή υπενθύμισης μέσω email για απάντηση στο αίτημα αξιολόγησης (εάν ο "
+"αξιολογητής δεν έχει απαντήσει ακόμη στο αίτημα αξιολόγησης) ή για υποβολή "
+"της αξιολόγησης (εάν ο αξιολογητής δεν έχει υποβάλει ακόμη την αξιολόγηση)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Απάντηση σε Αίτημα Αξιολόγησης – Πριν από τις"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} ημέρες μετά από την ημερομηνία λήξης"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Απάντηση σε Αίτημα Αξιολόγησης - Μετά από τις"

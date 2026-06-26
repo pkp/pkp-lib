@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-26 12:46+0000\n"
+"PO-Revision-Date: 2026-06-26 12:53+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1373,44 +1373,49 @@ msgstr ""
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Το παρακάτω εμφανίζεται στους συγγραφείς κατά το τελικό στάδιο του οδηγού "
+"υποβολής, όταν καλούνται να ελέγξουν όλες τις πληροφορίες που έχουν παράσχει "
+"πριν από την υποβολή της εργασίας τους."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Καθοδήγηση Συγγραφέα"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Λίστα ελέγχου προετοιμασίας υποβολής"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Κατά την υποβολή εργασιών στο περιοδικό, ζητείται από τους Συγγραφείς να "
-"επιβεβαιώσουν ότι η υποβολή συμβαδίζει με τις υποδείξεις της λίστας ελέγχου. "
-"Η λίστα ελέγχου εμφανίζεται επίσης στις «Οδηγίες για τους Συγγραφείς», στην "
-"σελίδα «Σχετικά με το περιοδικό». Μπορείτε να επεξεργαστείτε τα στοιχεία της "
-"λίστας παρακάτω. Για την ολοκλήρωση της υποβολής από τους Συγγραφείς, "
-"απαιτείται η επιβεβαίωση όλων των στοιχείων της λίστας."
+"Το παρακάτω εμφανίζεται στους συγγραφείς όταν ξεκινούν τη διαδικασία "
+"υποβολής. Ζητείται από τους συγγραφείς να επιβεβαιώσουν ότι η υποβολή τους "
+"πληροί όλες τις απαιτήσεις που αναφέρονται εδώ, προτού ξεκινήσουν τη "
+"διαδικασία υποβολής."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
+"Να μαρκαριστεί αυτή η ενότητα ως ανενεργή και μην επιτρέπονται νέες υποβολές "
+"σε αυτήν."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Θέλετε σίγουρα να απενεργοποιήσετε αυτή την ενότητα;"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Θέλετε σίγουρα να ενεργοποιήσετε αυτή την ενότητα;"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Αναθέσεις Επιμελητών"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Επιλέξτε τους επιμελητές που θα πρέπει να ανατεθούν αυτόματα σε όλες τις "
+"νέες υποβολές σε αυτή την ενότητα."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Ανάθεση του/της {$name} με ρόλο: {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Επιλέξτε τους επιμελητές που θα πρέπει να ανατεθούν αυτόματα σε όλες τις "
+"νέες υποβολές σε αυτή την κατηγορία."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Επιλογές Πρόσβασης στον Ιστότοπο"

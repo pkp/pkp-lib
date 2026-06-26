@@ -409,6 +409,11 @@ abstract class PKPDashboardHandler extends Handler
         $dashboardViews = Repo::submission()->getDashboardViews($context, $user, $this->selectedRoleIds);
         $viewsData = $dashboardViews->map(fn (DashboardView $dashboardView) => $dashboardView->getData())->values()->toArray();
 
+        // The search view only shows in the page's list - not as a clickable menu item or a count.
+        if ($this->dashboardPage === DashboardPage::EditorialDashboard) {
+            $viewsData[] = Repo::submission()->getSearchView($context, $user, $this->selectedRoleIds)->getData();
+        }
+
         Hook::call('Dashboard::views', [&$viewsData, $userRoles]);
 
         return $viewsData;

@@ -97,6 +97,28 @@ class TaskResource extends JsonResource
                 'userFullName' => $activity->getLocalizedData('userFullName'),
             ]);
 
+            // The task file event log stores the submission file id under 'fileId'
+            // (SubmissionFile::getId() returns the submissionFileId), so fall back to it.
+            $submissionFileId = $activity->getData('submissionFileId') ?: $activity->getData('fileId');
+            $downloadUrl = null;
+            // Only the upload event has a downloadable file; a removed file no longer exists.
+            if ($submissionFileId && $activity->getEventType() == PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_FILE_UPLOADED) {
+                $context = PKPApplication::get()->getRequest()->getContext();
+                $downloadUrl = PKPApplication::get()->getDispatcher()->url(
+                    PKPApplication::get()->getRequest(),
+                    PKPApplication::ROUTE_COMPONENT,
+                    $context->getData('urlPath'),
+                    'api.file.FileApiHandler',
+                    'downloadFile',
+                    null,
+                    [
+                        'submissionFileId' => $submissionFileId,
+                        'submissionId' => $activity->getData('submissionId') ?: $submission->getId(),
+                        'stageId' => $activity->getData('stageId') ?: $this->stageId,
+                    ]
+                );
+            }
+
             $latestActivities[] = [
                 'id' => $activity->getId(),
                 'message' => $activityMessage,
@@ -104,15 +126,18 @@ class TaskResource extends JsonResource
                 'date' => $activity->getDateLogged(),
                 'userFullName' => $activity->getLocalizedData('userFullName'),
                 'userId' => $activity->getData('userId'),
-                'settings' => array_intersect_key(
-                    $activity->getAllData(),
-                    array_flip([
-                        'fileId',
-                        'filename',
-                        'stageId',
-                        'submissionFileId',
-                    ])
-                ),
+                'settings' => [
+                    ...array_intersect_key(
+                        $activity->getAllData(),
+                        array_flip([
+                            'fileId',
+                            'filename',
+                            'stageId',
+                            'submissionFileId',
+                        ])    
+                    ), 
+                    'downloadUrl' => $downloadUrl,
+                ],
             ];
         }
 

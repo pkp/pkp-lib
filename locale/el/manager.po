@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-26 12:27+0000\n"
+"PO-Revision-Date: 2026-06-26 12:46+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1329,7 +1329,7 @@ msgid "manager.setup.theme"
 msgstr "Θέμα"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Ιδρύματα"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1341,18 +1341,35 @@ msgstr "Το θέμα που επιλέξατε δεν είναι εγκατεσ
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Το παρακάτω εμφανίζεται στους συγγραφείς πριν ξεκινήσουν τη διαδικασία "
+"υποβολής. Δώστε μια σύντομη εξήγηση της διαδικασίας υποβολής, ώστε ο "
+"συγγραφέας να γνωρίζει τι να περιμένει."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Το παρακάτω εμφανίζεται στους συγγραφείς κατά τη διάρκεια του σταδίου "
+"μεταφόρτωσης αρχείων. Δώστε μια σύντομη εξήγηση σχετικά με τα αρχεία που "
+"πρέπει να κοινοποιήσουν οι συγγραφείς μαζί με την υποβολή τους."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Το παρακάτω εμφανίζεται στους συγγραφείς κατά το βήμα των συντελεστών. Δώστε "
+"μια σύντομη εξήγηση σχετικά με τις πληροφορίες που πρέπει να παρέχει ο "
+"συγγραφέας για τον εαυτό του, τους συν-συγγραφείς και τυχόν άλλους "
+"συντελεστές."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Το παρακάτω εμφανίζεται στους συγγραφείς κατά τη φάση των λεπτομερειών, όταν "
+"καλούνται να συμπληρώσουν τον τίτλο, την περίληψη και άλλες βασικές "
+"πληροφορίες σχετικά με την υποβολή τους."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Το παρακάτω εμφανίζεται στους συγγραφείς κατά τη διάρκεια του σταδίου για "
+"τους επιμελητές, όταν καλούνται να παρέχουν μεταδεδομένα, όπως λέξεις-"
+"κλειδιά, σχόλια προς τον επιμελητή και άλλες λεπτομέρειες που θα βοηθήσουν "
+"στη διαδικασία της επιστημονικής αξιολόγησης."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
@@ -3742,3 +3759,28 @@ msgstr "{$value} ημέρες μετά από την ημερομηνία λήξ
 
 msgid "manager.setup.reviewOptions.reminders.response.after"
 msgstr "Απάντηση σε Αίτημα Αξιολόγησης - Μετά από τις"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Ο συγγραφέας μπορεί να προτείνει διάφορους πιθανούς αξιολογητές πριν "
+"ολοκληρώσει την υποβολή, κάτι που μπορεί να επιταχύνει τη διαδικασία "
+"αξιολόγησης και να προσφέρει πολύτιμες πληροφορίες στην συντακτική ομάδα."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Να επιτρέπεται στους συγγραφείς να προτείνουν πιθανούς αξιολογητές κατά τη "
+"διαδικασία υποβολής"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Το παρακάτω εμφανίζεται στους συγγραφείς κατά τη φάση των προτάσεων των "
+"αξιολογητών. Δώστε μια σύντομη εξήγηση σχετικά με τις πληροφορίες που πρέπει "
+"να παρέχει ο συγγραφέας για τον εαυτό του, τους συν-συγγραφείς και τυχόν "
+"άλλους συντελεστές."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr ""
+"Ελάχιστος αριθμός επιβεβαιωμένων αξιολογήσεων που απαιτούνται για μια υποβολή"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Ελάχιστος απαιτούμενος αριθμός επιβεβαιωμένων αξιολογήσεων"

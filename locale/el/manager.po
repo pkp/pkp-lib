@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-25 12:38+0000\n"
+"PO-Revision-Date: 2026-06-26 11:04+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -425,9 +425,13 @@ msgstr ""
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Το παρακάτω σφάλμα επιστράφηκε από την {$registrationAgency} και περιέχει "
+"λεπτομέρειες σχετικά με την αιτία του σφάλματος:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Το παρακάτω μήνυμα επιστράφηκε από την {$registrationAgency} και περιέχει "
+"λεπτομέρειες σχετικά με την εγγραφή:"
 
 msgid "manager.emails.addEmail"
 msgstr "Προσθήκη προτύπου"
@@ -460,7 +464,7 @@ msgid "manager.emails.emailTemplates"
 msgstr "Πρότυπα μηνυμάτων email"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Λοιπά Πρότυπα"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
@@ -514,10 +518,10 @@ msgid "manager.emails.sentTo"
 msgstr "Παραλήπτης"
 
 msgid "manager.export.usersToCsv.label"
-msgstr ""
+msgstr "Εξαγωγή σε Excel/CSV"
 
 msgid "manager.export.usersToCsv.description"
-msgstr ""
+msgstr "Επιλέξτε τους χρήστες που θα γίνουν εξαγωγή σε αρχείο τύπου Excel/CSV."
 
 msgid "manager.filesBrowser"
 msgstr "Ευρετήριο Αρχείων"
@@ -723,7 +727,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Αποθήκευση και δημιουργία νέου"
 
 msgid "manager.people.signedInAs"
-msgstr ""
+msgstr "Αυτή τη στιγμή έχετε συνδεθεί ως {$username}"
 
 msgid "manager.people.signInAs"
 msgstr "Σύνδεση ως"
@@ -771,11 +775,11 @@ msgstr "Εργαλεία Ανάγνωσης"
 msgid "manager.userSearch.searchByName"
 msgstr "Αναζήτηση χρήστη κατά Όνομα"
 
-#, fuzzy
 msgid "manager.representative.inUse"
 msgstr ""
-"Δεν μπορείτε να διαγράψετε αυτόν τον εκπρόσωπο επειδή έχει εκχωρηθεί στα "
-"μεταδεδομένα για μία ή περισσότερες μορφές δημοσίευσης για αυτήν την υποβολή."
+"Δεν μπορείτε να διαγράψετε αυτόν τον εκπρόσωπο επειδή έχει αντιστοιχιστεί "
+"στα μεταδεδομένα για μία ή περισσότερες μορφές δημοσίευσης για αυτήν την "
+"υποβολή."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Αλλαγή"
@@ -799,7 +803,7 @@ msgid "manager.roles"
 msgstr "Ρόλοι"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Στατιστικά"
 
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr ""
@@ -3584,3 +3588,24 @@ msgstr "ID Υποβολής"
 
 msgid "manager.statistics.counterR5Report.settings.wrongItemId"
 msgstr "Το ID της υποβολής δεν υπάρχει."
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Προσθήκη/Κατάργηση Γλωσσών"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Μεταδεδομένα"
+
+msgid "manager.language.submission.from.error"
+msgstr "Πρέπει να επιλεγεί τουλάχιστον μία τοπική ρύθμιση."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Γλώσσες Ιστοσελίδας"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Γλώσσες Υποβολής"
+
+msgid "manager.language.submission.form.description"
+msgstr "Επιλέξτε γλώσσες για νέες υποβολές και τα μεταδεδομένα τους."
+
+msgid "manager.image"
+msgstr "Εικόνα"

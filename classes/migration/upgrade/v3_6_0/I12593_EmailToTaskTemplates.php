@@ -17,9 +17,11 @@ namespace PKP\migration\upgrade\v3_6_0;
 
 use APP\core\Application;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\migration\Migration;
 
@@ -33,11 +35,10 @@ class I12593_EmailToTaskTemplates extends Migration
 
     protected Collection $customDataSettings;
 
-    protected Collection $accessedByUserGroups;
-
     protected array $insertedTaskTemplateIds = [];
 
-    protected Collection $insertedAccessedByUserGroupRows;
+    // Template title and description
+    protected Collection $taskTemplateData;
 
     /**
      * Maps each migrated email key to its corresponding workflow stage ID
@@ -62,7 +63,7 @@ class I12593_EmailToTaskTemplates extends Migration
      */
     public function up(): void
     {
-        $this->insertedAccessedByUserGroupRows = collect();
+        $this->localizeTaskTemplateData();
 
         // Migration of the custom templates
         $customData = DB::table('email_templates')
@@ -83,8 +84,6 @@ class I12593_EmailToTaskTemplates extends Migration
 
         $customIds = $this->customData->pluck('email_id')->toArray();
         $this->customDataSettings = DB::table('email_templates_settings')->whereIn('email_id', $customIds)->get();
-        $customKeys = $this->customData->pluck('email_key')->toArray();
-        $this->accessedByUserGroups = DB::table('email_template_user_group_access')->whereIn('email_key', $customKeys)->get();
 
         // Custom templates can override default ones on the context level. Catch them by email key and group by context ID
         $alreadyMigrated = [];
@@ -109,53 +108,40 @@ class I12593_EmailToTaskTemplates extends Migration
                 $alreadyMigrated[$customTemplate->context_id][] = $customTemplate->email_key;
             }
 
-            $accessedByUserGroupsRows = DB::table('email_template_user_group_access')
-                ->where('email_key', $customTemplate->email_key)
-                ->where('context_id', $customTemplate->context_id)
-                ->get();
+            // If localized template data doesn't contain name, skip migration
+            if (!isset($setting['name'])) {
+                continue;
+            }
 
-            $this->insertedAccessedByUserGroupRows = $this->insertedAccessedByUserGroupRows->merge($accessedByUserGroupsRows);
-
-            $accessedByUserGroups = $accessedByUserGroupsRows->pluck('user_group_id')
-                ->filter() // can contain null values if unrestricted
-                ->toArray();
+            $templateId = DB::table('edit_task_templates')->insertGetId([
+                'stage_id' => $customTemplate->stage_id,
+                'context_id' => $customTemplate->context_id,
+                'include' => false,
+                'due_interval' => null,
+                'type' => EditorialTaskType::DISCUSSION->value,
+                'restrict_to_user_groups' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ], 'edit_task_template_id');
 
             foreach ($localizedSettings as $locale => $setting) {
-
-                // If localized template data doesn't contain name, skip migration
-                if (!isset($setting['name'])) {
-                    continue;
-                }
-
-                $templateId = DB::table('edit_task_templates')->insertGetId([
-                    'stage_id' => $customTemplate->stage_id,
-                    'title' => $setting['name'],
-                    'context_id' => $customTemplate->context_id,
-                    'include' => false,
-                    'due_interval' => null,
-                    'type' => EditorialTaskType::DISCUSSION->value,
-                    'description' => $setting['body'],
-                    'restrict_to_user_groups' => !empty($accessedByUserGroups),
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ], 'edit_task_template_id');
-
-                $this->insertedTaskTemplateIds[] = $templateId;
-
-                if (!empty($accessedByUserGroups)) {
-                    $toInsert = [];
-                    foreach ($accessedByUserGroups as $group) {
-                        $toInsert[] = [
-                            'edit_task_template_id' => $templateId,
-                            'user_group_id' => $group,
-                        ];
-                    }
-
-                    DB::table('edit_task_template_user_groups')->insert(
-                        $toInsert
-                    );
-                }
+                DB::table('edit_task_template_settings')->insert([
+                    [
+                        'edit_task_template_id' => $templateId,
+                        'locale' => $locale,
+                        'setting_name' => 'title',
+                        'setting_value' => $setting['name'],
+                    ],
+                    [
+                        'edit_task_template_id' => $templateId,
+                        'locale' => $locale,
+                        'setting_name' => 'description',
+                        'setting_value' => $setting['body'],
+                    ]
+                ]);
             }
+
+            $this->insertedTaskTemplateIds[] = $templateId;
         }
 
         // Migration of the default templates
@@ -171,50 +157,41 @@ class I12593_EmailToTaskTemplates extends Migration
         $contextDao = Application::getContextDAO();
         $contextIds = DB::table($contextDao->tableName)->pluck($contextDao->primaryKeyColumn)->all();
 
-        foreach ($this->defaultData as $defaultTemplate) {
+        foreach ($this->defaultData->groupBy('email_key') as $key => $group) {
             foreach ($contextIds as $contextId) {
                 // Skip default templates, which were overridden
-                if (isset($alreadyMigrated[$contextId]) && in_array($defaultTemplate->email_key, $alreadyMigrated[$contextId])) {
+                if (isset($alreadyMigrated[$contextId]) && in_array($key, $alreadyMigrated[$contextId])) {
                     continue;
                 }
 
-                $accessedByUserGroupsRows = DB::table('email_template_user_group_access')
-                    ->where('email_key', $defaultTemplate->email_key)
-                    ->where('context_id', $contextId)
-                    ->get();
-
-                $this->insertedAccessedByUserGroupRows = $this->insertedAccessedByUserGroupRows->merge($accessedByUserGroupsRows);
-                $accessedByUserGroups = $accessedByUserGroupsRows->pluck('user_group_id')
-                    ->filter()
-                    ->toArray();
-
                 $insertedTaskTemplateId = DB::table('edit_task_templates')->insertGetId([
-                    'stage_id' => $defaultTemplate->stage_id,
-                    'title' => $defaultTemplate->name,
+                    'stage_id' => $group[0]->stage_id,
                     'context_id' => $contextId,
                     'include' => false,
                     'due_interval' => null,
                     'type' => EditorialTaskType::DISCUSSION->value,
-                    'description' => $defaultTemplate->body,
-                    'restrict_to_user_groups' => !empty($accessedByUserGroups),
+                    'restrict_to_user_groups' => false,
                     'created_at' => now(),
                     'updated_at' => now(),
                 ], 'edit_task_template_id');
 
                 $this->insertedTaskTemplateIds[] = $insertedTaskTemplateId;
 
-                if (!empty($accessedByUserGroups)) {
-                    $toInsert = [];
-                    foreach ($accessedByUserGroups as $group) {
-                        $toInsert[] = [
+                foreach ($group as $item) {
+                    DB::table('edit_task_template_settings')->insert([
+                        [
                             'edit_task_template_id' => $insertedTaskTemplateId,
-                            'user_group_id' => $group,
-                        ];
-                    }
-
-                    DB::table('edit_task_template_user_groups')->insert(
-                        $toInsert
-                    );
+                            'locale' => $item->locale,
+                            'setting_name' => 'title',
+                            'setting_value' => $item->name,
+                        ],
+                        [
+                            'edit_task_template_id' => $insertedTaskTemplateId,
+                            'locale' => $item->locale,
+                            'setting_name' => 'description',
+                            'setting_value' => $item->body,
+                        ]
+                    ]);
                 }
             }
         }
@@ -222,21 +199,20 @@ class I12593_EmailToTaskTemplates extends Migration
         // Delete custom templates, related settings and access
         DB::table('email_templates')->whereIn('email_id', $customIds)->delete();
         DB::table('email_templates_settings')->whereIn('email_id', $customIds)->delete();
-        DB::table('email_template_user_group_access')->whereIn(
-            'email_template_user_group_access_id',
-            $this->insertedAccessedByUserGroupRows->pluck('email_template_user_group_access_id')->toArray()
-        )->delete();
         DB::table('email_templates_default_data')->whereIn('email_key', $this->getEmailKeys())->delete();
         DB::table('email_template_user_group_access')->whereIn('email_key', $this->getEmailKeys())->delete();
     }
-
-
 
     /**
      * Reverse the migration.
      */
     public function down(): void
     {
+        Schema::table('edit_task_templates', function (Blueprint $table) {
+            $table->string('title', 255)->nullable();
+            $table->text('description')->nullable();
+        });
+
         // reverse the migration of the default data using one insert operation
         if ($this->defaultData->isNotEmpty()) {
             $toInsert = [];
@@ -271,24 +247,46 @@ class I12593_EmailToTaskTemplates extends Migration
                 ]));
         }
 
-        // Re-insert user group access rows
-        if ($this->accessedByUserGroups->isNotEmpty()) {
-            $accessToInsert = [];
-            foreach ($this->accessedByUserGroups as $access) {
-                if (!in_array($access->email_template_user_group_access_id, $this->insertedAccessedByUserGroupRows->pluck('email_template_user_group_access_id')->toArray())) {
-                    continue;
-                }
-
-                $accessToInsert[] = [
-                    'email_key' => $access->email_key,
-                    'context_id' => $access->context_id,
-                    'user_group_id' => $access->user_group_id,
-                ];
-            }
-            DB::table('email_template_user_group_access')->insert($accessToInsert);
-        }
-
         DB::table('edit_task_templates')->whereIn('edit_task_template_id', $this->insertedTaskTemplateIds)->delete();
+        DB::table('edit_task_template_settings')->whereIn('edit_task_template_id', $this->insertedTaskTemplateIds)->delete();
         DB::table('edit_task_template_user_groups')->whereIn('edit_task_template_id', $this->insertedTaskTemplateIds)->delete();
+        Schema::table('edit_task_templates', function (Blueprint $table) {
+            $table->string('title', 255)->nullable(false)->change();
+        });
+    }
+
+    /**
+     * Localize and migrate template title and description
+     */
+    protected function localizeTaskTemplateData(): void
+    {
+        $this->taskTemplateData = DB::table('edit_task_templates')->get(['edit_task_template_id', 'title', 'description']);
+
+        // Get primary locales of availables contexts
+        $contextDao = Application::getContextDAO();
+        $contextLocales = DB::table($contextDao->tableName)->get([$contextDao->primaryKeyColumn, 'primary_locale'])
+            ->mapWithKeys(fn (\stdClass $row) => [$row->{$contextDao->primaryKeyColumn} => $row->primary_locale]);
+
+        $this->taskTemplateData->each(function ($template) use ($contextLocales) {
+            DB::table('edit_task_template_settings')->insert([
+                [
+                    'edit_task_template_id' => $template->edit_task_template_id,
+                    'locale' => $contextLocales->get($template->context_id),
+                    'setting_name' => 'title',
+                    'setting_value' => $template->title,
+                ],
+                [
+                    'edit_task_template_id' => $template->edit_task_template_id,
+                    'locale' => $contextLocales->get($template->context_id),
+                    'setting_name' => 'description',
+                    'setting_value' => $template->description,
+                ]
+            ]);
+        });
+
+        Schema::table('edit_task_templates', function (Blueprint $table) {
+            $table->dropColumn('title');
+            $table->dropColumn('description');
+        });
     }
 }

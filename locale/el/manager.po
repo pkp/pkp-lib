@@ -999,16 +999,15 @@ msgid "doi.manager.versions.modalTitle"
 msgstr "DOIs για όλες τις εκδόσεις"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "Το DOI περιέχει μη έγκυρους χαρακτήρες."
 
 msgid "manager.setup.publishing"
 msgstr "Λεπτομέρειες Δημοσίευσης"
 
-#, fuzzy
 msgid "manager.setup.publishingDescription"
 msgstr ""
-"Αυτές οι λεπτομέρειες μπορεί να περιλαμβάνονται στα μεταδεδομένα που "
-"εμφανίζονται στην σελίδα \"Σχετικά με το περιοδικό\"."
+"Τα στοιχεία αυτά ενδέχεται να περιλαμβάνονται στα μεταδεδομένα που "
+"παρέχονται σε τρίτους φορείς αρχειοθέτησης."
 
 msgid "manager.setup.additionalContent"
 msgstr "Επιπλέον περιεχόμενο"

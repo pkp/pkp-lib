@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Less_Parser;
+use PKP\API\v1\navigationMenus\PKPNavigationMenuController;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\controllers\grid\GridHandler;
@@ -54,7 +55,6 @@ use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\i18n\LocaleConversion;
 use PKP\i18n\LocaleMetadata;
-use PKP\API\v1\navigationMenus\PKPNavigationMenuController;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
@@ -1143,9 +1143,7 @@ class PKPTemplateManager extends Smarty
                 $menu = [];
 
                 if ($request->getContext()) {
-                    $isNewSubmissionLinkPresent = false;
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
-                        $isNewSubmissionLinkPresent = false;
                         if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
                             $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                             $requestedPage = $router->getRequestedPage($request);
@@ -1162,14 +1160,6 @@ class PKPTemplateManager extends Smarty
                                     'badge' => ['slot' => '-']
                                 ];
                             });
-
-                            if (!$request->getContext()->getData('disableSubmissions')) {
-                                $viewsData['newSubmission'] = [
-                                    'name' => __('dashboard.startNewSubmission'),
-                                    'url' => $router->url($request, null, 'submission')
-                                ];
-                                $isNewSubmissionLinkPresent = true;
-                            }
 
                             $menu['dashboards'] = [
                                 'name' => __('navigation.dashboards'),
@@ -1214,18 +1204,18 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
-                            if (!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
-                                $viewsData['newSubmission'] = [
-                                    'name' => __('dashboard.startNewSubmission'),
-                                    'url' => $router->url($request, null, 'submission')
-                                ];
-                            }
 
 
                             $menu['mySubmissions'] = [
                                 'name' => __('navigation.mySubmissions'),
                                 'submenu' => $viewsData,
                                 'icon' => 'MySubmissions',
+                            ];
+                        }
+                        if (!$request->getContext()->getData('disableSubmissions')) {
+                            $viewsData['newSubmission'] = [
+                                'name' => __('dashboard.startNewSubmission'),
+                                'url' => $router->url($request, null, 'submission')
                             ];
                         }
                     } elseif (count($userRoles) === 1 && in_array(Role::ROLE_ID_READER, $userRoles)) {
@@ -1427,6 +1417,7 @@ class PKPTemplateManager extends Smarty
      * - "mytheme::frontend.pages.article" → "mytheme::frontend.pages.article" (passthrough)
      *
      * @param string $template Smarty template path or Laravel view name
+     *
      * @return string Laravel view name in dot notation (possibly with namespace)
      */
     public function smartyPathToViewName(string $template): string
@@ -1884,12 +1875,12 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Smarty modifier: json_encode_html_attribute
-     * 
+     *
      * Encodes a value to JSON with full HTML-attribute safety.
      * Escapes ", ', <, >, & as \u0022, \u0027, \u003C, \u003E, \u0026
      * so the output can be safely placed inside any HTML attribute
      */
-    function smartyJsonEncodeHtmlAttribute($value)
+    public function smartyJsonEncodeHtmlAttribute($value)
     {
         return json_encode(
             $value,

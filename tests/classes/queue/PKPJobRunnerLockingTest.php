@@ -3,8 +3,8 @@
 /**
  * @file tests/classes/queue/PKPJobRunnerLockingTest.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Tests for JobRunner cache locking mechanism to prevent multiple concurrent runners.
@@ -13,14 +13,16 @@
 namespace PKP\tests\classes\queue;
 
 use Exception;
-use Mockery;
-use PKP\tests\PKPTestCase;
-use PKP\queue\JobRunner;
-use PKP\core\PKPQueueProvider;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Support\Facades\Cache;
+use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\config\Config;
+use PKP\core\PKPQueueProvider;
+use PKP\queue\JobRunner;
+use PKP\tests\PKPTestCase;
+use ReflectionClass;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(JobRunner::class)]
@@ -95,22 +97,21 @@ class PKPJobRunnerLockingTest extends PKPTestCase
     }
 
     /**
-     * Test that getCacheTimeout returns double the max execution time
+     * Test that getCacheTimeout returns exactly double the safe max execution
+     * time which derived from deduceSafeMaxExecutionTime()
      */
     public function testGetCacheTimeoutIsDoubleMaxExecutionTime(): void
     {
         $mockQueueProvider = $this->createMockQueueProvider();
         $runner = JobRunner::getInstance($mockQueueProvider);
 
-        // Set a specific max time
-        $runner->setMaxTimeToProcessJobs(5);
+        $reflection = new ReflectionClass($runner);
+        $method = $reflection->getMethod('deduceSafeMaxExecutionTime');
+        $method->setAccessible(true);
+        $safeMaxExecutionTime = $method->invoke($runner);
 
-        // The cache timeout should be double the max execution time
-        // getCacheTimeout uses deduceSafeMaxExecutionTime internally
-        $cacheTimeout = $runner->getCacheTimeout();
-
-        // The timeout should be positive and reasonably calculated
-        $this->assertGreaterThan(0, $cacheTimeout);
+        $this->assertGreaterThan(0, $safeMaxExecutionTime);
+        $this->assertSame(2 * $safeMaxExecutionTime, $runner->getCacheTimeout());
     }
 
     /**
@@ -164,18 +165,37 @@ class PKPJobRunnerLockingTest extends PKPTestCase
     }
 
     /**
-     * Test processJobs acquires a lock before processing
+     * Test processJobs holds the cache lock WHILE processing a job, then
+     * releases it afterwards.
      */
-    public function testProcessJobsAcquiresLock(): void
+    public function testProcessJobsHoldsLockDuringProcessingAndReleasesAfter(): void
     {
-        $mockQueueProvider = $this->createMockQueueProviderWithJobs();
-        $runner = JobRunner::getInstance($mockQueueProvider);
-        $runner->setMaxJobsToProcess(1)->withMaxJobsConstrain();
+        $lockDuringProcessing = null;
 
-        // Process jobs - this should acquire a lock
+        $mockBuilder = Mockery::mock(EloquentBuilder::class);
+        $mockBuilder->shouldReceive('count')->andReturn(1);
+
+        $mockQueueProvider = Mockery::mock(PKPQueueProvider::class);
+        $mockQueueProvider->shouldReceive('getJobModelBuilder')->andReturn($mockBuilder);
+
+        $runner = JobRunner::getInstance($mockQueueProvider);
+
+        // Capture the lock state at the exact moment a job is being processed,
+        // then return false to end the processing loop.
+        $mockQueueProvider->shouldReceive('runJobInQueue')
+            ->andReturnUsing(function () use (&$lockDuringProcessing, $runner) {
+                $lockDuringProcessing = Cache::get($runner->getCacheKey());
+                return false;
+            });
+
         $runner->processJobs();
 
-        // After processing, the lock should be released (in finally block)
+        // A lock (with a token) was held during processing...
+        $this->assertIsArray($lockDuringProcessing);
+        $this->assertArrayHasKey('token', $lockDuringProcessing);
+
+        // ...and released afterwards (finally block).
+        $this->assertNull(Cache::get($runner->getCacheKey()));
         $this->assertFalse($runner->isJobProcessing());
     }
 
@@ -246,24 +266,126 @@ class PKPJobRunnerLockingTest extends PKPTestCase
     }
 
     /**
-     * Test processJobs handles race condition by checking token
+     * Test the Cache::add() race re-check branch: the lock appears free at the
+     * initial isJobProcessing() check, but a competing process wins the
+     * Cache::add() race, so the follow-up read sees a different token and
+     * processJobs() bails out without processing.
+     *
+     * This exercises the inner branch that the "lock already held" test cannot
+     * reach (that one short-circuits earlier in isJobProcessing()). We drive it
+     * by mocking the Cache facade so add() fails and the re-read returns a
+     * foreign token.
      */
-    public function testProcessJobsHandlesRaceCondition(): void
+    public function testProcessJobsBailsWhenAddRaceLostToDifferentToken(): void
     {
-        $mockQueueProvider = $this->createMockQueueProviderWithJobs();
+        $mockBuilder = Mockery::mock(EloquentBuilder::class);
+        $mockBuilder->shouldReceive('count')->andReturn(1);
+
+        $mockQueueProvider = Mockery::mock(PKPQueueProvider::class);
+        $mockQueueProvider->shouldReceive('getJobModelBuilder')->andReturn($mockBuilder);
+        // Must never run a job: we bail before the processing loop.
+        $mockQueueProvider->shouldReceive('runJobInQueue')->never();
+
         $runner = JobRunner::getInstance($mockQueueProvider);
 
-        // Set up a pre-existing lock to simulate race condition
-        $existingLock = [
-            'timestamp' => time(),
-            'token' => 'competing-token'
-        ];
-        Cache::put($runner->getCacheKey(), $existingLock, $runner->getCacheTimeout());
+        // Cache::get() sequence: (1) isJobProcessing → no lock, (2) stale-lock
+        // pre-check → no lock, (3) post-add re-check → competing lock.
+        Cache::shouldReceive('get')
+            ->andReturn(null, null, ['timestamp' => time(), 'token' => 'competing-token']);
+        // The atomic add loses the race.
+        Cache::shouldReceive('add')->andReturn(false);
+        // Allow teardown's Cache::forget() against the mocked facade.
+        Cache::shouldReceive('forget')->andReturnTrue();
 
-        // When attempting to process, it should detect the competing lock
         $result = $runner->processJobs();
 
-        // Should return false due to competing lock
         $this->assertFalse($result);
+    }
+
+    /**
+     * Test processJobs returns false and acquires no lock when the queue is
+     * empty (count() === 0), bailing before any lock work.
+     */
+    public function testProcessJobsReturnsFalseWhenQueueEmpty(): void
+    {
+        $mockQueueProvider = $this->createMockQueueProvider(); // count() === 0
+        $runner = JobRunner::getInstance($mockQueueProvider);
+
+        $result = $runner->processJobs();
+
+        $this->assertFalse($result);
+        $this->assertSame(0, $runner->getJobProcessedCount());
+        $this->assertNull(Cache::get($runner->getCacheKey()));
+    }
+
+    /**
+     * Test the processing loop stops once the max-jobs limit is reached, even
+     * when the queue still reports available jobs.
+     */
+    public function testProcessJobsStopsAtMaxJobsLimit(): void
+    {
+        $mockBuilder = Mockery::mock(EloquentBuilder::class);
+        $mockBuilder->shouldReceive('count')->andReturn(5); // always has jobs
+
+        $mockQueueProvider = Mockery::mock(PKPQueueProvider::class);
+        $mockQueueProvider->shouldReceive('getJobModelBuilder')->andReturn($mockBuilder);
+        $mockQueueProvider->shouldReceive('runJobInQueue')->andReturn(true);
+
+        $runner = JobRunner::getInstance($mockQueueProvider);
+        $runner->setMaxJobsToProcess(2)->withMaxJobsConstrain();
+
+        $result = $runner->processJobs();
+
+        $this->assertTrue($result);
+        $this->assertSame(2, $runner->getJobProcessedCount());
+        // Lock released afterwards.
+        $this->assertNull(Cache::get($runner->getCacheKey()));
+    }
+
+    /**
+     * Test isJobProcessing returns true based on in-request state alone, even
+     * with no cross-request cache lock present.
+     */
+    public function testIsJobProcessingReturnsTrueWhenProcessingInCurrentRequest(): void
+    {
+        $runner = JobRunner::getInstance($this->createMockQueueProvider());
+
+        Cache::forget($runner->getCacheKey());
+
+        $reflection = new ReflectionClass($runner);
+        $property = $reflection->getProperty('jobProcessing');
+        $property->setAccessible(true);
+        $property->setValue($runner, true);
+
+        $this->assertTrue($runner->isJobProcessing());
+    }
+
+    /**
+     * Test that when the cross-request lock is disabled via config, a present
+     * cache lock is ignored by isJobProcessing() (DB row locking still guards
+     * duplicate execution).
+     */
+    public function testCrossRequestLockDisabledIgnoresCacheLock(): void
+    {
+        $data = & Config::getData();
+        $original = $data['queues']['job_runner_cross_request_lock'] ?? true;
+        $data['queues']['job_runner_cross_request_lock'] = false;
+
+        try {
+            $runner = JobRunner::getInstance($this->createMockQueueProvider());
+
+            $this->assertFalse($runner->isCrossRequestLockEnabled());
+
+            // A fresh cache lock exists, but should be ignored.
+            Cache::put(
+                $runner->getCacheKey(),
+                ['timestamp' => time(), 'token' => 'some-token'],
+                3600
+            );
+
+            $this->assertFalse($runner->isJobProcessing());
+        } finally {
+            $data['queues']['job_runner_cross_request_lock'] = $original;
+        }
     }
 }

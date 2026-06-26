@@ -186,12 +186,44 @@ class Job extends Model
     }
 
     /**
-     * Retrieve available jobs
+     * Retrieve available jobs — includes both unreserved jobs ready to process
+     * and jobs whose reservation has expired past retry_after (stale jobs from
+     * crashed workers). 
+     * 
+     * This mirrors Laravel's DatabaseQueue::getNextAvailableJob() logic.
      */
     public function scopeIsAvailable(Builder $query): Builder
     {
-        return $query->whereNull('reserved_at')
-            ->where('available_at', '<=', $this->currentTime());
+        return $query->where(function (Builder $query) {
+            // Never reserved and available now
+            $query->where(function (Builder $query) {
+                $query->whereNull('reserved_at')
+                    ->where('available_at', '<=', $this->currentTime());
+            });
+
+            // Reserved but expired (stale — worker crashed/killed)
+            $query->orWhere(function (Builder $query) {
+                $this->scopeIsReservedButExpired($query);
+            });
+        });
+    }
+
+    /**
+     * Filter for jobs that are reserved but have expired past the `retry_after`
+     * threshold. 
+     * 
+     * This mirrors Laravel's DatabaseQueue::isReservedButExpired() logic.
+     */
+    public function scopeIsReservedButExpired(Builder $query): Builder
+    {
+        $retryAfter = config('queue.connections.database.retry_after');
+        if (!$retryAfter) {
+            return $query;
+        }
+        
+        $expiration = $this->currentTime() - $retryAfter;
+
+        return $query->where('reserved_at', '<=', $expiration);
     }
 
     /**

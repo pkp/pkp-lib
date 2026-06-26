@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-26 11:04+0000\n"
+"PO-Revision-Date: 2026-06-26 12:00+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -806,40 +806,52 @@ msgid "manager.setup.statistics"
 msgstr "Στατιστικά"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Γεωγραφικά Στατιστικά Στοιχεία"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Επιλέξτε τον τύπο των γεωγραφικών στατιστικών χρήσης που θέλετε να "
+"συλλέξετε. Τα πιο λεπτομερή γεωγραφικά στατιστικά ενδέχεται να αυξήσουν "
+"σημαντικά το μέγεθος της βάσης δεδομένων σας και, σε ορισμένες σπάνιες "
+"περιπτώσεις, να υπονομεύσουν την ανωνυμία των επισκεπτών σας."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Να μην γίνεται καθόλου συλλογή γεωγραφικών δεδομένων"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Να γίνεται συλλογή της χώρας προέλευσης του επισκέπτη"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Να γίνεται συλλογή της χώρας προέλευσης και της περιοχής του επισκέπτη"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr ""
+"Να γίνεται συλλογή της χώρας προέλευσης, της περιοχής και της πόλης του "
+"επισκέπτη"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Ιδρυματικά Στατιστικά"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Ενεργοποιήστε τα Ιδρυματικά Στατιστικά αν επιθυμείτε να συλλέγετε στατιστικά "
+"στοιχεία χρήσης ανά ίδρυμα. Εάν ενεργοποιηθεί αυτή η λειτουργία, θα πρέπει "
+"να ρυθμίσετε το εύρος των IP για κάθε ίδρυμα που θέλετε να παρακολουθείτε."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Ενεργοποίηση Ιδρυματικών Στατιστικών"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Δημόσιο API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Εάν θα περιοριστεί ή όχι η πρόσβαση στα API endpoints για τα στατιστικά του "
+"COUNTER SUSHI. Εάν δεν είναι επιλεγμένο, το API θα είναι προσβάσιμο μόνο σε "
+"χρήστες με ρόλους διαχειριστή ή υπεύθυνου."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Να γίνουν τα στατιστικά του COUNTER SUSHI δημόσια διαθέσιμα"
 
 msgid "manager.statistics.reports"
 msgstr "Αναφορές"
@@ -861,22 +873,22 @@ msgid "manager.affiliationAndSupport"
 msgstr "Χορηγοί"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOIs"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Διαμόρφωση"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Εγγραφή"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "Πρόθεμα DOI"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Αυτόματη Κατάθεση"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Ενεργοποίηση αυτόματης κατάθεσης"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
@@ -888,84 +900,103 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
+"Το πρόθεμα DOI εκχωρείται από έναν οργανισμό καταχώρισης, όπως η <a href="
+"\"https://www.crossref.org\" target=\"_new\">Crossref</a> ή η<a href=\"https"
+"://datacite.org/\" target=\"new\">DataCite</a>. Παράδειγμα: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
+"Το πρόθεμα DOI είναι υποχρεωτικό και πρέπει να έχει την ακόλουθη μορφή: 10."
+"xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Αυτόματη εκχώρηση DOI"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Πότε πρέπει να αποδίδεται ένας κωδικός DOI σε μια δημοσίευση;"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Κατά την δημοσίευση"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Ποτέ"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "Πρόθεμα DOI"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Στοιχεία με DOIs"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Απαιτείται πρόθεμα DOI"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr ""
+msgstr "Μορφή DOI"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "Κατάληξη DOI"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Προσαρμοσμένο πρότυπο κατάληξης DOI"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Ένας ή περισσότεροι από τους επιλεγμένους τύπους DOI δεν επιτρέπονται στον "
+"φορέα καταχώρισης DOI."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
+"Επιλέξτε τη μορφή που θα χρησιμοποιείται όταν η εφαρμογή δημιουργεί ένα DOI."
 
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr ""
+"Προεπιλογή - Δημιουργείται αυτόματα ένα μοναδικό επίθεμα οκτώ χαρακτήρων"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Κανένα – Τα επιθέματα πρέπει να εισαχθούν χειροκίνητα στη <a href=\""
+"{$doiManagementUrl}\">σελίδα διαχείρισης DOI</a> και δεν θα δημιουργούνται "
+"αυτόματα"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Προσαρμοσμένο μοτίβο - (δεν συνιστάται)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Φορέας Καταχώρησης"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Παρακαλώ επιλέξτε τον φορέα καταχώρισης που επιθυμείτε να χρησιμοποιήσετε "
+"κατά την κατάθεση των DOI."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Δεν έχει ενεργοποιηθεί κανένας φορέας καταχώρησης"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"Τα DOI μπορούν να δημιουργούνται αυτόματα και να κατατίθενται σε έναν φορέα "
+"καταχώρισης. Για να χρησιμοποιήσετε αυτή τη λειτουργία, εντοπίστε και "
+"εγκαταστήστε ένα πρόσθετο από τον αντίστοιχο φορέα καταχώρισης."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Κανένας"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Διαχείριση εκδόσεων DOI"
 
 msgid "doi.authorization.enabledRequired"
 msgstr ""
+"Δεν μπορείτε να εκτελέσετε αυτή τη λειτουργία αν δεν είναι ενεργοποιημένα τα "
+"DOI."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Υπάρχουν {$count} εκδόσεις."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Εμφάνιση όλων"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOIs για όλες τις εκδόσεις"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr ""
@@ -3609,3 +3640,57 @@ msgstr "Επιλέξτε γλώσσες για νέες υποβολές και 
 
 msgid "manager.image"
 msgstr "Εικόνα"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Δείτε την <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index"
+".html\" target=\"_new\">τεκμηρίωση του COUNTER 5.0.3</a> για περισσότερες "
+"πληροφορίες σχετικά με την κάθε αναφορά."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Μια λίστα ή ένα εύρος ετών έκδοσης που θα εμφανιστεί στην απάντηση, με τη "
+"μορφή yyyy|yyyy|yyyy-yyyy."
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "Απαιτείται ένα πρότυπο κατάληξης DOI."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Αναφορές Counter R5"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Δεν υπάρχουν ακόμη διαθέσιμα στατιστικά στοιχεία χρήσης του COUNTER R5."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Ημερομηνία Έναρξης"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Η ημερομηνία πρέπει να έχει τη μορφή YYYY-MM-DD ή YYYY-MM. Η νωρίτερη δυνατή "
+"ημερομηνία είναι {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Ημερομηνία Λήξης"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Η ημερομηνία πρέπει να έχει τη μορφή YYYY-MM-DD ή YYYY-MM. Η τελευταία "
+"δυνατή ημερομηνία είναι η {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Η μορφή της ημερομηνίας δεν είναι έγκυρη."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID Πελάτη"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Χαρακτηριστικά Προς Εμφάνιση"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Έτος Έκδοσης"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Εξαίρεση Μηνιαίων Στοιχείων"

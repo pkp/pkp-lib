@@ -14,12 +14,37 @@
 
 namespace PKP\middleware;
 
+use Closure;
+use PKP\config\Config;
 use PKP\security\Validation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PKPAuthenticateSession extends \Illuminate\Session\Middleware\AuthenticateSession
 {
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        $response = parent::handle($request, $next);
+
+        if ($request->hasSession()
+            && $request->user()
+            && Config::getVar('security', 'session_check_ip')
+            && ($loginIp = $request->session()->get('login_ip'))
+            && $loginIp !== $request->ip()
+        ) {
+            $this->logout($request);
+        }
+        
+        return $response;
+    }
+    
     /**
      * Log the user out of the application.
      *

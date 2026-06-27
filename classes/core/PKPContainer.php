@@ -377,6 +377,10 @@ class PKPContainer extends Container
         ];
 
         // Auth
+        // remember_me_lifetime is the "remember me" persistent-login cookie duration in days
+        // (fractional allowed). It is converted to minutes and to extend login beyond the
+        // idle session as it should be >= session_lifetime.
+        $rememberMeMinutes = max(1, (int) round((float) Config::getVar('security', 'remember_me_lifetime', 30) * 24 * 60));
         $items['auth'] = [
             'defaults' => [
                 'guard' => 'web',
@@ -385,6 +389,7 @@ class PKPContainer extends Container
                 'web' => [
                     'driver' => 'session',
                     'provider' => 'users',
+                    'remember' => $rememberMeMinutes, // remember-me cookie lifetime in minutes
                 ],
             ],
             'providers' => [
@@ -395,6 +400,12 @@ class PKPContainer extends Container
         ];
 
         // Session manager
+        // session_lifetime is in days; fractional values are allowed (e.g. 0.5 = 12 hours, 0.0833 ≈ 2 hours).
+        // It is converted to minutes and clamped to a minimum of 1 minute so Laravel never receives 0
+        // (which it would treat as "immediately expired").
+        // For browser-close session expiration, use session_expire_on_close = On in config.inc.php
+        $sessionLifetimeMinutes = max(1, (int) round((float) Config::getVar('general', 'session_lifetime', 7) * 24 * 60));
+
         $items['session'] = [
             'driver' => 'database',
             'table' => 'sessions',
@@ -402,9 +413,9 @@ class PKPContainer extends Container
             'path' => Config::getVar('general', 'session_cookie_path', $_request->getBasePath() . '/'),
             'domain' => $_request->getServerHost(false, false) ?: 'localhost', // FIXME: Do not store default early in bootstrap
             'secure' => Config::getVar('security', 'force_ssl', false),
-            'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
+            'lifetime' => $sessionLifetimeMinutes, // lifetime in minutes
             'lottery' => [2, 100],
-            'expire_on_close' => false,
+            'expire_on_close' => Config::getVar('security', 'session_expire_on_close', false),
             'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
             'partitioned' => false,
             'encrypt' => false,

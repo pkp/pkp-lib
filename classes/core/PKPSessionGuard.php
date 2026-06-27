@@ -151,6 +151,10 @@ class PKPSessionGuard extends SessionGuard
         $this->session->put('username', $user->getUsername());
         $this->session->put('email',    $user->getEmail());
 
+        if (!$this->session->has('login_ip')) {
+            $this->session->put('login_ip', request()->ip());
+        }
+
         return $this;
     }
 

@@ -28,7 +28,13 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
      */
     public function boot()
     {
-        register_shutdown_function(function () {
+        $currentWorkingDir = getcwd();
+
+        register_shutdown_function(function () use ($currentWorkingDir) {
+
+            // Restore the current working directory
+            // @see https://www.php.net/manual/en/function.register-shutdown-function.php#refsect1-function.register-shutdown-function-notes
+            chdir($currentWorkingDir);
 
             if (PKPSessionGuard::isSessionDisable()) {
                 return;

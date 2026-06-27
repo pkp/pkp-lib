@@ -12,8 +12,11 @@
  */
 namespace PKP\invitation\stepTypes;
 
+use APP\core\Application;
 use PKP\components\forms\invitation\AcceptUserDetailsForm;
 use PKP\context\Context;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\sections\Form;
 use PKP\invitation\sections\Sections;
@@ -203,14 +206,14 @@ class AcceptInvitationStep extends InvitationStepTypes
      */
     private function getFormLocals(Context $context): array
     {
-        $localeNames = $context->getSupportedFormLocaleNames();
-        $locales = [];
-        foreach ($localeNames as $key => $name) {
-            $locales[] = [
-                'key' => $key,
-                'label' => $name,
-            ];
+        $supportedFormLocales = $context->getSupportedFormLocales();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        if (!in_array($sitePrimaryLocale, $supportedFormLocales)) {
+            $supportedFormLocales[] = $sitePrimaryLocale;
         }
-        return $locales;
+        return collect(Locale::getFormattedDisplayNames($supportedFormLocales, null, LocaleMetadata::LANGUAGE_LOCALE_WITHOUT))
+            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+            ->values()
+            ->toArray();
     }
 }

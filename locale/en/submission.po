@@ -1856,6 +1856,9 @@ msgstr "Send an email to the authors to let them know that this submission has b
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Move to Review"
 
+msgid "editor.submission.decision.backFromCopyediting.toSubmission"
+msgstr "Move to Submission"
+
 msgid "editor.submission.decision.backFromCopyediting.description"
 msgstr "Send this submission back from the copyediting stage."
 
@@ -3327,7 +3330,6 @@ msgstr "Select incomplete submissions to be deleted."
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Delete Incomplete Submissions"
 
-<<<<<<< HEAD
 msgid "publication.sendToTextEditor.label"
 msgstr "To which version would you like to send this file?"
 

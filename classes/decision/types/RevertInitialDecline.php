@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/RevertInitialDecline.php
  *
@@ -52,7 +53,7 @@ class RevertInitialDecline extends DecisionType
         return null;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
         return __('editor.submission.decision.revertDecline', [], $locale);
     }

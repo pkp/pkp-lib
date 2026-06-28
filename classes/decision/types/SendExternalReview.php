@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/SendExternalReview.php
  *
@@ -55,7 +56,7 @@ class SendExternalReview extends DecisionType
         return null;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
         return __('editor.submission.decision.sendExternalReview', [], $locale);
     }

@@ -410,7 +410,7 @@ class ReviewerForm extends Form
             ->withEmail($reviewer->getData('email'))
             ->first();
 
-        if ($this->reviewerSuggestion?->existingReviewerRole
+        if ($this->reviewerSuggestion?->hasExistingReviewerRole
             && $this->reviewerSuggestion->existingUser->getId() == $reviewerId) {
 
             $this->reviewerSuggestion->approveAndAttachReviewer(

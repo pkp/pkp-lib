@@ -46,7 +46,7 @@
 		},
 		"editorId": {
 			"type": "integer",
-			"description": "The user id of the editor who took the decision.",
+			"description": "The user ID of the editor who took the decision.",
 			"writeDisabledInApi": true,
 			"apiSummary": true
 		},
@@ -63,7 +63,7 @@
 		},
 		"reviewRoundId": {
 			"type": "integer",
-			"description": "The unique id of the review round when this decision was taken. Do not include this if the decision is not recorded in a review stage. This is a globally unique id. It does not represent whether the decision was taken in the first or second round of reviews for a submission. See `round` below.",
+			"description": "The unique ID of the review round when this decision was taken. Do not include this if the decision is not recorded in a review stage. This is a globally unique id. It does not represent whether the decision was taken in the first or second round of reviews for a submission. See `round` below.",
 			"apiSummary": true,
 			"validation": [
 				"nullable"

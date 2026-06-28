@@ -43,7 +43,7 @@
 		},
 		"contextId": {
 			"type": "integer",
-			"description": "The id of the context this submission was created in.",
+			"description": "The ID of the context this submission was created in.",
 			"apiSummary": true,
 			"writeDisabledInApi": true
 		},
@@ -79,7 +79,7 @@
 		},
 		"id": {
 			"type": "integer",
-			"description": "The id of this submission.",
+			"description": "The ID of this submission.",
 			"readOnly": true,
 			"apiSummary": true
 		},

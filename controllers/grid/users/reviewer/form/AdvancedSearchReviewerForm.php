@@ -97,7 +97,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $this->setData('personalMessage', '');
         $this->setData('reviewerMessages', $accessibleTemplates->toArray());
 
-        if ($this->reviewerSuggestion?->existingReviewerRole) {
+        if ($this->reviewerSuggestion?->hasExistingReviewerRole) {
             $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
             $this->setData('reviewerId', $this->reviewerSuggestion->existingUser->getId());
         }
@@ -231,7 +231,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Used to determine the right email template
         $templateMgr->assign('lastRoundReviewerIds', $lastRoundReviewerIds);
 
-        if ($this->reviewerSuggestion?->existingReviewerRole) {
+        if ($this->reviewerSuggestion?->hasExistingReviewerRole) {
             $templateMgr->assign('reviewerName', $this->reviewerSuggestion->existingUser->getFullName());
         }
 

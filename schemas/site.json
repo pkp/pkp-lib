@@ -1,6 +1,6 @@
 {
 	"title": "Site",
-	"description": "The overall site hosting one or more contexts (journals/presses).",
+	"description": "The overall site hosting one or more contexts (journals/presses/preprint servers).",
 	"required": [
 		"title",
 		"contactName",

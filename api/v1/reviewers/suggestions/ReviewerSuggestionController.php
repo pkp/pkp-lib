@@ -19,15 +19,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\reviewers\suggestions\formRequests\AddReviewerSuggestion;
 use PKP\API\v1\reviewers\suggestions\formRequests\EditReviewerSuggestion;
 use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
-use PKP\API\v1\reviewers\suggestions\formRequests\AddReviewerSuggestion;
-use PKP\security\authorization\SubmissionAccessPolicy;
-use PKP\security\authorization\internal\SubmissionRequiredPolicy;
-use PKP\security\authorization\internal\SubmissionIncompletePolicy;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\internal\SubmissionIncompletePolicy;
+use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
@@ -64,7 +63,7 @@ class ReviewerSuggestionController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+        $illuminateRequest = $args[0]; /** @var Request $illuminateRequest */
         $actionName = static::getRouteActionName($illuminateRequest);
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
@@ -99,11 +98,11 @@ class ReviewerSuggestionController extends PKPBaseController
 
         Route::post('', $this->add(...))
             ->name('reviewer.suggestions.add');
-        
+
         Route::put('{suggestionId}', $this->edit(...))
             ->name('reviewer.suggestions.edit')
             ->whereNumber('suggestionId');
-        
+
         Route::delete('{suggestionId}', $this->delete(...))
             ->name('reviewer.suggestions.delete')
             ->whereNumber('suggestionId');
@@ -115,7 +114,7 @@ class ReviewerSuggestionController extends PKPBaseController
     public function get(Request $illuminateRequest): JsonResponse
     {
         $reviewerSuggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));
-        
+
         if (!$reviewerSuggestion) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
@@ -123,7 +122,7 @@ class ReviewerSuggestionController extends PKPBaseController
         }
 
         return response()->json(
-            (new ReviewerSuggestionResource($reviewerSuggestion))->toArray($illuminateRequest), 
+            (new ReviewerSuggestionResource($reviewerSuggestion))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }
@@ -145,7 +144,7 @@ class ReviewerSuggestionController extends PKPBaseController
 
         return response()->json([
             'items' => ReviewerSuggestionResource::collection($suggestions),
-            'itemMax' => $suggestions->count(),
+            'itemsMax' => $suggestions->count(),
         ], Response::HTTP_OK);
     }
 
@@ -154,13 +153,12 @@ class ReviewerSuggestionController extends PKPBaseController
      */
     public function add(AddReviewerSuggestion $illuminateRequest): JsonResponse
     {
-        $validateds = $illuminateRequest->validated();
+        $validated = $illuminateRequest->validated();
+        $suggestion = ReviewerSuggestion::create($validated);
 
-        $suggestion = ReviewerSuggestion::create($validateds);
-        
         return response()->json(
             (new ReviewerSuggestionResource($suggestion->refresh()))
-                ->toArray($illuminateRequest), 
+                ->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }
@@ -171,18 +169,17 @@ class ReviewerSuggestionController extends PKPBaseController
     public function edit(EditReviewerSuggestion $illuminateRequest): JsonResponse
     {
         $validated = $illuminateRequest->validated();
-
         $reviewerSuggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));
-        
+
         if (!$reviewerSuggestion->update($validated)) {
             return response()->json([
                 'error' => __('api.409.resourceActionConflict'),
             ], Response::HTTP_CONFLICT);
         }
-            
+
         return response()->json(
             (new ReviewerSuggestionResource($reviewerSuggestion->refresh()))
-                ->toArray($illuminateRequest), 
+                ->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }

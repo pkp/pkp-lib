@@ -10,7 +10,7 @@
 		},
 		"id": {
 			"type": "integer",
-			"description": "The id of the email log.",
+			"description": "The ID of the email log.",
 			"readOnly": true,
 			"apiSummary": true
 		},
@@ -71,7 +71,7 @@
 		},
 		"recipients": {
 			"type": "string",
-			"description": "The recipients names and email addresses.",
+			"description": "The recipients' names and email addresses.",
 			"readOnly": true,
 			"apiSummary": true
 		}

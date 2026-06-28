@@ -21,7 +21,7 @@
 		},
 		"id": {
 			"type": "integer",
-			"description": "The unique id of the institution in the database.",
+			"description": "The unique ID of the institution in the database.",
 			"readOnly": true,
 			"apiSummary": true
 		},
@@ -36,7 +36,7 @@
 		},
 		"ror": {
 			"type": "string",
-			"description": "The [ROR](https://ror.org/) id of this institution.",
+			"description": "The [ROR](https://ror.org/) ID of this institution.",
 			"apiSummary": true,
 			"validation": [
 				"nullable",

@@ -326,6 +326,12 @@ msgstr "You do not have permission to delete this submission."
 msgid "api.submissions.403.userCantEdit"
 msgstr "You are not allowed to edit this publication."
 
+msgid "api.submissions.403.alreadyInDone"
+msgstr "This submission is already in the Done stage."
+
+msgid "api.submissions.403.noMoveToDoneHistory"
+msgstr "This submission has no history of being moved to Done."
+
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr "This endpoint is not available from a context. It must be accessed from the site-wide namespace."
 

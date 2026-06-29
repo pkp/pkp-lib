@@ -17,7 +17,6 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
-use PKP\publication\PKPPublication;
 use APP\facades\Repo;
 use APP\plugins\importexport\native\NativeImportExportDeployment;
 use APP\publication\Publication;
@@ -26,7 +25,7 @@ use PKP\controlledVocab\ControlledVocab;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\plugins\PluginRegistry;
-use PKP\submission\PKPSubmission;
+use PKP\publication\PKPPublication;
 use PKP\submission\Representation;
 use PKP\submission\RepresentationDAOInterface;
 
@@ -137,6 +136,16 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         $citationsListNode = $this->createCitationsNode($doc, $deployment, $entity);
         if ($citationsListNode->hasChildNodes() || $citationsListNode->hasAttributes()) {
             $entityNode->appendChild($citationsListNode);
+        }
+
+        if ($contextName = $entity->getData('contextName')) {
+            $this->createLocalizedNodes($doc, $entityNode, 'contextName', $contextName);
+        }
+        if ($contextPrimaryLocale = $entity->getData('contextPrimaryLocale')) {
+            $entityNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'contextPrimaryLocale', htmlspecialchars($contextPrimaryLocale, ENT_COMPAT, 'UTF-8')));
+        }
+        if ($publisherLocation = $entity->getData('publisherLocation')) {
+            $entityNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'publisherLocation', htmlspecialchars($publisherLocation, ENT_COMPAT, 'UTF-8')));
         }
 
         return $entityNode;

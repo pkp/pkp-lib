@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 10:15+0000\n"
+"PO-Revision-Date: 2026-06-29 10:25+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -2998,52 +2998,56 @@ msgid "emailTemplate.variable.discussion.subject"
 msgstr "Το θέμα της συζήτησης"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Το περιεχόμενο της νέας συζήτησης ή απάντησης"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Λίστα υποβολών με εκκρεμείς διεργασίες"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Ο αριθμός των υποβολών που έχουν ανατεθεί στον συγκεκριμένο επιμελητή"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Το πλήρες όνομα του παραλήπτη ή όλοι οι παραλήπτες"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Το όνομα χρήστη του παραλήπτη ή όλοι οι παραλήπτες"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Ημερομηνία κατά την οποία θα πρέπει να έχει ολοκληρωθεί η αξιολόγηση"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
+"Ημερομηνία κατά την οποία ο αξιολογητής πρέπει να αποδεχτεί ή να απορρίψει "
+"την ανάθεση"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "Η URL διεύθυνση της ανάθεσης αξιολόγησης"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Η προτεινόμενη απόφαση, όπως «Αποδοχή Υποβολής»"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Η ημερομηνία ανάθεσης της παρούσας αξιολόγησης"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Ο τύπος της αξιολόγησης, όπως ανώνυμη, διπλά ανώνυμη ή ανοιχτή"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Η πρόταση του αξιολογητή, όπως «Αποδοχή της Υποβολής» ή «Απόρριψη»"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Ο γύρος αξιολόγησης, όπως 1ος γύρος ή 2ος γύρος"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Τα αρχεία που ανέβασε ο αξιολογητής"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Το όνομα του αξιολογητή"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
+"Περιγραφή της προεπιλεγμένης μεθόδου αξιολόγησης, όπως η διπλή ανώνυμη ή η "
+"ανοιχτή"
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""

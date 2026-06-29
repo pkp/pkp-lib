@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 13:14+0000\n"
+"PO-Revision-Date: 2026-06-29 13:58+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -3656,69 +3656,81 @@ msgstr "Αποφάσεις Επιμελητή"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Ρυθμίστε τις ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου που θα "
+"αποστέλλονται στους συγγραφείς όταν καταγράφεται μια απόφαση επιμελητή."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Για Επιμελητές"
 
 msgid "manager.forEditors.description"
 msgstr ""
+"Ρυθμίστε τις ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου που θα "
+"αποστέλλονται στους επιμελητές."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Στατιστικά Επιμελητών"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Αν θα αποστέλλεται ή όχι μηνιαίο email στους επιμελητές με στατιστικά "
+"στοιχεία για το περιοδικό, όπως τα ποσοστά αποδοχής και απόρριψης υποβολών. "
+"Οι επιμελητές μπορούν να διαγραφούν από τη λίστα παραληπτών αυτού του email "
+"μέσω του προφίλ χρήστη τους."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Αποστολή μηνιαίου email στους επιμελητές."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Μη αποστολή μηνιαίου email στους επιμελητές."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Θα πρέπει να ζητείται από τον συγγραφέα που υποβάλλει το άρθρο να επιλέξει "
+"μια κατηγορία κατά την νέας υποβολή;"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Ναι, προσθέστε ένα πεδίο «κατηγορίες» στον οδηγό υποβολής."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Όχι, μην εμφανίζετε αυτό το πεδίο στους συγγραφείς."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Αίτημα για Επιμέλεια Κειμένου"
 
 msgid "mailable.editorAssign.name"
 msgstr ""
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Έτοιμο για Παραγωγή"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Σύστημα"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Δημιουργία Έκδοσης"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Η Αξιολόγηση Ολοκληρώθηκε"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Η Αξιολόγηση Επεξεργάστηκε"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Γνωστοποίηση Υποβολής προς Άλλους Συγγραφείς"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Ανάθεση σε Επιμελητή (Αυτόματα)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου αποστέλλεται σε έναν επιμελητή όταν "
+"του ανατίθεται αυτόματα μια υποβολή."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Ανάθεση Επιμελητή"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Η Υποβολή χρειάζεται Επιμελητή"
 
 #~ msgid "manager.setup.selectOne"
 #~ msgstr "Επιλέξτε ένα"
@@ -4003,3 +4015,18 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "Η εικόνα εξωφύλλου της δημοσίευσης {$id} δεν εξήχθη· το αρχείο της δεν "
 "εντοπίστηκε στη διαδρομή «{$path}»."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Πρόσκληση Αλλαγής Διεύθυνσης Ηλεκτρονικού Ταχυδρομείου"
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Οι επιμελητές θα εμφανίζονται σε τυποποιημένη μορφή, προκειμένου να "
+"διατηρηθεί η ομοιομορφία και να διασφαλιστεί η εύκολη εύρεσή τους σε αυτή "
+"την ενότητα."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Παρακαλούμε να αναφέρετε το ιστορικό της επιμέλειας, συμπεριλαμβανομένου του "
+"πλήρους ονόματος και του φορέα στον οποίο ανήκει ο εκάστοτε επιμελητής, "
+"καθώς και των ημερομηνιών έναρξης και λήξης του κάθε επιμελητή."

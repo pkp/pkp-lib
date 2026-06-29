@@ -69,9 +69,15 @@ class I12792_FixInvitationEmailButtons extends Migration
      * no sign of either the legacy pattern OR the post-fix markup, emits a
      * warning to the PHP error log so the admin can review the template
      * manually after upgrade (grep for the marker to find them all).
+     *
+     * NULL or empty bodies are skipped.
+     *
      */
-    private function rewriteOrWarn(string $body, string $context): ?string
+    private function rewriteOrWarn(?string $body, string $context): ?string
     {
+        if ($body === null || $body === '') {
+            return null;
+        }
         $new = $this->rewriteBody($body);
         if ($new !== $body) {
             return $new;

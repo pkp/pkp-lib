@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2026-06-29 14:22+0000\n"
+"PO-Revision-Date: 2026-06-29 14:35+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/el/>"
 "\n"
@@ -887,30 +887,41 @@ msgstr "Το όριο μνήμης σε megabytes [προεπιλογή: “{$de
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Ο αριθμός δευτερολέπτων κατά τον οποίο μπορεί να εκτελείται μια θυγατρική "
+"διεργασία [προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Αριθμός δευτερολέπτων αναμονής όταν δεν υπάρχει διαθέσιμη εργασία "
+"[προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Αριθμός προσπαθειών επανεκτέλεσης μιας εργασίας πριν οριστεί ως αποτυχημένη "
+"[προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Διακοπή όταν η ουρά είναι κενή [προεπιλογή: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Αριθμός των εργασιών προς επεξεργασία πριν από τη διακοπή [προεπιλογή: "
+"“{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Ο μέγιστος αριθμός δευτερολέπτων που πρέπει να εκτελείται η εργασία "
+"[προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
 msgstr ""
+"Αριθμός δευτερολέπτων ανάπαυσης μεταξύ εργασιών [προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Εκκίνηση του deamon εργασιών για την δοκιμαστική ουρά"
 
 #~ msgid "admin.settings.aboutDescription"
 #~ msgstr "Σχετικά με τον ιστότοπο"
@@ -1051,3 +1062,78 @@ msgstr ""
 
 msgid "admin.job.processLogFile.fileNotFound"
 msgstr "Το αρχείο {$file} δεν υπάρχει."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Εκτέλεση εργασίας για την αυτόματη διαγραφή των προσκλήσεων που έχουν λήξει"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Χρησιμοποιήστε τον ιστότοπο ως πλατφόρμα για όλα τα περιοδικά."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Η μεταβλητή `app_key` υπάρχει ήδη στην ενότητα `general` του αρχείου "
+"ρυθμίσεων. Εκτελέστε την εντολή `php lib/pkp/tools/appKey.php generate` για "
+"να ορίσετε ένα νέο κλειδί εφαρμογής."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Δεν έχει οριστεί κλειδί εφαρμογής στο αρχείο ρυθμίσεων."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Ένα έγκυρο κλειδί εφαρμογής έχει οριστεί στο αρχείο ρυθμίσεων"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Επαλήθευση του τρέχοντος κλειδιού εφαρμογής, εφόσον υπάρχει στο αρχείο "
+"ρυθμίσεων"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Προσθέστε τη μεταβλητή app_key στο αρχείο config.inc.php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Δημιουργήστε ένα νέο κλειδί εφαρμογής και αντικαταστήστε το στο αρχείο "
+"ρυθμίσεων. Χρησιμοποιήστε την επιλογή --show για να το δείτε μόνο ή την "
+"επιλογή --force για να αντικαταστήσετε ένα υπάρχον έγκυρο κλειδί εφαρμογής."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Δεν έχει οριστεί καμία μεταβλητή με το όνομα `app_key` στην ενότητα `general`"
+" του αρχείου ρυθμίσεων. Παρακαλούμε ενημερώστε την ενότητα «general» του "
+"αρχείου ρυθμίσεων και προσθέστε τη γραμμή `app_key = ` ή εκτελέστε την "
+"εντολή `php lib/pkp/tools/appKey.php configure` για να την ορίσετε."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Μη έγκυρο κλειδί εφαρμογής, μη υποστηριζόμενη μέθοδος κρυπτογράφησης ή "
+"λανθασμένο μήκος κλειδιού. Οι υποστηριζόμενες μέθοδοι κρυπτογράφησης είναι: "
+"{$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Το κλειδί εφαρμογής ορίστηκε με επιτυχία στο αρχείο ρυθμίσεων."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Η μεταβλητή κλειδιού εφαρμογής ορίστηκε με επιτυχία στο αρχείο ρυθμίσεων. "
+"Εκτελέστε την εντολή `php lib/pkp/tools/appKey.php generate` για να ορίσετε "
+"ένα νέο κλειδί εφαρμογής."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Μήπως εννοούσατε κάποιο από τα παρακάτω;"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Μήπως εννοούσατε κάποιο από τα παρακάτω;"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Δημιουργημένο κλειδί εφαρμογής: {$appKey}"
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Έχει ήδη οριστεί ένα έγκυρο κλειδί εφαρμογής στο αρχείο ρυθμίσεων. Για να το "
+"αντικαταστήσετε, χρησιμοποιήστε την επιλογή --force μαζί με την εντολή."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Δεν είναι δυνατή η ρύθμιση της μεταβλητής `app_key` στο αρχείο ρυθμίσεων. "
+"Παρακαλούμε ενημερώστε την ενότητα «Γενικά» του αρχείου ρυθμίσεων και "
+"προσθέστε τη γραμμή `app_key = `."

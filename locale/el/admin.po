@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2026-06-22 11:18+0000\n"
+"PO-Revision-Date: 2026-06-29 13:58+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/el/>"
 "\n"
@@ -496,106 +496,141 @@ msgid "admin.languages.noLocalesToDownload"
 msgstr "Δεν υπάρχουν γλώσσες διαθέσιμες για λήψη."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Χρήση:"
 
 msgid "admin.cli.tool.usage.parameters"
 msgstr "εντολή [ορίσματα]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Διαθέσιμες εντολές για τον χώρο ονομάτων `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Δεν είναι δυνατή η εκτέλεση εργασιών στην ουρά, καθώς η εφαρμογή βρίσκεται "
+"σε κατάσταση συντήρησης."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Εμφάνιση όλων των εργασιών που βρίσκονται στην ουρά. Αν θέλετε να "
+"ομαδοποιήσετε τα αποτελέσματα σε σελίδες, χρησιμοποιήστε τις παραμέτρους --"
+"page= και --perPage=. Χρησιμοποιήστε την επιλογή --failed για να εμφανίσετε "
+"τις εργασίες που απέτυχαν."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Διαγράψτε μια συγκεκριμένη εργασία που βρίσκεται στην ουρά, με βάση τον "
+"αναγνωριστικό της. Αν θέλετε να διαγράψετε όλες τις εργασίες, ορίστε την "
+"παράμετρο --all. Αν θέλετε να διαγράψετε όλες τις εργασίες από μια "
+"συγκεκριμένη ουρά, ορίστε την παράμετρο --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Προσθέστε μια δοκιμαστική εργασία στην δοκιμαστική ουρά. Χρησιμοποιήστε τις "
+"προαιρετικές παραμέτρους --only= και ορίστε την τιμή «failed» ή «success» "
+"για να στείλετε μια εργασία που μπορεί να αποτύχει ή να ολοκληρωθεί με "
+"επιτυχία."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Εκτελέστε μια daemon διαδικασία που θα λειτουργεί συνέχεια και θα συνεχίζει "
+"να επεξεργάζεται εργασίες. Χρησιμοποιήστε την επιλογή --help για να δείτε "
+"τις διαθέσιμες επιλογές που σχετίζονται με αυτήν την εντολή."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Εμφάνιση όλων των αποτυχημένων εργασιών. Ορίστε τις παραμέτρους --"
+"queue=QUEUE_NAME και --connection=CONNECTION_NAME για να φιλτράρετε τη "
+"λίστα. Επίσης, ορίστε τις παραμέτρους --redispatch και --clear για να "
+"ανακατανείμετε τις εργασίες πίσω στην ουρά ή να διαγράψετε όλες ή "
+"συγκεκριμένες αποτυχημένες εργασίες."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Προωθήστε τις διαθέσιμες εργασίες στην ουρά. Για να προωθήσετε μια εργασία "
+"σε μια συγκεκριμένη ουρά, ορίστε την παράμετρο --queue=QUEUE_NAME. "
+"Χρησιμοποιήστε την παράμετρο --test για να εκτελέσετε μια δοκιμαστική "
+"εργασία και την παράμετρο --once για να σταματήσετε μετά από μία μόνο "
+"εργασία."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "Ολοκληρώθηκαν {$jobCount} εργασίες στην ουρά με το όνομα {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"Δεν υπάρχουν διαθέσιμες εργασίες προς εκτέλεση στην ουρά με το όνομα "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Εμφάνιση του συνολικού αριθμού εργασιών στην ουρά. Χρησιμοποιήστε την "
+"επιλογή --failed για να δείτε τον συνολικό αριθμό των εργασιών που απέτυχαν."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Εμφάνιση οδηγιών χρήσης της εντολής για τις εργασίες"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Εμφάνιση των παραμέτρων χρήσης των εργασιών"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Η παράμετρος δεν μπορεί να είναι κενή! Ελέγξτε την χρήση."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Αποτυχημένες Εργασίες στην Ουρά"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Εργασίες στην Ουρά"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Ουρά"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Σύνδεση"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Όνομα Εργασίας"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Προσπάθειες"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Διαθέσιμο Στις"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Δημιουργήθηκε Στις"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Απέτυχε Στις"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Μήνυμα Λάθους"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Σελιδοποίηση"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Τρέχουσα"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Προηγούμενη"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Επόμενη"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Για να χρησιμοποιήσετε αυτήν την εντολή, πρέπει να καθορίσετε τουλάχιστον "
+"ένα ID εργασίας (Job ID), την παράμετρο «--all» ή την παράμετρο «--queue=»"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Απεστάλη δοκιμαστική εργασία που είναι βέβαιο ότι θα αποτύχει στην ουρά με "
+"το όνομα {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
@@ -947,3 +982,18 @@ msgstr ""
 "Η εγγραφή «{$id}» στο Μητρώο ROR περιέχει μια καταχώριση ονόματος με τύπους "
 "[{$types}], στην οποία λείπει το υποχρεωτικό πεδίο «value», και ως εκ τούτου "
 "έχει παραλειφθεί."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Οι workers θα τερματίσουν ομαλά τη λειτουργία τους μετά την ολοκλήρωση της "
+"εκτέλεσης της τρέχουσας εργασίας."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Δεν είναι δυνατή η εκτέλεση εργασιών στην ουρά, καθώς είναι ενεργοποιημένη η "
+"λειτουργία sandbox στην εφαρμογή."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Επανεκκίνηση των deamons της ουράς εργασιών μετά την ολοκλήρωση της "
+"τρέχουσας εργασίας τους."

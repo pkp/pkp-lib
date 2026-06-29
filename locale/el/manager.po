@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 09:47+0000\n"
+"PO-Revision-Date: 2026-06-29 10:15+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1929,7 +1929,7 @@ msgstr ""
 "σχετικά με την αναφορά πηγής, τη λεζάντα και την άδεια χρήσης."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Να απαιτείται με τις Υποβολές"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
@@ -2815,16 +2815,16 @@ msgid "stats.downloadReport.allFilters"
 msgstr ""
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Λήψη Αρχείων"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Ο αριθμός λήψεων του κάθε αρχείου."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr ""
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Ο αριθμός των προβολών και των λήψεων για κάθε πόλη, περιοχή ή χώρα."
 
 msgid "stats.region"
 msgstr "Περιφέρεια"
@@ -2836,25 +2836,25 @@ msgid "stats.submissionsActive"
 msgstr "Ενεργές Υποβολές"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Χρονολόγιο"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Ο αριθμός των {$type} για κάθε {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Χρονολόγιο Λήψης"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Διάστημα Χρονολογίου"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Τύπος Χρονολογίου"
 
 msgid "stats.total"
 msgstr "Σύνολο"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Μοναδικά"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Σύνολο εντός εύρους ημερομηνιών"
@@ -2868,9 +2868,8 @@ msgstr ""
 msgid "stats.userStatistics"
 msgstr "Στατιστικά Χρηστών"
 
-#, fuzzy
 msgid "stats.name.submissionsReceived"
-msgstr "Κατατεθειμένες Υποβολές"
+msgstr "Ληφθείσες Υποβολές"
 
 msgid "stats.name.submissionsSkipped"
 msgstr "Άλλες Υποβολές"
@@ -2919,24 +2918,27 @@ msgstr "Ποσοστό Απόρριψης μετά την κρίση"
 
 msgid "plugins.importexport.native.processFailed"
 msgstr ""
+"Η διαδικασία απέτυχε. Ελέγξτε παρακάτω για τυχόν σφάλματα ή προειδοποιήσεις."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Εξαγωγή Αποτελεσμάτων Υποβολών"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Λήψη του εξαγόμενου αρχείου"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Η εξαγωγή ολοκληρώθηκε επιτυχώς."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Κατεβάστε το αρχείο που εξήχθη πατώντας το παρακάτω κουμπί."
 
 msgid "plugins.importexport.native.common.any"
 msgstr ""
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Λανθασμένη ρύθμιση φίλτρου [{$filterName}]: {$filterCount} εμφανίσεις. Θα "
+"έπρεπε να υπάρχει μόνο μία."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "ΣΦΑΛΜΑ:"
@@ -2944,44 +2946,56 @@ msgstr "ΣΦΑΛΜΑ:"
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Η καθορισμένη διαδρομή περιοδικού, \"{$contextPath}\", δεν υπάρχει."
 
+#, fuzzy
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Η διαδικασία δεν κατάφερε να επεξεργαστεί τους συγγραφείς"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Η διαδικασία δεν κατάφερε να επεξεργαστεί τις δημοσιεύσεις"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Όλα τα σχόλια από τις ολοκληρωμένες αξιολογήσεις. Τα ονόματα των αξιολογητών "
+"παραμένουν κρυφά στις ανώνυμες αξιολογήσεις"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Τα ονόματα και οι ιδιότητες των συγγραφέων της υποβολής."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
+"Η URL διεύθυνση μιας σελίδας όπου ο χρήστης μπορεί να ανακτήσει έναν χαμένο "
+"κωδικό πρόσβασης"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
+"Η URL διεύθυνση για την εμφάνιση όλων των υποβολών που έχουν ανατεθεί σε "
+"έναν χρήστη"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr ""
+"Η URL διεύθυνση που επιτρέπει σε έναν χρήστη να δει και να επεξεργαστεί το "
+"προφίλ του"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Το όνομα της απόφασης που ελήφθη"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Περιγραφή της απόφασης που ελήφθη"
 
 msgid "emailTemplate.variable.decision.stage"
 msgstr ""
+"Το στάδιο της ροής εργασίας της επιμέλειας στο οποίο ελήφθη αυτή η απόφαση"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Ο γύρος της αξιολόγησης στο πλαίσιο του οποίου ελήφθη η απόφαση αυτή, εφόσον "
+"η απόφαση αφορά στάδιο αξιολόγησης"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Το θέμα της συζήτησης"
 
 msgid "emailTemplate.variable.discussion.content"
 msgstr ""

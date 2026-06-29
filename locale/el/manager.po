@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 08:52+0000\n"
+"PO-Revision-Date: 2026-06-29 09:06+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -2147,7 +2147,7 @@ msgstr ""
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"Απαιτείστε από τον συγγραφέα να προτείνει μεταδεδομένα κάλυψης προτού "
+"Απαιτήστε από τον συγγραφέα να προτείνει μεταδεδομένα κάλυψης προτού "
 "αποδεχτείτε την υποβολή του."
 
 msgid "manager.setup.metadata.keywords.description"
@@ -2167,8 +2167,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
-"Απαιτείστε από τον συγγραφέα να προτείνει λέξεις-κλειδιά πριν αποδεχτείτε "
-"την υποβολή του."
+"Απαιτήστε από τον συγγραφέα να προτείνει λέξεις-κλειδιά πριν αποδεχτείτε την "
+"υποβολή του."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
@@ -2190,7 +2190,7 @@ msgstr ""
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
-"Απαιτείστε από τον συγγραφέα να παραθέσει τυχόν προηγούμενα δικαιώματα "
+"Απαιτήστε από τον συγγραφέα να παραθέσει τυχόν προηγούμενα δικαιώματα "
 "πρόσβασης κατά την υποβολή."
 
 msgid "manager.setup.metadata.source.description"
@@ -2231,7 +2231,7 @@ msgstr "Ζητήστε από τον συγγραφέα να παράσχει θ
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr ""
-"Απαιτείστε από τον συγγραφέα να παρέχει θέματα πριν αποδεχτείτε την υποβολή "
+"Απαιτήστε από τον συγγραφέα να παρέχει θέματα πριν αποδεχτείτε την υποβολή "
 "τους."
 
 msgid "manager.setup.metadata.type.description"
@@ -2269,12 +2269,18 @@ msgstr "Ενεργοποίηση μεταδεδομένων επιστημονι
 
 msgid "manager.setup.metadata.disciplines.noRequest"
 msgstr ""
+"Μην ζητήσετε από τον συγγραφέα να προσδιορίσει τις επιστημονικές ειδικότητες "
+"κατά την υποβολή."
 
 msgid "manager.setup.metadata.disciplines.request"
 msgstr ""
+"Ζητήστε από τον συγγραφέα να προσδιορίσει τις επιστημονικές ειδικότητες κατά "
+"την υποβολή."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
+"Απαιτήστε από τον συγγραφέα να προσδιορίσει τις επιστημονικές ειδικότητες "
+"κατά την υποβολή."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
@@ -2286,12 +2292,18 @@ msgstr "Ενεργοποίηση μεταδεδομένων οργανισμών
 
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr ""
+"Μην ζητήσετε από τον συγγραφέα να αναφέρει τους φορείς που υποστηρίζουν την "
+"εργασία κατά την υποβολή της."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
+"Ζητήστε από τον συγγραφέα να αναφέρει τους φορείς που υποστηρίζουν την "
+"εργασία κατά την υποβολή της."
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
+"Απαιτήστε από τον συγγραφέα να αναφέρει τους φορείς που υποστηρίζουν την "
+"εργασία κατά την υποβολή της."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
@@ -2310,23 +2322,32 @@ msgstr "Ζητήστε από τον συγγραφέα να καταθέσει 
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
-"Απαιτείστε από τον συγγραφέα να καταθέσει παραπομπές πριν αποδεχτείτε την "
+"Απαιτήστε από τον συγγραφέα να καταθέσει παραπομπές πριν αποδεχτείτε την "
 "υποβολή."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Μια σύντομη δήλωση στην οποία αναφέρεται αν ο/οι συγγραφέας/-εις έχουν "
+"διαθέσει τα ερευνητικά τους δεδομένα και, εάν ναι, πού μπορούν να τα βρουν "
+"οι αναγνώστες."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Ενεργοποίηση μεταδεδομένων για δήλωση διαθεσιμότητας δεδομένων"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Μην ζητάτε από τον συγγραφέα δήλωση διαθεσιμότητας δεδομένων κατά την "
+"υποβολή."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Να ζητείται από τον συγγραφέα δήλωση διαθεσιμότητας δεδομένων κατά την "
+"υποβολή."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Να απαιτείται από τον συγγραφέα δήλωση διαθεσιμότητας δεδομένων κατά την "
+"υποβολή."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Σφάλματα επικύρωσης:"

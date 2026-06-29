@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 12:39+0000\n"
+"PO-Revision-Date: 2026-06-29 13:00+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -3432,19 +3432,23 @@ msgstr ""
 "αξιολόγησης, καθώς και οδηγίες για την πρόσβαση στην ίδια την υποβολή."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Λείπει η τρέχουσα δημοσίευση της υποβολής"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
+"Δεν κατέστη δυνατή η επεξεργασία του υπο-στοιχείου {$child} της υποβολής"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Υπενθύμιση Επιμελητή"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Ένα αυτοματοποιημένο email που αποστέλλεται στους επιμελητές με εκκρεμείς "
+"εργασίες"
 
+#, fuzzy
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Επιβεβαίωση Αλλαγής Κωδικού Πρόσβασης"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3453,16 +3457,17 @@ msgstr ""
 "έναν σύνδεσμο όπου μπορούν να αλλάξουν τον κωδικό πρόσβασής τους."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Δημιουργήθηκε από Χρήστη"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Το παρόν μήνυμα καλωσορίσματος αποστέλλεται στους νέους Χρήστες. Περιέχει το "
-"όνομα Χρήστη και τον κωδικό πρόσβασής τους στον ιστότοπο."
+"Αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου αποστέλλεται σε έναν "
+"νεοδημιουργημένο χρήστη, όταν ο επιμελητής έχει δημιουργήσει τον χρήστη μέσω "
+"των ρυθμίσεων. Το μήνυμα πρέπει να καλωσορίζει τον χρήστη στο σύστημα και να "
+"του παρέχει τα στοιχεία του ονόματος χρήστη και του κωδικού πρόσβασής του."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Μητρώο Αξιολογητών"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3470,58 +3475,67 @@ msgstr ""
 "Περιέχει το όνομα Χρήστη και τον κωδικό πρόσβασής τους στον ιστότοπο."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Η υποβολή αποθηκεύτηκε για αργότερα"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Ένα αυτοματοποιημένο μήνυμα ηλεκτρονικού ταχυδρομείου που αποστέλλεται στους "
+"συγγραφείς όταν αποθηκεύουν την υποβολή τους για να την ολοκληρώσουν αργότερα"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Επιβεβαίωση Υποβολής"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Εφόσον έχει ενεργοποιηθεί η αντίστοιχη επιλογή, το παρόν μήνυμα αποστέλλεται "
-"αυτόματα σε έναν Συγγραφέα, κατά την ολοκλήρωση της διαδικασίας υποβολής "
-"άρθρου. Ευχαριστεί τον Συγγραφέα για την υποβολή και παρέχει πληροφορίες "
-"σχετικά με την παρακολούθηση της υποβολής."
+"Αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου αποστέλλεται αυτόματα σε έναν "
+"συγγραφέα όταν υποβάλλει ένα άρθρο. Περιέχει πληροφορίες σχετικά με την "
+"παρακολούθηση της υποβολής κατά τη διάρκεια της διαδικασίας επιμέλειας και "
+"ευχαριστεί τον συγγραφέα για την υποβολή."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Επιβεβαίωση Υποβολής (Άλλοι Συγγραφείς)"
 
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Εφόσον έχει ενεργοποιηθεί η αντίστοιχη επιλογή, το παρόν μήνυμα αποστέλλεται "
-"αυτόματα στους μη εγγεγραμμένους στην πλατφόρμα Συγγραφείς, όπως "
-"καθορίστηκαν κατά τη διαδικασία υποβολής."
+"Αυτό το email αποστέλλεται αυτόματα στους λοιπούς συγγραφείς που αναφέρονται "
+"σε μια υποβολή (οι οποίοι όμως δεν έχουν πραγματοποιήσει την υποβολή)."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Συζήτηση (Υποβολή)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου αποστέλλεται όταν δημιουργείται μια "
+"συζήτηση ή όταν υπάρχει απάντηση σε αυτή κατά το στάδιο υποβολής."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Συζήτηση (Αξιολόγηση)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου αποστέλλεται όταν δημιουργείται μια "
+"συζήτηση ή όταν υπάρχει απάντηση σε αυτή κατά το στάδιο της αξιολόγησης."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Συζήτηση (Τυπογραφικό Δοκίμιο)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου αποστέλλεται όταν δημιουργείται μια "
+"συζήτηση ή όταν υπάρχει απάντηση σε αυτή κατά το στάδιο του Τυπογραφικού "
+"Δοκιμίου."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Συζήτηση (Παραγωγή)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου αποστέλλεται όταν δημιουργείται μια "
+"συζήτηση ή όταν υπάρχει απάντηση σε αυτή κατά το στάδιο της παραγωγής."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Ειδοποίηση για Αναθεωρημένη Έκδοση"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3529,16 +3543,16 @@ msgstr ""
 "Συγγραφέας μεταφορτώνει στην πλατφόρμα μία αναθεωρημένη έκδοση του άρθρου."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Νέα Ανακοίνωση"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Αυτό το email αποστέλλεται όταν δημιουργείται μια νέα ανακοίνωση."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Ειδοποίηση για Αναφορά Στατιστικών"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Ειδοποίηση για Επεξεργασία Αξιολόγησης"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""

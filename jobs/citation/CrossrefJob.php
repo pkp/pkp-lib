@@ -59,10 +59,13 @@ class CrossrefJob extends BaseJob
 
         if (empty($citationChanged)) {
             switch ($service->statusCode) {
-                case '408':
-                case '504':
+                case 408:
+                case 504:
                     throw new JobException(__('admin.job.failed.connection.externalService', [
                         'statusCode' => $service->statusCode]));
+                case 429:
+                    $this->release(60);
+                    return;
                 default:
                     return;
             }

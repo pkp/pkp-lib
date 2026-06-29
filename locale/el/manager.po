@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 08:44+0000\n"
+"PO-Revision-Date: 2026-06-29 08:52+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1939,9 +1939,11 @@ msgstr ""
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Ναι, να απαιτείται από τους συγγραφείς που κάνουν υποβολή να ανεβάσουν ένα ή "
+"περισσότερα από αυτά τα αρχεία."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Όχι, να επιτρέπονται νέες υποβολές χωρίς αυτά τα αρχεία."
 
 msgid "manager.settings.wizard"
 msgstr "Οδηγός Ρυθμίσεων"
@@ -2177,17 +2179,15 @@ msgstr ""
 msgid "manager.setup.metadata.rights.enable"
 msgstr "Ενεργοποίηση μεταδεδομένων των δικαιωμάτων"
 
-#, fuzzy
 msgid "manager.setup.metadata.rights.noRequest"
-msgstr "Μην ζητήσετε παράθεση δικαιωμάτων από τον συγγραφέα κατά την υποβολή."
+msgstr ""
+"Να μην ζητείται παράθεση δικαιωμάτων από τον συγγραφέα κατά την υποβολή."
 
-#, fuzzy
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
 "Ζητήστε από τον συγγραφέα να παραθέσει τυχόν προηγούμενα δικαιώματα "
 "πρόσβασης κατά την υποβολή."
 
-#, fuzzy
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
 "Απαιτείστε από τον συγγραφέα να παραθέσει τυχόν προηγούμενα δικαιώματα "
@@ -2247,12 +2247,16 @@ msgstr "Ενεργοποίηση μεταδεδομένων τύπου"
 
 msgid "manager.setup.metadata.type.noRequest"
 msgstr ""
+"Μην ζητάτε πληροφορίες σχετικά με τον τύπο από τον συγγραφέα κατά την "
+"υποβολή."
 
 msgid "manager.setup.metadata.type.request"
-msgstr ""
+msgstr "Ζητήστε από τον συγγραφέα να αναφέρει τον τύπο κατά την υποβολή."
 
 msgid "manager.setup.metadata.type.require"
 msgstr ""
+"Απαιτήστε από τον συγγραφέα να δηλώσει τον τύπο πριν αποδεχτείτε την υποβολή "
+"του."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""

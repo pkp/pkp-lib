@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 13:09+0000\n"
+"PO-Revision-Date: 2026-06-29 13:14+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -3612,40 +3612,47 @@ msgid "manager.mailables.removeTemplate"
 msgstr "Αφαίρεση Προτύπου"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Θέλετε σίγουρα να διαγράψετε το πρότυπο <strong>{$template}</strong>;"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Επαναφορά Προτύπου"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Θέλετε σίγουρα να επαναφέρετε το θέμα και το κύριο κείμενο στις "
+"προεπιλεγμένες τιμές τους για το πρότυπο <strong>{$template}</strong>;"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Αναζήτηση με όνομα ή περιγραφή"
 
 msgid "manager.emailTemplate.name.description"
 msgstr ""
+"Εισάγετε ένα σύντομο όνομα για να μπορείτε να βρείτε πιο εύκολα αυτό το "
+"πρότυπο."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Νέα Υποβολή"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Ρυθμίστε τις ειδοποιήσεις μέσω email που θα αποστέλλονται όταν γίνεται μια "
+"νέα υποβολή."
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Ποιος θα πρέπει να λαμβάνει ένα email όταν ολοκληρώνεται μια νέα υποβολή."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Να μην αποστέλλεται email."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Να αποστέλλεται email αποκλειστικά στον συγγραφέα που υπέβαλε το άρθρο."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Να αποστέλλεται email σε όλους τους συγγραφείς."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Αποφάσεις Επιμελητή"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""

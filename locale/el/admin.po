@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2026-06-29 13:58+0000\n"
+"PO-Revision-Date: 2026-06-29 14:15+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/el/>"
 "\n"
@@ -634,99 +634,107 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Απεστάλη δοκιμαστική εργασία που είναι βέβαιο ότι θα ολοκληρωθεί στην ουρά "
+"με το όνομα {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Μη έγκυρη επιλογή δοκιμαστικής εργασίας. Η επιλογή «--only=» δέχεται μόνο "
+"τις τιμές «failed» ή «success»."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Μη έγκυρο ID εργασίας"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Η εργασία διαγράφηκε!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Δεν βρέθηκαν εργασίες προς διαγραφή."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Δεν ήταν δυνατό να διαγραφούν όλες οι εργασίες."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Διαγράφηκαν όλες οι εργασίες!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} αποτυχημένες εργασίες αφαιρέθηκαν από τη λίστα των αποτυχημένων."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} εργασίες αναδιανεμήθηκαν επιτυχώς πίσω στην ουρά."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Υπάρχουν {$total} αποτυχημένες εργασίες"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Υπάρχουν {$total} εργασίες στην ουρά"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Η επιλογή {$option} δεν υπάρχει."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Μήπως εννοούσατε κάποιο από τα παρακάτω;"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Υπάρχουν συνολικά <strong>{$total}</strong> εργασίες στην ουρά"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Υπάρχουν συνολικά <strong>{$total}</strong> αποτυχημένες εργασίες."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Προβολή εργασιών στην ουρά"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Εργασίες"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Αποτυχημένες Εργασίες"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Λεπτομέρειες Αποτυχημένων Εργασιών"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Δείτε όλες τις εργασίες που βρίσκονται στην ουρά του συστήματος και "
+"παρακολουθήστε τις αποτυχημένες προσπάθειες."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Προβολή Εργασιών"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Προβολή Αποτυχημένων Εργασιών"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Προβολή Λεπτομερειών Αποτυχημένης Εργασίας: {$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Χαρακτηριστικό"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Τιμή Χαρακτηριστικού"
 
+#, fuzzy
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Εργασία"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Ουρά"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Σύνδεση"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Προσπάθειες"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Δημιουργήθηκε Στις"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Απέτυχε Στις"
 
 msgid "admin.jobs.list.payload"
 msgstr ""
@@ -735,61 +743,79 @@ msgid "admin.jobs.list.exception"
 msgstr ""
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Ενέργειες"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Δημιουργήθηκε στις {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Δημιουργήθηκε στις {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Δοκιμάστε Ξανά"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Επανατοποθέτηση όλων των αποτυχημένων εργασιών στην ουρά"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Η εργασία που φορτώνει τα δεδομένα στατιστικών χρήσης από το αρχείο {$file} "
+"απέτυχε και δεν ήταν δυνατή η μετακίνηση του αρχείου από το "
+"{$archivedFilePath} στο {$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Η εργασία που φορτώνει τα δεδομένα στατιστικών χρήσης από το αρχείο {$file} "
+"απέτυχε. Το αρχείο έχει μετακινηθεί στον κατάλογο stage."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Συλλογή Δεδομένων"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Ορίστε ποια στατιστικά στοιχεία χρήσης πρέπει να συλλέγονται."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Αποθήκευση Δεδομένων"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Ορίστε ποια στατιστικά στοιχεία χρήσης θα πρέπει να αποθηκεύονται στον "
+"διακομιστή."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Πρωτόκολλο Sushi"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Ρυθμίστε το πρωτόκολλο <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, μια αναγνωρισμένη μορφή για τη διανομή "
+"στατιστικών στοιχείων χρήσης."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Μηνιαία ή Ημερήσια Στατιστικά Στοιχεία"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Αν θα παρακολουθείτε ή όχι τα στατιστικά στοιχεία χρήσης σε καθημερινή ή "
+"μηνιαία βάση. Η παρακολούθηση των ημερήσιων στατιστικών ενδέχεται να αυξήσει "
+"σημαντικά το μέγεθος της βάσης δεδομένων σας."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Παρακολούθηση ημερήσιων και μηνιαίων στατιστικών"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Παρακολούθηση μόνο των μηνιαίων στατιστικών"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Συμπίεση αρχείων καταγραφής"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Τα στατιστικά στοιχεία δημιουργούνται από αρχεία καταγραφής πρόσβασης, τα "
+"οποία μεταφέρονται στο <code>{$path}</code> μετά την επεξεργασία τους. Θα "
+"πρέπει τα αρχεία καταγραφής να συμπιέζονται σε <code>.gz</code> μετά την "
+"επεξεργασία τους; Η συμπίεση των αρχείων καταγραφής μπορεί να εξοικονομήσει "
+"χώρο στο δίσκο του διακομιστή."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr ""
@@ -997,3 +1023,11 @@ msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr ""
 "Επανεκκίνηση των deamons της ουράς εργασιών μετά την ολοκλήρωση της "
 "τρέχουσας εργασίας τους."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Δεν ήταν δυνατή η μετακίνηση του αρχείου {$file} από το {$dispatchFilePath} "
+"στο {$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Το αρχείο {$file} δεν υπάρχει."

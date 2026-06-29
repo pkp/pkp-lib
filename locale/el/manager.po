@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 08:10+0000\n"
+"PO-Revision-Date: 2026-06-29 08:44+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1933,6 +1933,9 @@ msgstr ""
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Θα πρέπει να απαιτείται τουλάχιστον ένα από αυτά τα αρχεία σε κάθε νέα "
+"υποβολή; Εάν επιλέξετε «Ναι», οι συγγραφείς δεν θα μπορούν να ολοκληρώσουν "
+"την υποβολή τους έως ότου ανεβάσουν τουλάχιστον ένα αρχείο αυτού του τύπου."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
@@ -3833,3 +3836,9 @@ msgstr "Ορισμός υπενθυμίσεων για Αξιολόγηση"
 
 msgid "manager.statistics.counterR5Report.settings"
 msgstr "Ρυθμίσεις Αναφορών"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Πρόταση για Αξιολογητή κατά την Υποβολή"
+
+msgid "notification.submissionLocales"
+msgstr "Ενημερώθηκαν οι τοπικές ρυθμίσεις της υποβολής."

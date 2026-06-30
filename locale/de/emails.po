@@ -699,6 +699,7 @@ msgstr ""
 msgid "orcid.orcidRequestUpdateScope.name"
 msgstr "Aktualisierung der ORCID-Rechte einholen"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        "

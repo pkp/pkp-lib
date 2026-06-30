@@ -624,6 +624,7 @@ msgstr ""
 "dúvida sobre o processo.</p> <p>Atenciosamente,</p> <p>{$contextName}</p> "
 "</div></div><style>{$emailTemplateStyle}</style>"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'> <div class='email-header'> <h2>Convite para "

@@ -673,6 +673,7 @@ msgstr ""
 "Este correo electrónico se envía a los usuarios que están invitados a "
 "obtener ciertos roles"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        "

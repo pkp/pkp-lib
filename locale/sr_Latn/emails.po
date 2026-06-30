@@ -683,6 +683,7 @@ msgid "mailable.userRoleAssignmentInvitationNotify.description"
 msgstr ""
 "Ovaj imejl se šalje korisnicima koji su pozvani da dobiju određene uloge"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>   <div class='email-"

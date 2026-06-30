@@ -109,10 +109,10 @@ class I12792_FixInvitationEmailButtons extends Migration
      */
     private function rewriteBody(string $body): string
     {
-        return preg_replace_callback(
-            '#<p>\s*<a[^>]*href=([\'"])\{\$acceptUrl\}\1[^>]*>([^<]+)</a>\s*</p>'
+        return (string) preg_replace_callback(
+            '#<p[^>]*>\s*<a[^>]*href=([\'"])\{\$acceptUrl\}\1[^>]*>([^<]+)</a>\s*</p>'
             . '\s*'
-            . '<p>\s*<a[^>]*href=([\'"])\{\$declineUrl\}\3[^>]*>([^<]+)</a>\s*</p>#i',
+            . '<p[^>]*>\s*<a[^>]*href=([\'"])\{\$declineUrl\}\3[^>]*>([^<]+)</a>\s*</p>#i',
             function ($m) {
                 $acceptLabel  = $m[2];
                 $declineLabel = $m[4];

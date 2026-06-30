@@ -706,6 +706,7 @@ msgstr ""
 "<p>Date de début le {$dateStart}</p>        <p>{$sectionEndingDate}</"
 "p>        <p>{$sectionMastheadAppear}</p>    </div></div>"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        "

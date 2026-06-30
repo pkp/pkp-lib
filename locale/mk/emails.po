@@ -678,6 +678,7 @@ msgstr ""
 msgid "emailTemplate.variable.invitation.declineUrl"
 msgstr "Ова е URL-адресата за одбивање на поканата"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'> <div class='email-header'> <h2>Покана за нова "

@@ -726,6 +726,7 @@ msgstr "<p><h2>Вече назначени роли</h2></p>"
 msgid "emails.userRoleAssignmentInvitationNotify.subject"
 msgstr "Поканени сте за нови роли"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'> <div class='email-header'> <h2>Покана за нова "

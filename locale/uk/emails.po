@@ -724,6 +724,7 @@ msgstr "Сповіщення про запрошення користувача 
 msgid "emails.userRoleAssignmentInvitationNotify.subject"
 msgstr "Вас запрошують на нові ролі"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'> <div class='email-header'> <h2>Запрошення на "

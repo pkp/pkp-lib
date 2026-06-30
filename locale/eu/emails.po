@@ -1531,6 +1531,7 @@ msgstr ""
 msgid "mailable.userRoleAssignmentInvitationNotify.name"
 msgstr "Rolera gonbidatu izanaren jakinarazpena erabiltzaileari"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        <h2>Rol "

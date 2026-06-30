@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2026-06-22 07:07+0000\n"
+"PO-Revision-Date: 2026-06-30 07:54+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/el/"
 ">\n"
@@ -174,7 +174,7 @@ msgstr ""
 "Όνομα Χρήστη: {$recipientUsername}"
 
 msgid "emails.editorDecisionNewReviewRound.subject"
-msgstr ""
+msgstr "Η υποβολή σας έχει σταλεί για έναν ακόμη γύρο αξιολόγησης"
 
 msgid "emails.editorDecisionNewReviewRound.body"
 msgstr ""
@@ -377,3 +377,73 @@ msgstr ""
 
 msgid "emails.orcidRequestAuthorAuthorization.description"
 msgstr "Αυτό το μήνυμα χρησιμοποιείται ως αίτημα πρόσβασης στο μητρώο ORCID των συγγραφέων."
+
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Νέοι ρόλοι που ανατέθηκαν</h2></p>"
+
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Ρόλοι που έχουν ήδη ανατεθεί</h2></p>"
+
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "Αυτό είναι το όνομα του παραλήπτη της πρόσκλησης"
+
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "Αυτός είναι ο ρόλος του αποστολέα της πρόσκλησης"
+
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "Αυτό είναι το URL για την αποδοχή της πρόσκλησης"
+
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "Αυτό είναι το URL για την απόρριψη της πρόσκλησης"
+
+msgid "emails.changeProfileEmailInvitationNotify.body"
+msgstr ""
+"<p>Αγαπητέ/ή {$recipientName},</p>\n"
+"<p>Λαμβάνετε αυτό το email επειδή κάποιος ζήτησε την αλλαγή της διεύθυνσης "
+"email σας σε {$newEmail}.\n"
+"</p>\n"
+"<p>Εάν έχετε υποβάλει εσείς αυτό το αίτημα, παρακαλώ<a href=\""
+"{$acceptInvitationUrl}\">επιβεβαιώστε</a> την αλλαγή της διεύθυνσης email.\n"
+"</p>\n"
+"<p>Μπορείτε πάντα<a href=\"{$declineInvitationUrl}\">να απορρίψετε</a> αυτή "
+"την αλλαγή διεύθυνσης ηλεκτρονικού ταχυδρομείου.\n"
+"</p>\n"
+"<p>Μη διστάσετε να επικοινωνήσετε μαζί μας για οποιαδήποτε ερώτηση σχετικά "
+"με την υποβολή ή τη διαδικασία εξέτασης.</p>\n"
+"<p>Με εκτίμηση,\n"
+"</p>{$siteContactName}"
+
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "Αυτό είναι το όνομα του αποστολέα της πρόσκλησης"
+
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr ""
+"Σε αυτή την ενότητα περιγράφονται οι ρόλοι που θα προστεθούν στον χρήστη "
+"μετά την αποδοχή της πρόσκλησης"
+
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "Σε αυτή την ενότητα περιγράφονται οι ρόλοι που έχει ήδη ο χρήστης."
+
+msgid "emails.changeProfileEmailInvitationNotify.subject"
+msgstr ""
+"Επιβεβαίωση αιτήματος αλλαγής διεύθυνσης ηλεκτρονικού ταχυδρομείου "
+"επικοινωνίας του λογαριασμού"
+
+msgid "emails.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"Αυτό το email αποστέλλεται στους χρήστες που ζητούν αλλαγή της διεύθυνσης "
+"email τους."
+
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
+msgstr ""
+"Αυτό το email αποστέλλεται σε χρήστες που έχουν προσκληθεί να αναλάβουν "
+"συγκεκριμένους ρόλους"
+
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "Ειδοποίηση για πρόσκληση χρήστη σε ρόλο"
+
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "Σας προσκαλούμε να αναλάβετε νέους ρόλους"
+
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Τελειώνει στις {$dateEnd}"

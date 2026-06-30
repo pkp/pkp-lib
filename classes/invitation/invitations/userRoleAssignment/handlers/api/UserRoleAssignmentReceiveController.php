@@ -167,7 +167,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
     public function refine(Request $illuminateRequest): JsonResponse
     {
         $reqInput = $illuminateRequest->all();
-        $payload = $reqInput['invitationData'];
+        $payload = $reqInput['invitationData'] ?? [];
 
         $payload = $this->fillSiteLocaleNameFallback($payload);
 

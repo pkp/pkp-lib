@@ -691,7 +691,7 @@ class PKPSubmissionController extends PKPBaseController
         if (isset($params[$userGroupIdPropName])) {
             $submitAsUserGroup = $submitterUserGroups
                 ->first(function (UserGroup $userGroup) use ($params, $userGroupIdPropName) {
-                    return $userGroup->id === $params[$userGroupIdPropName];
+                    return $userGroup->id == $params[$userGroupIdPropName];
                 });
             if (!$submitAsUserGroup) {
                 $errors[$userGroupIdPropName] = [__('api.submissions.400.invalidSubmitAs')];

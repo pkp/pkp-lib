@@ -674,6 +674,7 @@ msgstr ""
 msgid "emailTemplate.variable.invitation.existingRoles"
 msgstr "V tem poglavju so opisane vloge, ki jih uporabnik že ima."
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        "

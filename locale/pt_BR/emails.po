@@ -732,6 +732,7 @@ msgstr "<p><h2>Novas funções atribuídas</h2></p>"
 msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
 msgstr "<p><h2>Funções já atribuídas</h2></p>"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        "

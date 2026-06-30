@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2025-09-10 18:43+0000\n"
+"PO-Revision-Date: 2026-06-25 09:31+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "cs/>\n"
@@ -31,10 +31,10 @@ msgid "default.groups.abbrev.productionEditor"
 msgstr "ProdEd"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Copyeditor/ka"
+msgstr "Jazykový redaktor/ka"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Copyeditoři"
+msgstr "Jazykoví redaktoři"
 
 msgid "default.groups.abbrev.copyeditor"
 msgstr "RED"

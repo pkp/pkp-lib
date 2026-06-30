@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2026-06-22 11:18+0000\n"
+"PO-Revision-Date: 2026-06-29 14:35+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/el/>"
 "\n"
@@ -496,202 +496,245 @@ msgid "admin.languages.noLocalesToDownload"
 msgstr "Δεν υπάρχουν γλώσσες διαθέσιμες για λήψη."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Χρήση:"
 
 msgid "admin.cli.tool.usage.parameters"
 msgstr "εντολή [ορίσματα]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Διαθέσιμες εντολές για τον χώρο ονομάτων `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Δεν είναι δυνατή η εκτέλεση εργασιών στην ουρά, καθώς η εφαρμογή βρίσκεται "
+"σε κατάσταση συντήρησης."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Εμφάνιση όλων των εργασιών που βρίσκονται στην ουρά. Αν θέλετε να "
+"ομαδοποιήσετε τα αποτελέσματα σε σελίδες, χρησιμοποιήστε τις παραμέτρους --"
+"page= και --perPage=. Χρησιμοποιήστε την επιλογή --failed για να εμφανίσετε "
+"τις εργασίες που απέτυχαν."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Διαγράψτε μια συγκεκριμένη εργασία που βρίσκεται στην ουρά, με βάση τον "
+"αναγνωριστικό της. Αν θέλετε να διαγράψετε όλες τις εργασίες, ορίστε την "
+"παράμετρο --all. Αν θέλετε να διαγράψετε όλες τις εργασίες από μια "
+"συγκεκριμένη ουρά, ορίστε την παράμετρο --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Προσθέστε μια δοκιμαστική εργασία στην δοκιμαστική ουρά. Χρησιμοποιήστε τις "
+"προαιρετικές παραμέτρους --only= και ορίστε την τιμή «failed» ή «success» "
+"για να στείλετε μια εργασία που μπορεί να αποτύχει ή να ολοκληρωθεί με "
+"επιτυχία."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Εκτελέστε μια daemon διαδικασία που θα λειτουργεί συνέχεια και θα συνεχίζει "
+"να επεξεργάζεται εργασίες. Χρησιμοποιήστε την επιλογή --help για να δείτε "
+"τις διαθέσιμες επιλογές που σχετίζονται με αυτήν την εντολή."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Εμφάνιση όλων των αποτυχημένων εργασιών. Ορίστε τις παραμέτρους --"
+"queue=QUEUE_NAME και --connection=CONNECTION_NAME για να φιλτράρετε τη "
+"λίστα. Επίσης, ορίστε τις παραμέτρους --redispatch και --clear για να "
+"ανακατανείμετε τις εργασίες πίσω στην ουρά ή να διαγράψετε όλες ή "
+"συγκεκριμένες αποτυχημένες εργασίες."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Προωθήστε τις διαθέσιμες εργασίες στην ουρά. Για να προωθήσετε μια εργασία "
+"σε μια συγκεκριμένη ουρά, ορίστε την παράμετρο --queue=QUEUE_NAME. "
+"Χρησιμοποιήστε την παράμετρο --test για να εκτελέσετε μια δοκιμαστική "
+"εργασία και την παράμετρο --once για να σταματήσετε μετά από μία μόνο "
+"εργασία."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "Ολοκληρώθηκαν {$jobCount} εργασίες στην ουρά με το όνομα {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"Δεν υπάρχουν διαθέσιμες εργασίες προς εκτέλεση στην ουρά με το όνομα "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Εμφάνιση του συνολικού αριθμού εργασιών στην ουρά. Χρησιμοποιήστε την "
+"επιλογή --failed για να δείτε τον συνολικό αριθμό των εργασιών που απέτυχαν."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Εμφάνιση οδηγιών χρήσης της εντολής για τις εργασίες"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Εμφάνιση των παραμέτρων χρήσης των εργασιών"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Η παράμετρος δεν μπορεί να είναι κενή! Ελέγξτε την χρήση."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Αποτυχημένες Εργασίες στην Ουρά"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Εργασίες στην Ουρά"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Ουρά"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Σύνδεση"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Όνομα Εργασίας"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Προσπάθειες"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Διαθέσιμο Στις"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Δημιουργήθηκε Στις"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Απέτυχε Στις"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Μήνυμα Λάθους"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Σελιδοποίηση"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Τρέχουσα"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Προηγούμενη"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Επόμενη"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Για να χρησιμοποιήσετε αυτήν την εντολή, πρέπει να καθορίσετε τουλάχιστον "
+"ένα ID εργασίας (Job ID), την παράμετρο «--all» ή την παράμετρο «--queue=»"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Απεστάλη δοκιμαστική εργασία που είναι βέβαιο ότι θα αποτύχει στην ουρά με "
+"το όνομα {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Απεστάλη δοκιμαστική εργασία που είναι βέβαιο ότι θα ολοκληρωθεί στην ουρά "
+"με το όνομα {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Μη έγκυρη επιλογή δοκιμαστικής εργασίας. Η επιλογή «--only=» δέχεται μόνο "
+"τις τιμές «failed» ή «success»."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Μη έγκυρο ID εργασίας"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Η εργασία διαγράφηκε!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Δεν βρέθηκαν εργασίες προς διαγραφή."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Δεν ήταν δυνατό να διαγραφούν όλες οι εργασίες."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Διαγράφηκαν όλες οι εργασίες!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} αποτυχημένες εργασίες αφαιρέθηκαν από τη λίστα των αποτυχημένων."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} εργασίες αναδιανεμήθηκαν επιτυχώς πίσω στην ουρά."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Υπάρχουν {$total} αποτυχημένες εργασίες"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Υπάρχουν {$total} εργασίες στην ουρά"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Η επιλογή {$option} δεν υπάρχει."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Μήπως εννοούσατε κάποιο από τα παρακάτω;"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Υπάρχουν συνολικά <strong>{$total}</strong> εργασίες στην ουρά"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Υπάρχουν συνολικά <strong>{$total}</strong> αποτυχημένες εργασίες."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Προβολή εργασιών στην ουρά"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Εργασίες"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Αποτυχημένες Εργασίες"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Λεπτομέρειες Αποτυχημένων Εργασιών"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Δείτε όλες τις εργασίες που βρίσκονται στην ουρά του συστήματος και "
+"παρακολουθήστε τις αποτυχημένες προσπάθειες."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Προβολή Εργασιών"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Προβολή Αποτυχημένων Εργασιών"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Προβολή Λεπτομερειών Αποτυχημένης Εργασίας: {$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Χαρακτηριστικό"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Τιμή Χαρακτηριστικού"
 
+#, fuzzy
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Εργασία"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Ουρά"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Σύνδεση"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Προσπάθειες"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Δημιουργήθηκε Στις"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Απέτυχε Στις"
 
 msgid "admin.jobs.list.payload"
 msgstr ""
@@ -700,91 +743,127 @@ msgid "admin.jobs.list.exception"
 msgstr ""
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Ενέργειες"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Δημιουργήθηκε στις {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Δημιουργήθηκε στις {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Δοκιμάστε Ξανά"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Επανατοποθέτηση όλων των αποτυχημένων εργασιών στην ουρά"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Η εργασία που φορτώνει τα δεδομένα στατιστικών χρήσης από το αρχείο {$file} "
+"απέτυχε και δεν ήταν δυνατή η μετακίνηση του αρχείου από το "
+"{$archivedFilePath} στο {$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Η εργασία που φορτώνει τα δεδομένα στατιστικών χρήσης από το αρχείο {$file} "
+"απέτυχε. Το αρχείο έχει μετακινηθεί στον κατάλογο stage."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Συλλογή Δεδομένων"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Ορίστε ποια στατιστικά στοιχεία χρήσης πρέπει να συλλέγονται."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Αποθήκευση Δεδομένων"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Ορίστε ποια στατιστικά στοιχεία χρήσης θα πρέπει να αποθηκεύονται στον "
+"διακομιστή."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Πρωτόκολλο Sushi"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Ρυθμίστε το πρωτόκολλο <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, μια αναγνωρισμένη μορφή για τη διανομή "
+"στατιστικών στοιχείων χρήσης."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Μηνιαία ή Ημερήσια Στατιστικά Στοιχεία"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Αν θα παρακολουθείτε ή όχι τα στατιστικά στοιχεία χρήσης σε καθημερινή ή "
+"μηνιαία βάση. Η παρακολούθηση των ημερήσιων στατιστικών ενδέχεται να αυξήσει "
+"σημαντικά το μέγεθος της βάσης δεδομένων σας."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Παρακολούθηση ημερήσιων και μηνιαίων στατιστικών"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Παρακολούθηση μόνο των μηνιαίων στατιστικών"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Συμπίεση αρχείων καταγραφής"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Τα στατιστικά στοιχεία δημιουργούνται από αρχεία καταγραφής πρόσβασης, τα "
+"οποία μεταφέρονται στο <code>{$path}</code> μετά την επεξεργασία τους. Θα "
+"πρέπει τα αρχεία καταγραφής να συμπιέζονται σε <code>.gz</code> μετά την "
+"επεξεργασία τους; Η συμπίεση των αρχείων καταγραφής μπορεί να εξοικονομήσει "
+"χώρο στο δίσκο του διακομιστή."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Να μένουν τα αρχεία καταγραφής στη θέση τους"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Να συμπιέζονται τα αρχεία καταγραφής"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Περιορισμός της πρόσβασης στο API στατιστικών του COUNTER SUSHI στους "
+"διαχειριστές και τους υπεύθυνους"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Πλατφόρμα"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Σύμφωνα με το πρωτόκολλο COUNTER SUSHI, κάθε στατιστική αναφορά πρέπει να "
+"προσδιορίζει την «πλατφόρμα» που παρέχει τα στατιστικά στοιχεία. Από "
+"προεπιλογή, το εκάστοτε περιοδικό θα ορίζεται ως πλατφόρμα για όλα τα "
+"στατιστικά στοιχεία. Ωστόσο, εάν όλα τα περιοδικά που εκδίδονται σε αυτόν "
+"τον ιστότοπο ανήκουν ή διαχειρίζονται από τον ίδιο πάροχο, ίσως να προτιμάτε "
+"να ορίσετε τον ιστότοπο ως πλατφόρμα."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID Πλατφόρμας"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Πώς να αναγνωρίσετε αυτήν την πλατφόρμα στις αναφορές του COUNTER SUSHI. Το "
+"αναγνωριστικό πλατφόρμας πρέπει να αποτελείται από 17 χαρακτήρες το πολύ και "
+"μπορεί να περιέχει γράμματα (a–z, A–Z), ψηφία (0–9), κάτω παύλες (_), "
+"τελείες (.) και κάθετες (/). Το αναγνωριστικό πλατφόρμας χρησιμοποιείται σε "
+"διάφορες στήλες και θα πρέπει να είναι όσο το δυνατόν συντομότερο, χωρίς "
+"όμως να χάνει την αναγνωρισιμότητά του. Το αναγνωριστικό πλατφόρμας "
+"βασίζεται συνήθως στο όνομα ενός εκδότη ή μιας πλατφόρμας, σε ένα όνομα "
+"τομέα ή σε μια γνωστή, μοναδική συντομογραφία."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Απαιτείται αναγνωριστικό πλατφόρμας όταν ο ιστότοπος αναγνωρίζεται ως "
+"πλατφόρμα SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "χρήση: [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr ""
@@ -800,36 +879,49 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Ο αριθμός δευτερολέπτων αναμονής πριν από την επανάληψη μιας εργασίας στην "
+"οποία παρουσιάστηκε μια ένα σφάλμα [προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Το όριο μνήμης σε megabytes [προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Ο αριθμός δευτερολέπτων κατά τον οποίο μπορεί να εκτελείται μια θυγατρική "
+"διεργασία [προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Αριθμός δευτερολέπτων αναμονής όταν δεν υπάρχει διαθέσιμη εργασία "
+"[προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Αριθμός προσπαθειών επανεκτέλεσης μιας εργασίας πριν οριστεί ως αποτυχημένη "
+"[προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Διακοπή όταν η ουρά είναι κενή [προεπιλογή: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Αριθμός των εργασιών προς επεξεργασία πριν από τη διακοπή [προεπιλογή: "
+"“{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Ο μέγιστος αριθμός δευτερολέπτων που πρέπει να εκτελείται η εργασία "
+"[προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
 msgstr ""
+"Αριθμός δευτερολέπτων ανάπαυσης μεταξύ εργασιών [προεπιλογή: “{$default}”]"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Εκκίνηση του deamon εργασιών για την δοκιμαστική ουρά"
 
 #~ msgid "admin.settings.aboutDescription"
 #~ msgstr "Σχετικά με τον ιστότοπο"
@@ -947,3 +1039,101 @@ msgstr ""
 "Η εγγραφή «{$id}» στο Μητρώο ROR περιέχει μια καταχώριση ονόματος με τύπους "
 "[{$types}], στην οποία λείπει το υποχρεωτικό πεδίο «value», και ως εκ τούτου "
 "έχει παραλειφθεί."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Οι workers θα τερματίσουν ομαλά τη λειτουργία τους μετά την ολοκλήρωση της "
+"εκτέλεσης της τρέχουσας εργασίας."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Δεν είναι δυνατή η εκτέλεση εργασιών στην ουρά, καθώς είναι ενεργοποιημένη η "
+"λειτουργία sandbox στην εφαρμογή."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Επανεκκίνηση των deamons της ουράς εργασιών μετά την ολοκλήρωση της "
+"τρέχουσας εργασίας τους."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Δεν ήταν δυνατή η μετακίνηση του αρχείου {$file} από το {$dispatchFilePath} "
+"στο {$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Το αρχείο {$file} δεν υπάρχει."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Εκτέλεση εργασίας για την αυτόματη διαγραφή των προσκλήσεων που έχουν λήξει"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Χρησιμοποιήστε τον ιστότοπο ως πλατφόρμα για όλα τα περιοδικά."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Η μεταβλητή `app_key` υπάρχει ήδη στην ενότητα `general` του αρχείου "
+"ρυθμίσεων. Εκτελέστε την εντολή `php lib/pkp/tools/appKey.php generate` για "
+"να ορίσετε ένα νέο κλειδί εφαρμογής."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Δεν έχει οριστεί κλειδί εφαρμογής στο αρχείο ρυθμίσεων."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Ένα έγκυρο κλειδί εφαρμογής έχει οριστεί στο αρχείο ρυθμίσεων"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Επαλήθευση του τρέχοντος κλειδιού εφαρμογής, εφόσον υπάρχει στο αρχείο "
+"ρυθμίσεων"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Προσθέστε τη μεταβλητή app_key στο αρχείο config.inc.php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Δημιουργήστε ένα νέο κλειδί εφαρμογής και αντικαταστήστε το στο αρχείο "
+"ρυθμίσεων. Χρησιμοποιήστε την επιλογή --show για να το δείτε μόνο ή την "
+"επιλογή --force για να αντικαταστήσετε ένα υπάρχον έγκυρο κλειδί εφαρμογής."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Δεν έχει οριστεί καμία μεταβλητή με το όνομα `app_key` στην ενότητα `general`"
+" του αρχείου ρυθμίσεων. Παρακαλούμε ενημερώστε την ενότητα «general» του "
+"αρχείου ρυθμίσεων και προσθέστε τη γραμμή `app_key = ` ή εκτελέστε την "
+"εντολή `php lib/pkp/tools/appKey.php configure` για να την ορίσετε."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Μη έγκυρο κλειδί εφαρμογής, μη υποστηριζόμενη μέθοδος κρυπτογράφησης ή "
+"λανθασμένο μήκος κλειδιού. Οι υποστηριζόμενες μέθοδοι κρυπτογράφησης είναι: "
+"{$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Το κλειδί εφαρμογής ορίστηκε με επιτυχία στο αρχείο ρυθμίσεων."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Η μεταβλητή κλειδιού εφαρμογής ορίστηκε με επιτυχία στο αρχείο ρυθμίσεων. "
+"Εκτελέστε την εντολή `php lib/pkp/tools/appKey.php generate` για να ορίσετε "
+"ένα νέο κλειδί εφαρμογής."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Μήπως εννοούσατε κάποιο από τα παρακάτω;"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Μήπως εννοούσατε κάποιο από τα παρακάτω;"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Δημιουργημένο κλειδί εφαρμογής: {$appKey}"
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Έχει ήδη οριστεί ένα έγκυρο κλειδί εφαρμογής στο αρχείο ρυθμίσεων. Για να το "
+"αντικαταστήσετε, χρησιμοποιήστε την επιλογή --force μαζί με την εντολή."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Δεν είναι δυνατή η ρύθμιση της μεταβλητής `app_key` στο αρχείο ρυθμίσεων. "
+"Παρακαλούμε ενημερώστε την ενότητα «Γενικά» του αρχείου ρυθμίσεων και "
+"προσθέστε τη γραμμή `app_key = `."

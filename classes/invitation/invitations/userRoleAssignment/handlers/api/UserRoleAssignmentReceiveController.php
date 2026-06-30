@@ -169,11 +169,6 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
-        // Every user needs a name in the site primary locale (the fallback used by e.g.
-        // getFullName()), but the invitee usually fills only the context primary locale. Copy the
-        // context primary name into the site primary locale when it was left empty, so the value is
-        // stored and replayed in the review step. Only empty values are filled, so a name the
-        // invitee set themselves (e.g. after going back) is never overwritten.
         $payload = $this->fillSiteLocaleNameFallback($payload);
 
         if (!$this->invitation->validate($payload, ValidationContext::VALIDATION_CONTEXT_REFINE)) {

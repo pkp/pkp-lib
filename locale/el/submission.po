@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-30 08:18+0000\n"
+"PO-Revision-Date: 2026-06-30 12:01+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/el/>\n"
@@ -485,7 +485,7 @@ msgstr ""
 "να καταγραφούν ξεχωριστά."
 
 msgid "submission.parsedCitations"
-msgstr ""
+msgstr "Παραπομπές που έχουν Εξαχθεί"
 
 msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
@@ -1455,13 +1455,18 @@ msgid "editor.submission.decision"
 msgstr "Απόφαση"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Ενημέρωση Συγγραφέων"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Ενημέρωση Αξιολογητών"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Στείλτε ένα email στους αξιολογητές για να τους ευχαριστήσετε για την "
+"αξιολόγησή τους και να τους ενημερώσετε ότι έχει ληφθεί μια απόφαση. Σε κάθε "
+"αξιολογητή θα σταλεί ξεχωριστό email, προκειμένου να διαφυλαχθεί η ανωνυμία "
+"του. Μπορείτε να χρησιμοποιήσετε στο μήνυμα τη φράση {$recipientName} για να "
+"συμπεριλάβετε με ασφάλεια το όνομα κάθε αξιολογητή."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
@@ -2790,3 +2795,14 @@ msgstr "Διαγραφή μη ολοκληρωμένων υποβολών"
 
 msgid "editor.submission.reviewerSuggestions"
 msgstr "Αξιολογητές που προτείνονται από τον/την συγγραφέας"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Επέστρεψε πίσω σε αξιολόγηση."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Παρακαλούμε αναφέρετε το όνομα του συνεργαζόμενου Ιδρύματος στην κύρια "
+"γλώσσα της υποβολής."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Εσείς έχετε υποβάλει τη σύσταση."

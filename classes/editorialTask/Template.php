@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
@@ -67,7 +68,6 @@ class Template extends Model
         'stage_id' => 'int',
         'context_id' => 'int',
         'include' => 'bool',
-        'title' => 'string',
         'type' => 'int',
         'restrictToUserGroups' => 'bool',
     ];
@@ -88,6 +88,14 @@ class Template extends Model
         return null;
     }
 
+    public function getSettings(): array
+    {
+        return array_merge(
+            $this->settings,
+            ['title', 'description'],
+        );
+    }
+
     /**
      * Add Model-level defined multilingual properties
      */
@@ -95,7 +103,7 @@ class Template extends Model
     {
         return array_merge(
             $this->multilingualProps,
-            []
+            ['title', 'description']
         );
     }
 
@@ -281,17 +289,14 @@ class Template extends Model
                 foreach ($keywords as $tok) {
                     $like = '%' . addcslashes($tok, '%_') . '%';
 
-                    $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
-                        $q->whereRaw('LOWER(title) LIKE LOWER(?)', [$like])
-                            ->orWhereRaw('LOWER(description) LIKE LOWER(?)', [$like])
-                            ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
-                                $sub->select(DB::raw(1))
-                                    ->from($settingsTable . ' as ets')
-                                    ->whereColumn("ets.{$pk}", "{$selfTable}.{$pk}")
-                                    ->whereIn('ets.setting_name', ['name', 'description'])
-                                    ->whereRaw('LOWER(ets.setting_value) LIKE LOWER(?)', [$like]);
-                            });
-                    });
+                    $outer->whereExists(
+                        fn (QueryBuilder $q) => $q
+                            ->select(DB::raw(1))
+                            ->from($settingsTable . ' as ets')
+                            ->whereColumn("ets.{$pk}", "{$selfTable}.{$pk}")
+                            ->whereIn('ets.setting_name', ['title', 'description'])
+                            ->whereRaw('LOWER(ets.setting_value) LIKE LOWER(?)', [$like])
+                    );
                 }
             });
         }

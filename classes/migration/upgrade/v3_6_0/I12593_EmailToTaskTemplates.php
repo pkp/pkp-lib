@@ -108,11 +108,6 @@ class I12593_EmailToTaskTemplates extends Migration
                 $alreadyMigrated[$customTemplate->context_id][] = $customTemplate->email_key;
             }
 
-            // If localized template data doesn't contain name, skip migration
-            if (!isset($setting['name'])) {
-                continue;
-            }
-
             $templateId = DB::table('edit_task_templates')->insertGetId([
                 'stage_id' => $customTemplate->stage_id,
                 'context_id' => $customTemplate->context_id,

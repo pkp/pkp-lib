@@ -614,8 +614,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $templateKey = '';
             foreach (EditorialTask::getTitleLocalizedStrings($context) as $key => $map) {
                 foreach ($map as $localizedTitle) {
-                    error_log($localizedTitle);
-                    if ($template->title == $localizedTitle) {
+                    if ($template->getLocalizedData('title') == $localizedTitle) {
                         $templateKey = $key;
                         break 2;
                     }
@@ -625,7 +624,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             return new JSONMessage(
                 true,
                 [
-                    'body' => Mail::compileParams($template->description, $mailable->getData()),
+                    'body' => Mail::compileParams($template->getLocalizedData('description'), $mailable->getData()),
                     'variables' => $notifyForm->getEmailVariableNames($templateKey),
                 ]
             );

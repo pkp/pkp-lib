@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\invitation;
 
+use APP\core\Application;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
@@ -84,5 +85,25 @@ class AcceptUserDetailsForm extends FormComponent
                 'size' => 'large',
             ]));
 
+    }
+
+    /**
+     * @copydoc FormComponent::getConfig()
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        $primaryLocale = $config['primaryLocale'];
+        // Show the site primary locale by default in addition to the context primary locale. Every
+        // user needs a name in the site primary locale because it is the fallback when the name is
+        // missing in the current UI locale (e.g. getFullName()); showing it lets the invitee fill
+        // it directly instead of leaving it behind a language tab.
+        $visibleLocales = [$primaryLocale];
+        if ($sitePrimaryLocale !== $primaryLocale) {
+            $visibleLocales[] = $sitePrimaryLocale;
+        }
+        $config['visibleLocales'] = $visibleLocales;
+        return $config;
     }
 }

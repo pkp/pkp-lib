@@ -223,11 +223,9 @@ class XSLTransformer {
 				// Instantiate and configure the result DOM
 				$resultDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
 				$resultDOM->recover = true;
-				$resultDOM->substituteEntities = true;
-				$resultDOM->resolveExternals = true;
 
 				// Load the XML and return the DOM
-				$resultDOM->loadXML($resultXML);
+				$resultDOM->loadXML($resultXML, LIBXML_NONET | LIBXML_NOENT);
 				return $resultDOM;
 
 			default:
@@ -261,17 +259,15 @@ class XSLTransformer {
 			//
 			// see:  http://www.whump.com/moreLikeThis/link/03815
 			$xmlDOM->recover = true;
-			$xmlDOM->substituteEntities = true;
-			$xmlDOM->resolveExternals = true;
 
 			// Load the XML based on its type
 			switch ($xmlType) {
 				case XSL_TRANSFORMER_DOCTYPE_FILE:
-					$xmlDOM->load($xml);
+					$xmlDOM->load($xml, LIBXML_NONET | LIBXML_NOENT);
 					break;
 
 				case XSL_TRANSFORMER_DOCTYPE_STRING:
-					$xmlDOM->loadXML($xml);
+					$xmlDOM->loadXML($xml, LIBXML_NONET | LIBXML_NOENT);
 					break;
 
 				default:
@@ -291,11 +287,11 @@ class XSLTransformer {
 			// Load the XSL based on its type
 			switch ($xslType) {
 				case XSL_TRANSFORMER_DOCTYPE_FILE:
-					$xslDOM->load($xsl);
+					$xslDOM->load($xsl, LIBXML_NONET | LIBXML_NOENT);
 					break;
 
 				case XSL_TRANSFORMER_DOCTYPE_STRING:
-					$xslDOM->loadXML($xsl);
+					$xslDOM->loadXML($xsl, LIBXML_NONET | LIBXML_NOENT);
 					break;
 
 				default:

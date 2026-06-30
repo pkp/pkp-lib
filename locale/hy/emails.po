@@ -718,6 +718,7 @@ msgstr "Ավարտվում է {$dateEnd}"
 msgid "mailable.userRoleAssignmentInvitationNotify.name"
 msgstr "Օգտատերը հրավիրվել է դերի ծանուցման"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        <h2>Նոր "

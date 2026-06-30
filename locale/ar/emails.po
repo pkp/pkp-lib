@@ -661,6 +661,7 @@ msgstr ""
 "<p>بدءًا من {$dateStart}</p>        <p>{$sectionEndingDate}</p>        "
 "<p>{$sectionMastheadAppear}</p>    </div></div>"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    <div class='email-header'>        <h2>دعوة "

@@ -627,6 +627,7 @@ msgstr ""
 "Это письмо отправляется пользователям, которых приглашают получить "
 "определённые роли"
 
+#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'>    \n"

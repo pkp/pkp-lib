@@ -520,8 +520,8 @@ class EditorialTask extends Model
             'EDITOR_ASSIGN' => 'mailable.editorAssignedManual.name',
             'COPYEDIT_REQUEST' => 'mailable.copyeditRequest.name',
             'LAYOUT_REQUEST' => 'mailable.layoutRequest.name',
-            'LAYOUT_COMPLETE' => 'mailable.indexRequest.name',
-            'INDEX_REQUEST' => 'mailable.layoutComplete.name',
+            'LAYOUT_COMPLETE' => 'mailable.layoutComplete.name',
+            'INDEX_REQUEST' => 'mailable.indexRequest.name',
             'INDEX_COMPLETE' => 'mailable.indexComplete.name',
         ];
 

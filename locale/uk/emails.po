@@ -724,7 +724,6 @@ msgstr "Сповіщення про запрошення користувача 
 msgid "emails.userRoleAssignmentInvitationNotify.subject"
 msgstr "Вас запрошують на нові ролі"
 
-#, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.body"
 msgstr ""
 "<div class='email-container'> <div class='email-header'> <h2>Запрошення на "
@@ -738,9 +737,12 @@ msgstr ""
 "до нашої Політики конфіденційності.</p> <div>{$existingRoles</div> "
 "<div>{$rolesAdded</div> <p>Після прийняття запрошення Вас буде "
 "перенаправлено на сторінку \"{$contextName}\".</p> <p>З будь-якими питаннями "
-"щодо цього процесу звертайтеся до мене.</p> <p><a href='{$acceptUrl}' "
-"class='btn btn-accept'>Прийняти запрошення</a></p> <p><a href='{$declineUrl}"
-"' class='btn btn-decline'>Відхилити запрошення</a></p> <p>З повагою,</p> <p>"
+"щодо цього процесу звертайтеся до мене.</p> "
+"<table class='btn-wrap' role='presentation' border='0' cellpadding='0' cellspacing='10'>"
+"            <tr><td class='btn-cell btn-accept'  bgcolor='#28a745'><a class='btn' href='{$acceptUrl}'>Прийняти запрошення</a></td></tr>"
+"            <tr><td class='btn-cell btn-decline' bgcolor='#dc3545'><a class='btn' href='{$declineUrl}'>Відхилити запрошення</a></td></tr>"
+"        </table>"
+" <p>З повагою,</p> <p>"
 "\"{$contextName}\"</p> </div></div>"
 
 msgid "mailable.userRoleMastheadUpdateNotify.name"

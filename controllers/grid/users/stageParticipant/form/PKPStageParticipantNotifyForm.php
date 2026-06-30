@@ -118,13 +118,13 @@ class PKPStageParticipantNotifyForm extends Form
 
             $templateData = $templates->mapWithKeys(
                 fn (Template $template, int $key) =>
-                [$template->id => $template->title]
+                [$template->id => $template->getLocalizedData('title')]
             );
         }
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'templates' => $templateData->toArray(),
+            'templates' => $templateData->toArray() ?? [],
             'stageId' => $this->getStageId(),
             'submissionId' => $this->_submissionId,
             'itemId' => $this->_itemId,
@@ -195,7 +195,7 @@ class PKPStageParticipantNotifyForm extends Form
             ->sender($request->getUser())
             ->recipients([$user])
             ->body($this->getData('message'))
-            ->subject($template->title);
+            ->subject($template->getLocalizedData('title'));
 
         // Create a query
         $query = EditorialTask::create([
@@ -205,7 +205,7 @@ class PKPStageParticipantNotifyForm extends Form
             'seq' => REALLY_BIG_NUMBER,
             'createdBy' => $user->getId(),
             'type' => EditorialTaskType::DISCUSSION,
-            'title' => $template->title,
+            'title' => $template->getLocalizedData('title'),
         ]);
 
         Repo::editorialTask()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
@@ -226,7 +226,7 @@ class PKPStageParticipantNotifyForm extends Form
         $templateKey = '';
         foreach (EditorialTask::getTitleLocalizedStrings($context) as $key => $map) {
             foreach ($map as $localizedTitle) {
-                if ($template->title == $localizedTitle) {
+                if ($template->getLocalizedData('title') == $localizedTitle) {
                     $templateKey = $key;
                     break 2;
                 }
@@ -425,10 +425,5 @@ class PKPStageParticipantNotifyForm extends Form
     public function isMessageRequired()
     {
         return true;
-    }
-
-    protected function getDiscussionTitles(): array
-    {
-
     }
 }

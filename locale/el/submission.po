@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 12:07+0000\n"
+"PO-Revision-Date: 2026-06-30 06:52+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/el/>\n"
@@ -1486,6 +1486,8 @@ msgstr "Απόρριψη Υποβολής"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Η συγκεκριμένη υποβολή θα απορριφθεί και δεν θα δημοσιευτεί. Η διαδικασία "
+"αξιολόγησης από ομότιμους θα σταματήσει και η υποβολή θα αρχειοθετηθεί."
 
 msgid "editor.submission.decision.decline.log"
 msgstr ""
@@ -1495,6 +1497,8 @@ msgstr ""
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Η υποβολή με τίτλο {$title} απορρίφθηκε και μεταφέρθηκε στο αρχείο. Έχουν "
+"αποσταλεί όλες οι ειδοποιήσεις, εκτός από όσες επιλέξατε να παραλείψετε."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
@@ -2637,7 +2641,7 @@ msgid "submission.dashboard.view.needsEditor"
 msgstr "Χρειάζονται επιμελητή"
 
 msgid "submission.dashboard.view.submissionStageAll"
-msgstr "Όλα στο στάδιο υποβολής"
+msgstr "Σε στάδιο υποβολής"
 
 msgid "submission.dashboard.view.scheduled"
 msgstr "Προγραμματισμένες για δημοσίευση"
@@ -2697,7 +2701,7 @@ msgid "submission.dashboard.view.awaitingReviews"
 msgstr "Σε αναμονή αξιολογήσεων"
 
 msgid "submission.dashboard.view.reviewsSubmitted"
-msgstr "Υποβλήθησαν αξιολογήσεις"
+msgstr "Υποβλήθηκαν αξιολογήσεις"
 
 msgid "submission.dashboard.view.revisionsRequested"
 msgstr "Ζητήθηκαν αναθεωρήσεις"
@@ -2747,7 +2751,7 @@ msgid "submission.dashboard.view.declined"
 msgstr "Απορριφθείσες"
 
 msgid "submission.dashboard.view.assigned"
-msgstr "Ανατεθειμένα σε εμένα"
+msgstr "Ανατεθειμένες σε εμένα"
 
 msgid "submission.stage.scheduledForPublication"
 msgstr "Προγραμματισμένες για δημοσίευση"
@@ -2760,3 +2764,17 @@ msgstr "Αντικρουόμενα συμφέροντα"
 
 msgid "dashboard.startNewSubmission"
 msgstr "Έναρξη Νέας Υποβολής"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Επιβεβαίωση διαγραφής μη ολοκληρωμένων υποβολών"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Θέλετε σίγουρα να διαγράψετε τα επιλεγμένα στοιχεία; Αυτή η ενέργεια δεν "
+"μπορεί να αναιρεθεί. Παρακαλώ επιβεβαιώστε για να συνεχίσετε."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Επιλέξτε τις ημιτελείς υποβολές που θέλετε να διαγραφούν."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Διαγραφή μη ολοκληρωμένων υποβολών"

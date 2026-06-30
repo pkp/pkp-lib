@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-17 11:27+0000\n"
+"PO-Revision-Date: 2026-06-25 05:13+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -3961,3 +3961,6 @@ msgid "manager.categories.form.removeCoverImageFileNotFound"
 msgstr ""
 "Շապիկի պատկերի և մանրապատկերի նիշքերը չգտնվեցին։ Հնարավոր է՝ դրանք արդեն "
 "ջնջված լինեն։ Փորձեք վերաբեռնել էջը։"
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "DOI վերջածանցի ձևանմուշը պարտադիր է։"

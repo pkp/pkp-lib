@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-22 13:45+0000\n"
+"PO-Revision-Date: 2026-06-30 14:05+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/el/>\n"
@@ -485,16 +485,18 @@ msgstr ""
 "να καταγραφούν ξεχωριστά."
 
 msgid "submission.parsedCitations"
-msgstr ""
+msgstr "Παραπομπές που έχουν Εξαχθεί"
 
 msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
 msgstr ""
+"Οι παρακάτω παραπομπές έχουν εξαχθεί και θα συνδεθούν με τα μεταδεδομένα της "
+"υποβολής."
 
 msgid "submission.parsedAndSaveCitations"
-msgstr ""
+msgstr "Εξαγωγή και Αποθήκευση Παραπομπών"
 
 msgid "submission.comments.addComment"
 msgstr " Προσθήκη σχολίου"
@@ -1200,7 +1202,7 @@ msgid "submission.submit.form.keywordsRequired"
 msgstr "Εισάγετε μια λέξη-κλειδί."
 
 msgid "submission.submit.form.coverageRequired"
-msgstr ""
+msgstr "Παρακαλώ εισάγετε τις λεπτομέρειες κάλυψης."
 
 msgid "submission.submit.form.typeRequired"
 msgstr "Παρακαλώ εισάγετε τον τύπο."
@@ -1349,7 +1351,7 @@ msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr ""
+msgstr "Απεστάλη για εξωτερική αξιολόγηση."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Η Υποβολή έγινε δεκτή."
@@ -1383,10 +1385,10 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Έχουν κατατεθεί όλες οι συστάσεις και αναμένεται απόφαση."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Αδρανής για περισσότερο από {$days} ημέρες στο στάδιο {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Μια νέα υποβολή περιμένει να σταλεί για αξιολόγηση ή να απορριφθεί."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Συμμετέχοντες"
@@ -1427,6 +1429,11 @@ msgstr "Πρέπει να επιλέξετε έναν χρήστη για αυτ
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
+"Το άτομο που επιλέξατε έχει οριστεί να διενεργήσει μια ανώνυμη αξιολόγηση. "
+"Εάν τον ορίσετε ως συμμετέχοντα, θα έχει πρόσβαση στην ταυτότητα του "
+"συγγραφέα. Σας συνιστούμε να μην ορίσετε αυτόν τον συμμετέχοντα, εκτός εάν "
+"μπορείτε να διασφαλίσετε ανεξάρτητα την ακεραιότητα της διαδικασίας "
+"αξιολόγησης από ομοτίμους."
 
 msgid "editor.submission.removePermissionToEdit"
 msgstr "Απαγόρευση επεξεργασίας μεταδεδομένων"
@@ -1448,156 +1455,228 @@ msgid "editor.submission.decision"
 msgstr "Απόφαση"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Ενημέρωση Συγγραφέων"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Ενημέρωση Αξιολογητών"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Στείλτε ένα email στους αξιολογητές για να τους ευχαριστήσετε για την "
+"αξιολόγησή τους και να τους ενημερώσετε ότι έχει ληφθεί μια απόφαση. Σε κάθε "
+"αξιολογητή θα σταλεί ξεχωριστό email, προκειμένου να διαφυλαχθεί η ανωνυμία "
+"του. Μπορείτε να χρησιμοποιήσετε στο μήνυμα τη φράση {$recipientName} για να "
+"συμπεριλάβετε με ασφάλεια το όνομα κάθε αξιολογητή."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Στείλτε ένα email στους ανατεθειμένους αξιολογητές για να τους ενημερώσετε "
+"ότι η ανάθεση τους έχει ακυρωθεί."
 
 msgid "editor.submission.decision.accept"
 msgstr "Αποδοχή Υπόβολής"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Η παρούσα υποβολή θα γίνει δεκτή προς δημοσίευση και θα προωθηθεί για "
+"επιμέλεια κειμένου."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"Ο/Η {$editorName} ενέκρινε αυτή την υποβολή και την προώθησε στο στάδιο της "
+"επιμέλειας κειμένου."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Η Υποβολή έγινε Δεκτή"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Η υποβολή {$title} έχει γίνει δεκτή για δημοσίευση και έχει προωθηθεί στο "
+"στάδιο της επιμέλειας κειμένου. Έχουν αποσταλεί όλες οι ειδοποιήσεις, εκτός "
+"από όσες επιλέξατε να παραλείψετε."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι η υποβολή "
+"τους έχει γίνει δεκτή προς δημοσίευση. Το email αυτό δεν θα σταλεί μέχρι να "
+"οριστικοποιηθεί η απόφαση."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι ο γύρος "
+"αξιολόγησης έχει ολοκληρωθεί. Το email αυτό δεν θα σταλεί μέχρι να "
+"οριστικοποιηθεί η απόφαση."
 
 msgid "editor.submission.decision.decline"
 msgstr "Απόρριψη Υποβολής"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Η συγκεκριμένη υποβολή θα απορριφθεί και δεν θα δημοσιευτεί. Η διαδικασία "
+"αξιολόγησης από ομότιμους θα σταματήσει και η υποβολή θα αρχειοθετηθεί."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "Ο/Η {$editorName} απέρριψε αυτή την υποβολή."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Η Υποβολή Απορρίφθηκε"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Η υποβολή με τίτλο {$title} απορρίφθηκε και μεταφέρθηκε στο αρχείο. Έχουν "
+"αποσταλεί όλες οι ειδοποιήσεις, εκτός από όσες επιλέξατε να παραλείψετε."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι η υποβολή "
+"τους απορρίφθηκε. Το email αυτό δεν θα σταλεί μέχρι να οριστικοποιηθεί η "
+"απόφαση."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Η συγκεκριμένη υποβολή θα απορριφθεί και δεν θα δημοσιευτεί. Δεν θα "
+"πραγματοποιηθεί περαιτέρω αξιολόγηση και η υποβολή θα αρχειοθετηθεί."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Νέος Γύρος Αξιολόγησης"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Ξεκινήστε έναν νέο γύρο αξιολόγησης για αυτή την υποβολή."
 
 msgid "editor.submission.decision.newReviewRound.log"
 msgstr ""
+"Ο/Η {$editorName} δημιούργησε έναν νέο κύκλο αξιολόγησης για αυτή την "
+"υποβολή."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Δημιουργήθηκε Γύρος Αξιολόγησης"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Δημιουργήθηκε ένας νέος κύκλος αξιολόγησης για την υποβολή {$title}. Ο "
+"συγγραφέας έχει ενημερωθεί, εκτός αν επιλέξατε να παραλείψετε την αποστολή "
+"αυτού του email."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι η υποβολή "
+"τους έχει προωθηθεί για να περάσει έναν νέο γύρο αξιολόγησης. Το email αυτό "
+"δεν θα σταλεί μέχρι να οριστικοποιηθεί η απόφαση."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr ""
+"Επιλέξτε τα αρχεία που πρέπει να προωθηθούν στο στάδιο της επιμέλειας "
+"κειμένου."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Επιλέξτε τα αρχεία που πρέπει να σταλούν για αξιολόγηση."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Επιλέξτε τα αρχεία που πρέπει να σταλούν στο στάδιο της παραγωγής."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Αίτηση Αναθεωρήσεων"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"Ο συγγραφέας πρέπει να υποβάλει διορθώσεις προτού η παρούσα υποβολή γίνει "
+"δεκτή προς δημοσίευση."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "Ο/Η {$editorName} ζήτησε αναθεωρήσεις για αυτή την υποβολή."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Ζητήθηκαν Αναθεωρήσεις"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Ζητήθηκαν διορθώσεις για την υποβολή {$title}. Έχουν αποσταλεί όλες οι "
+"ειδοποιήσεις, εκτός από όσες επιλέξατε να παραλείψετε."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι θα χρειαστούν "
+"διορθώσεις προτού η συγκεκριμένη υποβολή γίνει αποδεκτή προς δημοσίευση. "
+"Περιλάβετε όλες τις λεπτομέρειες που θα χρειαστεί ο συγγραφέας για να "
+"διορθώσει την υποβολή του. Όπου κρίνεται σκόπιμο, φροντίστε να "
+"ανωνυμοποιήσετε τυχόν σχόλια των κριτών. Το email αυτό δεν θα αποσταλεί "
+"μέχρι να οριστικοποιηθεί η απόφαση."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Ακύρωση Γύρου Αξιολόγησης"
 
 #, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Ακύρωση του τρέχοντος γύρου αξιολόγησης και επιστροφή της υποβολής στον "
+"προηγούμενο γύρο αξιολόγησης. Εάν πρόκειται για τον πρώτο γύρο αξιολόγησης, "
+"η υποβολή θα επιστραφεί στο στάδιο της υποβολής."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "Ο/Η {$editorName} ακύρωσε τον γύρο αξιολόγησης."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Ακυρώθηκε ο τελευταίος γύρος αξιολόγησης."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"Ο γύρος αξιολόγησης για την υποβολή {$title} έχει ακυρωθεί. Έχουν αποσταλεί "
+"όλες οι ειδοποιήσεις, εκτός από όσες επιλέξατε να παραλείψετε."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Ο γύρος αξιολόγησης μπορεί να ακυρωθεί μόνο εάν κανένας από τους "
+"ανατεθειμένους αξιολογητές δεν δώσει ολοκληρωμένη αξιολόγηση."
 
 msgid "editor.submission.decision.resubmit"
-msgstr "Επανυποβολή για κρίση"
+msgstr "Επανυποβολή για Αξιολόγηση"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"Ο συγγραφέας πρέπει να υποβάλει διορθώσεις, οι οποίες θα σταλούν για έναν "
+"ακόμη γύρο αξιολόγησης, προτού η παρούσα υποβολή γίνει αποδεκτή προς "
+"δημοσίευση."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"Ο/Η {$editorName} ζήτησε αναθεωρήσεις για αυτή την υποβολή, οι οποίες θα "
+"πρέπει να σταλούν για έναν ακόμη γύρο αξιολόγησης."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Ζητήθηκαν Αναθεωρήσεις"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Ζητήθηκαν διορθώσεις για την υποβολή {$title}. Καταγράφηκε η απόφαση να "
+"σταλούν οι διορθώσεις για έναν ακόμη γύρο αξιολογήσεων. Έχουν αποσταλεί όλες "
+"οι ειδοποιήσεις, εκτός από όσες επιλέξατε να παραλείψετε."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι θα πρέπει να "
+"ολοκληρώσουν τις διορθώσεις και να υποβάλουν το κείμενο για έναν ακόμη γύρο "
+"αξιολόγησης. Περιλάβετε όλες τις λεπτομέρειες που θα χρειαστεί ο συγγραφέας "
+"για να διορθώσει την υποβολή του. Όπου κρίνεται σκόπιμο, μην ξεχάσετε να "
+"ανωνυμοποιήσετε τα σχόλια των αξιολογητων."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Αποστολή για Αξιολόγηση"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Η παρούσα υποβολή είναι έτοιμη να σταλεί για αξιολόγηση από ομότιμους."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "Ο/Η {$editorName} προώθησε αυτή την υποβολή στο στάδιο της αξιολόγησης."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Απεστάλη για Αξιολόγηση"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"Η υποβολή με τίτλο {$title} έχει προωθηθεί στο στάδιο της αξιολόγησης. Ο "
+"συγγραφέας έχει ενημερωθεί, εκτός αν επιλέξατε να παραλείψετε την αποστολή "
+"αυτού του μηνύματος ηλεκτρονικού ταχυδρομείου."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Νέος γύρος κρίσεων"
@@ -1607,53 +1686,70 @@ msgstr "Αποστολή στην Παραγωγή"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Στείλτε αυτή την υποβολή στο στάδιο της παραγωγής, ώστε να προετοιμαστεί για "
+"δημοσίευση."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "Ο/Η {$editorName} προώθησε αυτή την υποβολή στο στάδιο της παραγωγής."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Απεστάλη στην Παραγωγή"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"Η υποβολή με τίτλο {$title} προωθήθηκε στο στάδιο της παραγωγής. Ο συντάκτης "
+"έχει ενημερωθεί, εκτός αν επιλέξατε να παραλείψετε την αποστολή αυτού του "
+"email."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι η "
+"συγκεκριμένη υποβολή έχει προωθηθεί στο στάδιο της παραγωγής. Το email αυτό "
+"δεν θα σταλεί μέχρι να ολοκληρωθεί η απόφαση."
 
 #, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Ακύρωση Επιμέλειας Κειμένου"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Επιστρέψτε αυτό το κείμενο από το στάδιο της επιμέλειας."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"Ο/Η {$editorName} επέστρεψε αυτό το κείμενο από το στάδιο της επιμέλειας."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Επέστρεψε από την Επιμέλεια Κειμένου"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"Η υποβολή με τίτλο {$title} επέστρεψε από το στάδιο της επιμέλειας κειμένου. "
+"Ο συγγραφέας έχει ενημερωθεί, εκτός αν επιλέξατε να παραλείψετε την αποστολή "
+"αυτού του μηνύματος ηλεκτρονικού ταχυδρομείου."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Στείλτε ένα email στους συγγραφείς για να τους ενημερώσετε ότι η επιμέλεια "
+"κειμένου ακυρώνεται και ότι η υποβολή τους θα υποβληθεί σε περαιτέρω "
+"επιστημονική αξιολόγηση."
 
 #, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Επιστροφή σε Επιμέλεια Κειμένου"
 
 #, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Στείλτε αυτό το κείμενο ξανά στο στάδιο της επιμέλειας κειμένου."
 
 #, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
+"Ο/Η {$editorName} έστειλε ξανά αυτή την υποβολή στο στάδιο της επιμέλειας "
+"κειμένου."
 
 #, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Επέστρεψε στην Επιμέλεια Κειμένου"
 
 #, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
@@ -2648,10 +2744,10 @@ msgid "submission.dashboard.view.needsEditor"
 msgstr "Χρειάζονται επιμελητή"
 
 msgid "submission.dashboard.view.submissionStageAll"
-msgstr "Όλα στο στάδιο υποβολής"
+msgstr "Σε στάδιο υποβολής"
 
 msgid "submission.dashboard.view.scheduled"
-msgstr "Προγραμματισμένα για δημοσίευση"
+msgstr "Προγραμματισμένες για δημοσίευση"
 
 msgid "submission.dashboard.view.reviewAssignments.all"
 msgstr "Όλες οι αναθέσεις"
@@ -2675,7 +2771,7 @@ msgid "submission.dashboard.view.production"
 msgstr "Σε στάδιο παραγωγής"
 
 msgid "submission.dashboard.view.published"
-msgstr "Δημοσιευμένες"
+msgstr "Δημοσιευμένες Υποβολές"
 
 msgid "ror.nameRequired"
 msgstr "Απαιτείται ένα όνομα ROR."
@@ -2708,7 +2804,7 @@ msgid "submission.dashboard.view.awaitingReviews"
 msgstr "Σε αναμονή αξιολογήσεων"
 
 msgid "submission.dashboard.view.reviewsSubmitted"
-msgstr "Υποβλήθησαν αξιολογήσεις"
+msgstr "Υποβλήθηκαν αξιολογήσεις"
 
 msgid "submission.dashboard.view.revisionsRequested"
 msgstr "Ζητήθηκαν αναθεωρήσεις"
@@ -2755,10 +2851,10 @@ msgid "submission.stage.externalReviewWithRound"
 msgstr "Αναθεώρηση (Γύρος {$round})"
 
 msgid "submission.dashboard.view.declined"
-msgstr "Απορριφθείσες"
+msgstr "Απορριφθείσες Υποβολές"
 
 msgid "submission.dashboard.view.assigned"
-msgstr "Ανατεθειμένα σε εμένα"
+msgstr "Ανατεθειμένες σε εμένα"
 
 msgid "submission.stage.scheduledForPublication"
 msgstr "Προγραμματισμένες για δημοσίευση"
@@ -2768,3 +2864,34 @@ msgstr "Δημοσιευμένες"
 
 msgid "reviewer.competingInterests"
 msgstr "Αντικρουόμενα συμφέροντα"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Έναρξη Νέας Υποβολής"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Επιβεβαίωση διαγραφής μη ολοκληρωμένων υποβολών"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Θέλετε σίγουρα να διαγράψετε τα επιλεγμένα στοιχεία; Αυτή η ενέργεια δεν "
+"μπορεί να αναιρεθεί. Παρακαλώ επιβεβαιώστε για να συνεχίσετε."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Επιλέξτε τις ημιτελείς υποβολές που θέλετε να διαγραφούν."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Διαγραφή μη ολοκληρωμένων υποβολών"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Αξιολογητές που προτείνονται από τον/την συγγραφέας"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Επέστρεψε πίσω σε αξιολόγηση."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Παρακαλούμε αναφέρετε το όνομα του συνεργαζόμενου Ιδρύματος στην κύρια "
+"γλώσσα της υποβολής."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Εσείς έχετε υποβάλει τη σύσταση."

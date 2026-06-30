@@ -465,7 +465,7 @@ msgstr ""
 
 msgid "emails.reviewConfirm.body"
 msgstr ""
-"<p>Kære {$recipientName]</p><p>{$reviewerName} har accepteret følgende "
+"<p>Kære {$recipientName}</p><p>{$reviewerName} har accepteret følgende "
 "bedømmelse: </p><p><a href=\"{$submissionUrl}\">#{$submissionId} "
 "{$authorsShort} — \"{$submissionTitle}\"</a><br /><b>Type:</b> "
 "{$reviewMethod}</p><p><b>Deadline for bedømmelse:</b> {$reviewDueDate}</"

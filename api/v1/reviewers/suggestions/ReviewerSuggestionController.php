@@ -30,6 +30,7 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use APP\core\Application;
 
 class ReviewerSuggestionController extends PKPBaseController
 {
@@ -114,8 +115,9 @@ class ReviewerSuggestionController extends PKPBaseController
     public function get(Request $illuminateRequest): JsonResponse
     {
         $reviewerSuggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        if (!$reviewerSuggestion) {
+        if (!$reviewerSuggestion || $reviewerSuggestion->submissionId != $submission->getId()) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
@@ -170,6 +172,13 @@ class ReviewerSuggestionController extends PKPBaseController
     {
         $validated = $illuminateRequest->validated();
         $reviewerSuggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!$reviewerSuggestion || $reviewerSuggestion->submissionId != $submission->getId()) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         if (!$reviewerSuggestion->update($validated)) {
             return response()->json([
@@ -190,8 +199,9 @@ class ReviewerSuggestionController extends PKPBaseController
     public function delete(Request $illuminateRequest): JsonResponse
     {
         $reviewerSuggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        if (!$reviewerSuggestion) {
+        if (!$reviewerSuggestion || $reviewerSuggestion->submissionId != $submission->getId()) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);

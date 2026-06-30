@@ -56,11 +56,19 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
     public function getValidationRules(UserRoleAssignmentInvite $invitation, ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         $context = $invitation->getContext();
+        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
+        $site = $siteDao->getSite();
+
         $allowedLocales = $context->getSupportedFormLocales();
         $primaryLocale = $context->getPrimaryLocale();
 
-        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
-        $site = $siteDao->getSite();
+        // Accept the site primary locale as a valid name key even when the journal does not enable
+        // it: every user needs a name in the site primary locale (the fallback used by e.g.
+        // getFullName()), so it is offered in the form and copied into when accepting.
+        $sitePrimaryLocale = $site->getPrimaryLocale();
+        if (!in_array($sitePrimaryLocale, $allowedLocales)) {
+            $allowedLocales[] = $sitePrimaryLocale;
+        }
 
         $validationRules = [
             'givenName' => [

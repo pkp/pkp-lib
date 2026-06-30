@@ -14,6 +14,7 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -166,7 +167,9 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
     public function refine(Request $illuminateRequest): JsonResponse
     {
         $reqInput = $illuminateRequest->all();
-        $payload = $reqInput['invitationData'];
+        $payload = $reqInput['invitationData'] ?? [];
+
+        $payload = $this->fillSiteLocaleNameFallback($payload);
 
         if (!$this->invitation->validate($payload, ValidationContext::VALIDATION_CONTEXT_REFINE)) {
             return response()->json([
@@ -182,5 +185,40 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
+    }
+
+    /**
+     * Fill the site primary locale name fields from the context primary locale when they are empty.
+     *
+     * Every user needs a name in the site primary locale (the fallback used when the name is missing
+     * in the current UI locale, e.g. getFullName()), but the invitee typically fills only the context
+     * primary locale. When the two locales differ, copy the context primary value into the empty site
+     * primary value. Only empty values are filled, so a value the invitee set themselves is never
+     * overwritten.
+     */
+    private function fillSiteLocaleNameFallback(array $payload): array
+    {
+        $context = $this->invitation->getContext();
+        if (!$context) {
+            return $payload;
+        }
+
+        $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+        $contextPrimaryLocale = $context->getPrimaryLocale();
+        if ($sitePrimaryLocale === $contextPrimaryLocale) {
+            return $payload;
+        }
+
+        foreach (['givenName', 'familyName'] as $field) {
+            if (isset($payload[$field])
+                && is_array($payload[$field])
+                && empty($payload[$field][$sitePrimaryLocale])
+                && !empty($payload[$field][$contextPrimaryLocale])
+            ) {
+                $payload[$field][$sitePrimaryLocale] = $payload[$field][$contextPrimaryLocale];
+            }
+        }
+
+        return $payload;
     }
 }

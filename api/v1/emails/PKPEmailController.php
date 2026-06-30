@@ -29,6 +29,7 @@ use PKP\log\SubmissionEmailLogEventType;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use APP\core\Application;
 
 class PKPEmailController extends PKPBaseController
 {
@@ -163,6 +164,14 @@ class PKPEmailController extends PKPBaseController
         // Or if user has admin or managerial roles.
         if (!$isUserRecipient) {
             $submission = Repo::submission()->get($email->assocId);
+            if (!$submission || $email->assocType != Application::ASSOC_TYPE_SUBMISSION) {
+                return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
+            }
+            if ($submission->getData('contextId') != $context->getId()) {
+                return response()->json([
+                    'error' => __('api.403.unauthorized'),
+                ], Response::HTTP_FORBIDDEN);
+            }
 
             $editorAssignment = StageAssignment::withSubmissionIds([$submission->getId()])
                 ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])

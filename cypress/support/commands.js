@@ -927,7 +927,7 @@ Cypress.Commands.add('confirmEmail', user => {
 	cy.visit(emailServer);
 	cy.get('#messages').contains(user.username + '@mailinator.com').first().click();
 	cy.frameLoaded('#message-body')
-	cy.iframe().find('.btn-accept').should('have.text', 'Accept Invitation').invoke('attr', 'href').then((url) => {
+	cy.iframe().find('.btn-accept a').should('have.text', 'Accept Invitation').invoke('attr', 'href').then((url) => {
 		cy.visit(url);
 	});
 });

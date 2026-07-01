@@ -178,6 +178,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
             'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
+            'STATUS_WITHDRAWN' => PKPSubmission::STATUS_WITHDRAWN,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
             'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
             'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,

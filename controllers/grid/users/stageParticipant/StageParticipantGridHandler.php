@@ -24,7 +24,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
-use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
 use PKP\controllers\grid\users\stageParticipant\form\PKPStageParticipantNotifyForm;
 use PKP\core\Core;
@@ -43,12 +42,9 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\stageAssignment\StageAssignment;
-use PKP\userGroup\UserGroup;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
-    use StageMailable;
-
     /**
      * Constructor
      */

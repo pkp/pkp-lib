@@ -23,7 +23,6 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
-use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -47,8 +46,6 @@ use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPStageParticipantNotifyForm extends Form
 {
-    use StageMailable;
-
     /** @var int The file/submission ID this form is for */
     public $_itemId;
 

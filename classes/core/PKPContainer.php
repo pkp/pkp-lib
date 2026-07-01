@@ -26,6 +26,7 @@ use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use PKP\config\Config;
@@ -35,6 +36,16 @@ use Throwable;
 
 class PKPContainer extends Container
 {
+    /** Normalized database driver identifiers (Laravel connection drivers). */
+    public const DRIVER_MYSQL = 'mysql';
+    public const DRIVER_MARIADB = 'mariadb';
+    public const DRIVER_POSTGRES = 'pgsql';
+
+    /** Database charset/collation policy. See pkp/pkp-lib#11563. */
+    public const CHARSET_UTF8 = 'utf8';
+    public const CHARSET_UTF8MB4 = 'utf8mb4';
+    public const LEGACY_COLLATION = 'utf8_general_ci';
+
     /**
      * Define if the app currently runing the unit test
      */
@@ -64,14 +75,179 @@ class PKPContainer extends Container
         $driver ??= Config::getVar('database', 'driver');
 
         if (substr(strtolower($driver), 0, 8) === 'postgres') {
-            return 'pgsql';
+            return static::DRIVER_POSTGRES;
         }
 
         return match ($driver) {
-            'mysql', 'mysqli' => 'mysql',
-            'mariadb' => 'mariadb'
+            'mysql', 'mysqli' => static::DRIVER_MYSQL,
+            'mariadb' => static::DRIVER_MARIADB
         };
     }
+
+    /**
+     * Derive the database connection charset (and collation) from the single
+     * source of truth: the `[database] collation` setting. See pkp/pkp-lib#11563.
+     *
+     * The collation drives everything:
+     *   - a `utf8mb4_*` collation               => `utf8mb4` charset
+     *   - a `utf8_*` or `utf8mb3_*` collation    => `utf8` charset (legacy)
+     *   - any non-UTF-8 collation (e.g. latin1_*) => rejected with an Exception
+     *
+     * PostgreSQL has no per-connection collation, so the collation is always null
+     * and the charset is always `utf8`.
+     *
+     * The default collation is intentionally the legacy `utf8_general_ci`: a site
+     * upgrading without adding the new setting keeps its previous behaviour, which
+     * avoids silently mixing utf8mb3 and utf8mb4 tables. New installs receive
+     * `utf8mb4_unicode_ci` from config.TEMPLATE.inc.php.
+     *
+     * @param ?string $driver    Normalized driver (mysql|mariadb|pgsql); resolved from config when null.
+     * @param ?string $collation Configured collation; read from config when null.
+     *
+     * @throws Exception When the collation is not a UTF-8 collation (utf8mb4_* or utf8_*)
+     *
+     * @return array{charset: string, collation: ?string}
+     */
+    public static function getDatabaseCharsetCollation(?string $driver = null, ?string $collation = null): array
+    {
+        $driver ??= static::getDatabaseDriverName();
+
+        // PostgreSQL: no per-connection collation; charset is always utf8.
+        if ($driver === static::DRIVER_POSTGRES) {
+            return ['charset' => static::CHARSET_UTF8, 'collation' => null];
+        }
+
+        $collation ??= Config::getVar('database', 'collation', static::LEGACY_COLLATION);
+        $normalizedCollation = strtolower((string) $collation);
+        
+        if (str_starts_with($normalizedCollation, static::CHARSET_UTF8MB4)) {
+            $charset = static::CHARSET_UTF8MB4;
+        } elseif (str_starts_with($normalizedCollation, static::CHARSET_UTF8)) {
+            // utf8_*, utf8mb3_*, or plain utf8 — all map to the utf8 charset.
+            $charset = static::CHARSET_UTF8;
+        } else {
+            // Anything else (e.g. latin1_*, ascii_*) is unsupported: Application stores UTF-8 data.
+            // Fail fast with a clear message instead of letting the database raise an obscure
+            // "COLLATION ... is not valid for CHARACTER SET ..." error. See pkp/pkp-lib#11563.
+            throw new Exception("Unsupported database collation '{$collation}'. Application requires a UTF-8 collation: use utf8mb4_unicode_ci (recommended) or utf8_general_ci (legacy).");
+        }
+
+        return ['charset' => $charset, 'collation' => $collation];
+    }
+
+    /**
+     * Build the charset/collation portion of a database connection config from the
+     * single [database] collation setting. See pkp/pkp-lib#11563.
+     *
+     * Returned as a ready-to-merge array so callers do not repeat the "set charset,
+     * conditionally set collation" logic. PostgreSQL has no per-connection collation,
+     * so the collation key is omitted entirely (rather than set to null) for it.
+     *
+     * @param ?string $driver Normalized driver; resolved from config when null.
+     *
+     * @return array{charset: string, collation?: string}
+     */
+    public static function getDatabaseConnectionCharsetConfig(?string $driver = null): array
+    {
+        $charsetCollation = static::getDatabaseCharsetCollation($driver);
+
+        return $charsetCollation['collation'] === null
+            ? ['charset' => $charsetCollation['charset']]
+            : ['charset' => $charsetCollation['charset'], 'collation' => $charsetCollation['collation']];
+    }
+
+    /**
+     * Return a non-blocking warning about a database charset/encoding problem, or null
+     * when there is nothing to warn about. A single entry point handles both database
+     * families. See pkp/pkp-lib#11563.
+     *
+     * - MySQL/MariaDB: the charset lives per table, so warn when the configured charset
+     *   (derived from the [database] collation) differs from the charset of the existing
+     *   tables — i.e. the database would end up with a mix of charsets, which can later
+     *   cause "Illegal mix of collations" errors when joining old and new tables.
+     * - PostgreSQL: the charset is the (immutable) database encoding, not a per-table
+     *   property, so warn when the database itself is not UTF8
+     *
+     * Advisory only: any failure in the inspection (or the absence of existing tables,
+     * e.g. a fresh install) returns null and never blocks install or upgrade.
+     *
+     * @param ?string $driver Normalized driver (mysql|mariadb|pgsql); resolved from config when null.
+     */
+    public static function getDatabaseCharsetWarning(?string $driver = null): ?string
+    {
+        $driver ??= static::getDatabaseDriverName();
+
+        try {
+            // PostgreSQL: warn when the database encoding is not UTF8.
+            if ($driver === static::DRIVER_POSTGRES) {
+                $row = DB::selectOne('SELECT pg_encoding_to_char(encoding) AS encoding FROM pg_database WHERE datname = current_database()');
+                $encoding = strtoupper($row->encoding ?? '');
+                if ($encoding === '' || $encoding === strtoupper(static::CHARSET_UTF8)) {
+                    return null;
+                }
+
+                return "WARNING: The PostgreSQL database uses '{$encoding}' encoding, but the application requires UTF8."
+                    . " Characters outside '{$encoding}' (e.g. emoji or many non-Latin scripts) cannot be stored"
+                    . ' and will raise errors. The database encoding is set when the database is created and is not'
+                    . " changed by the application; recreate the database with UTF8 (CREATE DATABASE ... ENCODING 'UTF8') and"
+                    . ' reload your data. See pkp/pkp-lib#11563.';
+            }
+
+            // MySQL/MariaDB: warn when the configured charset differs from the charset of the
+            // existing tables. MySQL stores a collation per table, so join through
+            // COLLATION_CHARACTER_SET_APPLICABILITY to resolve each table's charset.
+            $charsetCollation = static::getDatabaseCharsetCollation($driver);
+            $configuredCharset = $charsetCollation['charset'];
+
+            $existing = DB::table('information_schema.TABLES as t')
+                ->join(
+                    'information_schema.COLLATION_CHARACTER_SET_APPLICABILITY as ccsa',
+                    'ccsa.COLLATION_NAME',
+                    '=',
+                    't.TABLE_COLLATION'
+                )
+                ->where('t.TABLE_SCHEMA', DB::connection()->getDatabaseName())
+                ->where('t.TABLE_TYPE', 'BASE TABLE')
+                ->distinct()
+                ->pluck('ccsa.CHARACTER_SET_NAME')
+                ->all();
+
+            // MySQL 8 reports the utf8 charset as 'utf8mb3'; treat both as 'utf8'.
+            $existing = array_values(array_unique(str_replace('utf8mb3', static::CHARSET_UTF8, $existing)));
+
+            $differing = array_diff($existing, [$configuredCharset]);
+            if (empty($differing)) {
+                return null;
+            }
+
+            $existingList = implode(', ', $existing);
+            $collation = $charsetCollation['collation'];
+            $message = "WARNING: The database connection is configured for charset '{$configuredCharset}'"
+                . " (collation '{$collation}'), but existing tables use charset(s): {$existingList}."
+                . " New tables created by the application will use '{$configuredCharset}', so the database will contain"
+                . " a mix of charsets. This can cause 'Illegal mix of collations' errors in future operations"
+                . ' that join old and new tables. Existing tables are never converted automatically. To resolve'
+                . ' this, either convert each existing table, e.g.'
+                . " ALTER TABLE <table> CONVERT TO CHARACTER SET {$configuredCharset} COLLATE {$collation};"
+                . ' or set [database] collation in config.inc.php to match your existing tables.';
+
+            // A non-UTF-8 existing charset (e.g. latin1) may actually hold UTF-8 data
+            // stored under the wrong label. A blind CONVERT TO re-encodes the bytes and would
+            // double-encode such data, so the admin must check the content first. See pkp/pkp-lib#11563.
+            $nonUtf8 = array_diff($existing, [static::CHARSET_UTF8, static::CHARSET_UTF8MB4]);
+            if (!empty($nonUtf8)) {
+                $message .= ' NOTE: some existing tables use a non-UTF-8 charset; before converting,'
+                    . ' verify whether their data is genuinely that charset or UTF-8 stored under the wrong'
+                    . ' label, because a blind CONVERT TO can double-encode mislabelled data.';
+            }
+
+            return $message . ' See pkp/pkp-lib#11563.';
+        } catch (Throwable $e) {
+            // Advisory only: never block install/upgrade if the inspection fails.
+            return null;
+        }
+    }
+
 
     /**
      * Bind the current container and set it globally
@@ -361,7 +537,8 @@ class PKPContainer extends Container
             'env' => Config::getVar('general', 'app_env', 'production'),
         ];
 
-        // Database connection
+        // Database connection. Charset/collation derive from the single [database]
+        // collation setting (pkp/pkp-lib#11563).
         $driver = static::getDatabaseDriverName();
         $items['database']['default'] = $driver;
         $items['database']['connections'][$driver] = [
@@ -372,9 +549,7 @@ class PKPContainer extends Container
             'port' => Config::getVar('database', 'port'),
             'unix_socket' => Config::getVar('database', 'unix_socket'),
             'password' => Config::getVar('database', 'password'),
-            'charset' => Config::getVar('i18n', 'connection_charset', 'utf8'),
-            'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
-        ];
+        ] + static::getDatabaseConnectionCharsetConfig($driver);
 
         // Auth
         // remember_me_lifetime is the "remember me" persistent-login cookie duration in days

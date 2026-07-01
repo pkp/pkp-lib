@@ -107,6 +107,41 @@
                     </div>
                 {/if}
             {/if}
+
+            {if in_array($currentContext->getData('funders'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
+                {if $localeKey === $submission->getData('locale')}
+
+                    <div class="submissionWizard__reviewPanel__item">
+
+                        {assign var=isRequired value=($currentContext->getData('funders') === $currentContext::METADATA_REQUIRE)|json_encode}
+
+                        <notification v-if="publication.funders && !publication.funders.length && {$isRequired}" type="warning" class="submissionWizard__fundersEmptyWarning">
+                            <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
+                            {translate key="submission.funders.required"}
+                        </notification>
+
+                        <h4 class="submissionWizard__reviewPanel__item__header">
+                            {translate key="submission.funders"}
+                        </h4>
+
+                        <div class="submissionWizard__reviewPanel__item__value">
+                            <template v-if="!publication.funders?.length">
+                                {translate key="common.noneProvided"}
+                            </template>
+
+                            <div
+                                v-else
+                                v-for="(funder, i) in publication.funders"
+                                :key="i"
+                                class="submissionWizard__reviewPanel__funder"
+                            >
+                                {{ localize(funder.name) }}
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+            {/if}
+
             {call_hook name="Template::SubmissionWizard::Section::Review::Details" submission=$submission step=$step.id}
         </div>
     </div>

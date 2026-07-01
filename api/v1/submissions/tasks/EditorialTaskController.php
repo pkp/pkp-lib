@@ -34,7 +34,6 @@ use PKP\API\v1\submissions\tasks\formRequests\EditTask;
 use PKP\API\v1\submissions\tasks\resources\EditorialTaskParticipantResource;
 use PKP\API\v1\submissions\tasks\resources\NoteResource;
 use PKP\API\v1\submissions\tasks\resources\TaskResource;
-use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
@@ -44,6 +43,7 @@ use PKP\editorialTask\EditorialTask;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
 use PKP\editorialTask\Template;
+use PKP\editorialTask\TemplateVariables;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
@@ -65,8 +65,6 @@ use PKP\userGroup\UserGroup;
 
 class EditorialTaskController extends PKPBaseController
 {
-    use StageMailable;
-
     /**
      * @inheritDoc
      */
@@ -1060,7 +1058,7 @@ class EditorialTaskController extends PKPBaseController
                 continue;
             }
 
-            $mailable = $this->getStageMailable($context, $submission, $editorialTask->stageId)
+            $mailable = (new TemplateVariables($editorialTask, $submission, $context))
                 ->sender($currentUser)
                 ->recipients([$user])
                 ->subject($editorialTask->title)

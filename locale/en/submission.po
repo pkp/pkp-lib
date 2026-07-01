@@ -3512,6 +3512,21 @@ msgstr "Retraction"
 msgid "publication.updateType.withdrawal"
 msgstr "Withdrawal"
 
+msgid "publication.reviewRound.field.label"
+msgstr "Associated review round"
+
+msgid "publication.reviewRound.field.description"
+msgstr "Link this version to the review round whose findings it reflects. Leave blank if not applicable."
+
+msgid "publication.reviewRound.field.placeholder"
+msgstr "Select a review round"
+
+msgid "publication.reviewRound.option"
+msgstr "Round {$round} — opened {$date}"
+
+msgid "publication.reviewRound.optionNoDate"
+msgstr "Round {$round}"
+
 msgid "submission.submit.creditRoles.degrees.lead"
 msgstr "Lead"
 

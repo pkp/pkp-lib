@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-07-01 06:41+0000\n"
+"PO-Revision-Date: 2026-07-01 07:22+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/el/>\n"
@@ -1860,39 +1860,48 @@ msgstr ""
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"Ο/Η {$editorName} πρότεινε να γίνει δεκτή η παρούσα υποβολή και να προωθηθεί "
+"για επιμέλεια κειμένου."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Η Πρόταση Υποβλήθηκε"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Η πρότασή σας έχει καταγραφεί και οι αρμόδιοι επιμελητές έχουν ενημερωθεί."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Πρόταση για Αναθεωρήσεις"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Πρόταση ώστε να ζητηθούν διορθώσεις από τον συγγραφέα πριν από την αποδοχή "
+"της παρούσας υποβολής προς δημοσίευση."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "Ο/Η {$editorName} πρότεινε να ζητηθούν αναθεωρήσεις."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Πρόταση για Εκ Νέου Υποβολή για Αξιολόγηση"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Πρόταση ώστε να ζητηθεί από τον συγγραφέα να υποβάλει διορθώσεις για έναν "
+"ακόμη γύρο αξιολόγησης."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"Ο/Η {$editorName} πρότεινε να ζητηθούν διορθώσεις και αυτές οι διορθώσεις να "
+"σταλούν για έναν ακόμη γύρο αξιολόγησης."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Πρόταση για Απόρριψη"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Πρόταση για να απορριφθεί η υποβολή."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "Ο/Η {$editorName} πρότεινε να απορριφθεί αυτή η υποβολή."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Κάντε Σύσταση"
@@ -1908,6 +1917,8 @@ msgstr "Συστάσεις: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Δεν μπορείτε να υποβάλετε πρόταση έως ότου οριστεί ένας επιμελητής με "
+"δικαίωμα καταχώρισης απόφασης."
 
 msgid "editor.submission.recommendation"
 msgstr "Σύσταση"
@@ -1943,6 +1954,8 @@ msgstr ""
 
 msgid "submission.event.fileEdited"
 msgstr ""
+"Τα μεταδεδομένα του αρχείου «{$filename}» τροποποιήθηκαν από τον/την "
+"{$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
@@ -2034,13 +2047,13 @@ msgid "notification.type.editorDecisionResubmit"
 msgstr "Εκ νέου υποβολή για αξιολόγηση."
 
 msgid "notification.type.editorDecisionNewRound"
-msgstr ""
+msgstr "Ξεκίνησε ένας νέος κύκλος αξιολογήσεων."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Η υποβολή έχει απορριφθεί."
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr ""
+msgstr "Η απορριφθείσα υποβολή επανενεργοποιήθηκε."
 
 msgid "notification.uploadedResponse"
 msgstr "Η απάντηση έχει μεταφορτωθεί (uploaded)."
@@ -2052,10 +2065,10 @@ msgstr ""
 "παραπάνω σύνδεσμο με τους Συμμετέχοντες."
 
 msgid "notification.type.submissionNewVersion"
-msgstr ""
+msgstr "Δημιουργήθηκε μια νέα έκδοση μιας υποβολής"
 
 msgid "notification.type.revertDecline"
-msgstr ""
+msgstr "Η απόφαση για την απόρριψη της συγκεκριμένης υποβολής αναιρέθηκε."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Συνημμένα Αξιολογητή"

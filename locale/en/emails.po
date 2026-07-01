@@ -761,3 +761,15 @@ msgstr ""
 "<hr>"
 "<p>Kind regards,</p>"
 "{$signature}"
+
+msgid "mailable.decision.withdraw.notifyAuthor.name"
+msgstr "Notify Author of Withdrawal"
+
+msgid "mailable.decision.withdraw.notifyAuthor.description"
+msgstr "This email is sent to the author(s) when their submission is withdrawn."
+
+msgid "mailable.decision.revertWithdraw.notifyAuthor.name"
+msgstr "Notify Author of Withdrawal Revert"
+
+msgid "mailable.decision.revertWithdraw.notifyAuthor.description"
+msgstr "This email is sent to the author(s) when a withdrawn submission is returned to the active queue."

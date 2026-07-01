@@ -985,12 +985,14 @@ class PKPTemplateManager extends Smarty
                 'STATUS_QUEUED' => Submission::STATUS_QUEUED,
                 'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
                 'STATUS_DECLINED' => Submission::STATUS_DECLINED,
+                'STATUS_WITHDRAWN' => Submission::STATUS_WITHDRAWN,
                 'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
             ],
             'publication' => [
                 'STATUS_QUEUED' => Publication::STATUS_QUEUED,
                 'STATUS_PUBLISHED' => Publication::STATUS_PUBLISHED,
                 'STATUS_DECLINED' => Publication::STATUS_DECLINED,
+                'STATUS_WITHDRAWN' => Publication::STATUS_WITHDRAWN,
                 'STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
             ],
         ]);

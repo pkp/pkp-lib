@@ -280,9 +280,10 @@ abstract class Repository
     {
         $errors = [];
 
-        // Don't allow declined submissions to be published
-        if ($submission->getData('status') === PKPSubmission::STATUS_DECLINED) {
-            $errors['declined'] = __('publication.required.declined');
+        // Don't allow declined or withdrawn submissions to be published
+        if ($submission->getData('status') === PKPSubmission::STATUS_DECLINED
+            || $submission->getData('status') === PKPSubmission::STATUS_WITHDRAWN) {
+            $errors['declined'] = __('publication.required.declinedOrWithdrawn');
         }
 
         // Orcid errors

@@ -3048,6 +3048,9 @@ msgstr "Desk Reject Rate"
 msgid "stats.name.declinedReviewRate"
 msgstr "After Review Reject Rate"
 
+msgid "stats.name.submissionsWithdrawn"
+msgstr "Submissions Withdrawn"
+
 msgid "plugins.importexport.native.processFailed"
 msgstr "The process failed. Check below for errors/warnings."
 

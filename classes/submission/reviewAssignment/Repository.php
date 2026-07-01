@@ -304,15 +304,25 @@ class Repository
             ->byUserId($reviewAssignment->getReviewerId())
             ->stillActive()
             ->get();
-        
+
         foreach ($invitationModels as $invitationModel) {
             $invitation = new ReviewerAccessInvite($invitationModel);
-            
+
             if ($invitation->getPayload()->reviewAssignmentId === $reviewAssignment->getId()) {
                 return $invitation;
             }
         }
 
         return null;
+    }
+
+    /**
+     * @copydoc DAO::getExportableDOIsPeerReviewIds()
+     *
+     * @return array - Array of exportable peer review IDs.
+     */
+    public function getExportableDOIsPeerReviewIds(int $contextId, bool $doiVersioning, ?array $submissionIds = null): array
+    {
+        return $this->dao->getExportableDOIsPeerReviewIds($contextId, $doiVersioning, $submissionIds);
     }
 }

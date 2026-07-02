@@ -15,9 +15,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "Za dodajanje mora biti določena vsaj ena skupina uporabnikov"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Uporabniška skupina je dodeljena povabljenemu uporabniku"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "Določiti morate vsaj eno skupino uporabnikov, ki jo želite odstraniti"
 

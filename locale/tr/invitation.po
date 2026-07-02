@@ -14,9 +14,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "En az bir kullanıcı grubu eklenmelidir"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Kullanıcı grubu davet edilen kullanıcıya atanır"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "Kaldırılacak en az bir kullanıcı grubu tanımlanmalıdır"
 

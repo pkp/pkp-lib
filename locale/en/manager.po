@@ -2409,7 +2409,7 @@ msgstr "Enable references structuring and metadata lookup"
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
-"A short statement describing whether or not the author(s) have made their research data available and, if so, where readers may access it."
+"Please provide a brief summary of the availability of any data associated with your manuscript."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr "Enable data availability statement metadata"

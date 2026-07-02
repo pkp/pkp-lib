@@ -17,6 +17,7 @@
 namespace PKP\components\forms\dataCitation;
 
 use PKP\components\forms\FieldAuthors;
+use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
@@ -32,7 +33,7 @@ class DataCitationEditForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      */
-    public function __construct(string $action) 
+    public function __construct(string $action)
     {
         $this->action = $action;
 
@@ -94,6 +95,11 @@ class DataCitationEditForm extends FormComponent
             'label' => __('submission.dataCitations.label.url'),
             'description' => '',
             'value' => null
+        ]));
+
+        $this->addField(new FieldHTML('urlInfo', [
+            'label' => '',
+            'description' => __('submission.dataCitations.deidentificationAggreement'),
         ]));
 
     }

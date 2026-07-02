@@ -696,7 +696,10 @@ msgid "submission.dataCitations"
 msgstr "Data Citations"
 
 msgid "submission.dataCitations.description"
-msgstr "This table allows users to add formal data citations, ensuring datasets are properly credited and appear alongside other references in the publication."
+msgstr "As per our Author Guidelines((LINK TBD)), all articles that report original results must include details of how the raw underlying data can be accessed by peer reviewers and readers, precluding that it is safe and ethically permissible to do so. Use this field to add the full citation and link to your deposited data."
+
+msgid "submission.dataCitations.deidentificationAggreement"
+msgstr "By submitting this form, the authors confirm that any data involving human participants has been de-identified in accordance with the Safe Harbor method."
 
 msgid "submission.dataCitations.title"
 msgstr "Title"

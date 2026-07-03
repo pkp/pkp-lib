@@ -60,7 +60,7 @@ class NotifyAuthorOnPublication
 
                 foreach ($stageAssignments as $stageAssignment) {
                     $user = Repo::user()->get($stageAssignment->userId);
-                    if ($user->getDisabled()) {
+                    if (!$user) {
                         continue;
                     } // Skip disabled users
 

@@ -29,7 +29,7 @@ class AuthorPublicationPublished extends Mailable
     protected static ?string $name = 'mailable.authorPublicationPublished.name';
     protected static ?string $description = 'mailable.authorPublicationPublished.description';
     protected static ?string $emailTemplateKey = 'AUTHOR_PUBLICATION_PUBLISHED';
-    protected static array $groupIds = [self::GROUP_SUBMISSION];
+    protected static array $groupIds = [self::GROUP_PRODUCTION];
     protected static array $fromRoleIds = [self::FROM_SYSTEM];
     protected static array $toRoleIds = [Role::ROLE_ID_AUTHOR];
 

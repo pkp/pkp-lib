@@ -231,6 +231,7 @@ class Repository
             mailables\OrcidRequestAuthorAuthorization::class,
             mailables\OrcidCollectAuthorId::class,
             mailables\PasswordResetRequested::class,
+            mailables\AuthorPublicationPublished::class,
             mailables\PublicationVersionNotify::class,
             mailables\RecommendationNotifyEditors::class,
             mailables\ReviewAcknowledgement::class,

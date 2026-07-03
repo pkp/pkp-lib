@@ -96,6 +96,7 @@ class Notification extends Model
 
     public const NOTIFICATION_TYPE_USER_COMMENT_POSTED = 0x100002D;
     public const NOTIFICATION_TYPE_USER_COMMENT_REPORTED = 0x100002E;
+    public const NOTIFICATION_TYPE_PUBLICATION_PUBLISHED = 0x100002F;
 
     // Maximum number of notifications that can be sent per job
     public const NOTIFICATION_CHUNK_SIZE_LIMIT = 100;
@@ -218,6 +219,6 @@ class Notification extends Model
             ->withLevel(static::NOTIFICATION_LEVEL_TASK)
             ->count();
 
-            return $notificationsCount;
+        return $notificationsCount;
     }
 }

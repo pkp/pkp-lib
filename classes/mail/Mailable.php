@@ -31,6 +31,7 @@ namespace PKP\mail;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
+use APP\mail\variables\PublicationEmailVariable;
 use APP\mail\variables\SubmissionEmailVariable;
 use BadMethodCallException;
 use Exception;
@@ -57,6 +58,7 @@ use PKP\mail\variables\SiteEmailVariable;
 use PKP\mail\variables\Variable;
 use PKP\payment\QueuedPayment;
 use PKP\plugins\Hook;
+use PKP\publication\PKPPublication;
 use PKP\site\Site;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -414,6 +416,7 @@ class Mailable extends IlluminateMailable
                 Context::class => ContextEmailVariable::class,
                 Decision::class => DecisionEmailVariable::class,
                 PKPSubmission::class => SubmissionEmailVariable::class,
+                PKPPublication::class => PublicationEmailVariable::class,
                 ReviewAssignment::class => ReviewAssignmentEmailVariable::class,
                 QueuedPayment::class => QueuedPaymentEmailVariable::class,
                 Site::class => SiteEmailVariable::class,

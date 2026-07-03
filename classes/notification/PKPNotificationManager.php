@@ -19,6 +19,7 @@ namespace PKP\notification;
 use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
+use APP\notification\managerDelegate\PublicationNotificationManager;
 use APP\template\TemplateManager;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
@@ -189,7 +190,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $submission = Repo::submission()->get($notification->assocId);
                 return __('notification.type.layouteditorRequest', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case Notification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
-                if($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
+                if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected association type!');
                 }
                 $submission = Repo::submission()->get($notification->assocId);
@@ -488,6 +489,11 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     protected function getMgrDelegate(int $notificationType, ?int $assocType, ?int $assocId): ?NotificationManagerDelegate
     {
         switch ($notificationType) {
+            case Notification::NOTIFICATION_TYPE_PUBLICATION_PUBLISHED:
+                if ($assocType != Application::ASSOC_TYPE_PUBLICATION) {
+                    throw new \Exception('Unexpected assoc type!');
+                }
+                return new PublicationNotificationManager($notificationType);
             case Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
             case Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
             case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:

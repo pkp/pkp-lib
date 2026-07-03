@@ -3242,13 +3242,22 @@ msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr "The editors assigned to this submission who can make a decision"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "The submission's title"
+msgstr "The latest published version of the submission's title"
+
+msgid "emailTemplate.variable.publication.publicationTitle"
+msgstr "The publication's title"
 
 msgid "emailTemplate.variable.submission.submissionId"
 msgstr "The submission's unique ID number"
 
+msgid "emailTemplate.variable.publication.publicationId"
+msgstr "The publication's unique ID number"
+
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "The submission's abstract"
+msgstr "The latest published version of the submission's abstract"
+
+msgid "emailTemplate.variable.publication.publicationAbstract"
+msgstr "The publication's abstract"
 
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "The names of the authors in a short string, like \"Barnes, et al\""
@@ -3263,7 +3272,10 @@ msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "The URL to the submission in the editorial backend"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr "The URL to the published submission"
+msgstr "The URL to the published submission in its latest form"
+
+msgid "emailTemplate.variable.publication.publicationPublishedUrl"
+msgstr "The URL to a specific version of a published submission"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
 msgstr "The URL to the submission in the submission wizard"
@@ -3596,6 +3608,12 @@ msgstr "Editorial Reminder"
 
 msgid "mailable.editorialReminder.description"
 msgstr "An automated email sent to editors with outstanding tasks"
+
+msgid "mailable.authorPublicationPublished.name"
+msgstr "Publication Published"
+
+msgid "mailable.authorPublicationPublished.description"
+msgstr "An automated email sent to authors of a version of a submission upon its publication"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Password Reset Confirm"

@@ -20,9 +20,11 @@ use APP\notification\NotificationManager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\mail\mailables\AuthorPublicationPublished;
 use PKP\notification\Notification;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\security\Role;
@@ -54,6 +56,7 @@ class NotifyAuthorOnPublication
 
                 $requestLocale = Locale::getLocale();
                 Locale::setLocale($context->getPrimaryLocale());
+                $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 
                 foreach ($stageAssignments as $stageAssignment) {
                     $user = Repo::user()->get($stageAssignment->userId);
@@ -69,6 +72,21 @@ class NotifyAuthorOnPublication
                         $publication->getId(),
                         Notification::NOTIFICATION_LEVEL_TASK
                     );
+                    if (!$notification) {
+                        continue;
+                    }
+
+                    $unsubscribed = in_array(
+                        Notification::NOTIFICATION_TYPE_PUBLICATION_PUBLISHED,
+                        $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                            NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                            $user->getId(),
+                            $context->getId()
+                        )
+                    );
+                    if ($unsubscribed) {
+                        continue;
+                    }
 
                     $mailable = new AuthorPublicationPublished($context, $publication);
                     $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
@@ -77,8 +95,7 @@ class NotifyAuthorOnPublication
                         ->from($context->getContactEmail(), $context->getLocalizedName(Locale::getLocale()))
                         ->recipients([$user])
                         ->subject($emailTemplate->getLocalizedData('subject'))
-                        ->body($emailTemplate->getLocalizedData('body'))
-                        ->allowUnsubscribe($notification);
+                        ->body($emailTemplate->getLocalizedData('body'));
 
                     Mail::send($mailable);
                 }

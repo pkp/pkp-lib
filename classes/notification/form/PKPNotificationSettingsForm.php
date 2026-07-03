@@ -87,6 +87,7 @@ class PKPNotificationSettingsForm extends Form
             ['categoryKey' => 'notification.type.submissions',
                 'settings' => [
                     Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+                    Notification::NOTIFICATION_TYPE_PUBLICATION_PUBLISHED,
                     Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
                     Notification::NOTIFICATION_TYPE_NEW_QUERY,
                     Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY,

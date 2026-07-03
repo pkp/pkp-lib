@@ -761,3 +761,12 @@ msgstr ""
 "<hr>"
 "<p>Kind regards,</p>"
 "{$signature}"
+
+msgid "mailable.authorPublicationPublished.subject"
+msgstr "Publication Published"
+
+msgid "mailable.authorPublicationPublished.body"
+msgstr ""
+"<p>Dear {$recipientName},</p>"
+"<p>Your publication, {$publicationTitle}, to {$contextName}, has been published.</p>"
+"<p>To view your publication, please visit <a href="{$publicationPublishedUrl}">{$publicationPublishedUrl}</a>.</p>"

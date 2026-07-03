@@ -2270,6 +2270,9 @@ msgstr "An editor must be assigned before review is initiated. Please add editor
 msgid "notification.type.submissionNewVersion"
 msgstr "A new version of a submission was created"
 
+msgid "notification.type.publicationPublished"
+msgstr "A new version of your submission was published."
+
 msgid "notification.type.revertDecline"
 msgstr "The decision to decline this submission was reverted."
 

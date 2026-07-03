@@ -28,6 +28,7 @@ use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\dataCitation\DataCitation;
 use PKP\funder\Funder;
+use PKP\notification\Notification;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -249,6 +250,7 @@ class DAO extends EntityDAO
         $this->deleteControlledVocab($publicationId);
         $this->deleteDataCitations($publicationId);
         Repo::citation()->deleteByPublicationId($publicationId);
+        Notification::withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationId)->delete();
 
         return $affectedRows;
     }
@@ -541,6 +543,7 @@ class DAO extends EntityDAO
      * by another publication among the publication IDs passed in.
      *
      * @param int[] $publicationIds
+     *
      * @return int[]
      */
     public function getClaimedSourcePublicationIds(array $publicationIds): array

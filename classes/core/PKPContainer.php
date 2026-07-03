@@ -603,7 +603,6 @@ class PKPContainer extends Container
         ];
         $items['mail']['mailers']['log'] = [
             'transport' => 'log',
-            'channel' => 'errorlog',
         ];
         $items['mail']['mailers']['phpmailer'] = [
             'transport' => 'phpmailer',

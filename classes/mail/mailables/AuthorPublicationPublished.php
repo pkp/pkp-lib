@@ -19,14 +19,12 @@ use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
-use PKP\mail\traits\Unsubscribe;
 use PKP\security\Role;
 
 class AuthorPublicationPublished extends Mailable
 {
     use Configurable;
     use Recipient;
-    use Unsubscribe;
 
     protected static ?string $name = 'mailable.authorPublicationPublished.name';
     protected static ?string $description = 'mailable.authorPublicationPublished.description';
@@ -38,14 +36,5 @@ class AuthorPublicationPublished extends Mailable
     public function __construct(protected Context $context, protected Publication $publication)
     {
         parent::__construct(func_get_args());
-    }
-
-    /**
-     * Adds a footer with unsubscribe link
-     */
-    protected function addFooter(string $locale): Mailable
-    {
-        $this->setupUnsubscribeFooter($locale, $this->context, 'emails.footer.unsubscribe.automated');
-        return $this;
     }
 }

@@ -323,7 +323,6 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->comment('Represents templates for the editorial tasks.');
             $table->unsignedBigInteger('edit_task_template_id')->autoIncrement()->primary();
             $table->unsignedSmallInteger('stage_id');
-            $table->string('title', 255); // template title
 
             // templates are journal/context scoped
             $table->bigInteger('context_id')->comment('Journal/press ID for scoping templates');
@@ -340,7 +339,6 @@ class SubmissionsMigration extends \PKP\migration\Migration
                 ->nullable()
                 ->comment('Interval after which the task is due, from the time it is created.');
             $table->enum('type', array_column(EditorialTaskType::cases(), 'value'))->default(EditorialTaskType::DISCUSSION);
-            $table->text('description')->nullable();
             $table->boolean('restrict_to_user_groups')->default(false)
                 ->comment('Whether the template is restricted to user groups defined in the many to many relationship.');
 

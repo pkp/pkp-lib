@@ -200,64 +200,49 @@ class I12593_EmailToTaskTemplates extends Migration
     }
 
     /**
-     * Reverse the migration.
+     * @inheritDoc
+     *
+     * @throws DowngradeNotSupportedException
      */
     public function down(): void
     {
-        Schema::table('edit_task_templates', function (Blueprint $table) {
-            $table->string('title', 255)->nullable();
-            $table->text('description')->nullable();
-        });
-
-        // reverse the migration of the default data using one insert operation
-        if ($this->defaultData->isNotEmpty()) {
-            $toInsert = [];
-            foreach ($this->defaultData as $defaultTemplate) {
-                $toInsert[] = [
-                    'email_key' => $defaultTemplate->email_key,
-                    'locale' => $defaultTemplate->locale,
-                    'name' => $defaultTemplate->name,
-                    'subject' => $defaultTemplate->subject,
-                    'body' => $defaultTemplate->body,
-                ];
-            }
-
-            DB::table('email_templates_default_data')->insert($toInsert);
-        }
-
-        // reverse the migration of the custom templates
-        foreach ($this->customData as $customTemplate) {
-            $customTemplateId = DB::table('email_templates')->insertGetId([
-                'email_key' => $customTemplate->email_key,
-                'context_id' => $customTemplate->context_id,
-                'alternate_to' => $customTemplate->alternate_to,
-            ], 'email_id');
-
-            // Find and insert setting corresponding to the custom template
-            $this->customDataSettings->where('email_id', $customTemplate->email_id)
-                ->each(fn ($setting) => DB::table('email_templates_settings')->insert([
-                    'email_id' => $customTemplateId,
-                    'locale' => $setting->locale,
-                    'setting_name' => $setting->setting_name,
-                    'setting_value' => $setting->setting_value,
-                ]));
-        }
-
-        DB::table('edit_task_templates')->whereIn('edit_task_template_id', $this->insertedTaskTemplateIds)->delete();
-        DB::table('edit_task_template_settings')->whereIn('edit_task_template_id', $this->insertedTaskTemplateIds)->delete();
-        DB::table('edit_task_template_user_groups')->whereIn('edit_task_template_id', $this->insertedTaskTemplateIds)->delete();
-        Schema::table('edit_task_templates', function (Blueprint $table) {
-            $table->string('title', 255)->nullable(false)->change();
-        });
+        throw new DowngradeNotSupportedException();
     }
 
     /**
-     * * @inheritDoc
+     * @inheritDoc
      *
-     * * @throws DowngradeNotSupportedException
+     * @throws DowngradeNotSupportedException
      */
     protected function localizeTaskTemplateData(): void
     {
-        throw new DowngradeNotSupportedException();
+        $this->taskTemplateData = DB::table('edit_task_templates')->get(['edit_task_template_id', 'title', 'description']);
+
+        // Get primary locales of availables contexts
+        $contextDao = Application::getContextDAO();
+        $contextLocales = DB::table($contextDao->tableName)->get([$contextDao->primaryKeyColumn, 'primary_locale'])
+            ->mapWithKeys(fn (\stdClass $row) => [$row->{$contextDao->primaryKeyColumn} => $row->primary_locale]);
+
+        $this->taskTemplateData->each(function ($template) use ($contextLocales) {
+            DB::table('edit_task_template_settings')->insert([
+                [
+                    'edit_task_template_id' => $template->edit_task_template_id,
+                    'locale' => $contextLocales->get($template->context_id),
+                    'setting_name' => 'title',
+                    'setting_value' => $template->title,
+                ],
+                [
+                    'edit_task_template_id' => $template->edit_task_template_id,
+                    'locale' => $contextLocales->get($template->context_id),
+                    'setting_name' => 'description',
+                    'setting_value' => $template->description,
+                ]
+            ]);
+        });
+
+        Schema::table('edit_task_templates', function (Blueprint $table) {
+            $table->dropColumn('title');
+            $table->dropColumn('description');
+        });
     }
 }

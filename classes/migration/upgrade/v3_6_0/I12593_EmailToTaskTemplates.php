@@ -23,6 +23,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
 class I12593_EmailToTaskTemplates extends Migration
@@ -251,37 +252,12 @@ class I12593_EmailToTaskTemplates extends Migration
     }
 
     /**
-     * Localize and migrate template title and description
+     * * @inheritDoc
+     *
+     * * @throws DowngradeNotSupportedException
      */
     protected function localizeTaskTemplateData(): void
     {
-        $this->taskTemplateData = DB::table('edit_task_templates')->get(['edit_task_template_id', 'title', 'description']);
-
-        // Get primary locales of availables contexts
-        $contextDao = Application::getContextDAO();
-        $contextLocales = DB::table($contextDao->tableName)->get([$contextDao->primaryKeyColumn, 'primary_locale'])
-            ->mapWithKeys(fn (\stdClass $row) => [$row->{$contextDao->primaryKeyColumn} => $row->primary_locale]);
-
-        $this->taskTemplateData->each(function ($template) use ($contextLocales) {
-            DB::table('edit_task_template_settings')->insert([
-                [
-                    'edit_task_template_id' => $template->edit_task_template_id,
-                    'locale' => $contextLocales->get($template->context_id),
-                    'setting_name' => 'title',
-                    'setting_value' => $template->title,
-                ],
-                [
-                    'edit_task_template_id' => $template->edit_task_template_id,
-                    'locale' => $contextLocales->get($template->context_id),
-                    'setting_name' => 'description',
-                    'setting_value' => $template->description,
-                ]
-            ]);
-        });
-
-        Schema::table('edit_task_templates', function (Blueprint $table) {
-            $table->dropColumn('title');
-            $table->dropColumn('description');
-        });
+        throw new DowngradeNotSupportedException();
     }
 }

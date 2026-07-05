@@ -196,8 +196,8 @@ class Template extends Model
 
         $task = new Task([
             'type' => $this->type,
-            'title' => $this->title,
-            EditorialTask::ATTRIBUTE_HEADNOTE => $this->description,
+            'title' => $this->getLocalizedData('title'),
+            EditorialTask::ATTRIBUTE_HEADNOTE => $this->getLocalizedData('description'),
             EditorialTask::ATTRIBUTE_PARTICIPANTS => $participantIds,
             'stageId' => $this->stageId,
             'dateDue' => $this->dueInterval ? now()->add(new DateInterval($this->dueInterval)) : null,

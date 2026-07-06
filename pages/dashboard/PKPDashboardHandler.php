@@ -28,6 +28,7 @@ use PKP\components\forms\citation\CitationStructuredEditForm;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
 use PKP\components\forms\dataCitation\DataCitationEditForm;
+use PKP\components\forms\funder\FunderEditForm;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -179,6 +180,7 @@ abstract class PKPDashboardHandler extends Handler
         $citationStructuredEditForm = new CitationStructuredEditForm('emit');
         $citationRawEditForm = new CitationRawEditForm('emit');
         $dataCitationEditForm = new DataCitationEditForm('emit');
+        $funderEditForm = new FunderEditForm('emit');
 
         $templateMgr->setState([
             'pageInitConfig' => [
@@ -194,6 +196,7 @@ abstract class PKPDashboardHandler extends Handler
                     'supportsCitations' => !!$context->getData('citations'),
                     'supportsDataCitations' => !!$context->getData('dataCitations'),
                     'supportsDataAvailability' => !!$context->getData('dataAvailability'),
+                    'supportsFunders' => !!$context->getData('funders'),
                     'identifiersEnabled' => $identifiersEnabled,
                     'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
                 ],
@@ -203,7 +206,8 @@ abstract class PKPDashboardHandler extends Handler
                     'versionStageOptions' => $versionStageOptions,
                     'citationStructuredEditForm' => $citationStructuredEditForm->getConfig(),
                     'citationRawEditForm' => $citationRawEditForm->getConfig(),
-                    'dataCitationEditForm' => $dataCitationEditForm->getConfig()
+                    'dataCitationEditForm' => $dataCitationEditForm->getConfig(),
+                    'funderEditForm' => $funderEditForm->getConfig()
                 ],
             ]
         ]);

@@ -5,3 +5,7 @@
 [submodule "lib/creditRoles"]
 	path = lib/creditRoles
 	url = https://github.com/contributorshipcollaboration/credit-translation.git
+
+[submodule "lib/rorFundrefData"]
+	path = lib/rorFundrefData
+	url = https://github.com/pkp/ror-fundref-data.git

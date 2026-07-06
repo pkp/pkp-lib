@@ -216,6 +216,18 @@ class PKPTemplateManager extends Smarty
                 ['contexts' => ['frontend', 'backend']]
             );
 
+            // Live CSRF-token accessor exposed as pkp.getCsrfToken(). Walks
+            // XSRF-TOKEN cookie -> meta tag -> render-time JS global. Covers
+            // both backend and frontend pages.
+            $this->addJavaScript(
+                'pkpCsrfHelper',
+                $request->getBaseUrl() . '/lib/pkp/js/csrfHelper.js',
+                [
+                    'priority' => self::STYLE_SEQUENCE_CORE,
+                    'contexts' => ['backend', 'frontend'],
+                ]
+            );
+
             $activeTheme = null;
             $contextOrSite = $currentContext ? $currentContext : $request->getSite();
             $allThemes = PluginRegistry::getPlugins('themes');

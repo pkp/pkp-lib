@@ -83,6 +83,9 @@
 							: 'rgba(0,0,0,0.05)',
 					drawTicks: false,
 				},
+				ticks: {
+					maxTicksLimit: 13,
+				},
 			},
 			y: {
 				grid: {
@@ -134,30 +137,26 @@
 
 		graphData = pkpUsageStats.data[objectType][objectId];
 
-		// Turn the data set into an array
-		var dataArray = [],
-			labelsArray = [],
+		// Build full history arrays — one entry per month from first publication to now
+		var allTimeData = [],
+			allTimeLabels = [],
 			currentDate = new Date(),
 			currentYear = currentDate.getFullYear(),
-			currentMonth = currentDate.getMonth();
-		// Get the data from the last year
-		for (var month = currentMonth + 1; month <= 11; month++) {
-			if (!(currentYear - 1 in graphData.data)) {
-				dataArray.push(0);
-			} else {
-				dataArray.push(graphData.data[currentYear - 1][month + 1]);
+			currentMonth = currentDate.getMonth() + 1; // 1-indexed
+		var years = Object.keys(graphData.data).map(Number).sort();
+		for (var y = 0; y < years.length; y++) {
+			var year = years[y];
+			var lastMonth = (year === currentYear) ? currentMonth : 12;
+			for (var month = 1; month <= lastMonth; month++) {
+				allTimeData.push(graphData.data[year][month] || 0);
+				allTimeLabels.push(pkpUsageStats.locale.months[month - 1] + ' ' + year);
 			}
-			labelsArray.push(pkpUsageStats.locale.months[month]);
 		}
-		// Get the data from the current year
-		for (month = 0; month <= currentMonth; month++) {
-			if (!(currentYear in graphData.data)) {
-				dataArray.push(0);
-			} else {
-				dataArray.push(graphData.data[currentYear][month + 1]);
-			}
-			labelsArray.push(pkpUsageStats.locale.months[month]);
-		}
+
+		// Default view: last 12 months
+		var dataArray = allTimeData.length > 12 ? allTimeData.slice(-12) : allTimeData;
+		var labelsArray = allTimeLabels.length > 12 ? allTimeLabels.slice(-12) : allTimeLabels;
+
 		pkpUsageStats.charts[objectType + '_' + objectId] = new Chart(graph, {
 			type: pkpUsageStats.config.chartType,
 			data: {
@@ -171,6 +170,27 @@
 			},
 			options: chartOptions,
 		});
+
+		// Add toggle button when there is more than 12 months of data
+		if (allTimeData.length > 12) {
+			(function(chart, graph, allTimeData, allTimeLabels) {
+				var showingAllTime = false;
+				var toggleBtn = document.createElement('button');
+				toggleBtn.type = 'button';
+				toggleBtn.className = 'usageStatsToggle';
+				toggleBtn.textContent = pkpUsageStats.locale.allTime;
+				toggleBtn.addEventListener('click', function() {
+					showingAllTime = !showingAllTime;
+					chart.data.labels = showingAllTime ? allTimeLabels : allTimeLabels.slice(-12);
+					chart.data.datasets[0].data = showingAllTime ? allTimeData : allTimeData.slice(-12);
+					chart.update();
+					toggleBtn.textContent = showingAllTime
+						? pkpUsageStats.locale.lastYear
+						: pkpUsageStats.locale.allTime;
+				});
+				graph.parentNode.insertBefore(toggleBtn, graph.nextSibling);
+			})(pkpUsageStats.charts[objectType + '_' + objectId], graph, allTimeData, allTimeLabels);
+		}
 
 		// Fire an event when the chart is initialized
 		initializedEvent = document.createEvent('Event');

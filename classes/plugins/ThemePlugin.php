@@ -970,6 +970,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
         $script_data = 'var pkpUsageStats = pkpUsageStats || {};';
         $script_data .= 'pkpUsageStats.locale = pkpUsageStats.locale || {};';
         $script_data .= 'pkpUsageStats.locale.months = ' . json_encode(explode(' ', __('plugins.themes.default.displayStats.monthInitials'))) . ';';
+        $script_data .= 'pkpUsageStats.locale.lastYear = ' . json_encode(__('plugins.themes.default.displayStats.lastYear')) . ';';
+        $script_data .= 'pkpUsageStats.locale.allTime = ' . json_encode(__('plugins.themes.default.displayStats.allTime')) . ';';
         $script_data .= 'pkpUsageStats.config = pkpUsageStats.config || {};';
         $script_data .= 'pkpUsageStats.config.chartType = ' . json_encode($chartType) . ';';
 

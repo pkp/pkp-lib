@@ -27,6 +27,7 @@ use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\dataCitation\DataCitation;
+use PKP\funder\Funder;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -183,6 +184,7 @@ class DAO extends EntityDAO
         $this->setCategories($publication);
         $this->setControlledVocab($publication);
         $this->setDataCitations($publication);
+        $this->setFunders($publication);
 
         return $publication;
     }
@@ -493,6 +495,19 @@ class DAO extends EntityDAO
     protected function deleteDataCitations(int $publicationId): void
     {
         DataCitation::where('publication_id', $publicationId)->delete();
+    }
+
+    /**
+     * Set a publication's Funders
+     */
+    protected function setFunders(Publication $publication): void
+    {
+        $funders = Funder::withSubmissionId($publication->getData('submissionId'))
+            ->orderBySeq()
+            ->get()
+            ->values()
+            ->all();
+        $publication->setData('funders', $funders);
     }
 
     /**

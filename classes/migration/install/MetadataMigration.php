@@ -83,6 +83,31 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->unique(['data_citation_id', 'locale', 'setting_name'], 'data_citation_settings_unique');
         });
 
+        // Funders
+        Schema::create('funders', function (Blueprint $table) {
+            $table->comment('A funder associated with a publication.');
+            $table->bigInteger('funder_id')->autoIncrement();
+            $table->bigInteger('submission_id');
+            $table->string('ror')->nullable();
+            $table->bigInteger('seq')->default(0);
+            $table->index(['ror'], 'funders_ror');
+            $table->index(['submission_id'], 'funders_submission');
+            $table->foreign('submission_id', 'funders_submission')->references('submission_id')->on('submissions')->onDelete('cascade');
+        });
+
+        // Funder settings
+        Schema::create('funder_settings', function (Blueprint $table) {
+            $table->comment('Additional data about funders.');
+            $table->bigIncrements('funder_setting_id');
+            $table->bigInteger('funder_id');
+            $table->string('locale', 28)->default('');
+            $table->string('setting_name', 255);
+            $table->mediumText('setting_value')->nullable();
+            $table->foreign('funder_id', 'funder_settings_funder_id')->references('funder_id')->on('funders')->onDelete('cascade');
+            $table->index(['funder_id'], 'funder_settings_funder_id');
+            $table->unique(['funder_id', 'locale', 'setting_name'], 'funder_settings_unique');
+        });
+
         // Filter groups
         Schema::create('filter_groups', function (Blueprint $table) {
             $table->comment('Filter groups are used to organized filters into named sets, which can be retrieved by the application for invocation.');

@@ -797,7 +797,7 @@ abstract class PKPSubmissionHandler extends Handler
                 'id' => 'dataCitations',
                 'name' => __('submission.dataCitations'),
                 'type' => self::SECTION_TYPE_DATA_CITATIONS,
-                'description' => __('submission.dataCitations.description'),
+                'description' => '',
             ];
         }
 
@@ -807,7 +807,7 @@ abstract class PKPSubmissionHandler extends Handler
                 'id' => 'funders',
                 'name' => __('submission.funders'),
                 'type' => self::SECTION_TYPE_FUNDERS,
-                'description' => __('submission.funders.description'),
+                'description' => '',
             ];
         }
 

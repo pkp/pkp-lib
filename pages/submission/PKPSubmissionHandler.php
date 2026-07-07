@@ -797,7 +797,8 @@ abstract class PKPSubmissionHandler extends Handler
                 'id' => 'dataCitations',
                 'name' => __('submission.dataCitations'),
                 'type' => self::SECTION_TYPE_DATA_CITATIONS,
-                'description' => __('submission.dataCitations.description'),
+                // The data citations manager renders its own description
+                'description' => '',
             ];
         }
 

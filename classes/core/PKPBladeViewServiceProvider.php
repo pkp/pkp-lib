@@ -43,7 +43,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // e.g., @include('VIEW_NAMESPACE::some-template') or @include('VIEW_NAMESPACE::some-template'),
         // or even allow to render view as view('VIEW_NAMESPACE::some-template', [....])
         // which allow to render views from any namespace ambiguity and improving maintainability.
-        collect($this->app->get('config')->get('view.paths'))
+        collect($this->app->get('config')->get('view.namespaces'))                                                                                                    
             ->each(fn ($path, $namespace) => view()->addNamespace($namespace, $path));
         
         // This allows to render components as <x-COMPONENT_NAMESPACE::some-component />

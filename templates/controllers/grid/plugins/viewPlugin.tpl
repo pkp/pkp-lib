@@ -56,6 +56,16 @@
 			<div class="release_description">
 				{$plugin->getLocalizedReleaseDescription()|strip_unsafe_html}
 			</div>
+			<div class="release_locales">
+				<span class="label">{translate key="locale.supported"}: </span>
+				{if $releaseLocaleNames}
+					{$releaseLocaleNames|implode:', '|escape}
+				{elseif $releaseLocaleNames === null}
+					{translate key="common.notAvailable"}
+				{else}
+					{translate key="manager.plugins.pluginGallery.locales.notInSupportedFormat"}
+				{/if}
+			</div>
 		{/if}
 	</div>
 

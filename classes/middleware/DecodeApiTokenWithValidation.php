@@ -66,7 +66,7 @@ class DecodeApiTokenWithValidation
             return $next($request);
         }
 
-        $jwtToken = self::getApiToken($request);
+        $jwtToken = $this->getApiToken($request);
 
         /* VALIDATIONS */
 
@@ -85,22 +85,34 @@ class DecodeApiTokenWithValidation
         $user = null;
 
         try {
-            $user = self::getUserFromApiToken($jwtToken, $secret);
+            $headers = new stdClass();
+            $apiToken = ((array)JWT::decode($jwtToken, new Key($secret, 'HS256'), $headers))[0]; /** @var string $apiToken */
 
-            if (!$user) {
+            /**
+             * Compatibility with old API keys
+             *
+             * @link https://github.com/pkp/pkp-lib/issues/6462
+             */
+            if (substr($apiToken, 0, 2) === '""') {
+                $apiToken = json_decode($apiToken);
+            }
+
+            $user = Repo::user()->getByApiKey($apiToken);
+
+            if (!$user || !$user->getData('apiKeyEnabled')) {
                 return response()->json([
                     'error' => __('api.403.unauthorized'),
                 ], Response::HTTP_UNAUTHORIZED);
             }
         } catch (Throwable $exception) {
 
-            if ($exception instanceof SignatureInvalidException) {
+            if($exception instanceof SignatureInvalidException) {
                 return response()->json([
                     'error' => __('api.400.invalidApiToken'),
                 ], Response::HTTP_BAD_REQUEST);
             }
 
-            if ($exception instanceof DomainException || $exception instanceof UnexpectedValueException) {
+            if($exception instanceof DomainException || $exception instanceof UnexpectedValueException) {
                 return response()->json([
                     'error' => __('api.400.tokenCouldNotBeDecoded'),
                 ], Response::HTTP_BAD_REQUEST);
@@ -142,7 +154,7 @@ class DecodeApiTokenWithValidation
      * API Token may passed as authorization Header such as --> Authorization: Bearer API_TOKEN
      * or as a query param as --> API_URL/?apiToken=API_TOKEN
      */
-    public static function getApiToken(Request $request): ?string
+    protected function getApiToken(Request $request): ?string
     {
         $authHeader = $request->header('Authorization');
 
@@ -166,56 +178,5 @@ class DecodeApiTokenWithValidation
         }
 
         return null;
-    }
-
-    /**
-     * Try to resolve a User from an API token on the request.
-     *
-     * Unlike handle(), this returns null on any failure path
-     * (missing/invalid token, missing secret, decode error, disabled key,
-     * unknown user) instead of producing an HTTP error response.
-     *
-     * Use this when a route accepts both anonymous and token-authed requests
-     * (e.g. public endpoints with optional auth-aware behavior).
-     */
-    public static function resolveApiUser(Request $request): ?User
-    {
-        $jwtToken = self::getApiToken($request);
-        if (!$jwtToken) {
-            return null;
-        }
-
-        $secret = Config::getVar('security', 'api_key_secret', null);
-        if (!$secret) {
-            return null;
-        }
-
-        try {
-            return self::getUserFromApiToken($jwtToken, $secret);
-        } catch (Throwable $e) {
-            return null;
-        }
-    }
-
-    /**
-     * Decode a JWT API token and return the matching enabled API-key user.
-     */
-    public static function getUserFromApiToken(string $jwtToken, string $secret): ?User
-    {
-        $headers = new stdClass();
-        $apiToken = ((array) JWT::decode($jwtToken, new Key($secret, 'HS256'), $headers))[0];
-
-        // Compatibility with old API keys (pkp/pkp-lib#6462)
-        if (substr($apiToken, 0, 2) === '""') {
-            $apiToken = json_decode($apiToken);
-        }
-
-        $user = Repo::user()->getByApiKey($apiToken);
-
-        if (!$user || !$user->getData('apiKeyEnabled')) {
-            return null;
-        }
-
-        return $user;
     }
 }

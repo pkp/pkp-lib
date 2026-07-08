@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/emailTemplate/Collector.php
  *
@@ -165,20 +166,20 @@ class Collector implements CollectorInterface
             ->selectRaw($this->contextId !== null ? $this->contextId . ' as context_id' : 'NULL as context_id')
             ->selectRaw('NULL as alternate_to');
 
-            // Handle case when contextId is provided
-            if ($this->contextId !== null) {
-                $q->whereNotIn('etddata.email_key', function (Builder $q) {
-                    $q->select('et.email_key')
-                        ->from('email_templates as et')
-                        ->where('et.context_id', $this->contextId);
-                });
-            }
+        // Handle case when contextId is provided
+        if ($this->contextId !== null) {
+            $q->whereNotIn('etddata.email_key', function (Builder $q) {
+                $q->select('et.email_key')
+                    ->from('email_templates as et')
+                    ->where('et.context_id', $this->contextId);
+            });
+        }
 
-            $q->when(!is_null($this->keys), function (Builder $q) {
-                return $q->whereIn('email_key', $this->keys);
-            })
+        $q->when(!is_null($this->keys), function (Builder $q) {
+            return $q->whereIn('email_key', $this->keys);
+        })
 
-            // search phrase
+        // search phrase
             ->when(!is_null($this->searchPhrase), function (Builder $q) {
                 $words = explode(' ', $this->searchPhrase);
                 $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");

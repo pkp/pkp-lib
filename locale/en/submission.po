@@ -858,7 +858,7 @@ msgid "submission.event.participantAdded"
 msgstr "{$userFullName} ({$username}) was assigned to this submission as a {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$userFullName}\" ({$username}) is removed as a {$userGroupName}."
+msgstr "{$userFullName} ({$username}) was removed from this submission as a {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Back to Event Log"

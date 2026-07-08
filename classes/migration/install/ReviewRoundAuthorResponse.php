@@ -74,7 +74,7 @@ class ReviewRoundAuthorResponse extends \PKP\migration\Migration
             $table->bigInteger('response_id')->comment('ID of the review round response this setting entry belongs to.');
             $table->string('locale', 28)->nullable();
             $table->string('setting_name');
-            $table->text('setting_value')->nullable();
+            $table->mediumText('setting_value')->nullable();
 
             $table->foreign('response_id')
                 ->references('response_id')

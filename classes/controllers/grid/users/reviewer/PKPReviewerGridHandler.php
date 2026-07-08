@@ -991,10 +991,11 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Fetch the compiled body for a review reminder template (AJAX).
      */
-    public function fetchReviewReminderTemplateBody(array $args, PKPRequest $request): JSONMessage
+    public function fetchReviewerActionTemplateBody(array $args, PKPRequest $request): JSONMessage
     {
         $templateKey = $request->getUserVar('template');
         $context = $request->getContext();
+        $submission = $this->getSubmission();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
 
         if (!$template) {
@@ -1002,23 +1003,40 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
-        $templates = $reviewReminderForm->getEmailTemplates();
+        $defaultTemplateKey = $request->getUserVar('defaultTemplate');
+        $mailableClass = Repo::mailable()->get($defaultTemplateKey, $context);
+
+        if (!$mailableClass) {
+            return new JSONMessage(false, __('editor.review.reminderError'));
+        }
+
+        // Ensure that the default templates points to supported mailables
+        if (!in_array($mailableClass, [ReviewerReinstate::class, ReviewerUnassign::class, ReviewRemind::class])) {
+            return new JSONMessage(false, __('editor.review.reminderError'));
+        }
+
+        $mailable = new $mailableClass($context, $submission, $reviewAssignment); /** @var Mailable $availableTemplates */
 
         // Look if the template key from the request matches any of the templates available for this form.
         // If not, return an error.
-        if (!isset($templates[$templateKey])) {
+        $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $defaultTemplateKey);
+        $availableTemplates = Repo::emailTemplate()->getCollector($context->getId())
+            ->alternateTo([$mailable->getEmailTemplateKey()])
+            ->getMany()
+            ->keyBy(fn ($template) => $template->getData('key'))
+            ->collect();
+        $templates = $availableTemplates->put($mailable->getEmailTemplateKey(), $defaultTemplate);
+
+        if (!$templates->has($templateKey)) {
             return new JSONMessage(false, __('editor.review.reminderError'));
         }
 
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         $sender = $request->getUser();
-        $mailable = $reviewReminderForm->getReviewRemindMailable($context);
         $mailable->sender($sender)->recipients([$reviewer]);
         $data = $mailable->getData(Locale::getLocale());
         // Don't expose the reviewer's one-click access URL to editors
         $data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = '{$' . ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL . '}';
-
         return new JSONMessage(true, [
             'body' => Mail::compileParams($template->getLocalizedData('body'), $data),
             'variables' => [
@@ -1208,7 +1226,7 @@ class PKPReviewerGridHandler extends GridHandler
             'thankReviewer',
             'editReminder',
             'sendReminder',
-            'fetchReviewReminderTemplateBody',
+            'fetchReviewerActionTemplateBody',
             'unassignReviewer',
             'updateUnassignReviewer',
             'reinstateReviewer',

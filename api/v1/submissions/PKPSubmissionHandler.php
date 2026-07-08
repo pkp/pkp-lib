@@ -1581,7 +1581,7 @@ class PKPSubmissionHandler extends APIHandler
         if (!empty($params['sortedAuthors'])) {
             $authors = [];
             foreach ($params['sortedAuthors'] as $author) {
-                $newAuthor = Repo::author()->get((int) $author['id']);
+                $newAuthor = Repo::author()->get((int) $author['id'], $publication->getId());
 
                 array_push($authors, $newAuthor);
             }

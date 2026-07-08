@@ -20,12 +20,12 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\Events\Looping;
+use PKP\context\Context;
 use PKP\core\traits\ModelWithSettings;
 use PKP\i18n\LocaleConversion;
 use PKP\ror\Ror;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
-use PKP\context\Context;
 
 class Funder extends Model
 {
@@ -41,9 +41,9 @@ class Funder extends Model
 
     /** Per-request caches keyed by id — shared across all Funder instances. */
     private static array $submissionCache = [];
-    private static array $contextCache    = [];
-    private static array $rorCache        = [];
-    private static array $localesCache    = [];
+    private static array $contextCache = [];
+    private static array $rorCache = [];
+    private static array $localesCache = [];
 
     /**
      * @inheritDoc
@@ -213,9 +213,9 @@ class Funder extends Model
     public static function clearResolverCaches(): void
     {
         self::$submissionCache = [];
-        self::$contextCache    = [];
-        self::$rorCache        = [];
-        self::$localesCache    = [];
+        self::$contextCache = [];
+        self::$rorCache = [];
+        self::$localesCache = [];
     }
 
     /**
@@ -233,5 +233,17 @@ class Funder extends Model
                 self::clearResolverCaches();
             }
         );
+
+        static::saved(function (Funder $funder): void {
+            if ($contextId = $funder->context?->getId()) {
+                Repo::funder()->forgetFunderFacetCache($contextId);
+            }
+        });
+
+        static::deleted(function (Funder $funder): void {
+            if ($contextId = $funder->context?->getId()) {
+                Repo::funder()->forgetFunderFacetCache($contextId);
+            }
+        });
     }
 }

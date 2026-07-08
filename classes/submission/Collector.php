@@ -52,6 +52,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
     public DAO $dao;
     public ?array $categoryIds = null;
+    public ?string $funderValue = null;
     public ?array $contextIds = null;
     public ?array $submissionIds = null;
     public ?int $count = null;
@@ -131,6 +132,18 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public function filterByCategoryIds(?array $categoryIds): AppCollector
     {
         $this->categoryIds = $categoryIds;
+        return $this;
+    }
+
+    /**
+     * Limit results to submissions with a funder matching this facet value
+     *
+     * $funderValue must be either a funder's `ror`, or a funder name (any case), matching a
+     * `value` from \PKP\funder\Repository::getUniqueFunderNames().
+     */
+    public function filterByFunder(?string $funderValue): AppCollector
+    {
+        $this->funderValue = $funderValue;
         return $this;
     }
 
@@ -733,6 +746,22 @@ abstract class Collector implements CollectorInterface, ViewsCount
                 ->toBase();
 
             $q->whereIn('s.current_publication_id', $publicationIds);
+        }
+
+        if (isset($this->funderValue)) {
+            $funderSubmissionIds = DB::table('funders as f')
+                ->leftJoin('funder_settings as fs', function (JoinClause $join) {
+                    $join->on('fs.funder_id', '=', 'f.funder_id')->where('fs.setting_name', '=', 'name');
+                })
+                ->where(function (Builder $w) {
+                    // Lowercase/trim both sides in SQL to match getUniqueFunderNames()'s `value`.
+                    $w->where('f.ror', $this->funderValue)
+                        ->orWhereRaw('LOWER(TRIM(fs.setting_value)) = LOWER(TRIM(?))', [$this->funderValue]);
+                })
+                ->select('f.submission_id')
+                ->distinct();
+
+            $q->whereIn('s.submission_id', $funderSubmissionIds);
         }
 
         $q = $this->buildReviewStageQueries($q);

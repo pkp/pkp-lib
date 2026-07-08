@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/funder/Repository.php
  *
@@ -15,6 +16,13 @@ namespace PKP\funder;
 
 use APP\core\Application;
 use APP\core\Request;
+use DateInterval;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use PKP\context\Context;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleConversion;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -24,13 +32,16 @@ class Repository
     /** @var string $schemaMap The name of the class to map this entity to its schema */
     public string $schemaMap = maps\Schema::class;
 
+    /** @var string Backstop max lifetime for the funder facet cache; see getUniqueFunderNames(). */
+    public const FUNDER_FACET_CACHE_LIFETIME = '30 days';
+
     protected Request $request;
 
     /** @var PKPSchemaService<Funder> $schemaService */
     protected PKPSchemaService $schemaService;
 
     // Funders with awards that can be validated via the Zenodo API, and their corresponding ROR IDs.
-    const AWARD_FUNDERS = [
+    public const AWARD_FUNDERS = [
         '05k73zm37', // Research Council of Finland
         '00rbzpz17', // French National Research Agency
         '05mmh0f86', // Australian Research Council
@@ -135,7 +146,7 @@ class Repository
 
                                 $success = array_reduce(
                                     $body['hits']['hits'] ?? [],
-                                    fn($carry, $item) => $carry || $item['number'] == $grantNumber,
+                                    fn ($carry, $item) => $carry || $item['number'] == $grantNumber,
                                     false
                                 );
 
@@ -177,5 +188,126 @@ class Repository
     public function getSchemaMap(): maps\Schema
     {
         return app('maps')->withExtensions($this->schemaMap);
+    }
+
+    /**
+     * Get the distinct funders attached to submissions in a context, for use as facets in a
+     * "browse/search by funder" UI.
+     *
+     * Each entry has a `value` (ror, or else a lowercased name — no canonical id exists for
+     * manually-entered funders, so same-name entries just collapse together; see
+     * Collector::filterByFunder()) and a `label` (display name, resolved for the given locale).
+     *
+     * Not scoped to published/current-publication-status — a funder name isn't sensitive the
+     * way unpublished content is, so callers filtering results for a reader must apply that
+     * scoping themselves via Collector::filterByFunder().
+     *
+     * @return Collection<int,array{value:string,label:?string}>
+     */
+    public function getUniqueFunderNames(int $contextId, ?string $locale = null): Collection
+    {
+        $locale ??= Locale::getLocale();
+        $cacheKey = $this->getFacetCacheKey($contextId, $locale);
+        $expiration = DateInterval::createFromDateString(self::FUNDER_FACET_CACHE_LIFETIME);
+
+        return Cache::remember($cacheKey, $expiration, function () use ($contextId, $locale) {
+            // ror_settings.locale is keyed by the bare ISO 639-1 code from the ROR dataset itself
+            $rorLocale = LocaleConversion::getIso1FromLocale($locale);
+
+            $rows = DB::select('
+                SELECT
+                    COALESCE(x.ror, LOWER(TRIM(x.identity_name))) AS value,
+                    MIN(COALESCE(x.label, x.ror)) AS label
+                FROM (
+                    SELECT
+                        f.submission_id,
+                        f.ror,
+                        COALESCE(
+                            (SELECT fs.setting_value FROM funder_settings fs
+                             WHERE fs.funder_id = f.funder_id AND fs.setting_name = \'name\' AND fs.locale = s.locale),
+                            (SELECT fs.setting_value FROM funder_settings fs
+                             WHERE fs.funder_id = f.funder_id AND fs.setting_name = \'name\'
+                             ORDER BY fs.locale LIMIT 1),
+                            (SELECT rs.setting_value FROM rors r
+                             JOIN ror_settings rs ON rs.ror_id = r.ror_id AND rs.setting_name = \'name\' AND rs.locale = r.display_locale
+                             WHERE r.ror = f.ror)
+                        ) AS identity_name,
+                        COALESCE(
+                            (SELECT fs.setting_value FROM funder_settings fs
+                             WHERE fs.funder_id = f.funder_id AND fs.setting_name = \'name\' AND fs.locale = ?),
+                            (SELECT fs.setting_value FROM funder_settings fs
+                             WHERE fs.funder_id = f.funder_id AND fs.setting_name = \'name\' AND fs.locale = s.locale),
+                            (SELECT fs.setting_value FROM funder_settings fs
+                             WHERE fs.funder_id = f.funder_id AND fs.setting_name = \'name\'
+                             ORDER BY fs.locale LIMIT 1),
+                            (SELECT rs.setting_value FROM rors r
+                             JOIN ror_settings rs ON rs.ror_id = r.ror_id AND rs.setting_name = \'name\' AND rs.locale = ?
+                             WHERE r.ror = f.ror),
+                            (SELECT rs.setting_value FROM rors r
+                             JOIN ror_settings rs ON rs.ror_id = r.ror_id AND rs.setting_name = \'name\' AND rs.locale = r.display_locale
+                             WHERE r.ror = f.ror)
+                        ) AS label
+                    FROM funders f
+                    JOIN submissions s ON s.submission_id = f.submission_id
+                    WHERE s.context_id = ?
+                ) x
+                WHERE x.ror IS NOT NULL OR x.identity_name IS NOT NULL
+                GROUP BY COALESCE(x.ror, LOWER(TRIM(x.identity_name)))
+                ORDER BY label
+            ', [
+                $locale,
+                $rorLocale,
+                $contextId,
+            ]);
+
+            return collect($rows)->map(fn ($row) => (array) $row);
+        });
+    }
+
+    /**
+     * Invalidate the cached funder facet list (see getUniqueFunderNames()) for a context, in all
+     * of its supported locales.
+     */
+    public function forgetFunderFacetCache(int $contextId): void
+    {
+        /** @var Context|null $context */
+        $context = Application::getContextDAO()->getById($contextId);
+        if (!$context) {
+            return;
+        }
+
+        // A cache key's locale is the viewer's current UI locale, not necessarily a locale the
+        // funder's name data exists in — so enumerate supportedLocales as well as
+        // supportedSubmissionMetadataLocales, not just the latter.
+        $locales = array_unique(array_merge(
+            [$context->getPrimaryLocale()],
+            $context->getSupportedLocales() ?? [],
+            $context->getSupportedSubmissionMetadataLocales() ?? []
+        ));
+
+        foreach ($locales as $locale) {
+            Cache::forget($this->getFacetCacheKey($contextId, $locale));
+        }
+    }
+
+    protected function getFacetCacheKey(int $contextId, string $locale): string
+    {
+        return self::class . "::getUniqueFunderNames:{$contextId}:{$locale}";
+    }
+
+    /**
+     * Invalidate the funder facet cache for every context that has funder data — for triggers
+     * that can affect any context and can't cheaply say which, e.g. a ROR dataset refresh.
+     */
+    public function forgetAllFunderFacetCaches(): void
+    {
+        $contextIds = DB::table('funders')
+            ->join('submissions', 'submissions.submission_id', '=', 'funders.submission_id')
+            ->distinct()
+            ->pluck('submissions.context_id');
+
+        foreach ($contextIds as $contextId) {
+            $this->forgetFunderFacetCache((int) $contextId);
+        }
     }
 }

@@ -29,6 +29,7 @@
 namespace PKP\task;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use DirectoryIterator;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
@@ -99,6 +100,8 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 );
                 return false;
             }
+
+            Repo::funder()->forgetAllFunderFacetCaches();
 
             return true;
         } catch (Throwable $e) {

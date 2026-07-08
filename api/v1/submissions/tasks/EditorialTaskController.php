@@ -922,6 +922,8 @@ class EditorialTaskController extends PKPBaseController
             $userGroups = $userGroups->merge($globalGroups);
         }
 
+        // Filter any `null` values added when compiling list of users
+        $users = $users->filter();
         $resource = $users->map(fn (User $user) => new Participant([
             'userId' => $user->getId(),
             'isResponsible' => false,

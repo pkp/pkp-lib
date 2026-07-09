@@ -398,6 +398,15 @@ msgstr "Publication identifiers form is unavailable as there are no enabled Iden
 msgid "api.rors.404.rorNotFound"
 msgstr "The ror you requested was not found."
 
+msgid "api.rors.429.tooManyRequests"
+msgstr "Too many ROR lookup requests. Please wait a moment and try again."
+
+msgid "api.rors.429.globalRateLimited"
+msgstr "Too many ROR lookup requests are being processed right now. Please wait a moment and try again."
+
+msgid "api.rors.429.rorApiRateLimited"
+msgstr "The ROR registry (ror.org) is currently rate limiting our requests. Please wait a few minutes and try again."
+
 msgid "api.409.resourceActionConflict"
 msgstr "Unable to complete the intended action on resource."
 

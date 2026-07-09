@@ -20,9 +20,11 @@ namespace PKP\API\v1\rors;
 use APP\core\Application;
 use APP\facades\Repo;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -40,6 +42,25 @@ class PKPRorController extends PKPBaseController
 
     /** @var int The maximum number of rors to return in one request */
     public const MAX_COUNT = 100;
+
+    /** @var int Maximum number of ror.org API lookups allowed per IP within the decay window */
+    protected const RATE_LIMIT_MAX_ATTEMPTS = 20;
+
+    /** @var int Number of seconds before the per-IP ror.org API lookup rate limit window resets */
+    protected const RATE_LIMIT_DECAY_SECONDS = 60;
+
+    /** @var string Shared rate limit key for all outbound ror.org API lookups, regardless of caller */
+    protected const GLOBAL_RATE_LIMIT_KEY = 'ror-api:global';
+
+    /**
+     * @var int Maximum number of ror.org API lookups allowed institution-wide within the decay
+     *  window, since every outbound call reaches ror.org from this server's single IP regardless
+     *  of which client triggered it. Conservative default; tune to ror.org's documented rate limit.
+     */
+    protected const GLOBAL_RATE_LIMIT_MAX_ATTEMPTS = 60;
+
+    /** @var int Number of seconds before the global ror.org API lookup rate limit window resets */
+    protected const GLOBAL_RATE_LIMIT_DECAY_SECONDS = 60;
 
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
@@ -173,16 +194,48 @@ class PKPRorController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
+        $rateLimitKey = 'ror-api:' . $this->getRequest()->getRemoteAddr();
+        if (RateLimiter::tooManyAttempts($rateLimitKey, self::RATE_LIMIT_MAX_ATTEMPTS)) {
+            return response()->json([
+                'ror' => [__('api.rors.429.tooManyRequests')],
+            ], Response::HTTP_TOO_MANY_REQUESTS);
+        }
+
+        if (RateLimiter::tooManyAttempts(self::GLOBAL_RATE_LIMIT_KEY, self::GLOBAL_RATE_LIMIT_MAX_ATTEMPTS)) {
+            return response()->json([
+                'ror' => [__('api.rors.429.globalRateLimited')],
+            ], Response::HTTP_TOO_MANY_REQUESTS);
+        }
+
+        RateLimiter::hit($rateLimitKey, self::RATE_LIMIT_DECAY_SECONDS);
+        RateLimiter::hit(self::GLOBAL_RATE_LIMIT_KEY, self::GLOBAL_RATE_LIMIT_DECAY_SECONDS);
+
         try {
             $response = Application::get()->getHttpClient()->request(
                 'GET',
                 'https://api.ror.org/v2/organizations/' . $matches[1],
                 ['timeout' => 10]
             );
+        } catch (RequestException $e) {
+            if ($e->getResponse()?->getStatusCode() === Response::HTTP_TOO_MANY_REQUESTS) {
+                return response()->json([
+                    'ror' => [__('api.rors.429.rorApiRateLimited')],
+                ], Response::HTTP_TOO_MANY_REQUESTS);
+            }
+
+            return response()->json([
+                'ror' => [__('api.rors.404.rorNotFound')],
+            ], Response::HTTP_NOT_FOUND);
         } catch (GuzzleException $e) {
             return response()->json([
                 'ror' => [__('api.rors.404.rorNotFound')],
             ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($response->getStatusCode() === Response::HTTP_TOO_MANY_REQUESTS) {
+            return response()->json([
+                'ror' => [__('api.rors.429.rorApiRateLimited')],
+            ], Response::HTTP_TOO_MANY_REQUESTS);
         }
 
         if ($response->getStatusCode() !== 200) {

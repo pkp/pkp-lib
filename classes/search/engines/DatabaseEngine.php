@@ -112,12 +112,24 @@ class DatabaseEngine extends ScoutEngine
             ->join('submissions AS s', 'ft.submission_id', 's.submission_id')
             ->when($contextId, fn (DatabaseBuilder $q) => $q->where('context_id', $contextId))
             ->whereIn('s.submission_id', DB::table('publications')->where('status', PKPPublication::STATUS_PUBLISHED)->select('submission_id'))
+            // Reuse Collector::filterByFunder as a subquery (no PHP ID materialization).
             ->when(
                 $funder,
-                fn (DatabaseBuilder $q) => $q->whereIn(
-                    's.submission_id',
-                    Repo::funder()->getSubmissionIdsByFilterKey($funder)
-                )
+                function (DatabaseBuilder $q) use ($funder, $contextId) {
+                    $collector = Repo::submission()->getCollector()
+                        ->filterByFunder($funder)
+                        ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+                        ->filterByContextIds(
+                            $contextId
+                                ? [$contextId]
+                                : [Application::SITE_CONTEXT_ID_ALL]
+                        );
+                    $q->whereIn(
+                        's.submission_id',
+                        $collector->getQueryBuilder()
+                            ->select('s.submission_id')
+                    );
+                }
             )
             ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords) || is_array($subjects), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)

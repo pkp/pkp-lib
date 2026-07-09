@@ -118,7 +118,6 @@ class DatabaseEngine extends ScoutEngine
                 function (DatabaseBuilder $q) use ($funder, $contextId) {
                     $collector = Repo::submission()->getCollector()
                         ->filterByFunder($funder)
-                        ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
                         ->filterByContextIds(
                             $contextId
                                 ? [$contextId]

@@ -136,10 +136,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
-     * Limit results to submissions with a funder matching this facet value
+     * Limit results to submissions with a funder matching this facet value.
      *
      * $funderValue must be either a funder's `ror`, or a funder name (any case), matching a
-     * `value` from \PKP\funder\Repository::getUniqueFunderNames().
+     * `value` from \PKP\funder\Repository::getUniqueFunderNames(). Implemented via
+     * {@see \PKP\funder\Repository::getSubmissionIdsByFilterKey()}.
      */
     public function filterByFunder(?string $funderValue): AppCollector
     {
@@ -749,19 +750,10 @@ abstract class Collector implements CollectorInterface, ViewsCount
         }
 
         if (isset($this->funderValue)) {
-            $funderSubmissionIds = DB::table('funders as f')
-                ->leftJoin('funder_settings as fs', function (JoinClause $join) {
-                    $join->on('fs.funder_id', '=', 'f.funder_id')->where('fs.setting_name', '=', 'name');
-                })
-                ->where(function (Builder $w) {
-                    // Lowercase/trim both sides in SQL to match getUniqueFunderNames()'s `value`.
-                    $w->where('f.ror', $this->funderValue)
-                        ->orWhereRaw('LOWER(TRIM(fs.setting_value)) = LOWER(TRIM(?))', [$this->funderValue]);
-                })
-                ->select('f.submission_id')
-                ->distinct();
-
-            $q->whereIn('s.submission_id', $funderSubmissionIds);
+            $q->whereIn(
+                's.submission_id',
+                Repo::funder()->getSubmissionIdsByFilterKey($this->funderValue)
+            );
         }
 
         $q = $this->buildReviewStageQueries($q);

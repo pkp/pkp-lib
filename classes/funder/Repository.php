@@ -17,6 +17,8 @@ namespace PKP\funder;
 use APP\core\Application;
 use APP\core\Request;
 use DateInterval;
+use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -188,6 +190,28 @@ class Repository
     public function getSchemaMap(): maps\Schema
     {
         return app('maps')->withExtensions($this->schemaMap);
+    }
+
+    /**
+     * Query of submission_ids whose funders match the given filter key.
+     *
+     * A filter key is the same identity as getUniqueFunderNames()'s `value` and
+     * Collector::filterByFunder(): a funder's ROR, or a free-text name (any case/locale).
+     * Used by the submission collector and the database search engine.
+     */
+    public function getSubmissionIdsByFilterKey(string $filterKey): QueryBuilder
+    {
+        return DB::table('funders as f')
+            ->leftJoin('funder_settings as fs', function (JoinClause $join) {
+                $join->on('fs.funder_id', '=', 'f.funder_id')->where('fs.setting_name', '=', 'name');
+            })
+            ->where(function (QueryBuilder $w) use ($filterKey) {
+                // Lowercase/trim both sides in SQL to match getUniqueFunderNames()'s `value`.
+                $w->where('f.ror', $filterKey)
+                    ->orWhereRaw('LOWER(TRIM(fs.setting_value)) = LOWER(TRIM(?))', [$filterKey]);
+            })
+            ->select('f.submission_id')
+            ->distinct();
     }
 
     /**

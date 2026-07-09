@@ -17,7 +17,9 @@
 
 namespace PKP\API\v1\rors;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -30,7 +32,6 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\services\PKPSchemaService;
 
 class PKPRorController extends PKPBaseController
 {
@@ -155,23 +156,54 @@ class PKPRorController extends PKPBaseController
 
 
     /**
-     * Add or edit a ror
+     * Add or refresh a ror
+     *
+     * The client may only specify which ROR ID to (re)cache; the actual name,
+     * display locale and active status are always fetched from the authoritative
+     * ror.org API here, never taken from the request body, so that a caller
+     * cannot inject or overwrite institution data in the shared local cache.
      */
     public function addOrEdit(Request $illuminateRequest): JsonResponse
     {
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ROR, $illuminateRequest->input());
+        $ror = (string) $illuminateRequest->input('ror');
 
-        $errors = Repo::ror()->validate(null, $params);
-
-        if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        if (!preg_match('#^https://ror\.org/(0[^ILOU]{6}\d{2})$#', $ror, $matches)) {
+            return response()->json([
+                'ror' => [__('ror.invalidRorId')],
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        $ror = Repo::ror()->newDataObject($params);
-        $id = Repo::ror()->updateOrInsert($ror);
-        $ror = Repo::ror()->get($id);
+        try {
+            $response = Application::get()->getHttpClient()->request(
+                'GET',
+                'https://api.ror.org/v2/organizations/' . $matches[1],
+                ['timeout' => 10]
+            );
+        } catch (GuzzleException $e) {
+            return response()->json([
+                'ror' => [__('api.rors.404.rorNotFound')],
+            ], Response::HTTP_NOT_FOUND);
+        }
 
-        return response()->json(Repo::ror()->getSchemaMap()->map($ror), Response::HTTP_OK);
+        if ($response->getStatusCode() !== 200) {
+            return response()->json([
+                'ror' => [__('api.rors.404.rorNotFound')],
+            ], Response::HTTP_NOT_FOUND);
+        }
 
+        $record = json_decode($response->getBody(), true);
+        $params = is_array($record) ? Repo::ror()->mapFromApiRecord($record) : null;
+
+        if ($params === null) {
+            return response()->json([
+                'ror' => [__('api.rors.404.rorNotFound')],
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $rorObject = Repo::ror()->newDataObject($params);
+        $id = Repo::ror()->updateOrInsert($rorObject);
+        $rorObject = Repo::ror()->get($id);
+
+        return response()->json(Repo::ror()->getSchemaMap()->map($rorObject), Response::HTTP_OK);
     }
 }

@@ -13,6 +13,7 @@
 namespace PKP\search\engines;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use Illuminate\Database\Query\Builder as DatabaseBuilder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -63,12 +64,17 @@ class DatabaseEngine extends ScoutEngine
         };
 
         // Handle "whereIn" conditions
-        $sectionIds = $categoryIds = $keywords = $subjects = null;
+        $sectionIds = $categoryIds = $keywords = $subjects = $funders = null;
         foreach ($builder->whereIns as $field => $list) {
             $$field = match($field) {
-                'sectionIds', 'categoryIds', 'keywords', 'subjects' => is_null($list) ? null : (array) $list,
+                'sectionIds', 'categoryIds', 'keywords', 'subjects', 'funders' => is_null($list) ? null : (array) $list,
             };
         };
+
+        // Database driver: only the first funder is applied (OpenSearch supports several).
+        $funder = is_array($funders)
+            ? (array_values(array_filter($funders, fn ($v) => is_string($v) && $v !== ''))[0] ?? null)
+            : null;
 
         // Handle options
         foreach ($builder->options as $option => &$value) {
@@ -106,6 +112,13 @@ class DatabaseEngine extends ScoutEngine
             ->join('submissions AS s', 'ft.submission_id', 's.submission_id')
             ->when($contextId, fn (DatabaseBuilder $q) => $q->where('context_id', $contextId))
             ->whereIn('s.submission_id', DB::table('publications')->where('status', PKPPublication::STATUS_PUBLISHED)->select('submission_id'))
+            ->when(
+                $funder,
+                fn (DatabaseBuilder $q) => $q->whereIn(
+                    's.submission_id',
+                    Repo::funder()->getSubmissionIdsByFilterKey($funder)
+                )
+            )
             ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords) || is_array($subjects), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')

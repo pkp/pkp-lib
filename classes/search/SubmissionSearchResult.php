@@ -47,7 +47,8 @@ class SubmissionSearchResult
             ->whereIn('categoryIds', $request->getUserVar('categoryIds'))
             ->whereIn('sectionIds', $request->getUserVar('sectionIds'))
             ->whereIn('keywords', $request->getUserVar('keywords'))
-            ->whereIn('subjects', $request->getUserVar('subjects'));
+            ->whereIn('subjects', $request->getUserVar('subjects'))
+            ->whereIn('funders', $request->getUserVar('funders'));
 
         if ($orderBy = $request->getUserVar('orderBy')) {
             $builder->orderBy($orderBy, $request->getUserVar('orderDir') == 'asc' ? 'asc' : 'desc');

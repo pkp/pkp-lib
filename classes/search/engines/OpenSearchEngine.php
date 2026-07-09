@@ -22,6 +22,7 @@ use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
 use PKP\facades\Locale;
+use PKP\funder\Funder;
 use PKP\plugins\Hook;
 use PKP\publication\PKPPublication;
 use PKP\search\parsers\SearchFileParser;
@@ -109,6 +110,40 @@ class OpenSearchEngine extends ScoutEngine
                     $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
                 }
             }
+
+            // Index funders for faceted filtering (whereIn('funders') → terms on filterKeys).
+            $funderNamesByLocale = [];
+            $funderRors = [];
+            $funderFilterKeys = [];
+            foreach (Funder::withSubmissionId($submission->getId())->orderBySeq()->get() as $funder) {
+                $names = $funder->name;
+                if (is_array($names)) {
+                    foreach ($names as $locale => $name) {
+                        if ($name !== null && $name !== '') {
+                            $funderNamesByLocale[$locale][] = $name;
+                        }
+                    }
+                }
+
+                $ror = $funder->getRawOriginal('ror');
+                if (!empty($ror)) {
+                    $funderRors[] = $ror;
+                    // filterKey: ROR URL (same identity as getUniqueFunderNames / filterByFunder).
+                    $funderFilterKeys[] = $ror;
+                    continue;
+                }
+
+                // filterKey: lowercased free-text name(s), any locale — mimics the SQL filter
+                // on funder_settings.name (see Collector::filterByFunder).
+                if (is_array($names)) {
+                    foreach ($names as $name) {
+                        if (is_string($name) && $name !== '') {
+                            $funderFilterKeys[] = strtolower(trim($name));
+                        }
+                    }
+                }
+            }
+
             $json = [
                 'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
@@ -128,8 +163,22 @@ class OpenSearchEngine extends ScoutEngine
                     'subject' => collect($publication->getData('subjects'))
                         ->map(fn ($items) => collect($items)->pluck('name')->all())
                         ->all(),
+                    'funders' => [
+                        'name' => $funderNamesByLocale,
+                        'ror' => array_values(array_unique($funderRors)),
+                        // filterKeys: non-display identity strings used only for exact filter
+                        // matching. A filterKey is either a funder's ROR or a lowercased
+                        // free-text name — the same contract as filterByFunder() / getUniqueFunderNames()'s
+                        // "value" (not the human-readable label).
+                        'filterKeys' => array_values(array_unique($funderFilterKeys)),
+                    ],
                 ]
             ];
+            // Funder name accessor memoizes submissions/RORs in unbounded
+            // per-process caches; flush so bulk reindexing (CLI) does not
+            // accumulate every submission in memory.
+            Funder::clearResolverCaches();
+
             // Give hooks a chance to alter the record before indexing
             if (Hook::run('OpenSearchEngine::update', ['json' => &$json, 'submission' => $submission]) !== Hook::ABORT) {
                 $client->create($json);
@@ -218,6 +267,10 @@ class OpenSearchEngine extends ScoutEngine
                         break;
                     case 'subjects':
                         $filter[] = ['terms' => ['subject.' . Locale::getLocale() . '.keyword' => $list]];
+                        break;
+                    case 'funders':
+                        // Exact match on filterKeys (ROR or lowercased free-text name); OR if several.
+                        $filter[] = ['terms' => ['funders.filterKeys' => $list]];
                         break;
                     default: continue 2;
                 }
@@ -353,6 +406,14 @@ class OpenSearchEngine extends ScoutEngine
                         'subject' => $typicalKeywordClause(),
                         'sectionId' => ['type' => 'long'],
                         'status' => ['type' => 'long'],
+                        'funders' => [
+                            'properties' => [
+                                'name' => $typicalKeywordClause(),
+                                'ror' => ['type' => 'keyword'],
+                                // filterKey = ROR or lowercased free-text name (filter identity, not label).
+                                'filterKeys' => ['type' => 'keyword'],
+                            ],
+                        ],
                     ],
                 ],
             ],

@@ -36,15 +36,12 @@ use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\log\event\PKPSubmissionEventLogEntry;
-use APP\decision\Decision;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
-use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -309,6 +306,8 @@ abstract class Repository
 
     /**
      * Perform validations that should be treated as warnings instead of errors.
+     *
+     * @hook Publication::validatePublishWarnings [[&$warnings, $publication, $submission, $allowedLocales, $primaryLocale]]
      */
     public function validatePublishWarnings(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
     {
@@ -1166,8 +1165,10 @@ abstract class Repository
      * Get review-related DOI data grouped by publication ID.
      *
      * @param int[] $publicationIds
-     * @return array<int, array<array{pubObjectType: string, pubObjectId: int, doiObject: Doi|null}>>
+     *
      * @throws \Exception
+     *
+     * @return array<int, array<array{pubObjectType: string, pubObjectId: int, doiObject: Doi|null}>>
      */
     public function getReviewDoiItemsGroupedByPublication(array $publicationIds): array
     {
@@ -1230,16 +1231,34 @@ abstract class Repository
     }
 
     /**
-     * Returns the provided publication ID as well as any other publications
-     * that reference this publication via the `source_publication_id`.
+     * Returns the provided publication ID as well as any other publication
+     * it references via the `source_publication_id`.
+     * This goes up the entire tree created by the usage of `source_publication_id` on each record to ensure all associated publication IDs are returned.
      */
     public function getWithSourcePublicationsIds(array $publicationIds): Collection
     {
-        return $this->getCollector()
-            ->filterByPublicationIds($publicationIds)
-            ->filterWithSourcePublicationIds()
-            ->getIds();
+        $publicationIds = array_unique($publicationIds);
 
+        $allIds = collect($publicationIds);
+        $toResolve = $publicationIds;
+
+        while (!empty($toResolve)) {
+            $resolved = $this->getCollector()
+                ->filterByPublicationIds($toResolve)
+                ->filterWithSourcePublicationIds()
+                ->getIds();
+
+            $newIds = $resolved->diff($allIds);
+
+            if ($newIds->isEmpty()) {
+                break;
+            }
+
+            $allIds = $allIds->merge($newIds);
+            $toResolve = $newIds->values()->all();
+        }
+
+        return $allIds->values();
     }
 
     /**

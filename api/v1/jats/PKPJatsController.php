@@ -26,18 +26,19 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\middleware\RedirectGuestToLogin;
 use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\security\authorization\internal\PublicationIsSubmissionPolicy;
+use PKP\security\authorization\internal\PublicationRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\authorization\internal\SubmissionCompletePolicy;
-use PKP\security\authorization\internal\SubmissionRequiredPolicy;
-use PKP\security\authorization\ContextRequiredPolicy;
-use PKP\security\authorization\internal\PublicationIsSubmissionPolicy;
-use PKP\security\authorization\internal\PublicationRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
@@ -90,8 +91,12 @@ class PKPJatsController extends PKPBaseController
 
         })->whereNumber(['submissionId', 'publicationId']);
 
-        // Public route for JATS download which requires no authentication
-        Route::get('download', $this->publicDownload(...))
+        // Apply restrictive middleware only if content access is restricted without authorization
+        Route::middleware(
+            $this->getRequest()->getContext()?->getData('restrictArticleAccess')
+                ? [RedirectGuestToLogin::class, 'has.user']
+                : []
+        )->get('download', $this->publicDownload(...))
             ->name('publication.jats.publicDownload')
             ->whereNumber(['submissionId', 'publicationId']);
     }

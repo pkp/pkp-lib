@@ -22,6 +22,9 @@ use PKP\validation\ValidatorFactory;
 
 class Repository
 {
+    /** Fallback locale key for ROR names with no language code, matching the sentinel value accepted by the displayLocale schema property. */
+    private const NO_LOCALE = 'no_lang_code';
+
     public DAO $dao;
 
     /** @var string $schemaMap The name of the class to map this entity to its schema */
@@ -124,6 +127,69 @@ class Repository
         Hook::call('Ror::validate', [&$errors, $ror, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
+    }
+
+    /**
+     * Map a raw ROR API v2 organization record (as returned by
+     * https://api.ror.org/v2/organizations/{id}, which shares the same
+     * schema v2 shape as the bulk data dump) to the props expected by
+     * newDataObject()/updateOrInsert().
+     *
+     * Only the ROR ID used to request the record should ever be client-supplied;
+     * the content mapped here always comes from the authoritative API response,
+     * never from client input, so that a caller cannot spoof institution data.
+     *
+     * @return array|null Mapped props, or null if the record has no usable name
+     */
+    public function mapFromApiRecord(array $record): ?array
+    {
+        if (empty($record['id']) || empty($record['status']) || !is_array($record['names'] ?? null)) {
+            return null;
+        }
+
+        $ror = $record['id'];
+        $isActive = strtolower($record['status']) === 'active';
+        $searchPhrase = $ror;
+
+        $displayLocale = self::NO_LOCALE;
+        $namesByLocale = [];
+        $firstLabelName = null;
+        $firstValidName = null;
+
+        foreach ($record['names'] as $nameEntry) {
+            if (!isset($nameEntry['value'])) {
+                continue;
+            }
+            $name = $nameEntry['value'];
+            $firstValidName ??= $name;
+            $locale = $nameEntry['lang'] ?? self::NO_LOCALE;
+            $types = $nameEntry['types'] ?? [];
+
+            if (in_array('ror_display', $types)) {
+                $displayLocale = $locale;
+                $namesByLocale[$locale] = $name;
+                $searchPhrase .= ' ' . $name;
+            } elseif (in_array('label', $types)) {
+                $namesByLocale[$locale] ??= $name;
+                $searchPhrase .= ' ' . $name;
+                $firstLabelName ??= $name;
+            }
+        }
+
+        if (empty($namesByLocale[$displayLocale])) {
+            if ($firstLabelName === null && $firstValidName === null) {
+                return null;
+            }
+            $namesByLocale[$displayLocale] = $firstLabelName ?? $firstValidName;
+        }
+
+        return [
+            'ror' => $ror,
+            'displayLocale' => $displayLocale,
+            'isActive' => $isActive,
+            'searchPhrase' => trim($searchPhrase),
+            'name' => $namesByLocale,
+        ];
     }
 
     /** @copydoc DAO::insert() */

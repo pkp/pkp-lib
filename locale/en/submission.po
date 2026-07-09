@@ -48,6 +48,9 @@ msgstr "A ROR name is required."
 msgid "ror.displayLocaleRequired"
 msgstr "ROR display locale is required."
 
+msgid "ror.invalidRorId"
+msgstr "Please provide a valid ROR ID."
+
 msgid "submission.plainLanguageSummary"
 msgstr "Plain Language Summary"
 

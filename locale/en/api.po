@@ -443,6 +443,9 @@ msgstr "An invalid value was provided for `isReported`: `{$isReported}`."
 msgid "api.citations.404.citationNotFound"
 msgstr "The citation you requested was not found."
 
+msgid "api.citations.403.publicationsNotMatched"
+msgstr "The citation you requested is not assigned to this publication."
+
 msgid "api.publication.400.invalidPublicationId"
 msgstr "An invalid publication ID was provided: `{$publicationId}`."
 

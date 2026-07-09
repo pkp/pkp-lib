@@ -17,6 +17,7 @@
 
 namespace pkp\api\v1\citations;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -29,9 +30,9 @@ use PKP\pid\Arxiv;
 use PKP\pid\Doi;
 use PKP\pid\Handle;
 use PKP\plugins\Hook;
-use PKP\security\authorization\ContextRequiredPolicy;
-use PKP\security\authorization\PolicySet;
-use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\PublicationAccessPolicy;
+use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -49,7 +50,7 @@ class PKPCitationController extends PKPBaseController
      */
     public function getHandlerPath(): string
     {
-        return 'citations';
+        return 'submissions/{submissionId}/publications/{publicationId}/citations';
     }
 
     /**
@@ -60,12 +61,6 @@ class PKPCitationController extends PKPBaseController
         return [
             'has.user',
             'has.context',
-            self::roleAuthorizer([
-                Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR,
-                Role::ROLE_ID_ASSISTANT,
-                Role::ROLE_ID_AUTHOR,
-            ]),
         ];
     }
 
@@ -74,24 +69,35 @@ class PKPCitationController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('', $this->getMany(...))
-            ->name('citation.getMany');
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function () {
 
-        Route::get('{citationId}', $this->get(...))
-            ->name('citation.getCitation')
-            ->whereNumber('citationId');
+            Route::get('', $this->getMany(...))
+                ->name('citation.getMany');
 
-        Route::put('{citationId}', $this->edit(...))
-            ->name('citation.edit')
-            ->whereNumber('citationId');
+            Route::get('{citationId}', $this->get(...))
+                ->name('citation.getCitation')
+                ->whereNumber('citationId');
 
-        Route::post('{citationId}/reprocessCitation', $this->reprocessCitation(...))
-            ->name('citation.reprocessCitation')
-            ->whereNumber('citationId');
+            Route::put('{citationId}', $this->edit(...))
+                ->name('citation.edit')
+                ->whereNumber('citationId');
 
-        Route::delete('{citationId}', $this->delete(...))
-            ->name('citation.delete')
-            ->whereNumber('citationId');
+            Route::post('{citationId}/reprocessCitation', $this->reprocessCitation(...))
+                ->name('citation.reprocessCitation')
+                ->whereNumber('citationId');
+
+            Route::delete('{citationId}', $this->delete(...))
+                ->name('citation.delete')
+                ->whereNumber('citationId');
+
+        })->whereNumber(['submissionId', 'publicationId']);
     }
 
     /**
@@ -99,17 +105,18 @@ class PKPCitationController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
+        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+        $actionName = static::getRouteActionName($illuminateRequest);
+
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
-        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        $this->addPolicy(new ContextRequiredPolicy($request));
-
-        foreach ($roleAssignments as $role => $operations) {
-            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+        if (in_array($actionName, ['get', 'getMany'], true)) {
+            $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        } else {
+            $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
         }
-
-        $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -124,7 +131,14 @@ class PKPCitationController extends PKPBaseController
         if (!$citation) {
             return response()->json([
                 'error' => __('api.citations.404.citationNotFound')
-            ], Response::HTTP_OK);
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+        if ($publication->getId() !== $citation->getData('publicationId')) {
+            return response()->json([
+                'error' => __('api.citations.403.publicationsNotMatched'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         return response()->json(Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK);
@@ -137,7 +151,10 @@ class PKPCitationController extends PKPBaseController
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+
         $collector = Repo::citation()->getCollector()
+            ->filterByPublicationId($publication->getId())
             ->limit(self::DEFAULT_COUNT)
             ->offset(0);
 
@@ -173,6 +190,13 @@ class PKPCitationController extends PKPBaseController
             return response()->json([
                 'error' => __('api.citations.404.citationNotFound'),
             ], Response::HTTP_NOT_FOUND);
+        }
+
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+        if ($publication->getId() !== $citation->getData('publicationId')) {
+            return response()->json([
+                'error' => __('api.citations.403.publicationsNotMatched'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CITATION, $illuminateRequest->input());
@@ -222,7 +246,14 @@ class PKPCitationController extends PKPBaseController
         if (!$citation) {
             return response()->json([
                 'error' => __('api.citations.404.citationNotFound')
-            ], Response::HTTP_OK);
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+        if ($publication->getId() !== $citation->getData('publicationId')) {
+            return response()->json([
+                'error' => __('api.citations.403.publicationsNotMatched'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         Repo::citation()->delete($citation);
@@ -244,6 +275,13 @@ class PKPCitationController extends PKPBaseController
             return response()->json([
                 'error' => __('api.citations.404.citationNotFound'),
             ], Response::HTTP_NOT_FOUND);
+        }
+
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+        if ($publication->getId() !== $citation->getData('publicationId')) {
+            return response()->json([
+                'error' => __('api.citations.403.publicationsNotMatched'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);

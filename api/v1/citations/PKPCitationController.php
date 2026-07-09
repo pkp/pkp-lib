@@ -97,6 +97,15 @@ class PKPCitationController extends PKPBaseController
                 ->name('citation.delete')
                 ->whereNumber('citationId');
 
+            Route::post('importAdditionalCitations', $this->importAdditionalCitations(...))
+                ->name('citation.importAdditionalCitations');
+
+            Route::delete('deleteCitationsByPublicationId', $this->deleteCitationsByPublicationId(...))
+                ->name('citation.deleteCitationsByPublicationId');
+
+            Route::post('reprocessCitationsByPublicationId', $this->reprocessCitationsByPublicationId(...))
+                ->name('citation.reprocessCitationsByPublicationId');
+
         })->whereNumber(['submissionId', 'publicationId']);
     }
 
@@ -293,6 +302,63 @@ class PKPCitationController extends PKPBaseController
             Repo::citation()->getSchemaMap()->map($citation),
             Response::HTTP_OK
         );
+    }
+
+    /**
+     * Import / add citations from a raw citation string of a publication.
+     */
+    public function importAdditionalCitations(Request $illuminateRequest): JsonResponse
+    {
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+
+        $rawCitations = (string) $illuminateRequest->input('rawCitations');
+
+        $result = Repo::citation()->importAdditionalCitations($publication->getId(), $rawCitations);
+
+        return response()->json($result, Response::HTTP_OK);
+    }
+
+    /**
+     * Delete a publication's citations.
+     */
+    public function deleteCitationsByPublicationId(Request $illuminateRequest): JsonResponse
+    {
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+
+        $existingCitations = [];
+        foreach ($publication->getData('citations') as $citation) {
+            $existingCitations[] = Repo::citation()->getSchemaMap()->map($citation);
+        }
+
+        Repo::citation()->deleteByPublicationId($publication->getId());
+
+        return response()->json([
+            'itemsMax' => count($existingCitations),
+            'items' => $existingCitations,
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Reprocess a publication's citations.
+     */
+    public function reprocessCitationsByPublicationId(Request $illuminateRequest): JsonResponse
+    {
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+
+        $citations = $publication->getData('citations');
+        $citationsMapped = [];
+        foreach ($citations as &$citation) {
+            $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
+            Repo::citation()->edit($citation, []);
+            Repo::citation()->reprocessCitation($citation);
+            $citationsMapped[] = Repo::citation()->getSchemaMap()->map($citation);
+        }
+        unset($citation);
+
+        return response()->json([
+            'itemsMax' => count($citationsMapped),
+            'items' => $citationsMapped,
+        ], Response::HTTP_OK);
     }
 
     /**

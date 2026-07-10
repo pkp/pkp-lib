@@ -3,8 +3,8 @@
 /**
  * @file classes/oai/PKPOAIDAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPOAIDAO
@@ -18,20 +18,19 @@
 
 namespace PKP\oai;
 
+use Illuminate\Database\Query\Builder;
+use PKP\db\DAO;
 use PKP\plugins\Hook;
 
-abstract class PKPOAIDAO extends \PKP\db\DAO
+abstract class PKPOAIDAO extends DAO
 {
     /** @var OAI parent OAI object */
-    public $oai;
-
+    public OAI $oai;
 
     /**
-     * Set parent OAI object.
-     *
-     * @param OAI $oai
+     * Set the parent OAI object.
      */
-    public function setOAI($oai)
+    public function setOAI(OAI $oai): void
     {
         $this->oai = $oai;
     }
@@ -42,7 +41,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Clear stale resumption tokens.
      */
-    public function clearTokens()
+    public function clearTokens(): void
     {
         $this->update(
             'DELETE FROM oai_resumption_tokens WHERE expire < ?',
@@ -54,24 +53,20 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * Retrieve a resumption token.
      *
      * @param string $tokenId OAI resumption token
-     *
-     * @return OAIResumptionToken
      */
-    public function getToken($tokenId)
+    public function getToken(string $tokenId): ?OAIResumptionToken
     {
         $result = $this->retrieve('SELECT * FROM oai_resumption_tokens WHERE token = ?', [$tokenId]);
         $row = $result->current();
-        return $row ? new OAIResumptionToken($row->token, $row->record_offset, unserialize($row->params), $row->expire) : null;
+        return $row ?
+            new OAIResumptionToken($row->token, $row->record_offset, unserialize($row->params), $row->expire) :
+            null;
     }
 
     /**
      * Insert an OAI resumption token, generating a new ID.
-     *
-     * @param OAIResumptionToken $token
-     *
-     * @return OAIResumptionToken
      */
-    public function insertToken($token)
+    public function insertToken(OAIResumptionToken $token): OAIResumptionToken
     {
         do {
             // Generate unique token ID
@@ -98,87 +93,94 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Check if a data object ID specifies a data object.
      *
-     * @param int $dataObjectId
      * @param array $setIds optional Objects ids that specify an OAI set,
      * in hierarchical order. If passed, will check for the data object id
      * only inside the specified set.
-     *
-     * @return bool
+     * @param int|null $publicationId optional. If passed, restrict to the
+     * record representing that specific object version.
      */
-    public function recordExists($dataObjectId, $setIds = [])
+    public function recordExists(int $dataObjectId, array $setIds = [], int $publicationId = null): bool
     {
-        return $this->getRecord($dataObjectId, $setIds) ? true : false;
+        return (bool)$this->getRecord($dataObjectId, $setIds, $publicationId);
     }
 
     /**
-     * Return OAI record for specified data object.
+     * Return an OAI record for the specified data object.
      *
-     * @param int $dataObjectId
      * @param array $setIds optional Objects ids that specify an OAI set,
      * in hierarchical order. If passed, will check for the data object id
      * only inside the specified set.
-     *
-     * @return OAIRecord
+     * @param int|null $publicationId optional. If passed, return the record
+     * representing that specific object version.
      */
-    public function getRecord($dataObjectId, $setIds = [])
+    public function getRecord(int $dataObjectId, array $setIds = [], int $publicationId = null): ?OAIRecord
     {
-        $result = $this->_getRecordsRecordSetQuery($setIds, null, null, null, $dataObjectId);
+        $result = $this->getRecordsRecordSetQuery(
+            $setIds,
+            null,
+            null,
+            null,
+            $dataObjectId,
+            publicationId: $publicationId
+        );
         $row = $result->first();
-        return $row ? $this->_returnRecordFromRow((array) $row) : null;
+        return $row ? $this->returnRecordFromRow((array) $row) : null;
     }
 
     /**
-     * Return set of OAI records matching specified parameters.
+     * Return a set of OAI records matching specified parameters.
      *
      * @param array $setIds Objects ids that specify an OAI set,
      * in hierarchical order. The returned records will be part
      * of this set.
-     * @param int $from timestamp
-     * @param int $until timestamp
-     * @param string $set setSpec
-     * @param int $offset
-     * @param int $limit
-     * @param int $total
      *
-     * @return array OAIRecord
+     * @return array<OAIRecord>
      */
-    public function getRecords($setIds, $from, $until, $set, $offset, $limit, &$total)
-    {
-        $query = $this->_getRecordsRecordSetQuery($setIds, $from, $until, $set);
+    public function getRecords(
+        array $setIds,
+        ?int $from,
+        ?int $until,
+        ?string $set,
+        int $offset,
+        int $limit,
+        int &$total
+    ): array {
+        $query = $this->getRecordsRecordSetQuery($setIds, $from, $until, $set);
         $total = $query->getCountForPagination();
         $results = $query->offset($offset)->limit($limit)->get();
 
         $records = [];
         foreach ($results as $row) {
-            $records[] = $this->_returnRecordFromRow((array) $row);
+            $records[] = $this->returnRecordFromRow((array) $row);
         }
         return $records;
     }
 
     /**
-     * Return set of OAI identifiers matching specified parameters.
+     * Return a set of OAI identifiers matching specified parameters.
      *
      * @param array $setIds Objects ids that specify an OAI set,
      * in hierarchical order. The returned records will be part
      * of this set.
-     * @param int $from timestamp
-     * @param int $until timestamp
-     * @param string $set setSpec
-     * @param int $offset
-     * @param int $limit
-     * @param int $total
      *
-     * @return array OAIIdentifier
+     * @return array<OAIIdentifier>
      */
-    public function getIdentifiers($setIds, $from, $until, $set, $offset, $limit, &$total)
-    {
-        $query = $this->_getRecordsRecordSetQuery($setIds, $from, $until, $set);
+    public function getIdentifiers(
+        array $setIds,
+        ?int $from,
+        ?int $until,
+        ?string $set,
+        int $offset,
+        int $limit,
+        int &$total
+    ): array {
+        $query = $this->getRecordsRecordSetQuery($setIds, $from, $until, $set);
         $total = $query->getCountForPagination();
         $results = $query->offset($offset)->limit($limit)->get();
 
         $records = [];
         foreach ($results as $row) {
-            $records[] = $this->_returnIdentifierFromRow((array) $row);
+            $records[] = $this->returnIdentifierFromRow((array) $row);
         }
         return $records;
     }
@@ -189,36 +191,29 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * @param array $setIds optional Objects ids that specify an OAI set,
      * in hierarchical order. If empty, all records from
      * all sets will be included.
-     *
-     * @return int
      */
-    public function getEarliestDatestamp($setIds = [])
+    public function getEarliestDatestamp(array $setIds = []): int
     {
-        $query = $this->_getRecordsRecordSetQuery($setIds, null, null, null, null, 'last_modified');
+        $query = $this->getRecordsRecordSetQuery($setIds, null, null, null, null, 'last_modified');
         if ($row = $query->first()) {
-            $record = $this->_returnRecordFromRow((array) $row);
+            $record = $this->returnRecordFromRow((array) $row);
             return OAIUtils::UTCtoTimestamp($record->datestamp);
         }
         return 0;
     }
 
-
     //
     // Private helper methods.
     //
     /**
-     * Return OAIRecord object from database row.
-     *
-     * @param array $row
-     *
-     * @return OAIRecord
+     * Return the OAIRecord object from the database row.
      *
      * @hook OAIDAO::_returnRecordFromRow [[&$record, &$row]]
      */
-    public function _returnRecordFromRow($row)
+    public function returnRecordFromRow(array $row): OAIRecord
     {
         $record = new OAIRecord();
-        $record = $this->_doCommonOAIFromRowOperations($record, $row);
+        $record = $this->doCommonOAIFromRowOperations($record, $row);
 
         Hook::call('OAIDAO::_returnRecordFromRow', [&$record, &$row]);
 
@@ -226,18 +221,14 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     }
 
     /**
-     * Return OAIIdentifier object from database row.
-     *
-     * @param array $row
-     *
-     * @return OAIIdentifier
+     * Return an OAIIdentifier object from the database row.
      *
      * @hook OAIDAO::_returnIdentifierFromRow [[&$record, &$row]]
      */
-    public function _returnIdentifierFromRow($row)
+    public function returnIdentifierFromRow(array $row): OAIIdentifier
     {
         $record = new OAIIdentifier();
-        $record = $this->_doCommonOAIFromRowOperations($record, $row);
+        $record = $this->doCommonOAIFromRowOperations($record, $row);
 
         Hook::call('OAIDAO::_returnIdentifierFromRow', [&$record, &$row]);
 
@@ -246,13 +237,8 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
 
     /**
      * Common operations for OAIRecord and OAIIdentifier object data set.
-     *
-     * @param OAIRecord|OAIIdentifier $record
-     * @param array $row
-     *
-     * @return OAIRecord|OAIIdentifier
      */
-    public function _doCommonOAIFromRowOperations($record, $row)
+    public function doCommonOAIFromRowOperations(OAIRecord|OAIIdentifier $record, array $row): OAIRecord|OAIIdentifier
     {
         $record->datestamp = OAIUtils::UTCDate(strtotime($this->datetimeFromDB($row['last_modified'])));
 
@@ -262,24 +248,32 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
             $record->status = OAI::OAIRECORD_STATUS_DELETED;
         } else {
             $record->status = OAI::OAIRECORD_STATUS_ALIVE;
-            $record = $this->setOAIData($record, $row, $record instanceof \PKP\oai\OAIRecord);
+            $record = $this->setOAIData($record, $row, $record instanceof OAIRecord);
         }
 
         return $record;
     }
 
     /**
-     * Get a OAI records record set.
+     * Get an OAI records record set.
      *
      * @param array $setIds Objects ids that specify an OAI set,
      * in hierarchical order.
-     * @param int|string $from *nix timestamp or ISO datetime string
-     * @param int|string $until *nix timestamp or ISO datetime string
-     * @param string $set
-     * @param int $submissionId optional
+     * @param int|string|null $from *nix timestamp or ISO datetime string
+     * @param int|string|null $until *nix timestamp or ISO datetime string
+     * @param ?string $set
+     * @param ?int $submissionId optional
      * @param string $orderBy UNFILTERED
-     *
-     * @return \Illuminate\Database\Query\Builder
+     * @param ?int $publicationId optional. If passed, restrict the record set to
+     * the given object version (used to expose per-version OAI records).
      */
-    abstract public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
+    abstract public function getRecordsRecordSetQuery(
+        array $setIds,
+        int|string|null $from,
+        int|string|null $until,
+        ?string $set,
+        ?int $submissionId = null,
+        string $orderBy = 'journal_id, submission_id',
+        ?int $publicationId = null
+    ): Builder;
 }

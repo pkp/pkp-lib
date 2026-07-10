@@ -485,7 +485,7 @@ class FormBuilderVocabulary
      *  - name: string (optional - assigned value based on ID by default)
      *  - disabled: boolean (default false)
      *  - multilingual: boolean (default false)
-     *  - rich: false (default), true, or 'extended'
+     *  - rich: false (default), true, 'extended', or 'full'
      *
      * @param array $params
      * @param object $smarty

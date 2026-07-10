@@ -158,6 +158,13 @@
 				richToolbar: 'copy paste | bold italic underline | bullist numlist | ' +
 						'superscript subscript | link unlink code fullscreen | ' +
 						'image | pkpTags',
+				// For fields holding whole-page content, where headings make sense.
+				fullToolbar: 'copy paste | blocks | bold italic underline | ' +
+						'blockquote bullist numlist | superscript subscript | ' +
+						'link unlink code fullscreen | image | pkpTags',
+				// H1 belongs to the page template.
+				block_formats: 'Paragraph=p; Heading 2=h2; Heading 3=h3; ' +
+						'Heading 4=h4',
 				statusbar: false,
 				content_css: contentCSS,
 				browser_spellcheck: true,

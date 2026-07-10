@@ -694,7 +694,9 @@
 					elementId = $element.attr('id'),
 					settings = $.pkp.controllers.SiteHandler.prototype.tinymceParams_;
 
-			settings.defaultToolbar = settings.toolbar;
+			// The loop below replaces settings.toolbar, which every form shares.
+			// Remember the original so later forms still get the right default.
+			settings.defaultToolbar = settings.defaultToolbar || settings.toolbar;
 
 			$('#' + elementId).find('.richContent').each(function() {
 				var id = /** @type {string} */ ($(this).attr('id')),
@@ -703,8 +705,10 @@
 						classes, i, editor,
 						settings = $.pkp.controllers.SiteHandler.prototype.tinymceParams_;
 
-				// Set the extended toolbar, if requested
-				if ($(this).hasClass('extendedRichContent')) {
+				// Set the full or extended toolbar, if requested
+				if ($(this).hasClass('fullRichContent')) {
+					settings.toolbar = settings.fullToolbar;
+				} else if ($(this).hasClass('extendedRichContent')) {
 					settings.toolbar = settings.richToolbar;
 				} else {
 					settings.toolbar = settings.defaultToolbar;

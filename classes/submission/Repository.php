@@ -564,11 +564,6 @@ abstract class Repository
         if ($assignments->contains(fn ($sa) => $sa->canChangeMetadata)) {
             return true;
         }
-        // If user has no stage assigments, check if user can edit anyway ie. is manager
-        $context = Application::get()->getRequest()->getContext();
-        if ($assignments->isEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
-            return true;
-        }
         // Else deny access
         return false;
     }

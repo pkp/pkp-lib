@@ -34,6 +34,7 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use Psr\Http\Message\ResponseInterface;
 
 class PKPRorController extends PKPBaseController
 {
@@ -43,10 +44,10 @@ class PKPRorController extends PKPBaseController
     /** @var int The maximum number of rors to return in one request */
     public const MAX_COUNT = 100;
 
-    /** @var int Maximum number of ror.org API lookups allowed per IP within the decay window */
+    /** @var int Maximum number of ror.org API lookups allowed per user within the decay window */
     protected const RATE_LIMIT_MAX_ATTEMPTS = 20;
 
-    /** @var int Number of seconds before the per-IP ror.org API lookup rate limit window resets */
+    /** @var int Number of seconds before the per-user ror.org API lookup rate limit window resets */
     protected const RATE_LIMIT_DECAY_SECONDS = 60;
 
     /** @var string Shared rate limit key for all outbound ror.org API lookups, regardless of caller */
@@ -55,12 +56,13 @@ class PKPRorController extends PKPBaseController
     /**
      * @var int Maximum number of ror.org API lookups allowed institution-wide within the decay
      *  window, since every outbound call reaches ror.org from this server's single IP regardless
-     *  of which client triggered it. Conservative default; tune to ror.org's documented rate limit.
+     *  of which client triggered it. Kept under ror.org's documented unauthenticated floor of
+     *  50 requests/5 minutes (with headroom), since this codebase has no ROR client ID setting yet.
      */
-    protected const GLOBAL_RATE_LIMIT_MAX_ATTEMPTS = 60;
+    protected const GLOBAL_RATE_LIMIT_MAX_ATTEMPTS = 40;
 
     /** @var int Number of seconds before the global ror.org API lookup rate limit window resets */
-    protected const GLOBAL_RATE_LIMIT_DECAY_SECONDS = 60;
+    protected const GLOBAL_RATE_LIMIT_DECAY_SECONDS = 300;
 
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
@@ -180,9 +182,10 @@ class PKPRorController extends PKPBaseController
      * Add or refresh a ror
      *
      * The client may only specify which ROR ID to (re)cache; the actual name,
-     * display locale and active status are always fetched from the authoritative
-     * ror.org API here, never taken from the request body, so that a caller
-     * cannot inject or overwrite institution data in the shared local cache.
+     * display locale and active status come from the authoritative ror.org API,
+     * never from the request body, so a caller cannot inject or overwrite
+     * institution data in the shared local cache. If the ROR is already cached,
+     * the cached record is returned as-is without a new ror.org lookup.
      */
     public function addOrEdit(Request $illuminateRequest): JsonResponse
     {
@@ -194,16 +197,26 @@ class PKPRorController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $rateLimitKey = 'ror-api:' . $this->getRequest()->getRemoteAddr();
+        // Skip the ror.org lookup if already cached, trading staleness (only the monthly
+        // UpdateRorRegistryDataset task refreshes it otherwise) for rate-limit headroom.
+        // Revisit once a ROR client ID setting exists (open issue) to always refetch for those installs.
+        $existingRor = Repo::ror()->getByRor($ror);
+        if ($existingRor !== null) {
+            return response()->json(Repo::ror()->getSchemaMap()->map($existingRor), Response::HTTP_OK);
+        }
+
+        $rateLimitKey = 'ror-api:' . $this->getRequest()->getUser()->getId();
         if (RateLimiter::tooManyAttempts($rateLimitKey, self::RATE_LIMIT_MAX_ATTEMPTS)) {
             return response()->json([
                 'ror' => [__('api.rors.429.tooManyRequests')],
+                'retryAfter' => RateLimiter::availableIn($rateLimitKey),
             ], Response::HTTP_TOO_MANY_REQUESTS);
         }
 
         if (RateLimiter::tooManyAttempts(self::GLOBAL_RATE_LIMIT_KEY, self::GLOBAL_RATE_LIMIT_MAX_ATTEMPTS)) {
             return response()->json([
                 'ror' => [__('api.rors.429.globalRateLimited')],
+                'retryAfter' => RateLimiter::availableIn(self::GLOBAL_RATE_LIMIT_KEY),
             ], Response::HTTP_TOO_MANY_REQUESTS);
         }
 
@@ -218,9 +231,7 @@ class PKPRorController extends PKPBaseController
             );
         } catch (RequestException $e) {
             if ($e->getResponse()?->getStatusCode() === Response::HTTP_TOO_MANY_REQUESTS) {
-                return response()->json([
-                    'ror' => [__('api.rors.429.rorApiRateLimited')],
-                ], Response::HTTP_TOO_MANY_REQUESTS);
+                return $this->rorApiRateLimitedResponse($e->getResponse());
             }
 
             return response()->json([
@@ -233,9 +244,7 @@ class PKPRorController extends PKPBaseController
         }
 
         if ($response->getStatusCode() === Response::HTTP_TOO_MANY_REQUESTS) {
-            return response()->json([
-                'ror' => [__('api.rors.429.rorApiRateLimited')],
-            ], Response::HTTP_TOO_MANY_REQUESTS);
+            return $this->rorApiRateLimitedResponse($response);
         }
 
         if ($response->getStatusCode() !== 200) {
@@ -258,5 +267,21 @@ class PKPRorController extends PKPBaseController
         $rorObject = Repo::ror()->get($id);
 
         return response()->json(Repo::ror()->getSchemaMap()->map($rorObject), Response::HTTP_OK);
+    }
+
+    /**
+     * Build the response for a 429 originating from ror.org itself, passing through its
+     * Retry-After header when present rather than guessing a wait time we weren't given.
+     */
+    protected function rorApiRateLimitedResponse(?ResponseInterface $response): JsonResponse
+    {
+        $body = ['ror' => [__('api.rors.429.rorApiRateLimited')]];
+
+        $retryAfter = $response?->getHeaderLine('Retry-After');
+        if ($retryAfter !== null && $retryAfter !== '') {
+            $body['retryAfter'] = $retryAfter;
+        }
+
+        return response()->json($body, Response::HTTP_TOO_MANY_REQUESTS);
     }
 }

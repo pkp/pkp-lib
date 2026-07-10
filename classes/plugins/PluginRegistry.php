@@ -21,7 +21,6 @@ namespace PKP\plugins;
 use APP\core\Application;
 use Exception;
 use FilesystemIterator;
-use Illuminate\Support\Arr;
 use PKP\core\Registry;
 use ReflectionObject;
 use Throwable;
@@ -199,10 +198,14 @@ class PluginRegistry
      */
     private static function instantiatePlugin(string $category, string $pluginName, ?string $classToCheck = null): ?Plugin
     {
-        if (!preg_match('/^[a-z0-9]+$/i', $pluginName)) {
-            throw new Exception("Invalid product name \"{$pluginName}\"");
+        if (!in_array($category, static::getCategories())) {
+            throw new \InvalidArgumentException("Invalid category name \"{$categoryName}\"");
         }
-        
+
+        if (!preg_match('/^[a-z0-9]+$/i', $pluginName)) {
+            throw new \InvalidArgumentException("Invalid product name \"{$pluginName}\"");
+        }
+
         $plugin = null;
 
         // First, try a namespaced class name matching the installation directory.
@@ -230,7 +233,7 @@ class PluginRegistry
 
         $classToCheck = $classToCheck ?: Plugin::class;
         $isObject = is_object($plugin);
-        
+
         // Complements $classToCheck with a namespace when needed
         if (!str_contains($classToCheck, '\\') && $isObject && ($reflection = new ReflectionObject($plugin))->inNamespace()) {
             $classToCheck = "{$reflection->getNamespaceName()}\\{$classToCheck}";

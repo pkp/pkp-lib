@@ -41,8 +41,6 @@ use PKP\affiliation\Affiliation;
 use PKP\author\contributorRole\ContributorRole;
 use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
-use PKP\citation\Citation;
-use PKP\citation\enum\CitationProcessingStatus;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPDataAvailabilityForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -132,9 +130,6 @@ class PKPSubmissionController extends PKPBaseController
         'getChangeLanguageMetadata',
         'changeVersion',
         'getNextAvailableVersion',
-        'importAdditionalCitations',
-        'deleteCitationsByPublicationId',
-        'reprocessCitationsByPublicationId'
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -376,27 +371,6 @@ class PKPSubmissionController extends PKPBaseController
 
         Route::post('', $this->add(...))
             ->name('submission.add');
-
-        Route::middleware([
-            self::roleAuthorizer([
-                Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR,
-                Role::ROLE_ID_ASSISTANT,
-                Role::ROLE_ID_AUTHOR,
-            ]),
-        ])->group(function () {
-            Route::post('{submissionId}/publications/{publicationId}/citations/importAdditionalCitations', $this->importAdditionalCitations(...))
-                ->name('submission.citations.import')
-                ->whereNumber(['submissionId', 'publicationId']);
-
-            Route::delete('{submissionId}/publications/{publicationId}/citations/deleteCitationsByPublicationId', $this->deleteCitationsByPublicationId(...))
-                ->name('submission.citations.delete')
-                ->whereNumber(['submissionId', 'publicationId']);
-
-            Route::post('{submissionId}/publications/{publicationId}/citations/reprocessCitationsByPublicationId', $this->reprocessCitationsByPublicationId(...))
-                ->name('submission.citations.reprocess')
-                ->whereNumber(['submissionId', 'publicationId']);
-        });
     }
 
     /**
@@ -2408,115 +2382,6 @@ class PKPSubmissionController extends PKPBaseController
             FILTER_VALIDATE_BOOLEAN,
             FILTER_NULL_ON_FAILURE
         );
-    }
-
-    /**
-     * Import / add citations from a raw citation string of a publication.
-     */
-    protected function importAdditionalCitations(Request $illuminateRequest): JsonResponse
-    {
-        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
-
-        if (!$publication) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        // Prevent users from editing publications if they do not have permission. Except for admins.
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $currentUser = $request->getUser();
-        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
-            return response()->json([
-                'error' => __('api.submissions.403.userCantEdit'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        $rawCitations = (string)$illuminateRequest->input('rawCitations');
-
-        $result = Repo::citation()->importAdditionalCitations($publication->getId(), $rawCitations);
-
-        return response()->json($result, Response::HTTP_OK);
-    }
-
-    /**
-     * Delete a publication's citations.
-     */
-    protected function deleteCitationsByPublicationId(Request $illuminateRequest): JsonResponse
-    {
-        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
-
-        if (!$publication) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        // Prevent users from editing publications if they do not have permission. Except for admins.
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $currentUser = $request->getUser();
-        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
-            return response()->json([
-                'error' => __('api.submissions.403.userCantEdit'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        $existingCitations = [];
-        /** @var Citation $citation */
-        foreach ($publication->getData('citations') as $citation) {
-            $existingCitations[] = Repo::citation()->getSchemaMap()->map($citation);
-        }
-
-        Repo::citation()->deleteByPublicationId($publication->getId());
-
-        return response()->json([
-            'itemsMax' => count($existingCitations),
-            'items' => $existingCitations
-        ], Response::HTTP_OK);
-    }
-
-    /**
-     * Reprocess a publication's citations.
-     */
-    protected function reprocessCitationsByPublicationId(Request $illuminateRequest): JsonResponse
-    {
-        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
-
-        if (!$publication) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        // Prevent users from editing publications if they do not have permission. Except for admins.
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $currentUser = $request->getUser();
-        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
-            return response()->json([
-                'error' => __('api.submissions.403.userCantEdit'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        $citations = $publication->getData('citations');
-        $citationsMapped = [];
-        foreach ($citations as &$citation) {
-            $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
-            Repo::citation()->edit($citation, []);
-            Repo::citation()->reprocessCitation($citation);
-            $citationsMapped[] = Repo::citation()->getSchemaMap()->map($citation);
-        }
-        unset($citation);
-
-        return response()->json([
-            'itemsMax' => count($citationsMapped),
-            'items' => $citationsMapped
-        ], Response::HTTP_OK);
     }
 
     /** Remove irrelevant data based on the selected contributor type.

@@ -9,8 +9,8 @@
 /**
  * @file classes/oai/OAI.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OAI
@@ -33,13 +33,13 @@ abstract class OAI
     public const OAIRECORD_STATUS_ALIVE = 1;
 
     /** @var OAIConfig configuration parameters */
-    public $config;
+    public OAIConfig $config;
 
     /** @var array list of request parameters */
-    public $params;
+    public array $params;
 
     /** @var string version of the OAI protocol supported by this class */
-    public $protocolVersion = '2.0';
+    public string $protocolVersion = '2.0';
 
 
     /**
@@ -48,14 +48,14 @@ abstract class OAI
      *
      * @param OAIConfig $config repository configuration
      */
-    public function __construct($config)
+    public function __construct(OAIConfig $config)
     {
         $this->config = $config;
 
         // Initialize parameters from GET or POST variables
         $this->params = [];
 
-        if (isset($GLOBALS['HTTP_RAW_POST_DATA']) && !empty($GLOBALS['HTTP_RAW_POST_DATA'])) {
+        if (!empty($GLOBALS['HTTP_RAW_POST_DATA'])) {
             OAIUtils::parseStr($GLOBALS['HTTP_RAW_POST_DATA'], $this->params);
         } elseif (!empty($_SERVER['QUERY_STRING'])) {
             OAIUtils::parseStr($_SERVER['QUERY_STRING'], $this->params);
@@ -76,26 +76,26 @@ abstract class OAI
      * Execute the requested OAI protocol request
      * and output the response.
      */
-    public function execute()
+    public function execute(): void
     {
         switch ($this->getParam('verb')) {
             case 'GetRecord':
-                $this->GetRecord();
+                $this->getRecord();
                 break;
             case 'Identify':
-                $this->Identify();
+                $this->identify();
                 break;
             case 'ListIdentifiers':
-                $this->ListIdentifiers();
+                $this->listIdentifiers();
                 break;
             case 'ListMetadataFormats':
-                $this->ListMetadataFormats();
+                $this->listMetadataFormats();
                 break;
             case 'ListRecords':
-                $this->ListRecords();
+                $this->listRecords();
                 break;
             case 'ListSets':
-                $this->ListSets();
+                $this->listSets();
                 break;
             default:
                 $this->error('badVerb', 'Illegal OAI verb');
@@ -111,46 +111,34 @@ abstract class OAI
 
     /**
      * Return information about the repository.
-     *
-     * @return OAIRepository
      */
-    abstract public function repositoryInfo();
+    abstract public function repositoryInfo(): OAIRepository;
 
     /**
-     * Check if identifier is in the valid format.
-     *
-     * @param string $identifier
-     *
-     * @return bool
+     * Check if an identifier is in the valid format.
      */
-    public function validIdentifier($identifier)
+    public function validIdentifier(string $identifier): bool
     {
         return false;
     }
 
     /**
-     * Check if identifier exists.
-     *
-     * @param string $identifier
-     *
-     * @return bool
+     * Check if the identifier exists.
      */
-    public function identifierExists($identifier)
+    public function identifierExists(string $identifier): bool
     {
         return false;
     }
 
     /**
-     * Return OAI record for specified identifier.
+     * Return OAI record for the specified identifier.
      *
-     * @param string $identifier
-     *
-     * @return OAIRecord (or false, if identifier is invalid)
+     * @return ?OAIRecord (null if identifier is invalid)
      */
-    abstract public function record($identifier);
+    abstract public function record(string $identifier): OAIRecord|false;
 
     /**
-     * Return set of OAI records.
+     * Return a set of OAI records.
      *
      * @param string $metadataPrefix specified metadata prefix
      * @param int $from minimum timestamp
@@ -160,21 +148,28 @@ abstract class OAI
      * @param int $limit maximum number of records to return
      * @param int $total output parameter, set to total number of records
      *
-     * @return array OAIRecord
+     * @return ?array<OAIRecord>
      */
-    public function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
-    {
+    public function records(
+        string $metadataPrefix,
+        ?int $from,
+        ?int $until,
+        string $set,
+        int $offset,
+        int $limit,
+        int &$total
+    ): ?array {
         return [];
     }
 
     /**
-     * Return set of OAI identifiers.
+     * Return a set of OAI identifiers.
      *
      * @see getRecords
      *
-     * @return array OAIIdentifier
+     * @return ?array<OAIIdentifier>
      */
-    public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
+    public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total): ?array
     {
         return [];
     }
@@ -186,7 +181,7 @@ abstract class OAI
      * @param int $limit Maximum number of sets to return
      * @param int $total output parameter, set to total number of sets
      */
-    public function sets($offset, $limit, &$total)
+    public function sets(int $offset, int $limit, int &$total): ?array
     {
         return [];
     }
@@ -194,13 +189,9 @@ abstract class OAI
     /**
      * Retrieve a resumption token.
      *
-     * @param string $tokenId
-     *
-     * @return OAIResumptionToken|false
-     *
      * @hook OAI::metadataFormats [[$namesOnly, $identifier, &$formats]]
      */
-    abstract public function resumptionToken($tokenId);
+    abstract public function resumptionToken(string $tokenId): false|OAIResumptionToken;
 
     /**
      * Save a resumption token.
@@ -212,19 +203,17 @@ abstract class OAI
      *
      * @hook OAI::metadataFormats [[$namesOnly, $identifier, &$formats]]
      */
-    abstract public function saveResumptionToken($offset, $params);
+    abstract public function saveResumptionToken(int $offset, array $params): OAIResumptionToken;
 
     /**
-     * Return array of supported metadata formats.
+     * Return supported metadata formats.
      *
      * @param bool $namesOnly return array of format prefix names only
-     * @param string $identifier return formats for specific identifier
-     *
-     * @return array
+     * @param string|null $identifier return formats for specific identifier
      *
      * @hook OAI::metadataFormats [[$namesOnly, $identifier, &$formats]]
      */
-    public function metadataFormats($namesOnly = false, $identifier = null)
+    public function metadataFormats(bool $namesOnly = false, ?string $identifier = null): array
     {
         $formats = [];
         Hook::call('OAI::metadataFormats', [$namesOnly, $identifier, &$formats]);
@@ -240,7 +229,7 @@ abstract class OAI
      * Handle OAI GetRecord request.
      * Retrieves an individual record from the repository.
      */
-    public function GetRecord()
+    public function getRecord(): void
     {
         // Validate parameters
         if (!$this->checkParams(['identifier', 'metadataPrefix'])) {
@@ -296,7 +285,7 @@ abstract class OAI
      * Handle OAI Identify request.
      * Retrieves information about a repository.
      */
-    public function Identify()
+    public function identify(): void
     {
         // Validate parameters
         if (!$this->checkParams()) {
@@ -354,7 +343,7 @@ abstract class OAI
      * Handle OAI ListIdentifiers request.
      * Retrieves headers of records from the repository.
      */
-    public function ListIdentifiers()
+    public function listIdentifiers(): void
     {
         $offset = 0;
 
@@ -449,7 +438,7 @@ abstract class OAI
      * Handle OAI ListMetadataFormats request.
      * Retrieves metadata formats supported by the repository.
      */
-    public function ListMetadataFormats()
+    public function listMetadataFormats(): void
     {
         // Validate parameters
         if (!$this->checkParams([], ['identifier'])) {
@@ -468,7 +457,7 @@ abstract class OAI
             $formats = $this->metadataFormats();
         }
 
-        if (empty($formats) || !is_array($formats)) {
+        if (empty($formats)) {
             $this->error('noMetadataFormats', 'No metadata formats are available');
             return;
         }
@@ -494,7 +483,7 @@ abstract class OAI
      * Handle OAI ListRecords request.
      * Retrieves records from the repository.
      */
-    public function ListRecords()
+    public function listRecords(): void
     {
         $offset = 0;
 
@@ -597,7 +586,7 @@ abstract class OAI
      * Handle OAI ListSets request.
      * Retrieves sets from a repository.
      */
-    public function ListSets()
+    public function listSets(): void
     {
         $offset = 0;
 
@@ -685,7 +674,7 @@ abstract class OAI
     /**
      * Display OAI error response.
      */
-    public function error($code, $message)
+    public function error($code, $message): void
     {
         if (in_array($code, ['badVerb', 'badArgument'])) {
             $printParams = false;
@@ -702,12 +691,12 @@ abstract class OAI
      * @param string $response text of response message.
      * @param bool $printParams display request parameters
      */
-    public function response($response, $printParams = true)
+    public function response(string $response, bool $printParams = true): void
     {
         $request = Application::get()->getRequest();
         header('Content-Type: text/xml');
 
-        echo	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
+        echo    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
             '<?xml-stylesheet type="text/xsl" href="' . $request->getBaseUrl() . "/lib/pkp/xml/oai2.xsl\" ?>\n" .
             "<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n" .
             "\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" .
@@ -723,51 +712,39 @@ abstract class OAI
             }
         }
 
-        echo	'>' . OAIUtils::prepOutput($this->config->baseUrl) . "</request>\n" .
+        echo    '>' . OAIUtils::prepOutput($this->config->baseUrl) . "</request>\n" .
             $response .
             "</OAI-PMH>\n";
     }
 
     /**
      * Returns the value of the specified parameter.
-     *
-     * @param string $name
-     *
-     * @return string
      */
-    public function getParam($name)
+    public function getParam(string $name): ?string
     {
         return $this->params[$name] ?? null;
     }
 
     /**
      * Returns an associative array of all request parameters.
-     *
-     * @return array
      */
-    public function getParams()
+    public function getParams(): array
     {
         return $this->params;
     }
 
     /**
      * Set the request parameters.
-     *
-     * @param array $params
      */
-    public function setParams($params)
+    public function setParams(array $params): void
     {
         $this->params = $params;
     }
 
     /**
      * Returns true if the requested parameter is set, false if it is not set.
-     *
-     * @param string $name
-     *
-     * @return bool
      */
-    public function paramExists($name)
+    public function paramExists(string $name): bool
     {
         return isset($this->params[$name]);
     }
@@ -775,13 +752,8 @@ abstract class OAI
     /**
      * Check request parameters.
      * Outputs error response if an invalid parameter is found.
-     *
-     * @param array $required required parameters for the current request
-     * @param array $optional optional parameters for the current request
-     *
-     * @return bool
      */
-    public function checkParams($required = [], $optional = [])
+    public function checkParams(array $required = [], array $optional = []): bool
     {
         // Get allowed parameters for current request
         $requiredParams = array_merge(['verb'], $required);
@@ -807,7 +779,6 @@ abstract class OAI
         }
 
         // Check for illegal parameters
-        $request = Application::get()->getRequest();
         foreach ($this->params as $k => $v) {
             if (!in_array($k, $validParams)) {
                 $this->error('badArgument', "{$k} is an illegal parameter");
@@ -819,17 +790,12 @@ abstract class OAI
     }
 
     /**
-     * Returns formatted metadata response in specified format.
-     *
-     * @param string $format
-     *
-     * @return string
+     * Returns formatted metadata response in the specified format.
      */
-    public function formatMetadata($format, $record)
+    public function formatMetadata(string $format, $record): string
     {
         $formats = $this->metadataFormats();
-        $metadata = $formats[$format]->toXml($record);
-        return $metadata;
+        return $formats[$format]->toXml($record);
     }
 
     /**
@@ -837,12 +803,10 @@ abstract class OAI
      * If passed, validate and convert to UNIX timestamps.
      *
      * @param array $params request parameters
-     * @param int $from from timestamp (output parameter)
-     * @param int $until until timestamp (output parameter)
-     *
-     * @return bool
+     * @param ?int $from from timestamp (output parameter)
+     * @param ?int $until until timestamp (output parameter)
      */
-    public function extractDateParams($params, &$from, &$until)
+    public function extractDateParams(array $params, ?int &$from, ?int &$until): bool
     {
         if (isset($params['from'])) {
             $from = OAIUtils::UTCtoTimestamp($params['from'], $this->config->granularity);

@@ -173,6 +173,7 @@ class PluginRegistry {
 	 * @return Plugin?
 	 */
 	static function loadPlugin($category, $pathName, $mainContextId = null) {
+		if (!in_array($category, self::getCategories())) return null;
 		$pluginPath = PLUGINS_PREFIX . $category . '/' . $pathName;
 		if (!is_dir($pluginPath) || !file_exists($pluginPath . '/index.php')) return null;
 
@@ -229,6 +230,7 @@ class PluginRegistry {
 	 * @return Plugin?
 	 */
 	static function _instantiatePlugin($category, $categoryDir, $file, $classToCheck = null) {
+		if (!in_array($category, self::getCategories())) throw new Exception("Invalid category name \"{$categoryName}\"");
 		if(!is_null($classToCheck) && !preg_match('/[a-zA-Z0-9]+/', $file)) throw new Exception('Invalid product name "'.$file.'"!');
 
 		$pluginPath = "$categoryDir/$file";

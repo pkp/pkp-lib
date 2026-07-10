@@ -50,6 +50,11 @@ class NotifyAuthorOnPublication
 
         switch (get_class($event)) {
             case PublicationPublished::class:
+                // The publication may be scheduled for a future issue; if so, do not send.
+                if ($publication->getData('status') != $publication::STATUS_PUBLISHED) {
+                    break;
+                }
+
                 $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->get();

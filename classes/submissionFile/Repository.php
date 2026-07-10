@@ -638,18 +638,6 @@ abstract class Repository
             }
         }
 
-        // JATS files are a PRODUCTION level set by \PKP\submissionFile\Repository::getWorkflowStageId()
-        // but can be uploaded in other stages as well
-        // so allow to upload by managerial roles combination in any stage, see pkp/pkp-lib#12702
-        if ($action === SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY) {
-            foreach ($stageAssignments as $assignedRoles) {
-                if (!empty(array_intersect($notAuthorRoles, $assignedRoles))) {
-                    $allowedFileStages[] = SubmissionFile::SUBMISSION_FILE_JATS;
-                    break;
-                }
-            }
-        }
-
         return $allowedFileStages;
     }
 

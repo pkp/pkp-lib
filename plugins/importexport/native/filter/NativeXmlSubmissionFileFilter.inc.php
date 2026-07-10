@@ -318,9 +318,11 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter {
 			import('lib.pkp.classes.file.FileManager');
 			$fileManager = new FileManager();
 			$submissionDir = Services::get('submissionFile')->getSubmissionDir($submission->getData('contextId'), $submission->getId());
+			$extension = (string) $node->getAttribute('extension');
+			if (!preg_match('#^[a-zA-Z]+(\.[a-zA-Z]+)*$#', $extension)) $extension = 'txt'; // pkp/pkp-lib#13030
 			$newFileId = Services::get('file')->add(
 				$temporaryFilename,
-				$submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
+				$submissionDir . '/' . uniqid() . '.' . $extension
 			);
 			$deployment->setFileDBId($node->getAttribute('id'), $newFileId);
 		}

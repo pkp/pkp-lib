@@ -199,8 +199,12 @@ class PluginRegistry
      */
     private static function instantiatePlugin(string $category, string $pluginName, ?string $classToCheck = null): ?Plugin
     {
+        if (!in_array($category, static::getCategories())) {
+            throw new \InvalidArgumentException("Invalid category name \"{$categoryName}\"");
+        }
+
         if (!preg_match('/^[a-z0-9]+$/i', $pluginName)) {
-            throw new Exception("Invalid product name \"{$pluginName}\"");
+            throw new \InvalidArgumentException("Invalid product name \"{$pluginName}\"");
         }
 
         // First, try a namespaced class name matching the installation directory.

@@ -80,6 +80,9 @@ msgstr "The ROR API service is currently unavailable. Please refresh the page or
 msgid "user.affiliations.error.rorApiDeprecated"
 msgstr "The ROR API service in this installation is deprecated. Please contact your system administrator."
 
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr "Too many requests have been sent to the ROR API. Please wait a moment before continuing to search."
+
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."
 

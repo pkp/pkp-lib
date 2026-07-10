@@ -65,6 +65,12 @@ class Repository
         return $this->dao->get($id);
     }
 
+    /** @copydoc DAO::getByRor() */
+    public function getByRor(string $ror): ?Ror
+    {
+        return $this->dao->getByRor($ror);
+    }
+
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {

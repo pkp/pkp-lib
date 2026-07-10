@@ -20,6 +20,7 @@ use APP\core\Application;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use PKP\config\Config;
 use Throwable;
 
 class PKPExceptionHandler implements ExceptionHandler
@@ -84,5 +85,19 @@ class PKPExceptionHandler implements ExceptionHandler
     public function renderForConsole($output, Throwable $exception)
     {
         echo (string) $exception;
+    }
+
+    /**
+     * Whether PHP's error_log is an active logging destination (directly, or via the stack
+     * fan-out).
+     */
+    public static function usesErrorLogChannel(): bool
+    {
+        $channel = Config::getVar('logs', 'log_channel', 'daily');
+        $channels = $channel === 'stack'
+            ? array_map('trim', explode(',', Config::getVar('logs', 'log_stacks', 'daily')))
+            : [$channel];
+
+        return in_array('errorlog', $channels, true);
     }
 }

@@ -57,7 +57,6 @@ class OrcidManager
     public const API_MEMBER_SANDBOX = 'memberSandbox';
     public const LOG_LEVEL_ERROR = 'ERROR';
     public const LOG_LEVEL_INFO = 'INFO';
-    public const LOG_FILE = 'orcid.log';
 
     /**
      * Check if ORCID is configured at the site-level of the application.
@@ -345,7 +344,7 @@ class OrcidManager
      */
     private static function writeLog(string $message, string $level): void
     {
-        Log::channel('orcid')->log($level, $message);
+        Log::log($level, $message);
     }
 
     /**

@@ -20,7 +20,10 @@ use Illuminate\Log\Context\ContextLogProcessor;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Log;
 use Monolog\Handler\RotatingFileHandler;
+use PKP\config\Config;
 use PKP\core\PKPExceptionHandler;
+use PKP\scheduledTask\ScheduledTask;
+use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\tests\PKPTestCase;
 use ReflectionProperty;
 use RecursiveIteratorIterator;
@@ -35,6 +38,10 @@ class PKPLoggingTest extends PKPTestCase
     protected string $originalErrorLog;
     protected ?string $originalSinglePath;
     protected $originalLog;
+    protected $originalFilesDir;
+    protected $originalLogChannel;
+    protected $originalLogStacks;
+    protected $originalLoggingDefault;
 
     protected function setUp(): void
     {
@@ -48,6 +55,12 @@ class PKPLoggingTest extends PKPTestCase
         $this->tmpErrorLog = tmpfile();
         $this->errorLogPath = stream_get_meta_data($this->tmpErrorLog)['uri'];
         ini_set('error_log', $this->errorLogPath);
+
+        // Snapshot config keys the new tests mutate; restored in tearDown().
+        $this->originalFilesDir = Config::getVar('files', 'files_dir');
+        $this->originalLogChannel = Config::getVar('logs', 'log_channel');
+        $this->originalLogStacks = Config::getVar('logs', 'log_stacks');
+        $this->originalLoggingDefault = config('logging.default');
     }
 
     protected function tearDown(): void
@@ -62,9 +75,15 @@ class PKPLoggingTest extends PKPTestCase
         // mock) so the channel/config cleanup below runs on the real LogManager.
         Log::swap($this->originalLog);
         config(['logging.channels.single.path' => $this->originalSinglePath]);
+        config(['logging.default' => $this->originalLoggingDefault]);
         Log::forgetChannel('single');
         Log::forgetChannel('errorlog');
         Log::forgetChannel('stack');
+
+        // Restore [logs]/files_dir config mutated by the scheduled-task + errorlog tests.
+        $this->setConfigVar('files', 'files_dir', $this->originalFilesDir);
+        $this->setConfigVar('logs', 'log_channel', $this->originalLogChannel);
+        $this->setConfigVar('logs', 'log_stacks', $this->originalLogStacks);
 
         $this->removeDirectory($this->tmpDir);
         parent::tearDown();
@@ -78,6 +97,16 @@ class PKPLoggingTest extends PKPTestCase
     private function buildChannel(string $channel, array $overrides = []): Logger
     {
         return Log::build(array_merge(config("logging.channels.{$channel}"), $overrides));
+    }
+
+    /**
+     * Override a [config] var for the duration of a test (restored in tearDown from the
+     * setUp snapshots).
+     */
+    private function setConfigVar(string $section, string $key, mixed $value): void
+    {
+        $data = & Config::getData();
+        $data[$section][$key] = $value;
     }
 
     private function removeDirectory(string $dir): void
@@ -184,9 +213,7 @@ class PKPLoggingTest extends PKPTestCase
     }
 
     /**
-     * Regression guard for the Laravel 12 fix: the ContextLogProcessor contract
-     * must be bound (via ContextServiceProvider) so Monolog channels resolve
-     * normally instead of throwing and falling back to the emergency logger.
+     * Regression guard : the ContextLogProcessor contract must be bound
      */
     public function testContextLogProcessorContractIsBound(): void
     {
@@ -289,5 +316,93 @@ class PKPLoggingTest extends PKPTestCase
         self::assertSame('json-formatter-check', $decoded['message']);
         self::assertArrayHasKey('exception', $decoded['context']);
         self::assertNotEmpty($decoded['context']['exception']['trace'] ?? null);
+    }
+
+    /**
+     * Running a scheduled task (execute()) writes its execution log to the per-task file under
+     * {files_dir}/scheduledTaskLogs/ (on-demand single channel).
+     */
+    public function testScheduledTaskWritesExecutionLogToFile(): void
+    {
+        // The execution-log path is derived from Config('files','files_dir') via
+        // PKPContainer::logFilePath(); point it at the temp dir.
+        $this->setConfigVar('files', 'files_dir', $this->tmpDir);
+
+        $task = new LoggingTestScheduledTask();
+        self::assertTrue($task->execute());
+
+        $files = glob($this->tmpDir . '/scheduledTaskLogs/*.log');
+        self::assertCount(1, $files);
+
+        $contents = file_get_contents($files[0]);
+        self::assertStringContainsString('scheduled-task-log-line', $contents);
+        self::assertStringContainsString('NOTICE', $contents);
+    }
+
+    /**
+     * PKPExceptionHandler::usesErrorLogChannel() reports whether PHP's error_log is an
+     * active destination — directly (log_channel = errorlog) or via the stack.
+     */
+    public function testUsesErrorLogChannelDetectsActiveErrorlog(): void
+    {
+        $this->setConfigVar('logs', 'log_channel', 'errorlog');
+        self::assertTrue(PKPExceptionHandler::usesErrorLogChannel());
+
+        $this->setConfigVar('logs', 'log_channel', 'daily');
+        self::assertFalse(PKPExceptionHandler::usesErrorLogChannel());
+
+        $this->setConfigVar('logs', 'log_channel', 'stack');
+        $this->setConfigVar('logs', 'log_stacks', 'single,errorlog');
+        self::assertTrue(PKPExceptionHandler::usesErrorLogChannel());
+
+        $this->setConfigVar('logs', 'log_stacks', 'single,daily');
+        self::assertFalse(PKPExceptionHandler::usesErrorLogChannel());
+    }
+
+    /**
+     * Test when errorlog is the active channel, a reported exception is written to PHP's
+     * error_log and NOT to the file (single) channel.
+     */
+    public function testExceptionReportGoesToErrorLogNotLogFileWhenErrorlogChannel(): void
+    {
+        // report() routes Log::error() through the default channel; make it errorlog.
+        config(['logging.default' => 'errorlog']);
+        Log::forgetChannel('errorlog');
+
+        // Point the file channel at a temp path so we can assert it stays unwritten.
+        $singlePath = $this->tmpDir . '/app.log';
+        config(['logging.channels.single.path' => $singlePath]);
+        Log::forgetChannel('single');
+
+        (new PKPExceptionHandler())->report(new Exception('exception-goes-to-errorlog'));
+
+        // The errorlog channel writes via PHP error_log(), redirected to a temp file in setUp().
+        self::assertStringContainsString('exception-goes-to-errorlog', file_get_contents($this->errorLogPath));
+        self::assertFileDoesNotExist($singlePath);
+    }
+}
+
+/**
+ * Minimal concrete ScheduledTask used to exercise execution-log file writing. getHelper() returns a
+ * stub whose non-empty contacts skip the Site-context lookup in ScheduledTaskHelper's constructor
+ * (unavailable in unit tests) and whose no-op notifyExecutionResult() keeps the result email from firing.
+ */
+class LoggingTestScheduledTask extends ScheduledTask
+{
+    protected function executeActions(): bool
+    {
+        $this->addExecutionLogEntry('scheduled-task-log-line', ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+
+        return true;
+    }
+
+    public function getHelper(): ScheduledTaskHelper
+    {
+        return new class('noreply@example.com', 'Scheduled Task Test') extends ScheduledTaskHelper {
+            public function notifyExecutionResult(string $id, string $name, bool $result, string $executionLogFile = ''): bool
+            {
+                return false;
+            }
+        };
     }
 }

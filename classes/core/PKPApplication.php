@@ -365,7 +365,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
                     // When PHP's error_log is an active channel, the re-thrown exception
                     // below is already recorded there by PHP's native fatal handler, so reporting
                     // it here too would duplicate the entry, so skip logging in PHP's error_log
-                    if (!app()->usesErrorLogChannel()) {
+                    if (!PKPExceptionHandler::usesErrorLogChannel()) {
                         app(ExceptionHandler::class)->report($t);
                     }
                     throw $t;

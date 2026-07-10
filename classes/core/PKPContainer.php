@@ -149,8 +149,7 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
-        $this->instance('path.storage', Config::getVar('files', 'files_dir'));
-        $this->instance('path.public', $this->basePath . DIRECTORY_SEPARATOR . 'public');
+        $this->instance('path.storage', $this->storagePath());
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, PKPExceptionHandler::class);
 
@@ -508,13 +507,13 @@ class PKPContainer extends Container
         $logFormatter = ($logFormatter && class_exists($logFormatter)) ? $logFormatter : null;
 
         $items['logging'] = [
-            'default' => Config::getVar('logs', 'log_channel', 'stack'),
+            'default' => Config::getVar('logs', 'log_channel', 'daily'),
             'channels' => [
                 'stack' => [
                     'driver' => 'stack',
                     'channels' => array_values(array_filter(array_map(
                         'trim',
-                        explode(',', Config::getVar('logs', 'log_stacks', 'single'))
+                        explode(',', Config::getVar('logs', 'log_stacks', 'daily'))
                     ))),
                     'ignore_exceptions' => false,
                 ],
@@ -572,17 +571,6 @@ class PKPContainer extends Container
 
                 'emergency' => [
                     'path' => $this->logFilePath(),
-                ],
-
-                // ORCID writes to its own file; OrcidManager::getLogLevel() does the
-                // filtering, so this channel passes everything (level => debug).
-                'orcid' => [
-                    'driver' => 'single',
-                    'path' => $this->logFilePath(\PKP\orcid\OrcidManager::LOG_FILE),
-                    'level' => 'debug', // intentionally to debug and let ORCID Manager filter out unwanted levels
-                    'replace_placeholders' => true,
-                    'formatter' => $logFormatter,
-                    'formatter_with' => ['includeStacktraces' => true],
                 ],
             ],
         ];
@@ -678,34 +666,11 @@ class PKPContainer extends Container
 
     /**
      * Get the path to the storage directory
+     * @see \Illuminate\Foundation\Application::storagePath()
      */
     public function storagePath(string $path = ''): string
     {
-        return $this->get('path.storage') . ($path ? "/{$path}" : $path);
-    }
-
-    /**
-     * Get the path to the public directory
-     */
-    public function publicPath(string $path = ''): string
-    {
-        return $this->basePath() . DIRECTORY_SEPARATOR . 'public' . ($path ? "/{$path}" : $path);
-    }
-
-    /**
-     * Get the path to the config directory
-     */
-    public function configPath(string $path = ''): string
-    {
-        return $this->get('path.config') . ($path ? "/{$path}" : $path);
-    }
-
-    /**
-     * Get the path to the resource
-     */
-    public function resourcePath(string $path = ''): string
-    {
-        return $this->basePath() . ($path ? "/{$path}" : $path);
+        return Config::getVar('files', 'files_dir') . ($path ? "/{$path}" : $path);
     }
 
     /**
@@ -714,36 +679,6 @@ class PKPContainer extends Container
     public function logFilePath(string $logFileName = self::LOG_FILE_NAME, string $logDirName = self::LOG_DIRECTORY): string
     {
         return $this->storagePath($logDirName . '/' . $logFileName);
-    }
-
-    /**
-     * Whether PHP's error_log is an active logging destination (directly or via the stack).
-     */
-    public function usesErrorLogChannel(): bool
-    {
-        $channel = Config::getVar('logs', 'log_channel', 'stack');
-
-        if ($channel === 'errorlog') {
-            return true;
-        }
-
-        if ($channel !== 'stack') {
-            return false;
-        }
-
-        return in_array(
-            'errorlog',
-            array_map('trim', explode(',', Config::getVar('logs', 'log_stacks', 'single'))),
-            true
-        );
-    }
-
-    /**
-     * Get the current locale
-     */
-    public function getLocale(): string
-    {
-        return \PKP\facades\Locale::getLocale();
     }
 
     /**

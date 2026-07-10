@@ -17,7 +17,7 @@
 			</p>
 		{/fbvFormSection}
 		{fbvFormSection label="manager.navigationMenus.form.content" for="content"}
-			{fbvElement type="textarea" multilingual=true name="content" id="content" value=$content rich=true height=$fbvStyles.height.TALL variables=$allowedVariables}
+			{fbvElement type="textarea" multilingual=true name="content" id="content" value=$content rich="full" height=$fbvStyles.height.TALL variables=$allowedVariables}
 		{/fbvFormSection}
 	{/fbvFormSection}
 

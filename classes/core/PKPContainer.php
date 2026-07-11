@@ -407,8 +407,6 @@ class PKPContainer extends Container
             'cipher' => PKPAppKey::getCipher(),
             'timezone' => Config::getVar('general', 'timezone', 'UTC'),
             'env' => Config::getVar('general', 'app_env', 'production'),
-            'debug' => Config::getVar('debug', 'show_stacktrace', false),
-            'url' => $_request->getBaseUrl(),
         ];
 
         // Database connection

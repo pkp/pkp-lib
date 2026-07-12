@@ -105,6 +105,7 @@
 		validator = $form.validate({
 			onfocusout: this.callbackWrapper(this.onFocusOutValidation_),
 			errorClass: 'error',
+			invalidHandler: this.callbackWrapper(this.invalidHandler_),
 			highlight: function(element, errorClass) {
 				$(element).parent().parent().addClass(errorClass);
 			},
@@ -113,7 +114,8 @@
 			},
 			submitHandler: this.callbackWrapper(this.submitHandler_),
 			showErrors: this.callbackWrapper(this.showErrors),
-			errorPlacement: function(error, element) {
+			errorPlacement: this.callbackWrapper(function(formElement, error, element) {
+				this.setErrorMessageId_(error, element);
 				if (element.is(':checkbox')) {
 					// place error after checkbox text
 					element.parent().closest(':not(label)').append(error);
@@ -121,7 +123,7 @@
 					// default jquery validate placement
 					error.insertAfter(element);
 				}
-			}
+			})
 		});
 
 		// Activate the cancel button (if present).
@@ -136,6 +138,7 @@
 		} else {
 			this.trigger('formInvalid');
 		}
+		this.syncValidationAccessibility_(validator);
 
 		this.initializeTinyMCE();
 
@@ -253,6 +256,7 @@
 		// the cancel link, because it will be moved by the error messages).
 		setTimeout(this.callbackWrapper(function() {
 			validatorClone.defaultShowErrors();
+			this.syncValidationAccessibility_(validatorClone);
 			validatorClone = null;
 		}), 250);
 
@@ -265,6 +269,129 @@
 			this.trigger('formInvalid');
 			this.enableFormControls();
 		}
+	};
+
+
+	/**
+	 * Handle an invalid submit attempt by moving focus to the first invalid
+	 * field after the error messages have been rendered.
+	 *
+	 * @param {HTMLElement} formElement The wrapped form element.
+	 * @param {Event} event The invalid form event.
+	 * @param {Object} validator The validator plug-in.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.invalidHandler_ =
+			function(formElement, event, validator) {
+		setTimeout(this.callbackWrapper(function() {
+			this.syncValidationAccessibility_(validator);
+			this.focusFirstInvalidField_(validator);
+		}), 300);
+	};
+
+
+	/**
+	 * Ensure a validation error label has a stable id that can be referenced by
+	 * the related form control.
+	 *
+	 * @param {jQueryObject} error The jQuery Validation error label.
+	 * @param {jQueryObject} element The related form control.
+	 * @private
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.setErrorMessageId_ =
+			function(error, element) {
+		var id = $(element).attr('id'), name = $(element).attr('name'), errorId;
+
+		if (error.attr('id')) {
+			return;
+		}
+
+		errorId = (id || name || 'field')
+				.replace(/[^A-Za-z0-9_-]+/g, '-') + '-error';
+		error.attr('id', errorId);
+	};
+
+
+	/**
+	 * Update invalid-state and error-description relationships for all controls
+	 * managed by jQuery Validation.
+	 *
+	 * Existing aria-describedby values are preserved; only the managed error id
+	 * is added or removed.
+	 *
+	 * @param {Object} validator The validator plug-in.
+	 * @private
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.syncValidationAccessibility_ =
+			function(validator) {
+		if (!validator || !validator.elements) {
+			return;
+		}
+
+		$(validator.elements()).each(this.callbackWrapper(function(formElement, index,
+				element) {
+			var $element = $(element), $errors, errorIds, managedErrorIds,
+				describedBy;
+
+			$errors = validator.errorsFor(element);
+			errorIds = [];
+			$errors.each(this.callbackWrapper(function(formElement, errorIndex, error) {
+				var $error = $(error);
+				this.setErrorMessageId_($error, $element);
+				errorIds.push($error.attr('id'));
+			}));
+
+			managedErrorIds = ($element.data('pkpValidationErrorIds') || '').split(/\s+/)
+					.filter(Boolean);
+			describedBy = ($element.attr('aria-describedby') || '').split(/\s+/)
+					.filter(Boolean)
+					.filter(function(id) {
+						return $.inArray(id, managedErrorIds) === -1;
+					});
+
+			if (errorIds.length) {
+				$element.attr('aria-invalid', 'true');
+				$.each(errorIds, function(errorIndex, id) {
+					if ($.inArray(id, describedBy) === -1) {
+						describedBy.push(id);
+					}
+				});
+				$element.attr('aria-describedby', describedBy.join(' '));
+				$element.data('pkpValidationErrorIds', errorIds.join(' '));
+			} else {
+				$element.removeAttr('aria-invalid');
+				$element.removeData('pkpValidationErrorIds');
+				if (describedBy.length) {
+					$element.attr('aria-describedby', describedBy.join(' '));
+				} else {
+					$element.removeAttr('aria-describedby');
+				}
+			}
+		}));
+	};
+
+
+	/**
+	 * Move keyboard focus to the first invalid field after a failed submit.
+	 *
+	 * @param {Object} validator The validator plug-in.
+	 * @private
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.focusFirstInvalidField_ =
+			function(validator) {
+		var error, $element;
+
+		if (!validator || !validator.errorList || !validator.errorList.length) {
+			return;
+		}
+
+		error = validator.errorList[0];
+		$element = $(error.element);
+
+		if (!$element.length || $element.is(':disabled') || !$element.is(':visible')) {
+			return;
+		}
+
+		$element.focus();
 	};
 
 

@@ -178,7 +178,10 @@ class PKPPageRouter extends PKPRouter
             $user = $request->getUser();
             $currentContext = $request->getContext();
             if ($currentContext && !$currentContext->getEnabled() && !$user instanceof \PKP\user\User) {
-                if ($page != 'login') {
+                // Invitation accept/decline links are emailed to people who may not
+                // have an account yet and are validated by a secret key, so they must
+                // stay reachable on a disabled context (check also RestrictedSiteAccessPolicy::_getLoginExemptions).
+                if (!in_array($page, ['login', 'invitation'])) {
                     $request->redirect(null, 'login');
                 }
             }

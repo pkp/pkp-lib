@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
@@ -1319,7 +1319,6 @@ msgstr ""
 "Yazarların, başvurularına başlamadan önce burada belirtilen tüm "
 "gerekliliklere uyduklarını onaylamaları istenir."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
 "Bu bölümü devre dışı bırakın ve buraya yeni makale gönderimlerinin "
@@ -3974,3 +3973,6 @@ msgstr ""
 
 msgid "manager.setup.editorialMasthead.order.description"
 msgstr "Masthead Rollerinin Görüntüleme Sırası."
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "Bir DOI son ek deseni gereklidir."

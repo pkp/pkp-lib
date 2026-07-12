@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"PO-Revision-Date: 2026-07-12 16:31+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
@@ -1047,3 +1047,68 @@ msgstr "Hiçbir zamanlanmış görev kaydedilmemiş."
 
 msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Hangi komutu çalıştırmak istiyorsunuz?"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"İndirilen ROR Kayıt Defteri veri kümesi ZIP dosyasının sağlama toplamı "
+"doğrulanamadı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"ROR Kayıt Defteri veri kümesi meta verileri alınamadı. Beklenmeyen HTTP "
+"durum kodu: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"ROR Kayıt Defteri veri kümesi meta verileri alınamadı. API yanıtında "
+"indirilecek dosya bulunamadı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "ROR Kayıt Defteri veri kümesi ZIP dosyası indirilemedi."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"ROR Kayıt Defteri veri kümesi ZIP dosyası açılamadı. Hata kodu: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "ROR Kayıt Defteri veri kümesi ZIP dosyası ayıklanamadı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"\"{$id}\" kimliğine sahip ROR Kayıt Defteri kaydında bir veya daha fazla "
+"zorunlu alan (id, names, status) eksik ve kayıt atlandı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"{$file} ROR Kayıt Defteri JSON dosyasından şema sürümü okunamadı. Hata: "
+"{$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"\"{$id}\" ROR Kayıt Defteri kaydında [{$types}] türlerine sahip, zorunlu "
+"'value' alanı eksik olan bir ad girişi var ve kayıt atlandı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"\"{$id}\" ROR Kayıt Defteri kaydının geçerli bir adı yok ve kayıt atlandı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Sağlama toplamı uyuşmazlığı nedeniyle ROR Kayıt Defteri veri kümesi "
+"güncellenemedi. Beklenen sağlama toplamı: {$expected}. Gerçek sağlama "
+"toplamı: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"ROR Kayıt Defteri veri kümesi ZIP dosyası doğrulanamadı: desteklenmeyen "
+"sağlama toplamı algoritması. Yalnızca MD5 ve SHA256 desteklenir."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Ayıklanan ROR Kayıt Defteri veri kümesinde {$version} şema sürümüne sahip "
+"bir JSON veri dosyası bulunamadı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"ROR Kayıt Defteri veri kümesinden hiçbir kayıt işlenmedi. Veri kümesi boş "
+"olabilir veya tüm kayıtlar doğrulamada başarısız olmuş olabilir."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-10 03:09+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/ru/>\n"
@@ -200,3 +200,8 @@ msgstr "Эти файлы были отправлены вам для рецен
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Рецензирование не было завершено."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Некоторые обязательные поля не заполнены. Пожалуйста, заполните их перед "
+"отправкой рецензии."

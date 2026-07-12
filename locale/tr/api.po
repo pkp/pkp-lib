@@ -2,7 +2,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-03 10:09+0000\n"
+"PO-Revision-Date: 2026-07-12 16:31+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -429,3 +429,22 @@ msgstr ""
 "Bir yazara ORCiD atanması Yazar Düzenle/Ekle işlemleriyle yapılamaz. Yazarın "
 "ORCiD bilgisini güncellemesini talep etmek için orcid/"
 "requestAuthorVerification/{authorId} yolunu kullanınız."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Geçersiz künye parametresi."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "Hakem rolleri için künye görünürlüğü değiştirilemez."
+
+msgid "api.rors.429.tooManyRequests"
+msgstr "Çok fazla ROR arama isteği. Lütfen bir süre bekleyip tekrar deneyin."
+
+msgid "api.rors.429.globalRateLimited"
+msgstr ""
+"Şu anda çok fazla ROR arama isteği işleniyor. Lütfen bir süre bekleyip "
+"tekrar deneyin."
+
+msgid "api.rors.429.rorApiRateLimited"
+msgstr ""
+"ROR kayıt defteri (ror.org) şu anda isteklerimizin hızını sınırlıyor. Lütfen "
+"birkaç dakika bekleyip tekrar deneyin."

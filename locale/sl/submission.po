@@ -1,11 +1,11 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024, 2025.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024, 2025, 2026.
 # Matevž Rudolf <matevz.rudolf@uni-lj.si>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-06-09 18:06+0000\n"
+"PO-Revision-Date: 2026-07-13 17:35+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -3195,3 +3195,6 @@ msgstr "Recenzija je bila končana dne {$date}"
 
 msgid "reviewer.competingInterests"
 msgstr "Nasprotujoči interesi"
+
+msgid "ror.invalidRorId"
+msgstr "Prosimo vnesite veljaven ROR ID."

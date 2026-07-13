@@ -37,22 +37,38 @@ class Config
      * ]
      */
     public const SENSITIVE_DATA = [
-        'general' => [
-            'app_key',
+        // Specific redactions
+        '/^general$/' => [
+            '/^app_key$/',
         ],
-        'database' => [
-            'password',
+        '/^database$/' => [
+            '/^password$/',
         ],
-        'email' => [
-            'smtp_password',
-            'smtp_username',
+        '/^email$/' => [
+            '/^smtp_password$/',
+            '/^smtp_username$/',
         ],
-        'security' => [
-            'api_key_secret',
-            'salt',
+        '/^security$/' => [
+            '/^api_key_secret$/',
+            '/^salt$/',
         ],
-        'captcha' => [
-            'recaptcha_private_key',
+        '/^captcha$/' => [
+            '/^recaptcha_private_key$/',
+            '/^altcha_hmackey$/',
+        ],
+        '/^search$/' => [
+            '/^opensearch_password$/',
+        ],
+        '/^proxy$/' => [
+            '/^http_proxy$/',
+            '/^https_proxy$/',
+        ],
+        // General redactions (for plugin additions etc)
+        '//' => [
+            '/password/',
+            '/api_key/',
+            '/private_key/',
+            '/secret/',
         ],
     ];
 
@@ -61,11 +77,18 @@ class Config
      */
     public static function isSensitive(string $section, string $key): bool
     {
-        if (!isset(static::SENSITIVE_DATA[$section])) {
-            return false;
-        }
+        foreach (static::SENSITIVE_DATA as $sectionRegexp => $entries) {
+            if (!preg_match($sectionRegexp, $section)) {
+                continue;
+            }
 
-        return in_array($key, static::SENSITIVE_DATA[$section]);
+            foreach ($entries as $entryRegexp) {
+                if (preg_match($entryRegexp, $key)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -177,7 +200,6 @@ class Config
     /**
      * Retrieve whether the specified configuration variable is defined, even if it's null.
      *
-     * @return bool
      */
     public static function hasVar(string $section, string $key): bool
     {

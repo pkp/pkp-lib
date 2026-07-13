@@ -299,9 +299,9 @@ class LibraryFileGridHandler extends CategoryGridHandler
 
         if ($request->checkCSRF() && $fileId) {
             $libraryFileManager = new LibraryFileManager($context->getId());
-            $libraryFileManager->deleteById($fileId);
-
-            return \PKP\db\DAO::getDataChangedEvent();
+            if ($libraryFileManager->deleteById($fileId)) {
+                return \PKP\db\DAO::getDataChangedEvent();
+            }
         }
 
         return new JSONMessage(false);

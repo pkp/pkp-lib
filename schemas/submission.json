@@ -337,6 +337,11 @@
 					"uploadedFilesCount": {
 						"type": "integer",
 						"validation": ["nullable"]
+					},
+					"returnStageId": {
+						"type": "integer",
+						"description": "Only present for the Done stage entry: the stage the submission occupied immediately before entering Done.",
+						"validation": ["nullable"]
 					}
 				}
 			}

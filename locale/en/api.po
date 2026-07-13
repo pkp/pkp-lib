@@ -338,6 +338,9 @@ msgstr "This submission is already in the Done stage."
 msgid "api.submissions.403.noMoveToDoneHistory"
 msgstr "This submission has no history of being moved to Done."
 
+msgid "api.submissions.403.noPublishedPublication"
+msgstr "This submission has no published publication to return to Done with."
+
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr "This endpoint is not available from a context. It must be accessed from the site-wide namespace."
 

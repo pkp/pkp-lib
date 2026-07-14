@@ -3590,6 +3590,12 @@ msgstr "Round {$round} — opened {$date}"
 msgid "publication.reviewRound.optionNoDate"
 msgstr "Round {$round}"
 
+msgid "publication.invalidReviewRound"
+msgstr "One or more of the selected review rounds could not be found for this submission."
+
+msgid "publication.reviewRound.assignedToDifferentVersion"
+msgstr "One or more of the selected review rounds is already associated with another version."
+
 msgid "submission.submit.creditRoles.degrees.lead"
 msgstr "Lead"
 

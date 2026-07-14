@@ -237,6 +237,42 @@ abstract class Repository
             }
         });
 
+        // Review rounds must belong to this submission and not be associated with another publication
+        if (array_key_exists('reviewRoundIds', $props)) {
+            $validator->after(function ($validator) use ($props, $publication, $submission) {
+                if ($validator->errors()->get('reviewRoundIds')) {
+                    return;
+                }
+
+                // An empty multiselect arrives as '' or null
+                $reviewRoundIds = in_array($props['reviewRoundIds'], [null, ''], true)
+                    ? []
+                    : $props['reviewRoundIds'];
+
+                if (!is_array($reviewRoundIds)) {
+                    $validator->errors()->add('reviewRoundIds', __('publication.invalidReviewRound'));
+                    return;
+                }
+
+                /** @var ReviewRoundDAO $reviewRoundDao */
+                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+                $reviewRounds = collect($reviewRoundDao->getBySubmissionId($submission->getId())->toArray())
+                    ->keyBy(fn (ReviewRound $reviewRound) => $reviewRound->getId());
+
+                foreach ($reviewRoundIds as $reviewRoundId) {
+                    $reviewRound = $reviewRounds->get((int) $reviewRoundId);
+                    if (!$reviewRound) {
+                        $validator->errors()->add('reviewRoundIds', __('publication.invalidReviewRound'));
+                        return;
+                    }
+                    if ($reviewRound->getPublicationId() !== null && $reviewRound->getPublicationId() !== $publication?->getId()) {
+                        $validator->errors()->add('reviewRoundIds', __('publication.reviewRound.assignedToDifferentVersion'));
+                        return;
+                    }
+                }
+            });
+        }
+
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it
         $user = Application::get()->getRequest()->getUser();
@@ -526,12 +562,24 @@ abstract class Repository
             }
         }
 
+        // Review round associations are saved to the review rounds, not the publication.
+        // An empty multiselect arrives as '' or null and clears all associations.
+        $reviewRoundIds = null;
+        if (array_key_exists('reviewRoundIds', $params)) {
+            $reviewRoundIds = is_array($params['reviewRoundIds']) ? $params['reviewRoundIds'] : [];
+        }
+        unset($params['reviewRoundIds']);
+
         $newPublication = Repo::publication()->newDataObject(array_merge($publication->_data, $params));
         $newPublication->stampModified();
 
         Hook::call('Publication::edit', [&$newPublication, $publication, $params, $this->request]);
 
         $this->dao->update($newPublication, $publication);
+
+        if ($reviewRoundIds !== null) {
+            $this->assignReviewRoundsToPublication($newPublication, $reviewRoundIds);
+        }
 
         $newPublication = Repo::publication()->get($newPublication->getId());
 
@@ -849,6 +897,13 @@ abstract class Repository
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $sectionId = $publication->getData(Application::getSectionIdPropName());
         $section = $sectionId ? Repo::section()->get($sectionId) : null;
+
+        // Dissociate review rounds so the publication_id foreign key doesn't block the delete
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        foreach ($reviewRoundDao->getByPublicationId($publication->getId())->toArray() as $reviewRound) {
+            $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
+        }
 
         $this->dao->delete($publication);
 
@@ -1270,5 +1325,31 @@ abstract class Repository
         // associate it with the newly created publication version.
         $reviewRound = $roundsWithoutPublicationAssociation->first();
         $reviewRoundDao->updatePublicationId($reviewRound->getId(), $newPublication->getId());
+    }
+
+    /**
+     * Set the review rounds associated with a publication.
+     *
+     * Selected rounds are associated with the publication and deselected ones are
+     * dissociated, making them available for auto-association on new versions.
+     * Rounds associated with another publication are left untouched.
+     */
+    public function assignReviewRoundsToPublication(Publication $publication, array $reviewRoundIds): void
+    {
+        $reviewRoundIds = array_map(intval(...), $reviewRoundIds);
+
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+        /** @var ReviewRound $reviewRound */
+        foreach ($reviewRoundDao->getBySubmissionId($publication->getData('submissionId'))->toArray() as $reviewRound) {
+            if (in_array($reviewRound->getId(), $reviewRoundIds)) {
+                if ($reviewRound->getPublicationId() !== $publication->getId()) {
+                    $reviewRoundDao->updatePublicationId($reviewRound->getId(), $publication->getId());
+                }
+            } elseif ($reviewRound->getPublicationId() === $publication->getId()) {
+                $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
+            }
+        }
     }
 }

@@ -1,0 +1,55 @@
+name: Accessibility Issue
+description: File an accessibility issue in OJS, OMP, or OPS.
+title: "[A11Y]: "
+labels: ["Accessibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve accessibility! Include as much detail as you can below.
+        
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is the accessibility issue?
+    validations:
+      required: true
+  
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can someone else reproduce this issue?
+      placeholder: |
+        1. Navigate to [URL]
+        2. Tab to the search input
+        3. Observe that...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Application Version
+      description: "What application and version are you using? [How to determine application version](https://forum.pkp.sfu.ca/t/how-do-i-determine-my-pkp-softwares-version/28534)."
+      placeholder: "OJS, OMP or OPS version X.X.X-X"
+    validations:
+      required: true
+
+  - type: textarea
+    id: action
+    attributes:
+      label: Action
+      description: Describe action that can be taken to remediate the issue. 
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Screenshots, videos, code snippets, logs, OS, browser version, or audit findings.
+    validations:
+      required: false

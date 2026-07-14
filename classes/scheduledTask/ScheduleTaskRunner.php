@@ -14,20 +14,22 @@
 
 namespace PKP\scheduledTask;
 
-use Throwable;
 use Carbon\Carbon;
-use PKP\core\PKPContainer;
-use Illuminate\Support\Sleep;
-use Illuminate\Support\Collection;
+use Cron\CronExpression;
+use Illuminate\Console\Events\ScheduledTaskFailed;
+use Illuminate\Console\Events\ScheduledTaskFinished;
+use Illuminate\Console\Events\ScheduledTaskSkipped;
+use Illuminate\Console\Events\ScheduledTaskStarting;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Console\Events\ScheduledTaskFailed;
-use Illuminate\Console\Events\ScheduledTaskSkipped;
 use Illuminate\Contracts\Cache\Repository as Cache;
-use Illuminate\Console\Events\ScheduledTaskFinished;
-use Illuminate\Console\Events\ScheduledTaskStarting;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Sleep;
+use PKP\config\Config;
+use PKP\core\PKPContainer;
+use Throwable;
 
 class ScheduleTaskRunner
 {
@@ -38,7 +40,7 @@ class ScheduleTaskRunner
 
     /**
      * Constructor
-     * 
+     *
      * @param Schedule $schedule The schedule instance.
      * @param Dispatcher $dispatcher The event dispatcher
      * @param Cache $cache The cache store implementation
@@ -49,22 +51,94 @@ class ScheduleTaskRunner
         protected Dispatcher $dispatcher,
         protected Cache $cache,
         protected ExceptionHandler $handler
-    )
-    {
+    ) {
         $this->startedAt = Carbon::now();
     }
 
     /**
-     * Run all the due schedule tasks
+     * Run all the due schedule tasks.
+     * 
+     * As schedule task running in web mode, no tracking possible to know if miss on web request.
+     * So use DB store based system to contains the last run mapped to each tasks name which 
+     * used to determine possible miss at next web absed task runner . This is as web request
+     * just may not fired at specified schedule task run time defined and laravel's system
+     * has not mechamism to track it.
      */
     public function run(): void
     {
-        $events = $this->schedule->dueEvents(PKPContainer::getInstance());
+        $container = PKPContainer::getInstance();
+        $now = Carbon::now();
+        $interval = (int) Config::getVar('schedule', 'task_runner_interval', 60);
 
-        foreach ($events as $event) {
-            if (!$event->filtersPass(PKPContainer::getInstance())) {
+        $lastRunTimes = ScheduledTaskHelper::getLastRunTimes();
+        $lastRunTimesChanged = false;
+
+        // Frequent, exactly-due events, collected for the sub-minute repeat handling below.
+        $dueFrequentEvents = new Collection();
+
+        foreach ($this->schedule->events() as $event) {
+            // which is defined in APP/PKP scheduler via the `name` as displayable task name
+            $taskName = $event->getSummaryForDisplay();
+
+            $cron = new CronExpression($event->getExpression());
+            $timezone = $event->timezone ?: null;
+            $previousBoundary = $cron->getPreviousRunDate($now, 0, true, $timezone)->getTimestamp();
+            $nextBoundary = $cron->getNextRunDate($now, 0, false, $timezone)->getTimestamp();
+
+            // Frequent task (e.g. everyMinute): runs on its normal exact-minute schedule (no catch-up),
+            // but its last run is still recorded so the store has an entry for every task.
+            if (($nextBoundary - $previousBoundary) <= $interval) {
+                if (!$event->isDue($container)) {
+                    continue;
+                }
+
+                if (!$event->filtersPass($container)) {
+                    $this->dispatcher->dispatch(new ScheduledTaskSkipped($event));
+                    continue;
+                }
+
+                $dueFrequentEvents->push($event);
+
+                if ($event->onOneServer) {
+                    $this->runSingleServerEvent($event);
+                } else {
+                    $this->runEvent($event);
+                }
+
+                // Record the run. Frequent tasks are not seeded or caught up (their decision stays on
+                // isDue() above), but we still store their last run so every task has an entry.
+                if (is_string($taskName) && $taskName !== '') {
+                    $lastRunTimes[$taskName] = $now->getTimestamp();
+                    $lastRunTimesChanged = true;
+                }
+
+                continue;
+            }
+
+            // Infrequent task (daily/monthly): run it if the current boundary was missed.
+            if (!is_string($taskName) || $taskName === '') {
+                continue; // no stable identity to track a missed run against
+            }
+
+            $lastRun = $lastRunTimes[$taskName] ?? null;
+
+            // First sighting: seed the last-run to the current boundary WITHOUT running, so the task
+            // fires from the next boundary onward. Because the store is durable, this seeding happens
+            // exactly once
+            if ($lastRun === null) {
+                $lastRunTimes[$taskName] = $previousBoundary;
+                $lastRunTimesChanged = true;
+
+                continue;
+            }
+
+            // Already ran for the current boundary.
+            if ($lastRun >= $previousBoundary) {
+                continue;
+            }
+
+            if (!$event->filtersPass($container)) {
                 $this->dispatcher->dispatch(new ScheduledTaskSkipped($event));
-
                 continue;
             }
 
@@ -73,10 +147,19 @@ class ScheduleTaskRunner
             } else {
                 $this->runEvent($event);
             }
+
+            // Stamp on attempt (not only on success) so a transient failure retries at the next
+            // boundary instead of on every tick.
+            $lastRunTimes[$taskName] = $now->getTimestamp();
+            $lastRunTimesChanged = true;
         }
 
-        if ($events->contains->isRepeatable()) {
-            $this->repeatEvents($events->filter->isRepeatable());
+        if ($lastRunTimesChanged) {
+            ScheduledTaskHelper::saveLastRunTimes($lastRunTimes);
+        }
+
+        if ($dueFrequentEvents->contains->isRepeatable()) {
+            $this->repeatEvents($dueFrequentEvents->filter->isRepeatable());
         }
     }
 

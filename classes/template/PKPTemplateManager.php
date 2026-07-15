@@ -1165,6 +1165,17 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
+                            // Search box at the top of the editorial dashboard nav group.
+                            // isCurrent keeps the group expanded/selected when the search view is active on reload.
+                            $viewsData = $viewsData->prepend([
+                                'itemType' => 'search',
+                                'name' => __('search.searchResults'),
+                                'searchLabel' => __('editor.submission.search'),
+                                'searchParam' => 'searchPhrase', // query param this search uses; unique per search view
+                                'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'editorial' && $requestedViewId === DashboardView::VIEW_SEARCH,
+                                'url' => $router->url($request, null, 'dashboard', 'editorial', null, ['currentViewId' => DashboardView::VIEW_SEARCH]),
+                            ], DashboardView::VIEW_SEARCH);
+
                             if (!$request->getContext()->getData('disableSubmissions')) {
                                 $viewsData['newSubmission'] = [
                                     'name' => __('dashboard.startNewSubmission'),

@@ -1976,6 +1976,15 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        $hasPublishedPublication = collect($submission->getData('publications'))
+            ->contains(fn (Publication $publication) => $publication->getData('status') === Publication::STATUS_PUBLISHED);
+
+        if (!$hasPublishedPublication) {
+            return response()->json([
+                'error' => __('api.submissions.403.noPublishedPublication'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         $returnToDone = Repo::decision()->newDataObject([
             'decision' => Decision::RETURN_TO_DONE,
             'submissionId' => $submission->getId(),

@@ -1022,7 +1022,7 @@ class Schema extends \PKP\core\maps\Schema
                     fn (Decision $recommendation) =>
                     strtotime($recommendation->getData('dateDecided'))
                 )->first();
-                
+
                 $latestDecisionType = Repo::decision()->getDecisionType($latestRecommendation->getData('decision'));
                 if (!$latestDecisionType) {
                     continue;
@@ -1078,6 +1078,16 @@ class Schema extends \PKP\core\maps\Schema
                 ->values()
                 ->all();
 
+            // The stage the submission occupied immediately before entering Done — not necessarily
+            // Production, since a VoR can be published from an earlier stage. Mirrors the lookup
+            // ReturnToWorkflow::getNewStageId() uses to pick a return target.
+            $returnStageId = collect($decisions ?? [])
+                ->filter(fn (Decision $decision) => in_array($decision->getData('decision'), [Decision::MOVE_TO_DONE, Decision::RETURN_TO_DONE]))
+                ->sortByDesc(fn (Decision $decision) => $decision->getData('dateDecided'))
+                ->first()
+                ?->getData('stageId')
+                ?? WORKFLOW_STAGE_ID_PRODUCTION;
+
             $stages[WORKFLOW_STAGE_ID_DONE] = [
                 'id' => WORKFLOW_STAGE_ID_DONE,
                 'label' => __($workflowStageDao->getTranslationKeyFromId(WORKFLOW_STAGE_ID_DONE)),
@@ -1085,6 +1095,7 @@ class Schema extends \PKP\core\maps\Schema
                 'editorAssigned' => false,
                 'currentUserAssignedRoles' => $currentUserAssignedRoles,
                 'uploadedFilesCount' => null,
+                'returnStageId' => (int) $returnStageId,
             ];
         }
 

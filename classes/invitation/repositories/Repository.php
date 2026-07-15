@@ -14,6 +14,9 @@
 
 namespace PKP\invitation\repositories;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\models\InvitationModel;
 
@@ -61,5 +64,24 @@ class Repository
         }
 
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
+    }
+
+    public function findExistingInvitation(Invitation $invitation):Collection
+    {
+        return InvitationModel::byStatus(InvitationStatus::PENDING)
+            ->byType($invitation->getType())
+            ->byNotId($invitation->getId())
+            ->when(
+                isset($invitation->invitationModel->userId),
+                fn (Builder $q) => $q->byUserId($invitation->invitationModel->userId)
+            )
+            ->when(
+                !isset($invitation->invitationModel->userId) && $invitation->invitationModel->email,
+                fn (Builder $q) => $q->byEmail($invitation->invitationModel->email)
+            )
+            ->when(
+                isset($invitation->invitationModel->contextId),
+                fn (Builder $q) => $q->byContextId($invitation->invitationModel->contextId)
+            )->get();
     }
 }

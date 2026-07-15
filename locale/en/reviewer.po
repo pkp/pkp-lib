@@ -296,3 +296,21 @@ msgstr "Hide Response"
 
 msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
 msgstr "Some required fields are not filled in. Please complete them before submitting your review."
+
+msgid "reviewer.reviewAssignmentInvite.validation.error.user.alreadyAssignedToReview"
+msgstr "This user is already assigned as a reviewer in this review round."
+
+msgid "reviewerInvitation.wizard.pageTitle.updateReviewerInvitation"
+msgstr "update reviewer invitation"
+
+msgid "emailTemplate.variable.reviewerInvitation.submissionTitle"
+msgstr "This is the title of the submission that need to be reviewed"
+
+msgid "emailTemplate.variable.reviewerInvitation.submissionAbstract"
+msgstr "This is the abstract of the submission that need to be reviewed"
+
+msgid "emailTemplate.variable.reviewerInvitation.reviewDueDate"
+msgstr "This is the review due date of the submission that need to be reviewed"
+
+msgid "emailTemplate.variable.reviewerInvitation.expireDate"
+msgstr "This is the expire date of the invitation"

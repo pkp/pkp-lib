@@ -106,9 +106,14 @@ class OpenSearchEngine extends ScoutEngine
             // Index all authors
             $authors = [];
             foreach ($publication->getData('authors') as $author) {
+                $authorEntry = [];
                 foreach ($author->getFullNames() as $locale => $fullName) {
-                    $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
+                    $authorEntry['name'][$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
                 }
+                foreach ($author->getAffiliations() as $affiliation) {
+                    $authorEntry['affiliation'] = $affiliation->getAffiliationName(null, array_keys($authorEntry['name']));
+                }
+                $authors[] = $authorEntry;
             }
 
             // Index funders for faceted filtering (whereIn('funders') → terms on filterKeys).
@@ -217,7 +222,7 @@ class OpenSearchEngine extends ScoutEngine
                         ...($builder->query ? ['must' => [
                             'multi_match' => [
                                 'query' => $builder->query,
-                                'fields' => ['titles.*^4', 'abstracts.*^2', 'bodies.*', 'authors.*^5'],
+                                'fields' => ['titles.*^4', 'abstracts.*^3', 'bodies.*', 'authors.name.*^5', 'authors.affiliation.*^2'],
                             ],
                         ]] : []),
                         'filter' => &$filter,

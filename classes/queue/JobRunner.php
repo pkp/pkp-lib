@@ -77,9 +77,25 @@ class JobRunner
     protected bool $hasEstimatedTimeToProcessNextJobConstrain = false;
 
     /**
-     * Number of jobs processed on the current run
+     * Should estimate next job possible processing time to allow next job to be processed/run
      */
     protected int $jobProcessedOnRunner = 0;
+
+    /**
+     * Should the job runner run in context aware mode
+     *
+     * This will allow the job runner to take into account the current context when processing jobs as
+     *  - If current request has context, only process jobs for which there context id in the payload
+     *    that match it or the context id is null
+     *  - If the current request has not context, only process jobs that has not context id or
+     *    the context id is null
+     */
+    protected bool $runInContextAwareMode = true;
+
+    /**
+     * The current context ID
+     */
+    protected ?int $currentContextId = null;
 
     // Private constructor to prevent direct instantiation
     private function __construct() {}
@@ -222,13 +238,39 @@ class JobRunner
     }
 
     /**
-     * Check if cross-request cache locking is enabled.
-     * When enabled, only one JobRunner can process jobs across concurrent web requests.
-     * When disabled, Laravel's DB-level row locking still prevents duplicate job execution.
+     * Check if the job runner is running in context-aware mode
      */
-    public function isCrossRequestLockEnabled(): bool
+    public function isRunningInContextAwareMode(): bool
     {
-        return Config::getVar('queues', 'job_runner_cross_request_lock', true);
+        return $this->runInContextAwareMode;
+    }
+
+    /**
+     * Disable context-aware constraints
+     */
+    public function withDisableContextAwareConstraints(): self
+    {
+        $this->runInContextAwareMode = false;
+
+        return $this;
+    }
+
+    /**
+     * Set the current context id
+     */
+    public function setCurrentContextId(?int $contextId): self
+    {
+        $this->currentContextId = $contextId;
+
+        return $this;
+    }
+
+    /**
+     * Get the current context id
+     */
+    public function getCurrentContextId(): ?int
+    {
+        return $this->currentContextId;
     }
 
     /**
@@ -241,52 +283,58 @@ class JobRunner
             return false;
         }
 
-        $lockAcquired = false;
-
         try {
 
             $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
+
+            if ($this->isRunningInContextAwareMode()) {
+                $queueHandler = app()->get(\Illuminate\Contracts\Queue\Queue::class);
+                if ($queueHandler instanceof \PKP\queue\DatabaseQueue) {
+                    $queueHandler
+                        ->enableJobInContextAwareMode()
+                        ->setContextId($this->getCurrentContextId());
+
+                    $jobBuilder = $this->jobQueue->applyJobContextAwareFilter(
+                        $jobBuilder,
+                        $this->getCurrentContextId()
+                    );
+                }
+            }
+
 
             // return back if there is no job to process
             if (!$jobBuilder->count()) {
                 return false;
             }
 
-            // Cross-request cache lock: prevents multiple web requests from running
-            // JobRunner simultaneously. Safe to disable on dedicated servers — Laravel's
-            // DatabaseQueue::pop() uses row-level DB locking to prevent duplicate execution.
-            if ($this->isCrossRequestLockEnabled()) {
-                // Check for stale lock and clear it up if available
-                $lockData = Cache::get($this->getCacheKey());
-                if ($lockData && (time() - $lockData['timestamp']) >= $this->getCacheTimeout()) {
-                    Cache::forget($this->getCacheKey());
+            // Check for stale lock and clear it up if available
+            $lockData = Cache::get($this->getCacheKey());
+            if ($lockData && (time() - $lockData['timestamp']) >= $this->getCacheTimeout()) {
+                Cache::forget($this->getCacheKey());
+            }
+
+            // Try to acquire lock by setting cache key
+            $newToken = Str::uuid()->toString();
+            $newLockData = ['timestamp' => time(), 'token' => $newToken];
+            if (!Cache::add($this->getCacheKey(), $newLockData, $this->getCacheTimeout())) {
+                // Re-check cache to avoid race condition
+                // Store result to avoid double-call and properly handle NULL case
+                $cachedLock = Cache::get($this->getCacheKey());
+                if ($cachedLock && $cachedLock['token'] !== $newToken) {
+                    // JobRunner cache lock acquired by another process
+                    // will consider as processing job so will not proceed
+                    return false;
                 }
 
-                // Try to acquire lock by setting cache key
-                $newToken = Str::uuid()->toString();
-                $newLockData = ['timestamp' => time(), 'token' => $newToken];
-                if (!Cache::add($this->getCacheKey(), $newLockData, $this->getCacheTimeout())) {
-                    // Re-check cache to avoid race condition
-                    // Store result to avoid double-call and properly handle NULL case
+                // If Cache::get() returned NULL, the lock may have been cleared between
+                // add() and get(). Add a small delay and re-check to be safe.
+                if (!$cachedLock) {
+                    usleep(10000); // 10ms delay
                     $cachedLock = Cache::get($this->getCacheKey());
                     if ($cachedLock && $cachedLock['token'] !== $newToken) {
-                        // JobRunner cache lock acquired by another process
-                        // will consider as processing job so will not proceed
                         return false;
                     }
-
-                    // If Cache::get() returned NULL, the lock may have been cleared between
-                    // add() and get(). Add a small delay and re-check to be safe.
-                    if (!$cachedLock) {
-                        usleep(10000); // 10ms delay
-                        $cachedLock = Cache::get($this->getCacheKey());
-                        if ($cachedLock && $cachedLock['token'] !== $newToken) {
-                            return false;
-                        }
-                    }
                 }
-
-                $lockAcquired = true;
             }
 
             // force flush the output buffer
@@ -324,9 +372,7 @@ class JobRunner
             return true;
 
         } finally {
-            if ($lockAcquired) {
-                Cache::forget($this->getCacheKey());
-            }
+            Cache::forget($this->getCacheKey());
             $this->jobProcessing = false; // reset the job processing state
         }
     }
@@ -342,21 +388,17 @@ class JobRunner
     /**
      * Get the current status of job runner to see if this is processing jobs.
      * It will check for both in the current request life cycle and also
-     * in the other request life cycle (when cross-request lock is enabled).
+     * in the other request life cycle.
      */
     public function isJobProcessing(): bool
     {
-        // Job is being processed within the current request life cycle (always checked)
+        // Job is being processed within the current reqeust life cycle
         if ($this->jobProcessing) {
             return true;
         }
 
-        // Cross-request lock check: only when enabled
-        if (!$this->isCrossRequestLockEnabled()) {
-            return false;
-        }
-
-        // Check if it's being processed in other request life cycle
+        // if not processing within current request life cycle,
+        // we will check if it's being processed in other request life cycle
         $lockData = Cache::get($this->getCacheKey());
 
         // no cache lock found, job is not being processed

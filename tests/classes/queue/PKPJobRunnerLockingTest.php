@@ -79,6 +79,8 @@ class PKPJobRunnerLockingTest extends PKPTestCase
         $mockQueueProvider = Mockery::mock(PKPQueueProvider::class);
         $mockQueueProvider->shouldReceive('getJobModelBuilder')
             ->andReturn($mockBuilder);
+        $mockQueueProvider->shouldReceive('applyJobContextAwareFilter')
+            ->andReturn($mockBuilder);
         $mockQueueProvider->shouldReceive('runJobInQueue')
             ->andReturn(true);
 
@@ -227,6 +229,8 @@ class PKPJobRunnerLockingTest extends PKPTestCase
 
         $mockQueueProvider = Mockery::mock(PKPQueueProvider::class);
         $mockQueueProvider->shouldReceive('getJobModelBuilder')
+            ->andReturn($mockBuilder);
+        $mockQueueProvider->shouldReceive('applyJobContextAwareFilter')
             ->andReturn($mockBuilder);
         $mockQueueProvider->shouldReceive('runJobInQueue')
             ->andThrow(new Exception('Test exception'));

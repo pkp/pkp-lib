@@ -16,6 +16,7 @@
 
 namespace PKP\jobs\citation;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Queue\Middleware\RateLimited;
@@ -75,7 +76,8 @@ class OrcidJob extends BaseJob
             return;
         }
 
-        $service = new Inbound($this->contactEmail);
+        $context = Application::getContextDAO()->getById($this->contextId);
+        $service = new Inbound($this->contactEmail, $context);
 
         $authorsChanged = [];
 
@@ -89,6 +91,10 @@ class OrcidJob extends BaseJob
 
             if (empty($authorChanged)) {
                 switch ($service->statusCode) {
+                    case 401:
+                        // Cached access token is invalid; clear it so the next lookup fetches a fresh one.
+                        $service->clearCachedAccessToken();
+                        break;
                     case 404:
                         $author['orcid'] = '';
                         break;

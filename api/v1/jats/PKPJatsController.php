@@ -29,15 +29,12 @@ use PKP\db\DAORegistry;
 use PKP\middleware\RedirectGuestToLogin;
 use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
-use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\internal\PublicationIsSubmissionPolicy;
 use PKP\security\authorization\internal\PublicationRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
-use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
-use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -109,7 +106,6 @@ class PKPJatsController extends PKPBaseController
         $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
         $actionName = static::getRouteActionName($illuminateRequest);
 
-        $this->addPolicy(new ContextRequiredPolicy($request));
         $this->addPolicy(new SubmissionRequiredPolicy($request, $args));
         $this->addPolicy(new SubmissionCompletePolicy($request, $args));
 
@@ -129,18 +125,6 @@ class PKPJatsController extends PKPBaseController
             $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
         } else {
             $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
-        }
-
-        if ($actionName === 'add') {
-            $params = $illuminateRequest->input();
-            $fileStage = isset($params['fileStage']) ? (int) $params['fileStage'] : SubmissionFile::SUBMISSION_FILE_JATS;
-            $this->addPolicy(
-                new SubmissionFileStageAccessPolicy(
-                    $fileStage,
-                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY,
-                    'api.submissionFiles.403.unauthorizedFileStageIdWrite'
-                )
-            );
         }
 
         return parent::authorize($request, $args, $roleAssignments);

@@ -9,19 +9,17 @@
  *
  * @class RepresentationRequiredPolicy
  *
- * @ingroup security_authorization_internal
+ * @ingroup security_authorization
  *
  * @brief Policy that ensures that the request contains a valid representation.
  */
 
-namespace PKP\security\authorization\internal;
+namespace PKP\security\authorization;
 
 use APP\core\Application;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use PKP\core\PKPRequest;
-use PKP\security\authorization\AuthorizationPolicy;
-use PKP\security\authorization\DataObjectRequiredPolicy;
 use PKP\submission\Representation;
 
 class RepresentationRequiredPolicy extends DataObjectRequiredPolicy

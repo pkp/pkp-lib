@@ -46,6 +46,10 @@ class I8920_ReplaceSearchEngine extends Migration
             $table->text('authors');
 
             $table->fulltext(['title', 'abstract', 'body', 'authors']);
+            $table->fulltext(['title']);
+            $table->fulltext(['abstract']);
+            $table->fulltext(['body']);
+            $table->fulltext(['authors']);
             $table->unique(['submission_id', 'publication_id', 'locale']);
         });
 

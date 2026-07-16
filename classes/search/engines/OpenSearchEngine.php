@@ -218,19 +218,31 @@ class OpenSearchEngine extends ScoutEngine
             'index' => $this->getIndexName(),
             'body' => [
                 'query' => [
-                    'bool' => [
-                        ...($builder->query ? ['must' => [
+                    'bool' => ['must' => [
+                        ...($builder->query ? [[
                             'multi_match' => [
                                 'query' => $builder->query,
                                 'fields' => ['titles.*^4', 'abstracts.*^3', 'bodies.*', 'authors.name.*^5', 'authors.affiliation.*^2'],
                             ],
                         ]] : []),
-                        'filter' => &$filter,
-                    ],
+                        ...(isset($builder->wheres['title']) ? [[
+                            'multi_match' => ['query' => $builder->wheres['title'], 'fields' => ['titles.*']],
+                        ]] : []),
+                        ...(isset($builder->wheres['abstract']) ? [[
+                            'multi_match' => ['query' => $builder->wheres['abstract'], 'fields' => ['abstracts.*']],
+                        ]] : []),
+                        ...(isset($builder->wheres['author']) ? [[
+                            'multi_match' => ['query' => $builder->wheres['author'], 'fields' => ['authors.*']],
+                        ]] : []),
+                        ...(isset($builder->wheres['body']) ? [[
+                            'multi_match' => ['query' => $builder->wheres['body'], 'fields' => ['bodies.*']],
+                        ]] : []),
+                    ], 'filter' => &$filter],
                 ],
                 'sort' => &$sort,
             ],
         ];
+
         $filter[] = ['term' => ['status' => PKPPublication::STATUS_PUBLISHED]];
 
         // Handle "where" conditions
@@ -247,6 +259,12 @@ class OpenSearchEngine extends ScoutEngine
                     if ($value) {
                         $$field = new \Carbon\Carbon($value);
                     }
+                    break;
+                case 'title':
+                case 'abstract':
+                case 'author':
+                case 'body':
+                    // Already processed above in $query
                     break;
                 default: continue 2;
             }

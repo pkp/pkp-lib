@@ -60,6 +60,7 @@ class DatabaseEngine extends ScoutEngine
             $$field = match($field) {
                 'contextId' => (int) $value,
                 'publishedFrom', 'publishedTo' => $value ? new \Carbon\Carbon($value) : null,
+                'author', 'title', 'abstract', 'body' => (string) $value,
             };
         };
 
@@ -192,6 +193,10 @@ class DatabaseEngine extends ScoutEngine
                     ->orderBy($q->raw('MIN(title_current.setting_value)'), $orderDirection);
             })
             ->when($builder->query, fn ($q) => $q->whereFullText(['title', 'abstract', 'body', 'authors'], $builder->query))
+            ->when(!empty($title), fn ($q) => $q->whereFullText(['title'], $title))
+            ->when(!empty($abstract), fn ($q) => $q->whereFullText(['abstract'], $abstract))
+            ->when(!empty($author), fn ($q) => $q->whereFullText(['authors'], $author))
+            ->when(!empty($body), fn ($q) => $q->whereFullText(['body'], $body))
             ->groupBy('s.submission_id');
     }
 

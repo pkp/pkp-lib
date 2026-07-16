@@ -63,10 +63,9 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
 
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', [$notification->assocId]);
             case Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
-                $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($notification->contextId);
-
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', [$notification->assocId]);
+                // Route each recipient (including authors) to a workflow view they can access
+                $submission = Repo::submission()->get($notification->assocId);
+                return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->userId);
         }
         throw new \Exception('Unexpected notification type!');
     }

@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/externalServices/ExternalServicesHelper.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Helpers
@@ -19,6 +19,7 @@ namespace PKP\citation\externalServices;
 use APP\core\Application;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
 
 class ExternalServicesHelper
 {
@@ -49,11 +50,14 @@ class ExternalServicesHelper
      * Makes HTTP request to the API and returns the response as an array.
      *
      * @param string $url The API endpoint URL.
+     * @param array $options Guzzle request options.
+     * @param int|null &$retryAfter Set to the response's Retry-After value (in seconds), if the server sent one.
      *
      * @return array|int|null The response as an associative array, request status code or null.
      */
-    public static function apiRequest(string $url, array $options = []): array|int|null
+    public static function apiRequest(string $url, array $options = [], ?int &$retryAfter = null): array|int|null
     {
+        $retryAfter = null;
         $httpClient = Application::get()->getHttpClient();
 
         try {
@@ -70,6 +74,22 @@ class ExternalServicesHelper
             }
 
             return $result;
+
+        } catch (RequestException $e) {
+            // Guzzle throws (rather than returning a response) for 4xx/5xx statuses by default,
+            // so this is where a real 429/408/504/etc from the service actually needs to be caught.
+            $response = $e->getResponse();
+
+            if (!$response) {
+                error_log(__METHOD__ . ' ' . $e->getMessage());
+                return null;
+            }
+
+            if ($response->hasHeader('Retry-After')) {
+                $retryAfter = (int) $response->getHeaderLine('Retry-After');
+            }
+
+            return $response->getStatusCode();
 
         } catch (GuzzleException|Exception $e) {
             error_log(__METHOD__ . ' ' . $e->getMessage());

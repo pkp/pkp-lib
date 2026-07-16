@@ -64,7 +64,7 @@ class OpenAlexJob extends BaseJob
                     throw new JobException(__('admin.job.failed.connection.externalService', [
                         'statusCode' => $service->statusCode]));
                 case 429:
-                    $this->release(60);
+                    $this->release($service->retryAfter !== null ? $service->retryAfter + 3 : 60);
                     return;
                 case 404:
                 default:

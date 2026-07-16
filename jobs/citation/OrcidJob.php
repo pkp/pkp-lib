@@ -31,6 +31,12 @@ class OrcidJob extends BaseJob
     /** Name of the shared rate limiter throttling all ORCID lookups below ORCID's documented 12 requests/second sustained limit. */
     protected const RATE_LIMITER_NAME = 'orcid-lookups';
 
+    /**
+     * Just under ORCID's anonymous-tier 25k reads/day-per-IP quota (assumes a single app
+     * server/shared cache); applied uniformly since the tier isn't known at this stage.
+     */
+    protected const DAILY_LIMIT = 24500;
+
     protected int $contextId;
     protected int $citationId;
     protected string $contactEmail = '';
@@ -49,7 +55,10 @@ class OrcidJob extends BaseJob
      */
     public function middleware(): array
     {
-        RateLimiter::for(self::RATE_LIMITER_NAME, fn () => Limit::perSecond(11));
+        RateLimiter::for(self::RATE_LIMITER_NAME, fn () => [
+            Limit::perSecond(11),
+            Limit::perDay(self::DAILY_LIMIT),
+        ]);
 
         return [new RateLimited(self::RATE_LIMITER_NAME)];
     }

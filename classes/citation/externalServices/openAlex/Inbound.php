@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/externalServices/openalex/Inbound.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OpenAlexInbound
@@ -28,6 +28,9 @@ class Inbound
     /** @var int Status code of external service response. */
     public int $statusCode = 200;
 
+    /** @var int|null Retry-After value (in seconds) sent by the external service, if any. */
+    public ?int $retryAfter = null;
+
     /** @var string Email address of journal contact. */
     public string $contactEmail = '';
 
@@ -43,7 +46,8 @@ class Inbound
     {
         $response = ExternalServicesHelper::apiRequest(
             $this->url . '/works/doi:' . urlencode($citation->getData('doi')),
-            ['headers' => ['mailto' => $this->contactEmail]]
+            ['headers' => ['mailto' => $this->contactEmail]],
+            $this->retryAfter
         );
 
         if (is_int($response)) {

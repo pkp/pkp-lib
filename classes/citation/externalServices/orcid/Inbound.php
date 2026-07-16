@@ -27,6 +27,9 @@ class Inbound
     /** @var int Status code of external service response. */
     public int $statusCode = 200;
 
+    /** @var int|null Retry-After value (in seconds) sent by the external service, if any. */
+    public ?int $retryAfter = null;
+
     /** @var string Email address of journal contact. */
     public string $contactEmail = '';
 
@@ -41,10 +44,12 @@ class Inbound
     public function getAuthor(array $author): ?array
     {
         $this->statusCode = 200;
+        $this->retryAfter = null;
 
         $response = ExternalServicesHelper::apiRequest(
             $this->url . '/' . urlencode(Orcid::removePrefix($author['orcid'])),
-            ['headers' => ['mailto' => $this->contactEmail]]
+            ['headers' => ['mailto' => $this->contactEmail]],
+            $this->retryAfter
         );
 
         if (is_int($response)) {

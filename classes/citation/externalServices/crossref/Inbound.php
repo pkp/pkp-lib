@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/externalServices/crossref/Inbound.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CrossrefInbound
@@ -27,6 +27,9 @@ class Inbound
     /** @var int Status code of external service response. */
     public int $statusCode = 200;
 
+    /** @var int|null Retry-After value (in seconds) sent by the external service, if any. */
+    public ?int $retryAfter = null;
+
     /** @var int Threshold of score for accepting found item */
     public int $scoreThreshold = 100;
 
@@ -44,8 +47,9 @@ class Inbound
     public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/works/?query.bibliographic=' . urlencode(strip_tags($citation->getData('rawCitation'))),
-            ['headers' => ['mailto' => $this->contactEmail]]
+            $this->url . '/works/?query.bibliographic=' . urlencode(strip_tags($citation->getData('rawCitation'))) . '&mailto=' . urlencode($this->contactEmail),
+            [],
+            $this->retryAfter
         );
 
         if (is_int($response)) {

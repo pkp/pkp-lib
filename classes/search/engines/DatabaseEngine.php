@@ -23,8 +23,10 @@ use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\facades\Locale;
+use PKP\identity\Identity;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class DatabaseEngine extends ScoutEngine
 {
@@ -68,11 +70,16 @@ class DatabaseEngine extends ScoutEngine
         $sectionIds = $categoryIds = $keywords = $subjects = $funders = null;
         foreach ($builder->whereIns as $field => $list) {
             $$field = match($field) {
-                'sectionIds', 'categoryIds', 'keywords', 'subjects', 'funders' => is_null($list) ? null : (array) $list,
+                'sectionIds', 'categoryIds', 'keywords', 'subjects', 'funders', 'reviewers' => is_null($list) ? null : (array) $list,
             };
         };
 
-        // Database driver: only the first funder is applied (OpenSearch supports several).
+        // Only the first reviewer keyword is applied (OpenSearch supports several).
+        $reviewer = is_array($reviewers)
+            ? (array_values(array_filter($reviewers, fn ($v) => is_string($v) && $v !== ''))[0] ?? null)
+            : null;
+
+        // Only the first funder is applied (OpenSearch supports several).
         $funder = is_array($funders)
             ? (array_values(array_filter($funders, fn ($v) => is_string($v) && $v !== ''))[0] ?? null)
             : null;
@@ -131,6 +138,20 @@ class DatabaseEngine extends ScoutEngine
                     );
                 }
             )
+            ->when(!empty($reviewer), fn ($q) => $q->whereIn(
+                's.submission_id',
+                DB::table('review_assignments AS ra')
+                    ->select('ra.submission_id')
+                    ->join('submissions AS ras', 'ras.submission_id', 'ra.submission_id')
+                    ->where('ras.context_id', $contextId)
+                    ->whereNotNull('ra.date_considered')
+                    ->where('ra.review_method', ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN)
+                    ->where('ra.is_review_publicly_visible', 1)
+                    ->join('users AS u', 'u.user_id', 'ra.reviewer_id')
+                    ->join('user_settings AS us', 'u.user_id', 'us.user_id')
+                    ->whereIn('us.setting_name', [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'affiliation'])
+                    ->where('us.setting_value', 'like', '%' . addcslashes($reviewer, '%_') . '%')
+            ))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords) || is_array($subjects), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')

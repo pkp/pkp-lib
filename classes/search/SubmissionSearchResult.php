@@ -48,6 +48,7 @@ class SubmissionSearchResult
             ->where('abstract', $request->getUserVar('abstract'))
             ->where('author', $request->getUserVar('author'))
             ->where('body', $request->getUserVar('body'))
+            ->whereIn('reviewers', $request->getUserVar('reviewers'))
             ->whereIn('categoryIds', $request->getUserVar('categoryIds'))
             ->whereIn('sectionIds', $request->getUserVar('sectionIds'))
             ->whereIn('keywords', $request->getUserVar('keywords'))

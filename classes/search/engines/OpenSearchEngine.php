@@ -26,6 +26,7 @@ use PKP\funder\Funder;
 use PKP\plugins\Hook;
 use PKP\publication\PKPPublication;
 use PKP\search\parsers\SearchFileParser;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
 class OpenSearchEngine extends ScoutEngine
@@ -149,6 +150,25 @@ class OpenSearchEngine extends ScoutEngine
                 }
             }
 
+            $reviewers = [];
+            foreach (Repo::reviewAssignment()->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByIsPubliclyVisible(true)
+                ->filterByIsConfirmedByEditor(true)
+                ->filterByReviewMethods([ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN])
+                ->getMany() as $reviewAssignment
+            ) {
+                $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+                if (!$reviewer) {
+                    continue;
+                }
+
+                $reviewers[] = [
+                    'name' => $reviewer->getFullNames(),
+                    'affiliation' => $reviewer->getAffiliation(null),
+                ];
+            }
+
             $json = [
                 'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
@@ -158,6 +178,7 @@ class OpenSearchEngine extends ScoutEngine
                     'abstracts' => $publication->getData('abstract'),
                     'bodies' => $bodies,
                     'authors' => $authors,
+                    'reviewers' => $reviewers,
                     'contextId' => $submission->getData('contextId'),
                     'datePublished' => $publication->getData('datePublished'),
                     'sectionId' => $publication->getData('sectionId'),
@@ -234,6 +255,9 @@ class OpenSearchEngine extends ScoutEngine
                         ...(isset($builder->wheres['author']) ? [[
                             'multi_match' => ['query' => $builder->wheres['author'], 'fields' => ['authors.*']],
                         ]] : []),
+                        ...(!empty($builder->whereIns['reviewers']) ? array_map(fn ($reviewer) => [
+                            'multi_match' => ['query' => $reviewer, 'fields' => ['reviewers.*']],
+                        ], $builder->whereIns['reviewers']) : []),
                         ...(isset($builder->wheres['body']) ? [[
                             'multi_match' => ['query' => $builder->wheres['body'], 'fields' => ['bodies.*']],
                         ]] : []),
@@ -295,6 +319,7 @@ class OpenSearchEngine extends ScoutEngine
                         // Exact match on filterKeys (ROR or lowercased free-text name); OR if several.
                         $filter[] = ['terms' => ['funders.filterKeys' => $list]];
                         break;
+                    case 'reviewers': break; // Handled above
                     default: continue 2;
                 }
             };
@@ -421,6 +446,7 @@ class OpenSearchEngine extends ScoutEngine
                     'properties' => [
                         'abstracts' => $typicalKeywordClause(),
                         'titles' => $typicalKeywordClause(true),
+                        'reviewers' => $typicalKeywordClause(),
                         'authors' => $typicalKeywordClause(),
                         'categoryId' => ['type' => 'long'],
                         'contextId' => ['type' => 'long'],

@@ -193,7 +193,7 @@ class SubmissionPeerReviewResource extends JsonResource
                 'dateCompleted' => $assignment->getDateCompleted(),
                 'isReviewOpen' => $isReviewOpen,
                 // Localized text description of the reviewer recommendation (Accept Submission, Decline Submission, etc.)
-                'reviewerRecommendationDisplayText' => $assignment->getLocalizedRecommendation(),
+                'reviewerRecommendationDisplayText' => $assignment->getLocalizedRecommendation($context),
                 'reviewerRecommendationId' => $assignment->getReviewerRecommendationId(),
                 // Machine-readable type of the reviewer recommendation (Approved, Not Approved, Revisions Requested, etc.)
                 'reviewerRecommendationTypeId' => $recommendation?->type,

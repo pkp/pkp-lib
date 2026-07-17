@@ -66,13 +66,24 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a navigation menu by navigation menu area.
-     *
-     * @return DAOResultFactory<NavigationMenu>
      */
-    public function getByArea(?int $contextId, string $areaName): DAOResultFactory
+    public function getByArea(?int $contextId, string $areaName, bool $useCache = false): array
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? AND COALESCE(context_id, 0) = ?', [$areaName, (int) $contextId]);
-        return new DAOResultFactory($result, $this, '_fromRow');
+        $getByArea = fn () => DB::table('navigation_menus')
+            ->where('area_name', $areaName)
+            ->whereRaw('COALESCE(context_id, 0) = ' . (int) $contextId)
+            ->get()->map(fn ($row) => $this->_fromRow((array) $row))
+            ->toArray();
+
+        if ($useCache) {
+            return Cache::remember(
+                'navMenusByArea-' . (int) $contextId . '-' . $areaName,
+                60 * 60, // One hour
+                $getByArea
+            );
+        } else {
+            return $getByArea();
+        }
     }
 
     /**
@@ -136,6 +147,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     public function updateObject(NavigationMenu $navigationMenu): bool
     {
         Cache::forget("navigationMenu-{$navigationMenu->getId()}");
+        Cache::forget('navMenusByArea-' . (int) $navigationMenu->getContextId() . '-' . $navigationMenu->getAreaName());
         return (bool) $this->update(
             'UPDATE	navigation_menus
 			SET	title = ?,
@@ -156,6 +168,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function deleteObject($navigationMenu)
     {
+        Cache::forget('navMenusByArea-' . (int) $navigationMenu->getContextId() . '-' . $navigationMenu->getAreaName());
         return $this->deleteById($navigationMenu->getId());
     }
 
@@ -211,7 +224,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
                 // Check if the given area has a NM attached.
                 // If it does the NM is not being processed and a warning is being thrown
-                $navigationMenusWithArea = $this->getByArea($contextId, $area)->toArray();
+                $navigationMenusWithArea = $this->getByArea($contextId, $area);
                 if (count($navigationMenusWithArea) != 0) {
                     error_log("WARNING: The NavigationMenu (ContextId: {$contextId}, Title: {$title}, Area: {$area}) will be skipped because the specified area has already a NavigationMenu attached.");
                     continue;

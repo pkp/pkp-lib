@@ -61,7 +61,7 @@ class ContributorForm extends FormComponent
         usort($countries, function ($a, $b) {
             return strcmp($a['label'], $b['label']);
         });
-        array_unshift($countries, "");
+        array_unshift($countries, ['value' => '', 'label' => '']);
 
         $contributorRoles = ContributorRole::query()
             ->withContextId($context->getId())

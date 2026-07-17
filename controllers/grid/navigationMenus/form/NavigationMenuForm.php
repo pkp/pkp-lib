@@ -181,7 +181,7 @@ class NavigationMenuForm extends Form
         }
 
         if ($this->getData('areaName') != '') {
-            $navigationMenusWithArea = $navigationMenuDao->getByArea($this->_contextId, $this->getData('areaName'))->toArray();
+            $navigationMenusWithArea = $navigationMenuDao->getByArea($this->_contextId, $this->getData('areaName'));
             if (count($navigationMenusWithArea) == 1 && $navigationMenusWithArea[0]->getId() != $this->_navigationMenuId) {
                 $this->addError('areaName', __('manager.navigationMenus.form.menuAssigned'));
             }

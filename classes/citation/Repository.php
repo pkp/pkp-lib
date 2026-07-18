@@ -23,6 +23,7 @@ use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\LazyCollection;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\filter\CitationListTokenizerFilter;
 use PKP\jobs\citation\CrossrefJob;
@@ -179,13 +180,12 @@ class Repository
      *
      * @return array<Citation>
      */
-    public function getByPublicationId(int $publicationId): array
+    public function getByPublicationId(int $publicationId): LazyCollection
     {
         return $this->getCollector()
             ->filterByPublicationId($publicationId)
             ->getMany()
-            ->values()
-            ->all();
+            ->remember();
     }
 
     /**

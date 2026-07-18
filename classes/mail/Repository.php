@@ -228,6 +228,7 @@ class Repository
             mailables\ReviewerReinstate::class,
             mailables\ReviewerResendRequest::class,
             mailables\ReviewerUnassign::class,
+            mailables\ReviewCancel::class,
             mailables\RevisedVersionNotify::class,
             mailables\StatisticsReportNotify::class,
             mailables\SubmissionAcknowledgement::class,

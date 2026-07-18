@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/users/reviewer/form/UnassignReviewerForm.php
+ * @file controllers/grid/users/reviewer/form/CancelReviewForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UnassignReviewerForm
+ * @class CancelReviewForm
  *
  * @ingroup controllers_grid_users_reviewer_form
  *
@@ -19,10 +19,10 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
-use PKP\mail\mailables\ReviewerUnassign;
+use PKP\mail\mailables\ReviewCancel;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
-class UnassignReviewerForm extends ClearReviewForm
+class CancelReviewForm extends ClearReviewForm
 {
     /**
      * Constructor
@@ -33,7 +33,7 @@ class UnassignReviewerForm extends ClearReviewForm
      */
     public function __construct($reviewAssignment, $reviewRound, $submission)
     {
-        parent::__construct($reviewAssignment, $reviewRound, $submission, 'controllers/grid/users/reviewer/form/unassignReviewerForm.tpl');
+        parent::__construct($reviewAssignment, $reviewRound, $submission, 'controllers/grid/users/reviewer/form/reviewCancelForm.tpl');
     }
 
     /**
@@ -41,6 +41,6 @@ class UnassignReviewerForm extends ClearReviewForm
      */
     protected function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable
     {
-        return new ReviewerUnassign($context, $submission, $reviewAssignment);
+        return new ReviewCancel($context, $submission, $reviewAssignment);
     }
 }

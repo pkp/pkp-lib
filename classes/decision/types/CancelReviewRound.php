@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/CancelReviewRound.php
  *
@@ -29,7 +30,7 @@ use PKP\decision\types\traits\InExternalReviewRound;
 use PKP\decision\types\traits\NotifyAuthors;
 use PKP\decision\types\traits\NotifyReviewers;
 use PKP\mail\mailables\DecisionCancelReviewRoundNotifyAuthor;
-use PKP\mail\mailables\ReviewerUnassign;
+use PKP\mail\mailables\ReviewCancel;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -184,7 +185,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
                     break;
                 case $this->ACTION_NOTIFY_REVIEWERS:
                     $this->sendReviewersEmail(
-                        new ReviewerUnassign($context, $submission, null, $decision),
+                        new ReviewCancel($context, $submission, null, $decision),
                         $this->getEmailDataFromAction($action),
                         $editor,
                         $submission
@@ -230,7 +231,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
 
         if (count($reviewAssignments)) {
             $reviewers = $steps->getReviewersFromAssignments($reviewAssignments);
-            $mailable = new ReviewerUnassign($context, $submission, null, $fakeDecision);
+            $mailable = new ReviewCancel($context, $submission, null, $fakeDecision);
             $steps->addStep((new Email(
                 $this->ACTION_NOTIFY_REVIEWERS,
                 __('editor.submission.decision.notifyReviewers'),

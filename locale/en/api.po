@@ -173,6 +173,12 @@ msgstr "The funder you requested was not found."
 msgid "api.funders.403.submissionsNotMatched"
 msgstr "The funder you requested is not associated with this submission."
 
+msgid "api.dataCitations.404.dataCitationNotFound"
+msgstr "The data citation you requested was not found."
+
+msgid "api.dataCitations.403.publicationsNotMatched"
+msgstr "The data citation you requested is not associated with this publication."
+
 msgid "api.highlights.400.noOrderData"
 msgstr "Highlight order could not be saved because no ordering information was found."
 

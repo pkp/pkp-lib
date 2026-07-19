@@ -146,7 +146,6 @@
 		"dataCitations": {
 			"type": "array",
 			"description": "Optional metadata that contains an array of citations for data cited in this submission.",
-			"apiSummary": true,
 			"readOnly": true,
 			"items": {
 				"$ref": "#/definitions/DataCitation"

@@ -857,6 +857,7 @@ msgstr "Email Log"
 msgid "submission.event.participantAdded"
 msgstr "{$userFullName} ({$username}) was assigned to this submission as a {$userGroupName}."
 
+# fuzzy
 msgid "submission.event.participantRemoved"
 msgstr "{$userFullName} ({$username}) was removed from this submission as a {$userGroupName}."
 

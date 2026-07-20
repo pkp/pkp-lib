@@ -48,7 +48,7 @@
 					<div class="fields">
 						<div class="optin optin-privacy">
 							<label>
-								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+								<input type="checkbox" name="privacyConsent" id="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}{if isset($errors.privacyConsent)} aria-invalid="true" aria-describedby="formError-privacyConsent"{/if}>
 								{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>

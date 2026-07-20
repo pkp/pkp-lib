@@ -392,7 +392,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 'message' => 'submission.event.participantAdded',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
-                'userFullName' => $assignedUser->getFullName(),
+                'userFullName' => $assignedUser->getFullNames(),
                 'username' => $assignedUser->getUsername(),
                 'userGroupName' => $userGroup->name,
             ]);
@@ -476,7 +476,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             'message' => 'submission.event.participantRemoved',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
-            'userFullName' => $assignedUser->getFullName(),
+            'userFullName' => $assignedUser->getFullNames(),
             'username' => $assignedUser->getUsername(),
             'userGroupName' => $userGroup->name,
         ]);

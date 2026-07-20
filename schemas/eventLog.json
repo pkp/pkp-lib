@@ -304,9 +304,17 @@
 				"nullable"
 			]
 		},
+		"userGroupName": {
+			"type": "string",
+			"description": "The name of the role the user was assigned or unassigned to",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"userGroupNames": {
 			"type": "array",
-			"description": "The names of the role the user is in separated by a comma.",
+			"description": "The names of the roles the user is in, separated by a comma.",
 			"multilingual": true,
 			"items": {
 				"type": "string"

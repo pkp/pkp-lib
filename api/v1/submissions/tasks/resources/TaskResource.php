@@ -87,7 +87,7 @@ class TaskResource extends JsonResource
                 'taskType' => EditorialTaskType::from($this->type)->label(),
                 'username' => $activity->getData('username'),
                 'dateLogged' => $dateLogged ? Carbon::parse($dateLogged)->format('Y-m-d') : null,
-                'userGroupName' => $activity->getData('userGroupName') ?? implode(', ', $activity->getLocalizedData('userGroupNames') ?? []),
+                'userGroupName' => $activity->getLocalizedData('userGroupName') ?? implode(', ', $activity->getLocalizedData('userGroupNames') ?? []),
                 'taskDateDueOld' => $taskDateDueOld ? Carbon::parse($taskDateDueOld)->format('Y-m-d') : null,
                 'taskDateDueNew' => $taskDateDueNew ? Carbon::parse($taskDateDueNew)->format('Y-m-d') : null,
                 'filename' => $activity->getLocalizedData('filename'),
@@ -134,8 +134,8 @@ class TaskResource extends JsonResource
                             'filename',
                             'stageId',
                             'submissionFileId',
-                        ])    
-                    ), 
+                        ])
+                    ),
                     'downloadUrl' => $downloadUrl,
                 ],
             ];

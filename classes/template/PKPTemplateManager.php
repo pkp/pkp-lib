@@ -921,16 +921,6 @@ class PKPTemplateManager extends Smarty
             $this->setLocaleKeys(['common.ok']);
             $this->setLocaleKeys(['common.clearSelection']); // PkpCombobox
 
-            // Stylesheet compiled from Vue.js single-file components
-            $this->addStyleSheet(
-                'build',
-                $baseUrl . '/styles/build_frontend.css',
-                [
-                    'priority' => self::STYLE_SEQUENCE_CORE,
-                    'contexts' => ['frontend'],
-                ]
-            );
-
             $this->addJavaScript(
                 'pkpAppFrontend',
                 $baseUrl . '/js/build_frontend.js',

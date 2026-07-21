@@ -61,6 +61,7 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->index(['reviewer_id'], 'review_assignments_reviewer_id');
 
             $table->text('competing_interests')->nullable();
+            $table->boolean('competing_interests_declared')->default(false)->comment('Whether the reviewer answered the competing interests question; false means no declaration is on record.');
 
             $table->bigInteger('reviewer_recommendation_id')->nullable();
             $table

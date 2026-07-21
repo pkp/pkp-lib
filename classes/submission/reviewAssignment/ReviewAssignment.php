@@ -169,6 +169,22 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
+     * Get whether the reviewer answered the competing interests question.
+     */
+    public function getCompetingInterestsDeclared(): bool
+    {
+        return (bool) $this->getData('competingInterestsDeclared');
+    }
+
+    /**
+     * Set whether the reviewer answered the competing interests question.
+     */
+    public function setCompetingInterestsDeclared(bool $competingInterestsDeclared): void
+    {
+        $this->setData('competingInterestsDeclared', $competingInterestsDeclared);
+    }
+
+    /**
      * Get the workflow stage id.
      *
      * @return int WORKFLOW_STAGE_ID_...

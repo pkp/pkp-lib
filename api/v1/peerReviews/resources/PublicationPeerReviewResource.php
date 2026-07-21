@@ -236,6 +236,8 @@ class PublicationPeerReviewResource extends JsonResource
                 'reviewerRecommendationTypeLabel' => $recommendation ? $recommendationTypesTypeLabels[$recommendation->type] : null,
                 'reviewForm' => $reviewForm,
                 'reviewerComments' => $reviewerComments,
+                'competingInterestsDeclared' => $assignment->getCompetingInterestsDeclared(),
+                'competingInterests' => $assignment->getCompetingInterests(),
             ];
         })->values();
     }

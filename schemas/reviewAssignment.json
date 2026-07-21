@@ -35,6 +35,11 @@
 				"nullable"
 			]
 		},
+		"competingInterestsDeclared": {
+			"type": "boolean",
+			"description": "Whether the reviewer answered the competing interests question. False when no declaration is on record, e.g. because the context did not request one.",
+			"apiSummary": true
+		},
 		"considered": {
 			"type": "integer",
 			"description": "Whether editor considered a review assignment request",

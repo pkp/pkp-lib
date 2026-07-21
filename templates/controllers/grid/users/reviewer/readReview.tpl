@@ -53,10 +53,14 @@
 				{translate key="editor.review.readConfirmation"}
 			{/fbvFormSection}
 
-			{if $reviewAssignment->getCompetingInterests()}
+			{if $reviewAssignment->getCompetingInterestsDeclared()}
 				<h3>{translate key="reviewer.submission.competingInterests"}</h3>
 				<div class="review_competing_interests">
-					{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
+					{if $reviewAssignment->getCompetingInterests()}
+						{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
+					{else}
+						{translate key="reviewer.submission.competingInterests.declaredNone"}
+					{/if}
 				</div>
 			{/if}
 

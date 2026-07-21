@@ -257,11 +257,17 @@ class PKPReviewerHandler extends Handler
 
         $declineReviewMessage = $request->getUserVar('declineReviewMessage');
 
-        // Save competing interests declared on Step 1 before declining.
-        $competingInterests = $request->getUserVar('competingInterestOption') === 'hasCompetingInterests'
-            ? $request->getUserVar('reviewerCompetingInterests')
-            : null;
-        $reviewAssignment->setCompetingInterests($competingInterests);
+        // Save competing interests declared on Step 1 before declining. The decline form
+        // submits competingInterestOption even when the question was never presented (see
+        // regretMessage.tpl), so a declaration is only recorded when the context has
+        // competing interests guidelines, mirroring the condition that presents the question.
+        if ($request->getContext()->getData('competingInterests')) {
+            $reviewAssignment->setCompetingInterestsDeclared(true);
+            $competingInterests = $request->getUserVar('competingInterestOption') === 'hasCompetingInterests'
+                ? $request->getUserVar('reviewerCompetingInterests')
+                : null;
+            $reviewAssignment->setCompetingInterests($competingInterests);
+        }
 
         // Decline the review
         $reviewerAction = new ReviewerAction();

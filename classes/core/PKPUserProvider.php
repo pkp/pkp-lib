@@ -56,7 +56,7 @@ class PKPUserProvider implements UserProvider
      */
     public function retrieveById($id)
     {
-        return Repo::user()->get((int) $id);
+        return Repo::user()->get((int) $id, true);
     }
 
     /**

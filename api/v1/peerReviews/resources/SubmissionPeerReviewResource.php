@@ -1,17 +1,18 @@
 <?php
 
 /**
- * @file api/v1/peerReviews/resources/PublicationPeerReviewResource.php
+ * @file api/v1/peerReviews/resources/SubmissionPeerReviewResource.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING
  *
- * @class PublicationPeerReviewResource
+ * @class SubmissionPeerReviewResource
  *
  * @ingroup api_v1_peerReviews
  *
- * @brief Resource that maps a publication to its open peer reviews data
+ * @brief Resource that maps a submission to its open peer review record: a flat,
+ *  chronological list of review rounds, each carrying the publication version it reviewed.
  */
 
 namespace PKP\API\v1\peerReviews\resources;
@@ -19,6 +20,7 @@ namespace PKP\API\v1\peerReviews\resources;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use APP\submission\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
@@ -40,17 +42,11 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
 
-class PublicationPeerReviewResource extends JsonResource
+class SubmissionPeerReviewResource extends JsonResource
 {
     use ReviewerRecommendationSummary;
 
-    /** @var array<int> Publication IDs claimed by "child" publications pointing to these "source" publications  */
-    private array $claimedPublicationIds = [];
-
     private ?Enumerable $availableReviewerRecommendations = null;
-
-    /** @var Context|null Caches context to avoid redundant fetches */
-    private ?Context $context = null;
 
     /** @var Collection<int, ReviewForm>|null Caches review forms to avoid redundant fetches */
     private ?Collection $reviewFormsCache = null;
@@ -66,120 +62,89 @@ class PublicationPeerReviewResource extends JsonResource
 
     public function toArray(?Request $request = null)
     {
-        /** @var Publication $publication */
-        $publication = $this->resource;
-        $publicationReviewsData = $this->getPublicationPeerReview($publication);
-        return [
-            'publicationId' => $publication->getId(),
-            'datePublished' => $publication->getData('datePublished'),
-            'reviewRounds' => $publicationReviewsData->get('roundsData'),
-            'reviewerRecommendationsSummary' => $publicationReviewsData->get('reviewerRecommendationsSummary'),
-        ];
-    }
+        /** @var Submission $submission */
+        $submission = $this->resource;
 
-    /**
-     * Fluent method for adding which publication IDs should not be included
-     * as they are already considered by the "child" publication.
-     *
-     * Prevents double review presentation
-     *
-     * E.g. Publication B has "source" publication A, so publication A can be passed to this method to be excluded
-     * when constructing list of peer reviews.
-     */
-    public function withClaimedPublicationIds(array $publicationIds): static
-    {
-        $this->claimedPublicationIds = $publicationIds;
-        return $this;
-    }
+        $contextDao = Application::getContextDAO();
+        /** @var Context $context */
+        $context = $contextDao->getById($submission->getData('contextId'));
 
-    /**
-     * Get public peer review data for a publication.
-     *
-     * @param Publication $publication The publication to get data for.
-     *
-     */
-    private function getPublicationPeerReview(Publication $publication): Collection
-    {
-        $results = collect();
-
-        // Check up the tree on source IDs
-        $allAssociatedPublicationIds = Repo::publication()->getWithSourcePublicationsIds([$publication->getId()]);
+        /** @var Collection<int, Publication> $publishedPublications */
+        $publishedPublications = collect($submission->getPublishedPublications())
+            ->keyBy(fn (Publication $publication) => $publication->getId());
 
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRounds = $reviewRoundDao->getByPublicationIds($allAssociatedPublicationIds);
+        // Only rounds whose reviewed publication version is published are part of the
+        // public record; rounds of an unpublished (in-review) version stay hidden.
+        $reviewRounds = collect($reviewRoundDao->getBySubmissionId($submission->getId())->toArray())
+            ->filter(fn (ReviewRound $reviewRound) => $reviewRound->getPublicationId() !== null
+                && $publishedPublications->has((int) $reviewRound->getPublicationId()));
 
-        // Cache context
-        if (!$this->context) {
-            $this->context = app()->get('context')->get(
-                Repo::submission()->get($publication->getData('submissionId'))->getData('contextId')
-            );
-        }
-        $context = $this->context;
+        $roundIds = $reviewRounds->map(fn (ReviewRound $reviewRound) => $reviewRound->getId())->values()->all();
 
-        $roundsData = collect();
-
-        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
-        unset($reviewRounds);
-
-        // If this publication is claimed as a source by a child publication, exclude its own review rounds.
-        // Those review rounds will appear under the child publication instead,
-        // i.e., the "newest," most up-to-date publication.
-        if (in_array($publication->getId(), $this->claimedPublicationIds)) {
-            $reviewRoundsKeyedById = $reviewRoundsKeyedById->filter(
-                // `ReviewRound`s fetched above by publication ID, so no null check required on `getPublicationId()`
-                fn (ReviewRound $round) => (int) $round->getPublicationId() !== $publication->getId()
-            );
-        }
-
-        $hasMultipleRounds = $reviewRoundsKeyedById->count() > 1;
-        $roundIds = $reviewRoundsKeyedById->keys()->all();
-
-        $reviewAssignments = Repo::reviewAssignment()
+        $reviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
             ->filterByIsPubliclyVisible(true)
             ->filterByIsAccepted(true)
             ->filterByIsConfirmedByEditor(true)
-            ->getMany();
+            ->getMany()
+            // Materialize the lazy collection: it is iterated once per consumer
+            // below and each LazyCollection iteration re-runs the query and
+            // re-hydrates every assignment
+            ->collect();
 
         $reviewsGroupedByRoundId = $reviewAssignments
-            ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
-            ->sortKeys();
+            ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId());
 
-        $roundResponses = AuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
+        $roundResponses = empty($roundIds)
+            ? collect()
+            : AuthorResponse::withReviewRoundIds($roundIds)->get()->groupBy('reviewRoundId');
 
-        foreach ($reviewsGroupedByRoundId as $roundId => $assignments) {
-            /** @var ReviewRound $reviewRound */
-            $reviewRound = $reviewRoundsKeyedById->get($roundId);
+        $roundsData = collect();
+        $roundNumber = 0;
 
-            $roundDisplayText = $hasMultipleRounds ? __('publication.versionStringWithRound', [
-                'versionString' => $publication->getData('versionString'),
-                'round' => $reviewRound->getData('round')
-            ]) :
-                $publication->getData('versionString');
+        /** @var ReviewRound $reviewRound */
+        foreach ($reviewRounds as $reviewRound) {
+            /** @var ?Enumerable $assignments */
+            $assignments = $reviewsGroupedByRoundId->get($reviewRound->getId());
+
+            // Rounds without any publicly visible review are not part of the public record
+            if (!$assignments || $assignments->isEmpty()) {
+                continue;
+            }
+
+            $roundNumber++;
+
+            /** @var Publication $publication */
+            $publication = $publishedPublications->get((int) $reviewRound->getPublicationId());
 
             /** @var ?AuthorResponse $currentRoundResponse */
-            $currentRoundResponse = $roundResponses->get($roundId)?->first();
+            $currentRoundResponse = $roundResponses->get($reviewRound->getId())?->first();
 
             $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($assignments);
 
             $roundsData->add([
-                'displayText' => $roundDisplayText,
-                'versionString' => $publication->getData('versionString'),
-                'roundId' => $reviewRound->getData('id'),
-                // `ReviewRound`s fetched above by publication ID, so no null check required on `getPublicationId()`
-                'originalPublicationId' => (int) $reviewRound->getPublicationId(),
+                'roundId' => $reviewRound->getId(),
+                'roundNumber' => $roundNumber,
+                'publication' => [
+                    'id' => $publication->getId(),
+                    'versionString' => $publication->getData('versionString'),
+                    'versionStage' => $publication->getData('versionStage'),
+                    'datePublished' => $publication->getData('datePublished'),
+                ],
                 ...$reviewStatusData->toArray(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
                 'authorResponse' => $currentRoundResponse ? (new ReviewRoundAuthorResponseResource($currentRoundResponse))->resolve() : null,
             ]);
         }
 
-
-        $results->put('roundsData', $roundsData->toArray());
-        $results->put('reviewerRecommendationsSummary', $this->getReviewerRecommendationsSummary($reviewAssignments, $context));
-        return $results;
+        return [
+            'submissionId' => $submission->getId(),
+            'reviewRounds' => $roundsData->toArray(),
+            'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($reviewAssignments, $context),
+        ];
     }
 
     /**
@@ -197,7 +162,7 @@ class PublicationPeerReviewResource extends JsonResource
         // Preload all review form data for use in class
         $this->preloadFormsAndComments($assignments, $context);
 
-        return $assignments->map(function (ReviewAssignment $assignment) use ($recommendationTypesTypeLabels, $context) {
+        return $assignments->map(function (ReviewAssignment $assignment) use ($recommendationTypesTypeLabels) {
             $reviewForm = null;
             $reviewerComments = null;
 
@@ -269,8 +234,12 @@ class PublicationPeerReviewResource extends JsonResource
             ->values();
 
         // Fetch all review forms
-        $this->reviewFormsCache = collect();
+        $this->reviewFormsCache = $this->reviewFormsCache ?? collect();
         foreach ($reviewFormIds as $formId) {
+            if ($this->reviewFormsCache->has($formId)) {
+                continue;
+            }
+
             $form = $reviewFormDao->getById($formId, Application::getContextAssocType(), $context->getId());
 
             if ($form) {
@@ -279,8 +248,12 @@ class PublicationPeerReviewResource extends JsonResource
         }
 
         // Fetch all review form elements for each form
-        $this->reviewFormElementsCache = collect();
+        $this->reviewFormElementsCache = $this->reviewFormElementsCache ?? collect();
         foreach ($reviewFormIds as $formId) {
+            if ($this->reviewFormElementsCache->has($formId)) {
+                continue;
+            }
+
             $elements = $reviewFormElementDao->getByReviewFormId($formId);
             $elementsList = collect();
 
@@ -292,18 +265,18 @@ class PublicationPeerReviewResource extends JsonResource
         }
 
         // Fetch all review form responses for all assignments
-        $this->reviewFormResponsesCache = collect();
+        $this->reviewFormResponsesCache = $this->reviewFormResponsesCache ?? collect();
         foreach ($assignments as $assignment) {
-            if ($assignment->getReviewFormId()) {
+            if ($assignment->getReviewFormId() && !$this->reviewFormResponsesCache->has($assignment->getId())) {
                 $responses = $reviewFormResponseDao->getReviewReviewFormResponseValues($assignment->getId());
                 $this->reviewFormResponsesCache->put($assignment->getId(), $responses);
             }
         }
 
         // Fetch all reviewer comments for assignments without review forms
-        $this->reviewerCommentsCache = collect();
+        $this->reviewerCommentsCache = $this->reviewerCommentsCache ?? collect();
         foreach ($assignments as $assignment) {
-            if (!$assignment->getReviewFormId()) {
+            if (!$assignment->getReviewFormId() && !$this->reviewerCommentsCache->has($assignment->getId())) {
                 $comments = $submissionCommentDao->getReviewerCommentsByReviewerId(
                     $assignment->getSubmissionId(),
                     $assignment->getReviewerId(),

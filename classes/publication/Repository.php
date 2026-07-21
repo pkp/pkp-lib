@@ -25,7 +25,6 @@ use APP\submission\Submission;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use PKP\API\v1\peerReviews\resources\PublicationPeerReviewResource;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -1216,39 +1215,6 @@ abstract class Repository
     }
 
     /**
-     * @copydoc DAO::getClaimedSourcePublicationIds()
-     */
-    public function getClaimedSourcePublicationIds(array $publicationIds): array
-    {
-        return $this->dao->getClaimedSourcePublicationIds($publicationIds);
-    }
-
-    /**
-     * Get public peer review data for publications.
-     *
-     * @param array $publications - The publications to get peer review data for.
-     */
-    public function getPublicPeerReviews(array $publications): Enumerable
-    {
-        $allPublicationIds = collect($publications)->map(fn ($p) => $p->getId())->all();
-
-        // Find which publication IDs in this batch are claimed as the source for another publication.
-        // Those publications' own review rounds will be excluded from in their own review data and shown only under the child.
-        $claimedPublicationIds = $this->getClaimedSourcePublicationIds($allPublicationIds);
-
-        return collect($publications)
-            ->map(function ($publication) use ($claimedPublicationIds) {
-                // Call resolve to get the array representation of the data prepared by the resource.
-                // Thus allowing code outside an API context (e.g., page handlers) to use this getPeerReviews
-                // method to get peer review data in a consistent shape.
-                return (new PublicationPeerReviewResource($publication))
-                    ->withClaimedPublicationIds($claimedPublicationIds)
-                    ->resolve();
-            })
-            ->values();
-    }
-
-    /**
      * Retrieve completed review assignments for publications.
      *
      *
@@ -1352,37 +1318,6 @@ abstract class Repository
         }
 
         return $result;
-    }
-
-    /**
-     * Returns the provided publication ID as well as any other publication
-     * it references via the `source_publication_id`.
-     * This goes up the entire tree created by the usage of `source_publication_id`
-     * on each record to ensure all associated publication IDs are returned.
-     */
-    public function getWithSourcePublicationsIds(array $publicationIds): Collection
-    {
-        $publicationIds = array_unique($publicationIds);
-
-        $allIds = collect($publicationIds);
-        $toResolve = $publicationIds;
-
-        while (!empty($toResolve)) {
-            $resolved = $this->getCollector()
-                ->filterByPublicationIds($toResolve)
-            ->filterWithSourcePublicationIds()
-            ->getIds();
-            $newIds = $resolved->diff($allIds);
-
-            if ($newIds->isEmpty()) {
-                break;
-            }
-
-            $allIds = $allIds->merge($newIds);
-            $toResolve = $newIds->values()->all();
-        }
-
-        return $allIds->values();
     }
 
     /**

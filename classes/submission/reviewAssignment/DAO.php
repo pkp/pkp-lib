@@ -44,6 +44,7 @@ class DAO extends EntityDAO
         'submissionId' => 'submission_id',
         'reviewerId' => 'reviewer_id',
         'competingInterests' => 'competing_interests',
+        'competingInterestsDeclared' => 'competing_interests_declared',
         'reviewerRecommendationId' => 'reviewer_recommendation_id',
         'dateAssigned' => 'date_assigned',
         'dateNotified' => 'date_notified',

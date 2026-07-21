@@ -691,6 +691,7 @@ class Schema extends \PKP\core\maps\Schema
                 'dateConsidered' => $dateConsidered,
                 'dateAssigned' => $dateAssigned,
                 'competingInterests' => $reviewAssignment->getCompetingInterests(),
+                'competingInterestsDeclared' => $reviewAssignment->getCompetingInterestsDeclared(),
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
                 'reviewerRecommendationId' => $reviewAssignment->getReviewerRecommendationId(),

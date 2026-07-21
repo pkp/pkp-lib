@@ -75,6 +75,9 @@ msgstr "I may have competing interests (Specify below)"
 msgid "reviewer.submission.competingInterests"
 msgstr "Competing Interests"
 
+msgid "reviewer.submission.competingInterests.declaredNone"
+msgstr "No competing interests were disclosed."
+
 msgid "reviewer.submission.guidelines"
 msgstr "Review Guidelines"
 

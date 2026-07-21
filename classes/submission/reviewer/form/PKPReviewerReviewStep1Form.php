@@ -128,11 +128,16 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         $reviewAssignment = $this->getReviewAssignment();
         $reviewSubmission = $this->getReviewSubmission();
 
-        // Set competing interests.
-        if ($this->getData('competingInterestOption') == 'hasCompetingInterests') {
-            $reviewAssignment->setCompetingInterests($this->request->getUserVar('reviewerCompetingInterests'));
-        } else {
-            $reviewAssignment->setCompetingInterests(null);
+        // Set competing interests. The question is only presented to the reviewer
+        // when the context has competing interests guidelines (see step1.tpl), so
+        // only then can a declaration be recorded.
+        if ($this->request->getContext()->getData('competingInterests')) {
+            $reviewAssignment->setCompetingInterestsDeclared(true);
+            if ($this->getData('competingInterestOption') == 'hasCompetingInterests') {
+                $reviewAssignment->setCompetingInterests($this->request->getUserVar('reviewerCompetingInterests'));
+            } else {
+                $reviewAssignment->setCompetingInterests(null);
+            }
         }
 
         // Set review to next step.

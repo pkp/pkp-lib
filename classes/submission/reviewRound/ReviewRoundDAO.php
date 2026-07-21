@@ -324,30 +324,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the last review round for a given stage (or for the latest stage)
-     *
-     * @param int|null $stageId One of the Stage_id_* constants.
-     */
-    public function getLastReviewRoundByPublicationId(int $publicationId, ?int $stageId = null): ?ReviewRound
-    {
-        $q = DB::table('review_rounds', 'rr')
-            ->where('rr.publication_id', '=', $publicationId)
-            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
-            ->orderByDesc('rr.stage_id')
-            ->orderByDesc('rr.round');
-
-        $resultsFactory = new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
-
-        try {
-            /** @var ReviewRound $reviewRound */
-            $reviewRound = $resultsFactory->next();
-            return $reviewRound;
-        } catch (\Exception $_exception) {
-            return null;
-        }
-    }
-
-    /**
      * Check if submission has a review round (in the given stage id)
      */
     public function submissionHasReviewRound(int $submissionId, ?int $stageId = null): bool
@@ -364,19 +340,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
             $params
         );
         return (bool) $result->current();
-    }
-
-    /**
-     * Check if a publication has a review round (in the given stage id)
-     *
-     * @param int|null $stageId One of the Stage_id_* constants.
-     */
-    public function publicationHasReviewRound(int $publicationId, ?int $stageId = null): bool
-    {
-        return (bool) DB::table('review_rounds', 'rr')
-            ->where('rr.publication_id', '=', $publicationId)
-            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
-            ->first();
     }
 
     /**

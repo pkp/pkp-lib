@@ -16,22 +16,20 @@
 
 namespace PKP\components;
 
-use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Support\Enumerable;
+use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewResource;
 use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewSummaryResource;
 use PKP\submission\reviewer\recommendation\enums\ReviewerRecommendationType;
 
 class OpenReviewComponent
 {
-    private Enumerable $publicationsPeerReviews;
+    private array $submissionPeerReviews;
     private array $submissionPeerReviewSummary;
 
     public function __construct(Submission $submission)
     {
-        $this->publicationsPeerReviews = Repo::publication()->getPublicPeerReviews(
-            $submission->getPublishedPublications()
-        );
+        $this->submissionPeerReviews = (new SubmissionPeerReviewResource($submission))
+            ->resolve();
 
         $this->submissionPeerReviewSummary = (new SubmissionPeerReviewSummaryResource($submission))
             ->resolve();
@@ -93,7 +91,7 @@ class OpenReviewComponent
     public function getConfig(): array
     {
         return [
-            'publicationsPeerReviews' => $this->publicationsPeerReviews->all(),
+            'submissionPeerReviews' => $this->submissionPeerReviews,
             'submissionPeerReviewSummary' => $this->submissionPeerReviewSummary,
         ];
     }

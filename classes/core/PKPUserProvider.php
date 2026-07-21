@@ -14,15 +14,14 @@
 
 namespace PKP\core;
 
-use PKP\user\User;
-use APP\core\Application;
 use APP\facades\Repo;
-use PKP\security\Validation;
-use PKP\validation\ValidatorFactory;
-use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Database\ConnectionInterface;
-use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
+use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Contracts\Hashing\Hasher as HasherContract;
+use Illuminate\Database\ConnectionInterface;
+use PKP\security\Validation;
+use PKP\user\User;
+use PKP\validation\ValidatorFactory;
 
 class PKPUserProvider implements UserProvider
 {
@@ -39,14 +38,12 @@ class PKPUserProvider implements UserProvider
      * @param  \Illuminate\Database\ConnectionInterface     $connection The active database connection.
      * @param  \Illuminate\Contracts\Hashing\Hasher         $hasher     The hasher implementation.
      * @param  string                                       $table      The table containing the users.
-     * @return void
      */
     public function __construct(
         protected ConnectionInterface $connection,
         protected HasherContract $hasher,
         protected string $table
-    )
-    {
+    ) {
         $this->connection = $connection;
         $this->table = $table;
         $this->hasher = $hasher;
@@ -55,25 +52,18 @@ class PKPUserProvider implements UserProvider
     /**
      * Retrieve a user by their unique identifier.
      *
-     * @param  mixed  $id
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveById($id)
     {
-        // If the request has already been initialized with the user object, use it.
-        if (($user = Application::get()->getRequest()->getUser()) && $user->getId() == $id) {
-            return $user;
-        }
-
-        return Repo::user()->get($id);
+        return Repo::user()->get((int) $id, true);
     }
 
     /**
      * Retrieve a user by their unique identifier and "remember me" token.
      *
-     * @param  mixed    $identifier
      * @param  string   $token
-     * 
+     *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveByToken($id, $token)
@@ -86,7 +76,7 @@ class PKPUserProvider implements UserProvider
             ->where($authIdentifierName, $id)
             ->first()
             ?->{$authIdentifierName};
-        
+
         if (!$userId) {
             return null;
         }
@@ -94,7 +84,7 @@ class PKPUserProvider implements UserProvider
         $user = Repo::user()->get($userId);
 
         return $user?->getRememberToken() && hash_equals($user?->getRememberToken(), $token)
-            ? $user 
+            ? $user
             : null;
     }
 
@@ -103,8 +93,7 @@ class PKPUserProvider implements UserProvider
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
      * @param  string  $token
-     * 
-     * @return void
+     *
      */
     public function updateRememberToken(UserContract $user, $token)
     {
@@ -119,7 +108,6 @@ class PKPUserProvider implements UserProvider
     /**
      * Retrieve a user by the given credentials.
      *
-     * @param  array  $credentials
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveByCredentials(array $credentials)
@@ -144,8 +132,6 @@ class PKPUserProvider implements UserProvider
     /**
      * Validate a user against the given credentials.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
-     * @param  array  $credentials
      * @return bool
      */
     public function validateCredentials(UserContract $user, array $credentials)
@@ -161,9 +147,6 @@ class PKPUserProvider implements UserProvider
      * Rehash the user's password if required and supported.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
-     * @param  array  $credentials
-     * @param  bool  $force
-     * @return void
      */
     public function rehashPasswordIfRequired(UserContract $user, #[\SensitiveParameter] array $credentials, bool $force = false)
     {
@@ -179,18 +162,16 @@ class PKPUserProvider implements UserProvider
 
     /**
      * Create a new instance of the \PKP\user\User
-     * 
-     * @return \PKP\user\User
+     *
      */
     public function createUserInstance(): User
     {
-        return new User;
+        return new User();
     }
 
     /**
      * Gets the hasher implementation.
      *
-     * @return \Illuminate\Contracts\Hashing\Hasher
      */
     public function getHasher(): HasherContract
     {

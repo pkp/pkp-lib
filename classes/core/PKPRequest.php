@@ -20,12 +20,12 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
-use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
@@ -577,10 +577,8 @@ class PKPRequest
             return $user = $apiUser;
         }
 
-        // Attempts to retrieve a logged user
-        if (Validation::isLoggedIn()) {
-            $user = Repo::user()->get($this->getSessionGuard()->getUserId());
-        }
+        // Fall back on Laravel authorization.
+        $user = Auth::user();
 
         return $user;
     }
@@ -789,6 +787,7 @@ class PKPRequest
 
     /**
      * Get the path of the referer URL.
+     *
      * @return string|null The referer path along with any available query params, or null if the referer is not set.
      */
     public function getRefererPath(): ?string

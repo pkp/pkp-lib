@@ -140,7 +140,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function getPublishedPublications()
     {
-        $publications = $this->getData('publications'); /** @var LazyCollection $publications */
+        $publications = $this->getData('publications') ?? collect(); /** @var LazyCollection $publications */
         if ($publications->isEmpty()) {
             return [];
         }

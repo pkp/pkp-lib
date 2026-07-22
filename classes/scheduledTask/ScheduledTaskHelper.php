@@ -35,9 +35,6 @@ class ScheduledTaskHelper
     /**
      * Constructor.
      * Overwrites both parameters if one is not passed.
-     *
-     * @param string $email (optional)          Contact email
-     * @param string $contactName (optional)    Contact name
      */
     public function __construct(public string $contactEmail = '', public string $contactName = '')
     {
@@ -56,7 +53,7 @@ class ScheduledTaskHelper
      * @param string $name Task name.
      * @param bool $result Whether or not the task execution was successful.
      * @param string $executionLogFile Task execution log file path.
-     * 
+     *
      * @return bool True if the notification email was sent successfully
      */
     public function notifyExecutionResult(string $id, string $name, bool $result, string $executionLogFile = ''): bool
@@ -94,6 +91,50 @@ class ScheduledTaskHelper
             'url' => $downloadLogUrl,
             'softwareName' => __($application->getNameKey()),
         ]);
+    }
+
+    /**
+     * Get the web-based(only applicable case) task runner's per-task last-run map.
+     *
+     * @return array<string, int>
+     */
+    public static function getLastRunTimes(): array
+    {
+        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+        $site = $siteDao->getSite();
+
+        $records = $site?->getData('taskRunnerLastRunSummary') ?? [];
+
+        $lastRunTimes = [];
+        foreach ($records as $record) {
+            if (isset($record['taskName'], $record['lastRun'])) {
+                $lastRunTimes[$record['taskName']] = (int) $record['lastRun'];
+            }
+        }
+
+        return $lastRunTimes;
+    }
+
+    /**
+     * Persist the web-based(only applicable case) task runner's per-task last-run map.
+     *
+     * @param array<string, int> $lastRunTimes
+     */
+    public static function saveLastRunTimes(array $lastRunTimes): void
+    {
+        $records = [];
+        foreach ($lastRunTimes as $taskName => $lastRun) {
+            $records[] = ['taskName' => $taskName, 'lastRun' => (int) $lastRun];
+        }
+
+        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+        $site = $siteDao->getSite();
+        if (!$site) {
+            return;
+        }
+
+        $site->setData('taskRunnerLastRunSummary', $records);
+        $siteDao->updateObject($site);
     }
 
     /**

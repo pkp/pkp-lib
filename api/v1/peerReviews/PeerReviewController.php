@@ -110,8 +110,10 @@ class PeerReviewController extends PKPBaseController
             $publicationIds[] = (int)$id;
         }
 
+        $request = $this->getRequest();
         $publications = Repo::publication()->getCollector()
             ->filterByPublicationIds($publicationIds)
+            ->filterByContextIds([$request->getContext()->getId()])
             ->getMany();
 
         if ($publications->count() != count($publicationIds)) {
@@ -140,6 +142,14 @@ class PeerReviewController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $request = $this->getRequest();
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        if (!$submission || $submission->getContextId() != $request->getContext()->getId()) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
         return response()->json(
             Repo::publication()->getPublicPeerReviews([$publication])->first(),
             Response::HTTP_OK
@@ -155,6 +165,14 @@ class PeerReviewController extends PKPBaseController
         $publication = Repo::publication()->get($publicationId);
 
         if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $request = $this->getRequest();
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        if (!$submission || $submission->getContextId() != $request->getContext()->getId()) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
@@ -184,8 +202,10 @@ class PeerReviewController extends PKPBaseController
             $publicationIds[] = (int)$id;
         }
 
+        $request = $this->getRequest();
         $publications = Repo::publication()->getCollector()
             ->filterByPublicationIds($publicationIds)
+            ->filterByContextIds([$request->getContext()->getId()])
             ->getMany();
 
         if ($publications->count() != count($publicationIds)) {

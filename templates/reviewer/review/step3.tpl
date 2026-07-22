@@ -45,10 +45,10 @@
 		{/fbvFormSection}	
 	{else}
 		{fbvFormSection label="submission.review" description="reviewer.submission.reviewDescription"}
-			{fbvFormSection label="submission.comments.canShareWithAuthor"}
+			{fbvFormSection label="submission.comments.canShareWithAuthor" description="submission.comments.canShareWithAuthor.description"}
 				{fbvElement type="textarea" id="comments" name="comments" value=$comments readonly=$reviewIsClosed rich=true}
 			{/fbvFormSection}
-			{fbvFormSection label="submission.comments.cannotShareWithAuthor"}
+			{fbvFormSection label="submission.comments.cannotShareWithAuthor" description="submission.comments.cannotShareWithAuthor.description"}
 				{fbvElement type="textarea" id="commentsPrivate" name="commentsPrivate" value=$commentsPrivate readonly=$reviewIsClosed rich=true}
 			{/fbvFormSection}
 		{/fbvFormSection}

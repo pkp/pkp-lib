@@ -10,23 +10,20 @@
 
 <div id="reviewerReviewStep3Form-{$uuid}">
 	<reviewer-review-step3-form
-		:review-assignment='{$reviewAssignmentData|json_encode}'
-		{if $reviewFormData}
-			:review-form='{$reviewFormData|json_encode}'
-			:review-form-elements='{$reviewFormElementsData|json_encode}'
-			:review-form-responses='{$reviewFormResponsesData|json_encode}'
-		{/if}
-		:reviewer-recommendation-options='{$reviewerRecommendationOptions|json_encode}'
-		:comments="{$comments|json_encode|escape}"
-		:comments-private="{$commentsPrivate|json_encode|escape}"
-		{if $reviewGuidelines}
-			:review-guidelines="{$reviewGuidelines|json_encode|escape}"
-		{/if}
+		:submission-id="{$submissionId}"
 	></reviewer-review-step3-form>
 </div>
 
 <script>
-	pkp.registry.init('reviewerReviewStep3Form-{$uuid}', 'Page', {ldelim}
-		tinyMCE: {$tinyMCE|json_encode}
-	{rdelim});
+	// Revisiting this step mounts a second app over the first, so remove the old one.
+	Object.keys(pkp.registry._instances)
+		.filter(function(id) {
+			return id.indexOf('reviewerReviewStep3Form-') === 0;
+		})
+		.forEach(function(id) {
+			pkp.registry._instances[id].unmount();
+			delete pkp.registry._instances[id];
+		});
+
+	pkp.registry.init('reviewerReviewStep3Form-{$uuid}', 'Page', {ldelim}{rdelim});
 </script>

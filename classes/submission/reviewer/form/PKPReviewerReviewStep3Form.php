@@ -22,7 +22,6 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
-use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -36,7 +35,6 @@ use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
-use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponse;
@@ -120,37 +118,10 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $templateMgr = TemplateManager::getManager($request);
         $reviewAssignment = $this->getReviewAssignment();
 
-        // Assign the objects and data to the template.
-        $context = $this->request->getContext();
+        // The wizard fetches the rest from reviews/{submissionId}/reviewerReview
         $templateMgr->assign([
-            'reviewAssignment' => $reviewAssignment,
-            'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions(
-                context: $context,
-                reviewAssignment: $reviewAssignment
-            ),
+            'submissionId' => $reviewAssignment->getSubmissionId(),
         ]);
-
-        if ($reviewAssignment->getReviewFormId()) {
-            // Get the review form components
-            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
-            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
-            $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
-            $templateMgr->assign([
-                'reviewForm' => $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId()),
-                'reviewFormElements' => $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId()),
-                'reviewFormResponses' => $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId()),
-                'disabled' => isset($reviewAssignment) && $reviewAssignment->getDateCompleted() != null,
-            ]);
-        }
-
-        //
-        // Assign the link actions
-        //
-        $viewReviewGuidelinesAction = new ViewReviewGuidelinesLinkAction($request, $reviewAssignment->getStageId());
-        if ($viewReviewGuidelinesAction->getGuidelines()) {
-            $templateMgr->assign('viewGuidelinesAction', $viewReviewGuidelinesAction);
-        }
 
         return parent::fetch($request, $template, $display);
     }

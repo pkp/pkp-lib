@@ -91,6 +91,7 @@ msgstr ""
 "Kliknite na imena dokumenata koji su vezani za prijavu da biste ih preuzeli "
 "na vaš računar."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Upištite ili kopirajte vašu recenziju u formu niže."
 

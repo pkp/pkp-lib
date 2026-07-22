@@ -92,6 +92,7 @@ msgstr ""
 "Kattintson az alábbi fájlnevekre, hogy letölthesse a beküldött cikkhez "
 "kapcsolódó fájlokat."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Az alábbi űrlapon adja meg (vagy másolja be) a szakértői véleményét ehhez a "

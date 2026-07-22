@@ -22,7 +22,6 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
-use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -36,7 +35,6 @@ use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
-use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponse;
@@ -119,85 +117,10 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
     {
         $templateMgr = TemplateManager::getManager($request);
         $reviewAssignment = $this->getReviewAssignment();
-        $submission = $this->getReviewSubmission();
-        $context = $this->request->getContext();
 
-        // Serialize reviewer recommendation options as [{value, label}] for Vue select field
-        $recommendationOptions = Repo::reviewerRecommendation()->getRecommendationOptions(
-            context: $context,
-            reviewAssignment: $reviewAssignment
-        );
-        $serializedRecommendationOptions = [];
-        foreach ($recommendationOptions as $value => $label) {
-            $serializedRecommendationOptions[] = ['value' => $value, 'label' => $label];
-        }
-
-        $stageId = $reviewAssignment->getStageId();
-
-        // Serialize review form data for Vue
-        $reviewFormData = null;
-        $reviewFormElementsData = null;
-        $reviewFormResponsesData = null;
-
-        if ($reviewAssignment->getReviewFormId()) {
-            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
-            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
-            $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
-
-            $reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
-            $reviewFormData = [
-                'title' => $reviewForm->getLocalizedTitle(),
-                'description' => $reviewForm->getLocalizedDescription(),
-            ];
-
-            $reviewFormElementsIterator = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
-            $reviewFormElementsData = [];
-            while ($element = $reviewFormElementsIterator->next()) {
-                $elementData = [
-                    'id' => $element->getId(),
-                    'elementType' => $element->getElementType(),
-                    'question' => strip_tags($element->getLocalizedQuestion()),
-                    'description' => strip_tags($element->getLocalizedDescription()),
-                    'required' => $element->getRequired(),
-                    'sequence' => $element->getSequence(),
-                ];
-                // Add possible responses for choice-based elements
-                if (in_array($element->getElementType(), [
-                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES,
-                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS,
-                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX,
-                ])) {
-                    $elementData['possibleResponses'] = $element->getLocalizedPossibleResponses();
-                }
-                $reviewFormElementsData[] = $elementData;
-            }
-
-            $reviewFormResponsesData = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
-        }
-
-        // Get review guidelines
-        $viewReviewGuidelinesAction = new ViewReviewGuidelinesLinkAction($request, $stageId);
-        $reviewGuidelines = $viewReviewGuidelinesAction->getGuidelines();
-
+        // The wizard fetches the rest from reviews/{submissionId}/reviewerReview
         $templateMgr->assign([
-            'reviewAssignment' => $reviewAssignment,
-            'reviewAssignmentData' => [
-                'id' => $reviewAssignment->getId(),
-                'submissionId' => $submission->getId(),
-                'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-                'stageId' => $stageId,
-                'recommendationId' => $reviewAssignment->getReviewerRecommendationId(),
-                'dateCompleted' => $reviewAssignment->getDateCompleted(),
-                'cancelled' => $reviewAssignment->getCancelled(),
-            ],
-            'reviewerRecommendationOptions' => $serializedRecommendationOptions,
-            'reviewFormData' => $reviewFormData,
-            'reviewFormElementsData' => $reviewFormElementsData,
-            'reviewFormResponsesData' => $reviewFormResponsesData,
-            'reviewGuidelines' => $reviewGuidelines,
-            'comments' => $this->getData('comments') ?? '',
-            'commentsPrivate' => $this->getData('commentsPrivate') ?? '',
-            'tinyMCE' => ['skinUrl' => TemplateManager::getManager($request)->getTinyMceSkinUrl($request)],
+            'submissionId' => $reviewAssignment->getSubmissionId(),
         ]);
 
         return parent::fetch($request, $template, $display);

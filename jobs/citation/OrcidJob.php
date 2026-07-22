@@ -3,8 +3,8 @@
 /**
  * @file jobs/citation/OrcidJob.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OrcidJob
@@ -16,7 +16,11 @@
 
 namespace PKP\jobs\citation;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Queue\Middleware\RateLimited;
+use Illuminate\Support\Facades\RateLimiter;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\externalServices\orcid\Inbound;
 use PKP\job\exceptions\JobException;
@@ -24,6 +28,15 @@ use PKP\jobs\BaseJob;
 
 class OrcidJob extends BaseJob
 {
+    /** Name of the shared rate limiter throttling all ORCID lookups below ORCID's documented 12 requests/second sustained limit. */
+    protected const RATE_LIMITER_NAME = 'orcid-lookups';
+
+    /**
+     * Just under ORCID's anonymous-tier 25k reads/day-per-IP quota (assumes a single app
+     * server/shared cache); applied uniformly since the tier isn't known at this stage.
+     */
+    protected const DAILY_LIMIT = 24500;
+
     protected int $contextId;
     protected int $citationId;
     protected string $contactEmail = '';
@@ -34,6 +47,20 @@ class OrcidJob extends BaseJob
         $this->contextId = $contextId;
         $this->citationId = $citationId;
         $this->contactEmail = $contactEmail;
+    }
+
+    /**
+     * Job middleware; self-throttles below ORCID's rate limit so this job (across all
+     * queued citations) is released back to the queue instead of routinely hitting a 429.
+     */
+    public function middleware(): array
+    {
+        RateLimiter::for(self::RATE_LIMITER_NAME, fn () => [
+            Limit::perSecond(11),
+            Limit::perDay(self::DAILY_LIMIT),
+        ]);
+
+        return [new RateLimited(self::RATE_LIMITER_NAME)];
     }
 
     /**
@@ -58,7 +85,8 @@ class OrcidJob extends BaseJob
             return;
         }
 
-        $service = new Inbound($this->contactEmail);
+        $context = Application::getContextDAO()->getById($this->contextId);
+        $service = new Inbound($this->contactEmail, $context);
 
         $authorsChanged = [];
 
@@ -72,13 +100,22 @@ class OrcidJob extends BaseJob
 
             if (empty($authorChanged)) {
                 switch ($service->statusCode) {
-                    case '404':
+                    case 401:
+                        // Cached access token is invalid; clear it so the next lookup fetches a fresh one.
+                        $service->clearCachedAccessToken();
+                        break;
+                    case 404:
                         $author['orcid'] = '';
                         break;
-                    case '408':
-                    case '504':
+                    case 408:
+                    case 504:
                         throw new JobException(__('admin.job.failed.connection.externalService', [
                             'statusCode' => $service->statusCode]));
+                    case 429:
+                    case 503:
+                        // ORCID returns 503 (rather than 429) specifically when the burst allowance is exceeded.
+                        $this->release($service->retryAfter !== null ? $service->retryAfter + 3 : 60);
+                        return;
                 }
                 $authorsChanged[] = $author;
                 continue;

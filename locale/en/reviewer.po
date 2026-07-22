@@ -178,8 +178,14 @@ msgstr ""
 msgid "submission.comments.canShareWithAuthor"
 msgstr "For author and editor"
 
+msgid "submission.comments.canShareWithAuthor.description"
+msgstr "These comments will be shared with the author and editor. If this is an open peer review, they will also appear publicly alongside the article."
+
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "For editor only"
+
+msgid "submission.comments.cannotShareWithAuthor.description"
+msgstr "These comments are private between you and the editor."
 
 msgid "submission.comments.sendCopyToReviewers"
 msgstr ""

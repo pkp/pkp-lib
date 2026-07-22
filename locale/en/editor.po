@@ -477,6 +477,9 @@ msgstr "Create New Review Round"
 msgid "editor.submission.search"
 msgstr "Search submissions, ID, authors, keywords, etc."
 
+msgid "editor.submission.searchGlobal"
+msgstr "Search submissions"
+
 msgid "editor.submission.days"
 msgstr "Days"
 

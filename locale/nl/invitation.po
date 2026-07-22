@@ -14,9 +14,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "Ten minste één toe te voegen gebruikersgroep moet worden omschreven"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "De gebruikersgroep is toegekend aan de uitgenodigde gebruiker"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "Ten minste één te verwijderen gebruikersgroep moet worden omschreven"
 

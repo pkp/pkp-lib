@@ -121,9 +121,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "ينبغي تعريف مجموعة مستخدمين واحدة على الأقل لإضافتها"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "مجموعة المستخدمين معينة إلى المستخدم المدعو"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
 msgstr "لا يمكن تعريف إزالة أدوار المستخدمين لمستخدم غير موجود."
 

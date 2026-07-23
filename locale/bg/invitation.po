@@ -231,9 +231,6 @@ msgstr ""
 msgid "acceptInvitation.cancelInvite.title"
 msgstr "Да се отмени ли процесът на покана за роля?"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Потребителската група се присвоява на поканения потребител"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "Трябва да бъде дефинирана поне една потребителска група за премахване"
 

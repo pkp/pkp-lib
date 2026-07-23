@@ -17,11 +17,12 @@
 <form class="pkp_form" id="changePasswordForm" method="post" action="{url op="savePassword"}">
 	{csrf}
 
+	{call_hook name="Templates::Password::BeforeFields"}
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="changePasswordFormNotification"}
 
-	<p><span class="instruct">{translate key="user.profile.changePasswordInstructions"}</span></p>
-
 	{fbvFormArea id="changePasswordFormArea"}
+		<p><span class="instruct">{translate key="user.profile.changePasswordInstructions"}</span></p>
 		{fbvFormSection label="user.profile.oldPassword"}
 			{fbvElement type="text" password="true" id="oldPassword" maxLength="32" size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}

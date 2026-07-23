@@ -36,7 +36,7 @@ trait EntityWithParent
      *
      * @return T
      */
-    abstract public function fromRow(object $row): DataObject;
+    abstract public function fromRow(object $row, bool $cacheable = false): DataObject;
 
     /**
      * Check if an object exists.
@@ -60,12 +60,12 @@ trait EntityWithParent
      *
      * @return ?T
      */
-    public function get(int $id, ?int $parentId = null): ?DataObject
+    public function get(int $id, ?int $parentId = null, bool $cacheable = false): ?DataObject
     {
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->when($parentId !== null, fn (Builder $query) => $query->where($this->getParentColumn(), $parentId))
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, $cacheable) : null;
     }
 }

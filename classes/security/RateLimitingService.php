@@ -10,7 +10,7 @@
  * @brief Service class for handling rate limiting on login and password reset.
  *
  * Uses Laravel's RateLimiter facade to track and limit authentication attempts.
- * Rate limiting is keyed by 
+ * Rate limiting is keyed by
  *  - IP + username for login attempts
  *  - IP + email for password reset requests
  */
@@ -19,6 +19,7 @@ namespace PKP\security;
 
 use Illuminate\Support\Facades\RateLimiter;
 use PKP\site\Site;
+use Psr\Log\LogLevel;
 
 class RateLimitingService
 {
@@ -45,7 +46,9 @@ class RateLimitingService
     protected ?Site $site = null;
 
     // Private constructor to prevent direct instantiation
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
     /*
      * Get the singleton instance
@@ -265,15 +268,11 @@ class RateLimitingService
      */
     protected function logRateLimitEvent(string $type, string $ip, ?string $identifier = null): void
     {
-        $identifierLabel = $type === 'password_reset' ? 'Email' : 'Username';
-        $message = sprintf(
-            '[RateLimit] %s triggered - IP: %s%s',
-            ucfirst($type),
-            $ip,
-            $identifier !== null ? ", {$identifierLabel}: {$identifier}" : ''
-        );
-
-        error_log($message);
+        AuditLog::log('auth.ratelimit.hit', LogLevel::WARNING, [
+            'type' => $type, // 'login' | 'password_reset'
+            'ip' => $ip,
+            'identifier' => $identifier,
+        ]);
     }
 
     /**

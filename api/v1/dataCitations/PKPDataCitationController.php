@@ -132,7 +132,7 @@ class PKPDataCitationController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
         if ($publication->getId() !== $dataCitation->publicationId) {
             return response()->json([
-                'error' => __('api.dataCitations.400.publicationsNotMatched'),
+                'error' => __('api.dataCitations.403.publicationsNotMatched'),
             ], Response::HTTP_FORBIDDEN);
         }
 
@@ -198,7 +198,7 @@ class PKPDataCitationController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
         if ($publication->getId() !== $dataCitation->publicationId) {
             return response()->json([
-                'error' => __('api.dataCitations.400.publicationsNotMatched'),
+                'error' => __('api.dataCitations.403.publicationsNotMatched'),
             ], Response::HTTP_FORBIDDEN);
         }
 
@@ -241,7 +241,7 @@ class PKPDataCitationController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
         if ($publication->getId() !== $dataCitation->publicationId) {
             return response()->json([
-                'error' => __('api.dataCitations.400.publicationsNotMatched'),
+                'error' => __('api.dataCitations.403.publicationsNotMatched'),
             ], Response::HTTP_FORBIDDEN);
         }
 
@@ -260,13 +260,6 @@ class PKPDataCitationController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
         $publicationId = (int) $publication->getId();
         $sequence = $illuminateRequest->json()->all();
-
-        if (!is_array($sequence)) {
-            return response()->json(
-                ['error' => __('api.dataCitations.404.invalidOrderFormat')],
-                Response::HTTP_BAD_REQUEST
-            );
-        }
 
         foreach ($sequence as $index => $dataCitationId) {
             DataCitation::where('data_citation_id', (int) $dataCitationId)

@@ -699,10 +699,13 @@ msgid "submission.dataCitations"
 msgstr "Data Citations"
 
 msgid "submission.dataCitations.description"
-msgstr "This table allows users to add formal data citations, ensuring datasets are properly credited and appear alongside other references in the publication."
+msgstr "Add formal data citations, ensuring datasets are properly credited and appear alongside other references in the publication."
 
 msgid "submission.dataCitations.title"
 msgstr "Title"
+
+msgid "submission.dataCitations.action.addDataCitation"
+msgstr "Add Data Citation"
 
 msgid "submission.dataCitations.addModal.title"
 msgstr "Add Data Citation"

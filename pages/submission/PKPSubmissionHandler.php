@@ -791,19 +791,13 @@ abstract class PKPSubmissionHandler extends Handler
             ];
         }
 
-        // Group Data Citations and Data Availability under one "Data" heading
-        $dataGroup = [
-            'id' => 'data',
-            'name' => __('submission.dataAvailabilityAndCitation.data'),
-            'description' => __('submission.dataAvailabilityAndCitation.data.description'),
-        ];
-
         $dataCitationsSetting = $request->getContext()->getData('dataCitations');
         if (in_array($dataCitationsSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
             $sections[] = [
                 'id' => 'dataCitations',
+                'name' => __('submission.dataCitations'),
                 'type' => self::SECTION_TYPE_DATA_CITATIONS,
-                'group' => $dataGroup,
+                'description' => '',
             ];
         }
 
@@ -819,9 +813,10 @@ abstract class PKPSubmissionHandler extends Handler
             $this->removeButtonFromForm($dataAvailabilityForm);
             $sections[] = [
                 'id' => $dataAvailabilityForm->id,
+                'name' => __('submission.dataAvailability'),
                 'type' => self::SECTION_TYPE_FORM,
+                'description' => '',
                 'form' => $dataAvailabilityForm->getConfig(),
-                'group' => $dataGroup,
             ];
         }
 

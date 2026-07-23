@@ -63,88 +63,85 @@
                 :label="step.name"
             >
                 <panel>
-                    <panel-section v-for="group in sectionGroupsByStep[step.id]" :key="group.id">
+                    <panel-section v-for="section in step.sections" :key="section.id">
                         <template #header>
-                            <h2>{{ group.name }}</h2>
-                            <div class="semantic-defaults" v-strip-unsafe-html="group.description" />
+                            <h2>{{ section.name }}</h2>
+                            <div class="semantic-defaults" v-strip-unsafe-html="section.description" />
                         </template>
-                        <template v-for="(section, sectionIndex) in group.sections" :key="section.id">
-                            <pkp-form
-                                v-if="section.type === 'form'"
-                                v-bind="section.form"
-                                ref="autosaveForms"
-                                class="submissionWizard__stepForm"
-                                :class="sectionIndex > 0 ? 'mt-12' : ''"
-                                @set="updateAutosaveForm"
-                            ></pkp-form>
-                            <submission-files-list-panel
-                                v-else-if="section.type === 'files'"
-                                v-bind="components.submissionFiles"
-                                @set="set"
-                            ></submission-files-list-panel>
-                            <contributors-list-panel
-                                v-else-if="section.type === 'contributors'"
-                                v-bind="components.contributors"
-                                :items="publication.authors"
-                                :publication="publication"
-                                @updated:contributors="setContributors"
-                                @updated:publication="setPublication"
-                            ></contributors-list-panel>
-                            <reviewer-suggestions-list-panel
-                                v-else-if="section.type === 'reviewerSuggestions'"
-                                v-bind="components.reviewerSuggestions"
-                                :items="submission.reviewerSuggestions"
-                                :submission="submission"
-                                :publication="publication"
-                                @updated:reviewer-suggestions="setReviewerSuggestion"
-                            ></reviewer-suggestions-list-panel>
-                            <data-citation-manager
-                                v-else-if="section.type === 'dataCitations'"
-                                v-bind="components.dataCitation"
-                                :submission="submission"
-                                :publication="publication"
-                            ></data-citation-manager>
-                            <funder-manager
-                                v-else-if="section.type === 'funders'"
-                                v-bind="components.funder"
-                                :submission="submission"
-                                :publication="publication"
-                            ></funder-manager>
-                            <template v-else-if="section.type === 'review'">
-                                <notification
-                                    v-if="Object.keys(errors).length" type="warning"
-                                    class="submissionWizard__review_errors"
+                        <pkp-form
+                            v-if="section.type === 'form'"
+                            v-bind="section.form"
+                            ref="autosaveForms"
+                            class="submissionWizard__stepForm"
+                            @set="updateAutosaveForm"
+                        ></pkp-form>
+                        <submission-files-list-panel
+                            v-else-if="section.type === 'files'"
+                            v-bind="components.submissionFiles"
+                            @set="set"
+                        ></submission-files-list-panel>
+                        <contributors-list-panel
+                            v-else-if="section.type === 'contributors'"
+                            v-bind="components.contributors"
+                            :items="publication.authors"
+                            :publication="publication"
+                            @updated:contributors="setContributors"
+                            @updated:publication="setPublication"
+                        ></contributors-list-panel>
+                        <reviewer-suggestions-list-panel
+                            v-else-if="section.type === 'reviewerSuggestions'"
+                            v-bind="components.reviewerSuggestions"
+                            :items="submission.reviewerSuggestions"
+                            :submission="submission"
+                            :publication="publication"
+                            @updated:reviewer-suggestions="setReviewerSuggestion"
+                        ></reviewer-suggestions-list-panel>
+                        <data-citation-manager
+                            v-else-if="section.type === 'dataCitations'"
+                            v-bind="components.dataCitation"
+                            :submission="submission"
+                            :publication="publication"
+                        ></data-citation-manager>
+                        <funder-manager
+                            v-else-if="section.type === 'funders'"
+                            v-bind="components.funder"
+                            :submission="submission"
+                            :publication="publication"
+                        ></funder-manager>
+                        <template v-else-if="section.type === 'review'">
+                            <notification
+                                v-if="Object.keys(errors).length" type="warning"
+                                class="submissionWizard__review_errors"
+                            >
+                                {translate key="submission.wizard.errors"}
+                            </notification>
+                            {foreach from=$reviewSteps item=$step}
+                                {if $step.reviewTemplate}
+                                    {include file=$step.reviewTemplate}
+                                {elseif $step.component}
+                                    <component :is="'{$step.component}'" v-bind='{$step.props|json_encode_html_attribute}'></component>
+                                {/if}
+                                {call_hook name="Template::SubmissionWizard::Section::Review" submission=$submission step=$step.id}
+                            {/foreach}
+                            <transition name="submissionWizard__reviewLoading">
+                                <span
+                                    v-if="isAutosaving || isValidating"
+                                    role="alert"
+                                    class="submissionWizard__loadingReview"
                                 >
-                                    {translate key="submission.wizard.errors"}
-                                </notification>
-                                {foreach from=$reviewSteps item=$step}
-                                    {if $step.reviewTemplate}
-                                        {include file=$step.reviewTemplate}
-                                    {elseif $step.component}
-                                        <component :is="'{$step.component}'" v-bind='{$step.props|json_encode_html_attribute}'></component>
-                                    {/if}
-                                    {call_hook name="Template::SubmissionWizard::Section::Review" submission=$submission step=$step.id}
-                                {/foreach}
-                                <transition name="submissionWizard__reviewLoading">
-                                    <span
-                                        v-if="isAutosaving || isValidating"
-                                        role="alert"
-                                        class="submissionWizard__loadingReview"
-                                    >
-                                        <spinner></spinner>
-                                        {translate key="submission.wizard.validating"}
-                                    </span>
-                                </transition>
-                            </template>
-                            <component v-else-if="section.component" :is="section.component" v-bind="section?.props || {}"></component>
-                            <pkp-form
-                                v-if="section.type === 'confirm'"
-                                v-bind="section.form"
-                                class="submissionWizard__stepForm"
-                                @set="updateForm"
-                            ></pkp-form>
-                            {call_hook name="Template::SubmissionWizard::Section" submission=$submission}
+                                    <spinner></spinner>
+                                    {translate key="submission.wizard.validating"}
+                                </span>
+                            </transition>
                         </template>
+                        <component v-else-if="section.component" :is="section.component" v-bind="section?.props || {}"></component>
+                        <pkp-form
+                            v-if="section.type === 'confirm'"
+                            v-bind="section.form"
+                            class="submissionWizard__stepForm"
+                            @set="updateForm"
+                        ></pkp-form>
+                        {call_hook name="Template::SubmissionWizard::Section" submission=$submission}
                     </panel-section>
                 </panel>
             </step>

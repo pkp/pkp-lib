@@ -2829,6 +2829,9 @@ msgstr "The date must be in the format YYYY-MM-DD, such as 2019-01-01."
 msgid "publication.event.versionCreated"
 msgstr "A new version was created."
 
+msgid "publication.identityAtPublication.description"
+msgstr "This metadata was recorded at the time of publication and will not change if the publisher updates its identity settings. To correct it, use the CLI batch tool."
+
 msgid "publication.publicationLicense"
 msgstr "Permissions & Disclosure"
 

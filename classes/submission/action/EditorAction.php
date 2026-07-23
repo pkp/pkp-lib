@@ -123,6 +123,7 @@ class EditorAction
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 'message' => 'log.review.reviewerAssigned',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),

@@ -863,6 +863,7 @@ abstract class Repository
 
         return [
             'userId' => Validation::loggedInAs() ?: $user?->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $user?->getId() : null,
             'fileStage' => $submissionFile->getData('fileStage'),
             'submissionFileId' => $submissionFile->getId(),
             'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),

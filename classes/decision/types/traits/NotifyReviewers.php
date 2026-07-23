@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/traits/NotifyReviewers.php
  *
@@ -26,8 +27,8 @@ use PKP\mail\EmailData;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Validation;
-use PKP\user\User;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 
 trait NotifyReviewers
 {
@@ -58,7 +59,7 @@ trait NotifyReviewers
                     ->first();
                 if ($reviewAssignment) {
                     $updateData = [];
-                    if(!$reviewAssignment->getDateAcknowledged()) {
+                    if (!$reviewAssignment->getDateAcknowledged()) {
                         $updateData['dateAcknowledged'] = Core::getCurrentDate();
                     }
                     if (!in_array($reviewAssignment->getConsidered(), [ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED])) {
@@ -68,12 +69,12 @@ trait NotifyReviewers
                             : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
                     }
 
-                    if(!$reviewAssignment->getDateConsidered()) {
+                    if (!$reviewAssignment->getDateConsidered()) {
                         // set the date when the editor confirms the review
                         $updateData['dateConsidered'] = Core::getCurrentDate();
                     }
 
-                    if(!empty($updateData)) {
+                    if (!empty($updateData)) {
                         Repo::reviewAssignment()->edit($reviewAssignment, $updateData);
                     }
 
@@ -88,6 +89,7 @@ trait NotifyReviewers
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_DECISION_EMAIL_SENT,
             'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()?->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? Application::get()->getRequest()->getUser()?->getId() : null,
             'message' => 'submission.event.decisionReviewerEmailSent',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),

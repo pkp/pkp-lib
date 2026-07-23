@@ -56,7 +56,6 @@ use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\mail\mailables\ReviewerUnassign;
-use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\Notification;
@@ -733,6 +732,7 @@ class PKPReviewerGridHandler extends GridHandler
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
             'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $user->getId() : null,
             'message' => 'log.review.reviewUnconsidered',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
@@ -799,6 +799,7 @@ class PKPReviewerGridHandler extends GridHandler
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 'message' => 'log.review.reviewConfirmed',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),

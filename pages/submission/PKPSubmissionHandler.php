@@ -791,13 +791,13 @@ abstract class PKPSubmissionHandler extends Handler
             ];
         }
 
+        $dataSections = [];
+
         $dataCitationsSetting = $request->getContext()->getData('dataCitations');
         if (in_array($dataCitationsSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
-            $sections[] = [
+            $dataSections[] = [
                 'id' => 'dataCitations',
-                'name' => __('submission.dataCitations'),
                 'type' => self::SECTION_TYPE_DATA_CITATIONS,
-                'description' => '',
             ];
         }
 
@@ -811,13 +811,19 @@ abstract class PKPSubmissionHandler extends Handler
                 $dataAvailabilitySetting === Context::METADATA_REQUIRE
             );
             $this->removeButtonFromForm($dataAvailabilityForm);
-            $sections[] = [
+            $dataSections[] = [
                 'id' => $dataAvailabilityForm->id,
-                'name' => __('submission.dataAvailability'),
                 'type' => self::SECTION_TYPE_FORM,
-                'description' => '',
                 'form' => $dataAvailabilityForm->getConfig(),
             ];
+        }
+
+        // The "Data" heading is shown once, above whichever data section comes first
+        foreach ($dataSections as $index => $dataSection) {
+            $sections[] = array_merge([
+                'name' => $index === 0 ? __('submission.dataAvailabilityAndCitation.data') : '',
+                'description' => $index === 0 ? __('submission.dataAvailabilityAndCitation.data.description') : '',
+            ], $dataSection);
         }
 
         $fundersSetting = $request->getContext()->getData('funders');

@@ -815,6 +815,9 @@ msgstr "Coverage Information"
 msgid "submission.dataAvailabilityAndCitation.data"
 msgstr "Data"
 
+msgid "submission.dataAvailabilityAndCitation.data.description"
+msgstr "Information about the research data associated with your submission."
+
 msgid "submission.details"
 msgstr "Submission Details"
 

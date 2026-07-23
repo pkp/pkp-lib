@@ -83,19 +83,24 @@ class SubmissionPeerReviewResource extends JsonResource
 
         $roundIds = $reviewRounds->map(fn (ReviewRound $reviewRound) => $reviewRound->getId())->values()->all();
 
+        // Get all accepted review assignments. Confirmed ones will be filtered and exposed to peer review API, while all reviews will be considered for summary.
         $reviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
             ->filterByIsPubliclyVisible(true)
             ->filterByIsAccepted(true)
-            ->filterByIsConfirmedByEditor(true)
             ->getMany()
             // Materialize the lazy collection: it is iterated once per consumer
             // below and each LazyCollection iteration re-runs the query and
             // re-hydrates every assignment
             ->collect();
 
-        $reviewsGroupedByRoundId = $reviewAssignments
+        // Only confirm reviews are to be exposed; however, all accepted reviews are to be considered when preparing summary further down
+        $confirmedReviewAssignments = $reviewAssignments->filter(
+            fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateConsidered() !== null || $reviewAssignment->getDateAcknowledged() !== null
+        );
+
+        $reviewsGroupedByRoundId = $confirmedReviewAssignments
             ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId());
 
         $roundResponses = empty($roundIds)
@@ -213,6 +218,7 @@ class SubmissionPeerReviewResource extends JsonResource
      * Preload all review form data to avoid duplicate or repeat DB calls
      *
      * @param Enumerable<ReviewAssignment> $assignments
+     *
      * @throws \Exception
      */
     private function preloadFormsAndComments(Enumerable $assignments, Context $context): void

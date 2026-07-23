@@ -133,7 +133,7 @@ abstract class OAI
     /**
      * Return OAI record for the specified identifier.
      *
-     * @return ?OAIRecord (null if identifier is invalid)
+     * @return OAIRecord|false false if identifier is invalid
      */
     abstract public function record(string $identifier): OAIRecord|false;
 
@@ -141,8 +141,8 @@ abstract class OAI
      * Return a set of OAI records.
      *
      * @param string $metadataPrefix specified metadata prefix
-     * @param int $from minimum timestamp
-     * @param int $until maximum timestamp
+     * @param ?int $from minimum timestamp
+     * @param ?int $until maximum timestamp
      * @param string $set specified set
      * @param int $offset current record offset
      * @param int $limit maximum number of records to return

@@ -99,7 +99,7 @@ abstract class PKPOAIDAO extends DAO
      * @param int|null $publicationId optional. If passed, restrict to the
      * record representing that specific object version.
      */
-    public function recordExists(int $dataObjectId, array $setIds = [], int $publicationId = null): bool
+    public function recordExists(int $dataObjectId, array $setIds = [], ?int $publicationId = null): bool
     {
         return (bool)$this->getRecord($dataObjectId, $setIds, $publicationId);
     }
@@ -113,7 +113,7 @@ abstract class PKPOAIDAO extends DAO
      * @param int|null $publicationId optional. If passed, return the record
      * representing that specific object version.
      */
-    public function getRecord(int $dataObjectId, array $setIds = [], int $publicationId = null): ?OAIRecord
+    public function getRecord(int $dataObjectId, array $setIds = [], ?int $publicationId = null): ?OAIRecord
     {
         $result = $this->getRecordsRecordSetQuery(
             $setIds,

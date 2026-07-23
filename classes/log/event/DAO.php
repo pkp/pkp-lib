@@ -40,6 +40,7 @@ class DAO extends EntityDAO
         'assocType' => 'assoc_type',
         'assocId' => 'assoc_id',
         'userId' => 'user_id',
+        'impersonatedAsUserId' => 'impersonated_as_user_id',
         'dateLogged' => 'date_logged',
         'eventType' => 'event_type',
         'message' => 'message',
@@ -166,5 +167,6 @@ class DAO extends EntityDAO
     public function changeUser(int $oldUserId, int $newUserId)
     {
         DB::table($this->table)->where('user_id', $oldUserId)->update(['user_id' => $newUserId]);
+        DB::table($this->table)->where('impersonated_as_user_id', $oldUserId)->update(['impersonated_as_user_id' => $newUserId]);
     }
 }

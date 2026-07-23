@@ -35,6 +35,10 @@ class LogMigration extends \PKP\migration\Migration
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'event_log_user_id');
 
+            $table->bigInteger('impersonated_as_user_id')->nullable()->comment('The user that was impersonated via the "Login as" mechanism when the event was performed');
+            $table->foreign('impersonated_as_user_id')->references('user_id')->on('users')->onDelete('set null');
+            $table->index(['impersonated_as_user_id'], 'event_log_impersonated_as_user_id');
+
             $table->datetime('date_logged');
             $table->bigInteger('event_type')->nullable();
             $table->text('message')->nullable();

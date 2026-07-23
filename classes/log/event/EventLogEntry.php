@@ -47,6 +47,23 @@ class EventLogEntry extends \PKP\core\DataObject
     }
 
     /**
+     * Get the ID of the user if that was impersonated via the "Login as" mechanism
+     * when this event was performed.
+     */
+    public function getImpersonatedAsUserId(): ?int
+    {
+        return $this->getData('impersonatedAsUserId');
+    }
+
+    /**
+     * Set the ID of the user that was impersonated when this event was performed.
+     */
+    public function setImpersonatedAsUserId(?int $userId): void
+    {
+        $this->setData('impersonatedAsUserId', $userId);
+    }
+
+    /**
      * Get date entry was logged.
      */
     public function getDateLogged(): string

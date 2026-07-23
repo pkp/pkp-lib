@@ -1158,7 +1158,7 @@ class PKPTemplateManager extends Smarty
                             $viewsData = $viewsData->prepend([
                                 'itemType' => 'search',
                                 'name' => __('search.searchResults'),
-                                'searchLabel' => __('editor.submission.search'),
+                                'searchLabel' => __('editor.submission.searchGlobal'),
                                 'searchParam' => 'searchPhrase', // query param this search uses; unique per search view
                                 'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'editorial' && $requestedViewId === DashboardView::VIEW_SEARCH,
                                 'url' => $router->url($request, null, 'dashboard', 'editorial', null, ['currentViewId' => DashboardView::VIEW_SEARCH]),

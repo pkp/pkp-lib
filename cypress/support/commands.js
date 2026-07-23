@@ -734,7 +734,7 @@ Cypress.Commands.add('checkTable', (articleDetails, articles, authors, submissio
 	cy.get('input.pkpSearch__input').clear().type(authors[0] + '{enter}', {delay: 0});
 	cy.get('.pkpStats__panel .pkpStats__itemAuthors:contains("' + authors[0] + '")');
 	cy.get(`div:contains("${submissionCountFromAuthor} of ${submissionCountFromAuthor} ${articles}")`);
-	cy.get('input.pkpSearch__input').clear();
+	cy.get('.pkpSearch button').click();
 });
 
 Cypress.Commands.add('checkFilters', filters => {

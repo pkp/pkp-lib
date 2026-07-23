@@ -628,8 +628,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
 
         Repo::emailTemplate()->dao->installAlternateEmailTemplates($context->getId());
-        Repo::emailTemplate()->dao->setTemplateDefaultUnrestirctedSetting($context->getId());
-
         // Add contributor roles
         collect([
             'default.groups.name.author' => ContributorRoleIdentifier::AUTHOR->getName(),

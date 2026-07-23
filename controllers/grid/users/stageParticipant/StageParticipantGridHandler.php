@@ -598,7 +598,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $templateKey = $request->getUserVar('template');
         $context = $request->getContext();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
-        if ($template && Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
+        if ($template) {
             $submission = $this->getSubmission();
             $mailable = $this->getStageMailable($context, $submission);
             $mailable->sender($request->getUser());

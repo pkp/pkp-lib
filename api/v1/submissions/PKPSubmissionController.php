@@ -899,6 +899,7 @@ class PKPSubmissionController extends PKPBaseController
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 'message' => 'submission.event.copyrightAgreed',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),

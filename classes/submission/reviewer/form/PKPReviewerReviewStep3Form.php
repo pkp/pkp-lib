@@ -261,6 +261,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_READY,
             'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? Application::get()->getRequest()->getUser()->getId() : null,
             'message' => 'log.review.reviewReady',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),

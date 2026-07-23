@@ -107,6 +107,7 @@ class ReviewerAction
                 'assocId' => $submission->getId(),
                 'eventType' => $decline ? SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE : SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ACCEPT,
                 'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $request->getUser()->getId() : null,
                 'message' => $decline ? 'log.review.reviewDeclined' : 'log.review.reviewAccepted',
                 'isTranslate' => 0,
                 'dateLogged' => Core::getCurrentDate(),

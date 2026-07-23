@@ -25,7 +25,6 @@ use APP\template\TemplateManager;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -73,6 +72,7 @@ abstract class InformationCenterHandler extends Handler
      * Fetch and store away objects
      *
      * @param PKPRequest $request
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {
@@ -213,6 +213,7 @@ abstract class InformationCenterHandler extends Handler
             'assocId' => $object->getId(),
             'eventType' => $eventType,
             'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $request->getUser()->getId() : null,
             'message' => $logMessage,
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()

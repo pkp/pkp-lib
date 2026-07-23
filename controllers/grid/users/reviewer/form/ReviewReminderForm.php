@@ -171,6 +171,7 @@ class ReviewReminderForm extends Form
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 'message' => 'submission.event.reviewer.reviewerReminded',
                 'isTranslate' => 0,
                 'dateLogged' => Core::getCurrentDate(),

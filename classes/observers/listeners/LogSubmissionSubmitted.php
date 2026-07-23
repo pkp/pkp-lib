@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/observers/listeners/LogSubmissionSubmitted.php
  *
@@ -41,6 +42,7 @@ class LogSubmissionSubmitted
             'assocId' => $event->submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_SUBMISSION_SUBMIT,
             'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()?->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? Application::get()->getRequest()->getUser()?->getId() : null,
             'message' => 'submission.event.submissionSubmitted',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),

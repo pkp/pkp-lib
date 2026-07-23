@@ -29,6 +29,7 @@ use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ThankReviewerForm extends Form
@@ -74,7 +75,10 @@ class ThankReviewerForm extends Form
         $user = $request->getUser();
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
-        $reviewer = Repo::user()->get($reviewerId);
+        // Add temporary user because there will be no user account until user accepts the invitation
+        $reviewer = $reviewerId
+            ? Repo::user()->get($reviewerId)
+            : $this->createTemporaryReviewer($reviewAssignment);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
@@ -111,7 +115,9 @@ class ThankReviewerForm extends Form
         $request = Application::get()->getRequest();
         $reviewAssignment = $this->getReviewAssignment();
         $reviewerId = $reviewAssignment->getReviewerId();
-        $reviewer = Repo::user()->get($reviewerId);
+        $reviewer = $reviewerId
+            ? Repo::user()->get($reviewerId)
+            : $this->createTemporaryReviewer($reviewAssignment);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
@@ -163,5 +169,20 @@ class ThankReviewerForm extends Form
         Repo::reviewAssignment()->edit($reviewAssignment, $newData);
 
         parent::execute(...$functionArgs);
+    }
+
+    /**
+     * Create a temporary reviewer for invitations that have not been accepted yet
+     *
+     * @param ReviewAssignment $reviewAssignment
+     * @return User
+     */
+    private function createTemporaryReviewer(ReviewAssignment $reviewAssignment): User
+    {
+        $email = $reviewAssignment->getData('email');
+        $tempUser = Repo::user()->newDataObject();
+        $tempUser->setEmail($email);
+        $tempUser->setPreferredPublicName($email, Locale::getLocale()); //set email as preferred name for temporary user
+        return $tempUser;
     }
 }

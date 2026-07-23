@@ -70,8 +70,18 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                 if ($element instanceof EventLogEntry) {
                     $userName = $element->getUserFullName();
 
+                    $impersonatedAsName = ($impersonatedAsUserId = $element->getImpersonatedAsUserId())
+                        ? (Repo::user()->get($impersonatedAsUserId, true)?->getFullName() ?? '')
+                        : '';
+
                     // Anonymize reviewer details where necessary
                     if ($this->_isCurrentUserAssignedAuthor) {
+
+                        $reviewAssignment = ($reviewAssignmentId = $element->getData('reviewAssignmentId'))
+                            ? Repo::reviewAssignment()->get($reviewAssignmentId)
+                            : null;
+                        $isOpenReview = $reviewAssignment
+                            && $reviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
 
                         // Maybe anonymize reviewer log entries
                         $reviewerLogTypes = [
@@ -80,13 +90,12 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                             PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
                         ];
                         if (in_array($element->getEventType(), $reviewerLogTypes)) {
-                            $userName = __('editor.review.anonymousReviewer');
-                            if ($reviewAssignmentId = $element->getData('reviewAssignmentId')) {
-                                $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
-                                if ($reviewAssignment && $reviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
-                                    $userName = $element->getUserFullName();
-                                }
-                            }
+                            $userName = $isOpenReview ? $element->getUserFullName() : __('editor.review.anonymousReviewer');
+                        }
+
+                        // Maybe anonymize acting as user when the review is not open
+                        if ($impersonatedAsName !== '' && $reviewAssignmentId && !$isOpenReview) {
+                            $impersonatedAsName = __('editor.review.anonymousReviewer');
                         }
 
                         // Maybe anonymize files submitted by reviewers
@@ -103,9 +112,18 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                             }
                         }
                     }
+
+                    // Disclose impersonation -- append the account the actor was acting as.
+                    if ($impersonatedAsName !== '' && $impersonatedAsName !== $userName) {
+                        $userName = __('submission.event.impersonation.userLabel', [
+                            'userName' => $userName,
+                            'impersonatedAsName' => $impersonatedAsName,
+                        ]);
+                    }
                 } else {
                     $userName = $element->senderFullName;
                 }
+
                 return ['label' => $userName];
             default:
                 assert(false);

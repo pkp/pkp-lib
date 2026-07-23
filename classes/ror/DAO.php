@@ -124,9 +124,9 @@ class DAO extends EntityDAO
     }
 
     /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row): Ror
+    public function fromRow(object $row, bool $cacheable = false): Ror
     {
-        return parent::fromRow($row);
+        return parent::fromRow($row, $cacheable);
     }
 
     /** @copydoc EntityDAO::insert() */

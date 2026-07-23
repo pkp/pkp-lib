@@ -112,9 +112,9 @@ abstract class Collector implements CollectorInterface, ViewsCount
      *
      * @return LazyCollection<int,T>
      */
-    public function getMany(): LazyCollection
+    public function getMany(bool $cacheable = false): LazyCollection
     {
-        return $this->dao->getMany($this);
+        return $this->dao->getMany($this, $cacheable);
     }
 
     /**

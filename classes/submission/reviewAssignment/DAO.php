@@ -152,9 +152,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): ReviewAssignment
+    public function fromRow(object $row, bool $cacheable = false): ReviewAssignment
     {
-        $reviewAssignment = parent::fromRow($row);
+        $reviewAssignment = parent::fromRow($row, $cacheable);
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
         $reviewAssignment->setData(
             'reviewerFullName',
@@ -224,16 +224,15 @@ class DAO extends EntityDAO
      * If the same DOI is used for all publication versions: the current publication of the submission the review was assigned to needs to have a DOI and is published.
      * If different DOIs are used for different publication versions, the publication the review is linked to must have a DOI and is published.
      * Additionally, a review must be publicly visible and completed to be eligible for DOI export.
-     * @param int $contextId
+     *
      * @param bool $doiVersioning - whether different doi is used per publication version.
      * @param array|null $submissionIds - Optional submission IDs to limit the results to.
-     * @return array
      */
     public function getExportableDOIsPeerReviewIds(int $contextId, bool $doiVersioning, ?array $submissionIds = null): array
     {
         return DB::table($this->table)
             ->join('submissions', 'submissions.submission_id', '=', 'review_assignments.submission_id')
-            ->when($submissionIds, fn(Builder $q) => $q->whereIn('submissions.submission_id', $submissionIds))
+            ->when($submissionIds, fn (Builder $q) => $q->whereIn('submissions.submission_id', $submissionIds))
             ->whereNotNull('review_assignments.doi_id')
             ->whereNotNull('review_assignments.date_completed')
             ->where('submissions.context_id', $contextId)
@@ -242,11 +241,11 @@ class DAO extends EntityDAO
                 // When single DOI is used for all publication versions then ensure the current version is published and has a DOI.
                 // When depositing the review, it will be linked to that DOI that is used for all versions instead of a version-specific DOI.
                 !$doiVersioning,
-                fn(Builder $q) => $q
+                fn (Builder $q) => $q
                     ->join('publications', 'publications.publication_id', '=', 'submissions.current_publication_id')
                     ->whereNotNull('publications.doi_id'),
                 // When not using single DOI for all publication versions, ensure that the publication that the review is linked with has been published
-                fn(Builder $q) => $q->whereNotNull('publications.doi_id')
+                fn (Builder $q) => $q->whereNotNull('publications.doi_id')
                     ->join('review_rounds', 'review_rounds.review_round_id', '=', 'review_assignments.review_round_id')
                     ->join('publications', 'publications.publication_id', '=', 'review_rounds.publication_id')
             )

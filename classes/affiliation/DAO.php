@@ -113,7 +113,7 @@ class DAO extends EntityDAO
     }
 
     /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row): Affiliation
+    public function fromRow(object $row, bool $cacheable = false): Affiliation
     {
         $affiliation = parent::fromRow($row);
         if (!empty($affiliation->getRor())) {

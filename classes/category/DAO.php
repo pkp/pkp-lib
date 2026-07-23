@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/DAO.php
  *
@@ -106,9 +107,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Category
+    public function fromRow(object $row, bool $cacheable = false): Category
     {
-        return parent::fromRow($row);
+        return parent::fromRow($row, $cacheable);
     }
 
     /**

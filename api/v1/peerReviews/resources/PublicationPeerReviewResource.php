@@ -236,8 +236,10 @@ class PublicationPeerReviewResource extends JsonResource
                 'reviewerRecommendationTypeLabel' => $recommendation ? $recommendationTypesTypeLabels[$recommendation->type] : null,
                 'reviewForm' => $reviewForm,
                 'reviewerComments' => $reviewerComments,
-                'competingInterestsDeclared' => $assignment->getCompetingInterestsDeclared(),
-                'competingInterests' => $assignment->getCompetingInterests(),
+                // Withheld (null) rather than false for non-open reviews: the reviewer may
+                // have declared, but a free-text statement could deanonymize them.
+                'competingInterestsDeclared' => $isReviewOpen ? $assignment->getCompetingInterestsDeclared() : null,
+                'competingInterests' => $isReviewOpen ? $assignment->getCompetingInterests() : null,
             ];
         })->values();
     }

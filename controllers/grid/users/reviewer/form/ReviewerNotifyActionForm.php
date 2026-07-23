@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file controllers/grid/users/reviewer/form/ReviewerNotifyActionForm.php
  *
@@ -20,6 +21,8 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
+use PKP\emailTemplate\EmailTemplate;
+use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\mail\Mailable;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -85,9 +88,22 @@ abstract class ReviewerNotifyActionForm extends Form
         $mailable = $this->getMailable($context, $submission, $reviewAssignment);
         $mailable->sender($request->getUser());
         $mailable->recipients([Repo::user()->get($reviewerId)]);
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+        $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+        $alternativeTemplates = Repo::emailTemplate()->getCollector($context->getId())
+            ->alternateTo([$mailable::getEmailTemplateKey()])
+            ->getMany()
+            ->collect();
 
-        $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->getData()));
+        $templates = $alternativeTemplates->prepend($defaultTemplate)->mapWithKeys(
+            fn (EmailTemplate $template) => [$template->getData('key') => $template->getLocalizedData('name')]
+        );
+
+        $this->setData('templates', $templates->toArray());
+        $this->setData('defaultTemplateKey', $defaultTemplate->getData('key'));
+        $this->setData('personalMessage', Mail::compileParams(
+            $defaultTemplate->getLocalizedData('body'),
+            $mailable->getData(Locale::getLocale())
+        ));
     }
 
     /**

@@ -248,7 +248,7 @@ msgid "editor.review.thankReviewer"
 msgstr "Thank Reviewer"
 
 msgid "editor.review.reminderError"
-msgstr "Error sending review reminder"
+msgstr "Error sending the message to the reviewer"
 
 msgid "editor.review.thankReviewerError"
 msgstr "Error sending thank you to reviewer"

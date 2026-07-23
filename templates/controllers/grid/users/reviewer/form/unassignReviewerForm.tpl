@@ -12,7 +12,20 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#unassignReviewerForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+		$('#unassignReviewerForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.ReviewerActionFormHandler',
+			{ldelim}
+				templateUrl: {url|json_encode
+					router=PKP\core\PKPApplication::ROUTE_COMPONENT
+					component='grid.users.reviewer.ReviewerGridHandler'
+					op='fetchReviewerActionTemplateBody'
+					stageId=$stageId
+					reviewRoundId=$reviewRoundId
+					submissionId=$submissionId
+					reviewAssignmentId=$reviewAssignmentId
+					defaultTemplate=$defaultTemplateKey
+					escape=false}
+			{rdelim}
+		);
 	{rdelim});
 </script>
 
@@ -25,18 +38,21 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 
 	<!--  Message to reviewer textarea -->
-	{fbvFormSection title="editor.review.personalMessageToReviewer" for="personalMessage"}
-		{fbvElement type="textarea" name="personalMessage" id="personalMessage" value=$personalMessage rich=true}
-	{/fbvFormSection}
+	{fbvFormArea id="notifyFormArea"}
+		{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
+			{fbvElement type="select" from=$templates translate=false id="template" selected=$defaultTemplateKey}
+		{/fbvFormSection}
+
+		{fbvFormSection title="editor.review.personalMessageToReviewer" for="personalMessage"}
+			{fbvElement type="textarea" id="personalMessage" value=$personalMessage rich=true}
+		{/fbvFormSection}
+		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+	{/fbvFormArea}
 
 	<!-- Skip email checkbox -->
 	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}
 		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.review.skipEmail"}
 	{/fbvFormSection}
 
-	{if $dateConfirmed}
-		{fbvFormButtons submitText="editor.review.cancelReviewer"}
-	{else}
-		{fbvFormButtons submitText="editor.review.unassignReviewer"}
-	{/if}
+	{fbvFormButtons submitText="editor.review.unassignReviewer"}
 </form>

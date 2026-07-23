@@ -3365,6 +3365,12 @@ msgstr "Reviewer Unassign"
 msgid "mailable.reviewerUnassign.description"
 msgstr "This email is sent when an editor unassigns a reviewer."
 
+msgid "mailable.reviewCancel.name"
+msgstr "Review Cancel"
+
+msgid "mailable.reviewCancel.description"
+msgstr "This email is sent when an editor cancels a review assignment."
+
 msgid "mailable.validateEmailSite.name"
 msgstr "Validate Email (Site)"
 

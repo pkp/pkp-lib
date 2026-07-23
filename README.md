@@ -15,4 +15,4 @@ If you confirm that you have found a new bug, or if you have identified a new fe
 Bugs are scheduled against the milestones that a fix will be released in. For example, if a bug was found in OJS 3.3.0, then it will be scheduled against a subsequent release like OJS 3.3.1 or OJS 3.4, which is the first release that will include the fix.
 
 ## Community Code of Conduct
-This repository is one of PKP's community spaces and all activities here are guided by [PKP's Code of Conduct](https://pkp.sfu.ca/code-of-conduct/). Please review the Code and help us create a welcoming environment for all participants.
+This repository is one of PKP's community spaces and all activities here are guided by [PKP's Code of Conduct](http://web.archive.org/web/20221127112016/https://pkp.sfu.ca/code-of-conduct/). Please review the Code and help us create a welcoming environment for all participants.

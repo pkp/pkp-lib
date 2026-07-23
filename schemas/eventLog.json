@@ -331,6 +331,14 @@
 				"min:1"
 			]
 		},
+		"impersonatedAsUserId": {
+			"type": "integer",
+			"description": "The ID of the user that was impersonated via the \"Login as\" mechanism when the event was performed.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
 		"username": {
 			"type": "string",
 			"description": "The username of the user/author associated with the event.",

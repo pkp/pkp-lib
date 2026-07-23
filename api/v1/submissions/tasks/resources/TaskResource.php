@@ -15,6 +15,7 @@
 
 namespace PKP\API\v1\submissions\tasks\resources;
 
+use APP\facades\Repo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Carbon;
@@ -78,7 +79,7 @@ class TaskResource extends JsonResource
             }
         }
 
-        foreach ($activities as $activity) {
+        foreach ($activities as $activity) { /** @var EventLogEntry $activity */
             $taskDateDueOld = $activity->getData('taskDateDueOld');
             $taskDateDueNew = $activity->getData('taskDateDueNew');
             $dateLogged = $activity->getDateLogged();
@@ -119,12 +120,24 @@ class TaskResource extends JsonResource
                 );
             }
 
+            // Attached impersonated details to the user label if exists
+            $userLabel = $activity->getLocalizedData('userFullName');
+            if ($impersonatedAsUserId = $activity->getImpersonatedAsUserId()) {
+                $impersonatedAsName = Repo::user()->get((int) $impersonatedAsUserId, true)?->getFullName() ?? '';
+                if ($impersonatedAsName !== '' && $impersonatedAsName !== $userLabel) {
+                    $userLabel = __('submission.event.impersonation.userLabel', [
+                        'userName' => $userLabel,
+                        'impersonatedAsName' => $impersonatedAsName,
+                    ]);
+                }
+            }
+
             $latestActivities[] = [
                 'id' => $activity->getId(),
                 'message' => $activityMessage,
                 'type' => $activity->getEventType(),
                 'date' => $activity->getDateLogged(),
-                'userFullName' => $activity->getLocalizedData('userFullName'),
+                'userFullName' => $userLabel,
                 'userId' => $activity->getData('userId'),
                 'settings' => [
                     ...array_intersect_key(

@@ -19,6 +19,7 @@ use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
@@ -120,6 +121,21 @@ class Repository
     /** @copydoc DAO::insert() */
     public function add(EventLogEntry $logEntry): int
     {
+        // Before storing, normalize attribution for the "Login as" (impersonation) case:
+        // when the entry has a userId and someone is being impersonated, record the real
+        // actor (the impersonator) in userId and the acted-as account in
+        // impersonatedAsUserId. A null userId is a system event (e.g. a scheduled
+        // reminder) with no acting session and is left untouched. Resolving the acting
+        // user from the session here mirrors the established Repository-layer idiom used
+        // by the publication, decision, and submissionFile repositories.
+        if ($logEntry->getData('userId') !== null && ($actorId = Validation::loggedInAs())) {
+            $impersonatedUserId = $this->request->getUser()?->getId();
+            if ($impersonatedUserId && $actorId !== $impersonatedUserId) {
+                $logEntry->setData('userId', $actorId);
+                $logEntry->setData('impersonatedAsUserId', $impersonatedUserId);
+            }
+        }
+
         $id = $this->dao->insert($logEntry);
         Hook::call('EventLog::add', [$logEntry]);
 

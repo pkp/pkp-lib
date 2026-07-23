@@ -791,13 +791,37 @@ abstract class PKPSubmissionHandler extends Handler
             ];
         }
 
+        // Group Data Citations and Data Availability under one "Data" heading
+        $dataGroup = [
+            'id' => 'data',
+            'name' => __('submission.dataAvailabilityAndCitation.data'),
+            'description' => __('submission.dataAvailabilityAndCitation.data.description'),
+        ];
+
         $dataCitationsSetting = $request->getContext()->getData('dataCitations');
         if (in_array($dataCitationsSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
             $sections[] = [
                 'id' => 'dataCitations',
-                'name' => __('submission.dataCitations'),
                 'type' => self::SECTION_TYPE_DATA_CITATIONS,
-                'description' => '',
+                'group' => $dataGroup,
+            ];
+        }
+
+        $dataAvailabilitySetting = $request->getContext()->getData('dataAvailability');
+        if (in_array($dataAvailabilitySetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $dataAvailabilityForm = new PKPDataAvailabilityForm(
+                $publicationApiUrl,
+                $locales,
+                $publication,
+                true,
+                $dataAvailabilitySetting === Context::METADATA_REQUIRE
+            );
+            $this->removeButtonFromForm($dataAvailabilityForm);
+            $sections[] = [
+                'id' => $dataAvailabilityForm->id,
+                'type' => self::SECTION_TYPE_FORM,
+                'form' => $dataAvailabilityForm->getConfig(),
+                'group' => $dataGroup,
             ];
         }
 
@@ -853,16 +877,6 @@ abstract class PKPSubmissionHandler extends Handler
         );
         $this->removeButtonFromForm($metadataForm);
 
-        $dataAvailabilitySetting = $request->getContext()->getData('dataAvailability');
-        $dataAvailabilityForm = new PKPDataAvailabilityForm(
-            $publicationApiUrl,
-            $locales,
-            $publication,
-            in_array($dataAvailabilitySetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE]),
-            $dataAvailabilitySetting === Context::METADATA_REQUIRE
-        );
-        $this->removeButtonFromForm($dataAvailabilityForm);
-
         $commentsForm = new CommentsForTheEditors(
             Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
             $submission
@@ -876,12 +890,6 @@ abstract class PKPSubmissionHandler extends Handler
             $sections[] = [
                 'id' => $metadataForm->id,
                 'form' => $this->getLocalizedForm($metadataForm, $submission->getData('locale'), $locales),
-            ];
-        }
-        if (in_array($dataAvailabilitySetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
-            $sections[] = [
-                'id' => $dataAvailabilityForm->id,
-                'form' => $dataAvailabilityForm->getConfig(),
             ];
         }
         $sections[] = [

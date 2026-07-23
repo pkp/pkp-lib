@@ -29,6 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\form\validation\FormValidatorAltcha;
 use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;
+use PKP\security\AuditLog;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\RateLimitingService;
 use PKP\security\Role;
@@ -36,6 +37,7 @@ use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\user\form\LoginChangePasswordForm;
 use PKP\user\form\ResetPasswordForm;
+use Psr\Log\LogLevel;
 
 class LoginHandler extends Handler
 {
@@ -206,6 +208,20 @@ class LoginHandler extends Handler
         }
         $error ??= 'user.login.loginError';
 
+        // record the failed authentication attempt
+        $auditContext = [
+            'attemptedUsername' => $username,
+            'ip' => $ip,
+            'errorCode' => $error,
+            'actorUserId' => null, // unauthenticated
+        ];
+        if ($reason !== null) {
+            $auditContext['disabledReason'] = $reason;
+            AuditLog::log('auth.login.disabled', LogLevel::WARNING, $auditContext);
+        } else {
+            AuditLog::log('auth.login.failure', LogLevel::WARNING, $auditContext);
+        }
+
         $templateMgr->assign([
             'username' => $username,
             'remember' => $request->getUserVar('remember'),
@@ -327,6 +343,11 @@ class LoginHandler extends Handler
                 ->body($template->getLocalizedData('body'))
                 ->subject($template->getLocalizedData('subject'));
             Mail::send($mailable);
+
+            AuditLog::log('auth.password_reset.requested', LogLevel::NOTICE, [
+                'targetUserId' => $user->getId(),
+                'email' => $email,
+            ]);
         }
 
         $templateMgr->assign([
@@ -382,9 +403,15 @@ class LoginHandler extends Handler
         $passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
         $passwordResetForm->initData();
 
-        $passwordResetForm->validatePasswordResetHash()
-            ? $passwordResetForm->display($request)
-            : $passwordResetForm->displayInvalidHashErrorMessage($request);
+        if ($passwordResetForm->validatePasswordResetHash()) {
+            $passwordResetForm->display($request);
+        } else {
+            AuditLog::log('auth.password_reset.invalid_hash', LogLevel::WARNING, [
+                'targetUserId' => $user->getId(),
+                'attemptedUsername' => $username,
+            ]);
+            $passwordResetForm->displayInvalidHashErrorMessage($request);
+        }
     }
 
     /**

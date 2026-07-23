@@ -30,6 +30,7 @@ use PKP\site\SiteDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
+use Psr\Log\LogLevel;
 
 class Validation
 {
@@ -118,6 +119,10 @@ class Validation
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
 
+        AuditLog::log('auth.login.success', LogLevel::INFO, [
+            'actorUserId' => $user->getId(),
+        ]);
+
         return $user;
     }
 
@@ -140,6 +145,10 @@ class Validation
         $session->put('email', $user->getEmail());
 
         $request->getSessionGuard()->updateSession(null);
+
+        AuditLog::log('auth.logout', LogLevel::INFO, [
+            'actorUserId' => $user->getId(),
+        ]);
 
         return true;
     }

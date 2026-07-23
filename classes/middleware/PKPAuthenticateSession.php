@@ -15,10 +15,12 @@
 namespace PKP\middleware;
 
 use Closure;
-use PKP\config\Config;
-use PKP\security\Validation;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PKP\config\Config;
+use PKP\security\AuditLog;
+use PKP\security\Validation;
+use Psr\Log\LogLevel;
 
 class PKPAuthenticateSession extends \Illuminate\Session\Middleware\AuthenticateSession
 {
@@ -26,8 +28,6 @@ class PKPAuthenticateSession extends \Illuminate\Session\Middleware\Authenticate
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
      */
     public function handle($request, Closure $next)
     {
@@ -49,10 +49,17 @@ class PKPAuthenticateSession extends \Illuminate\Session\Middleware\Authenticate
      * Log the user out of the application.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return void
      */
     protected function logout($request)
     {
+        // session terminated because the client IP changed mid-session. Capture the
+        // actor + old/new IP before Auth::logout()/invalidate() tears the session down.
+        AuditLog::log('auth.logout.forced_ip_change', LogLevel::WARNING, [
+            'actorUserId' => $request->user()?->getId(),
+            'oldIp' => $request->session()->get('login_ip'),
+            'newIp' => $request->ip(),
+        ]);
+
         Auth::logout();
 
         $request->session()->invalidate();
@@ -64,7 +71,6 @@ class PKPAuthenticateSession extends \Illuminate\Session\Middleware\Authenticate
     /**
      * Get the path the user should be redirected to when their session is not authenticated.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
     protected function redirectTo(Request $request)

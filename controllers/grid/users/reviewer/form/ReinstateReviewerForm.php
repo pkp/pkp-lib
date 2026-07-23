@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file controllers/grid/users/reviewer/form/ReinstateReviewerForm.php
  *
@@ -95,6 +96,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REINSTATED,
                 'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
                 'message' => 'log.review.reviewReinstated',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),

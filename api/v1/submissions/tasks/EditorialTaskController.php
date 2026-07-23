@@ -56,6 +56,7 @@ use PKP\security\authorization\QueryWritePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -202,22 +203,25 @@ class EditorialTaskController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $editorialTask->refresh();
 
-        // Log the action
         $currentUser = $this->getRequest()->getUser();
-        $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask);
+
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
+        $actionedUserUserGroups = $this->getUserUserGroups($submission, $actionedUser, $editorialTask);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editorialTask->id,
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_CREATED,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => 'submission.event.task.created',
             'isTranslated' => false,
             'dateLogged' => $editorialTask->createdAt->format('Y-m-d H:i:s'),
             'submissionId' => $submission->getId(),
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $currentUserUserGroups,
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $actionedUserUserGroups,
+            'userFullName' => $actionedUser->getFullNames(),
             'taskType' => $editorialTask->type,
         ]);
 
@@ -454,20 +458,24 @@ class EditorialTaskController extends PKPBaseController
         $dateClosed = Core::getCurrentDate();
         $editTask->fill(['dateClosed' => $dateClosed])->save();
         $editTask->refresh();
-        $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $currentUser, $editTask);
+
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
+        $actionedUserUserGroups = $this->getUserUserGroups($submission, $actionedUser, $editTask);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editTask->id,
             'eventType' => SubmissionEventLogEntry::SUBMISSION_LOG_TASK_CLOSED,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => 'submission.event.task.closed',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $currentUserUserGroups,
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $actionedUserUserGroups,
+            'userFullName' => $actionedUser->getFullNames(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -501,20 +509,23 @@ class EditorialTaskController extends PKPBaseController
 
         $editTask->fill(['dateClosed' => null])->save();
         $editTask->refresh();
-        $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $currentUser, $editTask);
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
+        $actionedUserUserGroups = $this->getUserUserGroups($submission, $actionedUser, $editTask);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editTask->id,
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_OPENED,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => 'submission.event.task.opened',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $currentUserUserGroups,
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $actionedUserUserGroups,
+            'userFullName' => $actionedUser->getFullNames(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -567,18 +578,21 @@ class EditorialTaskController extends PKPBaseController
         ])->save();
         $editTask->refresh();
 
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editTask->id,
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_STARTED,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => 'submission.event.task.started',
             'isTranslated' => false,
             'dateLogged' => $dateStarted,
             'submissionId' => $submission->getId(),
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editTask),
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $this->getUserUserGroups($submission, $actionedUser, $editTask),
+            'userFullName' => $actionedUser->getFullNames(),
             'taskType' => $editTask->type,
         ]);
         Repo::eventLog()->add($eventLog);
@@ -733,18 +747,21 @@ class EditorialTaskController extends PKPBaseController
             ->withStageIds([$stageId])
             ->get();
 
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $task->id,
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => 'submission.event.task.notePosted',
             'isTranslated' => false,
             'dateLogged' => $note->dateCreated->format('Y-m-d H:i:s'),
             'submissionId' => $submission->getId(),
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $task),
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $this->getUserUserGroups($submission, $actionedUser, $task),
+            'userFullName' => $actionedUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
 
@@ -1089,26 +1106,26 @@ class EditorialTaskController extends PKPBaseController
      *   'uk' => ['Редактор журналу']
      * ]
      */
-    protected function getCurrentUserUserGroups(Submission $submission, User $currentUser, EditorialTask $editorialTask): array
+    protected function getUserUserGroups(Submission $submission, User $user, EditorialTask $editorialTask): array
     {
-        $currentUserUserGroups = [];
+        $userUserGroups = [];
 
         // Check if user has any stage assignments
-        $currentUserStageAssignments = StageAssignment::with('userGroup')
+        $userStageAssignments = StageAssignment::with('userGroup')
             ->withSubmissionIds([$submission->getId()])
-            ->withUserId($currentUser->getId())
+            ->withUserId($user->getId())
             ->get();
 
-        foreach ($currentUserStageAssignments as $currentUserStageAssignment) {
-            foreach ($currentUserStageAssignment->userGroup->name as $locale => $groupName) {
-                $currentUserUserGroups[$locale][] = $groupName;
+        foreach ($userStageAssignments as $userStageAssignment) {
+            foreach ($userStageAssignment->userGroup->name as $locale => $groupName) {
+                $userUserGroups[$locale][] = $groupName;
             }
         }
 
         // Check for the reviewer role
         $reviewAssignments = in_array($editorialTask->stageId, Application::get()->getReviewStages()) ? Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
-            ->filterByReviewerIds([$currentUser->getId()])
+            ->filterByReviewerIds([$user->getId()])
             ->filterByStageId($editorialTask->stageId)
             ->getMany() :
             collect()->lazy();
@@ -1116,14 +1133,14 @@ class EditorialTaskController extends PKPBaseController
         if ($reviewAssignments->isNotEmpty()) {
             $reviewerUserGroup = UserGroup::withContextIds([$submission->getData('contextId')])
                 ->withRoleIds([Role::ROLE_ID_REVIEWER])
-                ->withUserIds([$currentUser->getId()])
+                ->withUserIds([$user->getId()])
                 ->get()
                 ->first()
                 ?->name;
 
             if ($reviewerUserGroup) {
                 foreach ($reviewerUserGroup as $locale => $groupName) {
-                    $currentUserUserGroups[$locale][] = $groupName;
+                    $userUserGroups[$locale][] = $groupName;
                 }
             }
         }
@@ -1131,19 +1148,19 @@ class EditorialTaskController extends PKPBaseController
         // Check if user has global roles
         $globalRoles = UserGroup::withContextIds([$submission->getData('contextId')])
             ->withRoleIds([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER])
-            ->withUserIds([$currentUser->getId()])
+            ->withUserIds([$user->getId()])
             ->get();
 
         foreach ($globalRoles as $globalRole) {
             foreach ($globalRole->name as $locale => $groupName) {
-                if (isset($currentUserUserGroups[$locale]) && in_array($groupName, $currentUserUserGroups[$locale])) {
+                if (isset($userUserGroups[$locale]) && in_array($groupName, $userUserGroups[$locale])) {
                     continue;
                 }
-                $currentUserUserGroups[$locale][] = $groupName;
+                $userUserGroups[$locale][] = $groupName;
             }
         }
 
-        return $currentUserUserGroups;
+        return $userUserGroups;
     }
 
     /**
@@ -1165,21 +1182,24 @@ class EditorialTaskController extends PKPBaseController
             return;
         }
 
-        $currentUserUserGroups = $this->getCurrentUserUserGroups($submission, $uploaderUser, $editorialTask);
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $uploaderUser;
+        $actionedUserUserGroups = $this->getUserUserGroups($submission, $actionedUser, $editorialTask);
 
         foreach ($filesAdded as $file) {
             $eventLog = Repo::eventLog()->newDataObject([
                 'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
                 'assocId' => $editorialTask->id,
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_FILE_UPLOADED,
-                'userId' => $uploaderUser->getId(),
+                'userId' => $actionedUser->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $uploaderUser->getId() : null,
                 'message' => 'submission.event.task.fileUploaded',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'submissionId' => $submission->getId(),
-                'username' => $uploaderUser->getUsername(),
-                'userGroupNames' => $currentUserUserGroups,
-                'userFullName' => $uploaderUser->getFullNames(),
+                'username' => $actionedUser->getUsername(),
+                'userGroupNames' => $actionedUserUserGroups,
+                'userFullName' => $actionedUser->getFullNames(),
                 'filename' => $file->getData('name'),
                 'fileId' => $file->getId(),
                 'stageId' => $editorialTask->stageId,
@@ -1192,14 +1212,15 @@ class EditorialTaskController extends PKPBaseController
                 'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
                 'assocId' => $editorialTask->id,
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_FILE_REMOVED,
-                'userId' => $uploaderUser->getId(),
+                'userId' => $actionedUser->getId(),
+                'impersonatedAsUserId' => Validation::loggedInAs() ? $uploaderUser->getId() : null,
                 'message' => 'submission.event.task.fileRemoved',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'submissionId' => $submission->getId(),
-                'username' => $uploaderUser->getUsername(),
-                'userGroupNames' => $currentUserUserGroups,
-                'userFullName' => $uploaderUser->getFullNames(),
+                'username' => $actionedUser->getUsername(),
+                'userGroupNames' => $actionedUserUserGroups,
+                'userFullName' => $actionedUser->getFullNames(),
                 'filename' => $file->getData('name'),
                 'fileId' => $file->getId(),
                 'stageId' => $editorialTask->stageId,
@@ -1222,20 +1243,23 @@ class EditorialTaskController extends PKPBaseController
             return;
         }
 
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editorialTask->id,
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_DATEDUE_MODIFIED,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => 'submission.event.task.datedue.modified',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
             'taskDateDueOld' => $oldDueDate->format('Y-m-d H:i:s'),
             'taskDateDueNew' => $newDueDate->format('Y-m-d H:i:s'),
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $this->getUserUserGroups($submission, $actionedUser, $editorialTask),
+            'userFullName' => $actionedUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
     }
@@ -1255,11 +1279,14 @@ class EditorialTaskController extends PKPBaseController
             return;
         }
 
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editorialTask->id,
             'eventType' => is_null($oldOwner) ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_ASSIGNED : PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_REASSIGNED,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => is_null($oldOwner) ? 'submission.event.task.assigned' : 'submission.event.task.reassigned',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
@@ -1268,9 +1295,9 @@ class EditorialTaskController extends PKPBaseController
             'taskOwnerOldUsername' => $oldOwner->userId ? Repo::user()->get($oldOwner->userId)->getUsername() : '',
             'taskOwnerNewUserId' => $newOwner->userId,
             'taskOwnerNewUsername' => $newOwner->userId ? Repo::user()->get($newOwner->userId)->getUsername() : '',
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $this->getUserUserGroups($submission, $actionedUser, $editorialTask),
+            'userFullName' => $actionedUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
     }
@@ -1321,7 +1348,7 @@ class EditorialTaskController extends PKPBaseController
         $rolesLocalized = [];
 
         foreach ($usersToRecord as $user) { /** @var User $user */
-            $userRolesLocalized = $this->getCurrentUserUserGroups($submission, $user, $editorialTask);
+            $userRolesLocalized = $this->getUserUserGroups($submission, $user, $editorialTask);
             foreach ($userRolesLocalized as $locale => $roles) {
                 $rolesLocalized[$locale][$user->getUsername()] = $roles;
             }
@@ -1335,20 +1362,23 @@ class EditorialTaskController extends PKPBaseController
             return implode(', ', $result);
         }, $rolesLocalized);
 
+        // During "Login as", attribute the log to the real actor, not the impersonated session user.
+        $actionedUser = Validation::loggedInAs() ? Repo::user()->get(Validation::loggedInAs()) : $currentUser;
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $editorialTask->id,
             'eventType' => $eventType,
-            'userId' => $currentUser->getId(),
+            'userId' => $actionedUser->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => $message,
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
             'taskParticipantsModifiedUserIds' => array_values($participantIds),
             'taskParticipantsModifiedUsernames' => $rolesLocalized,
-            'username' => $currentUser->getUsername(),
-            'userGroupNames' => $this->getCurrentUserUserGroups($submission, $currentUser, $editorialTask),
-            'userFullName' => $currentUser->getFullNames(),
+            'username' => $actionedUser->getUsername(),
+            'userGroupNames' => $this->getUserUserGroups($submission, $actionedUser, $editorialTask),
+            'userFullName' => $actionedUser->getFullNames(),
         ]);
         Repo::eventLog()->add($eventLog);
     }

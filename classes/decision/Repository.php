@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/Repository.php
  *
@@ -258,6 +259,7 @@ abstract class Repository
                 ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_RECOMMENDATION
                 : PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_DECISION,
             'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
+            'impersonatedAsUserId' => Validation::loggedInAs() ? $this->request->getUser()?->getId() : null,
             'editorName' => $editor->getFullName(),
             'message' => $decisionType->getLog(),
             'isTranslated' => false,

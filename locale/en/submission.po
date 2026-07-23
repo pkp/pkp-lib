@@ -2217,6 +2217,9 @@ msgstr "Task reassigned from {$taskOwnerOldUsername} to {$taskOwnerNewUsername} 
 msgid "submission.event.task.assigned"
 msgstr "Task assigned to {$taskOwnerNewUsername} by {$username} on {$dateLogged}"
 
+msgid "submission.event.impersonation.userLabel"
+msgstr "{$userName} (acting as {$impersonatedAsName})"
+
 msgid "submission.overview"
 msgstr "Submission Overview"
 

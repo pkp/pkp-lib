@@ -27,10 +27,10 @@ class TaskTemplateResource extends JsonResource
             'id' => (int) $this->id,
             'type' => (int) $this->type,
             'stageId' => (int) $this->stageId,
-            'title' => $this->title,
+            'title' => $this->getLocalizedData('title'),
             'include' => (bool) $this->include,
             'dueInterval' => $this->dueInterval,
-            'description' => $this->description,
+            'description' => $this->getLocalizedData('description'),
             'restrictToUserGroups' => (bool) $this->restrictToUserGroups,
             'userGroups' => $this->whenLoaded(
                 'userGroups',

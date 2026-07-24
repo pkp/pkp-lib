@@ -21,14 +21,14 @@ describe('Email Template Access Tests', function() {
 		cy.login('admin', 'admin', 'publicknowledge');
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.setEmailTemplateUnrestrictedTo(false);
 		cy.get('[data-cy="active-modal"]').within(() => {
 			cy.contains('button', 'Save').click();
 		});
 		// reload and check that template was updated
 		cy.reload();
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'false');
 		cy.logout();
 	});
@@ -37,7 +37,7 @@ describe('Email Template Access Tests', function() {
 		cy.login('admin', 'admin', 'publicknowledge');
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'false');
 		cy.setEmailTemplateUnrestrictedTo(true);
 
@@ -46,7 +46,7 @@ describe('Email Template Access Tests', function() {
 		});
 		cy.reload();
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'true');
 		cy.logout();
 	});
@@ -54,7 +54,7 @@ describe('Email Template Access Tests', function() {
 	it('Assigns user groups to template', () => {
 		cy.login('admin', 'admin', 'publicknowledge');
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 
 		// Check `Limit Access to Specific User Groups` to have user group options displayed
 		cy.setEmailTemplateUnrestrictedTo(false);
@@ -67,7 +67,7 @@ describe('Email Template Access Tests', function() {
 
 		cy.reload();
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.get('input[name="assignedUserGroupIds"]').first().should('be.checked');
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).should('be.checked');
 		cy.logout();
@@ -77,7 +77,7 @@ describe('Email Template Access Tests', function() {
 		cy.login('admin', 'admin', 'publicknowledge');
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 
 		cy.get('input[name="assignedUserGroupIds"]').first().should('be.checked');
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).should('be.checked');
@@ -87,7 +87,7 @@ describe('Email Template Access Tests', function() {
 		});
 
 		cy.reload();
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.get('input[name="assignedUserGroupIds"]').first().uncheck();
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).uncheck();
 		cy.logout();
@@ -98,7 +98,7 @@ describe('Email Template Access Tests', function() {
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
 
 		// Select the mailable
-		cy.contains('li.listPanel__item', 'Discussion (Production)')
+		cy.contains('li.listPanel__item', 'Review Request')
 			.find('button')
 			.contains('Edit')
 			.click();
@@ -121,7 +121,7 @@ describe('Email Template Access Tests', function() {
 
 		cy.reload();
 
-		cy.openEmailTemplate('Discussion (Production)', templateName);
+		cy.openEmailTemplate('Review Request', templateName);
 		cy.get('input[name="assignedUserGroupIds"]').eq(1).should('be.checked');
 		cy.get('input[name="assignedUserGroupIds"]').eq(2).should('be.checked');
 		cy.logout();
@@ -132,7 +132,7 @@ describe('Email Template Access Tests', function() {
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
 
 		// Select the mailable
-		cy.contains('li.listPanel__item', 'Discussion (Production)')
+		cy.contains('li.listPanel__item', 'Review Request')
 			.find('button')
 			.contains('Edit')
 			.click();
@@ -152,7 +152,7 @@ describe('Email Template Access Tests', function() {
 		});
 
 		cy.reload();
-		cy.openEmailTemplate('Discussion (Production)', templateName);
+		cy.openEmailTemplate('Review Request', templateName);
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'true');
 		cy.logout();
 	});
@@ -195,7 +195,7 @@ describe('Email Template Access Tests', function() {
 		cy.login('admin', 'admin', 'publicknowledge');
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.setEmailTemplateUnrestrictedTo(true); // Check `Mark as unrestricted` radio button
 
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'true');
@@ -207,7 +207,7 @@ describe('Email Template Access Tests', function() {
 		// Reload and check that it is still hidden
 		cy.reload();
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.get('input[name="assignedUserGroupIds"]').should('not.exist');
 		cy.logout();
 	});
@@ -216,7 +216,7 @@ describe('Email Template Access Tests', function() {
 		cy.login('admin', 'admin', 'publicknowledge');
 		cy.visit('/index.php/publicknowledge/management/settings/manageEmails');
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.setEmailTemplateUnrestrictedTo(false); // Check `Limit Access to Specific User Groups` radio button
 
 		cy.get('input[name="isUnrestricted"]:checked').should('have.value', 'false');
@@ -228,7 +228,7 @@ describe('Email Template Access Tests', function() {
 		// Reload a check that it is still visible
 		cy.reload();
 
-		cy.openEmailTemplate('Discussion (Production)', 'Discussion (Production)');
+		cy.openEmailTemplate('Review Request', 'Review Request');
 		cy.get('input[name="assignedUserGroupIds"]').should('exist');
 		cy.logout();
 	});

@@ -24,13 +24,15 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
-use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
 use PKP\controllers\grid\users\stageParticipant\form\PKPStageParticipantNotifyForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Template;
+use PKP\editorialTask\TemplateVariables;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
@@ -43,8 +45,6 @@ use PKP\stageAssignment\StageAssignment;
 
 class StageParticipantGridHandler extends CategoryGridHandler
 {
-    use StageMailable;
-
     /**
      * Constructor
      */
@@ -595,20 +595,30 @@ class StageParticipantGridHandler extends CategoryGridHandler
      */
     public function fetchTemplateBody($args, $request)
     {
-        $templateKey = $request->getUserVar('template');
+        $templateId = $request->getUserVar('template');
         $context = $request->getContext();
-        $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
-        if ($template && Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
+        $user = $request->getUser();
+        $template = Template::with('userGroups')->withContextId($context->getId())->find($templateId);
+        if ($template && Repo::editorialTask()->isTemplateAccessibleToUser($template, $user)) {
             $submission = $this->getSubmission();
-            $mailable = $this->getStageMailable($context, $submission);
-            $mailable->sender($request->getUser());
-            $data = $mailable->getData();
-
+            $mailable = new TemplateVariables($template->promote($submission), $submission, $context);
+            $mailable->sender($user);
             $notifyForm = new PKPStageParticipantNotifyForm($submission->getId(), Application::ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE));
+
+            $templateKey = '';
+            foreach (EditorialTask::getTitleLocalizedStrings($context) as $key => $map) {
+                foreach ($map as $localizedTitle) {
+                    if ($template->getLocalizedData('title') == $localizedTitle) {
+                        $templateKey = $key;
+                        break 2;
+                    }
+                }
+            }
+
             return new JSONMessage(
                 true,
                 [
-                    'body' => Mail::compileParams($template->getLocalizedData('body'), $data),
+                    'body' => Mail::compileParams($template->getLocalizedData('description'), $mailable->getData()),
                     'variables' => $notifyForm->getEmailVariableNames($templateKey),
                 ]
             );

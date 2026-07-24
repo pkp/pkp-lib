@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
 use PKP\note\Note;
@@ -32,6 +33,17 @@ use PKP\note\SaveNoteWithFiles;
 use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
+/**
+ * @mixin Builder
+ *
+ * @method Builder|static withAssoc(int $assocType, int $assocId)
+ * @method Builder|static withStageId(int $stageId)
+ * @method Builder|static withOpen()
+ * @method Builder|static orderByDate(string $orderBy, string $direction = EditorialTask::ORDER_DIR_ASC)
+ * @method Builder|static withParticipantIds(array $userIds)
+ * @method Builder|static withAssocIds(array $assocIds)
+ * @method Builder|static withAssocType(int $assocType)
+ */
 class EditorialTask extends Model
 {
     use ModelWithSettings;
@@ -495,5 +507,31 @@ class EditorialTask extends Model
             ->filterByReviewerIds([$user->getId()])
             ->filterByReviewMethods([ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])
             ->getCount() > 0;
+    }
+
+    /**
+     * Get the map of deprecated discussion related email template keys with correspondent localized name string
+     */
+    public static function getTitleLocalizedStrings(Context $context): array
+    {
+        $supportedLocales = $context->getSupportedLocales();
+
+        $map = [
+            'EDITOR_ASSIGN' => 'mailable.editorAssignedManual.name',
+            'COPYEDIT_REQUEST' => 'mailable.copyeditRequest.name',
+            'LAYOUT_REQUEST' => 'mailable.layoutRequest.name',
+            'LAYOUT_COMPLETE' => 'mailable.layoutComplete.name',
+            'INDEX_REQUEST' => 'mailable.indexRequest.name',
+            'INDEX_COMPLETE' => 'mailable.indexComplete.name',
+        ];
+
+        $localizedMap = [];
+        foreach ($map as $templateKey => $localizedStringKey) {
+            foreach ($supportedLocales as $locale) {
+                $localizedMap[$templateKey][] = __($localizedStringKey, [], $locale);
+            }
+        }
+
+        return $localizedMap;
     }
 }

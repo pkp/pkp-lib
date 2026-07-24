@@ -120,7 +120,7 @@ class Validation
         Repo::user()->edit($user);
 
         AuditLog::log('auth.login.success', LogLevel::INFO, [
-            'actorUserId' => $user->getId(),
+            'loggedInUserId' => $user->getId(),
         ]);
 
         return $user;
@@ -147,7 +147,7 @@ class Validation
         $request->getSessionGuard()->updateSession(null);
 
         AuditLog::log('auth.logout', LogLevel::INFO, [
-            'actorUserId' => $user->getId(),
+            'loggedInUserId' => $user->getId(),
         ]);
 
         return true;

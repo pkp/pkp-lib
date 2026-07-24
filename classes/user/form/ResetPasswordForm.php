@@ -119,7 +119,7 @@ class ResetPasswordForm extends Form
         Repo::user()->edit($user);
 
         AuditLog::log('auth.password_reset.completed', \Psr\Log\LogLevel::NOTICE, [
-            'actorUserId' => $user->getId(),
+            'loggedInUserId' => $user->getId(),
         ]);
 
         parent::execute(...$functionArgs);

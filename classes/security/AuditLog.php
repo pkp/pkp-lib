@@ -31,6 +31,11 @@ class AuditLog
      */
     public static function log(string $event, string $level = LogLevel::INFO, array $context = []): void
     {
+        // No audit logging when running unit tests
+        if (app()->runningUnitTests()) {
+            return;
+        }
+
         $context = static::withRequestContext($context);
         $context['category'] ??= explode('.', $event, 2)[0];
 

@@ -53,6 +53,7 @@ use PKP\job\resources\HttpFailedJobResource;
 use PKP\notification\Notification;
 use PKP\plugins\PluginHelper;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\security\AuditLog;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\Role;
@@ -60,6 +61,7 @@ use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
 use PKP\user\form\ConfirmPasswordForm;
 use PKP\userGroup\UserGroup;
+use Psr\Log\LogLevel;
 
 class AdminHandler extends Handler
 {
@@ -120,6 +122,8 @@ class AdminHandler extends Handler
 
     /**
      * @copydoc PKPHandler::initialize()
+     *
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {
@@ -452,6 +456,9 @@ class AdminHandler extends Handler
         }
 
         Application::get()->getRequest()->getSessionGuard()->removeAllSession();
+
+        AuditLog::log('admin.sessions.expired', LogLevel::NOTICE);
+
         $request->redirect(null, 'login');
     }
 
@@ -470,6 +477,9 @@ class AdminHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->clearTemplateCache();
         $templateMgr->clearCssCache();
+
+        AuditLog::log('admin.cache.template_cleared', LogLevel::NOTICE);
+
         $request->redirect(null, 'admin');
     }
 
@@ -488,6 +498,8 @@ class AdminHandler extends Handler
         // Clear Laravel caches
         $cacheManager = PKPContainer::getInstance()['cache'];
         $cacheManager->store()->flush();
+
+        AuditLog::log('admin.cache.data_cleared', LogLevel::NOTICE);
 
         $request->redirect(null, 'admin');
     }
@@ -517,6 +529,8 @@ class AdminHandler extends Handler
         }
 
         ScheduledTaskHelper::clearExecutionLogs();
+
+        AuditLog::log('admin.scheduled_task_logs.cleared', LogLevel::NOTICE);
 
         $request->redirect(null, 'admin');
     }
@@ -887,6 +901,8 @@ class AdminHandler extends Handler
 
 
             Application::get()->getRequest()->getSessionGuard()->startElevatedSession();
+
+            AuditLog::log('session.reauth.success', LogLevel::NOTICE);
             /** @var PKPPageRouter $pkpPageRouter */
             $pkpPageRouter = $request->getRouter();
 
@@ -910,6 +926,8 @@ class AdminHandler extends Handler
             } else {
                 $pkpPageRouter->redirectHome($request);
             }
+        } else {
+            AuditLog::log('session.reauth.failure', LogLevel::WARNING);
         }
 
         $this->setupTemplate($request);

@@ -23,7 +23,9 @@ use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\invitations\changeProfileEmail\ChangeProfileEmailInvite;
 use PKP\invitation\models\InvitationModel;
+use PKP\security\AuditLog;
 use PKP\user\User;
+use Psr\Log\LogLevel;
 
 class ContactForm extends BaseProfileForm
 {
@@ -155,6 +157,8 @@ class ContactForm extends BaseProfileForm
         if ($user->getEmail() !== $this->getData('email')) {
             // If they are different, store the current email in the array
             $functionArgs['emailUpdated'] = $this->getData('email');
+
+            AuditLog::log('profile.email.change_requested', LogLevel::NOTICE);
         }
 
         $user->setCountry($this->getData('country'));

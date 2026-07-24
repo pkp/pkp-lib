@@ -212,8 +212,7 @@ class LoginHandler extends Handler
         $auditContext = [
             'attemptedUsername' => $username,
             'ip' => $ip,
-            'errorCode' => $error,
-            'actorUserId' => null, // unauthenticated
+            'loggedInUserId' => null,
         ];
         if ($reason !== null) {
             $auditContext['disabledReason'] = $reason;
@@ -508,6 +507,9 @@ class LoginHandler extends Handler
             $userId = (int)$args[0];
             $sessionGuard = $request->getSessionGuard();
             if (Validation::getAdministrationLevel($userId, $sessionGuard->getUserId()) !== Validation::ADMINISTRATION_FULL) {
+                AuditLog::log('session.impersonation.denied', LogLevel::WARNING, [
+                    'impersonatedAsUserId' => $userId,
+                ]);
                 $this->setupTemplate($request);
                 // We don't have administrative rights
                 // over this user. Display an error.
@@ -525,6 +527,9 @@ class LoginHandler extends Handler
 
             if (isset($newUser) && $sessionGuard->getUserId() != $newUser->getId()) {
                 $request->getSessionGuard()->signInAs($newUser);
+                AuditLog::log('session.impersonation.start', LogLevel::NOTICE, [
+                    'impersonatedAsUserId' => $newUser->getId(),
+                ]);
                 $this->_redirectByURL($request);
             }
         }
@@ -546,6 +551,13 @@ class LoginHandler extends Handler
             $oldUser = Repo::user()->get($signedInAs, true);
 
             if (isset($oldUser)) {
+                // Log before signOutAs(): while the session is still impersonating,
+                // loggedInAs() resolves loggedInUserId to the impersonator and getUser()
+                // is still the impersonated account. After signOutAs() both would collapse
+                // to the impersonated user (Registry['user'] is not refreshed on restore).
+                AuditLog::log('session.impersonation.end', LogLevel::NOTICE, [
+                    'impersonatedAsUserId' => $request->getUser()?->getId(),
+                ]);
                 $request->getSessionGuard()->signOutAs($oldUser);
             }
         }

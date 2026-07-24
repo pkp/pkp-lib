@@ -129,9 +129,9 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
         });
     }
 
-    public function fromRow(object $row): Galley
+    public function fromRow(object $row, bool $cacheable = false): Galley
     {
-        $galley = parent::fromRow($row);
+        $galley = parent::fromRow($row, $cacheable);
 
         if (!empty($galley->getData('doiId'))) {
             $galley->setData('doiObject', Repo::doi()->get($galley->getData('doiId')));

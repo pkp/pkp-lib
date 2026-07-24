@@ -99,7 +99,7 @@ abstract class EntityDAO
      *
      * @return T
      */
-    public function fromRow(object $row): DataObject
+    public function fromRow(object $row, bool $cacheable = false): DataObject
     {
         $schema = $this->schemaService->get($this->schema);
 

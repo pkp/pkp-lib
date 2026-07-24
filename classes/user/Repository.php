@@ -27,6 +27,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileDAO;
 use PKP\plugins\Hook;
+use PKP\security\AuditLog;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
@@ -34,6 +35,7 @@ use PKP\submission\SubmissionCommentDAO;
 use PKP\user\interest\UserInterest;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\workflow\WorkflowStageDAO;
+use Psr\Log\LogLevel;
 
 class Repository
 {
@@ -107,6 +109,8 @@ class Repository
         $id = $this->dao->insert($user);
         Hook::call('User::add', [$user]);
 
+        AuditLog::log('user.account.created', LogLevel::NOTICE, ['createdUserId' => $id]);
+
         return $id;
     }
 
@@ -127,6 +131,8 @@ class Repository
         Hook::call('User::delete::before', [&$user]);
 
         $this->dao->delete($user);
+
+        AuditLog::log('user.account.deleted', LogLevel::NOTICE, ['deletedUserId' => $user->getId()]);
 
         Hook::call('User::delete', [&$user]);
     }
@@ -412,6 +418,8 @@ class Repository
                 $stageAssignment->delete();
             }
         }
+
+        AuditLog::log('user.account.merged', LogLevel::NOTICE, ['oldUserId' => $oldUserId, 'newUserId' => $newUserId]);
 
         $this->delete($this->get($oldUserId, true));
 

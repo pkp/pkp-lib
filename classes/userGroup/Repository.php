@@ -26,6 +26,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
+use PKP\security\AuditLog;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\site\SiteDAO;
@@ -35,6 +36,7 @@ use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\validation\ValidatorFactory;
 use PKP\xml\PKPXMLParser;
+use Psr\Log\LogLevel;
 use stdClass;
 
 class Repository
@@ -332,13 +334,20 @@ class Repository
             self::forgetEditorialCache($userGroup->contextId);
         }
 
-        return UserUserGroup::create([
+        $userUserGroup = UserUserGroup::create([
             'userId' => $userId,
             'userGroupId' => $userGroupId,
             'dateStart' => $dateStart,
             'dateEnd' => $endDate,
             'masthead' => $masthead,
         ]);
+
+        AuditLog::log('user.role.assigned', LogLevel::NOTICE, [
+            'targetUserId' => $userId,
+            'userGroupId' => $userGroupId,
+        ]);
+
+        return $userUserGroup;
     }
 
     /**
@@ -394,6 +403,12 @@ class Repository
         }
 
         $query->update(['date_end' => $dateEnd]);
+
+        AuditLog::log('user.role.removed', LogLevel::NOTICE, [
+            'targetUserId' => $userId,
+            'userGroupId' => $userGroupId,
+            'contextId' => $contextId,
+        ]);
     }
 
     /**

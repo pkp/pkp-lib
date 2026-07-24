@@ -551,10 +551,6 @@ class LoginHandler extends Handler
             $oldUser = Repo::user()->get($signedInAs, true);
 
             if (isset($oldUser)) {
-                // Log before signOutAs(): while the session is still impersonating,
-                // loggedInAs() resolves loggedInUserId to the impersonator and getUser()
-                // is still the impersonated account. After signOutAs() both would collapse
-                // to the impersonated user (Registry['user'] is not refreshed on restore).
                 AuditLog::log('session.impersonation.end', LogLevel::NOTICE, [
                     'impersonatedAsUserId' => $request->getUser()?->getId(),
                 ]);

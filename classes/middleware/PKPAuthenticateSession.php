@@ -55,7 +55,7 @@ class PKPAuthenticateSession extends \Illuminate\Session\Middleware\Authenticate
         // session terminated because the client IP changed mid-session. Capture the
         // actor + old/new IP before Auth::logout()/invalidate() tears the session down.
         AuditLog::log('auth.logout.forced_ip_change', LogLevel::WARNING, [
-            'actorUserId' => $request->user()?->getId(),
+            'loggedInUserId' => $request->user()?->getId(),
             'oldIp' => $request->session()->get('login_ip'),
             'newIp' => $request->ip(),
         ]);

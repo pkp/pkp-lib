@@ -19,8 +19,9 @@ namespace PKP\controllers\grid\settings\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\security\AuditLog;
+use Psr\Log\LogLevel;
 
 class UserDisableForm extends Form
 {
@@ -101,6 +102,14 @@ class UserDisableForm extends Form
             $user->setDisabled($this->_enable ? false : true);
             $user->setDisabledReason($this->getData('disableReason'));
             Repo::user()->edit($user);
+            if ($this->_enable) {
+                AuditLog::log('user.account.enabled', LogLevel::NOTICE, ['targetUserId' => $user->getId()]);
+            } else {
+                AuditLog::log('user.account.disabled', LogLevel::NOTICE, [
+                    'targetUserId' => $user->getId(),
+                    'disabledReason' => $this->getData('disableReason'),
+                ]);
+            }
             if ($user->getDisabled()) {
                 Application::get()->getRequest()->getSessionGuard()->invalidateOtherSessions($user->getId());
             }

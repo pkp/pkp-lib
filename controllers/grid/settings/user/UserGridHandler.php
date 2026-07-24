@@ -36,14 +36,16 @@ use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
+use PKP\security\AuditLog;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\security\Validation;
 use PKP\user\User;
-use PKP\userGroup\UserGroup;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
+use Psr\Log\LogLevel;
 
 class UserGridHandler extends GridHandler
 {
@@ -582,6 +584,11 @@ class UserGridHandler extends GridHandler
                     $query->withContextIds($context->getId());
                 })
                 ->update(['date_end' => now()]);
+
+            AuditLog::log('user.context.removed', LogLevel::NOTICE, [
+                'targetUserId' => (int) $userId,
+                'contextId' => $context->getId(),
+            ]);
 
             return \PKP\db\DAO::getDataChangedEvent($userId);
         }

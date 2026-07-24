@@ -16,14 +16,15 @@
 
 namespace PKP\user\form;
 
-use APP\facades\Repo;
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Auth;
 use PKP\form\Form;
-use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorPost;
+use PKP\security\AuditLog;
 use PKP\security\Validation;
 
 class ResetPasswordForm extends Form
@@ -112,10 +113,14 @@ class ResetPasswordForm extends Form
         $user->setMustChangePassword(0);
 
         Application::get()->getRequest()->getSessionGuard()->updateUser($user);
-        
-        $user = Auth::logoutOtherDevices($this->getData('password'));
+
+        $user = Auth::logoutOtherDevices($this->getData('password')); /** @var \PKP\user\User $user */
 
         Repo::user()->edit($user);
+
+        AuditLog::log('auth.password_reset.completed', \Psr\Log\LogLevel::NOTICE, [
+            'loggedInUserId' => $user->getId(),
+        ]);
 
         parent::execute(...$functionArgs);
 

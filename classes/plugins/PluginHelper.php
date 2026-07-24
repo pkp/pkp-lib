@@ -26,10 +26,12 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
+use PKP\security\AuditLog;
 use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
+use Psr\Log\LogLevel;
 use Throwable;
 
 class PluginHelper
@@ -251,6 +253,13 @@ class PluginHelper
                 $installer->setCurrentVersion($pluginVersion);
                 $installer->execute() || throw new Exception(__('manager.plugins.installFailed', ['errorString' => $installer->getErrorString()]));
                 $versionDao->insertVersion($pluginVersion, true);
+
+                AuditLog::log('plugin.installed', LogLevel::NOTICE, [
+                    'product' => $pluginVersion->getProduct(),
+                    'productType' => $pluginVersion->getProductType(),
+                    'version' => $pluginVersion->getVersionString(false),
+                ]);
+
                 return $pluginVersion;
             } catch (Throwable $e) {
                 // Delete the plugin files on failure
@@ -329,6 +338,14 @@ class PluginHelper
                 // Add the new version to the database
                 $pluginVersion->setCurrent(1);
                 $versionDao->insertVersion($pluginVersion, true);
+
+                AuditLog::log('plugin.upgraded', LogLevel::NOTICE, [
+                    'category' => $category,
+                    'product' => $pluginVersion->getProduct(),
+                    'previousVersion' => $installedPlugin->getVersionString(false),
+                    'version' => $pluginVersion->getVersionString(false),
+                ]);
+
                 return $pluginVersion;
             } catch (Throwable $e) {
                 // Delete the plugin files on failure

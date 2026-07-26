@@ -33,7 +33,14 @@ step and reviews its output.
    OJS-only): mechanical sweeps per CHARTER Method → `atlas/*.md`, then a
    FEATURE-MAP with `apps:` applicability per feature. The modality baseline
    and atom anatomy are defined in CHARTER Method (Phase 0 may extend the
-   list; the final list is recorded in the atlas). Phase 0 also seeds this
+   list; the final list is recorded in the atlas). Execution shape (multi-agent
+   workflows wanted): sweeps = parallel fan-out with schema-validated atom
+   output; the feature TAXONOMY is proposed centrally from the screen-level
+   modalities (grouping needs the global view — never fan out grouping itself)
+   and STOPS for maintainer review; then atom→feature assignment fans out
+   against the fixed taxonomy (poor fit → UNASSIGNED, per CHARTER
+   never-force-fit); the every-atom-claimed-once invariant is checked by
+   script, looping unclaimed atoms until dry. Phase 0 also seeds this
    file's Features
    table: one `pending` row per feature with a provisional `Budget:` tier
    (H/M/L per RUNBOOK) — the maintainer adjusts tiers on review.

@@ -35,14 +35,28 @@ feature?" must be a grep, not a judgment call (round 1's single exploration pass
 demonstrably missed features):
 
 1. **Phase 0 — surface atlas** (`atlas/*.md`), covering ALL THREE apps:
-   mechanical sweeps, one per modality, emitting **atoms** (stable ID + code
-   pointer + one line). Completeness over depth; no analysis in sweeps. The
-   sweep defines its modality list (routes, screens, notifications, emails,
-   settings, jobs, …) fresh at Phase-0 start — the old OJS-only list is
-   scratched — and records it in the atlas so coverage stays greppable. One
-   modality is REQUIRED regardless: a per-screen **affordance** sweep
-   (`atlas/affordances.md`) — the RUNBOOK loop consumes it (step 2 and the
-   per-feature definition of done depend on affordance atoms existing).
+   mechanical sweeps, one per modality, emitting **atoms**. Completeness over
+   depth; no analysis and no liveness judgment in sweeps (dead code surfaces
+   in Phase 1 → `UNASSIGNED.md`). Overlap between modalities is fine — the
+   same surface in two sweeps is harmless (claiming dedups it); a missed
+   surface is unrecoverable.
+   **Atom anatomy**: `<MOD>-<seq>` ID (dense per modality, never renumbered) ·
+   which apps expose it · a stable code pointer (symbol, not line) · one line
+   of what it is. `Claimed by:` is added later, by the orchestrator only.
+   **Required modality baseline** (Phase 0 may extend it; the final list is
+   recorded in the atlas): the apps' surface has two layers and both are
+   swept —
+   - *Entry points*: **routes** (page handlers + ops), **grids** (legacy
+     `controllers/` handler ops — the easiest surface to miss), **vue**
+     (ui-library pages/managers/modals), **api** (REST controllers + app
+     overlays), **notif** (notification types), **mail** (mailables + email
+     templates), **jobs** (queued + scheduled), **settings** (site/context
+     schemas, `config.inc.php`, plugin settings), **plugins** (bundled trees),
+     **cli** (`tools/`).
+   - *Within-screen*: **aff** — per-screen affordances (controls/actions from
+     templates + components; `atlas/affordances.md`). This is the layer the
+     permission documentation and the RUNBOOK loop consume (step 2 and the
+     per-feature definition of done depend on affordance atoms existing).
 2. **Phase 1 — feature specs** (`specs/*.md`): written per `TEMPLATE.md` to the
    RUNBOOK loop, adversarially verified, claiming their atoms.
 3. **Phase 2 — coverage crosswalk**: every spec scenario mapped against the test

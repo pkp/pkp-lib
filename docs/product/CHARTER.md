@@ -39,7 +39,10 @@ demonstrably missed features):
    pointer + one line). Completeness over depth; no analysis in sweeps. The
    sweep defines its modality list (routes, screens, notifications, emails,
    settings, jobs, …) fresh at Phase-0 start — the old OJS-only list is
-   scratched — and records it in the atlas so coverage stays greppable.
+   scratched — and records it in the atlas so coverage stays greppable. One
+   modality is REQUIRED regardless: a per-screen **affordance** sweep
+   (`atlas/affordances.md`) — the RUNBOOK loop consumes it (step 2 and the
+   per-feature definition of done depend on affordance atoms existing).
 2. **Phase 1 — feature specs** (`specs/*.md`): written per `TEMPLATE.md` to the
    RUNBOOK loop, adversarially verified, claiming their atoms.
 3. **Phase 2 — coverage crosswalk**: every spec scenario mapped against the test

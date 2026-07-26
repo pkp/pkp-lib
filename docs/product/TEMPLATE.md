@@ -13,8 +13,10 @@ it. If a reader needs a developer or an internal report to understand a sentence
 the sentence is wrong.
 
 **One spec covers OJS, OMP and OPS.** The body describes shared behavior; an
-UNMARKED claim asserts "probed identical in every app that has the surface" —
-absence of a marker is itself a claim, never "not yet checked". Divergences carry
+UNMARKED claim asserts "verified identical in every app that has the surface" —
+absence of a marker is itself a claim, never "not yet checked" (how that bar
+is met — inheritance evidence + targeted probes — is RUNBOOK multi-app
+rule 1). Divergences carry
 an inline marker linking to the Findings register. A feature an app lacks
 entirely: title badge (`{OJS OMP}`) + one absence paragraph up front, written as
 an install fact ("OPS does not install X by default"), never an impossibility.
@@ -47,11 +49,13 @@ The non-negotiable rules (the gate enforces the mechanical ones):
    live in one `## Footnotes — mechanism & evidence` section at the document
    tail, so the upper spec stays pure product language. Anchor to STABLE SYMBOLS
    (`ClassName::method()`, a constant, a route path), never line numbers.
-2. **Concrete role names, never umbrellas.** Use the app's actual role names:
-   **Site Administrator, Journal Manager, Section Editor, Assistant, Author,
-   Reviewer, Reader** (OMP/OPS analogues per APP-GLOSSARY). Never "editorial
-   staff", "editors", "the full manager". If several roles qualify, LIST them;
-   if assignment- or scope-based, say so. One canonical name per role per spec.
+2. **Concrete role names, never umbrellas.** Use the app's actual role names —
+   e.g. **Site Administrator, Journal Manager, Section Editor, Assistant,
+   Author, Reviewer, Reader** (illustrative, not exhaustive: the app's Roles
+   settings screen is the source; OMP/OPS analogues per APP-GLOSSARY). Never
+   "editorial staff", "editors", "the full manager". If several roles qualify,
+   LIST them; if assignment- or scope-based, say so. One canonical name per
+   role per spec.
 3. **One home for permissions.** Actors & permissions is the single source of
    who-may. Rules & state describes behavior and state and never restates the
    permission matrix; where behavior depends on a role, name the state and defer

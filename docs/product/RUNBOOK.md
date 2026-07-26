@@ -98,8 +98,14 @@ Every feature is specified and tested across **OJS, OMP and OPS** (fleets on
 ports 8000/8100/8200; same scenario-seeding endpoints; Postgres test DBs).
 
 1. **One spec, all three apps.** No per-app spec copies. The body describes the
-   shared behavior; an UNMARKED claim asserts "probed identical in every app
-   that has the surface" — absence of a marker is itself a claim. Divergences
+   shared behavior; an UNMARKED claim asserts "verified identical in every app
+   that has the surface" — absence of a marker is itself a claim. The evidence
+   bar for that assertion is NOT exhaustive per-claim probing (no budget allows
+   it): shared-code claims rest on the subclass-chain check (rule 8 — an empty
+   chain on the load-bearing path is positive evidence); permission,
+   exclusivity and affordance claims — the classes code-reading gets wrong —
+   additionally need a live cross-app probe (rule 4). A claim covered by
+   neither gets probed or gets a marker. Divergences
    carry an inline app marker linking to the Findings register. A feature an
    app doesn't have at all: title badge (e.g. `{OJS OMP}`) + one absence
    paragraph; absences are written as install facts ("not installed by
@@ -127,9 +133,9 @@ ports 8000/8100/8200; same scenario-seeding endpoints; Postgres test DBs).
    probe item that spans apps is owned by ONE agent driving all fleets (or an
    explicit merge step) — never split by app mid-item.
 5. **Base corrections are expected output.** OMP/OPS probing routinely
-   disproves OJS base text (both pilots did). Base-touching findings are
-   re-scoped on OJS before the final fold; they count as the pass's yield, not
-   overrun.
+   disproves what the spec says about OJS itself. A finding that touches
+   shared base text is re-checked on OJS before the spec is finalized; such
+   corrections are normal yield of cross-app work, not scope creep.
 6. **Divergence provenance guides the verdict.** When judging bug-vs-intended,
    weigh the age signal: behavior untouched since the app's early years reads
    as intent; behavior broken inside a modernization window reads as decay.
@@ -344,7 +350,7 @@ re-run it.
   (`--project=ojs`, then `--project=serial --no-deps`).
 - **Plugin-submodule alignment**: on a plugin "contains N abstract methods"
   fatal, align that submodule to the SHA root records (`git ls-tree HEAD
-  plugins/<path>`). Do NOT blow away webFeed/credit (local env-patches).
+  plugins/<path>`).
 - **Env invariants**: egress firewalled; `[schedule] task_runner=Off`;
   DTD/XSD mirrors via `XML_CATALOG_FILES`; Mailpit read-only scoped;
   globally-scanning ops in serial specs.

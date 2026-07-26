@@ -4,6 +4,10 @@
 > deleted in the full campaign reset (git history keeps it; it is not read
 > back). This file is the contract + design record the rebuild follows — file
 > paths below name where things live once rebuilt, not what exists today.
+> The **legacy Cypress suite** still ships on `e2e_ng` (it came back with the
+> fresh upstream main): it is OUT OF SCOPE — never maintained, never run by
+> the campaign, deleted only when the maintainer decides the Playwright suite
+> has replaced it.
 
 The **test-authoring** contract for the Playwright e2e suite. Every test-writing session
 follows these principles. The campaign's operating loop, test budget, and per-feature
@@ -155,7 +159,10 @@ decisions that must survive any rebuild (each was earned the hard way):
 green in all three apps; a login smoke passes per fleet; the scenario endpoint
 seeds a context and a staged submission in each app, with one parity
 spot-check against the equivalent UI path; the reset tool forces a cold
-bootstrap; concurrent fleets keep Mailpit assertions tag-scoped.
+bootstrap; concurrent fleets keep Mailpit assertions tag-scoped; and the
+operational names RUNBOOK "Ops & environment safeguards" cites (reset script,
+test-key header, ports) either match the rebuilt harness or RUNBOOK is updated
+in the same commit.
 
 ## Bootstrap data policy
 

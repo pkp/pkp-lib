@@ -32,7 +32,10 @@ step and reviews its output.
 1. **Phase 0 — surface atlas across ALL THREE apps** (the previous pass was
    OJS-only): mechanical sweeps per CHARTER Method → `atlas/*.md`, then a
    FEATURE-MAP with `apps:` applicability per feature. The modality list is
-   defined fresh at sweep start and recorded in the atlas.
+   defined fresh at sweep start and recorded in the atlas (an affordance sweep
+   is required — CHARTER Method). Phase 0 also seeds this file's Features
+   table: one `pending` row per feature with a provisional `Budget:` tier
+   (H/M/L per RUNBOOK) — the maintainer adjusts tiers on review.
 2. **Harness rebuild** per PRINCIPLES "Scenario-endpoint design record"
    (scenario API, bootstrap roster, config factory, fleet wiring); done when
    PRINCIPLES' **Rebuild acceptance** list passes.

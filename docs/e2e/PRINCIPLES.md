@@ -193,6 +193,10 @@ and build blockers — app defects that had to be worked around to get tests
 running green — append a row to `docs/e2e/app-changes.md`, naming the app.
 Product findings (bugs, divergences, open questions) never go there: they live
 in the feature spec's Findings register (RUNBOOK "What goes where").
+A test result that contradicts the spec about PERMISSION behavior is not
+resolved in the test layer: report it to the orchestrator (RUNBOOK step 7,
+which routes it to verification). Never park it as a skipped/`fixme` test or a
+"not covered" header note.
 Scenario-endpoint parity notes go to `docs/e2e/scenario-processor-audit.md`.
 
 ## Budget & definition of done

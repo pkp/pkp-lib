@@ -3,8 +3,8 @@
 /**
  * @file classes/author/contributorRole/ContributorRoleIdentifier.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContributorRoleIdentifier
@@ -16,6 +16,8 @@ namespace PKP\author\contributorRole;
 
 enum ContributorRoleIdentifier
 {
+
+    // Priority order follows ContributorRoleIdentifier case declaration order
     case AUTHOR;
     case EDITOR;
     case CHAIR;

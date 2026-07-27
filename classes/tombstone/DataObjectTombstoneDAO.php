@@ -51,12 +51,48 @@ class DataObjectTombstoneDAO extends DAO
 
     /**
      * Retrieve DataObjectTombstone by data object id.
+     *
+     * A data object can have more than one tombstone (e.g. one per exposed
+     * OAI identifier, for versioned records) -- this returns the first found.
+     * Use getManyByDataObjectId() to retrieve all of them.
      */
     public function getByDataObjectId(int $dataObjectId): ?DataObjectTombstone
     {
         $result = $this->retrieve(
             'SELECT * FROM data_object_tombstones WHERE data_object_id = ?',
             [$dataObjectId]
+        );
+        $row = $result->current();
+        return $row ? $this->_fromRow((array) $row) : null;
+    }
+
+    /**
+     * Retrieve all DataObjectTombstones for a data object id.
+     *
+     * @return DataObjectTombstone[]
+     */
+    public function getManyByDataObjectId(int $dataObjectId): array
+    {
+        $result = $this->retrieve(
+            'SELECT * FROM data_object_tombstones WHERE data_object_id = ?',
+            [$dataObjectId]
+        );
+
+        $tombstones = [];
+        foreach ($result as $row) {
+            $tombstones[] = $this->_fromRow((array) $row);
+        }
+        return $tombstones;
+    }
+
+    /**
+     * Retrieve a DataObjectTombstone by its OAI identifier.
+     */
+    public function getByOAIIdentifier(string $oaiIdentifier): ?DataObjectTombstone
+    {
+        $result = $this->retrieve(
+            'SELECT * FROM data_object_tombstones WHERE oai_identifier = ?',
+            [$oaiIdentifier]
         );
         $row = $result->current();
         return $row ? $this->_fromRow((array) $row) : null;
@@ -98,11 +134,23 @@ class DataObjectTombstoneDAO extends DAO
     }
 
     /**
-     * Delete DataObjectTombstone by data object id.
+     * Delete all DataObjectTombstones for a data object id.
      */
     public function deleteByDataObjectId(int $dataObjectId): int
     {
-        $dataObjectTombstone = $this->getByDataObjectId($dataObjectId);
+        $count = 0;
+        foreach ($this->getManyByDataObjectId($dataObjectId) as $dataObjectTombstone) {
+            $count += $this->deleteById($dataObjectTombstone->getId());
+        }
+        return $count;
+    }
+
+    /**
+     * Delete a DataObjectTombstone by its OAI identifier, if one exists.
+     */
+    public function deleteByOAIIdentifier(string $oaiIdentifier): int
+    {
+        $dataObjectTombstone = $this->getByOAIIdentifier($oaiIdentifier);
         if (!$dataObjectTombstone) {
             return 0;
         }

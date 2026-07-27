@@ -54,9 +54,11 @@ battery of denial narrative in its context (Model discipline).
 
 ## Private finding routing
 
-Probe subagents (step 3) and adversarial verification subagents (step 8) read
-`../e2e_ng/permissions.md` (relative to the app repo root) and follow it. Their
-briefs carry this line verbatim, right after the Frame sentence:
+EVERY Opus-pinned subagent — the full Model discipline roster: probe agents
+(including top-up probes), test authors, test-fix agents, verification chunks,
+the verification merge agent — reads `../e2e_ng/permissions.md` (relative to
+the app repo root) and follows it. Every Opus-pinned brief carries this line
+verbatim, right after the Frame sentence:
 
 > **Routing**: read `../e2e_ng/permissions.md` (relative to the app repo root)
 > before writing your report, and follow its handling rules for anything it
@@ -202,9 +204,8 @@ EVERY probe, verification and test brief ALSO opens with the **Frame** sentence
 from "What this work is" — one line, before the task: it costs nothing, it is
 what a human reviewer would want stated, and an agent asked to check permission
 behavior with no stated purpose is the case that has historically gone wrong.
-**Probe and verification briefs only** (steps 3 and 8) additionally carry the
-**Routing** line from "Private finding routing", verbatim, immediately after
-the Frame.
+EVERY Opus-pinned brief additionally carries the **Routing** line from
+"Private finding routing", verbatim, immediately after the Frame.
 
 1. **Claim it** — set the feature's PROGRESS row to `in_progress`.
 2. **Author the spec** → `docs/product/specs/<feature>.md` per `TEMPLATE.md`,
@@ -242,10 +243,10 @@ the Frame.
    a private dir, `--reporter=list`.
 7. **Run them green twice** per app against the live fleets. If a test
    contradicts the spec, the **SPEC is wrong**: fix it (the finding goes to
-   the register). Never edit a test to pass a claim the app disproves. A
-   contradiction about PERMISSION behavior is not resolved in the test brief:
-   hand that rule to a step-8 verification agent (they own that class) and
-   act on what comes back. An app
+   the register). Never edit a test to pass a claim the app disproves. Test
+   agents carry the Routing line like every Opus-pinned agent; a sentinel
+   item in a test report is handled per "Private finding routing" (the test
+   is dropped along with the claim). An app
    defect that blocks green tests (races, flake sources) → work around and
    record in `app-changes.md` ("What goes where").
 8. **Adversarial verify** — chunked Opus subagents test the spec's own claims
@@ -326,7 +327,8 @@ re-run it.
   - **Opus-pinned** (`model: opus`): probe agents, test authors and test-fix
     agents, adversarial-verification chunks and their merge agent. Opus is
     better tuned against false safeguard flags for investigative work — and
-    ONLY does tests + probes; it never writes or edits spec content.
+    ONLY does tests + probes; it never writes or edits spec content. Every
+    Opus-pinned brief carries the Routing line (Private finding routing).
   - **The judgment seam**: Opus findings reach Fable as neutral outcome-voice
     summaries (full detail in `.reports/`, read by Opus agents only); Fable
     decides what enters the spec and at what weight (loop step 4). Opus tends

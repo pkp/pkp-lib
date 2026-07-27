@@ -356,7 +356,8 @@ re-run it.
 - **After a killed/aborted test gate**: kill orphan chromium processes before
   re-running; restart PHP servers with an ABSOLUTE `-t` docroot. If the
   parallel result line shows a passed count, re-run only serial; else both
-  (`--project=ojs`, then `--project=serial --no-deps`).
+  (`--project=ojs`, then `--project=ojs-serial --no-deps`; serial projects are
+  named `<app>-serial`).
 - **Plugin-submodule alignment**: on a plugin "contains N abstract methods"
   fatal, align that submodule to the SHA root records (`git ls-tree HEAD
   plugins/<path>`).

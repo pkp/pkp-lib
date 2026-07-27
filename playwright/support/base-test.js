@@ -20,12 +20,52 @@
  * `appContext.capabilities` and resolves people through `appContext.seed.actors`
  * — never on an app name, because "OJS has issues" is a fact about a capability,
  * not about a repository.
+ *
+ * That applies to the `user` option too, which is why it accepts the archetype
+ * sentinel `DEFAULT_EDITORIAL_USER` as well as a literal username: a shared spec
+ * cannot name `editor.diana`, because OPS has no editor group and its roster says
+ * so with a null.
  */
 
 const base = require('@playwright/test');
 const {ensureAuthStateFor} = require('./auth.js');
 const {PkpApi} = require('./api.js');
 const {PkpMail} = require('./mail.js');
+
+/**
+ * `test.use({user: DEFAULT_EDITORIAL_USER})` — "whoever runs the editorial
+ * dashboard in THIS app", resolved from `appContext.seed.actors` when the
+ * storage state is built.
+ *
+ * The option is consumed by a fixture before any test body runs, so a shared
+ * spec has no other way to make the single-actor path app-dependent: `test.use`
+ * takes a value, not a callback, and cannot see `appContext`. A sentinel keeps
+ * that path available to shared specs while leaving `null` (anonymous) and a
+ * literal username (an app's own suite naming its own user) untouched.
+ */
+const DEFAULT_EDITORIAL_USER = '__default__';
+
+/**
+ * The app's senior editorial account: its `editor` archetype, or its `manager`
+ * where the app has no editor group (OPS). Both hold the editorial dashboard.
+ *
+ * @param {{seed: {actors: Record<string, string|null>}}} appContext
+ * @returns {string}
+ */
+function defaultEditorialUser(appContext) {
+	const {actors} = appContext.seed;
+	const username = actors.editor ?? actors.manager;
+
+	if (!username) {
+		throw new Error(
+			'This app’s seed.actors declares neither an `editor` nor a `manager`, so the ' +
+				'default editorial persona cannot be resolved. Name a user explicitly with ' +
+				'test.use({user}) or add the archetype to playwright/support/app.context.js.',
+		);
+	}
+
+	return username;
+}
 
 /**
  * @typedef {object} PkpServerOption
@@ -38,7 +78,10 @@ const test = base.test.extend({
 	// Options (set by config-factory, overridable with test.use)
 	//
 
-	/** Username the default `page` is logged in as; null for an anonymous page. */
+	/**
+	 * Username the default `page` is logged in as; null for an anonymous page,
+	 * or DEFAULT_EDITORIAL_USER for this app's senior editorial account.
+	 */
 	user: [
 		/** @type {string|null} */ (null),
 		{option: true},
@@ -113,15 +156,21 @@ const test = base.test.extend({
 	 *
 	 * Overriding the built-in option means `page`, `context` and `request` all
 	 * arrive authenticated without a spec doing anything.
+	 *
+	 * DEFAULT_EDITORIAL_USER is resolved HERE, against this app's roster, so the
+	 * single-actor path works in a shared spec that must not name a username.
 	 */
-	storageState: async ({user, browser, baseURL, authDir}, use) => {
+	storageState: async ({user, appContext, browser, baseURL, authDir}, use) => {
 		if (!user) {
 			await use(undefined);
 
 			return;
 		}
 
-		await use(await ensureAuthStateFor(browser, user, {baseURL, authDir}));
+		const username =
+			user === DEFAULT_EDITORIAL_USER ? defaultEditorialUser(appContext) : user;
+
+		await use(await ensureAuthStateFor(browser, username, {baseURL, authDir}));
 	},
 
 	/**
@@ -172,4 +221,9 @@ const test = base.test.extend({
 	},
 });
 
-module.exports = {test, expect: base.expect};
+module.exports = {
+	test,
+	expect: base.expect,
+	DEFAULT_EDITORIAL_USER,
+	defaultEditorialUser,
+};

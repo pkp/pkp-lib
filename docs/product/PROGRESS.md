@@ -40,6 +40,14 @@ step and reviews its output.
 2. **Harness rebuild** per PRINCIPLES "Scenario-endpoint design record"
    (scenario API, bootstrap roster, config factory, fleet wiring); done when
    PRINCIPLES' **Rebuild acceptance** list passes.
+   **DONE 2026-07-27** — all acceptance items pass on all three fleets
+   (bootstrap green, login smoke ×2 per fleet, scenario seeds + per-app
+   notification-parity spot-checks, reset-forces-cold, concurrent-fleet
+   Mailpit tag-scoping, RUNBOOK names aligned). Evidence:
+   `docs/product/.reports/step2-harness/` (stages A–D); parity ledger seeded
+   (`docs/e2e/scenario-processor-audit.md`, 18 verdicts); app-changes rows
+   1–11; skill flipped to live truth. Step-2 scenario schema is the minimal
+   core — richer keys return per feature.
 3. **First feature** spec + per-app tests under the canon — maintainer picks;
    one feature per session, stop for review.
 

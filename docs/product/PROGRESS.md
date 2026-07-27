@@ -52,6 +52,10 @@ step and reviews its output.
    one feature per session, stop for review.
    **Maintainer pick (2026-07-27): U26 Review stage & rounds.** The first
    feature session also rebuilds the lint gate (RUNBOOK step 5).
+   U26 DONE 2026-07-28 (row + spec committed; awaiting maintainer sign-off —
+   `.reports/u26/` kept on disk until then).
+   **Next pick (2026-07-28, maintainer): U6 User invitations** — lint gate
+   exists now (`docs/product/lint/lint-spec.mjs`), run it, don't rebuild.
 
 ## Features
 

@@ -60,7 +60,7 @@
 | MAIL-044 | ojs omp | `PKP\mail\mailables\ReviewRequest` | Review request to a reviewer (accept/decline), first round. Key: `REVIEW_REQUEST` |
 | MAIL-045 | ojs omp | `PKP\mail\mailables\ReviewRequestSubsequent` | Review request to a reviewer on subsequent review rounds. Key: `REVIEW_REQUEST_SUBSEQUENT` |
 | MAIL-046 | ojs omp | `PKP\mail\mailables\ReviewResponseRemindAuto` | Automatic reminder to a reviewer after the response deadline. Key: `REVIEW_RESPONSE_OVERDUE_AUTO` |
-| MAIL-047 | ojs omp | `PKP\mail\mailables\RevisedVersionNotify` | Automatic email to the assigned editor when an author uploads a revised version. Key: `REVISED_VERSION_NOTIFY` |
+| MAIL-047 | ojs omp | `PKP\mail\mailables\RevisedVersionNotify` | Automatic email to the assigned editor when an author uploads a revised version. Key: `REVISED_VERSION_NOTIFY` · Claimed by: U26 |
 | MAIL-048 | ojs omp ops | `PKP\mail\mailables\StatisticsReportNotify` | Scheduled editorial/statistics report email (class docblock @brief is a copy-paste of AnnouncementNotify's). Key: `STATISTICS_REPORT_NOTIFICATION` |
 | MAIL-049 | ojs omp ops | `PKP\mail\mailables\SubmissionAcknowledgement` | Acknowledgement to the submitting author on submission. Key: `SUBMISSION_ACK` |
 | MAIL-050 | ojs omp ops | `PKP\mail\mailables\SubmissionAcknowledgementNotAuthor` | Acknowledgement to contributors named on a new submission. Key: `SUBMISSION_ACK_NOT_USER` |

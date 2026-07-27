@@ -86,7 +86,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U23 | Submissions dashboard (editorial) | OJS OMP OPS | H | pending | |
 | U24 | Workflow screen & stage access | OJS OMP OPS | M | pending | |
 | U25 | Submission stage | OJS OMP OPS | M | pending | |
-| U26 | Review stage & rounds | OJS OMP | H | pending | First feature after reset; session also rebuilds the lint gate. Attempt 1 (2026-07-27) discarded mid-flight — rebuild from scratch, blind (RUNBOOK "Rebuilding a feature from scratch") |
+| U26 | Review stage & rounds | OJS OMP | H | done | Attempt 2 (blind rebuild) 2026-07-27/28: spec verified, lint-clean; tests OJS 11 / OMP 12 / OPS 1 absence, each green ×2; lint gate rebuilt (`docs/product/lint/lint-spec.mjs`); review first: OMP4 (press recommendations unreachable), OMP1✅/OMP6🐞 cancel-landing split, A8 rebadge; harness leads in `.reports/u26/tests-omp.md` |
 | U27 | Reviewer assignment & management | OJS OMP | H | pending | |
 | U28 | Reviewer's review | OJS OMP | H | pending | |
 | U29 | Review setup & review forms | OJS OMP | M | pending | |
@@ -161,3 +161,8 @@ _Rows for Fable-pinned agents and Opus anomalies only, appended by hand
 - 2026-07-27 · phase0-feature-map · map critic · adversarial review · claude-fable-5
 - 2026-07-27 · phase0-feature-map · fix agent · critic fixes applied · claude-fable-5
 - 2026-07-27 · U26 · spec author · draft + GLOSSARY + probe list · claude-fable-5 -discarded (attempt 1 scrapped; feature restarted from scratch)
+- 2026-07-27 · U26 · spec author (attempt 2) · draft + GLOSSARY + probe list · claude-fable-5
+- 2026-07-27 · U26 · finalizer · probe fold · claude-fable-5
+- 2026-07-28 · U26 · verification fold · merge-list fold + APP-GLOSSARY cell · claude-fable-5
+- 2026-07-28 · U26 · readability verifier · persona pass (1 blocker, 6 frictions) · claude-fable-5
+- 2026-07-28 · U26 · readability rewrite · stumble fixes · claude-fable-5

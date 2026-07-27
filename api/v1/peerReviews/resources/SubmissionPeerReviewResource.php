@@ -95,7 +95,7 @@ class SubmissionPeerReviewResource extends JsonResource
             // re-hydrates every assignment
             ->collect();
 
-        // Only confirm reviews are to be exposed; however, all accepted reviews are to be considered when preparing summary further down
+        // Only confirmed reviews are to be exposed; however, all accepted reviews are to be considered when preparing summary further down
         $confirmedReviewAssignments = $reviewAssignments->filter(
             fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateConsidered() !== null || $reviewAssignment->getDateAcknowledged() !== null
         );

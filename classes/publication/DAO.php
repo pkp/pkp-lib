@@ -102,8 +102,16 @@ class DAO extends EntityDAO
             $rows = $query
                 ->getQueryBuilder()
                 ->get();
-            foreach ($rows as $row) {
-                yield $row->publication_id => $this->fromRow($row);
+            // Batch-load settings and related entities
+            // for the whole result set instead of querying per publication
+            $this->prefetchSettings($rows);
+            $this->prefetchRelated($rows);
+            try {
+                foreach ($rows as $row) {
+                    yield $row->publication_id => $this->fromRow($row);
+                }
+            } finally {
+                $this->clearRelatedPrefetch();
             }
         });
     }
@@ -151,6 +159,131 @@ class DAO extends EntityDAO
     }
 
     /**
+     * Related data prefetched for the batch of publications currently being
+     * hydrated by getMany(), keyed by publication (or submission) id.
+     *
+     * Every map is pre-filled for all ids in the batch, so a missing key
+     * always means "not part of this batch" — the set* helpers then fall
+     * back to the original per-publication query rather than assuming an
+     * empty result. This keeps the prefetch purely an optimization: it can
+     * never change what data a publication is hydrated with.
+     */
+    protected ?array $submissionLocalesPrefetch = null;
+    protected ?array $categoryIdsPrefetch = null;
+    protected ?array $dataCitationsPrefetch = null;
+    protected ?array $fundersPrefetch = null;
+    protected ?array $vocabPrefetch = null;
+    protected ?array $doiObjectsPrefetch = null;
+    protected ?\Closure $authorsBatchLoader = null;
+
+    protected const VOCAB_SYMBOLIC_TO_PROP = [
+        ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => 'keywords',
+        ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT => 'subjects',
+        ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE => 'disciplines',
+        ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY => 'supportingAgencies',
+    ];
+
+    /**
+     * Reset all prefetch state after a getMany() batch completes.
+     */
+    protected function clearRelatedPrefetch(): void
+    {
+        $this->clearSettingsPrefetch();
+        $this->submissionLocalesPrefetch = null;
+        $this->categoryIdsPrefetch = null;
+        $this->dataCitationsPrefetch = null;
+        $this->fundersPrefetch = null;
+        $this->vocabPrefetch = null;
+        $this->doiObjectsPrefetch = null;
+        $this->authorsBatchLoader = null;
+    }
+
+    /**
+     * Load the related entities for a batch of publication rows with one
+     * query per relation instead of one or more queries per publication.
+     */
+    protected function prefetchRelated(\Illuminate\Support\Collection $rows): void
+    {
+        $publicationIds = $rows->pluck('publication_id')->all();
+        $submissionIds = $rows->pluck('submission_id')->unique()->values()->all();
+        if (empty($publicationIds)) {
+            return;
+        }
+
+        $this->submissionLocalesPrefetch = DB::table('submissions')
+            ->whereIn('submission_id', $submissionIds)
+            ->pluck('locale', 'submission_id')
+            ->all();
+
+        $this->categoryIdsPrefetch = PublicationCategory::query()
+            ->whereIn('publication_id', $publicationIds)
+            ->get()
+            ->groupBy('publication_id')
+            ->map(fn ($group) => $group->pluck('category_id')->all())
+            ->all()
+            + array_fill_keys($publicationIds, []);
+
+        $this->dataCitationsPrefetch = DataCitation::query()
+            ->whereIn('publication_id', $publicationIds)
+            ->orderBySeq()
+            ->get()
+            ->groupBy(fn ($dataCitation) => $dataCitation->getRawOriginal('publication_id'))
+            ->map(fn ($group) => $group->values()->all())
+            ->all()
+            + array_fill_keys($publicationIds, []);
+
+        $this->fundersPrefetch = Funder::query()
+            ->whereIn('submission_id', $submissionIds)
+            ->orderBySeq()
+            ->get()
+            ->groupBy(fn ($funder) => $funder->getRawOriginal('submission_id'))
+            ->map(fn ($group) => $group->values()->all())
+            ->all()
+            + array_fill_keys($submissionIds, []);
+
+        $this->vocabPrefetch = array_fill_keys($publicationIds, []);
+        \PKP\controlledVocab\ControlledVocabEntry::query()
+            ->whereHas('controlledVocab', fn ($q) => $q
+                ->withSymbolics(array_keys(self::VOCAB_SYMBOLIC_TO_PROP))
+                ->where('assoc_type', Application::ASSOC_TYPE_PUBLICATION)
+                ->whereIn('assoc_id', $publicationIds))
+            ->with('controlledVocab')
+            ->get()
+            ->each(function ($entry) {
+                $vocab = $entry->controlledVocab;
+                $prop = self::VOCAB_SYMBOLIC_TO_PROP[$vocab->symbolic] ?? null;
+                if (!$prop) {
+                    return;
+                }
+                foreach (array_keys($entry->name) as $locale) {
+                    $this->vocabPrefetch[$vocab->assocId][$prop][$locale][] = $entry->getEntryData($locale);
+                }
+            });
+
+        $doiIds = $rows->pluck('doi_id')->filter()->unique()->values()->all();
+        $this->doiObjectsPrefetch = empty($doiIds) ? [] : Repo::doi()->dao->getByIds($doiIds);
+
+        // Shared deferred authors loader: the first access to any
+        // publication's authors hydrates the authors of the whole batch.
+        // Returns null for publications outside the batch, so the caller
+        // can fall back to the original per-publication query.
+        $authorsCache = null;
+        $this->authorsBatchLoader = function (int $publicationId) use ($publicationIds, &$authorsCache): ?array {
+            if ($authorsCache === null) {
+                $authorsCache = array_fill_keys($publicationIds, []);
+                $authors = Repo::author()->getCollector()
+                    ->filterByPublicationIds($publicationIds)
+                    ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
+                    ->getMany();
+                foreach ($authors as $authorId => $author) {
+                    $authorsCache[$author->getData('publicationId')][$authorId] = $author;
+                }
+            }
+            return $authorsCache[$publicationId] ?? null;
+        };
+    }
+
+    /**
      * @copydoc EntityDAO::fromRow()
      */
     public function fromRow(object $row): Publication
@@ -161,13 +294,17 @@ class DAO extends EntityDAO
         $this->setDoiObject($publication);
 
         // Set the primary locale from the submission
-        $locale = DB::table('submissions as s')
-            ->where('s.submission_id', '=', $publication->getData('submissionId'))
-            ->value('locale');
+        $submissionId = $publication->getData('submissionId');
+        $locale = ($this->submissionLocalesPrefetch !== null && array_key_exists($submissionId, $this->submissionLocalesPrefetch))
+            ? $this->submissionLocalesPrefetch[$submissionId]
+            : DB::table('submissions as s')
+                ->where('s.submission_id', '=', $submissionId)
+                ->value('locale');
         $publication->setData('locale', $locale);
 
-        $citations = Repo::citation()->getByPublicationId($publication->getId());
-        $publication->setData('citations', $citations);
+        $publication->setData('citations', LazyCollection::make(function () use ($publication) {
+            yield from Repo::citation()->getByPublicationId($publication->getId());
+        })->remember());
         $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
             public function __construct(public int $publicationId)
             {
@@ -331,14 +468,20 @@ class DAO extends EntityDAO
      */
     protected function setAuthors(Publication $publication)
     {
+        // Use the shared batch loader when this publication is hydrated as
+        // part of a getMany() batch; otherwise load its authors individually
+        $loader = $this->authorsBatchLoader;
+        $publicationId = $publication->getId();
         $publication->setData(
             'authors',
-            Repo::author()
-                ->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
-                ->getMany()
-                ->remember()
+            LazyCollection::make(function () use ($loader, $publicationId) {
+                yield from ($loader ? $loader($publicationId) : null)
+                    ?? Repo::author()
+                        ->getCollector()
+                        ->filterByPublicationIds([$publicationId])
+                        ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
+                        ->getMany();
+            })->remember()
         );
     }
 
@@ -362,6 +505,14 @@ class DAO extends EntityDAO
      */
     protected function setControlledVocab(Publication $publication)
     {
+        if ($this->vocabPrefetch !== null && array_key_exists($publication->getId(), $this->vocabPrefetch)) {
+            $vocabs = $this->vocabPrefetch[$publication->getId()];
+            foreach (self::VOCAB_SYMBOLIC_TO_PROP as $prop) {
+                $publication->setData($prop, $vocabs[$prop] ?? []);
+            }
+            return;
+        }
+
         $publication->setData(
             'keywords',
             Repo::controlledVocab()->getBySymbolic(
@@ -457,7 +608,9 @@ class DAO extends EntityDAO
      */
     protected function setCategories(Publication $publication): void
     {
-        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id')->toArray();
+        $categoryIds = ($this->categoryIdsPrefetch !== null && array_key_exists($publication->getId(), $this->categoryIdsPrefetch))
+            ? $this->categoryIdsPrefetch[$publication->getId()]
+            : PublicationCategory::withPublicationId($publication->getId())->pluck('category_id')->toArray();
         $publication->setData('categoryIds', $categoryIds);
     }
 
@@ -483,11 +636,13 @@ class DAO extends EntityDAO
      */
     protected function setDataCitations(Publication $publication): void
     {
-        $dataCitations = DataCitation::withPublicationId($publication->getId())
-            ->orderBySeq()
-            ->get()
-            ->values()
-            ->all();
+        $dataCitations = ($this->dataCitationsPrefetch !== null && array_key_exists($publication->getId(), $this->dataCitationsPrefetch))
+            ? $this->dataCitationsPrefetch[$publication->getId()]
+            : DataCitation::withPublicationId($publication->getId())
+                ->orderBySeq()
+                ->get()
+                ->values()
+                ->all();
         $publication->setData('dataCitations', $dataCitations);
     }
 
@@ -504,11 +659,13 @@ class DAO extends EntityDAO
      */
     protected function setFunders(Publication $publication): void
     {
-        $funders = Funder::withSubmissionId($publication->getData('submissionId'))
-            ->orderBySeq()
-            ->get()
-            ->values()
-            ->all();
+        $funders = ($this->fundersPrefetch !== null && array_key_exists($publication->getData('submissionId'), $this->fundersPrefetch))
+            ? $this->fundersPrefetch[$publication->getData('submissionId')]
+            : Funder::withSubmissionId($publication->getData('submissionId'))
+                ->orderBySeq()
+                ->get()
+                ->values()
+                ->all();
         $publication->setData('funders', $funders);
     }
 
@@ -518,8 +675,12 @@ class DAO extends EntityDAO
      */
     protected function setDoiObject(Publication $publication)
     {
-        if (!empty($publication->getData('doiId'))) {
-            $publication->setData('doiObject', Repo::doi()->get($publication->getData('doiId')));
+        if (!empty($doiId = $publication->getData('doiId'))) {
+            // Use the batch-prefetched DOI object when available
+            $doi = ($this->doiObjectsPrefetch !== null && isset($this->doiObjectsPrefetch[$doiId]))
+                ? $this->doiObjectsPrefetch[$doiId]
+                : Repo::doi()->get($doiId);
+            $publication->setData('doiObject', $doi);
         }
     }
 

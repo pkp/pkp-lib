@@ -131,8 +131,14 @@ class DAO extends EntityDAO
                 return;
             }
 
-            foreach ($rows as $row) {
-                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
+            // One settings query for the whole batch
+            $this->prefetchSettings($rows);
+            try {
+                foreach ($rows as $row) {
+                    yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
+                }
+            } finally {
+                $this->clearSettingsPrefetch();
             }
         });
     }

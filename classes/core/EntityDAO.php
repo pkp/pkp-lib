@@ -72,6 +72,42 @@ abstract class EntityDAO
      */
     public $deprecatedDao;
 
+    /**
+     * Settings rows prefetched for a batch of entities,
+     * keyed by primary key. When set, fromRow() reads from this map
+     * instead of querying the settings table per entity.
+     */
+    protected ?array $settingsPrefetch = null;
+
+    /**
+     * Prefetch the settings rows for a batch of primary rows
+     * in a single query.
+     */
+    protected function prefetchSettings(\Illuminate\Support\Collection $rows): void
+    {
+        if (!$this->settingsTable || $rows->isEmpty()) {
+            $this->settingsPrefetch = [];
+            return;
+        }
+        $ids = $rows->pluck($this->primaryKeyColumn)->all();
+        // Pre-fill every id in the batch so entities without settings rows
+        // resolve to an empty set instead of falling back to a query
+        $this->settingsPrefetch = DB::table($this->settingsTable)
+            ->whereIn($this->primaryKeyColumn, $ids)
+            ->get()
+            ->groupBy($this->primaryKeyColumn)
+            ->all()
+            + array_fill_keys($ids, collect());
+    }
+
+    /**
+     * Reset the settings prefetch state after a batch completes.
+     */
+    protected function clearSettingsPrefetch(): void
+    {
+        $this->settingsPrefetch = null;
+    }
+
     /** @var PKPSchemaService<T> $schemaService */
     protected $schemaService;
 
@@ -120,9 +156,13 @@ abstract class EntityDAO
         }
 
         if ($this->settingsTable) {
-            $rows = DB::table($this->settingsTable)
-                ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-                ->get();
+            // Use batch-prefetched settings when available;
+            // fall back to a query for entities outside the prefetched batch
+            $rows = ($this->settingsPrefetch !== null && array_key_exists($row->{$this->primaryKeyColumn}, $this->settingsPrefetch))
+                ? collect($this->settingsPrefetch[$row->{$this->primaryKeyColumn}])
+                : DB::table($this->settingsTable)
+                    ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
+                    ->get();
 
             $rows->each(function ($row) use ($object, $schema) {
                 if (!empty($schema->properties->{$row->setting_name})) {

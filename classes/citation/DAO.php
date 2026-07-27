@@ -90,8 +90,14 @@ class DAO extends EntityDAO
             $rows = $query
                 ->getQueryBuilder()
                 ->get();
-            foreach ($rows as $row) {
-                yield $row->citation_id => $this->fromRow($row);
+            // One settings query for the whole batch
+            $this->prefetchSettings($rows);
+            try {
+                foreach ($rows as $row) {
+                    yield $row->citation_id => $this->fromRow($row);
+                }
+            } finally {
+                $this->clearSettingsPrefetch();
             }
         });
     }

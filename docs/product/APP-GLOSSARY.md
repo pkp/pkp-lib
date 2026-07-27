@@ -54,7 +54,7 @@ confirmed in live OPS Moderator sessions, 2026-07-26.
 | stages: Submission → Review → Copyediting → Production | Submission → **Internal Review** → External Review → Copyediting → Production | **Production only** (single stage) |
 | Review (the stage) | External Review (Internal Review is a distinct, OMP-unique stage) | — |
 | Copyediting | Copyediting | — |
-| Send to Review (decision) | Send to External Review (plus Send to Internal Review, Skip Internal, Accept from Internal, internal recommend-only variants) | — decisions are Decline / Revert Decline only |
+| Send for Review (decision; label live-confirmed 2026-07-27) | Send to External Review (same label from Submission [skips internal] and from Internal Review; plus Send to Internal Review, Accept and Skip Review, internal recommend-only variants) | — decisions are Decline / Revert Decline only |
 | Publish | Publish to Catalog (approved proof) | **Post the preprint** |
 | Schedule for publication (issue) | — catalog entry instead | — posts continuously; moderation-before-posting is a context setting |
 

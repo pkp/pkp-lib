@@ -42,6 +42,7 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\notification\Notification;
 use PKP\security\Role;
@@ -108,6 +109,7 @@ class PKPSubmissionScenarioController extends PKPTestApiController
             $this->actingAs($submitter, fn () => $this->submitSubmission($submission->getId(), $context));
         }
 
+        $echo['participants'] = $this->applyParticipants($spec, $context);
         $echo['decisionIds'] = $this->applyDecisions($spec, $context);
         $echo['reviewRounds'] = $this->applyReviewRounds($spec, $context);
 
@@ -368,6 +370,103 @@ class PKPSubmissionScenarioController extends PKPTestApiController
     }
 
     //
+    // Participants
+    //
+
+    /**
+     * Assign the submission's stage participants, the way the Participants panel
+     * does: a stage assignment under one of the user's groups in the context,
+     * carrying the panel's "Recommend only" toggle.
+     *
+     * Runs BEFORE the decisions so that a participant is in place for every
+     * notification and every round the decisions create — which is what the panel
+     * produces when an editor adds a participant on the submission stage.
+     *
+     * `Repo::stageAssignment()->build()` is `firstOr`: a user the submission
+     * already carries an assignment for (the section editors a real submit
+     * auto-assigns) keeps the flags of that assignment. The panel can still change
+     * "Recommend only" on an existing participant, so the spec's flag is applied to
+     * the returned assignment either way.
+     *
+     * @throws ScenarioException
+     *
+     * @return array<int, array>
+     */
+    protected function applyParticipants(array $spec, Context $context): array
+    {
+        $assigned = [];
+
+        foreach (array_values($spec['participants'] ?? []) as $index => $participantSpec) {
+            $specKey = "participants.{$index}";
+            $user = $this->requireUser($participantSpec['user'], "{$specKey}.user");
+            $group = $this->resolveParticipantGroup($context, $user, $participantSpec, $specKey);
+            $recommendOnly = (bool) ($participantSpec['recommendOnly'] ?? false);
+
+            $assignment = Repo::stageAssignment()->build(
+                $this->currentSubmissionId(),
+                $group->id,
+                $user->getId(),
+                $recommendOnly
+            );
+
+            if ((bool) $assignment->recommendOnly !== $recommendOnly) {
+                $assignment->update(['recommendOnly' => $recommendOnly]);
+            }
+
+            $assigned[] = [
+                'user' => $participantSpec['user'],
+                'userId' => $user->getId(),
+                'userGroupId' => $group->id,
+                'recommendOnly' => $recommendOnly,
+            ];
+        }
+
+        return $assigned;
+    }
+
+    /**
+     * The user group a participant is assigned under: the role the spec names, or
+     * the user's own first group in the context when it names none.
+     *
+     * @throws ScenarioException
+     */
+    protected function resolveParticipantGroup(Context $context, User $user, array $participantSpec, string $specKey): UserGroup
+    {
+        if (isset($participantSpec['role'])) {
+            $group = $this->resolveUserGroup($context, $participantSpec['role'], "{$specKey}.role");
+
+            $enrolled = UserUserGroup::query()
+                ->withUserId($user->getId())
+                ->withUserGroupIds([$group->id])
+                ->withActive()
+                ->exists();
+
+            if (!$enrolled) {
+                throw new ScenarioException(
+                    "User '{$participantSpec['user']}' is not enrolled as '{$participantSpec['role']}' in context '{$context->getPath()}'. "
+                        . 'Seeding a participant never enrols a shared user in a new role.',
+                    "{$specKey}.role"
+                );
+            }
+
+            return $group;
+        }
+
+        $group = UserGroup::withContextIds([$context->getId()])
+            ->whereHas('userUserGroups', fn ($query) => $query->withUserId($user->getId())->withActive())
+            ->first();
+
+        if (!$group) {
+            throw new ScenarioException(
+                "User '{$participantSpec['user']}' has no role in context '{$context->getPath()}' to be assigned under.",
+                "{$specKey}.user"
+            );
+        }
+
+        return $group;
+    }
+
+    //
     // Decisions
     //
 
@@ -600,7 +699,9 @@ class PKPSubmissionScenarioController extends PKPTestApiController
             $reviewer = $this->requireUser($reviewerSpec['user'], "{$specKey}.user");
             $status = $reviewerSpec['status'] ?? 'invited';
 
-            $this->actingAs($editor, function () use ($submission, $reviewer, $reviewRound, $context) {
+            $method = $this->resolveReviewMethod($reviewerSpec, $context, "{$specKey}.method");
+
+            $this->actingAs($editor, function () use ($submission, $reviewer, $reviewRound, $context, $method) {
                 $round = $reviewRound;
 
                 // EditorAction reads the notification template and personal
@@ -621,7 +722,7 @@ class PKPSubmissionScenarioController extends PKPTestApiController
                     $round,
                     Core::getCurrentDate(strtotime('+4 weeks')),
                     Core::getCurrentDate(strtotime('+1 week')),
-                    $context->getData('defaultReviewMode')
+                    $method
                 ));
             });
 
@@ -641,7 +742,7 @@ class PKPSubmissionScenarioController extends PKPTestApiController
                 'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_NEW,
             ]);
 
-            if (in_array($status, ['accepted', 'declined'])) {
+            if (in_array($status, ['accepted', 'declined', 'completed', 'confirmed'])) {
                 $assignment = Repo::reviewAssignment()->get($assignment->getId());
                 $this->actingAs($reviewer, fn () => (new ReviewerAction())->confirmReview(
                     Application::get()->getRequest(),
@@ -651,6 +752,14 @@ class PKPSubmissionScenarioController extends PKPTestApiController
                 ));
             }
 
+            if (in_array($status, ['completed', 'confirmed'])) {
+                $this->submitReview($assignment->getId(), $reviewer, $submission, $context, $reviewerSpec, $specKey);
+            }
+
+            if ($status === 'confirmed') {
+                $this->confirmReview($assignment->getId(), $editor);
+            }
+
             $assignment = Repo::reviewAssignment()->get($assignment->getId());
 
             $assignments[] = [
@@ -658,12 +767,190 @@ class PKPSubmissionScenarioController extends PKPTestApiController
                 'reviewerId' => $reviewer->getId(),
                 'username' => $reviewerSpec['user'],
                 'status' => $status,
+                'reviewMethod' => (int) $assignment->getReviewMethod(),
                 'dateConfirmed' => $assignment->getDateConfirmed(),
+                'dateCompleted' => $assignment->getDateCompleted(),
+                'considered' => (int) $assignment->getConsidered(),
                 'declined' => (bool) $assignment->getDeclined(),
             ];
         }
 
         return $assignments;
+    }
+
+    /**
+     * The review method for one assignment: what the spec names, else the
+     * context's default review mode — the same value the Add Reviewer form
+     * pre-selects.
+     *
+     * @throws ScenarioException
+     */
+    protected function resolveReviewMethod(array $reviewerSpec, Context $context, string $specKey): int
+    {
+        $methods = [
+            'open' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN,
+            'anonymous' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
+            'doubleAnonymous' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS,
+        ];
+
+        if (!isset($reviewerSpec['method'])) {
+            return (int) $context->getData('defaultReviewMode');
+        }
+
+        if (!isset($methods[$reviewerSpec['method']])) {
+            throw new ScenarioException("Unknown review method '{$reviewerSpec['method']}'.", $specKey);
+        }
+
+        return $methods[$reviewerSpec['method']];
+    }
+
+    /**
+     * Submit the review as the reviewer does on the last step of their own review
+     * form: the application's step-3 form, read and executed exactly as
+     * PKPReviewerHandler::saveStep() does once validation passes.
+     *
+     * Driving the real form is what makes the seeded review carry the reviewer's
+     * comment rows, the recommendation, the completion stamp, the editors'
+     * notification and the event-log entry that a hand-written UPDATE would not.
+     *
+     * @throws ScenarioException
+     */
+    protected function submitReview(int $assignmentId, User $reviewer, Submission $submission, Context $context, array $reviewerSpec, string $specKey): void
+    {
+        $recommendationId = isset($reviewerSpec['recommendation'])
+            ? $this->resolveRecommendationId($reviewerSpec['recommendation'], $context, "{$specKey}.recommendation")
+            : null;
+
+        if ($reviewerSpec['attachment'] ?? false) {
+            $this->actingAs($reviewer, fn () => $this->addReviewAttachment($assignmentId, $submission, $context, $reviewer));
+        }
+
+        $this->actingAs($reviewer, function () use ($assignmentId, $submission, $reviewerSpec, $recommendationId) {
+            $assignment = Repo::reviewAssignment()->get($assignmentId);
+            $form = $this->reviewStep3Form(Application::get()->getRequest(), $submission, $assignment);
+
+            $this->withRequestVars([
+                'comments' => $reviewerSpec['commentsForAuthor'] ?? '',
+                'commentsPrivate' => $reviewerSpec['commentsForEditor'] ?? '',
+                'reviewerRecommendationId' => $recommendationId,
+            ], function () use ($form) {
+                $form->readInputData();
+                $form->execute();
+            });
+        });
+    }
+
+    /**
+     * The application's step-3 reviewer form, so an app that adds its own
+     * validation or fields to that step is the one that runs.
+     */
+    protected function reviewStep3Form(\PKP\core\PKPRequest $request, Submission $submission, ReviewAssignment $assignment): \PKP\submission\reviewer\form\PKPReviewerReviewStep3Form
+    {
+        $appForm = 'APP\submission\reviewer\form\ReviewerReviewStep3Form';
+
+        return class_exists($appForm)
+            ? new $appForm($request, $submission, $assignment)
+            : new \PKP\submission\reviewer\form\PKPReviewerReviewStep3Form($request, $submission, $assignment);
+    }
+
+    /**
+     * Confirm a submitted review the way an editor reading it from the Reviewers
+     * panel does (`PKPReviewerGridHandler::reviewRead`): mark it considered, stamp
+     * the date, log the confirmation and clear the reviewer's task. That is what
+     * moves the round to its all-confirmed status.
+     *
+     * The grid op itself cannot be called here — it is a CSRF-checked handler over
+     * an authorized context object — so its data changes are reproduced. The
+     * reviewer RATING the same op can carry is not seeded (no test needs it), and
+     * the ORCID deposit it queues is left out deliberately: it reaches an external
+     * service the test environment firewalls off.
+     */
+    protected function confirmReview(int $assignmentId, User $editor): void
+    {
+        $this->actingAs($editor, function () use ($assignmentId, $editor) {
+            $assignment = Repo::reviewAssignment()->get($assignmentId);
+
+            Repo::reviewAssignment()->edit($assignment, [
+                'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED,
+                'dateConsidered' => Core::getCurrentDate(),
+            ]);
+
+            Repo::eventLog()->add(Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $assignment->getSubmissionId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
+                'userId' => $editor->getId(),
+                'message' => 'log.review.reviewConfirmed',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'editorName' => $editor->getFullName(),
+                'submissionId' => $assignment->getSubmissionId(),
+                'round' => $assignment->getRound(),
+            ]));
+
+            Notification::withAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, $assignmentId)
+                ->withUserId($assignment->getReviewerId())
+                ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT)
+                ->delete();
+        });
+    }
+
+    /**
+     * A reviewer file on the review, at the parity of the reviewer's own upload
+     * step: file stage REVIEW_ATTACHMENT, associated with the assignment.
+     *
+     * @throws ScenarioException
+     */
+    protected function addReviewAttachment(int $assignmentId, Submission $submission, Context $context, User $reviewer): int
+    {
+        $genre = $this->primaryGenre($context);
+        $sourcePath = $this->materializeFixtureFile();
+
+        try {
+            $fileId = app()->get('file')->add(
+                $sourcePath,
+                Repo::submissionFile()->getSubmissionDir($context->getId(), $submission->getId())
+                    . '/' . uniqid() . '.pdf'
+            );
+        } finally {
+            @unlink($sourcePath);
+        }
+
+        $submissionFile = Repo::submissionFile()->newDataObject([
+            'fileId' => $fileId,
+            'submissionId' => $submission->getId(),
+            'uploaderUserId' => $reviewer->getId(),
+            'genreId' => $genre->getId(),
+            'fileStage' => SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+            'assocId' => $assignmentId,
+            'name' => [$submission->getData('locale') => 'reviewer-attachment.pdf'],
+        ]);
+
+        return Repo::submissionFile()->add($submissionFile);
+    }
+
+    /**
+     * Resolve one of the context's reviewer recommendation options by its
+     * localized title — what the reviewer picks from on their completion step.
+     *
+     * @throws ScenarioException
+     */
+    protected function resolveRecommendationId(string $title, Context $context, string $specKey): int
+    {
+        $options = Repo::reviewerRecommendation()->getRecommendationOptions($context);
+
+        foreach ($options as $id => $optionTitle) {
+            if ($optionTitle === $title) {
+                return (int) $id;
+            }
+        }
+
+        throw new ScenarioException(
+            "No reviewer recommendation option titled '{$title}' in context '{$context->getPath()}'. Available: "
+                . (empty($options) ? '(none — this context ships no recommendation options)' : implode(', ', $options)) . '.',
+            $specKey
+        );
     }
 
     /**

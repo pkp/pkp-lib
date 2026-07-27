@@ -32,7 +32,7 @@ each test seeds its own state through test-only scenario endpoints
    `publicknowledge` (seeded by `playwright/fixtures/bootstrap.js`) is **read-only**: no test
    may mutate journal-level settings, sections, categories, issues, or the 18 seeded users.
    Tests that need journal-level mutations create a **scratch journal** via
-   `POST /api/v1/_test/scenarios/journal` with a unique path.
+   `POST /api/v1/_test/scenarios/context` with a unique path.
 2. **Scenario endpoints must be accurate.** A seeded scenario must leave the same database
    state, fire the same hooks, and produce the same notifications as a user performing the
    equivalent steps through the UI/REST API. Any change to a Processor requires a parity
@@ -154,6 +154,12 @@ decisions that must survive any rebuild (each was earned the hard way):
    (8000/8100/8200) with per-worker port offsets; Postgres test DBs (Postgres
    strictness reproduces real defects MySQL hides); a reset tool that forces a
    cold bootstrap.
+8. **DB-driver-agnostic** (maintainer, 2026-07-27): harness code — seeding
+   endpoints, bootstrap, tooling — must run against ALL supported databases:
+   app services and the query builder only, no raw driver-specific SQL; the
+   single permitted driver dispatch is the setup/reset tool's drop/recreate
+   step, keyed off the configured driver. The local fleets *choose* Postgres
+   for strictness; nothing may depend on it.
 
 **Rebuild acceptance** (PROGRESS restart step 2 is done when): bootstrap seeds
 green in all three apps; a login smoke passes per fleet; the scenario endpoint

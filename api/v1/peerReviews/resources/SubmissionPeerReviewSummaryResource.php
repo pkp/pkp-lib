@@ -41,7 +41,6 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->filterByIsPubliclyVisible(true)
-            ->filterByIsConfirmedByEditor(true)
             ->filterByIsAccepted(true)
             ->getMany();
 
@@ -63,6 +62,7 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
      * Gets aggregated review round status for submission as a whole.
      *
      * @param Collection<ReviewAssignment> $reviewAssignments
+     *
      * @return array{dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}
      */
     private function getReviewStatus(Enumerable $reviewAssignments): array

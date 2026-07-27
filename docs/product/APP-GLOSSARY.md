@@ -29,7 +29,7 @@ Terms not in this file mean the same thing in all three apps.
 | issue | — no issues. Counterpart feature: catalog (New Releases / Featured) | — no issues; continuous posting |
 | issue assignment | — counterpart feature: catalog entry | — |
 | galley | publication format (+ ONIX metadata) | galley (unchanged) |
-| Archive (back issues) | Catalog | Preprints archive listing |
+| Archive (back issues) | — no back-issue archive. Counterpart feature: Catalog browse (own OMP spec; maintainer scope extension 2026-07-27) | Preprints archive listing |
 | Hosted Journals (site admin) | Hosted Presses | Hosted Servers |
 
 ### Roles (default user-group names)
@@ -116,3 +116,11 @@ spec calls for it (PRINCIPLES multi-app convention 4). Only the shared
 Vocabulary deltas (§1) never gate anything: labels and payload nouns come from
 `appContext.vocab` / `appContext.seed`, so a shared test runs unchanged wherever
 the capability holds.
+
+*Clarification (maintainer ruling 2026-07-27, evidence:
+`.reports/phase0-feature-map/probe-omp-series.md`)*: the §1 `section → series`
+row and the `hasSections: OMP ✗` flag are NOT in conflict — vocabulary wins for
+**spec scope** (one Sections spec covers OMP series via substitution; the code
+is the shared `PKPSection` machinery relabeled), while `hasSections` gates the
+**shared test layer only** (a shared-layer test written against OJS sections
+skips on OMP; OMP's series coverage comes from its per-app suite).

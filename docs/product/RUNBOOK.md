@@ -149,6 +149,15 @@ ports 8000/8100/8200; same scenario-seeding endpoints; Postgres test DBs).
    rules of its own: UI surfaces whose atoms no existing spec claims, or
    replacement scenarios/rules rather than modifications. (OMP/OPS-unique
    surfaces remain out of scope per CHARTER until the maintainer extends it.)
+   **Maintainer test (2026-07-27)**: similar-looking features across apps are
+   ONE shared feature only when one is essentially the other *rebranded* —
+   sharing most of the code (rule-8 chain check) and the business logic.
+   Otherwise they are separate app-specific features, even when the user
+   intent rhymes (the OMP catalog vs the OJS archive is the canonical case:
+   own handlers, own data model → own features). Forked-copy code with
+   provably identical business logic (the OJS↔OPS pattern) still counts as
+   one feature, but every shared claim there needs probe evidence, since the
+   subclass-chain check cannot vouch for copies.
 8. **Where divergences live in code: inheritance first.** The apps' primary
    mechanism is CLASS INHERITANCE — each app subclasses shared lib/pkp
    classes (handlers, managers, forms, mail/notification repositories) to add

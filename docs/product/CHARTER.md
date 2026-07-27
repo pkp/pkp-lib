@@ -19,11 +19,17 @@ from each spec's canonical scenarios.
 **All three apps, OJS-anchored** (the operative rules live in `RUNBOOK.md`
 "The multi-app rules" and `TEMPLATE.md`). In
 scope: any feature reachable in OJS — one spec covers its behavior in OJS, OMP and
-OPS, and tests are written for each app. Still out of scope, dropped not parked:
-surfaces OJS never exposes (monographs, chapters, publication formats, the catalog,
-`NOTIFICATION_TYPE_BOOK_*`, `*_INTERNAL` review-stage decisions, OMP/OPS-only Vue
-managers unwired in `WorkflowPageOJS`) — extending to those is a separate maintainer
-decision.
+OPS, and tests are written for each app. **Maintainer scope extension
+(2026-07-27)**: the OMP catalog's reader and management surfaces — catalog
+browse, the book landing page, catalog management (featured/new releases) —
+are IN scope as OMP-specific features (evidence:
+`.reports/phase0-feature-map/probe-omp-catalog.md`; they are OMP-own
+machinery). Still out of scope, dropped not parked: the catalog's object
+model and the other surfaces OJS never exposes (chapters and
+publication-format authoring, ONIX/codelists, marketing/supply-chain/direct
+sales, `NOTIFICATION_TYPE_BOOK_*`, `*_INTERNAL` review-stage decisions,
+OMP/OPS-only Vue managers unwired in `WorkflowPageOJS`) — extending further is
+a separate maintainer decision.
 
 **Format: Markdown, not HTML.** Specs are reviewed raw and in diffs; inline HTML only
 where a structure needs it (`<br>` in cells, `<sup>` footnotes, rare `<details>`).

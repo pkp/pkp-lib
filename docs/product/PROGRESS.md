@@ -45,9 +45,108 @@ step and reviews its output.
 
 ## Features
 
-_Recreated by Phase 0._
+Seeded from `FEATURE-MAP.md` (Phase 0, 2026-07-27) — one row per feature,
+order = FEATURE-MAP order. Budget = provisional tier (H/M/L per RUNBOOK);
+maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
+
+| Row | Feature | Apps | Budget | Status | Note |
+|---|---|---|---|---|---|
+| U1 | Login & sessions | OJS OMP OPS | M | pending | |
+| U2 | Registration & account validation | OJS OMP OPS | M | pending | |
+| U3 | User profile | OJS OMP OPS | M | pending | |
+| U4 | ORCID integration | OJS OMP OPS | M | pending | |
+| U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
+| U6 | User invitations | OJS OMP OPS | M | pending | |
+| U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
+| U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
+| U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |
+| U10 | Appearance & theming | OJS OMP OPS | M | pending | |
+| U11 | Highlights | OJS OMP OPS | L | pending | |
+| U12 | Announcements | OJS OMP OPS | M | pending | |
+| U13 | Article landing page & reading | OJS OPS | H | pending | |
+| U14 | Reader comments & moderation | OJS | M | pending | |
+| U15 | Search | OJS OMP OPS | M | pending | |
+| U16 | Categories | OJS OMP OPS | M | pending | |
+| U17 | Sections | OJS OMP OPS | M | pending | |
+| U18 | Web feeds | OJS OMP OPS | L | pending | |
+| U19 | OAI-PMH | OJS OMP OPS | M | pending | |
+| U20 | Search-engine metadata & analytics | OJS OMP OPS | L | pending | |
+| U21 | Submission wizard | OJS OMP OPS | H | pending | |
+| U22 | My Submissions (author dashboard) | OJS OMP OPS | L | pending | |
+| U23 | Submissions dashboard (editorial) | OJS OMP OPS | H | pending | |
+| U24 | Workflow screen & stage access | OJS OMP OPS | M | pending | |
+| U25 | Submission stage | OJS OMP OPS | M | pending | |
+| U26 | Review stage & rounds | OJS OMP | H | pending | |
+| U27 | Reviewer assignment & management | OJS OMP | H | pending | |
+| U28 | Reviewer's review | OJS OMP | H | pending | |
+| U29 | Review setup & review forms | OJS OMP | M | pending | |
+| U30 | Author response to reviews | OJS | M | pending | |
+| U31 | Reviewer suggestions | OJS OMP | L | pending | |
+| U32 | Copyediting stage | OJS OMP | M | pending | |
+| U33 | Production stage | OJS OMP OPS | M | pending | |
+| U34 | Editorial decision recording | OJS OMP OPS | H | pending | |
+| U35 | Stage participants | OJS OMP OPS | M | pending | |
+| U36 | Submission files | OJS OMP OPS | H | pending | |
+| U37 | Tasks & discussions | OJS OMP OPS | H | pending | |
+| U38 | Submission activity log & notes | OJS OMP OPS | L | pending | |
+| U39 | Submission & Publisher Libraries | OJS OMP OPS | L | pending | |
+| U40 | Publication metadata | OJS OMP OPS | M | pending | |
+| U41 | Contributors & affiliations | OJS OMP OPS | M | pending | |
+| U42 | Citations & references | OJS OMP OPS | M | pending | |
+| U43 | Funding | OJS OMP OPS | L | pending | |
+| U44 | Identifiers (publisher IDs & URN) | OJS OMP OPS | M | pending | |
+| U45 | DOIs | OJS OMP OPS | H | pending | |
+| U46 | Galleys | OJS OPS | M | pending | |
+| U47 | Media files | OJS OMP OPS | L | pending | |
+| U48 | JATS & Body Text | OJS | M | pending | |
+| U49 | Publish, schedule & versions | OJS OMP OPS | H | pending | |
+| U50 | Issues | OJS | H | pending | |
+| U51 | Subscriptions & open access control | OJS | H | pending | |
+| U52 | Payments & APCs | OJS | M | pending | |
+| U53 | Users management | OJS OMP OPS | M | pending | |
+| U54 | Roles configuration | OJS OMP OPS | M | pending | |
+| U55 | Notify users (bulk email) | OJS OMP OPS | L | pending | |
+| U56 | Emails management | OJS OMP OPS | M | pending | |
+| U57 | Languages & locales | OJS OMP OPS | M | pending | |
+| U58 | Submission intake configuration | OJS OMP OPS | M | pending | |
+| U59 | Hosted journals (site admin) | OJS OMP OPS | M | pending | |
+| U60 | Site settings | OJS OMP OPS | M | pending | |
+| U61 | System administration & jobs | OJS OMP OPS | M | pending | |
+| U62 | Plugins management | OJS OMP OPS | M | pending | |
+| U63 | Import & export | OJS OMP OPS | M | pending | |
+| U64 | Statistics — usage | OJS OMP OPS | H | pending | |
+| U65 | Statistics — editorial activity & reports | OJS OMP OPS | M | pending | |
+| U66 | Institutions | OJS OMP OPS | L | pending | |
+| U67 | Archiving & preservation | OJS | L | pending | |
+| U68 | Catalog browse | OMP | L | pending | |
+| U69 | Monograph landing page | OMP | M | pending | |
+| U70 | Catalog management | OMP | M | pending | |
 
 ## Model-fallback log
 
-_Empty since the reset. Rows for Fable-pinned agents and Opus anomalies only,
-appended by hand (RUNBOOK Model discipline)._
+_Rows for Fable-pinned agents and Opus anomalies only, appended by hand
+(RUNBOOK Model discipline)._
+
+- 2026-07-26 · phase0-atlas · sweep author · routes · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · grids · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · vue · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · api · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · notif · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · mail · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · jobs · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · settings · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · plugins · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · cli · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · aff-workflow · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · aff-management (incl. top-ups) · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · aff-reader · claude-fable-5
+- 2026-07-26 · phase0-atlas · sweep author · aff-user · claude-fable-5
+- 2026-07-27 · phase0-feature-map · taxonomy author · screens lens · claude-fable-5
+- 2026-07-27 · phase0-feature-map · taxonomy author · roles lens · claude-fable-5
+- 2026-07-27 · phase0-feature-map · taxonomy author · qa lens · claude-fable-5
+- 2026-07-27 · phase0-feature-map · synthesis · merge+register · claude-fable-5
+- 2026-07-27 · phase0-feature-map · probe (Opus) anomaly · omp-catalog + omp-series lineage · both killed mid-run by an account API error (terms acceptance), resumed from transcript, completed clean — environmental, not a model flip
+- 2026-07-27 · phase0-feature-map · crosswalk authors ×6 · affw / affm-set / affu-notif / affr-route-vue / grid-api-mail / job-plug-cli · claude-fable-5 (all six)
+- 2026-07-27 · phase0-feature-map · assembler · FEATURE-MAP + UNASSIGNED · claude-fable-5
+- 2026-07-27 · phase0-feature-map · map critic · adversarial review · claude-fable-5
+- 2026-07-27 · phase0-feature-map · fix agent · critic fixes applied · claude-fable-5

@@ -1,0 +1,206 @@
+# Crosswalk — grids / api / mail atoms → unified features (U1–U70)
+
+- **Date**: 2026-07-27 · **Inputs**: synthesis.md §1 (U1–U67) + RULINGS.md (all
+  D-leans accepted; Q1–Q5 rulings; new U68/U69/U70) · atlas/grids.md
+  (GRID-001..107) · atlas/api.md (API-001..066) · atlas/mail.md (MAIL-001..083).
+- **Rules applied**: mailables → the feature whose behavior sends them
+  (mechanism owner); grid handlers → the feature owning the embedding screen;
+  API controllers → the feature owning the resource's primary intent. Contiguous
+  runs range-assigned; exceptions individually. `?` = torn call, best candidate
+  named with a one-line reason.
+- **Coverage**: 256 atoms (107 GRID + 66 API + 83 MAIL), no gaps.
+  Feature-assigned 245 · UNASSIGNED 3 · OOS 8 · `?` flags 15 lines / 16 atoms.
+
+## GRID (grids.md, GRID-001..107)
+
+- GRID-001..002 → U36 — legacy file download/manipulation AJAX APIs; file-manager mechanism home
+- GRID-003 → U53 — backend user-manipulation AJAX (suggestUsername for the add/edit-user forms)
+- GRID-004 → U59
+- GRID-005 → U57
+- GRID-006 → U62
+- GRID-007 → U12
+- GRID-008..009 → U38
+- GRID-010..011 → U26 — author-view review-attachment grids embed on the author's review-stage screen
+- GRID-012 → U27 — editor view embeds in the read-review modal
+- GRID-013 → U28 — reviewer uploads attachments inside the review wizard
+- GRID-014..015 → U32
+- GRID-016 → U36 — dependent-files grid is a file-manager surface wherever it appears
+- GRID-017..018 → U36 — abstract file-list grid bases; mechanism home
+- GRID-019..020 → U32 — final-draft grids embed on the copyediting stage
+- GRID-021 → U39
+- GRID-022..023 → U33 — production-ready + proof-file grids on the production stage
+- GRID-024..025 → U26
+- GRID-026 → U27 — limit-files selector embeds in the add-reviewer flow
+- GRID-027 → U26
+- GRID-028 → U28
+- GRID-029 → U26
+- GRID-030 → U39
+- GRID-031 → U36 — abstract selectable-file category base; mechanism home
+- GRID-032..033 → U25 — submission-details file grids embed on the submission stage screen
+- GRID-034 → U39
+- GRID-035 → U36
+- GRID-036 → U57
+- GRID-037..038 → U8
+- GRID-039..040 → U5 — notifications + tasks-notifications grids (notification center surfaces)
+- GRID-041 → U62
+- GRID-042 → U58 — genre config home per D9
+- GRID-043..044 → U57
+- GRID-045 → U39
+- GRID-046..047 → U29
+- GRID-048 → U54
+- GRID-049 → U58 ? abstract setup-grid base with exactly two swept consumers (genre grid U58, OJS section grid U17); homed with the shared-tree consumer per the atlas note tying its uploadImage op to GRID-042
+- GRID-050 → U53
+- GRID-051 → U41
+- GRID-052 → U63 — selectable users grid exists for import/export plugins
+- GRID-053 → U26 — author-view reviewer grid (open review) embeds on the author's review-stage screen
+- GRID-054..055 → U35 — participants grid + its user-selector search
+- GRID-056..058 → U38 — information-center modals (notes/history)
+- GRID-059..060 → U29 — review-form listbuilder + its settings-listbuilder base (sole swept subclass is GRID-059)
+- GRID-061 → U39
+- GRID-062 → U49
+- GRID-063 → U28 — read-only metadata modal serves the reviewer's view of the submission
+- GRID-064 → U10 ? mixed header-chrome AJAX: `css` is the compiled theme-stylesheet loader wired from PKPTemplateManager (U10), `tasks` serves the header tasks widget (U5), the frame itself is U8 chrome — theme delivery picked as the heavier op
+- GRID-065 → U3
+- GRID-066 → U36 — upload-wizard mechanism home per U36's charter
+- GRID-067 → U44 — OJS file-API subclass exists to add pub-id ops on files/galleys
+- GRID-068 → U46
+- GRID-069..070 → U50 — issue galleys + back issues
+- GRID-071 → U63 — exportable-issues selector for export plugins
+- GRID-072 → U50
+- GRID-073..076 → U63 — pub-id/published-content export selector grids
+- GRID-077 → U62
+- GRID-078 → U63
+- GRID-079 → U17
+- GRID-080..082 → U51
+- GRID-083 → U52 ? payments-record grid (viewPayment) embeds beside the subscription grids; payment-records intent picked over the embedding area
+- GRID-084 → U51
+- GRID-085 → U50
+- GRID-086 → U27
+- GRID-087 → U51 — subscriber selector for add-subscription
+- GRID-088 → U44 — OMP file-API subclass adds pub-id ops
+- GRID-089..091 → OOS: OMP marketing & supply chain (synthesis §5 lists GRID-089/090/091)
+- GRID-092 → OOS: OMP publication formats & ONIX (synthesis §5)
+- GRID-093..094 → OOS: OMP marketing & supply chain (synthesis §5)
+- GRID-095 → U62
+- GRID-096 → U17 — series = sections machinery relabeled per Q3(a)
+- GRID-097 → OOS: OMP monographs, chapters & work types (synthesis §5)
+- GRID-098 → U27
+- GRID-099 → U68 ? cover/thumbnail server feeds both catalog listings (U68) and the book landing page (U69); listing surface picked as primary per the probe's catalog-machinery framing
+- GRID-100 → U44 — OPS file-API subclass adds pub-id ops
+- GRID-101 → U46
+- GRID-102..103 → U63
+- GRID-104 → U62
+- GRID-105 → U63
+- GRID-106 → U17
+- GRID-107 → U49
+
+## API (api.md, API-001..066)
+
+- API-001 → U45
+- API-002 → U55 — backend bulk-email send endpoint
+- API-003 → U57 — UI translation bundle
+- API-004 → U39
+- API-005 → U52
+- API-006 → U23 — backend submission lists/views feed the editorial dashboard
+- API-007 → U9 ? generic public-file upload behind rich-text image fields across manager-authored content (pages, blocks, announcements, settings forms); no single consumer — homed with arbitrary manager content
+- API-008 → U12
+- API-009 → U48
+- API-010 → U16
+- API-011 → U42
+- API-012 → U14
+- API-013 → U59 — context CRUD's primary intent is hosted-context management (theme/registrationAgency sub-ops are U10/U45 side-doors, claimed as one-liners at spec time)
+- API-014 → U41
+- API-015 → U42 — data citations per D11
+- API-016 → U45
+- API-017 → U37 — task templates owned by tasks & discussions
+- API-018 → U38 — logged-emails API per synthesis U38 note
+- API-019 → U56
+- API-020 → U43
+- API-021 → U58 — genres resource; config home per D9 (upload wizard consumes it from U36)
+- API-022 → U11
+- API-023 → U66
+- API-024 → U6
+- API-025 → U48
+- API-026 → U61
+- API-027 → U56 — mailables listing feeds the emails-management screen
+- API-028 → U8
+- API-029 → U4
+- API-030 → UNASSIGNED: open-peer-review data API mounted (OJS) but its display components grep to no mount — emerging surface, Phase-1 liveness probe (synthesis §4)
+- API-031 → U31
+- API-032 → U30 ? mixed round-tools controller: the authorResponse CRUD cluster is D5's "own API controller" argument for U30; confirmReview (U28), history (U26) and export/sendToOrcid ops ride along — dominant cluster picked
+- API-033 → U41 — ROR lookup mechanics homed in contributors per majority
+- API-034 → U17
+- API-035 → U60
+- API-036 → U64
+- API-037 → U65
+- API-038 → U64
+- API-039 → U64 — COUNTER/SUSHI owned by usage stats per D21
+- API-040 → U65 — user-count stats ride editorial activity & reports (synthesis U65 "user stats")
+- API-041 → U47
+- API-042 → U24 ? omnibus submissions/publications controller whose endpoint clusters serve U21 (submit/saveForLater), U34 (decisions), U41 (contributors), U49 (publish/versions), U40 (component forms) — homed at the workflow mechanism owner; consuming features cite their endpoint clusters
+- API-043 → U36
+- API-044 → U37
+- API-045 → U36 — temporary-upload mechanism behind the upload wizard and file attacher
+- API-046 → U54
+- API-047 → U53 — users resource primary intent (GET reviewers/report sub-ops are U27/U65 side-doors)
+- API-048 → U27 — reviewer-interests vocab; mounted only by the two review apps
+- API-049 → U40 — controlled-vocab suggestions feed the metadata forms (keywords, subjects)
+- API-050 → U45
+- API-051 → U52 — adds the submission-payment endpoint
+- API-052 → U45
+- API-053 → U50
+- API-054 → U29 — recommendation-options configuration per D6
+- API-055 → U64
+- API-056 → U64
+- API-057 → U49 ? OJS overlay adding issueAssignmentStatus + issue/submissionPayment components; publish-modal issue-assignment (U49 owns those fields per synthesis) dominates, submissionPayment portion is U52's
+- API-058 → U45 ? OMP DOI overlay: chapter/publicationFormat rows are OOS objects per §5, but the submissionFiles DOI row is in-scope U45 machinery — claimed by DOIs with the OOS rows marked at spec time
+- API-059 → U70 — saveDisplayFlags/saveFeaturedOrder/addToCatalog named to U70 by RULINGS (catalog management controller ops)
+- API-060 → U64
+- API-061 → U40 ? OMP form-component overlay: audience/publicationDates/permissionDisclosure are publication-metadata components (U40), the catalogEntry component belongs to U70 — metadata majority picked, U70 cites its component
+- API-062 → UNASSIGNED: dangling mount — entry point instantiates a controller class absent from lib/pkp at the swept SHA (synthesis §4, confirmed by task ruling)
+- API-063 → U45
+- API-064 → U64
+- API-065 → U49 ? OPS overlay: author-inclusive publish/unpublish re-registrations are U49's author-may-post variant (in scope); the `relate` endpoint portion is OOS (OPS preprint relations, synthesis §5) — in-scope majority picked, relate marked at spec time
+- API-066 → UNASSIGNED: legacy non-versioned `api/genres/` alias mount outside `/v1/` — dead-code candidate pending Phase-1 liveness (synthesis §4)
+
+## MAIL (mail.md, MAIL-001..083)
+
+- MAIL-001 → U12
+- MAIL-002 → U49 — sent by the publish action
+- MAIL-003 → U3 — profile email-change flow sends it
+- MAIL-004..019 → U34 — decision-notification mailables; sent by the decision wizard (incl. notify-other-authors and notify-reviewers variants)
+- MAIL-020..023 → U37 — discussion notifications per stage
+- MAIL-024 → U35 — sent when an editor is assigned as participant
+- MAIL-025 → U23 ? scheduled digest reminding an editor of submissions awaiting action; triage-dashboard owner picked over U37 (it enumerates workflow states, not tracked tasks)
+- MAIL-026 → U27 — sent when an editor edits a review assignment
+- MAIL-027..029 → U4
+- MAIL-030 → U1 — password recovery folded into login per D16
+- MAIL-031 → U49 — new-version creation sends it
+- MAIL-032 → U34 — recommend-only recording flow's mail per D18
+- MAIL-033 → U30
+- MAIL-034 → U27 — thank-reviewer action
+- MAIL-035..037 → U28 — sent by the reviewer's accept/decline/complete actions
+- MAIL-038..042 → U27 — create/reinstate/resend/unassign/remind reviewer actions
+- MAIL-043 → U27 ? automatic overdue-review reminder: the clock is configured in U29 but the reminding behavior is reviewer management's — send-side owner picked
+- MAIL-044..045 → U27 — review requests (first and subsequent rounds)
+- MAIL-046 → U27 ? automatic response-overdue reminder; same U29-configures/U27-sends split as MAIL-043
+- MAIL-047 → U26 — author's revision upload on the review stage triggers it
+- MAIL-048 → U65 — the monthly statistics report email named in U65
+- MAIL-049..051 → U21 — submission acknowledgements sent on submit
+- MAIL-052 → U21 — fired by submission completion when no editor is assigned
+- MAIL-053 → U21 — save-for-later sends it
+- MAIL-054 → U53 — sent by the add-user management flow
+- MAIL-055 → U6
+- MAIL-056..057 → U53 — sent by the users API's endRole/masthead actions
+- MAIL-058..059 → U2
+- MAIL-060 → U50 — publish-issue sends it
+- MAIL-061 → U51 — open-access notify homed in U51 per synthesis note
+- MAIL-062 → U52
+- MAIL-063..070 → U51 — subscription lifecycle mailables (expiry notices, purchase/renewal notifications)
+- MAIL-071 → OOS: OMP Internal Review stage (synthesis §5 names MAIL-071)
+- MAIL-072..073 → U49 — OPS post-the-preprint acknowledgements
+- MAIL-074 → U21 — submission-acknowledgement variant for can-post authors, sent on submit
+- MAIL-075 → U52 — manual-payment plugin's notify mailable
+- MAIL-076..079 → U37 — orphan `alternateTo` discussion-notification templates; composer-picker home per D19
+- MAIL-080..081 → U37 ? per D19's blanket MAIL-076..083 ruling (alternateTo DISCUSSION_NOTIFICATION_PRODUCTION); note synthesis §5 also listed these two OMP index-request/complete keys in the internal-review OOS cluster — RULINGS' D19 acceptance covers them, OMP-only availability line at spec time
+- MAIL-082..083 → U37 — same D19 home (layout complete/request alternates)

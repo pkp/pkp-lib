@@ -669,12 +669,26 @@ class PKPSubmissionScenarioController extends PKPTestApiController
     /**
      * The review stage this application uses for `reviewRounds`, or null when the
      * application has no review stage. Read from the app's stage roster.
+     *
+     * The roster is UNORDERED: `Application::getReviewStages()` is a set of the
+     * stages an app has, not a sequence. OMP returns
+     * [EXTERNAL_REVIEW, INTERNAL_REVIEW] — external FIRST — so taking its last
+     * entry silently answers "internal", which is not the stage a spec that names
+     * no stage means. The stage ids are assigned in workflow order
+     * (SUBMISSION 1 < INTERNAL_REVIEW 2 < EXTERNAL_REVIEW 3 < EDITING 4 <
+     * PRODUCTION 5), so the highest id is the LATEST review stage the app has:
+     * external review on OJS ([3]) and on OMP ([3, 2]), and the only review stage
+     * anywhere a single-entry roster is declared.
+     *
+     * An app whose default should be something else declares it by overriding
+     * this method — OMP does, because its `reviewRounds[].stage` overlay makes the
+     * round itself say which stage it belongs to.
      */
     protected function reviewStageId(): ?int
     {
         $stages = Application::get()->getReviewStages();
 
-        return empty($stages) ? null : (int) end($stages);
+        return empty($stages) ? null : (int) max($stages);
     }
 
     /**

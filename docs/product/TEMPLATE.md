@@ -33,8 +33,9 @@ produce.
 **The lint gate (contract, not a script):** a mechanical gate is rebuilt
 alongside the FIRST new spec — written against that corpus's actual format,
 kept small — and every spec must pass it with ZERO findings before test
-authoring (RUNBOOK step 5). It checks: the leak rule (rule 1), the
-deviation-vocabulary density ceiling (rule 5), glossary vocabulary and app
+authoring (RUNBOOK step 5). It checks the MECHANICAL rules only — wording and
+style are the writer's judgment, not the gate's: the leak rule (rule 1),
+glossary vocabulary and app
 badges, Findings-register integrity (markers ↔ entries both ways, badges
 present, summary table agrees with entries), and link resolution (every
 link/anchor/footnote resolves). The previous 1,500-line implementation was
@@ -68,24 +69,22 @@ The non-negotiable rules (the gate enforces the mechanical ones):
      … (live-probed 302, both author kinds)"
    - **Good**: "An old bookmarked author-dashboard link lands on My Submissions
      with that submission's tracking view open. <sup>g</sup>"
-5. **Neutral deviation phrasing — everywhere, findings and footnotes included.**
-   A finding states expected behavior, observed behavior, and impact in the same
-   neutral product voice as the rest of the spec. **Write it as what it is: a
-   product defect report for the team that maintains this code** — the screen
-   and the server disagree about who may do something, here is the difference,
-   fix one of them. That framing is not a euphemism for something else; it is
-   the actual purpose, and stating it plainly is what makes a finding useful to
-   a PO, a QA tester and a developer at once. What it is NOT is a walkthrough:
-   no "bypass"/"ungated" framing, no step-by-step reproduction in the spec, no
-   accumulated narrative — that detail stays in `.reports/` (read on demand),
-   the spec links or summarizes the outcome. (A PO reader needs the outcome;
-   and accumulated attack-flavored prose measurably trips model safeguards for
-   every downstream agent that reads the spec — 2026-07-22 forensics.
-   The lint gate enforces a term-density ceiling.)
-   - **Bad**: "⚠ the demotion is UI-only — a hand-crafted save still succeeds
-     ungated; the server guard can never match."
-   - **Good**: "⚠ the restriction applies on screen only; a change submitted
-     another way is applied rather than refused [A3](#a3)."
+5. **Findings are accurate and easy to read — those are the only wording
+   tests.** A finding states expected behavior, observed behavior, and impact
+   in the same product voice as the rest of the spec. **Write it as what it
+   is: a product defect report for the team that maintains this code** — the
+   screen and the server disagree about who may do something, here is the
+   difference, fix one of them. Say exactly what happens, in whichever words
+   say it best; never soften a finding into vagueness — a reader must be able
+   to tell precisely what is broken from the spec alone. What a finding is
+   NOT is a walkthrough: the spec states the outcome; step-by-step
+   reproduction and accumulated evidence narrative stay in `.reports/` (read
+   on demand), because a PO reader needs the outcome, not the trail. Findings
+   covered by RUNBOOK "Private finding routing" never enter a spec at all —
+   accurate routing, not wording, is what keeps sensitive material out.
+   - **Bad**: "⚠ the restriction may not fully apply in every case."
+   - **Good**: "⚠ the restriction applies on screen only — the server accepts
+     the same change submitted directly, without the check [A3](#a3)."
 6. **Shared mechanisms: one owner, real links — never a restatement.** A
    mechanism serving several features is described fully in exactly one spec —
    the one whose subject it is — and every other spec links instead of
@@ -108,9 +107,10 @@ The non-negotiable rules (the gate enforces the mechanical ones):
    its severity what the evidence shows — and writes it symptom-first in
    product language, at proportionate length. Trivia, fixture accidents, and
    neighboring features' findings stay in `.reports/` or move to their owning
-   spec. Investigation vocabulary ("probe", "verify chunk", "the trial",
-   "orchestrator") never appears in a spec; evidence citations live in
-   footnotes as opaque pointers.
+   spec. Campaign-internal vocabulary ("probe", "verify chunk", "the trial",
+   "orchestrator") doesn't belong in a spec — the reader is a PO or QA person,
+   not the campaign; evidence citations live in footnotes as opaque pointers.
+   (Writer's judgment, not lint-enforced.)
 8. **Variance-based ownership.** Behavior invariant across contexts is
    specified ONCE, in the mechanism's home feature; context features own the
    deltas — presence, configuration, permissions, consequences — and point to

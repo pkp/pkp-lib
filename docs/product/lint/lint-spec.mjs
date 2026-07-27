@@ -2,8 +2,8 @@
 // lint-spec.mjs — the campaign's mechanical spec gate (RUNBOOK step 5, TEMPLATE "The lint gate").
 // run:      node lint/lint-spec.mjs [specs/foo.md ...]     default: every specs/*.md
 // self-test: node lint/lint-spec.mjs --self-test           embedded good/bad fixtures, no deps
-// Checks (TEMPLATE rules 1, 5+7, 10/APP-GLOSSARY, register anatomy, "everything clickable"):
-// leak · vocab · glossary · register · links. Findings print "file:line — check — excerpt"; exit 1.
+// Checks (TEMPLATE rules 1, 10/APP-GLOSSARY, register anatomy, "everything clickable"):
+// leak · glossary · register · links. Findings print "file:line — check — excerpt"; exit 1.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -120,45 +120,9 @@ function checkLeak(doc, out) {
     }
 }
 
-// ------------------------------------------- 2. deviation-vocabulary ceiling (TEMPLATE rules 5, 7)
-
-// Zero tolerance, whole file (rule 5 is explicit: "everywhere, findings and footnotes included").
-const ATTACK_TERMS = ['bypass', 'bypassed', 'bypassing', 'ungated', 'unguarded', 'exploit', 'exploited',
-    'exploitable', 'circumvent', 'circumvents', 'attacker', 'attack surface', 'attack vector',
-    'privilege escalation', 'escalate privileges', 'hand-crafted', 'hand-craft', 'handcrafted',
-    'forged request', 'spoof', 'spoofed', 'tamper', 'tampered', 'loophole', 'vulnerability',
-    'vulnerable', 'penetration test', 'sidestep', 'malicious', 'get past the guard'];
-// Zero tolerance in the BODY (rule 7: investigation vocabulary never appears in a spec);
-// footnotes may cite evidence, and a register entry's "Basis: probe" line is the sanctioned form.
-const INVESTIGATION_TERMS = ['probe', 'probed', 'probes', 'probing', 'live-probed', 'verify chunk',
-    'verification chunk', 'chunk agent', 'the trial', 'orchestrator', 'subagent', 'sub-agent',
-    'adversarial pass', '.reports/'];
-// Soft density ceiling: deviation-flavoured words are legitimate in findings but must not saturate prose.
-const DENSITY_TERMS = ['defect', 'deviation', 'deviates', 'oddity', 'wrong', 'fails', 'failure',
-    'incorrect', 'mismatch', 'refuses', 'broken'];
-const DENSITY_CEILING = 15; // occurrences per 1000 words
-
+// Word-boundary term matcher, used by the glossary check. (Wording/style checks were removed
+// 2026-07-28 — phrasing is the writer's judgment; the gate keeps only mechanical integrity.)
 const termRe = (t) => new RegExp(`(?<![\\w-])${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\w-])`, 'gi');
-
-function checkVocab(doc, out) {
-    let words = 0, dense = 0;
-    for (let i = 0; i < doc.lines.length; i++) {
-        if (doc.skip[i]) continue;
-        const line = doc.lines[i];
-        words += line.split(/\s+/).filter(Boolean).length;
-        for (const t of ATTACK_TERMS) if (termRe(t).test(line))
-            out.push({ line: i + 1, check: 'vocab', msg: `attack-flavoured term "${t}": ${excerpt(line, 70)}` });
-        if (i < doc.tailStart) {
-            const beforeBasis = line.split(/Basis:/)[0]; // "Basis: probe | commit | judgment" is template-sanctioned
-            for (const t of INVESTIGATION_TERMS) if (termRe(t).test(beforeBasis))
-                out.push({ line: i + 1, check: 'vocab', msg: `investigation term "${t}": ${excerpt(line, 70)}` });
-        }
-        for (const t of DENSITY_TERMS) dense += (line.match(termRe(t)) || []).length;
-    }
-    const rate = words ? (dense * 1000) / words : 0;
-    if (rate > DENSITY_CEILING)
-        out.push({ line: 1, check: 'vocab', msg: `deviation-term density ${rate.toFixed(1)}/1000 words exceeds ceiling ${DENSITY_CEILING}` });
-}
 
 // --------------------------------------- 3. glossary vocabulary & app badges (rule 10, APP-GLOSSARY)
 
@@ -373,7 +337,6 @@ function lintFile(file, glo) {
     const out = [];
     const doc = parseDoc(file);
     checkLeak(doc, out);
-    checkVocab(doc, out);
     checkGlossary(doc, out, glo);
     checkRegister(doc, out);
     checkLinks(doc, out);
@@ -390,7 +353,7 @@ function run(files) {
         const rel = !r || r.startsWith('..') ? file : r;
         for (const f of findings) console.log(`${rel}:${f.line} — ${f.check} — ${excerpt(f.msg)}`);
     }
-    if (total === 0) console.log(`OK — ${files.length} spec(s) clean (leak · vocab · glossary · register · links)`);
+    if (total === 0) console.log(`OK — ${files.length} spec(s) clean (leak · glossary · register · links)`);
     else console.log(`\n${total} finding(s) in ${files.length} spec(s)`);
     return total === 0 ? 0 : 1;
 }
@@ -468,8 +431,6 @@ const CASES = [
     ['leak', 'The editor sees "Record decision"', 'The editor sees ReviewRound::create() write review_rounds'],
     ['leak', 'the round is open ⚠', 'the round is open at /workflow/access/12 ⚠'],
     ['leak', 'the author see the outcome', 'the author see a 403 from the ROLE_ID_AUTHOR check'],
-    ['vocab', 'the author see the outcome', 'the author bypass the ungated screen'],
-    ['vocab', 'The sample surface lets', 'The orchestrator probe shows the sample surface lets'],
     ['glossary', '# Sample feature {OJS OMP}', '# Sample feature {OJS OMP OPS}'],
     ['glossary', '# Sample feature {OJS OMP}', '# Sample feature {OJS DEV}'],
     ['glossary', '2. On a press the same button opens the catalog step instead [OMP1](#omp1).', '2. The press manager sees a monograph in the same row.'],

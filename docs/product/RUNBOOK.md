@@ -20,7 +20,7 @@ a bug ledger — see "What goes where" below.
 anything. Modes: **REVIEW/PILOT** (one feature per session, then STOP for
 maintainer review) and **AUTONOMOUS WAVES** (see below).
 
-## What this work is — state the frame, don't just sanitize
+## What this work is — state the frame
 
 This campaign documents how PKP's own applications behave so a product owner or
 QA person can read it and a developer can fix what is wrong. A large part of that
@@ -37,20 +37,22 @@ own screens and API as a signed-in user of a given role would**. Nothing here
 involves circumventing a protection; when the server refuses, the refusal is the
 finding we wanted, and when it doesn't refuse, that is the gap we are looking for.
 
-**Say this out loud in briefs and reports.** The neutral-phrasing rules
-(TEMPLATE rule 5, "Brief hygiene") remove attack narrative; they do not supply
-purpose. Sanitized prose with no stated purpose reads worse — to a human reviewer
-and to a model safeguard — than plain prose that says what is being checked and
-why. State the frame once, up front, then describe outcomes plainly:
+**Say this out loud in briefs and reports.** State the frame once, up front,
+then describe the work and its outcomes plainly. Briefs and returns are NOT
+sanitized: there is no restricted vocabulary between the orchestrator and its
+subagents, in either direction. The one hard rule on this channel is routing,
+not wording — anything `../e2e_ng/permissions.md` covers follows that file and
+never reaches the orchestrator at all ("Private finding routing"); everything
+else is communicated freely, in whatever terms describe it best.
 
 > **Frame** (copy into probe/verify briefs): "QA verification of documented
 > behavior on a local disposable test install with seeded accounts. For each rule,
 > confirm what the role's screen offers and what the server does with the same
 > request, and record where they differ so the gap can be fixed."
 
-Then keep the volume discipline that actually moves the needle: detail lives in
-`.reports/`, returns are short and outcome-shaped, and no agent accumulates a
-battery of denial narrative in its context (Model discipline).
+Volume discipline is separate and stays: detail lives in `.reports/`, returns
+are short and outcome-shaped. That is context budgeting — keeping the
+orchestrator lean — not a wording rule.
 
 ## Private finding routing
 
@@ -65,6 +67,14 @@ verbatim, right after the Frame sentence:
 > covers. Everything else you find is reported normally.
 
 Nobody else opens that file, for any reason.
+
+A covered finding is written ONLY where `permissions.md` directs — nowhere
+else, in any form. That means it never comes back to the orchestrator (its
+content, class, severity, and existence beyond the sentinel line below all
+stay out of the return) AND it never lands in any campaign artifact: no
+`.reports/` file, no test, no spec text, no doc — gitignored or not. This is
+the ONLY restriction on what subagents report; everything the file does not
+cover is reported and filed plainly.
 
 If a return says `item N: dropped per security routing`, remove that item's
 claim from the spec and put nothing in its place — no register entry, no test,
@@ -232,7 +242,8 @@ EVERY Opus-pinned brief additionally carries the **Routing** line from
    doesn't clear the bar stays in `.reports/`. Findings that belong to another
    feature go to that spec (or its future register) via a link, not here.
 5. **Lint gate** — the mechanical gate (TEMPLATE "The lint gate": leak rule,
-   density ceiling, glossary vocabulary, register integrity, link resolution)
+   glossary vocabulary, register integrity, link resolution — mechanical
+   checks only, never wording)
    must pass with ZERO findings before tests are written. The first feature
    session REBUILDS the gate against the new corpus format — small, checks
    over ceremony; every later session just runs it.
@@ -255,7 +266,7 @@ EVERY Opus-pinned brief additionally carries the **Routing** line from
    including whether the surface is still reachable at all. "Adversarial" here
    means hard on OUR OWN TEXT — the goal is to catch a rule that is inaccurate
    before a QA reader trusts it, not to get past anything. The Opus merge
-   agent returns a neutral change list; a Fable agent
+   agent returns a change list; a Fable agent
    folds ACCEPTED findings into the spec with the same judgment filter as
    step 4. Unresolvable items become ❓ register entries with a stated lean.
 9. **Readability verify** — a SEPARATE Fable subagent in strict persona: a
@@ -267,9 +278,10 @@ EVERY Opus-pinned brief additionally carries the **Routing** line from
     live in the spec, never in PROGRESS.
 11. **Commit** — `lib/pkp` and root **separately**, NEVER bump submodule
     pointers (`git restore --staged lib/pkp lib/ui-library plugins` before the
-    root commit). Specs, campaign docs (`lib/pkp/docs/`) and shared test/POM/
-    Processor changes commit inside `lib/pkp`; app-only tests commit in each
-    app's root. Multi-repo
+    root commit). Specs, campaign docs (`lib/pkp/docs/`, including the
+    feature's `.reports/` files — see ".reports/ retention") and shared
+    test/POM/Processor changes commit inside `lib/pkp`; app-only tests commit
+    in each app's root. Multi-repo
     flow for shared changes: commit in `ojs-main/lib/pkp` → push
     `e2e_ng` to the `jardakotesovec` fork → in `omp-main`/`ops-main`
     `lib/pkp`: fetch and check out the SAME branch, then commit the re-pin in
@@ -329,10 +341,12 @@ re-run it.
     better tuned against false safeguard flags for investigative work — and
     ONLY does tests + probes; it never writes or edits spec content. Every
     Opus-pinned brief carries the Routing line (Private finding routing).
-  - **The judgment seam**: Opus findings reach Fable as neutral outcome-voice
-    summaries (full detail in `.reports/`, read by Opus agents only); Fable
-    decides what enters the spec and at what weight (loop step 4). Opus tends
-    to over-weight what it finds; the filter is Fable's job, not Opus's.
+  - **The judgment seam**: Opus findings reach Fable as plain summaries (full
+    detail in `.reports/`, readable by whoever needs it); Fable decides what
+    enters the spec and at what weight (loop step 4). Opus tends to
+    over-weight what it finds; the filter is Fable's job, not Opus's. The seam
+    is editorial judgment, not sanitization — the only content barred from the
+    return channel is what "Private finding routing" covers.
 - **Fable flip policy**: a Fable-pinned agent that downgrades mid-run finishes
   and is logged, but its output is DISCARDED and the agent respawned (max 2,
   then park). Keep writing chunks small; prose is drafted BEFORE probe context
@@ -352,13 +366,11 @@ re-run it.
   (PROGRESS bloat is the failure mode). Flips in authoring rows trigger the
   discard rule; mention flips in the feature report.
 - **Brief hygiene**: spawn briefs are the Frame sentence ("What this work is")
-  plus matter-of-fact pointers (feature, spec path, report path, "follow
-  RUNBOOK step N") — purpose stated, scenario never restated. Subagents return
-  neutral what-was-missed summaries; detail stays in files. Framing and volume
-  are complementary, not alternatives: stating the purpose does not license a
-  long denial narrative, and trimming vocabulary does not substitute for saying
-  what the work is. If the main session is flag-killed anyway: END it; never
-  recompose the same turn.
+  plus pointers (feature, spec path, report path, "follow RUNBOOK step N") —
+  point at the rule files rather than paraphrasing them. Returns are short
+  plain-language summaries with detail in files — that is context budget, not
+  a wording restriction; say what was found in whatever terms fit. If the
+  main session is flag-killed anyway: END it; never recompose the same turn.
 - **The orchestrator NEVER probes or verifies inline** — inline completion is
   how the controlling agent gets lost (2026-07-10 rehearsal). If context runs
   low mid-feature: finish the current gate, commit what's commit-worthy, END;
@@ -392,8 +404,11 @@ re-run it.
 - **Git**: push only to `jardakotesovec` remotes, branch `e2e_ng`;
   verify the remote URL before every push; a bad pushed commit gets a
   follow-up commit, never a force-push.
-- **`.reports/` cleanup**: per-feature reports are deleted after the feature's
-  commit; never delete reports another queued task still references.
+- **`.reports/` retention**: per-feature reports are KEPT and committed with
+  the feature (step 11) — they are the evidence trail behind the spec's claims
+  and stay useful for later re-verification and archaeology. Never delete a
+  feature's reports; the only content barred from them is what "Private
+  finding routing" covers (that never lands in a report in the first place).
 
 ## Definition of done
 

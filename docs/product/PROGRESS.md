@@ -50,6 +50,8 @@ step and reviews its output.
    core — richer keys return per feature.
 3. **First feature** spec + per-app tests under the canon — maintainer picks;
    one feature per session, stop for review.
+   **Maintainer pick (2026-07-27): U26 Review stage & rounds.** The first
+   feature session also rebuilds the lint gate (RUNBOOK step 5).
 
 ## Features
 

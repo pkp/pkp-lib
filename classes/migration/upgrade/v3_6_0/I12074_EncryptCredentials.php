@@ -80,6 +80,9 @@ class I12074_EncryptCredentials extends Migration
 
         // PayPal plugin: secret
         $this->encryptPluginSettingValues('paypalpayment', ['secret']);
+
+        // DOAJ export plugin: apiKey
+        $this->encryptPluginSettingValues('doajexportplugin', ['apiKey']);
     }
 
     /**
@@ -111,6 +114,9 @@ class I12074_EncryptCredentials extends Migration
 
         // PayPal plugin: secret
         $this->decryptPluginSettingValues('paypalpayment', ['secret']);
+
+        // DOAJ export plugin: apiKey
+        $this->decryptPluginSettingValues('doajexportplugin', ['apiKey']);
     }
 
     /**

@@ -48,6 +48,16 @@ abstract class PKPTestApiController extends PKPBaseController
     /** Locale-key prefix that identifies a default user group across all apps */
     public const USER_GROUP_NAME_KEY_PREFIX = 'default.groups.name.';
 
+    /**
+     * The one role key that names a SITE-wide group rather than a context group.
+     *
+     * It is spelled like every other role key (the `default.groups.name.*` suffix,
+     * and `default.groups.name.siteAdmin` is a real locale key), but the group it
+     * names is installed once for the whole site with a null context id, so it is
+     * resolved by role id instead of by context. See resolveRoleGroup().
+     */
+    public const SITE_ADMIN_ROLE_KEY = 'siteAdmin';
+
     protected BuildJournal $journal;
 
     public function __construct()
@@ -281,13 +291,48 @@ abstract class PKPTestApiController extends PKPBaseController
 
     protected function siteAdminUserGroupId(): int
     {
+        return $this->siteAdminUserGroup()->id;
+    }
+
+    /**
+     * The site administrator group, installed once for the whole site.
+     *
+     * PKPInstall::createData() creates exactly one of these, with a null context
+     * id and no nameLocaleKey (it writes the translated names directly), so it is
+     * found by role id, never by the context-scoped name-key lookup every other
+     * role uses.
+     */
+    protected function siteAdminUserGroup(): UserGroup
+    {
         $group = UserGroup::withRoleIds([Role::ROLE_ID_SITE_ADMIN])->first();
 
         if (!$group) {
             throw new ScenarioException('No site administrator user group exists.', null, Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return $group->id;
+        return $group;
+    }
+
+    /**
+     * Resolve a role key a USER SPEC asks to be enrolled in.
+     *
+     * Almost every role key names a group the context owns, and resolveUserGroup()
+     * is the whole story. `siteAdmin` is the exception: the site administrator
+     * group belongs to the site, not to any context, so a user spec asking for it
+     * is asking for a site-wide enrolment that happens to be requested while a
+     * scratch context is being built.
+     *
+     * This resolution deliberately lives here and NOT in resolveUserGroup(), which
+     * invitations also use: no screen in the application invites anyone to the
+     * site administrator role, so neither may the invitation seeder.
+     *
+     * @throws ScenarioException
+     */
+    protected function resolveRoleGroup(Context $context, string $roleKey, string $specKey): UserGroup
+    {
+        return $roleKey === static::SITE_ADMIN_ROLE_KEY
+            ? $this->siteAdminUserGroup()
+            : $this->resolveUserGroup($context, $roleKey, $specKey);
     }
 
     /**
@@ -372,7 +417,7 @@ abstract class PKPTestApiController extends PKPBaseController
             }
 
             foreach ($userSpec['roles'] as $roleIndex => $roleKey) {
-                $group = $this->resolveUserGroup($context, $roleKey, "{$specKey}.roles.{$roleIndex}");
+                $group = $this->resolveRoleGroup($context, $roleKey, "{$specKey}.roles.{$roleIndex}");
 
                 $alreadyEnrolled = UserUserGroup::query()
                     ->withUserId($user->getId())

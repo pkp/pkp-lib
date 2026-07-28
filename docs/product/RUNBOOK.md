@@ -277,17 +277,19 @@ EVERY Opus-pinned brief additionally carries the **Routing** line from
 10. **Update PROGRESS** — status, #tests per app, a ONE-line note. Findings
     live in the spec, never in PROGRESS.
 11. **Commit** — `lib/pkp` and root **separately**, NEVER bump submodule
-    pointers (`git restore --staged lib/pkp lib/ui-library plugins` before the
-    root commit). Specs, campaign docs (`lib/pkp/docs/`, including the
-    feature's `.reports/` files — see ".reports/ retention") and shared
-    test/POM/Processor changes commit inside `lib/pkp`; app-only tests commit
-    in each app's root. Multi-repo
+    pointers in ANY app repo — ojs-main, omp-main, or ops-main (`git restore
+    --staged lib/pkp lib/ui-library plugins` before any root commit; stage
+    files explicitly, never `git add -A`/`git add .` at an app root). Specs,
+    campaign docs (`lib/pkp/docs/`, including the feature's `.reports/` files
+    — see ".reports/ retention") and shared test/POM/Processor changes commit
+    inside `lib/pkp`; app-only tests commit in each app's root. Multi-repo
     flow for shared changes: commit in `ojs-main/lib/pkp` → push
     `e2e_ng` to the `jardakotesovec` fork → in `omp-main`/`ops-main`
-    `lib/pkp`: fetch and check out the SAME branch, then commit the re-pin in
-    that app's repo (the omp/ops submodule re-pins ARE the work there; only
-    ojs-main root never bumps pointers). This is the single home of the commit
-    rule — PRINCIPLES points here.
+    `lib/pkp`: fetch and check out the SAME branch. That checkout IS the sync
+    — no re-pin commit follows (maintainer ruling 2026-07-28: pointer commits
+    make later conflict resolution painful; every repo rides `e2e_ng` and an
+    `M lib/pkp` in app status is normal and stays uncommitted). This is the
+    single home of the commit rule — PRINCIPLES points here.
 12. **Report** — what was built, register highlights (🐞 and ❓ counts, the
     findings a reviewer should look at first), anything low-confidence (flag
     in the PROGRESS note — it drives sampling review). Open questions stay

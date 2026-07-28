@@ -79,6 +79,7 @@ class Repository
                 'contributorRole',
                 fn ($query) => $query->withContributorId($contributorId)
             )
+            ->orderBy('contributor_role_id')
             ->get()
             ->all();
     }

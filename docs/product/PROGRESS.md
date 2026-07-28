@@ -56,9 +56,9 @@ step and reviews its output.
    `.reports/u26/` kept on disk until then).
    **Next pick (2026-07-28, maintainer): U6 User invitations** — lint gate
    exists now (`docs/product/lint/lint-spec.mjs`), run it, don't rebuild.
-   U6's first attempt was reset to `pending` the same day when the probing
-   contract changed (see "U6 RESET TO PENDING" below); it is the first feature
-   to run end to end under the new loop.
+   U6's first two attempts were reset the same day as the process changed under
+   them (see "U6 RESET TO PENDING — second time" below); attempt 3 is the first
+   feature to run end to end under the refined loop.
 
 **Process change 2026-07-28 (maintainer) — "the screen is the instrument".**
 The pipeline kept stalling at the probe→spec fold, because the loop was
@@ -67,13 +67,11 @@ weigh them. Four changes, live now: (a) probing is browser-only — questions
 that need a request the UI would not send go to `../e2e_ng/server-questions.md`
 and are not investigated here (RUNBOOK "What this work is"); (b) a new Opus
 **digest** step (RUNBOOK 3b) is the only evidence artifact a Fable agent ever
-reads — no Fable agent opens a probe report again, **the orchestrator
-included**; (c) the **main session stays Fable** (maintainer reaffirmed the
-same day) — (a) and (b) are expected to carry it, and main-session protection
-stays in place; (d) a fold that stalls narrows its slice, then degrades the
-item to ❓ — it never parks a feature. `adversarial verify` is now `claim
-check` (step 8). If main-session flags return despite (a)+(b), moving the
-orchestrator to Opus 5 is the next lever.
+reads — no Fable agent opens a probe report again; (c) probe and claim-check
+returns are pointers, not findings; (d) a fold that stalls narrows its slice,
+then degrades the item to ❓ — it never parks a feature. `adversarial verify`
+is now `claim check` (step 8). The orchestrator briefly stayed on Fable and
+moved to Opus 5 the same evening — see the routing paragraph below.
 
 **Routing construct RETIRED (2026-07-28, maintainer).** The private
 finding-routing rule (`permissions.md`, the Routing line in every Opus brief,
@@ -89,21 +87,34 @@ spec's Findings register. **The orchestrator also moves to Opus 5** the same
 day (Fable stays pinned to spec/doc writing), and probe/claim-check returns
 become pointers rather than findings.
 
-Claims lost to the retired rule, to re-check: **U6** item 14 (who reaches the
-invitation screens — re-probe before the digest, marked in
-`.reports/u6/probe-d.md`); **U26** verify items 10 and 13 — the item numbers
-map to Actors-table rows in order (10 sits between "Delete the submission from
-the Review stage" and "Read a review"), so both are recoverable on U26's
-sign-off pass.
+Claims lost to the retired rule, to re-check: **U26** verify items 10 and 13 —
+the item numbers map to Actors-table rows in order (10 sits between "Delete the
+submission from the Review stage" and "Read a review"), so both are recoverable
+on U26's sign-off pass. (U6's lost item 14 needs no note: that feature restarts
+from nothing, and "who reaches the invitation screens" is ordinary in-scope
+work its new probe list will carry.)
 
-**U6 RESET TO PENDING (2026-07-28).** Every U6 artifact was produced under the
-superseded contract, so the feature starts over from step 1 with nothing to
-anchor on (RUNBOOK "Rebuilding a feature from scratch" — the author works blind;
-a rebuild checked against the old version reimports the scope we just dropped).
-Removed: the spec draft, the probe list, all five probe reports, and the
-`Claimed by: U6` markers on 33 atlas atoms (those get re-claimed by the new
-run). No U6 tests were ever written. The next session opens U6 as an ordinary
-`pending` row and runs the loop from the top under the new contract.
+**Clarity fix 2026-07-28 (maintainer).** A review of U26 — the only finished
+spec — found 59 FEATURE-MAP row codes inside the readable body ("assign a
+reviewer (U27)", "toggle owned by U35"), scenarios included; a PO or QA reader
+cannot resolve any of them, and the readability pass had normalised them.
+TEMPLATE rule 6 now requires cross-feature pointers to NAME the feature; the
+lint gate rejects row codes and atlas atom IDs in the body (Reference tables and
+the footnote tail stay legal); RUNBOOK step 9's persona has never seen a
+campaign document and must flag any token it cannot resolve from the page, with
+a fresh re-read of every rewrite. **U26 reports 57 findings of this class and
+needs a naming pass before sign-off** — fold it into the same pass that recovers
+verify items 10 and 13.
+
+**U6 RESET TO PENDING — second time (2026-07-28).** Attempt 2 reached the end of
+probing under the browser-only contract and then hard-paused; its artifacts
+predate the routing retirement, the Opus orchestrator, pointer returns and the
+clarity rules, so they are removed rather than resumed. Cleared both times: the
+spec draft, the probe list, every probe report, and the `Claimed by: U6` markers
+on 33 atlas atoms (the new run re-claims them). No U6 tests were ever written.
+U6 is now an ordinary `pending` row and **attempt 3 is the first end-to-end run
+of the refined process** — the point of starting it clean is to see whether the
+loop holds from step 1 to step 12 without intervention.
 
 U26 was built under the old contract and is left as-is pending maintainer
 sign-off; sweeping its register to the new scope is a separate decision.
@@ -121,7 +132,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U3 | User profile | OJS OMP OPS | M | pending | |
 | U4 | ORCID integration | OJS OMP OPS | M | pending | |
 | U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
-| U6 | User invitations | OJS OMP OPS | M | in_progress | Attempt 2 (2026-07-28) under the new contract, blind rebuild (attempt 1 reset when the probing contract changed) |
+| U6 | User invitations | OJS OMP OPS | M | pending | Attempts 1–2 (2026-07-28) both reset — artifacts predate the current process; attempt 3 starts blind and is the refined loop's first end-to-end run |
 | U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
 | U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
 | U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |
@@ -225,4 +236,9 @@ _Rows for Fable-pinned agents and Opus anomalies only, appended by hand
   (attempt 1; feature reset to pending when the probing contract changed)
 - 2026-07-28 · U6 · finalizer · never started — the probe fold was the block
   that triggered the process change above
-- 2026-07-28 · U6 · spec author (attempt 2) · draft + probe list · claude-fable-5
+- 2026-07-28 · U6 · spec author (attempt 2) · draft + probe list · claude-fable-5 -discarded
+  (attempt 2 reset with the routing retirement / Opus orchestrator / clarity rules)
+- 2026-07-28 · U6 · orchestrator (attempt 2, Fable) · hard-paused after probing —
+  no flip, 80/80 fable, nothing tainted; the pause turn combined four probe
+  returns, a routing sentinel and an inline spec edit. Cause of the routing
+  retirement and the move to an Opus orchestrator.

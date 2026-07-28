@@ -67,9 +67,17 @@ each test seeds its own state through test-only scenario endpoints
    made a seeded section editor a manager of a scratch journal and it leaked into an
    unrelated permission test). Use dedicated throwaway users for any role-mutation probe.
 8. **Mailpit is shared.** Never `clearAll()` outside the dedicated serial infrastructure
-   spec. Assert emails scoped by recipient + the test's unique tag; use throwaway recipient
-   users whenever a test counts messages or asserts absence, and pair every negative
-   assertion ("no email sent") with a positive control message that bounds the wait.
+   spec. **Scope every assertion by a UNIQUE THROWAWAY RECIPIENT ADDRESS** — that is the
+   only scoping this install actually supports. Mailpit's own *tag* facility is unused
+   here: nothing in the apps sets `X-Tags`, `GET /api/v1/tags` returns `[]` and every
+   message carries `Tags: []`, so "scope by the per-app tag" is not an executable
+   instruction (verified 2026-07-29; three probe sessions each discovered this the hard
+   way). What `pkpMail.find({to, contains})` calls a tag is a **content marker** — a
+   substring searched in the subject/body — which only helps when the test controls some
+   text in the message; it is a supplement to the recipient scope, never a substitute.
+   Give the recipient a distinctive per-test address (`u53top-a@mail.test`), and pair
+   every negative assertion ("no email sent") with a positive control message taken the
+   same way, which bounds the wait.
 9. **Globally-scanning operations run serially.** Scheduled tasks (reviewer/editorial
    reminders), site-level plugin toggles, site-settings mutations, and cache clears affect
    state across all journals and workers; they live in a dedicated serial Playwright project
@@ -116,8 +124,10 @@ are:
    a positive control taken the same way; an absence assertion against an async-filtered
    list must be bounded by that filter's own response (the list analogue of the
    negative-mail rule).
-5. **Concurrent fleets share Mailpit** — scope by recipient + a per-app tag; attribute
-   failures by seed tag, never by row id (parallel writers make ids unstable).
+5. **Concurrent fleets share Mailpit** — scope by a unique throwaway recipient address
+   that carries the app in it (`u53top-omp@mail.test`), not by a Mailpit tag: this
+   install has none (principle 8). Attribute failures by the seed tag carried in the
+   test's own data, never by row id (parallel writers make ids unstable).
 
 ## Scenario-endpoint design record
 
@@ -213,11 +223,45 @@ skill (`scenarios.md`); the keys themselves are recorded here as they land.
   configured window, and the manager's Invitations table (filtered by
   `stillActive()`) does not list it.
 
+- **`siteAdmin` role key** in `users[].roles` (U53, 2026-07-29, all three
+  apps; `POST scenarios/context` and `POST bootstrap`) — a throwaway **site
+  administrator**:
+
+  ```js
+  users: [
+      {username: 'u53top.admin.ojs', roles: ['siteAdmin']},             // admin only
+      {username: 'u53top.both.ojs',  roles: ['siteAdmin', 'manager']},  // and a context role
+  ]
+  ```
+
+  Not a new key: it is a role key like any other, spelled the way the others
+  are (`default.groups.name.siteAdmin` is a real locale key), so the password
+  rule, the `{username: id}` echo and the rollback-on-failure journal all apply
+  unchanged. What is different is the GROUP it names. The site administrator
+  group is installed once for the whole site with a **null context id** and no
+  `nameLocaleKey` (`PKPInstall::createData()` writes the translated names
+  directly), so it can never resolve through the context-scoped name-key lookup
+  every other role uses; `resolveRoleGroup()` special-cases this one key and
+  finds the group by role id instead. Enrolment itself is the application's own
+  `Repo::userGroup()->assignUserToGroup()` — the same call the installer makes
+  for the first admin and the same call the seeder already makes for every other
+  role. Deliberately NOT available to `invitations[].roles`: no screen in the
+  application invites anyone to this role, so neither does the seeder.
+
+  Exists because **no screen grants site administrator**. The Users & Roles user
+  form intersects the submitted group ids with `UserGroup::withContextIds([$contextId])`
+  before saving, and the site admin group is not in any context — so the only
+  site administrator on a fresh install is the installer's `admin`, which the
+  suite must keep enabled and unmerged. Any test about administrator behaviour
+  (self-disable, merge, one admin acting on another) needs its own throwaway.
+  Parity note in `scenario-processor-audit.md`.
+
 **Rebuild acceptance** (PROGRESS restart step 2 is done when): bootstrap seeds
 green in all three apps; a login smoke passes per fleet; the scenario endpoint
 seeds a context and a staged submission in each app, with one parity
 spot-check against the equivalent UI path; the reset tool forces a cold
-bootstrap; concurrent fleets keep Mailpit assertions tag-scoped; and the
+bootstrap; concurrent fleets keep Mailpit assertions scoped to unique
+throwaway recipient addresses (principle 8); and the
 operational names RUNBOOK "Ops & environment safeguards" cites (reset script,
 test-key header, ports) either match the rebuilt harness or RUNBOOK is updated
 in the same commit.

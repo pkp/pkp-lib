@@ -294,8 +294,10 @@ produce material this pipeline cannot carry.
 6. **Write the Playwright tests** — per `docs/e2e/PRINCIPLES.md` + the skill:
    one suite per app, derived from the spec (multi-app rules 2–3) — one test
    per canonical scenario in each app that runs it. Scenario-seed state, reuse/extend POMs, scope Mailpit
-   by recipient+tag (per-app tags when fleets run concurrently), `--output` to
-   a private dir, `--reporter=list`.
+   **by a unique throwaway recipient address** that names the app and the test
+   (`u53top-omp@mail.test`) — this install has NO Mailpit tags, so "scope by the
+   per-app tag" is not executable (PRINCIPLES principle 8); pair every silence
+   claim with a positive control. `--output` to a private dir, `--reporter=list`.
 7. **Run them green twice** per app against the live fleets. If a test
    contradicts the spec, the **SPEC is wrong**: fix it (the finding goes to
    the register). Never edit a test to pass a claim the app disproves. An app

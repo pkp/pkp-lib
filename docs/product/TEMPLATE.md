@@ -72,19 +72,20 @@ The non-negotiable rules (the gate enforces the mechanical ones):
 5. **Findings are accurate and easy to read — those are the only wording
    tests.** A finding states expected behavior, observed behavior, and impact
    in the same product voice as the rest of the spec. **Write it as what it
-   is: a product defect report for the team that maintains this code** — the
-   screen and the server disagree about who may do something, here is the
-   difference, fix one of them. Say exactly what happens, in whichever words
-   say it best; never soften a finding into vagueness — a reader must be able
-   to tell precisely what is broken from the spec alone. What a finding is
+   is: a product defect report for the team that maintains this code** — here
+   is what the screen led the user to expect, here is what they got, fix one
+   of them. Say exactly what happens, in whichever words say it best; never
+   soften a finding into vagueness — a reader must be able to tell precisely
+   what is broken from the spec alone. What a finding is
    NOT is a walkthrough: the spec states the outcome; step-by-step
    reproduction and accumulated evidence narrative stay in `.reports/` (read
    on demand), because a PO reader needs the outcome, not the trail. Findings
    covered by RUNBOOK "Private finding routing" never enter a spec at all —
    accurate routing, not wording, is what keeps sensitive material out.
    - **Bad**: "⚠ the restriction may not fully apply in every case."
-   - **Good**: "⚠ the restriction applies on screen only — the server accepts
-     the same change submitted directly, without the check [A3](#a3)."
+   - **Good**: "⚠ the Section Editor is offered **Remove Role** on this screen,
+     but pressing it returns to the list with the role still assigned and no
+     message [A3](#a3)."
 6. **Shared mechanisms: one owner, real links — never a restatement.** A
    mechanism serving several features is described fully in exactly one spec —
    the one whose subject it is — and every other spec links instead of
@@ -101,16 +102,19 @@ The non-negotiable rules (the gate enforces the mechanical ones):
    transitions — a status may read from many sources but it is a status OF one
    surface. The triggering feature keeps one side-effect line plus a pointer
    to the owning spec.
-7. **Findings enter at the weight their impact earns.** Probe and verification
-   reports are raw material, not spec content. The writer (Fable) judges each
-   candidate finding: does it belong to THIS feature, is it user-relevant, is
-   its severity what the evidence shows — and writes it symptom-first in
-   product language, at proportionate length. Trivia, fixture accidents, and
-   neighboring features' findings stay in `.reports/` or move to their owning
-   spec. Campaign-internal vocabulary ("probe", "verify chunk", "the trial",
-   "orchestrator") doesn't belong in a spec — the reader is a PO or QA person,
-   not the campaign; evidence citations live in footnotes as opaque pointers.
-   (Writer's judgment, not lint-enforced.)
+7. **Findings enter at the weight their impact earns.** The digest (RUNBOOK
+   step 3b) is raw material, not spec content, and the writer never opens the
+   reports behind it. The writer (Fable) judges each candidate finding: does it
+   belong to THIS feature, is it user-relevant, and does the proposed weight
+   match what a user would actually notice — then writes it symptom-first in
+   product language, at proportionate length. **Severity is proposed by the
+   digest and settled by the reader, not argued in the spec**: badge it, state
+   the symptom, state the impact in one plain word, and stop. Trivia, fixture
+   accidents, and neighboring features' findings stay in `.reports/` or move to
+   their owning spec. Campaign-internal vocabulary ("probe", "digest", "claim
+   check", "orchestrator") doesn't belong in a spec — the reader is a PO or QA
+   person, not the campaign; evidence citations live in footnotes as opaque
+   pointers. (Writer's judgment, not lint-enforced.)
 8. **Variance-based ownership.** Behavior invariant across contexts is
    specified ONCE, in the mechanism's home feature; context features own the
    deltas — presence, configuration, permissions, consequences — and point to
@@ -154,7 +158,7 @@ name: <feature-slug>
 scope: <one-line: the user job this feature serves>
 apps: [ojs, omp, ops]       # apps that have the feature (all three unless absent)
 shared: pkp-lib | no        # implemented in lib/pkp or app-only
-status: draft | verified    # verified = adversarial pass findings resolved
+status: draft | verified    # verified = claim-check findings resolved
 atlas-claims: [<atom IDs this spec owns>]
 ---
 
@@ -182,10 +186,12 @@ atlas-claims: [<atom IDs this spec owns>]
      Cells are PLAIN PRODUCT LANGUAGE, one bullet per role-group/condition
      (`<br>• `), each bullet: actor(s) then condition. Lead with a short
      paragraph defining recurring terms (assigned, participant…) and site-wide
-     baselines, so cells stay terse. FRONTEND-FIRST: what the role sees and can
-     do in the UI; verify backend agreement, and where they diverge the UI
-     reality is the headline with a ⚠ marker into the register. An ability with
-     no UI control is never a plain capability — ⚠ "no UI control" + register.
+     baselines, so cells stay terse. THE SCREEN IS THE INSTRUMENT (CHARTER):
+     the row records what the role is OFFERED and what happens when they use
+     it. Where the offer and the outcome disagree — the control is there and
+     does nothing, or is refused, or is missing where the role should have it —
+     the observed outcome is the headline and the offer carries a ⚠ marker into
+     the register. Never state a capability the screen does not expose.
      ONE sentence per fact: keep each cell's rule here, and the register entry
      carries only the finding — not a retelling of the cell. Anchors hang off
      `<sup>a</sup>` markers; the blocks live in the Footnotes tail. -->

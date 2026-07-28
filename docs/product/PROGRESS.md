@@ -56,6 +56,36 @@ step and reviews its output.
    `.reports/u26/` kept on disk until then).
    **Next pick (2026-07-28, maintainer): U6 User invitations** — lint gate
    exists now (`docs/product/lint/lint-spec.mjs`), run it, don't rebuild.
+   U6's first attempt was reset to `pending` the same day when the probing
+   contract changed (see "U6 RESET TO PENDING" below); it is the first feature
+   to run end to end under the new loop.
+
+**Process change 2026-07-28 (maintainer) — "the screen is the instrument".**
+The pipeline kept stalling at the probe→spec fold, because the loop was
+designed to produce screen-vs-server findings and then asked the spec writer to
+weigh them. Four changes, live now: (a) probing is browser-only — questions
+that need a request the UI would not send go to `../e2e_ng/server-questions.md`
+and are not investigated here (RUNBOOK "What this work is"); (b) a new Opus
+**digest** step (RUNBOOK 3b) is the only evidence artifact a Fable agent ever
+reads — no Fable agent opens a probe report again, **the orchestrator
+included**; (c) the **main session stays Fable** (maintainer reaffirmed the
+same day) — (a) and (b) are expected to carry it, and main-session protection
+stays in place; (d) a fold that stalls narrows its slice, then degrades the
+item to ❓ — it never parks a feature. `adversarial verify` is now `claim
+check` (step 8). If main-session flags return despite (a)+(b), moving the
+orchestrator to Opus 5 is the next lever.
+
+**U6 RESET TO PENDING (2026-07-28).** Every U6 artifact was produced under the
+superseded contract, so the feature starts over from step 1 with nothing to
+anchor on (RUNBOOK "Rebuilding a feature from scratch" — the author works blind;
+a rebuild checked against the old version reimports the scope we just dropped).
+Removed: the spec draft, the probe list, all five probe reports, and the
+`Claimed by: U6` markers on 33 atlas atoms (those get re-claimed by the new
+run). No U6 tests were ever written. The next session opens U6 as an ordinary
+`pending` row and runs the loop from the top under the new contract.
+
+U26 was built under the old contract and is left as-is pending maintainer
+sign-off; sweeping its register to the new scope is a separate decision.
 
 ## Features
 
@@ -70,7 +100,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U3 | User profile | OJS OMP OPS | M | pending | |
 | U4 | ORCID integration | OJS OMP OPS | M | pending | |
 | U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
-| U6 | User invitations | OJS OMP OPS | M | pending | |
+| U6 | User invitations | OJS OMP OPS | M | pending | Attempt 1 (2026-07-28) reset — built under the superseded probing contract; all artifacts removed, starts blind |
 | U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
 | U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
 | U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |
@@ -170,3 +200,7 @@ _Rows for Fable-pinned agents and Opus anomalies only, appended by hand
 - 2026-07-28 · U26 · verification fold · merge-list fold + APP-GLOSSARY cell · claude-fable-5
 - 2026-07-28 · U26 · readability verifier · persona pass (1 blocker, 6 frictions) · claude-fable-5
 - 2026-07-28 · U26 · readability rewrite · stumble fixes · claude-fable-5
+- 2026-07-28 · U6 · spec author · draft + probe list · claude-fable-5 -discarded
+  (attempt 1; feature reset to pending when the probing contract changed)
+- 2026-07-28 · U6 · finalizer · never started — the probe fold was the block
+  that triggered the process change above

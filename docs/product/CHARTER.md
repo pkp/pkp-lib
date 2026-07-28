@@ -64,7 +64,7 @@ demonstrably missed features):
      permission documentation and the RUNBOOK loop consume (step 2 and the
      per-feature definition of done depend on affordance atoms existing).
 2. **Phase 1 — feature specs** (`specs/*.md`): written per `TEMPLATE.md` to the
-   RUNBOOK loop, adversarially verified, claiming their atoms.
+   RUNBOOK loop, claim-checked, claiming their atoms.
 3. **Phase 2 — coverage crosswalk**: every spec scenario mapped against the test
    suite → covered / gap / unit-test-territory / accept-untested.
 
@@ -87,20 +87,29 @@ demonstrably missed features):
   prove. A spec that silently transcribes bugs as requirements is poison for QA.
   There is no separate bug ledger: any all-bugs view is computed from the
   registers.
-- **Verified, not just written**: every spec passes an adversarial verification pass
-  (refute the permission and state rules; attack liveness) and a readability pass
-  (RUNBOOK). Ambiguous rules are probed **live** on the test environment, never
-  guessed from code.
+- **Verified, not just written**: every spec passes a **claim check** (RUNBOOK
+  step 8 — take our own permission and state rules and look for the case that
+  shows them wrong, liveness included) and a readability pass. Ambiguous rules
+  are probed **live** on the test environment, never guessed from code.
 - **Liveness before documentation**: code existing is not evidence the feature exists
   — OJS carries superseded, unreachable surfaces. Establish a surface is reachable in
   the current UI before documenting it; record unreachable atoms as dead-code
   candidates in `UNASSIGNED.md` (a campaign deliverable). Where a legacy path and a
   Vue path are both live for the same job, document both and say which is primary.
-- **Frontend-first, backend-verified**: the reader interacts with the UI, so lead
-  with what each role sees and can do on screen; use backend policies/validation as
-  the source of truth for rules and cross-check the two. Where they diverge, the UI
-  reality is the headline and the divergence is a ⚠. An ability reachable only by
-  hand-crafting an API call is "API-only", never a normal user capability.
+- **The screen is the instrument** (maintainer, 2026-07-28 — operative rules in
+  `RUNBOOK.md`): the reader interacts with the UI, so the spec documents what
+  each role sees and can do on screen, and what the application does when they
+  do it. Evidence comes from using the screens as a signed-in user — including
+  typing a URL directly to reach one, which is how we learn whether a screen
+  guards itself. Backend code is read for mechanism and provenance; it is never
+  exercised by constructing a request the screens would not send. Whether the
+  server would accept something the UI never offers belongs to a separate
+  process, not this campaign — the questions are parked on the deferred queue
+  (RUNBOOK) and nothing here reads them back. What stays firmly in scope is the
+  disagreement a user can see: a control offered that fails or is refused, a
+  control missing where the role should have it, a screen that renders for
+  someone it should not, a message that contradicts what happened. Those are
+  ⚠ register entries and they are the deliverable.
 - **Business language, one statement per fact**: the spec body reads as a functional
   spec for PO/QA; every code symbol, probe result and seeded account lives in `<sup>`
   footnotes and the Reference blocks. The non-negotiable style rules, the anchor

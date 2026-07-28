@@ -17,6 +17,13 @@ definition-of-done live in `docs/product/RUNBOOK.md`; the spec-style rules live 
 `docs/product/PROGRESS.md`, never in conversation memory — re-running the same prompt must
 always resume correctly.
 
+**Scope note (2026-07-28).** Tests assert behavior through the screens, under
+CHARTER's "the screen is the instrument": a test drives the UI as a signed-in
+role, including navigating straight to a URL. It never asserts against a request
+the application's own screens would not send. The `/api/v1/_test/*` scenario
+endpoints are the exception that proves it — they are harness plumbing for
+*getting to* a state (principle 4), never the behavior under test.
+
 ## Why this suite exists
 
 The legacy Cypress suite was a serial fixture chain: tests depended on state left by

@@ -196,6 +196,8 @@ class SubmissionPeerReviewResource extends JsonResource
                 'reviewerAffiliation' => $isReviewOpen ? $reviewer?->getLocalizedAffiliation() : null,
                 'reviewerOrcid' => $isReviewOpen ? $reviewer?->getOrcid() : null,
                 'reviewerHasVerifiedOrcid' => $isReviewOpen ? (bool) $reviewer?->hasVerifiedOrcid() : false,
+                'doi' => $assignment->getDoi(),
+                'doiUrl' => $assignment->getData('doiObject')?->getResolvingUrl(),
                 'dateCompleted' => $assignment->getDateCompleted(),
                 'isReviewOpen' => $isReviewOpen,
                 // Localized text description of the reviewer recommendation (Accept Submission, Decline Submission, etc.)

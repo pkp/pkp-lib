@@ -120,6 +120,33 @@ function checkLeak(doc, out) {
     }
 }
 
+// ------------------------------------------------- 2b. campaign identifiers (TEMPLATE rules 6–7)
+// FEATURE-MAP row codes (U26) and atlas atom IDs (AFFW-323) are the campaign's own bookkeeping.
+// A PO or QA reader cannot resolve them, so they never appear in the readable body: a
+// cross-feature pointer NAMES the feature ("see *Stage participants*") and links once that
+// spec exists. Atom IDs stay legal in the Reference tables and the footnote tail, which this
+// check skips along with the leak rule.
+const CAMPAIGN_PATTERNS = [
+    { re: /(?<![\w-])U\d{1,2}(?![\w-])/g, what: 'FEATURE-MAP row code' },
+    { re: /\b(?:AFF[A-Z]{1,2}|GRID|VUE|API|ROUTE|MAIL|NOTIF|JOB|SET|CLI|PLUG)-\d+\b/g, what: 'atlas atom ID' },
+];
+
+function checkCampaign(doc, out) {
+    for (let i = 0; i < doc.tailStart; i++) {
+        if (doc.skip[i] || /^(Reference|Footnotes)/.test(doc.h2[i])) continue;
+        const seen = new Set();
+        for (const p of CAMPAIGN_PATTERNS) {
+            p.re.lastIndex = 0;
+            let m;
+            while ((m = p.re.exec(doc.lines[i]))) {
+                if (seen.has(m[0])) continue;
+                seen.add(m[0]);
+                out.push({ line: i + 1, check: 'campaign', msg: `${p.what} in body: ${m[0]} — name the feature instead` });
+            }
+        }
+    }
+}
+
 // Word-boundary term matcher, used by the glossary check. (Wording/style checks were removed
 // 2026-07-28 — phrasing is the writer's judgment; the gate keeps only mechanical integrity.)
 const termRe = (t) => new RegExp(`(?<![\\w-])${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\w-])`, 'gi');
@@ -337,6 +364,7 @@ function lintFile(file, glo) {
     const out = [];
     const doc = parseDoc(file);
     checkLeak(doc, out);
+    checkCampaign(doc, out);
     checkGlossary(doc, out, glo);
     checkRegister(doc, out);
     checkLinks(doc, out);
@@ -431,6 +459,8 @@ const CASES = [
     ['leak', 'The editor sees "Record decision"', 'The editor sees ReviewRound::create() write review_rounds'],
     ['leak', 'the round is open ⚠', 'the round is open at /workflow/access/12 ⚠'],
     ['leak', 'the author see the outcome', 'the author see a 403 from the ROLE_ID_AUTHOR check'],
+    ['campaign', 'the author see the outcome', 'the author see the outcome (participants: U35)'],
+    ['campaign', 'the author see the outcome', 'the author see the outcome, per atom AFFW-042'],
     ['glossary', '# Sample feature {OJS OMP}', '# Sample feature {OJS OMP OPS}'],
     ['glossary', '# Sample feature {OJS OMP}', '# Sample feature {OJS DEV}'],
     ['glossary', '2. On a press the same button opens the catalog step instead [OMP1](#omp1).', '2. The press manager sees a monograph in the same row.'],

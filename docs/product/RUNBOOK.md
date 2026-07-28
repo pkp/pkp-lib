@@ -312,10 +312,23 @@ produce material this pipeline cannot carry.
    rules, including its slice-and-retry ladder. Unresolvable items become ❓
    register entries with a stated lean.
 9. **Readability verify** — a SEPARATE Fable subagent in strict persona: a
-   QA/PO person with NO code access reads ONLY the body (above the footnote
-   tail) and must (a) restate every rule in their own words and (b) walk each
-   scenario as a manual test, flagging any verb or noun they cannot map to
-   something on screen. Rewrite stumbles; re-run the lint.
+   QA/PO person who has never seen a campaign document, has NO code access,
+   and reads ONLY the body (above the footnote tail). They must (a) restate
+   every rule in their own words and (b) walk each scenario as a manual test.
+   Three things are stumbles, and the brief says so:
+   - a verb or noun they cannot map to something on screen;
+   - **any token they cannot resolve from the page itself** — a code, an ID, an
+     abbreviation, a cross-reference that names no feature. The persona has
+     read no other spec and must not "recognise" campaign notation. This is
+     the class a reader inside the campaign normalises, so it is called out
+     explicitly (U26 shipped 59 unresolvable row codes past a passing
+     readability pass);
+   - a step they could execute two different ways, or an outcome they could
+     not judge pass/fail from what is written.
+
+   Rewrite the stumbles, re-run the lint, then run the persona ONCE MORE over
+   the rewritten passages only: a rewrite is not verified by the person who
+   wrote it. The gate is zero blockers; frictions are the writer's call.
 10. **Update PROGRESS** — status, #tests per app, a ONE-line note. Findings
     live in the spec, never in PROGRESS.
 11. **Commit** — `lib/pkp` and root **separately**, NEVER bump submodule

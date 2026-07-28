@@ -25,10 +25,15 @@ namespace PKP\API\v1\_test;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\context\Context;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\services\PKPSchemaService;
 use PKP\testing\scenario\ScenarioException;
 
@@ -37,7 +42,12 @@ class PKPContextScenarioController extends PKPTestApiController
     /**
      * Context spec keys that are structural rather than context settings.
      */
-    protected const STRUCTURAL_KEYS = ['tag', 'urlPath', 'name', 'acronym', 'primaryLocale', 'supportedLocales', 'users', 'categories'];
+    protected const STRUCTURAL_KEYS = ['tag', 'urlPath', 'name', 'acronym', 'primaryLocale', 'supportedLocales', 'users', 'categories', 'invitations'];
+
+    /**
+     * How far past its own validity window a `status: 'expired'` invitation is placed.
+     */
+    protected const EXPIRED_BY_SECONDS = 86400;
 
     /**
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
@@ -55,12 +65,17 @@ class PKPContextScenarioController extends PKPTestApiController
             return $this->actingAs($this->siteAdmin(), function () use ($spec) {
                 $context = $this->createContext($spec, '');
                 $users = $this->seedUsers($context, $spec['users'] ?? [], 'users');
+                $invitations = $this->inContext(
+                    $context,
+                    fn () => $this->seedInvitations($context, $spec['invitations'] ?? [], 'invitations')
+                );
 
                 return [
                     'tag' => $spec['tag'],
                     'contextId' => $context->getId(),
                     'urlPath' => $context->getPath(),
                     'users' => $users,
+                    'invitations' => $invitations,
                 ] + $this->contextEcho($context, $spec);
             });
         });
@@ -220,6 +235,183 @@ class PKPContextScenarioController extends PKPTestApiController
         }
 
         return $byPath;
+    }
+
+    /**
+     * Seed the user-role invitations the spec asks for, in order.
+     *
+     * @throws ScenarioException
+     */
+    protected function seedInvitations(Context $context, array $invitationSpecs, string $specKeyPrefix): array
+    {
+        $seeded = [];
+
+        foreach (array_values($invitationSpecs) as $index => $invitationSpec) {
+            $seeded[] = $this->seedInvitation($context, $invitationSpec, "{$specKeyPrefix}.{$index}");
+        }
+
+        return $seeded;
+    }
+
+    /**
+     * Send one user-role invitation, the way the Invite-a-user wizard sends it.
+     *
+     * The wizard is three API calls over one invitation object — add (create the
+     * row for a user id OR an email address), populate (the roles and, for a
+     * newcomer, the name the manager typed), invite (dispatch: key, expiry date,
+     * email, PENDING) — so the builder walks the same three, through the
+     * invitation type's own controller. Nothing here writes an invitation row by
+     * hand, and a step the application refuses THROWS with its own error text.
+     *
+     * The recipient's accept/decline URLs are returned because they are the only
+     * part of the state a test cannot see from the outside: they carry the
+     * one-time key, which exists in plaintext for the length of this request and
+     * is a bcrypt hash afterwards. Tests that are ABOUT the delivered email read
+     * Mailpit instead; these URLs let every other test skip the inbox.
+     *
+     * @throws ScenarioException
+     */
+    protected function seedInvitation(Context $context, array $spec, string $specKey): array
+    {
+        $email = $spec['email'] ?? null;
+        $username = $spec['user'] ?? null;
+
+        if (isset($email) === isset($username)) {
+            throw new ScenarioException(
+                'An invitation names its recipient with exactly one of '
+                    . "'email' (a newcomer with no account) or 'user' (an existing account).",
+                $specKey
+            );
+        }
+
+        $invitee = isset($username) ? $this->requireUser($username, "{$specKey}.user") : null;
+        $inviter = isset($spec['inviter'])
+            ? $this->requireUser($spec['inviter'], "{$specKey}.inviter")
+            : $this->siteAdmin();
+
+        $userGroupsToAdd = [];
+
+        foreach (array_values($spec['roles']) as $roleIndex => $roleKey) {
+            $group = $this->resolveUserGroup($context, $roleKey, "{$specKey}.roles.{$roleIndex}");
+            $userGroupsToAdd[] = [
+                'userGroupId' => $group->id,
+                'masthead' => $spec['masthead'] ?? true,
+                'dateStart' => Carbon::now()->format('Y-m-d'),
+            ];
+        }
+
+        return $this->actingAs($inviter, function () use ($context, $spec, $specKey, $email, $invitee, $inviter, $userGroupsToAdd) {
+            $invitation = app(Invitation::class)->createNew(UserRoleAssignmentInvite::getType());
+            $controller = $invitation->getCreateInvitationController($invitation);
+
+            // What InvitationController::add() does before delegating to the type's
+            // own controller: an invitation is initialized for a user id OR an email,
+            // never both, and remembers who sent it.
+            $invitation->initialize($invitee?->getId(), $context->getId(), $invitee ? null : $email, $inviter->getId());
+            $this->journal->recordInvitation($invitation->getId());
+            $controller->add(app('request'));
+
+            $payload = ['userGroupsToAdd' => $userGroupsToAdd];
+
+            if (!$invitee) {
+                // Only a newcomer's details are the manager's to type; for an existing
+                // account the invitation form shows them read-only and the payload
+                // rules prohibit sending them.
+                foreach (['givenName', 'familyName', 'affiliation'] as $property) {
+                    if (isset($spec[$property])) {
+                        $payload[$property] = $this->localized($context, $spec[$property]);
+                    }
+                }
+
+                if (isset($spec['country'])) {
+                    $payload['userCountry'] = $spec['country'];
+                }
+            }
+
+            $this->requireInvitationStep(
+                $this->withRequestVars(
+                    ['invitationData' => $payload],
+                    fn () => $controller->populate(app('request'))
+                ),
+                'populate',
+                $specKey
+            );
+
+            $this->requireInvitationStep($controller->invite(app('request')), 'invite', $specKey);
+
+            if (($spec['status'] ?? 'pending') === 'expired') {
+                $this->backdateBeyondExpiry($invitation);
+            }
+
+            $model = $invitation->invitationModel;
+
+            return [
+                'id' => $invitation->getId(),
+                'status' => $model->status->value,
+                'email' => $email ?? $invitee->getEmail(),
+                'userId' => $invitee?->getId(),
+                'roles' => array_values($spec['roles']),
+                'invitedAt' => $model->createdAt?->format('Y-m-d H:i:s'),
+                'expiryDate' => $model->expiryDate?->format('Y-m-d H:i:s'),
+                'key' => $invitation->getKey(),
+                'acceptUrl' => $invitation->getActionURL(InvitationAction::ACCEPT),
+                'declineUrl' => $invitation->getActionURL(InvitationAction::DECLINE),
+            ];
+        });
+    }
+
+    /**
+     * Move a dispatched invitation entirely into the past, so it is expired.
+     *
+     * This is the one place the builder writes state the application will not
+     * write itself: `Invitation::invite()` always stamps the expiry date forward
+     * from now, and `setExpiryDate()` refuses to run once the invitation has been
+     * dispatched, so there is no service call that produces a lapsed invitation.
+     * The alternative — shrinking `[invitations] expiration_days` in the running
+     * configuration — is a global, cross-worker change and must not appear in a
+     * test suite. The validity WINDOW is still the application's: it is read back
+     * from the dates the app just wrote, and the whole invitation is slid
+     * backwards so it lapsed one day ago, whatever that window is configured to be.
+     */
+    protected function backdateBeyondExpiry(Invitation $invitation): void
+    {
+        $model = $invitation->invitationModel;
+        $window = $model->createdAt->diffInSeconds($model->expiryDate);
+        $sentAt = Carbon::now()->subSeconds($window + static::EXPIRED_BY_SECONDS);
+
+        $model->createdAt = $sentAt;
+        $model->updatedAt = $sentAt;
+        $model->expiryDate = (clone $sentAt)->addSeconds($window);
+
+        // Eloquent would otherwise stamp updated_at with "now" and undo half of this.
+        $model->timestamps = false;
+
+        try {
+            $model->save();
+        } finally {
+            $model->timestamps = true;
+        }
+    }
+
+    /**
+     * A wizard step the application refused must stop the build and say why.
+     *
+     * @throws ScenarioException
+     */
+    protected function requireInvitationStep(JsonResponse $response, string $step, string $specKey): void
+    {
+        if ($response->getStatusCode() === Response::HTTP_OK) {
+            return;
+        }
+
+        $body = json_decode($response->getContent(), true) ?: [];
+
+        throw new ScenarioException(
+            "The invitation was refused at the '{$step}' step.",
+            $specKey,
+            Response::HTTP_BAD_REQUEST,
+            $body['errors'] ?? $body
+        );
     }
 
     protected function slug(string $value): string

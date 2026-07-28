@@ -68,7 +68,7 @@
 | MAIL-052 | ojs omp | `PKP\mail\mailables\SubmissionNeedsEditor` | Email to managers when a new submission has no assigned editor. Key: `SUBMISSION_NEEDS_EDITOR` |
 | MAIL-053 | ojs omp | `PKP\mail\mailables\SubmissionSavedForLater` | Email to a submitting author when they save an incomplete submission for later. Key: `SUBMISSION_SAVED_FOR_LATER` |
 | MAIL-054 | ojs omp ops | `PKP\mail\mailables\UserCreated` | Email to a new user created from the user management screen. Key: `USER_REGISTER` |
-| MAIL-055 | ojs omp | `PKP\mail\mailables\UserRoleAssignmentInvitationNotify` | Invitation email for a user to take on specific roles. Key: `USER_ROLE_ASSIGNMENT_INVITATION` |
+| MAIL-055 | ojs omp | `PKP\mail\mailables\UserRoleAssignmentInvitationNotify` | Invitation email for a user to take on specific roles. Key: `USER_ROLE_ASSIGNMENT_INVITATION`. Badge is `ojs omp` deliberately — OPS's `APP\mail\Repository::map()` omits this mailable, so it has no row on the OPS email-templates screen, though the template key is still seeded in OPS `registry/emailTemplates.xml` and sending works. Do not "fix" the badge. · Claimed by: U6 |
 | MAIL-056 | ojs omp | `PKP\mail\mailables\UserRoleEndNotify` | Email when a user is removed from a role. Key: `USER_ROLE_END` |
 | MAIL-057 | ojs omp | `PKP\mail\mailables\UserRoleMastheadUpdateNotify` | Email when a user's masthead visibility for a role changes. Key: `USER_ROLE_MASTHEAD_UPDATE` |
 | MAIL-058 | ojs omp ops | `PKP\mail\mailables\ValidateEmailContext` | Registration email-validation message (context level). Key: `USER_VALIDATE_CONTEXT` |

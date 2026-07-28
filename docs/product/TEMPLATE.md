@@ -35,7 +35,8 @@ alongside the FIRST new spec — written against that corpus's actual format,
 kept small — and every spec must pass it with ZERO findings before test
 authoring (RUNBOOK step 5). It checks the MECHANICAL rules only — wording and
 style are the writer's judgment, not the gate's: the leak rule (rule 1),
-glossary vocabulary and app
+campaign identifiers (rules 6–7 — no FEATURE-MAP row codes or atlas atom IDs
+in the body), glossary vocabulary and app
 badges, Findings-register integrity (markers ↔ entries both ways, badges
 present, summary table agrees with entries), and link resolution (every
 link/anchor/footnote resolves). The previous 1,500-line implementation was
@@ -96,6 +97,13 @@ The non-negotiable rules (the gate enforces the mechanical ones):
    finding). Before describing any cross-feature behavior, grep `specs/` for
    its user-facing string: if another spec owns it, link; if this spec is the
    natural owner, take the passage over and leave links behind.
+   **Name the feature, never its row code.** A cross-feature pointer reads as
+   the feature's NAME in the reader's words — "participants are managed on the
+   Participants panel (see *Stage participants*)" — and becomes a real link
+   once that spec exists. Until then the name stands alone; a bare `U35` is
+   unresolvable for a PO or QA reader and the lint gate rejects it, as it does
+   atlas atom IDs outside the Reference tables. Builder's phrasing goes with
+   it: features do not "own" things in a spec — say where the reader goes.
    **Ownership follows the screen, not the trigger** (maintainer, 2026-07-26):
    a status, notice or other display belongs to the feature that owns the
    screen where it renders, even when another feature's actions drive its
@@ -193,7 +201,11 @@ atlas-claims: [<atom IDs this spec owns>]
      the observed outcome is the headline and the offer carries a ⚠ marker into
      the register. Never state a capability the screen does not expose.
      ONE sentence per fact: keep each cell's rule here, and the register entry
-     carries only the finding — not a retelling of the cell. Anchors hang off
+     carries only the finding — not a retelling of the cell. A cell states WHO
+     and WHEN and stops. When the "when" needs a chain of conditions to be
+     accurate, that belongs in Rules & state as its own numbered rule and the
+     cell cites it ("… while the round awaits revisions (Rule 12)"): a bullet
+     a reader has to re-read is a defect, however true it is. Anchors hang off
      `<sup>a</sup>` markers; the blocks live in the Footnotes tail. -->
 
 | Action | Who may — and when |

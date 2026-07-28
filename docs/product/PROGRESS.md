@@ -132,7 +132,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U3 | User profile | OJS OMP OPS | M | pending | |
 | U4 | ORCID integration | OJS OMP OPS | M | pending | |
 | U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
-| U6 | User invitations | OJS OMP OPS | M | pending | Attempts 1–2 (2026-07-28) both reset — artifacts predate the current process; attempt 3 starts blind and is the refined loop's first end-to-end run |
+| U6 | User invitations | OJS OMP OPS | M | done | Attempt 3 (blind rebuild) 2026-07-28: spec verified, lint-clean; tests OJS 7 / OMP 7 / OPS 8, each green ×2; register A1–A22 + OPS1–2 (13 🐞 / 8 ❓ / 3 ✅). Review first: A18 role-table rows share one set of control identifiers (screen-reader barrier), A12 acceptance never signs the invitee in, A8 typed-URL wizard really sends for a Section Editor, A2/A4 the two Users & Roles doors admit opposite sets. Harness gained the `invitations[]` seed key (app-changes 12); leak rule forces circumlocution for config filenames — see report |
 | U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
 | U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
 | U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |
@@ -238,6 +238,25 @@ _Rows for Fable-pinned agents and Opus anomalies only, appended by hand
   that triggered the process change above
 - 2026-07-28 · U6 · spec author (attempt 2) · draft + probe list · claude-fable-5 -discarded
   (attempt 2 reset with the routing retirement / Opus orchestrator / clarity rules)
+- 2026-07-28 · U6 (attempt 3) · spec author · draft + probe list ·
+  claude-fable-5 → claude-opus-4-8 -discarded (flipped ~80% in, BEFORE any
+  file was written: all six writes ran under opus-4-8, so both artifacts were
+  non-Fable and were deleted per the flip policy; respawned as two smaller
+  chunks — draft, then probe list)
+- 2026-07-28 · U6 (attempt 3) · spec author (respawn, draft only) · draft ·
+  claude-fable-5 (clean, 11 incremental writes; context cut by an Opus
+  code-inventory pass at `.reports/u6/code-inventory.md`)
+- 2026-07-28 · U6 · probe-list author · probe list · claude-fable-5
+- 2026-07-28 · U6 · digest fold ×3 · D1–D10 / D11–D19 / D20–D28+lint · claude-fable-5 (all three)
+- 2026-07-28 · U6 · test-correction fold · step-7 spec corrections · claude-fable-5
+- 2026-07-28 · U6 · claim-check fold ×3 · D1–D10 / D11–D20 / D21–D29+lint · claude-fable-5 (all three)
+- 2026-07-28 · U6 · register renumber · A17–A23 → A16–A22 after A16 retirement · claude-fable-5
+- 2026-07-28 · U6 · readability verifier · persona pass 1 (2 blockers, 13 frictions) · claude-fable-5
+- 2026-07-28 · U6 · readability rewrite · stumble fixes · claude-fable-5
+- 2026-07-28 · U6 · readability verifier · persona re-read of rewrites (1 blocker survived) · claude-fable-5
+- 2026-07-28 · U6 · readability blocker fix · config-file naming + 4 frictions · claude-fable-5
+- 2026-07-28 · U6 · Opus agents (inventory, 4 probes, digest, harness, 3 test authors,
+  3 claim-check chunks, merge, top-up probe) · no anomalies, not individually logged
 - 2026-07-28 · U6 · orchestrator (attempt 2, Fable) · hard-paused after probing —
   no flip, 80/80 fable, nothing tainted; the pause turn combined four probe
   returns, a routing sentinel and an inline spec edit. Cause of the routing

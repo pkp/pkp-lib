@@ -18,7 +18,7 @@
 
 | ID | apps | pointer | what it is |
 |---|---|---|---|
-| VUE-001 | ojs,omp,ops | pages/acceptInvitation/AcceptInvitationPage.vue | Accept-invitation flow (roles, account details, ORCID verify) mounted from lib/pkp invitation/acceptInvitation.tpl |
+| VUE-001 | ojs,omp,ops | pages/acceptInvitation/AcceptInvitationPage.vue | Accept-invitation flow (roles, account details, ORCID verify) mounted from lib/pkp invitation/acceptInvitation.tpl · Claimed by: U6 |
 | VUE-002 | ojs,omp,ops | pages/counter/CounterReportsPage.vue | COUNTER R5 usage-report builder page (lib/pkp stats/counterReports.tpl, PKPStatsHandler::counterR5) |
 | VUE-003 | ojs,omp,ops | pages/dashboard/DashboardPage.vue | Submissions dashboard (editorial/my-assignments/mySubmissions views) mounted from lib/pkp dashboard/editors.tpl |
 | VUE-004 | ? | pages/example/ExamplePage.vue | ui-library docs example page; no app mount found by grep |
@@ -28,7 +28,7 @@
 | VUE-008 | ojs,omp,ops | pages/requestReviewRoundAuthorResponse/RequestReviewRoundAuthorResponse.vue | Author-facing review-round response request page (lib/pkp reviewResponse/requestAuthorResponse.tpl, ReviewResponseHandler) |
 | VUE-009 | ojs,omp,ops | pages/reviewerSubmission/ReviewerSubmissionPage.vue | Reviewer's completed-review submission view (lib/pkp reviewer/review/reviewStepHeader.tpl) |
 | VUE-010 | ojs,omp,ops | pages/userComments/UserCommentsPage.vue | User comments moderation page (lib/pkp management/userComments.tpl, ManagementHandler) |
-| VUE-011 | ojs,omp,ops | pages/userInvitation/UserInvitationPage.vue | Send-user-invitation wizard (search, details, email composer; lib/pkp invitation/userInvitation.tpl) |
+| VUE-011 | ojs,omp,ops | pages/userInvitation/UserInvitationPage.vue | Send-user-invitation wizard (search, details, email composer; lib/pkp invitation/userInvitation.tpl) · Claimed by: U6 |
 | VUE-012 | ojs,omp,ops | pages/workflow/WorkflowPage.vue (variants WorkflowPageOJS/OMP/OPS) | Submission workflow side-modal surface (stages, publication tabs); per-app variant registered as `WorkflowPage` in each app's js/load.js |
 | VUE-013 | ojs,omp,ops | components/Container/AccessPage.vue | Users & Roles management page container (ManagementHandler; registered in all app load.js) |
 | VUE-014 | ojs,omp,ops | components/Container/AddContextContainer.vue | Site-admin add/edit context (journal/press/server) wizard container (lib/pkp admin/editContext.tpl) |
@@ -74,7 +74,7 @@
 | VUE-049 | ojs | managers/ReviewRoundResponseManager/ReviewRoundResponseManager.vue | Author review-round response manager (WorkflowPageOJS + workflowConfigAuthorOJS) |
 | VUE-050 | ojs,omp,ops | managers/TaskTemplateManager/TaskTemplateManager.vue | Task/discussion template settings manager (SettingsPage; lib/pkp management/workflow.tpl) |
 | VUE-051 | ojs,omp,ops | managers/UserAccessManager/UserAccessManager.vue | Users list with access actions (lib/pkp management/accessUsers.tpl) |
-| VUE-052 | ojs,omp,ops | managers/UserInvitationManager/UserInvitationManager.vue | Pending user invitations table (lib/pkp management/access.tpl) |
+| VUE-052 | ojs,omp,ops | managers/UserInvitationManager/UserInvitationManager.vue | Pending user invitations table (lib/pkp management/access.tpl) · Claimed by: U6 |
 
 ## Screen-level modals
 

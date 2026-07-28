@@ -59,14 +59,14 @@ Notes: individual NOTIF-* types live with their emitting features; the generic f
 ### U6 — User invitations {OJS OMP OPS} · M
 A manager invites someone into roles; the recipient accepts (creating/linking an account) or declines.
 Atoms: AFFM-099..101, 118..120 · AFFU-122..137, 206 · ROUTE-013..014 · VUE-001, 011, 052 · API-024 · MAIL-055 · SET-064 · JOB-013, 051
-Notes: AFFU-206 (generic invitation-URL landing) also serves the reviewer one-click key link — U28 cites it.
+Notes: AFFU-206 (generic invitation-URL landing) also serves the reviewer one-click key link — U28 cites it. Rider: ROUTE-017's `editUser` op (owned by U7) is the wizard's second entry point — the users-table "Edit" route — and its `access` op mounts VUE-052; cited here, not claimed. MAIL-055's `ojs omp` badge is deliberate (OPS omits the mailable from its map, so the template has no row on the OPS emails screen though sending works) — see the spec's OPS1 finding.
 
 ## B. Reader & public site
 
 ### U7 — Journal identity & about pages {OJS OMP OPS} · M
 Managers describe the journal (masthead, contact, policies, information pages); readers consult the About pages.
 Atoms: AFFM-001..002, 022, 042 · AFFR-032..034, 038..041, 088 · ROUTE-001..002, 017, 039, 042, 061, 063, 078 · VUE-022 · PLUG-003
-Notes: ROUTE-017/042/063/078 and VUE-022 are multi-feature settings dispatchers — dispatcher atoms need one bookkeeping owner and are homed here; the riders fan the ops out to their features (riders in U10, U58, U29, U37, U53, U54, U56, U14, U66, U12, U40). Rider: AFFR-035 (owned by U58) renders on an About page.
+Notes: ROUTE-017/042/063/078 and VUE-022 are multi-feature settings dispatchers — dispatcher atoms need one bookkeeping owner and are homed here; the riders fan the ops out to their features (riders in U6, U10, U58, U29, U37, U53, U54, U56, U14, U66, U12, U40). Rider: AFFR-035 (owned by U58) renders on an About page. Rider: ROUTE-017's `editUser` op is the second entry point into the send-invitation wizard and its `access` op mounts VUE-052 — both cited by U6.
 
 ### U8 — Navigation menus & site chrome {OJS OMP OPS} · M
 Managers shape menus; every visitor navigates the resulting header/footer frame.

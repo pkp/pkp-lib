@@ -75,6 +75,27 @@ item to ❓ — it never parks a feature. `adversarial verify` is now `claim
 check` (step 8). If main-session flags return despite (a)+(b), moving the
 orchestrator to Opus 5 is the next lever.
 
+**Routing construct RETIRED (2026-07-28, maintainer).** The private
+finding-routing rule (`permissions.md`, the Routing line in every Opus brief,
+the `dropped per security routing` sentinel) is REMOVED from the whole process:
+RUNBOOK, TEMPLATE, PRINCIPLES and the `ojs-playwright-tests` skill. Rationale:
+the campaign does no security discovery and never intended to — it signs in as
+each role and records whether the screens show what that role should see. Under
+the browser-only rule there is nothing for a private channel to carry, and in
+practice the construct was doing harm: it classified ordinary role×screen
+reachability work as sensitive and silently deleted the claims it covered.
+There is now no private class of finding and no destination for one except the
+spec's Findings register. **The orchestrator also moves to Opus 5** the same
+day (Fable stays pinned to spec/doc writing), and probe/claim-check returns
+become pointers rather than findings.
+
+Claims lost to the retired rule, to re-check: **U6** item 14 (who reaches the
+invitation screens — re-probe before the digest, marked in
+`.reports/u6/probe-d.md`); **U26** verify items 10 and 13 — the item numbers
+map to Actors-table rows in order (10 sits between "Delete the submission from
+the Review stage" and "Read a review"), so both are recoverable on U26's
+sign-off pass.
+
 **U6 RESET TO PENDING (2026-07-28).** Every U6 artifact was produced under the
 superseded contract, so the feature starts over from step 1 with nothing to
 anchor on (RUNBOOK "Rebuilding a feature from scratch" — the author works blind;
@@ -100,7 +121,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U3 | User profile | OJS OMP OPS | M | pending | |
 | U4 | ORCID integration | OJS OMP OPS | M | pending | |
 | U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
-| U6 | User invitations | OJS OMP OPS | M | pending | Attempt 1 (2026-07-28) reset — built under the superseded probing contract; all artifacts removed, starts blind |
+| U6 | User invitations | OJS OMP OPS | M | in_progress | Attempt 2 (2026-07-28) under the new contract, blind rebuild (attempt 1 reset when the probing contract changed) |
 | U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
 | U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
 | U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |
@@ -204,3 +225,4 @@ _Rows for Fable-pinned agents and Opus anomalies only, appended by hand
   (attempt 1; feature reset to pending when the probing contract changed)
 - 2026-07-28 · U6 · finalizer · never started — the probe fold was the block
   that triggered the process change above
+- 2026-07-28 · U6 · spec author (attempt 2) · draft + probe list · claude-fable-5

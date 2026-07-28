@@ -64,13 +64,11 @@ repo root, outside every repo). One line per question: the screen, the role,
 and the question in plain terms. Nothing in this campaign reads it back.
 
 **Say this out loud in briefs and reports.** State the frame once, up front,
-then describe the work and its outcomes plainly. Within that scope, briefs and
-returns are NOT sanitized: there is no restricted vocabulary between the
-orchestrator and its subagents, in either direction. The one hard rule on this
-channel is routing, not wording — anything `../e2e_ng/permissions.md` covers
-follows that file and never reaches the orchestrator at all ("Private finding
-routing"); everything else is communicated freely, in whatever terms describe
-it best.
+then describe the work and its outcomes plainly. Nothing on this channel is
+sanitized, withheld or specially routed: every finding is reported and filed
+in whatever terms describe it best. There is no restricted vocabulary, no
+private class of finding, and nowhere for a finding to go except the spec's
+Findings register.
 
 > **Frame** (copy into probe / claim-check / test briefs): "QA documentation of
 > an application's own screens, on a local disposable test install with seeded
@@ -84,43 +82,11 @@ Volume discipline is separate and stays: detail lives in `.reports/`, returns
 are short and outcome-shaped. That is context budgeting — keeping the
 orchestrator lean — not a wording rule.
 
-## Private finding routing
-
-EVERY Opus-pinned subagent — the full Model discipline roster: probe agents
-(including top-up probes), the digest agent, test authors, test-fix agents,
-claim-check chunks and their merge agent — reads `../e2e_ng/permissions.md` (relative to
-the app repo root) and follows it. Every Opus-pinned brief carries this line
-verbatim, right after the Frame sentence:
-
-> **Routing**: read `../e2e_ng/permissions.md` (relative to the app repo root)
-> before writing your report, and follow its handling rules for anything it
-> covers. Everything else you find is reported normally.
-
-Nobody else opens that file, for any reason.
-
-A covered finding is written ONLY where `permissions.md` directs — nowhere
-else, in any form. That means it never comes back to the orchestrator (its
-content, class, severity, and existence beyond the sentinel line below all
-stay out of the return) AND it never lands in any campaign artifact: no
-`.reports/` file, no test, no spec text, no doc — gitignored or not. This is
-the ONLY restriction on what subagents report; everything the file does not
-cover is reported and filed plainly.
-
-If a return says `item N: dropped per security routing`, remove that item's
-claim from the spec and put nothing in its place — no register entry, no test,
-no PROGRESS or report note, no follow-up.
-
-Under "The screen is the instrument" this is a RARE path: most of what it used
-to catch is now simply not generated, because nobody builds the request that
-would produce it. The mechanism stays for the case where an ordinary screen,
-used ordinarily, shows something that file covers.
-
 ## What goes where
 
 - **Product findings — bugs, divergences, oddities, open questions** → the
   feature spec's **Findings register** (TEMPLATE). This is the only home. Never
   file them in `app-changes.md`, PROGRESS notes, or side documents.
-  Exception: see "Private finding routing".
 - **Build blockers** → `docs/e2e/app-changes.md`: an app defect encountered
   while getting tests to run green — race conditions, nondeterministic UI,
   harness-hostile behavior — that had to be worked around or fixed in app code.
@@ -255,8 +221,6 @@ behavior with no stated purpose is the case that has historically gone wrong.
 Its last sentence (the browser-only line and the deferred queue) is not
 decoration — it is the scope boundary, and it is why these briefs no longer
 produce material this pipeline cannot carry.
-EVERY Opus-pinned brief additionally carries the **Routing** line from
-"Private finding routing", verbatim, immediately after the Frame.
 
 1. **Claim it** — set the feature's PROGRESS row to `in_progress`.
 2. **Author the spec** → `docs/product/specs/<feature>.md` per `TEMPLATE.md`,
@@ -334,10 +298,7 @@ EVERY Opus-pinned brief additionally carries the **Routing** line from
    a private dir, `--reporter=list`.
 7. **Run them green twice** per app against the live fleets. If a test
    contradicts the spec, the **SPEC is wrong**: fix it (the finding goes to
-   the register). Never edit a test to pass a claim the app disproves. Test
-   agents carry the Routing line like every Opus-pinned agent; a sentinel
-   item in a test report is handled per "Private finding routing" (the test
-   is dropped along with the claim). An app
+   the register). Never edit a test to pass a claim the app disproves. An app
    defect that blocks green tests (races, flake sources) → work around and
    record in `app-changes.md` ("What goes where").
 8. **Claim check** — chunked Opus subagents test the spec's own claims against
@@ -415,31 +376,32 @@ re-run it.
 
 ## Model discipline
 
-- **FABLE WRITES AND JUDGES; OPUS INVESTIGATES** (maintainer, 2026-07-25/26).
+- **FABLE WRITES; OPUS DOES EVERYTHING ELSE** (maintainer, 2026-07-25/26;
+  orchestrator moved to Opus 2026-07-28).
   - **Fable-pinned** (`model: fable`): the spec author, the finalizer and fold
     agents, the readability verifier, spec/doc auditors and reviewers — any
-    agent that writes or edits specs or campaign docs — and **the MAIN session**
-    (maintainer reaffirmed 2026-07-28). Fable owns the specs and the judgment
-    around them; that is the point of the whole arrangement.
-  - **Opus-pinned** (`model: opus`): probe agents, the digest agent, test
-    authors and test-fix agents, claim-check chunks and their merge agent.
-    Opus is better tuned for investigative work — and never writes or edits
-    spec content. Every Opus-pinned brief carries the Routing line (Private
-    finding routing).
-  - **The orchestrator is a Fable agent**, so the read rule binds it too: it
-    never opens a probe or claim-check report. It works from short returns,
-    the digest, and the files it maintains. This is the orchestrator's main
-    protection now that it stays on Fable — the historical main-session flags
-    all followed ACCUMULATED investigation narrative, and the digest is what
-    stops that accumulating.
+    agent that writes or edits specs or campaign docs. Fable owns the specs;
+    that is the point of the whole arrangement and it is not traded away.
+  - **Opus-pinned** (`model: opus`): **the MAIN orchestrator session**, probe
+    agents, the digest agent, test authors and test-fix agents, claim-check
+    chunks and their merge agent. Opus never writes or edits spec content.
+  - **Why the orchestrator is Opus**: it reads more than any other role — every
+    subagent return, every judgment call — and writes no prose that needs
+    Fable's voice. It maintains PROGRESS rows, atlas markers and
+    `app-changes.md`; the specs belong to the Fable agents it briefs.
+  - **A Fable agent never opens a probe or claim-check report.** Its evidence
+    input is the draft plus the digest, and nothing else under `.reports/`.
+  - **Subagent returns are pointers, not findings.** A probe or claim-check
+    agent returns where its report is, how many items it covered, and whether
+    anything blocked it — not what it found. The digest agent reads the
+    reports; the orchestrator has no reason to carry their contents.
   - **The judgment seam is the digest** (step 3b). Opus findings reach Fable
     ONLY as digest blocks — product-voice statements with proposed weight, no
     investigation narrative. Fable decides what enters the spec and at what
     weight (step 4). Opus tends to over-weight what it finds; the filter is
     Fable's job. The seam is editorial judgment plus context hygiene, not
-    sanitization: nothing true is withheld, but the trail behind it stays in
-    `.reports/` where it belongs. The only content barred from the channel
-    outright is what "Private finding routing" covers.
+    sanitization: nothing is withheld from it, and the trail behind each fact
+    stays in `.reports/` where a developer can go and read it.
 - **Fable flip policy**: a Fable-pinned agent that downgrades mid-run finishes
   and is logged, but its output is DISCARDED and the agent respawned (max 2).
   Keep writing chunks small — that, plus the digest, is what keeps Fable clear
@@ -447,12 +409,11 @@ re-run it.
   item degrades to ❓; the feature continues), never a parked feature.
   (History and the dormant split-authoring fallback: git log,
   RUNBOOK @ 88b9e02d8d.)
-- **Main-session protection**: `switchModelsOnFlag: false` (pauses instead of
-  switching; the old fable-guard hook was removed 2026-07-26). If the MAIN
-  session flips anyway: END the session; a fresh one resumes from files.
-  **At every fresh/handoff session start, verify the model (`/model`) before
-  writing any doc** — a handoff session starts on the saved default, not the
-  predecessor's model.
+- **Model check at session start**: verify the model (`/model`) at every
+  fresh/handoff session — a handoff session starts on the saved default, not
+  the predecessor's. The main session wants **Opus 5**; Fable arrives through
+  the explicit `model: fable` pin on the writing agents, which is independent
+  of the session model.
 - **Model-mix log**: append a row to PROGRESS's "Model-fallback log" for every
   FABLE-PINNED agent (date · feature · role · label · models seen in its
   transcript; `-discarded` for discarded attempts) and for any anomaly on an
@@ -463,15 +424,14 @@ re-run it.
 - **Brief hygiene**: spawn briefs are the Frame paragraph ("What this work is")
   plus pointers (feature, spec path, report path, "follow RUNBOOK step N") —
   point at the rule files rather than paraphrasing them. A Fable brief names
-  the draft and the digest and NOTHING under `.reports/` besides. Returns are
-  short plain-language summaries with detail in files — that is context
-  budget, not a wording restriction; say what was found in whatever terms fit.
-  If the main session is flag-killed anyway: END it; never recompose the same
-  turn in the same context.
-- **The orchestrator NEVER probes or verifies inline** — inline completion is
-  how the controlling agent gets lost (2026-07-10 rehearsal). If context runs
-  low mid-feature: finish the current gate, commit what's commit-worthy, END;
-  a fresh session resumes.
+  the draft and the digest and NOTHING under `.reports/` besides. Probe and
+  claim-check returns are pointers (report path, item count, blockers) — the
+  detail is in the file, and the digest agent is who reads it.
+- **The orchestrator NEVER probes, verifies or edits a spec inline** — inline
+  completion is how the controlling agent gets lost (2026-07-10 rehearsal),
+  and spec edits belong to the Fable agents it briefs. If context runs low
+  mid-feature: finish the current gate, commit what's commit-worthy, END; a
+  fresh session resumes.
 - **Liveness**: the completion notification is the only reliable subagent
   signal. Never judge by transcript size; check ground truth (target file
   changed?) or wait.
@@ -505,8 +465,7 @@ re-run it.
   claim-check chunks and merge — are KEPT and committed with the feature
   (step 11). They are the evidence trail behind the spec's claims and stay
   useful for later re-verification and archaeology. Never delete a feature's
-  reports; the only content barred from them is what "Private finding routing"
-  covers (that never lands in a report in the first place). The one exception
+  reports; nothing a probe finds is barred from them. The one exception
   is a scope change that invalidates them: reports produced under a superseded
   probing contract are removed with the work they supported, so a rebuild
   cannot anchor on them ("Rebuilding a feature from scratch").

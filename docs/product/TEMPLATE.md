@@ -79,9 +79,9 @@ The non-negotiable rules (the gate enforces the mechanical ones):
    what is broken from the spec alone. What a finding is
    NOT is a walkthrough: the spec states the outcome; step-by-step
    reproduction and accumulated evidence narrative stay in `.reports/` (read
-   on demand), because a PO reader needs the outcome, not the trail. Findings
-   covered by RUNBOOK "Private finding routing" never enter a spec at all —
-   accurate routing, not wording, is what keeps sensitive material out.
+   on demand), because a PO reader needs the outcome, not the trail. Every
+   finding the campaign produces belongs in a register — there is no class of
+   finding that is handled elsewhere or left out.
    - **Bad**: "⚠ the restriction may not fully apply in every case."
    - **Good**: "⚠ the Section Editor is offered **Remove Role** on this screen,
      but pressing it returns to the list with the role still assigned and no

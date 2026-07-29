@@ -200,7 +200,12 @@ class Repository
             ->getMany();
 
         foreach ($submissionFiles as $submissionFile) {
-            Repo::submissionFile()->delete($submissionFile);
+            // A submission file can potentially be used by multiple galleys (when a submission is versioned without revision).
+            // Only delete the submission file when there are no galleys referring to it.
+            $galleyCount = $this->getCollector()->filterBySubmissionFileIds([$submissionFile->getId()])->getCount();
+            if ($galleyCount == 0) {
+                Repo::submissionFile()->delete($submissionFile);
+            }
         }
 
         Hook::call('Galley::delete', [$galley]);

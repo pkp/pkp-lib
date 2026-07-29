@@ -22,6 +22,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
+use PKP\submission\PKPSubmission;
 
 class ControlledVocabEntryDAO extends \PKP\db\DAO
 {
@@ -224,7 +225,8 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
             $symbolic,
             PKPApplication::ASSOC_TYPE_PUBLICATION,
             $contextId,
-            $locale
+            $locale,
+            PKPSubmission::STATUS_PUBLISHED
         ];
         $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', PKPString::regexp_split('/\s+/', trim($term)));
 
@@ -246,6 +248,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
                 AND cv.assoc_type = ?
                 AND s.context_id = ?
                 AND cves.locale = ?
+                AND p.status = ?
                 {$termFilter}
             ORDER BY
                 cves.setting_value",

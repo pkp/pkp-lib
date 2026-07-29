@@ -86,7 +86,7 @@
 	<element name="PKPUsers">
 		<complexType>
 			<sequence>
-				<element ref="pkp:user_groups" maxOccurs="1" />
+				<element ref="pkp:user_groups" minOccurs="0" maxOccurs="1" />
 				<element ref="pkp:users" maxOccurs="1" />
 			</sequence>
 		</complexType>

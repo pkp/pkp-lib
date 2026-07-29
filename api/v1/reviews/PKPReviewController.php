@@ -33,7 +33,6 @@ use PKP\API\v1\reviews\formRequests\EditResponse;
 use PKP\API\v1\reviews\formRequests\RequestAuthorResponse;
 use PKP\API\v1\reviews\resources\ReviewFormResource;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
-use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -143,14 +142,32 @@ class PKPReviewController extends PKPBaseController
                 ])
             ]);
 
-        Route::get('{submissionId}/reviewerReview', $this->getReviewerReview(...))
-            ->name('review.reviewer.get')
-            ->whereNumber('submissionId')
-            ->middleware([
-                self::roleAuthorizer([
-                    Role::ROLE_ID_REVIEWER,
-                ])
-            ]);
+        // What the reviewer review wizard needs, one piece per endpoint
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_REVIEWER,
+            ]),
+        ])->group(function () {
+            Route::get('{submissionId}/reviewAssignment', $this->getReviewerAssignment(...))
+                ->name('review.reviewer.reviewAssignment.get')
+                ->whereNumber('submissionId');
+
+            Route::get('{submissionId}/reviewForm', $this->getReviewForm(...))
+                ->name('review.reviewer.reviewForm.get')
+                ->whereNumber('submissionId');
+
+            Route::get('{submissionId}/reviewerRecommendationOptions', $this->getReviewerRecommendationOptions(...))
+                ->name('review.reviewer.reviewerRecommendationOptions.get')
+                ->whereNumber('submissionId');
+
+            Route::get('{submissionId}/reviewGuidelines', $this->getReviewGuidelines(...))
+                ->name('review.reviewer.reviewGuidelines.get')
+                ->whereNumber('submissionId');
+
+            Route::get('{submissionId}/reviewerComments', $this->getReviewerComments(...))
+                ->name('review.reviewer.reviewerComments.get')
+                ->whereNumber('submissionId');
+        });
 
         Route::put('{submissionId}/{reviewAssignmentId}/confirmReview', $this->confirmReview(...))
             ->name('review.confirm')
@@ -354,69 +371,121 @@ class PKPReviewController extends PKPBaseController
     }
 
     /**
-     * Get the reviewer's own review of a submission - the assignment comes from the logged-in user, not the URL
+     * The logged-in reviewer's own assignment - deposited by ReviewAssignmentAccessPolicy, so it comes from the user rather than the URL
      */
-    public function getReviewerReview(Request $illuminateRequest): JsonResponse
+    protected function getAuthorizedReviewAssignment(): ?ReviewAssignment
     {
-        $context = $this->getRequest()->getContext();
+        return $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+    }
 
-        /** @var ReviewAssignment $reviewAssignment */
-        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+    /**
+     * Get the reviewer's own review assignment
+     */
+    public function getReviewerAssignment(Request $illuminateRequest): JsonResponse
+    {
+        $reviewAssignment = $this->getAuthorizedReviewAssignment();
         if (!$reviewAssignment) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $context = $this->getRequest()->getContext();
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId(), $context->getId());
 
-        $reviewForm = null;
-        if ($reviewAssignment->getReviewFormId()) {
-            /** @var ReviewFormDAO $reviewFormDao */
-            $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
-            $form = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
-            if ($form) {
-                $reviewForm = (new ReviewFormResource($form))
-                    ->withResponses($reviewAssignment->getId())
-                    ->resolve();
-            }
+        return response()->json(
+            Repo::reviewAssignment()->getSchemaMap()->summarizeForReviewer($reviewAssignment, $submission),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get the review form the reviewer was assigned, with their saved answers - null when there is no form
+     */
+    public function getReviewForm(Request $illuminateRequest): JsonResponse
+    {
+        $reviewAssignment = $this->getAuthorizedReviewAssignment();
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        // Shaped as [{value, label}] for the select field
+        if (!$reviewAssignment->getReviewFormId()) {
+            return response()->json(null, Response::HTTP_OK);
+        }
+
+        $context = $this->getRequest()->getContext();
+
+        /** @var ReviewFormDAO $reviewFormDao */
+        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+        $reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
+
+        if (!$reviewForm) {
+            return response()->json(null, Response::HTTP_OK);
+        }
+
+        return response()->json(
+            (new ReviewFormResource($reviewForm))->withResponses($reviewAssignment->getId())->resolve(),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get the recommendations the reviewer can pick from, shaped as [{value, label}] for the select field
+     */
+    public function getReviewerRecommendationOptions(Request $illuminateRequest): JsonResponse
+    {
+        $reviewAssignment = $this->getAuthorizedReviewAssignment();
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $context = $this->getRequest()->getContext();
+
         $recommendationOptions = [];
         foreach (Repo::reviewerRecommendation()->getRecommendationOptions(context: $context, reviewAssignment: $reviewAssignment) as $value => $label) {
             $recommendationOptions[] = ['value' => $value, 'label' => $label];
         }
 
-        [$comments, $commentsPrivate] = $this->getReviewerComments($reviewAssignment);
+        return response()->json($recommendationOptions, Response::HTTP_OK);
+    }
+
+    /**
+     * Get the localized review guidelines for the stage the reviewer is assigned to
+     */
+    public function getReviewGuidelines(Request $illuminateRequest): JsonResponse
+    {
+        $reviewAssignment = $this->getAuthorizedReviewAssignment();
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $context = $this->getRequest()->getContext();
 
         return response()->json([
-            'reviewAssignment' => Repo::reviewAssignment()->getSchemaMap()->summarizeForReviewer($reviewAssignment, $submission),
-            'reviewForm' => $reviewForm,
-            'reviewerRecommendationOptions' => $recommendationOptions,
-            'reviewGuidelines' => $this->getReviewGuidelines($context, $reviewAssignment->getStageId()),
-            'comments' => $comments,
-            'commentsPrivate' => $commentsPrivate,
+            'reviewGuidelines' => $context->getLocalizedData(
+                $reviewAssignment->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? 'reviewGuidelines' : 'internalReviewGuidelines'
+            ),
         ], Response::HTTP_OK);
     }
 
     /**
-     * Localized review guidelines for the stage
+     * Get the reviewer's latest comments on this submission - the one shared with the author and the private one
      */
-    protected function getReviewGuidelines(Context $context, int $stageId): ?string
+    public function getReviewerComments(Request $illuminateRequest): JsonResponse
     {
-        return $context->getLocalizedData(
-            $stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? 'reviewGuidelines' : 'internalReviewGuidelines'
-        );
-    }
+        $reviewAssignment = $this->getAuthorizedReviewAssignment();
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
-    /**
-     * The reviewer's latest public and private comments on this assignment
-     *
-     * @return array{0: string, 1: string} [comments, commentsPrivate]
-     */
-    protected function getReviewerComments(ReviewAssignment $reviewAssignment): array
-    {
         /** @var SubmissionCommentDAO $submissionCommentDao */
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
 
@@ -434,10 +503,10 @@ class PKPReviewController extends PKPBaseController
             false
         )->next();
 
-        return [
-            $publicComment ? $publicComment->getComments() : '',
-            $privateComment ? $privateComment->getComments() : '',
-        ];
+        return response()->json([
+            'comments' => $publicComment ? $publicComment->getComments() : '',
+            'commentsPrivate' => $privateComment ? $privateComment->getComments() : '',
+        ], Response::HTTP_OK);
     }
 
     /**

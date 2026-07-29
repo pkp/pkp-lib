@@ -118,7 +118,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $templateMgr = TemplateManager::getManager($request);
         $reviewAssignment = $this->getReviewAssignment();
 
-        // The wizard fetches the rest from reviews/{submissionId}/reviewerReview
+        // The wizard fetches the rest from the reviews/{submissionId}/* endpoints
         $templateMgr->assign([
             'submissionId' => $reviewAssignment->getSubmissionId(),
         ]);

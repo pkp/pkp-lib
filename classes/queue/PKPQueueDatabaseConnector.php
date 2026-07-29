@@ -15,7 +15,7 @@
 namespace PKP\queue;
 
 use Illuminate\Queue\Connectors\DatabaseConnector as IlluminateQueueDatabaseConnector;
-use Illuminate\Queue\DatabaseQueue;
+use PKP\queue\DatabaseQueue;
 use PKP\config\Config;
 
 class PKPQueueDatabaseConnector extends IlluminateQueueDatabaseConnector

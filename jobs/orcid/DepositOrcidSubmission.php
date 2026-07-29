@@ -27,7 +27,7 @@ use PKP\jobs\BaseJob;
 use PKP\orcid\enums\OrcidDepositType;
 use PKP\orcid\OrcidManager;
 
-class DepositOrcidSubmission extends BaseJob implements ShouldBeUnique
+class DepositOrcidSubmission extends BaseJob implements ShouldBeUnique, \PKP\queue\ContextAwareJob
 {
     public function __construct(
         private Author $author,
@@ -36,6 +36,14 @@ class DepositOrcidSubmission extends BaseJob implements ShouldBeUnique
         private string $authorOrcid
     ) {
         parent::__construct();
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->context->getId();
     }
 
     /**

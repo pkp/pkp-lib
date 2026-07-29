@@ -247,6 +247,27 @@ abstract class Repository
             $user?->getId()
         );
 
+        // Ensure this publication can be associated with included review round IDs
+        $validator->after(function ($validator) use ($props, $publication) {
+            if (array_key_exists('reviewRoundIds', $props) && $props['reviewRoundIds'] !== null) {
+                /** @var ReviewRoundDAO $reviewRoundDao */
+                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+                $submissionReviewRoundsById = $reviewRoundDao
+                    ->getBySubmissionId($publication->getData('submissionId'))
+                    ->toAssociativeArray();
+                $nonSubmissionReviewRounds = array_diff($props['reviewRoundIds'], array_keys($submissionReviewRoundsById));
+
+                if (!empty($nonSubmissionReviewRounds)) {
+                    $validator->errors()->add(
+                        'reviewRoundIds',
+                        __('editor.submission.workflowDecision.invalidReviewRoundSubmission')
+                    );
+                }
+            }
+        });
+
+
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }

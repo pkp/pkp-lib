@@ -82,6 +82,8 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
 
@@ -1361,6 +1363,37 @@ class PKPSubmissionController extends PKPBaseController
             // or if the given version stage information is different from what already assigned
             if (!$publication->getData('versionStage') || $publication->getData('versionStage') !== $versionStage->value) {
                 $publication = Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
+            }
+        }
+
+        // Update reviewRoundIds associated with publication
+        if (array_key_exists('reviewRoundIds', $params)) {
+            /** @var ReviewRoundDAO $reviewRoundDao */
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+            /** @var ReviewRound[] $existingReviewRounds */
+            $existingReviewRounds = $reviewRoundDao->getByPublicationId($publication->getId())->toArray();
+
+            // 1) Handle cases where we are removing all publication <-> review round assocations
+            if ($params['reviewRoundIds'] === null) {
+                foreach ($existingReviewRounds as $reviewRound) {
+                    $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
+                }
+            } else {
+                $updatedReviewRoundIds = Arr::map($params['reviewRoundIds'], fn ($item) => (int) $item);
+
+                // 2) Handle any new publication <-> review round assocations to previously unassocationed review rounds
+                foreach ($updatedReviewRoundIds as $updatedReviewRoundId) {
+                    $reviewRoundDao->updatePublicationId($updatedReviewRoundId, $publication->getId());
+                }
+
+                // 3) Handle updating existing publication <-> review round associations
+                foreach ($existingReviewRounds as $reviewRound) {
+                    // If review round ID was not included with request, it should be assumed unselected, i.e. null
+                    if (!in_array($reviewRound->getId(), $updatedReviewRoundIds)) {
+                        $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
+                    }
+                }
             }
         }
 

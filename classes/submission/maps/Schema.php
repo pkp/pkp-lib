@@ -491,7 +491,7 @@ class Schema extends \PKP\core\maps\Schema
                         [
                             'stageId' => $submission->getData('stageId'),
                             'id' => $decisionType->getDecision(),
-                            'label' => $decisionType->getLabel(),
+                            'label' => $decisionType->getLabel(submission: $submission),
                         ]
                     )->toArray();
                     break;

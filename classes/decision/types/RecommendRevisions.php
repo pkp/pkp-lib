@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/RecommendRevisions.php
  *
@@ -44,7 +45,7 @@ class RecommendRevisions extends DecisionType
         return null;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
         return __('editor.submission.recommend.revisions', [], $locale);
     }

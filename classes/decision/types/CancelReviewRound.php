@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/CancelReviewRound.php
  *
@@ -86,7 +87,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
         return WORKFLOW_STAGE_ID_SUBMISSION;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
         return __('editor.submission.decision.cancelReviewRound', [], $locale);
     }

@@ -179,7 +179,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U50 | Issues | OJS | H | pending | |
 | U51 | Subscriptions & open access control | OJS | H | pending | |
 | U52 | Payments & APCs | OJS | M | pending | |
-| U53 | Users management | OJS OMP OPS | M | pending | |
+| U53 | Users management | OJS OMP OPS | M | done | 2026-07-29 overnight run: spec verified, lint-clean; tests OJS 8 / OMP 8 / OPS 8, each green ×2; register A1–A12 + OPS1 (5 🐞 / 7 ❓ / 1 ✅). Review first: A5 masthead change on OMP/OPS saves then errors at the manager and tells the user nothing; A10 the account form refuses silently (no message anywhere); A2 Disable dangles where its neighbours are withheld; A12 own-account disable unconfirmed. Harness gained the `siteAdmin` seed key (app-changes 15); two entries retired on evidence; U6's A4 base-corrected |
 | U54 | Roles configuration | OJS OMP OPS | M | pending | |
 | U55 | Notify users (bulk email) | OJS OMP OPS | L | pending | |
 | U56 | Emails management | OJS OMP OPS | M | pending | |
@@ -257,6 +257,19 @@ _Rows for Fable-pinned agents and Opus anomalies only, appended by hand
 - 2026-07-28 · U6 · readability blocker fix · config-file naming + 4 frictions · claude-fable-5
 - 2026-07-28 · U6 · Opus agents (inventory, 4 probes, digest, harness, 3 test authors,
   3 claim-check chunks, merge, top-up probe) · no anomalies, not individually logged
+- 2026-07-29 · U53 · spec author · draft · claude-fable-5
+- 2026-07-29 · U53 · probe-list author · probe list · claude-fable-5
+- 2026-07-29 · U53 · digest fold ×3 + top-up fold · D1–D10 / D11–D20 / D21–D30 / T1–T4 · claude-fable-5 (all four)
+- 2026-07-29 · U53 · test-correction fold · step-7 corrections · claude-fable-5
+- 2026-07-29 · U53 · claim-check fold ×3 · D1–D10 / D11–D20 / D21–D30+lint · claude-fable-5 (all three)
+- 2026-07-29 · U53 · readability verifier · persona pass 1 (1 blocker, 15 frictions) · claude-fable-5
+- 2026-07-29 · U53 · readability rewrite · blocker + 9 frictions · claude-fable-5
+- 2026-07-29 · U53 · readability verifier · persona re-read of rewrites (0 blockers — gate met) · claude-fable-5
+- 2026-07-29 · U53 · safety polish · merge-scenario guard step · claude-fable-5
+- 2026-07-29 · U53 · footnote token sweep · 9 bare row codes named in words · claude-fable-5
+- 2026-07-29 · U6 · base correction (from U53 evidence) · A4 menu-access precision · claude-fable-5
+- 2026-07-29 · U53 · Opus agents (inventory, 4 probes, digest, siteAdmin fixture + top-up probe,
+  3 test authors, 3 claim-check chunks, merge) · no anomalies, not individually logged
 - 2026-07-28 · U6 · orchestrator (attempt 2, Fable) · hard-paused after probing —
   no flip, 80/80 fable, nothing tainted; the pause turn combined four probe
   returns, a routing sentinel and an inline spec edit. Cause of the routing

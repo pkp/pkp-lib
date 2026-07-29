@@ -57,6 +57,7 @@ class PKPJatsController extends PKPBaseController
 
     public function getGroupRoutes(): void
     {
+        // Read access: authors may view JATS content (read-only)
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -69,6 +70,18 @@ class PKPJatsController extends PKPBaseController
 
             Route::get('', $this->get(...))
                 ->name('publication.jats.get');
+
+        })->whereNumber(['submissionId', 'publicationId']);
+
+        // Write access: JATS is a production artifact editable by editorial roles only (no author)
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function () {
 
             Route::post('', $this->add(...))
                 ->name('publication.jats.add');
@@ -115,7 +128,7 @@ class PKPJatsController extends PKPBaseController
         }
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
@@ -158,7 +171,7 @@ class PKPJatsController extends PKPBaseController
             );
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
@@ -179,7 +192,7 @@ class PKPJatsController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()

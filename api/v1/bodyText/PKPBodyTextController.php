@@ -54,6 +54,7 @@ class PKPBodyTextController extends PKPBaseController
 
     public function getGroupRoutes(): void
     {
+        // Read access: authors may view body text content (read-only)
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -66,6 +67,18 @@ class PKPBodyTextController extends PKPBaseController
 
             Route::get('', $this->get(...))
                 ->name('publication.bodyText.get');
+
+        })->whereNumber(['submissionId', 'publicationId']);
+
+        // Write access: body text is a production artifact editable by editorial roles only (no author)
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function () {
 
             Route::put('', $this->save(...))
                 ->name('publication.bodyText.save');

@@ -37,10 +37,8 @@ use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileMatchesSubmissionPolicy;
-use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
-use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\Genre;
@@ -76,6 +74,7 @@ class MediaFilesController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
+        // Read access: authors may view media files (read-only)
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
@@ -87,7 +86,17 @@ class MediaFilesController extends PKPBaseController
         ])->group(function () {
             Route::get('', $this->getMany(...))
                 ->name('mediaFiles.getMany');
+        })->whereNumber(['submissionId', 'publicationId']);
 
+        // Write access: media is a production artifact editable by editorial roles only (no author)
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function () {
             Route::post('', $this->add(...))
                 ->name('mediaFiles.add');
 
@@ -129,31 +138,10 @@ class MediaFilesController extends PKPBaseController
         }
 
         if (in_array($actionName, ['edit', 'delete', 'link'])) {
-            // Load the submission file to get its fileStage
             $submissionFileId = (int) static::getRequestedRoute()->parameter('submissionFileId');
-            $submissionFile = $submissionFileId ? Repo::submissionFile()->get($submissionFileId) : null;
-            $fileStage = $submissionFile ? $submissionFile->getData('fileStage') : 0;
 
             // Ensure the file belongs to the submission
             $this->addPolicy(new SubmissionFileMatchesSubmissionPolicy($request, $submissionFileId));
-
-            $this->addPolicy(
-                new SubmissionFileStageAccessPolicy(
-                    $fileStage,
-                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY,
-                    'api.submissionFiles.403.unauthorizedFileStageIdWrite'
-                )
-            );
-        }
-
-        if ($actionName === 'linkMany') {
-            $this->addPolicy(
-                new SubmissionFileStageAccessPolicy(
-                    SubmissionFile::SUBMISSION_FILE_MEDIA,
-                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY,
-                    'api.submissionFiles.403.unauthorizedFileStageIdWrite'
-                )
-            );
         }
 
         return parent::authorize($request, $args, $roleAssignments);

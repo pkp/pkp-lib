@@ -716,6 +716,9 @@ msgstr "Edit Data Citation"
 msgid "submission.dataCitations.label.title"
 msgstr "Title"
 
+msgid "submission.dataCitations.label.datasetTitle"
+msgstr "Dataset Title"
+
 msgid "submission.dataCitations.label.identifierType"
 msgstr "Identifier type"
 

@@ -64,6 +64,12 @@ class LoginHandler extends Handler {
 		}
 		$templateMgr->assign('loginUrl', $loginUrl);
 
+		if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_login')) {
+			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
+			$reCaptchaHtml = '<div class="g-recaptcha" data-sitekey="' . $publicKey . '"></div><label for="g-recaptcha-response" style="display:none;">Recaptcha response</label>';
+			$templateMgr->assign(['recaptchaHtml' => $reCaptchaHtml]);
+		}
+
 		$templateMgr->display('frontend/pages/userLogin.tpl');
 	}
 
@@ -94,6 +100,35 @@ class LoginHandler extends Handler {
 		if (Config::getVar('security', 'force_login_ssl') && $request->getProtocol() != 'https') {
 			// Force SSL connections for login
 			$request->redirectSSL();
+		}
+
+		$captchaEnabled = Config::getVar('captcha', 'captcha_on_login') && Config::getVar('captcha', 'recaptcha');
+		if ($captchaEnabled) {
+			import('lib.pkp.classes.form.Form');
+			$form = new Form();
+			$form->setData('g-recaptcha-response', $request->getUserVar('g-recaptcha-response'));
+
+			import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
+			$captchaValidator = new FormValidatorReCaptcha(
+				$form,
+				$request->getRemoteAddr(),
+				'common.captcha.error.invalid-input-response',
+				$request->getServerHost()
+			);
+
+			if (!$captchaValidator->isValid()) {
+				$templateMgr = TemplateManager::getManager($request);
+				$templateMgr->assign([
+					'username' => $request->getUserVar('username'),
+					'remember' => $request->getUserVar('remember'),
+					'source' => $request->getUserVar('source'),
+					'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
+					'error' => $captchaValidator->getMessage(),
+					'reCaptchaHtml' => '<div class="g-recaptcha" data-sitekey="' . Config::getVar('captcha', 'recaptcha_public_key') . '"></div><label for="g-recaptcha-response" style="display:none;">Recaptcha response</label>',
+				]);
+				$templateMgr->display('frontend/pages/userLogin.tpl');
+				return;
+			}
 		}
 
 		$user = Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, $request->getUserVar('remember') == null ? false : true);
@@ -159,6 +194,17 @@ class LoginHandler extends Handler {
 
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
+
+		// Add recaptcha if enabled
+		$captchaEnabled = Config::getVar('captcha', 'captcha_on_password_reset') && Config::getVar('captcha', 'recaptcha');
+		if ($captchaEnabled) {
+			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
+			$reCaptchaHtml = '<div class="g-recaptcha" data-sitekey="' . $publicKey . '"></div><label for="g-recaptcha-response" style="display:none;">Recaptcha response</label>';
+			$templateMgr->assign([
+				'reCaptchaHtml' => $reCaptchaHtml,
+				'captchaEnabled' => true,
+			]);
+		}
 		$templateMgr->display('frontend/pages/userLostPassword.tpl');
 	}
 
@@ -169,12 +215,38 @@ class LoginHandler extends Handler {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 
+		// Check if reCaptcha is enabled and validate it if so
+		$captchaEnabled = Config::getVar('captcha', 'captcha_on_password_reset') && Config::getVar('captcha', 'recaptcha');
+		if ($captchaEnabled) {
+			import('lib.pkp.classes.form.Form');
+			$form = new Form();
+			$form->setData('g-recaptcha-response', $request->getUserVar('g-recaptcha-response'));
+
+			import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
+			$captchaValidator = new FormValidatorReCaptcha(
+				$form,
+				$request->getRemoteAddr(),
+				'common.captcha.error.invalid-input-response',
+				$request->getServerHost()
+			);
+
+			if (!$captchaValidator->isValid()) {
+				$templateMgr->assign([
+					'reCaptchaHtml' => '<div class="g-recaptcha" data-sitekey="' . Config::getVar('captcha', 'recaptcha_public_key') . '"></div><label for="g-recaptcha-response" style="display:none;">Recaptcha response</label>',
+					'error' => $captchaValidator->getMessage(),
+					'email' => $request->getUserVar('email'),
+				]);
+				$templateMgr->display('frontend/pages/userLostPassword.tpl');
+				return;
+			}
+		}
+
 		$email = $request->getUserVar('email');
 		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$user = $userDao->getUserByEmail($email);
 
 		if ($user !== null && ($hash = Validation::generatePasswordResetHash($user->getId())) !== false) {
-			
+
 			if ($user->getDisabled()) {
 				$templateMgr
 					->assign([
@@ -184,7 +256,7 @@ class LoginHandler extends Handler {
 							: __('user.login.accountDisabledWithReason', ['reason' => $reason])
 					])
 					->display('frontend/pages/userLostPassword.tpl');
-				
+
 				return;
 			}
 
@@ -210,7 +282,7 @@ class LoginHandler extends Handler {
 			'backLink' => $request->url(null, $request->getRequestedPage(), null, null, $user ? ['username' => $user->getUsername()] : []),
 			'backLinkLabel' => 'user.login',
 		])->display('frontend/pages/message.tpl');
-		
+
 	}
 
 	/**
@@ -222,7 +294,7 @@ class LoginHandler extends Handler {
 		if (Validation::isLoggedIn()) {
 			$this->sendHome($request);
 		}
-		
+
 		$this->_isBackendPage = true;
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
@@ -245,16 +317,16 @@ class LoginHandler extends Handler {
 					'backLink' => $request->url(null, $request->getRequestedPage()),
 					'backLinkLabel' => 'user.login',
 					'messageTranslated' => __(
-						'user.login.lostPassword.confirmationSentFailedWithReason', 
+						'user.login.lostPassword.confirmationSentFailedWithReason',
 						[
 							'reason' => empty($reason = $user->getDisabledReason() ?? '')
 								? __('user.login.accountDisabled')
 								: __('user.login.accountDisabledWithReason', ['reason' => $reason])
-						] 
+						]
 					),
 				])
 				->display('frontend/pages/message.tpl');
-			
+
 			return;
 		}
 
@@ -263,7 +335,7 @@ class LoginHandler extends Handler {
 		$passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
 		$passwordResetForm->initData();
 
-		
+
 		$passwordResetForm->validatePasswordResetHash($request)
 			? $passwordResetForm->display($request)
 			: $passwordResetForm->displayInvalidHashErrorMessage($request);
@@ -466,5 +538,4 @@ class LoginHandler extends Handler {
 		parent::setupTemplate($request);
 	}
 }
-
 

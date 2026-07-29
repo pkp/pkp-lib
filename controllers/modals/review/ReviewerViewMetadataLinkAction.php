@@ -19,9 +19,11 @@
 namespace PKP\controllers\modals\review;
 
 use APP\core\Request;
-use PKP\core\PKPApplication;
+use APP\facades\Repo;
 use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\VueModal;
+use PKP\publication\PKPPublication;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewerViewMetadataLinkAction extends LinkAction
 {
@@ -34,21 +36,66 @@ class ReviewerViewMetadataLinkAction extends LinkAction
      */
     public function __construct($request, $submissionId, $reviewAssignmentId)
     {
-        // Instantiate the metadata modal.
-        $dispatcher = $request->getDispatcher();
-        $modal = new AjaxModal(
-            $dispatcher->url(
-                $request,
-                PKPApplication::ROUTE_COMPONENT,
-                null,
-                'modals.submission.ViewSubmissionMetadataHandler',
-                'display',
-                null,
-                ['submissionId' => $submissionId, 'reviewAssignmentId' => $reviewAssignmentId]
+        parent::__construct(
+            'viewMetadata',
+            new VueModal(
+                'ReviewerSubmissionDetailsModal',
+                $this->getModalProps($request, $submissionId, $reviewAssignmentId)
             ),
-            __('reviewer.step1.viewAllDetails'),
+            __('reviewer.step1.viewAllDetails')
         );
-        // Configure the link action.
-        parent::__construct('viewMetadata', $modal, __('reviewer.step1.viewAllDetails'));
+    }
+
+    /**
+     * Collect the submission details that the reviewer may see
+     */
+    protected function getModalProps($request, int $submissionId, int $reviewAssignmentId): array
+    {
+        $submission = Repo::submission()->get($submissionId);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
+        $publication = $submission->getCurrentPublication();
+
+        $props = [
+            'title' => $publication->getLocalizedFullTitle(null, 'html'),
+            'abstract' => $publication->getLocalizedData('abstract'),
+            'keywords' => $this->getControlledVocabNames($publication, 'keywords'),
+            'subjects' => $this->getControlledVocabNames($publication, 'subjects'),
+            'disciplines' => $this->getControlledVocabNames($publication, 'disciplines'),
+            'authors' => null,
+            'dataAvailability' => null,
+            'fundingStatement' => null,
+            'dataCitations' => [],
+        ];
+
+        if ($reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
+            return $props;
+        }
+
+        // For open or anonymous/disclosed author review, we can show the authors and other metadata
+        $props['authors'] = $publication->getAuthorString();
+        $props['dataAvailability'] = $publication->getLocalizedData('dataAvailability');
+        $props['fundingStatement'] = $publication->getLocalizedData('fundingStatement');
+
+        if ($request->getContext()->getData('dataCitations')) {
+            $props['dataCitations'] = collect($publication->getData('dataCitations') ?? [])
+                ->map(fn ($dataCitation) => [
+                    'id' => $dataCitation->id,
+                    'title' => $dataCitation->title,
+                    'identifierType' => $dataCitation->identifierType,
+                    'url' => $dataCitation->url,
+                ])
+                ->values()
+                ->all();
+        }
+
+        return $props;
+    }
+
+    /**
+     * Map a controlled vocabulary to an array of values - the stored entries are ['name' => ...], not plain strings
+     */
+    protected function getControlledVocabNames(PKPPublication $publication, string $metadataKey): array
+    {
+        return collect($publication->getLocalizedData($metadataKey) ?: [])->pluck('name')->all();
     }
 }

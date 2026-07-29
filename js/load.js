@@ -157,6 +157,7 @@ import SelectReviewerListPanel from '@/components/ListPanel/users/SelectReviewer
 import SubmissionsListPanel from '@/components/ListPanel/submissions/SubmissionsListPanel.vue';
 import ReviewerManagerReadReviewModal from '@/managers/ReviewerManager/ReviewerManagerReadReviewModal.vue';
 import DiscussionManagerReviewer from '@/managers/DiscussionManager/DiscussionManagerReviewer.vue';
+import ReviewerSubmissionDetailsModal from '@/pages/reviewerSubmission/ReviewerSubmissionDetailsModal.vue';
 
 // Page components (registered globally, resolved by name in Page.vue)
 import DashboardPage from '@/pages/dashboard/DashboardPage.vue';
@@ -310,6 +311,7 @@ VueRegistry.registerComponent('SelectReviewerListPanel', SelectReviewerListPanel
 VueRegistry.registerComponent('SubmissionsListPanel', SubmissionsListPanel);
 VueRegistry.registerComponent('ReviewerManagerReadReviewModal', ReviewerManagerReadReviewModal);
 VueRegistry.registerComponent('DiscussionManagerReviewer', DiscussionManagerReviewer);
+VueRegistry.registerComponent('ReviewerSubmissionDetailsModal', ReviewerSubmissionDetailsModal);
 
 // Register Page components (resolved by name in Page.vue)
 VueRegistry.registerComponent('DashboardPage', DashboardPage);

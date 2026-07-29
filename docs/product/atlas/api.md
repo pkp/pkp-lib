@@ -62,7 +62,7 @@
 | API-044 | ojs omp ops | `PKP\API\v1\submissions\tasks\EditorialTaskController` | Editorial tasks + discussions (base `submissions`): POST {submissionId}/tasks, PUT {submissionId}/tasks/{taskId}, DELETE {submissionId}/tasks/{taskId}, GET {submissionId}/tasks/{taskId}, GET {submissionId}/stages/{stageId}/tasks, PUT {submissionId}/tasks/{taskId}/close, PUT {submissionId}/tasks/{taskId}/open, PUT {submissionId}/tasks/{taskId}/start, GET {submissionId}/stages/{stageId}/tasks/fromTemplate/{templateId}, POST {submissionId}/tasks/{taskId}/notes, DELETE {submissionId}/tasks/{taskId}/notes/{noteId}, GET {submissionId}/stages/{stageId}/tasks/participants. |
 | API-045 | ojs omp ops | `PKP\API\v1\temporaryFiles\PKPTemporaryFilesController` | Temporary file upload (base `temporaryFiles`): POST /. |
 | API-046 | ojs omp ops | `PKP\API\v1\userGroups\UserGroupController` | User groups listing (base `userGroups`): GET /. |
-| API-047 | ojs omp ops | `PKP\API\v1\users\PKPUserController` | Users (base `users`): GET reviewers, GET report, GET {userId}, GET /, PUT {userId}/endRole/{userGroupId}, PUT {userId}/masthead/{userUserGroupId}. |
+| API-047 | ojs omp ops | `PKP\API\v1\users\PKPUserController` | Users (base `users`): GET reviewers, GET report, GET {userId}, GET /, PUT {userId}/endRole/{userGroupId}, PUT {userId}/masthead/{userUserGroupId}. · Claimed by: U53 |
 | API-048 | ojs omp | `PKP\API\v1\vocabs\PKPInterestController` | Reviewer interests vocab (base `vocabs/interests`): GET /. OPS `vocabs` entry point mounts only PKPVocabController. |
 | API-049 | ojs omp ops | `PKP\API\v1\vocabs\PKPVocabController` | Controlled vocabulary suggestions (base `vocabs`): GET /. |
 

@@ -71,7 +71,7 @@ whether these roles are meant to invite at all is an open question
 
 | Action | Who may — and when |
 |--------|--------------------|
-| **See the Invitations table** (Users & Roles → Users) | • Journal Manager — while their role keeps the "Permit changes to Settings" option; the option can be changed only on a manager-level role other than the default one, and on OPS the condition cannot arise at all (see [Settings](#settings), [OPS2](#ops2)). Clearing it takes the whole Users & Roles screen away — but not the send wizard's own address ⚠ [A18](#a18) <sup>[a](#fn-a)</sup><br>• Site Administrator — on OJS; OMP and OPS refuse one who is not also the journal's own manager ⚠ [A4](#a4)<br>• the same screen also answers at a second, older web address that admits only Site Administrators — on OMP and OPS underneath an error dialog they must dismiss first — and refuses every manager ⚠ [A2](#a2) |
+| **See the Invitations table** (Users & Roles → Users) | • Journal Manager — while their role keeps the "Permit changes to Settings" option; the option can be changed only on a manager-level role other than the default one, and on OPS the condition cannot arise at all (see [Settings](#settings), [OPS2](#ops2)). Clearing it takes the whole Users & Roles screen away — but not the send wizard's own address ⚠ [A18](#a18) <sup>[a](#fn-a)</sup><br>• Site Administrator — on OJS, though one holding no role in the journal is offered no menu entry and reaches the screen only by typing its address; OMP and OPS refuse one who is not also the journal's own manager ⚠ [A4](#a4)<br>• the same screen also answers at a second, older web address that admits only Site Administrators — on OMP and OPS underneath an error dialog they must dismiss first — and refuses every manager ⚠ [A2](#a2) |
 | **Invite to a role** (open the send-invitation wizard and send) | • the same actors as the table — the "Invite to a role" button sits above it <sup>[b](#fn-b)</sup> |
 | **Edit a pending invitation** | • the same actors — via the row's "Invitation management options" menu, "Edit" (Rule 6)<br>• a Section Editor or an Assistant who types the invitation's edit address — offered by no screen, yet it reopens, changes and resends for real ⚠ [A8](#a8); a Reader is refused |
 | **Cancel a pending invitation** | • the same actors — via the same menu, "Cancel Invite" (Rule 7) |
@@ -564,8 +564,11 @@ Basis: probe (the behavior); the ruling is judgment.
 
 <a id="a4"></a>
 **A4 — Site Administrator access to the screen differs per app** · ❓ · user-visible.
-On OJS a Site Administrator opens Users & Roles from the menu; on OMP and
-OPS the same person is refused with "The current role does not have access
+No app offers a menu entry to Users & Roles to a Site Administrator who
+holds no role in the journal — an administrator who opens it from the menu
+is being admitted as the journal's own manager. Typing the menu's address
+directly, OJS admits the role-less administrator; on OMP and OPS the same
+person is refused with "The current role does not have access
 to this operation." The divergence hides on a stock install because
 creating a journal enrols its creator as the journal's manager, and that
 hat admits them everywhere. Question: is the OMP/OPS refusal intended?
@@ -1172,7 +1175,12 @@ The role policies sit in a `PolicySet(COMBINING_PERMIT_OVERRIDES)` — with
 no assignment for the `settings` op, an unassigned site admin is denied
 regardless of `CanAccessSettingsPolicy`'s admin allowance. Live-watched
 2026-07-28 in all three apps (`.reports/u6/probe-a.md` A-1): OJS admits,
-OMP and OPS refuse a site admin holding no manager role.
+OMP and OPS refuse a site admin holding no manager role. The menu picture
+watched 2026-07-29 during the *Users management* feature's claim check,
+all three apps, with a site administrator holding no role in any journal:
+no app offers that account a menu entry to the screen; OJS admits it at
+the typed menu address, OMP and OPS admit it only at the older address
+(f-a2).
 
 <a id="fn-a5"></a>
 **f-a5** — Keys `invitation.wizard.completeSteps` (the `Steps` component's

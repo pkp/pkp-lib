@@ -22,12 +22,34 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 trait ReviewerRecommendationSummary
 {
+    /**
+     * Get the review rounds that are part of the public peer review record.
+     * Only rounds whose reviewed publication version is published are included;
+     * rounds of an unpublished (in-review) version stay hidden.
+     *
+     * @return Collection<int, ReviewRound> Review rounds keyed by review round ID
+     */
+    private function getPublicReviewRounds(Submission $submission): Collection
+    {
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+        $publishedPublicationIds = collect($submission->getPublishedPublications())
+            ->map(fn (Publication $publication) => $publication->getId());
+
+        return collect($reviewRoundDao->getBySubmissionId($submission->getId())->toAssociativeArray())
+            ->filter(fn (ReviewRound $reviewRound) => $reviewRound->getPublicationId() !== null
+                && $publishedPublicationIds->contains((int) $reviewRound->getPublicationId()));
+    }
+
     /**
      * Aggregates reviewer recommendations into summary counts.
      *  - If a reviewer participates in multiple rounds, only their latest completed review counts

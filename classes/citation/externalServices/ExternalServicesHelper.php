@@ -86,7 +86,7 @@ class ExternalServicesHelper
             }
 
             if ($response->hasHeader('Retry-After')) {
-                $retryAfter = (int) $response->getHeaderLine('Retry-After');
+                $retryAfter = self::parseRetryAfter($response->getHeaderLine('Retry-After'));
             }
 
             return $response->getStatusCode();
@@ -96,5 +96,23 @@ class ExternalServicesHelper
         }
 
         return null;
+    }
+
+    /**
+     * Parses a Retry-After header value into a delay in seconds. Per RFC 9110, the value may
+     * be either a number of delay-seconds or an HTTP-date to wait until.
+     */
+    protected static function parseRetryAfter(string $value): ?int
+    {
+        if (is_numeric($value)) {
+            return max(0, (int) $value);
+        }
+
+        $timestamp = strtotime($value);
+        if ($timestamp === false) {
+            return null;
+        }
+
+        return max(0, $timestamp - time());
     }
 }

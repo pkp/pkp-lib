@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/reviewAssignment/maps/Schema.php
  *
@@ -127,6 +128,18 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case '_href':
                     $output[$prop] = $this->getApiUrl('_submissions/reviewAssignments/' . $item->getId());
+                    break;
+                case 'reviewerRecommendation':
+                    $recommendationId = $item->getData('reviewerRecommendationId');
+                    if ($recommendationId && $recommendation = ReviewerRecommendation::find($recommendationId)) {
+                        $output[$prop] = [
+                            'id' => $recommendation->id,
+                            'type' => $recommendation->type,
+                            'name' => $recommendation->title,
+                        ];
+                    } else {
+                        $output[$prop] = null;
+                    }
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

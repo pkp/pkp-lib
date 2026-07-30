@@ -150,6 +150,20 @@ class Repository
             });
         }
 
+        // Check that the rating is valid
+        if (isset($props['quality'])) {
+            $validator->after(function ($validator) use ($props) {
+                if (!$validator->errors()->get('quality')) {
+                    $quality = $props['quality'];
+                    $isValidRating = $quality >= ReviewAssignment::REVIEW_ASSIGNMENT_QUALITY_MIN &&
+                        $quality <= ReviewAssignment::REVIEW_ASSIGNMENT_QUALITY_MAX;
+                    if (!$isValidRating) {
+                        $validator->errors()->add('quality', __('api.reviews.assignments.invalidQualityRating'));
+                    }
+                }
+            });
+        }
+
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($this->dao->schema), $allowedLocales);
 

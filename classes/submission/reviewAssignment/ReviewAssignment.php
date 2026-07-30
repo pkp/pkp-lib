@@ -51,6 +51,9 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND = 11; // request resent to reviewer after they declined
     public const REVIEW_ASSIGNMENT_STATUS_VIEWED = 12; // editor has viewed the review assignment, intermediate status between received and complete
 
+    public const REVIEW_ASSIGNMENT_QUALITY_MIN = 0;
+    public const REVIEW_ASSIGNMENT_QUALITY_MAX = 5;
+
     /**
      * All review assignment statuses that indicate a
      * review was completed

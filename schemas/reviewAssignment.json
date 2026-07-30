@@ -208,6 +208,26 @@
 				"nullable"
 			]
 		},
+		"reviewerRecommendation": {
+			"type": "object",
+			"description": "An object representing the reviewer's recommendation, including its id, type, and human-readable label.",
+			"apiSummary": true,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"type": {
+					"type": "integer"
+				},
+				"label": {
+					"type": "string"
+				}
+			}
+		},
 		"requestResent": {
 			"type": "boolean",
 			"description": "Whether the review request was resent to the reviewer",

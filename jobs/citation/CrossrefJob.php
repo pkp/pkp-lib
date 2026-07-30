@@ -30,6 +30,9 @@ class CrossrefJob extends BaseJob
     /** Name of the shared rate limiter throttling all Crossref lookups below the "polite pool" limit of 10 requests/second. */
     protected const RATE_LIMITER_NAME = 'crossref-lookups';
 
+    /** Rate-limit releases count as attempts too, so retry indefinitely; $maxExceptions still catches real failures. */
+    public $tries = 0;
+
     protected int $contextId;
     protected int $citationId;
     protected string $contactEmail = '';

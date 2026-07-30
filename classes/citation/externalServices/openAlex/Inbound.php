@@ -45,8 +45,8 @@ class Inbound
     public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/works/doi:' . urlencode($citation->getData('doi')),
-            ['headers' => ['mailto' => $this->contactEmail]],
+            $this->url . '/works/doi:' . urlencode($citation->getData('doi')) . '?mailto=' . urlencode($this->contactEmail),
+            [],
             $this->retryAfter
         );
 

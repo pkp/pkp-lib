@@ -24,6 +24,9 @@ use PKP\jobs\BaseJob;
 
 class OpenAlexJob extends BaseJob
 {
+    /** Rate-limit releases count as attempts too, so retry indefinitely; $maxExceptions still catches real failures. */
+    public $tries = 0;
+
     protected int $contextId;
     protected int $citationId;
     protected string $contactEmail = '';
@@ -64,6 +67,7 @@ class OpenAlexJob extends BaseJob
                     throw new JobException(__('admin.job.failed.connection.externalService', [
                         'statusCode' => $service->statusCode]));
                 case 429:
+                case 503:
                     $this->release($service->retryAfter !== null ? $service->retryAfter + 3 : 60);
                     return;
                 case 404:

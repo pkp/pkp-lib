@@ -40,6 +40,7 @@ class Config
         // Specific redactions
         '/^general$/' => [
             '/^app_key$/',
+            '/^sentry_dsn$/',
         ],
         '/^database$/' => [
             '/^password$/',

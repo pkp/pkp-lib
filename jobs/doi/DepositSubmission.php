@@ -75,7 +75,13 @@ class DepositSubmission extends BaseJob
                 ->getExportableDOIsPeerReviewIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
 
             foreach ($depositablePeerReviewIds as $peerReviewId) {
-                dispatch(new DepositPeerReview($peerReviewId, $this->context->getId(), $this->agency, $this->submissionId));
+                /**
+                 * When `$this->agency->depositSubmissions` is executed above, some Agency plugins (like Datacite) may add cached data to the Agency plugin instance.
+                 * This cached data at times includes unresolved data (e.g., a lazy collection of Publications on a cached Submission object) which will result in a serialization error when passed to a job since the job
+                 * cannot serialize unresolved data (the lazy collection). To avoid this error, a fresh instance of the currently configured agency is fetched and passed to the `DepositPeerReview` job.
+                 */
+                $agency = $this->context->getConfiguredDoiAgency();
+                dispatch(new DepositPeerReview($peerReviewId, $this->context->getId(), $agency, $this->submissionId));
             }
         }
     }

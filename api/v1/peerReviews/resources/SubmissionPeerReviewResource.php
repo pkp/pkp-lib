@@ -38,7 +38,6 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
 
@@ -73,15 +72,8 @@ class SubmissionPeerReviewResource extends JsonResource
         $publishedPublications = collect($submission->getPublishedPublications())
             ->keyBy(fn (Publication $publication) => $publication->getId());
 
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        // Only rounds whose reviewed publication version is published are part of the
-        // public record; rounds of an unpublished (in-review) version stay hidden.
-        $reviewRounds = collect($reviewRoundDao->getBySubmissionId($submission->getId())->toArray())
-            ->filter(fn (ReviewRound $reviewRound) => $reviewRound->getPublicationId() !== null
-                && $publishedPublications->has((int) $reviewRound->getPublicationId()));
-
-        $roundIds = $reviewRounds->map(fn (ReviewRound $reviewRound) => $reviewRound->getId())->values()->all();
+        $reviewRounds = $this->getPublicReviewRounds($submission);
+        $roundIds = $reviewRounds->keys()->all();
 
         // Get all accepted review assignments. Confirmed ones will be filtered and exposed to peer review API, while all reviews will be considered for summary.
         $reviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()

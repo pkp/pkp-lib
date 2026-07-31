@@ -24,10 +24,9 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\PublicReviewStatusData;
-use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewRound\ReviewRound;
 
 class SubmissionPeerReviewSummaryResource extends JsonResource
 {
@@ -38,11 +37,17 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
         /** @var Submission $submission */
         $submission = $this->resource;
 
-        $reviewAssignments = Repo::reviewAssignment()->getCollector()
-            ->filterBySubmissionIds([$submission->getId()])
+        // Summarize only what the full peer review record exposes: reviews from
+        // rounds whose reviewed publication version is published
+        $publicReviewRounds = $this->getPublicReviewRounds($submission);
+        $roundIds = $publicReviewRounds->keys()->all();
+
+        $reviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds($roundIds)
             ->filterByIsPubliclyVisible(true)
             ->filterByIsAccepted(true)
-            ->getMany();
+            ->getMany()
+            ->collect();
 
         $contextDao = Application::getContextDAO();
         /** @var Context $context */
@@ -54,7 +59,7 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
             'submissionPublishedVersionsCount' => count($submission->getPublishedPublications()),
             'reviewerCount' => $this->getReviewerCount($reviewAssignments),
             'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($submission),
-            'reviewStatus' => $this->getReviewStatus($reviewAssignments),
+            'reviewStatus' => $this->getReviewStatus($reviewAssignments, $publicReviewRounds),
         ];
     }
 
@@ -62,17 +67,13 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
      * Gets aggregated review round status for submission as a whole.
      *
      * @param Collection<ReviewAssignment> $reviewAssignments
+     * @param Collection<int, ReviewRound> $reviewRounds Review rounds keyed by review round ID
      *
      * @return array{dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}
      */
-    private function getReviewStatus(Enumerable $reviewAssignments): array
+    private function getReviewStatus(Enumerable $reviewAssignments, Collection $reviewRounds): array
     {
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRounds = $reviewRoundDao->getBySubmissionId($this->resource->getId())->toAssociativeArray();
-
-
-        $roundsStatusData = $this->getReviewRoundsStatusData($reviewAssignments, $reviewRounds);
+        $roundsStatusData = $this->getReviewRoundsStatusData($reviewAssignments, $reviewRounds->all());
         return PublicReviewStatusData::fromRoundsData(collect($roundsStatusData))->toArray();
     }
 }

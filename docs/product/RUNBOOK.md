@@ -56,13 +56,14 @@ screens would never send. No hand-built API calls, no altered form payloads, no
 links or credentials carried over from another session, no client but a browser.
 Whether the server would accept something the UI never offers is a real
 question, but it is a **separate process's** job — folding it into this one
-costs us the readable, product-voice spec we came for, and it is the class of
-work this pipeline keeps stalling on.
+costs us the readable, product-voice spec we came for.
 
 If a question can only be answered outside that line, it is out of scope here:
-write one line on the deferred queue and move on. Do not investigate it, do not
-conclude anything about it, and do not mention it in a report, a spec, a test
-or a return.
+write one line on the deferred queue and move on — do not investigate it or
+conclude anything about it. Saying in a return or report that a question was
+parked is fine; the queue line is its record. If what was actually OBSERVED
+suggests a security weakness, it goes to the private security file instead
+("What goes where").
 
 **The deferred queue** — `../e2e_ng/server-questions.md` (relative to the app
 repo root, outside every repo). One line per question: the screen, the role,
@@ -84,8 +85,9 @@ has exactly one home, the spec's Findings register.
 > can fix it. Never construct a request the screens themselves would not send;
 > a question that needs that goes on the deferred queue instead. A finding
 > that could plausibly be a security weakness is appended to the maintainer's
-> private security file (`../e2e_ng/security.md`) and mentioned nowhere else —
-> these repos are public."
+> private security file (`../e2e_ng/security.md`), never to a spec, test,
+> report file or commit — these repos are public. Say THAT you routed
+> something there; keep its content out."
 
 Volume discipline is separate and stays: detail lives in `.reports/`, returns
 are short and outcome-shaped. That is context budgeting — keeping the
@@ -100,11 +102,14 @@ orchestrator lean — not a wording rule.
   app repo root — outside every repo, maintainer-only). Decide by substance:
   a role seeing or doing more than it is entitled to, a guard that does not
   hold, data exposed to the wrong audience — anything you would not publish
-  before a fix. The repos are PUBLIC: such a finding never appears in a spec,
-  test, `.reports/` file, PROGRESS note, subagent return, or commit message;
-  the claim it would have supported is omitted or kept generic until the fix
+  before a fix. The repos are PUBLIC: such a finding's CONTENT never appears
+  in a spec, test, `.reports/` file, PROGRESS note, or commit message; the
+  claim it would have supported is omitted or kept generic until the fix
   ships, after which the corrected behavior enters the spec like any other
-  claim. Ordinary UX defects (a dead button, a missing message) are not
+  claim. The FACT of routing is never silent: a return or report says "one
+  observation routed to the security file" so the maintainer always knows to
+  look — silent claim-dropping is the old construct's failure mode and is not
+  repeated. Ordinary UX defects (a dead button, a missing message) are not
   security concerns — they go to the register as usual.
 - **Build blockers** → `docs/e2e/app-changes.md`: an app defect encountered
   while getting tests to run green — race conditions, nondeterministic UI,
@@ -235,12 +240,10 @@ carries verbatim: "Do NOT write to PROGRESS.md, atlas files, or
 docs/e2e/app-changes.md; return proposed content in your report instead."
 
 EVERY probe, claim-check and test brief ALSO opens with the **Frame** paragraph
-from "What this work is" — verbatim, before the task: it costs nothing, it is
-what a human reviewer would want stated, and an agent asked to check permission
-behavior with no stated purpose is the case that has historically gone wrong.
-Its last sentence (the browser-only line and the deferred queue) is not
-decoration — it is the scope boundary, and it is why these briefs no longer
-produce material this pipeline cannot carry.
+from "What this work is" — verbatim, before the task. It states the working
+conditions, the scope boundary (browser-only, deferred queue) and the two
+routing destinations, so every agent starts with the same contract without the
+orchestrator paraphrasing it.
 
 1. **Claim it** — set the feature's PROGRESS row to `in_progress`.
 2. **Author the spec** → `docs/product/specs/<feature>.md` per `TEMPLATE.md`,
@@ -255,8 +258,7 @@ produce material this pipeline cannot carry.
    role R, on screen S, do X; record what appears". An item that cannot be
    phrased that way is out of scope ("The screen is the instrument"): it goes
    on the deferred queue, and the claim it would have supported either gets a
-   marker or leaves the draft. This is the author's job, not the probe's — a
-   probe list that ships out-of-scope items has already cost the session.
+   marker or leaves the draft. This is the author's job, not the probe's.
 3. **Probe** — the probe list is farmed to probe subagents (fresh context,
    tight scope, facts-only returns to `.reports/`). A probe answers "what does
    this role actually see and get on a running install?", driven through the
@@ -281,11 +283,12 @@ produce material this pipeline cannot carry.
    > `Proposed:` 🐞 | ❓ | ✅ | plain claim · rule text | register entry | footnote | drop
    > `Evidence:` report file + item number — a pointer, never a quotation
 
-   Hard rules. Every line reads as product behaviour, in the spec's own voice.
-   NO reproduction narrative, NO request or response detail, NO status codes,
-   NO session or link mechanics, NO severity argument, NO quoted report prose —
-   all of that stays in `.reports/`, which is where a developer goes for it.
-   An `undetermined` entry says only that, plus the one observation that would
+   Style is the digest agent's judgment with one aim: each line reads as
+   product behaviour, in the spec's own voice, at digest length. Reproduction
+   narrative, status codes, request/response detail and quoted report prose
+   live in `.reports/`, which the Evidence pointer names — the digest carries
+   the fact, the report carries the trail. An `undetermined` entry says only
+   that, plus the one observation that would
    settle it. `Proposed:` is the digest's SUGGESTION; step 4 decides. Size is the
    gate: about two pages for an M-tier feature. A digest that will not fit
    means the probes overshot — cut trivia, don't compress prose.
@@ -426,7 +429,10 @@ re-run it.
 - **Pause on flag.** If any agent is refused, flagged by safeguards, or
   silently downgraded to a non-Fable model mid-run: discard that attempt's
   output, do NOT re-press the same brief, do NOT respawn onto another model,
-  and do NOT degrade the item to route around the flag. Record the point
+  and do NOT degrade the item to route around the flag. (A silent subagent
+  downgrade is detected from its transcript — grep the agent's JSONL for
+  `"model":` values; every assistant line must be claude-fable. Spot-check
+  writing agents at completion.) Record the point
   reached in the feature's PROGRESS note, log the event in the Model-fallback
   log, and STOP the session for maintainer review. An ordinary technical
   stall (context overflow, tool error, environment breakage) is not a flag —

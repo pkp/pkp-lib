@@ -90,7 +90,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U23 | Submissions dashboard (editorial) | OJS OMP OPS | H | pending | |
 | U24 | Workflow screen & stage access | OJS OMP OPS | M | pending | |
 | U25 | Submission stage | OJS OMP OPS | M | pending | |
-| U26 | Review stage & rounds | OJS OMP | H | pending | |
+| U26 | Review stage & rounds | OJS OMP | H | done | Spec verified; 12 tests OJS, 13 OMP, 1 OPS absence (+setup each), green ×2 + post-fold confirm; register 3🐞+9❓+1✅ (A3 observation in private file); maintainer review pending |
 | U27 | Reviewer assignment & management | OJS OMP | H | pending | |
 | U28 | Reviewer's review | OJS OMP | H | pending | |
 | U29 | Review setup & review forms | OJS OMP | M | pending | |

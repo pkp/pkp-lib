@@ -21,8 +21,8 @@
 | GRID-007 | ojs omp ops | PKP\controllers\grid\announcements\AnnouncementTypeGridHandler | Announcement types settings grid. Ops: fetchGrid, fetchRow, addAnnouncementType, editAnnouncementType, updateAnnouncementType, deleteAnnouncementType |
 | GRID-008 | ojs omp ops | PKP\controllers\grid\eventLog\SubmissionEventLogGridHandler | Submission activity-log grid. Ops: fetchGrid, fetchRow, viewEmail |
 | GRID-009 | ojs omp ops | PKP\controllers\grid\eventLog\SubmissionFileEventLogGridHandler | Per-file event log grid; subclass of GRID-008 inheriting its ops (fetchGrid, fetchRow, viewEmail) |
-| GRID-010 | ojs omp ops | PKP\controllers\grid\files\attachment\AuthorOpenReviewAttachmentsGridHandler | Review attachments grid, author view in open reviews. Ops: fetchGrid, fetchRow |
-| GRID-011 | ojs omp ops | PKP\controllers\grid\files\attachment\AuthorReviewAttachmentsGridHandler | Review attachments grid, author view. Ops: fetchGrid, fetchRow |
+| GRID-010 | ojs omp ops | PKP\controllers\grid\files\attachment\AuthorOpenReviewAttachmentsGridHandler | Review attachments grid, author view in open reviews. Ops: fetchGrid, fetchRow Claimed by: review-stage-and-rounds. |
+| GRID-011 | ojs omp ops | PKP\controllers\grid\files\attachment\AuthorReviewAttachmentsGridHandler | Review attachments grid, author view. Ops: fetchGrid, fetchRow Claimed by: review-stage-and-rounds. |
 | GRID-012 | ojs omp ops | PKP\controllers\grid\files\attachment\EditorReviewAttachmentsGridHandler | Review attachments grid, editor view. Ops: fetchGrid, fetchRow |
 | GRID-013 | ojs omp ops | PKP\controllers\grid\files\attachment\ReviewerReviewAttachmentsGridHandler | Review attachments grid, reviewer view (upload during review). Ops: fetchGrid, fetchRow |
 | GRID-014 | ojs omp ops | PKP\controllers\grid\files\copyedit\CopyeditFilesGridHandler | Copyedited files grid on the copyediting stage. Ops: fetchGrid, fetchRow, selectFiles |
@@ -35,12 +35,12 @@
 | GRID-021 | ojs omp ops | PKP\controllers\grid\files\LibraryFileGridHandler | Base class for library file grids (category grid). Ops: fetchGrid, fetchRow, fetchCategory; op methods addFile, uploadFile, saveFile, editFile, updateFile, deleteFile are role-assigned by subclasses |
 | GRID-022 | ojs omp ops | PKP\controllers\grid\files\productionReady\ProductionReadyFilesGridHandler | Production-ready files grid (copyedited files entering production). Ops: fetchGrid, fetchRow, addFile, downloadFile, deleteFile |
 | GRID-023 | ojs omp ops | PKP\controllers\grid\files\proof\ManageProofFilesGridHandler | Editor's proof file selection modal grid. Ops: fetchGrid, fetchRow, fetchCategory, addFile, downloadFile, deleteFile, updateProofFiles |
-| GRID-024 | ojs omp ops | PKP\controllers\grid\files\review\AuthorReviewRevisionsGridHandler | Author view of their uploaded review-revision files. Ops: fetchGrid, fetchRow |
-| GRID-025 | ojs omp ops | PKP\controllers\grid\files\review\EditorReviewFilesGridHandler | Editor's grid of files under review in the current round. Ops: fetchGrid, fetchRow, selectFiles |
+| GRID-024 | ojs omp ops | PKP\controllers\grid\files\review\AuthorReviewRevisionsGridHandler | Author view of their uploaded review-revision files. Ops: fetchGrid, fetchRow Claimed by: review-stage-and-rounds. |
+| GRID-025 | ojs omp ops | PKP\controllers\grid\files\review\EditorReviewFilesGridHandler | Editor's grid of files under review in the current round. Ops: fetchGrid, fetchRow, selectFiles Claimed by: review-stage-and-rounds. |
 | GRID-026 | ojs omp ops | PKP\controllers\grid\files\review\LimitReviewFilesGridHandler | Selectable list of round files used to limit a reviewer's file access. Ops: fetchGrid, fetchRow |
-| GRID-027 | ojs omp ops | PKP\controllers\grid\files\review\ManageReviewFilesGridHandler | Review file selection modal grid (choose files for review/next round). Ops: fetchGrid, fetchRow, fetchCategory, updateReviewFiles |
+| GRID-027 | ojs omp ops | PKP\controllers\grid\files\review\ManageReviewFilesGridHandler | Review file selection modal grid (choose files for review/next round). Ops: fetchGrid, fetchRow, fetchCategory, updateReviewFiles Claimed by: review-stage-and-rounds. |
 | GRID-028 | ojs omp ops | PKP\controllers\grid\files\review\ReviewerReviewFilesGridHandler | Reviewer's download grid of files to review. Ops: fetchGrid, fetchRow |
-| GRID-029 | ojs omp ops | PKP\controllers\grid\files\review\WorkflowReviewRevisionsGridHandler | Workflow-page grid of author-uploaded revision files. Ops: fetchGrid, fetchRow, addFile |
+| GRID-029 | ojs omp ops | PKP\controllers\grid\files\review\WorkflowReviewRevisionsGridHandler | Workflow-page grid of author-uploaded revision files. Ops: fetchGrid, fetchRow, addFile Claimed by: review-stage-and-rounds. |
 | GRID-030 | ojs omp ops | PKP\controllers\grid\files\SelectableLibraryFileGridHandler | Base grid for selectable library file lists (category-selectable). No own ops |
 | GRID-031 | ojs omp ops | PKP\controllers\grid\files\SelectableSubmissionFileListCategoryGridHandler | Base grid for selectable submission-file category lists. No own ops; subclasses (GRID-015/020/023/027) supply them |
 | GRID-032 | ojs omp ops | PKP\controllers\grid\files\submission\AuthorSubmissionDetailsFilesGridHandler | Submission-stage files grid, author's submission details view. Ops: fetchGrid, fetchRow |
@@ -64,7 +64,7 @@
 | GRID-050 | ojs omp ops | PKP\controllers\grid\settings\user\UserGridHandler | Users management grid. Ops: fetchGrid, fetchRow, addUser, editUser, updateUser, updateUserRoles, editDisableUser, disableUser, removeUser, editEmail, sendEmail, mergeUsers |
 | GRID-051 | ojs omp ops | PKP\controllers\grid\users\author\AuthorGridHandler | Contributors (authors) grid on a publication. Ops: fetchGrid, fetchRow, addAuthor, editAuthor, updateAuthor, deleteAuthor, addUser, saveSequence |
 | GRID-052 | ojs omp ops | PKP\controllers\grid\users\exportableUsers\ExportableUsersGridHandler | Selectable users grid for import/export plugins. Ops: fetchGrid, fetchRow |
-| GRID-053 | ojs omp ops | PKP\controllers\grid\users\reviewer\AuthorReviewerGridHandler | Reviewer grid, author view in open reviews; subclass of PKPReviewerGridHandler (classes/). Ops: fetchGrid, fetchRow, readReview, reviewRead |
+| GRID-053 | ojs omp ops | PKP\controllers\grid\users\reviewer\AuthorReviewerGridHandler | Reviewer grid, author view in open reviews; subclass of PKPReviewerGridHandler (classes/). Ops: fetchGrid, fetchRow, readReview, reviewRead Claimed by: review-stage-and-rounds. |
 | GRID-054 | ojs omp ops | PKP\controllers\grid\users\stageParticipant\StageParticipantGridHandler | Stage participants grid (workflow sidebar). Ops: fetchGrid, fetchRow, fetchCategory, addParticipant, saveParticipant, deleteParticipant, fetchUserList, viewNotify, sendNotification, fetchTemplateBody |
 | GRID-055 | ojs omp ops | PKP\controllers\grid\users\userSelect\UserSelectGridHandler | User selector grid (e.g. add participant search). Ops: fetchGrid, fetchRows |
 | GRID-056 | ojs omp ops | PKP\controllers\informationCenter\FileInformationCenterHandler | File information center modal (notes/history for a file). Ops: viewInformationCenter, viewNotes, listNotes, saveNote, deleteNote, viewHistory |

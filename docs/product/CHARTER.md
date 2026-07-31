@@ -86,7 +86,11 @@ demonstrably missed features):
   entry with a stated lean, never assert a suspected intent the code doesn't
   prove. A spec that silently transcribes bugs as requirements is poison for QA.
   There is no separate bug ledger: any all-bugs view is computed from the
-  registers.
+  registers. ONE routing exception (maintainer, 2026-07-31): a finding that
+  could plausibly be a security weakness goes to the maintainer's private
+  security file outside the repos and appears in no public spec, test or
+  report until the fix ships — the repos are public (operative rule: RUNBOOK
+  "What goes where").
 - **Verified, not just written**: every spec passes a **claim check** (RUNBOOK
   step 8 — take our own permission and state rules and look for the case that
   shows them wrong, liveness included) and a readability pass. Ambiguous rules

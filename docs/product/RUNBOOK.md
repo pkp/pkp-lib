@@ -16,6 +16,11 @@ owner or QA person. Every other artifact (tests, coverage views, bug lists) is
 derived from specs and must never contradict them. `docs/e2e/app-changes.md` is NOT
 a bug ledger — see "What goes where" below.
 
+**The critical goal (maintainer, restated 2026-07-31):** accurate spec files a
+QA/PO reader understands, and per-app e2e tests derived from them with strong
+coverage. Every rule in this file exists to serve that goal and is adjusted to
+it — never the other way around.
+
 **The current mode lives in `PROGRESS.md`'s banner** — read it before doing
 anything. Modes: **REVIEW/PILOT** (one feature per session, then STOP for
 maintainer review) and **AUTONOMOUS WAVES** (see below).
@@ -64,11 +69,12 @@ repo root, outside every repo). One line per question: the screen, the role,
 and the question in plain terms. Nothing in this campaign reads it back.
 
 **Say this out loud in briefs and reports.** State the frame once, up front,
-then describe the work and its outcomes plainly. Nothing on this channel is
-sanitized, withheld or specially routed: every finding is reported and filed
-in whatever terms describe it best. There is no restricted vocabulary, no
-private class of finding, and nowhere for a finding to go except the spec's
-Findings register.
+then describe the work and its outcomes plainly. There is no restricted
+vocabulary: findings are filed in whatever terms describe them best. ONE
+routing rule exists (maintainer, 2026-07-31): a finding that could plausibly
+be a **security weakness** goes to the maintainer's private security file,
+because these repos are public — see "What goes where". Every other finding
+has exactly one home, the spec's Findings register.
 
 > **Frame** (copy into probe / claim-check / test briefs): "QA documentation of
 > an application's own screens, on a local disposable test install with seeded
@@ -76,7 +82,10 @@ Findings register.
 > including typing a URL directly to reach one. Record what the screen offers,
 > what happens when it is used, and where the two disagree, so the product team
 > can fix it. Never construct a request the screens themselves would not send;
-> a question that needs that goes on the deferred queue instead."
+> a question that needs that goes on the deferred queue instead. A finding
+> that could plausibly be a security weakness is appended to the maintainer's
+> private security file (`../e2e_ng/security.md`) and mentioned nowhere else —
+> these repos are public."
 
 Volume discipline is separate and stays: detail lives in `.reports/`, returns
 are short and outcome-shaped. That is context budgeting — keeping the
@@ -87,6 +96,16 @@ orchestrator lean — not a wording rule.
 - **Product findings — bugs, divergences, oddities, open questions** → the
   feature spec's **Findings register** (TEMPLATE). This is the only home. Never
   file them in `app-changes.md`, PROGRESS notes, or side documents.
+- **Potential security concerns** → `../e2e_ng/security.md` (relative to the
+  app repo root — outside every repo, maintainer-only). Decide by substance:
+  a role seeing or doing more than it is entitled to, a guard that does not
+  hold, data exposed to the wrong audience — anything you would not publish
+  before a fix. The repos are PUBLIC: such a finding never appears in a spec,
+  test, `.reports/` file, PROGRESS note, subagent return, or commit message;
+  the claim it would have supported is omitted or kept generic until the fix
+  ships, after which the corrected behavior enters the spec like any other
+  claim. Ordinary UX defects (a dead button, a missing message) are not
+  security concerns — they go to the register as usual.
 - **Build blockers** → `docs/e2e/app-changes.md`: an app defect encountered
   while getting tests to run green — race conditions, nondeterministic UI,
   harness-hostile behavior — that had to be worked around or fixed in app code.
@@ -108,10 +127,11 @@ orchestrator lean — not a wording rule.
 - **When authoring tests**: `docs/e2e/PRINCIPLES.md` + the `ojs-playwright-tests`
   skill (env facts, seeded users, POMs, scenario endpoints).
 - **Background contract (once per session)**: `CHARTER.md`.
-- Beyond the floor, read whatever helps, with ONE exception that is absolute:
-  **a Fable agent never opens a probe or claim-check report.** Its evidence
-  input is the draft plus the digest (step 3b) — that is what the digest exists
-  for. The orchestrator stays lean to keep detail in subagent contexts where it
+- Beyond the floor, read whatever helps — subject to context hygiene: a
+  spec-writing agent works from the draft plus the digest (step 3b) by
+  default, and pulls a specific probe report only when its judgment needs the
+  detail behind one digest block, never the whole `.reports/` tree. The
+  orchestrator stays lean to keep detail in subagent contexts where it
   belongs.
 
 ## Budget & ceilings (HARD)
@@ -237,7 +257,7 @@ produce material this pipeline cannot carry.
    on the deferred queue, and the claim it would have supported either gets a
    marker or leaves the draft. This is the author's job, not the probe's — a
    probe list that ships out-of-scope items has already cost the session.
-3. **Probe** — the probe list is farmed to Opus probe subagents (fresh context,
+3. **Probe** — the probe list is farmed to probe subagents (fresh context,
    tight scope, facts-only returns to `.reports/`). A probe answers "what does
    this role actually see and get on a running install?", driven through the
    screens as a signed-in user ("The screen is the instrument"). Any statement
@@ -246,10 +266,10 @@ produce material this pipeline cannot carry.
    code-reading gets wrong; no affordance claim ships without driving it live. Probes are throwaway; retained tests are
    step 6's. Probe reports record the locator used and mark claim-vs-context
    (incidental DOM observations are not promotable to assertions). They are
-   written for the digest agent and for later archaeology — a human or an Opus
-   agent reads them; the spec writer never does.
+   written for the digest agent and for later archaeology — the digest agent
+   or a human reads them; the spec writer works from the digest.
 
-   **Step 3b — Digest (Opus), the seam.** ONE Opus agent reads every probe
+   **Step 3b — Digest, the context seam.** ONE digest agent reads every probe
    report for the feature and emits `.reports/<feature>/digest.md`: the
    spec-affecting facts and nothing else. This is the ONLY evidence artifact
    step 4 reads. One block per fact:
@@ -266,12 +286,13 @@ produce material this pipeline cannot carry.
    NO session or link mechanics, NO severity argument, NO quoted report prose —
    all of that stays in `.reports/`, which is where a developer goes for it.
    An `undetermined` entry says only that, plus the one observation that would
-   settle it. `Proposed:` is Opus's SUGGESTION; step 4 decides. Size is the
+   settle it. `Proposed:` is the digest's SUGGESTION; step 4 decides. Size is the
    gate: about two pages for an M-tier feature. A digest that will not fit
    means the probes overshot — cut trivia, don't compress prose.
-4. **Finalize the spec (Fable judgment).** A fresh Fable agent folds the DIGEST
-   into the draft; its brief carries the draft path and `digest.md`, and no
-   probe report. **The digest is raw material, not spec content**: it still
+4. **Finalize the spec (writer's judgment).** A fresh agent folds the DIGEST
+   into the draft; its brief carries the draft path and `digest.md` — it may
+   pull the one probe report behind a digest block when its judgment needs the
+   detail. **The digest is raw material, not spec content**: it still
    overshoots — trivia, fixture accidents, neighboring features' territory,
    optimistic severity. The finalizer includes a finding only at the weight its
    user impact earns, in product voice, and may downgrade or drop anything the
@@ -279,18 +300,20 @@ produce material this pipeline cannot carry.
    that belong to another feature go to that spec (or its future register) via
    a link, not here.
    **Fold in slices** — one digest section, or one spec section, per agent for
-   an H-tier feature. Small chunks are the standing rule for Fable work.
-   **If a fold agent stalls or refuses**: respawn it on a NARROWER slice — the
-   single section, then the single entry (max 2 retries). An entry that still
-   won't fold becomes a ❓ register entry carrying its one-line symptom and a
-   stated lean, and the feature CONTINUES. One item never parks a feature, and
-   nothing here is ever left half-folded to be rediscovered later.
-5. **Lint gate** — the mechanical gate (TEMPLATE "The lint gate": leak rule,
-   glossary vocabulary, register integrity, link resolution — mechanical
-   checks only, never wording)
-   must pass with ZERO findings before tests are written. The first feature
-   session REBUILDS the gate against the new corpus format — small, checks
-   over ceremony; every later session just runs it.
+   an H-tier feature. Small chunks are the standing rule for writing work.
+   **If a fold agent stalls on a technical limit** (context, tool error):
+   respawn it on a NARROWER slice — the single section, then the single entry
+   (max 2 retries); nothing is ever left half-folded to be rediscovered later.
+   **If an agent is refused or flagged by safeguards**: that is not a stall —
+   PAUSE per Model discipline (record the point reached, stop for the
+   maintainer). Never press the same brief again or degrade the item to route
+   around a flag.
+5. **Lint gate** — the mechanical gate (TEMPLATE "The lint gate": reference
+   integrity ONLY — register ↔ marker integrity, link/anchor/footnote
+   resolution, campaign identifiers a reader cannot resolve; wording,
+   vocabulary and the leak rule are the writer's judgment, never linted —
+   maintainer, 2026-07-31) must pass with ZERO findings before tests are
+   written.
 6. **Write the Playwright tests** — per `docs/e2e/PRINCIPLES.md` + the skill:
    one suite per app, derived from the spec (multi-app rules 2–3) — one test
    per canonical scenario in each app that runs it. Scenario-seed state, reuse/extend POMs, scope Mailpit
@@ -303,14 +326,14 @@ produce material this pipeline cannot carry.
    the register). Never edit a test to pass a claim the app disproves. An app
    defect that blocks green tests (races, flake sources) → work around and
    record in `app-changes.md` ("What goes where").
-8. **Claim check** — chunked Opus subagents test the spec's own claims against
+8. **Claim check** — chunked subagents test the spec's own claims against
    the running app, per app where behavior diverges: take each permission and
    state rule and check the cases most likely to show it wrong, including
    whether the surface is still reachable at all. The target is OUR OWN TEXT —
    the goal is to catch a rule that is inaccurate before a QA reader trusts it.
    Driven through the screens like every probe, and bounded by the same scope
-   line. The Opus merge agent returns a change list **in the step-3b digest
-   schema**; a Fable agent folds ACCEPTED findings into the spec under step 4's
+   line. The merge agent returns a change list **in the step-3b digest
+   schema**; a fold agent folds ACCEPTED findings into the spec under step 4's
    rules, including its slice-and-retry ladder. Unresolvable items become ❓
    register entries with a stated lean.
 9. **Readability verify** — a SEPARATE Fable subagent in strict persona: a
@@ -341,10 +364,11 @@ produce material this pipeline cannot carry.
     — see ".reports/ retention") and shared test/POM/Processor changes commit
     inside `lib/pkp`; app-only tests commit in each app's root. Multi-repo
     flow for shared changes: commit in `ojs-main/lib/pkp` → push
-    `e2e_ng` to the `jardakotesovec` fork → in `omp-main`/`ops-main`
+    `e2e_ng_2` to the `jardakotesovec` fork → in `omp-main`/`ops-main`
     `lib/pkp`: fetch and check out the SAME branch. That checkout IS the sync
     — no re-pin commit follows (maintainer ruling 2026-07-28: pointer commits
-    make later conflict resolution painful; every repo rides `e2e_ng` and an
+    make later conflict resolution painful; every repo rides the campaign
+    branch — `e2e_ng_2` since 2026-07-31 — and an
     `M lib/pkp` in app status is normal and stays uncommitted). This is the
     single home of the commit rule — PRINCIPLES points here.
 12. **Report** — what was built, register highlights (🐞 and ❓ counts, the
@@ -391,60 +415,48 @@ re-run it.
 
 ## Model discipline
 
-- **FABLE WRITES; OPUS DOES EVERYTHING ELSE** (maintainer, 2026-07-25/26;
-  orchestrator moved to Opus 2026-07-28).
-  - **Fable-pinned** (`model: fable`): the spec author, the finalizer and fold
-    agents, the readability verifier, spec/doc auditors and reviewers — any
-    agent that writes or edits specs or campaign docs. Fable owns the specs;
-    that is the point of the whole arrangement and it is not traded away.
-  - **Opus-pinned** (`model: opus`): **the MAIN orchestrator session**, probe
-    agents, the digest agent, test authors and test-fix agents, claim-check
-    chunks and their merge agent. Opus never writes or edits spec content.
-  - **Why the orchestrator is Opus**: it reads more than any other role — every
-    subagent return, every judgment call — and writes no prose that needs
-    Fable's voice. It maintains PROGRESS rows, atlas markers and
-    `app-changes.md`; the specs belong to the Fable agents it briefs.
-  - **A Fable agent never opens a probe or claim-check report.** Its evidence
-    input is the draft plus the digest, and nothing else under `.reports/`.
-  - **Subagent returns are pointers, not findings.** A probe or claim-check
-    agent returns where its report is, how many items it covered, and whether
-    anything blocked it — not what it found. The digest agent reads the
-    reports; the orchestrator has no reason to carry their contents.
-  - **The judgment seam is the digest** (step 3b). Opus findings reach Fable
-    ONLY as digest blocks — product-voice statements with proposed weight, no
-    investigation narrative. Fable decides what enters the spec and at what
-    weight (step 4). Opus tends to over-weight what it finds; the filter is
-    Fable's job. The seam is editorial judgment plus context hygiene, not
-    sanitization: nothing is withheld from it, and the trail behind each fact
-    stays in `.reports/` where a developer can go and read it.
-- **Fable flip policy**: a Fable-pinned agent that downgrades mid-run finishes
-  and is logged, but its output is DISCARDED and the agent respawned (max 2).
-  Keep writing chunks small — that, plus the digest, is what keeps Fable clear
-  of the material it stalls on. A third failure follows step 4's ladder (the
-  item degrades to ❓; the feature continues), never a parked feature.
-  (History and the dormant split-authoring fallback: git log,
-  RUNBOOK @ 88b9e02d8d.)
-- **Model check at session start**: verify the model (`/model`) at every
-  fresh/handoff session — a handoff session starts on the saved default, not
-  the predecessor's. The main session wants **Opus 5**; Fable arrives through
-  the explicit `model: fable` pin on the writing agents, which is independent
-  of the session model.
-- **Model-mix log**: append a row to PROGRESS's "Model-fallback log" for every
-  FABLE-PINNED agent (date · feature · role · label · models seen in its
-  transcript; `-discarded` for discarded attempts) and for any anomaly on an
-  Opus-pinned agent. Routine Opus agents are NOT logged — the log exists to
-  catch silent downgrades where they matter, not to enumerate subagents
-  (PROGRESS bloat is the failure mode). Flips in authoring rows trigger the
-  discard rule; mention flips in the feature report.
+- **FABLE RUNS EVERYTHING** (maintainer, 2026-07-31): the main orchestrator
+  session and every subagent — spec author, probe agents, the digest agent,
+  finalizer and fold agents, test authors and test-fix agents, claim-check
+  chunks and their merge agent, the readability verifier. No per-role model
+  split, no per-agent model pins (subagents inherit the session model), and no
+  fallback to another model for any role. (The 2026-07-25/28 arrangement —
+  Fable writes, Opus investigates, Opus orchestrator — is retired; history in
+  git and the PROGRESS banner.)
+- **Pause on flag.** If any agent is refused, flagged by safeguards, or
+  silently downgraded to a non-Fable model mid-run: discard that attempt's
+  output, do NOT re-press the same brief, do NOT respawn onto another model,
+  and do NOT degrade the item to route around the flag. Record the point
+  reached in the feature's PROGRESS note, log the event in the Model-fallback
+  log, and STOP the session for maintainer review. An ordinary technical
+  stall (context overflow, tool error, environment breakage) is not a flag —
+  step 4's narrower-slice retry applies there.
+- **Small chunks stay the rule** for writing work, and the digest (step 3b)
+  stays the default evidence input for spec-writing agents. Both are context
+  hygiene — keeping each agent's context lean and on-topic — not sanitization:
+  nothing is withheld from the writer, and the trail behind each digest block
+  stays in `.reports/` where the writer or a developer can go read it.
+- **Subagent returns are pointers, not findings.** A probe or claim-check
+  agent returns where its report is, how many items it covered, and whether
+  anything blocked it — not what it found. The digest agent reads the
+  reports; the orchestrator has no reason to carry their contents.
+- **Model check at session start**: verify the model (`/model`) is **Fable**
+  at every fresh/handoff session — a handoff session starts on the saved
+  default, not the predecessor's.
+- **Model-fallback log** (PROGRESS): from 2026-07-31 it records ANOMALIES
+  ONLY — refusals, safeguard flags, downgrades, pauses (date · feature ·
+  role · what happened). Routine agents are not logged; enumerating them is
+  PROGRESS bloat.
 - **Brief hygiene**: spawn briefs are the Frame paragraph ("What this work is")
   plus pointers (feature, spec path, report path, "follow RUNBOOK step N") —
-  point at the rule files rather than paraphrasing them. A Fable brief names
-  the draft and the digest and NOTHING under `.reports/` besides. Probe and
-  claim-check returns are pointers (report path, item count, blockers) — the
-  detail is in the file, and the digest agent is who reads it.
+  point at the rule files rather than paraphrasing them. A spec-writing brief
+  names the draft and the digest; the report behind a digest block is
+  available on demand, not pre-loaded. Probe and claim-check returns are
+  pointers (report path, item count, blockers) — the detail is in the file,
+  and the digest agent is who reads it.
 - **The orchestrator NEVER probes, verifies or edits a spec inline** — inline
   completion is how the controlling agent gets lost (2026-07-10 rehearsal),
-  and spec edits belong to the Fable agents it briefs. If context runs low
+  and spec edits belong to the writing agents it briefs. If context runs low
   mid-feature: finish the current gate, commit what's commit-worthy, END; a
   fresh session resumes.
 - **Liveness**: the completion notification is the only reliable subagent
@@ -473,14 +485,18 @@ re-run it.
 - **Env invariants**: egress firewalled; `[schedule] task_runner=Off`;
   DTD/XSD mirrors via `XML_CATALOG_FILES`; Mailpit read-only scoped;
   globally-scanning ops in serial specs.
-- **Git**: push only to `jardakotesovec` remotes, branch `e2e_ng`;
+- **Git**: push only to `jardakotesovec` remotes, campaign branch `e2e_ng_2`
+  (previously `e2e_ng`);
   verify the remote URL before every push; a bad pushed commit gets a
   follow-up commit, never a force-push.
 - **`.reports/` retention**: per-feature reports — probe reports, `digest.md`,
   claim-check chunks and merge — are KEPT and committed with the feature
   (step 11). They are the evidence trail behind the spec's claims and stay
   useful for later re-verification and archaeology. Never delete a feature's
-  reports; nothing a probe finds is barred from them. The one exception
+  reports. They are committed to a PUBLIC repo, so the one class of content
+  barred from them is a potential security concern — that goes to the private
+  security file ("What goes where"), and the report stays silent. The one
+  deletion exception
   is a scope change that invalidates them: reports produced under a superseded
   probing contract are removed with the work they supported, so a rebuild
   cannot anchor on them ("Rebuilding a feature from scratch").

@@ -119,6 +119,23 @@ loop holds from step 1 to step 12 without intervention.
 U26 was built under the old contract and is left as-is pending maintainer
 sign-off; sweeping its register to the new scope is a separate decision.
 
+**Process change 2026-07-31 (maintainer) — Fable-only experiment, branch
+`e2e_ng_2`.** Three changes, live now (single homes: RUNBOOK, TEMPLATE):
+(a) **Fable runs every role** — orchestrator, probes, digest, folds, test
+authors, claim checks; no per-role split, no Opus fallback. A safeguard
+flag / refusal / silent downgrade PAUSES the feature for maintainer review
+(RUNBOOK "Model discipline" — the 2026-07-25/28 Fable-writes/Opus-investigates
+arrangement is retired). (b) **Potential security concerns** route to the
+private `../e2e_ng/security.md`, never to a public spec, test, `.reports/`
+file or commit — the repos are public (RUNBOOK "What goes where"; distinct
+from the retired 07-28 sentinel construct, which stays retired). (c) The
+**lint gate shrinks to reference integrity** — campaign identifiers, register
+anatomy, link resolution; the leak rule and glossary/vocabulary checks are
+removed and bind by writer's judgment (TEMPLATE "The lint gate"). The
+critical goal is restated at the top of RUNBOOK: accurate QA/PO-readable
+specs plus strong-coverage per-app tests derived from them — every rule
+bends to that.
+
 ## Features
 
 Seeded from `FEATURE-MAP.md` (Phase 0, 2026-07-27) — one row per feature,
@@ -200,8 +217,10 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 
 ## Model-fallback log
 
-_Rows for Fable-pinned agents and Opus anomalies only, appended by hand
-(RUNBOOK Model discipline)._
+_Until 2026-07-30: rows for Fable-pinned agents and Opus anomalies (the
+split-era policy). From 2026-07-31: ANOMALIES ONLY — refusals, safeguard
+flags, downgrades, pauses (RUNBOOK Model discipline); routine agents are not
+logged._
 
 - 2026-07-26 · phase0-atlas · sweep author · routes · claude-fable-5
 - 2026-07-26 · phase0-atlas · sweep author · grids · claude-fable-5

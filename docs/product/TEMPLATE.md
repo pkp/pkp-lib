@@ -30,19 +30,20 @@ noted in the preamble, not re-badged on every mention.
 elsewhere — never repeat mechanically. Length is whatever those two principles
 produce.
 
-**The lint gate (contract, not a script):** a mechanical gate is rebuilt
-alongside the FIRST new spec — written against that corpus's actual format,
-kept small — and every spec must pass it with ZERO findings before test
-authoring (RUNBOOK step 5). It checks the MECHANICAL rules only — wording and
-style are the writer's judgment, not the gate's: the leak rule (rule 1),
-campaign identifiers (rules 6–7 — no FEATURE-MAP row codes or atlas atom IDs
-in the body), glossary vocabulary and app
-badges, Findings-register integrity (markers ↔ entries both ways, badges
-present, summary table agrees with entries), and link resolution (every
-link/anchor/footnote resolves). The previous 1,500-line implementation was
-deleted in the 2026-07-26 reset; rebuild the checks, not the script.
+**The lint gate (reference integrity only):** every spec must pass
+`lint/lint-spec.mjs` with ZERO findings before test authoring (RUNBOOK
+step 5). The gate checks only what is mechanically decidable AND is a broken
+reference for the reader (maintainer, 2026-07-31 — broader linting was
+constraining the writing): Findings-register integrity (markers ↔ entries
+both ways, badges present, summary table agrees with entries, dense IDs),
+link resolution (every link/anchor/footnote resolves), and campaign
+identifiers in the body (rules 6–7 — a FEATURE-MAP row code or atlas atom ID
+is a reference no PO/QA reader can resolve). Everything else — the leak rule,
+glossary vocabulary, app badges, phrasing — is the writer's judgment, checked
+by the readability pass, never by the gate.
 
-The non-negotiable rules (the gate enforces the mechanical ones):
+The non-negotiable rules (the gate enforces only the reference-integrity
+subset above; the rest bind by the writer's judgment):
 
 1. **Business-language bodies, code in footnotes.** No section BODY may contain a
    class/method name, route, Vue component, DB table/column, constant, or HTTP
@@ -81,8 +82,10 @@ The non-negotiable rules (the gate enforces the mechanical ones):
    NOT is a walkthrough: the spec states the outcome; step-by-step
    reproduction and accumulated evidence narrative stay in `.reports/` (read
    on demand), because a PO reader needs the outcome, not the trail. Every
-   finding the campaign produces belongs in a register — there is no class of
-   finding that is handled elsewhere or left out.
+   finding the campaign produces belongs in a register, with ONE exception:
+   a potential security concern goes to the maintainer's private security
+   file and never into a public spec, test or report until the fix ships
+   (RUNBOOK "What goes where" — these repos are public).
    - **Bad**: "⚠ the restriction may not fully apply in every case."
    - **Good**: "⚠ the Section Editor is offered **Remove Role** on this screen,
      but pressing it returns to the list with the role still assigned and no
@@ -111,8 +114,9 @@ The non-negotiable rules (the gate enforces the mechanical ones):
    surface. The triggering feature keeps one side-effect line plus a pointer
    to the owning spec.
 7. **Findings enter at the weight their impact earns.** The digest (RUNBOOK
-   step 3b) is raw material, not spec content, and the writer never opens the
-   reports behind it. The writer (Fable) judges each candidate finding: does it
+   step 3b) is raw material, not spec content; the writer works from it by
+   default, opening the report behind a block only when judgment needs the
+   detail. The writer judges each candidate finding: does it
    belong to THIS feature, is it user-relevant, and does the proposed weight
    match what a user would actually notice — then writes it symptom-first in
    product language, at proportionate length. **Severity is proposed by the

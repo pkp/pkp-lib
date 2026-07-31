@@ -119,7 +119,10 @@ are:
 3. **Never write a test asserting a 🐞 register finding** — that freezes the defect as
    contract; the register entry is its record. A claim parked on an open ❓ is not a
    coverage gap; each app suite's file header declares what it deliberately does not
-   cover.
+   cover. Likewise **never write a test that demonstrates or encodes a potential
+   security concern** — these repos are public; the finding goes to the maintainer's
+   private security file (RUNBOOK "What goes where") and the suite stays silent about
+   it until the fix ships.
 4. **An absence test** asserts the surface is not offered AND pairs every negative with
    a positive control taken the same way; an absence assertion against an async-filtered
    list must be bounded by that filter's own response (the list analogue of the

@@ -11,3 +11,7 @@ tests/.phpunit.cache
 lib/weblateLanguages/languages.json
 /js/lib/altcha/
 registry/blacklistedPasswords.txt
+
+# campaign per-feature reports are session scratch (docs/product/RUNBOOK.md ".reports/ retention");
+# phase0-feature-map + step1-harness predate the rule and stay tracked
+docs/product/.reports/

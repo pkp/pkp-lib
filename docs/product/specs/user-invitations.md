@@ -451,7 +451,7 @@ groups with `permitSettings`). Row actions and dialogs:
 `UserInvitationManagerStore.js` (`editInvite`, cancel →
 `PUT invitations/{id}/cancel`). Button: locale key `invitation.inviteToRole.btn`
 → page `invitation/create/userRoleAssignment`. Gate live-probed 2026-07-31 on
-all three apps (probe-1-gates-surfaces.md, items 1–2): only managers and the
+all three apps: only managers and the
 Site Administrator reach the screen; button label "Invite to a role" verbatim
 everywhere.
 
@@ -472,7 +472,10 @@ when a user or invitation is given), submit disabled until changes
 `UserInvitationUserGroupsTable.vue`: `PUT users/{id}/endRole/{roleId}`
 (“Remove Role”, blocked for the last active role —
 `user.removeRole.roleRemainMessage`), `PUT users/{id}/masthead/{userUserGroupId}`.
-Live-confirmed 2026-07-31 (probe-4-edituser-expiry-disabled.md, item 10).
+Live-confirmed 2026-07-31 (edit-user probe): Edit on a member's row opened
+the wizard with no search step — a two-step rail against the create flow's
+three — showing read-only identity fields and the roles table with its
+immediate Remove Role and masthead controls.
 
 <a id="fn-d"></a>
 **d** — Statuses: `PKP\invitation\core\enums\InvitationStatus`
@@ -480,8 +483,8 @@ Live-confirmed 2026-07-31 (probe-4-edituser-expiry-disabled.md, item 10).
 value; expiry is a timestamp check at read time). Single-live-invitation:
 `Invitation::initialize()` deletes competing `INITIALIZED` rows of the same
 type/target/journal; `Invitation::invite()` deletes competing `PENDING` rows
-(`byNotId`). Replacement live-checked 2026-07-31 (claim check: claimcheck-A
-Claim 6, claimcheck-B B15 — Invitations table before/after a second send to
+(`byNotId`). Replacement live-checked 2026-07-31 (claim check — Invitations table
+before/after a second send to
 the same address, both emailed links checked; OJS deep, OMP spot-check).
 
 <a id="fn-e"></a>
@@ -497,8 +500,7 @@ code fallback `Invitation::DEFAULT_EXPIRY_DAYS = 3`. Cleanup:
 `expiry_date < now() OR expiry_date IS NULL`, and `INITIALIZED` drafts always
 have a NULL expiry date (finding A2). Lifetime live-checked 2026-07-31 with
 `expiration_days = 0`: a just-sent link already rendered the unavailable page
-and its row never listed, while a pending control row still did (probe-4,
-item 11).
+and its row never listed, while a pending control row still did.
 
 <a id="fn-f"></a>
 **f** — Generic landing: `PKP\pages\invitation\InvitationHandler`
@@ -528,9 +530,8 @@ populate + `PUT …/invite`. Back to step 1 resets the payload; Cancel dialog
 only when `detectChanges`. Success dialog keys `userInvitation.modal.*`
 (message text — finding A5); its "View All Users" button navigates to
 `management/settings/access` (Users & Roles) — live-confirmed 2026-07-31 on
-all three apps (claim check: claimcheck-A Claim 7, claimcheck-B B20; the
-earlier probe-2 item 3 had read the pre-click wizard anchor, not the
-post-click page).
+all three apps by claim check (an earlier live probe the same day had read
+the pre-click wizard anchor, not the post-click page).
 
 <a id="fn-h"></a>
 **h** — `UserInvitationSearchFormStep.vue`: `GET users?searchPhrase=…&status=all`,
@@ -538,7 +539,7 @@ match order exact email → exact username → ORCID (orcid.org URI prefix
 stripped); found → `userInvitation.search.userFound`, miss →
 `userInvitation.search.userNotFound`; empty input → "Provide at least one
 search criteria." (`invitation.searchForm.emptyError`). Live-checked
-2026-07-31 (claim check: claimcheck-B B1–B2): a malformed miss (`notanemail`)
+2026-07-31 (claim check): a malformed miss (`notanemail`)
 advances to "Enter details" with the typed text discarded — the Email field
 arrives empty and errors "This field is required when user id is not
 present." on continue.
@@ -548,16 +549,17 @@ present." on continue.
 `UserInvitationDetailsFormStep.vue`: role select disables held/selected
 groups; masthead select (`invitation.masthead.show`/`.hidden`) starts with no
 value — inline "This field is required." until picked (claim check
-2026-07-31, claimcheck-B B7: OJS and OMP) — and is the fixed text "Appear on
-the masthead" for reviewer groups, with no select rendered (claimcheck-B B8;
-on-screen text only — the public masthead page was not probed); an added
-row's END DATE cell renders "---" with no input (claimcheck-B B6);
+2026-07-31: OJS and OMP) — and is the fixed text "Appear on
+the masthead" for reviewer groups, with no select rendered (claim check
+2026-07-31; on-screen text only — the public masthead page was not probed);
+an added
+row's END DATE cell renders "---" with no input (claim check 2026-07-31);
 disabled-user warning `userInvitation.user.disable*` and
 `isSubmitting` also stuck while `userGroupsToAdd` is empty. Payload contract:
 `userGroupsToAdd[]` = `{userGroupId, masthead (required bool), dateStart
 (required date), dateEnd (optional)}` (`UserRoleAssignmentInvitePayload` +
 rules `AllowedKeysRule`, `UserGroupExistsRule`, `AddUserGroupRule`,
-`NoUserGroupChangesRule`). Live 2026-07-31 (probe-4, items 10 and 12): "Add
+`NoUserGroupChangesRule`). Live probe 2026-07-31: "Add
 Another Role" alone enables "Save And Continue" — missing role fields error
 inline on continue; disabled-user banner full text "The user is currently
 disabled. The user was disabled. You cannot assign them a role while they are
@@ -588,7 +590,7 @@ store (VUE-001), mounted by `acceptInvitation.tpl` (AFFU-122) from
 `verifyOrcid → userCreate → userDetails → userCreateReview`, existing-user
 chain `verifyOrcid → userCreateReview`; the review step is present for every
 recipient, so the store's empty-step auto-finalize branch is unreachable in
-practice — live checks 2026-07-31 (probe-2, item 12) found no auto-accept with
+practice — live checks 2026-07-31 found no auto-accept with
 ORCID off (its shipped state in the test contexts) or on. Step advance →
 `PUT invitations/{id}/key/{key}/refine`;
 final → `…/finalize`. Review-step Edit button renders only for new users
@@ -598,8 +600,8 @@ the wizard's primary button is hidden on that step.
 <a id="fn-l"></a>
 **l** — `UserRoleAssignmentReceiveController::authorize()` calls
 `Validation::registerUserSession($user)` for a signed-out existing invitee,
-which reads as auto-login — but live probing (2026-07-31: probe-2 item 5,
-probe-3 item 6) found the recipient signed out throughout the wizard and
+which reads as auto-login — but live probing (2026-07-31, two independent
+runs) found the recipient signed out throughout the wizard and
 after finalize (finding A4); the wizard simply never asks for credentials.
 Signed-in non-invitee → refusal (store dialog keys
 `acceptInvitation.authorization.shouldBeAnonymous` / `.message`, action
@@ -615,8 +617,8 @@ or backfills ORCID for an existing one; assigns each `userGroupsToAdd` row via
 `Repo::userGroup()->assignUserToGroup(...)` with past `dateStart` clamped to
 today; marks ACCEPTED. No recipient holds a session after finalize (finding
 A4 — live-confirmed on all three apps) and no mail or notification goes to
-the inviter (finding A5 — live-confirmed with a positive control,
-probe-5-inviter-feedback.md); the store's closing dialog
+the inviter (finding A5 — live-confirmed 2026-07-31 with a positive
+control); the store's closing dialog
 (`acceptInvitation.modal.*`, button "View All Submissions") redirects to the
 `submissions` page, which greets the signed-out recipient with the sign-in
 form.
@@ -627,7 +629,7 @@ form.
 `InvitationActionRedirectController::declineHandle()` throws
 `GoneHttpException` unless PENDING;
 `UserRoleAssignmentInviteRedirectController::confirmDecline()` marks DECLINED
-and redirects to `login`. Live 2026-07-31 (probe-3, item 7): flow verbatim as
+and redirects to `login`. Live probe 2026-07-31: flow verbatim as
 specified; after the decline both links render the unavailable page (note f),
 not a bare gone response.
 
@@ -652,7 +654,7 @@ finalize/refine; existing-user invitations prohibit personal-detail overrides
 Eloquent groups the scope's OR internally); 5 rows per page; status cell is
 always `userInvitation.status.invited` ("Invited {date}"). Columns: Name
 (+ORCID icon), Email, Invitations (the offered roles), Status, Affiliation —
-live-confirmed 2026-07-31 (probe-2, item 3).
+live-confirmed 2026-07-31.
 
 <a id="fn-q"></a>
 **q** — Cancel: `PUT invitations/{id}/cancel` → status CANCELLED (allowed only
@@ -662,7 +664,7 @@ f). Edit: dialog `userInvitation.edit.title`/`.message` → page
 starts with no invitation id even in edit mode, so the first advance
 `POST`s a NEW invitation and `invite()` then deletes the old PENDING row
 (note d) — hence the replaced row's hard-404 links (finding A3). Live
-2026-07-31 (probe-3, items 8–9): cancel and replacement flows verbatim; the
+2026-07-31 (live probe): cancel and replacement flows verbatim; the
 cancel confirmation's confirm button reads "Cancel Invitation" beside the
 dismiss button "Cancel". Each pass through the edit wizard mints a fresh
 draft (see f-a2).
@@ -670,7 +672,8 @@ draft (see f-a2).
 <a id="fn-r"></a>
 **r** — Removal email "You have been removed from a role"; masthead email
 "Your journal masthead visibility has been updated"; dialog copy "The user
-will be notified of this change." (probe-4, item 10; both delivered on OJS).
+will be notified of this change." (live probe 2026-07-31; both delivered on
+OJS).
 Masthead template key `USER_ROLE_MASTHEAD_UPDATE` — OMP/OPS seeding gap in
 f-omp1.
 
@@ -684,8 +687,8 @@ roster account not yet holding the offered role.
 
 <a id="fn-a1"></a>
 **f-a1** — Role assignment vs screen gate: note b vs note a. The atlas route
-row records the same mismatch. Live check 2026-07-31
-(probe-1-gates-surfaces.md, item 1, all three apps): Author and Reviewer
+row records the same mismatch. Live check 2026-07-31, all three apps:
+Author and Reviewer
 denied at the wizard address; the section-editor and assistant-level outcomes
 are recorded in the maintainer's private security file. OPS has no seeded
 reviewer account, so that one cell was untestable.
@@ -696,15 +699,15 @@ reviewer account, so that one cell was untestable.
 have NULL expiry and match the delete. Drafts are invisible in the UI (listing
 scope, note p), so the loss surfaces only as a failed wizard step. Live: one
 edit-mode session created three draft invitations, only the last sent
-(probe-4, item 10); the cleanup run itself was not exercised.
+(live probe 2026-07-31); the cleanup run itself was not exercised.
 
 <a id="fn-a3"></a>
 **f-a3** — Replacement path in note q: the old PENDING row is deleted by
 `Invitation::invite()`'s `byNotId` cleanup, and `getByIdAndKey()`/the
 unavailable-page fallback both need the row to exist (note f) → hard 404.
 Cancellation keeps the row → friendly page. Live-confirmed 2026-07-31
-(probe-3, item 9; OJS and OPS): raw "404 Not Found", no journal styling.
-Claim check 2026-07-31 (claimcheck-B B15, claimcheck-A Claim 6; OJS deep,
+(OJS and OPS): raw "404 Not Found", no journal styling.
+Claim check 2026-07-31 (OJS deep,
 OMP spot-check): a plain re-send to the same address kills the old accept
 link the same way — same `byNotId` cleanup, not edit-specific.
 
@@ -712,31 +715,32 @@ link the same way — same `byNotId` cleanup, not edit-specific.
 **f-a4** — `finalize()` registers no session (note m) while the store then
 redirects to `submissions`; the code's apparent existing-user auto-login
 never materializes either (note l). Live-confirmed 2026-07-31 on OJS, OMP and
-OPS (probe-2, items 4–5; probe-3, item 6).
+OPS, on both the accept and decline flows.
 
 <a id="fn-a5"></a>
 **f-a5** — Success-dialog copy: app locale key `userInvitation.modal.message`.
 No accept/decline code path produces a notification or email to the inviter
-(notes m, n). Live-confirmed 2026-07-31 (probe-5-inviter-feedback.md, cases A
-and B): bell/Tasks panel "No Items", inviter mailbox empty after both accept
+(notes m, n). Live-confirmed 2026-07-31 (live probe, accept and decline
+cases): bell/Tasks panel "No Items", inviter mailbox empty after both accept
 and decline; positive control — an invitation sent afterwards delivered
 normally.
 
 <a id="fn-a6"></a>
-**f-a6** — Users-grid Edit on a disabled member (probe-4, item 12): error
+**f-a6** — Users-grid Edit on a disabled member (live probe 2026-07-31): error
 toast "The requested resource was not found.", empty roles table, no
 disabled-user banner; the banner renders only on the search path
 (`userInvitation.user.disable*`, note i). Enabled-user control passed.
 
 <a id="fn-a7"></a>
-**f-a7** — Copy items: probe-2 item 3 (email greeting by address, "as a
-Author"); probe-3 minor finding ("journal masthead" wording on OMP/OPS
-masthead dialogs); probe-4 items 10–12 (search-step grammar "Enter at least
+**f-a7** — Copy items, all observed on live probes 2026-07-31: email
+greeting by address and "as a Author" (invitation email); "journal masthead"
+wording on OMP/OPS
+masthead dialogs; search-step grammar "Enter at least
 one details…" / "…invite to take a additional roles"; raw locale keys
 `##common.help##` and `##userAccess.management.options##` on the management
-screens of all three apps); claim check 2026-07-31, claimcheck-B B16
-(unavailable-page tail "Please contact the journal manager for further
-assistance." unsubstituted on OMP and OPS).
+screens of all three apps; and (claim check 2026-07-31) the
+unavailable-page tail "Please contact the journal manager for further
+assistance." unsubstituted on OMP and OPS.
 
 <a id="fn-a8"></a>
 **f-a8** — Every added row in `UserInvitationUserGroupsTable.vue` renders
@@ -745,12 +749,12 @@ same ids as row 1 (empty `formId` segment in `FieldBase.compileId()`) — so
 every `label[for]` resolves to the first row's control; no
 `aria-label`/`aria-labelledby` anywhere in the table, and the aria snapshot
 shows row 2's combobox/textbox without an accessible name. Observed
-2026-07-31 (claim check: claimcheck-B "Accessibility fact record" —
+2026-07-31 (claim check —
 duplicate-id scan + aria snapshot on OJS; shared component, all three apps).
 
 <a id="fn-omp1"></a>
-**f-omp1** — Error observed on OMP and OPS (probe-3, cross-cutting finding;
-probe-4, item 10); OJS control clean, member's email delivered (note r).
+**f-omp1** — Error observed on OMP and OPS (live probes 2026-07-31, two
+independent sessions); OJS control clean, member's email delivered (note r).
 Install-seed check 2026-07-31: only OJS's `registry/emailTemplates.xml` seeds
 `USER_ROLE_MASTHEAD_UPDATE`; the OMP and OPS registries carry no masthead
 template, and the `I11800_AddUserRoleMastheadUpdateEmail` migration adds it
@@ -759,7 +763,7 @@ in ojs_test, so fresh installs reproduce the error.
 
 <a id="fn-ops1"></a>
 **f-ops1** — Evidence in note j (OPS map override vs seeded template).
-Live-confirmed 2026-07-31 (probe-1, item 3; probe-2, item 3): "User Invited
+Live-confirmed 2026-07-31 (live probes, all three apps): "User Invited
 to Role Notification" listed with an Edit button on OJS and OMP; OPS search
 and full list answer "No items found."; the OPS invitation email sent and
 delivered in the same session.

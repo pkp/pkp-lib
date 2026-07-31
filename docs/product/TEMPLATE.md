@@ -67,6 +67,11 @@ subset above; the rest bind by the writer's judgment):
    redirect targets, "live-probed" notes and dates, seeded usernames and
    journals prove a claim; they are not the claim. They live ONLY in footnotes.
    The body states the observable outcome in the user's terms.
+   Footnote citations are **self-contained**: a probe is cited by its date and
+   what was observed ("live-probed 2026-07-31: both links present, single-use"),
+   NEVER by a report file or item number — `.reports/` is session scratch
+   (RUNBOOK ".reports/ retention") and a committed spec must resolve on its
+   own.
    - **Bad**: "`/authorDashboard/submission/{id}` redirects to My Submissions
      … (live-probed 302, both author kinds)"
    - **Good**: "An old bookmarked author-dashboard link lands on My Submissions
@@ -80,8 +85,9 @@ subset above; the rest bind by the writer's judgment):
    soften a finding into vagueness — a reader must be able to tell precisely
    what is broken from the spec alone. What a finding is
    NOT is a walkthrough: the spec states the outcome; step-by-step
-   reproduction and accumulated evidence narrative stay in `.reports/` (read
-   on demand), because a PO reader needs the outcome, not the trail. Every
+   reproduction and accumulated evidence narrative stay in the session's
+   `.reports/` scratch (read on demand while the feature is being built),
+   because a PO reader needs the outcome, not the trail. Every
    finding the campaign produces belongs in a register, with ONE exception:
    a potential security concern goes to the maintainer's private security
    file and never into a public spec, test or report until the fix ships

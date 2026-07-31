@@ -197,7 +197,7 @@ ports 8000/8100/8200; same scenario-seeding endpoints; Postgres test DBs).
    weigh the age signal: behavior untouched since the app's early years reads
    as intent; behavior broken inside a modernization window reads as decay.
    The verdict lands in the register badge + one rationale sentence — the
-   archaeology stays in `.reports/` and footnotes.
+   archaeology stays in footnotes (and the session's scratch reports).
 7. **Graduation: divergence vs own feature.** An app difference that
    PARAMETERIZES existing machinery (another stage, another decision in a
    roster, a reduced role set) stays a register divergence in the shared spec,
@@ -268,8 +268,9 @@ orchestrator paraphrasing it.
    code-reading gets wrong; no affordance claim ships without driving it live. Probes are throwaway; retained tests are
    step 6's. Probe reports record the locator used and mark claim-vs-context
    (incidental DOM observations are not promotable to assertions). They are
-   written for the digest agent and for later archaeology — the digest agent
-   or a human reads them; the spec writer works from the digest.
+   written for the digest agent — and for the maintainer, who may audit a
+   feature's scratch reports before sign-off; the spec writer works from the
+   digest.
 
    **Step 3b — Digest, the context seam.** ONE digest agent reads every probe
    report for the feature and emits `.reports/<feature>/digest.md`: the
@@ -363,9 +364,9 @@ orchestrator paraphrasing it.
     pointers in ANY app repo — ojs-main, omp-main, or ops-main (`git restore
     --staged lib/pkp lib/ui-library plugins` before any root commit; stage
     files explicitly, never `git add -A`/`git add .` at an app root). Specs,
-    campaign docs (`lib/pkp/docs/`, including the feature's `.reports/` files
-    — see ".reports/ retention") and shared test/POM/Processor changes commit
-    inside `lib/pkp`; app-only tests commit in each app's root. Multi-repo
+    campaign docs (`lib/pkp/docs/` — but NEVER the feature's `.reports/`
+    scratch, see ".reports/ retention") and shared test/POM/Processor changes
+    commit inside `lib/pkp`; app-only tests commit in each app's root. Multi-repo
     flow for shared changes: commit in `ojs-main/lib/pkp` → push
     `e2e_ng_2` to the `jardakotesovec` fork → in `omp-main`/`ops-main`
     `lib/pkp`: fetch and check out the SAME branch. That checkout IS the sync
@@ -441,7 +442,8 @@ re-run it.
   stays the default evidence input for spec-writing agents. Both are context
   hygiene — keeping each agent's context lean and on-topic — not sanitization:
   nothing is withheld from the writer, and the trail behind each digest block
-  stays in `.reports/` where the writer or a developer can go read it.
+  stays in `.reports/` where the writer can go read it for the feature's
+  duration.
 - **Subagent returns are pointers, not findings.** A probe or claim-check
   agent returns where its report is, how many items it covered, and whether
   anything blocked it — not what it found. The digest agent reads the
@@ -495,17 +497,21 @@ re-run it.
   (previously `e2e_ng`);
   verify the remote URL before every push; a bad pushed commit gets a
   follow-up commit, never a force-push.
-- **`.reports/` retention**: per-feature reports — probe reports, `digest.md`,
-  claim-check chunks and merge — are KEPT and committed with the feature
-  (step 11). They are the evidence trail behind the spec's claims and stay
-  useful for later re-verification and archaeology. Never delete a feature's
-  reports. They are committed to a PUBLIC repo, so the one class of content
-  barred from them is a potential security concern — that goes to the private
-  security file ("What goes where"), and the report stays silent. The one
-  deletion exception
-  is a scope change that invalidates them: reports produced under a superseded
-  probing contract are removed with the work they supported, so a rebuild
-  cannot anchor on them ("Rebuilding a feature from scratch").
+- **`.reports/` retention (maintainer ruling 2026-07-31 — supersedes the
+  keep-and-commit rule)**: per-feature reports — probe reports, `digest.md`,
+  claim-check chunks and merge — are SESSION-LOCAL SCRATCH. They are required
+  during the loop (the digest is the context seam; resuming after compaction
+  needs files on disk; the maintainer may audit them before sign-off in
+  review mode) but are never committed: the directory is gitignored, and a
+  feature's scratch may be deleted after its review sign-off. The SPEC must
+  be self-sufficient — probe dates and verbatim on-screen strings live in its
+  footnotes (TEMPLATE rule 4), never citations of report files. A shipped
+  claim disputed later is settled by a fresh probe on the current build, not
+  by re-reading a stale snapshot. The security rule is unchanged: a potential
+  security concern never appears even in scratch reports — it goes to the
+  private file ("What goes where"). The two pre-rule evidence sets
+  (`.reports/phase0-feature-map/`, `.reports/step1-harness/`) stay committed
+  as historical record; the rule covers per-feature reports.
 
 ## Definition of done
 

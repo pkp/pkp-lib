@@ -685,15 +685,14 @@ claim. Server side, both dashboards are served by
 `PKPDashboardHandler` (ops `editorial` / `mySubmissions`); per-submission
 access is enforced by `SubmissionAccessPolicy` on `GET
 /api/v1/submissions/{id}` (authors need authorship or a stage assignment;
-reviewers only via a review assignment). Refused-visitor probe 2026-07-31
-(probe-P6.md item 13): an unconnected author and an assigned reviewer typing
+reviewers only via a review assignment). Refused-visitor probe 2026-07-31:
+an unconnected author and an assigned reviewer typing
 another submission's editorial-dashboard workflow address were turned away at
 the dashboard's role gate; a foreign submission id opened through My
 Submissions produced only an "Error / The current role does not have access
 to this operation." dialog — no submission data in any case. Panel roster, order and on-screen headings
 live-probed 2026-07-31 — the file panels are headed "Files for Review" and
-"Revisions Uploaded" on screen, verbatim incl. subtexts on OJS and OMP
-(probe-P1.md item 1; probe-P7.md item 16a).
+"Revisions Uploaded" on screen, verbatim incl. subtexts on OJS and OMP.
 
 <a id="fn-b"></a>
 **b** — `PKP\submission\reviewRound\ReviewRound` / `ReviewRoundDAO`
@@ -737,13 +736,12 @@ future-stage texts `workflow.submissionInNextReviewRound`,
 per Rule 4). Status texts and box headings live-probed 2026-07-31 — OJS full
 chain: waiting → awaiting responses → new reviews → all confirmed, both
 revision-request paths and their submitted partners, declined, past-round and
-post-accept texts (probe-P1.md item 2; probe-P2.md items 4–5; probe-P3.md
-item 6; probe-P4.md item 9); OMP: waiting / new reviews / all confirmed /
-revisions requested (probe-P7.md item 16b). On a past round or past stage the
+post-accept texts; OMP: waiting / new reviews / all confirmed /
+revisions requested. On a past round or past stage the
 box heading renders plain "Status", not "Round {$round} Status" (Rule 4), and
 the past-round sentence carries no closing period on screen. "Returned back
-to review." has not been observed on screen: the claim check (2026-07-31,
-claimcheck-C3.md) drove Move to Review into a reviewerless round and an
+to review." has not been observed on screen: the claim check (2026-07-31)
+drove Move to Review into a reviewerless round and an
 in-progress round and saw "Waiting for reviewers to be assigned." /
 "Awaiting responses from reviewers." instead — the stored returned-back
 status survives the reviewer scan only in the all-completed-and-confirmed
@@ -777,21 +775,22 @@ requires a manager/site-admin role
 serialized only for the deciding editor. Button roster, the Request
 Revisions entry modal (radio labels, "not subject" preselected) and the two
 wizard headings ("Request Revisions" / "Resubmit for Review") live-probed
-2026-07-31 (probe-P2.md items 4–5). Past-round view probed the same day
-(probe-P3.md item 6): all five decision buttons absent, while the panels'
+2026-07-31. Past-round view probed the same
+day: all five decision buttons absent, while the panels'
 own buttons (Upload, Upload/Select Files, Add Reviewer, Assign) still
 render; the claim check (2026-07-31) then exercised them and they act on
 the past round — basis of finding A8 (note f-a8).
-Declined-state roster probed 2026-07-31 (probe-P4.md item 9): while declined,
+Declined-state roster probed 2026-07-31: while declined,
 a Section Editor saw only "Revert Decline", a Journal Manager also "Delete";
 Revert Decline restored the full button set and the recomputed status.
-Recommend-only probed the same day (probe-P4.md item 10): the three buttons
+Recommend-only probed the same day: the three buttons
 render as quoted in Rule 13, the "Recommendation" box lists the bare decision
 label, and on a reviewerless round the box read "Waiting for reviewers to be
 assigned." rather than the recommendation sentence — the Rule 6 precedence
 line; consistent with the `determineStatus()` scan order in note c (the
 no-assignments check precedes the pending-recommendations one). The
-declined-only overlap of Rule 6 is probe-P4's second recommend-only round
+declined-only overlap of Rule 6 was driven the same day on a second
+recommend-only round
 (its one reviewer had declined): the box read "Awaiting recommendations from
 editors." while the recommendation was pending and "All recommendations are
 in and a decision is needed." once recorded — the recommendation branches
@@ -801,11 +800,11 @@ not driven, so which sentence wins there stays code-predicted only (note c's
 scan order puts the reviewer flags before the pending-recommendations
 branch); the body records the observed states.
 Rule 13's deciding-editor precondition: claim check 2026-07-31
-(claimcheck-C3.md item 13c) — with a recommend-only Section Editor as the
+— with a recommend-only Section Editor as the
 only editorial stage participant, no recommendation buttons rendered and the
 "Recommendation" box carried the guard text quoted in Rule 13; with a
 deciding Journal Editor assigned alongside, the three buttons rendered and
-the recorded recommendation listed as in Rule 13 (items 13a–13b).
+the recorded recommendation listed as in Rule 13.
 
 <a id="fn-f"></a>
 **f** — `PKP\decision\types\CancelReviewRound` — `canRetract()` false when
@@ -814,13 +813,13 @@ either kind: `ReviewerAction::confirmReview()` sets `dateConfirmed` on
 decline exactly as on accept, and the retractability check counts every
 confirmed-and-not-cancelled assignment (`DecisionType::
 REVIEW_ASSIGNMENT_CONFIRMED`) — basis of Rule 11's responded-not-accepted
-wording; claim check 2026-07-31 (claimcheck-C1.md cross-note): Cancel absent
+wording; claim check 2026-07-31: Cancel absent
 on a round with one declined and one unanswered invitation, present on a
 reviewerless round. The locale carries a restriction
 text (`editor.submission.decision.cancelReviewRound.restriction`) but no
 current screen renders it — when retraction is unavailable the button is
-simply not offered (probed 2026-07-31: OJS probe-P3.md item 7a with positive
-controls; OMP probe-P7.md item 16a observed the same vanish, no text in its
+simply not offered (probed 2026-07-31 on OJS with positive
+controls; OMP observed the same vanish the same day, no text in its
 place). `runAdditionalActions()` deletes the round's review assignments and
 the round row (round-file links go with it via cascade; notification rows for
 the round are deleted too); new stage = external review while >1 round, else
@@ -828,9 +827,9 @@ Submission stage (OMP's internal variant: internal review / Submission).
 Author email mailable `DecisionCancelReviewRoundNotifyAuthor`; reviewer
 withdrawal mail `ReviewerUnassign` — both sent from the decision wizard
 (decision-recording feature); the reviewer step renders only when the round
-has reviewers (probe-P3.md item 7c: a reviewerless round's wizard has the
-author step only). Cancel flow live-probed 2026-07-31 (probe-P3.md items
-7b–7c): Round-2 cancel restores Round 1 (recomputed status — finding A6),
+has reviewers (live probe 2026-07-31: a reviewerless round's wizard has the
+author step only). Cancel flow live-probed
+2026-07-31: Round-2 cancel restores Round 1 (recomputed status — finding A6),
 Round-1 cancel lands on the Submission stage, and the withdrawn unanswered
 invitation disappeared from every reviewer-side list including "All
 assignments".
@@ -841,7 +840,7 @@ assignments".
 promotes selected files (previous round's review-revision files offered) into
 the new round's review-file stage; new round built with status
 PENDING_REVIEWERS. OMP: `NewInternalReviewRound extends NewExternalReviewRound`
-(parameterization only). Wizard live-probed 2026-07-31 (probe-P3.md item 6):
+(parameterization only). Wizard live-probed 2026-07-31:
 the revised file's checkbox in the "Select Files" step arrives already
 checked, and the carried file lands in the new round as a copy under a new
 file id — the author's original stays in the old round's Revisions Uploaded
@@ -859,7 +858,7 @@ selected & not yet in stage → copied in and linked to the round
 never deletes. Success notice `notification.updatedReviewFiles` "Review files
 updated." No app subclasses this pair (empty chains). On-screen panel
 heading "Files for Review" live-probed 2026-07-31 (note a); the dialog's
-checkbox behavior probed the same day (probe-P3.md item 8 — finding A7).
+checkbox behavior probed the same day (finding A7).
 
 <a id="fn-i"></a>
 **i** — Author upload button: `workflowConfigAuthorOJS.js` external-review
@@ -871,10 +870,10 @@ REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED].includes(selectedReviewRound.statusId)`
 "Upload revisions", upload into the review-revision file stage of the round
 (file-upload wizard — submission-files feature). The panel-header "Upload"
 action is the `FileManager`'s own and is not gated by the round status —
-observed surviving after the resubmit-path upload, 2026-07-31 (probe-P2.md
-item 5; finding A1). Editor-side revisions panel
+observed surviving after the resubmit-path upload, 2026-07-31 (finding A1).
+Editor-side revisions panel
 is the same `FileManager` namespace (AFFW-323); its editor actions observed
-2026-07-31 on OJS and OMP, identical (claimcheck-C2.md directed item 2): a
+2026-07-31 on OJS and OMP, identical (claim check): a
 header "Upload" opens the same three-step wizard, filing a revision on the
 author's behalf, ungated by round status; each file row's "More Actions"
 menu offers exactly "Update File Details", "More Information", "Delete"
@@ -898,9 +897,9 @@ review-form responses filtered to elements marked "included in author view"
 or reviewer comments filtered to viewable-by-author (AFFW-667), plus the
 attachments grid `AuthorOpenReviewAttachmentsGridHandler` (GRID-010) — its
 listing is finding A3's subject (sibling `AuthorReviewAttachmentsGridHandler`,
-GRID-011, is unreachable — note o). Author window live-probed 2026-07-31: OJS
-probe-P5.md item 11, OMP probe-P7.md items 16c–16d (findings OJS1, A3); the
-anonymous-only control the same day (probe-P5.md item 11) — no reviewers
+GRID-011, is unreachable — note o). Author window live-probed 2026-07-31 on
+OJS and OMP (findings OJS1, A3); the
+anonymous-only control the same day — no reviewers
 panel mounts in the author view, matching the mount guard above.
 API-side control: review assignments serialized to
 authors/reviewers are anonymized unless the review method is open. The modal
@@ -916,10 +915,10 @@ the review stage), heading `notification.notifications` "Notifications", rows
 modal (`submissionEmail.tpl`, AFFW-702) — the one surviving operation of the
 legacy author dashboard (note o); the server re-checks the email belongs to
 this submission, this event type and this user. Live-probed 2026-07-31 on OJS
-and OMP (probe-P5.md item 12; probe-P7.md item 16d): subject + date rows, and
+and OMP: subject + date rows, and
 the opened letter carries zero editable fields and no reply controls.
-Conditional mounting (Rules 14, 16): claim check 2026-07-31 (claimcheck-C3.md
-Rules 14/16) — with no editor letter the author view rendered no
+Conditional mounting (Rules 14, 16): claim check 2026-07-31
+— with no editor letter the author view rendered no
 Notifications list at all; after a decision sent the author a letter, the
 list appeared with that one subject + date row.
 
@@ -936,8 +935,8 @@ Throttle: an editor is skipped when a prior notice exists, they have not
 logged in since it, and it is under 24 h old — confirmed live: a second
 completed upload on the same round sent nothing. Observed From: the author's
 own name and address; subject "Revised Version Uploaded". Probed 2026-07-31
-(probe-P2.md items 4–5). Both remaining branches closed by the claim check
-2026-07-31 (claimcheck-C2.md Side effects): an Editor not assigned to the
+(live probe). Both remaining branches closed by the claim check
+2026-07-31: an Editor not assigned to the
 stage received nothing for an upload — the assigned-to-the-stage qualifier is
 load-bearing — and after the assigned editor signed in again, a further
 upload sent a fresh notice (the sign-in branch re-arms the daily throttle).
@@ -958,13 +957,13 @@ re-create the task: the delete-time notification pass runs while the file
 row still exists (`Repo::submissionFile()->delete()`), so
 `revisionsUploadedSinceDecision()` still counts it and the removal branch
 holds; nothing re-evaluates after the row is gone — finding A9, claim check
-2026-07-31 (claimcheck-C2.md Rule 7: both apps, editor- and author-side
+2026-07-31 (both apps, editor- and author-side
 deletion). A later file added to the review stage while the decision stands
 does re-create a task, as the pendingRevisions type in both apps
 (`PKP\submissionFile\Repository::add()` pass; observed live on OMP,
 code-traced on OJS) — so "Revision required." is the fresh-decision wording
-on a journal, not a task-list invariant. Observed 2026-07-31 (probe-P2.md
-item 4; claimcheck-C2.md directed item 1): the OJS Tasks panel entry reads
+on a journal, not a task-list invariant. Observed 2026-07-31 (live probe +
+claim check): the OJS Tasks panel entry reads
 "Revision required." plus the submission title, the My Submissions row shows
 "Revision requested" with a "Submit revisions" button in both apps, and the
 task cleared on the in-round upload. The new-round variant (Resubmit)
@@ -991,7 +990,7 @@ redirect to My Submissions with the workflow open (Rule 17).
 `WorkflowReviewRevisionsGridHandler` (GRID-029) likewise has no referencing
 screen. These six atoms are **waived as unreachable legacy surfaces**
 (evidence: no render/reference site in OJS, OMP or lib code; typed-URL probe
-2026-07-31, probe-P6.md item 14: `authorDashboard/submission` redirected to
+2026-07-31: `authorDashboard/submission` redirected to
 My Submissions with the workflow open, and `reviewRoundInfo` answered
 HTTP 404 both with and without a submission id — an error, not a screen; the
 waivers stand).
@@ -1004,8 +1003,8 @@ no review-stage decision types (`APP\decision\Repository::getDecisionTypes()`:
 decline/revert/post cluster only), and serializes no review stage or
 decisions (`APP\submission\maps\Schema` short-circuits to production/done).
 The shared round classes and tables ship in the codebase but are never
-populated on a default install. Live absence probe 2026-07-31 (probe-P7.md
-item 17): a preprint's workflow menu held exactly one entry, Production; no
+populated on a default install. Live absence probe
+2026-07-31: a preprint's workflow menu held exactly one entry, Production; no
 round, reviewer or review-file surface anywhere on the screen; the Production
 stage's own controls rendered as the positive control (scenario 14).
 
@@ -1019,7 +1018,7 @@ subclasses of the external ones), `Application::getApplicationStages()`
 branch identical to OJS's), and `Repository::getReviewNotificationTypes()`
 (internal + external pending-revisions types). The Vue configs add only
 internal-stage blocks (note a). One forwarded OMP observation, confirmed live
-2026-07-31 (probe-P7.md items 16a–16b addendum): no Author Response panel
+2026-07-31 (cross-app control probe on OMP): no Author Response panel
 renders in either the editorial or the author view — a silent absence, console
 clean (`WorkflowPageOMP.vue` does not register the author-response components
 the merged external-review config emits) — while the author still receives
@@ -1032,9 +1031,9 @@ reviews* (Rule 14 carries the pointer).
 `contextMinReviewsPerSubmission`; `WorkflowSubmissionStatus.vue` adds
 `dashboard.minimumConfirmedReviewsRequired` "Minimum number of confirmed
 reviews required: {$number}." and applies minimum-aware overrides for the
-submitted/confirmed reviewer statuses. Probed 2026-07-31 (probe-P4.md
-item 15): with a minimum of 2 and one confirmed review, the box carried only
-the minimum line. Claim check 2026-07-31 (claimcheck-C3.md Settings): with
+submitted/confirmed reviewer statuses. Probed
+2026-07-31: with a minimum of 2 and one confirmed review, the box carried only
+the minimum line. Claim check 2026-07-31: with
 two accepted and none confirmed, the box carried the minimum line **plus**
 "Awaiting responses from reviewers." — identical on OJS and OMP — so the
 override suppresses only the submitted/confirmed sentences, not the
@@ -1053,8 +1052,9 @@ throwaway recipient addresses. Recommend-only setup (scenario 11): assign a
 Section Editor as participant with the recommendation-only limitation (stage-
 participants feature), alongside a deciding-editor participant — without one
 the recommendation buttons do not render (Rule 13). Exact usernames per the e2e harness roster at
-test-authoring time. Seeding caveat observed 2026-07-31 (probe-P2.md and
-probe-P4.md fixture sections; contrast probe-P5.md seeded state): on scratch
+test-authoring time. Seeding caveat observed 2026-07-31 while building probe
+fixtures, twice independently (a probe run on the seeded journal's own state
+provided the contrast): on scratch
 journals, submitting assigns no editor even with a matching section editor
 seeded, so every recipe must include an explicit participant-assignment step
 before the workflow steps — the auto-assignment behavior itself belongs to
@@ -1066,7 +1066,7 @@ the *Submission stage* feature, not this register.
 `REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED` (15) — the state a
 resubmit-path round enters on the author's first upload (note c). The
 in-round path (statuses 1→11) keeps the button through both states. Probed
-2026-07-31 — probe-P2.md item 5 (contrast item 4: the in-round path keeps
+2026-07-31 (contrast, same probe: the in-round path keeps
 the button and its task clears on upload); the persisting "Resubmit for
 review." task is the decision-owned resubmit task (note m).
 
@@ -1080,13 +1080,13 @@ rendered by the legacy author dashboard's round-status notification path
 (`PKPNotificationManager::getNotificationMessage()`, which does pass the
 author flag but has no remaining surface — notes n, o). Probed 2026-07-31 —
 author and editor boxes character-identical at four states, viewed side by
-side (probe-P1.md items 2–3).
+side.
 
 <a id="fn-a3"></a>
-**f-a3** — Both apps' observations (OJS 2026-07-31, probe-P5.md item 11; OMP
-2026-07-31, probe-P7.md item 16c) are routed to the maintainer's private
-security file per the campaign's routing rule; the probe reports carry only
-the routing declaration. The grid handlers involved are indexed in note j and
+**f-a3** — Both apps' observations (live probes 2026-07-31, OJS and OMP)
+are routed to the maintainer's private
+security file per the campaign's routing rule; nothing beyond that routing
+declaration is recorded anywhere else. The grid handlers involved are indexed in note j and
 the Reference tables; their behavior is not described here until the
 maintainer's fix ships, and no test asserts it.
 
@@ -1094,18 +1094,18 @@ maintainer's fix ships, and no test asserts it.
 **f-a4** — `determineStatus()` reviewer scan ignores declined/cancelled
 assignments entirely; "no assignments" (status 6) requires zero records, so
 an all-declined round falls through every flag to the fallback status 9
-(note c). Probed 2026-07-31 — probe-P1.md item 3 (one invited reviewer,
-declined). Reproduced on OMP by the claim check the same day
-(claimcheck-C1.md, Rule 5: a press round whose only invited reviewer
-declined reads the identical sentence).
+(note c). Probed 2026-07-31 (one invited reviewer,
+declined). Reproduced on OMP by the claim check the same day:
+a press round whose only invited reviewer
+declined reads the identical sentence.
 
 <a id="fn-a5"></a>
-**f-a5** — Probed 2026-07-31 on OJS (probe-P1.md item 1): the review stage's
+**f-a5** — Probed 2026-07-31 on OJS: the review stage's
 Assign dialog (stage-participants feature) listed no production assistant
 user groups, and a Copyeditor assigned on the Copyediting stage got only the
 `user.authorization.accessibleWorkflowStage` text ("You don't currently have
 access to that stage of the workflow.") on the review stage. Claim check
-2026-07-31 (claimcheck-C1.md, Actors) read the dialog's full role roster on
+2026-07-31 read the dialog's full role roster on
 both apps — OJS: Journal editor, Section editor, Guest editor, Funding
 coordinator, Translator, Author; OMP: Press editor, Series editor, Funding
 coordinator, Author, Volume editor, Translator — Funding coordinator is a
@@ -1117,7 +1117,7 @@ admission with no screen path: `EditorReviewFilesGridHandler` includes
 by other means would populate it for a production assistant was not observed.
 
 <a id="fn-a6"></a>
-**f-a6** — Probed 2026-07-31 (probe-P3.md item 7b): Round 1 carried a
+**f-a6** — Probed 2026-07-31: Round 1 carried a
 recorded resubmit decision and an uploaded revision (status before Round 2
 existed: "Revisions requested from the author to be taken to a new review
 round."); after Round 2 was cancelled, the restored Round 1's box read
@@ -1126,11 +1126,11 @@ resolves the round against its reviewer records and the resubmit decision no
 longer surfaces; whether it should is the entry's question.
 
 <a id="fn-a7"></a>
-**f-a7** — Probed 2026-07-31 (probe-P3.md item 8): unticking a listed file
+**f-a7** — Probed 2026-07-31: unticking a listed file
 and confirming produced no visible change in the Files for Review panel, and
 the decision-carried file showed unticked in the dialog while the panel
-listed it. Reproduced on OMP by the claim check the same day
-(claimcheck-C2.md Rule 8): dialog heading, in-dialog upload link and the
+listed it. Reproduced on OMP by the claim check the same
+day: dialog heading, in-dialog upload link and the
 "Review files updated." notice verbatim on the press, and a file uploaded
 from the dialog itself arrived with its checkbox unchecked while the panel
 listed it; untick-and-confirm changed nothing visible there either.
@@ -1140,30 +1140,30 @@ regardless of that flag. Whether `viewable` gates the reviewer-side file
 list was not observed — the entry's open half.
 
 <a id="fn-a8"></a>
-**f-a8** — Claim check 2026-07-31, two independent drives: claimcheck-C1.md
-Rule 1 (on a two-round scratch submission, past Round 1's Add Reviewer form
+**f-a8** — Claim check 2026-07-31, two independent drives: on a two-round
+scratch submission, past Round 1's Add Reviewer form
 completed and that round's Reviewers panel listed the new reviewer as
-"Request Sent") and claimcheck-C2.md Rule 10 (past Round 1's Revisions
-Uploaded "Upload" wizard completed; the file landed in Round 1's panel while
-Round 2's stayed empty). The past round's status sentence was unchanged by
+"Request Sent"; and separately, past Round 1's Revisions
+Uploaded "Upload" wizard completed with the file landing in Round 1's panel
+while Round 2's stayed empty. The past round's status sentence was unchanged by
 either mutation. Panel configs per note a (shared through the config
 deep-merge); no current-round gate on these panel operations was observed.
 
 <a id="fn-a9"></a>
 **f-a9** — Mechanism and evidence in note m (the delete-time notification
-pass runs while the file row still counts). Claim check 2026-07-31
-(claimcheck-C2.md Rule 7): flip-back plus silent task list observed on OJS
+pass runs while the file row still counts). Claim check
+2026-07-31: flip-back plus silent task list observed on OJS
 and OMP, for editor-side and author-side deletion of the only revised file;
 the later file add that re-creates a task observed live on the press and
 code-traced on the journal. The spec's prior revival claim was corrected by
 the same check.
 
 <a id="fn-ojs1"></a>
-**f-ojs1** — Probed 2026-07-31: OJS probe-P5.md item 11 (free-text review
+**f-ojs1** — Probed 2026-07-31: on OJS, a free-text review
 with a comment shared for author and editor and an editor-only comment — the
 author's window rendered neither, and the decision letter's reviewer
-appendix listed the recommendation only); OMP probe-P7.md items 16c–16d (the
-shared comment rendered; the editor-only comment absent in both apps). The
+appendix listed the recommendation only; on OMP, the
+shared comment rendered (the editor-only comment absent in both apps). The
 window is `authorReadReview.tpl` via `AuthorReviewerGridHandler::readReview`
 (note j); the OJS-side mechanism was not traced.
 
@@ -1173,19 +1173,19 @@ stage entry in the workflow menu labeled `workflow.review.internalReview`
 "Internal Review". The skip path (scenario 13) is the submission-stage
 decision `SKIP_INTERNAL_REVIEW`, labeled with the press's send-to-external
 wording. Internal-stage screens, decisions and divergences are outside this
-file's scope by charter. Live parity probe 2026-07-31 (probe-P7.md items
-16a–16b): the External Review round matched the OJS record panel-for-panel
+file's scope by charter. Live parity probe
+2026-07-31: the External Review round matched the OJS record panel-for-panel
 and button-for-button, and the "Internal Review" menu entry rendered.
 
 <a id="fn-omp2"></a>
-**f-omp2** — Probed 2026-07-31 (probe-P7.md items 16c–16d): the OMP reviewer
+**f-omp2** — Probed 2026-07-31: the OMP reviewer
 form carried no recommendation control, the author's read-review window
 listed no recommendation line, and the decision letter's reviewer appendix
 printed "Recommendation:" followed by an empty value. The OJS contrast run
 showed the recommendation in all three places.
 
 <a id="fn-omp3"></a>
-**f-omp3** — Claim check 2026-07-31 (claimcheck-C2.md directed item 1),
+**f-omp3** — Claim check 2026-07-31,
 UI-driven on both apps with DB verification: OJS holds one
 `NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS` task row ("Revision
 required."); OMP holds a `NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS` row

@@ -26,7 +26,6 @@
 namespace PKP\testing\scenario;
 
 use APP\facades\Repo;
-use PKP\invitation\models\InvitationModel;
 use Throwable;
 
 class BuildJournal
@@ -54,11 +53,6 @@ class BuildJournal
         $this->created[] = ['type' => 'user', 'id' => $id];
     }
 
-    public function recordInvitation(int $id): void
-    {
-        $this->created[] = ['type' => 'invitation', 'id' => $id];
-    }
-
     /**
      * Entities tagged as orphans because they could not be deleted.
      *
@@ -80,7 +74,6 @@ class BuildJournal
                     'submission' => $this->deleteSubmission($entity['id']),
                     'context' => $this->deleteContext($entity['id']),
                     'user' => $this->deleteUser($entity['id']),
-                    'invitation' => $this->deleteInvitation($entity['id']),
                 };
             } catch (Throwable $e) {
                 $this->orphans[] = "{$entity['type']}:{$entity['id']} ({$e->getMessage()})";
@@ -116,16 +109,6 @@ class BuildJournal
         if ($user) {
             Repo::user()->delete($user);
         }
-    }
-
-    /**
-     * A half-sent invitation is exactly the kind of survivor that reads as real
-     * state, so it goes even though deleting the scratch context would cascade it
-     * away anyway: the context may have been created by an earlier request.
-     */
-    protected function deleteInvitation(int $id): void
-    {
-        InvitationModel::query()->byId($id)->delete();
     }
 
     /**

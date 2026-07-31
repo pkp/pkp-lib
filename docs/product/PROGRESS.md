@@ -136,6 +136,22 @@ critical goal is restated at the top of RUNBOOK: accurate QA/PO-readable
 specs plus strong-coverage per-app tests derived from them — every rule
 bends to that.
 
+**U6 RESET — third time (2026-07-31, maintainer): the Fable-only A/B run.**
+The maintainer wants to compare the new process against the old on the same
+feature, between branches (`e2e_ng` keeps the 07-28 build; `e2e_ng_2` rebuilds
+it blind). Removed per "Rebuilding a feature from scratch": the spec, the
+whole `.reports/u6/` tree, all three `user-invitations.spec.js` suites, the
+U6-only POMs (OJS Accept/Invite wizard pages, OPS accept page), the 33 atlas
+`Claimed by: U6` markers, app-changes rows 12–13, both `invitations[]` parity
+rows, AND the `invitations[]` scenario seed key itself (PHP + schema +
+PRINCIPLES/skill documentation) — its docs encoded product facts the old run
+had discovered, which a blind rebuild must not inherit. Kept, because U53
+depends on them: `UsersAndRolesPage` (all apps), OPS `InvitationWizardPage`,
+app-changes row 14. `users-management.md`'s links into the deleted spec were
+reduced to plain feature names (TEMPLATE rule 6's name-stands-alone form);
+one carried-over finding was moved to the private security file under the
+07-31 routing rule. The rebuild starts from the ordinary loop at step 1.
+
 ## Features
 
 Seeded from `FEATURE-MAP.md` (Phase 0, 2026-07-27) — one row per feature,
@@ -149,7 +165,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U3 | User profile | OJS OMP OPS | M | pending | |
 | U4 | ORCID integration | OJS OMP OPS | M | pending | |
 | U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
-| U6 | User invitations | OJS OMP OPS | M | done | Attempt 3 (blind rebuild) 2026-07-28: spec verified, lint-clean; tests OJS 7 / OMP 7 / OPS 8, each green ×2; register A1–A22 + OPS1–2 (13 🐞 / 8 ❓ / 3 ✅). Review first: A18 role-table rows share one set of control identifiers (screen-reader barrier), A12 acceptance never signs the invitee in, A8 typed-URL wizard really sends for a Section Editor, A2/A4 the two Users & Roles doors admit opposite sets. Harness gained the `invitations[]` seed key (app-changes 12); leak rule forces circumlocution for config filenames — see report |
+| U6 | User invitations | OJS OMP OPS | M | pending | Reset 3rd time 2026-07-31 (Fable-only comparison run — see banner); previous build preserved on `e2e_ng` |
 | U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
 | U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
 | U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |

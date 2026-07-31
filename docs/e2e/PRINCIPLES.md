@@ -198,34 +198,6 @@ grows one key at a time, under principle 3: extend only when several tests
 need the same state. Full per-key reference lives in the `ojs-playwright-tests`
 skill (`scenarios.md`); the keys themselves are recorded here as they land.
 
-- **`invitations[]`** on `POST scenarios/context` (U6, 2026-07-28, all three
-  apps) — user-role invitations already sent in the scratch context:
-
-  ```js
-  invitations: [
-      {email: 'newcomer@example.org', roles: ['sectionEditor'],   // no account yet
-       givenName: 'Nadia', familyName: 'Newcomer', country: 'CA'},
-      {user: 'someone.existing', roles: ['externalReviewer']},    // existing account
-      {email: 'lapsed@example.org', roles: ['reader'], status: 'expired'},
-  ]
-  ```
-
-  Exactly one of `email` or `user` names the recipient. `roles` is required and
-  uses the app's own scenario role keys. Optional: the newcomer's
-  `givenName`/`familyName`/`affiliation`/`country` (prohibited for an existing
-  account, as in the app), `masthead` (default true), `inviter` (username;
-  defaults to the site admin), `status: 'pending'|'expired'` (default pending).
-  The builder walks the Invite-a-user wizard's own add → populate → invite
-  calls, so nothing is written by hand and a refused step throws with the app's
-  validation errors. The response echoes `{id, status, email, userId, roles,
-  invitedAt, expiryDate, key, acceptUrl, declineUrl}` — the one-time key exists
-  in plaintext only inside the seeding request, so this is where a test gets the
-  recipient's journey without scraping email; scenarios about the delivered
-  message still read Mailpit. Note that expiry is a date, not a status: an
-  `'expired'` invitation is still `PENDING` with `expiryDate` a day past the
-  configured window, and the manager's Invitations table (filtered by
-  `stillActive()`) does not list it.
-
 - **`siteAdmin` role key** in `users[].roles` (U53, 2026-07-29, all three
   apps; `POST scenarios/context` and `POST bootstrap`) — a throwaway **site
   administrator**:
@@ -248,8 +220,7 @@ skill (`scenarios.md`); the keys themselves are recorded here as they land.
   finds the group by role id instead. Enrolment itself is the application's own
   `Repo::userGroup()->assignUserToGroup()` — the same call the installer makes
   for the first admin and the same call the seeder already makes for every other
-  role. Deliberately NOT available to `invitations[].roles`: no screen in the
-  application invites anyone to this role, so neither does the seeder.
+  role.
 
   Exists because **no screen grants site administrator**. The Users & Roles user
   form intersects the submitted group ids with `UserGroup::withContextIds([$contextId])`

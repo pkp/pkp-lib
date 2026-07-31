@@ -34,7 +34,8 @@ the journal's user list and acts on the account: opens their record,
 sends them an email, disables a problem account and re-enables it later,
 ends their roles in this journal, or merges an accidental duplicate into
 the account that should survive. Growing the team is the neighbouring
-feature's job — see *[User invitations](user-invitations.md)* — and this
+feature's job — see *User invitations* (its spec is being rebuilt; the
+name stands until it returns) — and this
 spec owns the list those invitations eventually land in, plus the
 account-level operations everything else drives.
 
@@ -45,13 +46,13 @@ The feature has **two surfaces** running on the same operations:
 
 - **The Users & Roles list** — the everyday surface. Settings → Users &
   Roles, "Users" tab, the table headed "Current Users" (it sits below the
-  Invitations table, which belongs to *[User
-  invitations](user-invitations.md)*). The screen answers at
+  Invitations table, which belongs to *User invitations*). The screen
+  answers at
   `management/settings/access` typed after the journal's own web address,
   and at the older second address `management/access` — the two addresses
-  admit different people, a deviation recorded in *User invitations*'
-  register ([two doors](user-invitations.md#a2), [per-app administrator
-  access](user-invitations.md#a4)). <sup>[a](#fn-a)</sup>
+  admit different people, a deviation that belongs to *User invitations*
+  (which roles each door admits, and that administrator access differs
+  per app). <sup>[a](#fn-a)</sup>
 - **The Hosted Journals list** — the older surface, inside Site
   Administration. Administration → Hosted Journals — each journal's row
   is a collapsed expander (assistive technology reads it as
@@ -91,15 +92,15 @@ recorded at the action below ⚠ [A2](#a2). <sup>[f](#fn-f)</sup>
 
 | Action | Who may — and when |
 |--------|--------------------|
-| **See and search the Users & Roles list** | • Journal Manager — while their role keeps the "Permit changes to Settings" option (see [Settings](#settings))<br>• Site Administrator — from the journal's menu, in every app, while they are enrolled as the journal's manager (the install's own administrator always is — Rule 1). Holding no role in the journal, they find no menu entry for the screen anywhere: on OJS the screen still opens when either of its two addresses (see above) is typed; on OMP and OPS the typed `management/settings/access` address refuses them — "The current role does not have access to this operation." — and only the older second address admits them, the per-app deviation recorded in *User invitations*' register ([per-app administrator access](user-invitations.md#a4)) <sup>[a](#fn-a)</sup> |
+| **See and search the Users & Roles list** | • Journal Manager — while their role keeps the "Permit changes to Settings" option (see [Settings](#settings))<br>• Site Administrator — from the journal's menu, in every app, while they are enrolled as the journal's manager (the install's own administrator always is — Rule 1). Holding no role in the journal, they find no menu entry for the screen anywhere: on OJS the screen still opens when either of its two addresses (see above) is typed; on OMP and OPS the typed `management/settings/access` address refuses them — "The current role does not have access to this operation." — and only the older second address admits them — a per-app deviation that belongs to *User invitations* <sup>[a](#fn-a)</sup> |
 | **See and filter the Hosted Journals list** | • Site Administrator only — no other role reaches Site Administration <sup>[b](#fn-b)</sup> |
-| **Add a user directly** ("Add User") | • Site Administrator — on the Hosted Journals list only. The Users & Roles list offers no way to create an account: new people are invited instead (see *[User invitations](user-invitations.md)*) <sup>[c](#fn-c)</sup> |
+| **Add a user directly** ("Add User") | • Site Administrator — on the Hosted Journals list only. The Users & Roles list offers no way to create an account: new people are invited instead (see *User invitations*) <sup>[c](#fn-c)</sup> |
 | **Edit a user** | • Journal Manager and Site Administrator — the Users & Roles row's "Edit" leaves for the user's own edit page, the same page *User invitations* documents (its Rule 4b); offered on every row, the actor's own included. On OMP and OPS the offer outruns the page for a Site Administrator holding no role in the journal: every user row on the list that administrator reaches still offers "Edit", and choosing it is refused — "The current role does not have access to this operation." — the same per-app deviation as reaching the list itself (row above); on OJS the page opens normally <sup>[e](#fn-e)</sup><br>• Site Administrator — the Hosted Journals row's "Edit User" opens the full account form ([Fields](#fields)) |
 | **Email a user** ("Email") | • Journal Manager and Site Administrator — the one action with no target-based restriction: any row, their own included <sup>[g](#fn-g)</sup> |
 | **Disable / Enable an account** | • whoever **fully administers** the target — a Journal Manager choosing it on a Site Administrator, or on a user who belongs anywhere else on the site, is refused inside the dialog, before anything is confirmed ⚠ [A2](#a2)<br>• offered on both lists. The Users & Roles list never offers it on the viewer's own row — a Journal Manager's and a Site Administrator's alike; the Hosted Journals list offers it on every row, the viewer's own included (Rule 1c) <sup>[h](#fn-h)</sup> |
 | **Remove a user's roles here** ("Remove User"; the Hosted Journals list labels it "Remove") | • whoever at least **partly administers** the target — offered only while the target holds an active role in this journal <sup>[i](#fn-i)</sup> |
 | **Merge a user into another** | • whoever **fully administers** the account being merged away — in practice a Site Administrator, since any role in another journal blocks a manager, and the Users & Roles list withholds the action on rows the viewer cannot fully administer (Rule 1c)<br>• never offered on one's own row as the account to merge away; the target list, though, does offer the viewer's own account as the survivor (Rule 7) <sup>[j](#fn-j)</sup> |
-| **End a single role / change masthead display** | • driven from the user's edit page, which *[User invitations](user-invitations.md)* documents (its Rule 9) — the operations themselves are this feature's (Rule 8). That the server also accepts them from a Section Editor — a role no screen here lets in — is *User invitations*' finding to carry ([wizard leak](user-invitations.md#a8)); nothing on this feature's screens can show it either way <sup>[k](#fn-k)</sup> |
+| **End a single role / change masthead display** | • driven from the user's edit page, which *User invitations* documents — the operations themselves are this feature's (Rule 8) <sup>[k](#fn-k)</sup> |
 
 <a id="fields"></a>
 ## Fields & validation
@@ -231,8 +232,8 @@ reason is shown to the person (Rule 5). <sup>[h](#fn-h)</sup>
    <sup>[d](#fn-d)</sup>
 
 3. **Editing.** The Users & Roles row's "Edit" leaves the list for the
-   user's own edit page — the roles-and-masthead page that *[User
-   invitations](user-invitations.md)* documents (its Rule 4b, including
+   user's own edit page — the roles-and-masthead page that *User
+   invitations* documents (including
    that page's missing heading and dead Cancel) — except for the
    role-less administrator OMP and OPS refuse at that page (Actors —
    Edit a user). The Hosted Journals
@@ -316,8 +317,7 @@ reason is shown to the person (Rule 5). <sup>[h](#fn-h)</sup>
    <sup>[j](#fn-j)</sup>
 
 **Single-role operations** (mechanics home; driven from the user's edit
-page — the page belongs to *[User invitations](user-invitations.md)*,
-its Rule 9)
+page — the page belongs to *User invitations*)
 
 <a id="single-role"></a>
 8. Two operations act on one role assignment at a time, and both act
@@ -391,7 +391,7 @@ its Rule 9)
 - **"Permit changes to Settings"** on manager-level roles decides
   whether a Journal Manager reaches the Users & Roles screen at all; the
   option and its mechanics belong to *Roles configuration* (spec
-  pending), and *[User invitations](user-invitations.md)* records how it
+  pending), and *User invitations* records how it
   behaves per app (including that OPS cannot exercise it). Unticking
   the option on a manager-level role removes the screen's menu entry
   at once and leaves its typed address refused — "The current role
@@ -425,7 +425,8 @@ its Rule 9)
 
 ## Cross-feature interactions
 
-- ***[User invitations](user-invitations.md)*** — owns everything above
+- ***User invitations*** (spec being rebuilt; the name stands until it
+  returns) — owns everything above
   the users table on the Users tab, the invite wizard, and the user edit
   page the row "Edit" opens; that page drives this spec's single-role
   operations (Rule 8). Inviting is the only way to add a user from the
@@ -469,7 +470,7 @@ roles (per `APP-GLOSSARY.md`), in a scratch journal, on scratch accounts.
    dates, and affiliation. Open the row's options menu and choose
    "Edit": the user's own edit page opens on that user's record —
    their email address and roles are on it (the page, its missing
-   heading included, is *[User invitations](user-invitations.md)*' to
+   heading included, is *User invitations*' to
    describe).
    <sup>[s1](#fn-s1)</sup>
 2. **Email a user from the list** — Journal Manager: on a row's options
@@ -556,7 +557,7 @@ roles (per `APP-GLOSSARY.md`), in a scratch journal, on scratch accounts.
    before, which proves mail is being watched at all; this document
    fixes no waiting period beyond seeing nothing arrive alongside
    it. (The edit
-   page itself is *[User invitations](user-invitations.md)*' to
+   page itself is *User invitations*' to
    describe; Rule 8a quotes what this scenario needs of it.)
    <sup>[s8](#fn-s8)</sup>
 
@@ -820,8 +821,7 @@ extensions (OJS/OMP), and OPS's replacing mail roster.
 `ManagementHandler::access()` (role map OJS: SITE_ADMIN+MANAGER; OMP/OPS:
 MANAGER — inventory §5) plus `CanAccessSettingsPolicy` (site admin, or
 manager group with `permitSettings`); older door op `access`, site admin
-only, no settings policy. Live evidence: *User invitations*' probes 2026-07-28
-(`user-invitations.md` f-a2/f-a4), plus this feature's probe A
+only, no settings policy. Live evidence: this feature's probe A
 (2026-07-28): a site administrator reached the screen from the journal's
 menu with no error dialog in all three apps — the accounts watched
 there also hold a manager role in every journal. The pure

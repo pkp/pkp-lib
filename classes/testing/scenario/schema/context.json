@@ -32,27 +32,6 @@
                 }
             }
         },
-        "invitations": {
-            "type": "array",
-            "description": "User-role invitations already sent in this context. Exactly one of email (a newcomer with no account) or user (an existing account) names the recipient.",
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["roles"],
-                "properties": {
-                    "email": {"type": "string", "minLength": 1},
-                    "user": {"type": "string", "minLength": 1},
-                    "roles": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
-                    "givenName": {"type": "string"},
-                    "familyName": {"type": "string"},
-                    "affiliation": {"type": "string"},
-                    "country": {"type": "string"},
-                    "masthead": {"type": "boolean"},
-                    "inviter": {"type": "string", "minLength": 1},
-                    "status": {"type": "string", "enum": ["pending", "expired"]}
-                }
-            }
-        },
         "contactName": {"type": "string"},
         "contactEmail": {"type": "string"},
         "supportName": {"type": "string"},

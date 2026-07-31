@@ -322,9 +322,9 @@ abstract class PKPTestApiController extends PKPBaseController
      * is asking for a site-wide enrolment that happens to be requested while a
      * scratch context is being built.
      *
-     * This resolution deliberately lives here and NOT in resolveUserGroup(), which
-     * invitations also use: no screen in the application invites anyone to the
-     * site administrator role, so neither may the invitation seeder.
+     * This resolution deliberately lives here and NOT in resolveUserGroup(): the
+     * site administrator group is a site-wide special case, and only an explicit
+     * user spec may ask for it.
      *
      * @throws ScenarioException
      */

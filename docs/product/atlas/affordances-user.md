@@ -35,14 +35,14 @@
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-001 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `input#username` | Login · username-or-email text field · required, `name="username"` |
-| AFFU-002 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `input#password` | Login · password field · required, maxlength 32 |
-| AFFU-003 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl link `user.login.forgotPassword` | Login · "Forgot your password?" link · to `{url page="login" op="lostPassword"}` |
-| AFFU-004 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `input#remember` | Login · "Keep me logged in" checkbox · `name="remember"` value 1 |
-| AFFU-005 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `div.g-recaptcha` | Login · reCAPTCHA widget · shown when `{if $recaptchaPublicKey}` |
-| AFFU-006 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `altcha-widget` | Login · ALTCHA spam-check widget · shown when `{if $altchaEnabled}` |
-| AFFU-007 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `button.submit` key `user.login` | Login · Login submit button · POSTs form `#login` to `$loginUrl` |
-| AFFU-008 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `a.register` key `user.login.registerNewAccount` | Login · Register link · shown when `{if !$disableUserReg}` |
+| AFFU-001 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `input#username` | Login · username-or-email text field · required, `name="username"` Claimed by: login-and-sessions. |
+| AFFU-002 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `input#password` | Login · password field · required, maxlength 32 Claimed by: login-and-sessions. |
+| AFFU-003 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl link `user.login.forgotPassword` | Login · "Forgot your password?" link · to `{url page="login" op="lostPassword"}` Claimed by: login-and-sessions. |
+| AFFU-004 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `input#remember` | Login · "Keep me logged in" checkbox · `name="remember"` value 1 Claimed by: login-and-sessions. |
+| AFFU-005 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `div.g-recaptcha` | Login · reCAPTCHA widget · shown when `{if $recaptchaPublicKey}` Claimed by: login-and-sessions. |
+| AFFU-006 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `altcha-widget` | Login · ALTCHA spam-check widget · shown when `{if $altchaEnabled}` Claimed by: login-and-sessions. |
+| AFFU-007 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `button.submit` key `user.login` | Login · Login submit button · POSTs form `#login` to `$loginUrl` Claimed by: login-and-sessions. |
+| AFFU-008 | ojs omp ops | lib/pkp/templates/frontend/pages/userLogin.tpl `a.register` key `user.login.registerNewAccount` | Login · Register link · shown when `{if !$disableUserReg}` Claimed by: login-and-sessions. |
 
 ## Registration
 
@@ -87,38 +87,38 @@ Sources: `frontend/pages/userRegister.tpl` + included `frontend/components/regis
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-036 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `input#email` | Lost password · registered-email field · required |
-| AFFU-037 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `altcha-widget` | Lost password · ALTCHA widget · shown when `{if $altchaEnabled}` |
-| AFFU-038 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `button.submit` key `user.login.resetPassword` | Lost password · "Reset password" submit · POSTs to login/requestResetPassword |
-| AFFU-039 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `a.register` key `user.login.registerNewAccount` | Lost password · Register link · shown when `{if !$disableUserReg}` |
+| AFFU-036 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `input#email` | Lost password · registered-email field · required Claimed by: login-and-sessions. |
+| AFFU-037 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `altcha-widget` | Lost password · ALTCHA widget · shown when `{if $altchaEnabled}` Claimed by: login-and-sessions. |
+| AFFU-038 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `button.submit` key `user.login.resetPassword` | Lost password · "Reset password" submit · POSTs to login/requestResetPassword Claimed by: login-and-sessions. |
+| AFFU-039 | ojs omp ops | lib/pkp/templates/frontend/pages/userLostPassword.tpl `a.register` key `user.login.registerNewAccount` | Lost password · Register link · shown when `{if !$disableUserReg}` Claimed by: login-and-sessions. |
 
 ## Password reset (hash link landing)
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-040 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl fbvElement `password` | Password reset · new password field · required, maxlength 32 |
-| AFFU-041 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl fbvElement `password2` | Password reset · repeat new password field · required, maxlength 32 |
-| AFFU-042 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl hidden fbvElements `username`, `hash` | Password reset · hidden username + reset-hash fields · carried in form `#updateResetPassword` |
-| AFFU-043 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl `{fbvFormButtons submitText="common.save" hideCancel=true}` | Password reset · Save submit (no cancel) · POSTs login/updateResetPassword |
+| AFFU-040 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl fbvElement `password` | Password reset · new password field · required, maxlength 32 Claimed by: login-and-sessions. |
+| AFFU-041 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl fbvElement `password2` | Password reset · repeat new password field · required, maxlength 32 Claimed by: login-and-sessions. |
+| AFFU-042 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl hidden fbvElements `username`, `hash` | Password reset · hidden username + reset-hash fields · carried in form `#updateResetPassword` Claimed by: login-and-sessions. |
+| AFFU-043 | ojs omp ops | lib/pkp/templates/user/userPasswordReset.tpl `{fbvFormButtons submitText="common.save" hideCancel=true}` | Password reset · Save submit (no cancel) · POSTs login/updateResetPassword Claimed by: login-and-sessions. |
 
 ## Login-forced password change
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-044 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `username` | Login change-password · username field · required, maxlength 32 |
-| AFFU-045 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `oldPassword` | Login change-password · current password field · required |
-| AFFU-046 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `password` | Login change-password · new password field · required |
-| AFFU-047 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `password2` | Login change-password · repeat new password field · required |
-| AFFU-048 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl `{fbvFormButtons hideCancel=true}` (default submitText `common.ok`) | Login change-password · OK submit · POSTs login/savePassword |
+| AFFU-044 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `username` | Login change-password · username field · required, maxlength 32 Claimed by: login-and-sessions. |
+| AFFU-045 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `oldPassword` | Login change-password · current password field · required Claimed by: login-and-sessions. |
+| AFFU-046 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `password` | Login change-password · new password field · required Claimed by: login-and-sessions. |
+| AFFU-047 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl fbvElement `password2` | Login change-password · repeat new password field · required Claimed by: login-and-sessions. |
+| AFFU-048 | ojs omp ops | lib/pkp/templates/user/loginChangePassword.tpl `{fbvFormButtons hideCancel=true}` (default submitText `common.ok`) | Login change-password · OK submit · POSTs login/savePassword Claimed by: login-and-sessions. |
 
 ## Confirm password gate
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-049 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl fbvElement `password` | Confirm password gate · password field · required, autocomplete off |
-| AFFU-050 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl hidden inputs `cancelUrl`, `source`, `isActionRequest` | Confirm password gate · hidden routing fields · `isActionRequest` only when `{if $isActionRequest}` |
-| AFFU-051 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl `a.pkp_button` key `common.cancel` | Confirm password gate · Cancel button-link · navigates to `$cancelUrl` |
-| AFFU-052 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl `button.pkp_button_primary` key `form.submit` | Confirm password gate · Submit button · POSTs form `#confirmPassword` to `$submitUrl` |
+| AFFU-049 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl fbvElement `password` | Confirm password gate · password field · required, autocomplete off Claimed by: login-and-sessions. |
+| AFFU-050 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl hidden inputs `cancelUrl`, `source`, `isActionRequest` | Confirm password gate · hidden routing fields · `isActionRequest` only when `{if $isActionRequest}` Claimed by: login-and-sessions. |
+| AFFU-051 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl `a.pkp_button` key `common.cancel` | Confirm password gate · Cancel button-link · navigates to `$cancelUrl` Claimed by: login-and-sessions. |
+| AFFU-052 | ojs omp ops | lib/pkp/templates/user/confirmPassword.tpl `button.pkp_button_primary` key `form.submit` | Confirm password gate · Submit button · POSTs form `#confirmPassword` to `$submitUrl` Claimed by: login-and-sessions. |
 
 ## Profile — page shell
 

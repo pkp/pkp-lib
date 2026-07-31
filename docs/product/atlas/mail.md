@@ -43,7 +43,7 @@
 | MAIL-027 | ojs omp | `PKP\mail\mailables\OrcidCollectAuthorId` | Automatic email asking authors to add ORCIDs to a submission (OPS: template installed by `plugins/generic/orcidProfile` registry, class not in OPS `map()`). Key: `ORCID_COLLECT_AUTHOR_ID` |
 | MAIL-028 | ojs omp | `PKP\mail\mailables\OrcidRequestAuthorAuthorization` | Automatic email asking authors for ORCID authorization/metadata push permission (OPS: template installed by `plugins/generic/orcidProfile` registry, class not in OPS `map()`). Key: `ORCID_REQUEST_AUTHOR_AUTHORIZATION` |
 | MAIL-029 | ojs omp ops | `PKP\mail\mailables\OrcidRequestUpdateScope` | Automatic email requesting users update their ORCID OAuth scope for member API deposits (in no `Repository::map()` — dispatched directly). Key: `ORCID_REQUEST_UPDATE_SCOPE` |
-| MAIL-030 | ojs omp ops | `PKP\mail\mailables\PasswordResetRequested` | Automatic email when a user requests a password reset. Key: `PASSWORD_RESET_CONFIRM` |
+| MAIL-030 | ojs omp ops | `PKP\mail\mailables\PasswordResetRequested` | Automatic email when a user requests a password reset. Key: `PASSWORD_RESET_CONFIRM` Claimed by: login-and-sessions. |
 | MAIL-031 | ojs omp ops | `PKP\mail\mailables\PublicationVersionNotify` | Automatic email to assigned editors when a new publication version is created. Key: `VERSION_CREATED` |
 | MAIL-032 | ojs omp | `PKP\mail\mailables\RecommendationNotifyEditors` | Message to deciding editors when a recommend-only decision is recorded. Key: `EDITOR_RECOMMENDATION` |
 | MAIL-033 | ojs omp | `PKP\mail\mailables\RequestReviewRoundAuthorResponse` | Email to author(s) requesting a response to reviewers' comments. Key: `REQUEST_REVIEW_ROUND_AUTHOR_RESPONSE` |

@@ -65,7 +65,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 
 | Row | Feature | Apps | Budget | Status | Note |
 |---|---|---|---|---|---|
-| U1 | Login & sessions | OJS OMP OPS | M | pending | |
+| U1 | Login & sessions | OJS OMP OPS | M | done | Spec verified; 8+setup tests per app, green ×2 + post-fold confirm (one OMP locator race fixed test-side); register 4🐞+3❓; several observations in private file; 1 readability friction left open (Rule 14 number provenance); maintainer review pending |
 | U2 | Registration & account validation | OJS OMP OPS | M | pending | |
 | U3 | User profile | OJS OMP OPS | M | pending | |
 | U4 | ORCID integration | OJS OMP OPS | M | pending | |

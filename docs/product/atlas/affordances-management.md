@@ -166,7 +166,7 @@
 | AFFM-102 | ojs omp ops | `UserAccessManagerActionSearch.vue` (`userAccess.search`) | Users & roles · current users table · search users. |
 | AFFM-103 | ojs omp ops | `useUserAccessManagerConfig.js` action `common.edit` (USER_ACCESS_EDIT → `management/settings/user/{user.id}`, dispatched by `ManagementHandler::editUser()`) | Users & roles · user row · Edit user (routes into role-assignment invitation flow). |
 | AFFM-104 | ojs omp ops | `useUserAccessManagerConfig.js` action `email.email` (legacy email modal) | Users & roles · user row · Send email. |
-| AFFM-105 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.logInAs` · guards `getCurrentUserId() !== user.id` && `user.canLoginAs` | Users & roles · user row · Login As (ok/cancel dialog). |
+| AFFM-105 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.logInAs` · guards `getCurrentUserId() !== user.id` && `user.canLoginAs` | Users & roles · user row · Login As (ok/cancel dialog). Claimed by: login-and-sessions. |
 | AFFM-106 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.remove` · guards not-self && `user.groups.find(g => g.dateEnd === null)` | Users & roles · user row · Remove from active roles (confirm dialog). |
 | AFFM-107 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.enable`/`grid.user.disable` · guard not-self | Users & roles · user row · Enable/Disable account (side modal with reason). |
 | AFFM-108 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.action.mergeUser` · guards not-self && `user.canMergeUsers` | Users & roles · user row · Merge user (legacy merge modal). |
@@ -301,7 +301,7 @@
 | AFFM-188 | ojs omp ops | `admin/index.tpl` POST form op `clearTemplateCache` (`confirm admin.confirmClearTemplateCache`) | Site admin · Clear Template Cache button (confirm). |
 | AFFM-189 | ojs omp ops | `admin/index.tpl` POST form op `clearScheduledTaskLogFiles` (`confirm admin.scheduledTask.confirmClearLogs`) | Site admin · Clear scheduled task execution logs button (confirm). |
 | AFFM-190 | ojs omp ops | `admin/index.tpl` buttons `navigation.tools.jobs.view` (op `jobs`) / `navigation.tools.jobs.failed.view` (op `failedJobs`) | Site admin · View Jobs and View Failed Jobs links. |
-| AFFM-191 | ojs omp ops | `templates/user/confirmPassword.tpl` (ops `confirmAccess`/`confirmAccessSubmit`) | Site admin · re-enter password confirmation form gating admin ops. |
+| AFFM-191 | ojs omp ops | `templates/user/confirmPassword.tpl` (ops `confirmAccess`/`confirmAccessSubmit`) | Site admin · re-enter password confirmation form gating admin ops. Claimed by: login-and-sessions. |
 
 ## Site administration — hosted contexts (`admin/contexts`, `templates/admin/contexts.tpl`)
 
@@ -329,7 +329,7 @@
 | AFFM-206 | ojs omp ops | `UserGridRow` LinkAction `edit` | Context wizard · Users grid · row Edit user (legacy user form modal). |
 | AFFM-207 | ojs omp ops | `UserGridRow` LinkActions `enable`/`disable` | Context wizard · Users grid · row Enable/Disable user (reason modal). |
 | AFFM-208 | ojs omp ops | `UserGridRow` LinkAction `remove` | Context wizard · Users grid · row Remove user from context (confirmation). |
-| AFFM-209 | ojs omp ops | `UserGridRow` LinkAction `logInAs` | Context wizard · Users grid · row Login As (confirmation). |
+| AFFM-209 | ojs omp ops | `UserGridRow` LinkAction `logInAs` | Context wizard · Users grid · row Login As (confirmation). Claimed by: login-and-sessions. |
 | AFFM-210 | ojs omp ops | `UserGridRow` LinkAction `mergeUser` (row + grid-level variants) | Context wizard · Users grid · row Merge User (pick target then merge). |
 
 ## Site administration — site settings (`admin/settings`, `templates/admin/settings.tpl`; every tab guarded by `{if $componentAvailability['<key>']}`)

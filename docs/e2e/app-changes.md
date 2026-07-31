@@ -27,3 +27,4 @@ shared lib/pkp changes say `pkp-lib`).
 
 | # | App | What & why | Files | Commit | Notes |
 |---|-----|-----------|-------|--------|-------|
+| 1 | pkp-lib | `CONFIG_FILE` honours the `PKP_CONFIG_FILE` env var so the test fleets run against `config.test.inc.php` without touching the dev install (harness rebuild, PROGRESS restart step 1) | `classes/config/Config.php` (one line) | step-1 rebuild commit, branch `e2e_ng_2` | Recreates the change scratched at FULL RESET #2; no behavior change when the env var is unset |

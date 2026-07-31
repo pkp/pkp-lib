@@ -46,6 +46,13 @@ each step and reviews its output.
    PRINCIPLES' **Rebuild acceptance** list passes on all three fleets. The
    step-2 scenario schema is the minimal core — richer keys return per
    feature, each with a parity entry.
+   **DONE 2026-07-31** — acceptance green on all three fleets (cold bootstrap,
+   login smoke, scenario seeds context + staged submission per app, reset tool
+   forces cold bootstrap, Mail::fake suppression verified by Mailpit count,
+   RUNBOOK operational names match). UI-vs-scenario parity spot-check found 3
+   defects + 1 seed defect, all fixed and re-verified same session
+   (`docs/e2e/scenario-processor-audit.md`; evidence
+   `.reports/step1-harness/`). Skill flipped to live truth.
 2. **Features** — one per session under the RUNBOOK loop; the maintainer picks
    each next feature and reviews its output. The lint gate exists — run it,
    don't rebuild it.

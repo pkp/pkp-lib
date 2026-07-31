@@ -1,11 +1,12 @@
 # OJS e2e Test Suite — Principles
 
-> **Status 2026-07-31 (FULL RESET #2):** the implementation this contract
-> describes was deleted again — with everything else except the feature map
-> and atlas — for the Fable-only rebuild (PROGRESS banner; the previous
-> implementation survives on branch `e2e_ng` and in git history; it is not
-> read back). This file is the contract + design record the rebuild follows —
-> file paths below name where things live once rebuilt, not what exists today.
+> **Status 2026-07-31 (step-1 rebuild LANDED):** the harness was rebuilt
+> clean-room from this design record (FULL RESET #2, PROGRESS banner — the
+> previous implementation survives on branch `e2e_ng` and was not read back)
+> and the Rebuild-acceptance list below passed on all three fleets. File
+> paths in this document are live again. Builder-vs-UI parity verdicts live
+> in `docs/e2e/scenario-processor-audit.md`; harness env facts in the
+> `ojs-playwright-tests` skill.
 > The **legacy Cypress suite** still ships on this branch (it came with the
 > fresh upstream main): it is OUT OF SCOPE — never maintained, never run by
 > the campaign, deleted only when the maintainer decides the Playwright suite
@@ -203,7 +204,7 @@ each with a parity entry. (Emptied at FULL RESET #2, 2026-07-31 — the keys
 the previous build added are gone with it, and return only as rebuilt
 features earn them.)
 
-**Rebuild acceptance** (PROGRESS restart step 2 is done when): bootstrap seeds
+**Rebuild acceptance** (PROGRESS restart step 1 is done when): bootstrap seeds
 green in all three apps; a login smoke passes per fleet; the scenario endpoint
 seeds a context and a staged submission in each app, with one parity
 spot-check against the equivalent UI path; the reset tool forces a cold

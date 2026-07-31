@@ -59,7 +59,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert(($element instanceof \PKP\core\DataObject || $element instanceof EmailLogEntry) && !empty($columnId) );
+        assert(($element instanceof \PKP\core\DataObject || $element instanceof EmailLogEntry) && !empty($columnId));
         /** @var EventLogEntry $element */
         switch ($columnId) {
             case 'date':
@@ -70,8 +70,8 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                 if ($element instanceof EventLogEntry) {
                     $userName = $element->getUserFullName();
 
-                    $impersonatedAsName = ($impersonatedAsUserId = $element->getImpersonatedAsUserId())
-                        ? (Repo::user()->get($impersonatedAsUserId, true)?->getFullName() ?? '')
+                    $impersonatedName = ($impersonatedUserId = $element->getImpersonatedUserId())
+                        ? Repo::user()->get($impersonatedUserId, true)->getFullName()
                         : '';
 
                     // Anonymize reviewer details where necessary
@@ -94,8 +94,8 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                         }
 
                         // Maybe anonymize acting as user when the review is not open
-                        if ($impersonatedAsName !== '' && $reviewAssignmentId && !$isOpenReview) {
-                            $impersonatedAsName = __('editor.review.anonymousReviewer');
+                        if ($impersonatedName !== '' && $reviewAssignmentId && !$isOpenReview) {
+                            $impersonatedName = __('editor.review.anonymousReviewer');
                         }
 
                         // Maybe anonymize files submitted by reviewers
@@ -114,10 +114,11 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                     }
 
                     // Disclose impersonation -- append the account the actor was acting as.
-                    if ($impersonatedAsName !== '' && $impersonatedAsName !== $userName) {
+                    $anonymousReviewer = __('editor.review.anonymousReviewer');
+                    if ($impersonatedName !== '' && !($userName === $anonymousReviewer && $impersonatedName === $anonymousReviewer)) {
                         $userName = __('submission.event.impersonation.userLabel', [
                             'userName' => $userName,
-                            'impersonatedAsName' => $impersonatedAsName,
+                            'impersonatedName' => $impersonatedName,
                         ]);
                     }
                 } else {

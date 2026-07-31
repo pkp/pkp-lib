@@ -153,7 +153,7 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN,
                 'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
-                'impersonatedAsUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
+                'impersonatedUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
                 'message' => 'log.review.reviewerResendRequest',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),

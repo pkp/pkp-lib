@@ -213,7 +213,7 @@ abstract class InformationCenterHandler extends Handler
             'assocId' => $object->getId(),
             'eventType' => $eventType,
             'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
-            'impersonatedAsUserId' => Validation::loggedInAs() ? $request->getUser()->getId() : null,
+            'impersonatedUserId' => Validation::loggedInAs() ? $request->getUser()->getId() : null,
             'message' => $logMessage,
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()

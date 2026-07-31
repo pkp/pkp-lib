@@ -89,7 +89,7 @@ trait NotifyReviewers
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_DECISION_EMAIL_SENT,
             'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()?->getId(),
-            'impersonatedAsUserId' => Validation::loggedInAs() ? Application::get()->getRequest()->getUser()?->getId() : null,
+            'impersonatedUserId' => Validation::loggedInAs() ? Application::get()->getRequest()->getUser()?->getId() : null,
             'message' => 'submission.event.decisionReviewerEmailSent',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),

@@ -122,12 +122,12 @@ class TaskResource extends JsonResource
 
             // Attached impersonated details to the user label if exists
             $userLabel = $activity->getLocalizedData('userFullName');
-            if ($impersonatedAsUserId = $activity->getImpersonatedAsUserId()) {
-                $impersonatedAsName = Repo::user()->get((int) $impersonatedAsUserId, true)?->getFullName() ?? '';
-                if ($impersonatedAsName !== '' && $impersonatedAsName !== $userLabel) {
+            if ($impersonatedUserId = $activity->getImpersonatedUserId()) {
+                $impersonatedName = Repo::user()->get($impersonatedUserId, true)->getFullName();
+                if ($impersonatedName !== '') {
                     $userLabel = __('submission.event.impersonation.userLabel', [
                         'userName' => $userLabel,
-                        'impersonatedAsName' => $impersonatedAsName,
+                        'impersonatedName' => $impersonatedName,
                     ]);
                 }
             }

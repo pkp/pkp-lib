@@ -9,10 +9,10 @@
  *
  * @class I13059_EventLogImpersonation
  *
- * @brief Add an `impersonated_as_user_id` column to the `event_log` table so that
+ * @brief Add an `impersonated_user_id` column to the `event_log` table so that
  *   actions performed while impersonating another user (the "Login as" mechanism)
  *   record both the real actor (`user_id`) and the impersonated, acted-as account
- *   (`impersonated_as_user_id`).
+ *   (`impersonated_user_id`).
  *
  * @see https://github.com/pkp/pkp-lib/issues/13059
  */
@@ -31,10 +31,10 @@ class I13059_EventLogImpersonation extends Migration
     public function up(): void
     {
         Schema::table('event_log', function (Blueprint $table) {
-            $table->bigInteger('impersonated_as_user_id')->nullable()->after('user_id')
+            $table->bigInteger('impersonated_user_id')->nullable()->after('user_id')
                 ->comment('The user that was impersonated via the "Login as" mechanism when the event was performed');
-            $table->foreign('impersonated_as_user_id')->references('user_id')->on('users')->onDelete('set null');
-            $table->index(['impersonated_as_user_id'], 'event_log_impersonated_as_user_id');
+            $table->foreign('impersonated_user_id')->references('user_id')->on('users')->onDelete('set null');
+            $table->index(['impersonated_user_id'], 'event_log_impersonated_user_id');
         });
     }
 
@@ -44,9 +44,9 @@ class I13059_EventLogImpersonation extends Migration
     public function down(): void
     {
         Schema::table('event_log', function (Blueprint $table) {
-            $table->dropForeign(['impersonated_as_user_id']);
-            $table->dropIndex('event_log_impersonated_as_user_id');
-            $table->dropColumn('impersonated_as_user_id');
+            $table->dropForeign(['impersonated_user_id']);
+            $table->dropIndex('event_log_impersonated_user_id');
+            $table->dropColumn('impersonated_user_id');
         });
     }
 }

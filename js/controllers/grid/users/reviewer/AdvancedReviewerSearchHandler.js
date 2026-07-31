@@ -84,22 +84,21 @@
 		var $textarea = $('#reviewerFormFooter [name="personalMessage"]'),
 			$templateInput,
 			$templateOption,
+			editorId,
 			editor,
 			templateKey,
-			templateContent;
+			templateContent,
+			applyTemplateToEditor;
 
 		if ($textarea.val()) {
 			return; // The message is already set; shouldn't happen
 		}
-		
+
 		// Only 1 template available
 		$templateInput = $('#reviewerFormFooter input[name="template"]');
-		
+
 		// Multiple available templates
 		$templateOption = $('#reviewerFormFooter select[name="template"]');
-		
-		editor = window.tinyMCE.EditorManager.get($textarea.attr('id'));
-		templateKey = '';
 
 		if (options.lastRoundReviewerIds.includes(reviewer.id)) {
 			templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
@@ -110,18 +109,64 @@
 		}
 
 		templateContent = options.reviewerMessages[templateKey];
-		editor.setContent(templateContent);
+		editorId = /** @type {string} */ ($textarea.attr('id'));
+
+		// Always seed the underlying <textarea> so the legacy form's
+		// serialize-on-submit carries a valid email body even if the
+		// TinyMCE editor for `personalMessage` hasn't finished
+		// initializing by the time the moderator clicks Add Reviewer.
+		// Without this, a fast click (or the form being injected into
+		// a side-modal whose ancestor was hidden until just now —
+		// some browsers defer iframe paint there) would race
+		// `editor.setContent()` against an uninitialised editor, the
+		// setContent would no-op, and the form would POST an empty
+		// body — which then explodes server-side in
+		// `Mailer::renderView` (lib/pkp/classes/mail/Mailer.php) with
+		// "View must be ... null is given".
+		$textarea.val(templateContent);
 		$templateInput.val(templateKey);
-
-		editor.on('activate', function () {
-			if (!editor.getContent().length) {
-				editor.setContent(templateContent);
-			}
-		});
-
 		// Select the right template option to correspond
 		// the one, which is set in TinyMCE
 		$templateOption.find('[value="' + templateKey + '"]').prop('selected', true);
+
+		applyTemplateToEditor = function (ed) {
+			ed.setContent(templateContent);
+			ed.on('activate', function () {
+				if (!ed.getContent().length) {
+					ed.setContent(templateContent);
+				}
+			});
+		};
+
+		// Mirror the body into the TinyMCE editor as well, so the
+		// moderator sees the template in the WYSIWYG (and any edits
+		// they make replace the textarea content via `editor.save()`
+		// at submit time). If the editor is already initialised, push
+		// the content immediately; otherwise wait for the
+		// EditorManager's `AddEditor` + per-editor `init` events so
+		// the same content appears as soon as TinyMCE is ready.
+		editor = window.tinyMCE.EditorManager.get(editorId);
+		if (editor && editor.initialized) {
+			applyTemplateToEditor(editor);
+		} else if (editor) {
+			editor.on('init', function () {
+				applyTemplateToEditor(editor);
+			});
+		} else {
+			var onAddEditor = function (event) {
+				if (event.editor && event.editor.id === editorId) {
+					window.tinyMCE.EditorManager.off('AddEditor', onAddEditor);
+					if (event.editor.initialized) {
+						applyTemplateToEditor(event.editor);
+					} else {
+						event.editor.on('init', function () {
+							applyTemplateToEditor(event.editor);
+						});
+					}
+				}
+			};
+			window.tinyMCE.EditorManager.on('AddEditor', onAddEditor);
+		}
 	};
 
 

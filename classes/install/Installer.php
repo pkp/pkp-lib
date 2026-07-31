@@ -940,10 +940,17 @@ class Installer
     }
 
     /**
-     * Update the tables rors and ror_settings with latest data set dump from Ror.org
+     * Update the tables rors and ror_settings with latest data set dump from Ror.org.
+     * Skipped when APPLICATION_ENV=test — the dump fetch + import is
+     * the slowest step in a cold install and the test harness doesn't
+     * rely on RoR affiliation lookups.
      */
     public function updateRorRegistryDataset(): bool
     {
+        if (getenv('APPLICATION_ENV') === 'test') {
+            return true;
+        }
+
         PKPApplication::upgrade();
 
         $updateRorRegistryDataset = new UpdateRorRegistryDataset();
@@ -953,10 +960,15 @@ class Installer
     }
 
     /**
-     * Download IPGeoDB
+     * Download IPGeoDB. Skipped when APPLICATION_ENV=test because the
+     * download is slow and large, and the test harness doesn't rely on
+     * geolocation lookups.
      */
     public function downloadIPGeoDB(): bool
     {
+        if (getenv('APPLICATION_ENV') === 'test') {
+            return true;
+        }
         PKPApplication::upgrade();
         $updateIPGeoDB = new UpdateIPGeoDB();
         $updateIPGeoDB->execute();

@@ -51,7 +51,7 @@
 | JOB-010 | ojs omp ops | `PKP\jobs\doi\DepositSubmission` | Queued — deposits a submission DOI + metadata to the registration agency. |
 | JOB-011 | ojs omp ops | `PKP\jobs\email\EditorialReminder` | Queued — sends an editorial outstanding-tasks reminder email to one editor. |
 | JOB-012 | ojs omp ops | `PKP\jobs\email\ReviewReminder` | Queued — sends a review reminder email for one review assignment. |
-| JOB-013 | ojs omp ops | `PKP\jobs\invitations\RemoveExpiredInvitationsJob` | Queued — removes all expired invitations. |
+| JOB-013 | ojs omp ops | `PKP\jobs\invitations\RemoveExpiredInvitationsJob` | Queued — removes all expired invitations. Claimed by: user-invitations. |
 | JOB-014 | ojs omp ops | `PKP\jobs\notifications\NewAnnouncementNotifyUsers` | Queued — system notifications (+opt email) to users on new announcement. |
 | JOB-015 | ojs omp ops | `PKP\jobs\notifications\StatisticsReportMail` | Queued — emails editors the monthly editorial statistics report. |
 | JOB-016 | ojs omp ops | `PKP\jobs\notifications\StatisticsReportNotify` | Queued — creates system notifications for editors about the monthly report. |
@@ -99,7 +99,7 @@
 | JOB-048 | ojs omp ops | `PKP\task\PKPUsageStatsLoader` | Scheduled — abstract base ETL task for usage-stats log files (extends FileLoader). |
 | JOB-049 | ojs omp ops | `PKP\task\ProcessQueueJobs` | Scheduled — processes queued jobs from the scheduler; registered everyMinute (PKPScheduler, all apps). |
 | JOB-050 | ojs omp ops | `PKP\task\PublishSubmissions` | Scheduled — publishes submissions scheduled for publication; registered daily (OMP Scheduler only). |
-| JOB-051 | ojs omp ops | `PKP\task\RemoveExpiredInvitations` | Scheduled — dispatches expired-invitation cleanup; registered daily (PKPScheduler, all apps). |
+| JOB-051 | ojs omp ops | `PKP\task\RemoveExpiredInvitations` | Scheduled — dispatches expired-invitation cleanup; registered daily (PKPScheduler, all apps). Claimed by: user-invitations. |
 | JOB-052 | ojs omp ops | `PKP\task\RemoveFailedJobs` | Scheduled — prunes old failed jobs from the failed-jobs list; registered daily (PKPScheduler, all apps). |
 | JOB-053 | ojs omp ops | `PKP\task\RemoveUnvalidatedExpiredUsers` | Scheduled — removes unvalidated users past validation timeout; registered monthlyOn(1) (PKPScheduler, all apps). |
 | JOB-054 | ojs omp ops | `PKP\task\ReviewReminder` | Scheduled — dispatches automated reviewer-reminder jobs; registered daily (OJS + OMP Schedulers). |

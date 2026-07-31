@@ -160,9 +160,9 @@
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFM-099 | ojs omp ops | `managers/UserInvitationManager/UserInvitationManager.vue` button `invitation.inviteToRole.btn` | Users & roles · Users tab · "Invite to a role" button (opens invite wizard, AFFM-118). |
-| AFFM-100 | ojs omp ops | `UserInvitationManagerStore.js` action `editInvite` (`userInvitation.edit.title` dialog) | Users & roles · pending invitation row · Edit invitation (confirm dialog then wizard). |
-| AFFM-101 | ojs omp ops | `UserInvitationManagerStore.js` cancel action · `UserInvitationManagerCancelInvitationDialogBody` | Users & roles · pending invitation row · Cancel invitation (confirm dialog). |
+| AFFM-099 | ojs omp ops | `managers/UserInvitationManager/UserInvitationManager.vue` button `invitation.inviteToRole.btn` | Users & roles · Users tab · "Invite to a role" button (opens invite wizard, AFFM-118). Claimed by: user-invitations. |
+| AFFM-100 | ojs omp ops | `UserInvitationManagerStore.js` action `editInvite` (`userInvitation.edit.title` dialog) | Users & roles · pending invitation row · Edit invitation (confirm dialog then wizard). Claimed by: user-invitations. |
+| AFFM-101 | ojs omp ops | `UserInvitationManagerStore.js` cancel action · `UserInvitationManagerCancelInvitationDialogBody` | Users & roles · pending invitation row · Cancel invitation (confirm dialog). Claimed by: user-invitations. |
 | AFFM-102 | ojs omp ops | `UserAccessManagerActionSearch.vue` (`userAccess.search`) | Users & roles · current users table · search users. |
 | AFFM-103 | ojs omp ops | `useUserAccessManagerConfig.js` action `common.edit` (USER_ACCESS_EDIT → `management/settings/user/{user.id}`, dispatched by `ManagementHandler::editUser()`) | Users & roles · user row · Edit user (routes into role-assignment invitation flow). |
 | AFFM-104 | ojs omp ops | `useUserAccessManagerConfig.js` action `email.email` (legacy email modal) | Users & roles · user row · Send email. |
@@ -184,9 +184,9 @@
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFM-118 | ojs omp ops | `UserInvitationSearchFormStep.vue` | Invite wizard · search for existing user by email/ORCID/username (or proceed to invite new). |
-| AFFM-119 | ojs omp ops | `UserInvitationDetailsFormStep.vue` + `UserInvitationUserGroupsTable.vue` | Invite wizard · enter user details and add/remove role assignments (start/end dates, masthead flag). |
-| AFFM-120 | ojs omp ops | `UserInvitationEmailComposerStep.vue` + `UserInvitationPage.vue` Cancel/Back/Continue/Submit buttons | Invite wizard · compose invitation email; step navigation and final Invite submit. |
+| AFFM-118 | ojs omp ops | `UserInvitationSearchFormStep.vue` | Invite wizard · search for existing user by email/ORCID/username (or proceed to invite new). Claimed by: user-invitations. |
+| AFFM-119 | ojs omp ops | `UserInvitationDetailsFormStep.vue` + `UserInvitationUserGroupsTable.vue` | Invite wizard · enter user details and add/remove role assignments (start/end dates, masthead flag). Claimed by: user-invitations. |
+| AFFM-120 | ojs omp ops | `UserInvitationEmailComposerStep.vue` + `UserInvitationPage.vue` Cancel/Back/Continue/Submit buttons | Invite wizard · compose invitation email; step navigation and final Invite submit. Claimed by: user-invitations. |
 
 ## Emails management (`management/settings/manageEmails`, `templates/management/manageEmails.tpl` + `ManageEmailsPage`)
 

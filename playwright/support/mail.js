@@ -137,12 +137,14 @@ class PkpMail {
      */
     extractLink(html, linkText) {
         const pattern = linkText instanceof RegExp ? linkText : new RegExp(escapeRegExp(linkText), 'i');
-        const anchorRe = /<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+        // href may be single- OR double-quoted (PKP's stored email templates
+        // use single quotes, e.g. the role-invitation accept/decline buttons).
+        const anchorRe = /<a\b[^>]*href=(["'])([^"']+)\1[^>]*>([\s\S]*?)<\/a>/gi;
         let match;
         while ((match = anchorRe.exec(html)) !== null) {
-            const visibleText = match[2].replace(/<[^>]+>/g, '').trim();
+            const visibleText = match[3].replace(/<[^>]+>/g, '').trim();
             if (pattern.test(visibleText)) {
-                return match[1].replace(/&amp;/g, '&');
+                return match[2].replace(/&amp;/g, '&');
             }
         }
         return null;

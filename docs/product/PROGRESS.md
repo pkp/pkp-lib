@@ -70,7 +70,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U3 | User profile | OJS OMP OPS | M | pending | |
 | U4 | ORCID integration | OJS OMP OPS | M | pending | |
 | U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
-| U6 | User invitations | OJS OMP OPS | M | pending | |
+| U6 | User invitations | OJS OMP OPS | M | done | Spec verified; 8+setup tests OJS/OMP, 9+setup OPS, green ×2 each; register 8🐞+2❓ (A1 outcome in private file); maintainer review pending |
 | U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
 | U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
 | U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |

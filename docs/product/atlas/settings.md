@@ -101,5 +101,5 @@ Templates are structurally identical across the three apps (same 20 sections, sa
 | SET-061 | ojs omp ops | config.TEMPLATE.inc.php `[logs]` | Logging settings — keys: log_channel, log_level, log_stacks, log_daily_days, log_formatter. |
 | SET-062 | ojs omp ops | config.TEMPLATE.inc.php `[queues]` | Job queue settings — keys: default_connection, default_queue, job_runner, job_runner_max_jobs, job_runner_max_execution_time, job_runner_max_memory, job_runner_cross_request_lock, process_jobs_at_task_scheduler, delete_failed_jobs_after. |
 | SET-063 | ojs omp ops | config.TEMPLATE.inc.php `[schedule]` | Scheduled task settings — keys: task_runner, task_runner_interval, scheduled_tasks_report_error_only. Per-app: comment-only diff (OJS/OMP link deploy docs; OPS has `<link-to-documentation>` placeholder). |
-| SET-064 | ojs omp ops | config.TEMPLATE.inc.php `[invitations]` | Invitation settings — keys: expiration_days. |
+| SET-064 | ojs omp ops | config.TEMPLATE.inc.php `[invitations]` | Invitation settings — keys: expiration_days. Claimed by: user-invitations. |
 | SET-065 | ojs omp ops | config.TEMPLATE.inc.php `[features]` | New-features flag section — present in all three templates with no keys (empty placeholder). |

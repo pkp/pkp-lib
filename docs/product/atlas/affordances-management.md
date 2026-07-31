@@ -163,13 +163,13 @@
 | AFFM-099 | ojs omp ops | `managers/UserInvitationManager/UserInvitationManager.vue` button `invitation.inviteToRole.btn` | Users & roles · Users tab · "Invite to a role" button (opens invite wizard, AFFM-118). |
 | AFFM-100 | ojs omp ops | `UserInvitationManagerStore.js` action `editInvite` (`userInvitation.edit.title` dialog) | Users & roles · pending invitation row · Edit invitation (confirm dialog then wizard). |
 | AFFM-101 | ojs omp ops | `UserInvitationManagerStore.js` cancel action · `UserInvitationManagerCancelInvitationDialogBody` | Users & roles · pending invitation row · Cancel invitation (confirm dialog). |
-| AFFM-102 | ojs omp ops | `UserAccessManagerActionSearch.vue` (`userAccess.search`) | Users & roles · current users table · search users. · Claimed by: U53 |
-| AFFM-103 | ojs omp ops | `useUserAccessManagerConfig.js` action `common.edit` (USER_ACCESS_EDIT → `management/settings/user/{user.id}`, dispatched by `ManagementHandler::editUser()`) | Users & roles · user row · Edit user (routes into role-assignment invitation flow). · Claimed by: U53 |
-| AFFM-104 | ojs omp ops | `useUserAccessManagerConfig.js` action `email.email` (legacy email modal) | Users & roles · user row · Send email. · Claimed by: U53 |
+| AFFM-102 | ojs omp ops | `UserAccessManagerActionSearch.vue` (`userAccess.search`) | Users & roles · current users table · search users. |
+| AFFM-103 | ojs omp ops | `useUserAccessManagerConfig.js` action `common.edit` (USER_ACCESS_EDIT → `management/settings/user/{user.id}`, dispatched by `ManagementHandler::editUser()`) | Users & roles · user row · Edit user (routes into role-assignment invitation flow). |
+| AFFM-104 | ojs omp ops | `useUserAccessManagerConfig.js` action `email.email` (legacy email modal) | Users & roles · user row · Send email. |
 | AFFM-105 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.logInAs` · guards `getCurrentUserId() !== user.id` && `user.canLoginAs` | Users & roles · user row · Login As (ok/cancel dialog). |
-| AFFM-106 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.remove` · guards not-self && `user.groups.find(g => g.dateEnd === null)` | Users & roles · user row · Remove from active roles (confirm dialog). · Claimed by: U53 |
-| AFFM-107 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.enable`/`grid.user.disable` · guard not-self | Users & roles · user row · Enable/Disable account (side modal with reason). · Claimed by: U53 |
-| AFFM-108 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.action.mergeUser` · guards not-self && `user.canMergeUsers` | Users & roles · user row · Merge user (legacy merge modal). · Claimed by: U53 |
+| AFFM-106 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.remove` · guards not-self && `user.groups.find(g => g.dateEnd === null)` | Users & roles · user row · Remove from active roles (confirm dialog). |
+| AFFM-107 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.user.enable`/`grid.user.disable` · guard not-self | Users & roles · user row · Enable/Disable account (side modal with reason). |
+| AFFM-108 | ojs omp ops | `useUserAccessManagerConfig.js` action `grid.action.mergeUser` · guards not-self && `user.canMergeUsers` | Users & roles · user row · Merge user (legacy merge modal). |
 | AFFM-109 | ojs omp ops | `UserGroupGridHandler` LinkAction `addUserGroup` | Users & roles · Roles tab grid · Create New Role (modal). |
 | AFFM-110 | ojs omp ops | `UserGroupGridRow` LinkAction `editUserGroup` | Users & roles · Roles grid · row Edit role. |
 | AFFM-111 | ojs omp ops | `UserGroupGridRow` LinkAction `removeUserGroup` | Users & roles · Roles grid · row Remove role (confirmation). |
@@ -323,14 +323,14 @@
 | AFFM-200 | ojs omp ops | `contextSettings.tpl` tab `indexing` · `PKPSearchIndexingForm::FORM_SEARCH_INDEXING` | Context wizard · Search indexing form (+ Save). |
 | AFFM-201 | ojs omp ops | `contextSettings.tpl` tab `restrictBulkEmails` · `PKPRestrictBulkEmailsForm::FORM_RESTRICT_BULK_EMAILS` · guard `{if $bulkEmailsEnabled}` else link to site settings `setup/bulkEmails` | Context wizard · Restrict bulk emails per-role form (+ Save; disabled-state text links to site settings). |
 | AFFM-202 | ojs omp ops | `contextSettings.tpl` tab `plugins` · `SettingsPluginGridHandler` + `PluginGalleryGridHandler` for `$editContext` · gallery guard `{if $canSeePluginGallery}` | Context wizard · Plugins tab embedding the context plugin grids (same controls as AFFM-044..051). |
-| AFFM-203 | ojs omp ops | `UserGridHandler` LinkAction `addUser` | Context wizard · Users tab grid · Add User (create user form modal). · Claimed by: U53 |
-| AFFM-204 | ojs omp ops | `UserGridHandler::getFilterForm` + `PagingFeature` | Context wizard · Users grid · search/filter + pagination. · Claimed by: U53 |
-| AFFM-205 | ojs omp ops | `UserGridRow` LinkAction `email` | Context wizard · Users grid · row Email user. · Claimed by: U53 |
-| AFFM-206 | ojs omp ops | `UserGridRow` LinkAction `edit` | Context wizard · Users grid · row Edit user (legacy user form modal). · Claimed by: U53 |
-| AFFM-207 | ojs omp ops | `UserGridRow` LinkActions `enable`/`disable` | Context wizard · Users grid · row Enable/Disable user (reason modal). · Claimed by: U53 |
-| AFFM-208 | ojs omp ops | `UserGridRow` LinkAction `remove` | Context wizard · Users grid · row Remove user from context (confirmation). · Claimed by: U53 |
+| AFFM-203 | ojs omp ops | `UserGridHandler` LinkAction `addUser` | Context wizard · Users tab grid · Add User (create user form modal). |
+| AFFM-204 | ojs omp ops | `UserGridHandler::getFilterForm` + `PagingFeature` | Context wizard · Users grid · search/filter + pagination. |
+| AFFM-205 | ojs omp ops | `UserGridRow` LinkAction `email` | Context wizard · Users grid · row Email user. |
+| AFFM-206 | ojs omp ops | `UserGridRow` LinkAction `edit` | Context wizard · Users grid · row Edit user (legacy user form modal). |
+| AFFM-207 | ojs omp ops | `UserGridRow` LinkActions `enable`/`disable` | Context wizard · Users grid · row Enable/Disable user (reason modal). |
+| AFFM-208 | ojs omp ops | `UserGridRow` LinkAction `remove` | Context wizard · Users grid · row Remove user from context (confirmation). |
 | AFFM-209 | ojs omp ops | `UserGridRow` LinkAction `logInAs` | Context wizard · Users grid · row Login As (confirmation). |
-| AFFM-210 | ojs omp ops | `UserGridRow` LinkAction `mergeUser` (row + grid-level variants) | Context wizard · Users grid · row Merge User (pick target then merge). · Claimed by: U53 |
+| AFFM-210 | ojs omp ops | `UserGridRow` LinkAction `mergeUser` (row + grid-level variants) | Context wizard · Users grid · row Merge User (pick target then merge). |
 
 ## Site administration — site settings (`admin/settings`, `templates/admin/settings.tpl`; every tab guarded by `{if $componentAvailability['<key>']}`)
 

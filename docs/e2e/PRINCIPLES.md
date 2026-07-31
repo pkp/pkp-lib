@@ -1,10 +1,12 @@
 # OJS e2e Test Suite — Principles
 
-> **Status 2026-07-26:** the implementation this contract describes was
-> deleted in the full campaign reset (git history keeps it; it is not read
-> back). This file is the contract + design record the rebuild follows — file
-> paths below name where things live once rebuilt, not what exists today.
-> The **legacy Cypress suite** still ships on `e2e_ng` (it came back with the
+> **Status 2026-07-31 (FULL RESET #2):** the implementation this contract
+> describes was deleted again — with everything else except the feature map
+> and atlas — for the Fable-only rebuild (PROGRESS banner; the previous
+> implementation survives on branch `e2e_ng` and in git history; it is not
+> read back). This file is the contract + design record the rebuild follows —
+> file paths below name where things live once rebuilt, not what exists today.
+> The **legacy Cypress suite** still ships on this branch (it came with the
 > fresh upstream main): it is OUT OF SCOPE — never maintained, never run by
 > the campaign, deleted only when the maintainer decides the Playwright suite
 > has replaced it.
@@ -196,39 +198,10 @@ decisions that must survive any rebuild (each was earned the hard way):
 The step-2 core schema is deliberately minimal (design record 2 above) and
 grows one key at a time, under principle 3: extend only when several tests
 need the same state. Full per-key reference lives in the `ojs-playwright-tests`
-skill (`scenarios.md`); the keys themselves are recorded here as they land.
-
-- **`siteAdmin` role key** in `users[].roles` (U53, 2026-07-29, all three
-  apps; `POST scenarios/context` and `POST bootstrap`) — a throwaway **site
-  administrator**:
-
-  ```js
-  users: [
-      {username: 'u53top.admin.ojs', roles: ['siteAdmin']},             // admin only
-      {username: 'u53top.both.ojs',  roles: ['siteAdmin', 'manager']},  // and a context role
-  ]
-  ```
-
-  Not a new key: it is a role key like any other, spelled the way the others
-  are (`default.groups.name.siteAdmin` is a real locale key), so the password
-  rule, the `{username: id}` echo and the rollback-on-failure journal all apply
-  unchanged. What is different is the GROUP it names. The site administrator
-  group is installed once for the whole site with a **null context id** and no
-  `nameLocaleKey` (`PKPInstall::createData()` writes the translated names
-  directly), so it can never resolve through the context-scoped name-key lookup
-  every other role uses; `resolveRoleGroup()` special-cases this one key and
-  finds the group by role id instead. Enrolment itself is the application's own
-  `Repo::userGroup()->assignUserToGroup()` — the same call the installer makes
-  for the first admin and the same call the seeder already makes for every other
-  role.
-
-  Exists because **no screen grants site administrator**. The Users & Roles user
-  form intersects the submitted group ids with `UserGroup::withContextIds([$contextId])`
-  before saving, and the site admin group is not in any context — so the only
-  site administrator on a fresh install is the installer's `admin`, which the
-  suite must keep enabled and unmerged. Any test about administrator behaviour
-  (self-disable, merge, one admin acting on another) needs its own throwaway.
-  Parity note in `scenario-processor-audit.md`.
+skill (`scenarios.md`); the keys themselves are recorded here as they land,
+each with a parity entry. (Emptied at FULL RESET #2, 2026-07-31 — the keys
+the previous build added are gone with it, and return only as rebuilt
+features earn them.)
 
 **Rebuild acceptance** (PROGRESS restart step 2 is done when): bootstrap seeds
 green in all three apps; a login smoke passes per fleet; the scenario endpoint

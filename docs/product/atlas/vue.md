@@ -30,7 +30,7 @@
 | VUE-010 | ojs,omp,ops | pages/userComments/UserCommentsPage.vue | User comments moderation page (lib/pkp management/userComments.tpl, ManagementHandler) |
 | VUE-011 | ojs,omp,ops | pages/userInvitation/UserInvitationPage.vue | Send-user-invitation wizard (search, details, email composer; lib/pkp invitation/userInvitation.tpl) |
 | VUE-012 | ojs,omp,ops | pages/workflow/WorkflowPage.vue (variants WorkflowPageOJS/OMP/OPS) | Submission workflow side-modal surface (stages, publication tabs); per-app variant registered as `WorkflowPage` in each app's js/load.js |
-| VUE-013 | ojs,omp,ops | components/Container/AccessPage.vue | Users & Roles management page container (ManagementHandler; registered in all app load.js) · Claimed by: U53 |
+| VUE-013 | ojs,omp,ops | components/Container/AccessPage.vue | Users & Roles management page container (ManagementHandler; registered in all app load.js) |
 | VUE-014 | ojs,omp,ops | components/Container/AddContextContainer.vue | Site-admin add/edit context (journal/press/server) wizard container (lib/pkp admin/editContext.tpl) |
 | VUE-015 | ojs,omp,ops | components/Container/AdminPage.vue | Site administration page container (lib/pkp AdminHandler) |
 | VUE-016 | ojs,omp,ops | components/Container/AdvancedSearchReviewerContainer.vue | Advanced reviewer-search surface hosted in legacy add-reviewer form (lib/pkp advancedSearchReviewerForm.tpl) |
@@ -73,7 +73,7 @@
 | VUE-048 | ojs,omp | managers/ReviewerSuggestionManager/ReviewerSuggestionManager.vue | Author reviewer-suggestions manager in workflow (WorkflowPageOJS + WorkflowPageOMP) |
 | VUE-049 | ojs | managers/ReviewRoundResponseManager/ReviewRoundResponseManager.vue | Author review-round response manager (WorkflowPageOJS + workflowConfigAuthorOJS) |
 | VUE-050 | ojs,omp,ops | managers/TaskTemplateManager/TaskTemplateManager.vue | Task/discussion template settings manager (SettingsPage; lib/pkp management/workflow.tpl) |
-| VUE-051 | ojs,omp,ops | managers/UserAccessManager/UserAccessManager.vue | Users list with access actions (lib/pkp management/accessUsers.tpl) · Claimed by: U53 |
+| VUE-051 | ojs,omp,ops | managers/UserAccessManager/UserAccessManager.vue | Users list with access actions (lib/pkp management/accessUsers.tpl) |
 | VUE-052 | ojs,omp,ops | managers/UserInvitationManager/UserInvitationManager.vue | Pending user invitations table (lib/pkp management/access.tpl) |
 
 ## Screen-level modals

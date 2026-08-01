@@ -137,6 +137,7 @@ class Locale implements LocaleInterface
         $request = $this->_getRequest();
 
         $locale = $request->getUserVar('setLocale')
+            ?: $this->_getUrlLocale()
             ?: $request->getSession()->get('currentLocale')
             ?: $request->getCookieVar('currentLocale')
             ?: $this->getPreferredLocale();
@@ -144,6 +145,22 @@ class Locale implements LocaleInterface
         $this->setLocale($locale);
 
         return (string)$this->locale;
+    }
+
+    /**
+     * Get the locale segment of the request URL, if it is one this installation supports.
+     *
+     * Since 3.5 the locale is part of the URL, but getLocale() only consulted
+     * setLocale/session/cookie. A client that keeps no cookies (crawlers, uptime monitors,
+     * curl) therefore never matched the locale in the URL, and PKPPageRouter::_setLocale()
+     * redirected it to the very same URL forever - an infinite 302 loop on every supported
+     * non-primary locale. Honouring the URL also makes the page render in the requested
+     * language on the first hit, with no redirect.
+     */
+    private function _getUrlLocale(): ?string
+    {
+        $locale = Core::getLocalization($_SERVER['PATH_INFO'] ?? '');
+        return $locale !== '' && $this->isSupported($locale) ? $locale : null;
     }
 
     /**

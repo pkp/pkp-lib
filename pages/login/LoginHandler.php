@@ -301,7 +301,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setupBackendPage();
         $templateMgr->assign([
-            'pageTitle' => 'user.login.resetPassword',
+            'pageTitle' => __('user.login.resetPassword'),
         ]);
 
         $username = $args[0] ?? null;

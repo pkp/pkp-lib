@@ -29,6 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\form\validation\FormValidatorAltcha;
 use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\RateLimitingService;
@@ -209,16 +210,16 @@ class LoginHandler extends Handler
         $error ??= 'user.login.loginError';
 
         // record the failed authentication attempt
-        $auditContext = [
+        $auditDetails = [
             'attemptedUsername' => $username,
             'ip' => $ip,
-            'loggedInUserId' => null,
+            'userId' => null,
         ];
         if ($reason !== null) {
-            $auditContext['disabledReason'] = $reason;
-            AuditLog::log('auth.login.disabled', LogLevel::WARNING, $auditContext);
+            $auditDetails['disabledReason'] = $reason;
+            AuditLog::log(AuditEvent::AUTH_LOGIN_DISABLED, LogLevel::WARNING, $auditDetails);
         } else {
-            AuditLog::log('auth.login.failure', LogLevel::WARNING, $auditContext);
+            AuditLog::log(AuditEvent::AUTH_LOGIN_FAILED, LogLevel::WARNING, $auditDetails);
         }
 
         $templateMgr->assign([
@@ -343,7 +344,7 @@ class LoginHandler extends Handler
                 ->subject($template->getLocalizedData('subject'));
             Mail::send($mailable);
 
-            AuditLog::log('auth.password_reset.requested', LogLevel::NOTICE, [
+            AuditLog::log(AuditEvent::AUTH_PASSWORD_RESET_REQUEST, LogLevel::NOTICE, [
                 'targetUserId' => $user->getId(),
                 'email' => $email,
             ]);
@@ -405,7 +406,7 @@ class LoginHandler extends Handler
         if ($passwordResetForm->validatePasswordResetHash()) {
             $passwordResetForm->display($request);
         } else {
-            AuditLog::log('auth.password_reset.invalid_hash', LogLevel::WARNING, [
+            AuditLog::log(AuditEvent::AUTH_PASSWORD_RESET_INVALID, LogLevel::WARNING, [
                 'targetUserId' => $user->getId(),
                 'attemptedUsername' => $username,
             ]);
@@ -507,7 +508,7 @@ class LoginHandler extends Handler
             $userId = (int)$args[0];
             $sessionGuard = $request->getSessionGuard();
             if (Validation::getAdministrationLevel($userId, $sessionGuard->getUserId()) !== Validation::ADMINISTRATION_FULL) {
-                AuditLog::log('session.impersonation.denied', LogLevel::WARNING, [
+                AuditLog::log(AuditEvent::SESSION_IMPERSONATE_DENIED, LogLevel::WARNING, [
                     'impersonatedAsUserId' => $userId,
                 ]);
                 $this->setupTemplate($request);
@@ -527,7 +528,7 @@ class LoginHandler extends Handler
 
             if (isset($newUser) && $sessionGuard->getUserId() != $newUser->getId()) {
                 $request->getSessionGuard()->signInAs($newUser);
-                AuditLog::log('session.impersonation.start', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::SESSION_IMPERSONATE_START, LogLevel::NOTICE, [
                     'impersonatedAsUserId' => $newUser->getId(),
                 ]);
                 $this->_redirectByURL($request);
@@ -551,7 +552,7 @@ class LoginHandler extends Handler
             $oldUser = Repo::user()->get($signedInAs, true);
 
             if (isset($oldUser)) {
-                AuditLog::log('session.impersonation.end', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::SESSION_IMPERSONATE_END, LogLevel::NOTICE, [
                     'impersonatedAsUserId' => $request->getUser()?->getId(),
                 ]);
                 $request->getSessionGuard()->signOutAs($oldUser);

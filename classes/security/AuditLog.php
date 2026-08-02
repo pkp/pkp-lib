@@ -17,6 +17,7 @@ namespace PKP\security;
 
 use APP\core\Application;
 use Illuminate\Support\Facades\Log;
+use PKP\config\Config;
 use Psr\Log\LogLevel;
 
 class AuditLog
@@ -24,79 +25,82 @@ class AuditLog
     /**
      * Write a security audit entry.
      *
-     * @param string $event     Non localised audit log/event message
-     * @param string $level     PSR-3 level log level
-     * @param array  $context   Structured fields to pass as extra log context data which support
-     *                          more details data for audit purpose
+     * @param AuditEvent $event   The security audit event being recorded
+     * @param string     $level   PSR-3 log level
+     * @param array      $details Structured fields carrying extra data for audit purpose
      */
-    public static function log(string $event, string $level = LogLevel::INFO, array $context = []): void
+    public static function log(AuditEvent $event, string $level = LogLevel::INFO, array $details = []): void
     {
         // No audit logging when running unit tests
         if (app()->runningUnitTests()) {
             return;
         }
 
-        $context = static::withRequestContext($context);
-        $context['category'] ??= explode('.', $event, 2)[0];
+        // Security audit logging can be disabled per-installation (enabled by default).
+        if (!Config::getVar('logs', 'log_audit', true)) {
+            return;
+        }
 
-        Log::log($level, $event, $context);
+        $details = static::withRequestContext($details);
+        $details['event'] = $event->value;
+        $details['status'] = $event->status();
+
+        Log::log($level, $event->message(), $details);
     }
 
     /**
      * Verify/Inject the "minimum log content" fields (Who / Where / When)
      * into every audit entry.
      */
-    protected static function withRequestContext(array $context): array
+    protected static function withRequestContext(array $details): array
     {
-        if (!array_key_exists('occurredAt', $context)) {
-            $context['occurredAt'] = now()->toIso8601String();
+        if (!array_key_exists('occurredAt', $details)) {
+            $details['occurredAt'] = now()->toIso8601String();
         }
 
-        // Running in CLI mode has no reliable way to determine loggedInUserId, IP, user agent,
-        // context id or request url unless passed explicitly. The user id especially must not
-        // be counted: CommandLineTool silently defaults the registry user to the first admin,
-        // which would falsely attribute cron/CLI actions. A null actor = system/automated event.
+        // Running in CLI mode has no reliable way to determine IP, user agent, context id or
+        // request url unless passed explicitly. And can not have logged in user in CLI.
         if (app()->runningInConsole()) {
-            $context['runtime'] = 'CLI';
-            unset($context['loggedInUserId']);
+            $details['runtime'] = 'CLI';
+            unset($details['userId']);
 
-            return $context;
+            return $details;
         }
 
         $request = Application::get()->getRequest();
 
-        // Who: the real human who authenticated. When impersonating, loggedInAs() returns the
-        // original (impersonator) user, so loggedInUserId is always the acting human.
+        // Who: the user performing the action. When impersonating, loggedInAs() returns the
+        // original (impersonator) user, so userId is always the acting user.
         $impersonatorId = Validation::loggedInAs();
-        if (!array_key_exists('loggedInUserId', $context)) {
-            $context['loggedInUserId'] = $impersonatorId ?? $request->getUser()?->getId();
+        if (!array_key_exists('userId', $details)) {
+            $details['userId'] = $impersonatorId ?? $request->getUser()?->getId();
         }
 
         // If the session is impersonating another user, record the account being operated as.
         // Present only while impersonating, so the key's presence itself flags an impersonated action.
-        if ($impersonatorId !== null && !array_key_exists('impersonatedAsUserId', $context)) {
-            $context['impersonatedAsUserId'] = $request->getUser()?->getId();
+        if ($impersonatorId !== null && !array_key_exists('impersonatedAsUserId', $details)) {
+            $details['impersonatedAsUserId'] = $request->getUser()?->getId();
         }
 
-        if (!array_key_exists('ip', $context)) {
-            $context['ip'] = $request->getRemoteAddr();
+        if (!array_key_exists('ip', $details)) {
+            $details['ip'] = $request->getRemoteAddr();
         }
 
-        if (!array_key_exists('userAgent', $context)) {
-            $context['userAgent'] = $request->getUserAgent();
+        if (!array_key_exists('userAgent', $details)) {
+            $details['userAgent'] = $request->getUserAgent();
         }
 
         // Where: which context (journal/serve/press) and URL the event originated from.
-        if (!array_key_exists('contextId', $context)) {
-            $context['contextId'] = $request->getContext()?->getId();
+        if (!array_key_exists('contextId', $details)) {
+            $details['contextId'] = $request->getContext()?->getId();
         }
 
         // getRequestUrl() is scheme+host+path only (no query string / POST body),
         // so it cannot leak query-carried secrets such as the password-reset hash.
-        if (!array_key_exists('requestUrl', $context)) {
-            $context['requestUrl'] = $request->getRequestUrl();
+        if (!array_key_exists('requestUrl', $details)) {
+            $details['requestUrl'] = $request->getRequestUrl();
         }
 
-        return $context;
+        return $details;
     }
 }

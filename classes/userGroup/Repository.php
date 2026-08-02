@@ -26,6 +26,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -342,7 +343,7 @@ class Repository
             'masthead' => $masthead,
         ]);
 
-        AuditLog::log('user.role.assigned', LogLevel::NOTICE, [
+        AuditLog::log(AuditEvent::USER_ROLE_ASSIGNED, LogLevel::NOTICE, [
             'targetUserId' => $userId,
             'userGroupId' => $userGroupId,
         ]);
@@ -404,7 +405,7 @@ class Repository
 
         $query->update(['date_end' => $dateEnd]);
 
-        AuditLog::log('user.role.removed', LogLevel::NOTICE, [
+        AuditLog::log(AuditEvent::USER_ROLE_REMOVED, LogLevel::NOTICE, [
             'targetUserId' => $userId,
             'userGroupId' => $userGroupId,
             'contextId' => $contextId,

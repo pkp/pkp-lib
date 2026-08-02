@@ -25,6 +25,7 @@ use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityWriteInterface;
@@ -229,10 +230,16 @@ class PKPSiteService implements EntityPropertyInterface
 
         $siteDao->updateObject($newSite);
 
-        $securityKeys = ['minPasswordLength', 'passwordUncompromisedEnabled', 'rateLimitEnabled', 'rateLimitMaxAttempts', 'rateLimitDecaySeconds'];
+        $securityKeys = [
+            'minPasswordLength',
+            'passwordUncompromisedEnabled',
+            'rateLimitEnabled',
+            'rateLimitMaxAttempts',
+            'rateLimitDecaySeconds'
+        ];
         $changedKeys = array_values(array_filter($securityKeys, fn ($key) => array_key_exists($key, $params) && $site->getData($key) != $params[$key]));
         if ($changedKeys) {
-            AuditLog::log('site.security.updated', LogLevel::NOTICE, ['changedKeys' => $changedKeys]);
+            AuditLog::log(AuditEvent::SITE_SECURITY_UPDATE, LogLevel::NOTICE, ['changedKeys' => $changedKeys]);
         }
 
         $newSite = $siteDao->getSite();

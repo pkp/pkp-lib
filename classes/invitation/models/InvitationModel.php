@@ -15,13 +15,16 @@
 namespace PKP\invitation\models;
 
 use Carbon\Carbon;
+use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\InteractsWithTime;
 use PKP\invitation\core\enums\InvitationStatus;
-use Eloquence\Behaviours\HasCamelCasing;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
+use Psr\Log\LogLevel;
 
 class InvitationModel extends Model
 {
@@ -88,6 +91,54 @@ class InvitationModel extends Model
         'inviterId'
     ];
 
+    protected static function booted(): void
+    {
+        // Security audit trail for invitation lifecycle status transitions
+        static::saved(function (InvitationModel $invitation): void {
+            if (!$invitation->wasChanged('status')) {
+                return;
+            }
+
+            $event = match ($invitation->status) {
+                InvitationStatus::PENDING => AuditEvent::USER_INVITATION_SENT,
+                InvitationStatus::ACCEPTED => AuditEvent::USER_INVITATION_ACCEPTED,
+                InvitationStatus::DECLINED => AuditEvent::USER_INVITATION_DECLINED,
+                InvitationStatus::CANCELLED => AuditEvent::USER_INVITATION_CANCELLED,
+                default => null, // INITIALIZED - a draft, not an auditable event
+            };
+
+            if ($event === null) {
+                return;
+            }
+
+            $details = $invitation->getAuditDetails();
+
+            // Roles/user groups being granted (userRoleAssignment sends only; absent for other types).
+            $payload = $invitation->payload;
+            if ($event === AuditEvent::USER_INVITATION_SENT
+                && is_array($payload)
+                && is_array($payload['userGroupsToAdd'] ?? null)
+            ) {
+                $details['userGroupIds'] = array_column($payload['userGroupsToAdd'], 'userGroupId');
+            }
+
+            AuditLog::log($event, LogLevel::NOTICE, $details);
+        });
+    }
+
+    /**
+     * Minimal, PII-safe details for an invitation audit entry.
+     */
+    public function getAuditDetails(): array
+    {
+        return [
+            'invitationId' => $this->id,
+            'invitationType' => $this->type,
+            'inviterId' => $this->inviterId,
+            'inviteeUserId' => $this->userId,
+            'contextId' => $this->contextId,
+        ];
+    }
 
     public function id(): Attribute
     {
@@ -143,10 +194,10 @@ class InvitationModel extends Model
     public function scopeByUserId(Builder $query, ?int $userId): Builder
     {
         return $query->when($userId !== null, function ($query) use ($userId) {
-                return $query->where('user_id', $userId);
-            }, function ($query) {
-                return $query->whereNull('user_id');
-            });
+            return $query->where('user_id', $userId);
+        }, function ($query) {
+            return $query->whereNull('user_id');
+        });
     }
 
     /**
@@ -155,10 +206,10 @@ class InvitationModel extends Model
     public function scopeByEmail(Builder $query, ?string $email): Builder
     {
         return $query->when($email !== null, function ($query) use ($email) {
-                return $query->where('email', $email);
-            }, function ($query) {
-                return $query->whereNull('email');
-            });
+            return $query->where('email', $email);
+        }, function ($query) {
+            return $query->whereNull('email');
+        });
     }
 
     /**
@@ -167,10 +218,10 @@ class InvitationModel extends Model
     public function scopeByContextId(Builder $query, ?int $contextId): Builder
     {
         return $query->when($contextId !== null, function ($query) use ($contextId) {
-                return $query->where('context_id', $contextId);
-            }, function ($query) {
-                return $query->whereNull('context_id');
-            });
+            return $query->where('context_id', $contextId);
+        }, function ($query) {
+            return $query->whereNull('context_id');
+        });
     }
 
     /**

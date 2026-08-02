@@ -22,6 +22,7 @@ use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
 use PKP\config\Config;
 use PKP\notification\Notification;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\user\User;
 use Psr\Log\LogLevel;
@@ -121,8 +122,8 @@ class APIProfileForm extends BaseProfileForm
 
         AuditLog::log(
             $apiKeyAction === self::API_KEY_NEW
-                ? ($hadApiKey ? 'profile.apikey.regenerated' : 'profile.apikey.created')
-                : 'profile.apikey.deleted',
+                ? ($hadApiKey ? AuditEvent::PROFILE_APIKEY_REGENERATE : AuditEvent::PROFILE_APIKEY_CREATE)
+                : AuditEvent::PROFILE_APIKEY_DELETE,
             LogLevel::NOTICE
         );
 

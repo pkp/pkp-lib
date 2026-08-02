@@ -18,6 +18,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\Validation;
 use Psr\Log\LogLevel;
@@ -54,8 +55,8 @@ class PKPAuthenticateSession extends \Illuminate\Session\Middleware\Authenticate
     {
         // session terminated because the client IP changed mid-session. Capture the
         // actor + old/new IP before Auth::logout()/invalidate() tears the session down.
-        AuditLog::log('auth.logout.forced_ip_change', LogLevel::WARNING, [
-            'loggedInUserId' => $request->user()?->getId(),
+        AuditLog::log(AuditEvent::AUTH_LOGOUT_IP_CHANGE, LogLevel::WARNING, [
+            'userId' => $request->user()?->getId(),
             'oldIp' => $request->session()->get('login_ip'),
             'newIp' => $request->ip(),
         ]);

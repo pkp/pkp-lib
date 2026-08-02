@@ -191,7 +191,7 @@ msgstr "Rad{$submissionId} je spreman za uređivanje teksta za {$contextAcronym}
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "<p>Poštovani/Poštovana {$recipientName},</p><p>Nova predaja je spremna za "
-"uređivanje:</p><p><a href\"{$submissionUrl}\">{$submissionId} — \""
+"uređivanje:</p><p><a href=\"{$submissionUrl}\">{$submissionId} — \""
 "{$submissionTitle}\"</a><br />{$contextName}</p><p>Molimo Vas da slijedite "
 "sljedeće korake kako biste dovršili ovaj zadatak:</p><ol><li>Kliknite na "
 "poveznicu na predaju u nastavku:</li><li>Otvorite datoteke dostupne pod "

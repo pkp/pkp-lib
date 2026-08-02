@@ -198,7 +198,7 @@ msgstr "Bài nộp {$submissionId} đã sẵn sàng để chỉnh sửa cho {$co
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "<p>Kính gửi {$recipientName},</p><p>Bài nộp mới đã sẵn sàng để chỉnh sửa:</"
-"p><p><a href\"{$submissionUrl}\">{$submissionId} — {$submissionTitle}</a><br "
+"p><p><a href=\"{$submissionUrl}\">{$submissionId} — {$submissionTitle}</a><br "
 "/>{$contextName}</p><p>Vui lòng làm theo các bước sau để hoàn thành công "
 "việc này:</p><ol><li>Nhấp vào URL bài nộp bên dưới.</li><li>Mở bất kỳ tệp "
 "nào có sẵn trong Tệp nháp và chỉnh sửa tệp. Sử dụng khu vực Thảo luận chỉnh "

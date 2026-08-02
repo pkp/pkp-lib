@@ -89,7 +89,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U22 | My Submissions (author dashboard) | OJS OMP OPS | L | pending | |
 | U23 | Submissions dashboard (editorial) | OJS OMP OPS | H | pending | |
 | U24 | Workflow screen & stage access | OJS OMP OPS | M | pending | |
-| U25 | Submission stage | OJS OMP OPS | M | pending | |
+| U25 | Submission stage | OJS OMP OPS | M | done | Spec verified; 7 tests OJS, 8 OMP, 2 OPS absence (+setup each), green ×2 + post-fold confirm; register 3❓+2✅ (A2 area has private-file items); 2 readability frictions left open (Actors "onward" wording, OPS1 code-facing sentence); maintainer review pending |
 | U26 | Review stage & rounds | OJS OMP | H | done | Spec verified; 12 tests OJS, 13 OMP, 1 OPS absence (+setup each), green ×2 + post-fold confirm; register 3🐞+9❓+1✅ (A3 observation in private file); maintainer review pending |
 | U27 | Reviewer assignment & management | OJS OMP | H | pending | |
 | U28 | Reviewer's review | OJS OMP | H | pending | |

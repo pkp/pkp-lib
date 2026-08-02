@@ -43,8 +43,8 @@
 | GRID-029 | ojs omp ops | PKP\controllers\grid\files\review\WorkflowReviewRevisionsGridHandler | Workflow-page grid of author-uploaded revision files. Ops: fetchGrid, fetchRow, addFile Claimed by: review-stage-and-rounds. |
 | GRID-030 | ojs omp ops | PKP\controllers\grid\files\SelectableLibraryFileGridHandler | Base grid for selectable library file lists (category-selectable). No own ops |
 | GRID-031 | ojs omp ops | PKP\controllers\grid\files\SelectableSubmissionFileListCategoryGridHandler | Base grid for selectable submission-file category lists. No own ops; subclasses (GRID-015/020/023/027) supply them |
-| GRID-032 | ojs omp ops | PKP\controllers\grid\files\submission\AuthorSubmissionDetailsFilesGridHandler | Submission-stage files grid, author's submission details view. Ops: fetchGrid, fetchRow |
-| GRID-033 | ojs omp ops | PKP\controllers\grid\files\submission\EditorSubmissionDetailsFilesGridHandler | Submission-stage files grid, editor's submission details view. Ops: fetchGrid, fetchRow |
+| GRID-032 | ojs omp ops | PKP\controllers\grid\files\submission\AuthorSubmissionDetailsFilesGridHandler | Submission-stage files grid, author's submission details view. Ops: fetchGrid, fetchRow Claimed by: submission-stage. |
+| GRID-033 | ojs omp ops | PKP\controllers\grid\files\submission\EditorSubmissionDetailsFilesGridHandler | Submission-stage files grid, editor's submission details view. Ops: fetchGrid, fetchRow Claimed by: submission-stage. |
 | GRID-034 | ojs omp ops | PKP\controllers\grid\files\submissionDocuments\SubmissionDocumentsFilesGridHandler | Submission document library grid (library-file subclass). Ops: addFile, uploadFile, saveFile, editFile, updateFile, deleteFile, viewLibrary |
 | GRID-035 | ojs omp ops | PKP\controllers\grid\files\SubmissionFilesGridHandler | Abstract base for submission file grids (capabilities, stage authorization, filter, zip download). No own ops |
 | GRID-036 | ojs omp ops | PKP\controllers\grid\languages\LanguageGridHandler | Base language grid (locale settings columns). Ops: saveLanguageSetting, setContextPrimaryLocale, setDefaultSubmissionLocale |

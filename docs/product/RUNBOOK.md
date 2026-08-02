@@ -134,13 +134,29 @@ scenario API (a behavior change there still gets its parity entry). The gate
 travels with the fix: every suite the fix touches re-runs green before commit
 (ONE clean run suffices for a maintenance touch-up; the ×2 rule stays for new
 suites), and the fix commits with the session's normal commits and is named in
-the session report. Three boundaries stand unchanged:
+the session report.
+
+**Shipped SPECS are maintainable too (maintainer extension, 2026-08-02)** —
+when a session's own live evidence shows a claim in an already-shipped spec is
+inaccurate, or a gap sits squarely in that spec's territory, correct THAT spec
+in the same session rather than parking the finding. The correction goes
+through the spec's own quality bar, scaled to its size: a writing agent folds
+it under step 4's rules (the orchestrator still never edits a spec inline);
+evidence gets its footnote with probe date and verbatim strings; a new defect
+in that spec's territory becomes a proper register entry with the next free
+ID; lint re-runs to zero on the touched spec; and the session report names
+every spec touched and why. Judgment bounds: only what THIS session's
+evidence actually established — no speculative rewrites of untouched claims;
+a correction too large or too uncertain to fold confidently is instead
+recorded as that spec's register ❓ with a stated lean (still same-session,
+still its proper home). A small correction needs no fresh readability pass;
+a rewrite that changes how a reader would execute a rule or scenario gets the
+persona re-read of the rewritten spans, like step 9's rewrites.
+
+Two boundaries stand unchanged:
 - **App code stays minimal and gated** — `app-changes.md` row, and only when
   blocking green or a trivially-safe mirror of an existing pattern (the OPS
   int-cast class).
-- **Another feature's SPEC is never silently edited** — a claim drift found
-  while maintaining routes to that spec's register through the loop's own
-  gates, like any finding.
 - **The private-file policy is untouched** — maintenance never moves routed
   content.
 

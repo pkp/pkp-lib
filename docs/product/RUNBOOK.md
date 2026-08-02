@@ -123,6 +123,27 @@ orchestrator lean — not a wording rule.
 - **Aggregate views** ("all bugs", coverage) → computed from specs on demand;
   never hand-maintained.
 
+## Campaign-artifact maintenance (self-healing)
+
+**Maintainer ruling 2026-08-02**: artifacts the campaign itself created are
+LIVING — when a session discovers one is stale or defective, it FIXES it in
+that session as routine maintenance instead of parking a debt note. Covered:
+the `ojs-playwright-tests` skill and its companions, shared and app-side
+POMs/fixtures/helpers, earlier feature suites, the lint gate, and the `_test`
+scenario API (a behavior change there still gets its parity entry). The gate
+travels with the fix: every suite the fix touches re-runs green before commit
+(ONE clean run suffices for a maintenance touch-up; the ×2 rule stays for new
+suites), and the fix commits with the session's normal commits and is named in
+the session report. Three boundaries stand unchanged:
+- **App code stays minimal and gated** — `app-changes.md` row, and only when
+  blocking green or a trivially-safe mirror of an existing pattern (the OPS
+  int-cast class).
+- **Another feature's SPEC is never silently edited** — a claim drift found
+  while maintaining routes to that spec's register through the loop's own
+  gates, like any finding.
+- **The private-file policy is untouched** — maintenance never moves routed
+  content.
+
 ## What to read, when
 
 - **The floor, every iteration**: this file + `PROGRESS.md` + the target

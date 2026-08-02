@@ -25,12 +25,14 @@ use Firebase\JWT\SignatureInvalidException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PKP\middleware\HasUser;
-use PKP\middleware\traits\HasRequiredMiddleware;
 use PKP\config\Config;
 use PKP\core\PKPJwt as JWT;
 use PKP\core\PKPSessionGuard;
+use PKP\middleware\traits\HasRequiredMiddleware;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\user\User;
+use Psr\Log\LogLevel;
 use stdClass;
 use Throwable;
 use UnexpectedValueException;
@@ -48,7 +50,7 @@ class DecodeApiTokenWithValidation
             HasUser::class,
         ];
     }
-    
+
     /**
      * Decode and validate the API token with incoming api request.
      *
@@ -100,19 +102,27 @@ class DecodeApiTokenWithValidation
             $user = Repo::user()->getByApiKey($apiToken);
 
             if (!$user || !$user->getData('apiKeyEnabled')) {
+                AuditLog::log(AuditEvent::AUTH_API_TOKEN_INVALID, LogLevel::WARNING, ['reason' => 'key_unknown_or_disabled']);
+
                 return response()->json([
                     'error' => __('api.403.unauthorized'),
                 ], Response::HTTP_UNAUTHORIZED);
             }
         } catch (Throwable $exception) {
 
-            if($exception instanceof SignatureInvalidException) {
+            if ($exception instanceof SignatureInvalidException) {
+                AuditLog::log(AuditEvent::AUTH_API_TOKEN_INVALID, LogLevel::WARNING, ['reason' => 'invalid_signature']);
+
                 return response()->json([
                     'error' => __('api.400.invalidApiToken'),
                 ], Response::HTTP_BAD_REQUEST);
             }
 
-            if($exception instanceof DomainException || $exception instanceof UnexpectedValueException) {
+            if ($exception instanceof DomainException || $exception instanceof UnexpectedValueException) {
+                AuditLog::log(AuditEvent::AUTH_API_TOKEN_INVALID, LogLevel::WARNING, [
+                    'reason' => $exception instanceof \Firebase\JWT\ExpiredException ? 'expired' : 'decode_failed',
+                ]);
+
                 return response()->json([
                     'error' => __('api.400.tokenCouldNotBeDecoded'),
                 ], Response::HTTP_BAD_REQUEST);

@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use Psr\Log\LogLevel;
 
@@ -103,9 +104,9 @@ class UserDisableForm extends Form
             $user->setDisabledReason($this->getData('disableReason'));
             Repo::user()->edit($user);
             if ($this->_enable) {
-                AuditLog::log('user.account.enabled', LogLevel::NOTICE, ['targetUserId' => $user->getId()]);
+                AuditLog::log(AuditEvent::USER_ENABLED, LogLevel::NOTICE, ['targetUserId' => $user->getId()]);
             } else {
-                AuditLog::log('user.account.disabled', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::USER_DISABLED, LogLevel::NOTICE, [
                     'targetUserId' => $user->getId(),
                     'disabledReason' => $this->getData('disableReason'),
                 ]);

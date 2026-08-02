@@ -25,6 +25,7 @@ use PKP\form\validation\FormValidatorCSRF;
 use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorPost;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\Validation;
 use PKP\site\Site;
@@ -123,6 +124,6 @@ class ChangePasswordForm extends Form
 
         Repo::user()->edit($user);
 
-        AuditLog::log('profile.password.changed', LogLevel::NOTICE);
+        AuditLog::log(AuditEvent::PROFILE_PASSWORD_CHANGE, LogLevel::NOTICE);
     }
 }

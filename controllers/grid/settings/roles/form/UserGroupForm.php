@@ -25,6 +25,7 @@ use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -250,7 +251,7 @@ class UserGroupForm extends Form
             $userGroup->save();
             $userGroupId = $userGroup->id;
 
-            AuditLog::log('user.group.created', LogLevel::NOTICE, [
+            AuditLog::log(AuditEvent::USER_GROUP_CREATED, LogLevel::NOTICE, [
                 'userGroupId' => $userGroupId,
                 'roleId' => $userGroup->roleId,
                 'assignedStages' => $this->getData('assignedStages') ?: [],
@@ -303,7 +304,7 @@ class UserGroupForm extends Form
                 fn ($key) => $previousPermissions[$key] != $userGroup->{$key}
             ));
             if ($changedPermissions) {
-                AuditLog::log('user.group.updated', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::USER_GROUP_UPDATED, LogLevel::NOTICE, [
                     'userGroupId' => $userGroupId,
                     'changedPermissions' => $changedPermissions,
                 ]);

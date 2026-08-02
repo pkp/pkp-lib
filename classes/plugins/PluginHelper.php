@@ -26,6 +26,7 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\site\SiteDAO;
 use PKP\site\Version;
@@ -254,7 +255,7 @@ class PluginHelper
                 $installer->execute() || throw new Exception(__('manager.plugins.installFailed', ['errorString' => $installer->getErrorString()]));
                 $versionDao->insertVersion($pluginVersion, true);
 
-                AuditLog::log('plugin.installed', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::PLUGIN_INSTALL, LogLevel::NOTICE, [
                     'product' => $pluginVersion->getProduct(),
                     'productType' => $pluginVersion->getProductType(),
                     'version' => $pluginVersion->getVersionString(false),
@@ -339,7 +340,7 @@ class PluginHelper
                 $pluginVersion->setCurrent(1);
                 $versionDao->insertVersion($pluginVersion, true);
 
-                AuditLog::log('plugin.upgraded', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::PLUGIN_UPGRADE, LogLevel::NOTICE, [
                     'category' => $category,
                     'product' => $pluginVersion->getProduct(),
                     'previousVersion' => $installedPlugin->getVersionString(false),

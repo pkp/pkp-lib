@@ -30,6 +30,7 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -372,7 +373,7 @@ class UserGroupGridHandler extends GridHandler
                 // We can delete, no user assigned yet.
                 $userGroup->delete();
 
-                AuditLog::log('user.group.deleted', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::USER_GROUP_DELETED, LogLevel::NOTICE, [
                     'userGroupId' => $userGroup->id,
                     'roleId' => $userGroup->roleId,
                 ]);
@@ -456,7 +457,7 @@ class UserGroupGridHandler extends GridHandler
                     'stageId' => $stageId
                 ]);
 
-                AuditLog::log('user.group.stage_assigned', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::USER_GROUP_STAGE_ASSIGNED, LogLevel::NOTICE, [
                     'userGroupId' => $userGroup->id,
                     'stageId' => $stageId,
                 ]);
@@ -470,7 +471,7 @@ class UserGroupGridHandler extends GridHandler
                     ->withStageId($stageId)
                     ->delete();
 
-                AuditLog::log('user.group.stage_unassigned', LogLevel::NOTICE, [
+                AuditLog::log(AuditEvent::USER_GROUP_STAGE_UNASSIGNED, LogLevel::NOTICE, [
                     'userGroupId' => $userGroup->id,
                     'stageId' => $stageId,
                 ]);

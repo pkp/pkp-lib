@@ -24,6 +24,7 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidatorCSRF;
 use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorPost;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\Validation;
 
@@ -118,8 +119,8 @@ class ResetPasswordForm extends Form
 
         Repo::user()->edit($user);
 
-        AuditLog::log('auth.password_reset.completed', \Psr\Log\LogLevel::NOTICE, [
-            'loggedInUserId' => $user->getId(),
+        AuditLog::log(AuditEvent::AUTH_PASSWORD_RESET_COMPLETE, \Psr\Log\LogLevel::NOTICE, [
+            'userId' => $user->getId(),
         ]);
 
         parent::execute(...$functionArgs);

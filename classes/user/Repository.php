@@ -27,6 +27,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileDAO;
 use PKP\plugins\Hook;
+use PKP\security\AuditEvent;
 use PKP\security\AuditLog;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -109,7 +110,7 @@ class Repository
         $id = $this->dao->insert($user);
         Hook::call('User::add', [$user]);
 
-        AuditLog::log('user.account.created', LogLevel::NOTICE, ['createdUserId' => $id]);
+        AuditLog::log(AuditEvent::USER_CREATED, LogLevel::NOTICE, ['createdUserId' => $id]);
 
         return $id;
     }
@@ -132,7 +133,7 @@ class Repository
 
         $this->dao->delete($user);
 
-        AuditLog::log('user.account.deleted', LogLevel::NOTICE, ['deletedUserId' => $user->getId()]);
+        AuditLog::log(AuditEvent::USER_DELETED, LogLevel::NOTICE, ['deletedUserId' => $user->getId()]);
 
         Hook::call('User::delete', [&$user]);
     }
@@ -419,7 +420,7 @@ class Repository
             }
         }
 
-        AuditLog::log('user.account.merged', LogLevel::NOTICE, ['oldUserId' => $oldUserId, 'newUserId' => $newUserId]);
+        AuditLog::log(AuditEvent::USER_MERGED, LogLevel::NOTICE, ['oldUserId' => $oldUserId, 'newUserId' => $newUserId]);
 
         $this->delete($this->get($oldUserId, true));
 
@@ -569,7 +570,7 @@ class Repository
             ->whereIn('user_interests.user_id', $userIds)
             ->leftJoin('controlled_vocab_entry_settings as cves', function ($join) {
                 $join->on('cves.controlled_vocab_entry_id', '=', 'user_interests.controlled_vocab_entry_id')
-                ->whereIn('cves.setting_name', ['interest', 'name']);
+                    ->whereIn('cves.setting_name', ['interest', 'name']);
             })
             ->orderBy('user_interests.user_id')
             ->orderBy('user_interests.controlled_vocab_entry_id')
@@ -589,7 +590,7 @@ class Repository
 
         $map = [];
         foreach ($rows as $r) {
-            $userId  = (int) $r->user_id;
+            $userId = (int) $r->user_id;
             $entryId = (int) $r->controlled_vocab_entry_id;
             $map[$userId][$entryId] ??= [
                 'id' => $entryId,

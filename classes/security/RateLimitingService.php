@@ -20,6 +20,8 @@ namespace PKP\security;
 use Illuminate\Support\Facades\RateLimiter;
 use PKP\site\Site;
 use Psr\Log\LogLevel;
+use PKP\security\AuditLog;
+use PKP\security\AuditEvent;
 
 class RateLimitingService
 {
@@ -268,7 +270,7 @@ class RateLimitingService
      */
     protected function logRateLimitEvent(string $type, string $ip, ?string $identifier = null): void
     {
-        AuditLog::log('auth.ratelimit.hit', LogLevel::WARNING, [
+        AuditLog::log(AuditEvent::AUTH_RATE_LIMIT, LogLevel::WARNING, [
             'type' => $type, // 'login' | 'password_reset'
             'ip' => $ip,
             'identifier' => $identifier,

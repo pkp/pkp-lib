@@ -24,8 +24,6 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextAccessPolicy;
-use PKP\security\authorization\internal\SubmissionCompletePolicy;
-use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -96,9 +94,6 @@ class PKPBodyTextController extends PKPBaseController
     {
         $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
         $actionName = static::getRouteActionName($illuminateRequest);
-
-        $this->addPolicy(new SubmissionRequiredPolicy($request, $args));
-        $this->addPolicy(new SubmissionCompletePolicy($request, $args));
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 

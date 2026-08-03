@@ -97,6 +97,7 @@ class PKPStageParticipantNotifyForm extends Form
     {
         $context = $request->getContext();
         $user = $request->getUser();
+        $templateData = [];
 
         // Add the templates that can be used for this message
         if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
@@ -116,12 +117,12 @@ class PKPStageParticipantNotifyForm extends Form
             $templateData = $templates->mapWithKeys(
                 fn (Template $template, int $key) =>
                 [$template->id => $template->getLocalizedData('title')]
-            );
+            )->toArray();
         }
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'templates' => $templateData->toArray() ?? [],
+            'templates' => $templateData,
             'stageId' => $this->getStageId(),
             'submissionId' => $this->_submissionId,
             'itemId' => $this->_itemId,
@@ -219,17 +220,7 @@ class PKPStageParticipantNotifyForm extends Form
             ]);
         }
 
-        //Substitute email template variables not available before form being executed
-        $templateKey = '';
-        foreach (EditorialTask::getTitleLocalizedStrings($context) as $key => $map) {
-            foreach ($map as $localizedTitle) {
-                if ($template->getLocalizedData('title') == $localizedTitle) {
-                    $templateKey = $key;
-                    break 2;
-                }
-            }
-        }
-
+        $templateKey = $template->emailKey;
         $additionalVariables = $this->getEmailVariableNames($templateKey);
 
         // Create a head note

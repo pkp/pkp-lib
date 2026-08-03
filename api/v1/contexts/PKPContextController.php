@@ -28,6 +28,7 @@ use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\facades\Repo;
 use PKP\plugins\Hook;
 use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
@@ -351,6 +352,8 @@ class PKPContextController extends PKPBaseController
         $context = Application::getContextDAO()->newDataObject();
         $context->setAllData($params);
         $context = $contextService->add($context, $request);
+        Repo::editorialTask()->installTaskTemplates($context);
+
         $contextProps = $contextService->getFullProperties($context, [
             'request' => $request,
             'apiRequest' => $illuminateRequest

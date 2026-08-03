@@ -41,6 +41,7 @@ use PKP\userGroup\UserGroup;
  * @method Builder|static withTitleLike(string $title)
  * @method Builder|static withSearch(string $phrase)
  * @method Builder|static withUserGroupsAccess(?array $userGroupIds)
+ * @method Builder|static withEmailKeys(array $emailKeys, int $contextId)
  */
 class Template extends Model
 {
@@ -92,7 +93,7 @@ class Template extends Model
     {
         return array_merge(
             $this->settings,
-            ['title', 'description'],
+            ['title', 'description', 'emailKey'],
         );
     }
 
@@ -166,16 +167,19 @@ class Template extends Model
     /**
      * Identify which user groups have access to the template
      */
-    public function scopeWithUserGroupAccess(Builder $query, array $userGroupIds): Builder
+    public function scopeWithUserGroupsAccess(Builder $query, array $userGroupIds): Builder
     {
         return $query->when(
             !empty($userGroupIds),
-            fn ($query) =>
-            $query->whereHas(
-                'userGroups',
-                fn ($subQuery) =>
-                $subQuery->whereIn('user_group_id', $userGroupIds)
-            )->orWhere('restrict_to_user_groups', false)
+            fn (Builder $query) =>
+            $query->where(
+                fn (Builder $query) =>
+                $query->whereHas(
+                    'userGroups',
+                    fn (Builder $subQuery) =>
+                    $subQuery->whereIn('user_group_id', $userGroupIds)
+                )->orWhere('restrict_to_user_groups', false)
+            )
         );
     }
 
@@ -311,5 +315,25 @@ class Template extends Model
         $ug = (new UserGroup())->getTable();
         return $builder->where('restrict_to_user_groups', false)
             ->orWhereHas('userGroups', fn (Builder $query) => $query->whereIn($ug . '.user_group_id', $userGroupIds));
+    }
+
+    /**
+     * Filter query by email keys belonging to the discussion templates migrated from email templates
+     */
+    protected function scopeWithEmailKeys(Builder $builder, array $emailKeys, int $contextId): Builder
+    {
+        $settingsTable = $this->getSettingsTable();
+        $pk = $this->getKeyName();
+        $selfTable = $this->getTable();
+
+        return $builder->where('context_id', $contextId)->whereExists(
+            fn (QueryBuilder $q) => $q
+                ->select(DB::raw(1))
+                ->from($settingsTable . ' as ets')
+                ->whereColumn("ets.{$pk}", '=', "{$selfTable}.{$pk}")
+                ->where('ets.setting_name', 'emailKey')
+                ->whereIn('ets.setting_value', $emailKeys)
+        );
+
     }
 }

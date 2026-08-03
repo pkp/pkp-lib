@@ -20,11 +20,15 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\db\XMLDAO;
 use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -246,8 +250,8 @@ class Repository
 
         if (!empty($taskIds)) {
             EditorialTask::whereIn($primaryKeyName, $taskIds)->delete();
-            Note::whereIn('assoc_id', $taskIds)->delete();
-            Notification::whereIn('assoc_id', $taskIds)->delete();
+            Note::whereIn('assoc_id', $taskIds)->where('assoc_type', PKPApplication::ASSOC_TYPE_QUERY)->delete();
+            Notification::whereIn('assoc_id', $taskIds)->where('assoc_type', PKPApplication::ASSOC_TYPE_QUERY)->delete();
         }
     }
 
@@ -295,6 +299,106 @@ class Repository
         return $template->userGroups()
             ->whereIn('user_group_id', $userGroupIds)
             ->exists();
+    }
 
+    /**
+     * Get the main email template path and filename.
+     */
+    public function getDefaultTemplatesFilename()
+    {
+        return 'registry/taskTemplates.xml';
+    }
+
+    /**
+     * Install default task templates
+     *
+     */
+    public function installTaskTemplates(Context $context, ?array $addedLocales = null, bool $reset = false): bool
+    {
+        $xmlDao = new XMLDAO();
+        $data = $xmlDao->parseStruct($this->getDefaultTemplatesFilename(), ['template']);
+
+        if (!isset($data['template'])) {
+            return false;
+        }
+
+        // Set data from a template
+        $templatesData = [];
+        foreach ($data['template'] as $entry) {
+            $attrs = [
+                'title' => Arr::get($entry, 'attributes.title'),
+                'description' => Arr::get($entry, 'attributes.description'),
+            ];
+
+            $attrs['emailKey'] = Arr::get($entry, 'attributes.emailKey');
+            $stageId = Arr::get($entry, 'attributes.stageId');
+            if (defined($stageId)) {
+                $attrs['stageId'] = $stageId;
+            }
+
+            $templatesData[] = array_filter($attrs);
+        }
+
+        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
+        $siteLocales = $siteDao->getSite()->getSupportedLocales();
+
+        foreach ($templatesData as $templateData) {
+            $fillables = [];
+            $localizedTitle = $localizedDescription = [];
+            foreach ($templateData as $key => $data) {
+                $locales = $addedLocales ?? $siteLocales;
+                foreach ($locales as $locale) {
+                    $previous = Locale::getMissingKeyHandler();
+                    Locale::setMissingKeyHandler(fn (string $localeKey): string => '');
+                    switch ($key) {
+                        case 'title':
+                            $localizedTitle[$locale] = __($data, [], $locale);
+                            break;
+                        case 'description':
+                            $localizedDescription[$locale] = __($data, [], $locale);
+                            break;
+                    }
+                    Locale::setMissingKeyHandler($previous);
+                }
+
+                switch ($key) {
+                    case 'stageId':
+                        $fillables['stageId'] = constant($data);
+                        break;
+                    case 'emailKey':
+                        $fillables['emailKey'] = $data;
+                        break;
+                }
+            }
+
+            $fillables['title'] = $localizedTitle;
+            $fillables['description'] = $localizedDescription;
+
+            $fillables = array_merge($fillables, [
+                'contextId' => $context->getId(),
+                'type' => EditorialTaskType::DISCUSSION->value, // Only discussions are implemented as default templates.
+            ]);
+
+            // In case of reset operation, rewrite all templates
+            if ($reset) {
+                $template = new Template($fillables);
+            } else {
+                // If exists by email key, just add new localizations, if available
+                $template = null;
+                if (isset($fillables['emailKey'])) {
+                    $template = Template::withEmailKeys([$fillables['emailKey']], $fillables['contextId'])->first();
+                }
+                if ($template) {
+                    $fillables['title'] = array_merge($template->title, $fillables['title']);
+                    $fillables['description'] = array_merge($template->description, $fillables['description']);
+                } else {
+                    $template = new Template($fillables);
+                }
+            }
+
+            $template->save();
+        }
+
+        return true;
     }
 }

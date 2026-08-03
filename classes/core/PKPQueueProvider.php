@@ -57,8 +57,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         return PKPJobModel::isAvailable()
             ->nonEmptyQueue()
             ->when($this->queue, fn ($query) => $query->onQueue($this->queue))
-            ->when(is_null($this->queue), fn ($query) => $query->notQueue(PKPJobModel::TESTING_QUEUE))
-            ->notExceededAttempts();
+            ->when(is_null($this->queue), fn ($query) => $query->notQueue(PKPJobModel::TESTING_QUEUE));
     }
 
     /**
@@ -99,8 +98,13 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         }
 
         $laravelContainer = PKPContainer::getInstance();
+        $worker = $laravelContainer['queue.worker']; /** @var \Illuminate\Queue\Worker $worker */
 
-        $laravelContainer['queue.worker']->runNextJob(
+        // This mimic same mechanism as worker daemon which allow to validate and managed via cache
+        // at non worker env for middlewares, uniqueness check, maxExceptions etc that are cache dependent
+        $worker->setCache(app()->get('cache.store'));
+
+        $worker->runNextJob(
             'database',
             $job->queue ?? Config::getVar('queues', 'default_queue', 'queue'),
             $this->getWorkerOptions()

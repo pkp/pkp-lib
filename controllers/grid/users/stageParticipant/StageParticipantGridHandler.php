@@ -30,7 +30,6 @@ use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\editorialTask\EditorialTask;
 use PKP\editorialTask\Template;
 use PKP\editorialTask\TemplateVariables;
 use PKP\linkAction\LinkAction;
@@ -605,15 +604,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $mailable->sender($user);
             $notifyForm = new PKPStageParticipantNotifyForm($submission->getId(), Application::ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE));
 
-            $templateKey = '';
-            foreach (EditorialTask::getTitleLocalizedStrings($context) as $key => $map) {
-                foreach ($map as $localizedTitle) {
-                    if ($template->getLocalizedData('title') == $localizedTitle) {
-                        $templateKey = $key;
-                        break 2;
-                    }
-                }
-            }
+            $templateKey = $template->emailKey;
 
             return new JSONMessage(
                 true,

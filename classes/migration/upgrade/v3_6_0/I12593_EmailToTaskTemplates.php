@@ -64,6 +64,10 @@ class I12593_EmailToTaskTemplates extends Migration
      */
     public function up(): void
     {
+        Schema::table('edit_task_templates', function (Blueprint $table) {
+            $table->boolean('default')->default(false);
+        });
+
         $this->localizeTaskTemplateData();
 
         // Migration of the custom templates
@@ -118,7 +122,14 @@ class I12593_EmailToTaskTemplates extends Migration
                 'restrict_to_user_groups' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
+                'default' => true,
             ], 'edit_task_template_id');
+
+            DB::table('edit_task_template_settings')->insert([
+                'edit_task_template_id' => $templateId,
+                'setting_name' => 'emailKey',
+                'setting_value' => $customTemplate->alternate_to ?? $customTemplate->email_key,
+            ]);
 
             foreach ($localizedSettings as $locale => $setting) {
                 DB::table('edit_task_template_settings')->insert([
@@ -133,7 +144,7 @@ class I12593_EmailToTaskTemplates extends Migration
                         'locale' => $locale,
                         'setting_name' => 'description',
                         'setting_value' => $setting['body'],
-                    ]
+                    ],
                 ]);
             }
 
@@ -169,9 +180,18 @@ class I12593_EmailToTaskTemplates extends Migration
                     'restrict_to_user_groups' => false,
                     'created_at' => now(),
                     'updated_at' => now(),
+                    'default' => true,
                 ], 'edit_task_template_id');
 
                 $this->insertedTaskTemplateIds[] = $insertedTaskTemplateId;
+
+                DB::table('edit_task_template_settings')->insert([
+                    [
+                        'edit_task_template_id' => $insertedTaskTemplateId,
+                        'setting_name' => 'emailKey',
+                        'setting_value' => $key,
+                    ],
+                ]);
 
                 foreach ($group as $item) {
                     DB::table('edit_task_template_settings')->insert([
@@ -186,7 +206,7 @@ class I12593_EmailToTaskTemplates extends Migration
                             'locale' => $item->locale,
                             'setting_name' => 'description',
                             'setting_value' => $item->body,
-                        ]
+                        ],
                     ]);
                 }
             }
@@ -196,7 +216,6 @@ class I12593_EmailToTaskTemplates extends Migration
         DB::table('email_templates')->whereIn('email_id', $customIds)->delete();
         DB::table('email_templates_settings')->whereIn('email_id', $customIds)->delete();
         DB::table('email_templates_default_data')->whereIn('email_key', $this->getEmailKeys())->delete();
-        DB::table('email_template_user_group_access')->whereIn('email_key', $this->getEmailKeys())->delete();
     }
 
     /**
@@ -216,9 +235,9 @@ class I12593_EmailToTaskTemplates extends Migration
      */
     protected function localizeTaskTemplateData(): void
     {
-        $this->taskTemplateData = DB::table('edit_task_templates')->get(['edit_task_template_id', 'title', 'description']);
+        $this->taskTemplateData = DB::table('edit_task_templates')->get(['edit_task_template_id', 'title', 'description', 'context_id']);
 
-        // Get primary locales of availables contexts
+        // Get primary locales of available contexts
         $contextDao = Application::getContextDAO();
         $contextLocales = DB::table($contextDao->tableName)->get([$contextDao->primaryKeyColumn, 'primary_locale'])
             ->mapWithKeys(fn (\stdClass $row) => [$row->{$contextDao->primaryKeyColumn} => $row->primary_locale]);

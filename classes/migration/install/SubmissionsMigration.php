@@ -341,6 +341,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->enum('type', array_column(EditorialTaskType::cases(), 'value'))->default(EditorialTaskType::DISCUSSION);
             $table->boolean('restrict_to_user_groups')->default(false)
                 ->comment('Whether the template is restricted to user groups defined in the many to many relationship.');
+            $table->boolean('default')->default(false);
 
             $table->timestamps();
         });

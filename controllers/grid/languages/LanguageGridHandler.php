@@ -175,7 +175,7 @@ class LanguageGridHandler extends GridHandler
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
-        
+
         $locale = (string) $request->getUserVar('rowId');
         $context = $request->getContext();
         $availableLocales = $this->getGridDataElements($request);
@@ -195,7 +195,7 @@ class LanguageGridHandler extends GridHandler
             $context->setPrimaryLocale($locale);
             $contextDao = Application::getContextDAO();
             $contextDao->updateObject($context);
-            
+
             Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd(
                 $context,
                 $locale,

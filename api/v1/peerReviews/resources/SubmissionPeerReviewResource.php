@@ -130,6 +130,7 @@ class SubmissionPeerReviewResource extends JsonResource
                     'versionString' => $publication->getData('versionString'),
                     'versionStage' => $publication->getData('versionStage'),
                     'datePublished' => $publication->getData('datePublished'),
+                    'doi' => $this->getReviewedVersionDoi($publication, $submission, $context),
                 ],
                 ...$reviewStatusData->toArray(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
@@ -142,6 +143,27 @@ class SubmissionPeerReviewResource extends JsonResource
             'reviewRounds' => $roundsData->toArray(),
             'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($reviewAssignments, $context),
         ];
+    }
+
+    /**
+     * Resolve the DOI of the reviewed publication version, mirroring how the article page
+     * resolves it: the version's own DOI, then the shared DOI of its sibling minor versions
+     * when DOI versioning is enabled, otherwise the submission's current DOI.
+     *
+     * @return ?string The DOI, or null when the submission has no DOI assigned.
+     */
+    private function getReviewedVersionDoi(Publication $publication, Submission $submission, Context $context): ?string
+    {
+        $doiObject = $publication->getData('doiObject');
+        if (!$doiObject) {
+            if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+                $doiObject = Repo::publication()->getMinorVersionsDoi($publication);
+            } elseif ($publication->getId() !== $submission->getData('currentPublicationId')) {
+                $doiObject = $submission->getCurrentPublication()?->getData('doiObject');
+            }
+        }
+
+        return $doiObject?->getData('doi');
     }
 
     /**

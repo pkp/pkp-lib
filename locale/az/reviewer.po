@@ -39,6 +39,7 @@ msgid "reviewer.submission.downloadDescription"
 msgstr ""
 "Bu məqalə ilə bağlı faylları endirmək üçün aşağıdakı fayl adlarını klikləyin."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Bu məqalə ilə bağlı dəyərləndirmənizi aşağıdakı forma daxil edin (və ya "

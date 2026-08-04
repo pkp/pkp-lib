@@ -99,6 +99,7 @@ msgstr ""
 "Fe clic en o nombre d'os fichers pa descargar y revisar (en a pantalla u ya "
 "imprentaus) los fichers relacionaus con este ninvio."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Escribe (u apega) la tuya revisión d'este ninvio en o formulario que "

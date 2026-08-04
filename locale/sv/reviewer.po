@@ -89,6 +89,7 @@ msgid "reviewer.submission.downloadDescription"
 msgstr ""
 "Klicka på filnamnen nedan för att ladda ner filerna som tillhör detta bidrag."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Fyll i din bedömning av detta bidrag i formuläret nedan."
 

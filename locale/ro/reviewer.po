@@ -87,6 +87,7 @@ msgstr ""
 "Faceți clic pe numele fișierelor de mai jos pentru a descărca fișierele "
 "asociate cu această înregistrare de manuscris."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Introduceți (sau inserați) recenzia dvs. pentru acest manuscris în "

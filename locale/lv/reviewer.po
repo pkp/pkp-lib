@@ -85,6 +85,7 @@ msgstr ""
 "Lai lejupielādētu ar šo materiālu saistītās datnes, noklikšķiniet uz tālāk "
 "norādītajiem datņu nosaukumiem."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Ievadiet (vai ielīmējiet) savu recenziju par šo materiālu zemāk redzamajā "

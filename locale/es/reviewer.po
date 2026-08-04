@@ -93,6 +93,7 @@ msgstr ""
 "Haz clic en el nombre de los archivos para descargar y revisar (en la "
 "pantalla o una vez impresos) los archivos relacionados con este envío."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Introduce (o pega) tu revisión de este envío en el formulario que se muestra "

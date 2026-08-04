@@ -88,6 +88,7 @@ msgstr ""
 "Klikk på filnavnene under for å laste ned filene knyttet til denne "
 "innleveringen."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Skriv (eller lim) inn fagfellevurderingen i skjemaet under."
 

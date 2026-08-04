@@ -22,6 +22,20 @@ use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 class Schema extends \PKP\core\maps\Schema
 {
+    /** @var string[] Schema properties a reviewer may see of their own assignment */
+    public const REVIEWER_PROPS = [
+        'id',
+        'submissionId',
+        'reviewRoundId',
+        'stageId',
+        'reviewerRecommendationId',
+        'dateCompleted',
+        'cancelled',
+        'declined',
+        'reviewFormId',
+        'step',
+    ];
+
     public Enumerable $collection;
 
     public string $schema = PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT;
@@ -47,6 +61,14 @@ class Schema extends \PKP\core\maps\Schema
     public function summarize(ReviewAssignment $item, Submission $submission): array
     {
         return $this->mapByProperties($this->getSummaryProps(), $item, $submission);
+    }
+
+    /**
+     * Summarize the Review Assignment for its own reviewer - editorial-only props like quality must not leak
+     */
+    public function summarizeForReviewer(ReviewAssignment $item, Submission $submission): array
+    {
+        return $this->mapByProperties(self::REVIEWER_PROPS, $item, $submission);
     }
 
     /**

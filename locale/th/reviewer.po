@@ -88,6 +88,7 @@ msgstr "ผลประโยชน์ที่ขัดแย้งกัน"
 msgid "reviewer.submission.downloadDescription"
 msgstr "คลิกที่ชื่อไฟล์ด้านล่างเพื่อดาวน์โหลดไฟล์ที่เกี่ยวข้องกับการส่งงานนี้"
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "ป้อน (หรือวาง) การทบทวนของคุณสำหรับการส่งงานนี้ลงในแบบฟอร์มด้านล่าง"
 

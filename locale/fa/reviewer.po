@@ -83,6 +83,7 @@ msgstr "این انتشارات هیچ دستورالعمل داوری را مش
 msgid "reviewer.submission.downloadDescription"
 msgstr "برای دانلود فالی‌های این مقاله ارسالی بر روی اسم فایل‌ها کلیک کنید."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "نتیجه داوری خود را در فرم زیر ثبت کنید."
 

@@ -84,6 +84,7 @@ msgstr ""
 "この投稿物に関連するファイルをダウンロードするには、以下のファイル名をクリッ"
 "クしてください。"
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "この投稿の査読文を下のフォームに入力（または貼り付け）してください。"
 

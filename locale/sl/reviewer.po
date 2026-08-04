@@ -90,6 +90,7 @@ msgstr "Izdajatelj ni definiral nobenih recenzentskih navodil."
 msgid "reviewer.submission.downloadDescription"
 msgstr "Kliknite na imena datotek spodaj, da prenesete datoteke prispevka."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Vpišite vašo recenzijo v spodnji obrazec."
 

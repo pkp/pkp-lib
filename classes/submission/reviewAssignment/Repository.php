@@ -155,8 +155,12 @@ class Repository
             $validator->after(function ($validator) use ($props) {
                 if (!$validator->errors()->get('quality')) {
                     $quality = $props['quality'];
-                    $isValidRating = $quality >= ReviewAssignment::REVIEW_ASSIGNMENT_QUALITY_MIN &&
-                        $quality <= ReviewAssignment::REVIEW_ASSIGNMENT_QUALITY_MAX;
+                    // Zero signifies no rating
+                    $hasRating = $quality !== 0;
+
+                    $isValidRating = $hasRating && $quality >= ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR &&
+                        $quality <= ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_GOOD;
+
                     if (!$isValidRating) {
                         $validator->errors()->add('quality', __('api.reviews.assignments.invalidQualityRating'));
                     }

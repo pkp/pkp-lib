@@ -135,7 +135,7 @@ class Schema extends \PKP\core\maps\Schema
                         $output[$prop] = [
                             'id' => $recommendation->id,
                             'type' => $recommendation->type,
-                            'name' => $recommendation->title,
+                            'label' => $recommendation->title,
                         ];
                     } else {
                         $output[$prop] = null;

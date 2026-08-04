@@ -22,6 +22,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\core\Core;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -77,9 +78,9 @@ class ReviewAssignmentController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -125,7 +126,7 @@ class ReviewAssignmentController extends PKPBaseController
 
     /**
      * Edit a review assignment.
-     * Currently, only support updating the `quality` field of a review assignment.
+     * Currently, only support updating the `quality` field of a review assignment. Accepted rating values are 1 to 5, or 0 to unset existing the rating.
      */
     public function edit(Request $illuminateRequest): JsonResponse
     {
@@ -172,10 +173,16 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        $hasRating = $params['quality'] !== 0;
+        // If no rating was submitted, then unset the existing one with a `null` value.
+        $params['dateRated'] = $hasRating ? Core::getCurrentDate() : null;
+        $params['quality'] = $hasRating ? $params['quality'] : null;
+
         $errors = Repo::reviewAssignment()->validate($reviewAssignment, $params, $context);
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
+
 
         Repo::reviewAssignment()->edit($reviewAssignment, $params);
 

@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-08 07:14+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ky/>"
 "\n"
@@ -249,11 +249,9 @@ msgstr "Бардык котормолор жеткиликтүү"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$total} тилдин ичинен {$count} толтурулду"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Уюмдун атын {$language} тилинде жазыңыз"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Уюмдун аты {$language} тилинде"
 
@@ -263,7 +261,6 @@ msgstr "Ишенимдүүбү?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Тиешелүүлүк <strong>{$affiliation}</strong> өчүрүлөт."
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Уюмдун атын {$language} тилинде жазыңыз"
 
@@ -892,7 +889,6 @@ msgstr "Клиент Secret жараксыз, кирүү маалыматыңы�
 msgid "orcid.verify.duplicateOrcidAuthor"
 msgstr "Салымчылар үчүн кайталанган ORCID’дер табылды."
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Бул ролду түбөлүк өчүрүүнү каалайсызбы? Бул аракет колдонуучунун бул ролго "
@@ -913,3 +909,29 @@ msgstr "Биографиялык билдирүү"
 msgid "user.removeRole.roleRemainMessage"
 msgstr ""
 "Бул ролду өчүрө албайсыз. Колдонуучуга кеминде бир роль дайындалышы керек."
+
+msgid "user.masthead.update.title"
+msgstr "Masthead көрүнүшүнүн өзгөрүшүн ырастоо"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Бул тандалган рол үчүн бул колдонуучунун журналдын masthead'инде көрүнөрүн-"
+"көрүнбөсүн жаңыртат. Колдонуучу бул өзгөрүү тууралуу кабарланат."
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"ROR API'ге өтө көп суроо жөнөтүлдү. Издөөнү улантуудан мурун бир аз күтө "
+"туруңуз."
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API катасы"
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Бул орнотуудагы ROR API кызматы эскирген. Сураныч, тутум администраторуңузга "
+"кайрылыңыз."
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"ROR API кызматы азыр жеткиликсиз. Сураныч, баракты жаңыртыңыз же кийинчерээк "
+"кайра аракет кылыңыз."

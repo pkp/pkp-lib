@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2026-06-29 13:58+0000\n"
+"PO-Revision-Date: 2026-07-03 17:30+0000\n"
 "Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -1518,16 +1518,16 @@ msgid "manager.plugins.delete"
 msgstr "Διαγραφή Πρόσθετου"
 
 msgid "manager.plugins.installConfirm"
-msgstr "Επιβεβαιώστε ότι θέλετε να διαγράψετε αυτό το Πρόσθετο."
+msgstr "Θέλετε σίγουρα να εγκαταστήσετε αυτό το πρόσθετο;"
 
 msgid "manager.plugins.upgradeConfirm"
-msgstr "Επιβεβαιώστε ότι θέλετε να αναβαθμίσετε αυτό το Πρόσθετο."
+msgstr "Θέλετε σίγουρα να αναβαθμίσετε αυτό το πρόσθετο;"
 
 msgid "grid.action.installPlugin"
 msgstr "Εγκατάσταση ή αναβάθμιση αυτού του Πρόσθετου"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr "Επιβεβαιώστε ότι θέλετε να διαγράψετε αυτό το Πρόσθετο από το σύστημα."
+msgstr "Θέλετε σίγουρα να διαγράψετε αυτό το πρόσθετο από το σύστημα;"
 
 msgid "manager.plugins.deleteDescription"
 msgstr ""
@@ -1543,7 +1543,7 @@ msgstr ""
 "τον φάκελο μετά το πέρας της διαδικασίας."
 
 msgid "manager.plugins.deleteSuccess"
-msgstr "Το πρόσθετο  \"{$pluginName}\" διαγράφτηκε με επιτυχία"
+msgstr "Το πρόσθετο \"{$pluginName}\" διαγράφτηκε με επιτυχία"
 
 msgid "manager.plugins.description"
 msgstr ""

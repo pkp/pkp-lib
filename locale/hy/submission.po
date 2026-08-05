@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Aram Mirzoyan <mirzoyan.aram@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-04 18:37+0000\n"
+"PO-Revision-Date: 2026-07-16 12:25+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy/>\n"
@@ -3237,3 +3237,6 @@ msgstr "Վերանայումն ավարտվել է {$date} -ին"
 
 msgid "reviewer.competingInterests"
 msgstr "Շահերի բախում"
+
+msgid "ror.invalidRorId"
+msgstr "Խնդրում ենք տրամադրել վավեր ROR ID:"

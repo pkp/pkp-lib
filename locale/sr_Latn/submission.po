@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2026-06-19 08:03+0000\n"
+"PO-Revision-Date: 2026-08-03 00:37+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sr_Latn/>\n"
@@ -50,10 +50,8 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Uslovi za predaju članka"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Morate pročitati i potvrditi da ste zadovoljili uslove pre nastavka prijave."
+msgstr "Svi radovi moraju ispunjavati sledeće uslove."
 
 msgid "submission.submit.submissionChecklistConfirm"
 msgstr "Da, moj rad ispunjava sve ove uslove."
@@ -605,9 +603,8 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 "{$username} je prihvatio/la uslove autorskih prava za rad „{$filename}“."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revizija \"{$filename}\" (file ID {$fileId}-{$revision}) je dostavljena."
+msgstr "Revizija „{$filename}” je otpremljena za fajl {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metapodaci predaje su ažurirani"
@@ -2250,14 +2247,13 @@ msgstr ""
 ">Creative Commons Autorstvo-Bez prerada 3.0 Unported licencom\n"
 "</a>.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"<img alt=\"Creative Commons licenca\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>Ovo delo je licencirano pod <\n"
-"a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
-">Creative Commons Autorstvo 3.0 Unported licencom</a>.</p>"
+"<img alt=\"Licenca Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Ovo delo je licencirano pod\n"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+">licencom Creative Commons Autorstvo 3.0 Unported</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
@@ -2445,9 +2441,8 @@ msgstr ""
 "Dodajte informacije koje smatrate da urednici treba da znaju prilikom "
 "ocenjivanja vašeg rada."
 
-#, fuzzy
 msgid "submission.wizard.confirm"
-msgstr "Molimo potvrdite sledeće pre nego što pošaljete prijavu."
+msgstr "Molimo potvrdite sledeće pre nego što pošaljete rad."
 
 msgid "submission.wizard.title"
 msgstr "Pošaljite rad"
@@ -2585,11 +2580,10 @@ msgstr ""
 "uspelo. DOI ne može biti označen kao ‘potrebna sinhronizacija’ jer još uvek "
 "nije registrovan niti poslat."
 
-#, fuzzy
 msgid "doi.submission.notPublished"
 msgstr ""
-"Označavanje DOI-a za {$pubObjectTitle} kao registrovanog nije uspelo. Rad "
-"mora biti objavljen pre nego što se status može ažurirati."
+"Nije moguće označiti DOI kao registrovan za „{$pubObjectTitle}”. Rad mora "
+"biti objavljen pre nego što status može biti ažuriran."
 
 msgid "submission.viewingPreview"
 msgstr ""
@@ -2613,11 +2607,14 @@ msgstr ""
 "Podnošenje u odeljak <strong>{$section}</strong> na jeziku "
 "<strong>{$language}</strong>."
 
-#, fuzzy
 msgid "submission.type.tip"
 msgstr ""
-"Tip prijavljenog dela je obično 'slika', 'tekst', ili drugi multimedijalni "
-"tip uključujući i 'kompjuterski program' ili 'interaktivno'."
+"Tip rada je obično „slika”, „tekst” ili neka druga vrsta multimedijalnog "
+"sadržaja, uključujući „softver” ili „interaktivni sadržaj”. Izaberite tip "
+"koji najbolje odgovara vašem radu. Primeri se mogu pronaći na adresi <a "
+"target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic/</a>."
 
 msgid "submission.source.tip"
 msgstr ""
@@ -3175,3 +3172,6 @@ msgstr "Vidi sažetak prijave"
 
 msgid "reviewer.competingInterests"
 msgstr "Sukob  interesa"
+
+msgid "ror.invalidRorId"
+msgstr "Unesite važeći ROR ID."

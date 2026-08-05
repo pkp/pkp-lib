@@ -1,7 +1,7 @@
 # Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-09 13:27+0000\n"
+"PO-Revision-Date: 2026-07-13 17:35+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -439,3 +439,17 @@ msgstr "Недійсний параметр заголовка."
 
 msgid "api.400.reviewerMastheadCannotBeChanged"
 msgstr "Видимість заголовка для ролей рецензентів не можна змінити."
+
+msgid "api.rors.429.tooManyRequests"
+msgstr ""
+"Забагато запитів на пошук ROR (РДО). Зачекайте хвилинку та спробуйте ще раз."
+
+msgid "api.rors.429.globalRateLimited"
+msgstr ""
+"Наразі обробляється забагато запитів на пошук ROR (РДО). Зачекайте хвилинку "
+"та повторіть спробу."
+
+msgid "api.rors.429.rorApiRateLimited"
+msgstr ""
+"Реєстр ROR (ror.org) наразі обмежує швидкість наших запитів. Зачекайте "
+"кілька хвилин і спробуйте ще раз."

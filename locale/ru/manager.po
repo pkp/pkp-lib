@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru/>\n"
@@ -1364,7 +1364,6 @@ msgstr ""
 "материала. Авторов просят подтвердить, что их материалы соответствуют всем "
 "требованиям, указанным здесь, до начала отправки."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Отключить этот раздел и запретить отправку новых материалов в него."
 
@@ -3947,3 +3946,6 @@ msgstr ""
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Изменить адрес электронной почты для приглашения"
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "Требуется шаблон суффикса DOI."

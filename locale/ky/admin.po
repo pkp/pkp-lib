@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ky/"
 ">\n"
@@ -1056,3 +1056,71 @@ msgstr "Жосполдонгон тапшырмалар ар бир мүнөт �
 
 msgid "admin.cli.tool.scheduler.tasks.empty"
 msgstr "Жосполдонгон тапшырмалар катталган эмес."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "ROR Реестри маалымат топтомунун ZIP файлын ачуу мүмкүн эмес."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"ROR Реестри маалымат топтомунун метадайындарын алуу мүмкүн эмес. Күтүлбөгөн "
+"HTTP статус коду: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "ROR Реестри маалымат топтомунун ZIP файлын жүктөп алуу мүмкүн эмес."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"ROR Реестри маалымат топтомунун ZIP файлын ачуу мүмкүн эмес. Ката коду: "
+"{$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"\"{$id}\" ROR Реестри жазуусунда жарактуу аталыш жок жана ал өткөрүлүп "
+"жиберилди."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Контролдук суммасынын дал келбегендигинен улам ROR Реестри маалымат топтомун "
+"жаңыртуу мүмкүн эмес. Күтүлгөн контролдук сумма: {$expected}. Иш жүзүндөгү "
+"контролдук сумма: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Жүктөлүп алынган ROR Реестри маалымат топтомунун контролдук суммасын "
+"текшерүү мүмкүн эмес."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"ROR Реестри маалымат топтомунун ZIP файлынын контролдук суммасын текшерүү "
+"мүмкүн эмес: колдоого алынбаган контролдук сумма алгоритми. Бир гана MD5 "
+"жана SHA256 колдоого алынат."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"ROR Реестри маалымат топтомунун метадайындарын алуу мүмкүн эмес. API "
+"жообунда жүктөө файлы табылган жок."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Чыгарылган ROR Реестри маалымат топтомунан {$version} схема версиясы бар "
+"JSON маалымат файлын табуу мүмкүн эмес."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"\"{$id}\" идентификатору бар ROR Реестри жазуусунда бир же бир нече "
+"милдеттүү талаа (id, names, status) жок жана ал өткөрүлүп жиберилди."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"{$file} ROR Реестри JSON файлынан схема версиясын окуу мүмкүн эмес. Ката: "
+"{$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"ROR Реестри маалымат топтомунан эч кандай жазуу иштетилген жок. Маалымат "
+"топтому бош болушу мүмкүн же бардык жазуулар текшерүүдөн өтпөй калды."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"\"{$id}\" ROR Реестри жазуусунда [{$types}] түрлөрү менен аталыш жазуусу "
+"бар, бирок анда милдеттүү 'value' талаасы жок жана ал өткөрүлүп жиберилди."

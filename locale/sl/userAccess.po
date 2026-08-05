@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-16 12:00+0000\n"
-"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"PO-Revision-Date: 2026-07-10 12:46+0000\n"
+"Last-Translator: Matevž Rudolf <matevz.rudolf@uni-lj.si>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "useraccess/sl/>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "userAccess.tableHeader.startDate"
-msgstr "Začetni datum"
+msgstr "Datum začetka obravnave"
 
 msgid "userAccess.tableHeader.name"
 msgstr "Ime"

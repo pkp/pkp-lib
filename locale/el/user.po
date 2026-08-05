@@ -1,18 +1,19 @@
+# Theodoros Theodoropoulos <bujam1@yahoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-07-30 21:15+0000\n"
-"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
-"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"el_GR/>\n"
-"Language: el_GR\n"
+"PO-Revision-Date: 2026-07-02 12:45+0000\n"
+"Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
+"Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/user/el/>"
+"\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Πληροφορίες λογαριασμού"
@@ -507,7 +508,7 @@ msgid "user.apiKey.generate"
 msgstr "Δημιουργία νέου κλειδιού API"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Διαγραφή"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -516,9 +517,11 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"Η διαγραφή ενός κλειδιού θα ανακαλέσει την πρόσβαση σε οποιαδήποτε εφαρμογή "
+"το χρησιμοποιεί."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Θέλετε σίγουρα να διαγράψετε αυτό το κλειδί API;"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -535,12 +538,16 @@ msgstr ""
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"Δεν ήταν δυνατή η ολοκλήρωση του αιτήματος επαναφοράς κωδικού πρόσβασης λόγω "
+"{$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Εισάγετε έναν νέο κωδικό πρόσβασης."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Ο κωδικός πρόσβασης ενημερώθηκε με επιτυχία. Παρακαλώ συνδεθείτε "
+"χρησιμοποιώντας τον ενημερωμένο κωδικό πρόσβασης."
 
 msgid "orcid.displayName"
 msgstr "Πρόσθετο Προφίλ ORCID"
@@ -709,3 +716,188 @@ msgstr "Το Client Secret είναι έγκυρο"
 
 msgid "orcid.manager.status.configuration.clientSecretInvalid"
 msgstr "Το Client Secret δεν είναι έγκυρο, ελέγξτε τα διαπιστευτήριά σας"
+
+msgid "orcid.invalidClient"
+msgstr "Μη έγκυρα διαπιστευτήρια πελάτη"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Αίτηση επαλήθευσης ORCID"
+
+msgid "orcid.unauthenticated"
+msgstr "(χωρίς πιστοποίηση)"
+
+msgid "user.disabledModal.title"
+msgstr "Απενεργοποίηση {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Ενεργοποίηση {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Βιογραφικό Σημείωμα"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr ""
+"Ο χρήστης θα πρέπει να είναι ανώνυμος. Αυτή τη στιγμή είστε συνδεδεμένοι."
+
+msgid "user.login.activate.description"
+msgstr "Επιβεβαιώστε και ενεργοποιήστε τον λογαριασμό σας"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Παρακαλώ προσθέστε τον φορέα στον οποίο ανήκετε στη γλώσσα υποβολής."
+
+msgid "user.usernameOrEmail"
+msgstr "Όνομα χρήστη ή Email"
+
+msgid "orcid.manager.settings.city"
+msgstr "Πόλη"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Τώρα θα μεταφερθείτε αυτόματα πίσω στο {$contextName}."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Ενεργοποίηση της λειτουργικότητας ORCID"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Ενεργοποίηση της λειτουργικότητας ORCID για όλη την ιστοσελίδα"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"Η λειτουργικότητα ORCID μπορεί προαιρετικά να ενεργοποιηθεί και να "
+"διαμορφωθεί σε επίπεδο ιστότοπου για όλα τα περιοδικά/εκδοτικούς οίκους/"
+"servers. Εάν ενεργοποιηθεί, αυτό θα αντικαταστήσει όλα τα διαπιστευτήρια σε "
+"επίπεδο περιβάλλοντος και θα εφαρμόσει τα ακόλουθα διαπιστευτήρια σε όλα τα "
+"περιοδικά/εκδοτικούς οίκους/servers αυτής της εγκατάστασης."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Πληκτρολογήστε τα δύο γράμματα που θέλετε να χρησιμοποιήσετε ως αβατάρ σας. "
+"Αυτά τα αρχικά θα εμφανίζονται για να σας αντιπροσωπεύουν."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Επανάληψη αποστολής του email επαλήθευσης"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Αυτό το ORCID δεν έχει επαληθευτεί. Παρακαλούμε να διαγράψετε αυτό το μη "
+"επαληθευμένο ORCID και να ζητήσετε την επαλήθευση απευθείας από τον "
+"χρήστη/συγγραφέα."
+
+msgid "user.futureRole.notification.message"
+msgstr "Ο ρόλος σας έχει προγραμματιστεί να ξεκινήσει στις {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Μέχρι τότε, μπορείτε να ελέγξετε και να ενημερώσετε το προφίλ σας. Αν "
+"πιστεύετε ότι έχει γίνει λάθος, παρακαλούμε επικοινωνήστε με τον διαχειριστή."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να αφαιρέσετε αυτόν τον ρόλο; Ο χρήστης θα χάσει "
+"την πρόσβαση και τα δικαιώματα που σχετίζονται με αυτόν."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Δεν μπορείτε να καταργήσετε τον ρόλο. Πρέπει να έχει εκχωρηθεί τουλάχιστον "
+"ένας ρόλος στον χρήστη."
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Διαγραφή ORCID"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Το email θα σταλεί μόλις δημιουργηθεί ο συγγραφέας."
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Πληκτρολογήστε το όνομα του ιδρύματος στα {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Όνομα ιδρύματος στα {$language}"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Πληκτρολογήστε το όνομα του ιδρύματος στα {$language}"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "Σφάλμα ROR API"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"Η υπηρεσία ROR API δεν είναι διαθέσιμη αυτή τη στιγμή. Ανανεώστε τη σελίδα ή "
+"δοκιμάστε ξανά αργότερα."
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Η υπηρεσία ROR API σε αυτήν την εγκατάσταση είναι παρωχημένη. Παρακαλούμε "
+"επικοινωνήστε με τον διαχειριστή του συστήματός σας."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr ""
+"Η πρόσβαση στη ροή εργασιών για μη ολοκληρωμένες υποβολές είναι περιορισμένη."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Η προσθήκη, η ενημέρωση ή η διαγραφή προτάσεων αξιολογητών για ολοκληρωμένες "
+"υποβολές είναι περιορισμένες."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Ζητήσατε να αλλάξετε τη διεύθυνση email σας σε «{$pendingEmail}». Σας έχουμε "
+"ήδη στείλει ένα email με οδηγίες για το πώς να επικυρώσετε τη νέα διεύθυνση "
+"email."
+
+msgid "orcid.manager.settings.saved"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Εντοπίστηκαν διπλά ORCiD για τους συνεργάτες."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Εντοπίστηκαν μη πιστοποιημένα ORCiD για συνεργάτες."
+
+msgid "orcid.field.verification.request"
+msgstr "Αίτηση επαλήθευσης"
+
+msgid "orcid.field.verification.requested"
+msgstr "Ζητήθηκε επαλήθευση ORCID!"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Θα θέλατε να στείλετε ένα email στον συγκεκριμένο συγγραφέα ζητώντας του να "
+"επαληθεύσει τον αριθμό ORCID του;"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Θέλετε σίγουρα να διαγράψετε αυτό το ORCID;"
+
+msgid "user.disabledModal.description"
+msgstr "Τρέχοντες Ρόλοι: {$roles}"
+
+msgid "user.affiliations.institution"
+msgstr "Ίδρυμα"
+
+msgid "user.affiliations.translation"
+msgstr "Περισσότερες πληροφορίες"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Επεξεργασία ονόματος ιδρύματος"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Αφαίρεση ιδρύματος"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Κάντε κλικ για να επεξεργαστείτε ή να διαγράψετε"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Όλες οι διαθέσιμες μεταφράσεις"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} από τις {$total} γλώσσες έχουν ολοκληρωθεί"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Είστε σίγουρος/η;"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Το affiliation <strong>{$affiliation}</strong> θα διαγραφεί."
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Δεν βρέθηκε αποτέλεσμα για τη φράση αναζήτησής σας"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Η κύρια γλώσσα {$primaryLocale} είναι υποχρεωτική"

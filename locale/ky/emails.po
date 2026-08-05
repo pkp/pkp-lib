@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "ky/>\n"
@@ -722,3 +722,50 @@ msgstr "Чакырууну кабыл алуу шилтемеси"
 
 msgid "emailTemplate.variable.invitation.declineUrl"
 msgstr "Бул чакырууну четке кагуу шилтемеси"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.appearOnMasthead"
+msgstr ""
+"Эгерде колдонуучу бул рол үчүн masthead'де көрүнсө көрсөтүлүүчү билдирүү."
+
+msgid "mailable.userRoleMastheadUpdateNotify.name"
+msgstr "Колдонуучунун ролунун masthead көрүнүшүн жаңыртуу тууралуу билдирме"
+
+msgid "mailable.userRoleMastheadUpdateNotify.description"
+msgstr ""
+"Колдонуучунун бир рол үчүн masthead көрүнүшү жаңыртылганда ага жөнөтүлгөн "
+"электрондук почта билдирмеси."
+
+msgid "emails.userRoleMastheadUpdateNotify.subject"
+msgstr "Журналыңыздагы masthead көрүнүшүңүз жаңыртылды"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates"
+msgstr ""
+"Бул masthead көрүнүшү жаңыртылган колдонуучу ролунун аталышы, башталуу жана "
+"аяктоо күнү"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.value"
+msgstr "{$roleName} ({$startDate} &ndash; {$endDate})"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.startDate"
+msgstr "{$roleName} ({$startDate}тен бери)"
+
+msgid "emailTemplate.variable.userRoleMastheadUpdateNotify.roleNameAndDates.endDate"
+msgstr "{$roleName} ({$endDate}ке чейин)"
+
+msgid "emails.userRoleMastheadUpdateNotify.body"
+msgstr ""
+"<div class='email-container'>\n"
+"    <div class='email-header'>\n"
+"        <h2>Ролдун masthead көрүнүшү жаңыртылды</h2>\n"
+"    </div>\n"
+"    <div class='email-content'>\n"
+"        <p>Урматтуу {$recipientName},</p>\n"
+"        <p>{$contextName} журналындагы {$roleNameAndDates} ролу үчүн "
+"masthead көрүнүшүңүз жаңыртылды.</p>\n"
+"        <p>Жаңы жөндөө: {$appearOnMasthead}</p>\n"
+"        <p>Эгерде бул өзгөрүү тууралуу суроолоруңуз болсо, журнал "
+"менеджерине кайрылыңыз.</p>\n"
+"        <p>Ызаат менен,</p>\n"
+"        <p>{$contextName}</p>\n"
+"    </div>\n"
+"</div>"

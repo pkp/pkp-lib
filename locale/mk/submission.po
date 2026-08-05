@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-02 20:51+0000\n"
+"PO-Revision-Date: 2026-07-26 10:51+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk/>\n"
@@ -3200,3 +3200,6 @@ msgstr "Рецензијата беше завршена на {$date}"
 
 msgid "reviewer.competingInterests"
 msgstr "Судир на интереси"
+
+msgid "ror.invalidRorId"
+msgstr "Ве молиме наведете важечки ROR ID."

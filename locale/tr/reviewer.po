@@ -1,12 +1,13 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2025.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/tr/>\n"
 "Language: tr\n"
@@ -204,3 +205,8 @@ msgstr "Bu dosyalar değerlendirilme üzere size gönderilmiştir"
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Değerlendirme süreci tamamlanmadı."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Bazı zorunlu alanlar doldurulmadı. Değerlendirmenizi göndermeden önce lütfen "
+"bunları tamamlayın."

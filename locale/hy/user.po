@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-10 05:43+0000\n"
+"PO-Revision-Date: 2026-07-16 12:25+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -954,3 +954,8 @@ msgid "user.masthead.update.message"
 msgstr ""
 "Սա կթարմացնի, թե արդյոք այս օգտատերը ընտրված դերի համար հայտնվում է ամսագրի "
 "վերնախորագրում: Օգտատերը կտեղեկացվի այս փոփոխության մասին:"
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"ROR API-ին չափազանց շատ հարցումներ են ուղարկվել: Խնդրում ենք մի փոքր սպասել, "
+"նախքան որոնումը շարունակելը:"

@@ -6,13 +6,14 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 # Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 # Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>, 2025.
+# Leandro Muniz de Lima <leandro.m.lima@ufes.br>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2026-05-13 20:36+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2026-07-17 23:24+0000\n"
+"Last-Translator: Leandro Muniz de Lima <leandro.m.lima@ufes.br>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -3127,7 +3128,7 @@ msgstr ""
 "notificação por e-mail enviada aos avaliadores sobre essa decisão"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr "Optamos por aceitar esta submissão sem revisões."
+msgstr "Optamos por aceitar esta submissão sem correções."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
 msgstr "Optamos por recusar esta submissão."

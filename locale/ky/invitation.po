@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/ky/>\n"
@@ -411,3 +411,12 @@ msgstr "Бул сиз тиешелүү болгон институт жайга�
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
 "Идентификатор {reviewAssignmentId} жарактуу кароо тапшырмасына туура келбейт"
+
+msgid "invitation.unavailable.title"
+msgstr "Чакыруу жеткиликсиз"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Бул чакыруу мындан ары жеткиликтүү эмес. Ал буга чейин кабыл алынган, четке "
+"кагылган же мөөнөтү бүткөн болушу мүмкүн. Кошумча жардам үчүн журнал "
+"менеджерине кайрылыңыз."

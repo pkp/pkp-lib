@@ -2,7 +2,7 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-22 18:48+0000\n"
+"PO-Revision-Date: 2026-07-04 09:51+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -3942,3 +3942,6 @@ msgid "manager.categories.form.removeCoverImageFileNotFound"
 msgstr ""
 "Не може да се пронајдат сликите од насловната страница и сликичките. Можеби "
 "веќе се избришани. Обидете се повторно да ја вчитате страницата."
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "Потребна е шема на суфиксот DOI."

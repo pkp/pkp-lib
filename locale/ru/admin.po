@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"PO-Revision-Date: 2026-07-12 16:31+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ru/>\n"
@@ -1084,3 +1084,69 @@ msgstr "Запуск запланированных задач каждую ми
 
 msgid "admin.cli.tool.scheduler.tasks.empty"
 msgstr "Запланированные задачи не зарегистрированы."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Не удалось проверить контрольную сумму загруженного ZIP-файла набора данных "
+"реестра ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "Не удалось загрузить ZIP-файл набора данных реестра ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Не удалось открыть ZIP-файл набора данных реестра ROR. Код ошибки: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Не удалось распаковать ZIP-файл набора данных реестра ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"В записи реестра ROR с идентификатором \"{$id}\" отсутствует одно или "
+"несколько обязательных полей (id, names, status), и она была пропущена."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Из набора данных реестра ROR не было обработано ни одной записи. Набор "
+"данных может быть пустым, или все записи не прошли проверку."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"Запись реестра ROR \"{$id}\" не содержит действительного имени и была "
+"пропущена."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Не удалось обновить набор данных реестра ROR из-за несоответствия "
+"контрольной суммы. Ожидаемая контрольная сумма: {$expected}. Фактическая "
+"контрольная сумма: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Не удалось проверить ZIP-файл набора данных реестра ROR: неподдерживаемый "
+"алгоритм контрольной суммы. Поддерживаются только MD5 и SHA256."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Не удалось получить метаданные набора данных реестра ROR. Неожиданный код "
+"состояния HTTP: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Не удалось получить метаданные набора данных реестра ROR. В ответе API не "
+"найден файл для загрузки."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Не удалось найти файл данных JSON со схемой версии {$version} в "
+"распакованном наборе данных реестра ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Не удалось прочитать версию схемы из файла JSON реестра ROR {$file}. Ошибка: "
+"{$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"В записи реестра ROR \"{$id}\" есть запись имени с типами [{$types}], в "
+"которой отсутствует обязательное поле 'value', и она была пропущена."

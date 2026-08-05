@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ky/>\n"
@@ -2115,7 +2115,6 @@ msgstr ""
 "Авторлор тапшырмасын баштаганда төмөнкү маалымат көрсөтүлөт. Авторлор "
 "тапшырмасы бул жерде көрсөтүлгөн талаптарга ылайык экендигин ырасташы керек."
 
-#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr "Бул бөлүмдү өчүрүп, ага жаңы тапшырмалардын берилишине уруксат бербөө."
 
@@ -3804,3 +3803,6 @@ msgstr "Электрондук почта дарегин өзгөртүү чак
 
 msgid "plugins.importexport.common.validation"
 msgstr "Экспорт жана каттоодон мурун XMLди текшерүү."
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "DOI суффикс үлгүсү талап кылынат."

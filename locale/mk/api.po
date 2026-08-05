@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-22 18:37+0000\n"
+"PO-Revision-Date: 2026-07-26 10:51+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "mk/>\n"
@@ -471,3 +471,17 @@ msgid "api.400.reviewerMastheadCannotBeChanged"
 msgstr ""
 "Видливоста на насловот на страницата за улогите на рецензентите не може да "
 "се промени."
+
+msgid "api.rors.429.tooManyRequests"
+msgstr ""
+"Премногу барања за пребарување на ROR. Почекајте малку и обидете се повторно."
+
+msgid "api.rors.429.globalRateLimited"
+msgstr ""
+"Премногу барања за пребарување на ROR се обработуваат во моментов. Почекајте "
+"малку и обидете се повторно."
+
+msgid "api.rors.429.rorApiRateLimited"
+msgstr ""
+"Регистарот ROR (ror.org) моментално ги ограничува нашите барања. Ве молиме "
+"почекајте неколку минути и обидете се повторно."

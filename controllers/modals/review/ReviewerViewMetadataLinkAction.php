@@ -20,6 +20,8 @@ namespace PKP\controllers\modals\review;
 
 use APP\core\Request;
 use APP\facades\Repo;
+use PKP\components\forms\dataCitation\DataCitationEditForm;
+use PKP\components\forms\FormComponent;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\VueModal;
 
@@ -36,15 +38,19 @@ class ReviewerViewMetadataLinkAction extends LinkAction
     {
         $submission = Repo::submission()->get($submissionId);
 
+        $props = [
+            'submissionId' => (int) $submissionId,
+            'publicationId' => (int) $submission->getCurrentPublication()->getId(),
+        ];
+
+        // Get the data citation form for the read-only view modal
+        if ($request->getContext()->getData('dataCitations')) {
+            $props['dataCitationEditForm'] = (new DataCitationEditForm(FormComponent::ACTION_EMIT))->getConfig();
+        }
+
         parent::__construct(
             'viewMetadata',
-            new VueModal(
-                'ReviewerSubmissionDetailsModal',
-                [
-                    'submissionId' => (int) $submissionId,
-                    'publicationId' => (int) $submission->getCurrentPublication()->getId(),
-                ]
-            ),
+            new VueModal('ReviewerSubmissionDetailsModal', $props),
             __('reviewer.step1.viewAllDetails')
         );
     }

@@ -24,8 +24,15 @@ namespace PKP\config;
 use Exception;
 use PKP\core\Registry;
 
-/** The path to the default configuration file */
-define('CONFIG_FILE', \PKP\core\Core::getBaseDir() . '/config.inc.php');
+/**
+ * The path to the default configuration file.
+ *
+ * The PKP_CONFIG_FILE environment variable selects an alternate configuration
+ * file (used by the Playwright e2e test install to point at config.test.inc.php).
+ * It is never set in a production install, where the constant resolves to the
+ * usual config.inc.php.
+ */
+define('CONFIG_FILE', getenv('PKP_CONFIG_FILE') ?: \PKP\core\Core::getBaseDir() . '/config.inc.php');
 
 class Config
 {

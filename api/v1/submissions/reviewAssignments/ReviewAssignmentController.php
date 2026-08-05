@@ -17,20 +17,26 @@ namespace PKP\API\v1\submissions\reviewAssignments;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\orcid\actions\SendReviewToOrcid;
 use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentController extends PKPBaseController
 {
@@ -67,8 +73,13 @@ class ReviewAssignmentController extends PKPBaseController
             Route::get('{reviewAssignmentId}', $this->get(...))
                 ->name('submission.reviewAssignment.get')
                 ->whereNumber('reviewAssignmentId');
+
             Route::put('{reviewAssignmentId}', $this->edit(...))
                 ->name('submission.reviewAssignment.edit')
+                ->whereNumber('reviewAssignmentId');
+
+            Route::put('{reviewAssignmentId}/consider', $this->consider(...))
+                ->name('submission.reviewAssignment.consider')
                 ->whereNumber('reviewAssignmentId');
         });
     }
@@ -193,5 +204,162 @@ class ReviewAssignmentController extends PKPBaseController
             ->map($reviewAssignment, $submission);
 
         return response()->json($data, Response::HTTP_OK);
+    }
+
+
+    /**
+     * Update the considered status of a review assignment.
+     * Accepts the following values for the `considered` field:
+     * - ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED
+     * - ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
+     * - ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED
+     */
+    public function consider(Request $illuminateRequest): JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $reviewAssignmentId = (int) $illuminateRequest->route('reviewAssignmentId');
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId, $submission->getId());
+
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $user = $this->getRequest()->getUser();
+        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $submission->getData('contextId'));
+        $isAssignedSubEditor = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$reviewAssignment->getStageId()])
+            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
+            ->withUserId($user->getId());
+
+        if (!$isManager && !$isAssignedSubEditor->exists()) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $considered = (int)$illuminateRequest->input('considered');
+        if (!in_array($considered, [ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED, ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED])) {
+            return response()->json([
+                'error' => __('api.reviews.assignments.422.missingOrInvalidConsideredValue'),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        // A review assignment that an editor has already considered cannot be considered again.
+        if ($considered === ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED && $reviewAssignment->isRead()) {
+            return response()->json([
+                'error' => __('api.review.assignments.alreadyConsidered'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        match ($considered) {
+            ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED => $this->markReviewViewed($reviewAssignment),
+            ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED => $this->markReviewConsidered($reviewAssignment, $submission),
+            ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED => $this->markReviewUnconsidered($reviewAssignment, $submission),
+        };
+
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId, $submission->getId());
+
+        return response()->json(
+            Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment, $submission),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Mark a new review assignment as viewed by the editor.
+     */
+    protected function markReviewViewed(ReviewAssignment $reviewAssignment): void
+    {
+        // If it's a new review assignment, mark it as viewed
+        if ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW) {
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED,
+            ]);
+        }
+    }
+
+    /**
+     * Mark a review assignment as considered by the editor.
+     */
+    protected function markReviewConsidered(ReviewAssignment $reviewAssignment, Submission $submission): void
+    {
+        $request = $this->getRequest();
+
+        // If the review assignment had been unconsidered or only viewed but not considered, update the flag.
+        $newReviewData = [
+            'considered' => ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW ||
+                $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED)
+                ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
+                : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED,
+            // Set the date when the editor confirms the review
+            'dateConsidered' => Core::getCurrentDate(),
+        ];
+
+        if (!$reviewAssignment->getDateCompleted()) {
+            // Editor completes the review.
+            $newReviewData['dateConfirmed'] = $newReviewData['dateCompleted'] = Core::getCurrentDate();
+        }
+
+        // Trigger an update of the review round status
+        Repo::reviewAssignment()->edit($reviewAssignment, $newReviewData);
+
+        // If the review was read by an editor, log event
+        if ($reviewAssignment->isRead()) {
+            $user = $request->getUser();
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'message' => 'log.review.reviewConfirmed',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'editorName' => $user->getFullName(),
+                'submissionId' => $submission->getId(),
+                'round' => $reviewAssignment->getRound(),
+            ]);
+            Repo::eventLog()->add($eventLog);
+        }
+
+        // Remove the reviewer task.
+        Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId())
+            ->withUserId($reviewAssignment->getReviewerId())
+            ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT)
+            ->delete();
+
+        // Deposit review to ORCID
+        (new SendReviewToOrcid($reviewAssignment->getId()))->execute();
+    }
+
+    /**
+     * Revoke the considered status of a review assignment.
+     *
+     */
+    protected function markReviewUnconsidered(ReviewAssignment $reviewAssignment, Submission $submission): void
+    {
+        $user = $this->getRequest()->getUser();
+
+        // This resets the state of the review to 'unconsidered', but does not delete note history.
+        Repo::reviewAssignment()->edit($reviewAssignment, [
+            'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED,
+            'dateConsidered' => null,
+        ]);
+
+        // Log the unconsidered event.
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
+            'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'message' => 'log.review.reviewUnconsidered',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'editorName' => $user->getFullName(),
+            'submissionId' => $submission->getId(),
+            'round' => $reviewAssignment->getRound(),
+        ]);
+        Repo::eventLog()->add($eventLog);
     }
 }

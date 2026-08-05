@@ -496,3 +496,12 @@ msgstr "This review round has review assignments that needs to be completed befo
 
 msgid "api.dois.reviews.422.cannotAssignDoi"
 msgstr "Cannot assign a DOI to review that is not publicly visible."
+
+msgid "api.reviews.assignments.invalidQualityRating"
+msgstr "The submitted quality rating for this review assignment is invalid. Valid ratings ranges from 0 to 5, with 0 being \"no rating\" and 5 being the highest."
+
+msgid "api.422.missingRequiredField"
+msgstr "The \"{$field}\" field is required."
+
+msgid "api.submissions.reviews.422.uneditableFields"
+msgstr "Your request included fields that are not editable through this endpoint."

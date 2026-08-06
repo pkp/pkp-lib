@@ -2220,6 +2220,10 @@ msgstr "Task reassigned from {$taskOwnerOldUsername} to {$taskOwnerNewUsername} 
 msgid "submission.event.task.assigned"
 msgstr "Task assigned to {$taskOwnerNewUsername} by {$username} on {$dateLogged}"
 
+#, fuzzy
+msgid "submission.event.impersonation.userLabel"
+msgstr "{$userName} (acting as {$impersonatedName})"
+
 msgid "submission.overview"
 msgstr "Submission Overview"
 
@@ -2304,17 +2308,20 @@ msgstr "The round {$round} review by {$reviewerName} for submission {$submission
 msgid "log.review.reviewUnconsidered"
 msgstr "{$editorName} has marked the round {$round} review for submission {$submissionId} as unconsidered."
 
+#, fuzzy
 msgid "log.review.reviewReinstated"
-msgstr "The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinitiated."
+msgstr "The round {$round} review by {$reviewerName} for submission {$submissionId} has been reinstated."
 
+#, fuzzy
 msgid "log.review.reviewerResendRequest"
-msgstr "Resent the request to review in round {$round} to {$reviewerName} for submission {$submissionid}."
+msgstr "Resent the request to review in round {$round} to {$reviewerName} for submission {$submissionId}."
 
 msgid "log.review.reviewConfirmed"
 msgstr "Editor {$editorName} has confirmed a review for the round {$round} review for submission {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
-msgstr "{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}."
+msgstr "The round {$round} review assigned to {$reviewerName} for submission {$submissionId} has been completed."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "Waiting for a response from the reviewer."

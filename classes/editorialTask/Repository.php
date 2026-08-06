@@ -377,6 +377,7 @@ class Repository
             $fillables = array_merge($fillables, [
                 'contextId' => $context->getId(),
                 'type' => EditorialTaskType::DISCUSSION->value, // Only discussions are implemented as default templates.
+                'default' => true,
             ]);
 
             // In case of reset operation, rewrite all templates

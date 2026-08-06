@@ -209,7 +209,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
 
         // Get templates accounting for user group restrictions
         if (!$isManager) {
-            $collector->withUserGroupIds($userGroups->pluck('id')->toArray());
+            $collector->withUserGroupsAccess($userGroups->pluck('id')->toArray());
         }
 
         $collection = $collector->orderByPkDesc()->get();

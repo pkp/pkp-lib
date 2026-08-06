@@ -308,16 +308,6 @@ class Template extends Model
     }
 
     /**
-     * Scope a query to filter by user group IDs.
-     */
-    protected function scopeWithUserGroupIds(Builder $builder, array $userGroupIds): Builder
-    {
-        $ug = (new UserGroup())->getTable();
-        return $builder->where('restrict_to_user_groups', false)
-            ->orWhereHas('userGroups', fn (Builder $query) => $query->whereIn($ug . '.user_group_id', $userGroupIds));
-    }
-
-    /**
      * Filter query by email keys belonging to the discussion templates migrated from email templates
      */
     protected function scopeWithEmailKeys(Builder $builder, array $emailKeys, int $contextId): Builder

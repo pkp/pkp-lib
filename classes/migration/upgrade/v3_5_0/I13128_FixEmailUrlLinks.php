@@ -28,6 +28,11 @@ class I13128_FixEmailUrlLinks extends Migration
         $this->replace('PASSWORD_RESET_CONFIRM', '{$passwordResetUrl}', '<a href="{$passwordResetUrl}">{$passwordResetUrl}</a>', 'href="{$passwordResetUrl}"');
         // The anchor is missing the "=" of the href attribute
         $this->replace('COPYEDIT_REQUEST', '<a href"{$submissionUrl}">', '<a href="{$submissionUrl}">');
+
+        // In lt translation the quotes of the {$submissionUrl} anchor became backslashes,
+        // which leaves an <a> without a usable href
+        $this->replace('COPYEDIT_REQUEST', '<a href\\{$submissionUrl}\\>', '<a href="{$submissionUrl}">');
+        $this->replace('COPYEDIT_REQUEST', '\\{$submissionTitle}\\', '"{$submissionTitle}"');
     }
 
     public function down(): void

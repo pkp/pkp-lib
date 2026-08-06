@@ -544,7 +544,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => 'navigation.tools.jobs',
+            'pageTitle' => __('navigation.tools.jobs'),
         ]);
 
         $templateMgr->display('admin/jobs.tpl');
@@ -612,7 +612,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => 'navigation.tools.jobs.failed',
+            'pageTitle' => __('navigation.tools.jobs.failed'),
         ]);
 
         $templateMgr->display('admin/failedJobs.tpl');
@@ -721,7 +721,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => 'navigation.tools.jobs.failed.details',
+            'pageTitle' => __('navigation.tools.jobs.failed.details'),
         ]);
 
         $templateMgr->display('admin/failedJobDetails.tpl');

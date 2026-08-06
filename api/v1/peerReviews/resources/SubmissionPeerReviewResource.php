@@ -214,6 +214,9 @@ class SubmissionPeerReviewResource extends JsonResource
                 'doiUrl' => $assignment->getData('doiObject')?->getResolvingUrl(),
                 'dateCompleted' => $assignment->getDateCompleted(),
                 'isReviewOpen' => $isReviewOpen,
+                // The review method describes the process, not the participants, so it is
+                // exposed for anonymous reviews too
+                'reviewMethod' => $assignment->getReviewMethod(),
                 // Localized text description of the reviewer recommendation (Accept Submission, Decline Submission, etc.)
                 'reviewerRecommendationDisplayText' => $assignment->getLocalizedRecommendation($context),
                 'reviewerRecommendationId' => $assignment->getReviewerRecommendationId(),

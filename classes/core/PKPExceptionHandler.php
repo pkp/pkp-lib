@@ -93,7 +93,7 @@ class PKPExceptionHandler implements ExceptionHandler
      */
     public static function usesErrorLogChannel(): bool
     {
-        $channel = Config::getVar('logs', 'log_channel', 'daily');
+        $channel = Config::getVar('logs', 'log_channel', 'errorlog');
         $channels = $channel === 'stack'
             ? array_map('trim', explode(',', Config::getVar('logs', 'log_stacks', 'daily')))
             : [$channel];

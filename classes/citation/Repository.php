@@ -226,7 +226,7 @@ class Repository
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
-        $existingRawCitations = $existingCitations->map(fn (Citation $citation) => $citation->getRawCitation());
+        $existingRawCitations = $existingCitations->map(fn (Citation $citation) => $citation->getRawCitation())->toArray();
 
         if ($existingRawCitations !== $citationStrings) {
             $importedCitations = [];

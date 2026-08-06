@@ -45,7 +45,7 @@ class I13128_FixEmailUrlLinks extends Migration
      * Bodies already containing $skipIf are left alone, so that running the
      * migration twice does not wrap a URL that is already a link.
      */
-    private function replace(string $emailKey, string $search, string $replace, string $skipIf = ''): void
+    protected function replace(string $emailKey, string $search, string $replace, string $skipIf = ''): void
     {
         $defaults = DB::table('email_templates_default_data')
             ->where('email_key', $emailKey)

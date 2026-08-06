@@ -414,7 +414,7 @@ abstract class Repository
         $newPublication->setData('citationsRaw', null);
         $newId = $this->add($newPublication, $submissionStatus);
         // insert citations as they are for the new publication
-        Repo::citation()->copyCitations($citations, $newId);
+        Repo::citation()->copyCitations($citations->toArray(), $newId);
 
         $newPublication = Repo::publication()->get($newId);
 

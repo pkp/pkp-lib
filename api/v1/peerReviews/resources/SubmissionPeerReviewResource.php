@@ -28,6 +28,7 @@ use Illuminate\Support\Enumerable;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\reviewForm\ReviewForm;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
@@ -207,6 +208,10 @@ class SubmissionPeerReviewResource extends JsonResource
                 'id' => $assignment->getData('id'),
                 'reviewerId' => $isReviewOpen ? $assignment->getReviewerId() : null,
                 'reviewerFullName' => $isReviewOpen ? $assignment->getReviewerFullName() : null,
+                // The name parts let consumers that need a structured name avoid parsing the full name.
+                'reviewerGivenName' => $isReviewOpen ? $reviewer?->getLocalizedGivenName() : null,
+                'reviewerFamilyName' => $isReviewOpen ? $reviewer?->getLocalizedFamilyName() : null,
+                'reviewerPreferredPublicName' => $isReviewOpen ? $reviewer?->getPreferredPublicName(Locale::getLocale()) : null,
                 'reviewerAffiliation' => $isReviewOpen ? $reviewer?->getLocalizedAffiliation() : null,
                 'reviewerOrcid' => $isReviewOpen ? $reviewer?->getOrcid() : null,
                 'reviewerHasVerifiedOrcid' => $isReviewOpen ? (bool) $reviewer?->hasVerifiedOrcid() : false,

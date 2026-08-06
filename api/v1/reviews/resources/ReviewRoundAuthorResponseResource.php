@@ -18,6 +18,7 @@ namespace PKP\API\v1\reviews\resources;
 use APP\author\Author;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use PKP\facades\Locale;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\user\User;
 
@@ -39,6 +40,9 @@ class ReviewRoundAuthorResponseResource extends JsonResource
             'associatedAuthors' => array_map(fn (Author $author) => [
                 'id' => $author->getId(),
                 'fullName' => $author->getFullName(),
+                'givenName' => $author->getLocalizedGivenName(),
+                'familyName' => $author->getLocalizedFamilyName(),
+                'preferredPublicName' => $author->getPreferredPublicName(Locale::getLocale()),
                 'orcid' => $author->getOrcid(),
                 'hasVerifiedOrcid' => (bool) $author->hasVerifiedOrcid(),
             ], $associatedAuthors),

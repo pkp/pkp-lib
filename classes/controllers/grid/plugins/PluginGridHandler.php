@@ -35,10 +35,13 @@ use PKP\notification\Notification;
 use PKP\plugins\Plugin;
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\security\Role;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
+use Psr\Log\LogLevel;
 
 abstract class PluginGridHandler extends CategoryGridHandler
 {
@@ -296,6 +299,10 @@ abstract class PluginGridHandler extends CategoryGridHandler
         $plugin = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
         if ($request->checkCSRF() && $plugin->getCanEnable()) {
             $plugin->setEnabled(true);
+            AuditLog::log(AuditEvent::PLUGIN_ENABLE, LogLevel::NOTICE, [
+                'pluginName' => $plugin->getName(),
+                'category' => $plugin->getCategory(),
+            ]);
             if (empty($args['disableNotification'])) {
                 $user = $request->getUser();
                 $notificationManager = new NotificationManager();
@@ -319,6 +326,10 @@ abstract class PluginGridHandler extends CategoryGridHandler
         $plugin = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_PLUGIN); /** @var Plugin $plugin */
         if ($request->checkCSRF() && $plugin->getCanDisable()) {
             $plugin->setEnabled(false);
+            AuditLog::log(AuditEvent::PLUGIN_DISABLE, LogLevel::NOTICE, [
+                'pluginName' => $plugin->getName(),
+                'category' => $plugin->getCategory(),
+            ]);
             if (empty($args['disableNotification'])) {
                 $user = $request->getUser();
                 $notificationManager = new NotificationManager();
@@ -446,6 +457,11 @@ abstract class PluginGridHandler extends CategoryGridHandler
                 $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_ERROR, ['contents' => __('manager.plugins.deleteError', $pluginName)]);
             } else {
                 $versionDao->disableVersion('plugins.' . $category, $productName);
+                AuditLog::log(AuditEvent::PLUGIN_UNINSTALL, LogLevel::NOTICE, [
+                    'category' => $category,
+                    'product' => $productName,
+                    'version' => $installedPlugin->getVersionString(false),
+                ]);
                 $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.plugins.deleteSuccess', $pluginName)]);
             }
         } else {

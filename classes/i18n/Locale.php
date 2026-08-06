@@ -159,8 +159,7 @@ class Locale implements LocaleInterface
 
         $this->locale = $locale;
         setlocale(LC_ALL, 'C.utf8', 'C');
-        $locales = array_keys($this->getWeblateLocaleNames());
-        \Locale::setDefault(\Locale::lookup($locales, $locale, true));
+        \Locale::setDefault($locale);
     }
 
     /**

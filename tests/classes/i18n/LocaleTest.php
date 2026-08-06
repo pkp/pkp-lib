@@ -89,6 +89,19 @@ class LocaleTest extends PKPTestCase
             ->getMock();
     }
 
+    public function testSetLocaleSetsIntlDefault()
+    {
+        $defaultLocale = \Locale::getDefault();
+
+        try {
+            Locale::setLocale('pt_BR');
+
+            self::assertSame('pt_BR', \Locale::getDefault());
+        } finally {
+            \Locale::setDefault($defaultLocale);
+        }
+    }
+
     public function testIsLocaleComplete()
     {
         self::assertTrue(Locale::getMetadata('en')->isComplete());

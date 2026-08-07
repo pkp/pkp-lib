@@ -65,7 +65,8 @@ class I12593_EmailToTaskTemplates extends Migration
     public function up(): void
     {
         Schema::table('edit_task_templates', function (Blueprint $table) {
-            $table->boolean('default')->default(false);
+            $table->string('key')->nullable()->comment('Indicates the unique key of the default template');
+            $table->unique(['key', 'context_id']);
         });
 
         $this->localizeTaskTemplateData();
@@ -122,14 +123,8 @@ class I12593_EmailToTaskTemplates extends Migration
                 'restrict_to_user_groups' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
-                'default' => true,
+                'key' => $customTemplate->alternate_to ?? $customTemplate->email_key,
             ], 'edit_task_template_id');
-
-            DB::table('edit_task_template_settings')->insert([
-                'edit_task_template_id' => $templateId,
-                'setting_name' => 'emailKey',
-                'setting_value' => $customTemplate->alternate_to ?? $customTemplate->email_key,
-            ]);
 
             foreach ($localizedSettings as $locale => $setting) {
                 DB::table('edit_task_template_settings')->insert([
@@ -180,18 +175,10 @@ class I12593_EmailToTaskTemplates extends Migration
                     'restrict_to_user_groups' => false,
                     'created_at' => now(),
                     'updated_at' => now(),
-                    'default' => true,
+                    'key' => $key,
                 ], 'edit_task_template_id');
 
                 $this->insertedTaskTemplateIds[] = $insertedTaskTemplateId;
-
-                DB::table('edit_task_template_settings')->insert([
-                    [
-                        'edit_task_template_id' => $insertedTaskTemplateId,
-                        'setting_name' => 'emailKey',
-                        'setting_value' => $key,
-                    ],
-                ]);
 
                 foreach ($group as $item) {
                     DB::table('edit_task_template_settings')->insert([

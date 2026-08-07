@@ -15,4 +15,4 @@
 		title CDATA #REQUIRED
 		description CDATA #REQUIRED
 		stageId CDATA #REQUIRED
-		emailKey CDATA #IMPLIED>
+		key CDATA #REQUIRED>

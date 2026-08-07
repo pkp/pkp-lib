@@ -313,7 +313,7 @@ class Repository
      * Install default task templates
      *
      */
-    public function installTaskTemplates(Context $context, ?array $addedLocales = null, bool $reset = false): bool
+    public function installTaskTemplates(?Context $context = null, ?array $addedLocales = null): bool
     {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct($this->getDefaultTemplatesFilename(), ['template']);
@@ -330,7 +330,7 @@ class Repository
                 'description' => Arr::get($entry, 'attributes.description'),
             ];
 
-            $attrs['emailKey'] = Arr::get($entry, 'attributes.emailKey');
+            $attrs['key'] = Arr::get($entry, 'attributes.key');
             $stageId = Arr::get($entry, 'attributes.stageId');
             if (defined($stageId)) {
                 $attrs['stageId'] = $stageId;
@@ -342,64 +342,95 @@ class Repository
         $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
         $siteLocales = $siteDao->getSite()->getSupportedLocales();
 
-        foreach ($templatesData as $templateData) {
-            $fillables = [];
-            $localizedTitle = $localizedDescription = [];
-            foreach ($templateData as $key => $data) {
-                $locales = $addedLocales ?? $siteLocales;
-                foreach ($locales as $locale) {
-                    $previous = Locale::getMissingKeyHandler();
-                    Locale::setMissingKeyHandler(fn (string $localeKey): string => '');
+        $contexts = [];
+        if ($context) {
+            $contexts[] = $context;
+        } else {
+            $contextDao = Application::getContextDAO();
+            $contexts = $contextDao->getAll()->toArray();
+        }
+
+        foreach ($contexts as $context) {
+            foreach ($templatesData as $templateData) {
+                $fillables = [];
+                $localizedTitle = $localizedDescription = [];
+                foreach ($templateData as $key => $data) {
+                    $locales = $addedLocales ?? $siteLocales;
+                    foreach ($locales as $locale) {
+                        $previous = Locale::getMissingKeyHandler();
+                        Locale::setMissingKeyHandler(fn (string $localeKey): string => '');
+                        switch ($key) {
+                            case 'title':
+                                $localizedTitle[$locale] = __($data, [], $locale);
+                                break;
+                            case 'description':
+                                $localizedDescription[$locale] = __($data, [], $locale);
+                                break;
+                        }
+                        Locale::setMissingKeyHandler($previous);
+                    }
+
                     switch ($key) {
-                        case 'title':
-                            $localizedTitle[$locale] = __($data, [], $locale);
+                        case 'stageId':
+                            $fillables['stageId'] = constant($data);
                             break;
-                        case 'description':
-                            $localizedDescription[$locale] = __($data, [], $locale);
+                        case 'key':
+                            $fillables['key'] = $data;
                             break;
                     }
-                    Locale::setMissingKeyHandler($previous);
                 }
 
-                switch ($key) {
-                    case 'stageId':
-                        $fillables['stageId'] = constant($data);
-                        break;
-                    case 'emailKey':
-                        $fillables['emailKey'] = $data;
-                        break;
-                }
-            }
+                $fillables['title'] = $localizedTitle;
+                $fillables['description'] = $localizedDescription;
 
-            $fillables['title'] = $localizedTitle;
-            $fillables['description'] = $localizedDescription;
+                $fillables = array_merge($fillables, [
+                    'contextId' => $context->getId(),
+                    'type' => EditorialTaskType::DISCUSSION->value, // Only discussions are implemented as default templates.
+                ]);
 
-            $fillables = array_merge($fillables, [
-                'contextId' => $context->getId(),
-                'type' => EditorialTaskType::DISCUSSION->value, // Only discussions are implemented as default templates.
-                'default' => true,
-            ]);
-
-            // In case of reset operation, rewrite all templates
-            if ($reset) {
-                $template = new Template($fillables);
-            } else {
                 // If exists by email key, just add new localizations, if available
                 $template = null;
-                if (isset($fillables['emailKey'])) {
-                    $template = Template::withEmailKeys([$fillables['emailKey']], $fillables['contextId'])->first();
+                if (isset($fillables['key'])) {
+                    $template = Template::withkeys([$fillables['key']], $fillables['contextId'])->first();
                 }
+
                 if ($template) {
                     $fillables['title'] = array_merge($template->title, $fillables['title']);
                     $fillables['description'] = array_merge($template->description, $fillables['description']);
+                    $template->fill($fillables);
                 } else {
+                    // This is a new template. Add data in all available locales
+                    foreach ($siteLocales as $locale) {
+                        $previous = Locale::getMissingKeyHandler();
+                        Locale::setMissingKeyHandler(fn (string $localeKey): string => '');
+
+                        if (!isset($fillables['title'][$locale])) {
+                            $fillables['title'][$locale] = __($templateData['title'], [], $locale);
+                        }
+                        if (!isset($fillables['description'][$locale])) {
+                            $fillables['description'][$locale] = __($templateData['description'], [], $locale);
+                        }
+                        Locale::setMissingKeyHandler($previous);
+                    }
                     $template = new Template($fillables);
                 }
-            }
 
-            $template->save();
+                $template->save();
+            }
         }
 
         return true;
+    }
+
+    /**
+     * Uninstall localized data on email task templates
+     *
+     * @param array<string> $locales
+     */
+    public function deleteTemplateLocaleData(array $locales): void
+    {
+        DB::table('edit_task_template_settings')
+            ->whereIn('locale', $locales)
+            ->delete();
     }
 }

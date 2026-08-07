@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\languages\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -96,6 +97,7 @@ class InstallLanguageForm extends Form
             $installedLocales = $site->getInstalledLocales();
             $supportedLocales = $site->getSupportedLocales();
 
+            $validatedLocales = [];
             foreach ($localesToInstall as $locale) {
                 if (Locale::isLocaleValid($locale) && !in_array($locale, $installedLocales)) {
                     array_push($installedLocales, $locale);
@@ -104,8 +106,11 @@ class InstallLanguageForm extends Form
                         array_push($supportedLocales, $locale);
                     }
                     Locale::installLocale($locale);
+                    $validatedLocales[] = $locale;
                 }
             }
+
+            Repo::editorialTask()->installTaskTemplates(addedLocales: $validatedLocales);
 
             $site->setInstalledLocales($installedLocales);
             $site->setSupportedLocales($supportedLocales);

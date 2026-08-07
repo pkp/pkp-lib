@@ -124,9 +124,9 @@ class DAO extends EntityDAO
     }
 
     /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row): Ror
+    public function fromRow(object $row, ?callable $populator = null): Ror
     {
-        return parent::fromRow($row);
+        return parent::fromRow($row, $populator);
     }
 
     /** @copydoc EntityDAO::insert() */

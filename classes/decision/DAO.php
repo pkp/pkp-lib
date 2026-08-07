@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/DAO.php
  *
@@ -113,9 +114,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Decision
+    public function fromRow(object $row, ?callable $populator = null): Decision
     {
-        return parent::fromRow($row);
+        return parent::fromRow($row, $populator);
     }
 
     /**

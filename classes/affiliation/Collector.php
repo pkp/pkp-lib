@@ -32,7 +32,7 @@ class Collector implements CollectorInterface
 
     public ?int $offset = null;
 
-    public ?int $authorId = null;
+    public ?array $authorIds = null;
 
     public function __construct(DAO $dao)
     {
@@ -68,9 +68,9 @@ class Collector implements CollectorInterface
     /**
      * Filter by single author
      */
-    public function filterByAuthorId(?int $authorId): self
+    public function filterByAuthorIds(?array $authorIds): self
     {
-        $this->authorId = $authorId;
+        $this->authorIds = $authorIds;
         return $this;
     }
 
@@ -107,8 +107,8 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        if (!is_null($this->authorId)) {
-            $qb->where('a.author_id', '=', $this->authorId);
+        if (!is_null($this->authorIds)) {
+            $qb->whereIn('a.author_id', $this->authorIds);
         }
 
         // Add app-specific query statements

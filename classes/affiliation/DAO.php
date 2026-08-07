@@ -102,24 +102,49 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $queryBuilder = $query->getQueryBuilder();
+            $settings = $rorObjects = null;
+
+            $rows = $queryBuilder->get();
+            $authorAffiliationIds = $rows->pluck('author_affiliation_id')->toArray();
 
             foreach ($rows as $row) {
-                yield $row->author_affiliation_id => $this->fromRow($row);
+                yield $row->author_affiliation_id => $this->fromRow(
+                    $row,
+                    function (object $row, object $schema, Affiliation $affiliation) use ($queryBuilder, $authorAffiliationIds, &$settings, &$rorObjects): void {
+                        $settings ??= DB::table('author_affiliation_settings')
+                            ->whereIn('author_affiliation_id', $authorAffiliationIds)
+                            ->get()
+                            ->groupBy('author_affiliation_id');
+
+                        $rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($authorAffiliationIds)
+                            ->getMany()
+                            ->collect()
+                            ->groupBy(fn ($rorObject) => $rorObject->getRor());
+
+                        $settings->get($row->author_affiliation_id)
+                            ?->each(fn ($row) => $this->populateSetting($row, $affiliation, $schema));
+
+                        $affiliation->setData('rorObject', $rorObjects->get($row->ror)?->first());
+                    }
+                );
             }
         });
     }
 
-    /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row): Affiliation
+    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
     {
-        $affiliation = parent::fromRow($row);
+        parent::individualPopulator($row, $schema, $object);
+
         if (!empty($affiliation->getRor())) {
             $affiliation->setData('rorObject', Repo::ror()->getCollector()->filterByRor($affiliation->getRor())->getMany()->first());
         }
-        return $affiliation;
+    }
+
+    /** @copydoc EntityDAO::fromRow() */
+    public function fromRow(object $row, ?callable $populator = null): Affiliation
+    {
+        return parent::fromRow($row, $populator);
     }
 
     /** @copydoc EntityDAO::insert() */

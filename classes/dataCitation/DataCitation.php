@@ -10,7 +10,7 @@
  * @class DataCitation
  *
  * @brief Basic class describing Data Citation existing in the system.
- * 
+ *
  */
 
 namespace PKP\dataCitation;
@@ -22,7 +22,7 @@ use PKP\dataCitation\pid\PidResolver;
 use PKP\services\PKPSchemaService;
 
 /**
- * @method static \Illuminate\Database\Eloquent\Builder withPublicationId (int $publicationId) accepts valid publication ID
+ * @method static \Illuminate\Database\Eloquent\Builder withPublicationIds (array $publicationId) accepts valid publication IDs
  */
 class DataCitation extends Model
 {
@@ -59,9 +59,9 @@ class DataCitation extends Model
 
     /**
      * Override saving to strip known prefixes and Base URL's from identifier
-     * 
+     *
      * @return static
-     * 
+     *
      */
     protected static function boot()
     {
@@ -88,21 +88,19 @@ class DataCitation extends Model
     }
 
     /**
-     * Filter by publication ID
-     * 
-     * @return EloquentBuilder
-     * 
+     * Filter by publication IDs
+     *
+     *
      */
-    protected function scopeWithPublicationId(EloquentBuilder $builder, int $publicationId): EloquentBuilder
+    protected function scopeWithPublicationIds(EloquentBuilder $builder, array $publicationIds): EloquentBuilder
     {
-        return $builder->where('publication_id', $publicationId);
+        return $builder->whereIn('publication_id', $publicationIds);
     }
 
     /**
      * Order by seq
-     * 
-     * @return EloquentBuilder
-     * 
+     *
+     *
      */
     protected function scopeOrderBySeq(EloquentBuilder $builder): EloquentBuilder
     {

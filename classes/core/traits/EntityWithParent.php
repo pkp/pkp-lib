@@ -36,7 +36,7 @@ trait EntityWithParent
      *
      * @return T
      */
-    abstract public function fromRow(object $row): DataObject;
+    abstract public function fromRow(object $row, ?callable $populator = null): DataObject;
 
     /**
      * Check if an object exists.

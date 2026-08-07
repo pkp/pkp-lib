@@ -137,32 +137,56 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $queryBuilder = $query->getQueryBuilder();
+            $settings = $affiliations = $creditRoles = $contributorRoles = null;
+
+            $rows = $queryBuilder->get();
+            $authorIds = $rows->pluck('author_id')->all();
+
             foreach ($rows as $row) {
-                yield $row->author_id => $this->fromRow($row);
+                yield $row->author_id => $this->fromRow(
+                    $row,
+                    function (object $row, object $schema, Author $author) use ($queryBuilder, $authorIds, &$settings, &$affiliations, &$creditRoles, &$contributorRoles): void {
+                        $settings ??= DB::table('author_settings')
+                            ->whereIn('author_id', $authorIds)
+                            ->get()
+                            ->groupBy('author_id');
+                        $settings->get($row->author_id)
+                            ?->each(fn ($row) => $this->populateSetting($row, $author, $schema));
+
+                        $affiliations ??= collect(Repo::affiliation()->getByAuthorIds($authorIds))
+                            ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
+                        $author->setAffiliations($affiliations->get($row->author_id)?->toArray() ?? []);
+
+                        $creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($authorIds);
+                        $author->setCreditRoles($creditRoles->get($row->author_id)?->toArray() ?? []);
+
+                        $contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($authorIds);
+                        $author->setContributorRoles($contributorRoles->get($row->author_id)?->all() ?? []);
+                    }
+                );
             }
         });
+    }
+
+    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
+    {
+        parent::individualPopulator($row, $schema, $object);
+
+        $object->setAffiliations(Repo::affiliation()->getByAuthorIds([$object->getId()]));
+        $object->setCreditRoles(Repo::creditContributorRole()->getCreditRolesByContributorId($object->getId()));
+        $object->setContributorRoles(Repo::creditContributorRole()->getContributorRolesByContributorId($object->getId()));
     }
 
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Author
+    public function fromRow(object $row, ?callable $populator = null): Author
     {
-        $author = parent::fromRow($row);
+        $author = parent::fromRow($row, $populator);
 
         // Set the primary locale from the submission
         $author->setData('submissionLocale', $row->submission_locale);
-
-        $author->setAffiliations(
-            Repo::affiliation()->getByAuthorId($author->getId())
-        );
-
-        $author->setCreditRoles(Repo::creditContributorRole()->getCreditRolesByContributorId($author->getId()));
-
-        $author->setContributorRoles(Repo::creditContributorRole()->getContributorRolesByContributorId($author->getId()));
 
         return $author;
     }

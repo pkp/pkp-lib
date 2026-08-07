@@ -30,12 +30,12 @@ use PKP\core\PKPRequest;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentController extends PKPBaseController
@@ -68,6 +68,7 @@ class ReviewAssignmentController extends PKPBaseController
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_SITE_ADMIN,
             ]),
         ])->group(function () {
             Route::get('{reviewAssignmentId}', $this->get(...))
@@ -92,6 +93,7 @@ class ReviewAssignmentController extends PKPBaseController
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
+        $this->addPolicy(new StageRolePolicy([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]));
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -111,21 +113,6 @@ class ReviewAssignmentController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
-        }
-
-        $user = $this->getRequest()->getUser();
-
-        // Only allow access if the user is a manager or assigned sub-editor(section editor) for this submission
-        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $submission->getData('contextId'));
-        $isAssignedSubEditor = StageAssignment::withSubmissionIds([$submission->getId()])
-            ->withStageIds([$reviewAssignment->getStageId()])
-            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->withUserId($user->getId());
-
-        if (!$isManager && !$isAssignedSubEditor->exists()) {
-            return response()->json([
-                'error' => __('api.403.unauthorized'),
-            ], Response::HTTP_FORBIDDEN);
         }
 
         $data = Repo::reviewAssignment()
@@ -169,20 +156,6 @@ class ReviewAssignmentController extends PKPBaseController
         }
 
         $context = $this->getRequest()->getContext();
-        $user = $this->getRequest()->getUser();
-
-        // Only allow access if the user is a manager or assigned sub-editor(section editor) for this submission
-        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $submission->getData('contextId'));
-        $isAssignedSubEditor = StageAssignment::withSubmissionIds([$submission->getId()])
-            ->withStageIds([$reviewAssignment->getStageId()])
-            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->withUserId($user->getId());
-
-        if (!$isManager && !$isAssignedSubEditor->exists()) {
-            return response()->json([
-                'error' => __('api.403.unauthorized'),
-            ], Response::HTTP_FORBIDDEN);
-        }
 
         $hasRating = $params['quality'] !== 0;
         // If no rating was submitted, then unset the existing one with a `null` value.
@@ -226,19 +199,6 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $user = $this->getRequest()->getUser();
-        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $submission->getData('contextId'));
-        $isAssignedSubEditor = StageAssignment::withSubmissionIds([$submission->getId()])
-            ->withStageIds([$reviewAssignment->getStageId()])
-            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->withUserId($user->getId());
-
-        if (!$isManager && !$isAssignedSubEditor->exists()) {
-            return response()->json([
-                'error' => __('api.403.unauthorized'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
         $considered = (int)$illuminateRequest->input('considered');
         if (!in_array($considered, [ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED, ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED])) {
             return response()->json([
@@ -253,16 +213,14 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_CONFLICT);
         }
 
-        match ($considered) {
+        $updatedReviewAssignment = match ($considered) {
             ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED => $this->markReviewViewed($reviewAssignment),
             ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED => $this->markReviewConsidered($reviewAssignment, $submission),
             ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED => $this->markReviewUnconsidered($reviewAssignment, $submission),
         };
 
-        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId, $submission->getId());
-
         return response()->json(
-            Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment, $submission),
+            Repo::reviewAssignment()->getSchemaMap()->map($updatedReviewAssignment, $submission),
             Response::HTTP_OK
         );
     }
@@ -270,20 +228,24 @@ class ReviewAssignmentController extends PKPBaseController
     /**
      * Mark a new review assignment as viewed by the editor.
      */
-    protected function markReviewViewed(ReviewAssignment $reviewAssignment): void
+    protected function markReviewViewed(ReviewAssignment $reviewAssignment): ReviewAssignment
     {
         // If it's a new review assignment, mark it as viewed
         if ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW) {
             Repo::reviewAssignment()->edit($reviewAssignment, [
                 'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED,
             ]);
+
+            return Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getsubmissionId());
         }
+
+        return $reviewAssignment;
     }
 
     /**
      * Mark a review assignment as considered by the editor.
      */
-    protected function markReviewConsidered(ReviewAssignment $reviewAssignment, Submission $submission): void
+    protected function markReviewConsidered(ReviewAssignment $reviewAssignment, Submission $submission): ReviewAssignment
     {
         $request = $this->getRequest();
 
@@ -304,6 +266,7 @@ class ReviewAssignmentController extends PKPBaseController
 
         // Trigger an update of the review round status
         Repo::reviewAssignment()->edit($reviewAssignment, $newReviewData);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getsubmissionId());
 
         // If the review was read by an editor, log event
         if ($reviewAssignment->isRead()) {
@@ -320,6 +283,7 @@ class ReviewAssignmentController extends PKPBaseController
                 'submissionId' => $submission->getId(),
                 'round' => $reviewAssignment->getRound(),
             ]);
+
             Repo::eventLog()->add($eventLog);
         }
 
@@ -331,13 +295,15 @@ class ReviewAssignmentController extends PKPBaseController
 
         // Deposit review to ORCID
         (new SendReviewToOrcid($reviewAssignment->getId()))->execute();
+
+        return $reviewAssignment;
     }
 
     /**
      * Revoke the considered status of a review assignment.
      *
      */
-    protected function markReviewUnconsidered(ReviewAssignment $reviewAssignment, Submission $submission): void
+    protected function markReviewUnconsidered(ReviewAssignment $reviewAssignment, Submission $submission): ReviewAssignment
     {
         $user = $this->getRequest()->getUser();
 
@@ -360,6 +326,9 @@ class ReviewAssignmentController extends PKPBaseController
             'submissionId' => $submission->getId(),
             'round' => $reviewAssignment->getRound(),
         ]);
+
         Repo::eventLog()->add($eventLog);
+
+        return Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getsubmissionId());
     }
 }

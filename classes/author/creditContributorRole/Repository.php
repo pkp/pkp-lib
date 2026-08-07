@@ -15,6 +15,7 @@
 namespace PKP\author\creditContributorRole;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use PKP\author\contributorRole\ContributorRole;
 use PKP\author\creditRole\CreditRole;
 
@@ -85,6 +86,19 @@ class Repository
     }
 
     /**
+     * Get all contributor's contributor roles as objects.
+     */
+    public function getContributorRolesGroupedByContributorIds(array $contributorIds): Collection
+    {
+        return ContributorRole::query()
+            ->join('credit_contributor_roles', 'contributor_roles.contributor_role_id', 'credit_contributor_roles.contributor_role_id')
+            ->whereIn('credit_contributor_roles.contributor_id', $contributorIds)
+            ->orderBy('contributor_roles.contributor_role_id')
+            ->get()
+            ->groupBy('contributor_id');
+    }
+
+    /**
      * Get all contributor's credit roles.
      */
     public function getCreditRolesByContributorId(int $contributorId): array
@@ -95,5 +109,18 @@ class Repository
             ->select(['credit_role_identifier as role', 'credit_degree as degree'])
             ->get()
             ->toArray();
+    }
+
+    /**
+     * Get all contributor's credit roles.
+     */
+    public function getCreditRolesGroupedByContributorIds(array $contributorIds): Collection
+    {
+        return CreditContributorRole::query()
+            ->whereIn('contributor_id', $contributorIds)
+            ->withCreditRoles()
+            ->select(['credit_role_identifier as role', 'credit_degree as degree', 'contributor_id'])
+            ->get()
+            ->groupBy('contributor_id');
     }
 }

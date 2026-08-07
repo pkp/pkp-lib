@@ -115,10 +115,10 @@ abstract class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Doi
+    public function fromRow(object $row, ?callable $populator = null): Doi
     {
         /** @var Doi */
-        $doi = parent::fromRow($row);
+        $doi = parent::fromRow($row, $populator);
         if (empty($doi->getData('doi'))) {
             $doi->setData('resolvingUrl', '');
         } else {

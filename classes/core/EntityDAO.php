@@ -94,12 +94,37 @@ abstract class EntityDAO
         throw new Exception('Not implemented');
     }
 
+    protected function individualPopulator(object $row, object $schema, DataObject $object): void
+    {
+        if ($this->settingsTable) {
+            DB::table($this->settingsTable)
+                ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
+                ->get()
+                ->each(fn ($row) => $this->populateSetting($row, $object, $schema));
+        }
+    }
+
+    protected function populateSetting(object $row, DataObject $object, object $schema)
+    {
+        if (!empty($schema->properties->{$row->setting_name})) {
+            $object->setData(
+                $row->setting_name,
+                $this->convertFromDB(
+                    value: $row->setting_value,
+                    type: $schema->properties->{$row->setting_name}->type,
+                    decrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
+                ),
+                empty($row->locale) ? null : $row->locale
+            );
+        }
+    }
+
     /**
      * Convert a row from the database query into a DataObject
      *
      * @return T
      */
-    public function fromRow(object $row): DataObject
+    public function fromRow(object $row, callable $populator = null): DataObject
     {
         $schema = $this->schemaService->get($this->schema);
 
@@ -119,26 +144,8 @@ abstract class EntityDAO
             }
         }
 
-        if ($this->settingsTable) {
-            $rows = DB::table($this->settingsTable)
-                ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-                ->get();
-
-            $rows->each(function ($row) use ($object, $schema) {
-                if (!empty($schema->properties->{$row->setting_name})) {
-                    $object->setData(
-                        $row->setting_name,
-                        $this->convertFromDB(
-                            value: $row->setting_value,
-                            type: $schema->properties->{$row->setting_name}->type,
-                            decrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
-                        ),
-                        empty($row->locale) ? null : $row->locale
-                    );
-                }
-            });
-        }
-
+        $populator ??= static::individualPopulator(...);
+        $populator($row, $schema, $object);
         return $object;
     }
 

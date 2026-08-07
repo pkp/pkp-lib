@@ -155,10 +155,10 @@ class DAO extends EntityDAO
      *
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): EmailTemplate
+    public function fromRow(object $row, ?callable $populator = null): EmailTemplate
     {
         /** @var EmailTemplate $emailTemplate */
-        $emailTemplate = parent::fromRow($row);
+        $emailTemplate = parent::fromRow($row, $populator);
         $schema = $this->schemaService->get($this->schema);
         $contextDao = Application::getContextDAO();
 

@@ -112,6 +112,30 @@ class DAO extends EntityDAO
         });
     }
 
+    /**
+     * Fetch the affiliations for many authors with two queries,
+     * returned as [authorId => array<Affiliation>].
+     */
+    public function getByAuthorIds(array $authorIds): array
+    {
+        if (empty($authorIds)) {
+            return [];
+        }
+        $rows = DB::table($this->table . ' as a')
+            ->select('a.*')
+            ->whereIn('a.author_id', $authorIds)
+            ->get();
+        $this->prefetchSettings($rows);
+        try {
+            return $rows
+                ->groupBy('author_id')
+                ->map(fn ($group) => $group->map(fn ($row) => $this->fromRow($row))->values()->all())
+                ->all();
+        } finally {
+            $this->clearSettingsPrefetch();
+        }
+    }
+
     /** @copydoc EntityDAO::fromRow() */
     public function fromRow(object $row): Affiliation
     {

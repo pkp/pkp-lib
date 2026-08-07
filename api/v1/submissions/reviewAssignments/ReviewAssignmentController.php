@@ -23,12 +23,18 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\submissions\reviewAssignments\resources\ReviewResource;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
+use PKP\db\DAORegistry;
+use PKP\reviewForm\ReviewFormElement;
+use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\reviewForm\ReviewFormResponse;
+use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -37,6 +43,8 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\SubmissionComment;
+use PKP\submission\SubmissionCommentDAO;
 
 class ReviewAssignmentController extends PKPBaseController
 {
@@ -76,12 +84,26 @@ class ReviewAssignmentController extends PKPBaseController
                 ->name('submission.reviewAssignment.get')
                 ->whereNumber('reviewAssignmentId');
 
-            Route::put('{reviewAssignmentId}', $this->edit(...))
+            Route::put('{reviewAssignmentId}', $this->editReviewAssignment(...))
                 ->name('submission.reviewAssignment.edit')
                 ->whereNumber('reviewAssignmentId');
 
             Route::put('{reviewAssignmentId}/consider', $this->consider(...))
                 ->name('submission.reviewAssignment.consider')
+                ->whereNumber('reviewAssignmentId');
+        });
+
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
+        ])->group(function () {
+            Route::get('{reviewAssignmentId}/review', $this->getReview(...))
+                ->name('submission.reviewAssignment.review.get')
+                ->whereNumber('reviewAssignmentId');
+            Route::put('{reviewAssignmentId}/review', $this->editReview(...))
+                ->name('submission.reviewAssignment.review.edit')
                 ->whereNumber('reviewAssignmentId');
         });
     }
@@ -132,7 +154,7 @@ class ReviewAssignmentController extends PKPBaseController
      * Edit a review assignment.
      * Currently, only support updating the `quality` field of a review assignment. Accepted rating values are 1 to 5, or 0 to unset existing the rating.
      */
-    public function edit(Request $illuminateRequest): JsonResponse
+    public function editReviewAssignment(Request $illuminateRequest): JsonResponse
     {
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT, $illuminateRequest->input());
 
@@ -367,5 +389,277 @@ class ReviewAssignmentController extends PKPBaseController
             ->withRoleIds([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])
             ->withUserId($user->getId())
             ->exists();
+    }
+
+    /**
+     * Get a reviewer's review.
+     *
+     * Handles both a free-text review (no review form) and a custom review form.
+     * The response is shaped by {@see ReviewResource}.
+     */
+    public function getReview(Request $illuminateRequest): JsonResponse
+    {
+        /** @var Submission $submission */
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $reviewAssignmentId = (int)$illuminateRequest->route('reviewAssignmentId');
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId, $submission->getId());
+
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if (!$this->canAccessReview($submission, $reviewAssignment, [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_REVIEWER])) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        return response()->json(new ReviewResource($reviewAssignment), Response::HTTP_OK);
+    }
+
+    /**
+     * Update a reviewer's review.
+     *
+     * Handles both a free-text review (no review form) and a custom review form:
+     * - Free-text: `comments` (shared with the author) and `privateComments` (editor only).
+     * - Review form: `reviewFormResponses` as a `reviewFormElementId => value` map. This
+     *   is a partial update; only the provided elements are persisted.
+     *
+     * The optional `reviewerRecommendationId` is stored on the review assignment in both cases.
+     */
+    public function editReview(Request $illuminateRequest): JsonResponse
+    {
+        /** @var Submission $submission */
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $reviewAssignmentId = (int)$illuminateRequest->route('reviewAssignmentId');
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId, $submission->getId());
+
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        /*
+         * Do not allow partial updates. This means the full object with all required review fields has to be submitted.
+         * Required fields:
+         * - reviewerRecommendationId
+         * - text fields or form
+         */
+
+        // If text fields exist, form fields should not
+        // if text fields exist, the review should not have form fields ($reviewAssignment->getReviewFormId() should be null)
+        // if form is submitted, update all fields
+        // for each exisitng form field in DB, check if it is required. if required, check that the field is in request and has a value
+        $context = $this->getRequest()->getContext();
+        $hasReviewForm = (bool) $reviewAssignment->getReviewFormId();
+        $reviewFormResponses = $hasReviewForm ? (array) $illuminateRequest->input('reviewFormResponses', []) : [];
+
+        // Validate everything before persisting anything.
+        $updatesRecommendation = $illuminateRequest->exists('reviewerRecommendationId');
+        $recommendationId = null;
+
+        if ($updatesRecommendation) {
+            $submitted = $illuminateRequest->input('reviewerRecommendationId');
+            $recommendationId = $submitted === null ? 0 : (int) $submitted;
+
+            if ($recommendationId !== 0) {
+                $recommendationOptions = Repo::reviewerRecommendation()->getRecommendationOptions($context, reviewAssignment: $reviewAssignment);
+                if (!array_key_exists($recommendationId, $recommendationOptions)) {
+                    return response()->json([
+                        'error' => __('api.submissions.reviews.422.invalidRecommendation'),
+                    ], Response::HTTP_UNPROCESSABLE_ENTITY);
+                }
+            }
+        }
+
+        if ($hasReviewForm) {
+            $error = $this->validateReviewFormResponses($reviewAssignment, $reviewFormResponses);
+            if ($error) {
+                return $error;
+            }
+        }
+
+        // Persist.
+        if ($updatesRecommendation) {
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'reviewerRecommendationId' => $recommendationId === 0 ? null : $recommendationId,
+            ]);
+        }
+
+        if ($hasReviewForm) {
+            // Scenario B — custom review form.
+            $this->saveReviewFormResponses($reviewAssignment, $reviewFormResponses);
+        } else {
+            // Scenario A — free-text review.
+            $this->saveReviewComments($reviewAssignment, $illuminateRequest);
+        }
+
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $submission->getId());
+
+        return response()->json(new ReviewResource($reviewAssignment), Response::HTTP_OK);
+    }
+
+    /**
+     * Check whether the current user (a manager or the assigned sub-editor/section editor)
+     * may access a review for the given submission.
+     */
+    protected function canAccessReview(Submission $submission, ReviewAssignment $reviewAssignment, array $assignedRoles): bool
+    {
+        $user = $this->getRequest()->getUser();
+
+        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $submission->getData('contextId'));
+        $isAssignedSubEditor = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$reviewAssignment->getStageId()])
+            ->withRoleIds($assignedRoles)
+            ->withUserId($user->getId())
+            ->exists();
+
+        return $isManager || $isAssignedSubEditor;
+    }
+
+    /**
+     * Validate a partial set of custom review form responses.
+     *
+     * Every submitted element must belong to the assignment's review form, and a
+     * required element may not be emptied.
+     *
+     * @param array $reviewFormResponses A `reviewFormElementId => value` map.
+     *
+     * @return ?JsonResponse A validation error response, or null when valid.
+     */
+    protected function validateReviewFormResponses(ReviewAssignment $reviewAssignment, array $reviewFormResponses): ?JsonResponse
+    {
+        /** @var ReviewFormElementDAO $reviewFormElementDao */
+        $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+
+        foreach ($reviewFormResponses as $reviewFormElementId => $value) {
+            $reviewFormElement = $reviewFormElementDao->getById((int) $reviewFormElementId, $reviewAssignment->getReviewFormId());
+            if (!$reviewFormElement) {
+                return response()->json([
+                    'error' => __('api.submissions.reviews.422.invalidReviewFormElement', ['reviewFormElementId' => $reviewFormElementId]),
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+
+            if ($reviewFormElement->getRequired() && (is_array($value) ? empty($value) : $value === '')) {
+                return response()->json([
+                    'error' => __('api.submissions.reviews.422.requiredReviewFormResponse', ['question' => strip_tags($reviewFormElement->getLocalizedQuestion())]),
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Save a partial set of custom review form responses.
+     *
+     * Only the review form elements included in the request are persisted. Callers must
+     * validate the responses via {@see self::validateReviewFormResponses()} first.
+     *
+     * @param array $reviewFormResponses A `reviewFormElementId => value` map.
+     */
+    protected function saveReviewFormResponses(ReviewAssignment $reviewAssignment, array $reviewFormResponses): void
+    {
+        /** @var ReviewFormElementDAO $reviewFormElementDao */
+        $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+        /** @var ReviewFormResponseDAO $reviewFormResponseDao */
+        $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+
+        foreach ($reviewFormResponses as $reviewFormElementId => $value) {
+            $reviewFormElement = $reviewFormElementDao->getById((int) $reviewFormElementId, $reviewAssignment->getReviewFormId());
+            $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), (int) $reviewFormElementId);
+            $isExisting = isset($reviewFormResponse);
+            if (!$isExisting) {
+                $reviewFormResponse = new ReviewFormResponse();
+            }
+
+            switch ($reviewFormElement->getElementType()) {
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
+                    $reviewFormResponse->setResponseType('string');
+                    break;
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                    $reviewFormResponse->setResponseType('int');
+                    break;
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                    $reviewFormResponse->setResponseType('object');
+                    break;
+            }
+            $reviewFormResponse->setValue($value);
+
+            if ($isExisting) {
+                $reviewFormResponseDao->updateObject($reviewFormResponse);
+            } else {
+                $reviewFormResponse->setReviewFormElementId((int) $reviewFormElementId);
+                $reviewFormResponse->setReviewId($reviewAssignment->getId());
+                $reviewFormResponseDao->insertObject($reviewFormResponse);
+            }
+        }
+    }
+
+    /**
+     * Save the reviewer's free-text comments.
+     *
+     * Only the fields present in the request are affected. A field submitted as an empty
+     * string clears the existing comment; a non-empty value creates or updates it.
+     */
+    protected function saveReviewComments(ReviewAssignment $reviewAssignment, Request $illuminateRequest): void
+    {
+        if ($illuminateRequest->exists('comments')) {
+            $this->saveReviewComment($reviewAssignment, (string) $illuminateRequest->input('comments'), true);
+        }
+        if ($illuminateRequest->exists('privateComments')) {
+            $this->saveReviewComment($reviewAssignment, (string) $illuminateRequest->input('privateComments'), false);
+        }
+    }
+
+    /**
+     * Create, update or delete a single free-text reviewer comment.
+     *
+     * @param bool $viewable True for the comment shared with the author, false for the editor-only comment.
+     */
+    protected function saveReviewComment(ReviewAssignment $reviewAssignment, string $comments, bool $viewable): void
+    {
+        /** @var SubmissionCommentDAO $submissionCommentDao */
+        $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+        $comment = $submissionCommentDao->getReviewerCommentsByReviewerId(
+            $reviewAssignment->getSubmissionId(),
+            $reviewAssignment->getReviewerId(),
+            $reviewAssignment->getId(),
+            $viewable
+        )->next();
+
+        // An empty value clears any existing comment.
+        if (strlen($comments) === 0) {
+            if ($comment) {
+                $submissionCommentDao->deleteObject($comment);
+            }
+            return;
+        }
+
+        if (!$comment) {
+            $comment = $submissionCommentDao->newDataObject();
+            $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
+            $comment->setRoleId(Role::ROLE_ID_REVIEWER);
+            $comment->setAssocId($reviewAssignment->getId());
+            $comment->setSubmissionId($reviewAssignment->getSubmissionId());
+            $comment->setAuthorId($reviewAssignment->getReviewerId());
+            $comment->setCommentTitle('');
+            $comment->setViewable($viewable);
+            $comment->setDatePosted(Core::getCurrentDate());
+        }
+
+        $comment->setComments($comments);
+
+        if ($comment->getId()) {
+            $submissionCommentDao->updateObject($comment);
+        } else {
+            $submissionCommentDao->insertObject($comment);
+        }
     }
 }

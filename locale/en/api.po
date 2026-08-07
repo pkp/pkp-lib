@@ -508,3 +508,12 @@ msgstr "The review assignment has already been considered and cannot be consider
 
 msgid "api.reviews.assignments.422.missingOrInvalidConsideredValue"
 msgstr "The `considered` field is missing or contains an invalid value."
+
+msgid "api.submissions.reviews.422.invalidRecommendation"
+msgstr "The submitted recommendation is not a valid recommendation for this context."
+
+msgid "api.submissions.reviews.422.invalidReviewFormElement"
+msgstr "The review form response with ID \"{$reviewFormElementId}\" does not belong to this review form."
+
+msgid "api.submissions.reviews.422.requiredReviewFormResponse"
+msgstr "The \"{$question}\" review question is required and cannot be left empty."

@@ -161,10 +161,7 @@ class DAO extends EntityDAO
         $this->setDoiObject($publication);
 
         // Set the primary locale from the submission
-        $locale = DB::table('submissions as s')
-            ->where('s.submission_id', '=', $publication->getData('submissionId'))
-            ->value('locale');
-        $publication->setData('locale', $locale);
+        $publication->setData('locale', $row->submission_locale);
 
         $citations = Repo::citation()->getByPublicationId($publication->getId());
         $publication->setData('citations', $citations);

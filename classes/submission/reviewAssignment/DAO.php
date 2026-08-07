@@ -153,9 +153,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): ReviewAssignment
+    public function fromRow(object $row, ?callable $populator = null): ReviewAssignment
     {
-        $reviewAssignment = parent::fromRow($row);
+        $reviewAssignment = parent::fromRow($row, $populator);
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
         $reviewAssignment->setData(
             'reviewerFullName',

@@ -12,7 +12,7 @@
  * @ingroup api_v1_data_citations
  *
  * @brief Controller class to handle API requests for data citation operations.
- * 
+ *
  */
 
 namespace pkp\api\v1\dataCitations;
@@ -23,9 +23,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\dataCitation\DataCitation;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\dataCitation\DataCitation;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
@@ -147,7 +147,7 @@ class PKPDataCitationController extends PKPBaseController
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
-        $dataCitations = DataCitation::withPublicationId($publication->getId())->orderBySeq();
+        $dataCitations = DataCitation::withPublicationIds([$publication->getId()])->orderBySeq();
 
         Hook::run('API::dataCitations::params', [$dataCitations, $illuminateRequest]);
 
@@ -221,7 +221,8 @@ class PKPDataCitationController extends PKPBaseController
         $dataCitation = DataCitation::find($dataCitation->id);
 
         return response()->json(
-            Repo::dataCitation()->getSchemaMap()->map($dataCitation), Response::HTTP_OK
+            Repo::dataCitation()->getSchemaMap()->map($dataCitation),
+            Response::HTTP_OK
         );
     }
 
@@ -248,7 +249,8 @@ class PKPDataCitationController extends PKPBaseController
         $dataCitation->delete();
 
         return response()->json(
-            Repo::dataCitation()->getSchemaMap()->map($dataCitation), Response::HTTP_OK
+            Repo::dataCitation()->getSchemaMap()->map($dataCitation),
+            Response::HTTP_OK
         );
     }
 

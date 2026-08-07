@@ -204,9 +204,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Submission
+    public function fromRow(object $row, ?callable $populator = null): Submission
     {
-        $submission = parent::fromRow($row);
+        $submission = parent::fromRow($row, $populator);
 
         $submission->setData(
             'publications',

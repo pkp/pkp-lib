@@ -116,10 +116,12 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): EventLogEntry
+    public function fromRow(object $row, ?callable $populator = null): EventLogEntry
     {
-        $logEntry = parent::fromRow($row);
+        $logEntry = parent::fromRow($row, $populator);
         $schema = $this->schemaService->get($this->schema);
+
+        // FIXME Why is this here?
 
         DB::table($this->settingsTable)
             ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})

@@ -24,6 +24,7 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\controlledVocab\ControlledVocab;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\dataCitation\DataCitation;
@@ -118,11 +119,63 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $queryBuilder = $query->getQueryBuilder();
+            $rows = $queryBuilder->get();
+            $publicationIds = $rows->pluck('publication_id')->all();
+
+            $settings = $authors = $categoryIds = $controlledVocabs = $dataCitations = null;
+
             foreach ($rows as $row) {
-                yield $row->publication_id => $this->fromRow($row);
+                yield $row->publication_id => $this->fromRow(
+                    $row,
+                    function (object $row, object $schema, PKPPublication $publication) use ($queryBuilder, $publicationIds, &$settings, &$authors, &$categoryIds, &$controlledVocabs, &$dataCitations): void {
+                        $settings ??= DB::table('publication_settings')
+                            ->whereIn('publication_id', $publicationIds)
+                            ->get()
+                            ->groupBy('publication_id');
+                        $settings->get($row->publication_id)
+                            ?->each(fn ($row) => $this->populateSetting($row, $publication, $schema));
+
+                        $authors ??= Repo::author()->getCollector()->filterByPublicationIds($publicationIds)
+                            ->getMany()
+                            ->collect()
+                            ->groupBy(fn ($author) => $author->getData('publicationId'));
+                        $publication->setData('authors', $authors->get($row->publication_id) ?? collect([]));
+
+                        $categoryIds ??= PublicationCategory::withPublicationIds($publicationIds)
+                            ->get()
+                            ->collect()
+                            ->mapToGroups(fn ($publicationCategory, $key) => [$publicationCategory->publicationId => $publicationCategory->categoryId]);
+                        $publication->setData('categoryIds', $categoryIds->get($row->publication_id)?->all() ?? []);
+
+                        $controlledVocabs ??= ControlledVocabEntry::query()
+                            ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationIds))
+                            ->get()
+                            ->groupBy(fn ($cve) => $cve->controlledVocab->assocId);
+                        $publicationControlledVocabs = $controlledVocabs->get($row->publication_id) ?? collect();
+                        $symbolicControlledVocabs = $publicationControlledVocabs->groupBy(fn ($cve) => $cve->controlledVocab->symbolic);
+                        foreach ([
+                            'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+                            'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+                            'disciplines' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+                            'supportingAgencies' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+                        ] as $dataName => $symbolicName) {
+                            $entries = [];
+                            foreach ($symbolicControlledVocabs->get($symbolicName) ?? [] as $entry) {
+                                foreach ($entry->name as $locale => $value) {
+                                    $entries[$locale][] = $entry->getEntryData($locale);
+                                }
+                            }
+                            $publication->setData($dataName, $entries);
+                        }
+
+                        $dataCitations ??= DataCitation::withPublicationIds($publicationIds)
+                            ->get()
+                            ->collect()
+                            ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
+                        $publication->setData('dataCitations', $dataCitations->get($row->publication_id)?->toArray() ?? []);
+                    }
+                );
             }
         });
     }
@@ -169,13 +222,54 @@ class DAO extends EntityDAO
             ->count();
     }
 
+    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
+    {
+        parent::individualPopulator($row, $schema, $object);
+
+        $object->setData(
+            'authors',
+            Repo::author()
+                ->getCollector()
+                ->filterByPublicationIds([$object->getId()])
+                ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
+                ->getMany()
+                ->remember()
+        );
+
+        $object->setData(
+            'categoryIds',
+            PublicationCategory::withPublicationIds([$object->getId()])->pluck('category_id')->toArray()
+        );
+
+        foreach ([
+            'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+            'disciplines' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            'supportingAgencies' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+        ] as $dataName => $symbolicName) {
+            $object->setData(
+                $dataName,
+                Repo::controlledVocab()->getBySymbolic(
+                    $symbolicName,
+                    Application::ASSOC_TYPE_PUBLICATION,
+                    $object->getId()
+                )
+            );
+        }
+
+        $object->setData(
+            'dataCitations',
+            DataCitation::withPublicationIds([$object->getId()])->orderBySeq()->get()->values()->all()
+        );
+    }
+
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Publication
+    public function fromRow(object $row, ?callable $populator = null): Publication
     {
         /** @var Publication $publication */
-        $publication = parent::fromRow($row);
+        $publication = parent::fromRow($row, $populator);
 
         $this->setDoiObject($publication);
 
@@ -197,10 +291,6 @@ class DAO extends EntityDAO
         $publicationVersionString = Repo::publication()->getVersionString($publication);
         $publication->setData('versionString', $publicationVersionString);
 
-        $this->setAuthors($publication);
-        $this->setCategories($publication);
-        $this->setControlledVocab($publication);
-        $this->setDataCitations($publication);
         $this->setFunders($publication);
 
         return $publication;
@@ -343,22 +433,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Set a publication's author properties
-     */
-    protected function setAuthors(Publication $publication)
-    {
-        $publication->setData(
-            'authors',
-            Repo::author()
-                ->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
-                ->getMany()
-                ->remember()
-        );
-    }
-
-    /**
      * Delete a publication's authors
      */
     protected function deleteAuthors(int $publicationId)
@@ -378,41 +452,6 @@ class DAO extends EntityDAO
      */
     protected function setControlledVocab(Publication $publication)
     {
-        $publication->setData(
-            'keywords',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
-
-        $publication->setData(
-            'subjects',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
-
-        $publication->setData(
-            'disciplines',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
-
-        $publication->setData(
-            'supportingAgencies',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
     }
 
     /**
@@ -469,15 +508,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Set a publication's category property
-     */
-    protected function setCategories(Publication $publication): void
-    {
-        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id')->toArray();
-        $publication->setData('categoryIds', $categoryIds);
-    }
-
-    /**
      * Save the assigned categories
      */
     protected function saveCategories(Publication $publication): void
@@ -492,19 +522,6 @@ class DAO extends EntityDAO
     protected function deleteCategories(int $publicationId): void
     {
         PublicationCategory::where('publication_id', $publicationId)->delete();
-    }
-
-    /**
-     * Set a publication's Data Citations
-     */
-    protected function setDataCitations(Publication $publication): void
-    {
-        $dataCitations = DataCitation::withPublicationId($publication->getId())
-            ->orderBySeq()
-            ->get()
-            ->values()
-            ->all();
-        $publication->setData('dataCitations', $dataCitations);
     }
 
     /**

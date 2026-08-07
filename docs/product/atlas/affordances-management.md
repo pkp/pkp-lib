@@ -178,7 +178,7 @@
 | AFFM-114 | ojs omp ops | `access.tpl` tab `notify` · guard `{if $enableBulkEmails}` · `PKPNotifyUsersForm::FORM_NOTIFY_USERS` · `NotifyUsersForm.vue` send-confirm dialog | Users & roles · Notify tab · compose bulk email to selected role groups + Send (confirm dialog). |
 | AFFM-115 | ojs omp ops | `access.tpl` `v-if="totalBulkJobs"` block · button `manager.setup.notifyUsers.sendAnother` (`AccessPage.vue::reload`) | Users & roles · Notify tab · queued-notice with "send another" reload button after a bulk send. |
 | AFFM-116 | ojs omp ops | `access.tpl` tab `access` · `PKPUserAccessForm::FORM_USER_ACCESS` | Users & roles · Site access options form (registration/login restrictions + Save). |
-| AFFM-117 | ojs omp ops | `access.tpl` tab `orcidSettings` · component `orcidSettings` | Users & roles · ORCID settings form (context-level ORCID API config + Save). |
+| AFFM-117 | ojs omp ops | `access.tpl` tab `orcidSettings` · component `orcidSettings` | Users & roles · ORCID settings form (context-level ORCID API config + Save). Claimed by: orcid-integration. |
 
 ## Invite-to-role wizard (`management/settings/invitation`-launched `pages/userInvitation/UserInvitationPage.vue`)
 
@@ -347,7 +347,7 @@
 | AFFM-219 | ojs omp ops | `settings.tpl` tab `highlights` · `highlights-list-panel` · guard `['highlights']` | Site settings · Highlights tab embedding the highlights panel at site scope (same controls as AFFM-037..040). |
 | AFFM-220 | ojs omp ops | `settings.tpl` tab `bulkEmails` · `PKPSiteBulkEmailsForm::FORM_SITE_BULK_EMAILS` · guard `['bulkEmails']` | Site settings · Bulk emails form (which contexts may send + Save). |
 | AFFM-221 | ojs omp ops | `settings.tpl` tab `statistics` · `PKPSiteStatisticsForm::FORM_SITE_STATISTICS` · guard `['statistics']` | Site settings · Site statistics collection form (geo/institution/SUSHI + Save). |
-| AFFM-222 | ojs omp ops | `settings.tpl` tab `orcidSiteSettings` · component `orcidSiteSettings` · guard `['orcidSiteSettings']` | Site settings · site-wide ORCID API settings form (+ Save). |
+| AFFM-222 | ojs omp ops | `settings.tpl` tab `orcidSiteSettings` · component `orcidSiteSettings` · guard `['orcidSiteSettings']` | Site settings · site-wide ORCID API settings form (+ Save). Claimed by: orcid-integration. |
 | AFFM-223 | ojs omp ops | `settings.tpl` appearance tab `theme` · `PKPThemeForm::FORM_THEME` · guards `['siteAppearance']`/`['siteTheme']` | Site settings · Appearance · site Theme form (+ Save). |
 | AFFM-224 | ojs omp ops | `settings.tpl` appearance tab `setup` · `PKPSiteAppearanceForm::FORM_SITE_APPEARANCE` · guard `['siteAppearanceSetup']` | Site settings · Appearance · setup form (logo, stylesheet, sidebar + Save). |
 | AFFM-225 | ojs omp ops | `settings.tpl` tab `announcement-settings` · `PKPAnnouncementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS` · guard `['announcements']` | Site settings · Announcements · enable/settings form (+ Save). |

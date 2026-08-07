@@ -42,7 +42,7 @@
 | PLUG-018 | OMP | generic/htmlMonographFile | generic; renders HTML monograph files inline (`HtmlMonographFilePlugin`); no settings form; install default enabled=true |
 | PLUG-019 | OJS | generic/jatsTemplate | generic; generates a default JATS XML representation of articles (`JatsTemplatePlugin`); no settings form; install default enabled=true |
 | PLUG-020 | OJS | generic/lensGalley | generic; eLife Lens viewer for JATS XML galleys (`LensGalleyPlugin`); no settings form; install default enabled=true |
-| PLUG-021 | OPS | generic/orcidProfile | generic; ORCID Profile integration (`OrcidProfilePlugin`); settings form (`classes/form/OrcidProfileSettingsForm.php`); lazy-load (OJS/OMP carry ORCID in core, only OPS bundles the plugin) |
+| PLUG-021 | OPS | generic/orcidProfile | generic; ORCID Profile integration (`OrcidProfilePlugin`); settings form (`classes/form/OrcidProfileSettingsForm.php`); lazy-load (OJS/OMP carry ORCID in core, only OPS bundles the plugin) Claimed by: orcid-integration. |
 | PLUG-022 | OJS, OMP, OPS | generic/pdfJsViewer | generic; embeds the pdf.js viewer for PDF display (`PdfJsViewerPlugin`); no settings form; install default enabled=true |
 | PLUG-023 | OJS | generic/pflPlugin | generic; Publication Facts Label on article pages (`PflPlugin`); settings form (`PflSettingsForm`); lazy-load, no install default declared |
 | PLUG-024 | OPS | generic/preprintToJournal | generic; relay a posted preprint into a journal submission (`PreprintToJournalPlugin`, no docblock brief); no settings form; lazy-load |

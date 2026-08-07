@@ -55,10 +55,10 @@
 | JOB-014 | ojs omp ops | `PKP\jobs\notifications\NewAnnouncementNotifyUsers` | Queued — system notifications (+opt email) to users on new announcement. |
 | JOB-015 | ojs omp ops | `PKP\jobs\notifications\StatisticsReportMail` | Queued — emails editors the monthly editorial statistics report. |
 | JOB-016 | ojs omp ops | `PKP\jobs\notifications\StatisticsReportNotify` | Queued — creates system notifications for editors about the monthly report. |
-| JOB-017 | ojs omp ops | `PKP\jobs\orcid\DepositOrcidSubmission` | Queued — deposits ORCID work entry to an authorized user's ORCID profile. |
-| JOB-018 | ojs omp ops | `PKP\jobs\orcid\RevokeOrcidToken` | Queued — revokes a user's ORCID access token. |
-| JOB-019 | ojs omp ops | `PKP\jobs\orcid\SendAuthorMail` | Queued — emails an author requesting ORCID verification. |
-| JOB-020 | ojs omp ops | `PKP\jobs\orcid\SendUpdateScopeMail` | Queued — emails a user to update their ORCID OAuth scope. |
+| JOB-017 | ojs omp ops | `PKP\jobs\orcid\DepositOrcidSubmission` | Queued — deposits ORCID work entry to an authorized user's ORCID profile. Claimed by: orcid-integration. |
+| JOB-018 | ojs omp ops | `PKP\jobs\orcid\RevokeOrcidToken` | Queued — revokes a user's ORCID access token. Claimed by: orcid-integration. |
+| JOB-019 | ojs omp ops | `PKP\jobs\orcid\SendAuthorMail` | Queued — emails an author requesting ORCID verification. Claimed by: orcid-integration. |
+| JOB-020 | ojs omp ops | `PKP\jobs\orcid\SendUpdateScopeMail` | Queued — emails a user to update their ORCID OAuth scope. Claimed by: orcid-integration. |
 | JOB-021 | ojs omp ops | `PKP\jobs\statistics\ArchiveUsageStatsLogFile` | Queued — archives a processed usage-stats log file. |
 | JOB-022 | ojs omp ops | `PKP\jobs\statistics\CompileContextMetrics` | Queued — compiles context-level usage metrics for a day. |
 | JOB-023 | ojs omp ops | `PKP\jobs\statistics\CompileMonthlyMetrics` | Queued — compiles/stores monthly usage stats from daily records. |
@@ -76,8 +76,8 @@
 | JOB-030 | ojs | `APP\jobs\doi\DepositIssue` | Queued — deposits an issue DOI + metadata to the registration agency. |
 | JOB-031 | ojs | `APP\jobs\notifications\IssuePublishedNotifyUsers` | Queued — emails users when a new issue is published. |
 | JOB-032 | ojs | `APP\jobs\notifications\OpenAccessMailUsers` | Queued — sends issue open-access notification emails to users. |
-| JOB-033 | ojs | `APP\jobs\orcid\DepositOrcidReview` | Queued — deposits a peer-review contribution to reviewer's ORCID profile. |
-| JOB-034 | ojs | `APP\jobs\orcid\ReconcileOrcidReviewPutCode` | Queued — retrieves previously deposited ORCID reviews and stores put-codes. |
+| JOB-033 | ojs | `APP\jobs\orcid\DepositOrcidReview` | Queued — deposits a peer-review contribution to reviewer's ORCID profile. Claimed by: orcid-integration. |
+| JOB-034 | ojs | `APP\jobs\orcid\ReconcileOrcidReviewPutCode` | Queued — retrieves previously deposited ORCID reviews and stores put-codes. Claimed by: orcid-integration. |
 | JOB-035 | ojs omp ops | `APP\jobs\statistics\CompileCounterSubmissionDailyMetrics` | Queued — compiles COUNTER submission daily metrics. |
 | JOB-036 | ojs omp ops | `APP\jobs\statistics\CompileCounterSubmissionInstitutionDailyMetrics` | Queued — compiles COUNTER submission institution daily metrics. |
 | JOB-037 | ojs | `APP\jobs\statistics\CompileIssueMetrics` | Queued — compiles issue-level usage metrics (OJS issues). |

@@ -145,8 +145,8 @@ Form class `PKP\user\form\IdentityForm`; posts to `saveIdentity`.
 | AFFU-062 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl fields `givenName`/`familyName` | Identity · multilingual given/family name pair (`user.givenName` required, `user.familyName`) |
 | AFFU-063 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl field `preferredPublicName` | Identity · multilingual text field (`user.preferredPublicName`) · sets display name |
 | AFFU-064 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl field `preferredAvatarInitials` | Identity · 2-char text field (`user.preferredAvatarInitials`) · JS auto-uppercases on keyup |
-| AFFU-065 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl field `orcid` | Identity · ORCID text field (`user.orcid`) · guard `{if $orcidEnabled}`; hidden by orcidProfile.tpl JS when `$targetOp eq 'profile'` |
-| AFFU-066 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl `#deleteOrcidButton` | Identity · button "Delete" (`common.delete`) · confirm modal (`orcid.field.deleteOrcidModal.message`) then submits with injected `removeOrcidId` checkbox · guard `{if $orcidEnabled}` + `{if $orcid && $orcidAuthenticated}` |
+| AFFU-065 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl field `orcid` | Identity · ORCID text field (`user.orcid`) · guard `{if $orcidEnabled}`; hidden by orcidProfile.tpl JS when `$targetOp eq 'profile'` Claimed by: orcid-integration. |
+| AFFU-066 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl `#deleteOrcidButton` | Identity · button "Delete" (`common.delete`) · confirm modal (`orcid.field.deleteOrcidModal.message`) then submits with injected `removeOrcidId` checkbox · guard `{if $orcidEnabled}` + `{if $orcid && $orcidAuthenticated}` Claimed by: orcid-integration. |
 | AFFU-067 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl privacy link `user.privacyLink` | Identity · link to about/privacy page |
 | AFFU-068 | ojs omp ops | lib/pkp/templates/user/identityForm.tpl `{fbvFormButtons submitText="common.save"}` | Identity · button "Save" · submits to `saveIdentity` (cancel hidden) |
 
@@ -228,18 +228,18 @@ Assigned by `IdentityForm` with `targetOp='profile'` and `RegistrationForm` with
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-099 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl `#connect-orcid-button` (authorise variant) | ORCID inline · button "Authorise" (`orcid.authorise`) + unauthenticated-icon link to `$orcid` · guard `{if $orcid && !$orcidAuthenticated}` · runs `openORCID()` (ORCID logout ping then OAuth popup to `$orcidOAuthUrl`) |
-| AFFU-100 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl `#connect-orcid-button` (connect variant) | ORCID inline · button "Connect" (`orcid.connect`) · guard `{else}` (no unauthenticated orcid) · same `openORCID()` OAuth popup |
-| AFFU-101 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl about link (`orcid.about.title`) | ORCID inline · link to page=orcid op=about · `onclick="return openORCID();"` intercepts and opens the OAuth popup instead |
-| AFFU-102 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl `#orcid-link` | ORCID inline · authenticated ORCID display link (icon + `$orcidDisplayValue`, opens orcid.org) · guard `{if $orcidAuthenticated}` |
-| AFFU-103 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl hidden field `orcid` (register variant) | ORCID inline · hidden orcid input + connect button rendered inline · guard `{if $targetOp eq 'register'}`; in profile mode JS instead hides identityForm's `input[name=orcid]` and injects link-or-button after it |
+| AFFU-099 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl `#connect-orcid-button` (authorise variant) | ORCID inline · button "Authorise" (`orcid.authorise`) + unauthenticated-icon link to `$orcid` · guard `{if $orcid && !$orcidAuthenticated}` · runs `openORCID()` (ORCID logout ping then OAuth popup to `$orcidOAuthUrl`) Claimed by: orcid-integration. |
+| AFFU-100 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl `#connect-orcid-button` (connect variant) | ORCID inline · button "Connect" (`orcid.connect`) · guard `{else}` (no unauthenticated orcid) · same `openORCID()` OAuth popup Claimed by: orcid-integration. |
+| AFFU-101 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl about link (`orcid.about.title`) | ORCID inline · link to page=orcid op=about · `onclick="return openORCID();"` intercepts and opens the OAuth popup instead Claimed by: orcid-integration. |
+| AFFU-102 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl `#orcid-link` | ORCID inline · authenticated ORCID display link (icon + `$orcidDisplayValue`, opens orcid.org) · guard `{if $orcidAuthenticated}` Claimed by: orcid-integration. |
+| AFFU-103 | ojs omp ops | lib/pkp/templates/form/orcidProfile.tpl hidden field `orcid` (register variant) | ORCID inline · hidden orcid input + connect button rendered inline · guard `{if $targetOp eq 'register'}`; in profile mode JS instead hides identityForm's `input[name=orcid]` and injects link-or-button after it Claimed by: orcid-integration. |
 
 ## ORCID frontend pages
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-104 | ojs omp ops | lib/pkp/templates/frontend/pages/orcidAbout.tpl | ORCID about page · static informational page, no controls of its own (chrome is AFFR) · content varies on `{if $isMemberApi}` |
-| AFFU-105 | ojs omp ops | lib/pkp/templates/frontend/pages/orcidVerify.tpl orcid link | ORCID verify page · link to verified `$orcid` on orcid.org · guard `{if $verifySuccess}`; otherwise static branch messages (`$sendSubmission`, `$submissionNotPublished`, `$orcidAPIError`, `$invalidClient`, `$duplicateOrcid`, `$denied`, `$authFailure`) + JS auto-redirect to `$currentUrl` after 10s when `$verifySuccess` |
+| AFFU-104 | ojs omp ops | lib/pkp/templates/frontend/pages/orcidAbout.tpl | ORCID about page · static informational page, no controls of its own (chrome is AFFR) · content varies on `{if $isMemberApi}` Claimed by: orcid-integration. |
+| AFFU-105 | ojs omp ops | lib/pkp/templates/frontend/pages/orcidVerify.tpl orcid link | ORCID verify page · link to verified `$orcid` on orcid.org · guard `{if $verifySuccess}`; otherwise static branch messages (`$sendSubmission`, `$submissionNotPublished`, `$orcidAPIError`, `$invalidClient`, `$duplicateOrcid`, `$denied`, `$authFailure`) + JS auto-redirect to `$currentUrl` after 10s when `$verifySuccess` Claimed by: orcid-integration. |
 
 ## ORCID FieldOrcid component (Vue forms)
 
@@ -247,11 +247,11 @@ Assigned by `IdentityForm` with `targetOp='profile'` and `RegistrationForm` with
 
 | ID | apps | pointer | description |
 |----|------|---------|-------------|
-| AFFU-106 | ojs omp ops | components/Form/fields/FieldOrcid.vue orcid display link (`orcidDisplayText`) | FieldOrcid · `<a target="_blank">` to the ORCID URL · `v-if="hasOrcid"` |
-| AFFU-107 | ojs omp ops | components/Form/fields/FieldOrcid.vue delete PkpButton (`common.delete`) | FieldOrcid · button "Delete" · confirm dialog `deleteOrcid`, on Yes POSTs `orcid/deleteForAuthor/{authorId}` · `v-if="hasOrcid"`, `:is-disabled="isButtonDisabled"` |
-| AFFU-108 | ojs omp ops | components/Form/fields/FieldOrcid.vue request-verification PkpButton (`orcid.field.verification.request`/`.requested`) | FieldOrcid · button "Request verification" · confirm dialog `sendAuthorEmail`, on Yes POSTs `orcid/requestAuthorVerification/{authorId}` (defers via `currentValue='shouldRequestVerification'` when `authorId` is 0) · `v-if="!hasOrcid"`, `:disabled="verificationRequested \|\| isButtonDisabled"` |
-| AFFU-109 | ojs omp ops | components/Form/fields/FieldOrcid.vue resend PkpButton (`orcid.field.verification.resendRequest`) | FieldOrcid · link-style "Resend" button · reopens send-email dialog · `v-if="!hasOrcid && verificationRequested"` |
-| AFFU-110 | ojs omp ops | components/Form/fields/FieldOrcid.vue unverified description | FieldOrcid · static description `orcid.field.unverified.shouldRequest` · `v-if="!isVerified && hasOrcid"` (verified/unverified icon swap on same guards) |
+| AFFU-106 | ojs omp ops | components/Form/fields/FieldOrcid.vue orcid display link (`orcidDisplayText`) | FieldOrcid · `<a target="_blank">` to the ORCID URL · `v-if="hasOrcid"` Claimed by: orcid-integration. |
+| AFFU-107 | ojs omp ops | components/Form/fields/FieldOrcid.vue delete PkpButton (`common.delete`) | FieldOrcid · button "Delete" · confirm dialog `deleteOrcid`, on Yes POSTs `orcid/deleteForAuthor/{authorId}` · `v-if="hasOrcid"`, `:is-disabled="isButtonDisabled"` Claimed by: orcid-integration. |
+| AFFU-108 | ojs omp ops | components/Form/fields/FieldOrcid.vue request-verification PkpButton (`orcid.field.verification.request`/`.requested`) | FieldOrcid · button "Request verification" · confirm dialog `sendAuthorEmail`, on Yes POSTs `orcid/requestAuthorVerification/{authorId}` (defers via `currentValue='shouldRequestVerification'` when `authorId` is 0) · `v-if="!hasOrcid"`, `:disabled="verificationRequested \|\| isButtonDisabled"` Claimed by: orcid-integration. |
+| AFFU-109 | ojs omp ops | components/Form/fields/FieldOrcid.vue resend PkpButton (`orcid.field.verification.resendRequest`) | FieldOrcid · link-style "Resend" button · reopens send-email dialog · `v-if="!hasOrcid && verificationRequested"` Claimed by: orcid-integration. |
+| AFFU-110 | ojs omp ops | components/Form/fields/FieldOrcid.vue unverified description | FieldOrcid · static description `orcid.field.unverified.shouldRequest` · `v-if="!isVerified && hasOrcid"` (verified/unverified icon swap on same guards) Claimed by: orcid-integration. |
 
 ## Notifications — tasks panel (backend header)
 

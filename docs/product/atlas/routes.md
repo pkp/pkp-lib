@@ -37,7 +37,7 @@
 | ROUTE-018 | ojs omp ops | `PKP\pages\management\PKPToolsHandler` | Management tools (roles: manager/admin; extends ManagementHandler). Ops: tools, importexport, permissions, resetPermissions (plus index alias). Dispatched from each app's `pages/management/index.php` for tool ops. |
 | ROUTE-019 | ojs omp ops | `PKP\pages\navigationMenu\NavigationMenuItemHandler` | Custom navigation-menu-item pages. Ops: preview, view (plus index no-op). |
 | ROUTE-020 | ojs omp ops | `PKP\pages\notification\NotificationHandler` | In-app notification fetch + email unsubscribe. Ops: fetchNotification, unsubscribe. |
-| ROUTE-021 | ojs omp ops | `PKP\pages\orcid\OrcidHandler` | ORCID OAuth callbacks. Ops: verify, authorizeOrcid, about, updateScope. |
+| ROUTE-021 | ojs omp ops | `PKP\pages\orcid\OrcidHandler` | ORCID OAuth callbacks. Ops: verify, authorizeOrcid, about, updateScope. Claimed by: orcid-integration. |
 | ROUTE-022 | ojs omp | `PKP\pages\reviewer\PKPReviewerHandler` | Reviewer wizard base. Ops: submission, step, saveStep, showDeclineReview, saveDeclineReview, getReviewForm. No dispatcher in lib/pkp; reached only via app subclass `ReviewerHandler` (ROUTE-047/066) — OPS has no `pages/reviewer/` dispatcher, hence apps = ojs omp. |
 | ROUTE-023 | ojs omp ops | `PKP\pages\reviewResponse\ReviewResponseHandler` | Request author response to a review (roles: manager/admin/sub-editor). Op: requestAuthorResponse. |
 | ROUTE-024 | ojs omp ops | `PKP\pages\search\SearchHandler` | Public search base. Ops: index, search. Subclassed by app `SearchHandler` in all three (ROUTE-048/067/083). |

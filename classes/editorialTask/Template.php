@@ -62,7 +62,8 @@ class Template extends Model
         'type',
         'dueInterval',
         'description',
-        'restrictToUserGroups'
+        'restrictToUserGroups',
+        'key',
     ];
 
     protected $casts = [
@@ -71,6 +72,7 @@ class Template extends Model
         'include' => 'bool',
         'type' => 'int',
         'restrictToUserGroups' => 'bool',
+        'key' => 'string',
     ];
 
     /**
@@ -93,7 +95,7 @@ class Template extends Model
     {
         return array_merge(
             $this->settings,
-            ['title', 'description', 'emailKey'],
+            ['title', 'description'],
         );
     }
 
@@ -308,22 +310,11 @@ class Template extends Model
     }
 
     /**
-     * Filter query by email keys belonging to the discussion templates migrated from email templates
+     * Filter query by (email) keys belonging to the default discussion templates migrated from email templates
      */
-    protected function scopeWithEmailKeys(Builder $builder, array $emailKeys, int $contextId): Builder
+    protected function scopeWithKeys(Builder $builder, array $keys, int $contextId): Builder
     {
-        $settingsTable = $this->getSettingsTable();
-        $pk = $this->getKeyName();
-        $selfTable = $this->getTable();
-
-        return $builder->where('context_id', $contextId)->whereExists(
-            fn (QueryBuilder $q) => $q
-                ->select(DB::raw(1))
-                ->from($settingsTable . ' as ets')
-                ->whereColumn("ets.{$pk}", '=', "{$selfTable}.{$pk}")
-                ->where('ets.setting_name', 'emailKey')
-                ->whereIn('ets.setting_value', $emailKeys)
-        );
+        return $builder->where('context_id', $contextId)->whereIn('key', $keys);
 
     }
 }

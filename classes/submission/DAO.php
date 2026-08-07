@@ -187,7 +187,7 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Retrieve a submission by its current publication's DOI
+     * Retrieve a submission by a publication's DOI
      */
     public function getByDoi(string $doi, int $contextId): ?Submission
     {

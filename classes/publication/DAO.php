@@ -190,7 +190,7 @@ class DAO extends EntityDAO
 
         $this->setAuthors($publication, $cacheable);
         $this->setCategories($publication);
-        $this->setControlledVocab($publication);
+        $this->setControlledVocab($publication, $cacheable);
         $this->setDataCitations($publication);
         $this->setFunders($publication, $cacheable);
 
@@ -367,14 +367,15 @@ class DAO extends EntityDAO
     /**
      * Set a publication's controlled vocabulary properties
      */
-    protected function setControlledVocab(Publication $publication)
+    protected function setControlledVocab(Publication $publication, bool $cacheable = false)
     {
         $publication->setData(
             'keywords',
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
 
@@ -383,7 +384,8 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
 
@@ -392,7 +394,8 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
 
@@ -401,7 +404,8 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
     }

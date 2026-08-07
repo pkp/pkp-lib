@@ -154,6 +154,7 @@ class ResetPasswordForm extends Form
         $templateMgr = TemplateManager::getManager($request);
 
         $templateMgr->assign([
+            'pageTitle' => 'user.login.resetPassword',
             'errorMsg' => 'user.login.lostPassword.invalidHash',
             'backLink' => $request->url(null, null, 'lostPassword'),
             'backLinkLabel' => 'user.login.resetPassword',

@@ -18,12 +18,22 @@
  * description, primaryLocale, supportedLocales, contactName, contactEmail,
  * enabled}, users[] (throwaway accounts, same shape as the bootstrap roster
  * entries). Setting passthroughs return per feature, each with a parity entry.
+ *
+ * Feature passthroughs so far (each with a parity-ledger entry):
+ * - orcid {enabled?, apiType?, clientId?, clientSecret?, city?,
+ *   sendMailToAuthorsOnPublication?} — the "ORCID" settings-tab state (U4);
+ *   written through PKPContextService::edit(), the same service the tab's
+ *   form save runs through, with the tab's defaults-for-tests (enabled,
+ *   Public Sandbox, dummy credentials). The OAuth exchange itself can never
+ *   complete on the egress-firewalled fleets, so dummy credentials are
+ *   exactly as good as real ones for every screen this state gates.
  */
 
 namespace PKP\testing\scenario;
 
 use APP\core\Application;
 use PKP\context\Context;
+use PKP\orcid\OrcidManager;
 use PKP\testing\ContextFactory;
 use PKP\testing\Spec;
 use PKP\testing\SpecException;
@@ -68,6 +78,7 @@ abstract class PKPContextScenarioBuilder
             fn (Spec $spec) => $this->userSeeder->parse($spec, $this->structureKey()),
             $root->childList('users')
         );
+        $orcidSettings = $this->parseOrcidSettings($root);
         $root->assertConsumed();
 
         if (Application::getContextDAO()->getByPath((string) $contextData['path'])) {
@@ -76,6 +87,14 @@ abstract class PKPContextScenarioBuilder
 
         // Execute phase.
         $context = $this->contextFactory->create($contextParams);
+
+        if ($orcidSettings !== null) {
+            // The same service call the ORCID settings tab's form save runs
+            // (PUT contexts/{id} → PKPContextService::edit — schema handles
+            // the client-secret encryption exactly as the UI path does).
+            $contextService = app()->get('context'); /** @var \PKP\services\PKPContextService $contextService */
+            $context = $contextService->edit($context, $orcidSettings, Application::get()->getRequest());
+        }
 
         $users = [];
         foreach ($userPlans as $plan) {
@@ -93,5 +112,41 @@ abstract class PKPContextScenarioBuilder
             'path' => $context->getPath(),
             'users' => $users,
         ];
+    }
+
+    /**
+     * The optional `orcid` sub-spec → the context-settings rows the "ORCID"
+     * settings tab saves. Defaults produce the standard test configuration:
+     * enabled, Public Sandbox, dummy credentials.
+     */
+    protected function parseOrcidSettings(Spec $root): ?array
+    {
+        $spec = $root->child('orcid');
+        if ($spec === null) {
+            return null;
+        }
+        $apiTypes = [
+            OrcidManager::API_PUBLIC_PRODUCTION,
+            OrcidManager::API_PUBLIC_SANDBOX,
+            OrcidManager::API_MEMBER_PRODUCTION,
+            OrcidManager::API_MEMBER_SANDBOX,
+        ];
+        $apiType = (string) $spec->get('apiType', OrcidManager::API_PUBLIC_SANDBOX);
+        if (!in_array($apiType, $apiTypes)) {
+            throw new SpecException('orcid.apiType', 'orcid.apiType must be one of: ' . implode(', ', $apiTypes));
+        }
+        $settings = [
+            OrcidManager::ENABLED => (bool) $spec->get('enabled', true),
+            OrcidManager::API_TYPE => $apiType,
+            OrcidManager::CLIENT_ID => (string) $spec->get('clientId', 'APP-TESTCLIENTID'),
+            OrcidManager::CLIENT_SECRET => (string) $spec->get('clientSecret', 'test-orcid-client-secret'),
+        ];
+        if ($spec->has('city')) {
+            $settings[OrcidManager::CITY] = (string) $spec->get('city');
+        }
+        if ($spec->has('sendMailToAuthorsOnPublication')) {
+            $settings[OrcidManager::SEND_MAIL_TO_AUTHORS_ON_PUBLICATION] = (bool) $spec->get('sendMailToAuthorsOnPublication');
+        }
+        return $settings;
     }
 }

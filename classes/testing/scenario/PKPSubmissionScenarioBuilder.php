@@ -26,6 +26,13 @@
  * internal|external; OPS section (reviewRounds REJECTED — no review stage).
  * Richer keys return per feature, each with a parity entry.
  *
+ * Feature passthroughs so far (each with a parity-ledger entry):
+ * - author {orcid*, orcidIsVerified?} — ORCID iD fixture state on the
+ *   submitter's contributor record (U4): a connected iD is only reachable
+ *   through ORCID's own OAuth sign-in, unreachable from the egress-firewalled
+ *   fleets, so the unauthenticated/verified field states are seeded directly
+ *   (the same author_settings rows the OAuth landing stores, minus tokens).
+ *
  * The workflow start stage comes from each app's submission schema default —
  * never hard-coded here (a hard-coded initial stage once made every seeded
  * OPS submission invisible; design record 5).
@@ -143,6 +150,14 @@ abstract class PKPSubmissionScenarioBuilder
             ];
         }
 
+        $authorPlan = null;
+        if (($authorSpec = $root->child('author')) !== null) {
+            $authorPlan = [
+                'orcid' => (string) $authorSpec->require('orcid'),
+                'orcidIsVerified' => (bool) $authorSpec->get('orcidIsVerified', false),
+            ];
+        }
+
         $publishOverlayPlan = $this->parsePublishOverlay($context, $root);
         $root->assertConsumed();
 
@@ -159,7 +174,7 @@ abstract class PKPSubmissionScenarioBuilder
         // submission's context for the duration of the build.
         $restoreRouterContext = $this->forceRequestContext($context);
         try {
-            return $this->execute($root, $context, $locale, $tag, $submitter, $title, $abstract, $submitted, $published, $publicationProps, $decisionTypes, $roundPlans, $publishOverlayPlan);
+            return $this->execute($root, $context, $locale, $tag, $submitter, $title, $abstract, $submitted, $published, $publicationProps, $decisionTypes, $roundPlans, $publishOverlayPlan, $authorPlan);
         } finally {
             $restoreRouterContext();
         }
@@ -194,7 +209,8 @@ abstract class PKPSubmissionScenarioBuilder
         array $publicationProps,
         array $decisionTypes,
         array $roundPlans,
-        array $publishOverlayPlan
+        array $publishOverlayPlan,
+        ?array $authorPlan = null
     ): array {
         $request = Application::get()->getRequest();
 
@@ -233,6 +249,22 @@ abstract class PKPSubmissionScenarioBuilder
                 );
                 $authorId = Repo::author()->add($author);
                 Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
+
+                if ($authorPlan !== null) {
+                    // Same author_settings rows the OAuth verify landing
+                    // stores (orcid, orcidIsVerified), written through the
+                    // real author repository; token fields deliberately
+                    // absent (parity ledger 2026-08-07).
+                    Repo::author()->edit(Repo::author()->get($authorId), [
+                        'orcid' => $authorPlan['orcid'],
+                        'orcidIsVerified' => $authorPlan['orcidIsVerified'],
+                    ]);
+                    $authorPlan = null;
+                }
+            }
+
+            if ($authorPlan !== null) {
+                throw new SpecException('author', 'author requires the submitter to submit as an Author (no contributor record was created)');
             }
 
             $publicationEdits = ['title' => $title];

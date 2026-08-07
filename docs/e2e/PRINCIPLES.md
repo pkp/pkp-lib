@@ -204,6 +204,15 @@ each with a parity entry. (Emptied at FULL RESET #2, 2026-07-31 — the keys
 the previous build added are gone with it, and return only as rebuilt
 features earn them.)
 
+- **U4 ORCID integration (2026-08-07):** context scenario `orcid {enabled?,
+  apiType?, clientId?, clientSecret?, city?, sendMailToAuthorsOnPublication?}`
+  (the settings-tab state, written via `PKPContextService::edit`); context
+  `users[]` entries accept `orcid` + `orcidIsVerified`; submission scenario
+  `author {orcid, orcidIsVerified}` (the submitter's contributor record).
+  The iD keys are fixture-state seeding — the verified state is unreachable
+  through any UI on an egress-firewalled install (deliberate deviation: no
+  token fields; see the parity ledger).
+
 **Rebuild acceptance** (PROGRESS restart step 1 is done when): bootstrap seeds
 green in all three apps; a login smoke passes per fleet; the scenario endpoint
 seeds a context and a staged submission in each app, with one parity

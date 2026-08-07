@@ -44,6 +44,17 @@ class UserSeeder
         if (!is_array($roles) || $roles === []) {
             throw new SpecException("{$spec->path}.roles", 'Each user needs a non-empty roles list');
         }
+        // ORCID iD fixture state (U4): a connected iD is only reachable
+        // through ORCID's own OAuth sign-in, which the egress-firewalled test
+        // fleets can never complete — so the verified/unauthenticated states
+        // are seeded directly (`orcid` + `orcidIsVerified`, the same
+        // user_settings rows the OAuth landing stores, minus the token
+        // fields — deliberate deviation, parity ledger 2026-08-07).
+        $orcid = $spec->get('orcid');
+        $orcidIsVerified = (bool) $spec->get('orcidIsVerified', false);
+        if ($orcidIsVerified && !$orcid) {
+            throw new SpecException("{$spec->path}.orcidIsVerified", 'orcidIsVerified requires an orcid value');
+        }
         return [
             'specPath' => $spec->path,
             'username' => $username,
@@ -56,6 +67,8 @@ class UserSeeder
             'password' => (string) $spec->get('password', $username . $username),
             'structures' => (array) $spec->get($structureKey, []),
             'structureKey' => $structureKey,
+            'orcid' => $orcid !== null ? (string) $orcid : null,
+            'orcidIsVerified' => $orcidIsVerified,
         ];
     }
 
@@ -84,6 +97,12 @@ class UserSeeder
             $user->setInlineHelp(1);
             $user->setPassword(Validation::encryptCredentials($username, $plan['password']));
             Repo::user()->add($user);
+        }
+
+        if (($plan['orcid'] ?? null) !== null) {
+            $user->setOrcid($plan['orcid']);
+            $user->setData('orcidIsVerified', $plan['orcidIsVerified']);
+            Repo::user()->edit($user);
         }
 
         $assignedGroups = [];

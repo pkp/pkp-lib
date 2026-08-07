@@ -164,7 +164,10 @@ reviewer forms to *Reviewer assignment & management*.
    ⚠ [A7](#a7). <sup>h</sup>
 9. <a id="revisions"></a> **Revisions Uploaded.** Each round also carries the
    revised files uploaded in answer to a revision request, in the panel headed
-   "Revisions Uploaded". The author's bottom-of-screen "Upload
+   "Revisions Uploaded". The panel is present from the moment the round
+   opens, and its description — "These files have been submitted by the
+   author after revisions were requested" — shows even on a round where no
+   revisions were ever requested ⚠ [A10](#a10). The author's bottom-of-screen "Upload
    revisions" button appears only while the round's status is "Revisions have
    been requested.", "Revisions requested from the author to be taken to a new
    review round.", or "Revisions have been submitted and a decision is
@@ -455,6 +458,7 @@ footnote.
 | [A1](#a1) | After the first upload on the new-round revision path, the author's "Upload revisions" button vanishes and nothing says they are done — though the panel's own "Upload" still works | 🐞 | user-visible | — |
 | [OJS1](#ojs1) | On a journal, the author's "Read Review" window shows no review text — remarks shared with the author are missing (a press shows them) | 🐞 | user-visible | — |
 | [A9](#a9) | Deleting the only revised file flips the status back but never returns the author's revisions task | 🐞 | minor | — |
+| [A10](#a10) | The Revisions Uploaded panel says files were "submitted by the author after revisions were requested" on rounds where no revisions were requested | 🐞 | minor | — |
 | [A2](#a2) | Author sees the editor's status wording; the author-tailored wording exists but is never shown | ❓ | user-visible | — |
 | [A3](#a3) | What the read-review window's attachments section lists — observation recorded privately with the maintainer pending a fix | ❓ | latent | — |
 | [A4](#a4) | A round whose only reviewers declined reports "All reviews are confirmed and a decision is needed." | ❓ | user-visible | — |
@@ -594,6 +598,16 @@ the upload button, so the miss is the prompt, not the path. A file later
 added on the review stage does bring a task back, under different wording.
 Basis: probe (2026-07-31, OJS and OMP, both deleter
 roles). <sup>[f-a9](#fn-a9)</sup>
+
+<a id="a10"></a>
+**A10 — Revisions panel claims revisions were requested when none were** · 🐞 · minor.
+The "Revisions Uploaded" panel opens with the description "These files have
+been submitted by the author after revisions were requested" on every round —
+including a round on which no revision request was ever recorded, where the
+sentence describes an event that never happened. The panel is empty at that
+point, so the miss is the explanation, not the files — but a reader is told
+revisions were requested when they were not.
+Since: 2026-08-02 · Basis: probe. <sup>[f-a10](#fn-a10)</sup>
 
 ### OJS
 
@@ -1157,6 +1171,16 @@ and OMP, for editor-side and author-side deletion of the only revised file;
 the later file add that re-creates a task observed live on the press and
 code-traced on the journal. The spec's prior revival claim was corrected by
 the same check.
+
+<a id="fn-a10"></a>
+**f-a10** — Probed 2026-08-02, editorial view (Journal/Press Manager), on
+rounds whose status box read "Awaiting responses from reviewers." and where
+no Request Revisions decision had ever been recorded: the heading "Revisions
+Uploaded" and the paragraph "These files have been submitted by the author
+after revisions were requested" rendered verbatim on an OJS Review round 1
+and an OMP External Review round 1; identical on an OMP Internal Review
+round 1 the same day. Panel mechanism in notes a and i (the editor-side
+revisions `FileManager`, ungated by round status).
 
 <a id="fn-ojs1"></a>
 **f-ojs1** — Probed 2026-07-31: on OJS, a free-text review

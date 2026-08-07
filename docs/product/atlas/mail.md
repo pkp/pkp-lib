@@ -39,7 +39,7 @@
 | MAIL-023 | ojs omp | `PKP\mail\mailables\DiscussionSubmission` | New discussion/reply notification, submission stage. Key: `DISCUSSION_NOTIFICATION_SUBMISSION` |
 | MAIL-024 | ojs omp ops | `PKP\mail\mailables\EditorAssigned` | Email to editors assigned to a submission. Key: `EDITOR_ASSIGN` |
 | MAIL-025 | ojs omp | `PKP\mail\mailables\EditorialReminder` | Automatic reminder to an editor of outstanding editorial tasks. Key: `EDITORIAL_REMINDER` |
-| MAIL-026 | ojs omp | `PKP\mail\mailables\EditReviewNotify` | Automatic email to a reviewer when their review assignment details change. Key: `REVIEW_EDIT` |
+| MAIL-026 | ojs omp | `PKP\mail\mailables\EditReviewNotify` | Automatic email to a reviewer when their review assignment details change. Key: `REVIEW_EDIT` Claimed by: reviewer-assignment-and-management. |
 | MAIL-027 | ojs omp | `PKP\mail\mailables\OrcidCollectAuthorId` | Automatic email asking authors to add ORCIDs to a submission (OPS: template installed by `plugins/generic/orcidProfile` registry, class not in OPS `map()`). Key: `ORCID_COLLECT_AUTHOR_ID` |
 | MAIL-028 | ojs omp | `PKP\mail\mailables\OrcidRequestAuthorAuthorization` | Automatic email asking authors for ORCID authorization/metadata push permission (OPS: template installed by `plugins/generic/orcidProfile` registry, class not in OPS `map()`). Key: `ORCID_REQUEST_AUTHOR_AUTHORIZATION` |
 | MAIL-029 | ojs omp ops | `PKP\mail\mailables\OrcidRequestUpdateScope` | Automatic email requesting users update their ORCID OAuth scope for member API deposits (in no `Repository::map()` — dispatched directly). Key: `ORCID_REQUEST_UPDATE_SCOPE` |
@@ -47,19 +47,19 @@
 | MAIL-031 | ojs omp ops | `PKP\mail\mailables\PublicationVersionNotify` | Automatic email to assigned editors when a new publication version is created. Key: `VERSION_CREATED` |
 | MAIL-032 | ojs omp | `PKP\mail\mailables\RecommendationNotifyEditors` | Message to deciding editors when a recommend-only decision is recorded. Key: `EDITOR_RECOMMENDATION` |
 | MAIL-033 | ojs omp | `PKP\mail\mailables\RequestReviewRoundAuthorResponse` | Email to author(s) requesting a response to reviewers' comments. Key: `REQUEST_REVIEW_ROUND_AUTHOR_RESPONSE` |
-| MAIL-034 | ojs omp | `PKP\mail\mailables\ReviewAcknowledgement` | Editor confirms receipt of a completed review and thanks the reviewer. Key: `REVIEW_ACK` |
+| MAIL-034 | ojs omp | `PKP\mail\mailables\ReviewAcknowledgement` | Editor confirms receipt of a completed review and thanks the reviewer. Key: `REVIEW_ACK` Claimed by: reviewer-assignment-and-management. |
 | MAIL-035 | ojs omp | `PKP\mail\mailables\ReviewCompleteNotifyEditors` | Automatic email to assigned editors when a reviewer completes a review. Key: `REVIEW_COMPLETE` |
 | MAIL-036 | ojs omp | `PKP\mail\mailables\ReviewConfirm` | Automatic email after a reviewer accepts a review request. Key: `REVIEW_CONFIRM` |
 | MAIL-037 | ojs omp | `PKP\mail\mailables\ReviewDecline` | Email sent when a reviewer declines a review request. Key: `REVIEW_DECLINE` |
-| MAIL-038 | ojs omp | `PKP\mail\mailables\ReviewerRegister` | Automatic email to a newly registered reviewer (Create Reviewer form). Key: `REVIEWER_REGISTER` |
-| MAIL-039 | ojs omp | `PKP\mail\mailables\ReviewerReinstate` | Email to a reviewer whose assignment is reinstated. Key: `REVIEW_REINSTATE` |
-| MAIL-040 | ojs omp | `PKP\mail\mailables\ReviewerResendRequest` | Email asking a reviewer who declined to reconsider. Key: `REVIEW_RESEND_REQUEST` |
-| MAIL-041 | ojs omp | `PKP\mail\mailables\ReviewerUnassign` | Email sent when a reviewer is unassigned. Key: `REVIEW_CANCEL` |
-| MAIL-042 | ojs omp | `PKP\mail\mailables\ReviewRemind` | Editor-sent reminder to a reviewer about the review request. Key: `REVIEW_REMIND` |
-| MAIL-043 | ojs omp | `PKP\mail\mailables\ReviewRemindAuto` | Automatic reminder to a reviewer after the review due date. Key: `REVIEW_REMIND_AUTO` |
-| MAIL-044 | ojs omp | `PKP\mail\mailables\ReviewRequest` | Review request to a reviewer (accept/decline), first round. Key: `REVIEW_REQUEST` |
-| MAIL-045 | ojs omp | `PKP\mail\mailables\ReviewRequestSubsequent` | Review request to a reviewer on subsequent review rounds. Key: `REVIEW_REQUEST_SUBSEQUENT` |
-| MAIL-046 | ojs omp | `PKP\mail\mailables\ReviewResponseRemindAuto` | Automatic reminder to a reviewer after the response deadline. Key: `REVIEW_RESPONSE_OVERDUE_AUTO` |
+| MAIL-038 | ojs omp | `PKP\mail\mailables\ReviewerRegister` | Automatic email to a newly registered reviewer (Create Reviewer form). Key: `REVIEWER_REGISTER` Claimed by: reviewer-assignment-and-management. |
+| MAIL-039 | ojs omp | `PKP\mail\mailables\ReviewerReinstate` | Email to a reviewer whose assignment is reinstated. Key: `REVIEW_REINSTATE` Claimed by: reviewer-assignment-and-management. |
+| MAIL-040 | ojs omp | `PKP\mail\mailables\ReviewerResendRequest` | Email asking a reviewer who declined to reconsider. Key: `REVIEW_RESEND_REQUEST` Claimed by: reviewer-assignment-and-management. |
+| MAIL-041 | ojs omp | `PKP\mail\mailables\ReviewerUnassign` | Email sent when a reviewer is unassigned. Key: `REVIEW_CANCEL` Claimed by: reviewer-assignment-and-management. |
+| MAIL-042 | ojs omp | `PKP\mail\mailables\ReviewRemind` | Editor-sent reminder to a reviewer about the review request. Key: `REVIEW_REMIND` Claimed by: reviewer-assignment-and-management. |
+| MAIL-043 | ojs omp | `PKP\mail\mailables\ReviewRemindAuto` | Automatic reminder to a reviewer after the review due date. Key: `REVIEW_REMIND_AUTO` Claimed by: reviewer-assignment-and-management. |
+| MAIL-044 | ojs omp | `PKP\mail\mailables\ReviewRequest` | Review request to a reviewer (accept/decline), first round. Key: `REVIEW_REQUEST` Claimed by: reviewer-assignment-and-management. |
+| MAIL-045 | ojs omp | `PKP\mail\mailables\ReviewRequestSubsequent` | Review request to a reviewer on subsequent review rounds. Key: `REVIEW_REQUEST_SUBSEQUENT` Claimed by: reviewer-assignment-and-management. |
+| MAIL-046 | ojs omp | `PKP\mail\mailables\ReviewResponseRemindAuto` | Automatic reminder to a reviewer after the response deadline. Key: `REVIEW_RESPONSE_OVERDUE_AUTO` Claimed by: reviewer-assignment-and-management. |
 | MAIL-047 | ojs omp | `PKP\mail\mailables\RevisedVersionNotify` | Automatic email to the assigned editor when an author uploads a revised version. Key: `REVISED_VERSION_NOTIFY` Claimed by: review-stage-and-rounds. |
 | MAIL-048 | ojs omp ops | `PKP\mail\mailables\StatisticsReportNotify` | Scheduled editorial/statistics report email (class docblock @brief is a copy-paste of AnnouncementNotify's). Key: `STATISTICS_REPORT_NOTIFICATION` |
 | MAIL-049 | ojs omp ops | `PKP\mail\mailables\SubmissionAcknowledgement` | Acknowledgement to the submitting author on submission. Key: `SUBMISSION_ACK` |

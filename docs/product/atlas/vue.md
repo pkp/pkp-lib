@@ -33,7 +33,7 @@
 | VUE-013 | ojs,omp,ops | components/Container/AccessPage.vue | Users & Roles management page container (ManagementHandler; registered in all app load.js) |
 | VUE-014 | ojs,omp,ops | components/Container/AddContextContainer.vue | Site-admin add/edit context (journal/press/server) wizard container (lib/pkp admin/editContext.tpl) |
 | VUE-015 | ojs,omp,ops | components/Container/AdminPage.vue | Site administration page container (lib/pkp AdminHandler) |
-| VUE-016 | ojs,omp,ops | components/Container/AdvancedSearchReviewerContainer.vue | Advanced reviewer-search surface hosted in legacy add-reviewer form (lib/pkp advancedSearchReviewerForm.tpl) |
+| VUE-016 | ojs,omp,ops | components/Container/AdvancedSearchReviewerContainer.vue | Advanced reviewer-search surface hosted in legacy add-reviewer form (lib/pkp advancedSearchReviewerForm.tpl) Claimed by: reviewer-assignment-and-management. |
 | VUE-017 | ojs,omp,ops | components/Container/DecisionPage.vue | Editorial decision wizard page (lib/pkp DecisionHandler) |
 | VUE-018 | ojs,omp,ops | components/Container/DoiPageOJS.vue (variants DoiPageOMP/DoiPageOPS) | DOI management page; per-app variant registered as `DoiPage` in each app's js/load.js (lib/pkp PKPDoisHandler) |
 | VUE-019 | ojs,omp,ops | components/Container/ImportExportPage.vue | Import/export plugin page container (importexport plugins in all three apps + lib/pkp native plugin) |
@@ -68,7 +68,7 @@
 | VUE-043 | ojs,omp,ops | managers/ParticipantManager/ParticipantManager.vue | Submission participants management (all WorkflowPage variants) |
 | VUE-044 | omp | managers/PublicationFormatManager/PublicationFormatManager.vue | Publication formats management (WorkflowPageOMP only) |
 | VUE-045 | omp | managers/RepresentativeManager/RepresentativeManager.vue | Market representatives management (WorkflowPageOMP only) |
-| VUE-046 | ojs,omp,ops | managers/ReviewerManager/ReviewerManager.vue | Review-round reviewers management (imported by all three WorkflowPage variants) |
+| VUE-046 | ojs,omp,ops | managers/ReviewerManager/ReviewerManager.vue | Review-round reviewers management (imported by all three WorkflowPage variants) Claimed by: reviewer-assignment-and-management. |
 | VUE-047 | ojs,omp,ops | managers/ReviewerRecommendationManager/ReviewerRecommendationManager.vue | Reviewer recommendation options settings manager (SettingsPage; lib/pkp management/workflow.tpl) |
 | VUE-048 | ojs,omp | managers/ReviewerSuggestionManager/ReviewerSuggestionManager.vue | Author reviewer-suggestions manager in workflow (WorkflowPageOJS + WorkflowPageOMP) |
 | VUE-049 | ojs | managers/ReviewRoundResponseManager/ReviewRoundResponseManager.vue | Author review-round response manager (WorkflowPageOJS + workflowConfigAuthorOJS) |
@@ -94,8 +94,8 @@
 | VUE-064 | ojs,omp,ops | managers/MediaFileManager/MediaFileManagerManualLinkImageFormModal.vue | Manually link a single image side modal |
 | VUE-065 | ojs,omp,ops | managers/MediaFileManager/MediaFileManagerMetadataFormModal.vue | Media file metadata (alt text) side modal |
 | VUE-066 | ojs,omp,ops | managers/NavigationMenuManager/NavigationMenuManagerFormModal.vue | Navigation menu add/edit side modal (opened from lib/pkp navigationMenus legacy grid) |
-| VUE-067 | ojs,omp,ops | managers/ReviewerManager/modals/WorkflowLogResponseModal.vue | Reviewer response log side modal (ReviewerManager) |
-| VUE-068 | ojs,omp,ops | managers/ReviewerManager/ReviewerManagerReadReviewModal.vue | Read-review side modal (lib/pkp controllers/grid/users/reviewer/readReview.tpl) |
+| VUE-067 | ojs,omp,ops | managers/ReviewerManager/modals/WorkflowLogResponseModal.vue | Reviewer response log side modal (ReviewerManager) Claimed by: reviewer-assignment-and-management. |
+| VUE-068 | ojs,omp,ops | managers/ReviewerManager/ReviewerManagerReadReviewModal.vue | Read-review side modal (lib/pkp controllers/grid/users/reviewer/readReview.tpl) Claimed by: reviewer-assignment-and-management. |
 | VUE-069 | ojs,omp,ops | managers/ReviewerRecommendationManager/ReviewerRecommendationsEditModal.vue | Add/edit reviewer recommendation option side modal |
 | VUE-070 | ojs | managers/ReviewRoundResponseManager/AuthorResponseFormModal.vue | Author review-round response form side modal (OJS workflow) |
 | VUE-071 | ojs,omp,ops | managers/TaskTemplateManager/TaskTemplateManagerFormModal.vue | Add/edit task template side modal |

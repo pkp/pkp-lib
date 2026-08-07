@@ -45,7 +45,7 @@
 | SET-017 | ojs omp ops | lib/pkp/schemas/navigationMenu.json | Navigation Menu — assignable to a theme navigation area (5 props). |
 | SET-018 | ojs omp ops | lib/pkp/schemas/navigationMenuItem.json | Navigation Menu Item — item assignable to navigation menus (12 props). |
 | SET-019 | ojs omp ops | lib/pkp/schemas/publication.json | Publication — published version of a submission (52 props). Overlaid by all three apps (SET-032, SET-037, SET-043). |
-| SET-020 | ojs omp ops | lib/pkp/schemas/reviewAssignment.json | Review Assignment — reviewer's assignment to review a submission (43 props). |
+| SET-020 | ojs omp ops | lib/pkp/schemas/reviewAssignment.json | Review Assignment — reviewer's assignment to review a submission (43 props). Claimed by: reviewer-assignment-and-management. |
 | SET-021 | ojs omp ops | lib/pkp/schemas/reviewRound.json | Review Round — round of review assignments in the review stage (7 props). Claimed by: review-stage-and-rounds. |
 | SET-022 | ojs omp ops | lib/pkp/schemas/ror.json | Ror — cached institution record from the ror.org data dump (7 props). |
 | SET-023 | ojs omp ops | lib/pkp/schemas/section.json | Section — journal/server section or press series (6 props). Overlaid by all three apps (SET-033, SET-038, SET-044). |

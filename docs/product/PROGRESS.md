@@ -91,7 +91,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 | U24 | Workflow screen & stage access | OJS OMP OPS | M | pending | |
 | U25 | Submission stage | OJS OMP OPS | M | done | Spec verified; 7 tests OJS, 8 OMP, 2 OPS absence (+setup each), green ×2 + post-fold confirm; register 3❓+2✅ (A2 area has private-file items); 2 readability frictions left open (Actors "onward" wording, OPS1 code-facing sentence); maintainer review pending |
 | U26 | Review stage & rounds | OJS OMP | H | done | Spec verified; 12 tests OJS, 13 OMP, 1 OPS absence (+setup each), green ×2 + post-fold confirm; register 3🐞+9❓+1✅ (A3 observation in private file); maintainer review pending |
-| U27 | Reviewer assignment & management | OJS OMP | H | pending | |
+| U27 | Reviewer assignment & management | OJS OMP | H | done | Spec verified; 13 tests OJS, 14 OMP, 1 OPS absence (+setup each), green ×2 + post-parity-fix confirm; register 13🐞+4❓+1✅+3 retired (A18 silent half-add is the headliner; 3 observations in private file); U26 spec gained A10 + builder parity fixed en route (self-healing); maintainer review pending |
 | U28 | Reviewer's review | OJS OMP | H | pending | |
 | U29 | Review setup & review forms | OJS OMP | M | pending | |
 | U30 | Author response to reviews | OJS | M | pending | |

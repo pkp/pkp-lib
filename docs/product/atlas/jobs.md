@@ -50,7 +50,7 @@
 | JOB-009 | ojs omp ops | `PKP\jobs\doi\DepositPeerReview` | Queued — deposits a peer-review DOI + metadata to the registration agency. |
 | JOB-010 | ojs omp ops | `PKP\jobs\doi\DepositSubmission` | Queued — deposits a submission DOI + metadata to the registration agency. |
 | JOB-011 | ojs omp ops | `PKP\jobs\email\EditorialReminder` | Queued — sends an editorial outstanding-tasks reminder email to one editor. |
-| JOB-012 | ojs omp ops | `PKP\jobs\email\ReviewReminder` | Queued — sends a review reminder email for one review assignment. |
+| JOB-012 | ojs omp ops | `PKP\jobs\email\ReviewReminder` | Queued — sends a review reminder email for one review assignment. Claimed by: reviewer-assignment-and-management. |
 | JOB-013 | ojs omp ops | `PKP\jobs\invitations\RemoveExpiredInvitationsJob` | Queued — removes all expired invitations. Claimed by: user-invitations. |
 | JOB-014 | ojs omp ops | `PKP\jobs\notifications\NewAnnouncementNotifyUsers` | Queued — system notifications (+opt email) to users on new announcement. |
 | JOB-015 | ojs omp ops | `PKP\jobs\notifications\StatisticsReportMail` | Queued — emails editors the monthly editorial statistics report. |

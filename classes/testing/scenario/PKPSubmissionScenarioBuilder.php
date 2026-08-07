@@ -39,6 +39,7 @@ use PKP\author\contributorRole\ContributorRole;
 use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
+use PKP\controllers\grid\users\reviewer\form\traits\HasReviewDueDate;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
@@ -51,6 +52,8 @@ use PKP\userGroup\UserGroup;
 
 abstract class PKPSubmissionScenarioBuilder
 {
+    use HasReviewDueDate;
+
     public const REVIEWER_STATUSES = ['invited', 'accepted', 'declined'];
 
     /**
@@ -403,10 +406,15 @@ abstract class PKPSubmissionScenarioBuilder
         // ledger (no REVIEW_REQUEST email log row on seeded assignments).
         app('request')->merge(['skipEmail' => 1]);
 
-        $numWeeksPerResponse = (int) ($context->getData('numWeeksPerResponse') ?? 4);
-        $numWeeksPerReview = (int) ($context->getData('numWeeksPerReview') ?? 4);
-        $responseDueDate = date('Y-m-d', strtotime("+{$numWeeksPerResponse} weeks"));
-        $reviewDueDate = date('Y-m-d', strtotime('+' . ($numWeeksPerResponse + $numWeeksPerReview) . ' weeks'));
+        // Due dates at Add Reviewer form parity: the app's own
+        // HasReviewDueDate trait (review due = today + numWeeksPerReview,
+        // response due = today + numWeeksPerResponse, each from its OWN
+        // interval with the trait's 4/3-week fallbacks), formatted as the
+        // datepicker's Y-m-d altField submits them (parity fix 2026-08-02 —
+        // the builder used to seed review due = today + response + review).
+        [$reviewDueTimestamp, $responseDueTimestamp] = $this->getDueDates($context);
+        $reviewDueDate = date('Y-m-d', $reviewDueTimestamp);
+        $responseDueDate = date('Y-m-d', $responseDueTimestamp);
 
         foreach ($reviewers as $plan) {
             $reviewer = $plan['user'];

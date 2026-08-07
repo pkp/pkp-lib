@@ -102,6 +102,19 @@ class PkpMail {
     }
 
     /**
+     * Count messages matching a recipient-scoped search. For exactly-N claims
+     * ("only one change notice went out") AFTER a bounding find() — an
+     * unbounded count proves nothing about silence.
+     *
+     * @param {{to: string, contains?: string, subject?: string}} options
+     * @returns {Promise<number>}
+     */
+    async count({to, contains, subject}) {
+        const result = await this._search({to, contains, subject});
+        return (result.messages || []).length;
+    }
+
+    /**
      * Poll until at least one message addressed to `email` arrives.
      *
      * @returns {Promise<object[]>} matching message summaries, newest first

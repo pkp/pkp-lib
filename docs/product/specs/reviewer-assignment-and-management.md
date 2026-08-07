@@ -85,7 +85,7 @@ owned by
 | **See declined and cancelled rows** | • Review managers only — an assistant-level participant's table silently omits those rows ⚠ [A6](#a6) <sup>a</sup> |
 | **Add a reviewer** (search & select, "Add Reviewer") | • Review managers and assistant-level participants — any round, including past rounds (the past-round oddity is recorded with the [→ round machinery](review-stage-and-rounds.md#rounds)) <sup>a</sup> |
 | **"Create New Reviewer" / "Enroll Existing User"** | • Journal Manager, Editor, assigned Section Editor and Guest Editor — the two links inside the Add Reviewer window (a Site Administrator's access runs through such a journal role — see the preamble)<br>• assistant-level participants — the two links never appear <sup>a</sup> |
-| **Manage an assignment** (row actions: "Review Details", "Email Reviewer", "Edit", "Send Reminder", "Thank Reviewer", "Revert Decision", "Read Review", "Resend Review Request", "Unassign Reviewer"/"Cancel Reviewer", "Reinstate Reviewer", "Log Response", "History") | • Review managers and assistant-level participants — per assignment state (Rule 3 for when each appears; the operations in Rules 12–20) <sup>a</sup> |
+| **Manage an assignment** (row actions: "Review Details", "Email Reviewer", "Edit", "Send Reminder", "Thank Reviewer", "Revert Decision", "Read Review", "Resend Review Request", "Unassign Reviewer"/"Cancel Reviewer", "Reinstate Reviewer", "Log Response", "History") | • Review managers and assistant-level participants — per assignment state (Rule 3 for when each appears; the operations in Rules 12–21; the Email Reviewer window is described under Fields) <sup>a</sup> |
 | **"Editorial Notes"** | • Site Administrator, Journal Manager, Editor, Section Editor, Guest Editor — about a user holding a Reviewer role, never about themselves<br>• assistant-level participants — the entry is absent <sup>l</sup> |
 | **"Login As" the reviewer** | • whoever may impersonate that reviewer — the row entry appears only then; the rule is [→ who may impersonate whom](login-and-sessions.md#who-may-impersonate) <sup>l</sup> |
 | **Author on the workflow screen** | • none of the above — an assigned Author gets none of these entries, even when they also hold an editorial role on the submission (the panel itself is absent, see the preamble); the server-side refusals behind that, including the read operations for anonymous review types, are recorded in the footnote <sup>a</sup> |
@@ -106,7 +106,7 @@ and the lower half holds the request form shared by all three add modes:
 | "Response Due Date" / "Review Due Date" (under "Important Dates") | yes | Date pickers, prefilled per the journal's review setup (Rule 9). The permanent guidance "Review due date must be greater or equal to response due date." states the rule (the Edit window shows it too); submitting with the dates inverted is refused with no visible feedback — the window stays open and nothing is added ⚠ [A8](#a8). The pickers (shared with the Edit and Resend windows) take calendar picks or a date typed in the YYYY-MM-DD format (e.g. 2026-08-02); input in any other format looks accepted on screen while the old value is silently submitted ⚠ [A16](#a16) — and they accept dates already past without any warning ⚠ [A17](#a17) <sup>f</sup> |
 | "Files To Be Reviewed" | no | Collapsed file list with one checkbox per file of the round; all ticked by default. The inline warning "No Files Selected" appears here only when the round has no files at all — unticking every box triggers no warning in this window (Rule 11) <sup>d</sup> |
 | "Review Type" | yes | Radio group "Anonymous Reviewer/Anonymous Author", "Anonymous Reviewer/Disclosed Author", "Open"; preselected per the journal's review setup <sup>d</sup> |
-| "Public Visibility" | no | Checkbox labeled with the journal's configured public-comments wording; preselected per that setting <sup>d</sup> |
+| "Public Visibility" | no | Checkbox "Publicly Show Reviewer Comments"; preselected per the journal's public-visibility default <sup>d</sup> |
 | "Review Form" | no | Select, shown only when the journal has active review forms; default "None / Free Form Review"; a section may designate a default form (Rule 10) <sup>d</sup> |
 
 **Create New Reviewer mode** (link "Create New Reviewer" inside the Add
@@ -230,7 +230,9 @@ under the prompt "Record the response on behalf of the reviewer"; submit
    reviewer role for the stage (on a press the opening, unsearched list does
    not yet honor the stage split ⚠ [OMP2](#omp2)), paged past 30 entries
    behind a "View additional pages" bar. Each entry shows name, affiliation
-   and ORCID iD (the list distinguishes an unauthenticated iD), headline counts ("{N}
+   and ORCID iD (a link showing the iD URL; an unauthenticated iD carries
+   the suffix "(unauthenticated)" and an outline ORCID logo, an
+   authenticated one the bare URL and the solid logo), headline counts ("{N}
    active", "Reviewer rating: {N}" stars), days since last assignment ("{N}
    days ago" / "Yesterday" / "Never assigned"), reviewing interests, and
    expands to full statistics: active reviews, "Reviews completed", "Review
@@ -1012,7 +1014,19 @@ the notice and "Reassign" button. The locale string "Assigned to Earlier
 Round" (`reviewer.list.showOnlyReviewersFromPreviousRound`) is wired to no
 control — neither the Vue panel nor the PHP filter config references it, and
 the live Filters sidebar shows exactly the five sliders; an orphaned string,
-recorded here rather than in the register.
+recorded here rather than in the register. ORCID display top-up probe
+2026-08-07 (OJS; scratch journal, scratch reviewer with a DB-seeded `orcid`
+user setting — no seeded reviewer carries an iD): with `orcidIsVerified`
+unset, the entry rendered the iD as a new-tab link reading
+"https://orcid.org/0000-0002-1825-0097 (unauthenticated)" — the
+`orcid.unauthenticated` suffix appended by
+`Identity::getOrcidDisplayValue()` — beside the outline (hollow) ORCID
+logo (`OrcidUnauthenticated` icon); with `orcidIsVerified` set, the same
+entry showed the bare iD URL, no suffix, beside the solid green logo
+(`Orcid` icon). Both icons are decorative SVGs with no accessible name, so
+the "(unauthenticated)" suffix is the only textual marker
+(`SelectReviewerListItem.vue`: `item.orcid` → link, `item.orcidIsVerified`
+→ icon, `item.orcidDisplayValue` → visible text).
 
 <a id="fn-d"></a>
 **d** — Add form shell: `ReviewerForm` (defaults: review method from context

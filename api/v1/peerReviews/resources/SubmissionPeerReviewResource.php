@@ -203,6 +203,8 @@ class SubmissionPeerReviewResource extends JsonResource
             $reviewer = $isReviewOpen ? Repo::user()->get($assignment->getReviewerId()) : null;
             /** @var ReviewerRecommendation $recommendation */
             $recommendation = $this->availableReviewerRecommendations->get($assignment->getReviewerRecommendationId());
+            // A recommendation a journal defined itself may have no machine-readable type
+            $recommendationType = $recommendation?->type;
 
             return [
                 'id' => $assignment->getData('id'),
@@ -226,8 +228,10 @@ class SubmissionPeerReviewResource extends JsonResource
                 'reviewerRecommendationDisplayText' => $assignment->getLocalizedRecommendation($context),
                 'reviewerRecommendationId' => $assignment->getReviewerRecommendationId(),
                 // Machine-readable type of the reviewer recommendation (Approved, Not Approved, Revisions Requested, etc.)
-                'reviewerRecommendationTypeId' => $recommendation?->type,
-                'reviewerRecommendationTypeLabel' => $recommendation ? $recommendationTypesTypeLabels[$recommendation->type] : null,
+                'reviewerRecommendationTypeId' => $recommendationType,
+                'reviewerRecommendationTypeLabel' => $recommendationType === null
+                    ? null
+                    : ($recommendationTypesTypeLabels[$recommendationType] ?? null),
                 'reviewForm' => $reviewForm,
                 'reviewerComments' => $reviewerComments,
                 // Withheld (null) rather than false for non-open reviews: the reviewer may

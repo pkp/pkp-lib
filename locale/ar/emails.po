@@ -186,7 +186,7 @@ msgstr "طلب التقديم {$submissionId} جاهز لتدقيقه لصالح
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "<p>عزيزي {$recipientName}،</p><p>طلب تقديم جديد جاهز لتدقيقه إملائيًا:</"
-"p><p><a href\"{$submissionUrl}\">{$submissionId} — \"{$submissionTitle}\"</"
+"p><p><a href=\"{$submissionUrl}\">{$submissionId} — \"{$submissionTitle}\"</"
 "a><br />{$contextName}</p><p>يرجى اتباع الخطوات الآتية لإكمال هذه المهمة:</"
 "p><ol><li>أنقر على رابط طلب النشر أدناه.</li><li>إفتح أي ملفات متوافرة ضمن "
 "الملفات المسودة وقم بتحريرها. استعمل منطقة مناقشات التدقيق إذا كنت بحاجة إلى "

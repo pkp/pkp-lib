@@ -395,6 +395,15 @@ orchestrator paraphrasing it.
    Rewrite the stumbles, re-run the lint, then run the persona ONCE MORE over
    the rewritten passages only: a rewrite is not verified by the person who
    wrote it. The gate is zero blockers; frictions are the writer's call.
+   **Rewrites preserve verified meaning (maintainer, 2026-08-07).** The
+   rewrite goes to a writing agent whose brief names the digest and the
+   footnotes behind every claim being reworded, and carries verbatim:
+   "Preserve the verified meaning — reword the phrasing, never the claim."
+   If a rewrite nevertheless changes a claim's SUBSTANCE — what it asserts,
+   or how a reader would judge pass/fail — that claim goes back through its
+   evidence before commit: a top-up probe, or a re-run of the tests derived
+   from it. This matters because readability runs after steps 7–8: a meaning
+   drift introduced here is the one spec error nothing downstream re-checks.
 10. **Update PROGRESS** — status, #tests per app, a ONE-line note. Findings
     live in the spec, never in PROGRESS.
 11. **Commit** — `lib/pkp` and root **separately**, NEVER bump submodule

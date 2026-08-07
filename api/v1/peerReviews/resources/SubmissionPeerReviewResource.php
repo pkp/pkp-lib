@@ -28,6 +28,7 @@ use Illuminate\Support\Enumerable;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\reviewForm\ReviewForm;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
@@ -130,6 +131,7 @@ class SubmissionPeerReviewResource extends JsonResource
                     'versionString' => $publication->getData('versionString'),
                     'versionStage' => $publication->getData('versionStage'),
                     'datePublished' => $publication->getData('datePublished'),
+                    'doi' => $this->getReviewedVersionDoi($publication, $submission, $context),
                 ],
                 ...$reviewStatusData->toArray(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
@@ -142,6 +144,27 @@ class SubmissionPeerReviewResource extends JsonResource
             'reviewRounds' => $roundsData->toArray(),
             'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($reviewAssignments, $context),
         ];
+    }
+
+    /**
+     * Resolve the DOI of the reviewed publication version, mirroring how the article page
+     * resolves it: the version's own DOI, then the shared DOI of its sibling minor versions
+     * when DOI versioning is enabled, otherwise the submission's current DOI.
+     *
+     * @return ?string The DOI, or null when the submission has no DOI assigned.
+     */
+    private function getReviewedVersionDoi(Publication $publication, Submission $submission, Context $context): ?string
+    {
+        $doiObject = $publication->getData('doiObject');
+        if (!$doiObject) {
+            if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+                $doiObject = Repo::publication()->getMinorVersionsDoi($publication);
+            } elseif ($publication->getId() !== $submission->getData('currentPublicationId')) {
+                $doiObject = $submission->getCurrentPublication()?->getData('doiObject');
+            }
+        }
+
+        return $doiObject?->getData('doi');
     }
 
     /**
@@ -180,11 +203,17 @@ class SubmissionPeerReviewResource extends JsonResource
             $reviewer = $isReviewOpen ? Repo::user()->get($assignment->getReviewerId()) : null;
             /** @var ReviewerRecommendation $recommendation */
             $recommendation = $this->availableReviewerRecommendations->get($assignment->getReviewerRecommendationId());
+            // A recommendation a journal defined itself may have no machine-readable type
+            $recommendationType = $recommendation?->type;
 
             return [
                 'id' => $assignment->getData('id'),
                 'reviewerId' => $isReviewOpen ? $assignment->getReviewerId() : null,
                 'reviewerFullName' => $isReviewOpen ? $assignment->getReviewerFullName() : null,
+                // The name parts let consumers that need a structured name avoid parsing the full name.
+                'reviewerGivenName' => $isReviewOpen ? $reviewer?->getLocalizedGivenName() : null,
+                'reviewerFamilyName' => $isReviewOpen ? $reviewer?->getLocalizedFamilyName() : null,
+                'reviewerPreferredPublicName' => $isReviewOpen ? $reviewer?->getPreferredPublicName(Locale::getLocale()) : null,
                 'reviewerAffiliation' => $isReviewOpen ? $reviewer?->getLocalizedAffiliation() : null,
                 'reviewerOrcid' => $isReviewOpen ? $reviewer?->getOrcid() : null,
                 'reviewerHasVerifiedOrcid' => $isReviewOpen ? (bool) $reviewer?->hasVerifiedOrcid() : false,
@@ -192,12 +221,17 @@ class SubmissionPeerReviewResource extends JsonResource
                 'doiUrl' => $assignment->getData('doiObject')?->getResolvingUrl(),
                 'dateCompleted' => $assignment->getDateCompleted(),
                 'isReviewOpen' => $isReviewOpen,
+                // The review method describes the process, not the participants, so it is
+                // exposed for anonymous reviews too
+                'reviewMethod' => $assignment->getReviewMethod(),
                 // Localized text description of the reviewer recommendation (Accept Submission, Decline Submission, etc.)
                 'reviewerRecommendationDisplayText' => $assignment->getLocalizedRecommendation($context),
                 'reviewerRecommendationId' => $assignment->getReviewerRecommendationId(),
                 // Machine-readable type of the reviewer recommendation (Approved, Not Approved, Revisions Requested, etc.)
-                'reviewerRecommendationTypeId' => $recommendation?->type,
-                'reviewerRecommendationTypeLabel' => $recommendation ? $recommendationTypesTypeLabels[$recommendation->type] : null,
+                'reviewerRecommendationTypeId' => $recommendationType,
+                'reviewerRecommendationTypeLabel' => $recommendationType === null
+                    ? null
+                    : ($recommendationTypesTypeLabels[$recommendationType] ?? null),
                 'reviewForm' => $reviewForm,
                 'reviewerComments' => $reviewerComments,
                 // Withheld (null) rather than false for non-open reviews: the reviewer may

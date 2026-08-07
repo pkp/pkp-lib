@@ -21,6 +21,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\controlledVocab\ControlledVocab;
@@ -96,14 +97,14 @@ class DAO extends EntityDAO
      *
      * @return LazyCollection<int,T>
      */
-    public function getMany(Collector $query): LazyCollection
+    public function getMany(Collector $query, bool $cacheable = false): LazyCollection
     {
-        return LazyCollection::make(function () use ($query) {
+        return LazyCollection::make(function () use ($query, $cacheable) {
             $rows = $query
                 ->getQueryBuilder()
                 ->get();
             foreach ($rows as $row) {
-                yield $row->publication_id => $this->fromRow($row);
+                yield $row->publication_id => $this->fromRow($row, $cacheable);
             }
         });
     }
@@ -153,36 +154,42 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Publication
+    public function fromRow(object $row, bool $cacheable = false): Publication
     {
         /** @var Publication $publication */
-        $publication = parent::fromRow($row);
+        $publication = parent::fromRow($row, $cacheable);
 
         $this->setDoiObject($publication);
 
         // Set the primary locale from the submission
         $publication->setData('locale', $row->submission_locale);
 
-        $citations = Repo::citation()->getByPublicationId($publication->getId());
-        $publication->setData('citations', $citations);
-        $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
-            public function __construct(public int $publicationId)
-            {
-            }
-            public function __toString()
-            {
-                return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
-            }
-        });
+        $publication->setData(
+            'citations',
+            Repo::citation()->getByPublicationId($publication->getId())->when($cacheable, fn ($c) => $c->collect())
+        );
+        $publication->setData(
+            'citationsRaw',
+            $cacheable ? Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL)
+                : new class ($publication->getId()) implements \Stringable {
+                    public function __construct(public int $publicationId)
+                    {
+                    }
+                    public function __toString()
+                    {
+                        return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
+                    }
+                }
+        );
 
         $publicationVersionString = Repo::publication()->getVersionString($publication);
         $publication->setData('versionString', $publicationVersionString);
 
-        $this->setAuthors($publication);
+        $this->setAuthors($publication, $cacheable);
         $this->setCategories($publication);
-        $this->setControlledVocab($publication);
+        $this->setControlledVocab($publication, $cacheable);
         $this->setDataCitations($publication);
-        $this->setFunders($publication);
+        $this->setFunders($publication, $cacheable);
 
         return $publication;
     }
@@ -326,16 +333,16 @@ class DAO extends EntityDAO
     /**
      * Set a publication's author properties
      */
-    protected function setAuthors(Publication $publication)
+    protected function setAuthors(Publication $publication, bool $cacheable = false)
     {
         $publication->setData(
             'authors',
-            Repo::author()
-                ->getCollector()
+            Repo::author()->getCollector()
                 ->filterByPublicationIds([$publication->getId()])
                 ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
                 ->getMany()
                 ->remember()
+                ->when($cacheable, fn ($a) => $a->collect())
         );
     }
 
@@ -357,14 +364,15 @@ class DAO extends EntityDAO
     /**
      * Set a publication's controlled vocabulary properties
      */
-    protected function setControlledVocab(Publication $publication)
+    protected function setControlledVocab(Publication $publication, bool $cacheable = false)
     {
         $publication->setData(
             'keywords',
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
 
@@ -373,7 +381,8 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
 
@@ -382,7 +391,8 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
 
@@ -391,7 +401,8 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
+                $publication->getId(),
+                cacheable: $cacheable
             )
         );
     }
@@ -499,14 +510,16 @@ class DAO extends EntityDAO
     /**
      * Set a publication's Funders
      */
-    protected function setFunders(Publication $publication): void
+    protected function setFunders(Publication $publication, bool $cacheable = false): void
     {
-        $funders = Funder::withSubmissionId($publication->getData('submissionId'))
+        $submissionId = $publication->getData('submissionId');
+        $getFunders = fn () => Funder::withSubmissionId($submissionId)
             ->orderBySeq()
             ->get()
             ->values()
             ->all();
-        $publication->setData('funders', $funders);
+
+        $publication->setData('funders', $cacheable ? Cache::remember("funders-{$submissionId}", 60 * 60 * 24, $getFunders) : $getFunders());
     }
 
     /**

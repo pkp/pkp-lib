@@ -45,6 +45,9 @@ class Funder extends Model
     private static array $rorCache = [];
     private static array $localesCache = [];
 
+    // Used for object caching.
+    public array $nameCache = [];
+
     /**
      * @inheritDoc
      */
@@ -152,6 +155,11 @@ class Funder extends Model
     {
         return Attribute::make(
             get: function (mixed $value, array $attributes) {
+                // This will be populated on rehydrated cached funders only.
+                if (!empty($this->nameCache)) {
+                    return $this->nameCache;
+                }
+
                 if (!empty($value) || empty($attributes['ror'])) {
                     return $value;
                 }
@@ -171,7 +179,7 @@ class Funder extends Model
                 }
                 return empty($names) ? $value : $names;
             },
-        )->shouldCache();
+        );
     }
 
     /**
@@ -245,5 +253,13 @@ class Funder extends Model
                 Repo::funder()->forgetFunderFacetCache($contextId);
             }
         });
+    }
+
+    public function __sleep()
+    {
+        // For object caching. When this object is slept for storage in the cache, persist the name;
+        // it is then preferred in the mutator rather than going to dependent entities.
+        $this->nameCache = $this->name;
+        return parent::__sleep();
     }
 }

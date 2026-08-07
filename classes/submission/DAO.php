@@ -111,15 +111,15 @@ class DAO extends EntityDAO
      *
      * @return LazyCollection<int,T>
      */
-    public function getMany(Collector $query): LazyCollection
+    public function getMany(Collector $query, bool $cacheable = false): LazyCollection
     {
-        return LazyCollection::make(function () use ($query) {
+        return LazyCollection::make(function () use ($query, $cacheable) {
             $rows = $query
                 ->getQueryBuilder()
                 ->get();
 
             foreach ($rows as $row) {
-                yield $row->submission_id => $this->fromRow($row);
+                yield $row->submission_id => $this->fromRow($row, $cacheable);
             }
         });
     }
@@ -204,17 +204,18 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Submission
+    public function fromRow(object $row, bool $cacheable = false): Submission
     {
-        $submission = parent::fromRow($row);
+        $submission = parent::fromRow($row, $cacheable);
 
         $submission->setData(
             'publications',
             Repo::publication()->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
                 ->orderByVersion()
-                ->getMany()
+                ->getMany($cacheable)
                 ->remember()
+                ->when($cacheable, fn ($p) => $p->collect())
         );
 
         return $submission;

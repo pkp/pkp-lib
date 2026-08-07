@@ -132,7 +132,7 @@ class DAO extends EntityDAO
             }
 
             foreach ($rows as $row) {
-                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
+                yield $row->user_id => $this->fromRow($row, false, $query->includeReviewerData);
             }
         });
     }
@@ -249,9 +249,9 @@ class DAO extends EntityDAO
      * @copydoc EntityDAO::fromRow
      *
      */
-    public function fromRow(object $row, bool $includeReviewerData = false): DataObject
+    public function fromRow(object $row, bool $cacheable = false, bool $includeReviewerData = false): DataObject
     {
-        $user = parent::fromRow($row);
+        $user = parent::fromRow($row, $cacheable);
         if ($includeReviewerData) {
             $user->setData('lastAssigned', $row->last_assigned);
             $user->setData('incompleteCount', (int) $row->incomplete_count);

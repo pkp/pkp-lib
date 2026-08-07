@@ -159,7 +159,7 @@ class SubmissionPeerReviewResource extends JsonResource
         // Preload all review form data for use in class
         $this->preloadFormsAndComments($assignments, $context);
 
-        return $assignments->map(function (ReviewAssignment $assignment) use ($recommendationTypesTypeLabels) {
+        return $assignments->map(function (ReviewAssignment $assignment) use ($recommendationTypesTypeLabels, $context) {
             $reviewForm = null;
             $reviewerComments = null;
 

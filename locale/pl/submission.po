@@ -2711,9 +2711,6 @@ msgstr "Wersja {$wersja}"
 #~ "Zanim zgłoszenie zostanie opublikowane musi być co najmniej na etapie "
 #~ "korekty lub produkcji."
 
-#~ msgid "publication.required.declined"
-#~ msgstr "Odrzucone zgłoszenie nie może zostać opublikowane."
-
 #~ msgid "publication.publish.requirements"
 #~ msgstr ""
 #~ "Niniejsze wymagania musza zostać spełnione zanim zgłoszenie będzie można "

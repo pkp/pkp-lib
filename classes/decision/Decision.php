@@ -63,7 +63,16 @@ class Decision extends DataObject
     public const MOVE_TO_DONE = 33;
     public const RETURN_TO_WORKFLOW = 34;
     public const RETURN_TO_DONE = 35;
-
+    public const WITHDRAW = 36;
+    public const WITHDRAW_REVIEW = 37;
+    public const WITHDRAW_COPYEDITING = 38;
+    public const WITHDRAW_PRODUCTION = 39;
+    public const WITHDRAW_INTERNAL_REVIEW = 40;             // OMP Specific
+    public const REVERT_WITHDRAW = 41;
+    public const REVERT_WITHDRAW_REVIEW = 42;
+    public const REVERT_WITHDRAW_COPYEDITING = 43;
+    public const REVERT_WITHDRAW_PRODUCTION = 44;
+    public const REVERT_WITHDRAW_INTERNAL_REVIEW = 45;      // OMP Specific
 
     /**
      * Get the decision type for this decision

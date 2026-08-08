@@ -42,6 +42,7 @@ class PKPStatsEditorialService
         $declinedDesk = $this->countByDecisions(Decision::INITIAL_DECLINE, $args);
         $declinedReview = $this->countByDecisions(Decision::DECLINE, $args);
         $declined = $declinedDesk + $declinedReview;
+        $withdrawn = $this->countByDecisions($this->getWithdrawnDecisions(), $args);
 
         // Calculate the acceptance/decline rates
         if (!$received) {
@@ -117,6 +118,11 @@ class PKPStatsEditorialService
                 'key' => 'submissionsDeclinedPostReview',
                 'name' => 'stats.name.submissionsDeclinedPostReview',
                 'value' => $declinedReview,
+            ],
+            [
+                'key' => 'submissionsWithdrawn',
+                'name' => 'stats.name.submissionsWithdrawn',
+                'value' => $withdrawn,
             ],
             [
                 'key' => 'submissionsPublished',
@@ -542,6 +548,24 @@ class PKPStatsEditorialService
         return [
             Decision::DECLINE,
             Decision::INITIAL_DECLINE,
+        ];
+    }
+
+    /**
+     * Get the decisions that indicate a submission has been withdrawn
+     *
+     * This distinction only applies to editorial statistics. This method should not be used to
+     * identify withdrawn decisions for any other purpose.
+     *
+     * @return int[] Decision::* constants
+     */
+    protected function getWithdrawnDecisions(): array
+    {
+        return [
+            Decision::WITHDRAW,
+            Decision::WITHDRAW_REVIEW,
+            Decision::WITHDRAW_COPYEDITING,
+            Decision::WITHDRAW_PRODUCTION,
         ];
     }
 }

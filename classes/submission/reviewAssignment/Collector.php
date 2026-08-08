@@ -621,6 +621,7 @@ class Collector implements CollectorInterface, ViewsCount
                             ->from('submissions AS s')
                             ->whereColumn('s.submission_id', 'ra.submission_id')
                             ->where('s.status', '<>', PKPSubmission::STATUS_DECLINED)
+                            ->where('s.status', '<>', PKPSubmission::STATUS_WITHDRAWN)
                     )
             )
         );

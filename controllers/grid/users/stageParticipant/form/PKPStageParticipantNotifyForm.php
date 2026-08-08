@@ -220,7 +220,7 @@ class PKPStageParticipantNotifyForm extends Form
             ]);
         }
 
-        $templateKey = $template->emailKey;
+        $templateKey = $template->key;
         $additionalVariables = $this->getEmailVariableNames($templateKey);
 
         // Create a head note

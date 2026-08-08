@@ -604,7 +604,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $mailable->sender($user);
             $notifyForm = new PKPStageParticipantNotifyForm($submission->getId(), Application::ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE));
 
-            $templateKey = $template->emailKey;
+            $templateKey = $template->key;
 
             return new JSONMessage(
                 true,

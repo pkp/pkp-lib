@@ -35,6 +35,8 @@
 <form class="pkp_form" id="identityForm" method="post" action="{url op="saveIdentity"}" enctype="multipart/form-data">
 	{csrf}
 
+	{call_hook name="Templates::Identity::BeforeFields"}
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="identityFormNotification"}
 
 	{fbvFormArea id="userNameInfo"}

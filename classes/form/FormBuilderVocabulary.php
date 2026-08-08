@@ -62,6 +62,40 @@ use Exception;
 
 class FormBuilderVocabulary
 {
+    /**
+     * Template variable holding the `formHidden` map.
+     *
+     * Assign an array ['formId' => true, ...] to hide the matching `{fbvFormArea}`s
+     * entirely (their sections, buttons and fields all collapse to empty output).
+     * A truthy scalar is accepted for backwards compatibility and hides every form.
+     */
+    public const TPL_VAR_FORM_HIDDEN = 'fbvFormHidden';
+
+    /**
+     * Template variable holding the `fieldReadonly` map.
+     *
+     * Assign an array ['fieldId' => true, ...] to render matching `{fbvElement}`s
+     * as readonly without modifying the template itself.
+     */
+    public const TPL_VAR_FIELD_READONLY = 'fbvFieldReadonly';
+
+    /**
+     * Template variable holding the `fieldDisabled` map.
+     *
+     * Assign an array ['fieldId' => true, ...] to render matching `{fbvElement}`s
+     * with the HTML `disabled` attribute. Works for every field type (text,
+     * select, checkbox, radio, file, button, etc).
+     */
+    public const TPL_VAR_FIELD_DISABLED = 'fbvFieldDisabled';
+
+    /**
+     * Template variable holding the `fieldHidden` map.
+     *
+     * Assign an array ['fieldId' => true, ...] to suppress matching `{fbvElement}`s
+     * entirely (returns empty string for that element).
+     */
+    public const TPL_VAR_FIELD_HIDDEN = 'fbvFieldHidden';
+
     /** @var Form associated with this object, if any.  Will inform smarty which forms to label as required */
     public $_form;
 
@@ -133,17 +167,50 @@ class FormBuilderVocabulary
     public function smartyFBVFormArea($params, $content, $smarty, &$repeat)
     {
         assert(isset($params['id']));
-        if (!$repeat) {
-            $smarty->assign([
-                'FBV_class' => $params['class'] ?? null,
-                'FBV_id' => $params['id'],
-                'FBV_content' => $content ?? null,
-                'FBV_translate' => $params['translate'] ?? true,
-                'FBV_title' => $params['title'] ?? null,
-            ]);
-            return $smarty->fetch('form/formArea.tpl');
+        $formId = $params['id'];
+
+        if ($repeat) {
+            // Opening call. If a plugin has asked for this form to be hidden,
+            // set $repeat = false so Smarty does NOT render the block content —
+            // every section, button and field inside is skipped in one shot.
+            if (self::isFormHidden($smarty->getTemplateVars(self::TPL_VAR_FORM_HIDDEN), $formId)) {
+                $repeat = false;
+                return '';
+            }
+            return '';
         }
-        return '';
+
+        // Closing call. The block content is already in $content; emit it.
+        $smarty->assign([
+            'FBV_class' => $params['class'] ?? null,
+            'FBV_id' => $formId,
+            'FBV_content' => $content ?? null,
+            'FBV_translate' => $params['translate'] ?? true,
+            'FBV_title' => $params['title'] ?? null,
+        ]);
+        return $smarty->fetch('form/formArea.tpl');
+    }
+
+    /**
+     * Decide whether a form should be hidden given the current `$formHidden` template var.
+     *
+     * Accepted shapes:
+     *   - boolean `true` (or any truthy scalar): hide every form — backwards compatible.
+     *   - array `['formIdA' => true, 'formIdB' => false]`: hide only the listed IDs
+     *     whose value is truthy. Other forms render normally.
+     *   - null / empty / false: no form is hidden.
+     */
+    private static function isFormHidden($formHidden, ?string $formId): bool
+    {
+        if (empty($formHidden)) {
+            return false;
+        }
+
+        if (is_array($formHidden)) {
+            return $formId !== null && !empty($formHidden[$formId]);
+        }
+
+        return true; // hide all (legacy)
     }
 
     /**
@@ -259,6 +326,32 @@ class FormBuilderVocabulary
         }
         if (!isset($params['id'])) {
             throw new Exception('FBV: Element ID not set');
+        }
+
+        // If this field id is in TPL_VAR_FIELD_HIDDEN, produce no output.
+        // (Form-level hiding is handled once at smartyFBVFormArea; when a form
+        //  is hidden the enclosing block is skipped entirely and we never get here.)
+        $fieldHidden = $smarty->getTemplateVars(self::TPL_VAR_FIELD_HIDDEN);
+        if (is_array($fieldHidden) && !empty($fieldHidden[$params['id']])) {
+            return '';
+        }
+
+        // TPL_VAR_FIELD_READONLY only has an effect for text/textarea — their
+        // param loops forward 'readonly' through to FBV_readonly, and the
+        // matching templates emit readonly="readonly". For every other type
+        // the flag is silently ignored (HTML readonly doesn't apply).
+        $fieldReadonly = $smarty->getTemplateVars(self::TPL_VAR_FIELD_READONLY);
+        if (is_array($fieldReadonly) && !empty($fieldReadonly[$params['id']])) {
+            $params['readonly'] = true;
+        }
+
+        // TPL_VAR_FIELD_DISABLED honours every field type because every form/*.tpl
+        // reads FBV_disabled. Note that disabled fields are NOT submitted with
+        // the form — use FIELD_READONLY for text-type inputs where the value
+        // must round-trip to the server.
+        $fieldDisabled = $smarty->getTemplateVars(self::TPL_VAR_FIELD_DISABLED);
+        if (is_array($fieldDisabled) && !empty($fieldDisabled[$params['id']])) {
+            $params['disabled'] = true;
         }
 
         // Set up the element template

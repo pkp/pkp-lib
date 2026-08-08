@@ -179,8 +179,8 @@ class Template extends Model
                 $query->whereHas(
                     'userGroups',
                     fn (Builder $subQuery) =>
-                    $subQuery->whereIn('user_group_id', $userGroupIds)
-                )->orWhere('restrict_to_user_groups', false)
+                    $subQuery->whereIn('edit_task_template_user_groups.user_group_id', $userGroupIds)
+                )->orWhere($this->table . '.restrict_to_user_groups', false)
             )
         );
     }

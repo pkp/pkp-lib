@@ -251,6 +251,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
 
                 $this->_updateContextLocaleSettings($request);
                 Locale::uninstallLocale($locale);
+                Repo::editorialTask()->deleteTemplateLocaleData([$locale]);
 
                 $notificationManager = new NotificationManager();
                 $user = $request->getUser();

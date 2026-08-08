@@ -181,7 +181,7 @@ msgstr "投稿{$submissionId} は {$contextAcronym} 用に原稿整理される�
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "<p>{$recipientName} 様、</p><p>新しい投稿が原稿整理の準備が整いました:</"
-"p><p><a href\"{$submissionUrl}\">{$submissionId} — 「{$submissionTitle}」</"
+"p><p><a href=\"{$submissionUrl}\">{$submissionId} — 「{$submissionTitle}」</"
 "a><br "
 "/>{$contextName}</p><p>このタスクを完了するには、次の手順に従ってください:</"
 "p><ol><li>以下の投稿 URL をクリックしてください。</li><li>下書きファイルの下"

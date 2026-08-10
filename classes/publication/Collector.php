@@ -90,6 +90,7 @@ class Collector implements CollectorInterface
     /**
      * Filter by publication Ids
      *
+     * @param ?int[] $publicationIDs Publication IDs
      */
     public function filterByPublicationIds(?array $publicationIds): self
     {
@@ -154,10 +155,10 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table('publications as p')
-            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
-            ->select(['p.*', 's.locale AS submission_locale']); // see DAO::fromRow for use of submission_locale
+            ->select(['p.*']);
 
         if (isset($this->contextIds)) {
+            $qb->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
             $qb->whereIn('s.context_id', $this->contextIds);
         }
 

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-14 07:43+0000\n"
+"PO-Revision-Date: 2026-08-10 15:23+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg/>\n"
@@ -947,3 +947,8 @@ msgstr ""
 "Това ще актуализира дали този потребител се появява в колонтитула ("
 "заглавната страница) на списанието за избраната роля. Потребителят ще бъде "
 "уведомен за тази промяна."
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"Твърде много заявки са изпратени към ROR API. Моля, изчакайте малко, преди "
+"да продължите търсенето."

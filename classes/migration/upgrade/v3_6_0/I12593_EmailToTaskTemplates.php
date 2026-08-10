@@ -54,6 +54,24 @@ class I12593_EmailToTaskTemplates extends Migration
         ];
     }
 
+    protected function templateKeyNameMap(): array
+    {
+        return [
+            'DISCUSSION_NOTIFICATION_SUBMISSION' => 'mailable.discussionSubmission.name',
+            'DISCUSSION_NOTIFICATION_REVIEW' => 'mailable.discussionReview.name',
+            'DISCUSSION_NOTIFICATION_COPYEDITING' => 'mailable.discussionCopyediting.name',
+            'DISCUSSION_NOTIFICATION_PRODUCTION' => 'mailable.discussionProduction.name',
+            'COPYEDIT_REQUEST' => 'mailable.copyeditRequest.name',
+            'LAYOUT_REQUEST' => 'mailable.layoutRequest.name',
+            'LAYOUT_COMPLETE' => 'mailable.layoutComplete.name',
+            'EDITOR_ASSIGN_SUBMISSION' => 'mailable.editorAssignedManual.name',
+            'EDITOR_ASSIGN_REVIEW' => 'mailable.editorAssignedManual.name',
+            'EDITOR_ASSIGN_COPYEDIT' => 'mailable.editorAssignedManual.name',
+            'INDEX_REQUEST' => 'mailable.indexRequest.name',
+            'INDEX_COMPLETE' => 'mailable.indexComplete.name',
+        ];
+    }
+
     protected function getEmailKeys(): array
     {
         return array_keys($this->emailKeyToStageMap());
@@ -123,10 +141,33 @@ class I12593_EmailToTaskTemplates extends Migration
                 'restrict_to_user_groups' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
-                'key' => $customTemplate->alternate_to ?? $customTemplate->email_key,
+                'key' => $customTemplate->email_key,
             ], 'edit_task_template_id');
 
             foreach ($localizedSettings as $locale => $setting) {
+                /*
+                 * The email template body for the COPYEDIT REQUEST, LAYOUT REQUEST and LAYOUT COMPLETE becomes empty
+                 * during the upgrade from 3.3 to 3.4
+                 * Try to get the body from the default templates
+                 */
+                if (!isset($setting['body'])) {
+                    $setting['body'] = DB::table('email_templates_default_data')
+                        ->where('email_key', $customTemplate->email_key)
+                        ->where('locale', $locale)
+                        ->first(['body'])->body;
+                }
+
+                /**
+                 * Upgrades from 3.3 have email template key instead of localized name
+                 * Try to convert
+                 */
+                if (isset($setting['name'])) {
+                    $uniqueKey = str_replace(' ', '_', trim($setting['name']));
+                    if (array_key_exists($uniqueKey, $this->templateKeyNameMap())) {
+                        $setting['name'] = __($this->templateKeyNameMap()[$uniqueKey], [], $locale);
+                    }
+                }
+
                 DB::table('edit_task_template_settings')->insert([
                     [
                         'edit_task_template_id' => $templateId,
@@ -181,6 +222,9 @@ class I12593_EmailToTaskTemplates extends Migration
                 $this->insertedTaskTemplateIds[] = $insertedTaskTemplateId;
 
                 foreach ($group as $item) {
+                    if (isset($item->name) && array_key_exists($item->name, $this->templateKeyNameMap())) {
+                        $item->name = __($this->templateKeyNameMap()[$item->name], [], $locale);
+                    }
                     DB::table('edit_task_template_settings')->insert([
                         [
                             'edit_task_template_id' => $insertedTaskTemplateId,

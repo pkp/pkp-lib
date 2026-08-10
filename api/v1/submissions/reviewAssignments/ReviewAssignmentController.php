@@ -30,12 +30,12 @@ use PKP\core\PKPRequest;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
-use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentController extends PKPBaseController
@@ -69,6 +69,7 @@ class ReviewAssignmentController extends PKPBaseController
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_ASSISTANT,
             ]),
         ])->group(function () {
             Route::get('{reviewAssignmentId}', $this->get(...))
@@ -93,7 +94,6 @@ class ReviewAssignmentController extends PKPBaseController
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
-        $this->addPolicy(new StageRolePolicy([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]));
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -113,6 +113,12 @@ class ReviewAssignmentController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
+        }
+
+        if (!$this->canAccessReviewAssignment($submission, $reviewAssignment)) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $data = Repo::reviewAssignment()
@@ -155,6 +161,12 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        if (!$this->canAccessReviewAssignment($submission, $reviewAssignment)) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         $context = $this->getRequest()->getContext();
 
         $hasRating = $params['quality'] !== 0;
@@ -167,7 +179,6 @@ class ReviewAssignmentController extends PKPBaseController
             return response()->json($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-
         Repo::reviewAssignment()->edit($reviewAssignment, $params);
 
         $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $submission->getId());
@@ -178,7 +189,6 @@ class ReviewAssignmentController extends PKPBaseController
 
         return response()->json($data, Response::HTTP_OK);
     }
-
 
     /**
      * Update the considered status of a review assignment.
@@ -199,6 +209,12 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        if (!$this->canAccessReviewAssignment($submission, $reviewAssignment)) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         $considered = (int)$illuminateRequest->input('considered');
         if (!in_array($considered, [ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED, ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED])) {
             return response()->json([
@@ -209,7 +225,7 @@ class ReviewAssignmentController extends PKPBaseController
         // A review assignment that an editor has already considered cannot be considered again.
         if ($considered === ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED && $reviewAssignment->isRead()) {
             return response()->json([
-                'error' => __('api.review.assignments.alreadyConsidered'),
+                'error' => __('api.reviews.assignments.alreadyConsidered'),
             ], Response::HTTP_CONFLICT);
         }
 
@@ -236,7 +252,7 @@ class ReviewAssignmentController extends PKPBaseController
                 'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED,
             ]);
 
-            return Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getsubmissionId());
+            return Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getData('submissionId'));
         }
 
         return $reviewAssignment;
@@ -266,7 +282,7 @@ class ReviewAssignmentController extends PKPBaseController
 
         // Trigger an update of the review round status
         Repo::reviewAssignment()->edit($reviewAssignment, $newReviewData);
-        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getsubmissionId());
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getData('submissionId'));
 
         // If the review was read by an editor, log event
         if ($reviewAssignment->isRead()) {
@@ -329,6 +345,26 @@ class ReviewAssignmentController extends PKPBaseController
 
         Repo::eventLog()->add($eventLog);
 
-        return Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getsubmissionId());
+        return Repo::reviewAssignment()->get($reviewAssignment->getId(), $reviewAssignment->getData('submissionId'));
+    }
+
+    /**
+     * Check if the current user can access the given review assignment.
+     */
+    protected function canAccessReviewAssignment(Submission $submission, ReviewAssignment $reviewAssignment): bool
+    {
+        $userRoles = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        $isManager = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles);
+
+        if ($isManager) {
+            return true;
+        }
+
+        $user = $this->getRequest()->getUser();
+        return StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$reviewAssignment->getStageId()])
+            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])
+            ->withUserId($user->getId())
+            ->exists();
     }
 }

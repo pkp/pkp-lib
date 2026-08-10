@@ -29,7 +29,6 @@ class I12307_ReviewRoundRequestAuthorResponseMail extends Migration
             templatesFile:Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(),
             emailKey: 'REQUEST_REVIEW_ROUND_AUTHOR_RESPONSE',
             skipExisting: true,
-            recordTemplateGroupAccess: true,
         );
     }
 

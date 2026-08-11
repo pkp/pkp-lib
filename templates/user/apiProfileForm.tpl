@@ -18,28 +18,32 @@
 <form class="pkp_form" id="apiProfileForm" method="post" action="{url op="saveAPIProfile"}" enctype="multipart/form-data">
 	{csrf}
 
+	{call_hook name="User::APIProfile::BeforeFields"}
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="apiProfileNotification"}
 
-	{fbvFormSection title="user.apiKey"}
+	{fbvFormSection id="apiKeySection" title="user.apiKey"}
 		{if !$apiKey}{assign var=apiKey value="common.none"|translate}{/if}
 		{fbvElement id=apiKey type="text" readonly="true" inline=true value=$apiKey size=$fbvStyles.size.MEDIUM}
-		{if !$apiSecretMissing}
-			{fbvElement id=apiKeyAction type="hidden" readonly="true" value=$apiKeyAction}
-			<button
-				type="submit"
-				{if $apiKeyAction === \PKP\user\form\APIProfileForm::API_KEY_DELETE}
-					onClick="return confirm({translate|json_encode|escape key='user.apiKey.remove.confirmation.message'})"
-					class="pkpButton pkp_button_offset"
-				{else}
-					class="pkp_button pkp_button_primary"
-				{/if}
-			>
-				{translate key=$apiKeyActionTextKey}
-			</button>
-		{/if}
-		<p>
-			{translate key=($apiKeyAction === \PKP\user\form\APIProfileForm::API_KEY_NEW) ? "user.apiKey.generateWarning" : "user.apiKey.removeWarning"}
-		</p>
+		{pkpBlock id="apiKeyActions"}
+			{if !$apiSecretMissing}
+				{fbvElement id=apiKeyAction type="hidden" readonly="true" value=$apiKeyAction}
+				<button
+					type="submit"
+					{if $apiKeyAction === \PKP\user\form\APIProfileForm::API_KEY_DELETE}
+						onClick="return confirm({translate|json_encode|escape key='user.apiKey.remove.confirmation.message'})"
+						class="pkpButton pkp_button_offset"
+					{else}
+						class="pkp_button pkp_button_primary"
+					{/if}
+				>
+					{translate key=$apiKeyActionTextKey}
+				</button>
+			{/if}
+			<p>
+				{translate key=($apiKeyAction === \PKP\user\form\APIProfileForm::API_KEY_NEW) ? "user.apiKey.generateWarning" : "user.apiKey.removeWarning"}
+			</p>
+		{/pkpBlock}
 	{/fbvFormSection}
 
 	<p>

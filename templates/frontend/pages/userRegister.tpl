@@ -19,6 +19,9 @@
 		{translate key="user.register"}
 	</h1>
 
+	{call_hook name="Templates::User::Register::BeforeForm"}
+
+	{pkpBlock id="userRegisterForm"}
 	<p>
 		{translate key="common.requiredField"}
 	</p>
@@ -179,7 +182,9 @@
 			<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>
 		</div>
 	</form>
+	{/pkpBlock}
 
+	{call_hook name="Templates::User::Register::AfterForm"}
 </div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

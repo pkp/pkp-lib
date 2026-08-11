@@ -502,3 +502,9 @@ msgstr "The \"{$field}\" field is required."
 
 msgid "api.submissions.reviews.422.uneditableFields"
 msgstr "Your request included fields that are not editable through this endpoint."
+
+msgid "api.reviews.assignments.alreadyConsidered"
+msgstr "The review assignment has already been considered and cannot be considered again."
+
+msgid "api.reviews.assignments.422.missingOrInvalidConsideredValue"
+msgstr "The `considered` field is missing or contains an invalid value."

@@ -183,44 +183,6 @@ class EditReviewForm extends Form
                 $reviewAssignment->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK
             );
-
-            // Check if user is subscribed to this type of notification emails
-            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
-            /** @var NotificationSubscriptionSettingsDAO */
-            $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-            if ($notification && !in_array(
-                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
-                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                    $reviewer->getId(),
-                    (int) $context->getId()
-                )
-            )
-            ) {
-                $mailable = new EditReviewNotify($context, $this->submission, $reviewAssignment);
-                $template = Repo::emailTemplate()->getByKey($context->getId(), EditReviewNotify::getEmailTemplateKey());
-
-                // The template may not exist, see pkp/pkp-lib#9109
-                if (!$template) {
-                    $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
-                    $mailable->addData([
-                        'notificationContents' => $notificationManager->getNotificationContents($request, $notification),
-                        'notificationUrl' => $notificationManager->getNotificationUrl($request, $notification),
-                    ]);
-                }
-                $mailable
-                    ->sender($request->getUser())
-                    ->recipients([$reviewer])
-                    ->subject($template->getLocalizedData('subject'))
-                    ->body($template->getLocalizedData('body'))
-                    ->allowUnsubscribe($notification);
-
-                Mail::send($mailable);
-
-                /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-                $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-                $submissionEmailLogDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_EDIT_NOTIFY_REVIEWER, $mailable, $this->submission, $request->getUser());
-            }
         }
 
         $reviewAssignment->setDateDue($this->getData('reviewDueDate'));
@@ -236,6 +198,45 @@ class EditReviewForm extends Form
         }
 
         $reviewAssignmentDao->updateObject($reviewAssignment);
+
+        // Check if user is subscribed to this type of notification emails
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        /** @var NotificationSubscriptionSettingsDAO */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+        if ($notification && !in_array(
+                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
+                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                    $reviewer->getId(),
+                    (int) $context->getId()
+                )
+            )
+        ) {
+            $mailable = new EditReviewNotify($context, $this->submission, $reviewAssignment);
+            $template = Repo::emailTemplate()->getByKey($context->getId(), EditReviewNotify::getEmailTemplateKey());
+
+            // The template may not exist, see pkp/pkp-lib#9109
+            if (!$template) {
+                $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
+                $mailable->addData([
+                    'notificationContents' => $notificationManager->getNotificationContents($request, $notification),
+                    'notificationUrl' => $notificationManager->getNotificationUrl($request, $notification),
+                ]);
+            }
+            $mailable
+                ->sender($request->getUser())
+                ->recipients([$reviewer])
+                ->subject($template->getLocalizedData('subject'))
+                ->body($template->getLocalizedData('body'))
+                ->allowUnsubscribe($notification);
+
+            Mail::send($mailable);
+
+            /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+            $submissionEmailLogDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_EDIT_NOTIFY_REVIEWER, $mailable, $this->submission, $request->getUser());
+        }
+
         parent::execute(...$functionArgs);
     }
 }

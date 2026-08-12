@@ -25,23 +25,28 @@ class AuditLog
     /**
      * Write a security audit entry.
      *
-     * @param AuditEvent $event   The security audit event being recorded
-     * @param string     $level   PSR-3 log level
-     * @param array      $details Structured fields carrying extra data for audit purpose
+     * @param AuditEvent $event     The security audit event being recorded.
+     * @param string     $level     PSR-3 log level (see \Psr\Log\LogLevel).
+     * @param array      $details   Event-specific fields to record alongside the entry which contains
+     *                              the who/where/when envelope — userId, impersonatedAsUserId, ip, userAgent,
+     *                              contextId, requestUrl and occurredAt which auto-filled value (e.g. pass userId => null
+     *                              to record a system/automated action). The `event`, `message` and `status` fields
+     *                              are always derived from $event and cannot be overridden. should be only
+     *                              passed event-specific details and never pass sensitive information.
      */
     public static function log(AuditEvent $event, string $level = LogLevel::INFO, array $details = []): void
     {
-        // No audit logging when running unit tests
+        // Never audit logging when running unit tests
         if (app()->runningUnitTests()) {
             return;
         }
 
-        // Security audit logging can be disabled per-installation (enabled by default).
-        if (!Config::getVar('logs', 'log_audit', true)) {
+        // Security audit logging can be enabled per-installation (disabled by default).
+        if (!Config::getVar('logs', 'log_audit', false)) {
             return;
         }
 
-        $details = static::withRequestContext($details);
+        $details = static::withRequestDetails($details);
         $details['event'] = $event->value;
         $details['status'] = $event->status();
 
@@ -52,11 +57,10 @@ class AuditLog
      * Verify/Inject the "minimum log content" fields (Who / Where / When)
      * into every audit entry.
      */
-    protected static function withRequestContext(array $details): array
+    protected static function withRequestDetails(array $details): array
     {
-        if (!array_key_exists('occurredAt', $details)) {
-            $details['occurredAt'] = now()->toIso8601String();
-        }
+        // When: time at when the event happened
+        $details['occurredAt'] ??= now()->toIso8601String();
 
         // Running in CLI mode has no reliable way to determine IP, user agent, context id or
         // request url unless passed explicitly. And can not have logged in user in CLI.
@@ -90,7 +94,7 @@ class AuditLog
             $details['userAgent'] = $request->getUserAgent();
         }
 
-        // Where: which context (journal/serve/press) and URL the event originated from.
+        // Where: which context (journal/server/press) and URL the event originated from.
         if (!array_key_exists('contextId', $details)) {
             $details['contextId'] = $request->getContext()?->getId();
         }

@@ -17,6 +17,7 @@ namespace PKP\search\engines;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Log;
 use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
@@ -55,11 +56,16 @@ class OpenSearchEngine extends ScoutEngine
             throw new \Exception('The opensearch username and/or password is missing. Review your config.inc.php file for details.');
         }
 
-        return (new \OpenSearch\ClientBuilder())
+        $clientBuilder = (new \OpenSearch\ClientBuilder())
             ->setHosts(json_decode($hosts, flags: JSON_OBJECT_AS_ARRAY | JSON_THROW_ON_ERROR))
             ->setBasicAuthentication($username, $password)
-            ->setSSLVerification((bool) Config::getVar('search', 'opensearch_ssl_verification', true))
-            ->build();
+            ->setSSLVerification((bool) Config::getVar('search', 'opensearch_ssl_verification', true));
+
+        if (Config::getVar('search', 'opensearch_debug')) {
+            $clientBuilder->setLogger(Log::getLogger());
+        }
+
+        return $clientBuilder->build();
     }
 
     public function update($models)

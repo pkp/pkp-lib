@@ -203,7 +203,7 @@ class EditReviewForm extends Form
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         /** @var NotificationSubscriptionSettingsDAO */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        if ($notification && !in_array(
+        if (isset($notification) && !in_array(
                 PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
                 $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
                     NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,

@@ -422,12 +422,11 @@ class ReviewAssignmentController extends PKPBaseController
     /**
      * Update a reviewer's review.
      *
-     * Handles both a free-text review (no review form) and a custom review form:
-     * - Free-text: `comments` (shared with the author) and `privateComments` (editor only).
-     * - Review form: `reviewFormResponses` as a `reviewFormElementId => value` map. This
-     *   is a partial update; only the provided elements are persisted.
-     *
-     * The optional `reviewerRecommendationId` is stored on the review assignment in both cases.
+     * This updates the review's comments and/or form responses, along with the reviewer's recommendation.
+     * Partial updates are not allowed; the full object with all required review fields must be submitted. That is:
+     * - reviewerRecommendationId must be present
+     * - If a review has a form, then form fields marked as 'required' must be submitted in the form response
+     * - If the review does not have a form, then comment fields are allowed. Currently, comment fields are not required even when a form is not present.
      */
     public function editReview(Request $illuminateRequest): JsonResponse
     {
@@ -442,60 +441,178 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        /*
-         * Do not allow partial updates. This means the full object with all required review fields has to be submitted.
-         * Required fields:
-         * - reviewerRecommendationId
-         * - text fields or form
-         */
+        $submittedReviewerRecommendationId = $illuminateRequest->input('reviewerRecommendationId');
+        if (!$submittedReviewerRecommendationId) {
+            return response()->json([
+                'error' => __('api.422.missingRequiredField', ['field' => 'reviewerRecommendationId']),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-        // If text fields exist, form fields should not
-        // if text fields exist, the review should not have form fields ($reviewAssignment->getReviewFormId() should be null)
-        // if form is submitted, update all fields
-        // for each exisitng form field in DB, check if it is required. if required, check that the field is in request and has a value
-        $context = $this->getRequest()->getContext();
-        $hasReviewForm = (bool) $reviewAssignment->getReviewFormId();
-        $reviewFormResponses = $hasReviewForm ? (array) $illuminateRequest->input('reviewFormResponses', []) : [];
 
-        // Validate everything before persisting anything.
-        $updatesRecommendation = $illuminateRequest->exists('reviewerRecommendationId');
-        $recommendationId = null;
+        // If review has form then no comments can be added
+        $commentsSubmitted = $illuminateRequest->exists('comments');
+        $privateCommentsSubmitted = $illuminateRequest->exists('commentsPrivate');
 
-        if ($updatesRecommendation) {
-            $submitted = $illuminateRequest->input('reviewerRecommendationId');
-            $recommendationId = $submitted === null ? 0 : (int) $submitted;
+        if ($reviewAssignment->getReviewFormId() && ($commentsSubmitted || $privateCommentsSubmitted)) {
+            return response()->json([
+                'error' => 'comments not allowed on this review', // TODO: use locale
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
-            if ($recommendationId !== 0) {
-                $recommendationOptions = Repo::reviewerRecommendation()->getRecommendationOptions($context, reviewAssignment: $reviewAssignment);
-                if (!array_key_exists($recommendationId, $recommendationOptions)) {
+        if ($reviewAssignment->getReviewFormId()) {
+            // If a review has a form, then validate that the required form fields all exist in the request
+            // Then update the review form responses with the new values
+            $reviewFormResponses = $illuminateRequest->input('reviewFormResponses') ?? '';
+            if ($reviewFormResponses) {
+                // Parse the submitted review form responses from JSON into an associative array.
+                // Each key is a review form element ID, and the value is the submitted response.
+                $reviewFormResponses = json_decode($reviewFormResponses, true);
+            }
+
+            /** @var ReviewFormElementDAO $reviewFormElementDao */
+            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+
+            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
+
+            // loop over each $reviewFormElements and check if:
+            // - the required fields are present in the responses submitted by the user in the current request
+            // - the submitted response is valid for each field
+            while ($reviewFormElement = $reviewFormElements->next()) {
+                $reviewFormElementId = $reviewFormElement->getId();
+                $required = $reviewFormElement->getRequired();
+
+                if ($required && (!$reviewFormResponses || !isset($reviewFormResponses[$reviewFormElementId]) || $reviewFormResponses[$reviewFormElementId] === '')) {
                     return response()->json([
-                        'error' => __('api.submissions.reviews.422.invalidRecommendation'),
+                        'error' => 'MISSING REQUIRED FORM FIELD ID: ' . $reviewFormElementId . ' Question: ' . $reviewFormElement->getLocalizedQuestion(),
                     ], Response::HTTP_UNPROCESSABLE_ENTITY);
+                }
+
+                if (isset($reviewFormResponses[$reviewFormElementId])) {
+                    // Check if the submitted response is valid for the field type
+                    $isValidResponseType = $this->validateReviewFormFieldResponse($reviewFormElement, $reviewFormResponses[$reviewFormElementId]);
+
+                    if (!$isValidResponseType) {
+                        return response()->json([
+                            'error' => 'INVALID RESPONSE TYPE FOR FORM FIELD ID: ' . $reviewFormElementId . ' Question: ' . $reviewFormElement->getLocalizedQuestion(),
+                        ], Response::HTTP_UNPROCESSABLE_ENTITY);
+                    }
+                }
+            }
+
+            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
+
+            foreach ($reviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
+                $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), $reviewFormElementId);
+                if (!isset($reviewFormResponse)) {
+                    $reviewFormResponse = new ReviewFormResponse();
+                }
+
+                $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
+                $elementType = $reviewFormElement->getElementType();
+                switch ($elementType) {
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
+                        $reviewFormResponse->setResponseType('string');
+                        $reviewFormResponse->setValue($reviewFormResponseValue);
+                        break;
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                        $reviewFormResponse->setResponseType('int');
+                        $reviewFormResponse->setValue($reviewFormResponseValue);
+                        break;
+                    case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                        $reviewFormResponse->setResponseType('object');
+                        $reviewFormResponse->setValue($reviewFormResponseValue);
+                        break;
+                }
+                if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {
+                    $reviewFormResponseDao->updateObject($reviewFormResponse);
+                } else {
+                    $reviewFormResponse->setReviewFormElementId($reviewFormElementId);
+                    $reviewFormResponse->setReviewId($reviewAssignment->getId());
+                    $reviewFormResponseDao->insertObject($reviewFormResponse);
+                }
+            }
+
+
+        } else {
+            // if comments were submitted, update the review comments with the new values
+            if ($commentsSubmitted) {
+                // Create a comment with the review.
+
+                /** @var SubmissionCommentDAO $submissionCommentDao */
+                $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+
+                $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId(
+                    $reviewAssignment->getSubmissionId(),
+                    $reviewAssignment->getReviewerId(),
+                    $reviewAssignment->getId(),
+                    true
+                );
+
+                /** @var \PKP\submission\SubmissionComment $comment */
+                $comment = $submissionComments->next();
+
+                if (!isset($comment)) {
+                    $comment = $submissionCommentDao->newDataObject();
+                }
+
+                $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
+                $comment->setRoleId(Role::ROLE_ID_REVIEWER);
+                $comment->setAssocId($reviewAssignment->getId());
+                $comment->setSubmissionId($reviewAssignment->getSubmissionId());
+                $comment->setAuthorId($reviewAssignment->getReviewerId());
+                $comment->setComments($commentsSubmitted);
+                $comment->setCommentTitle('');
+                $comment->setViewable(true);
+                $comment->setDatePosted(Core::getCurrentDate());
+
+                // Save or update
+                if ($comment->getId() != null) {
+                    $submissionCommentDao->updateObject($comment);
+                    // todo: update log
+                } else {
+                    $submissionCommentDao->insertObject($comment);
+                }
+            }
+
+            if ($privateCommentsSubmitted) {
+                // Create a comment with the review.
+                $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+                /** @var SubmissionCommentDAO $submissionCommentDao */
+                $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
+                $comment = $submissionCommentsPrivate->next();
+                /** @var \PKP\submission\SubmissionComment $comment */
+
+                if (!isset($comment)) {
+                    $comment = $submissionCommentDao->newDataObject();
+                }
+
+                $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
+                $comment->setRoleId(Role::ROLE_ID_REVIEWER);
+                $comment->setAssocId($reviewAssignment->getId());
+                $comment->setSubmissionId($reviewAssignment->getSubmissionId());
+                $comment->setAuthorId($reviewAssignment->getReviewerId());
+                $comment->setComments($privateCommentsSubmitted);
+                $comment->setCommentTitle('');
+                $comment->setViewable(false);
+                $comment->setDatePosted(Core::getCurrentDate());
+
+                // Save or update
+                if ($comment->getId() != null) {
+                    $submissionCommentDao->updateObject($comment);
+                    // todo: update log
+                } else {
+                    $submissionCommentDao->insertObject($comment);
                 }
             }
         }
 
-        if ($hasReviewForm) {
-            $error = $this->validateReviewFormResponses($reviewAssignment, $reviewFormResponses);
-            if ($error) {
-                return $error;
-            }
-        }
+        Repo::reviewAssignment()->edit($reviewAssignment, [
+            'reviewerRecommendationId' => $submittedReviewerRecommendationId,
+        ]);
 
-        // Persist.
-        if ($updatesRecommendation) {
-            Repo::reviewAssignment()->edit($reviewAssignment, [
-                'reviewerRecommendationId' => $recommendationId === 0 ? null : $recommendationId,
-            ]);
-        }
-
-        if ($hasReviewForm) {
-            // Scenario B — custom review form.
-            $this->saveReviewFormResponses($reviewAssignment, $reviewFormResponses);
-        } else {
-            // Scenario A — free-text review.
-            $this->saveReviewComments($reviewAssignment, $illuminateRequest);
-        }
 
         $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $submission->getId());
 
@@ -554,55 +671,6 @@ class ReviewAssignmentController extends PKPBaseController
     }
 
     /**
-     * Save a partial set of custom review form responses.
-     *
-     * Only the review form elements included in the request are persisted. Callers must
-     * validate the responses via {@see self::validateReviewFormResponses()} first.
-     *
-     * @param array $reviewFormResponses A `reviewFormElementId => value` map.
-     */
-    protected function saveReviewFormResponses(ReviewAssignment $reviewAssignment, array $reviewFormResponses): void
-    {
-        /** @var ReviewFormElementDAO $reviewFormElementDao */
-        $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-        /** @var ReviewFormResponseDAO $reviewFormResponseDao */
-        $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-
-        foreach ($reviewFormResponses as $reviewFormElementId => $value) {
-            $reviewFormElement = $reviewFormElementDao->getById((int) $reviewFormElementId, $reviewAssignment->getReviewFormId());
-            $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), (int) $reviewFormElementId);
-            $isExisting = isset($reviewFormResponse);
-            if (!$isExisting) {
-                $reviewFormResponse = new ReviewFormResponse();
-            }
-
-            switch ($reviewFormElement->getElementType()) {
-                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
-                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
-                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
-                    $reviewFormResponse->setResponseType('string');
-                    break;
-                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
-                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
-                    $reviewFormResponse->setResponseType('int');
-                    break;
-                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
-                    $reviewFormResponse->setResponseType('object');
-                    break;
-            }
-            $reviewFormResponse->setValue($value);
-
-            if ($isExisting) {
-                $reviewFormResponseDao->updateObject($reviewFormResponse);
-            } else {
-                $reviewFormResponse->setReviewFormElementId((int) $reviewFormElementId);
-                $reviewFormResponse->setReviewId($reviewAssignment->getId());
-                $reviewFormResponseDao->insertObject($reviewFormResponse);
-            }
-        }
-    }
-
-    /**
      * Save the reviewer's free-text comments.
      *
      * Only the fields present in the request are affected. A field submitted as an empty
@@ -613,8 +681,8 @@ class ReviewAssignmentController extends PKPBaseController
         if ($illuminateRequest->exists('comments')) {
             $this->saveReviewComment($reviewAssignment, (string) $illuminateRequest->input('comments'), true);
         }
-        if ($illuminateRequest->exists('privateComments')) {
-            $this->saveReviewComment($reviewAssignment, (string) $illuminateRequest->input('privateComments'), false);
+        if ($illuminateRequest->exists('commentsPrivate')) {
+            $this->saveReviewComment($reviewAssignment, (string) $illuminateRequest->input('commentsPrivate'), false);
         }
     }
 
@@ -660,6 +728,44 @@ class ReviewAssignmentController extends PKPBaseController
             $submissionCommentDao->updateObject($comment);
         } else {
             $submissionCommentDao->insertObject($comment);
+        }
+    }
+
+    public function validateReviewFormFieldResponse(ReviewFormElement $reviewFormElement, mixed $response): bool
+    {
+        switch ($reviewFormElement->getElementType()) {
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
+                return is_string($response);
+
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                // Expect an array of indices, each pointing to a possible response.
+                if (!is_array($response)) {
+                    return false;
+                }
+                $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                if (!is_array($possibleResponses)) {
+                    return false;
+                }
+                foreach ($response as $index) {
+                    if (!array_key_exists((int)$index, $possibleResponses)) {
+                        return false;
+                    }
+                }
+                return true;
+
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                // Expect a single index pointing to a possible response.
+                if (!is_numeric($response)) {
+                    return false;
+                }
+                $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                return is_array($possibleResponses) && array_key_exists((int)$response, $possibleResponses);
+
+            default:
+                return false;
         }
     }
 }

@@ -169,11 +169,11 @@ class ReviewResource extends JsonResource
             $reviewAssignment->getId(),
         );
 
-        $data = ['comments' => null, 'privateComments' => null];
+        $data = ['comments' => null, 'commentsPrivate' => null];
 
         /** @var SubmissionComment $comment */
         while ($comment = $comments->next()) {
-            $data[$comment->getViewable() ? 'comments' : 'privateComments'] = $comment->getComments();
+            $data[$comment->getViewable() ? 'comments' : 'commentsPrivate'] = PKPString::html2text($comment->getComments());
         }
         return $data;
     }

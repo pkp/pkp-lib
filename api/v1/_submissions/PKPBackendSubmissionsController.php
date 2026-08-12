@@ -244,7 +244,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 $userGroups,
                 $genres,
                 $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
-                $this->anonymizeReviews($submissions)
+                $this->reviewsToAnonymize($submissions)
             )->values(),
         ], Response::HTTP_OK);
     }

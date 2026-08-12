@@ -19,7 +19,6 @@ namespace PKP\API\v1\submissions;
 
 use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\security\Role;
@@ -37,9 +36,9 @@ trait AnonymizeData
      * @param LazyCollection<Submission>|Submission $submissions the list of submissions with IDs as keys or a single submission
      * @param ?LazyCollection<ReviewAssignment> $reviewAssignments
      *
-     * @return false|Collection List of review IDs to anonymize or false;
+     * @return int[] List of review IDs to anonymize
      */
-    public function anonymizeReviews(LazyCollection|Submission $submissions, ?LazyCollection $reviewAssignments = null): false|Collection
+    public function reviewsToAnonymize(LazyCollection|Submission $submissions, ?LazyCollection $reviewAssignments = null): array
     {
         $currentUser = $this->getRequest()->getUser();
         $submissionIds = is_a($submissions, Submission::class) ? [$submissions->getId()] : $submissions->keys()->toArray();
@@ -64,14 +63,49 @@ trait AnonymizeData
         );
 
         if ($currentUserReviewAssignment->isNotEmpty() || $isAuthor) {
-            $anonymizeReviews = $reviewAssignments->map(function (ReviewAssignment $reviewAssignment, int $reviewId) use ($currentUserReviewAssignment) {
+            $reviewsToAnonymize = $reviewAssignments->map(function (ReviewAssignment $reviewAssignment, int $reviewId) use ($currentUserReviewAssignment) {
                 if ($currentUserReviewAssignment->isNotEmpty() && $currentUserReviewAssignment->has($reviewId)) {
                     return false;
                 }
                 return $reviewAssignment->getReviewMethod() !== ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
-            })->filter()->keys()->collect();
+            })->filter()->keys()->toArray();
         }
 
-        return !isset($anonymizeReviews) || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews;
+        return $reviewsToAnonymize ?? [];
+    }
+
+    /**
+     * Checks if sensitive author data should be anonymized for reviewers
+     *
+     * @param LazyCollection<Submission>|Submission $submissions the list of submissions with IDs as keys or a single submission
+     * @param ?LazyCollection<ReviewAssignment> $reviewAssignments
+     *
+     * @return int[] List of submission that should exclude author data
+     */
+    public function submissionsToAnonymizeByAuthor(LazyCollection|Submission $submissions, ?LazyCollection $reviewAssignments = null): array
+    {
+        $currentUser = $this->getRequest()->getUser();
+        $submissionIds = is_a($submissions, Submission::class) ? [$submissions->getId()] : $submissions->keys()->toArray();
+        $reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany();
+
+        $submissionsToAnonymizeByAuthor = $reviewAssignments->filter(function (ReviewAssignment $reviewAssignment) use ($currentUser) {
+            if ($reviewAssignment->getReviewerId() !== $currentUser->getId()) {
+                return false;
+            }
+
+            // If the current user is a reviewer, we do not need to anonymize authors if the review type allows it.
+            return !in_array(
+                $reviewAssignment->getReviewMethod(),
+                [
+                    ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
+                    ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN
+                ]
+            );
+        })
+            ->map(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getSubmissionId())
+            ->values()
+            ->toArray();
+
+        return $submissionsToAnonymizeByAuthor ?? [];
     }
 }

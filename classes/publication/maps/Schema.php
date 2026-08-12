@@ -36,9 +36,6 @@ class Schema extends \PKP\core\maps\Schema
     /** @var Submission */
     public $submission;
 
-    /** @var bool */
-    public $anonymize;
-
     /** @var Enumerable UserGroup The user groups for this context. */
     public $userGroups;
 
@@ -58,9 +55,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes all properties in the publication schema.
      */
-    public function map(Publication $item, bool $anonymize = false): array
+    public function map(Publication $item, bool $anonymizeAuthors = false): array
     {
-        return $this->mapByProperties($this->getProps(), $item, $anonymize);
+        return $this->mapByProperties($this->getProps(), $item, $anonymizeAuthors);
     }
 
     /**
@@ -68,9 +65,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the publication schema.
      */
-    public function summarize(Publication $item, bool $anonymize = false): array
+    public function summarize(Publication $item, bool $anonymizeAuthors = false): array
     {
-        return $this->mapByProperties($this->getSummaryProps(), $item, $anonymize);
+        return $this->mapByProperties($this->getSummaryProps(), $item, $anonymizeAuthors);
     }
 
     /**
@@ -78,11 +75,11 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::map
      */
-    public function mapMany(Enumerable $collection, bool $anonymize = false): Enumerable
+    public function mapMany(Enumerable $collection, bool $anonymizeAuthors = false): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) use ($anonymize) {
-            return $this->map($item, $anonymize);
+        return $collection->map(function ($item) use ($anonymizeAuthors) {
+            return $this->map($item, $anonymizeAuthors);
         });
     }
 
@@ -91,21 +88,19 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      */
-    public function summarizeMany(Enumerable $collection, bool $anonymize = false): Enumerable
+    public function summarizeMany(Enumerable $collection, bool $anonymizeAuthors = false): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) use ($anonymize) {
-            return $this->summarize($item, $anonymize);
+        return $collection->map(function ($item) use ($anonymizeAuthors) {
+            return $this->summarize($item, $anonymizeAuthors);
         });
     }
 
     /**
      * Map schema properties of a Publication to an assoc array
      */
-    protected function mapByProperties(array $props, Publication $publication, bool $anonymize): array
+    protected function mapByProperties(array $props, Publication $publication, bool $anonymizeAuthors): array
     {
-        $this->anonymize = $anonymize;
-
         $output = [];
 
         $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
@@ -119,7 +114,7 @@ class Schema extends \PKP\core\maps\Schema
                     );
                     break;
                 case 'authors':
-                    if ($this->anonymize) {
+                    if ($anonymizeAuthors) {
                         $output[$prop] = [];
                     } else {
                         $output[$prop] = Repo::author()->getSchemaMap($this->submission)
@@ -127,13 +122,13 @@ class Schema extends \PKP\core\maps\Schema
                     }
                     break;
                 case 'authorsString':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups);
+                    $output[$prop] = $anonymizeAuthors ? '' : $publication->getAuthorString($this->userGroups);
                     break;
                 case 'authorsStringIncludeInBrowse':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getAuthorString($this->userGroups, true);
+                    $output[$prop] = $anonymizeAuthors ? '' : $publication->getAuthorString($this->userGroups, true);
                     break;
                 case 'authorsStringShort':
-                    $output[$prop] = $this->anonymize ? '' : $publication->getShortAuthorString();
+                    $output[$prop] = $anonymizeAuthors ? '' : $publication->getShortAuthorString();
                     break;
                 case 'categoryIds':
                     $output[$prop] = $publication->getData('categoryIds');
@@ -143,6 +138,9 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'citationsRaw':
                     $output[$prop] = $rawCitationList->implode(PHP_EOL);
+                    break;
+                case 'dataAvailability':
+                    $output[$prop] = $anonymizeAuthors ? null : $publication->getData('dataAvailability');
                     break;
                 case 'doiObject':
                     if ($publication->getData('doiObject')) {

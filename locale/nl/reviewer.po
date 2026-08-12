@@ -91,6 +91,7 @@ msgstr ""
 "Klik hieronder op de bestandsnaam om de bestanden van deze inzending te "
 "downloaden."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Vul in onderstaand formulier uw review van deze inzending in."
 

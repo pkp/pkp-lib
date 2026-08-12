@@ -92,6 +92,7 @@ msgstr ""
 "Klicken Sie auf die Dateinahmen zum Download und begutachten Sie die zu "
 "dieser Einreichung gehörenden Dateien (am Bildschirm oder im Ausdruck)."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr "Geben Sie Ihr Gutachten in das unten stehende Formular ein."
 

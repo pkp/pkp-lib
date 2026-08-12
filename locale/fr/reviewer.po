@@ -96,6 +96,7 @@ msgstr ""
 "Cliquez sur les noms des fichiers pour télécharger et examiner (sur l'écran "
 "ou après les avoir imprimés) les fichiers associés à cette soumission."
 
+#, fuzzy
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
 "Saisir (ou copier/coller) votre évaluation dans le formulaire ci-dessous."

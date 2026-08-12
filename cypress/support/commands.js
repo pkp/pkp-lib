@@ -633,11 +633,12 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 	cy.get('button:contains("Accept Review, Continue to Step #2")').click();
 	cy.get('button:contains("Continue to Step #3")').click();
 	cy.wait(2000); // Give TinyMCE control time to load
-	cy.get('textarea[id^="comments-"]').then(node => {
+	// Step 3 is now a Vue form: field ids follow the pattern "{formId}-{fieldName}-control"
+	cy.get('textarea#reviewStep3Form-comments-control').then(node => {
 		cy.setTinyMceContent(node.attr('id'), comments);
 	});
 	if (recommendation) {
-		cy.get('select#reviewerRecommendationId').select(recommendation);
+		cy.get('select#reviewStep3Form-reviewerRecommendationId-control').select(recommendation);
 	}
 	cy.get('button:contains("Submit Review")').click();
 	cy.get('button:contains("OK")').click();

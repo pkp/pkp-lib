@@ -20,7 +20,10 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\form\Form;
 use PKP\invitation\invitations\changeProfileEmail\ChangeProfileEmailInvite;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\user\User;
+use Psr\Log\LogLevel;
 
 abstract class BaseProfileForm extends Form
 {
@@ -64,6 +67,8 @@ abstract class BaseProfileForm extends Form
         Repo::user()->edit($user);
 
         if ($functionArgs['emailUpdated'] ?? false) {
+            AuditLog::log(AuditEvent::PROFILE_EMAIL_CHANGE_REQUEST, LogLevel::NOTICE);
+
             $sessionGuard = Application::get()->getRequest()->getSessionGuard();
             $sessionGuard->setUserDataToSession($user)->updateSession($user->getId());
             $sessionGuard->invalidateOtherSessions($user->getId(), $request->getSession()->getId());

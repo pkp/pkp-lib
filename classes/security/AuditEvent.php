@@ -52,6 +52,8 @@ enum AuditEvent: string
     case USER_DISABLED = 'user_disabled';
     case USER_MERGED = 'user_merged';
     case USER_DELETED = 'user_deleted';
+    case USER_PASSWORD_RESET = 'user_password_reset';
+    case USER_EMAIL_CHANGED = 'user_email_change';
     case USER_ROLE_ASSIGNED = 'authz_role_assign';
     case USER_ROLE_REMOVED = 'authz_role_remove';
     case USER_CONTEXT_REMOVED = 'authz_context_remove';
@@ -115,6 +117,8 @@ enum AuditEvent: string
             static::USER_DISABLED => 'User account disabled',
             static::USER_MERGED => 'User accounts merged',
             static::USER_DELETED => 'User account deleted',
+            static::USER_PASSWORD_RESET => 'User password reset by an administrator',
+            static::USER_EMAIL_CHANGED => 'User email address changed by an administrator',
             static::USER_ROLE_ASSIGNED => 'Role assigned to a user',
             static::USER_ROLE_REMOVED => 'Role removed from a user',
             static::USER_CONTEXT_REMOVED => 'User removed from a context',
@@ -149,7 +153,7 @@ enum AuditEvent: string
     /**
      * Event outcome
      *
-     * - success = the action completed; 
+     * - success = the action completed;
      * - failure = it was attempted and failed (bad login, invalid token, failed re-authentication)
      * - denied = a control blocked it (disabled account, rate limit, forced-IP logout, impersonation refused).
      */

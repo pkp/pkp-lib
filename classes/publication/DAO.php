@@ -92,6 +92,25 @@ class DAO extends EntityDAO
     }
 
     /**
+     * Get a publication.
+     *
+     * Optionally, pass the submission ID to only get a publication
+     * if it exists and is assigned to that submission.
+     */
+    public function get(int $id, ?int $submissionId = null): ?Publication
+    {
+        // This is overridden due to the need to include submission_locale
+        // to the fromRow function
+        $row = DB::table('publications as p')
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
+            ->where('p.publication_id', '=', $id)
+            ->when($submissionId !== null, fn (Builder $query) => $query->where('s.submission_id', '=', $submissionId))
+            ->select(['p.*', 's.locale AS submission_locale'])
+            ->first();
+        return $row ? $this->fromRow($row) : null;
+    }
+
+    /**
      * Get a collection of publications matching the configured query
      *
      * @return LazyCollection<int,T>
@@ -161,10 +180,7 @@ class DAO extends EntityDAO
         $this->setDoiObject($publication);
 
         // Set the primary locale from the submission
-        $locale = DB::table('submissions as s')
-            ->where('s.submission_id', '=', $publication->getData('submissionId'))
-            ->value('locale');
-        $publication->setData('locale', $locale);
+        $publication->setData('locale', $row->submission_locale);
 
         $citations = Repo::citation()->getByPublicationId($publication->getId());
         $publication->setData('citations', $citations);

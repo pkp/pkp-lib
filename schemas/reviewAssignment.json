@@ -334,6 +334,23 @@
 			"type": "boolean",
 			"description": "Boolean indicating whether the review is publicly visible or not.",
 			"apiSummary": true
+		},
+		"lastModifiedById": {
+			"type": "integer",
+			"description": "The ID of the user who last made modifications to the submitted review.",
+			"apiSummary": true,
+			"validation": ["nullable"]
+		},
+		"lastModifiedBy": {
+			"type": "object",
+			"description": "The user who last made modifications to the submitted review.",
+			"apiSummary": true,
+			"readOnly": true,
+			"type": "object",
+			"properties": {
+				"id": {"type": "integer"},
+				"userFullName": {"type": "string"}
+			}
 		}
 	}
 }

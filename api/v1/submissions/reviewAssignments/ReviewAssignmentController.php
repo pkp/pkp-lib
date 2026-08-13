@@ -618,6 +618,7 @@ class ReviewAssignmentController extends PKPBaseController
 
         $newAssignmentData = [
             'reviewerRecommendationId' => $submittedReviewerRecommendationId,
+            'lastModifiedById' => $this->getRequest()->getUser()->getId(),
         ];
 
         if (!$reviewAssignment->getDateCompleted()) {

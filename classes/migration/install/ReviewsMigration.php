@@ -87,6 +87,10 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->datetime('date_due')->nullable();
             $table->datetime('date_response_due')->nullable();
             $table->datetime('last_modified')->nullable();
+
+            $table->bigInteger('last_modified_by_id')->nullable()->comment('The ID of the user who last modified this review assignment.');
+            $table->foreign('last_modified_by_id')->references('user_id')->on('users')->nullOnDelete();
+
             $table->smallInteger('reminder_was_automatic')->default(0);
             $table->smallInteger('declined')->default(0);
             $table->smallInteger('cancelled')->default(0);

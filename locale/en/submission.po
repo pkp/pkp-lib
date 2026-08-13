@@ -3931,3 +3931,6 @@ msgstr "The following issues were found, but will not prevent publishing"
 
 msgid "reviewer.competingInterests"
 msgstr "Competing Interests"
+
+msgid "submission.event.review.field.modified"
+msgstr "The following field was modified in this review: {$fieldName}. Select \"View changes\" to see a detailed summary of all modifications."

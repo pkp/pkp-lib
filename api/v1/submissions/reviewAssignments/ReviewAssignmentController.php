@@ -31,6 +31,7 @@ use PKP\core\PKPRequest;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
 use PKP\db\DAORegistry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponse;
@@ -441,7 +442,7 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $submittedReviewerRecommendationId = $illuminateRequest->input('reviewerRecommendationId');
+        $submittedReviewerRecommendationId = (int)$illuminateRequest->input('reviewerRecommendationId');
         if (!$submittedReviewerRecommendationId) {
             return response()->json([
                 'error' => __('api.422.missingRequiredField', ['field' => 'reviewerRecommendationId']),
@@ -450,7 +451,7 @@ class ReviewAssignmentController extends PKPBaseController
 
 
         // If review has form then no comments can be added
-        $commentsSubmitted = $illuminateRequest->exists('comments');
+        $commentsSubmitted = $illuminateRequest->input('comments');
         $privateCommentsSubmitted = $illuminateRequest->exists('commentsPrivate');
 
         if ($reviewAssignment->getReviewFormId() && ($commentsSubmitted || $privateCommentsSubmitted)) {
@@ -462,11 +463,11 @@ class ReviewAssignmentController extends PKPBaseController
         if ($reviewAssignment->getReviewFormId()) {
             // If a review has a form, then validate that the required form fields all exist in the request
             // Then update the review form responses with the new values
-            $reviewFormResponses = $illuminateRequest->input('reviewFormResponses') ?? '';
-            if ($reviewFormResponses) {
+            $submittedReviewFormResponses = $illuminateRequest->input('reviewFormResponses') ?? '';
+            if ($submittedReviewFormResponses !== '' && !is_array($submittedReviewFormResponses)) {
                 // Parse the submitted review form responses from JSON into an associative array.
                 // Each key is a review form element ID, and the value is the submitted response.
-                $reviewFormResponses = json_decode($reviewFormResponses, true);
+                $submittedReviewFormResponses = json_decode($submittedReviewFormResponses, true);
             }
 
             /** @var ReviewFormElementDAO $reviewFormElementDao */
@@ -481,15 +482,15 @@ class ReviewAssignmentController extends PKPBaseController
                 $reviewFormElementId = $reviewFormElement->getId();
                 $required = $reviewFormElement->getRequired();
 
-                if ($required && (!$reviewFormResponses || !isset($reviewFormResponses[$reviewFormElementId]) || $reviewFormResponses[$reviewFormElementId] === '')) {
+                if ($required && (!$submittedReviewFormResponses || !isset($submittedReviewFormResponses[$reviewFormElementId]) || $submittedReviewFormResponses[$reviewFormElementId] === '')) {
                     return response()->json([
                         'error' => 'MISSING REQUIRED FORM FIELD ID: ' . $reviewFormElementId . ' Question: ' . $reviewFormElement->getLocalizedQuestion(),
                     ], Response::HTTP_UNPROCESSABLE_ENTITY);
                 }
 
-                if (isset($reviewFormResponses[$reviewFormElementId])) {
+                if (isset($submittedReviewFormResponses[$reviewFormElementId])) {
                     // Check if the submitted response is valid for the field type
-                    $isValidResponseType = $this->validateReviewFormFieldResponse($reviewFormElement, $reviewFormResponses[$reviewFormElementId]);
+                    $isValidResponseType = $this->validateReviewFormFieldResponse($reviewFormElement, $submittedReviewFormResponses[$reviewFormElementId]);
 
                     if (!$isValidResponseType) {
                         return response()->json([
@@ -501,11 +502,37 @@ class ReviewAssignmentController extends PKPBaseController
 
             $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
 
-            foreach ($reviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
-                $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), $reviewFormElementId);
-                if (!isset($reviewFormResponse)) {
-                    $reviewFormResponse = new ReviewFormResponse();
+            // Tracks whether any form field's stored response actually changed as a result of this request.
+            $formFieldsUpdated = false;
+
+            $allExistingFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+
+            foreach ($submittedReviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
+                $isExistingResponse = key_exists($reviewFormElementId, $allExistingFormResponses);
+
+                // Skip elements whose submitted response matches what is already stored. For array
+                // (checkbox) values, compare order-independently using sorted copies so the original
+                // stored order is preserved in $allExistingFormResponses for the old-response snapshot.
+                if ($isExistingResponse) {
+                    if (is_array($reviewFormResponseValue)) {
+                        $submittedSorted = $reviewFormResponseValue;
+                        $existingSorted = $allExistingFormResponses[$reviewFormElementId];
+                        sort($submittedSorted);
+                        sort($existingSorted);
+                        if ($existingSorted == $submittedSorted) {
+                            continue;
+                        }
+                    } elseif ($allExistingFormResponses[$reviewFormElementId] == $reviewFormResponseValue) {
+                        continue;
+                    }
                 }
+
+                $reviewFormResponse = $isExistingResponse
+                    ? $reviewFormResponseDao->getReviewFormResponse(
+                        $reviewAssignment->getId(),
+                        $reviewFormElementId
+                    )
+                    : new ReviewFormResponse();
 
                 $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
                 $elementType = $reviewFormElement->getElementType();
@@ -526,94 +553,99 @@ class ReviewAssignmentController extends PKPBaseController
                         $reviewFormResponse->setValue($reviewFormResponseValue);
                         break;
                 }
-                if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {
+
+                if ($isExistingResponse) {
                     $reviewFormResponseDao->updateObject($reviewFormResponse);
                 } else {
                     $reviewFormResponse->setReviewFormElementId($reviewFormElementId);
                     $reviewFormResponse->setReviewId($reviewAssignment->getId());
                     $reviewFormResponseDao->insertObject($reviewFormResponse);
                 }
+
+                // Bool to indicate that a field was updated on the review form.
+                $formFieldsUpdated = true;
             }
 
+            // Once all responses have been processed, and at least one field changed, build the
+            // human-readable question/answer pairs for every element on the form. The responses are
+            // refetched so the pairs reflect the full, up-to-date set of stored answers. Keyed by the
+            // review form element ID, each value has the shape:
+            // ['question' => <THE QUESTION>, 'answer' => '<THE ANSWER>']
+            $updatedReviewFormResponses = [];
+            if ($formFieldsUpdated) {
+                // Build the previous (old) question/answer pairs from the snapshot of stored
+                // responses captured before the update, using the same structure as the new
+                // pairs below so both can be rendered identically.
+                $oldReviewFormResponses = [];
+                foreach ($allExistingFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
+                    $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
+                    if (!$reviewFormElement) {
+                        continue;
+                    }
+                    $oldReviewFormResponses[$reviewFormElementId] = $this->buildReviewFormResponseLogEntry($reviewFormElement, $reviewFormResponseValue);
+                }
 
+                $storedReviewFormResponseValues = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+                foreach ($storedReviewFormResponseValues as $reviewFormElementId => $reviewFormResponseValue) {
+                    $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
+                    if (!$reviewFormElement) {
+                        continue;
+                    }
+                    $updatedReviewFormResponses[$reviewFormElementId] = $this->buildReviewFormResponseLogEntry($reviewFormElement, $reviewFormResponseValue);
+                }
+
+                // Log the form changes to event log
+                $eventLog = Repo::eventLog()->newDataObject([
+                    'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                    'assocId' => $reviewAssignment->getId(),
+                    'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED,
+                    'userId' => $this->getRequest()->getUser()->getId(),
+                    'message' => 'submission.event.review.field.modified',
+                    'isTranslated' => false,
+                    'dateLogged' => Core::getCurrentDate(),
+                    'reviewFormResponseOld' => json_encode($oldReviewFormResponses),
+                    'reviewFormResponseNew' => json_encode($updatedReviewFormResponses),
+                    'fieldName' => 'reviewFormResponses',
+                ]);
+                Repo::eventLog()->add($eventLog);
+            }
         } else {
             // if comments were submitted, update the review comments with the new values
             if ($commentsSubmitted) {
-                // Create a comment with the review.
-
-                /** @var SubmissionCommentDAO $submissionCommentDao */
-                $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-
-                $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId(
-                    $reviewAssignment->getSubmissionId(),
-                    $reviewAssignment->getReviewerId(),
-                    $reviewAssignment->getId(),
-                    true
-                );
-
-                /** @var \PKP\submission\SubmissionComment $comment */
-                $comment = $submissionComments->next();
-
-                if (!isset($comment)) {
-                    $comment = $submissionCommentDao->newDataObject();
-                }
-
-                $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
-                $comment->setRoleId(Role::ROLE_ID_REVIEWER);
-                $comment->setAssocId($reviewAssignment->getId());
-                $comment->setSubmissionId($reviewAssignment->getSubmissionId());
-                $comment->setAuthorId($reviewAssignment->getReviewerId());
-                $comment->setComments($commentsSubmitted);
-                $comment->setCommentTitle('');
-                $comment->setViewable(true);
-                $comment->setDatePosted(Core::getCurrentDate());
-
-                // Save or update
-                if ($comment->getId() != null) {
-                    $submissionCommentDao->updateObject($comment);
-                    // todo: update log
-                } else {
-                    $submissionCommentDao->insertObject($comment);
-                }
-            }
-
-            if ($privateCommentsSubmitted) {
-                // Create a comment with the review.
-                $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-                /** @var SubmissionCommentDAO $submissionCommentDao */
-                $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
-                $comment = $submissionCommentsPrivate->next();
-                /** @var \PKP\submission\SubmissionComment $comment */
-
-                if (!isset($comment)) {
-                    $comment = $submissionCommentDao->newDataObject();
-                }
-
-                $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
-                $comment->setRoleId(Role::ROLE_ID_REVIEWER);
-                $comment->setAssocId($reviewAssignment->getId());
-                $comment->setSubmissionId($reviewAssignment->getSubmissionId());
-                $comment->setAuthorId($reviewAssignment->getReviewerId());
-                $comment->setComments($privateCommentsSubmitted);
-                $comment->setCommentTitle('');
-                $comment->setViewable(false);
-                $comment->setDatePosted(Core::getCurrentDate());
-
-                // Save or update
-                if ($comment->getId() != null) {
-                    $submissionCommentDao->updateObject($comment);
-                    // todo: update log
-                } else {
-                    $submissionCommentDao->insertObject($comment);
-                }
+                $this->saveReviewComment($reviewAssignment, $commentsSubmitted, true);
             }
         }
 
-        Repo::reviewAssignment()->edit($reviewAssignment, [
+        $newAssignmentData = [
             'reviewerRecommendationId' => $submittedReviewerRecommendationId,
-        ]);
+        ];
 
+        if (!$reviewAssignment->getDateCompleted()) {
+            $newAssignmentData['dateCompleted'] = Core::getCurrentDate();
+        }
 
+        $oldReviewerRecommendationId = $reviewAssignment->getReviewerRecommendationId();
+        Repo::reviewAssignment()->edit($reviewAssignment, $newAssignmentData);
+
+        if ($submittedReviewerRecommendationId !== $oldReviewerRecommendationId) {
+            // Log changes to the event log
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                'assocId' => $reviewAssignment->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED,
+                'userId' => $this->getRequest()->getUser()->getId(),
+                'message' => 'submission.event.review.field.modified',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'reviewerRecommendationOldId' => $oldReviewerRecommendationId,
+                'reviewerRecommendationNewId' => $submittedReviewerRecommendationId,
+                'fieldName' => 'reviewerRecommendationId',
+            ]);
+
+            Repo::eventLog()->add($eventLog);
+        }
+
+        // TODO: store last modified by ID in review assignment record
         $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $submission->getId());
 
         return response()->json(new ReviewResource($reviewAssignment), Response::HTTP_OK);
@@ -638,60 +670,11 @@ class ReviewAssignmentController extends PKPBaseController
     }
 
     /**
-     * Validate a partial set of custom review form responses.
-     *
-     * Every submitted element must belong to the assignment's review form, and a
-     * required element may not be emptied.
-     *
-     * @param array $reviewFormResponses A `reviewFormElementId => value` map.
-     *
-     * @return ?JsonResponse A validation error response, or null when valid.
-     */
-    protected function validateReviewFormResponses(ReviewAssignment $reviewAssignment, array $reviewFormResponses): ?JsonResponse
-    {
-        /** @var ReviewFormElementDAO $reviewFormElementDao */
-        $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
-
-        foreach ($reviewFormResponses as $reviewFormElementId => $value) {
-            $reviewFormElement = $reviewFormElementDao->getById((int) $reviewFormElementId, $reviewAssignment->getReviewFormId());
-            if (!$reviewFormElement) {
-                return response()->json([
-                    'error' => __('api.submissions.reviews.422.invalidReviewFormElement', ['reviewFormElementId' => $reviewFormElementId]),
-                ], Response::HTTP_UNPROCESSABLE_ENTITY);
-            }
-
-            if ($reviewFormElement->getRequired() && (is_array($value) ? empty($value) : $value === '')) {
-                return response()->json([
-                    'error' => __('api.submissions.reviews.422.requiredReviewFormResponse', ['question' => strip_tags($reviewFormElement->getLocalizedQuestion())]),
-                ], Response::HTTP_UNPROCESSABLE_ENTITY);
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Save the reviewer's free-text comments.
-     *
-     * Only the fields present in the request are affected. A field submitted as an empty
-     * string clears the existing comment; a non-empty value creates or updates it.
-     */
-    protected function saveReviewComments(ReviewAssignment $reviewAssignment, Request $illuminateRequest): void
-    {
-        if ($illuminateRequest->exists('comments')) {
-            $this->saveReviewComment($reviewAssignment, (string) $illuminateRequest->input('comments'), true);
-        }
-        if ($illuminateRequest->exists('commentsPrivate')) {
-            $this->saveReviewComment($reviewAssignment, (string) $illuminateRequest->input('commentsPrivate'), false);
-        }
-    }
-
-    /**
      * Create, update or delete a single free-text reviewer comment.
      *
      * @param bool $viewable True for the comment shared with the author, false for the editor-only comment.
      */
-    protected function saveReviewComment(ReviewAssignment $reviewAssignment, string $comments, bool $viewable): void
+    protected function saveReviewComment(ReviewAssignment $reviewAssignment, string $newComment, bool $viewable): void
     {
         /** @var SubmissionCommentDAO $submissionCommentDao */
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
@@ -702,33 +685,47 @@ class ReviewAssignmentController extends PKPBaseController
             $viewable
         )->next();
 
-        // An empty value clears any existing comment.
-        if (strlen($comments) === 0) {
-            if ($comment) {
-                $submissionCommentDao->deleteObject($comment);
-            }
+        if (!$comment) {
+            $comment = $submissionCommentDao->newDataObject();
+        } elseif ($newComment === $comment->getComments()) {
             return;
         }
 
-        if (!$comment) {
-            $comment = $submissionCommentDao->newDataObject();
-            $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
-            $comment->setRoleId(Role::ROLE_ID_REVIEWER);
-            $comment->setAssocId($reviewAssignment->getId());
-            $comment->setSubmissionId($reviewAssignment->getSubmissionId());
-            $comment->setAuthorId($reviewAssignment->getReviewerId());
-            $comment->setCommentTitle('');
-            $comment->setViewable($viewable);
-            $comment->setDatePosted(Core::getCurrentDate());
-        }
+        $oldComments = $comment->getComments();
+        $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
+        $comment->setRoleId(Role::ROLE_ID_REVIEWER);
+        $comment->setAssocId($reviewAssignment->getId());
+        $comment->setSubmissionId($reviewAssignment->getSubmissionId());
+        $comment->setAuthorId($reviewAssignment->getReviewerId());
+        $comment->setCommentTitle('');
+        $comment->setViewable($viewable);
+        $comment->setDatePosted(Core::getCurrentDate());
 
-        $comment->setComments($comments);
+        $comment->setComments($newComment);
 
+        $commentId = null;
         if ($comment->getId()) {
             $submissionCommentDao->updateObject($comment);
+            $commentId = $comment->getId();
         } else {
-            $submissionCommentDao->insertObject($comment);
+            $commentId = $submissionCommentDao->insertObject($comment);
         }
+
+        // Log changes to the event log
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_REVIEW_COMMENT,
+            'assocId' => $commentId,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMMENTS_MODIFIED,
+            'userId' => $this->getRequest()->getUser()->getId(),
+            'message' => 'submission.event.review.field.modified',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'reviewerCommentsOld' => $oldComments,
+            'reviewerCommentsNew' => $newComment,
+            'fieldName' => 'comments',
+        ]);
+
+        Repo::eventLog()->add($eventLog);
     }
 
     public function validateReviewFormFieldResponse(ReviewFormElement $reviewFormElement, mixed $response): bool
@@ -766,6 +763,71 @@ class ReviewAssignmentController extends PKPBaseController
 
             default:
                 return false;
+        }
+    }
+
+    /**
+     * Build the question/answer snapshot entry for a single review form element used in the event log.
+     *
+     * Every entry carries the localized question and a human-readable answer label. For elements that
+     * offer a predefined list of options (radio buttons, drop-downs, checkboxes) the entry additionally
+     * carries the element type, the full list of possible options and the indices of the selected ones,
+     * so the event log can render the complete option list with the chosen options marked.
+     *
+     * @param mixed $response The stored response value for the element (an index, array of indices, or free text).
+     *
+     * @return array The snapshot entry keyed by 'question', 'answer' and, for option-based elements,
+     *               'elementType', 'possibleResponses' and 'selectedResponses'.
+     */
+    protected function buildReviewFormResponseLogEntry(ReviewFormElement $reviewFormElement, mixed $response): array
+    {
+        $entry = [
+            'question' => $reviewFormElement->getLocalizedQuestion(),
+            'answer' => $this->getReviewFormResponseAnswerLabel($reviewFormElement, $response),
+        ];
+
+        $elementType = $reviewFormElement->getElementType();
+        if (in_array($elementType, $reviewFormElement->getMultipleResponsesElementTypes())) {
+            $entry['elementType'] = $elementType;
+            $entry['possibleResponses'] = $reviewFormElement->getLocalizedPossibleResponses() ?? [];
+            $entry['selectedResponses'] = array_map('intval', (array) $response);
+        }
+
+        return $entry;
+    }
+
+    /**
+     * Resolve a submitted review form response value into a human-readable answer.
+     *
+     * For free-text elements the submitted value is returned as-is. For elements that offer a
+     * predefined list of options (radio buttons, drop-downs, checkboxes) the submitted value is an
+     * index (or an array of indices) into the element's possible responses, so the corresponding
+     * option label(s) are returned instead.
+     *
+     * @param mixed $response The submitted response value for the element.
+     *
+     * @return string The human-readable answer.
+     */
+    public function getReviewFormResponseAnswerLabel(ReviewFormElement $reviewFormElement, mixed $response): string
+    {
+        switch ($reviewFormElement->getElementType()) {
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                return $possibleResponses[(int)$response] ?? '';
+
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                $labels = [];
+                foreach ((array)$response as $index) {
+                    if (isset($possibleResponses[(int)$index])) {
+                        $labels[] = $possibleResponses[(int)$index];
+                    }
+                }
+                return implode(', ', $labels);
+
+            default:
+                return (string)$response;
         }
     }
 }

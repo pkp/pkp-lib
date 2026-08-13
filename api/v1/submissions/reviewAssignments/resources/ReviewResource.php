@@ -9,13 +9,7 @@
  *
  * @class ReviewResource
  *
- * @brief Maps a reviewer's review (free-text or custom review form) to the API response.
- *
- * The review form structure is exposed using the same form configuration shape
- * consumed by the front-end FormComponent/Form.vue, while the reviewer's answers
- * are exposed separately as a simple `reviewFormElementId => value` map. This keeps
- * a single, shared configuration-driven form representation and avoids maintaining a
- * competing form format for reviews.
+ * @brief Resource to map a review assignment's review details.
  */
 
 namespace PKP\API\v1\submissions\reviewAssignments\resources;
@@ -38,8 +32,7 @@ use PKP\submission\SubmissionCommentDAO;
 
 class ReviewResource extends JsonResource
 {
-    /** The id used to group the review form fields in the form configuration. */
-    public const REVIEW_FORM_GROUP_ID = 'reviewContent';
+    public const REVIEW_FORM_ID = 'reviewContent';
 
     /**
      * Transform the review assignment into the review API response.
@@ -52,7 +45,7 @@ class ReviewResource extends JsonResource
 
         $data = [
             'reviewAssignmentId' => $reviewAssignment->getId(),
-            'reviewFormId' => $reviewFormId ?: null,
+            'reviewFormId' => $reviewFormId,
             'reviewerRecommendationId' => $reviewAssignment->getReviewerRecommendationId(),
         ];
 
@@ -77,7 +70,7 @@ class ReviewResource extends JsonResource
     }
 
     /**
-
+     * Get the review form configured in the shape of a form component.
      */
     protected function getReviewFormConfig(int $reviewFormId): array
     {
@@ -91,7 +84,7 @@ class ReviewResource extends JsonResource
         }
 
         return [
-            'id' => self::REVIEW_FORM_GROUP_ID,
+            'id' => self::REVIEW_FORM_ID,
             'fields' => $fields,
         ];
     }
@@ -105,7 +98,7 @@ class ReviewResource extends JsonResource
         $args = [
             'label' => PKPString::html2text($reviewFormElement->getLocalizedQuestion()),
             'isRequired' => $reviewFormElement->getRequired(),
-            'description' => PKPString::html2text($reviewFormElement->getLocalizedDescription()) ?: '',
+            'description' => PKPString::html2text($reviewFormElement->getLocalizedDescription() ?: ''),
         ];
 
         return match ($reviewFormElement->getElementType()) {
@@ -173,7 +166,7 @@ class ReviewResource extends JsonResource
 
         /** @var SubmissionComment $comment */
         while ($comment = $comments->next()) {
-            $data[$comment->getViewable() ? 'comments' : 'commentsPrivate'] = PKPString::html2text($comment->getComments());
+            $data[$comment->getViewable() ? 'comments' : 'commentsPrivate'] = $comment->getComments();
         }
         return $data;
     }

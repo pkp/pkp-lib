@@ -3934,3 +3934,12 @@ msgstr "Competing Interests"
 
 msgid "submission.event.review.field.modified"
 msgstr "The following field was modified in this review: {$fieldName}. Select \"View changes\" to see a detailed summary of all modifications."
+
+msgid "submission.event.review.fieldName.comments"
+msgstr "comments"
+
+msgid "submission.event.review.fieldName.reviewerRecommendationId"
+msgstr "reviewerRecommendationId"
+
+msgid "submission.event.review.fieldName.reviewFormResponses"
+msgstr "reviewFormResponses"

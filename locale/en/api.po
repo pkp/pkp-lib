@@ -510,10 +510,19 @@ msgid "api.reviews.assignments.422.missingOrInvalidConsideredValue"
 msgstr "The `considered` field is missing or contains an invalid value."
 
 msgid "api.submissions.reviews.422.invalidRecommendation"
-msgstr "The submitted recommendation is not a valid recommendation for this context."
+msgstr "The submitted recommendation is not a valid for this Context."
 
-msgid "api.submissions.reviews.422.invalidReviewFormElement"
-msgstr "The review form response with ID \"{$reviewFormElementId}\" does not belong to this review form."
+msgid "api.submissions.reviews.422.invalidReviewFormSubmitted"
+msgstr "The submitted review form must be an object or a valid JSON string."
 
-msgid "api.submissions.reviews.422.requiredReviewFormResponse"
-msgstr "The \"{$question}\" review question is required and cannot be left empty."
+msgid "api.submissions.reviews.422.reviewFormQuestionResponseRequired"
+msgstr "An answer is required for the review question with element ID {$elementId}."
+
+msgid "api.submissions.reviews.422.invalidReviewFormResponse"
+msgstr "The response submitted for the review question with element ID {$elementId} is not valid."
+
+msgid "api.submissions.reviews.422.commentsNotAllowed"
+msgstr "Comments are not allowed for this review."
+
+msgid "api.submissions.reviews.422.formSubmissionNotAllowed"
+msgstr "Form submissions are not allowed for this review."

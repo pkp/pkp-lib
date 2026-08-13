@@ -22,7 +22,7 @@ class I13117_AddReviewAssignmentLastModifiedBy extends Migration
     public function up(): void
     {
         Schema::table('review_assignments', function (Blueprint $table) {
-            $table->bigInteger('last_modified_by_id')->nullable()->comment('The ID of the user who last modified the submitted review.');
+            $table->bigInteger('last_modified_by_id')->nullable()->comment('The ID of the user who last made modifications to the submitted review.');
             $table->foreign('last_modified_by_id')->references('user_id')->on('users')->nullOnDelete();
         });
     }

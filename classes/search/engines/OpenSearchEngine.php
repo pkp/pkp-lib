@@ -343,7 +343,7 @@ class OpenSearchEngine extends ScoutEngine
                     break;
                 case 'title':
                     $sort[] = (object) [
-                        'titles.' . Locale::getLocale() => (object) [
+                        'titles.' . Locale::getLocale() . '.keyword' => (object) [
                             'order' => $order['direction'],
                         ]
                     ];
@@ -431,11 +431,10 @@ class OpenSearchEngine extends ScoutEngine
         }
         $metadataLocales = array_unique($metadataLocales);
 
-        $typicalKeywordClause = fn ($fielddata = false) => [
+        $typicalKeywordClause = fn () => [
             'properties' => [
                 ...array_map(fn ($e) => [
                     'type' => 'text',
-                    'fielddata' => $fielddata,
                     'fields' => [
                         'keyword' => [
                             'type' => 'keyword',
@@ -451,7 +450,7 @@ class OpenSearchEngine extends ScoutEngine
                 'mappings' => [
                     'properties' => [
                         'abstracts' => $typicalKeywordClause(),
-                        'titles' => $typicalKeywordClause(true),
+                        'titles' => $typicalKeywordClause(),
                         'reviewers' => $typicalKeywordClause(),
                         'authors' => $typicalKeywordClause(),
                         'categoryId' => ['type' => 'long'],

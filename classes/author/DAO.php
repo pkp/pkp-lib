@@ -146,7 +146,7 @@ class DAO extends EntityDAO
             foreach ($rows as $row) {
                 yield $row->author_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, Author $author) use ($queryBuilder, $authorIds, &$settings, &$affiliations, &$creditRoles, &$contributorRoles): void {
+                    function (object $row, object $schema, Author $author) use ($authorIds, &$settings, &$affiliations, &$creditRoles, &$contributorRoles): void {
                         $settings ??= DB::table('author_settings')
                             ->whereIn('author_id', $authorIds)
                             ->get()

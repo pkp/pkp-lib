@@ -111,19 +111,18 @@ class DAO extends EntityDAO
             foreach ($rows as $row) {
                 yield $row->author_affiliation_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, Affiliation $affiliation) use ($queryBuilder, $authorAffiliationIds, &$settings, &$rorObjects): void {
+                    function (object $row, object $schema, Affiliation $affiliation) use ($authorAffiliationIds, &$settings, &$rorObjects): void {
                         $settings ??= DB::table('author_affiliation_settings')
                             ->whereIn('author_affiliation_id', $authorAffiliationIds)
                             ->get()
                             ->groupBy('author_affiliation_id');
+                        $settings->get($row->author_affiliation_id)
+                            ?->each(fn ($row) => $this->populateSetting($row, $affiliation, $schema));
 
                         $rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($authorAffiliationIds)
                             ->getMany()
                             ->collect()
                             ->groupBy(fn ($rorObject) => $rorObject->getRor());
-
-                        $settings->get($row->author_affiliation_id)
-                            ?->each(fn ($row) => $this->populateSetting($row, $affiliation, $schema));
 
                         $affiliation->setData('rorObject', $rorObjects->get($row->ror)?->first());
                     }

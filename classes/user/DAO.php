@@ -126,13 +126,25 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query->getQueryBuilder()->get();
-            if ($rows->isEmpty()) {
-                return;
-            }
+            $queryBuilder = $query->getQueryBuilder();
+            $settings = null;
+
+            $rows = $queryBuilder->get();
+            $userIds = $rows->pluck('user_id')->all();
 
             foreach ($rows as $row) {
-                yield $row->user_id => $this->fromRow($row, includeReviewerData: $query->includeReviewerData);
+                yield $row->user_id => $this->fromRow(
+                    $row,
+                    function (object $row, object $schema, User $user) use ($userIds, &$settings): void {
+                        $settings ??= DB::table('user_settings')
+                            ->whereIn('user_id', $userIds)
+                            ->get()
+                            ->groupBy('user_id');
+                        $settings->get($row->user_id)
+                            ?->each(fn ($row) => $this->populateSetting($row, $user, $schema));
+                    },
+                    includeReviewerData: $query->includeReviewerData
+                );
             }
         });
     }

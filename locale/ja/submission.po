@@ -1963,6 +1963,7 @@ msgstr ""
 "投稿物 {$submissionId} の{$round}回目の査読が{$editorName}によって確認され"
 "た。"
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} が投稿物 {$submissionId} の{$round}回目の査読を完了した。"

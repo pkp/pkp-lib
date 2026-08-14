@@ -2076,6 +2076,7 @@ msgstr ""
 "Радакторът {$editorName} потвърди рецензията за кръг (етап) {$round} за "
 "подадените материали {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} завърши рецензията за кръг (етап) {$round} за подадените "

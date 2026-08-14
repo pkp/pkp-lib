@@ -2034,6 +2034,7 @@ msgstr ""
 "Radaktor {$editorName} potwierdził przyjęcie recenzji dla rundy {$round} w "
 "zgłoszeniu {$submissionid}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "Recenzent {$reviewerName} zakończył swoją pracę w rundzie {$round} dla "

@@ -1943,6 +1943,7 @@ msgstr ""
 "Editorul {$editorName} a confirmat o revizie pentru runda {$round} pentru "
 "manuscrisul {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} a finalizat revizuirea pentru runda {$round} de revizuire a "

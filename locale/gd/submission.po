@@ -1814,6 +1814,7 @@ msgstr ""
 msgid "log.review.reviewConfirmed"
 msgstr ""
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 

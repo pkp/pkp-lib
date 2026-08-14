@@ -2078,6 +2078,7 @@ msgstr ""
 "Redaktør {$editorName} har valideret runde {$round}-bedømmelsen i forbindelse "
 "med indsendelse {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} har afsluttet bedømmelsen under runde {$round}-bedømmelsen i "

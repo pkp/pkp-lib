@@ -2056,6 +2056,7 @@ msgstr ""
 "{$editorName} editoreak baieztatu du {$submissionId} lanaren berrikuspena "
 "{$round} berrikuspen-errondarako."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName}-ek amaitu du berrikuspena {$submissionId} bidalketaren "

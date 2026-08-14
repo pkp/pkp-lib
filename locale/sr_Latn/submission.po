@@ -2023,6 +2023,7 @@ msgstr ""
 "Urednik {$editorName} je potvrdio recenziju za krug {$round} rada "
 "{$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} je završio/la recenziju za krug {$round} rada "

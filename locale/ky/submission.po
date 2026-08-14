@@ -2377,6 +2377,7 @@ msgstr ""
 "Редактор {$editorName} {$submissionId} материалы үчүн {$round}-айлампа "
 "рецензияны ырастады."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} {$submissionId} материалы үчүн {$round}-айлампа рецензияны "

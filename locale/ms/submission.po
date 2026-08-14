@@ -1931,6 +1931,7 @@ msgstr ""
 "Editor {$editorName} telah mengesahkan ulasan untuk ulasan pusingan {$round} "
 "untuk penyerahan {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} telah menyelesaikan ulasan untuk ulasan pusingan {$round} "

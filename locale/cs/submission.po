@@ -2042,6 +2042,7 @@ msgstr ""
 "Editor {$editorName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
 "{$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} dokončil recenzi pro {$round}. recenzní kolo příspěvku "

@@ -2120,6 +2120,7 @@ msgstr ""
 "Ο/Η {$editorName} επιβεβαίωσε την αξιολόγηση του γύρου {$round} για την "
 "υποβολή {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "Ο/Η {$reviewerName} ολοκλήρωσε την αξιολόγηση του γύρου {$round} για την "

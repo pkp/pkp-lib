@@ -2061,6 +2061,7 @@ msgstr ""
 "Уредникот {$editorName} потврди рецензија за {$round} рунда на рецензија за "
 "поднесокот {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} ја заврши рецензијата за {$round} рунда на рецензија за "

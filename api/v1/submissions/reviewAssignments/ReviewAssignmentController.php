@@ -292,6 +292,7 @@ class ReviewAssignmentController extends PKPBaseController
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 'message' => 'log.review.reviewConfirmed',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),

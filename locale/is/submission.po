@@ -2032,6 +2032,7 @@ msgstr ""
 "Ristjórinn {$editorName} hefur staðfest ritrýni fyrir {$round} umferð "
 "innsendingar {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} hefur lokið ritrýniumferð {$round} fyrir innsendingu "

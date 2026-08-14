@@ -2001,6 +2001,7 @@ msgstr ""
 msgid "log.review.reviewConfirmed"
 msgstr "Biên tập viên {round} cho bài nộp {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr "{round} cho bài nộp {$submissionId}."
 

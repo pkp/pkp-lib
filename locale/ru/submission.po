@@ -2076,6 +2076,7 @@ msgstr ""
 "Редактор {$editorName} подтвердил рецензию на раунде {$round} рецензирования "
 "для материала «{$submissionId}»."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "Рецензент {$reviewerName} завершил рецензию на раунде {$round} "

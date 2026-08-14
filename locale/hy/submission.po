@@ -2049,6 +2049,7 @@ msgstr ""
 "{$editorName} -ի խմբագիրը հաստատել է {$submissionId} ներկայացման {$round} "
 "փուլի գրախոսությունը:"
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} -ն ավարտել է {$round} փուլի գրախոսումը {$submissionId} "

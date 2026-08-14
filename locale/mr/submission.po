@@ -1561,6 +1561,7 @@ msgstr ""
 "संपादक {$editorName} यांनी {$submissionId} या सादरीकरणासाठीच्या {$round} "
 "फेरीच्या समीक्षणाला दुजोरा दिला आहे."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} ने {$submissionId} या सादरीकरणासाठी {$round} क्रमांकाच्या "

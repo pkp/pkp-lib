@@ -2115,6 +2115,7 @@ msgstr ""
 "Le rédacteur ou la rédactrice {$editorName} a confirmé une évaluation pour le "
 "cycle d'évaluation {$round} pour la soumission {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} a complété l'évaluation du cycle {$round} d'évaluation pour "

@@ -115,6 +115,7 @@ msgstr ""
 "บรรณาธิการ {$userName} ได้ยืนยันการทบทวนสำหรับรอบที่ {$round} ของการส่"
 "งบทความหมายเลข {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} ได้ทำการทบทวนเสร็จสมบูรณ์สำหรับรอบที่ {$round} ของการส่"

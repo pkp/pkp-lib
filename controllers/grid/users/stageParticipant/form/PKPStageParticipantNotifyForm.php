@@ -388,6 +388,7 @@ class PKPStageParticipantNotifyForm extends Form
             'assocId' => $submission->getId(),
             'eventType' => EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT,
             'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
             'message' => 'informationCenter.history.messageSent',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()

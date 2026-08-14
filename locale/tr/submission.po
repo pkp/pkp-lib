@@ -2018,6 +2018,7 @@ msgstr ""
 "{$editorName} adlı editör {$submissionId} nuaralı için {$round}. tur "
 "incelemesi için bir değerlendirme doğruladı."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} {$submissionId} numaralı bildirimi için {$round}. tur "

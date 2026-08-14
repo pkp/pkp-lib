@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/doi/Collector.php
  *
@@ -38,6 +39,8 @@ class Collector implements CollectorInterface
     public ?array $statuses = null;
 
     public ?string $identifier = null;
+
+    public ?array $reviewAssignments = null;
 
     public function __construct(DAO $dao)
     {
@@ -94,6 +97,14 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    /**
+     * Filter by review assignment IDs
+     */
+    public function filterByReviewIds(array $reviewIds): self
+    {
+        $this->reviewIds = $reviewIds;
+        return $this;
+    }
 
     /**
      * Limit the number of objects retrieved
@@ -121,6 +132,7 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
+        $collector = $this;
         $q = DB::table($this->dao->table, 'd')
             ->select(['d.*'])
             ->when($this->contextIds != null, function (Builder $q) {
@@ -131,6 +143,9 @@ class Collector implements CollectorInterface
             })
             ->when($this->identifier !== null, function (Builder $q) {
                 $q->where('d.doi', '=', $this->identifier);
+            })
+            ->when($this->reviewIds !== null, function (Builder $q) use ($collector) {
+                $q->whereIn('d.doi_id', DB::table('review_assignments')->whereIn('review_id', $collector->reviewIds)->select(['doi_id']));
             })
             ->when(!empty($this->count), function (Builder $q) {
                 $q->limit($this->count);

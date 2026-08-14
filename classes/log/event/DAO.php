@@ -114,40 +114,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row, ?callable $populator = null): EventLogEntry
-    {
-        $logEntry = parent::fromRow($row, $populator);
-        $schema = $this->schemaService->get($this->schema);
-
-        // FIXME Why is this here?
-
-        DB::table($this->settingsTable)
-            ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-            ->get()
-            ->each(function ($row) use ($logEntry, $schema) {
-                if (!empty($schema->properties->{$row->setting_name})) {
-                    return;
-                }
-
-                // Retrieve custom properties
-                if (!empty($row->setting_type)) {
-                    $logEntry->setData(
-                        $row->setting_name,
-                        $this->convertFromDB(
-                            $row->setting_value,
-                            $row->setting_type
-                        ),
-                        empty($row->locale) ? null : $row->locale
-                    );
-                }
-            });
-
-        return $logEntry;
-    }
-
-    /**
      * @copydoc EntityDAO::insert()
      */
     public function insert(EventLogEntry $eventLog): int

@@ -21,6 +21,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\user\Collector as UserCollector;
 
 /**
  * @template T of ReviewAssignment
@@ -140,40 +141,52 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $queryBuilder = $query->getQueryBuilder();
+            $settings = $reviewers = $doiObjects = null;
+
+            $rows = $queryBuilder->get();
+            $reviewIds = $rows->pluck('review_id')->all();
 
             foreach ($rows as $row) {
-                yield $row->review_id => $this->fromRow($row);
+                yield $row->review_id => $this->fromRow(
+                    $row,
+                    function (object $row, object $schema, ReviewAssignment $reviewAssignment) use ($reviewIds, &$settings, &$reviewers, &$doiObjects): void {
+                        $settings ??= DB::table('review_assignment_settings')
+                            ->whereIn('review_id', $reviewIds)
+                            ->get()
+                            ->groupBy('review_id');
+                        $settings->get($row->review_id)
+                            ?->each(fn ($row) => $this->populateSetting($row, $reviewAssignment, $schema));
+
+                        $reviewers ??= Repo::user()->getCollector()->filterByReviewIds($reviewIds)->filterByStatus(UserCollector::STATUS_ALL)->getMany();
+                        $reviewer = $reviewers->get($reviewAssignment->getReviewerId());
+                        $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
+                        $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
+
+                        $doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($reviewIds)->getMany();
+                        if ($doiId = $reviewAssignment->getData('doiId')) {
+                            $reviewAssignment->setData('doiObject', $doiObjects->get($doiId));
+                        }
+                    }
+                );
             }
         });
     }
 
-    /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row, ?callable $populator = null): ReviewAssignment
+    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
     {
-        $reviewAssignment = parent::fromRow($row, $populator);
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
-        $reviewAssignment->setData(
-            'reviewerFullName',
-            $reviewer->getFullName()
-        );
-        $reviewAssignment->setData(
-            'reviewerUserName',
-            $reviewer->getUserName()
-        );
+        parent::individualPopulator($row, $schema, $object);
 
-        if (!empty($reviewAssignment->getData('doiId'))) {
-            $reviewAssignment->setData(
+        $reviewer = Repo::user()->get($object->getReviewerId(), true);
+        $object->setData('reviewerFullName', $reviewer->getFullName());
+        $object->setData('reviewerUserName', $reviewer->getUserName());
+
+        if (!empty($object->getData('doiId'))) {
+            $object->setData(
                 'doiObject',
-                Repo::doi()->get($reviewAssignment->getData('doiId'))
+                Repo::doi()->get($object->getData('doiId'))
             );
         }
-
-        return $reviewAssignment;
     }
 
     /**

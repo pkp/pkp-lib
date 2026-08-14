@@ -265,7 +265,7 @@ class DAO extends EntityDAO
             DataCitation::withPublicationIds([$object->getId()])->orderBySeq()->get()->values()->all()
         );
 
-        $object->setData('citations', Repo::citation()->getByPublicationIds($object->getId()));
+        $object->setData('citations', Repo::citation()->getByPublicationIds([$object->getId()]));
     }
 
     /**

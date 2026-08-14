@@ -59,6 +59,7 @@ class Collector implements CollectorInterface
     public ?array $userGroupIds = null;
     public ?array $roleIds = null;
     public ?array $userIds = null;
+    public ?array $reviewIds = null;
     public ?array $excludeUserIds = null;
     public ?array $workflowStageIds = null;
     public ?array $contextIds = null;
@@ -138,6 +139,15 @@ class Collector implements CollectorInterface
     public function filterByUserIds(?array $userIds): self
     {
         $this->userIds = $userIds;
+        return $this;
+    }
+
+    /**
+     * Filter by assigned review assignment IDs
+     */
+    public function filterByReviewIds(?array $reviewIds): self
+    {
+        $this->reviewIds = $reviewIds;
         return $this;
     }
 
@@ -441,6 +451,8 @@ class Collector implements CollectorInterface
             // Filters by user ID
             ->when($this->userIds !== null, fn (Builder $query) => $query->whereIn('u.user_id', $this->userIds))
             ->when($this->excludeUserIds !== null, fn (Builder $query) => $query->whereNotIn('u.user_id', $this->excludeUserIds))
+            // Filters by assigned reviews
+            ->when($this->reviewIds !== null, fn (Builder $query) => $query->join('review_assignments AS ra', 'ra.reviewer_id', 'u.user_id')->whereIn('ra.review_id', $this->reviewIds))
             // User enabled/disabled state
             ->when($this->status !== self::STATUS_ALL, fn (Builder $query) => $query->where('u.disabled', '=', $this->status === self::STATUS_DISABLED))
             // Adds limit and offset for pagination
@@ -827,7 +839,7 @@ class Collector implements CollectorInterface
             }
 
             $query->orderByRaw(sprintf('CONCAT(%s) %s', implode(', ', $coalesceExpressions), $this->orderDirection));
-            
+
         }
         return $this;
     }

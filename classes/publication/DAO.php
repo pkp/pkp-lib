@@ -123,12 +123,12 @@ class DAO extends EntityDAO
             $rows = $queryBuilder->get();
             $publicationIds = $rows->pluck('publication_id')->all();
 
-            $settings = $authors = $categoryIds = $controlledVocabs = $dataCitations = null;
+            $settings = $authors = $categoryIds = $controlledVocabs = $dataCitations = $citations = null;
 
             foreach ($rows as $row) {
                 yield $row->publication_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, PKPPublication $publication) use ($queryBuilder, $publicationIds, &$settings, &$authors, &$categoryIds, &$controlledVocabs, &$dataCitations): void {
+                    function (object $row, object $schema, PKPPublication $publication) use ($publicationIds, &$settings, &$authors, &$categoryIds, &$controlledVocabs, &$dataCitations, &$citations): void {
                         $settings ??= DB::table('publication_settings')
                             ->whereIn('publication_id', $publicationIds)
                             ->get()
@@ -174,6 +174,9 @@ class DAO extends EntityDAO
                             ->collect()
                             ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
                         $publication->setData('dataCitations', $dataCitations->get($row->publication_id)?->toArray() ?? []);
+
+                        $citations ??= Repo::citation()->getByPublicationIds($publicationIds)->groupBy(fn ($citation) => $citation->getData('publicationId'));
+                        $publication->setData('citations', $citations->get($row->publication_id)?->toArray() ?? []);
                     }
                 );
             }
@@ -261,6 +264,8 @@ class DAO extends EntityDAO
             'dataCitations',
             DataCitation::withPublicationIds([$object->getId()])->orderBySeq()->get()->values()->all()
         );
+
+        $object->setData('citations', Repo::citation()->getByPublicationIds($object->getId()));
     }
 
     /**
@@ -276,8 +281,11 @@ class DAO extends EntityDAO
         // Set the primary locale from the submission
         $publication->setData('locale', $row->submission_locale);
 
-        $citations = Repo::citation()->getByPublicationId($publication->getId());
-        $publication->setData('citations', $citations);
+        $publicationVersionString = Repo::publication()->getVersionString($publication);
+        $publication->setData('versionString', $publicationVersionString);
+
+        $this->setFunders($publication);
+
         $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
             public function __construct(public int $publicationId)
             {
@@ -287,11 +295,6 @@ class DAO extends EntityDAO
                 return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
             }
         });
-
-        $publicationVersionString = Repo::publication()->getVersionString($publication);
-        $publication->setData('versionString', $publicationVersionString);
-
-        $this->setFunders($publication);
 
         return $publication;
     }

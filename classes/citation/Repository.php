@@ -176,14 +176,14 @@ class Repository
     }
 
     /**
-     * Get all citations for a given publication.
+     * Get all citations for the given publication IDs.
      *
      * @return array<Citation>
      */
-    public function getByPublicationId(int $publicationId): LazyCollection
+    public function getByPublicationIds(array $publicationIds): LazyCollection
     {
         return $this->getCollector()
-            ->filterByPublicationId($publicationId)
+            ->filterByPublicationIds($publicationIds)
             ->getMany()
             ->remember();
     }
@@ -220,7 +220,7 @@ class Repository
         $citationsMetadataLookup = $context->getData('citationsMetadataLookup');
         $publicationId = $publication->getId();
 
-        $existingCitations = $this->getByPublicationId($publicationId);
+        $existingCitations = $this->getByPublicationIds([$publicationId]);
         Hook::call('Citation::importCitations::before', [$publicationId, $existingCitations, $rawCitationList]);
 
         $citationTokenizer = new CitationListTokenizerFilter();

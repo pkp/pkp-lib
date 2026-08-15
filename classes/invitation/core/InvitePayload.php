@@ -15,6 +15,7 @@
 namespace PKP\invitation\core;
 
 use Illuminate\Support\Arr;
+use PKP\security\Validation;
 
 abstract class InvitePayload
 {
@@ -53,5 +54,17 @@ abstract class InvitePayload
     public function toArray(): array
     {
         return get_object_vars($this);
+    }
+
+    /**
+     * Encrypt password if present and not already hashed.
+     * Assumes payload has username, password, and passwordHashed properties.
+     */
+    public function encryptPasswordIfNeeded(): void
+    {
+        if (isset($this->username) && isset($this->password) && !($this->passwordHashed ?? false)) {
+            $this->password = Validation::encryptCredentials($this->username, $this->password);
+            $this->passwordHashed = true;
+        }
     }
 }

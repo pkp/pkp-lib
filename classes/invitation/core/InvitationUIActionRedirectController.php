@@ -21,6 +21,9 @@ abstract class InvitationUIActionRedirectController extends Controller
 {
     /** @var TInvitation */
     protected Invitation $invitation;
+    public const MODE_EDIT = 'edit';
+    public const MODE_CREATE = 'create';
+    public const MODE_EDIT_BY_USER = 'editUser';
 
     public function __construct(Invitation $invitation)
     {

@@ -139,6 +139,75 @@ class SchedulerTest extends PKPTestCase
         $this->assertCount($countBefore + 1, $schedule->events());
     }
 
+    /**
+     * A newly created event must carry the task's class name as its event name. Without it
+     * getSummaryForDisplay() falls back to the literal 'Callback', which every unnamed task
+     * would share as an identity.
+     */
+    public function testAddScheduleNamesNewEventWithTaskClass(): void
+    {
+        $schedule = new Schedule();
+        $scheduler = new Scheduler($schedule);
+
+        $event = $scheduler->addSchedule(new SchedulerTestTask());
+
+        $this->assertSame(SchedulerTestTask::class, $event->getSummaryForDisplay());
+    }
+
+    /**
+     * Registering the same task twice must reuse the first event. This only works because
+     * addSchedule() names the event it creates: the dedup map is keyed by
+     * getSummaryForDisplay() but looked up by class name, so an unnamed event can never match.
+     */
+    public function testAddScheduleDedupsRepeatedRegistrationOfSameTask(): void
+    {
+        $schedule = new Schedule();
+        $scheduler = new Scheduler($schedule);
+
+        $first = $scheduler->addSchedule(new SchedulerTestTask());
+        $countAfterFirst = count($schedule->events());
+
+        $second = $scheduler->addSchedule(new SchedulerTestTask());
+
+        $this->assertSame($first, $second);
+        $this->assertCount($countAfterFirst, $schedule->events());
+    }
+
+    /**
+     * The class name is only a default. A caller that chains its own ->name() must still win,
+     * exactly as plugins do today in their registerSchedules() implementations.
+     */
+    public function testAddScheduleDefaultNameDoesNotOverrideCallerName(): void
+    {
+        $schedule = new Schedule();
+        $scheduler = new Scheduler($schedule);
+
+        $event = $scheduler
+            ->addSchedule(new SchedulerTestTask())
+            ->daily()
+            ->name('my.custom.task.name');
+
+        $this->assertSame('my.custom.task.name', $event->getSummaryForDisplay());
+    }
+
+    /**
+     * Naming the event up front also removes the ordering trap: Laravel's CallbackEvent throws
+     * a LogicException when withoutOverlapping() is called before a name is set, so a caller
+     * that chains them in that order used to crash at registration.
+     */
+    public function testAddScheduleAllowsWithoutOverlappingBeforeName(): void
+    {
+        $schedule = new Schedule();
+        $scheduler = new Scheduler($schedule);
+
+        $event = $scheduler
+            ->addSchedule(new SchedulerTestTask())
+            ->daily()
+            ->withoutOverlapping();
+
+        $this->assertSame(SchedulerTestTask::class, $event->getSummaryForDisplay());
+    }
+
     //
     // Group B: ScheduleTaskRunner::runEvent() failure isolation + lifecycle
     //

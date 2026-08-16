@@ -57,12 +57,10 @@ class ScheduleTaskRunner
 
     /**
      * Run all the due schedule tasks.
-     * 
-     * As schedule task running in web mode, no tracking possible to know if miss on web request.
-     * So use DB store based system to contains the last run mapped to each tasks name which 
-     * used to determine possible miss at next web absed task runner . This is as web request
-     * just may not fired at specified schedule task run time defined and laravel's system
-     * has not mechamism to track it.
+     *
+     * When scheduled tasks are executed at end-of-request, a gap between requests may cause
+     * the runner to miss an execution interval. To avoid this, store the last run times by task name
+     * and check these to determine whether to execute a task.
      */
     public function run(): void
     {

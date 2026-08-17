@@ -136,17 +136,21 @@ class DAO extends EntityDAO
                         $settings->get($row->publication_id)
                             ?->each(fn ($row) => $this->populateSetting($row, $publication, $schema));
 
-                        $authors ??= Repo::author()->getCollector()->filterByPublicationIds($publicationIds)
-                            ->getMany()
-                            ->collect()
-                            ->groupBy(fn ($author) => $author->getData('publicationId'));
-                        $publication->setData('authors', $authors->get($row->publication_id) ?? collect([]));
+                        $publication->setData('authors', LazyCollection::make(function () use ($row, $publicationIds, &$authors) {
+                            $authors ??= Repo::author()->getCollector()->filterByPublicationIds($publicationIds)
+                                ->getMany()
+                                ->collect()
+                                ->groupBy(fn ($author) => $author->getData('publicationId'));
+                            yield from $authors->get($row->publication_id) ?? [];
+                        })->remember());
 
-                        $categoryIds ??= PublicationCategory::withPublicationIds($publicationIds)
-                            ->get()
-                            ->collect()
-                            ->mapToGroups(fn ($publicationCategory, $key) => [$publicationCategory->publicationId => $publicationCategory->categoryId]);
-                        $publication->setData('categoryIds', $categoryIds->get($row->publication_id)?->all() ?? []);
+                        $publication->setData('categoryIds', LazyCollection::make(function () use ($row, $publicationIds, &$categoryIds) {
+                            $categoryIds ??= PublicationCategory::withPublicationIds($publicationIds)
+                                ->get()
+                                ->collect()
+                                ->mapToGroups(fn ($publicationCategory, $key) => [$publicationCategory->publicationId => $publicationCategory->categoryId]);
+                            yield from $categoryIds->get($row->publication_id) ?? [];
+                        })->remember());
 
                         $controlledVocabs ??= ControlledVocabEntry::query()
                             ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationIds))
@@ -169,14 +173,18 @@ class DAO extends EntityDAO
                             $publication->setData($dataName, $entries);
                         }
 
-                        $dataCitations ??= DataCitation::withPublicationIds($publicationIds)
-                            ->get()
-                            ->collect()
-                            ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
-                        $publication->setData('dataCitations', $dataCitations->get($row->publication_id)?->toArray() ?? []);
+                        $publication->setData('dataCitations', LazyCollection::make(function () use ($row, $publicationIds, &$dataCitations) {
+                            $dataCitations ??= DataCitation::withPublicationIds($publicationIds)
+                                ->get()
+                                ->collect()
+                                ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
+                            yield from $dataCitations->get($row->publication_id) ?? [];
+                        }));
 
-                        $citations ??= Repo::citation()->getByPublicationIds($publicationIds)->groupBy(fn ($citation) => $citation->getData('publicationId'));
-                        $publication->setData('citations', $citations->get($row->publication_id)?->toArray() ?? []);
+                        $publication->setData('citations', LazyCollection::make(function () use ($row, $publicationIds, &$citations) {
+                            $citations ??= Repo::citation()->getByPublicationIds($publicationIds)->groupBy(fn ($citation) => $citation->getData('publicationId'));
+                            yield from $citations->get($row->publication_id) ?? [];
+                        }));
                     }
                 );
             }

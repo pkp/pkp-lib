@@ -346,6 +346,9 @@ msgstr "Completed: {$dateCompleted}"
 msgid "common.confirm"
 msgstr "Confirm"
 
+msgid "common.confirmed"
+msgstr "Confirmed"
+
 msgid "common.confirmed.date"
 msgstr "Confirmed: {$dateConfirmed}"
 
@@ -850,6 +853,9 @@ msgstr "Related"
 msgid "common.reminder"
 msgstr "Reminder"
 
+msgid "common.reminded"
+msgstr "Reminded"
+
 msgid "common.reminded.date"
 msgstr "Reminded: {$dateReminded}"
 
@@ -897,6 +903,9 @@ msgstr "Save and email"
 
 msgid "common.save"
 msgstr "Save"
+
+msgid "common.saveChanges"
+msgstr "Save Changes"
 
 msgid "common.saving"
 msgstr "Saving"

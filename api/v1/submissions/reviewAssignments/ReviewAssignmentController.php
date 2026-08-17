@@ -159,7 +159,7 @@ class ReviewAssignmentController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT, $illuminateRequest->input());
 
         // Check if 'quality' key exist in request
-        if (!key_exists('quality', $params)) {
+        if (!array_key_exists('quality', $params)) {
             return response()->json([
                 'error' => __('api.422.missingRequiredField', ['field' => 'quality']),
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -321,6 +321,7 @@ class ReviewAssignmentController extends PKPBaseController
                 'editorName' => $user->getFullName(),
                 'submissionId' => $submission->getId(),
                 'round' => $reviewAssignment->getRound(),
+                'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
             ]);
 
             Repo::eventLog()->add($eventLog);
@@ -364,6 +365,7 @@ class ReviewAssignmentController extends PKPBaseController
             'editorName' => $user->getFullName(),
             'submissionId' => $submission->getId(),
             'round' => $reviewAssignment->getRound(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
         ]);
 
         Repo::eventLog()->add($eventLog);
@@ -409,7 +411,7 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        if (!$this->canAccessReviewAssignment($submission, $reviewAssignment, [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT])) {
+        if (!$this->canAccessReviewAssignment($submission, $reviewAssignment, [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
@@ -434,6 +436,7 @@ class ReviewAssignmentController extends PKPBaseController
         /** @var Submission $submission */
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $validated = $illuminateRequest->validated();
+        $user = $this->getRequest()->getUser();
         /** @var ReviewAssignment $reviewAssignment */
         $reviewAssignment = $validated['reviewAssignment'];
 
@@ -443,11 +446,13 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $submittedReviewerRecommendationId = (int)$illuminateRequest->input('reviewerRecommendationId');
-        $commentsSubmitted = $illuminateRequest->input('comments') ?? '';
+        $isReviewUpdated = false;
+        $submittedReviewerRecommendationId = $validated['reviewerRecommendationId'];
+        /** @var string $commentsSubmitted */
+        $commentsSubmitted = $validated['comments'];
 
         if ($reviewAssignment->getReviewFormId()) {
-            $submittedReviewFormResponses = $illuminateRequest->input('reviewFormResponses') ?? [];
+            $submittedReviewFormResponses = $validated['reviewFormResponses'];
             if (!is_array($submittedReviewFormResponses)) {
                 // Parse the submitted review form responses from JSON string to an associative array.
                 // Each key is a review form element ID, and the value is the submitted response.
@@ -465,7 +470,7 @@ class ReviewAssignmentController extends PKPBaseController
 
             $reviewResponsesToDeleteId = [];
             foreach ($submittedReviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
-                $hasExistingResponse = key_exists($reviewFormElementId, $allExistingFormResponses);
+                $hasExistingResponse = array_key_exists($reviewFormElementId, $allExistingFormResponses);
 
                 // Skip elements whose submitted response matches what is already stored.
                 if ($hasExistingResponse) {
@@ -482,32 +487,36 @@ class ReviewAssignmentController extends PKPBaseController
                     }
                 }
 
-                if ($reviewFormResponseValue) {
+                if (
+                    $reviewFormResponseValue !== null &&
+                    $reviewFormResponseValue !== '' &&
+                    (is_array($reviewFormResponseValue) && count($reviewFormResponseValue) !== 0)
+                ) {
                     Repo::reviewAssignment()->saveReviewFormResponse($reviewAssignment, $reviewFormElementId, $reviewFormResponseValue);
                     $formFieldsUpdated = true;
                 } else {
-                    // Submitting an empty value for a non-required field will delete any exsiting response for that field
-                    $reviewResponsesToDeleteId[] = $reviewFormElementId;
+                    // Submitting an empty value for a non-required field will delete any existing response for that field
+                    if (array_key_exists($reviewFormElementId, $allExistingFormResponses)) {
+                        $reviewResponsesToDeleteId[] = $reviewFormElementId;
+                    }
                 }
             }
-            // Once all responses have been processed, and at least one field changed, log the entire old and new form with their responses.
-            // The form responses will be stored as JSON in the following format:
-            // {
-            //     "<elementID>": {
-            //         "question": "<string>",
-            //         "answer": "<int|string|array>",
-            //         "elementType": <int>,
-            //         "possibleResponses": [<int>], // optional
-            //         "selectedResponses": [<int>]    // optional
-            //     },
-            //     ...
-            // }
-            $updatedReviewFormResponses = [];
 
+            $elementsNotSubmittedId = array_diff(array_keys($allExistingFormResponses), array_keys($submittedReviewFormResponses));
+
+            // If an element is omitted from the submitted response, and it has an existing response, then delete that existing response.
+            // Else, the omitted element can be safely ignored as there are no changes being made to it.
+            foreach ($elementsNotSubmittedId as $elementNotSubmittedId) {
+                if (array_key_exists($elementNotSubmittedId, $allExistingFormResponses)) {
+                    $reviewResponsesToDeleteId[] = $elementNotSubmittedId;
+                }
+            }
             $formFieldsUpdated = $formFieldsUpdated || !empty($reviewResponsesToDeleteId);
 
             if ($formFieldsUpdated) {
+                $isReviewUpdated = true;
                 $oldReviewFormResponses = [];
+                $updatedReviewFormResponses = [];
 
                 foreach ($allExistingFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
                     $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
@@ -520,11 +529,8 @@ class ReviewAssignmentController extends PKPBaseController
 
                 /** @var ReviewFormResponseDAO $reviewFormResponseDao */
                 $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-                $elementsNotSubmittedId = array_diff(array_keys($allExistingFormResponses), array_keys($submittedReviewFormResponses));
 
-                // If a response for the form element was not submitted, then the existing response for the element will be deleted.
-                // Ensure these are deleted before preparing log value for new form responses so that they are not included in that log.
-                $reviewResponsesToDeleteId = array_merge($reviewResponsesToDeleteId, $elementsNotSubmittedId);
+                // Ensure the responses that are omitted or empty are deleted before preparing log value for new form responses so that they are not included in that log.
                 foreach ($reviewResponsesToDeleteId as $reviewFormElementId) {
                     $reviewFormResponseDao->deleteById($reviewAssignment->getId(), $reviewFormElementId);
                 }
@@ -538,18 +544,30 @@ class ReviewAssignmentController extends PKPBaseController
                     $updatedReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, $reviewFormResponseValue);
                 }
 
-                // Log the form changes to event log
+                // Once all responses have been processed, and at least one field changed, log the entire old and new form with their responses.
+                // The form responses will be stored as JSON in the following format:
+                // {
+                //     "<elementID>": {
+                //         "question": "<string>",
+                //         "answer": "<int|string|array>",
+                //         "elementType": <int>,
+                //         "possibleResponses": [<int>], // optional
+                //         "selectedResponses": [<int>]    // optional
+                //     },
+                //     ...
+                // }
                 $eventLog = Repo::eventLog()->newDataObject([
                     'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                     'assocId' => $reviewAssignment->getId(),
                     'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED,
-                    'userId' => $this->getRequest()->getUser()->getId(),
+                    'userId' => Validation::loggedInAs() ?? $user->getId(),
                     'message' => 'submission.event.review.field.modified',
                     'isTranslated' => false,
                     'dateLogged' => Core::getCurrentDate(),
                     'reviewFormResponseOld' => json_encode($oldReviewFormResponses),
                     'reviewFormResponseNew' => json_encode($updatedReviewFormResponses),
-                    'fieldName' => __('submission.event.review.fieldName.reviewFormResponses'),
+                    'fieldNameKey' => 'submission.event.review.fieldName.reviewFormResponses',
+                    'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 ]);
                 Repo::eventLog()->add($eventLog);
             }
@@ -568,18 +586,20 @@ class ReviewAssignmentController extends PKPBaseController
                 $oldComments = $existingComment?->getData('comments');
                 if ($commentsSubmitted !== $oldComments) {
                     $savedComment = Repo::reviewAssignment()->saveReviewComment($reviewAssignment, $commentsSubmitted, true);
+                    $isReviewUpdated = true;
                     // Log changes to the event log
                     $eventLog = Repo::eventLog()->newDataObject([
                         'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_REVIEW_COMMENT,
                         'assocId' => $savedComment->getId(),
                         'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMMENTS_MODIFIED,
-                        'userId' => $this->getRequest()->getUser()->getId(),
+                        'userId' => Validation::loggedInAs() ?? $user->getId(),
                         'message' => 'submission.event.review.field.modified',
                         'isTranslated' => false,
                         'dateLogged' => Core::getCurrentDate(),
                         'reviewerCommentsOld' => $oldComments,
                         'reviewerCommentsNew' => $savedComment->getData('comments'),
-                        'fieldName' => __('submission.event.review.fieldName.comments'),
+                        'fieldNameKey' => 'submission.event.review.fieldName.comments',
+                        'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
                     ]);
 
                     Repo::eventLog()->add($eventLog);
@@ -587,17 +607,22 @@ class ReviewAssignmentController extends PKPBaseController
             }
         }
 
-        $newAssignmentData = [
-            'reviewerRecommendationId' => $submittedReviewerRecommendationId,
-            'lastModifiedById' => $this->getRequest()->getUser()->getId(),
-        ];
+        $newAssignmentData = [];
+        $oldReviewerRecommendationId = $reviewAssignment->getReviewerRecommendationId();
 
-        if (!$reviewAssignment->getDateCompleted()) {
-            $newAssignmentData['dateCompleted'] = Core::getCurrentDate();
+        if ($submittedReviewerRecommendationId !== $oldReviewerRecommendationId) {
+            $newAssignmentData['reviewerRecommendationId'] = $submittedReviewerRecommendationId;
+            $isReviewUpdated = true;
         }
 
-        $oldReviewerRecommendationId = $reviewAssignment->getReviewerRecommendationId();
-        Repo::reviewAssignment()->edit($reviewAssignment, $newAssignmentData);
+        if ($isReviewUpdated) {
+            $newAssignmentData['lastModifiedById'] = validation::loggedInAs() ?? $user->getId();
+
+            if (!$reviewAssignment->getDateCompleted()) {
+                $newAssignmentData['dateCompleted'] = Core::getCurrentDate();
+            }
+            Repo::reviewAssignment()->edit($reviewAssignment, $newAssignmentData);
+        }
 
         if ($submittedReviewerRecommendationId !== $oldReviewerRecommendationId) {
             // Log changes to the event log
@@ -605,13 +630,14 @@ class ReviewAssignmentController extends PKPBaseController
                 'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 'assocId' => $reviewAssignment->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED,
-                'userId' => $this->getRequest()->getUser()->getId(),
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
                 'message' => 'submission.event.review.field.modified',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'reviewerRecommendationOldId' => $oldReviewerRecommendationId,
                 'reviewerRecommendationNewId' => $submittedReviewerRecommendationId,
-                'fieldName' => __('submission.event.review.fieldName.reviewerRecommendationId'),
+                'fieldNameKey' => 'submission.event.review.fieldName.reviewerRecommendationId',
+                'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
             ]);
 
             Repo::eventLog()->add($eventLog);

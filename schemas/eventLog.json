@@ -373,9 +373,9 @@
 			"type": "string",
 			"description": "The new comments of the reviewer, if the reviewer comments were changed."
 		},
-		"fieldName": {
+		"fieldNameKey": {
 			"type": "string",
-				"description": "The name of the field that was changed.",
+				"description": "Locale key for the name of the field that was changed.",
 				"validation": [
 					"nullable"
 				]

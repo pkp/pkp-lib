@@ -457,7 +457,13 @@ class Repository
     {
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
         /** @var SubmissionCommentDAO $submissionCommentDao */
-        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
+        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId(
+            $reviewAssignment->getSubmissionId(),
+            $reviewAssignment->getReviewerId(),
+            $reviewAssignment->getId(),
+            $viewable
+        );
+
         /** @var ?SubmissionComment $comment */
         $comment = $submissionComments->next();
 
@@ -473,13 +479,14 @@ class Repository
         $comment->setComments($comments);
         $comment->setCommentTitle('');
         $comment->setViewable($viewable);
-        $comment->setDatePosted(Core::getCurrentDate());
 
         $commentId = $comment->getId();
         // Save or update
         if ($comment->getId() != null) {
             $submissionCommentDao->updateObject($comment);
+            $comment->setDateModified(Core::getCurrentDate());
         } else {
+            $comment->setDatePosted(Core::getCurrentDate());
             $commentId = $submissionCommentDao->insertObject($comment);
         }
 

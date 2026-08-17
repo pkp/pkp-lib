@@ -510,7 +510,7 @@ msgid "api.reviews.assignments.422.missingOrInvalidConsideredValue"
 msgstr "The `considered` field is missing or contains an invalid value."
 
 msgid "api.submissions.reviews.422.invalidRecommendation"
-msgstr "The submitted recommendation is not a valid for this Context."
+msgstr "The submitted reviewer recommendation ID is not a valid for this Context."
 
 msgid "api.submissions.reviews.422.invalidReviewFormSubmitted"
 msgstr "The submitted review form must be an object or a valid JSON string."
@@ -526,3 +526,15 @@ msgstr "Comments are not allowed for this review."
 
 msgid "api.submissions.reviews.422.formSubmissionNotAllowed"
 msgstr "Form submissions are not allowed for this review."
+
+msgid "api.submissions.reviews.422.reviewNotEditable.declined"
+msgstr "This review not editable because it was declined."
+
+msgid "api.submissions.reviews.422.reviewNotEditable.cancelled"
+msgstr "This review not editable because it was cancelled."
+
+msgid "api.submissions.reviews.422.reviewerRecommendation.notEditable"
+msgstr "Editing reviewer recommendation for reviews is not supported."
+
+msgid "api.submissions.reviews.422.invalidReviewFormElementSubmitted"
+msgstr "The form element with ID {$elementId} is not a part of this review assignment's review form"

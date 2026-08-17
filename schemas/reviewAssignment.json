@@ -346,7 +346,6 @@
 			"description": "The user who last made modifications to the submitted review.",
 			"apiSummary": true,
 			"readOnly": true,
-			"type": "object",
 			"properties": {
 				"id": {"type": "integer"},
 				"userFullName": {"type": "string"}

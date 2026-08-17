@@ -26,6 +26,7 @@ use PKP\db\DAORegistry;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\RecommendationOption;
 
 class EditReview extends FormRequest
 {
@@ -45,6 +46,18 @@ class EditReview extends FormRequest
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND));
         }
+
+        if ($this->reviewAssignment->getCancelled()) {
+            throw new HttpResponseException(response()->json([
+                'error' => __('api.submissions.reviews.422.reviewNotEditable.cancelled')
+            ], Response::HTTP_UNPROCESSABLE_ENTITY));
+        }
+
+        if ($this->reviewAssignment->getDeclined()) {
+            throw new HttpResponseException(response()->json([
+                'error' => __('api.submissions.reviews.422.reviewNotEditable.declined'),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY));
+        }
     }
 
     /**
@@ -54,14 +67,21 @@ class EditReview extends FormRequest
     {
         return [
             'reviewerRecommendationId' => [
-                'required',
-                'integer',
-                Rule::exists('reviewer_recommendations', 'reviewer_recommendation_id')
-                    ->where(function (Builder $query) {
-                        $query->where('context_id', Application::get()->getRequest()->getContext()->getId());
-                    })
+                // Only allow `reviewerRecommendationId` in the request if the application supports having reviewer recommendations.
+                Rule::when(
+                    Application::get()->hasCustomizableReviewerRecommendation(),
+                    [
+                        'required',
+                        'integer',
+                        Rule::exists('reviewer_recommendations', 'reviewer_recommendation_id')
+                            ->where(function (Builder $query) {
+                                $query->where('context_id', Application::get()->getRequest()->getContext()->getId())
+                                    ->where('status', RecommendationOption::ACTIVE->criteria());
+                            })
+                    ],
+                    'prohibited'
+                )
             ],
-
             'comments' => [
                 'sometimes',
                 // If the review has a form, then no comments can be added.
@@ -78,6 +98,7 @@ class EditReview extends FormRequest
             // Only allow `reviewFormResponses` if the review has a form
             'reviewFormResponses' => [
                 'sometimes',
+                'bail',
                 function (string $attribute, mixed $value, Closure $fail) {
                     if ($this->reviewAssignment->getReviewFormId()) {
                         return;
@@ -119,8 +140,10 @@ class EditReview extends FormRequest
                     $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
                     $reviewFormElements = $reviewFormElementDao->getByReviewFormId($this->reviewAssignment->getReviewFormId());
 
+                    $reviewAssignmentFormElementIds = [];
                     while ($reviewFormElement = $reviewFormElements->next()) {
                         $reviewFormElementId = $reviewFormElement->getId();
+                        $reviewAssignmentFormElementIds[] = $reviewFormElementId;
 
                         if (
                             $reviewFormElement->getRequired()
@@ -135,6 +158,12 @@ class EditReview extends FormRequest
                             && !$this->isValidReviewFormFieldResponse($reviewFormElement, $submittedReviewFormResponses[$reviewFormElementId])
                         ) {
                             $fail(__('api.submissions.reviews.422.invalidReviewFormResponse', ['elementId' => $reviewFormElementId]));
+                        }
+                    }
+
+                    foreach (array_keys($submittedReviewFormResponses) as $submittedReviewElementId) {
+                        if (!in_array($submittedReviewElementId, $reviewAssignmentFormElementIds)) {
+                            $fail(__('api.submissions.reviews.422.invalidReviewFormElementSubmitted'));
                         }
                     }
                 },
@@ -188,15 +217,23 @@ class EditReview extends FormRequest
     {
         return [
             'reviewerRecommendationId.required' => __('api.422.missingRequiredField', ['field' => 'reviewerRecommendationId']),
+            'reviewerRecommendationId.exists' => __('api.submissions.reviews.422.invalidRecommendation'),
+            'reviewerRecommendationId.prohibited' => __('api.submissions.reviews.422.reviewerRecommendation.notEditable'),
         ];
     }
 
     /** @copydoc FormRequest::validated() */
     public function validated($key = null, $default = null)
     {
-        $request = $this->validator->validated();
-        $request['reviewAssignment'] = $this->reviewAssignment;
-
-        return $request;
+        return array_merge(
+            parent::validated(),
+            [
+                'reviewAssignment' => $this->reviewAssignment,
+                'comments' => $this->input('comments'),
+                'reviewFormResponses' => $this->input('reviewFormResponses') ?? [],
+                // Will default to null in cases where the app does not support reviewer recommendations (e.g., in OMP).
+                'reviewerRecommendationId' => (int)$this->input('reviewerRecommendationId') ?? null,
+            ]
+        );
     }
 }

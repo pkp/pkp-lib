@@ -141,6 +141,17 @@ class Schema extends \PKP\core\maps\Schema
                         $output[$prop] = null;
                     }
                     break;
+                case 'lastModifiedBy':
+                    $output[$prop] = null;
+                    $lastModifiedByUserId = $item->getData('lastModifiedById');
+
+                    if ($lastModifiedByUserId && $user = Repo::user()->get($lastModifiedByUserId)) {
+                        $output[$prop] = [
+                            'id' => $user->getId(),
+                            'userFullName' => $user->getFullName(),
+                        ];
+                    }
+                    break;
                 default:
                     $output[$prop] = $item->getData($prop);
                     break;

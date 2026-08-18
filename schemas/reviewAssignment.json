@@ -338,7 +338,7 @@
 		"lastModifiedById": {
 			"type": "integer",
 			"description": "The ID of the user who last made modifications to the submitted review.",
-			"apiSummary": true,
+			"apiSummary": false,
 			"validation": ["nullable"]
 		},
 		"lastModifiedBy": {

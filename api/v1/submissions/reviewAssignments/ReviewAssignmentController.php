@@ -451,8 +451,7 @@ class ReviewAssignmentController extends PKPBaseController
         /** @var string $commentsSubmitted */
         $commentsSubmitted = $validated['comments'];
 
-        if ($reviewAssignment->getReviewFormId()) {
-            $submittedReviewFormResponses = $validated['reviewFormResponses'];
+        if ($reviewAssignment->getReviewFormId() && $submittedReviewFormResponses = $validated['reviewFormResponses']) {
             if (!is_array($submittedReviewFormResponses)) {
                 // Parse the submitted review form responses from JSON string to an associative array.
                 // Each key is a review form element ID, and the value is the submitted response.
@@ -490,7 +489,7 @@ class ReviewAssignmentController extends PKPBaseController
                 if (
                     $reviewFormResponseValue !== null &&
                     $reviewFormResponseValue !== '' &&
-                    (is_array($reviewFormResponseValue) && count($reviewFormResponseValue) !== 0)
+                    (!is_array($reviewFormResponseValue) || count($reviewFormResponseValue) !== 0)
                 ) {
                     Repo::reviewAssignment()->saveReviewFormResponse($reviewAssignment, $reviewFormElementId, $reviewFormResponseValue);
                     $formFieldsUpdated = true;
@@ -526,9 +525,6 @@ class ReviewAssignmentController extends PKPBaseController
                     // Prepare log value for old form responses. This will include any fields that will be deleted by this request.
                     $oldReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, $reviewFormResponseValue);
                 }
-
-                /** @var ReviewFormResponseDAO $reviewFormResponseDao */
-                $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
 
                 // Ensure the responses that are omitted or empty are deleted before preparing log value for new form responses so that they are not included in that log.
                 foreach ($reviewResponsesToDeleteId as $reviewFormElementId) {
@@ -573,7 +569,7 @@ class ReviewAssignmentController extends PKPBaseController
             }
         } else {
             // if comments were submitted, update the review comments with the new values
-            if ($commentsSubmitted) {
+            if ($commentsSubmitted !== null) {
                 /** @var SubmissionCommentDAO $submissionCommentDao */
                 $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
                 $existingComment = $submissionCommentDao->getReviewerCommentsByReviewerId(
@@ -616,7 +612,7 @@ class ReviewAssignmentController extends PKPBaseController
         }
 
         if ($isReviewUpdated) {
-            $newAssignmentData['lastModifiedById'] = validation::loggedInAs() ?? $user->getId();
+            $newAssignmentData['lastModifiedById'] = Validation::loggedInAs() ?? $user->getId();
 
             if (!$reviewAssignment->getDateCompleted()) {
                 $newAssignmentData['dateCompleted'] = Core::getCurrentDate();
@@ -641,6 +637,15 @@ class ReviewAssignmentController extends PKPBaseController
             ]);
 
             Repo::eventLog()->add($eventLog);
+        }
+
+        // If the editor completed the review on reviewer's behalf, then remove the initial task notification sent to reviewer
+        if (isset($newAssignmentData['dateCompleted'])) {
+            // Remove the reviewer task.
+            Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId())
+                ->withUserId($reviewAssignment->getReviewerId())
+                ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT)
+                ->delete();
         }
 
         $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId(), $submission->getId());

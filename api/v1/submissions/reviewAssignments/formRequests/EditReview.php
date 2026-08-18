@@ -76,8 +76,12 @@ class EditReview extends FormRequest
                         Rule::exists('reviewer_recommendations', 'reviewer_recommendation_id')
                             ->where(function (Builder $query) {
                                 $query->where('context_id', Application::get()->getRequest()->getContext()->getId())
-                                    ->where('status', RecommendationOption::ACTIVE->criteria());
+                                    ->where(function (Builder $query) {
+                                        $query->where('status', RecommendationOption::ACTIVE->criteria())
+                                            ->orWhere('reviewer_recommendation_id', $this->reviewAssignment->getData('reviewerRecommendationId'));
+                                    });
                             })
+
                     ],
                     'prohibited'
                 )
@@ -97,7 +101,6 @@ class EditReview extends FormRequest
             ],
             // Only allow `reviewFormResponses` if the review has a form
             'reviewFormResponses' => [
-                'sometimes',
                 'bail',
                 function (string $attribute, mixed $value, Closure $fail) {
                     if ($this->reviewAssignment->getReviewFormId()) {
@@ -115,15 +118,13 @@ class EditReview extends FormRequest
                     }
 
                     if (is_string($value)) {
-                        json_decode($value);
-                        if (json_last_error() === JSON_ERROR_NONE) {
+                        $decodedValue = json_decode($value, true);
+                        if (json_last_error() === JSON_ERROR_NONE && is_array($decodedValue)) {
                             return;
                         }
                     }
 
-                    if (!is_string($value) || json_last_error() !== JSON_ERROR_NONE) {
-                        $fail(__('api.submissions.reviews.422.invalidReviewFormSubmitted'));
-                    }
+                    $fail(__('api.submissions.reviews.422.invalidReviewFormSubmitted'));
                 },
                 // When the review has a form, validate the submitted responses against the form's
                 // elements: every required element must have a non-empty response, and every submitted
@@ -163,7 +164,7 @@ class EditReview extends FormRequest
 
                     foreach (array_keys($submittedReviewFormResponses) as $submittedReviewElementId) {
                         if (!in_array($submittedReviewElementId, $reviewAssignmentFormElementIds)) {
-                            $fail(__('api.submissions.reviews.422.invalidReviewFormElementSubmitted'));
+                            $fail(__('api.submissions.reviews.422.invalidReviewFormElementSubmitted', ['elementId' => $submittedReviewElementId]));
                         }
                     }
                 },
@@ -230,9 +231,9 @@ class EditReview extends FormRequest
             [
                 'reviewAssignment' => $this->reviewAssignment,
                 'comments' => $this->input('comments'),
-                'reviewFormResponses' => $this->input('reviewFormResponses') ?? [],
+                'reviewFormResponses' => $this->input('reviewFormResponses'),
                 // Will default to null in cases where the app does not support reviewer recommendations (e.g., in OMP).
-                'reviewerRecommendationId' => (int)$this->input('reviewerRecommendationId') ?? null,
+                'reviewerRecommendationId' => $this->input('reviewerRecommendationId') ? (int)$this->input('reviewerRecommendationId') : null,
             ]
         );
     }

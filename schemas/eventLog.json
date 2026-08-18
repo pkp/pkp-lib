@@ -371,7 +371,10 @@
 		},
 		"reviewerCommentsNew": {
 			"type": "string",
-			"description": "The new comments of the reviewer, if the reviewer comments were changed."
+			"description": "The new comments of the reviewer, if the reviewer comments were changed.",
+			"validation": [
+				"nullable"
+			]
 		},
 		"fieldNameKey": {
 			"type": "string",

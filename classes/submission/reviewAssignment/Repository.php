@@ -369,31 +369,34 @@ class Repository
         /** @var ReviewFormElementDAO $reviewFormElementDao */
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
         $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
-        $elementType = $reviewFormElement->getElementType();
 
-        switch ($elementType) {
-            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
-            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
-            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
-                $reviewFormResponse->setResponseType('string');
-                $reviewFormResponse->setValue($reviewFormResponseValue);
-                break;
-            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
-            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
-                $reviewFormResponse->setResponseType('int');
-                $reviewFormResponse->setValue($reviewFormResponseValue);
-                break;
-            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
-                $reviewFormResponse->setResponseType('object');
-                $reviewFormResponse->setValue($reviewFormResponseValue);
-                break;
-        }
-        if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {
-            $reviewFormResponseDao->updateObject($reviewFormResponse);
-        } else {
-            $reviewFormResponse->setReviewFormElementId($reviewFormElementId);
-            $reviewFormResponse->setReviewId($reviewAssignment->getId());
-            $reviewFormResponseDao->insertObject($reviewFormResponse);
+        if ($reviewFormElement) {
+            $elementType = $reviewFormElement->getElementType();
+
+            switch ($elementType) {
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
+                    $reviewFormResponse->setResponseType('string');
+                    $reviewFormResponse->setValue($reviewFormResponseValue);
+                    break;
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                    $reviewFormResponse->setResponseType('int');
+                    $reviewFormResponse->setValue($reviewFormResponseValue);
+                    break;
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                    $reviewFormResponse->setResponseType('object');
+                    $reviewFormResponse->setValue($reviewFormResponseValue);
+                    break;
+            }
+            if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {
+                $reviewFormResponseDao->updateObject($reviewFormResponse);
+            } else {
+                $reviewFormResponse->setReviewFormElementId($reviewFormElementId);
+                $reviewFormResponse->setReviewId($reviewAssignment->getId());
+                $reviewFormResponseDao->insertObject($reviewFormResponse);
+            }
         }
     }
 
@@ -483,8 +486,8 @@ class Repository
         $commentId = $comment->getId();
         // Save or update
         if ($comment->getId() != null) {
-            $submissionCommentDao->updateObject($comment);
             $comment->setDateModified(Core::getCurrentDate());
+            $submissionCommentDao->updateObject($comment);
         } else {
             $comment->setDatePosted(Core::getCurrentDate());
             $commentId = $submissionCommentDao->insertObject($comment);

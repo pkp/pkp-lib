@@ -98,7 +98,7 @@ class ReviewResource extends JsonResource
         $args = [
             'label' => PKPString::html2text($reviewFormElement->getLocalizedQuestion()),
             'isRequired' => $reviewFormElement->getRequired(),
-            'description' => PKPString::html2text($reviewFormElement->getLocalizedDescription() ?: ''),
+            'description' => $reviewFormElement->getLocalizedDescription(),
         ];
 
         return match ($reviewFormElement->getElementType()) {

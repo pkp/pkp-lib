@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/ReviewAssignmentFileAccessPolicy.php
  *
@@ -16,9 +17,12 @@
 
 namespace PKP\security\authorization;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 
 class ReviewAssignmentFileAccessPolicy extends AuthorizationPolicy
@@ -30,7 +34,7 @@ class ReviewAssignmentFileAccessPolicy extends AuthorizationPolicy
         parent::__construct('user.authorization.unauthorizedReviewAssignment');
     }
 
-    public function effect()
+    public function effect(): int
     {
         $user = $this->request->getUser();
         if (!$user instanceof User) {
@@ -42,7 +46,31 @@ class ReviewAssignmentFileAccessPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Deny the access if user isn't assigned
+        // Managers and site admins can access review files
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
+            $this->addAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+        }
+
+        // Editors with a stage assignment have access to files
+        $stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$reviewAssignment->getSubmissionId()])
+            ->withStageIds([$reviewAssignment->getStageId()])
+            ->get();
+
+        foreach ($stageAssignments as $stageAssignment) {
+            if ($stageAssignment->userGroup->roleId != Role::ROLE_ID_SUB_EDITOR) {
+                continue;
+            }
+
+            if ($stageAssignment->userId === $user->getId()) {
+                $this->addAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+                return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+            }
+        }
+
+        // Deny the access for reviewers if user isn't assigned
         if ($reviewAssignment->getReviewerId() !== $user->getId()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

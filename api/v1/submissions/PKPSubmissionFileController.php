@@ -30,11 +30,11 @@ use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\ReviewAssignmentFileAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
@@ -155,16 +155,8 @@ class PKPSubmissionFileController extends PKPBaseController
             // but the endpoint will return different files depending on the user's
             // stage assignments.
         } elseif ($actionName === 'getFilesByReviewId') {
-            // Reviewers assigned to the submission have access to review files and attachments
-            $this->addPolicy(
-                new WorkflowStageAccessPolicy(
-                    $request,
-                    $args,
-                    $roleAssignments,
-                    'submissionId',
-                    WORKFLOW_STAGE_ID_EXTERNAL_REVIEW
-                )
-            );
+            // Reviewers assigned to the submission have access to their review files and attachments
+            $this->addPolicy(new SubmissionRequiredPolicy($request, $args, 'submissionId'));
             $this->addPolicy(
                 new ReviewAssignmentFileAccessPolicy(
                     $request,
@@ -618,12 +610,18 @@ class PKPSubmissionFileController extends PKPBaseController
     public function getFilesByReviewId(Request $illuminateRequest): JsonResponse
     {
         $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        // Allow access only for assigned reviewers
         if (!$reviewAssignment) {
             return response()->json([
-                'error' => __('api.403.unauthorized'),
-            ], Response::HTTP_FORBIDDEN);
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($reviewAssignment->getSubmissionId() !== $submission->getId()) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $allowedFileStages = [
@@ -661,6 +659,7 @@ class PKPSubmissionFileController extends PKPBaseController
         if (in_array(SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, $fileStages)) {
             $files = $files->merge(
                 Repo::submissionFile()->getCollector()
+                    ->filterBySubmissionIds([$submission->getId()])
                     ->filterByReviewIds([$reviewAssignment->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE])
                     ->getMany()
@@ -669,19 +668,18 @@ class PKPSubmissionFileController extends PKPBaseController
 
         // Get review attachment files upload by the reviewer
         if (in_array(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT, $fileStages)) {
-            $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
             $files = $files->merge(
                 Repo::submissionFile()->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
+                    ->filterByReviewRoundIds([$reviewAssignment->getReviewRoundId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
-                    ->filterByUploaderUserIds([$reviewAssignment->getId()])
                     ->getMany()
             );
         }
 
         $items = Repo::submissionFile()
-            ->getSchemaMap()
-            ->summarizeMany($files, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->summarizeMany($files);
 
         $data = [
             'itemsMax' => $files->count(),

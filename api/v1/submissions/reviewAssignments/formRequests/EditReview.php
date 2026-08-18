@@ -90,12 +90,12 @@ class EditReview extends FormRequest
                 'sometimes',
                 // If the review has a form, then no comments can be added.
                 function (string $attribute, mixed $value, Closure $fail) {
-                    if (!$this->reviewAssignment->getReviewFormId()) {
-                        return;
+                    if ($this->reviewAssignment->getReviewFormId()) {
+                        $fail(__('api.submissions.reviews.422.commentsNotAllowed'));
                     }
 
-                    if ($this->input('comments')) {
-                        $fail(__('api.submissions.reviews.422.commentsNotAllowed'));
+                    if ($value !== null && !is_scalar($value) || is_bool($value)) {
+                        $fail(__('api.submissions.reviews.422.invalidComments'));
                     }
                 },
             ],

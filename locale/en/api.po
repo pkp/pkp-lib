@@ -538,3 +538,6 @@ msgstr "Editing reviewer recommendation for reviews is not supported."
 
 msgid "api.submissions.reviews.422.invalidReviewFormElementSubmitted"
 msgstr "The form element with ID {$elementId} is not a part of this review assignment's review form"
+
+msgid "api.submissions.reviews.422.invalidComments"
+msgstr "The submitted comments are not valid."

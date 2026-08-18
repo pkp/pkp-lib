@@ -606,7 +606,7 @@ class ReviewAssignmentController extends PKPBaseController
         $newAssignmentData = [];
         $oldReviewerRecommendationId = $reviewAssignment->getReviewerRecommendationId();
 
-        if ($submittedReviewerRecommendationId !== $oldReviewerRecommendationId) {
+        if ($submittedReviewerRecommendationId !== $oldReviewerRecommendationId && Application::get()->hasCustomizableReviewerRecommendation()) {
             $newAssignmentData['reviewerRecommendationId'] = $submittedReviewerRecommendationId;
             $isReviewUpdated = true;
         }
@@ -620,7 +620,7 @@ class ReviewAssignmentController extends PKPBaseController
             Repo::reviewAssignment()->edit($reviewAssignment, $newAssignmentData);
         }
 
-        if ($submittedReviewerRecommendationId !== $oldReviewerRecommendationId) {
+        if ($submittedReviewerRecommendationId !== $oldReviewerRecommendationId && Application::get()->hasCustomizableReviewerRecommendation()) {
             // Log changes to the event log
             $eventLog = Repo::eventLog()->newDataObject([
                 'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,

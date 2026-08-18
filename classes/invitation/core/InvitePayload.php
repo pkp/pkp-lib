@@ -19,16 +19,40 @@ use Illuminate\Support\Arr;
 abstract class InvitePayload
 {
     /**
+     * The allowed composed email properties.
+     * Invitations carry an access key, so they must not be copied to other addresses.
+     */
+    protected const COMPOSED_EMAIL_PROPERTIES = [
+        'emailComposer' => ['subject', 'body'],
+    ];
+
+    /**
      * The base constructor for the payload class.
      * It accepts an associative array to initialize properties.
      */
     public function __construct(array $attributes = [])
     {
+        $attributes = static::sanitizeComposedEmails($attributes);
+
         foreach ($attributes as $key => $value) {
             if (property_exists($this, $key)) {
                 $this->$key = $value;
             }
         }
+    }
+
+    /**
+     * Remove the keys that are not kept from the composed emails. e.g. cc and bcc
+     */
+    protected static function sanitizeComposedEmails(array $attributes): array
+    {
+        foreach (static::COMPOSED_EMAIL_PROPERTIES as $property => $allowedKeys) {
+            if (is_array($attributes[$property] ?? null)) {
+                $attributes[$property] = Arr::only($attributes[$property], $allowedKeys);
+            }
+        }
+
+        return $attributes;
     }
 
     /**

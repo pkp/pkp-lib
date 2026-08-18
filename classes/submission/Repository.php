@@ -507,11 +507,6 @@ abstract class Repository
      */
     public function canPreview(?User $user, Submission $submission): bool
     {
-        // Only grant access when in copyediting or production stage
-        if (!in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
-            return false;
-        }
-
         if ($this->_roleCanPreview($user, $submission)) {
             return true;
         }

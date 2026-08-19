@@ -2440,3 +2440,6 @@ msgstr "Order"
 
 msgid "common.openLinkNewTab"
 msgstr "Open link in a new tab."
+
+msgid "common.viewChanges"
+msgstr "View changes"

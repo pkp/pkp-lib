@@ -550,17 +550,18 @@ class ReviewAssignmentController extends PKPBaseController
                 //     },
                 //     ...
                 // }
+                ksort($oldReviewFormResponses, SORT_NUMERIC);
+                ksort($updatedReviewFormResponses, SORT_NUMERIC);
                 $eventLog = Repo::eventLog()->newDataObject([
                     'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                     'assocId' => $reviewAssignment->getId(),
                     'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED,
                     'userId' => Validation::loggedInAs() ?? $user->getId(),
-                    'message' => 'submission.event.review.field.modified',
+                    'message' => 'submission.event.review.field.modified.comments.formResponse',
                     'isTranslated' => false,
                     'dateLogged' => Core::getCurrentDate(),
                     'reviewFormResponseOld' => json_encode($oldReviewFormResponses),
                     'reviewFormResponseNew' => json_encode($updatedReviewFormResponses),
-                    'fieldNameKey' => 'submission.event.review.fieldName.reviewFormResponses',
                     'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 ]);
                 Repo::eventLog()->add($eventLog);
@@ -594,7 +595,7 @@ class ReviewAssignmentController extends PKPBaseController
                         'assocId' => $savedComment->getId(),
                         'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMMENTS_MODIFIED,
                         'userId' => Validation::loggedInAs() ?? $user->getId(),
-                        'message' => 'submission.event.review.field.modified',
+                        'message' => 'submission.event.review.field.modified.comments',
                         'isTranslated' => false,
                         'dateLogged' => Core::getCurrentDate(),
                         'reviewerCommentsOld' => $oldComments,
@@ -632,12 +633,11 @@ class ReviewAssignmentController extends PKPBaseController
                 'assocId' => $reviewAssignment->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
-                'message' => 'submission.event.review.field.modified',
+                'message' => 'submission.event.review.field.modified.comments.reviewerRecommendation',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'reviewerRecommendationOldId' => $oldReviewerRecommendationId,
                 'reviewerRecommendationNewId' => $submittedReviewerRecommendationId,
-                'fieldNameKey' => 'submission.event.review.fieldName.reviewerRecommendationId',
                 'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
             ]);
 

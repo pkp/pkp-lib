@@ -548,12 +548,13 @@ class DAO extends EntityDAO
      */
     protected function setFunders(Publication $publication): void
     {
-        $funders = Funder::withSubmissionId($publication->getData('submissionId'))
-            ->orderBySeq()
-            ->get()
-            ->values()
-            ->all();
-        $publication->setData('funders', $funders);
+        $publication->setData(
+            'funders',
+            Funder::withSubmissionId($publication->getData('submissionId'))
+                ->orderBySeq()
+                ->lazy()
+                ->remember()
+        );
     }
 
     /**

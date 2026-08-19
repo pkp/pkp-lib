@@ -464,6 +464,12 @@ class ReviewAssignmentController extends PKPBaseController
             // Tracks whether any form responses changed as a result of this update
             $formFieldsUpdated = false;
             $allExistingFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+            $allReviewFormElementsFactory = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
+            $allReviewFormElements = [];
+
+            while ($formElement = $allReviewFormElementsFactory->next()) {
+                $allReviewFormElements[$formElement->getId()] = $formElement;
+            }
 
             $reviewResponsesToDeleteId = [];
             foreach ($submittedReviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
@@ -515,13 +521,19 @@ class ReviewAssignmentController extends PKPBaseController
                 $oldReviewFormResponses = [];
                 $updatedReviewFormResponses = [];
 
+                $allWithoutExistingResponses = array_diff_key($allReviewFormElements, $allExistingFormResponses);
                 foreach ($allExistingFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
-                    $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
+                    $reviewFormElement = $allReviewFormElements[$reviewFormElementId];
                     if (!$reviewFormElement) {
                         continue;
                     }
                     // Prepare log value for old form responses. This will include any fields that will be deleted by this request.
                     $oldReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, $reviewFormResponseValue);
+                }
+
+                foreach ($allWithoutExistingResponses as $reviewFormElement) {
+                    $reviewFormElementId = $reviewFormElement->getId();
+                    $oldReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, null);
                 }
 
                 // Ensure the responses that are omitted or empty are deleted before preparing log value for new form responses so that they are not included in that log.
@@ -531,11 +543,19 @@ class ReviewAssignmentController extends PKPBaseController
 
                 $storedReviewFormResponseValues = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
                 foreach ($storedReviewFormResponseValues as $reviewFormElementId => $reviewFormResponseValue) {
-                    $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
+                    $reviewFormElement = $allReviewFormElements[$reviewFormElementId];
                     if (!$reviewFormElement) {
                         continue;
                     }
                     $updatedReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, $reviewFormResponseValue);
+                }
+
+                foreach ($allReviewFormElements as $id => $reviewFormElement) {
+                    $storedValue = $storedReviewFormResponseValues[$id] ?? null;
+
+                    if (!$storedValue) {
+                        $updatedReviewFormResponses[$id] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, null);
+                    }
                 }
 
                 // Once all responses have been processed, and at least one field changed, log the entire old and new form with their responses.

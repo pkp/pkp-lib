@@ -465,13 +465,9 @@ class ReviewAssignmentController extends PKPBaseController
             $formFieldsUpdated = false;
             $allExistingFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
             $allReviewFormElementsFactory = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
-            $allReviewFormElements = [];
-
-            while ($formElement = $allReviewFormElementsFactory->next()) {
-                $allReviewFormElements[$formElement->getId()] = $formElement;
-            }
-
+            $allReviewFormElements = $allReviewFormElementsFactory->toAssociativeArray();
             $reviewResponsesToDeleteId = [];
+
             foreach ($submittedReviewFormResponses as $reviewFormElementId => $reviewFormResponseValue) {
                 $hasExistingResponse = array_key_exists($reviewFormElementId, $allExistingFormResponses);
 
@@ -531,12 +527,13 @@ class ReviewAssignmentController extends PKPBaseController
                     $oldReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, $reviewFormResponseValue);
                 }
 
+                // Include fields with no response in the log to ensure a full picture of the old form responses is captured.
                 foreach ($allWithoutExistingResponses as $reviewFormElement) {
                     $reviewFormElementId = $reviewFormElement->getId();
                     $oldReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, null);
                 }
 
-                // Ensure the responses that are omitted or empty are deleted before preparing log value for new form responses so that they are not included in that log.
+                // Ensure the responses that are omitted or empty are deleted before preparing log value for new form responses so that the old responses are not included in the log.
                 foreach ($reviewResponsesToDeleteId as $reviewFormElementId) {
                     $reviewFormResponseDao->deleteById($reviewAssignment->getId(), $reviewFormElementId);
                 }
@@ -550,10 +547,9 @@ class ReviewAssignmentController extends PKPBaseController
                     $updatedReviewFormResponses[$reviewFormElementId] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, $reviewFormResponseValue);
                 }
 
+                // Include fields with no response in the log to ensure a full picture of the new form responses is captured.
                 foreach ($allReviewFormElements as $id => $reviewFormElement) {
-                    $storedValue = $storedReviewFormResponseValues[$id] ?? null;
-
-                    if (!$storedValue) {
+                    if (!array_key_exists($id, $storedReviewFormResponseValues)) {
                         $updatedReviewFormResponses[$id] = Repo::reviewAssignment()->formatReviewFormElementResponseForLogEntry($reviewFormElement, null);
                     }
                 }
@@ -577,7 +573,7 @@ class ReviewAssignmentController extends PKPBaseController
                     'assocId' => $reviewAssignment->getId(),
                     'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED,
                     'userId' => Validation::loggedInAs() ?? $user->getId(),
-                    'message' => 'submission.event.review.field.modified.comments.formResponse',
+                    'message' => 'submission.event.review.field.modified.formResponse',
                     'isTranslated' => false,
                     'dateLogged' => Core::getCurrentDate(),
                     'reviewFormResponseOld' => json_encode($oldReviewFormResponses),
@@ -653,7 +649,7 @@ class ReviewAssignmentController extends PKPBaseController
                 'assocId' => $reviewAssignment->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
-                'message' => 'submission.event.review.field.modified.comments.reviewerRecommendation',
+                'message' => 'submission.event.review.field.modified.reviewerRecommendation',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'reviewerRecommendationOldId' => $oldReviewerRecommendationId,

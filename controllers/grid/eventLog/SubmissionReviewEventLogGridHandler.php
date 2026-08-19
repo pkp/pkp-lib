@@ -9,7 +9,7 @@
  *
  * @class SubmissionReviewEventLogGridHandler
  *
- * @brief Handle submission logs directly related to review assignments.
+ * @brief Handle submission logs directly related to reviews.
  */
 
 namespace PKP\controllers\grid\eventLog;
@@ -65,12 +65,12 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
     }
 
     /**
-     * Render a previous value / new value pair.
+     * Render a new value / previous value pair.
      */
     protected function formatBasicValueChange(string $previous, string $new, string $newValueLabel, string $previousValueLabel): string
     {
-        return '<div><h3>' . $newValueLabel . '</h3><div>' . $new . '</div></div>'
-            . '<div><h3>' . $previousValueLabel . '</h3> <div>' . $previous . '</div></div>';
+        return '<div><h3>' . $newValueLabel . '</h3><div><p>' . $new . '</p></div></div>'
+            . '<div><h3>' . $previousValueLabel . '</h3> <div><p>' . $previous . '</p></div></div>';
     }
 
     /**
@@ -86,7 +86,6 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
         );
     }
 
-
     /**
      * Get the reviewer recommendation label.
      */
@@ -99,7 +98,6 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
         $recommendation = ReviewerRecommendation::find($recommendationId);
         return $recommendation->getLocalizedData('title');
     }
-
 
     /**
      * Format contents of the review comments change.
@@ -160,7 +158,7 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
             }
 
             $sections[] = '<div class="mt-4">'
-                . '<label><p>' . htmlspecialchars($question) . '</p></label>'
+                . '<label><p>' . PKPString::html2text($question) . '</p></label>'
                 . $value
                 . '</div>';
         }
@@ -194,14 +192,14 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
 
         foreach ($possibleResponses as $index => $label) {
             if ($elementType === ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
-                $items[] = '<option disabled' . (in_array((int)$index, $selectedIndices) ? ' selected' : '') . '>' . htmlspecialchars($label) . '</option>';
+                $items[] = '<option disabled' . (in_array((int)$index, $selectedIndices) ? ' selected' : '') . '>' . PKPString::stripUnsafeHtml($label) . '</option>';
             } else {
                 $inputType = $elementType === ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES ? 'checkbox' : 'radio';
                 $checked = in_array((int)$index, $selectedIndices, true) ? ' checked' : '';
                 $items[] = '<li>'
                     . '<label>'
                     . '<input type="' . $inputType . '" disabled' . $checked . '> '
-                    . htmlspecialchars($label)
+                    . PKPString::html2text($label)
                     . '</label>'
                     . '</li>';
             }
@@ -228,10 +226,10 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
         }
 
         if ($elementType === ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA) {
-            return '<textarea readonly="readonly" rows="4" cols="40">' . htmlspecialchars($answer) . '</textarea>';
+            return '<textarea readonly="readonly" rows="4" cols="40">' . PKPString::html2text($answer) . '</textarea>';
         }
 
         return '<div class="' . ($elementType === ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD ? 'pkp_helpers_quarter' : '') . '">'
-            . '<input class="field text" disabled type="text" value="' . htmlspecialchars($answer) . '"></div>';
+            . '<input class="field text" disabled type="text" value="' . PKPString::html2text($answer) . '"></div>';
     }
 }

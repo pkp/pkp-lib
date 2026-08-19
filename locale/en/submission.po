@@ -3935,10 +3935,10 @@ msgstr "Competing Interests"
 msgid "submission.event.review.field.modified.comments"
 msgstr "The following was modified in this review: Comments. Select \"View changes\" to see a detailed summary of all modifications."
 
-msgid "submission.event.review.field.modified.comments.reviewerRecommendation"
+msgid "submission.event.review.field.modified.reviewerRecommendation"
 msgstr "The following was modified in this review: Reviewer Recommendation. Select \"View changes\" to see a detailed summary of all modifications."
 
-msgid "submission.event.review.field.modified.comments.formResponse"
+msgid "submission.event.review.field.modified.formResponse"
 msgstr "The following was modified in this review: Review Form. Select \"View changes\" to see a detailed summary of all modifications."
 
 msgid "submission.event.review.updatedFormResponses"

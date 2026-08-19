@@ -287,7 +287,7 @@ class SubmissionEventLogGridHandler extends GridHandler
                 return $reviewAssignment->getId();
             })->toArray();
 
-        $reviewsWithCommentsId = $reviewAssignments->filter(function (ReviewAssignment $reviewAssignment) {
+        $reviewsWithCommentsIds = $reviewAssignments->filter(function (ReviewAssignment $reviewAssignment) {
             return !$reviewAssignment->getReviewFormId();
         })
             ->map(function (ReviewAssignment $reviewAssignment) {
@@ -309,22 +309,25 @@ class SubmissionEventLogGridHandler extends GridHandler
         $commentLogEntries = $reviewCommentIds ? Repo::eventLog()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_REVIEW_COMMENT, $reviewCommentIds)
             ->filterByEventType(PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMMENTS_MODIFIED)
-            ->getMany() : [];
+            ->getMany()
+            ->toArray() : [];
 
         $formResponseLogEntries = $reviewsWithFormIds ? Repo::eventLog()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewsWithFormIds)
             ->filterByEventType(PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED)
-            ->getMany() : [];
+            ->getMany()
+            ->toArray() : [];
 
-        $recommendationLogEntries = $reviewsWithCommentsId ? Repo::eventLog()->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, array_merge($reviewsWithCommentsId, $reviewsWithFormIds))
+        $recommendationLogEntries = $reviewsWithCommentsIds ? Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, array_merge($reviewsWithCommentsIds, $reviewsWithFormIds))
             ->filterByEventType(PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED)
-            ->getMany() : [];
+            ->getMany()
+            ->toArray() : [];
 
         return array_merge(
-            $commentLogEntries->toArray(),
-            $formResponseLogEntries->toArray(),
-            $recommendationLogEntries->toArray()
+            $commentLogEntries,
+            $formResponseLogEntries,
+            $recommendationLogEntries
         );
     }
 }

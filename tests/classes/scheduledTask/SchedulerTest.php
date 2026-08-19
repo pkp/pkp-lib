@@ -98,6 +98,16 @@ class SchedulerTest extends PKPTestCase
         return ['SiteDAO'];
     }
 
+    /**
+     * Snapshot and restore the parsed config so the timezone tests can rewrite [general]
+     *
+     * @see \PKP\tests\PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'configData'];
+    }
+
     //
     // Group A: PKPScheduler::addSchedule() dedup contract
     //
@@ -793,8 +803,104 @@ class SchedulerTest extends PKPTestCase
     }
 
     //
+    // Group G: application timezone resolution
+    //
+
+    /**
+     * Scheduled events must be evaluated in the application's timezone.
+     *
+     * The schedule used to be built from an [general] timezone config key that no config file,
+     * template or installer ever writes, so it always fell through to the 'UTC' default and every
+     * daily/monthly task fired at 00:00 UTC rather than 00:00 local. PKPApplication::initializeTimeZone()
+     * is the single place that resolves the configured zone (including legacy names) and applies it as
+     * the PHP default, so that resolved value is what the schedule must be built from.
+     */
+    public function testScheduleUsesResolvedApplicationTimezone(): void
+    {
+        $originalTimezone = date_default_timezone_get();
+
+        try {
+            // Stand in for PKPApplication::initializeTimeZone() having resolved [general] time_zone
+            date_default_timezone_set('America/Vancouver');
+
+            $app = PKPContainer::getInstance();
+            (new ScheduleServiceProvider($app))->register();
+
+            // Invoke the registered binding directly rather than resolving through the container:
+            // resolving fires the boot() afterResolving hook, which registers every core and plugin
+            // schedule and needs a full request context that this test has no reason to build.
+            $concrete = $app->getBindings()[Schedule::class]['concrete'];
+            $schedule = $concrete($app); /** @var Schedule $schedule */
+
+            $event = $schedule->call(fn () => null)->daily();
+
+            $this->assertSame(
+                'America/Vancouver',
+                (string) $event->timezone,
+                'Scheduled events must inherit the application timezone, not a hardcoded UTC fallback.'
+            );
+        } finally {
+            date_default_timezone_set($originalTimezone);
+        }
+    }
+
+    /**
+     * A legacy [general] time_zone value must resolve to a canonical identifier.
+     *
+     * Old configurations store the display form of a zone -- "Amsterdam" rather than
+     * "Europe/Amsterdam", "New York" rather than "America/New_York". Those are not valid
+     * DateTimeZone identifiers, so anything handed the raw config value throws. resolveTimeZone()
+     * is the single place that maps them back, and both the PHP default and the container's
+     * app.timezone are built from it.
+     */
+    public function testResolveTimeZoneMapsLegacyNameToCanonicalIdentifier(): void
+    {
+        $this->setConfigTimeZone('Amsterdam');
+
+        $resolved = Application::resolveTimeZone();
+
+        $this->assertSame('Europe/Amsterdam', $resolved);
+
+        // The point of resolving at all: the result must be usable as a real zone.
+        $this->assertSame('Europe/Amsterdam', (new \DateTimeZone($resolved))->getName());
+    }
+
+    /**
+     * A value that is already canonical must survive untouched.
+     */
+    public function testResolveTimeZoneKeepsCanonicalIdentifier(): void
+    {
+        $this->setConfigTimeZone('America/Vancouver');
+
+        $this->assertSame('America/Vancouver', Application::resolveTimeZone());
+    }
+
+    /**
+     * An unrecognisable value must fall back rather than propagate or throw, so a typo in the
+     * config cannot take the whole application down at boot.
+     */
+    public function testResolveTimeZoneFallsBackOnUnrecognisableValue(): void
+    {
+        $this->setConfigTimeZone('Not/A_Real Zone');
+
+        $resolved = Application::resolveTimeZone();
+
+        $this->assertNotSame('Not/A_Real Zone', $resolved);
+        $this->assertSame($resolved, (new \DateTimeZone($resolved))->getName());
+    }
+
+    //
     // Helpers
     //
+
+    /**
+     * Rewrite [general] time_zone in the in-memory config for the duration of a test.
+     */
+    private function setConfigTimeZone(string $timeZone): void
+    {
+        $configData = & Registry::get('configData', true, []);
+        $configData['general']['time_zone'] = $timeZone;
+    }
 
     /**
      * Build a web based task runner over the given schedule using the container's real services.

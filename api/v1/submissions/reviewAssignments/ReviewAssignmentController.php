@@ -448,8 +448,6 @@ class ReviewAssignmentController extends PKPBaseController
 
         $isReviewUpdated = false;
         $submittedReviewerRecommendationId = $validated['reviewerRecommendationId'];
-        /** @var string $commentsSubmitted */
-        $commentsSubmitted = $validated['comments'];
 
         if ($reviewAssignment->getReviewFormId() && $submittedReviewFormResponses = $validated['reviewFormResponses']) {
             if (!is_array($submittedReviewFormResponses)) {
@@ -568,8 +566,15 @@ class ReviewAssignmentController extends PKPBaseController
                 Repo::eventLog()->add($eventLog);
             }
         } else {
-            // if comments were submitted, update the review comments with the new values
-            if ($commentsSubmitted !== null) {
+            // Explicitly check if the comments field was submitted and update the review comments with the new values
+            // A `null` value for the validated comments field indicates that either:
+            // - The client submitted a `null` value for the comments field, or
+            // - The client submitted an empty string for the comments field and laravel form request validation automatically converted the empty string to `null`.
+            // In either case, we interpret this as an indication that the existing comments value should be cleared.
+            if ($illuminateRequest->exists('comments')) {
+                /** @var string $commentsSubmitted */
+                $commentsSubmitted = $validated['comments'] ?: '';
+
                 /** @var SubmissionCommentDAO $submissionCommentDao */
                 $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
                 $existingComment = $submissionCommentDao->getReviewerCommentsByReviewerId(

@@ -88,6 +88,7 @@ class EditReview extends FormRequest
             ],
             'comments' => [
                 'sometimes',
+                'nullable',
                 // If the review has a form, then no comments can be added.
                 function (string $attribute, mixed $value, Closure $fail) {
                     if ($this->reviewAssignment->getReviewFormId()) {

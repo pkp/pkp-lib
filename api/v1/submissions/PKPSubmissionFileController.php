@@ -100,6 +100,7 @@ class PKPSubmissionFileController extends PKPBaseController
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
             ]),
         ])->group(function () {
 
@@ -671,7 +672,7 @@ class PKPSubmissionFileController extends PKPBaseController
             $files = $files->merge(
                 Repo::submissionFile()->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
-                    ->filterByReviewRoundIds([$reviewAssignment->getReviewRoundId()])
+                    ->filterByAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, [$reviewAssignment->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
                     ->getMany()
             );

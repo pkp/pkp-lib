@@ -60,7 +60,7 @@ class ReviewAssignmentFileAccessPolicy extends AuthorizationPolicy
             ->get();
 
         foreach ($stageAssignments as $stageAssignment) {
-            if ($stageAssignment->userGroup->roleId != Role::ROLE_ID_SUB_EDITOR) {
+            if (!in_array($stageAssignment->userGroup->roleId, [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])) {
                 continue;
             }
 

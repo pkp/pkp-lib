@@ -133,6 +133,26 @@ class DAO extends EntityDAO
             ->pluck('ra.' . $this->primaryKeyColumn);
     }
 
+    protected function batchPopulator(object $row, object $schema, ReviewAssignment $reviewAssignment, array $reviewIds, object $cache): void
+    {
+        $cache->settings ??= DB::table('review_assignment_settings')
+            ->whereIn('review_id', $reviewIds)
+            ->get()
+            ->groupBy('review_id');
+        $cache->settings->get($row->review_id)
+            ?->each(fn ($row) => $this->populateSetting($row, $reviewAssignment, $schema));
+
+        $cache->reviewers ??= Repo::user()->getCollector()->filterByReviewIds($reviewIds)->filterByStatus(UserCollector::STATUS_ALL)->getMany();
+        $reviewer = $cache->reviewers->get($reviewAssignment->getReviewerId());
+        $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
+        $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
+
+        $cache->doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($reviewIds)->getMany();
+        if ($doiId = $reviewAssignment->getData('doiId')) {
+            $reviewAssignment->setData('doiObject', $cache->doiObjects->get($doiId));
+        }
+    }
+
     /**
      * Get a collection of review assignments matching the configured query
      *
@@ -142,31 +162,17 @@ class DAO extends EntityDAO
     {
         return LazyCollection::make(function () use ($query) {
             $queryBuilder = $query->getQueryBuilder();
-            $settings = $reviewers = $doiObjects = null;
 
             $rows = $queryBuilder->get();
             $reviewIds = $rows->pluck('review_id')->all();
 
+            $cache = (object) [];
+
             foreach ($rows as $row) {
                 yield $row->review_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, ReviewAssignment $reviewAssignment) use ($reviewIds, &$settings, &$reviewers, &$doiObjects): void {
-                        $settings ??= DB::table('review_assignment_settings')
-                            ->whereIn('review_id', $reviewIds)
-                            ->get()
-                            ->groupBy('review_id');
-                        $settings->get($row->review_id)
-                            ?->each(fn ($row) => $this->populateSetting($row, $reviewAssignment, $schema));
-
-                        $reviewers ??= Repo::user()->getCollector()->filterByReviewIds($reviewIds)->filterByStatus(UserCollector::STATUS_ALL)->getMany();
-                        $reviewer = $reviewers->get($reviewAssignment->getReviewerId());
-                        $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
-                        $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
-
-                        $doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($reviewIds)->getMany();
-                        if ($doiId = $reviewAssignment->getData('doiId')) {
-                            $reviewAssignment->setData('doiObject', $doiObjects->get($doiId));
-                        }
+                    function (object $row, object $schema, ReviewAssignment $reviewAssignment) use ($reviewIds, $cache): void {
+                        $this->batchPopulator($row, $schema, $reviewAssignment, $reviewIds, $cache);
                     }
                 );
             }
@@ -175,18 +181,7 @@ class DAO extends EntityDAO
 
     protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
     {
-        parent::individualPopulator($row, $schema, $object);
-
-        $reviewer = Repo::user()->get($object->getReviewerId(), true);
-        $object->setData('reviewerFullName', $reviewer->getFullName());
-        $object->setData('reviewerUserName', $reviewer->getUserName());
-
-        if (!empty($object->getData('doiId'))) {
-            $object->setData(
-                'doiObject',
-                Repo::doi()->get($object->getData('doiId'))
-            );
-        }
+        $this->batchPopulator($row, $schema, $object, [$row->review_id], (object) []);
     }
 
     /**

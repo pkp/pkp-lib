@@ -61,6 +61,12 @@ class ScheduleTaskRunner
      * When scheduled tasks are executed at end-of-request, a gap between requests may cause
      * the runner to miss an execution interval. To avoid this, store the last run times by task name
      * and check these to determine whether to execute a task.
+     *
+     * This catch-up assumes the web based task runner is the only executor. Runs started from the
+     * CLI go through Laravel's own ScheduleRunCommand, which does not record into the last run store,
+     * so a system crontab configured alongside an enabled task runner will execute each infrequent
+     * task twice a day: once by cron at its boundary, and again here at the first request after it.
+     * Enable either the task runner or a crontab, not both.
      */
     public function run(): void
     {

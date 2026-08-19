@@ -31,7 +31,7 @@ class Collector implements CollectorInterface
 
     public ?array $contextIds = null;
 
-    public ?int $count = 30;
+    public ?int $count = null;
 
     public ?int $offset = 0;
 

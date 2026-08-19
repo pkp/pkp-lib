@@ -104,20 +104,21 @@ abstract class DAO extends EntityDAO
     {
         return LazyCollection::make(function () use ($query) {
             $queryBuilder = $query->getQueryBuilder();
-            $settings = null;
 
             $rows = $queryBuilder->get();
             $doiIds = $rows->pluck('doi_id')->all();
 
+            $cache = (object) [];
+
             foreach ($rows as $row) {
                 yield $row->doi_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, Doi $doi) use ($doiIds, &$settings): void {
-                        $settings ??= DB::table('doi_settings')
+                    function (object $row, object $schema, Doi $doi) use ($doiIds, $cache): void {
+                        $cache->settings ??= DB::table('doi_settings')
                             ->whereIn('doi_id', $doiIds)
                             ->get()
                             ->groupBy('doi_id');
-                        $settings->get($row->doi_id)
+                        $cache->settings->get($row->doi_id)
                             ?->each(fn ($row) => $this->populateSetting($row, $doi, $schema));
                     }
                 );

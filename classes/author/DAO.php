@@ -129,6 +129,28 @@ class DAO extends EntityDAO
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
+    protected function batchPopulator(object $row, object $schema, Author $author, array $authorIds, object $cache)
+    {
+        $cache->settings ??= DB::table('author_settings')
+            ->whereIn('author_id', $authorIds)
+            ->get()
+            ->groupBy('author_id');
+        $cache->settings->get($row->author_id)
+            ?->each(fn ($row) => $this->populateSetting($row, $author, $schema));
+
+        $author->setAffiliations(LazyCollection::make(function () use ($row, $authorIds, $cache) {
+            $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($authorIds))
+                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
+            yield from $cache->affiliations->get($row->author_id) ?? collect();
+        }));
+
+        $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($authorIds);
+        $author->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? []);
+
+        $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($authorIds);
+        $author->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? []);
+    }
+
     /**
      * Get a collection of publications matching the configured query
      *
@@ -138,33 +160,17 @@ class DAO extends EntityDAO
     {
         return LazyCollection::make(function () use ($query) {
             $queryBuilder = $query->getQueryBuilder();
-            $settings = $affiliations = $creditRoles = $contributorRoles = null;
 
             $rows = $queryBuilder->get();
             $authorIds = $rows->pluck('author_id')->all();
 
+            $cache = (object) [];
+
             foreach ($rows as $row) {
                 yield $row->author_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, Author $author) use ($authorIds, &$settings, &$affiliations, &$creditRoles, &$contributorRoles): void {
-                        $settings ??= DB::table('author_settings')
-                            ->whereIn('author_id', $authorIds)
-                            ->get()
-                            ->groupBy('author_id');
-                        $settings->get($row->author_id)
-                            ?->each(fn ($row) => $this->populateSetting($row, $author, $schema));
-
-                        $author->setAffiliations(LazyCollection::make(function () use ($row, $authorIds, &$affiliations) {
-                            $affiliations ??= collect(Repo::affiliation()->getByAuthorIds($authorIds))
-                                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
-                            yield from $affiliations->get($row->author_id) ?? collect();
-                        }));
-
-                        $creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($authorIds);
-                        $author->setCreditRoles($creditRoles->get($row->author_id)?->toArray() ?? []);
-
-                        $contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($authorIds);
-                        $author->setContributorRoles($contributorRoles->get($row->author_id)?->all() ?? []);
+                    function (object $row, object $schema, Author $author) use ($authorIds, $cache): void {
+                        $this->batchPopulator($row, $schema, $author, $authorIds, $cache);
                     }
                 );
             }
@@ -173,11 +179,7 @@ class DAO extends EntityDAO
 
     protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
     {
-        parent::individualPopulator($row, $schema, $object);
-
-        $object->setAffiliations(Repo::affiliation()->getByAuthorIds([$object->getId()]));
-        $object->setCreditRoles(Repo::creditContributorRole()->getCreditRolesByContributorId($object->getId()));
-        $object->setContributorRoles(Repo::creditContributorRole()->getContributorRolesByContributorId($object->getId()));
+        $this->batchPopulator($row, $schema, $object, [$row->author_id], (object) []);
     }
 
     /**

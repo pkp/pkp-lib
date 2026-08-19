@@ -103,28 +103,28 @@ class DAO extends EntityDAO
     {
         return LazyCollection::make(function () use ($query) {
             $queryBuilder = $query->getQueryBuilder();
-            $settings = $rorObjects = null;
 
             $rows = $queryBuilder->get();
             $authorAffiliationIds = $rows->pluck('author_affiliation_id')->toArray();
 
+            $cache = (object) [];
+
             foreach ($rows as $row) {
                 yield $row->author_affiliation_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, Affiliation $affiliation) use ($authorAffiliationIds, &$settings, &$rorObjects): void {
-                        $settings ??= DB::table('author_affiliation_settings')
+                    function (object $row, object $schema, Affiliation $affiliation) use ($authorAffiliationIds, $cache): void {
+                        $cache->settings ??= DB::table('author_affiliation_settings')
                             ->whereIn('author_affiliation_id', $authorAffiliationIds)
                             ->get()
                             ->groupBy('author_affiliation_id');
-                        $settings->get($row->author_affiliation_id)
+                        $cache->settings->get($row->author_affiliation_id)
                             ?->each(fn ($row) => $this->populateSetting($row, $affiliation, $schema));
 
-                        $rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($authorAffiliationIds)
+                        $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($authorAffiliationIds)
                             ->getMany()
                             ->collect()
                             ->groupBy(fn ($rorObject) => $rorObject->getRor());
-
-                        $affiliation->setData('rorObject', $rorObjects->get($row->ror)?->first());
+                        $affiliation->setData('rorObject', $cache->rorObjects->get($row->ror)?->first());
                     }
                 );
             }

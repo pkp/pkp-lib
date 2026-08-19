@@ -151,7 +151,9 @@ class CommandScheduler extends CommandLineTool
             return;
         }
 
-        $appTimezone = Config::getVar('general', 'timezone', 'UTC');
+        // Same resolved value the Schedule itself is built from, so what is listed here is what
+        // the runner will actually match against
+        $appTimezone = date_default_timezone_get();
         $now = Carbon::now($appTimezone);
         $terminalWidth = ScheduleListCommand::getTerminalWidth();
 
@@ -163,12 +165,11 @@ class CommandScheduler extends CommandLineTool
             }
         }
 
-        // The timezone applies to every task, so state it once here rather than on each row.
-        // Deliberately not naming the config key: the scheduler reads [general] timezone, which is
-        // absent from config.TEMPLATE.inc.php, while the documented and installer written key is
-        // [general] time_zone. Pointing admins at either one would mislead until they are reconciled.
+        // The timezone applies to every task, so state it once here rather than on each row
         $outputStyle->writeln('');
-        $outputStyle->writeln("  <fg=#6C7280>Timezone:</> {$appTimezone}");
+        $outputStyle->writeln(
+            "  <fg=#6C7280>Timezone:</> {$appTimezone} <fg=#6C7280>(config: general.time_zone)</>"
+        );
         $outputStyle->writeln('');
 
         foreach ($events as $event) {
@@ -189,11 +190,12 @@ class CommandScheduler extends CommandLineTool
                 (new CronExpression($event->getExpression()))->getNextRunDate(Carbon::now($eventTimezone))
             )->setTimezone($appTimezone);
 
-            // The reference time must be passed explicitly, otherwise the difference is measured
-            // against the real clock rather than the moment this listing was generated
+            // Cap the largest unit at days.
             $nextRunLabel = 'Next Run:';
-            $nextRunValue = $nextRun->format('M j, Y H:i')
-                . ' (in ' . $nextRun->diffForHumans($now, CarbonInterface::DIFF_ABSOLUTE) . ')';
+            $nextRunValue = $nextRun->format('M j, Y H:i') . ' (in ' . $nextRun->diffForHumans($now, [
+                'syntax' => CarbonInterface::DIFF_ABSOLUTE,
+                'skip' => ['week', 'month', 'year'],
+            ]) . ')';
 
             // Only worth stating when a task has opted out of the application wide timezone
             $timezoneNote = $eventTimezone === $appTimezone ? '' : " [{$eventTimezone}]";

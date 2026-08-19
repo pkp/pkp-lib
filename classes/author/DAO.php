@@ -154,9 +154,11 @@ class DAO extends EntityDAO
                         $settings->get($row->author_id)
                             ?->each(fn ($row) => $this->populateSetting($row, $author, $schema));
 
-                        $affiliations ??= collect(Repo::affiliation()->getByAuthorIds($authorIds))
-                            ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
-                        $author->setAffiliations($affiliations->get($row->author_id)?->toArray() ?? []);
+                        $author->setAffiliations(LazyCollection::make(function () use ($row, $authorIds, &$affiliations) {
+                            $affiliations ??= collect(Repo::affiliation()->getByAuthorIds($authorIds))
+                                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
+                            yield from $affiliations->get($row->author_id) ?? collect();
+                        }));
 
                         $creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($authorIds);
                         $author->setCreditRoles($creditRoles->get($row->author_id)?->toArray() ?? []);

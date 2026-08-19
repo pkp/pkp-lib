@@ -243,9 +243,11 @@ class Repository
             mailables\UserRoleMastheadUpdateNotify::class,
             mailables\ValidateEmailContext::class,
             mailables\ValidateEmailSite::class,
-            mailables\RequestReviewRoundAuthorResponse::class,
             mailables\SubmissionSavedForLater::class,
             mailables\SubmissionNeedsEditor::class,
+            mailables\ChangeProfileEmailInvitationNotify::class,
+            mailables\OrcidRequestUpdateScope::class,
+            mailables\SubmissionAcknowledgementOtherAuthors::class,
         ]);
     }
 }

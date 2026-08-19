@@ -88,20 +88,21 @@ class DAO extends EntityDAO
     {
         return LazyCollection::make(function () use ($query) {
             $queryBuilder = $query->getQueryBuilder();
-            $settings = null;
 
             $rows = $queryBuilder->get();
             $citationIds = $rows->pluck('citation_id')->all();
 
+            $cache = (object) [];
+
             foreach ($rows as $row) {
                 yield $row->citation_id => $this->fromRow(
                     $row,
-                    function (object $row, object $schema, Citation $citation) use ($citationIds, &$settings): void {
-                        $settings ??= DB::table('citation_settings')
+                    function (object $row, object $schema, Citation $citation) use ($citationIds, $cache): void {
+                        $cache->settings ??= DB::table('citation_settings')
                             ->whereIn('citation_id', $citationIds)
                             ->get()
                             ->groupBy('citation_id');
-                        $settings->get($row->citation_id)
+                        $cache->settings->get($row->citation_id)
                             ?->each(fn ($row) => $this->populateSetting($row, $citation, $schema));
                     }
                 );

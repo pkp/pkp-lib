@@ -36,6 +36,7 @@ class PKPPublication extends \PKP\core\DataObject
     public const STATUS_PUBLISHED = 3;
     public const STATUS_DECLINED = 4;
     public const STATUS_SCHEDULED = 5;
+    public const STATUS_WITHDRAWN = 6;
 
     /**
      * Get the valid pre-publish statuses if available

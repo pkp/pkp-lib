@@ -42,6 +42,7 @@ class DashboardView
     public const TYPE_SCHEDULED = 'scheduled';
     public const TYPE_PUBLISHED = 'published';
     public const TYPE_DECLINED = 'declined';
+    public const TYPE_WITHDRAWN = 'withdrawn';
 
     public const TYPE_REVIEWER_ACTION_REQUIRED = 'reviewer-action-required';
     public const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';

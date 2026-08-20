@@ -770,8 +770,10 @@ Sessions live server-side in the database; the expire-sessions tool is
 <a id="fn-n"></a>
 **n** — Administration → Site Settings security form
 (`PKPSiteSecurityForm`): `minPasswordLength`,
-`passwordUncompromisedEnabled` (Laravel `Password::uncompromised()` — needs
-outbound network access, so it cannot pass on a firewalled install),
+`passwordUncompromisedEnabled` (Laravel `Password::uncompromised()` —
+queries the external haveibeenpwned.com API; outbound HTTP fails fast at
+the test config's dead-port `[proxy]`, so the check cannot pass in the
+e2e env),
 `rateLimitEnabled` + `rateLimitMaxAttempts` (default 5) +
 `rateLimitDecaySeconds` (default 300) — read by `RateLimitingService`
 (note e). The form itself is the *Site settings* feature's. On-screen

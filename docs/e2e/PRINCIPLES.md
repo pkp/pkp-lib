@@ -210,7 +210,10 @@ features earn them.)
   `users[]` entries accept `orcid` + `orcidIsVerified`; submission scenario
   `author {orcid, orcidIsVerified}` (the submitter's contributor record).
   The iD keys are fixture-state seeding — the verified state is unreachable
-  through any UI on an egress-firewalled install (deliberate deviation: no
+  through any UI in the test env: outbound HTTP fails fast at the test
+  config's dead-port `[proxy]`, and the fleet ships dummy sandbox ORCID
+  credentials (`APP-TESTCLIENTID`) with no real ORCID account behind them,
+  so the OAuth verify flow can never complete (deliberate deviation: no
   token fields; see the parity ledger).
 
 **Rebuild acceptance** (PROGRESS restart step 1 is done when): bootstrap seeds

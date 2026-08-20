@@ -746,9 +746,10 @@ reviewer-list display: see note h.
 <a id="fn-s"></a>
 **s** — Scenario seeding: scratch journals/submissions via the scenario
 endpoints; ORCID enabled with dummy sandbox credentials (the OAuth exchange
-itself needs orcid.org, unreachable from the egress-firewalled test
-installs — scenario steps stop at the popup/emailed link, and deposit
-outcomes rest on code, notes g and j). Verified/unauthenticated iDs are
+itself needs orcid.org — outbound HTTP fails fast at the test config's
+dead-port `[proxy]`, and no real ORCID account backs the dummy
+`APP-TESTCLIENTID` pair — scenario steps stop at the popup/emailed link,
+and deposit outcomes rest on code, notes g and j). Verified/unauthenticated iDs are
 seeded directly (`user_settings`/`author_settings`: `orcid`,
 `orcidIsVerified` — recipe proven in the 2026-08-07 reviewer-list probe).
 Emails observed in Mailpit with per-test throwaway recipients.
@@ -772,8 +773,9 @@ key="orcid.authDenied"}`; no `msgid "orcid.authDenied"` exists in any
 `locale/` tree (the defined key is `orcid.verify.denied`, which nothing
 renders). Missing keys render as `##orcid.authDenied##`. Reaching the
 branch requires ORCID's consent screen returning `error=access_denied` with
-a valid email token — not reachable from the firewalled install, so the
-basis stays code.
+a valid email token — orcid.org is unreachable through the dead-port
+`[proxy]` (and no real account backs the dummy credentials), so the basis
+stays code.
 
 <a id="fn-a3"></a>
 **f-a3** — Note i: `AuthorizeUserData` case `register` only fills form

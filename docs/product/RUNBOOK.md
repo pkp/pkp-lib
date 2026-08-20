@@ -536,8 +536,10 @@ re-run it.
 - **Plugin-submodule alignment**: on a plugin "contains N abstract methods"
   fatal, align that submodule to the SHA root records (`git ls-tree HEAD
   plugins/<path>`).
-- **Env invariants**: egress firewalled; `[schedule] task_runner=Off`;
-  DTD/XSD mirrors via `XML_CATALOG_FILES`; Mailpit read-only scoped;
+- **Env invariants**: outbound HTTP blocked via dead-port `[proxy]` in
+  `config.test.inc.php` (reinstated 2026-08-20 — missing from the rebuild
+  before then; no OS-level firewall, no DTD/`XML_CATALOG_FILES` mirror);
+  `[schedule] task_runner=Off`; Mailpit read-only scoped;
   globally-scanning ops in serial specs.
 - **Git**: push only to `jardakotesovec` remotes, campaign branch `e2e_ng_2`
   (previously `e2e_ng`);

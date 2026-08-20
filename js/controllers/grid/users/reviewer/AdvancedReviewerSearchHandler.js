@@ -44,7 +44,8 @@
             this.initializeTinyMCE();
             this.handleReviewerAssign_($container, options, {
                 id: $container.find('input#reviewerId').val(),
-                fullName: options.reviewerName
+                fullName: options.reviewerName,
+                email: options.reviewerEmail
             });
         }
 	};
@@ -76,6 +77,8 @@
 	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.handleReviewerAssign_ = function ($container, options, reviewer) {
 		$('#reviewerId').val(reviewer.id);
 		$('[id^="selectedReviewerName"]').text(reviewer.fullName);
+		$('[id^="selectedReviewerEmail"]').text(reviewer.email ?
+				'— ' + reviewer.email : '');
 		$('#searchGridAndButton').hide();
 		$('#regularReviewerForm').show();
 

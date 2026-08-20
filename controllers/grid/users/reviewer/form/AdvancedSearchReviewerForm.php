@@ -230,6 +230,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         if ($this->reviewerSuggestion?->hasExistingReviewerRole) {
             $templateMgr->assign('reviewerName', $this->reviewerSuggestion->existingUser->getFullName());
+            $templateMgr->assign('reviewerEmail', $this->reviewerSuggestion->existingUser->getEmail());
         }
 
         $selectReviewerListPanel->set([

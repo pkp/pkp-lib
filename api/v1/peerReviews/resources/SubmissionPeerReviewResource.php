@@ -76,8 +76,8 @@ class SubmissionPeerReviewResource extends JsonResource
         $reviewRounds = $this->getPublicReviewRounds($submission);
         $roundIds = $reviewRounds->keys()->all();
 
-        // Get all accepted review assignments. Confirmed ones will be filtered and exposed to peer review API, while all reviews will be considered for summary.
-        $reviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()
+        // Get all accepted review assignments. Confirmed ones will be filtered and exposed to peer review API, while all accepted reviews will be considered for summary.
+        $acceptedReviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()
             ->getCollector()
             ->filterByReviewRoundIds($roundIds)
             ->filterByIsPubliclyVisible(true)
@@ -89,11 +89,11 @@ class SubmissionPeerReviewResource extends JsonResource
             ->collect();
 
         // Only confirmed reviews are to be exposed; however, all accepted reviews are to be considered when preparing summary further down
-        $confirmedReviewAssignments = $reviewAssignments->filter(
+        $confirmedReviewAssignments = $acceptedReviewAssignments->filter(
             fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateConsidered() !== null || $reviewAssignment->getDateAcknowledged() !== null
         );
 
-        $reviewsGroupedByRoundId = $confirmedReviewAssignments
+        $confirmedReviewsGroupedByRoundId = $confirmedReviewAssignments
             ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId());
 
         $roundResponses = empty($roundIds)
@@ -106,7 +106,7 @@ class SubmissionPeerReviewResource extends JsonResource
         /** @var ReviewRound $reviewRound */
         foreach ($reviewRounds as $reviewRound) {
             /** @var ?Enumerable $assignments */
-            $assignments = $reviewsGroupedByRoundId->get($reviewRound->getId());
+            $assignments = $confirmedReviewsGroupedByRoundId->get($reviewRound->getId());
 
             // Rounds without any publicly visible review are not part of the public record
             if (!$assignments || $assignments->isEmpty()) {
@@ -121,7 +121,10 @@ class SubmissionPeerReviewResource extends JsonResource
             /** @var ?AuthorResponse $currentRoundResponse */
             $currentRoundResponse = $roundResponses->get($reviewRound->getId())?->first();
 
-            $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($assignments);
+            $acceptedReviewsInRound = $acceptedReviewAssignments->filter(
+                fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId() === $reviewRound->getId()
+            );
+            $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($acceptedReviewsInRound);
 
             $roundsData->add([
                 'roundId' => $reviewRound->getId(),
@@ -142,7 +145,7 @@ class SubmissionPeerReviewResource extends JsonResource
         return [
             'submissionId' => $submission->getId(),
             'reviewRounds' => $roundsData->toArray(),
-            'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($reviewAssignments, $context),
+            'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($acceptedReviewAssignments, $context),
         ];
     }
 

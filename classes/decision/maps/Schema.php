@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/maps/Schema.php
  *
@@ -65,7 +66,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $type ? $type->getDescription() : '';
                     break;
                 case 'label':
-                    $output[$prop] = $type ? $type->getLabel() : '';
+                    $output[$prop] = $type ? $type->getLabel(submission: Repo::submission()->get((int) $item->getData('submissionId'))) : '';
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

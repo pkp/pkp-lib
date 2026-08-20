@@ -133,7 +133,9 @@ abstract class Plugin
 
         Hook::add('Installer::postInstall', $this->installFilters(...));
 
-        $this->_registerTemplateResource();
+        if (!is_a($this, ThemePlugin::class)) {
+            $this->_registerTemplateResource();
+        }
         return true;
     }
 

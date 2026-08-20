@@ -483,6 +483,12 @@ msgstr "This review will be made publicly visible alongside the article."
 msgid "editor.review.confirmReview.button"
 msgstr "Confirm Review"
 
+msgid "editor.review.confirmReview.success"
+msgstr "The review has been confirmed."
+
+msgid "editor.review.confirmReview.incomplete"
+msgstr "This review is incomplete and cannot be confirmed yet."
+
 msgid "editor.review.saveChanges.title"
 msgstr "Save changes to this review?"
 

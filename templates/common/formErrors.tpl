@@ -8,18 +8,20 @@
  * List errors that occurred during form processing.
  *}
 {if $isError}
-	<div id="formErrors">
-		<span class="pkp_form_error">{translate key="form.errorsOccurred"}:</span>
+	<div id="formErrors" tabindex="-1" role="alert" aria-labelledby="formErrorsLabel">
+		<span id="formErrorsLabel" class="pkp_form_error">{translate key="form.errorsOccurred"}:</span>
 		<ul class="pkp_form_error_list">
 		{foreach key=field item=message from=$errors}
-			<li><a href="#{$field|escape}">{$message}</a></li>
+			<li id="formError-{$field|escape}"><a href="#{$field|escape}">{$message}</a></li>
 		{/foreach}
 		</ul>
 	</div>
 	<script>{literal}
 		<!--
-		// Jump to form errors.
+		// Move focus to form errors so assistive technology users land
+		// where the validation feedback is displayed.
 		window.location.hash="formErrors";
+		document.getElementById("formErrors").focus();
 		// -->
 	{/literal}</script>
 {/if}

@@ -1107,6 +1107,7 @@ class GridHandler extends PKPHandler
      */
     protected function callFeaturesHook($hookName, $args)
     {
+        Hook::call('GridHandler::' . $hookName, $args);
         $features = $this->getFeatures();
         if (is_array($features)) {
             foreach ($features as &$feature) {

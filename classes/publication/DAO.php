@@ -154,11 +154,6 @@ class DAO extends EntityDAO
             ->count();
     }
 
-    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
-    {
-        $this->batchPopulator($row, $schema, $object, [$row->publication_id], (object) []);
-    }
-
     /**
      * @copydoc EntityDAO::fromRow()
      */
@@ -456,7 +451,7 @@ class DAO extends EntityDAO
      */
     protected function saveCategories(Publication $publication): void
     {
-        $categoryIds = (array) $publication->getData('categoryIds');
+        $categoryIds = iterator_to_array($publication->getData('categoryIds') ?? []);
         Repo::publication()->assignCategoriesToPublication($publication->getId(), $categoryIds);
     }
 

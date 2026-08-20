@@ -146,7 +146,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $anonymizeAuthors ? '' : $publication->getShortAuthorString();
                     break;
                 case 'categoryIds':
-                    $output[$prop] = $publication->getData('categoryIds');
+                    $output[$prop] = iterator_to_array($publication->getData('categoryIds'));
                     break;
                 case 'citations':
                     $data = [];

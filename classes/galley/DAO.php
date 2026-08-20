@@ -148,7 +148,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
         if (!$row) {
             return null;
         }
-        return $this->fromRow($row);
+        return $this->fromRow($row, [$id], (object) []);
     }
 
     /** @copydoc RepresentationDAOInterface::getByPublicationId() */
@@ -341,6 +341,14 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
         );
 
         $result = $this->deprecatedDao->retrieveRange($q, [], $rangeInfo);
-        return new DAOResultFactory($result, $this, 'fromRow', [], $q, [], $rangeInfo);
+        return new DAOResultFactory($result, $this, 'fromRowDeprecated', [], $q, [], $rangeInfo);
+    }
+
+    /**
+     * DEPRECATED: Remove me once getExportable is refactored/removed
+     */
+    public function fromRowDeprecated($row): Galley
+    {
+        return $this->fromRow($row, [$row->galley_id], (object) []);
     }
 }

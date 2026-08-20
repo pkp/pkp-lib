@@ -392,6 +392,7 @@ class PKPTemplateManager extends Smarty
 
         // Load form builder vocabulary
         $fbv = $this->getFBV();
+        $this->registerPlugin('block', 'pkpBlock', $fbv->smartyPKPBlock(...));
         $this->registerPlugin('block', 'fbvFormSection', $fbv->smartyFBVFormSection(...));
         $this->registerPlugin('block', 'fbvFormArea', $fbv->smartyFBVFormArea(...));
         $this->registerPlugin('function', 'fbvFormButtons', $fbv->smartyFBVFormButtons(...));

@@ -62,6 +62,18 @@ use Exception;
 
 class FormBuilderVocabulary
 {
+    /** @var string Block ids to hide. ['changePasswordFormArea' => true] */
+    public const TPL_VAR_FORM_HIDDEN = 'fbvFormHidden';
+
+    /** @var string Fields to make readonly. [IdentityForm::class => ['givenName' => true]] */
+    public const TPL_VAR_FIELD_READONLY = 'fbvFieldReadonly';
+
+    /** @var string Fields to make disabled */
+    public const TPL_VAR_FIELD_DISABLED = 'fbvFieldDisabled';
+
+    /** @var string Fields to hide */
+    public const TPL_VAR_FIELD_HIDDEN = 'fbvFieldHidden';
+
     /** @var Form associated with this object, if any.  Will inform smarty which forms to label as required */
     public $_form;
 
@@ -109,6 +121,61 @@ class FormBuilderVocabulary
     }
 
     /**
+     * A named region a plugin can hide via TPL_VAR_FORM_HIDDEN. Adds no markup of its own.
+     */
+    public function smartyPKPBlock(array $params, ?string $content, object $smarty, bool &$repeat)
+    {
+        if (!isset($params['id'])) {
+            throw new Exception('pkpBlock: id not set');
+        }
+
+        if ($repeat) {
+            if ($this->isBlockHidden($smarty, $params['id'])) {
+                $repeat = false;
+            }
+
+            return '';
+        }
+
+        return $content ?? '';
+    }
+
+    /**
+     * Whether a block id appears in the TPL_VAR_FORM_HIDDEN map.
+     */
+    private function isBlockHidden(object $smarty, string $blockId): bool
+    {
+        $hidden = $smarty->getTemplateVars(self::TPL_VAR_FORM_HIDDEN);
+
+        return is_array($hidden) && !empty($hidden[$blockId]);
+    }
+
+    /**
+     * Whether a field is flagged in one of the TPL_VAR_FIELD_* maps. Keyed by the class of the
+     * form being fetched, so a flag cannot leak into another form in the same request.
+     */
+    private function isFieldFlagged(object $smarty, string $tplVar, string $fieldId): bool
+    {
+        $form = $this->getForm();
+        if (!$form) {
+            return false;
+        }
+
+        $map = $smarty->getTemplateVars($tplVar);
+        if (!is_array($map)) {
+            return false;
+        }
+
+        foreach ($map as $formClass => $fields) {
+            if (is_string($formClass) && is_array($fields) && !empty($fields[$fieldId]) && $form instanceof $formClass) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Get the form style constants
      *
      * @return array
@@ -133,6 +200,12 @@ class FormBuilderVocabulary
     public function smartyFBVFormArea($params, $content, $smarty, &$repeat)
     {
         assert(isset($params['id']));
+        if ($repeat && $this->isBlockHidden($smarty, $params['id'])) {
+            $repeat = false;
+
+            return '';
+        }
+
         if (!$repeat) {
             $smarty->assign([
                 'FBV_class' => $params['class'] ?? null,
@@ -157,6 +230,16 @@ class FormBuilderVocabulary
     public function smartyFBVFormSection($params, $content, $smarty, &$repeat)
     {
         $form = $this->getForm();
+        if ($repeat && isset($params['id']) && $this->isBlockHidden($smarty, $params['id'])) {
+            if (isset($form)) {
+                $form->formSectionErrors = [];
+            }
+
+            $repeat = false;
+
+            return '';
+        }
+
         if (!$repeat) {
             $smarty->assign('FBV_required', $params['required'] ?? false);
             $smarty->assign('FBV_id', $params['id'] ?? null);
@@ -224,11 +307,17 @@ class FormBuilderVocabulary
     /**
      * Submit and (optional) cancel button for a form.
      *
+     * Pass params['id'] to make the button bar hidden via TPL_VAR_FORM_HIDDEN.
+     *
      * @param array $params
      * @param object $smarty
      */
     public function smartyFBVFormButtons($params, $smarty)
     {
+        if (isset($params['id']) && $this->isBlockHidden($smarty, $params['id'])) {
+            return '';
+        }
+
         $smarty->assign([
             'FBV_submitText' => $params['submitText'] ?? 'common.ok',
             'FBV_submitDisabled' => isset($params['submitDisabled']) ? (bool)$params['submitDisabled'] : false,
@@ -259,6 +348,18 @@ class FormBuilderVocabulary
         }
         if (!isset($params['id'])) {
             throw new Exception('FBV: Element ID not set');
+        }
+
+        if ($this->isFieldFlagged($smarty, self::TPL_VAR_FIELD_HIDDEN, $params['id'])) {
+            return '';
+        }
+
+        if ($this->isFieldFlagged($smarty, self::TPL_VAR_FIELD_READONLY, $params['id'])) {
+            $params['readonly'] = true;
+        }
+
+        if ($this->isFieldFlagged($smarty, self::TPL_VAR_FIELD_DISABLED, $params['id'])) {
+            $params['disabled'] = true;
         }
 
         // Set up the element template

@@ -17,6 +17,8 @@
 <form class="pkp_form" id="changePasswordForm" method="post" action="{url op="savePassword"}">
 	{csrf}
 
+	{call_hook name="User::ChangePassword::BeforeFields"}
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="changePasswordFormNotification"}
 
 	<p><span class="instruct">{translate key="user.profile.changePasswordInstructions"}</span></p>
@@ -36,6 +38,6 @@
 			{translate key="user.privacyLink" privacyUrl=$privacyUrl}
 		</p>
 
-		{fbvFormButtons submitText="common.save"}
+		{fbvFormButtons id="changePasswordFormButtons" submitText="common.save"}
 	{/fbvFormArea}
 </form>

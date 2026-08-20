@@ -213,6 +213,12 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
                 case 'licenseUrl':
                     $publication->setData('licenseUrl', $n->textContent);
                     break;
+                case 'contextPrimaryLocale':
+                    $publication->setData('contextPrimaryLocale', $n->textContent);
+                    break;
+                case 'publisherLocation':
+                    $publication->setData('publisherLocation', $n->textContent);
+                    break;
                 default:
                     $deployment = $this->getDeployment();
                     $deployment->addWarning(Application::ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
@@ -346,6 +352,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             'source',
             'rights',
             'copyrightHolder',
+            'contextName',
         ];
     }
 

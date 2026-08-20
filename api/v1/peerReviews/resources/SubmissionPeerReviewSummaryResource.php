@@ -30,6 +30,7 @@ use PKP\submission\reviewRound\ReviewRound;
 
 class SubmissionPeerReviewSummaryResource extends JsonResource
 {
+    use CachesSubmissionPeerReviewData;
     use ReviewerRecommendationSummary;
 
     public function toArray(Request $request)
@@ -39,19 +40,9 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
 
         // Summarize only what the full peer review record exposes: reviews from
         // rounds whose reviewed publication version is published
-        $publicReviewRounds = $this->getPublicReviewRounds($submission);
-        $roundIds = $publicReviewRounds->keys()->all();
-
-        $reviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds($roundIds)
-            ->filterByIsPubliclyVisible(true)
-            ->filterByIsAccepted(true)
-            ->getMany()
-            ->collect();
-
-        $contextDao = Application::getContextDAO();
-        /** @var Context $context */
-        $context = $contextDao->getById($submission->getData('contextId'));
+        $publicReviewRounds = $this->getPublicReviewRounds();
+        $reviewAssignments = $this->getPublicAcceptedReviewAssignments();
+        $context = $this->getContext();
 
         return [
             'submissionId' => $submission->getId(),

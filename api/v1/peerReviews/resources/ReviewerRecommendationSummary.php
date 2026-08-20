@@ -30,25 +30,7 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 
 trait ReviewerRecommendationSummary
 {
-    /**
-     * Get the review rounds that are part of the public peer review record.
-     * Only rounds whose reviewed publication version is published are included;
-     * rounds of an unpublished (in-review) version stay hidden.
-     *
-     * @return Collection<int, ReviewRound> Review rounds keyed by review round ID
-     */
-    private function getPublicReviewRounds(Submission $submission): Collection
-    {
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-
-        $publishedPublicationIds = collect($submission->getPublishedPublications())
-            ->map(fn (Publication $publication) => $publication->getId());
-
-        return collect($reviewRoundDao->getBySubmissionId($submission->getId())->toAssociativeArray())
-            ->filter(fn (ReviewRound $reviewRound) => $reviewRound->getPublicationId() !== null
-                && $publishedPublicationIds->contains((int) $reviewRound->getPublicationId()));
-    }
+    abstract private function getAvailableRecommendationTypes(): Collection;
 
     /**
      * Aggregates reviewer recommendations into summary counts.
@@ -76,9 +58,7 @@ trait ReviewerRecommendationSummary
     {
         $responses = collect();
 
-        $availableRecommendationTypes = ReviewerRecommendation::withContextId($context->getId())
-            ->get()
-            ->keyBy('reviewerRecommendationId');
+        $availableRecommendationTypes = $this->getAvailableRecommendationTypes();
 
         foreach ($reviewAssignmentsGroupedByRoundId as $reviews) {
             /** @var ReviewAssignment $review */

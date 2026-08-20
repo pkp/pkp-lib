@@ -26,6 +26,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\dataCitation\DataCitation;
 use PKP\funder\Funder;
@@ -108,28 +109,23 @@ class DAO extends EntityDAO
             ->when($submissionId !== null, fn (Builder $query) => $query->where('s.submission_id', '=', $submissionId))
             ->select(['p.*', 's.locale AS submission_locale'])
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
-    protected function batchPopulator(object $row, object $schema, PKPPublication $publication, array $publicationIds, object $cache): void
+    protected function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
     {
-        $cache->settings ??= DB::table('publication_settings')
-            ->whereIn('publication_id', $publicationIds)
-            ->get()
-            ->groupBy('publication_id');
-        $cache->settings->get($row->publication_id)
-            ?->each(fn ($row) => $this->populateSetting($row, $publication, $schema));
+        parent::populate($row, $schema, $object, $ids, $cache);
 
-        $publication->setData('authors', LazyCollection::make(function () use ($row, $publicationIds, $cache) {
-            $cache->authors ??= Repo::author()->getCollector()->filterByPublicationIds($publicationIds)
+        $object->setData('authors', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->authors ??= Repo::author()->getCollector()->filterByPublicationIds($ids)
                 ->getMany()
                 ->collect()
                 ->groupBy(fn ($author) => $author->getData('publicationId'));
             yield from $cache->authors->get($row->publication_id) ?? [];
         })->remember());
 
-        $publication->setData('categoryIds', LazyCollection::make(function () use ($row, $publicationIds, $cache) {
-            $cache->categoryIds ??= PublicationCategory::withPublicationIds($publicationIds)
+        $object->setData('categoryIds', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->categoryIds ??= PublicationCategory::withPublicationIds($ids)
                 ->get()
                 ->collect()
                 ->mapToGroups(fn ($publicationCategory, $key) => [$publicationCategory->publicationId => $publicationCategory->categoryId]);
@@ -137,7 +133,7 @@ class DAO extends EntityDAO
         })->remember());
 
         $cache->controlledVocabs ??= ControlledVocabEntry::query()
-            ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationIds))
+            ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $ids))
             ->get()
             ->groupBy(fn ($cve) => $cve->controlledVocab->assocId);
         $publicationControlledVocabs = $cache->controlledVocabs->get($row->publication_id) ?? collect();
@@ -154,46 +150,21 @@ class DAO extends EntityDAO
                     $entries[$locale][] = $entry->getEntryData($locale);
                 }
             }
-            $publication->setData($dataName, $entries);
+            $object->setData($dataName, $entries);
         }
 
-        $publication->setData('dataCitations', LazyCollection::make(function () use ($row, $publicationIds, $cache) {
-            $cache->dataCitations ??= DataCitation::withPublicationIds($publicationIds)
+        $object->setData('dataCitations', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->dataCitations ??= DataCitation::withPublicationIds($ids)
                 ->get()
                 ->collect()
                 ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
             yield from $cache->dataCitations->get($row->publication_id) ?? [];
         }));
 
-        $publication->setData('citations', LazyCollection::make(function () use ($row, $publicationIds, $cache) {
-            $cache->citations ??= Repo::citation()->getByPublicationIds($publicationIds)->groupBy(fn ($citation) => $citation->getData('publicationId'));
+        $object->setData('citations', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->citations ??= Repo::citation()->getByPublicationIds($ids)->groupBy(fn ($citation) => $citation->getData('publicationId'));
             yield from $cache->citations->get($row->publication_id) ?? [];
         }));
-    }
-
-    /**
-     * Get a collection of publications matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $queryBuilder = $query->getQueryBuilder();
-            $rows = $queryBuilder->get();
-            $publicationIds = $rows->pluck('publication_id')->all();
-
-            $cache = (object) [];
-
-            foreach ($rows as $row) {
-                yield $row->publication_id => $this->fromRow(
-                    $row,
-                    function (object $row, object $schema, PKPPublication $publication) use ($publicationIds, $cache): void {
-                        $this->batchPopulator($row, $schema, $publication, $publicationIds, $cache);
-                    }
-                );
-            }
-        });
     }
 
     /**
@@ -246,10 +217,10 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row, ?callable $populator = null): Publication
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Publication
     {
         /** @var Publication $publication */
-        $publication = parent::fromRow($row, $populator);
+        $publication = parent::fromRow($row, $ids, $cache, $query);
 
         $this->setDoiObject($publication);
 

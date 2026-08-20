@@ -97,25 +97,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of institutions matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->select(['i.*'])
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->institution_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
      * Get a collection of deleted institutions matching the configured query
      */
     public function getSoftDeleted(Collector $query): LazyCollection
@@ -137,10 +118,10 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row, ?callable $populator = null): Institution
+    public function fromRow(object $row, array $ids, object $cache): Institution
     {
         /** @var Institution */
-        $institution = parent::fromRow($row, $populator);
+        $institution = parent::fromRow($row, $ids, $cache);
 
         $ipRanges = DB::table('institution_ip')
             ->where($this->primaryKeyColumn, '=', $institution->getId())

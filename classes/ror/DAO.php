@@ -21,8 +21,8 @@ namespace PKP\ror;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -79,7 +79,7 @@ class DAO extends EntityDAO
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -105,28 +105,10 @@ class DAO extends EntityDAO
             ->pluck('r.' . $this->primaryKeyColumn);
     }
 
-    /**
-     * Get a collection of rors matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->ror_id => $this->fromRow($row);
-            }
-        });
-    }
-
     /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row, ?callable $populator = null): Ror
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Ror
     {
-        return parent::fromRow($row, $populator);
+        return parent::fromRow($row, $ids, $cache, $query);
     }
 
     /** @copydoc EntityDAO::insert() */
@@ -172,7 +154,7 @@ class DAO extends EntityDAO
             ->where('ror', '=', $ror)
             ->first();
 
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$row->ror_id], (object) []) : null;
     }
 
     /**

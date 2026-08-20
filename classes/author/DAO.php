@@ -24,6 +24,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Repo;
 use PKP\services\PKPSchemaService;
 
@@ -89,7 +90,7 @@ class DAO extends EntityDAO
             ->when($publicationId !== null, fn (Builder $query) => $query->where('a.publication_id', '=', $publicationId))
             ->select(['a.*', 's.locale AS submission_locale'])
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -129,52 +130,21 @@ class DAO extends EntityDAO
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
-    protected function batchPopulator(object $row, object $schema, Author $author, array $authorIds, object $cache)
+    protected function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
     {
-        $cache->settings ??= DB::table('author_settings')
-            ->whereIn('author_id', $authorIds)
-            ->get()
-            ->groupBy('author_id');
-        $cache->settings->get($row->author_id)
-            ?->each(fn ($row) => $this->populateSetting($row, $author, $schema));
+        parent::populate($row, $schema, $object, $ids, $cache);
 
-        $author->setAffiliations(LazyCollection::make(function () use ($row, $authorIds, $cache) {
-            $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($authorIds))
+        $object->setAffiliations(LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($ids))
                 ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
             yield from $cache->affiliations->get($row->author_id) ?? collect();
         }));
 
-        $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($authorIds);
-        $author->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? []);
+        $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($ids);
+        $object->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? []);
 
-        $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($authorIds);
-        $author->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? []);
-    }
-
-    /**
-     * Get a collection of publications matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $queryBuilder = $query->getQueryBuilder();
-
-            $rows = $queryBuilder->get();
-            $authorIds = $rows->pluck('author_id')->all();
-
-            $cache = (object) [];
-
-            foreach ($rows as $row) {
-                yield $row->author_id => $this->fromRow(
-                    $row,
-                    function (object $row, object $schema, Author $author) use ($authorIds, $cache): void {
-                        $this->batchPopulator($row, $schema, $author, $authorIds, $cache);
-                    }
-                );
-            }
-        });
+        $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($ids);
+        $object->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? []);
     }
 
     protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
@@ -185,9 +155,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row, ?callable $populator = null): Author
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Author
     {
-        $author = parent::fromRow($row, $populator);
+        $author = parent::fromRow($row, $ids, $cache, $query);
 
         // Set the primary locale from the submission
         $author->setData('submissionLocale', $row->submission_locale);

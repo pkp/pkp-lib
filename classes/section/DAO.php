@@ -21,7 +21,6 @@ namespace PKP\section;
 use APP\section\Section;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 
@@ -68,24 +67,6 @@ abstract class DAO extends EntityDAO
             ->getQueryBuilder()
             ->select($this->primaryKeyColumn)
             ->pluck($this->primaryKeyColumn);
-    }
-
-    /**
-     * Get a collection of sections matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->{$this->primaryKeyColumn} => $this->fromRow($row);
-            }
-        });
     }
 
     public function insert(Section $section): int

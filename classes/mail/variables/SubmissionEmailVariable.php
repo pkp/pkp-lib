@@ -18,11 +18,15 @@ namespace PKP\mail\variables;
 
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\Arr;
 use PKP\author\Author;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
+use PKP\db\DAORegistry;
 use PKP\mail\Mailable;
+use PKP\security\Role;
+use PKP\security\RoleDAO;
 
 abstract class SubmissionEmailVariable extends Variable
 {
@@ -118,9 +122,21 @@ abstract class SubmissionEmailVariable extends Variable
     }
 
     /**
-     * URL to a current workflow stage of the submission
+     * URL to the submission, chosen per recipient: the author dashboard for
+     * author-only recipients, otherwise the editorial workflow.
+     *
+     * Falls back to the editorial workflow when no recipient context is
+     * available (e.g. when previewing variables in the template editor), to
+     * preserve historical behaviour.
      */
     protected function getSubmissionUrl(Context $context): string
+    {
+        return $this->shouldUseAuthorSubmissionUrl($context)
+            ? $this->getAuthorSubmissionUrl($context)
+            : $this->getEditorialWorkflowUrl($context);
+    }
+
+    protected function getEditorialWorkflowUrl(Context $context): string
     {
         $application = PKPApplication::get();
         $request = $application->getRequest();
@@ -133,6 +149,47 @@ abstract class SubmissionEmailVariable extends Variable
             'access',
             $this->submission->getId()
         );
+    }
+
+    /**
+     * True iff every recipient of the mailable can only reach the submission
+     * via the author dashboard (i.e. none has an editorial role in the context
+     * and at least one has the author role).
+     */
+    protected function shouldUseAuthorSubmissionUrl(Context $context): bool
+    {
+        $recipientVariable = Arr::first($this->mailable->getVariables(), function (Variable $variable) {
+            return $variable instanceof RecipientEmailVariable;
+        });
+        if (!$recipientVariable) {
+            return false;
+        }
+        $recipients = $recipientVariable->getRecipients();
+
+        /** @var RoleDAO $roleDao */
+        $roleDao = DAORegistry::getDAO('RoleDAO');
+        $contextId = $context->getId();
+        $editorialRoles = [
+            Role::ROLE_ID_SITE_ADMIN,
+            Role::ROLE_ID_MANAGER,
+            Role::ROLE_ID_SUB_EDITOR,
+            Role::ROLE_ID_ASSISTANT,
+        ];
+
+        $authorPresent = false;
+        foreach ($recipients as $recipient) {
+            $userId = $recipient->getId();
+            if (!$userId) {
+                continue;
+            }
+            if ($roleDao->userHasRole($contextId, $userId, $editorialRoles)) {
+                return false;
+            }
+            if ($roleDao->userHasRole($contextId, $userId, Role::ROLE_ID_AUTHOR)) {
+                $authorPresent = true;
+            }
+        }
+        return $authorPresent;
     }
 
     /**

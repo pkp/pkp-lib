@@ -26,6 +26,7 @@ use APP\submission\DAO;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
 use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
@@ -91,9 +92,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, ?int $contextId = null): ?Submission
+    public function get(int $id, ?int $contextId = null, bool $useCache = false): ?Submission
     {
-        return $this->dao->get($id, $contextId);
+        if ($useCache) {
+            return Cache::remember("submission-{$id}-{$contextId}", 60 * 60 * 24, fn () => $this->dao->get($id, $contextId, true));
+        } else {
+            return $this->dao->get($id, $contextId);
+        }
     }
 
     /** @copydoc DAO::getCollector() */
@@ -115,11 +120,11 @@ abstract class Repository
      * Get a submission by "best" submission id -- url path if it exists,
      * falling back on the internal submission ID otherwise.
      */
-    public function getByBestId(string $idOrUrlPath, ?int $contextId = null): ?Submission
+    public function getByBestId(string $idOrUrlPath, ?int $contextId = null, bool $useCache = false): ?Submission
     {
         return ctype_digit((string) $idOrUrlPath)
-            ? $this->get((int) $idOrUrlPath, $contextId)
-            : $this->getByUrlPath($idOrUrlPath, $contextId);
+            ? $this->get((int) $idOrUrlPath, $contextId, $useCache)
+            : $this->getByUrlPath($idOrUrlPath, $contextId, $useCache);
     }
 
     /**
@@ -128,12 +133,12 @@ abstract class Repository
      * This returns a submission if any of its publications have a
      * matching urlPath.
      */
-    public function getByUrlPath(string $urlPath, int $contextId): ?Submission
+    public function getByUrlPath(string $urlPath, int $contextId, bool $useCache = false): ?Submission
     {
         $submissionId = $this->dao->getIdByUrlPath($urlPath, $contextId);
 
         return $submissionId
-            ? $this->get($submissionId)
+            ? $this->get($submissionId, $contextId, $useCache)
             : null;
     }
 

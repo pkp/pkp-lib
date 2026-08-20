@@ -19,6 +19,7 @@
 namespace PKP\submission;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
@@ -28,27 +29,19 @@ use PKP\plugins\Hook;
 class GenreDAO extends DAO
 {
     /**
-     * Retrieve a genre by type id.
-     *
-     * @param int $genreId
-     *
-     * @return Genre
+     * Retrieve a genre by id.
      */
-    public function getById($genreId, ?int $contextId = null)
+    public function getById($genreId, ?int $contextId = null, bool $useCache = false): ?Genre
     {
-        $params = [(int) $genreId];
-        if ($contextId) {
-            $params[] = $contextId;
-        }
+        $getById = DB::table('genres')
+            ->when($contextId !== null, fn ($q) => $q->where('context_id', $contextId))
+            ->where('genre_id', $genreId)
+            ->orderBy('seq')
+            ->map(fn ($row) => $this->_fromRow((array) $row))
+            ->first();
 
-        $result = $this->retrieve(
-            'SELECT * FROM genres WHERE genre_id = ?' .
-            ($contextId ? ' AND context_id = ?' : '') .
-            ' ORDER BY seq',
-            $params
-        );
-        $row = $result->current();
-        return $row ? $this->_fromRow((array) $row) : null;
+        return $useCache ? Cache::remember("genre-{$genreId}-{$contextId}", 60 * 60 * 24, $getById)
+            : $getById();
     }
 
     /**
@@ -94,43 +87,38 @@ class GenreDAO extends DAO
 
     /**
      * Retrieve genres based on whether they are supplementary or not.
-     *
-     * @param bool $supplementaryFilesOnly
-     * @param ?\PKP\db\DBResultRange $rangeInfo optional
-     *
-     * @return DAOResultFactory<Genre>
      */
-    public function getBySupplementaryAndContextId($supplementaryFilesOnly, int $contextId, $rangeInfo = null)
+    public function getBySupplementaryAndContextId(bool $supplementaryFilesOnly, int $contextId, $useCache = false): array
     {
-        $result = $this->retrieveRange(
-            'SELECT * FROM genres
-			WHERE enabled = ? AND context_id = ? AND supplementary = ?
-			ORDER BY seq',
-            [1, $contextId, (int) $supplementaryFilesOnly],
-            $rangeInfo
-        );
+        $getGenres = fn () => DB::table('genres')
+            ->where('enabled', 1)
+            ->where('context_id', $contextId)
+            ->where('supplementary', $supplementaryFilesOnly)
+            ->orderBy('seq')
+            ->get()
+            ->map(fn ($row) => $this->_fromRow((array) $row))
+            ->all();
 
-        return new DAOResultFactory($result, $this, '_fromRow', ['id']);
+        return $useCache ? Cache::remember("genres-supplementaryandcontext-{$supplementaryFilesOnly}-{$contextId}", 60 * 60 * 24, $getGenres) :
+            $getGenres();
     }
 
     /**
      * Retrieve genres that are not supplementary or dependent.
-     *
-     * @param ?\PKP\db\DBResultRange $rangeInfo optional
-     *
-     * @return DAOResultFactory<Genre>
      */
-    public function getPrimaryByContextId(int $contextId, $rangeInfo = null)
+    public function getPrimaryByContextId(int $contextId, $useCache = false): array
     {
-        $result = $this->retrieveRange(
-            'SELECT * FROM genres
-			WHERE enabled = ? AND context_id = ? AND dependent = ? AND supplementary = ?
-			ORDER BY seq',
-            [1, $contextId, 0, 0],
-            $rangeInfo
-        );
+        $getGenres = fn () => DB::table('genres')
+            ->where('enabled', 1)
+            ->where('context_id', $contextId)
+            ->where('dependent', 0)
+            ->where('supplementary', 0)
+            ->get()
+            ->map(fn ($row) => $this->_fromRow((array) $row))
+            ->all();
 
-        return new DAOResultFactory($result, $this, '_fromRow', ['id']);
+        return $useCache ? Cache::remember("genres-primarybycontext-{$supplementaryFilesOnly}-{$contextId}", 60 * 60 * 24, $getGenres) :
+            $getGenres();
     }
 
     /**

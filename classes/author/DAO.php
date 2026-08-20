@@ -149,7 +149,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Author
+    public function fromRow(object $row, bool $cacheable = false): Author
     {
         $author = parent::fromRow($row);
 

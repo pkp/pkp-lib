@@ -14,16 +14,12 @@
 
 namespace PKP\controlledVocab;
 
-use APP\core\Application;
 use Illuminate\Support\Arr;
-use PKP\controlledVocab\ControlledVocab;
-use PKP\controlledVocab\ControlledVocabEntry;
-use PKP\publication\PKPPublication;
+use Illuminate\Support\Facades\Cache;
 
 class Repository
 {
-
-    const AS_ENTRY_DATA = true;
+    public const AS_ENTRY_DATA = true;
 
     /**
      * Fetch a Controlled Vocab by symbolic info, building it if needed.
@@ -32,12 +28,11 @@ class Repository
         string $symbolic,
         int $assocType,
         ?int $assocId
-    ): ControlledVocab
-    {
+    ): ControlledVocab {
         return ControlledVocab::query()
             ->withSymbolics([$symbolic])
             ->withAssoc($assocType, $assocId)
-            ->firstOr(fn() => ControlledVocab::create([
+            ->firstOr(fn () => ControlledVocab::create([
                 'assocType' => $assocType,
                 'assocId' => $assocId,
                 'symbolic' => $symbolic,
@@ -52,25 +47,27 @@ class Repository
         int $assocType,
         ?int $assocId,
         ?array $locales = [],
-        bool $asEntryData = Repository::AS_ENTRY_DATA
+        bool $asEntryData = Repository::AS_ENTRY_DATA,
+        bool $cacheable = false
     ): array {
-        $result = [];
-
-        ControlledVocabEntry::query()
+        $getFromDatabase = fn () => ControlledVocabEntry::query()
             ->whereHas(
                 'controlledVocab',
                 fn ($query) => $query->withSymbolics([$symbolic])->withAssoc($assocType, $assocId)
             )
             ->when(!empty($locales), fn ($query) => $query->withLocales($locales))
-            ->get()
-            ->each(function ($entry) use (&$result, $asEntryData) {
-                foreach ($entry->name as $locale => $value) {
-                    $result[$locale][] = $asEntryData
-                        ? $entry->getEntryData($locale)
-                        : $value;
-                }
-            });
+            ->get();
 
+        $controlledVocabs = $cacheable ? Cache::remember("controlledVocab-{$symbolic}-{$assocType}-{$assocId}", 60 * 60 * 24, $getFromDatabase(...)) : $getFromDatabase();
+
+        $result = [];
+        $controlledVocabs->each(function ($entry) use (&$result, $asEntryData) {
+            foreach ($entry->name as $locale => $value) {
+                $result[$locale][] = $asEntryData
+                    ? $entry->getEntryData($locale)
+                    : $value;
+            }
+        });
         return $result;
     }
 
@@ -83,10 +80,9 @@ class Repository
         int $assocType,
         ?int $assocId,
         bool $deleteFirst = true,
-    ): void
-    {
+    ): void {
         $controlledVocab = $this->build($symbolic, $assocType, $assocId);
-        $controlledVocabEntry = new ControlledVocabEntry;
+        $controlledVocabEntry = new ControlledVocabEntry();
         $controlledVocabEntrySettings = $controlledVocabEntry->getSettings();
         $multilingualProps = array_flip($controlledVocabEntry->getMultilingualProps());
         $idKey = ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_IDENTIFIER;
@@ -102,7 +98,7 @@ class Repository
                     ->reject(fn (string|array $vocab) => is_array($vocab) && isset($vocab[$idKey]) && !isset($vocab[$srcKey])) // Remove vocabs that have id but not source
                     ->unique(fn (string|array $vocab): string => ($vocab[$idKey] ?? '') . ($vocab[$srcKey] ?? '') . ($vocab['name'] ?? $vocab))
                     ->each(
-                        fn (array|string $vocab, int $index) => 
+                        fn (array|string $vocab, int $index) =>
                             ControlledVocabEntry::create([
                                 'controlledVocabId' => $controlledVocab->id,
                                 'seq' => $index + 1,
@@ -110,13 +106,14 @@ class Repository
                                     ? collect($vocab)
                                         ->only($controlledVocabEntrySettings)
                                         ->whereNotNull()
-                                        ->map(fn ($prop, string $propName) => isset($multilingualProps[$propName])
+                                        ->map(
+                                            fn ($prop, string $propName) => isset($multilingualProps[$propName])
                                             ? [$locale => $prop]
                                             : $prop
                                         )
                                         ->toArray()
                                     : ['name' => [$locale => $vocab]],
-                            ]) 
+                            ])
                     )
             );
 

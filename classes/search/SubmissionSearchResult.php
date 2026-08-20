@@ -96,7 +96,7 @@ class SubmissionSearchResult
         $collection = LazyCollection::make(function () use ($models, &$contextCache, &$sectionCache) {
             foreach ($models as $data) {
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
-                $submission = Repo::submission()->get($submissionId);
+                $submission = Repo::submission()->get($submissionId, null, true);
                 if (!$submission) {
                     continue;
                 }

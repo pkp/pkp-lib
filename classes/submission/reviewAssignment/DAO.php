@@ -20,6 +20,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\user\Collector as UserCollector;
 
 /**
@@ -132,19 +133,21 @@ class DAO extends EntityDAO
             ->pluck('ra.' . $this->primaryKeyColumn);
     }
 
-    protected function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): ReviewAssignment
     {
-        parent::populate($row, $schema, $object, $ids, $cache);
+        $reviewAssignment = parent::fromRow($row, $ids, $cache, $query);
 
         $cache->reviewers ??= Repo::user()->getCollector()->filterByReviewIds($ids)->filterByStatus(UserCollector::STATUS_ALL)->getMany();
-        $reviewer = $cache->reviewers->get($object->getReviewerId());
-        $object->setData('reviewerFullName', $reviewer->getFullName());
-        $object->setData('reviewerUserName', $reviewer->getUserName());
+        $reviewer = $cache->reviewers->get($reviewAssignment->getReviewerId());
+        $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
+        $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
 
         $cache->doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($ids)->getMany();
-        if ($doiId = $object->getData('doiId')) {
-            $object->setData('doiObject', $cache->doiObjects->get($doiId));
+        if ($doiId = $reviewAssignment->getData('doiId')) {
+            $reviewAssignment->setData('doiObject', $cache->doiObjects->get($doiId));
         }
+
+        return $reviewAssignment;
     }
 
     /**

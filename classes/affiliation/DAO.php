@@ -94,21 +94,18 @@ class DAO extends EntityDAO
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
-    public function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
+    /** @copydoc EntityDAO::fromRow() */
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Affiliation
     {
-        parent::populate($row, $schema, $object, $ids, $cache);
+        $affiliation = parent::fromRow($row, $ids, $cache, $query);
 
         $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($ids)
             ->getMany()
             ->collect()
             ->groupBy(fn ($rorObject) => $rorObject->getRor());
-        $object->setData('rorObject', $cache->rorObjects->get($row->ror)?->first());
-    }
+        $affiliation->setData('rorObject', $cache->rorObjects->get($row->ror)?->first());
 
-    /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Affiliation
-    {
-        return parent::fromRow($row, $ids, $cache, $query);
+        return $affiliation;
     }
 
     /** @copydoc EntityDAO::insert() */

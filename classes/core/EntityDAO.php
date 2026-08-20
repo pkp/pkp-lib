@@ -96,18 +96,6 @@ abstract class EntityDAO
         throw new Exception('Not implemented');
     }
 
-    protected function populate(object $row, object $schema, DataObject $object, array $ids, object $cache): void
-    {
-        if ($this->settingsTable) {
-            $cache->settings ??= DB::table($this->settingsTable)
-                ->whereIn($this->primaryKeyColumn, $ids)
-                ->get()
-                ->groupBy($this->primaryKeyColumn);
-            $cache->settings->get($row->{$this->primaryKeyColumn})
-                ?->each(fn ($row) => $this->populateSetting($row, $object, $schema));
-        }
-    }
-
     protected function populateSetting(object $row, DataObject $object, object $schema)
     {
         if (!empty($schema->properties->{$row->setting_name})) {
@@ -167,7 +155,15 @@ abstract class EntityDAO
             }
         }
 
-        $this->populate($row, $schema, $object, $ids, $cache);
+        if ($this->settingsTable) {
+            $cache->settings ??= DB::table($this->settingsTable)
+                ->whereIn($this->primaryKeyColumn, $ids)
+                ->get()
+                ->groupBy($this->primaryKeyColumn);
+            $cache->settings->get($row->{$this->primaryKeyColumn})
+                ?->each(fn ($row) => $this->populateSetting($row, $object, $schema));
+        }
+
         return $object;
     }
 

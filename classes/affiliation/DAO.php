@@ -99,6 +99,10 @@ class DAO extends EntityDAO
     {
         $affiliation = parent::fromRow($row, $ids, $cache, $query);
 
+        if (property_exists($row, 'submission_locale')) {
+            $affiliation->setData('submissionLocale', $row->submission_locale);
+        }
+
         $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($ids)
             ->getMany()
             ->collect()

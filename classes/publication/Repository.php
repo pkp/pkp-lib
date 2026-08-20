@@ -1252,7 +1252,7 @@ abstract class Repository
         return Repo::reviewAssignment()
             ->getCollector()
             ->filterByPublicationIds($publicationIds)
-            ->filterByCompleted(true)
+            ->filterByIsConfirmedByEditor(true)
             ->getMany();
     }
 

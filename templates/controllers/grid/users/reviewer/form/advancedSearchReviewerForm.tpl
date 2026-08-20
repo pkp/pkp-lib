@@ -16,7 +16,8 @@
 				{ldelim}
 					lastRoundReviewerIds: {$lastRoundReviewerIds|json_encode},
 					reviewerMessages: {$reviewerMessages|json_encode},
-					reviewerName : {$reviewerName|json_encode}
+					reviewerName : {$reviewerName|json_encode},
+					reviewerEmail : {$reviewerEmail|json_encode}
 				{rdelim}
 		);
 	{rdelim});
@@ -56,6 +57,7 @@
 			</div>
 			<div class="value">
 				<span id="selectedReviewerName" class="name"></span>
+				<span id="selectedReviewerEmail" class="email"></span>
 				{if !isset($reviewerId) }
 					<span class="actions">
 						{foreach from=$reviewerActions item=action}

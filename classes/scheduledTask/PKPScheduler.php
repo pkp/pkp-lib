@@ -56,8 +56,14 @@ abstract class PKPScheduler
 
         // Here we don't want to re-register the schedule task if it's already registered
         // otherwise the same task might run multiple times at the same time
+        //
+        // The event is named after the task's class so that it always has a stable identity,
+        // matching how registerSchedules() names its own events. Callers remain free to set a
+        // different name afterwards -- this is only the default when they don't.
         return $scheduleTasks[$scheduleTaskClass]
-            ?? $this->schedule->call(fn () => $scheduleTask->execute());
+            ?? $this->schedule
+                ->call(fn () => $scheduleTask->execute())
+                ->name($scheduleTaskClass);
     }
 
     /**

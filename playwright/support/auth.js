@@ -23,6 +23,7 @@ const path = require('path');
 const {request} = require('@playwright/test');
 const {LoginPage} = require('../pages/LoginPage.js');
 const {getPassword} = require('../data/users.js');
+const {disableMotion} = require('./motion.js');
 
 /**
  * @param {import('@playwright/test').Browser} browser
@@ -54,6 +55,7 @@ async function ensureAuthStateFor(browser, username, {baseURL}) {
         baseURL,
         storageState: {cookies: [], origins: []},
     });
+    await disableMotion(context);
     try {
         const page = await context.newPage();
         const loginPage = new LoginPage(page);

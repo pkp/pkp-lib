@@ -20,6 +20,7 @@
 const path = require('path');
 const base = require('@playwright/test');
 const {ensureAuthStateFor} = require('./auth.js');
+const {disableMotion} = require('./motion.js');
 const {PkpApi} = require('./api.js');
 const {PkpMail} = require('./mail.js');
 
@@ -44,6 +45,12 @@ const test = base.test.extend({
         await use(`http://127.0.0.1:${basePort + testInfo.parallelIndex}`);
     },
 
+    // Kill animations in the default context (and thus `page`) — see motion.js.
+    context: async ({context}, use) => {
+        await disableMotion(context);
+        await use(context);
+    },
+
     storageState: async ({browser, baseURL, user}, use) => {
         if (!user) {
             await use(undefined);
@@ -58,6 +65,7 @@ const test = base.test.extend({
         await use(async (username) => {
             const statePath = await ensureAuthStateFor(browser, username, {baseURL});
             const context = await browser.newContext({baseURL, storageState: statePath});
+            await disableMotion(context);
             openedContexts.push(context);
             return context;
         });

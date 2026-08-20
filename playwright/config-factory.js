@@ -15,6 +15,8 @@
  * one testDir, so the shared lib/pkp specs are a sibling project of the app
  * suite; the serial project runs alone at the end (globally-scanning specs).
  */
+const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const {defineConfig, devices} = require('@playwright/test');
 const {loadEnv} = require('./support/env.js');
@@ -30,7 +32,13 @@ function definePkpConfig({appName, appRoot, basePort}) {
     basePort = parseInt(process.env.PLAYWRIGHT_BASE_PORT || String(basePort), 10);
     process.env.PLAYWRIGHT_BASE_PORT = String(basePort);
 
-    const workers = parseInt(process.env.PLAYWRIGHT_WORKERS || '2', 10);
+    // Playwright's own default (50% of cores) can't be used directly because
+    // the server fleet below must match the worker count at config time.
+    const workers = parseInt(
+        process.env.PLAYWRIGHT_WORKERS ||
+            String(Math.max(2, Math.floor(os.cpus().length / 2))),
+        10,
+    );
     const sharedTestDir = path.join(__dirname, 'tests');
     const appTestDir = path.join(appRoot, 'playwright', 'tests');
 
@@ -50,6 +58,9 @@ function definePkpConfig({appName, appRoot, basePort}) {
             ...devices['Desktop Chrome'],
             baseURL: `http://127.0.0.1:${basePort}`,
             trace: 'retain-on-failure',
+            // Tests never wait on cosmetic motion; support/motion.js injects
+            // the matching CSS override into every context the harness opens.
+            reducedMotion: 'reduce',
         },
         projects: [
             {
@@ -78,14 +89,23 @@ function definePkpConfig({appName, appRoot, basePort}) {
         ],
         // One PHP server per worker; `php -S` is single-threaded. The ready
         // probe is a static file so it answers even before the DB is installed
-        // (the setup project handles cold installs itself).
-        webServer: Array.from({length: workers}, (_, i) => ({
-            command: `php -S 127.0.0.1:${basePort + i} -t "${appRoot}"`,
-            url: `http://127.0.0.1:${basePort + i}/README.md`,
-            reuseExistingServer: true,
-            timeout: 30_000,
-            env: serverEnv,
-        })),
+        // (the setup project handles cold installs itself). `php -S` logs every
+        // request to stderr, which Playwright pipes into the reporter output by
+        // default — redirect it to per-server log files instead. A server kept
+        // alive by reuseExistingServer holds its old log open, so the file is
+        // only truncated when a server actually (re)starts.
+        webServer: Array.from({length: workers}, (_, i) => {
+            const logDir = path.join(appRoot, 'playwright', '.server-logs');
+            fs.mkdirSync(logDir, {recursive: true});
+            const logFile = path.join(logDir, `server-${basePort + i}.log`);
+            return {
+                command: `php -S 127.0.0.1:${basePort + i} -t "${appRoot}" > "${logFile}" 2>&1`,
+                url: `http://127.0.0.1:${basePort + i}/README.md`,
+                reuseExistingServer: true,
+                timeout: 30_000,
+                env: serverEnv,
+            };
+        }),
     });
 }
 

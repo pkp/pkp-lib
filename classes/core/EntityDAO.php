@@ -96,21 +96,6 @@ abstract class EntityDAO
         throw new Exception('Not implemented');
     }
 
-    protected function populateSetting(object $row, DataObject $object, object $schema)
-    {
-        if (!empty($schema->properties->{$row->setting_name})) {
-            $object->setData(
-                $row->setting_name,
-                $this->convertFromDB(
-                    value: $row->setting_value,
-                    type: $schema->properties->{$row->setting_name}->type,
-                    decrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
-                ),
-                empty($row->locale) ? null : $row->locale
-            );
-        }
-    }
-
     /**
      * Get a collection of DataObject instances matching the configured query
      *
@@ -161,7 +146,19 @@ abstract class EntityDAO
                 ->get()
                 ->groupBy($this->primaryKeyColumn);
             $cache->settings->get($row->{$this->primaryKeyColumn})
-                ?->each(fn ($row) => $this->populateSetting($row, $object, $schema));
+                ?->each(function ($row) use ($object, $schema) {
+                    if (!empty($schema->properties->{$row->setting_name})) {
+                        $object->setData(
+                            $row->setting_name,
+                            $this->convertFromDB(
+                                value: $row->setting_value,
+                                type: $schema->properties->{$row->setting_name}->type,
+                                decrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
+                            ),
+                            empty($row->locale) ? null : $row->locale
+                        );
+                    }
+                });
         }
 
         return $object;

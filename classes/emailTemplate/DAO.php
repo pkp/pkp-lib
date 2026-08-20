@@ -20,6 +20,7 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
@@ -136,10 +137,10 @@ class DAO extends EntityDAO
      *
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row, array $ids, object $cache): EmailTemplate
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): EmailTemplate
     {
         /** @var EmailTemplate $emailTemplate */
-        $emailTemplate = parent::fromRow($row, $ids, $cache);
+        $emailTemplate = parent::fromRow($row, $ids, $cache, $query);
         $schema = $this->schemaService->get($this->schema);
         $contextDao = Application::getContextDAO();
 

@@ -21,6 +21,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\EntityDAO;
 use PKP\core\interfaces\CollectorInterface;
+use PKP\core\traits\EntityWithParent;
 use PKP\user\Collector as UserCollector;
 
 /**
@@ -30,6 +31,8 @@ use PKP\user\Collector as UserCollector;
  */
 class DAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = \PKP\services\PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT;
 
@@ -78,36 +81,19 @@ class DAO extends EntityDAO
 
     /** @copydoc EntityDAO::$settingsTable */
     public $settingsTable = 'review_assignment_settings';
+
+    public function getParentColumn(): string
+    {
+        return 'submission_id';
+    }
+
+
     /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): ReviewAssignment
     {
         return app(ReviewAssignment::class);
-    }
-
-    /**
-     * Check if a review assignment exists
-     */
-    public function exists(int $id, ?int $submissionId): bool
-    {
-        return DB::table($this->table)
-            ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
-            ->exists();
-    }
-
-    /**
-     * Get a review assignment
-     */
-    public function get(int $id, ?int $submissionId = null): ?ReviewAssignment
-    {
-        $row = DB::table($this->table)
-            ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
-            ->first();
-
-        return $row ? $this->fromRow($row) : null;
     }
 
     /**

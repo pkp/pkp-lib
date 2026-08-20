@@ -34,9 +34,9 @@ use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
@@ -87,7 +87,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 ReviewRequestSubsequent::getEmailTemplateKey()
             ])
             ->getMany()
-            ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
+            ->mapWithKeys(function (EmailTemplate $item, ?int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
             });
 

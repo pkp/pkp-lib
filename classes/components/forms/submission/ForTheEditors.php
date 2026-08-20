@@ -111,7 +111,7 @@ class ForTheEditors extends PKPMetadataForm
             ->values()
             ->all();
 
-        $categoryValues = (array) $this->publication->getData('categoryIds');
+        $categoryValues = $this->publication->getData('categoryIds')->toArray();
         // Check if all categories have a breadcrumb; categories with circular references are filtered out
         $hasAllBreadcrumbs = $categories->count() === count($categoryOptions);
 

@@ -130,28 +130,6 @@ class DAO extends EntityDAO
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
-    protected function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
-    {
-        parent::populate($row, $schema, $object, $ids, $cache);
-
-        $object->setAffiliations(LazyCollection::make(function () use ($row, $ids, $cache) {
-            $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($ids))
-                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
-            yield from $cache->affiliations->get($row->author_id) ?? collect();
-        }));
-
-        $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($ids);
-        $object->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? []);
-
-        $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($ids);
-        $object->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? []);
-    }
-
-    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
-    {
-        $this->batchPopulator($row, $schema, $object, [$row->author_id], (object) []);
-    }
-
     /**
      * @copydoc EntityDAO::fromRow()
      */
@@ -161,6 +139,18 @@ class DAO extends EntityDAO
 
         // Set the primary locale from the submission
         $author->setData('submissionLocale', $row->submission_locale);
+
+        $author->setAffiliations(LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($ids))
+                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
+            yield from $cache->affiliations->get($row->author_id) ?? collect();
+        }));
+
+        $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($ids);
+        $author->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? []);
+
+        $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($ids);
+        $author->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? []);
 
         return $author;
     }

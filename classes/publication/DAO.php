@@ -112,61 +112,6 @@ class DAO extends EntityDAO
         return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
-    protected function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
-    {
-        parent::populate($row, $schema, $object, $ids, $cache);
-
-        $object->setData('authors', LazyCollection::make(function () use ($row, $ids, $cache) {
-            $cache->authors ??= Repo::author()->getCollector()->filterByPublicationIds($ids)
-                ->getMany()
-                ->collect()
-                ->groupBy(fn ($author) => $author->getData('publicationId'));
-            yield from $cache->authors->get($row->publication_id) ?? [];
-        })->remember());
-
-        $object->setData('categoryIds', LazyCollection::make(function () use ($row, $ids, $cache) {
-            $cache->categoryIds ??= PublicationCategory::withPublicationIds($ids)
-                ->get()
-                ->collect()
-                ->mapToGroups(fn ($publicationCategory, $key) => [$publicationCategory->publicationId => $publicationCategory->categoryId]);
-            yield from $cache->categoryIds->get($row->publication_id) ?? [];
-        })->remember());
-
-        $cache->controlledVocabs ??= ControlledVocabEntry::query()
-            ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $ids))
-            ->get()
-            ->groupBy(fn ($cve) => $cve->controlledVocab->assocId);
-        $publicationControlledVocabs = $cache->controlledVocabs->get($row->publication_id) ?? collect();
-        $symbolicControlledVocabs = $publicationControlledVocabs->groupBy(fn ($cve) => $cve->controlledVocab->symbolic);
-        foreach ([
-            'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-            'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-            'disciplines' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
-            'supportingAgencies' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-        ] as $dataName => $symbolicName) {
-            $entries = [];
-            foreach ($symbolicControlledVocabs->get($symbolicName) ?? [] as $entry) {
-                foreach ($entry->name as $locale => $value) {
-                    $entries[$locale][] = $entry->getEntryData($locale);
-                }
-            }
-            $object->setData($dataName, $entries);
-        }
-
-        $object->setData('dataCitations', LazyCollection::make(function () use ($row, $ids, $cache) {
-            $cache->dataCitations ??= DataCitation::withPublicationIds($ids)
-                ->get()
-                ->collect()
-                ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
-            yield from $cache->dataCitations->get($row->publication_id) ?? [];
-        }));
-
-        $object->setData('citations', LazyCollection::make(function () use ($row, $ids, $cache) {
-            $cache->citations ??= Repo::citation()->getByPublicationIds($ids)->groupBy(fn ($citation) => $citation->getData('publicationId'));
-            yield from $cache->citations->get($row->publication_id) ?? [];
-        }));
-    }
-
     /**
      * Get the publication dates of the first and last publications
      * matching the passed query
@@ -241,6 +186,56 @@ class DAO extends EntityDAO
                 return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
             }
         });
+
+        $publication->setData('authors', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->authors ??= Repo::author()->getCollector()->filterByPublicationIds($ids)
+                ->getMany()
+                ->collect()
+                ->groupBy(fn ($author) => $author->getData('publicationId'));
+            yield from $cache->authors->get($row->publication_id) ?? [];
+        })->remember());
+
+        $publication->setData('categoryIds', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->categoryIds ??= PublicationCategory::withPublicationIds($ids)
+                ->get()
+                ->collect()
+                ->mapToGroups(fn ($publicationCategory, $key) => [$publicationCategory->publicationId => $publicationCategory->categoryId]);
+            yield from $cache->categoryIds->get($row->publication_id) ?? [];
+        })->remember());
+
+        $cache->controlledVocabs ??= ControlledVocabEntry::query()
+            ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $ids))
+            ->get()
+            ->groupBy(fn ($cve) => $cve->controlledVocab->assocId);
+        $publicationControlledVocabs = $cache->controlledVocabs->get($row->publication_id) ?? collect();
+        $symbolicControlledVocabs = $publicationControlledVocabs->groupBy(fn ($cve) => $cve->controlledVocab->symbolic);
+        foreach ([
+            'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+            'disciplines' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            'supportingAgencies' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+        ] as $dataName => $symbolicName) {
+            $entries = [];
+            foreach ($symbolicControlledVocabs->get($symbolicName) ?? [] as $entry) {
+                foreach ($entry->name as $locale => $value) {
+                    $entries[$locale][] = $entry->getEntryData($locale);
+                }
+            }
+            $publication->setData($dataName, $entries);
+        }
+
+        $publication->setData('dataCitations', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->dataCitations ??= DataCitation::withPublicationIds($ids)
+                ->get()
+                ->collect()
+                ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
+            yield from $cache->dataCitations->get($row->publication_id) ?? [];
+        }));
+
+        $publication->setData('citations', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->citations ??= Repo::citation()->getByPublicationIds($ids)->groupBy(fn ($citation) => $citation->getData('publicationId'));
+            yield from $cache->citations->get($row->publication_id) ?? [];
+        }));
 
         return $publication;
     }

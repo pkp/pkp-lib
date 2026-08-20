@@ -222,6 +222,9 @@ msgstr "Full Review"
 msgid "openReview.noCommentsAvailable"
 msgstr "No review comments available."
 
+msgid "openReview.citeReviewReport"
+msgstr "Cite this peer review report:"
+
 msgid "openReview.readReview"
 msgstr "Read Review"
 

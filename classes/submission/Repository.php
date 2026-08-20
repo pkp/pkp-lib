@@ -557,7 +557,13 @@ abstract class Repository
                     )
             );
 
-        if ($hasLockedPublication && !$assignments->contains(fn (StageAssignment $sa) => $sa->userGroup && $sa->userGroup->roleId != Role::ROLE_ID_AUTHOR)) {
+        $userIsOnlyAuthor = !$assignments->contains(fn (StageAssignment $stageAssignment) => $stageAssignment->userGroup && $stageAssignment->userGroup->roleId != Role::ROLE_ID_AUTHOR);
+
+        if ($hasLockedPublication && $userIsOnlyAuthor) {
+            return false;
+        }
+
+        if ($submission?->getData('status') == Submission::STATUS_DECLINED && $userIsOnlyAuthor) {
             return false;
         }
 

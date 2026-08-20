@@ -233,7 +233,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->index(['author_id'], 'submission_comments_author_id');
 
             $table->text('comment_title');
-            $table->text('comments')->nullable();
+            $table->mediumText('comments')->nullable();
             $table->datetime('date_posted')->nullable();
             $table->datetime('date_modified')->nullable();
             $table->smallInteger('viewable')->nullable();

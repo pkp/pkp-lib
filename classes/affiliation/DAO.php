@@ -22,8 +22,8 @@ use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
@@ -94,56 +94,21 @@ class DAO extends EntityDAO
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
-    /**
-     * Get a collection of affiliations matching the configured query.
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
+    public function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
     {
-        return LazyCollection::make(function () use ($query) {
-            $queryBuilder = $query->getQueryBuilder();
+        parent::populate($row, $schema, $object, $ids, $cache);
 
-            $rows = $queryBuilder->get();
-            $authorAffiliationIds = $rows->pluck('author_affiliation_id')->toArray();
-
-            $cache = (object) [];
-
-            foreach ($rows as $row) {
-                yield $row->author_affiliation_id => $this->fromRow(
-                    $row,
-                    function (object $row, object $schema, Affiliation $affiliation) use ($authorAffiliationIds, $cache): void {
-                        $cache->settings ??= DB::table('author_affiliation_settings')
-                            ->whereIn('author_affiliation_id', $authorAffiliationIds)
-                            ->get()
-                            ->groupBy('author_affiliation_id');
-                        $cache->settings->get($row->author_affiliation_id)
-                            ?->each(fn ($row) => $this->populateSetting($row, $affiliation, $schema));
-
-                        $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($authorAffiliationIds)
-                            ->getMany()
-                            ->collect()
-                            ->groupBy(fn ($rorObject) => $rorObject->getRor());
-                        $affiliation->setData('rorObject', $cache->rorObjects->get($row->ror)?->first());
-                    }
-                );
-            }
-        });
-    }
-
-    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
-    {
-        parent::individualPopulator($row, $schema, $object);
-
-        if (!empty($affiliation->getRor())) {
-            $affiliation->setData('rorObject', Repo::ror()->getCollector()->filterByRor($affiliation->getRor())->getMany()->first());
-        }
+        $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($ids)
+            ->getMany()
+            ->collect()
+            ->groupBy(fn ($rorObject) => $rorObject->getRor());
+        $object->setData('rorObject', $cache->rorObjects->get($row->ror)?->first());
     }
 
     /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row, ?callable $populator = null): Affiliation
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Affiliation
     {
-        return parent::fromRow($row, $populator);
+        return parent::fromRow($row, $ids, $cache, $query);
     }
 
     /** @copydoc EntityDAO::insert() */

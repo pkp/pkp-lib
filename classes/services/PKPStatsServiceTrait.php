@@ -103,7 +103,7 @@ trait PKPStatsServiceTrait
         while ($startDate->format($dateFormat) <= $endDate->format($dateFormat)) {
             $timelineIntervals[] = [
                 'date' => $startDate->format($dateFormat),
-                'label' => (new \Carbon\Carbon($startDate->getTimestamp()))->locale(Locale::getLocale())->translatedFormat($labelFormat),
+                'label' => \Carbon\Carbon::instance($startDate)->locale(Locale::getLocale())->translatedFormat($labelFormat),
                 'value' => 0,
             ];
             $startDate->add(new \DateInterval($interval));

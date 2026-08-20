@@ -1377,4 +1377,35 @@ abstract class Repository
         }
         return false;
     }
+
+    /**
+     * Snippet to ADD to classes/submission/Repository.php
+     * (pkp-lib, branch stable-3_5_0 / fix/13074-last-modified)
+     *
+     * Do NOT modify `edit()` itself. This method is intentionally separate from
+     * it: `edit()` fires `Hook::call('Submission::edit', ...)`, which today never
+     * fires as a side effect of an Author or Citation change. Routing this fix
+     * through `edit()` would make it fire in that new context too, an observable
+     * behavior change for any third-party plugin hooked into
+     * `Submission::edit` on installations outside this project's testing scope.
+     * See PKP_StampModified_Cascade_Abstract.md, Section 2.4, for the full
+     * reasoning behind keeping this additive and separate.
+     */
+
+    /**
+     * Stamp the `last_modified` timestamp on a Submission and persist it,
+     * without going through `edit()` and its `Submission::edit` hook.
+     *
+     * Added for pkp-lib#13074: allows listeners reacting to metadata changes on
+     * Submission sub-entities (Author, Citation) to update `last_modified`
+     * without triggering the wider `Submission::edit` contract, which existing
+     * third-party code may assume fires only on genuine submission-level edits.
+     *
+     * @see \PKP\observers\listeners\StampSubmissionModified
+     */
+    public function stampModified(Submission $submission): void
+    {
+        $submission->stampModified();
+        $this->dao->update($submission);
+    }
 }

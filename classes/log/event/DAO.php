@@ -16,7 +16,6 @@ namespace PKP\log\event;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
 
@@ -95,22 +94,6 @@ class DAO extends EntityDAO
             ->getQueryBuilder()
             ->select('e.' . $this->primaryKeyColumn)
             ->pluck('e.' . $this->primaryKeyColumn);
-    }
-
-    /**
-     * Get a collection of log entries matching the configured query
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->log_id => $this->fromRow($row);
-            }
-        });
     }
 
     /**

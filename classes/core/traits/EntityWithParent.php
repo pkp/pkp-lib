@@ -36,7 +36,7 @@ trait EntityWithParent
      *
      * @return T
      */
-    abstract public function fromRow(object $row, ?callable $populator = null): DataObject;
+    abstract public function fromRow(object $row, array $ids, object $cache): DataObject;
 
     /**
      * Check if an object exists.
@@ -66,6 +66,6 @@ trait EntityWithParent
             ->where($this->primaryKeyColumn, $id)
             ->when($parentId !== null, fn (Builder $query) => $query->where($this->getParentColumn(), $parentId))
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 }

@@ -19,7 +19,6 @@ use APP\publication\Publication;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\user\Collector as UserCollector;
 
@@ -133,55 +132,19 @@ class DAO extends EntityDAO
             ->pluck('ra.' . $this->primaryKeyColumn);
     }
 
-    protected function batchPopulator(object $row, object $schema, ReviewAssignment $reviewAssignment, array $reviewIds, object $cache): void
+    protected function populate(object $row, object $schema, \PKP\core\DataObject $object, array $ids, object $cache): void
     {
-        $cache->settings ??= DB::table('review_assignment_settings')
-            ->whereIn('review_id', $reviewIds)
-            ->get()
-            ->groupBy('review_id');
-        $cache->settings->get($row->review_id)
-            ?->each(fn ($row) => $this->populateSetting($row, $reviewAssignment, $schema));
+        parent::populate($row, $schema, $object, $ids, $cache);
 
-        $cache->reviewers ??= Repo::user()->getCollector()->filterByReviewIds($reviewIds)->filterByStatus(UserCollector::STATUS_ALL)->getMany();
-        $reviewer = $cache->reviewers->get($reviewAssignment->getReviewerId());
-        $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
-        $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
+        $cache->reviewers ??= Repo::user()->getCollector()->filterByReviewIds($ids)->filterByStatus(UserCollector::STATUS_ALL)->getMany();
+        $reviewer = $cache->reviewers->get($object->getReviewerId());
+        $object->setData('reviewerFullName', $reviewer->getFullName());
+        $object->setData('reviewerUserName', $reviewer->getUserName());
 
-        $cache->doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($reviewIds)->getMany();
-        if ($doiId = $reviewAssignment->getData('doiId')) {
-            $reviewAssignment->setData('doiObject', $cache->doiObjects->get($doiId));
+        $cache->doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($ids)->getMany();
+        if ($doiId = $object->getData('doiId')) {
+            $object->setData('doiObject', $cache->doiObjects->get($doiId));
         }
-    }
-
-    /**
-     * Get a collection of review assignments matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $queryBuilder = $query->getQueryBuilder();
-
-            $rows = $queryBuilder->get();
-            $reviewIds = $rows->pluck('review_id')->all();
-
-            $cache = (object) [];
-
-            foreach ($rows as $row) {
-                yield $row->review_id => $this->fromRow(
-                    $row,
-                    function (object $row, object $schema, ReviewAssignment $reviewAssignment) use ($reviewIds, $cache): void {
-                        $this->batchPopulator($row, $schema, $reviewAssignment, $reviewIds, $cache);
-                    }
-                );
-            }
-        });
-    }
-
-    protected function individualPopulator(object $row, object $schema, \PKP\core\DataObject $object): void
-    {
-        $this->batchPopulator($row, $schema, $object, [$row->review_id], (object) []);
     }
 
     /**

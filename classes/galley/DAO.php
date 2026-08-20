@@ -21,8 +21,8 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAOResultFactory;
 use PKP\identity\Identity;
@@ -85,7 +85,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->where('publication_id', $publication->getId())
             ->where('url_path', $urlPath)
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$row->publication_id], (object) []) : null;
     }
 
     /**
@@ -111,27 +111,9 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->pluck('g.' . $this->primaryKeyColumn);
     }
 
-    /**
-     * Get a collection of galleys matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Galley
     {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->galley_id = $this->fromRow($row);
-            }
-        });
-    }
-
-    public function fromRow(object $row, ?callable $populator = null): Galley
-    {
-        $galley = parent::fromRow($row, $populator);
+        $galley = parent::fromRow($row, $ids, $cache, $query);
 
         if (!empty($galley->getData('doiId'))) {
             $galley->setData('doiObject', Repo::doi()->get($galley->getData('doiId')));

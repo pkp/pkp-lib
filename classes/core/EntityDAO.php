@@ -16,6 +16,8 @@ namespace PKP\core;
 
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityUpdate;
 use PKP\db\DAO;
 use PKP\services\PKPSchemaService;
@@ -94,13 +96,15 @@ abstract class EntityDAO
         throw new Exception('Not implemented');
     }
 
-    protected function individualPopulator(object $row, object $schema, DataObject $object): void
+    protected function populate(object $row, object $schema, DataObject $object, array $ids, object $cache): void
     {
         if ($this->settingsTable) {
-            DB::table($this->settingsTable)
-                ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
+            $cache->settings ??= DB::table($this->settingsTable)
+                ->whereIn($this->primaryKeyColumn, $ids)
                 ->get()
-                ->each(fn ($row) => $this->populateSetting($row, $object, $schema));
+                ->groupBy($this->primaryKeyColumn);
+            $cache->settings->get($row->{$this->primaryKeyColumn})
+                ?->each(fn ($row) => $this->populateSetting($row, $object, $schema));
         }
     }
 
@@ -120,11 +124,30 @@ abstract class EntityDAO
     }
 
     /**
+     * Get a collection of DataObject instances matching the configured query
+     *
+     * @return LazyCollection<int,T>
+     */
+    public function getMany(CollectorInterface $query): LazyCollection
+    {
+        return LazyCollection::make(function () use ($query) {
+            $queryBuilder = $query->getQueryBuilder();
+            $rows = $queryBuilder->get();
+            $ids = $rows->pluck($this->primaryKeyColumn)->all();
+            $cache = (object) [];
+
+            foreach ($rows as $row) {
+                yield $row->{$this->primaryKeyColumn} => $this->fromRow($row, $ids, $cache, $query);
+            }
+        });
+    }
+
+    /**
      * Convert a row from the database query into a DataObject
      *
      * @return T
      */
-    public function fromRow(object $row, callable $populator = null): DataObject
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): DataObject
     {
         $schema = $this->schemaService->get($this->schema);
 
@@ -144,8 +167,7 @@ abstract class EntityDAO
             }
         }
 
-        $populator ??= static::individualPopulator(...);
-        $populator($row, $schema, $object);
+        $this->populate($row, $schema, $object, $ids, $cache);
         return $object;
     }
 

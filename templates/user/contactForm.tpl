@@ -17,6 +17,8 @@
 <form class="pkp_form" id="contactForm" method="post" action="{url op="saveContact"}">
 	{csrf}
 
+	{call_hook name="Templates::Contact::BeforeFields"}
+
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="contactFormNotification"}
 
 	{fbvFormSection}

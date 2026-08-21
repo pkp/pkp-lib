@@ -180,13 +180,14 @@ class RequestReviewResponsePage
      */
     private function getLocales(): array
     {
-        return array_map(
+        // Re-index so the locales encode as a JSON array, not an object
+        return array_values(array_map(
             fn ($locale) => [
                 'locale' => $locale,
                 'name' => Locale::getMetadata($locale)->getDisplayName(),
             ],
             $this->locales,
-        );
+        ));
     }
 
 

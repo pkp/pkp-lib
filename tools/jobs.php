@@ -71,9 +71,9 @@ class commandJobs extends CommandLineTool
     /**
      * Constructor
      */
-    public function __construct($argv = [])
+    public function __construct($argv = [], $loadPlugins = true)
     {
-        parent::__construct($argv);
+        parent::__construct($argv, $loadPlugins);
 
         array_shift($argv);
 
@@ -289,12 +289,19 @@ class commandJobs extends CommandLineTool
             $queue = PKPJobModel::TESTING_QUEUE;
         }
 
+        // By default, on a multi-context site the daemon relaunches itself (in place) when the next
+        // job belongs to a different context, so it can re-register plugins/hooks/schema without an
+        // external supervisor. Passing --no-self-restart keeps the legacy behaviour of exiting on a
+        // context change and leaving the restart to a supervisor and/or the scheduler.
+        $selfRestart = !in_array('--no-self-restart', $parameterList);
+
         $this->listenForEvents();
 
         app('pkpJobQueue')->runJobsViaDaemon(
             $connection,
             $queue,
-            $this->gatherWorkerOptions($parameterList)
+            $this->gatherWorkerOptions($parameterList),
+            $selfRestart
         );
     }
 
@@ -517,6 +524,7 @@ class commandJobs extends CommandLineTool
             '--max-time[=MAX-TIME]' => __('admin.cli.tool.jobs.work.option.maxTime.description', ['default' => $workerConfig->getMaxTime()]),
             '--rest[=REST]' => __('admin.cli.tool.jobs.work.option.rest.description', ['default' => $workerConfig->getRest()]),
             '--test' => __('admin.cli.tool.jobs.work.option.test.description'),
+            '--no-self-restart' => __('admin.cli.tool.jobs.work.option.noSelfRestart.description'),
         ];
 
         $this->printCommandList($options, false);
@@ -561,7 +569,7 @@ class commandJobs extends CommandLineTool
 }
 
 try {
-    $tool = new commandJobs($argv ?? []);
+    $tool = new commandJobs($argv ?? [], false);
     $tool->execute();
 } catch (Throwable $e) {
     $output = new \PKP\cliTool\CommandInterface;

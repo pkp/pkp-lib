@@ -24,13 +24,21 @@ use PKP\jobs\BaseJob;
 use PKP\orcid\OrcidManager;
 use PKP\user\User;
 
-class RevokeOrcidToken extends BaseJob
+class RevokeOrcidToken extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     public function __construct(
         private readonly Context  $context,
         private readonly Identity $identity
     ) {
         parent::__construct();
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->context->getId();
     }
 
     /**

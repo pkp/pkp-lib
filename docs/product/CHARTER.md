@@ -116,7 +116,7 @@ names win).
 - State lives in these files, not in conversation — any session resumes from
   disk.
 - No application-code changes unless a defect blocks tests from running green
-  — recorded in `lib/pkp/docs/e2e/app-changes.md`, and only there. Product
+  — recorded in `lib/pkp/docs/e2e/dev/app-changes.md`, and only there. Product
   findings never go there.
 - **Live-probe etiquette** (invariant): probes never mutate shared seeded
   state. Operational rules: RUNBOOK "Ops & campaign safeguards" and

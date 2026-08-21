@@ -6,7 +6,7 @@ canonical alternative to driving the UI for setup. This file has two strata:
 pre-reset field shapes the API grows back into per feature. Growth rule
 (PRINCIPLES): extend a builder only when multiple tests need the same state,
 and every builder change needs a parity entry in
-`../parity-ledger.md` before it merges.
+`parity-ledger.md` before it merges.
 
 ## LIVE surface
 

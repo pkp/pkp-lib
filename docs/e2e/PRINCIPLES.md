@@ -11,7 +11,7 @@ definition-of-done live in `lib/pkp/docs/product/RUNBOOK.md`; spec style in
 `lib/pkp/docs/product/CHARTER.md`; progress state in
 `lib/pkp/docs/product/PROGRESS.md`, never in conversation memory.
 Harness layout and env facts: `dev/harness.md`. Parity verdicts:
-`parity-ledger.md` (append-only ledger).
+`dev/parity-ledger.md` (append-only ledger).
 
 **Terms.** "Scenario builder" (historically "Processor") = the PHP classes
 behind `/api/v1/_test/*` (`PKPBootstrapSeeder`, `PKP*ScenarioBuilder`,
@@ -47,7 +47,7 @@ test-only scenario endpoints.
 - **A2 — Scenario builders must be accurate.** A seeded scenario leaves the
   same database state, fires the same hooks, and produces the same
   notifications as a user doing the equivalent through the UI/REST API. Any
-  builder change requires a parity entry in `parity-ledger.md`
+  builder change requires a parity entry in `dev/parity-ledger.md`
   before it merges.
 - **A3 — Builder scope stays balanced.** Extend a builder only when multiple
   tests need the same state; one-off states are reached by driving the UI in
@@ -176,7 +176,7 @@ must stand alone when everything else is scratched.)
   seed still means "expired" when the configured window changes.
 
 Per-feature scenario keys are documented as they land in `dev/scenarios.md`
-(LIVE surface) with their parity rationale in `parity-ledger.md` —
+(LIVE surface) with their parity rationale in `dev/parity-ledger.md` —
 not here.
 
 ## Rebuild acceptance
@@ -200,8 +200,8 @@ every implemented spec against the new defaults — deliberately, not casually.
 ## Findings and changes — where they go
 
 Owned by RUNBOOK "What goes where"; the authoring-side summary: app-code
-changes and build blockers → `app-changes.md` (ledger); builder parity notes →
-`parity-ledger.md`; product findings → the feature spec's Findings
+changes and build blockers → `dev/app-changes.md` (ledger); builder parity notes →
+`dev/parity-ledger.md`; product findings → the feature spec's Findings
 register — and a test result that contradicts the spec (permissions included)
 means the SPEC is wrong: report it to the register, never park it as a
 skipped/`fixme` test or a "not covered" note. Commit discipline and budgets:

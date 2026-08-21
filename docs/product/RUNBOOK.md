@@ -89,11 +89,11 @@ are short and outcome-shaped — context budgeting, not a wording rule.
   silent — a return or report says "one observation routed to the security
   file" so the maintainer knows to look. Ordinary UX defects are not security
   concerns; they go to the register.
-- **Build blockers** → `lib/pkp/docs/e2e/app-changes.md`: an app defect that
+- **Build blockers** → `lib/pkp/docs/e2e/dev/app-changes.md`: an app defect that
   had to be worked around or fixed to get tests green (races,
   nondeterministic UI, harness-hostile behavior), plus the record of actual
   app-code changes the campaign made. Nothing else.
-- **Scenario-builder parity notes** → `lib/pkp/docs/e2e/parity-ledger.md`.
+- **Scenario-builder parity notes** → `lib/pkp/docs/e2e/dev/parity-ledger.md`.
 - **Cross-feature mechanisms** → described fully in ONE owning spec; other
   specs link (TEMPLATE rule 6).
 - **Process learnings** → this file or TEMPLATE (via maintainer review),
@@ -235,7 +235,7 @@ policy in Model discipline). The orchestrator briefs them (each brief points
 at TEMPLATE / PRINCIPLES — never paraphrases the rules), judges results, and
 is the ONLY writer of PROGRESS rows, atlas `Claimed by:` markers, and
 `app-changes.md` entries. EVERY subagent brief carries verbatim: "Do NOT
-write to PROGRESS.md, atlas files, or lib/pkp/docs/e2e/app-changes.md; return
+write to PROGRESS.md, atlas files, or lib/pkp/docs/e2e/dev/app-changes.md; return
 proposed content in your report instead." Every probe, claim-check and test
 brief ALSO opens with the **Frame** paragraph, verbatim, before the task.
 

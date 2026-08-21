@@ -1,5 +1,8 @@
 # Scenario-endpoint parity ledger
 
+> Append-only ledger: rows are dated verdicts — corrected by dated notes,
+> never rewritten.
+
 Recreated empty at FULL RESET #2 (2026-07-31, PROGRESS banner) — the prior
 rows described builders scratched with the harness; git history keeps them.
 Contract: PRINCIPLES A2 — a seeded scenario must

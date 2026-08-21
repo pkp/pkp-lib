@@ -30,7 +30,7 @@ describe('Public Comments Tests', function() {
 	it('should enable public commenting', () => {
 		cy.login('rvaca');
 
-		cy.visit('http://localhost:8000/index.php/publicknowledge/en/management/settings/website#content');
+		cy.visit('/index.php/publicknowledge/en/management/settings/website#content');
 		cy.get('[role="tab"]').contains('Comments').click();
 		cy.get('[name="enablePublicComments"]').check();
 		cy.get('button:visible').contains('Save').click();
@@ -45,7 +45,7 @@ describe('Public Comments Tests', function() {
 
 		usersToComment.forEach((user, index) => {
 			cy.login(user);
-			cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+			cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 			cy.contains('Version of Record 1.0')
 				.parent();
@@ -67,7 +67,7 @@ describe('Public Comments Tests', function() {
 	it('should allow moderator to approve a comment', () => {
 		cy.login('rvaca');
 		const commentText = `${testCommentText} - 3`;
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments#needsApproval');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments#needsApproval');
 
 		cy.contains('tr', commentText).should('contain.text', 'Hidden/Needs Approval');
 		openComment(commentText);
@@ -82,7 +82,7 @@ describe('Public Comments Tests', function() {
 	});
 
 	it('should allow unauthenticated users to view comments', () => {
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('Version of Record 1.0')
 			.parent()
@@ -92,7 +92,7 @@ describe('Public Comments Tests', function() {
 
 	it('should allow authenticated users to view comments', () => {
 		cy.login('eostrom');
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('Version of Record 1.0')
 			.parent()
@@ -102,7 +102,7 @@ describe('Public Comments Tests', function() {
 
 	it('should allow authenticated user to report a comment', () => {
 		cy.login('eostrom');
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('Version of Record 1.0')
 			.parent()
@@ -131,7 +131,7 @@ describe('Public Comments Tests', function() {
 
 	it('should not allow user to report their own comment', () => {
 		cy.login('jnovak');
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('Version of Record 1.0')
 			.parent()
@@ -145,7 +145,7 @@ describe('Public Comments Tests', function() {
 	});
 
 	it('should not allow unauthenticated user to delete or report comment', () => {
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('Version of Record 1.0')
 			.parent()
@@ -158,7 +158,7 @@ describe('Public Comments Tests', function() {
 
 	it('should not allow authenticated user to see delete option on comment they did not create', () => {
 		cy.login('jnovak');
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('Version of Record 1.0')
 			.parent()
@@ -173,7 +173,7 @@ describe('Public Comments Tests', function() {
 
 	it('should allow authenticated user to delete their own comment', () => {
 		cy.login('jnovak');
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('Version of Record 1.0')
 			.parent()
@@ -192,7 +192,7 @@ describe('Public Comments Tests', function() {
 	});
 
 	it('should allow the user to click the \'All comments\' button, which takes them to the section of the page that has the comments.', () => {
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		let rect = null;
 		let isInViewport = false;
@@ -227,7 +227,7 @@ describe('Public Comments Tests', function() {
 	});
 
 	it('should bring unauthenticated user through login flow before seeing comment form', () => {
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 		cy.get('.PkpCommentsNewInput textarea').should('not.exist');
 
 		cy.contains('.PkpScrollToCommentsLogInto', 'Log in to comment').click();
@@ -241,7 +241,7 @@ describe('Public Comments Tests', function() {
 
 	it('should allow moderator to view a comment', () => {
 		cy.login('rvaca');
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments');
 		const commentText = `${testCommentText} - 3`;
 
 		cy.contains('tr', commentText).should('exist');
@@ -267,7 +267,7 @@ describe('Public Comments Tests', function() {
 	it('should allow moderator to view reports for a comment', () => {
 		cy.login('rvaca');
 		const commentText = `${testCommentText} - 3`;
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments');
 
 		cy.contains('tr', commentText).should('exist');
 
@@ -298,7 +298,7 @@ describe('Public Comments Tests', function() {
 	it('should show only reported comments when moderator views comments under Reported tab', () => {
 		cy.login('rvaca');
 
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments#reported');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments#reported');
 
 		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
 		cy.get('table tbody tr')
@@ -310,7 +310,7 @@ describe('Public Comments Tests', function() {
 
 	it('should show only approved comments when moderator views comments under Approved tab', () => {
 		cy.login('rvaca');
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments#approved');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments#approved');
 		
 		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
 		cy.get('table tbody tr')
@@ -322,7 +322,7 @@ describe('Public Comments Tests', function() {
 
 	it('should show only unapproved comments when moderator views comments under Needs Approval tab', () => {
 		cy.login('rvaca');
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments#needsApproval');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments#needsApproval');
 
 		cy.contains('Loading', { timeout: 20000 }).should('not.exist');
 		cy.get('table tbody tr')
@@ -335,7 +335,7 @@ describe('Public Comments Tests', function() {
 	it('should allow moderator to delete report via side modal', () => {
 		cy.login('rvaca');
 		const commentText = `${testCommentText} - 3`;
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments');
 
 		openComment(commentText);
 		cy.wait(500);
@@ -363,7 +363,7 @@ describe('Public Comments Tests', function() {
 
 		//First have a user report the comment
 		cy.login('eostrom');
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 
 		cy.contains('a', 'All Comments').click();
 
@@ -390,7 +390,7 @@ describe('Public Comments Tests', function() {
 
 		// Then login as moderator and delete the report
 		cy.login('rvaca');
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments');
 
 		openComment(commentText);
 
@@ -414,7 +414,7 @@ describe('Public Comments Tests', function() {
 
 	it('should allow moderator to hide a comment', () => {
 		cy.login('rvaca');
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments#approved');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments#approved');
 		const commentText = `${testCommentText} - 3`;
 		cy.contains('tr', commentText).should('exist');
 
@@ -440,7 +440,7 @@ describe('Public Comments Tests', function() {
 
 	it('should allow moderator to delete comment via table row actions', () => {
 		cy.login('rvaca');
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments');
 
 		cy.contains('tr', `${testCommentText} - 3`).should('exist');
 
@@ -461,7 +461,7 @@ describe('Public Comments Tests', function() {
 	it('should allow moderator to delete a comment via side modal', () => {
 		cy.login('rvaca');
 		const commentText = `${testCommentText} - 2`;
-		cy.visit('index.php/publicknowledge/en/management/settings/userComments');
+		cy.visit('/index.php/publicknowledge/en/management/settings/userComments');
 
 		cy.contains('tr', commentText).should('exist');
 		openComment(commentText);
@@ -493,7 +493,7 @@ describe('Public Comments Tests', function() {
 		cy.get('.pkpWorkflow__publishModal button').contains('Publish').click();
 
 		// Navigate to publication and check that previous version has 'closed discussion' note, and does not have comment form
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 		cy.contains('a', 'All Comments').click();
 
 		cy.contains('div[role="region"]', 'Discussion is closed on this version, please comment on the latest version above.')
@@ -533,7 +533,7 @@ describe('Public Comments Tests', function() {
 	it('should disable public commenting', () => {
 		cy.login('rvaca');
 
-		cy.visit('http://localhost:8000/index.php/publicknowledge/en/management/settings/website#content');
+		cy.visit('/index.php/publicknowledge/en/management/settings/website#content');
 		cy.get('[role="tab"]').contains('Comments').click();
 		cy.get('[name="enablePublicComments"]').uncheck();
 		cy.get('button:visible').contains('Save').click();
@@ -541,7 +541,7 @@ describe('Public Comments Tests', function() {
 		cy.wait(500)
 
 		// Verify that the comment area does not exist
-		cy.visit('index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
+		cy.visit('/index.php/publicknowledge/en/article/view/mwandenga-signalling-theory');
 		cy.get('#pkpUserCommentsContainer').should('not.exist');
 		cy.contains('Comment on this publication').should('not.exist');
 	});

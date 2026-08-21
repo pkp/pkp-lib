@@ -3,7 +3,7 @@
 Single home for how the Playwright e2e harness is laid out, configured, and
 run — shared by OJS, OMP, and OPS via the lib/pkp submodule. Paths are given
 relative to an app repo root (`lib/pkp/...` = inside the submodule). The
-test-authoring rules live in `../PRINCIPLES.md`; coding conventions and
+test-authoring rules live in `PRINCIPLES.md`; coding conventions and
 pitfalls in `patterns.md`; the seeding API in `scenarios.md`; identities in
 `users.md`.
 
@@ -192,11 +192,11 @@ re-running.
 ## Pointers (single homes elsewhere)
 
 - Commit discipline, push rules, what-goes-where routing:
-  `lib/pkp/docs/product/RUNBOOK.md`.
+  `lib/pkp/docs/e2e/process/RUNBOOK.md`.
 - Security-shaped observations: never into public artifacts — RUNBOOK "What
   goes where" names the private destination.
 - Test-authoring rules and the scenario-endpoint design record:
-  `../PRINCIPLES.md`.
+  `PRINCIPLES.md`.
 
 ## Verify before trusting
 

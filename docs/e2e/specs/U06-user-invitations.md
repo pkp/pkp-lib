@@ -19,7 +19,7 @@ register, like ⚠ [A1](#a1); a register entry whose ID starts with OMP or OPS
 concerns only the app(s) it names. Marks such as <sup>a</sup> link to the Footnotes
 tail, where code and evidence pointers live — you can ignore that section and
 lose no behavior. The spec is written in OJS vocabulary; reading it for OMP or
-OPS, substitute terms per the [application glossary](../APP-GLOSSARY.md) —
+OPS, substitute terms per the [application glossary](GLOSSARY.md) —
 "journal" reads as press / preprint server, "Journal Manager" as Press Manager /
 Preprint Server Manager, "Section Editor" as Series Editor / Moderator, and the
 "Journal Masthead" column reads "Press Masthead" / "Server Masthead". Quoted
@@ -232,7 +232,7 @@ Accept wizard (new invitee):
 ## Canonical scenarios
 
 Common to all three apps; substitute roles and vocabulary per the
-[application glossary](../APP-GLOSSARY.md). Actors are named by role; seeded
+[application glossary](GLOSSARY.md). Actors are named by role; seeded
 accounts and recipes live in the footnotes. <sup>s</sup>
 
 1. **Invite a newcomer to a role** — Journal Manager: on Users & Roles, press

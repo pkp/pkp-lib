@@ -1,6 +1,6 @@
 # Spec template
 
-Copy this file to `specs/<feature>.md` and fill every section (or mark it `N/A —
+Copy this file to `lib/pkp/docs/e2e/specs/U<nn>-<feature>.md` (zero-padded FEATURE-MAP row number) and fill every section (or mark it `N/A —
 <reason>`). HTML comments are guidance — delete them in the real spec.
 
 **Who these specs are for** (the maintainer's standing principle): a QA person or
@@ -21,7 +21,7 @@ an inline marker linking to the Findings register. A feature an app lacks
 entirely: title badge (`{OJS OMP}`) + one absence paragraph up front, written as
 an install fact ("OPS does not install X by default"), never an impossibility.
 Cross-app vocabulary (press/server for journal, monograph/preprint for
-submission…) follows `APP-GLOSSARY.md`; write the OJS term once with the recast
+submission…) follows `lib/pkp/docs/e2e/specs/GLOSSARY.md` Part II; write the OJS term once with the recast
 noted in the preamble, not re-badged on every mention.
 
 **Altitude — two principles, no length quota** (maintainer, 2026-07-10). (1)
@@ -55,7 +55,7 @@ subset above; the rest bind by the writer's judgment):
 2. **Concrete role names, never umbrellas.** Use the app's actual role names —
    e.g. **Site Administrator, Journal Manager, Section Editor, Assistant,
    Author, Reviewer, Reader** (illustrative, not exhaustive: the app's Roles
-   settings screen is the source; OMP/OPS analogues per APP-GLOSSARY). Never
+   settings screen is the source; OMP/OPS analogues per GLOSSARY Part II). Never
    "editorial staff", "editors", "the full manager". If several roles qualify,
    LIST them; if assignment- or scope-based, say so. One canonical name per
    role per spec.
@@ -101,7 +101,7 @@ subset above; the rest bind by the writer's judgment):
    the one whose subject it is — and every other spec links instead of
    retelling: the owner marks the passage `<a id="stage-access"></a>` (explicit,
    never heading-derived); a referencing spec keeps only what its own reader
-   needs, then points `[→ stage access](workflow-stage-navigation.md#stage-access)`.
+   needs, then points `[→ stage access](U24-workflow-screen-and-stage-access.md#stage-access)`.
    The lint gate resolves every link (missing file/anchor/duplicate id =
    finding). Before describing any cross-feature behavior, grep `specs/` for
    its user-facing string: if another spec owns it, link; if this spec is the
@@ -155,7 +155,7 @@ subset above; the rest bind by the writer's judgment):
    The author's entry route (View on My Submissions) belongs to the
    author-dashboard feature; everything after it belongs to the workflow
    features.
-10. **Glossary discipline.** `GLOSSARY.md` is the living definition home for
+10. **Glossary discipline.** `lib/pkp/docs/e2e/specs/GLOSSARY.md` is the living definition home for
     the product vocabulary the specs use — the terms as OJS/OMP/OPS screens
     use them, defined so a QA/PO reader can follow any spec, plus the
     settled resolutions of term collisions (which of two competing words the
@@ -163,7 +163,7 @@ subset above; the rest bind by the writer's judgment):
     win; a term may be coined only when the screen offers none; every
     coined term has ONE definition home (the glossary), and first use per
     spec carries a gloss or pointer. Applies to test naming too. Cross-app
-    NAME substitution (journal/press/server…) is `APP-GLOSSARY.md`'s job,
+    NAME substitution (journal/press/server…) is `GLOSSARY.md Part II`'s job,
     not this one's — the glossary defines meanings and links there for
     renames. New specs check the glossary before coining and add missing
     terms as part of authoring.
@@ -210,7 +210,7 @@ atlas-claims: [<atom IDs this spec owns>]
      Cells are PLAIN PRODUCT LANGUAGE, one bullet per role-group/condition
      (`<br>• `), each bullet: actor(s) then condition. Lead with a short
      paragraph defining recurring terms (assigned, participant…) and site-wide
-     baselines, so cells stay terse. THE SCREEN IS THE INSTRUMENT (CHARTER):
+     baselines, so cells stay terse. THE SCREEN IS THE INSTRUMENT (RUNBOOK):
      the row records what the role is OFFERED and what happens when they use
      it. Where the offer and the outcome disagree — the control is there and
      does nothing, or is refused, or is missing where the role should have it —
@@ -270,7 +270,7 @@ atlas-claims: [<atom IDs this spec owns>]
      the feature, then the app-specific ones (title the block or badge the
      scenario). A common scenario is written once, app-neutral, and each app
      implements it in its own context — roles, data and vocabulary per
-     APP-GLOSSARY — so keep any app-varying step behind an inline marker
+     GLOSSARY Part II — so keep any app-varying step behind an inline marker
      rather than baking one app's nouns into the flow.
      Name actors BY ROLE, never seeded accounts.
      WRITE EACH AS A MANUAL TEST SCRIPT: what the tester does and what appears

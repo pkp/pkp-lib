@@ -24,7 +24,7 @@ difference — or to a retired finding, overturned on re-probe and kept in the
 register for the record. Marks such as <sup>a</sup> link to the Footnotes tail, where code
 and evidence pointers live — you can ignore that section and lose no behavior.
 The spec is written in OJS vocabulary; reading it for a press, substitute
-terms per the [application glossary](../APP-GLOSSARY.md) — "journal" reads as
+terms per the [application glossary](GLOSSARY.md) — "journal" reads as
 press, "Journal Manager" as Press Manager, "Editor" as Press Editor, "Section
 Editor" as Series Editor, "Reviewer" as External Reviewer (a press also has
 Internal Reviewers — see Purpose), and the stage named "Review" appears on a
@@ -43,7 +43,7 @@ confirming the finished review, thanking the reviewer, or unassigning and
 later reinstating them. This spec covers that panel and every window it opens.
 The round machinery around it — round numbers, the status box, the decision
 buttons — is the neighboring feature
-[→ round machinery](review-stage-and-rounds.md#rounds); what the reviewer
+[→ round machinery](U26-review-stage-and-rounds.md#rounds); what the reviewer
 themself sees and does is the *Reviewer's review* feature; how review
 defaults and forms are configured is *Review setup & review forms*.
 
@@ -51,7 +51,7 @@ OPS does not install a review stage or any reviewer role: a preprint server's
 workflow goes straight from submission to Production, no "Reviewers" panel
 exists on any screen, and its role settings offer no reviewer group. The
 absence of the stage itself is documented with
-[→ the review stage](review-stage-and-rounds.md#rounds). <sup>p</sup>
+[→ the review stage](U26-review-stage-and-rounds.md#rounds). <sup>p</sup>
 
 On a press, everything in this file runs twice: the Internal Review stage and
 the External Review stage each carry their own Reviewers panel with the same
@@ -65,7 +65,7 @@ opening, unsearched list does not yet apply that split ⚠ [OMP2](#omp2).
 
 The Reviewers panel renders on the editorial view of the review stage; who
 can open that stage at all is
-[→ stage access](review-stage-and-rounds.md#rounds) (the *Review stage &
+[→ stage access](U26-review-stage-and-rounds.md#rounds) (the *Review stage &
 rounds* actors table). Within the panel, "review managers" below means:
 Journal Manager, Editor, and an assigned Section Editor or Guest Editor. A
 Site Administrator takes part through whatever journal role grants them
@@ -77,17 +77,17 @@ the same workflow screen for their own submission but, while reviews are
 underway, gets no Reviewers panel at all — no table, no reviewer identities;
 whether and when a reduced read-only list of completed reviews appears is
 owned by
-[→ reading reviews as the author](review-stage-and-rounds.md#author-read-review).
+[→ reading reviews as the author](U26-review-stage-and-rounds.md#author-read-review).
 
 | Action | Who may — and when |
 |--------|--------------------|
 | **See the Reviewers panel and its rows** | • Review managers and assistant-level participants — every round of the stage<br>• Author — no panel while reviews are underway; any reduced list of completed reviews is the neighboring feature's (see preamble) <sup>a</sup> |
 | **See declined and cancelled rows** | • Review managers only — an assistant-level participant's table silently omits those rows ⚠ [A6](#a6) <sup>a</sup> |
-| **Add a reviewer** (search & select, "Add Reviewer") | • Review managers and assistant-level participants — any round, including past rounds (the past-round oddity is recorded with the [→ round machinery](review-stage-and-rounds.md#rounds)) <sup>a</sup> |
+| **Add a reviewer** (search & select, "Add Reviewer") | • Review managers and assistant-level participants — any round, including past rounds (the past-round oddity is recorded with the [→ round machinery](U26-review-stage-and-rounds.md#rounds)) <sup>a</sup> |
 | **"Create New Reviewer" / "Enroll Existing User"** | • Journal Manager, Editor, assigned Section Editor and Guest Editor — the two links inside the Add Reviewer window (a Site Administrator's access runs through such a journal role — see the preamble)<br>• assistant-level participants — the two links never appear <sup>a</sup> |
 | **Manage an assignment** (row actions: "Review Details", "Email Reviewer", "Edit", "Send Reminder", "Thank Reviewer", "Revert Decision", "Read Review", "Resend Review Request", "Unassign Reviewer"/"Cancel Reviewer", "Reinstate Reviewer", "Log Response", "History") | • Review managers and assistant-level participants — per assignment state (Rule 3 for when each appears; the operations in Rules 12–21; the Email Reviewer window is described under Fields) <sup>a</sup> |
 | **"Editorial Notes"** | • Site Administrator, Journal Manager, Editor, Section Editor, Guest Editor — about a user holding a Reviewer role, never about themselves<br>• assistant-level participants — the entry is absent <sup>l</sup> |
-| **"Login As" the reviewer** | • whoever may impersonate that reviewer — the row entry appears only then; the rule is [→ who may impersonate whom](login-and-sessions.md#who-may-impersonate) <sup>l</sup> |
+| **"Login As" the reviewer** | • whoever may impersonate that reviewer — the row entry appears only then; the rule is [→ who may impersonate whom](U01-login-and-sessions.md#who-may-impersonate) <sup>l</sup> |
 | **Author on the workflow screen** | • none of the above — an assigned Author gets none of these entries, even when they also hold an editorial role on the submission (the panel itself is absent, see the preamble); the server-side refusals behind that, including the read operations for anonymous review types, are recorded in the footnote <sup>a</sup> |
 
 ## Fields & validation
@@ -223,7 +223,7 @@ under the prompt "Record the response on behalf of the reviewer"; submit
    an explicit waiver, not an oversight. <sup>a</sup>
 4. **The round's status line follows this table** — adding reviewers,
    receiving and confirming reviews move the round status box described in
-   [→ the round status](review-stage-and-rounds.md#round-status); this spec
+   [→ the round status](U26-review-stage-and-rounds.md#round-status); this spec
    never restates those sentences.
 5. <a id="search"></a> **Finding a reviewer.** The Add Reviewer window opens
    on "Locate a Reviewer": a searchable list of every user holding a
@@ -281,7 +281,7 @@ under the prompt "Record the response on behalf of the reviewer"; submit
     optionally one of the journal's review forms; defaults per the review
     setup and — for the form — per the submission's section. The type gates
     the author's access to the finished review
-    ([→ reading as the author](review-stage-and-rounds.md#author-read-review))
+    ([→ reading as the author](U26-review-stage-and-rounds.md#author-read-review))
     and what the reviewer wizard shows is the *Reviewer's review* feature.
     The form can be changed (Edit window) only until the review is
     submitted; afterwards the selector disappears. <sup>d</sup> <sup>g</sup>
@@ -289,7 +289,7 @@ under the prompt "Record the response on behalf of the reviewer"; submit
     the "Files To Be Reviewed" list — at add time and at any later "Edit";
     editing replaces the whole selection with the current checkboxes. Which
     files populate that list is the round's Files for Review set
-    ([→ Files for Review](review-stage-and-rounds.md#review-files)). The
+    ([→ Files for Review](U26-review-stage-and-rounds.md#review-files)). The
     "No Files Selected" warning appears in the Add window only when the
     round's list is empty; only the Edit window shows and hides it reactively
     as boxes are (un)ticked. Either way nothing blocks saving — an assignment
@@ -395,13 +395,13 @@ under the prompt "Record the response on behalf of the reviewer"; submit
   under the acting editor's name. When the journal has
   reviewer one-click access enabled, the email carries a sign-in-free review
   link (the landing is the *Reviewer's review* feature; the invitation
-  record is [→ user invitations](user-invitations.md#invitation-states)).
+  record is [→ user invitations](U06-user-invitations.md#invitation-states)).
   The assignment is logged in the submission's activity log. <sup>m</sup>
 - **Creating a new reviewer** → a user account is created with a generated
   password and — unless the skip box is ticked — a welcome email
   ("Registration as Reviewer…") carrying the username and that password;
   the account must change its password at first sign-in
-  ([→ forced password change](login-and-sessions.md)). The new account
+  ([→ forced password change](U01-login-and-sessions.md)). The new account
   joins the chosen reviewer group and its masthead list. <sup>e</sup>
 - **Enrolling an existing user** → the user gains the chosen reviewer role
   permanently; no separate email beyond the request itself. <sup>e</sup>
@@ -492,7 +492,7 @@ forms* unless said otherwise. <sup>n</sup>
 ## Canonical scenarios
 
 Common to OJS and OMP; substitute roles and vocabulary per the
-[application glossary](../APP-GLOSSARY.md) (on a press, run on External
+[application glossary](GLOSSARY.md) (on a press, run on External
 Review; scenario 13 covers the internal twin). Actors are named by role;
 seeded accounts and recipes live in the footnotes. <sup>s</sup> Outgoing
 mail is observed in the test install's mail catcher.
@@ -519,7 +519,7 @@ mail is observed in the test install's mail catcher.
    The row appears as "Request Sent"; the new address's mailbox holds the
    registration email with a password and the review request; signing in
    with that password lands on the "Change Password" form
-   ([→ sign-in flows](login-and-sessions.md)). <sup>s</sup>
+   ([→ sign-in flows](U01-login-and-sessions.md)). <sup>s</sup>
 4. **Enroll an existing user** — Journal Manager: choose "Enroll Existing
    User", type a seeded author's name into the autocomplete, pick them,
    press "Add Reviewer". The row appears; opening the journal's users list
@@ -1298,7 +1298,7 @@ self; assistants additionally lack the op in the role map (note a); form
 `ReviewerGossipForm` (template `reviewerGossipForm.tpl`, AFFW-654) reads and
 writes the user-level gossip field (finding A4). Login As: row entry on
 `canLoginAs` (AFFW row action; the flag and flow are
-[→ who may impersonate whom](login-and-sessions.md#who-may-impersonate));
+[→ who may impersonate whom](U01-login-and-sessions.md#who-may-impersonate));
 confirm text `grid.user.confirmLogInAs`. Live-probed 2026-08-02 (OJS +
 OMP): History opens as a side modal titled "History"; milestones observed
 verbatim "Assigned · Notified · Confirm · Completed · Acknowledged", dated
@@ -1317,7 +1317,7 @@ round 1 `ReviewRequest` (MAIL-044, key REVIEW_REQUEST), later rounds
 = acting editor, body = the edited personal message; with
 `reviewerAccessKeysEnabled` a `ReviewerAccessInvite` invitation is created
 and its one-click URL substituted into the mail (invitation lifecycle
-[→ user invitations](user-invitations.md#invitation-states); the landing is
+[→ user invitations](U06-user-invitations.md#invitation-states); the landing is
 the *Reviewer's review* feature). Event log `log.review.reviewerAssigned`;
 email log records the request (the request/subsequent event-type switch
 compares the round number against an unrelated status constant that happens

@@ -1,30 +1,35 @@
 # Glossary
 
-The vocabulary the specs use, defined so a QA or product person can read any
-spec without a developer. Written in OJS voice; where OMP/OPS use a different
-NAME for the same thing, the entry says "cross-app names: APP-GLOSSARY"
-rather than repeating the mapping (`APP-GLOSSARY.md` owns cross-app
-substitution; this file owns meanings). Specs follow TEMPLATE rule 10:
-on-screen names win, first use of a coined term carries a gloss or pointer
-here, and authors add missing terms as part of writing. **Settled usage**
-entries record which of two competing words the specs use going forward;
-shipped specs are aligned opportunistically (self-healing).
+The vocabulary of the specs, in two parts. **Part I** defines what terms MEAN,
+so a QA or product person can read any spec without a developer — written in
+OJS voice; where OMP/OPS use a different NAME for the same thing, the entry
+says "cross-app names: Part II" rather than repeating the mapping. **Part II**
+is the cross-app term map and the shared-test capability names. Specs follow
+TEMPLATE rule 10 (`lib/pkp/docs/e2e/process/TEMPLATE.md`): on-screen names win,
+first use of a coined term carries a gloss or pointer here, and authors add
+missing terms as part of writing. **Settled usage** entries record which of
+two competing words the specs use going forward; shipped specs are aligned
+opportunistically (self-healing).
+
+---
+
+# Part I — What terms mean
 
 ## The world
 
 - **Site vs journal (context)** — one install hosts many *journals* plus
   site-level surfaces (site login, Administration, Site Settings, Hosted
   Journals). "Context" is the generic word for the journal-like unit.
-  Cross-app names: APP-GLOSSARY (press, preprint server).
+  Cross-app names: Part II (press, preprint server).
 - **Section** — a journal's content grouping (e.g. Articles, Reviews); a
   section can set its own policies (abstract required, word limits, a default
-  review form). Cross-app names: APP-GLOSSARY (series; OPS has one
+  review form). Cross-app names: Part II (series; OPS has one
   "Preprints" section).
 - **Issue** — a journal's published collection (volume/number/year); OJS
-  only. Cross-app names: APP-GLOSSARY (absence is not a synonym — OMP/OPS
+  only. Cross-app names: Part II (absence is not a synonym — OMP/OPS
   have no issues; OMP's counterpart concept is the catalog).
 - **Submission** — the manuscript-plus-metadata object moving through the
-  workflow; OJS voice also says "article". Cross-app names: APP-GLOSSARY
+  workflow; OJS voice also says "article". Cross-app names: Part II
   (monograph, preprint).
 - **Publication (object)** — the publishable face of a submission: title &
   abstract, contributors, galleys, scheduling. A submission carries one or
@@ -33,7 +38,7 @@ shipped specs are aligned opportunistically (self-healing).
   scheduled counts as published for automatic follow-ups such as ORCID
   deposits).
 - **Galley** — a publication's reader-facing file rendition (e.g. the PDF).
-  Cross-app names: APP-GLOSSARY (publication format).
+  Cross-app names: Part II (publication format).
 - **Contributor** — a person on the submission's author list (the
   Contributors list). Distinct from the **Author role** — the account that
   submitted and follows the submission; a contributor need not have an
@@ -77,7 +82,7 @@ shipped specs are aligned opportunistically (self-healing).
 
 - **Stage** — one of the workflow's fixed stops: Submission → Review →
   Copyediting → Production (OJS). Fixed per app, not configurable.
-  Cross-app: APP-GLOSSARY (OMP adds Internal Review; OPS has Production
+  Cross-app: Part II (OMP adds Internal Review; OPS has Production
   only). The **active stage** is where the submission currently sits;
   decision buttons render only there.
 - **Workflow screen** — the per-submission editorial screen with its stage
@@ -229,3 +234,137 @@ shipped specs are aligned opportunistically (self-healing).
 - **Footnote marks** (`<sup>a</sup>`) — provenance: code anchors, probe
   dates, seeded accounts. The body never depends on them; a reader can skip
   the footnote tail and lose no behavior.
+---
+
+# Part II — Cross-app term map & capability names
+
+**Contract.** This part is the single home for multi-app vocabulary. Specs are
+written in OJS terms, always; reading a spec for OMP or OPS, substitute via the
+tables below. No spec repeats these tables or inlines a translation ("journal
+(press in OMP)"). On-screen names win: every cell is the name
+the app's UI shows, and a probe that contradicts a cell fixes the cell. One
+definition per term. (Term meanings: Part I above.)
+
+**Two sections, two different questions.** §1 answers "what does this OJS
+word substitute to in OMP/OPS?" and governs SPEC scope — a renamed concept is
+the same feature, covered by the same spec. §2 answers "may a SHARED-layer
+test run on this app?" and governs test gating only. The two can legitimately
+disagree about the same noun: OMP series ARE sections for spec purposes
+(shared `PKPSection` machinery relabeled — one Sections spec covers them by
+substitution), while `hasSections` is ✗ for OMP so a shared-layer test
+written against OJS sections skips there and OMP's series coverage comes
+from its per-app suite (maintainer ruling 2026-07-27). Read each section for
+its own question and no cell conflicts.
+
+**Absence is not a synonym.** A "—" cell means the concept does not exist in
+that app. Any rule or scenario built on a "—" term is implicitly absent there
+even without a badge (the spec still carries the badge — the dash is the
+reader's safety net, the badge is the contract). Where an app has a
+*counterpart feature* instead (issues → catalog), the dash says so, but the
+counterpart is a different feature with its own spec, never a substitution.
+
+Terms not in this file mean the same thing in all three apps.
+
+## 1. Vocabulary map
+
+### Context and content nouns
+
+| OJS term (as written in specs) | OMP | OPS |
+|---|---|---|
+| journal | press | preprint server |
+| article / submission | monograph (work types on screen: Monograph, Edited Volume) | preprint |
+| section | series (optional; categories carry more weight) | section (unchanged; seed section "Preprints") |
+| issue | — no issues. Counterpart feature: catalog (New Releases / Featured) | — no issues; continuous posting |
+| issue assignment | — counterpart feature: catalog entry | — |
+| galley | publication format (+ ONIX metadata) | galley (unchanged) |
+| Archive (back issues) | — no back-issue archive. Counterpart feature: Catalog browse (own OMP spec; maintainer scope extension 2026-07-27) | Preprints archive listing |
+| Hosted Journals (site admin) | Hosted Presses | Hosted Servers |
+
+### Roles (default user-group names)
+
+| OJS | OMP | OPS |
+|---|---|---|
+| Journal Manager | Press Manager | Preprint Server Manager |
+| Editor | Press Editor | — no editor group |
+| Section Editor (sub-editor slot) | Series Editor | Moderator |
+| Reviewer | Reviewer (split: Internal Reviewer / External Reviewer) | — no reviewer group |
+| Copyeditor | Copyeditor | — not seeded; no copyediting stage |
+| Layout Editor | Layout Editor (+ Designer) | — |
+| Translator (journal user group) | Volume Editor, Chapter Author, Translator (chapter roles — OMP's Translator is a chapter role, distinct from OJS's group of the same name) | — |
+
+*Note*: OPS "Moderator" fills the Section-editor slot, not the Editor slot —
+confirmed in live OPS Moderator sessions, 2026-07-26.
+
+### Workflow stages and decisions
+
+| OJS | OMP | OPS |
+|---|---|---|
+| stages: Submission → Review → Copyediting → Production | Submission → **Internal Review** → External Review → Copyediting → Production | **Production only** (single stage) |
+| Review (the stage) | External Review (Internal Review is a distinct, OMP-unique stage) | — |
+| Copyediting | Copyediting | — |
+| Send for Review (decision; label live-confirmed 2026-07-27) | Send to External Review (same label from Submission [skips internal] and from Internal Review; plus Send to Internal Review, Accept and Skip Review, internal recommend-only variants) | — decisions are Decline / Revert Decline only |
+| Publish | Publish to Catalog (approved proof) | **Post the preprint** |
+| Schedule for publication (issue) | — catalog entry instead | — posts continuously; moderation-before-posting is a context setting |
+
+### Payments and access
+
+| OJS | OMP | OPS |
+|---|---|---|
+| subscriptions | — | — |
+| payments (APC / subscription) | direct sales of publication formats (different feature, shared paymethod plugins only) | — no payments code at all |
+
+### Seed-data names (test fixtures)
+
+| OJS | OMP | OPS |
+|---|---|---|
+| context "Journal of Public Knowledge" (path `publicknowledge`) | "Public Knowledge Press" (same path) | "Public Knowledge Preprint Server" (same path) |
+| default genre "Article Text" | "Book Manuscript" | "Preprint Text" |
+| seeded sections ART / REV | series (seeded separately); no default section | one section "Preprints" |
+
+## 2. Capability names (`app.context.js` — canonical, verbatim)
+
+These flags serve the SHARED `lib/pkp` layer (base fixtures, POMs,
+bootstrap/smoke specs), which gates on capabilities, never app names
+(`if (!ctx.hasReviewStage)`, never `if (app === 'ops')`). Per-app suites don't
+need them — a suite living in an app's own repo names that app's roles, stages
+and data directly. The names below are the canonical spelling; `app.context.js`
+in each app repo (recreated by the harness rebuild) must use them verbatim.
+
+| Capability | Gates | OJS | OMP | OPS |
+|---|---|:-:|:-:|:-:|
+| `hasReviewStage` | any review stage exists: the whole review cluster (send-to-review, reviewers, rounds, forms, anonymity, recommend-only) | ✓ | ✓ | ✗ |
+| `hasInternalReview` | the OMP-unique Internal Review stage: internal decision roster, internal/external `reviewRounds` seeding, internal-stage companions | ✗ | ✓ | ✗ |
+| `hasCopyediting` | the Copyediting stage and its participants/files | ✓ | ✓ | ✗ |
+| `hasProduction` | the Production stage (all apps; kept for completeness) | ✓ | ✓ | ✓ |
+| `hasIssues` | issues, issue assignment, back-issue archive/TOC | ✓ | ✗ | ✗ |
+| `hasGalleys` | galley representation model (OMP uses publication formats instead) | ✓ | ✗ | ✓ |
+| `hasSubscriptions` | subscriptions management and subscription access | ✓ | ✗ | ✗ |
+| `hasSections` | sections as the content grouping (OMP uses optional series) | ✓ | ✗ | ✓ |
+| `hasReviewerRoles` | reviewer user groups exist / can be seeded | ✓ | ✓ | ✗ |
+
+## 3. Spec badge → which suites implement
+
+Spec badges are reader-facing and name apps. Under per-app suites the
+translation is direct: a scenario badged `{OJS OMP}` is implemented in the OJS
+and OMP suites and simply absent from OPS's — plus one absence test where the
+spec calls for it (PRINCIPLES M4). Only the shared
+`lib/pkp` layer translates badges to capability gates, via this table:
+
+| Spec marking (typical) | Shared-layer gate |
+|---|---|
+| `{OJS OMP}` on a review rule / "OPS: hidden (no review stage)" | `test.skip(!ctx.hasReviewStage, …)` |
+| OMP variation "applies to Internal Review too" / internal-stage scenario | OMP companion gated on `ctx.hasInternalReview` |
+| `{OJS OMP}` on a copyediting item | `test.skip(!ctx.hasCopyediting, …)` |
+| `{OJS}` on an issue rule / "no issues" | `test.skip(!ctx.hasIssues, …)` |
+| `{OJS OPS}` on a galley item (OMP: publication formats) | `test.skip(!ctx.hasGalleys, …)` |
+| `{OJS}` on a subscriptions item | `test.skip(!ctx.hasSubscriptions, …)` |
+| `{OJS OPS}` on a section-grouping item | `test.skip(!ctx.hasSections, …)` |
+| reviewer-persona steps ("as reviewer.julia…") | `test.skip(!ctx.hasReviewerRoles, …)` |
+
+Vocabulary deltas (§1) never gate anything: labels and payload nouns come from
+`appContext.vocab` / `appContext.seed`, so a shared test runs unchanged wherever
+the capability holds.
+
+The §1-vs-§2 relationship (spec scope vs shared-test gating) is defined in
+the header — ruling evidence:
+`../tracking/.reports/phase0-feature-map/probe-omp-series.md` (2026-07-27).

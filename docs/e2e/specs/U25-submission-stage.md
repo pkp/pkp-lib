@@ -24,7 +24,7 @@ a plain marker such as [OMP1](#omp1) points to an intended difference. Marks
 such as <sup>a</sup> link to the Footnotes tail, where code and evidence
 pointers live — you can ignore that section and lose no behavior. The spec is
 written in OJS vocabulary; reading it for OMP or OPS, substitute terms per the
-[application glossary](../APP-GLOSSARY.md) — "journal" reads as press /
+[application glossary](GLOSSARY.md) — "journal" reads as press /
 preprint server, "article" as monograph / preprint, "Journal Manager" as Press
 Manager / Preprint Server Manager, "Editor" as Press Editor, "Section Editor"
 as Series Editor / Moderator. All markers and marks are clickable.
@@ -229,7 +229,7 @@ of *Editorial decision recording*; the file panel's upload wizard belongs to
 
 Common to OJS and OMP (a preprint server has no Submission stage — scenario 9
 covers its absence); substitute roles and vocabulary per the
-[application glossary](../APP-GLOSSARY.md). Actors are named by role; seeded
+[application glossary](GLOSSARY.md). Actors are named by role; seeded
 accounts and recipes live in the footnotes. <sup>s</sup>
 
 1. **Open a new submission at the Submission stage** — Editor: on a freshly

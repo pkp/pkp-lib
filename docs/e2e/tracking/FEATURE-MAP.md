@@ -1,10 +1,10 @@
 # FEATURE-MAP — the campaign's unified feature list (Phase 0 deliverable)
 
 This file is the single home for the campaign's feature taxonomy: **70 features
-(U1–U70)** with every atlas atom assigned. Every spec session starts here: pick a
+(U01–U70)** with every atlas atom assigned. Every spec session starts here: pick a
 feature row, claim its listed atoms, write the spec per `TEMPLATE.md`.
 
-- **Invariant (CHARTER, atom claim)**: every atlas atom lands in **exactly one**
+- **Invariant (atom claim — RUNBOOK "Mission, scope & invariants")**: every atlas atom lands in **exactly one**
   of: a feature section below, the **Out of scope** section at the tail of this
   file, or `UNASSIGNED.md`. The unclaimed count is the campaign's completeness
   metric. This map accounts for all **2,163** atoms:
@@ -31,57 +31,57 @@ feature row, claim its listed atoms, write the spec per `TEMPLATE.md`.
 
 ## A. Accounts & identity
 
-### U1 — Login & sessions {OJS OMP OPS} · M
+### U01 — Login & sessions {OJS OMP OPS} · M
 A user signs in/out, recovers and changes passwords, passes re-authentication gates, and (admin) logs in as another user.
 Atoms: AFFW-467, 470, 473, 499 · AFFM-105, 191, 209 · AFFU-001..008, 036..052 · ROUTE-016 · MAIL-030 · SET-052
-Notes: log-in-as claimed here on every offering surface (D17); password flows folded in (D16). Riders: SET-052's plugin-install keys are cited by U62; SET-057's login-captcha keys (owned by U2) are cited here; ROUTE-003's confirmAccess ops and ROUTE-028's authorizationDenied op (owned by U61/U3) are cited here.
+Notes: log-in-as claimed here on every offering surface (D17); password flows folded in (D16). Riders: SET-052's plugin-install keys are cited by U62; SET-057's login-captcha keys (owned by U02) are cited here; ROUTE-003's confirmAccess ops and ROUTE-028's authorizationDenied op (owned by U61/U03) are cited here.
 
-### U2 — Registration & account validation {OJS OMP OPS} · M
+### U02 — Registration & account validation {OJS OMP OPS} · M
 A visitor registers (site- or journal-level), consents, opts into roles, validates their email.
 Atoms: AFFU-009..035 · ROUTE-030 · MAIL-058..059 · SET-057 · JOB-053
-Notes: riders — SET-053's `require_validation`/`validation_timeout` keys (owned by U56) gate this flow; SET-057's login-captcha portion is cited by U1.
+Notes: riders — SET-053's `require_validation`/`validation_timeout` keys (owned by U56) gate this flow; SET-057's login-captcha portion is cited by U01.
 
-### U3 — User profile {OJS OMP OPS} · M
+### U03 — User profile {OJS OMP OPS} · M
 A user maintains identity, contact, roles, public profile, password tab, notification choices, API key.
 Atoms: AFFU-053..064, 067..092, 096..098 · ROUTE-028..029, 071, 087 · GRID-065 · MAIL-003 · SET-027
-Notes: owns the Notifications *tab* shell; the toggles' semantics (AFFU-093..095) are owned by U5 — the taxonomy's flagged fragile seam. Rider: ROUTE-028's authorizationDenied op is cited by U1.
+Notes: owns the Notifications *tab* shell; the toggles' semantics (AFFU-093..095) are owned by U05 — the taxonomy's flagged fragile seam. Rider: ROUTE-028's authorizationDenied op is cited by U01.
 
-### U4 — ORCID integration {OJS OMP OPS} · M
+### U04 — ORCID integration {OJS OMP OPS} · M
 Users and authors connect verified iDs; the journal deposits works/reviews to ORCID.
 Atoms: AFFW-502 · AFFM-117, 222 · AFFU-065..066, 099..110 · ROUTE-021 · API-029 · MAIL-027..029 · JOB-017..020, 033..034 · PLUG-021
 Notes: riders — AFFW-506 (owned by U27) bundles an ORCID-deposit confirm cited here; API-032's sendToOrcid op (owned by U30) cited here. OPS plugin packaging is an install-fact divergence.
 
-### U5 — Notifications center & email preferences {OJS OMP OPS} · M
+### U05 — Notifications center & email preferences {OJS OMP OPS} · M
 Users receive, review, and control in-app and email notifications, incl. one-click unsubscribe.
 Atoms: AFFW-698..700 · AFFU-093..095, 111..121 · AFFR-009 · ROUTE-020 · GRID-039..040 · NOTIF-001..007
-Notes: individual NOTIF-* types live with their emitting features; the generic framework toasts (NOTIF-001..007) are homed here. Riders: AFFR-009 renders inside U8's chrome; GRID-064's `tasks` op (owned by U10) serves the header widget.
+Notes: individual NOTIF-* types live with their emitting features; the generic framework toasts (NOTIF-001..007) are homed here. Riders: AFFR-009 renders inside U08's chrome; GRID-064's `tasks` op (owned by U10) serves the header widget.
 
-### U6 — User invitations {OJS OMP OPS} · M
+### U06 — User invitations {OJS OMP OPS} · M
 A manager invites someone into roles; the recipient accepts (creating/linking an account) or declines.
 Atoms: AFFM-099..101, 118..120 · AFFU-122..137, 206 · ROUTE-013..014 · VUE-001, 011, 052 · API-024 · MAIL-055 · SET-064 · JOB-013, 051
-Notes: AFFU-206 (generic invitation-URL landing) also serves the reviewer one-click key link — U28 cites it. Rider: ROUTE-017's `editUser` op (owned by U7) is the wizard's second entry point — the users-table "Edit" route — and its `access` op mounts VUE-052; cited here, not claimed. MAIL-055's `ojs omp` badge is deliberate (OPS omits the mailable from its map, so the template has no row on the OPS emails screen though sending works) — see the spec's OPS1 finding.
+Notes: AFFU-206 (generic invitation-URL landing) also serves the reviewer one-click key link — U28 cites it. Rider: ROUTE-017's `editUser` op (owned by U07) is the wizard's second entry point — the users-table "Edit" route — and its `access` op mounts VUE-052; cited here, not claimed. MAIL-055's `ojs omp` badge is deliberate (OPS omits the mailable from its map, so the template has no row on the OPS emails screen though sending works) — see the spec's OPS1 finding.
 
 ## B. Reader & public site
 
-### U7 — Journal identity & about pages {OJS OMP OPS} · M
+### U07 — Journal identity & about pages {OJS OMP OPS} · M
 Managers describe the journal (masthead, contact, policies, information pages); readers consult the About pages.
 Atoms: AFFM-001..002, 022, 042 · AFFR-032..034, 038..041, 088 · ROUTE-001..002, 017, 039, 042, 061, 063, 078 · VUE-022 · PLUG-003
-Notes: ROUTE-017/042/063/078 and VUE-022 are multi-feature settings dispatchers — dispatcher atoms need one bookkeeping owner and are homed here; the riders fan the ops out to their features (riders in U6, U10, U58, U29, U37, U53, U54, U56, U14, U66, U12, U40). Rider: AFFR-035 (owned by U58) renders on an About page. Rider: ROUTE-017's `editUser` op is the second entry point into the send-invitation wizard and its `access` op mounts VUE-052 — both cited by U6.
+Notes: ROUTE-017/042/063/078 and VUE-022 are multi-feature settings dispatchers — dispatcher atoms need one bookkeeping owner and are homed here; the riders fan the ops out to their features (riders in U06, U10, U58, U29, U37, U53, U54, U56, U14, U66, U12, U40). Rider: AFFR-035 (owned by U58) renders on an About page. Rider: ROUTE-017's `editUser` op is the second entry point into the send-invitation wizard and its `access` op mounts VUE-052 — both cited by U06.
 
-### U8 — Navigation menus & site chrome {OJS OMP OPS} · M
+### U08 — Navigation menus & site chrome {OJS OMP OPS} · M
 Managers shape menus; every visitor navigates the resulting header/footer frame.
 Atoms: AFFM-028..034, 218 · AFFR-001..008, 010..016, 018, 091, 098 · GRID-037..038 · VUE-066 · API-028 · SET-017..018 · PLUG-002
-Notes: chrome rides here per D14 (S shape). Riders: AFFR-009's badge state is U5's; ROUTE-019's preview op (owned by U9) serves menu management; GRID-064's frame portion (owned by U10) cited here. VUE-042 (the unmounted manager component) is parked in UNASSIGNED.
+Notes: chrome rides here per D14 (S shape). Riders: AFFR-009's badge state is U05's; ROUTE-019's preview op (owned by U09) serves menu management; GRID-064's frame portion (owned by U10) cited here. VUE-042 (the unmounted manager component) is parked in UNASSIGNED.
 
-### U9 — Custom pages & blocks {OJS OMP OPS} · L
+### U09 — Custom pages & blocks {OJS OMP OPS} · L
 Managers publish their own pages (static pages, custom NMI pages) and sidebar blocks of arbitrary content.
 Atoms: AFFM-035 · AFFR-093, 096..097 · ROUTE-019 · API-007 · PLUG-010, 027
-Notes: API-007 is the generic public-file upload behind rich-text image fields across all manager-authored content — consuming features cite it. Rider: ROUTE-019's preview op is U8's.
+Notes: API-007 is the generic public-file upload behind rich-text image fields across all manager-authored content — consuming features cite it. Rider: ROUTE-019's preview op is U08's.
 
 ### U10 — Appearance & theming {OJS OMP OPS} · M
 Managers control how the site looks: theme + options, logos, home-page composition, lists, date formats.
 Atoms: AFFM-018..021, 041, 043, 198 · AFFR-023, 025, 027 · ROUTE-011, 038, 060, 077 · GRID-064 · PLUG-049
-Notes: riders — GRID-064's `tasks` op serves U5 and its frame serves U8; AFFR-027's archive-header portion rides AFFR-078 (U17); API-013's theme sub-op (owned by U59) cited here.
+Notes: riders — GRID-064's `tasks` op serves U05 and its frame serves U08; AFFR-027's archive-header portion rides AFFR-078 (U17); API-013's theme sub-op (owned by U59) cited here.
 
 ### U11 — Highlights {OJS OMP OPS} · L
 Managers pin promoted items into a home-page carousel (journal or site scope).
@@ -168,12 +168,12 @@ Notes: owns the round's recommendation *display* per D18 (recording → U34, tog
 ### U27 — Reviewer assignment & management {OJS OMP} · H
 An editor finds, invites, edits, reminds, thanks, unassigns, reinstates reviewers and reads their reviews.
 Atoms: AFFW-213..215, 217..224, 486, 488..498, 500..501, 503..506, 621..665, 668, 708 · GRID-012, 026, 086, 098 · VUE-016, 046, 067..068 · API-048 · MAIL-026, 034, 038..046 · NOTIF-019, 048 · SET-020 · JOB-012
-Notes: automatic reminders (MAIL-043, 046) are sent here; their clocks are configured in U29 (JOB-054). Riders: AFFW-506's ORCID-deposit confirm cited by U4; API-047's GET-reviewers sub-op (owned by U53) cited here.
+Notes: automatic reminders (MAIL-043, 046) are sent here; their clocks are configured in U29 (JOB-054). Riders: AFFW-506's ORCID-deposit confirm cited by U04; API-047's GET-reviewers sub-op (owned by U53) cited here.
 
 ### U28 — Reviewer's review {OJS OMP} · H
 A reviewer sees assignments, responds to a request, completes the wizard (or declines), submits, and revisits past rounds.
 Atoms: AFFW-029, 050, 057 · AFFU-138..205, 207..209 · ROUTE-022, 047, 066 · GRID-013, 028, 063 · VUE-009, 076 · MAIL-035..037 · NOTIF-013
-Notes: the reviewer dashboard list is folded here per D4 — it cites ROUTE-008/VUE-003 (U23) for its view; OPS listing behavior needs a Phase-1 probe. One-click entry: the landing atom AFFU-206 is owned by U6, cited here. Review-form elements render here (AFFU-170..175); they are built in U29 (config→effect cross-link). Rider: API-032's confirmReview op (owned by U30) cited here.
+Notes: the reviewer dashboard list is folded here per D4 — it cites ROUTE-008/VUE-003 (U23) for its view; OPS listing behavior needs a Phase-1 probe. One-click entry: the landing atom AFFU-206 is owned by U06, cited here. Review-form elements render here (AFFU-170..175); they are built in U29 (config→effect cross-link). Rider: API-032's confirmReview op (owned by U30) cited here.
 
 ### U29 — Review setup & review forms {OJS OMP} · M
 A manager configures how review runs: mode, deadlines, reminders, guidance, review forms, recommendation options.
@@ -183,7 +183,7 @@ Notes: owns the reminder clocks (JOB-054); the reminder sends live with U27 (MAI
 ### U30 — Author response to reviews {OJS} · M
 An editor requests, and an author submits, a formal response to a review round.
 Atoms: AFFW-326, 354, 577..585 · ROUTE-023 · VUE-008, 049, 070 · API-032 · MAIL-033
-Notes: badge may widen to OMP — the API is mounted ojs+omp and AFFW-326 is swept all three apps; Phase-1 resolves. API-032's confirmReview / history / export+sendToOrcid ops are cited by U28 / U26 / U4 (riders).
+Notes: badge may widen to OMP — the API is mounted ojs+omp and AFFW-326 is swept all three apps; Phase-1 resolves. API-032's confirmReview / history / export+sendToOrcid ops are cited by U28 / U26 / U04 (riders).
 
 ### U31 — Reviewer suggestions {OJS OMP} · L
 An author suggests reviewers at submission; an editor sees and acts on them during review.
@@ -313,7 +313,7 @@ Notes: the per-role restriction form (AFFM-201) is its settings-that-modify-beha
 ### U56 — Emails management {OJS OMP OPS} · M
 Managers review every mailable, customize/add/reset templates, disable optional ones; template mechanics home.
 Atoms: AFFM-085, 121..128 · VUE-021, 072..073 · API-019, 027 · SET-012, 053
-Notes: each mailable's *trigger* stays with its owning feature. Rider: SET-053's require_validation/validation_timeout keys are cited by U2.
+Notes: each mailable's *trigger* stays with its owning feature. Rider: SET-053's require_validation/validation_timeout keys are cited by U02.
 
 ### U57 — Languages & locales {OJS OMP OPS} · M
 Admins install locales; managers choose UI/forms/submission languages; visitors switch language.
@@ -337,12 +337,12 @@ Notes: riders — ROUTE-003's settings op and VUE-015's hosting (owned by U61) c
 ### U61 — System administration & jobs {OJS OMP OPS} · M
 The administrator maintains the running system: caches, sessions, system info, queued/failed jobs, scheduled tasks.
 Atoms: AFFM-185..190, 230..238 · ROUTE-003 · VUE-005..007, 015 · API-026 · SET-062..063 · JOB-049, 052, 063..067
-Notes: ROUTE-003 and VUE-015 (multi-feature admin shells) homed here; U59/U60/U1 cite their ops/screens. Operator-visible config keys are claimable as reference here; pure-infra config sections are OOS per Q5a (see Out of scope).
+Notes: ROUTE-003 and VUE-015 (multi-feature admin shells) homed here; U59/U60/U01 cite their ops/screens. Operator-visible config keys are claimable as reference here; pure-infra config sections are OOS per Q5a (see Out of scope).
 
 ### U62 — Plugins management {OJS OMP OPS} · M
 Enable, configure, upload, gallery-install plugins at journal and site level; each plugin's behavior lives with its owning feature.
 Atoms: AFFM-044..051, 202, 228..229 · GRID-006, 041, 077, 095, 104 · NOTIF-009..010
-Notes: rider — SET-052's allow_plugin_install/plugin_gallery_urls keys (owned by U1) are cited by this feature's guards.
+Notes: rider — SET-052's allow_plugin_install/plugin_gallery_urls keys (owned by U01) are cited by this feature's guards.
 
 ### U63 — Import & export {OJS OMP OPS} · M
 Managers move content and users in/out as XML/CSV via Tools (native XML, users XML, PubMed, DOAJ, pub-id export lists).
@@ -411,12 +411,12 @@ adjudicated in that critic pass.
 | AFFW-454..456 | U24 | Multi-stage dialogs with no single stage owner; shell home, consistent with 240..241. |
 | AFFW-479 | U48 | Send-to-text-editor is the Body Text import mechanism per D12; U36 only mounts the row action. |
 | AFFW-487 | U26 | Author-facing read-review surface belongs to the author's review-stage view, not the manager (rule 9: one shared screen). |
-| AFFW-506 | U27 | Atom bundles two confirms; the majority mechanism (revert-consider) wins, the ORCID-deposit confirm is a U4 rider. |
+| AFFW-506 | U27 | Atom bundles two confirms; the majority mechanism (revert-consider) wins, the ORCID-deposit confirm is a U04 rider. |
 | AFFW-605 | U44 | The modal is the assign-public-identifiers mechanism (rule 8); U50 keeps a publish side-effect line. |
 | AFFW-606 | U50 | The notify-readers checkbox's consequence belongs to the issue publish flow. |
 | AFFW-608 | OOS (formats/ONIX) | The approve-format/proof confirm rides the dropped format object model on both readings (proof pricing = direct sales, equally OOS). |
 | AFFW-666..667 | U26 | Author read-review modal — same author-side line as AFFW-487. |
-| AFFW-698..700 | U5 | The legacy header Tasks grid is the in-app notification inbox, not U37's task manager. |
+| AFFW-698..700 | U05 | The legacy header Tasks grid is the in-app notification inbox, not U37's task manager. |
 | AFFW-712..734 | OOS (UI infrastructure) | ⚑ Orchestrator ruling 2026-07-27 (RULINGS): framework chrome with no feature of its own — exercised implicitly by every consuming feature's scenarios; supersedes the U36 reference-block claim, treated the same as PLUG-028. |
 | AFFW-741 | U44 | Issue Identifiers tab anchor rides the pub-id mechanism (rule 8); U50 owns the hosting modal. |
 | AFFW-751 | U44 | Publisher-id field on the issue-galley form: mechanism home; U50 owns the form (AFFW-749..750). |
@@ -434,19 +434,19 @@ adjudicated in that critic pass.
 | AFFM-256 | U50 | Issue Access tab is the issue-surface instantiation of U51's delayed-OA rules; screen owner wins, U51 rider. |
 | SET-006 | U59 | Context schema homed with the context-entity lifecycle owner; each feature cites its own props at spec time. |
 | SET-025 | U21 | Submission schema homed with creation (the wizard); consumers cite fields. |
-| SET-052 | U1 | [security] is dominated by session/login keys; U62 cites the plugin-install keys; allowed_html noted near-infra. |
-| SET-053 | U56 | [email] homed with email mechanics; U2 cites require_validation/validation_timeout. |
-| SET-057 | U2 | [captcha]'s dominant surface is registration/lost-password; U1 cites the login-captcha keys. |
+| SET-052 | U01 | [security] is dominated by session/login keys; U62 cites the plugin-install keys; allowed_html noted near-infra. |
+| SET-053 | U56 | [email] homed with email mechanics; U02 cites require_validation/validation_timeout. |
+| SET-057 | U02 | [captcha]'s dominant surface is registration/lost-password; U01 cites the login-captcha keys. |
 
 ### AFFU / NOTIF (10)
 
 | Atom(s) | Final | Why |
 |---|---|---|
-| AFFU-093..095 | U5 | The flagged fragile seam resolved to the semantics owner; U3 keeps the tab shell. |
+| AFFU-093..095 | U05 | The flagged fragile seam resolved to the semantics owner; U03 keeps the tab shell. |
 | AFFU-170..175 | U28 | Review-form elements as rendered in the wizard: surface ownership wins; U29 cross-links config→effect. |
-| AFFU-206 | U6 | Generic invitation-URL landing homed with the invitation mechanism; U28's one-click entry cites it. |
+| AFFU-206 | U06 | Generic invitation-URL landing homed with the invitation mechanism; U28's one-click entry cites it. |
 | AFFU-245 | OOS (monographs/chapters) | The chapter row type rides the dropped object model; its `publication` row is a U45 OMP-variant line, not a claim. |
-| NOTIF-001..007 | U5 | Generic framework toasts have no single emitting feature; the notifications mechanism owns them. |
+| NOTIF-001..007 | U05 | Generic framework toasts have no single emitting feature; the notifications mechanism owns them. |
 | NOTIF-031 | U26 | Lives/clears with the round's revision upload; U34's decision keeps a side-effect line. |
 | NOTIF-034 | U33 | Production-era task per the app NotificationManager mapping; the U32 reading noted, not adopted. |
 | NOTIF-037 | U49 | The approval-gate prompt tracks the approve-submission mechanism; its OMP format surface is OOS. |
@@ -457,11 +457,11 @@ adjudicated in that critic pass.
 
 | Atom(s) | Final | Why |
 |---|---|---|
-| AFFR-009 | U5 | The unread badge is notification-center state; U8 owns only the chrome mount (rider). |
-| AFFR-016 | U8 | The shared "Edit" shortcut is chrome; consuming settings features cite it. |
+| AFFR-009 | U05 | The unread badge is notification-center state; U08 owns only the chrome mount (rider). |
+| AFFR-016 | U08 | The shared "Edit" shortcut is chrome; consuming settings features cite it. |
 | AFFR-019 | U59 | Site-home context list is the display side of hosted-journal ordering. |
 | AFFR-027 | U10 | Server-home composition owned by appearance; the archive-header portion rides AFFR-078 (U17). |
-| AFFR-035 | U58 | Intake open/closed notice: the settings owner wins over the About-page adjacency (U7 rider). |
+| AFFR-035 | U58 | Intake open/closed notice: the settings owner wins over the About-page adjacency (U07 rider). |
 | AFFR-046 | U13 | Listing-summary component homed at the landing feature; TOC/home/search screens cite it. |
 | AFFR-051 | U69 | RULINGS htmlMonographFile clarification: a catalog READER surface, in scope under U69 (confirmed by RULINGS). |
 | AFFR-052 | U13 | Shared details atom; OMP exposure is covered by U69 (D2 superseded), not by U13. |
@@ -479,26 +479,26 @@ adjudicated in that critic pass.
 
 | Atom(s) | Final | Why |
 |---|---|---|
-| ROUTE-003 | U61 | Multi-feature admin handler homed at primary intent (sysadmin); U59/U60/U1 cite their ops. |
+| ROUTE-003 | U61 | Multi-feature admin handler homed at primary intent (sysadmin); U59/U60/U01 cite their ops. |
 | ROUTE-005 | U24 | Rule 9 gives U22 only the entry route; the author's workflow screen is the shared workflow surface. |
 | ROUTE-007 | U23 | Legacy submissions dispatcher homed with the editorial dashboard; U22/U28 cite their role ops. |
 | ROUTE-008 | U23 | Dashboard base page; mySubmissions/reviewAssignments views cited by U22/U28 (D4). |
-| ROUTE-017 | U7 | Settings dispatcher homed at the context-identity hub; every tab's feature cites its ops. |
+| ROUTE-017 | U07 | Settings dispatcher homed at the context-identity hub; every tab's feature cites its ops. |
 | ROUTE-018 | U63 | Tools page's primary is import/export; U40 cites the permissions/resetPermissions ops. |
-| ROUTE-019 | U9 | The view op (custom pages) is primary; U8 cites the preview op. |
+| ROUTE-019 | U09 | The view op (custom pages) is primary; U08 cites the preview op. |
 | ROUTE-026 | U64 | Stats hub homed with usage stats; U65 cites the editorial/users ops (D21). |
-| ROUTE-028 | U3 | Thin user-page base; U1 cites authorizationDenied. |
-| ROUTE-032 | U51 | The subclass delta (about/subscriptions op) is the assignment driver; inherited about ops stay U7's. |
+| ROUTE-028 | U03 | Thin user-page base; U01 cites authorizationDenied. |
+| ROUTE-032 | U51 | The subclass delta (about/subscriptions op) is the assignment driver; inherited about ops stay U07's. |
 | ROUTE-037 | U18 | Critic review 2026-07-27: the dispatcher's primary reachable consumer in all three apps is the web-feed gateway, consistent with ROUTE-059/076; U67 cites the lockss/clockss manifest ops — a D22 collapse moves only citations, not a claimed live route. |
-| ROUTE-042 | U7 | Same settings-dispatcher seam and call as ROUTE-017. |
+| ROUTE-042 | U07 | Same settings-dispatcher seam and call as ROUTE-017. |
 | ROUTE-046 | U51 | Subscriptions management is primary; U52 cites paymentTypes/payments ops. |
 | ROUTE-052 | U51 | Purchase/renewal ops are primary; U52 cites payMembership. |
 | ROUTE-059 | U18 | The generic gateway dispatcher's primary reachable consumer is the web-feed gateway. |
-| ROUTE-063 | U7 | Same settings-dispatcher seam as ROUTE-017. |
+| ROUTE-063 | U07 | Same settings-dispatcher seam as ROUTE-017. |
 | ROUTE-065 | OOS (direct sales) | The payment-plugin callback route rides the dropped sales flow; shared paymethod plugins stay U52's. |
 | ROUTE-072 | U24 | Workflow-access primary; the added internalReview op is OOS-marked at spec time. |
 | ROUTE-076 | U18 | Same call as ROUTE-059. |
-| ROUTE-078 | U7 | Same settings-dispatcher seam as ROUTE-017. |
+| ROUTE-078 | U07 | Same settings-dispatcher seam as ROUTE-017. |
 
 ### VUE (5)
 
@@ -507,7 +507,7 @@ adjudicated in that critic pass.
 | VUE-003 | U23 | One page component, three views; U22/U28 cite their views. |
 | VUE-013 | U53 | The Users & Roles container homed with users management; U54 cites its hosting. |
 | VUE-015 | U61 | The admin container's primary intent is the sysadmin shell; U59/U60 cite their screens. |
-| VUE-022 | U7 | Settings-pages container — same seam as ROUTE-017. |
+| VUE-022 | U07 | Settings-pages container — same seam as ROUTE-017. |
 | VUE-089 | U34 | The prepared-content insert's primary consumer is the Composer; settings-form rich text cites it. |
 
 ### GRID / API / MAIL (15)
@@ -515,11 +515,11 @@ adjudicated in that critic pass.
 | Atom(s) | Final | Why |
 |---|---|---|
 | GRID-049 | U58 | Setup-grid base homed with the shared-tree consumer (genre grid) per the atlas uploadImage tie; U17 cites it. |
-| GRID-064 | U10 | Theme-stylesheet delivery is the heavier op; U5 (tasks) and U8 (frame) cite theirs. |
+| GRID-064 | U10 | Theme-stylesheet delivery is the heavier op; U05 (tasks) and U08 (frame) cite theirs. |
 | GRID-083 | U52 | Payment-records intent beats the embedding area (subscription pages). |
 | GRID-099 | U68 | Cover server homed with catalog listings per the probe's framing; U69 cites it. |
-| API-007 | U9 | Generic public-file upload homed with arbitrary manager content; consumers cite it. |
-| API-032 | U30 | The dominant authorResponse cluster is D5's own-controller argument; U28/U26/U4 cite their ops. |
+| API-007 | U09 | Generic public-file upload homed with arbitrary manager content; consumers cite it. |
+| API-032 | U30 | The dominant authorResponse cluster is D5's own-controller argument; U28/U26/U04 cite their ops. |
 | API-042 | U24 | Omnibus controller homed at the workflow mechanism owner; U21/U34/U40/U41/U49 cite their endpoint clusters (riders in each). |
 | API-057 | U49 | Issue-assignment publish-modal fields dominate; U52 cites submissionPayment. |
 | API-058 | U45 | The in-scope submissionFiles DOI row carries the claim; chapter/format rows OOS-marked at spec time. |
@@ -539,7 +539,7 @@ adjudicated in that critic pass.
 | JOB-054 | U29 | The automated reminder clock is U29's fixture per D6; the manual remind path stays U27 (JOB-012). |
 | JOB-062 | U42 | Citation-DOI enrichment behavior owns it; it ships inside U45's Crossref plugin (rider). |
 | PLUG-001 | U16 | The browse block homed with categories; OMP series-browse links are a U68 register note. |
-| PLUG-005 | U21 | The CTA block's whole behavior is the wizard entry route; U8 runner-up noted. |
+| PLUG-005 | U21 | The CTA block's whole behavior is the wizard entry route; U08 runner-up noted. |
 | PLUG-018 | U69 | RULINGS htmlMonographFile clarification confirms: in scope under U69 (confirmed by RULINGS). |
 | PLUG-036 | U19 | The schema adapter's only consumer surface is the oai_dc crosswalk. |
 
@@ -555,16 +555,16 @@ chapter/format rows, API-065's relate endpoint, AFFR-082's relation notice,
 AFFW-424's OMP half, AFFM-094's and MAIL-075's OMP direct-sales portions) are
 NOT listed here — the owning spec marks the portion at spec time.
 
-### CHARTER drop — OMP Internal Review stage & `*_INTERNAL` decisions (29)
+### Scope drop — OMP Internal Review stage & `*_INTERNAL` decisions (29)
 
-CHARTER names them explicitly. The submission-stage skip-internal routing stays
+the scope ruling names them explicitly. The submission-stage skip-internal routing stays
 in scope as a U25 parameterization.
 
 - AFFW-248, 301, 304..322, 345..348 (25)
 - MAIL-071
 - NOTIF-015, 020, 030
 
-### CHARTER drop — OMP monographs, chapters & work types (18)
+### Scope drop — OMP monographs, chapters & work types (18)
 
 Object model OJS never exposes; chapter/work-type authoring stays dropped under
 the Q2 amendment (only catalog reader/management surfaces came in).
@@ -572,35 +572,35 @@ the Q2 amendment (only catalog reader/management surfaces came in).
 - AFFW-111, 123..124, 237..239, 275, 425, 572, 772..777 (15)
 - GRID-097 · VUE-031 · AFFU-245
 
-### CHARTER drop — OMP publication formats & ONIX (25)
+### Scope drop — OMP publication formats & ONIX (25)
 
 - AFFW-276, 426, 573, 608, 754..769 (20)
 - GRID-092 · VUE-044 · SET-036, 040 · PLUG-033
 
-### CHARTER drop — OMP marketing & supply chain (13)
+### Scope drop — OMP marketing & supply chain (13)
 
 - AFFW-257..258, 431..434, 574 (7)
 - GRID-089..091, 093..094 (5) · VUE-045
 
-### CHARTER drop — OMP direct sales / approved proofs (3)
+### Scope drop — OMP direct sales / approved proofs (3)
 
 Shared paymethod plugins themselves stay claimed by U52 (glossary note).
 
 - AFFW-770..771 · ROUTE-065
 
-### CHARTER drop — OMP-only exporters (3)
+### Scope drop — OMP-only exporters (3)
 
 - AFFM-169 · PLUG-031, 046
 
-### CHARTER drop — `NOTIFICATION_TYPE_BOOK_*` (10)
+### Scope drop — `NOTIFICATION_TYPE_BOOK_*` (10)
 
-Explicit CHARTER drop; no UI in any sweep.
+Explicit scope drop; no UI in any sweep.
 
 - NOTIF-056..065
 
-### CHARTER drop — OPS preprint relations & journal relay (4)
+### Scope drop — OPS preprint relations & journal relay (4)
 
-Covered by CHARTER's "OMP/OPS-only Vue managers unwired in WorkflowPageOJS"
+Covered by the scope ruling's "OMP/OPS-only Vue managers unwired in WorkflowPageOJS"
 clause; API-065's relate portion rides its claimed atom (U49).
 
 - AFFW-128, 385..386 · PLUG-024

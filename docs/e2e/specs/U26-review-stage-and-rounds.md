@@ -19,7 +19,7 @@ the Findings register, like ⚠ [A1](#a1); a plain marker such as [OMP1](#omp1)
 points to an intended difference. Marks such as <sup>a</sup> link to the
 Footnotes tail, where code and evidence pointers live — you can ignore that
 section and lose no behavior. The spec is written in OJS vocabulary; reading it
-for OMP, substitute terms per the [application glossary](../APP-GLOSSARY.md) —
+for OMP, substitute terms per the [application glossary](GLOSSARY.md) —
 "journal" reads as press, "article" as monograph, "Journal Manager" as Press
 Manager, "Editor" as Press Editor, "Section Editor" as Series Editor,
 "Reviewer" as External Reviewer, and the stage named "Review" appears on a
@@ -340,7 +340,7 @@ reviewer forms to *Reviewer assignment & management*.
 ## Canonical scenarios
 
 Common to OJS and OMP; substitute roles and vocabulary per the
-[application glossary](../APP-GLOSSARY.md) (on a press, the stage is External
+[application glossary](GLOSSARY.md) (on a press, the stage is External
 Review). Actors are named by role; seeded accounts and recipes live in the
 footnotes. Where a scenario checks a recipient's mailbox, outgoing mail on the
 test install is observed in the install's mail catcher. <sup>s</sup>
@@ -1197,7 +1197,7 @@ stage entry in the workflow menu labeled `workflow.review.internalReview`
 "Internal Review". The skip path (scenario 13) is the submission-stage
 decision `SKIP_INTERNAL_REVIEW`, labeled with the press's send-to-external
 wording. Internal-stage screens, decisions and divergences are outside this
-file's scope by charter. Live parity probe
+file's scope (campaign scope ruling). Live parity probe
 2026-07-31: the External Review round matched the OJS record panel-for-panel
 and button-for-button, and the "Internal Review" menu entry rendered.
 

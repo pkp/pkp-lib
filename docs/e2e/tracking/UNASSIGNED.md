@@ -1,6 +1,6 @@
 # UNASSIGNED — parked atoms & dead-code candidates
 
-A campaign deliverable per CHARTER's atom-claim invariant and liveness rule:
+A campaign deliverable per the campaign's atom-claim invariant and liveness rule (RUNBOOK "Mission, scope & invariants"):
 atoms no spec claims land here **with a reason**, alongside dead-code
 candidates surfaced by probes. Every entry names what would resolve it (a
 Phase-1 probe or a maintainer ruling). The claim check counts these as
@@ -70,8 +70,8 @@ if real, their specs' own probes will resurface them.)
 ### VUE-042 — NavigationMenuManager component
 - What: Vue manager component for navigation menus.
 - Why parked: unmounted in any app; only its form modal (VUE-066, claimed by
-  U8) is wired.
-- Resolves: Phase-1 grep/probe at spec time for U8 — if a mount appears, claim
+  U08) is wired.
+- Resolves: Phase-1 grep/probe at spec time for U08 — if a mount appears, claim
   there; else confirmed dead-code candidate.
 
 ### API-030 — open-peer-review data API (+ unmounted display components)

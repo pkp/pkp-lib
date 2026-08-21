@@ -1,8 +1,9 @@
 # Runbook — spec + Playwright build loop (OJS · OMP · OPS)
 
-**This file + `PROGRESS.md` are the source of truth for the build.** Any
-session — fresh, restarted, cleared, or resumed after compaction — becomes
-correct by reading these two files. Never rely on conversation memory.
+**This file + `lib/pkp/docs/e2e/tracking/PROGRESS.md` are the source of truth for
+the build.** Any session — fresh, restarted, cleared, or resumed after
+compaction — becomes correct by reading these two files. Never rely on
+conversation memory.
 
 Campaign docs live centrally in the lib/pkp submodule, one copy shared by all
 three apps; tests live in each app's own repo. **Doc paths in every campaign
@@ -23,6 +24,65 @@ around.
 **The current mode lives in `PROGRESS.md`'s banner** — read it before doing
 anything. Modes: **REVIEW/PILOT** (one feature per session, then STOP for
 maintainer review) and **AUTONOMOUS WAVES** (below).
+
+## Mission, scope & invariants
+
+**Mission.** Document every OJS feature at the business-logic level — actors,
+fields, rules, state, permissions, side effects — precisely enough that the
+feature could be reimplemented from the spec alone, in language a product
+owner or QA person reads without a developer. Audience: QA, developers, AI
+agents, and the test suite built from each spec's canonical scenarios.
+
+**Scope.** All three apps, OJS-anchored: any feature reachable in OJS — one
+spec covers its behavior in OJS, OMP and OPS, and tests are written for each
+app. Maintainer extension (2026-07-27): the OMP catalog's reader and
+management surfaces are in scope as OMP-specific features. Out of scope,
+dropped not parked: the catalog's object model and surfaces OJS never
+exposes (chapter/publication-format authoring, ONIX, marketing/direct sales,
+OMP/OPS-only Vue managers unwired in `WorkflowPageOJS`). Extending further
+is a maintainer decision. Specs are Markdown, reviewed raw and in diffs;
+inline HTML only where structure needs it.
+
+**Method** — enumerate mechanically, then document, then map coverage ("did
+we miss a feature?" must be a grep): Phase 0, the surface atlas
+(`lib/pkp/docs/e2e/tracking/atlas/` — complete 2026-07-28: 2,163 atoms, assigned
+in `FEATURE-MAP.md`, parked in `UNASSIGNED.md`); Phase 1, feature specs
+(current — this file's loop); Phase 2, the coverage crosswalk (every spec
+scenario mapped against the suite).
+
+**Invariants** (every iteration holds these):
+
+- **Atom claim**: every atlas atom ends up claimed by exactly one spec, OR
+  parked in `UNASSIGNED.md`, OR marked out-of-scope in its sweep file with a
+  reason. The unclaimed count is the campaign's completeness metric. Never
+  force-fit — a wrong grouping is worse than a deferred one; group by user
+  intent ("what would a journal manager call this?"), never code-module
+  boundaries.
+- **As-built AND intent**: specs document what the code actually does.
+  Behaviour that is inconsistent, loses data, contradicts an affordance, or
+  would surprise a product owner gets a ⚠ + register entry with the author's
+  bug-vs-intended call (non-blocking; settled on review). A merely-strict
+  rule is usually intended: write it plain plus a ❓ with a stated lean. A
+  spec that silently transcribes bugs as requirements is poison for QA;
+  there is no separate bug ledger — all-bugs views are computed from the
+  registers.
+- **Verified, not just written**: every spec passes a claim check (step 8)
+  and a readability pass (step 9); ambiguous rules are probed live, never
+  guessed from code.
+- **Liveness before documentation**: code existing is not evidence the
+  feature exists — the apps carry unreachable surfaces. Establish
+  reachability in the current UI first; record dead candidates in
+  `UNASSIGNED.md`. Where a legacy and a Vue path are both live for one job,
+  document both and say which is primary.
+- **The screen is the instrument** — the campaign's frame; operative rules
+  in the next section.
+- **Business language, one statement per fact** — style rules, anchor
+  format, and the lint gate live in `TEMPLATE.md` (single home).
+
+**Campaign definition of done**: unclaimed atom count = 0; every PROGRESS
+row `done` or `parked`; each app's full suite within Budget & ceilings;
+parked list + register highlights reported to the maintainer. "Recreatable
+from the spec" sets the altitude; those lines are the checkable bar.
 
 ## What this work is — state the frame
 
@@ -89,11 +149,11 @@ are short and outcome-shaped — context budgeting, not a wording rule.
   silent — a return or report says "one observation routed to the security
   file" so the maintainer knows to look. Ordinary UX defects are not security
   concerns; they go to the register.
-- **Build blockers** → `lib/pkp/docs/e2e/dev/app-changes.md`: an app defect that
+- **Build blockers** → `lib/pkp/docs/e2e/tracking/app-changes.md`: an app defect that
   had to be worked around or fixed to get tests green (races,
   nondeterministic UI, harness-hostile behavior), plus the record of actual
   app-code changes the campaign made. Nothing else.
-- **Scenario-builder parity notes** → `lib/pkp/docs/e2e/dev/parity-ledger.md`.
+- **Scenario-builder parity notes** → `lib/pkp/docs/e2e/tracking/parity-ledger.md`.
 - **Cross-feature mechanisms** → described fully in ONE owning spec; other
   specs link (TEMPLATE rule 6).
 - **Process learnings** → this file or TEMPLATE (via maintainer review),
@@ -106,7 +166,7 @@ are short and outcome-shaped — context budgeting, not a wording rule.
 Artifacts the campaign itself created are LIVING (maintainer ruling
 2026-08-02) — when a session discovers one is stale or defective, it FIXES it
 that session as routine maintenance instead of parking a debt note. Covered:
-the per-app skills and the shared `dev/` docs, shared and app-side
+the per-app skills and the shared process docs, shared and app-side
 POMs/fixtures/helpers, earlier feature suites, the lint gate, and the `_test`
 scenario API (a behavior change there still gets its parity entry). The gate
 travels with the fix: every suite the fix touches re-runs green before commit
@@ -135,13 +195,13 @@ maintenance never moves routed content.
 
 - **The floor, every iteration**: this file + `PROGRESS.md` + the target
   feature's row in `FEATURE-MAP.md` (its atom list).
-- **When authoring the spec**: `TEMPLATE.md`, `GLOSSARY.md` (reader-facing
-  vocabulary), `APP-GLOSSARY.md` (cross-app substitution), the feature's
+- **When authoring the spec**: `TEMPLATE.md`,
+  `lib/pkp/docs/e2e/specs/GLOSSARY.md` (Part I reader vocabulary; Part II
+  cross-app substitution), the feature's
   atoms in `atlas/` (`affordances-{workflow,management,user,reader}.md` per
   surface).
-- **When authoring tests**: `lib/pkp/docs/e2e/PRINCIPLES.md` + the app's
-  skill, which loads the shared harness docs (`lib/pkp/docs/e2e/dev/`).
-- **Background contract (once per session)**: `CHARTER.md`.
+- **When authoring tests**: `lib/pkp/docs/e2e/process/PRINCIPLES.md` + the app's
+  skill, which loads the shared harness docs (`lib/pkp/docs/e2e/process/`).
 - Beyond the floor, read whatever helps — subject to context hygiene: a
   spec-writing agent works from the draft plus the digest (step 3b) and pulls
   a specific probe report only when its judgment needs the detail behind one
@@ -215,7 +275,7 @@ Every feature is specified and tested across OJS, OMP and OPS.
    features). Forked-copy code with provably identical logic (the OJS↔OPS
    pattern) counts as one feature, but every shared claim there needs probe
    evidence — the chain check cannot vouch for copies. (OMP/OPS-unique
-   surfaces stay out of scope per CHARTER until the maintainer extends it.)
+   surfaces stay out of scope per the Scope above until the maintainer extends it.)
 8. **Where divergences live in code: inheritance first.** The apps' primary
    mechanism is class inheritance — each app subclasses shared lib/pkp
    classes. The first move for any load-bearing shared class is each app's
@@ -235,12 +295,13 @@ policy in Model discipline). The orchestrator briefs them (each brief points
 at TEMPLATE / PRINCIPLES — never paraphrases the rules), judges results, and
 is the ONLY writer of PROGRESS rows, atlas `Claimed by:` markers, and
 `app-changes.md` entries. EVERY subagent brief carries verbatim: "Do NOT
-write to PROGRESS.md, atlas files, or lib/pkp/docs/e2e/dev/app-changes.md; return
+write to PROGRESS.md, atlas files, or lib/pkp/docs/e2e/tracking/app-changes.md; return
 proposed content in your report instead." Every probe, claim-check and test
 brief ALSO opens with the **Frame** paragraph, verbatim, before the task.
 
 1. **Claim it** — set the feature's PROGRESS row to `in_progress`.
-2. **Author the spec** → `lib/pkp/docs/product/specs/<feature>.md` per
+2. **Author the spec** → `lib/pkp/docs/e2e/specs/U<nn>-<feature>.md` (zero-padded
+   FEATURE-MAP row number first, so files sort in map order) per
    TEMPLATE, covering all three apps from the start. Draw from the feature's
    atlas atoms + the code, including its `atlas/affordances-*.md` rows —
    every affordance on the feature's screens ends up covered by a rule or
@@ -431,10 +492,10 @@ files count. If a stage's completion is undecidable from files, re-run it.
 ## Ops & campaign safeguards
 
 Environment facts (fleets, ports, config contract, env vars, run commands,
-recovery) have ONE home: `lib/pkp/docs/e2e/dev/harness.md`. Campaign-side
+recovery) have ONE home: `lib/pkp/docs/e2e/process/harness.md`. Campaign-side
 rules that stay here:
 
-- **Live-probe etiquette** (CHARTER invariant): scratch contexts for anything
+- **Live-probe etiquette** (campaign invariant): scratch contexts for anything
   mutating; `publicknowledge` and seeded users are read-only; never
   `clearAll()` Mailpit.
 - **DB hygiene cadence**: reset before any full-suite timing run and every
@@ -460,4 +521,4 @@ rules that stay here:
   the multi-app rules; every affordance atom covered / delegated / waived;
   each app's suite green twice; PROGRESS row updated (short note); committed;
   **maintainer sign-off in review mode**.
-- **Campaign**: the campaign-level bar lives in `CHARTER.md` (single home).
+- **Campaign**: the campaign-level bar lives in "Mission, scope & invariants" above.

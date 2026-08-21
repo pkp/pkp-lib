@@ -18,7 +18,7 @@ question carries a warning marker into the Findings register, like ⚠ [A1](#a1)
 Marks such as <sup>a</sup> link to the Footnotes tail, where code and evidence
 pointers live — you can ignore that section and lose no behavior. The spec is
 written in OJS vocabulary; reading it for OMP or OPS, substitute terms per the
-[application glossary](../APP-GLOSSARY.md) — "journal" reads as press /
+[application glossary](GLOSSARY.md) — "journal" reads as press /
 preprint server, "Journal Manager" as Press Manager / Preprint Server Manager,
 "Section Editor" as Series Editor / Moderator. One surface exists only where
 review exists and is badged {OJS OMP} where it appears. All markers and marks
@@ -321,7 +321,7 @@ of a title ⚠ [A3](#a3)):
   settings*'; this spec owns their effect on these screens.
 - **Invitations & one-click links** — emailed invitation and reviewer
   one-click links open their flows signed out without touching these
-  screens; they belong to [user invitations](user-invitations.md) and the
+  screens; they belong to [user invitations](U06-user-invitations.md) and the
   future *Reviewer's review* spec.
 - **Plugins management** — the configuration file's security section also
   carries the plugin-installation policy keys consumed by *Plugins
@@ -330,7 +330,7 @@ of a title ⚠ [A3](#a3)):
 ## Canonical scenarios
 
 Common to all three apps; substitute roles and vocabulary per the
-[application glossary](../APP-GLOSSARY.md). Actors are named by role; seeded
+[application glossary](GLOSSARY.md). Actors are named by role; seeded
 accounts and recipes live in the footnotes. <sup>s</sup>
 
 1. **Sign in and land on the Dashboard** — Editor: open the journal's Login

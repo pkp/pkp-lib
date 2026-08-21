@@ -22,7 +22,7 @@ inside it may still report what the *other* apps wrongly show. Marks such as
 <sup>a</sup> link to the Footnotes tail, where code and evidence pointers live —
 you can ignore that section and lose no behavior. The spec is written in OJS
 vocabulary; reading it for OMP or OPS, substitute terms per the
-[application glossary](../APP-GLOSSARY.md) — "journal" reads as press / preprint
+[application glossary](GLOSSARY.md) — "journal" reads as press / preprint
 server, "article" as monograph / preprint, "Journal Manager" as Press Manager /
 Preprint Server Manager, "Section Editor" as Series Editor / Moderator. All
 markers and marks are clickable.
@@ -195,12 +195,12 @@ Contributor's ORCID iD field (add/edit contributor, Contributors list):
     ⚠ [A7](#a7) the re-authorization mail appears there in no app. <sup>l</sup>
 15. Other screens that surface ORCID follow the rules above: the invitation
     wizard's "Verify ORCID iD" step (described in
-    [User invitations](user-invitations.md)) appears only while ORCID is
+    [User invitations](U06-user-invitations.md)) appears only while ORCID is
     enabled; the reviewer-suggestion form collects a plain, unverified
     "ORCID iD" text field; and reviewer lists distinguish a verified iD
     (solid icon) from an unauthenticated one (hollow icon,
     "(unauthenticated)" suffix — described with the Reviewers table in
-    [Reviewer assignment & management](reviewer-assignment-and-management.md)). <sup>m</sup>
+    [Reviewer assignment & management](U27-reviewer-assignment-and-management.md)). <sup>m</sup>
 16. A preprint server's install additionally ships the retired ORCID Profile
     plugin from the pre-built-in era [OPS3](#ops3); the built-in integration
     this spec describes is what runs everywhere.
@@ -246,10 +246,10 @@ Contributor's ORCID iD field (add/edit contributor, Contributors list):
   *Contributors & affiliations*.
 - **Reviewers table** {OJS} hosts "Send Review To ORCID" (Rule 12); the
   table, its other row actions and its confirm-dialog chrome belong to
-  [Reviewer assignment & management](reviewer-assignment-and-management.md).
+  [Reviewer assignment & management](U27-reviewer-assignment-and-management.md).
 - **User invitations** — the accept wizard's "Verify ORCID iD" step and the
   send wizard's ORCID note are described in
-  [User invitations](user-invitations.md); they obey this spec's enablement
+  [User invitations](U06-user-invitations.md); they obey this spec's enablement
   rules.
 - **Emails management** — the stored ORCID email templates are edited on the
   Emails settings screen (feature spec to come — *Emails management*); this
@@ -260,7 +260,7 @@ Contributor's ORCID iD field (add/edit contributor, Contributors list):
 ## Canonical scenarios
 
 Common to all three apps; substitute vocabulary per the
-[application glossary](../APP-GLOSSARY.md). Actors are named by role. No
+[application glossary](GLOSSARY.md). Actors are named by role. No
 scenario step completes ORCID's own sign-in; where a step opens the sign-in
 popup, the scenario says inline what an offline install shows. Preconditions
 marked "(seeded)" cannot be staged from any screen on an offline install —
@@ -848,7 +848,7 @@ preprint" and "Decline Submission" — no accepting decision.
 **f-ops2** — Note l: OPS `Repository::map()` override ("OPS uses distinct
 mailables") lists no ORCID mailable while the OPS registry seeds all three
 templates; same mechanism as the invitation-template gap recorded in
-[User invitations](user-invitations.md). Live-probed 2026-08-07: searching
+[User invitations](U06-user-invitations.md). Live-probed 2026-08-07: searching
 "ORCID" on the OPS Emails screen returns "No items found.", while "Request
 verification" on a preprint contributor delivered the "Submission ORCID"
 email (positive control).

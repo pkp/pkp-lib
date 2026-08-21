@@ -5,20 +5,19 @@ record a clean-room rebuild starts from. Every test-writing session follows
 this file. Paths here are relative to an app repo root (`lib/pkp/...` =
 inside the submodule).
 
-Related contracts: the campaign loop, budgets, and per-feature
-definition-of-done live in `lib/pkp/docs/product/RUNBOOK.md`; spec style in
-`lib/pkp/docs/product/TEMPLATE.md`; campaign invariants in
-`lib/pkp/docs/product/CHARTER.md`; progress state in
-`lib/pkp/docs/product/PROGRESS.md`, never in conversation memory.
-Harness layout and env facts: `dev/harness.md`. Parity verdicts:
-`dev/parity-ledger.md` (append-only ledger).
+Related contracts: the campaign manual (loop, mission, invariants, budgets,
+definition-of-done) is `lib/pkp/docs/e2e/process/RUNBOOK.md`; spec style
+`lib/pkp/docs/e2e/process/TEMPLATE.md`; progress state
+`lib/pkp/docs/e2e/tracking/PROGRESS.md`, never in conversation memory.
+Harness layout and env facts: `harness.md`. Parity verdicts:
+`lib/pkp/docs/e2e/tracking/parity-ledger.md` (append-only ledger).
 
 **Terms.** "Scenario builder" (historically "Processor") = the PHP classes
 behind `/api/v1/_test/*` (`PKPBootstrapSeeder`, `PKP*ScenarioBuilder`,
 `ContextFactory` and their app subclasses). "Seed tag" = the unique per-test
-token from `dev/patterns.md` tag conventions.
+token from `patterns.md` tag conventions.
 
-**Scope.** Tests assert behavior through the screens, under CHARTER's "the
+**Scope.** Tests assert behavior through the screens, under RUNBOOK's "The
 screen is the instrument": a test drives the UI as a signed-in role, including
 navigating straight to a URL, and never asserts against a request the
 application's own screens would not send. The `/api/v1/_test/*` endpoints are
@@ -47,7 +46,7 @@ test-only scenario endpoints.
 - **A2 — Scenario builders must be accurate.** A seeded scenario leaves the
   same database state, fires the same hooks, and produces the same
   notifications as a user doing the equivalent through the UI/REST API. Any
-  builder change requires a parity entry in `dev/parity-ledger.md`
+  builder change requires a parity entry in `lib/pkp/docs/e2e/tracking/parity-ledger.md`
   before it merges.
 - **A3 — Builder scope stays balanced.** Extend a builder only when multiple
   tests need the same state; one-off states are reached by driving the UI in
@@ -57,7 +56,7 @@ test-only scenario endpoints.
 - **A5 — No hard-coded waits.** Auto-waiting and web-first assertions; if an
   animation or debounce timer causes flake, shorten it at the source under
   test mode instead of sleeping. (The harness already disables animations
-  globally — `dev/harness.md`.)
+  globally — `harness.md`.)
 - **A6 — Group assertions per scenario.** One seeded scenario can support
   several related assertions; don't pay seeding cost per assertion, and don't
   build mega-tests that obscure failures — one coherent behavior per test.
@@ -76,7 +75,7 @@ test-only scenario endpoints.
   marker, a supplement, never a substitute. Never `clearAll()` outside the
   serial infrastructure spec; pair every negative assertion with a positive
   control taken the same way, which also bounds the wait. API and mechanics:
-  `dev/scenarios.md`.
+  `scenarios.md`.
 - **A9 — Globally-scanning operations run serially.** Scheduled tasks,
   site-level plugin toggles, site-settings mutations, cache clears, queue
   drains: serial project only (`playwright/tests/serial/`), which depends on
@@ -85,7 +84,7 @@ test-only scenario endpoints.
 ## Organization
 
 Tests are organized by feature — one spec file (or small set) per feature;
-the feature list and budgets live in `lib/pkp/docs/product/PROGRESS.md`. Placement:
+the feature list and budgets live in `lib/pkp/docs/e2e/tracking/PROGRESS.md`. Placement:
 genuinely app-agnostic infrastructure → `lib/pkp/playwright/`; every feature
 suite → its app's own `playwright/tests/`. Folders stay flat until ~25–30
 specs make natural clusters obvious.
@@ -106,7 +105,7 @@ authoring conventions:
   `lib/pkp/playwright/` code uses `appContext.hasReviewStage` etc. and
   resolves personas through `appContext.seed.actors` (archetype →
   username-or-null). Capability names are canonical in
-  `lib/pkp/docs/product/APP-GLOSSARY.md` §2: glossary row first, then the same key in
+  GLOSSARY.md Part II §2 (`lib/pkp/docs/e2e/specs/GLOSSARY.md`): glossary row first, then the same key in
   all three `app.context.js` files.
 - **M3 — Never write a test asserting a 🐞 register finding** (that freezes
   the defect as contract), and **never a test that demonstrates a potential
@@ -175,8 +174,8 @@ must stand alone when everything else is scratched.)
   application's: read back what the app wrote and shift from there, so the
   seed still means "expired" when the configured window changes.
 
-Per-feature scenario keys are documented as they land in `dev/scenarios.md`
-(LIVE surface) with their parity rationale in `dev/parity-ledger.md` —
+Per-feature scenario keys are documented as they land in `scenarios.md`
+(LIVE surface) with their parity rationale in `lib/pkp/docs/e2e/tracking/parity-ledger.md` —
 not here.
 
 ## Rebuild acceptance
@@ -186,13 +185,13 @@ three apps; a login smoke passes per fleet; the scenario endpoint seeds a
 context and a staged submission in each app with one parity spot-check
 against the equivalent UI path; the reset tool forces a cold bootstrap;
 concurrent fleets keep Mailpit assertions scoped per A8; and the operational
-names `dev/harness.md` cites (reset script, test-key header, ports) match
+names `harness.md` cites (reset script, test-key header, ports) match
 the rebuilt harness — or harness.md is updated in the same commit.
 
 ## Bootstrap data policy
 
 Base seed: `playwright/fixtures/bootstrap.js` (journal `publicknowledge`, 18
-users, sections, categories, issues — documented in `dev/users.md`). Richer
+users, sections, categories, issues — documented in `users.md`). Richer
 defaults are encouraged — enable what most real journals use, so tests
 exercise representative configuration. A bootstrap change requires checking
 every implemented spec against the new defaults — deliberately, not casually.
@@ -200,8 +199,8 @@ every implemented spec against the new defaults — deliberately, not casually.
 ## Findings and changes — where they go
 
 Owned by RUNBOOK "What goes where"; the authoring-side summary: app-code
-changes and build blockers → `dev/app-changes.md` (ledger); builder parity notes →
-`dev/parity-ledger.md`; product findings → the feature spec's Findings
+changes and build blockers → `lib/pkp/docs/e2e/tracking/app-changes.md` (ledger); builder parity notes →
+`lib/pkp/docs/e2e/tracking/parity-ledger.md`; product findings → the feature spec's Findings
 register — and a test result that contradicts the spec (permissions included)
 means the SPEC is wrong: report it to the register, never park it as a
 skipped/`fixme` test or a "not covered" note. Commit discipline and budgets:

@@ -4,7 +4,7 @@
 highlights (🐞/❓ counts, the headline finding, low-confidence flags); finding
 DETAIL lives in each spec's Findings register, never here. Read together with
 `RUNBOOK.md` (the loop); style rules in `TEMPLATE.md`; test rules in
-`lib/pkp/docs/e2e/PRINCIPLES.md`.
+`lib/pkp/docs/e2e/process/PRINCIPLES.md`.
 
 **This run**: branch `e2e_ng_2`, started 2026-07-31 as a clean-room rebuild
 (FULL RESET #2 — the previous build survives on branch `e2e_ng` and in git
@@ -33,15 +33,15 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 
 | Row | Feature | Apps | Budget | Status | Note |
 |---|---|---|---|---|---|
-| U1 | Login & sessions | OJS OMP OPS | M | done | Spec verified; 8+setup tests per app, green ×2 + post-fold confirm (one OMP locator race fixed test-side); register 4🐞+3❓; several observations in private file; 1 readability friction left open (Rule 14 number provenance); maintainer review pending |
-| U2 | Registration & account validation | OJS OMP OPS | M | pending | |
-| U3 | User profile | OJS OMP OPS | M | pending | |
-| U4 | ORCID integration | OJS OMP OPS | M | paused | Suites `describe.skip`ped in all three fleets 2026-08-20 (maintainer): pending a decision on handling ORCID's external communication in tests (mock vs dead-port proxy). Spec verified; 9 tests OJS, 8 OMP, 9 OPS incl. 2 absence (+setup each), green ×2 + post-fold confirm; register 6🐞+5❓+2✅ (A5 Assistant false-success + A1 silent-close/over-offer are the headliners); claim check 40 claims 0 wrong; OAuth/deposit legs code-anchored (dead-port proxy + dummy ORCID sandbox credentials); skill rule-7 job_runner note fixed (self-healing); maintainer review pending |
-| U5 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
-| U6 | User invitations | OJS OMP OPS | M | done | Spec verified; 8+setup tests OJS/OMP, 9+setup OPS, green ×2 each; register 8🐞+2❓ (A1 outcome in private file); maintainer review pending |
-| U7 | Journal identity & about pages | OJS OMP OPS | M | pending | |
-| U8 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
-| U9 | Custom pages & blocks | OJS OMP OPS | L | pending | |
+| U01 | Login & sessions | OJS OMP OPS | M | done | Spec verified; 8+setup tests per app, green ×2 + post-fold confirm (one OMP locator race fixed test-side); register 4🐞+3❓; several observations in private file; 1 readability friction left open (Rule 14 number provenance); maintainer review pending |
+| U02 | Registration & account validation | OJS OMP OPS | M | pending | |
+| U03 | User profile | OJS OMP OPS | M | pending | |
+| U04 | ORCID integration | OJS OMP OPS | M | paused | Suites `describe.skip`ped in all three fleets 2026-08-20 (maintainer): pending a decision on handling ORCID's external communication in tests (mock vs dead-port proxy). Spec verified; 9 tests OJS, 8 OMP, 9 OPS incl. 2 absence (+setup each), green ×2 + post-fold confirm; register 6🐞+5❓+2✅ (A5 Assistant false-success + A1 silent-close/over-offer are the headliners); claim check 40 claims 0 wrong; OAuth/deposit legs code-anchored (dead-port proxy + dummy ORCID sandbox credentials); skill rule-7 job_runner note fixed (self-healing); maintainer review pending |
+| U05 | Notifications center & email preferences | OJS OMP OPS | M | pending | |
+| U06 | User invitations | OJS OMP OPS | M | done | Spec verified; 8+setup tests OJS/OMP, 9+setup OPS, green ×2 each; register 8🐞+2❓ (A1 outcome in private file); maintainer review pending |
+| U07 | Journal identity & about pages | OJS OMP OPS | M | pending | |
+| U08 | Navigation menus & site chrome | OJS OMP OPS | M | pending | |
+| U09 | Custom pages & blocks | OJS OMP OPS | L | pending | |
 | U10 | Appearance & theming | OJS OMP OPS | M | pending | |
 | U11 | Highlights | OJS OMP OPS | L | pending | |
 | U12 | Announcements | OJS OMP OPS | M | pending | |

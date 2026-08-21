@@ -13,7 +13,7 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
-const PRODUCT_DIR = path.resolve(SCRIPT_DIR, '..');
+const SPECS_DIR = path.resolve(SCRIPT_DIR, '../../specs');
 const BADGES = ['🐞', '❓', '✅'];
 const BADGE_ORDER = { '🐞': 0, '❓': 1, '✅': 2 };
 
@@ -341,7 +341,7 @@ const args = process.argv.slice(2);
 if (args.includes('--self-test')) process.exit(selfTest());
 const targets = args.filter((a) => !a.startsWith('-'));
 const files = targets.length
-    ? targets.map((t) => (fs.existsSync(path.resolve(t)) ? path.resolve(t) : path.join(PRODUCT_DIR, t)))
-    : fs.readdirSync(path.join(PRODUCT_DIR, 'specs')).filter((f) => f.endsWith('.md')).sort().map((f) => path.join(PRODUCT_DIR, 'specs', f));
+    ? targets.map((t) => (fs.existsSync(path.resolve(t)) ? path.resolve(t) : path.join(SPECS_DIR, t)))
+    : fs.readdirSync(SPECS_DIR).filter((f) => /^U\d{2}-.*\.md$/.test(f)).sort().map((f) => path.join(SPECS_DIR, f));
 for (const f of files) if (!fs.existsSync(f)) { console.error(`lint-spec: no such file: ${f}`); process.exit(2); }
 process.exit(run(files));

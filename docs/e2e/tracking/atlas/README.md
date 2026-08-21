@@ -1,11 +1,11 @@
 # Atlas — Phase 0 surface sweeps (OJS · OMP · OPS)
 
-Mechanical enumeration of the apps' surface per CHARTER Method. Atoms only:
+Mechanical enumeration of the apps' surface per the campaign Method (RUNBOOK "Mission, scope & invariants"). Atoms only:
 no analysis, no liveness judgment — dead/unreachable surfaces are expected
 here and get resolved in Phase 1 (→ `UNASSIGNED.md`). Overlap between
 modalities is deliberate and harmless.
 
-## Final modality list (CHARTER baseline + Phase-0 extensions)
+## Final modality list (Method baseline + Phase-0 extensions)
 
 Entry points: `routes` · `grids` · `vue` · `api` · `notif` · `mail` · `jobs`
 · `settings` · `plugins` · `cli` — one file each.
@@ -20,7 +20,7 @@ into four area sub-modalities so sweeps could run in parallel with dense IDs):
 
 ## Conventions
 
-- Atom anatomy per CHARTER Method: `<MOD>-<seq>` (dense per modality, never
+- Atom anatomy per the campaign Method: `<MOD>-<seq>` (dense per modality, never
   renumbered) · `apps:` · stable code pointer (symbol, never line numbers) ·
   one line. `Claimed by:` is added later by the orchestrator only.
 - Granularity ruling (maintainer-approved 2026-07-26): routes/grids/api emit
@@ -33,7 +33,7 @@ into four area sub-modalities so sweeps could run in parallel with dense IDs):
 - **Maintainer ruling (2026-07-27) — cli modality**: out-of-scope for test
   coverage by default. CLI atoms never seed features or scenarios; a spec may
   claim one only as reference — the "CLI-only" operational counterpart of a
-  UI feature it documents (analogous to CHARTER's API-only rule). Unclaimed
+  UI feature it documents (analogous to the scope ruling's API-only rule). Unclaimed
   CLI atoms count as out-of-scope-with-reason under the atom-claim
   invariant (blanket reason in `cli.md`'s header). The FEATURE-MAP therefore
   contains no CLI-seeded feature rows.

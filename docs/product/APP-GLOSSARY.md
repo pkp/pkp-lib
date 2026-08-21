@@ -6,7 +6,19 @@ tables below. No spec repeats these tables or inlines a translation ("journal
 (press in OMP)"). The lint's forbidden-term checks are built from the OMP/OPS
 columns of this file — nowhere else. On-screen names win: every cell is the name
 the app's UI shows, and a probe that contradicts a cell fixes the cell. One
-definition per term.
+definition per term. (Term MEANINGS live in `GLOSSARY.md`; this file maps
+names across apps.)
+
+**Two sections, two different questions.** §1 answers "what does this OJS
+word substitute to in OMP/OPS?" and governs SPEC scope — a renamed concept is
+the same feature, covered by the same spec. §2 answers "may a SHARED-layer
+test run on this app?" and governs test gating only. The two can legitimately
+disagree about the same noun: OMP series ARE sections for spec purposes
+(shared `PKPSection` machinery relabeled — one Sections spec covers them by
+substitution), while `hasSections` is ✗ for OMP so a shared-layer test
+written against OJS sections skips there and OMP's series coverage comes
+from its per-app suite (maintainer ruling 2026-07-27). Read each section for
+its own question and no cell conflicts.
 
 **Absence is not a synonym.** A "—" cell means the concept does not exist in
 that app. Any rule or scenario built on a "—" term is implicitly absent there
@@ -99,7 +111,7 @@ in each app repo (recreated by the harness rebuild) must use them verbatim.
 Spec badges are reader-facing and name apps. Under per-app suites the
 translation is direct: a scenario badged `{OJS OMP}` is implemented in the OJS
 and OMP suites and simply absent from OPS's — plus one absence test where the
-spec calls for it (PRINCIPLES multi-app convention 4). Only the shared
+spec calls for it (PRINCIPLES M4). Only the shared
 `lib/pkp` layer translates badges to capability gates, via this table:
 
 | Spec marking (typical) | Shared-layer gate |
@@ -117,10 +129,6 @@ Vocabulary deltas (§1) never gate anything: labels and payload nouns come from
 `appContext.vocab` / `appContext.seed`, so a shared test runs unchanged wherever
 the capability holds.
 
-*Clarification (maintainer ruling 2026-07-27, evidence:
-`.reports/phase0-feature-map/probe-omp-series.md`)*: the §1 `section → series`
-row and the `hasSections: OMP ✗` flag are NOT in conflict — vocabulary wins for
-**spec scope** (one Sections spec covers OMP series via substitution; the code
-is the shared `PKPSection` machinery relabeled), while `hasSections` gates the
-**shared test layer only** (a shared-layer test written against OJS sections
-skips on OMP; OMP's series coverage comes from its per-app suite).
+The §1-vs-§2 relationship (spec scope vs shared-test gating) is defined in
+the header — ruling evidence:
+`.reports/phase0-feature-map/probe-omp-series.md` (2026-07-27).

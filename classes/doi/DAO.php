@@ -113,6 +113,26 @@ abstract class DAO extends EntityDAO
     }
 
     /**
+     * Fetch many DOIs by id with batched settings,
+     * returned as [doiId => Doi].
+     */
+    public function getByIds(array $ids): array
+    {
+        if (empty($ids)) {
+            return [];
+        }
+        $rows = DB::table($this->table)
+            ->whereIn($this->primaryKeyColumn, $ids)
+            ->get();
+        $this->prefetchSettings($rows);
+        try {
+            return $rows->mapWithKeys(fn ($row) => [$row->doi_id => $this->fromRow($row)])->all();
+        } finally {
+            $this->clearSettingsPrefetch();
+        }
+    }
+
+    /**
      * @copydoc EntityDAO::fromRow()
      */
     public function fromRow(object $row): Doi

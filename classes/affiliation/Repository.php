@@ -202,6 +202,15 @@ class Repository
     }
 
     /**
+     * Get the affiliations for many authors at once,
+     * as [authorId => array<Affiliation>].
+     */
+    public function getByAuthorIds(array $authorIds): array
+    {
+        return $this->dao->getByAuthorIds($authorIds);
+    }
+
+    /**
      * Save affiliations.
      */
     public function saveAffiliations(Author $author): void

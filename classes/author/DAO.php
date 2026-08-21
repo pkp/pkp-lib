@@ -140,8 +140,18 @@ class DAO extends EntityDAO
             $rows = $query
                 ->getQueryBuilder()
                 ->get();
-            foreach ($rows as $row) {
-                yield $row->author_id => $this->fromRow($row);
+            // Batch-load settings, affiliations and roles for the whole
+            // result set instead of querying per author
+            $this->prefetchRelated($rows);
+            try {
+                foreach ($rows as $row) {
+                    yield $row->author_id => $this->fromRow($row);
+                }
+            } finally {
+                $this->clearSettingsPrefetch();
+                $this->affiliationsPrefetch = null;
+                $this->creditRolesPrefetch = null;
+                $this->contributorRolesPrefetch = null;
             }
         });
     }
@@ -157,14 +167,71 @@ class DAO extends EntityDAO
         $author->setData('submissionLocale', $row->submission_locale);
 
         $author->setAffiliations(
-            Repo::affiliation()->getByAuthorId($author->getId())
+            ($this->affiliationsPrefetch !== null && array_key_exists($author->getId(), $this->affiliationsPrefetch))
+                ? $this->affiliationsPrefetch[$author->getId()]
+                : Repo::affiliation()->getByAuthorId($author->getId())
         );
 
-        $author->setCreditRoles(Repo::creditContributorRole()->getCreditRolesByContributorId($author->getId()));
+        $author->setCreditRoles(
+            ($this->creditRolesPrefetch !== null && array_key_exists($author->getId(), $this->creditRolesPrefetch))
+                ? $this->creditRolesPrefetch[$author->getId()]
+                : Repo::creditContributorRole()->getCreditRolesByContributorId($author->getId())
+        );
 
-        $author->setContributorRoles(Repo::creditContributorRole()->getContributorRolesByContributorId($author->getId()));
+        $author->setContributorRoles(
+            ($this->contributorRolesPrefetch !== null && array_key_exists($author->getId(), $this->contributorRolesPrefetch))
+                ? $this->contributorRolesPrefetch[$author->getId()]
+                : Repo::creditContributorRole()->getContributorRolesByContributorId($author->getId())
+        );
 
         return $author;
+    }
+
+    /**
+     * Related data prefetched for the batch of authors currently being
+     * hydrated by getMany(), keyed by author id. Maps are pre-filled for
+     * every id in the batch, so a missing key means "not part of this
+     * batch" and fromRow() falls back to the per-author queries.
+     */
+    protected ?array $affiliationsPrefetch = null;
+    protected ?array $creditRolesPrefetch = null;
+    protected ?array $contributorRolesPrefetch = null;
+
+    /**
+     * Load settings, affiliations and credit/contributor roles for a batch
+     * of author rows with one query per relation.
+     */
+    protected function prefetchRelated(Collection $rows): void
+    {
+        $this->prefetchSettings($rows);
+        $ids = $rows->pluck('author_id')->all();
+        if (empty($ids)) {
+            return;
+        }
+
+        $this->affiliationsPrefetch = Repo::affiliation()->getByAuthorIds($ids)
+            + array_fill_keys($ids, []);
+
+        $this->creditRolesPrefetch = \PKP\author\creditContributorRole\CreditContributorRole::query()
+            ->whereIn('contributor_id', $ids)
+            ->withCreditRoles()
+            ->select(['contributor_id', 'credit_role_identifier as role', 'credit_degree as degree'])
+            ->get()
+            ->groupBy('contributor_id')
+            ->map(fn ($group) => $group->map(fn ($r) => ['role' => $r->role, 'degree' => $r->degree])->values()->all())
+            ->all()
+            + array_fill_keys($ids, []);
+
+        $this->contributorRolesPrefetch = \PKP\author\contributorRole\ContributorRole::query()
+            ->join('credit_contributor_roles as ccr', 'ccr.contributor_role_id', '=', 'contributor_roles.contributor_role_id')
+            ->whereIn('ccr.contributor_id', $ids)
+            ->distinct()
+            ->select(['contributor_roles.*', 'ccr.contributor_id as prefetch_contributor_id'])
+            ->get()
+            ->groupBy('prefetch_contributor_id')
+            ->map(fn ($group) => $group->all())
+            ->all()
+            + array_fill_keys($ids, []);
     }
 
     /**

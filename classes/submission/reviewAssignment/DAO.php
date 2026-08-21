@@ -144,8 +144,25 @@ class DAO extends EntityDAO
                 ->getQueryBuilder()
                 ->get();
 
-            foreach ($rows as $row) {
-                yield $row->review_id => $this->fromRow($row);
+            // Batch-load settings, reviewers and DOIs for the
+            // whole result set instead of querying per review assignment
+            $this->prefetchSettings($rows);
+            $reviewerIds = $rows->pluck('reviewer_id')->filter()->unique()->values()->all();
+            $this->reviewersPrefetch = empty($reviewerIds) ? [] : Repo::user()->getCollector()
+                ->filterByUserIds($reviewerIds)
+                ->filterByStatus(\PKP\user\Collector::STATUS_ALL)
+                ->getMany()
+                ->all();
+            $doiIds = $rows->pluck('doi_id')->filter()->unique()->values()->all();
+            $this->doiObjectsPrefetch = empty($doiIds) ? [] : Repo::doi()->dao->getByIds($doiIds);
+            try {
+                foreach ($rows as $row) {
+                    yield $row->review_id => $this->fromRow($row);
+                }
+            } finally {
+                $this->clearSettingsPrefetch();
+                $this->reviewersPrefetch = null;
+                $this->doiObjectsPrefetch = null;
             }
         });
     }
@@ -156,7 +173,11 @@ class DAO extends EntityDAO
     public function fromRow(object $row): ReviewAssignment
     {
         $reviewAssignment = parent::fromRow($row);
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
+        // Use batch-prefetched reviewers/DOIs when available
+        $reviewerId = $reviewAssignment->getReviewerId();
+        $reviewer = ($this->reviewersPrefetch !== null && isset($this->reviewersPrefetch[$reviewerId]))
+            ? $this->reviewersPrefetch[$reviewerId]
+            : Repo::user()->get($reviewerId, true);
         $reviewAssignment->setData(
             'reviewerFullName',
             $reviewer->getFullName()
@@ -166,15 +187,24 @@ class DAO extends EntityDAO
             $reviewer->getUserName()
         );
 
-        if (!empty($reviewAssignment->getData('doiId'))) {
+        if (!empty($doiId = $reviewAssignment->getData('doiId'))) {
             $reviewAssignment->setData(
                 'doiObject',
-                Repo::doi()->get($reviewAssignment->getData('doiId'))
+                ($this->doiObjectsPrefetch !== null && isset($this->doiObjectsPrefetch[$doiId]))
+                    ? $this->doiObjectsPrefetch[$doiId]
+                    : Repo::doi()->get($doiId)
             );
         }
 
         return $reviewAssignment;
     }
+
+    /**
+     * Reviewers and DOI objects prefetched for the batch of review
+     * assignments currently being hydrated by getMany(), keyed by id.
+     */
+    protected ?array $reviewersPrefetch = null;
+    protected ?array $doiObjectsPrefetch = null;
 
     /**
      * @copydoc EntityDAO::insert()

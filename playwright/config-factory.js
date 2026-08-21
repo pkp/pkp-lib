@@ -33,10 +33,13 @@ function definePkpConfig({appName, appRoot, basePort}) {
     process.env.PLAYWRIGHT_BASE_PORT = String(basePort);
 
     // Playwright's own default (50% of cores) can't be used directly because
-    // the server fleet below must match the worker count at config time.
+    // the server fleet below must match the worker count at config time; and
+    // this workload is wait-bound (single-threaded php -S, browser waits), so
+    // cores - 2 measured faster than cores / 2 (2026-08-21 perf research:
+    // 8 workers is the knee on a 10-core machine; 10 is flat-to-worse).
     const workers = parseInt(
         process.env.PLAYWRIGHT_WORKERS ||
-            String(Math.max(2, Math.floor(os.cpus().length / 2))),
+            String(Math.max(2, os.cpus().length - 2)),
         10,
     );
     const sharedTestDir = path.join(__dirname, 'tests');
@@ -57,7 +60,11 @@ function definePkpConfig({appName, appRoot, basePort}) {
         use: {
             ...devices['Desktop Chrome'],
             baseURL: `http://127.0.0.1:${basePort}`,
-            trace: 'retain-on-failure',
+            // 'retain-on-failure' records a full trace per test and discards
+            // it on pass — ~12% of suite wall time and half the CPU (2026-08-21
+            // perf research). With retries 0 'on-first-retry' never records;
+            // flip retries on (or set PWDEBUG traces) when hunting a failure.
+            trace: 'on-first-retry',
             // Tests never wait on cosmetic motion; support/motion.js injects
             // the matching CSS override into every context the harness opens.
             reducedMotion: 'reduce',

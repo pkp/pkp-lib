@@ -241,10 +241,10 @@ class AdminLanguageGridHandler extends LanguageGridHandler
 
             $installedLocales = $site->getInstalledLocales();
             if (in_array($locale, $installedLocales)) {
-                $installedLocales = array_diff($installedLocales, [$locale]);
+                $installedLocales = array_values(array_diff($installedLocales, [$locale]));
                 $site->setInstalledLocales($installedLocales);
                 $supportedLocales = $site->getSupportedLocales();
-                $supportedLocales = array_diff($supportedLocales, [$locale]);
+                $supportedLocales = array_values(array_diff($supportedLocales, [$locale]));
                 $site->setSupportedLocales($supportedLocales);
                 $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
                 $siteDao->updateObject($site);
@@ -404,7 +404,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         }
 
         $site = $request->getSite();
-        $site->setSupportedLocales($newSupportedLocales);
+        $site->setSupportedLocales(array_values($newSupportedLocales));
 
         $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
         $siteDao->updateObject($site);
@@ -434,7 +434,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
                 $localeList = $context->getData($settingName);
 
                 if (is_array($localeList)) {
-                    $params[$settingName] = array_intersect($localeList, $siteSupportedLocales);
+                    // array_intersect() preserves keys, so re-index to keep this a JSON array
+                    $params[$settingName] = array_values(array_intersect($localeList, $siteSupportedLocales));
                 }
             }
             if (!in_array($primaryLocale, $siteSupportedLocales)) {

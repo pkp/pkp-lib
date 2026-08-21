@@ -1,0 +1,18 @@
+<!--
+  * dtd/taskTemplates.dtd
+  *
+  * Copyright (c) 2014-2026 Simon Fraser University
+  * Copyright (c) 2000-2026 John Willinsky
+  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+  *
+  * DTD for task and discussion templates.
+  *
+  -->
+
+<!ELEMENT templates (template+)>
+<!ELEMENT template EMPTY>
+	<!ATTLIST template
+		title CDATA #REQUIRED
+		description CDATA #REQUIRED
+		stageId CDATA #REQUIRED
+		key CDATA #REQUIRED>

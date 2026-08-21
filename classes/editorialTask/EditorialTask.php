@@ -32,6 +32,17 @@ use PKP\note\SaveNoteWithFiles;
 use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
+/**
+ * @mixin Builder
+ *
+ * @method Builder|static withAssoc(int $assocType, int $assocId)
+ * @method Builder|static withStageId(int $stageId)
+ * @method Builder|static withOpen()
+ * @method Builder|static orderByDate(string $orderBy, string $direction = EditorialTask::ORDER_DIR_ASC)
+ * @method Builder|static withParticipantIds(array $userIds)
+ * @method Builder|static withAssocIds(array $assocIds)
+ * @method Builder|static withAssocType(int $assocType)
+ */
 class EditorialTask extends Model
 {
     use ModelWithSettings;

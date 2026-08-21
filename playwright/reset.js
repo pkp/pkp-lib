@@ -7,7 +7,7 @@
  * the storage-state cache (playwright/.auth/).
  *
  * This is the ONE place allowed to dispatch on the configured DB driver
- * (PRINCIPLES design record 8): everything else in the harness goes through
+ * (PRINCIPLES D8): everything else in the harness goes through
  * app services and stays driver-agnostic. The local fleets choose Postgres for
  * its strictness; nothing here may depend on it.
  *

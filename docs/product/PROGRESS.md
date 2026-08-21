@@ -1,61 +1,29 @@
 # Progress — live state
 
-**Pure state, nothing else.** Detailed findings belong in each spec's Findings
-register, never here. Read together with `RUNBOOK.md` (the loop); style rules in
-`TEMPLATE.md`; test rules in `docs/e2e/PRINCIPLES.md`.
+**Pure state.** Row notes are SHORT (1–3 lines) and may carry register
+highlights (🐞/❓ counts, the headline finding, low-confidence flags); finding
+DETAIL lives in each spec's Findings register, never here. Read together with
+`RUNBOOK.md` (the loop); style rules in `TEMPLATE.md`; test rules in
+`lib/pkp/docs/e2e/PRINCIPLES.md`.
 
-**FULL RESET #2 — 2026-07-31 (maintainer decision): the Fable-only experiment,
-branch `e2e_ng_2`.** Everything the campaign had built was scratched from the
-working tree so the new process rebuilds it on its own evidence — the previous
-build survives intact on branch `e2e_ng` for side-by-side comparison, and in
-git history. Never read the scratched artifacts back; regenerating without
-anchoring is the point.
+**This run**: branch `e2e_ng_2`, started 2026-07-31 as a clean-room rebuild
+(FULL RESET #2 — the previous build survives on branch `e2e_ng` and in git
+history; **never read the scratched artifacts back** — regenerating on this
+run's own evidence is the point). The harness rebuild (the restart's first step) passed
+PRINCIPLES' Rebuild-acceptance on all three fleets 2026-07-31; since then,
+features run one per session under the RUNBOOK loop, maintainer-picked.
 
-Scratched: all feature specs and `GLOSSARY.md`; all Playwright tests, POMs and
-fixtures in all three apps; the entire test harness (scenario API PHP,
-`classes/testing/`, the shared `lib/pkp/playwright/` layer, app fleet wiring,
-npm scripts, the `Config.php` env-var line); all feature and harness
-`.reports/` (`u26`, `u53`, `step2-harness`); every `Claimed by:` marker in the
-atlas; the app-changes and parity ledgers' rows.
-
-**What survives**: the canon — `CHARTER.md`, `RUNBOOK.md`, `TEMPLATE.md`,
-`APP-GLOSSARY.md`, `docs/e2e/PRINCIPLES.md` (contract + design record for the
-harness rebuild) — plus `FEATURE-MAP.md`, the `atlas/` (all claims cleared),
-`UNASSIGNED.md`, `.reports/phase0-feature-map/` (the kept map's evidence), the
-lint gate (`docs/product/lint/lint-spec.mjs`, reference-integrity only), and
-the `ojs-playwright-tests` skill (ojs-main `.claude/`) as design record. Test
-DBs, fleet setup facts and local config files remain valid.
-
-**The process contract for this run (2026-07-31, maintainer)**: Fable runs
-every role including the orchestrator and probes — no per-role model split, no
-fallback; a safeguard flag/refusal/downgrade PAUSES the feature for maintainer
-review (RUNBOOK "Model discipline"). Potential security concerns go to the
-private `../e2e_ng/security.md`, never to a public artifact — the fact of
-routing is always stated, the content never (RUNBOOK "What goes where"). The
-lint gate checks reference integrity only; all wording is the writer's
-judgment. The critical goal: accurate QA/PO-readable specs plus
+**The process contract**: Fable runs every role — no per-role model split, no
+fallback; a safeguard flag/refusal/downgrade PAUSES the feature for
+maintainer review (RUNBOOK "Model discipline"). Potential security concerns
+go to the private `../e2e_ng/security.md`, never to a public artifact — the
+fact of routing is always stated, the content never (RUNBOOK "What goes
+where"). The lint gate checks reference integrity only; wording is the
+writer's judgment. The critical goal: accurate QA/PO-readable specs plus
 strong-coverage per-app tests derived from them — every rule bends to that.
 
 **Mode: REVIEW/PILOT** — nothing runs autonomously; the maintainer launches
 each step and reviews its output.
-
-## Restart sequence (maintainer launches each)
-
-1. **Harness rebuild** per PRINCIPLES "Scenario-endpoint design record"
-   (scenario API, bootstrap roster, config factory, fleet wiring); done when
-   PRINCIPLES' **Rebuild acceptance** list passes on all three fleets. The
-   step-2 scenario schema is the minimal core — richer keys return per
-   feature, each with a parity entry.
-   **DONE 2026-07-31** — acceptance green on all three fleets (cold bootstrap,
-   login smoke, scenario seeds context + staged submission per app, reset tool
-   forces cold bootstrap, Mail::fake suppression verified by Mailpit count,
-   RUNBOOK operational names match). UI-vs-scenario parity spot-check found 3
-   defects + 1 seed defect, all fixed and re-verified same session
-   (`docs/e2e/scenario-processor-audit.md`; evidence
-   `.reports/step1-harness/`). Skill flipped to live truth.
-2. **Features** — one per session under the RUNBOOK loop; the maintainer picks
-   each next feature and reviews its output. The lint gate exists — run it,
-   don't rebuild it.
 
 ## Features
 

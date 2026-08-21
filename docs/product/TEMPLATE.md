@@ -155,12 +155,18 @@ subset above; the rest bind by the writer's judgment):
    The author's entry route (View on My Submissions) belongs to the
    author-dashboard feature; everything after it belongs to the workflow
    features.
-10. **Glossary discipline.** A living `GLOSSARY.md` (created alongside the
-    first specs that need it) keeps PO/QA language consistent: on-screen names
-    always win; a term may be coined only when the screen offers none; every
-    coined term has ONE definition home (the glossary), and first use per spec
-    carries a gloss or pointer. Applies to test naming too. Cross-app
-    vocabulary is `APP-GLOSSARY.md`'s job, not this one's.
+10. **Glossary discipline.** `GLOSSARY.md` is the living definition home for
+    the product vocabulary the specs use — the terms as OJS/OMP/OPS screens
+    use them, defined so a QA/PO reader can follow any spec, plus the
+    settled resolutions of term collisions (which of two competing words the
+    specs use, and what a shared word means where). On-screen names always
+    win; a term may be coined only when the screen offers none; every
+    coined term has ONE definition home (the glossary), and first use per
+    spec carries a gloss or pointer. Applies to test naming too. Cross-app
+    NAME substitution (journal/press/server…) is `APP-GLOSSARY.md`'s job,
+    not this one's — the glossary defines meanings and links there for
+    renames. New specs check the glossary before coining and add missing
+    terms as part of authoring.
 
 **Everything clickable.** Body markers link to register entries; register IDs
 link back from the summary table; `<sup>` marks link to their footnotes; cross-
@@ -176,7 +182,7 @@ name: <feature-slug>
 scope: <one-line: the user job this feature serves>
 apps: [ojs, omp, ops]       # apps that have the feature (all three unless absent)
 shared: pkp-lib | no        # implemented in lib/pkp or app-only
-status: draft | verified    # verified = claim-check findings resolved
+status: draft | verified    # verified = the full RUNBOOK loop passed (claim check resolved, lint zero, readability, tests green ×2)
 atlas-claims: [<atom IDs this spec owns>]
 ---
 

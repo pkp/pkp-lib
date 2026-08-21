@@ -12,8 +12,8 @@
  * @brief A scenario/bootstrap spec is invalid. Carries the dotted key path of
  * the offending spec field so the API can answer 400 with a precise pointer.
  * An unsupported spec key must THROW, never be silently dropped (a
- * silently-ignored key once cost a real investigation — PRINCIPLES design
- * record 4).
+ * silently-ignored key once cost a real investigation — PRINCIPLES
+ * D4).
  */
 
 namespace PKP\testing;

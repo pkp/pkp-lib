@@ -11,7 +11,7 @@
  *
  * @brief POST /api/v1/_test/scenarios/context — seed a scratch context for
  * tests that need journal/press/server-level mutations (the shared base
- * context is read-only, PRINCIPLES principle 1).
+ * context is read-only, PRINCIPLES A1).
  *
  * Step-2 core schema: tag* (parallel-isolation key, also the default urlPath —
  * ≤32 chars, single alphanumeric token), context {path, name, acronym,

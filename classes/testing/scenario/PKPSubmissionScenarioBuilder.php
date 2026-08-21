@@ -11,7 +11,7 @@
  *
  * @brief POST /api/v1/_test/scenarios/submission — walk a submission to a
  * declared end-state through the SAME services the wizard and workflow
- * screens use (design record 3): Repo::submission()->add()/submit() (real
+ * screens use (PRINCIPLES D3): Repo::submission()->add()/submit() (real
  * SubmissionSubmitted event → stage-1 discussion, AssignEditors, tasks),
  * Repo::decision()->add() (real DecisionType::runAdditionalActions — a
  * sendExternalReview decision creates review round 1 itself),
@@ -35,7 +35,7 @@
  *
  * The workflow start stage comes from each app's submission schema default —
  * never hard-coded here (a hard-coded initial stage once made every seeded
- * OPS submission invisible; design record 5).
+ * OPS submission invisible; PRINCIPLES D5).
  */
 
 namespace PKP\testing\scenario;

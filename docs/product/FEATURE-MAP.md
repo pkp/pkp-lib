@@ -8,7 +8,7 @@ feature row, claim its listed atoms, write the spec per `TEMPLATE.md`.
   of: a feature section below, the **Out of scope** section at the tail of this
   file, or `UNASSIGNED.md`. The unclaimed count is the campaign's completeness
   metric. This map accounts for all **2,163** atoms:
-  **1,977 feature-assigned · 173 out of scope · 13 UNASSIGNED**.
+  **1,972 feature-assigned · 173 out of scope · 18 parked in UNASSIGNED.md** (13 at Phase-0 close; 5 U26-derived dead author-dashboard atoms parked later).
 - **Atom IDs and modality conventions**: see `atlas/README.md`. IDs are dense per
   modality and never renumbered; ranges here (`AFFW-068..075`) are inclusive.
 - **Sources**: `.reports/phase0-feature-map/synthesis.md` §1 (feature list and

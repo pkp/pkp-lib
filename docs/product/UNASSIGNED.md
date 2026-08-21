@@ -9,10 +9,11 @@ spec, confirmed dead (stays here with evidence), or ruled out of scope.
 
 Sources: the six crosswalks in `.reports/phase0-feature-map/` (their UNASSIGNED
 lists, consistent with `synthesis.md` §4) + `RULINGS.md`'s probe-derived
-dead-code additions + U26 spec-time findings (2026-07-27). **18 parked atoms**
-+ **8 noted dead-code/defect candidates attached to claimed atoms**. (PLUG-028
-moved to FEATURE-MAP's Out-of-scope tail per the cross-cutting UI
-infrastructure orchestrator ruling, 2026-07-27 — see RULINGS.md.)
+dead-code additions. **18 parked atoms** + **6 noted dead-code/defect
+candidates attached to claimed atoms**. (PLUG-028 moved to FEATURE-MAP's
+Out-of-scope tail — see RULINGS.md. Two candidates that rested solely on
+scratched pre-reset evidence were dropped 2026-08-21 per the reset doctrine —
+if real, their specs' own probes will resurface them.)
 
 ## Parked atoms (18)
 
@@ -20,9 +21,9 @@ infrastructure orchestrator ruling, 2026-07-27 — see RULINGS.md.)
 - What: the old author-dashboard templates' editor-message link, author
   reviewer grid, and review attachments + revisions grids (FEATURE-MAP had
   them under U26).
-- Why parked: dead — the U26 build found the legacy author-dashboard round
-  panel unreachable: its URLs answer 404 and the current author round view is
-  the shared workflow screen (spec footnote on retired legacy surfaces;
+- Why parked: dead — the legacy author-dashboard round panel is unreachable
+  (its URLs answer 404; the current author round view is the shared workflow
+  screen, per the review-stage spec's retired-legacy-surfaces footnote.
   AFFW-702's email-modal body remains live via the Notifications panel and
   stays claimed by U26).
 - Resolves: maintainer confirmation as dead code (removal candidates).
@@ -31,8 +32,8 @@ infrastructure orchestrator ruling, 2026-07-27 — see RULINGS.md.)
 - What: author-view grids for review attachments and uploaded revision files,
   mounted only from the retired author-dashboard round panel (AFFW-703/704).
 - Why parked: dead with their mount — no reachable screen loads them in the
-  current UI (U26 build, same evidence as above; the open-review attachment
-  grid GRID-010 is live inside the read-review sheet and stays claimed).
+  current UI (same evidence as above; the open-review attachment grid
+  GRID-010 is live inside the read-review sheet and stays claimed).
 - Resolves: maintainer confirmation as dead code (removal candidates).
 
 ### AFFW-076 — sectionPolicy.tpl start-submission block
@@ -140,23 +141,10 @@ until their specs exist. Do not force-claim the defects themselves.
    divergence (probe-omp-series.md corrects the api sweep's "ojs-only"
    framing). Resolves: spec-time register entry; maintainer call on whether
    OMP/OPS should mount it.
-6. **OMP recommend-only controls inert after a participant-panel flag flip** —
-   attached to **U35** (stage participants). Recommendation controls render
-   but do nothing when "Recommend only" is switched on through the
-   Participants panel's edit form; the same flag applied at assignment time
-   works (U26 verification, `.reports/u26/verify-chunk4.md` unresolved
-   section). U26's display rules are unaffected. Resolves: U35 spec-time
-   check of the participant-edit path before anyone states it as a defect.
-7. **Untranslated help-icon name in shared side-modal chrome** — no owning
-   spec yet. The Help icon's screen-reader-only name renders as a raw locale
-   placeholder on top bars and side modals; direct measurement says all three
-   apps, one report saw OJS clean — conflict carried, not resolved
-   (U26 verification). Incidental: a template helper registers a method that
-   does not exist. Resolves: claim by whichever spec takes shared page
-   chrome, or a maintainer-approved fix.
-8. **OMP "Request Revisions" author email invites a response OMP cannot
+6. **OMP "Request Revisions" author email invites a response OMP cannot
    collect** — attached to **U30** (author response) / mail templates. The
    press email asks the author to "submit your response" but OMP mounts no
-   Author Response panel (U26 register OMP5 documents the panel absence; the
-   template mismatch is U30's / the mail templates'). Resolves: U30 spec-time
-   register entry; reconcile template with the press roster.
+   Author Response panel (the shipped review-stage spec's register documents
+   the panel absence; the template mismatch is U30's / the mail templates').
+   Resolves: U30 spec-time register entry; reconcile template with the press
+   roster.

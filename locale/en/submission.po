@@ -3932,14 +3932,32 @@ msgstr "The following issues were found, but will not prevent publishing"
 msgid "reviewer.competingInterests"
 msgstr "Competing Interests"
 
-msgid "submission.event.review.field.modified"
-msgstr "The following was modified in this review: {$fieldNameKey}. Select \"View changes\" to see a detailed summary of all modifications."
+msgid "submission.event.review.field.modified.comments"
+msgstr "The following was modified in this review: Comments. Select \"View changes\" to see a detailed summary of all modifications."
 
-msgid "submission.event.review.fieldName.comments"
-msgstr "Comments"
+msgid "submission.event.review.field.modified.reviewerRecommendation"
+msgstr "The following was modified in this review: Reviewer Recommendation. Select \"View changes\" to see a detailed summary of all modifications."
 
-msgid "submission.event.review.fieldName.reviewerRecommendationId"
-msgstr "Reviewer Recommendation"
+msgid "submission.event.review.field.modified.formResponse"
+msgstr "The following was modified in this review: Review Form. Select \"View changes\" to see a detailed summary of all modifications."
 
-msgid "submission.event.review.fieldName.reviewFormResponses"
-msgstr "Review Form"
+msgid "submission.event.review.updatedFormResponses"
+msgstr "Updated Form Responses"
+
+msgid "submission.event.review.previousFormResponses"
+msgstr "Previous Form Responses"
+
+msgid "submission.event.review.updatedReviewerRecommendation"
+msgstr "Updated Reviewer Recommendation"
+
+msgid "submission.event.review.previousReviewerRecommendation"
+msgstr "Previous Reviewer Recommendation"
+
+msgid "submission.event.review.updatedComments"
+msgstr "Updated Comments"
+
+msgid "submission.event.review.previousComments"
+msgstr "Previous Comments"
+
+msgid "submission.event.viewReview"
+msgstr "View Review"

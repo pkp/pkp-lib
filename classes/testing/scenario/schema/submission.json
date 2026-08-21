@@ -1,0 +1,109 @@
+{
+    "title": "Test-harness submission spec",
+    "description": "The end state a test needs a submission to be in. The builder walks the application to that state through the real services; the test never scripts the journey.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["tag", "context", "submitter"],
+    "properties": {
+        "tag": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "description": "Parallel-isolation key. Appended to the submission title so assertions can attribute rows by tag rather than by id."
+        },
+        "context": {"type": "string", "minLength": 1, "description": "urlPath of the context to submit to."},
+        "submitter": {"type": "string", "minLength": 1, "description": "username of the submitting user."},
+        "title": {"type": "string", "minLength": 1},
+        "abstract": {"type": "string"},
+        "locale": {"type": "string"},
+        "submitted": {
+            "type": "boolean",
+            "description": "Defaults to true. An EXPLICIT false seeds a wizard-resumable draft at parity: no dateSubmitted, submissionProgress set to the first wizard step, author canChangeMetadata."
+        },
+        "participants": {
+            "type": "array",
+            "description": "Stage assignments to add before any decision is recorded, the way the Participants panel adds them. Editorial participants are what make a submission's round show recommendation controls, decision buttons and notification recipients.",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["user"],
+                "properties": {
+                    "user": {"type": "string", "minLength": 1, "description": "username of the participant."},
+                    "role": {
+                        "type": "string",
+                        "description": "Role key of the user group to assign under (manager, sectionEditor, author, ...); defaults to the user's first group in the context."
+                    },
+                    "recommendOnly": {
+                        "type": "boolean",
+                        "description": "The 'Recommend only' toggle: the participant records recommendations instead of decisions. Applied to an existing assignment too, the way editing a participant does."
+                    }
+                }
+            }
+        },
+        "decisions": {
+            "type": "array",
+            "description": "Editorial decisions to record, in order, through the real decision service. Each drives the real stage progression, hooks and notifications.",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["decision"],
+                "properties": {
+                    "decision": {
+                        "type": "string",
+                        "minLength": 1,
+                        "description": "Decision type name, lower-camel-case of the decision type class (sendExternalReview, requestRevisions, accept, newExternalRound, sendToProduction, decline, ...). Validated against the app's own decision-type roster."
+                    },
+                    "editor": {"type": "string", "description": "username recording the decision; defaults to the first manager/editor enrolled in the context."}
+                }
+            }
+        },
+        "reviewRounds": {
+            "type": "array",
+            "description": "Reviewers per review round. Entry i targets review round i+1 of the submission's review stage; the round must exist (created by a promoting decision) or the app's default promoting decision is applied for round 1.",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "reviewers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": ["user"],
+                            "properties": {
+                                "user": {"type": "string", "minLength": 1, "description": "username of the reviewer."},
+                                "status": {
+                                    "type": "string",
+                                    "enum": ["invited", "accepted", "declined", "completed", "confirmed"],
+                                    "description": "Defaults to invited. 'accepted'/'declined' run the reviewer's own confirm action; 'completed' additionally submits the review through the reviewer's own step-3 form; 'confirmed' additionally has the editor confirm it, the way reading the review from the Reviewers panel does."
+                                },
+                                "method": {
+                                    "type": "string",
+                                    "enum": ["open", "anonymous", "doubleAnonymous"],
+                                    "description": "Review method for this assignment; defaults to the context's default review mode. Only an open review is readable by the author."
+                                },
+                                "commentsForAuthor": {
+                                    "type": "string",
+                                    "description": "The review comment the reviewer shares with the author. Requires a completed status."
+                                },
+                                "commentsForEditor": {
+                                    "type": "string",
+                                    "description": "The review comment the reviewer addresses to the editor alone. Requires a completed status."
+                                },
+                                "recommendation": {
+                                    "type": "string",
+                                    "description": "Localized title of one of the context's reviewer recommendation options ('Accept Submission', 'Revisions Required', ...). Requires a completed status."
+                                },
+                                "attachment": {
+                                    "type": "boolean",
+                                    "description": "Attach a reviewer file to the completed review, the way the reviewer's upload step does."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "published": {"type": "boolean", "description": "Publish the current publication through the real publish path."}
+    }
+}

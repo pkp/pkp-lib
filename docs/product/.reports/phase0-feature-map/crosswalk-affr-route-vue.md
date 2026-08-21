@@ -1,0 +1,258 @@
+# Crosswalk — AFFR / ROUTE / VUE atoms → unified features (U1–U70)
+
+- **Date**: 2026-07-27 · desk crosswalk for FEATURE-MAP Stage D.
+- **Inputs**: synthesis.md §1 (U1–U67) as amended by RULINGS.md (all D-leans accepted;
+  D2 superseded — U13 badges {OJS OPS}; Q1a/Q2-amended/Q3a/Q4a/Q5a; new U68/U69/U70).
+- **Format**: `ID[..ID] → U## | UNASSIGNED: reason | OOS: cluster`, optional `? note`
+  when the atom is torn between features (multi-feature handler/dispatcher/component;
+  assigned to the feature owning its PRIMARY intent).
+- **Coverage**: AFFR-001..104 (104) + ROUTE-001..088 (88) + VUE-001..101 (101) = 293
+  atoms, no gaps.
+
+## AFFR (affordances-reader, 001–104)
+
+- AFFR-001..008 → U8
+- AFFR-009 → U5 ? unread-notification count badge; rendered inside U8's user-menu chrome
+- AFFR-010..015 → U8
+- AFFR-016 → U8 ? shared "Edit" shortcut linking into many features' settings (U7/U12/U9 consumers); homed as chrome component
+- AFFR-017 → U11
+- AFFR-018 → U8
+- AFFR-019 → U59 ? site-home hosted-context list = display side of hosted-journals ordering; could also read as site chrome (U8)/site identity (U60)
+- AFFR-020 → U50
+- AFFR-021 → U60
+- AFFR-022 → U50
+- AFFR-023 → U10
+- AFFR-024 → U16
+- AFFR-025 → U10
+- AFFR-026 → U68
+- AFFR-027 → U10 ? server-home composition; embedded archive-header portion belongs to U17/U15 via AFFR-078
+- AFFR-028..031 → U12
+- AFFR-032..034 → U7
+- AFFR-035 → U58 ? intake open/closed + entry-links notice displayed on an About page (U7 adjacency)
+- AFFR-036 → U58
+- AFFR-037 → U17
+- AFFR-038..041 → U7
+- AFFR-042..045 → U50
+- AFFR-046 → U13 ? listing summary component consumed by U50 TOC, home (U10) and search (U15) screens
+- AFFR-047..050 → U13
+- AFFR-051 → U69 ? synthesis §5 lists the HTML monograph viewer as its own OOS cluster; treated here as a catalog READER surface per the Q2 scope extension ("dropped list minus catalog reader/management surfaces") — maintainer confirm
+- AFFR-052 → U13 ? shared three-app details atom; OMP exposure covered via U69, not U13 (D2 superseded)
+- AFFR-053..055 → U13
+- AFFR-056 → U13 ? usage-chart display on the landing screen; pipeline and stats semantics live in U64
+- AFFR-057 → U42 ? U42's row explicitly claims "show them to readers"; screen-ownership would otherwise say U13
+- AFFR-058 → U14
+- AFFR-059 → U13
+- AFFR-060 → U48
+- AFFR-061..062 → U13
+- AFFR-063 → U43 ? funders display primary; data-availability/funding-statement portion sits on the U40/U13 seam per D11
+- AFFR-064 → U44
+- AFFR-065 → U40 ? per D10 (license display owned by U40); U13's row also names license as landing content
+- AFFR-066..068 → U13
+- AFFR-069 → U45 ? Crossmark is Crossref-plugin behavior (plugin-owner rule); renders on U13's screen
+- AFFR-070..071 → U68
+- AFFR-072 → U16
+- AFFR-073..074 → U68
+- AFFR-075..077 → U69
+- AFFR-078 → U17 ? archive-header component: search-form portion is U15, category links U16; homed with the OPS archive pages (Q4)
+- AFFR-079..080 → U17
+- AFFR-081 → U13 ? OPS listing summary, same seam as AFFR-046
+- AFFR-082 → U13 ? relation-notice portion is OOS (OPS preprint relations & journal relay, synthesis §5); remainder is landing display
+- AFFR-083..085 → U15
+- AFFR-086 → U16
+- AFFR-087 → U68
+- AFFR-088 → U7
+- AFFR-089 → U57
+- AFFR-090 → U51
+- AFFR-091 → U8
+- AFFR-092 → U21 ? make-a-submission call-to-action block; navigates via the about/submissions surface (U58/U7)
+- AFFR-093 → U9
+- AFFR-094 → U18
+- AFFR-095 → U12
+- AFFR-096..097 → U9
+- AFFR-098 → U8
+- AFFR-099..103 → U51
+- AFFR-104 → U52
+
+## ROUTE (page handlers, 001–088)
+
+- ROUTE-001..002 → U7
+- ROUTE-003 → U61 ? multi-feature admin handler: contexts/wizard ops → U59, settings op → U60, confirmAccess ops → U1; primary intent = system administration
+- ROUTE-004 → U12
+- ROUTE-005 → U24 ? author's workflow screen (rule 9: entry route owned by U22)
+- ROUTE-006 → U16
+- ROUTE-007 → U23 ? legacy `submissions` page dispatcher; role ops also cover author/reviewer views (U22/U28)
+- ROUTE-008 → U23 ? dashboard base also serves mySubmissions (U22) and reviewAssignments (U28, per D4) views
+- ROUTE-009 → U34
+- ROUTE-010 → U45
+- ROUTE-011 → U10
+- ROUTE-012 → OOS: installer/upgrader (Q1a — out of campaign test scope, marked with-reason)
+- ROUTE-013..014 → U6
+- ROUTE-015 → U39
+- ROUTE-016 → U1
+- ROUTE-017 → U7 ? settings dispatcher serving many features' tabs (context→U7, website→U10, workflow→U58/U29/U37, distribution→dissolved per D9, access→U53/U54, manageEmails→U56, userComments→U14, institutions→U66, announcements→U12); primary = context-identity settings hub
+- ROUTE-018 → U63 ? Tools page primary (importexport); permissions/resetPermissions ops → U40 (D10 reset-permissions tool)
+- ROUTE-019 → U9 ? view op = custom NMI pages; preview op serves menu management (U8)
+- ROUTE-020 → U5
+- ROUTE-021 → U4
+- ROUTE-022 → U28
+- ROUTE-023 → U30
+- ROUTE-024 → U15
+- ROUTE-025 → U20
+- ROUTE-026 → U64 ? stats hub; editorial/users ops → U65 (D21 split), rest → U64
+- ROUTE-027 → U21
+- ROUTE-028 → U3 ? thin user-page base; authorizationDenied op is session/access adjacent (U1)
+- ROUTE-029 → U3
+- ROUTE-030 → U2
+- ROUTE-031 → U24
+- ROUTE-032 → U51 ? subclass delta is the about/subscriptions op; inherits U7's about ops
+- ROUTE-033 → U13
+- ROUTE-034 → U24
+- ROUTE-035 → U23
+- ROUTE-036 → U45
+- ROUTE-037 → U67 ? lockss/clockss manifest ops → U67 (D22); generic plugin op dispatches gateway plugins (U18 feeds et al.)
+- ROUTE-038 → U10
+- ROUTE-039 → U7
+- ROUTE-040..041 → U50
+- ROUTE-042 → U7 ? same multi-tab settings seam as ROUTE-017; OJS overrides workflow/distribution
+- ROUTE-043 → UNASSIGNED: dead routing stub — legacy `manager` dispatcher returns no handler for any op (synthesis §4)
+- ROUTE-044 → U19
+- ROUTE-045 → U52
+- ROUTE-046 → U51 ? subscriptions management primary; paymentTypes/payments ops → U52
+- ROUTE-047 → U28
+- ROUTE-048 → U15
+- ROUTE-049 → U20
+- ROUTE-050 → U64
+- ROUTE-051 → U21
+- ROUTE-052 → U51 ? subscription purchase/renewal ops primary; payMembership op → U52
+- ROUTE-053..054 → U24
+- ROUTE-055 → U69
+- ROUTE-056 → U68
+- ROUTE-057 → U23
+- ROUTE-058 → U45
+- ROUTE-059 → U18 ? generic gateway-plugin dispatcher; primary reachable consumer is the web-feed gateway
+- ROUTE-060 → U10
+- ROUTE-061 → U7
+- ROUTE-062 → U70
+- ROUTE-063 → U7 ? same multi-tab settings seam as ROUTE-017
+- ROUTE-064 → U19
+- ROUTE-065 → OOS: OMP direct sales / approved proofs (synthesis §5) ? payment-plugin callback route; the shared paymethod plugins themselves stay claimed by U52 per the glossary note
+- ROUTE-066 → U28
+- ROUTE-067 → U15
+- ROUTE-068 → U20
+- ROUTE-069 → U64
+- ROUTE-070 → U21
+- ROUTE-071 → U3
+- ROUTE-072 → U24 ? workflow access primary; added internalReview op is OOS (OMP internal review cluster)
+- ROUTE-073 → U24
+- ROUTE-074 → U23
+- ROUTE-075 → U45
+- ROUTE-076 → U18 ? generic gateway-plugin dispatcher, as ROUTE-059
+- ROUTE-077 → U10
+- ROUTE-078 → U7 ? same multi-tab settings seam as ROUTE-017
+- ROUTE-079 → U19
+- ROUTE-080 → U13
+- ROUTE-081..082 → U17
+- ROUTE-083 → U15
+- ROUTE-084 → U20
+- ROUTE-085 → U64
+- ROUTE-086 → U21
+- ROUTE-087 → U3
+- ROUTE-088 → U24
+
+## VUE (ui-library pages/managers/modals, 001–101)
+
+- VUE-001 → U6
+- VUE-002 → U64
+- VUE-003 → U23 ? one page component serving editorial (U23), mySubmissions (U22) and reviewAssignments (U28) views
+- VUE-004 → UNASSIGNED: ui-library docs example fixture, no app mount (synthesis §4)
+- VUE-005..007 → U61
+- VUE-008 → U30
+- VUE-009 → U28
+- VUE-010 → U14
+- VUE-011 → U6
+- VUE-012 → U24
+- VUE-013 → U53 ? Users & Roles container also hosts roles configuration (U54)
+- VUE-014 → U59
+- VUE-015 → U61 ? admin container spans hosted-journals (U59) and site-settings (U60) screens; primary = system administration shell
+- VUE-016 → U27
+- VUE-017 → U34
+- VUE-018 → U45
+- VUE-019 → U63
+- VUE-020 → U70
+- VUE-021 → U56
+- VUE-022 → U7 ? settings-pages container spanning the same multi-feature tabs as ROUTE-017
+- VUE-023 → U21
+- VUE-024 → U65
+- VUE-025..026 → U64
+- VUE-027 → U64
+- VUE-028 → U65
+- VUE-029 → U21
+- VUE-030 → U16
+- VUE-031 → OOS: OMP chapters authoring (monographs/chapters/work types cluster; authoring stays out per Q2 amendment)
+- VUE-032 → U42
+- VUE-033 → U41
+- VUE-034 → U41
+- VUE-035 → U42
+- VUE-036..037 → U37
+- VUE-038 → U36
+- VUE-039 → U43
+- VUE-040 → U46
+- VUE-041 → U47
+- VUE-042 → UNASSIGNED: manager component unmounted; only its form modal (VUE-066) is wired (synthesis §4)
+- VUE-043 → U35
+- VUE-044 → OOS: OMP publication formats & ONIX (authoring stays out per Q2 amendment)
+- VUE-045 → OOS: OMP marketing & supply chain
+- VUE-046 → U27
+- VUE-047 → U29
+- VUE-048 → U31
+- VUE-049 → U30
+- VUE-050 → U37
+- VUE-051 → U53
+- VUE-052 → U6
+- VUE-053 → U36
+- VUE-054 → U16
+- VUE-055 → U42
+- VUE-056 → U41
+- VUE-057 → U42
+- VUE-058..060 → U37
+- VUE-061 → U43
+- VUE-062..065 → U47
+- VUE-066 → U8
+- VUE-067..068 → U27
+- VUE-069 → U29
+- VUE-070 → U30
+- VUE-071 → U37
+- VUE-072..073 → U56
+- VUE-074 → U64
+- VUE-075 → U23
+- VUE-076 → U28
+- VUE-077 → U64
+- VUE-078..079 → U64
+- VUE-080 → U65
+- VUE-081 → U21
+- VUE-082..083 → U14
+- VUE-084 → U49
+- VUE-085 → U40
+- VUE-086 → U34
+- VUE-087..088 → U34
+- VUE-089 → U34 ? prepared-content/variable insert for rich-text fields; primary consumer is the Composer (U34 mechanism home), also used by settings-form rich text
+- VUE-090 → U40
+- VUE-091 → U49
+- VUE-092 → U12
+- VUE-093..094 → U41
+- VUE-095..096 → U45
+- VUE-097 → U11
+- VUE-098 → U66
+- VUE-099 → U31
+- VUE-100 → U36
+- VUE-101 → U70
+
+## Tallies
+
+- Feature-assigned: 285 · UNASSIGNED: 3 (ROUTE-043, VUE-004, VUE-042) · OOS: 5
+  (ROUTE-012 installer per Q1a; ROUTE-065 OMP direct sales; VUE-031 chapters
+  authoring; VUE-044 publication formats/ONIX; VUE-045 marketing & supply chain).
+- `?` flags: 42 (AFFR 17 · ROUTE 20 · VUE 5).
+- Features with NO atoms in these three modalities (expected — their atoms live in
+  AFFW/AFFM/AFFU/GRID/API/MAIL sweeps): U22 (list views ride ROUTE-008/VUE-003,
+  flagged), U25, U26, U32, U33, U38, U54 (rides VUE-013, flagged), U55, U62.

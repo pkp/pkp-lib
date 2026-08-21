@@ -228,7 +228,9 @@ class Repository
 
         $existingRawCitations = $existingCitations->map(fn (Citation $citation) => $citation->getRawCitation())->toArray();
 
-        if ($existingRawCitations !== $citationStrings) {
+        // Compare by value only: $existingRawCitations is keyed by citation ID, $citationStrings
+        // is sequential, so a raw !== comparison would false-mismatch even when nothing changed.
+        if (array_values($existingRawCitations) !== array_values($citationStrings)) {
             $importedCitations = [];
             $this->deleteByPublicationId($publicationId);
             if (is_array($citationStrings) && !empty($citationStrings)) {

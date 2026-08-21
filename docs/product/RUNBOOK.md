@@ -93,7 +93,7 @@ are short and outcome-shaped — context budgeting, not a wording rule.
   had to be worked around or fixed to get tests green (races,
   nondeterministic UI, harness-hostile behavior), plus the record of actual
   app-code changes the campaign made. Nothing else.
-- **Scenario-builder parity notes** → `lib/pkp/docs/e2e/scenario-processor-audit.md`.
+- **Scenario-builder parity notes** → `lib/pkp/docs/e2e/parity-ledger.md`.
 - **Cross-feature mechanisms** → described fully in ONE owning spec; other
   specs link (TEMPLATE rule 6).
 - **Process learnings** → this file or TEMPLATE (via maintainer review),

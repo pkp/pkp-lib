@@ -6,7 +6,7 @@ canonical alternative to driving the UI for setup. This file has two strata:
 pre-reset field shapes the API grows back into per feature. Growth rule
 (PRINCIPLES): extend a builder only when multiple tests need the same state,
 and every builder change needs a parity entry in
-`../scenario-processor-audit.md` before it merges.
+`../parity-ledger.md` before it merges.
 
 ## LIVE surface
 
@@ -28,7 +28,7 @@ themselves are the authoritative field list.
   the urlPath), `context` object (path, name, acronym, description, locales,
   contact, enabled), `users[]` throwaways. Setting passthroughs return per
   feature; live today: `orcid` (settings-tab state incl. encrypted secret —
-  see the audit ledger 2026-08-07 rows).
+  see the parity ledger's 2026-08-07 rows).
 - **`POST scenarios/submission`** — `tag*`, `context*` (urlPath),
   `submitter*` (username), `title` (default "Submission {tag}"), `abstract`
   (defaulted — abstract-requiring sections need one; pass your own to
@@ -45,7 +45,7 @@ themselves are the authoritative field list.
   `series` (path) / `seriesPosition` + per-round `stage: internal|external`;
   OPS `section` — and `reviewRounds` is REJECTED (no review stage).
 
-Facts tests rely on (parity-verified — see the audit ledger):
+Facts tests rely on (parity-verified — see the parity ledger):
 
 - Every build runs under `Mail::fake()` inside one DB transaction — failed
   builds roll back; seeding-side mail never reaches Mailpit, only test-action
@@ -70,7 +70,7 @@ builders in `lib/pkp/classes/testing/` (`PKPBootstrapSeeder`,
 
 Nothing below exists in the rebuilt builders. When a feature needs one of
 these states, implement the field at the recorded shape (adjusting to live
-code) and add its parity row to the audit ledger.
+code) and add its parity row to the parity ledger.
 
 Submission scenario, top level: `commentsForEditor` (fires the editors
 discussion via `SubmissionSubmitted`; discussions live in `edit_tasks`),

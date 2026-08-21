@@ -15,11 +15,55 @@
  * one testDir, so the shared lib/pkp specs are a sibling project of the app
  * suite; the serial project runs alone at the end (globally-scanning specs).
  */
+const {execSync} = require('child_process');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const {defineConfig, devices} = require('@playwright/test');
 const {loadEnv} = require('./support/env.js');
+
+/**
+ * Worker auto-detect. The workload is wait-bound (single-threaded php -S +
+ * browser waits), and the measured knee on a 10-core (8P+2E) Mac was exactly
+ * the performance-core count — the efficiency cores only add overhead. So:
+ * performance cores where the OS can tell them apart (Apple Silicon sysctl,
+ * Intel hybrid sysfs), cores - 2 on homogeneous machines. CI runners pin
+ * PLAYWRIGHT_WORKERS explicitly (a 4-vcpu runner measured best at 4).
+ */
+function detectWorkers() {
+    try {
+        if (process.platform === 'darwin') {
+            const pCores = parseInt(
+                execSync('sysctl -n hw.perflevel0.logicalcpu', {
+                    stdio: ['ignore', 'pipe', 'ignore'],
+                })
+                    .toString()
+                    .trim(),
+                10,
+            );
+            if (pCores >= 2) {
+                return pCores;
+            }
+        } else if (process.platform === 'linux') {
+            // Intel hybrid exposes the P-core cpu list, e.g. "0-11".
+            const list = fs
+                .readFileSync('/sys/devices/cpu_core/cpus', 'utf8')
+                .trim();
+            const pCores = list
+                .split(',')
+                .reduce((n, range) => {
+                    const [lo, hi] = range.split('-').map(Number);
+                    return n + (hi >= lo ? hi - lo + 1 : 1);
+                }, 0);
+            if (pCores >= 2) {
+                return pCores;
+            }
+        }
+    } catch {
+        // Fall through: no P/E split detectable on this machine.
+    }
+    return Math.max(2, os.cpus().length - 2);
+}
 
 function definePkpConfig({appName, appRoot, basePort}) {
     loadEnv(appRoot);
@@ -33,13 +77,9 @@ function definePkpConfig({appName, appRoot, basePort}) {
     process.env.PLAYWRIGHT_BASE_PORT = String(basePort);
 
     // Playwright's own default (50% of cores) can't be used directly because
-    // the server fleet below must match the worker count at config time; and
-    // this workload is wait-bound (single-threaded php -S, browser waits), so
-    // cores - 2 measured faster than cores / 2 (2026-08-21 perf research:
-    // 8 workers is the knee on a 10-core machine; 10 is flat-to-worse).
+    // the server fleet below must match the worker count at config time.
     const workers = parseInt(
-        process.env.PLAYWRIGHT_WORKERS ||
-            String(Math.max(2, os.cpus().length - 2)),
+        process.env.PLAYWRIGHT_WORKERS || String(detectWorkers()),
         10,
     );
     const sharedTestDir = path.join(__dirname, 'tests');

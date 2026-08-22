@@ -31,7 +31,10 @@ class Affiliation extends DataObject
      */
     public function getDefaultLocale(): ?string
     {
-        return Repo::author()->get($this->getAuthorId())->getDefaultLocale();
+        // The submission locale is set when hydrated via the Collector;
+        // fall back to a lookup through the author for affiliations that weren't
+        return $this->getData('submissionLocale')
+            ?? Repo::author()->get($this->getAuthorId())->getDefaultLocale();
     }
 
     /**

@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\DataObject;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\identity\Identity;
 use PKP\security\Role;
 
@@ -101,7 +102,7 @@ class DAO extends EntityDAO
             ->where($this->primaryKeyColumn, $id)
             ->first();
         /** @var User $user */
-        $user = $row ? $this->fromRow($row) : null;
+        $user = $row ? $this->fromRow($row, [$id], (object) []) : null;
         if (!$allowDisabled && $user?->getDisabled()) {
             return null;
         }
@@ -116,25 +117,6 @@ class DAO extends EntityDAO
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
             ->exists();
-    }
-
-    /**
-     * Get a collection of users matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query->getQueryBuilder()->get();
-            if ($rows->isEmpty()) {
-                return;
-            }
-
-            foreach ($rows as $row) {
-                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
-            }
-        });
     }
 
     /**
@@ -249,10 +231,10 @@ class DAO extends EntityDAO
      * @copydoc EntityDAO::fromRow
      *
      */
-    public function fromRow(object $row, bool $includeReviewerData = false): DataObject
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): DataObject
     {
-        $user = parent::fromRow($row);
-        if ($includeReviewerData) {
+        $user = parent::fromRow($row, $ids, $cache, $query);
+        if ($query?->includeReviewerData) {
             $user->setData('lastAssigned', $row->last_assigned);
             $user->setData('incompleteCount', (int) $row->incomplete_count);
             $user->setData('completeCount', (int) $row->complete_count);
@@ -377,7 +359,7 @@ class DAO extends EntityDAO
                     ->get();
             }
             foreach ($rows as $row) {
-                yield $row->user_id => $this->fromRow($row);
+                yield $row->user_id => $this->fromRow($row, [$row->user_id], (object) []);
             }
         });
     }

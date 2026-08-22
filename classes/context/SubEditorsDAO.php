@@ -88,7 +88,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @return \Illuminate\Support\Collection<int, \stdClass> result rows with userId and userGroupId properties
      */
-    public function getBySubmissionGroupIds(array $assocIds, int $assocType, int $contextId, bool $allowDisabled = false): Collection
+    public function getBySubmissionGroupIds(iterable $assocIds, int $assocType, int $contextId, bool $allowDisabled = false): Collection
     {
         return DB::table('subeditor_submission_group')
             ->where('subeditor_submission_group.assoc_type', '=', $assocType)

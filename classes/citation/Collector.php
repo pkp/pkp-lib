@@ -38,7 +38,7 @@ class Collector implements CollectorInterface
 
     public ?int $offset = null;
 
-    public ?int $publicationId = null;
+    public ?array $publicationIds = null;
 
     public ?string $rawCitation = null;
 
@@ -65,9 +65,9 @@ class Collector implements CollectorInterface
     /**
      * Filter by single publication
      */
-    public function filterByPublicationId(?int $publicationId): self
+    public function filterByPublicationIds(?array $publicationIds): self
     {
-        $this->publicationId = $publicationId;
+        $this->publicationIds = $publicationIds;
         return $this;
     }
 
@@ -110,27 +110,17 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc CollectorInterface::getQueryBuilder()
+     *
+     * @hook Citation::Collector [[&$qb, $this]]
      */
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table . ' as c')
-            ->select('c.*');
-
-        if (!is_null($this->count)) {
-            $qb->limit($this->count);
-        }
-
-        if (!is_null($this->offset)) {
-            $qb->offset($this->offset);
-        }
-
-        if (!is_null($this->publicationId)) {
-            $qb->where('c.publication_id', $this->publicationId);
-        }
-
-        if (!is_null($this->rawCitation)) {
-            $qb->where('c.raw_citation', $this->rawCitation);
-        }
+            ->select('c.*')
+            ->when(!is_null($this->count), fn ($q) => $q->limit($this->count))
+            ->when(!is_null($this->offset), fn ($q) => $q->offset($this->offset))
+            ->when(!is_null($this->publicationIds), fn ($q) => $q->whereIn('c.publication_id', $this->publicationIds))
+            ->when(!is_null($this->rawCitation), fn ($q) => $q->where('c.raw_citation', $this->rawCitation));
 
         switch ($this->orderBy) {
             case self::ORDERBY_SEQUENCE:

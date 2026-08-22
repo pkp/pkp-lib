@@ -149,7 +149,16 @@ class AuthorResponse extends Model
                     ->pluck('author_id')
                     ->all();
 
-                return array_map(fn ($authorId) => Repo::Author()->get($authorId), $authorIds);
+                if (empty($authorIds)) {
+                    return [];
+                }
+
+                // Load the whole set in one batch instead of one author at a time
+                $authors = Repo::Author()->getCollector()
+                    ->filterByAuthorIds($authorIds)
+                    ->getMany()
+                    ->all();
+                return array_values(array_filter(array_map(fn ($authorId) => $authors[$authorId] ?? null, $authorIds)));
             }
         )->shouldCache();
     }

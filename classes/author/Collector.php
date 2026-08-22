@@ -56,6 +56,8 @@ class Collector implements CollectorInterface
 
     public ?bool $includeInBrowse = null;
 
+    public ?array $authorIds = null;
+
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;
@@ -99,6 +101,15 @@ class Collector implements CollectorInterface
     public function filterByPublicationIds(?array $publicationIds): self
     {
         $this->publicationIds = $publicationIds;
+        return $this;
+    }
+
+    /**
+     * Filter by author IDs
+     */
+    public function filterByAuthorIds(?array $authorIds): self
+    {
+        $this->authorIds = $authorIds;
         return $this;
     }
 
@@ -199,6 +210,10 @@ class Collector implements CollectorInterface
 
         if (isset($this->publicationIds)) {
             $q->whereIn('a.publication_id', $this->publicationIds);
+        }
+
+        if (isset($this->authorIds)) {
+            $q->whereIn('a.author_id', $this->authorIds);
         }
 
         $q->when($this->country !== null, function (Builder $q) {

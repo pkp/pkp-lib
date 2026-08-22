@@ -19,8 +19,10 @@ use APP\publication\Publication;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
+use PKP\core\traits\EntityWithParent;
+use PKP\user\Collector as UserCollector;
 
 /**
  * @template T of ReviewAssignment
@@ -29,6 +31,8 @@ use PKP\core\EntityDAO;
  */
 class DAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = \PKP\services\PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT;
 
@@ -77,36 +81,19 @@ class DAO extends EntityDAO
 
     /** @copydoc EntityDAO::$settingsTable */
     public $settingsTable = 'review_assignment_settings';
+
+    public function getParentColumn(): string
+    {
+        return 'submission_id';
+    }
+
+
     /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): ReviewAssignment
     {
         return app(ReviewAssignment::class);
-    }
-
-    /**
-     * Check if a review assignment exists
-     */
-    public function exists(int $id, ?int $submissionId): bool
-    {
-        return DB::table($this->table)
-            ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
-            ->exists();
-    }
-
-    /**
-     * Get a review assignment
-     */
-    public function get(int $id, ?int $submissionId = null): ?ReviewAssignment
-    {
-        $row = DB::table($this->table)
-            ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
-            ->first();
-
-        return $row ? $this->fromRow($row) : null;
     }
 
     /**
@@ -132,45 +119,18 @@ class DAO extends EntityDAO
             ->pluck('ra.' . $this->primaryKeyColumn);
     }
 
-    /**
-     * Get a collection of review assignments matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): ReviewAssignment
     {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+        $reviewAssignment = parent::fromRow($row, $ids, $cache, $query);
 
-            foreach ($rows as $row) {
-                yield $row->review_id => $this->fromRow($row);
-            }
-        });
-    }
+        $cache->reviewers ??= Repo::user()->getCollector()->filterByReviewIds($ids)->filterByStatus(UserCollector::STATUS_ALL)->getMany()->collect();
+        $reviewer = $cache->reviewers->get($reviewAssignment->getReviewerId());
+        $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
+        $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
 
-    /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row): ReviewAssignment
-    {
-        $reviewAssignment = parent::fromRow($row);
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
-        $reviewAssignment->setData(
-            'reviewerFullName',
-            $reviewer->getFullName()
-        );
-        $reviewAssignment->setData(
-            'reviewerUserName',
-            $reviewer->getUserName()
-        );
-
-        if (!empty($reviewAssignment->getData('doiId'))) {
-            $reviewAssignment->setData(
-                'doiObject',
-                Repo::doi()->get($reviewAssignment->getData('doiId'))
-            );
+        $cache->doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($ids)->getMany()->collect();
+        if ($doiId = $reviewAssignment->getData('doiId')) {
+            $reviewAssignment->setData('doiObject', $cache->doiObjects->get($doiId));
         }
 
         return $reviewAssignment;

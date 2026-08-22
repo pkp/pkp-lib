@@ -30,7 +30,6 @@ use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
-use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\ReviewAssignmentFileAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -137,9 +136,7 @@ class PKPSubmissionFileController extends PKPBaseController
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        if ($actionName !== 'getFilesByReviewId') {
-            $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
-        }
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
         if ($actionName === 'add') {
             $params = $illuminateRequest->input();
@@ -157,7 +154,6 @@ class PKPSubmissionFileController extends PKPBaseController
             // stage assignments.
         } elseif ($actionName === 'getFilesByReviewId') {
             // Reviewers assigned to the submission have access to their review files and attachments
-            $this->addPolicy(new SubmissionRequiredPolicy($request, $args, 'submissionId'));
             $this->addPolicy(
                 new ReviewAssignmentFileAccessPolicy(
                     $request,
@@ -634,12 +630,7 @@ class PKPSubmissionFileController extends PKPBaseController
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'fileStages':
-                    if (is_string($val)) {
-                        $val = explode(',', $val);
-                    } elseif (!is_array($val)) {
-                        $val = [$val];
-                    }
-                    $params[$param] = array_map('intval', $val);
+                    $params[$param] = array_map(intval(...), paramToArray($val));
                     break;
             }
         }
